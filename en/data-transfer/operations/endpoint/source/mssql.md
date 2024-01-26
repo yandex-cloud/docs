@@ -4,9 +4,9 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 ## Settings {#settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.host.title }}**: IP address or FQDN of the host you want to connect to.
 
@@ -14,7 +14,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.database.title }}**: Name of the DB to connect to.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.username.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.password.title }}**: DB username and password.
+   * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.username.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.password.title }}**: DB user name and password.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.replication_method.title }}**: Replication method used to retrieve data from the database. `STANDARD` replication requires setup on the DB side, while it does not show data changes. `CDC` replication allows identifying data inserts, updates, and deletes.
 

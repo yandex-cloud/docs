@@ -12,9 +12,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-приемник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-postgresql/concepts/instance-types.md) со следующими настройками:
 
@@ -32,7 +32,7 @@
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
     1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `storage-viewer`.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -111,9 +111,9 @@
 
 1. Создайте эндпоинт-приемник и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=resources %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
@@ -125,7 +125,7 @@
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `objstorage-to-postgres.tf` переменные:
 
@@ -180,15 +180,15 @@
 * [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
 * Остальные ресурсы удалите в зависимости от способа их создания:
 
-    {% list tabs %}
+    {% list tabs group=resources %}
 
-    * Вручную
+    - Вручную {#manual}
 
         * [Эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
         * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
         * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Удалите все объекты из бакета.
         1. В терминале перейдите в директорию с планом инфраструктуры.

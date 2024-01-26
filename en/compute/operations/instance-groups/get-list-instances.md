@@ -4,17 +4,17 @@ After creating an instance group, you can get a list of instances in the group.
 
 To get a list of instances:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group you need.
-   1. Click the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
+   1. Go to the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -37,7 +37,7 @@ To get a list of instances:
       {{ yc-compute-ig }} list-instances --name first-instance-group
       ```
 
-- API
+- API {#api}
 
    Use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 

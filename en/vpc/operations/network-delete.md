@@ -8,14 +8,13 @@ description: "Follow this guide to delete a cloud network."
 {% note alert %}
 
 Before deleting a network, you need to delete all its child resources.
-
 You cannot restore a network after it is deleted.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a [cloud network](../concepts/network.md#network):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a cloud network.
@@ -23,7 +22,7 @@ You cannot restore a network after it is deleted.
    1. Click ![image](../../_assets/options.svg) next to the network you need and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -58,7 +57,7 @@ You cannot restore a network after it is deleted.
       yc vpc network delete test-network-1
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -121,7 +120,7 @@ You cannot restore a network after it is deleted.
       yc vpc network list
       ```
 
-- API
+- API {#api}
 
    To delete a [cloud network](../concepts/network.md), use the [delete](../api-ref/Network/delete.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Delete](../api-ref/grpc/network_service.md#Delete) gRPC API call, and provide the ID of the cloud network to be deleted, in the `networkId` request parameter.
 

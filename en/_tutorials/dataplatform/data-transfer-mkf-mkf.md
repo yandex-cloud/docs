@@ -6,7 +6,7 @@ This method of data migration enables you to:
 
 * Set up topic replication in the management console interface or in {{ TF }}.
 * Track the migration process using the [transfer monitoring](../../data-transfer/operations/monitoring.md).
-* Go without creating an intermediate VM or granting online access to your target cluster.
+* Avoid creating an intermediate VM or granting online access to your target cluster.
 
 {% note info %}
 
@@ -25,16 +25,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare the data transfer infrastructure:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. Create a [source and target {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with public internet access, in any suitable configuration.
       1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the created topic.
       1. [In the target cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for all the topics.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -121,7 +121,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          Select a target cluster from the list and specify its connection settings.
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `measurements`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `measurements`
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -131,18 +131,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          Select a source cluster from the list and specify its connection settings.
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`
 
 1. Create a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-repl }} type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `data-transfer-mkf-mkf.tf` file, specify the values of parameters:
 
@@ -253,17 +253,17 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    [Delete the clusters {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mkf-mkf.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

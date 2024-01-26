@@ -40,17 +40,17 @@ Note that the list of licenses may change and not be exhaustive. Make sure to co
 
 You can import the image using the [{{ compute-name }} REST API](../compute/api-ref/Image/create).
 
-1. Execute a query like:
+1. Execute the following query:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       function Create-YCImage {
@@ -114,15 +114,15 @@ You can import the image using the [{{ compute-name }} REST API](../compute/api-
 
 You can use your own licenses only on VMs created on dedicated hosts. Contact your account manager for a quota for a dedicated host group. Note that the minimum number of vCPU cores on dedicated hosts is 128, and they are all paid.
 
-Create a group of dedicated hosts [according to the instructions](../compute/operations/dedicated-host/create-host-group.md).
+[Follow the guide](../compute/operations/dedicated-host/create-host-group.md) to create a group of dedicated hosts.
 
 ### Create a VM from your image on the dedicated host {#create-vm}
 
 On the dedicated host, create a VM with the boot disk from the imported image. Specify the ID of the dedicated host in the `--host-id` parameter. You can only create a VM using the CLI, API, or Terraform. Run this command:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc compute instance create \
@@ -151,7 +151,7 @@ To access the VM, reset the default administrator password and generate a new on
 
 1. Open the [management console]({{link-console-main}}).
 1. Select **{{ compute-name }}**.
-1. Find the `win-test` VM in the list and wait until its status changes to `RUNNING`. Select the VM.
+1. Find the `win-test` VM in the list and wait until its status changes to `RUNNING`. Select the VMs.
 1. Click **Reset password**.
 1. In the window that opens, click **Generate password**.
 

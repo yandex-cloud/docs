@@ -10,15 +10,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -92,7 +92,7 @@ Prepare the infrastructure:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
             Create and upload the `json_schema.json` file in JSON format:
@@ -156,14 +156,14 @@ Prepare the infrastructure:
 
 1. Create a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `data-transfer-yds-obj.tf` file, uncomment:
 
@@ -238,20 +238,20 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. [Delete](../../storage/operations/objects/delete.md) the objects from the {{ objstorage-name }} bucket:
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
    * [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
    * If you created service accounts when creating endpoints, [delete them](../../iam/operations/sa/delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
-   1. Delete the configuration file `data-transfer-yds-obj.tf`.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
+   1. Delete the `data-transfer-yds-obj.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

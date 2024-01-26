@@ -13,9 +13,9 @@ Deleting a snapshot is an operation that cannot be canceled or reversed. You can
 
 To delete a snapshot:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the management console, select the folder where the snapshot is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -23,7 +23,7 @@ To delete a snapshot:
    1. In the line with the appropriate snapshot, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.snapshots.list.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -45,12 +45,7 @@ To delete a snapshot:
         --name first-snapshot
       ```
 
-
-- API
-
-   Use the [delete](../../api-ref/Snapshot/delete.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Delete](../../api-ref/grpc/snapshot_service.md#Delete) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -69,5 +64,9 @@ To delete a snapshot:
       {% endnote %}
 
    1. Type `yes` and press **Enter**.
+
+- API {#api}
+
+   Use the [delete](../../api-ref/Snapshot/delete.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Delete](../../api-ref/grpc/snapshot_service.md#Delete) gRPC API call.
 
 {% endlist %}

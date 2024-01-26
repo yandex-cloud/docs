@@ -6,11 +6,11 @@ title: "How to get information about file storage in {{ compute-full-name }}"
 
 You can get the file storage size, availability zone, and other file storage information.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 To get information about file storage:
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

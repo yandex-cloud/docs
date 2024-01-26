@@ -17,9 +17,9 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
 1. [Create](../../../vpc/operations/subnet-create.md) a subnet in the availability zone to move the instance group to.
 1. Enable traffic for the L7 load balancer in the new availability zone:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -27,7 +27,7 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone to move the instance group to.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -90,7 +90,7 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
          log_options: {}
          ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -130,7 +130,7 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
          yc alb load-balancer get <load_balancer_name>
          ```
 
-   - API
+   - API {#api}
 
       Use the [update](../../../application-load-balancer/api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../../../application-load-balancer/api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
 

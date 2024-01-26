@@ -4,9 +4,9 @@ You can create a separate [high-performance](../../concepts/disk.md#nr-disks) SS
 
 The size of a disk must be a multiple of 93 GB.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -33,7 +33,7 @@ The size of a disk must be a multiple of 93 GB.
 
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -43,7 +43,7 @@ The size of a disk must be a multiple of 93 GB.
       yc compute disk create --help
       ```
 
-   1. To create a high-performance disk with the name `ssd-io-disk`, run this command:
+   1. To create a high-performance disk named `ssd-io-disk`, run this command:
 
       ```bash
       yc compute disk create \
@@ -68,7 +68,7 @@ The size of a disk must be a multiple of 93 GB.
       disk_placement_policy: {}
       ```
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
 

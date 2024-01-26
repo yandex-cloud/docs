@@ -3,21 +3,21 @@ title: "Detaching a target group from a network load balancer"
 description: "Follow this guide to detach a target group from a network load balancer."
 ---
 
-# Detach a target group from a network load balancer
+# Detaching a target group from a network load balancer
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To detach a [target group](../concepts/target-resources.md) from a network load balancer:
    1. In the [management console]({{ link-console-main }}), select the folder in which to detach a target group from a load balancer.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-   1. Select the load balancer that you wish to detach the target group from.
+   1. Select the load balancer from which to detach the target group.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_attached-target-groups }}**, click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the appropriate target group.
    1. In the menu that opens, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_detach-action }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_detach-action }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -32,13 +32,13 @@ description: "Follow this guide to detach a target group from a network load bal
    1. Detach a [target group](../concepts/target-resources.md) from a network load balancer:
 
       ```bash
-      yc load-balancer network-load-balancer detach-target-group <load balancer ID or name> \
-         --target-group-id=<target group ID>
+      yc load-balancer network-load-balancer detach-target-group <load_balancer_name_or_ID> \
+         --target-group-id=<target_group_ID>
       ```
 
       You can get the load balancer ID and name, as well as the IDs of the attached target groups, with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -49,15 +49,15 @@ description: "Follow this guide to detach a target group from a network load bal
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "<network load balancer name>"
+        name = "<network_load_balancer_name>"
         ...
         attached_target_group {
-          target_group_id = "<target group ID>"
+          target_group_id = "<target_group_ID>"
           healthcheck {
-            name = "<health check name>"
+            name = "<health_check_name>"
             http_options {
-              port = <port number>
-              path = "<URL for health checks>"
+              port = <port_number>
+              path = "<URL>"
             }
           }
         }
@@ -73,7 +73,7 @@ description: "Follow this guide to detach a target group from a network load bal
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To detach a target group from a network load balancer, use the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/DetachTargetGroup](../api-ref/grpc/network_load_balancer_service.md#DetachTargetGroup) gRPC API call and provide the following in the request:
 

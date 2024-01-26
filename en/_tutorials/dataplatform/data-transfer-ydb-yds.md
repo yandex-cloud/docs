@@ -17,9 +17,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ ydb-name }} source database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
@@ -27,7 +27,7 @@ Prepare the infrastructure:
 
    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration for the {{ yds-name }} target stream.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -71,16 +71,16 @@ Prepare the infrastructure:
 
 1. Get ready for running SQL queries in the {{ ydb-name }} source database:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Select the database from the list and go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
       1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
-   * {{ ydb-short-name }} CLI
+   - {{ ydb-short-name }} CLI {#cli}
 
       1. [Set up a connection to the {{ ydb-name }} database](../../ydb/operations/connection.md).
       1. Make sure you can run queries using the {{ ydb-short-name }} CLI with the selected authentication mode. For example, for an [OAuth token](../../iam/concepts/authorization/oauth-token.md), run the following query:
@@ -145,14 +145,14 @@ Prepare the infrastructure:
 
 1. Create a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `data-transfer-ydb-yds.tf` file, specify the variables:
 
@@ -215,18 +215,18 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. If you created the service accounts along with the endpoints, [delete them](../../iam/operations/sa/delete.md).
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Delete the {{ ydb-name }} source database](../../ydb/operations/manage-databases.md#delete-db).
    1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db) used for the target stream.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-ydb-yds.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

@@ -10,9 +10,9 @@ description: "Follow this guide to move a subnet to a different availability zon
 
 To move a subnet to a different availability zone:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -85,7 +85,7 @@ To move a subnet to a different availability zone:
 
       For more information about the `yc vpc subnet relocate` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/relocate.md).
 
-- API
+- API {#api}
 
    Use the [relocate](../api-ref/Subnet/relocate.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Relocate](../api-ref/grpc/subnet_service#Relocate) gRPC API call.
 

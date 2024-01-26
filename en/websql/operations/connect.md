@@ -2,7 +2,7 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-You can use the **Connection manager** (![image](../../_assets/console-icons/folder-tree.svg)) panel to:
+In [{{ websql-full-name }}]({{ websql-link }}), you can do the following from the **Connection manager** panel (![image](../../_assets/console-icons/folder-tree.svg)):
 
 * Add connections to [databases](#connect-db) or [database clusters](#connect-cluster).
 * [Check connection settings](#change-connection-settings).
@@ -50,7 +50,7 @@ A panel with connection settings will open.
 
 ## Viewing information about a table {#view-table}
 
-To view detailed information about a table and its columns:
+There are groups of tables and views (`VIEW`) within a single connection. To view detailed information about a table and its columns:
 
 1. Select a table in the database you are connected to.
 1. To the right of the table name, click ![image](../../_assets/console-icons/sliders-vertical.svg) and select **Table information**.

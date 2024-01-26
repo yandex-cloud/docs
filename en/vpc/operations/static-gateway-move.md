@@ -13,9 +13,9 @@ description: "Use this guide to move a NAT gateway to a different folder."
 
 You can move cloud resources between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To move a [NAT gateway](../concepts/gateways.md) to a different folder:
 
@@ -26,7 +26,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
    1. Select the destination folder from the drop-down list.
    1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -92,7 +92,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       ```
       For more information about the `yc vpc gateway move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/gateway/move.md).
 
-- API
+- API {#api}
 
    To move a [NAT gateway](../concepts/gateways.md) to a different folder, use the [move](../api-ref/Gateway/move.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Move](../api-ref/grpc/gateway_service.md#Move) gRPC API call, and provide the following in the request:
 
@@ -112,9 +112,9 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
 Move a NAT gateway from a different folder. Specify the NAT gateway ID and the source and destination folder IDs:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc vpc gateway move enckq19qqsr5******** \

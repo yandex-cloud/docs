@@ -20,14 +20,14 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
 ## Getting a list of transfers {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
     {{ yc-dt }} transfer list
     ```
 
-- API
+- API {#api}
 
     Use the API [list](../api-ref/Transfer/list.md) method.
 
@@ -47,9 +47,9 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
 ## Creating a transfer {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
@@ -99,7 +99,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -137,7 +137,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
       {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -187,7 +187,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
    In this case, copying will only take place once at the time of transfer creation.
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/Transfer/create.md) API method and include the following information in the request:
 
@@ -201,9 +201,9 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
 ## Updating a transfer {#update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
@@ -250,7 +250,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -274,7 +274,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
       You can get the transfer ID with a [list of transfers in the folder](#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with the transfer description.
 
@@ -291,7 +291,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/Transfer/update.md) API method and include the following in the request:
 
@@ -308,15 +308,15 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
 ## Activating a transfer {#activate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -330,7 +330,7 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
     You can get the transfer ID with a [list of transfers in the folder](#list).
 
-- API
+- API {#api}
 
     Use the [activate](../api-ref/Transfer/activate.md) API method and provide the transfer ID in the `transferId` request parameter.
 
@@ -352,9 +352,9 @@ During transfer deactivation:
    * The data schema objects of the source are transferred for the final stage.
    * Indexes are created.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Switch the source to <q>read-only</q>.
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
@@ -362,7 +362,7 @@ During transfer deactivation:
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
    1. Wait for the transfer status to change to {{ dt-status-stopped }}.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -376,7 +376,7 @@ During transfer deactivation:
 
     You can get the transfer ID with a [list of transfers in the folder](#list).
 
-- API
+- API {#api}
 
     Use the [deactivate](../api-ref/Transfer/deactivate.md) API method and provide the transfer ID in the `transferId` request parameter.
 
@@ -398,17 +398,17 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
 ## Deleting a transfer {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-   1. If the desired transfer is active, [deactivate it](#deactivate).
-   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.common.remove }}**.
+   1. If the transfer you need is active, [deactivate it](#deactivate).
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer and select **{{ ui-key.yacloud.common.remove }}**.
    1. Click **{{ ui-key.yacloud.common.remove }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -422,11 +422,11 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
     You can get the transfer ID with a [list of transfers in the folder](#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-delete](../../_includes/data-transfer/terraform-delete-transfer.md) %}
 
-- API
+- API {#api}
 
     Use the [delete](../api-ref/Transfer/delete.md) API method and provide the transfer ID in the `transferId` request parameter.
 

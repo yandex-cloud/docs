@@ -4,9 +4,9 @@
 1. [Prepare the target cluster database](../../data-transfer/operations/prepare.md#target-my).
 1. Set up the endpoints and transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -26,7 +26,7 @@
 
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -40,7 +40,7 @@
          * [Source endpoint parameters](../../data-transfer/operations/endpoint/source/mysql.md#managed-service).
          * [Target endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#on-premise).
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -73,22 +73,22 @@
 
 1. Delete the endpoints and the transfer you created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       If you created your endpoints and transfer manually:
 
       1. [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
-      1. [Delete endpoints for both source and target](../../data-transfer/operations/endpoint/index.md#delete).
+      1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       If you used {{ TF }} to create your endpoints and transfer:
 
       1. In the command line, go to the folder that houses the current {{ TF }} configuration file with an infrastructure plan.
       1. Delete the `data-transfer-mmy-mysql.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate

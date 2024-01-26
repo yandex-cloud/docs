@@ -8,13 +8,13 @@ You can create an automatically scaled [group of identical instances](../../conc
 
 To create an automatically scaled instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-autoscaled-group-via-concole.md](../../../_includes/instance-groups/create-autoscaled-group-via-concole.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -26,18 +26,18 @@ To create an automatically scaled instance group:
       {{ yc-compute-ig }} create --help
       ```
 
-  1. Check whether there are [networks](../../../vpc/concepts/network.md#network) in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Check if there are any [networks](../../../vpc/concepts/network.md#network) in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc vpc network list
       ```
 
-      If there are not any, [create one](../../../vpc/operations/network-create.md).
+      If there are none, [create a network](../../../vpc/operations/network-create.md).
   1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
      {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
-  1. Create a YAML file with any name (for example, `specification.yaml`).
+  1. Create a YAML file with any name, e.g., `specification.yaml`.
   1. In the created file, indicate the following:
      * General information about the instance group:
 
@@ -88,14 +88,14 @@ To create an automatically scaled instance group:
          * `image_id`: ID of the public image. You can view it in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
          * `type_id`: Disk type.
          * `size`: Disk size.
-         * `network_id`: ID of `default-net`.
+         * `network_id`: ID of the `default-net` network.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
          * `scheduling_policy`: Scheduling policy configuration.
-         * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
+         * `preemptible`: Flag for creating [preemptible VMs](../../concepts/preemptible-vm.md).
             * `true`: Create a preemptible VM.
             * `false` (default): Create a regular VM.
 
-            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. It is possible that {{ ig-name }} will not be able to restart them immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
+            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. {{ ig-name }} may not be able to restart them immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
      * [Policies](../../concepts/instance-groups/policies/index.md):
 
        ```yaml
@@ -166,21 +166,18 @@ To create an automatically scaled instance group:
      ```
 
      This command creates an automatically scaled instance group with the following characteristics:
-     * Named `first-autoscaled-group`.
-     * Running CentOS 7.
-     * In the `default-net` network.
-     * In the `{{ region-id }}-a` availability zone.
-     * With 2 vCPUs and 2 GB of RAM.
-     * With a 32 GB network HDD.
+     * Name: `first-autoscaled-group`
+     * OS: CentOS 7
+     * Network: `default-net`
+     * Availability zone: `{{ region-id }}-a`
+     * vCPUs: 2; RAM: 2 GB
+     * Network HDD: 32 GB
 
-- API
+- {{ TF }} {#tf}
 
-  Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-- {{ TF }}
-
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  1. In the configuration file, describe the parameters of the resources you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_iam_service_account" "ig-sa" {
@@ -293,6 +290,10 @@ To create an automatically scaled instance group:
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+   Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 
 {% endlist %}
 

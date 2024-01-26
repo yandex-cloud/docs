@@ -4,15 +4,15 @@ To increase application availability and make sure that an application is respon
 
 This section describes how to set up application health check for an existing group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.
-   1. In the upper-right corner of the page, click **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. In the top-right corner of the page, click **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_health-check }}**, enable the **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}** option.
    1. Set up the health checks:
       * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -33,7 +33,7 @@ This section describes how to set up application health check for an existing gr
          If you connected your group to a network load balancer, we recommend setting a _higher_ value here than in the load balancer.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 

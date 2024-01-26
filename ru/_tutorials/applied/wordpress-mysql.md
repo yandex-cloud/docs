@@ -475,15 +475,15 @@
 
    В руководстве используются [группы безопасности](../../vpc/concepts/security-groups.md). Если они вам недоступны, то запросите доступ в поддержке или уберите из файла конфигурации блок `yandex_vpc_security_group` и другие упоминания `security_group`.
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Готовый архив
+   - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/www.example.com/doc-files/wordpress-mysql.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `wordpress-mysql.tf`.
 
-   - Вручную
+   - Вручную {#manual}
 
      1. Создайте папку для файлов.
      1. Создайте в папке конфигурационный файл `wordpress-mysql.tf`:

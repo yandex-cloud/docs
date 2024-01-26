@@ -1,9 +1,9 @@
 ---
-title: "How to configure a target {{ KF }} endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a target {{ KF }} endpoint in {{ data-transfer-full-name }}."
+title: "How to configure an {{ KF }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up an {{ KF }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ KF }} target endpoints
+# Configuring an {{ KF }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -15,16 +15,16 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mkf.viewer }}` role](../../../../managed-kafka/security/index.md#mkf-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mkf.viewer }}` role](../../../../managed-kafka/security/index.md#mkf-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-kafka-target.md) %}
 
@@ -34,9 +34,9 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 Connecting to the database with explicitly specified network addresses.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-kafka-target.md) %}
 
@@ -44,9 +44,9 @@ Connecting to the database with explicitly specified network addresses.
 
 ## Topic settings {{ KF }} {#kafka-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise Kafka UI](../../../../_includes/data-transfer/kafka-topic.md) %}
 
@@ -60,9 +60,9 @@ Connecting to the database with explicitly specified network addresses.
 
 ## {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [serializer](../../../../_includes/data-transfer/serializer.md) %}
 

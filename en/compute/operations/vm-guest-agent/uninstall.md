@@ -1,11 +1,11 @@
-# Deleting the password reset agent from a Windows Server virtual machine
+# Deleting the password reset agent from a Windows Server VM
 
 1. [Connect to the VM via RDP](../vm-connect/rdp.md).
 1. Stop the Windows Server service and delete the agent:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       1. Stop `yc-guest-agent`:
 

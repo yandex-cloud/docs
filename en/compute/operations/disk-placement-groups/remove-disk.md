@@ -2,9 +2,9 @@
 
 Remove a non-replicated disk from a [placement group](../../concepts/disk-placement-group.md). You can then [permanently delete](../disk-control/delete.md) the disk or add it back to the placement group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to remove the disk from the placement group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -15,7 +15,7 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
    1. To the right of the name of the disk to remove, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.disks.popup-confirm_button_delete }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 

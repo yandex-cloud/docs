@@ -16,15 +16,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare the data transfer infrastructure:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
       1. If you selected {{ dd }} DB mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting the DB.
 
-      1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
+      1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
       
       1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect.md#configuring-security-groups).
@@ -49,7 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% endlist %}
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -182,14 +182,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `data-transfer-ydb-mkf.tf` file, specify the variables:
 
@@ -415,18 +415,18 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. If you created the service account along with the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
    1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-ydb-mkf.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

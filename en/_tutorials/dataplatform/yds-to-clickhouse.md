@@ -14,9 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
@@ -34,7 +34,7 @@ Prepare the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database (for example, the database owner).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -113,7 +113,7 @@ Prepare the infrastructure:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
             * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
@@ -183,16 +183,16 @@ Prepare the infrastructure:
 
 1. Create a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
-      1. Specify the variables in the file `data-transfer-yds-mch.tf`:
+      1. Specify the variables in the `data-transfer-yds-mch.tf` file:
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `transfer_enabled`: Set `1` to enable transfer creation.
@@ -251,18 +251,18 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. Delete the resources depending on how they were created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
       * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
       * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
-      1. In the terminal window, switch to the directory containing the infrastructure plan.
-      1. Delete the configuration file `data-transfer-yds-mch.tf`.
+      1. In the terminal window, go to the directory containing the infrastructure plan.
+      1. Delete the `data-transfer-yds-mch.tf` configuration file.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash

@@ -7,9 +7,9 @@ description: "Follow this guide to create a disk placement group."
 
 To create a [placement group](../../concepts/disk-placement-group.md) for non-replicated disks:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk placement group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -33,7 +33,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
 
    1. Click **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -112,7 +112,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
       ```
 
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/DiskPlacementGroup/create.md) REST API method for the [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) resource or the [DiskPlacementGroupService/Create](../../api-ref/grpc/disk_placement_group_service.md#Create) gRPC API call.
 

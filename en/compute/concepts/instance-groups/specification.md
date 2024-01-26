@@ -5,7 +5,7 @@ description: "This tutorial describes an instance group specification in YAML fo
 
 # Specification of an instance group in YAML format
 
-You can create or edit an instance group based on the specification in the [YAML](https://en.wikipedia.org/wiki/YAML) format. The specification describes:
+You can create or edit an instance group based on the specification in [YAML](https://en.wikipedia.org/wiki/YAML) format. The specification describes:
 
 * Basic attributes and settings of the group: name, description, [labels](../../../resource-manager/concepts/labels.md), [service account](../../../iam/concepts/users/service-accounts.md), and deletion protection.
 * [VM instance template](instance-template.md) and [variables](variables-in-the-template.md) used in it.
@@ -110,9 +110,9 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 * Objects (JSON), `message` structures, and such fields as `map` (Protobuf) are converted to YAML dictionary objects (key-value pairs). The object keys and field names are converted from `lowerCamelCase` and `CamelCase` to `snake_case`:
 
-  {% list tabs %}
+  {% list tabs group=data_format %}
 
-  - JSON
+  - JSON {#json}
 
       ```json
       "targetGroupSpec": {
@@ -125,7 +125,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
       }
       ```
 
-  - Protobuf
+  - Protobuf {#protobuf}
 
     ```protobuf
     message TargetGroupSpec {
@@ -135,7 +135,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
     }
     ```
 
-  - YAML
+  - YAML {#yaml}
 
     ```yaml
     target_group_spec:
@@ -150,9 +150,9 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 * Arrays (JSON) and fields of the `repeated` type (Protobuf) are converted to YAML lists:
 
-   {% list tabs %}
+  {% list tabs group=data_format %}
 
-   - JSON
+  - JSON {#json}
 
       ```json
       "variables": [
@@ -167,7 +167,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
       ]
       ```
 
-   - Protobuf
+  - Protobuf {#protobuf}
 
       ```protobuf
       message Variable {
@@ -178,7 +178,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
       repeated Variable variables = 1;
       ```
 
-  - YAML
+  - YAML {#yaml}
 
     ```yaml
     variables:
@@ -192,9 +192,9 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 * The `enum` (Protobuf) structures are converted to scalar YAML values, i.e., strings corresponding to field names in Protobuf:
 
-  {% list tabs %}
+  {% list tabs group=data_format %}
 
-  - Protobuf
+  - Protobuf {#protobuf}
 
       ```protobuf
       message AttachedDiskSpec {
@@ -207,7 +207,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
       }
       ```
 
-  - YAML
+  - YAML {#yaml}
 
     ```yaml
     attached_disk_spec:

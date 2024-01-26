@@ -167,15 +167,15 @@
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры.
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Готовый архив
+   - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/www.example.com/doc-files/wordpress.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `wordpress.tf`.
 
-   - Вручную
+   - Вручную {#manual}
 
      1. Создайте папку для файлов.
      1. Создайте в папке конфигурационный файл `wordpress.tf`:

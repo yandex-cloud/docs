@@ -6,9 +6,9 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 
 ## Getting information from outside a VM {#outside-instance}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    On the **{{ ui-key.yacloud.compute.instances.label_title }}** page in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** service, you can find a list of VMs in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and brief information for each of them.
 
@@ -27,7 +27,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
    * **{{ ui-key.yacloud.compute.instance.switch_console }}** provides access to the [serial console](../../operations/serial-console/index.md) if enabled when [creating](../../operations/index.md#vm-create) the VM.
    * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** provides information that the VM outputs to the serial port. To get this information via the API or CLI, follow the [{#T}](get-serial-port-output.md) guide.
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -53,7 +53,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
       yc compute instance get --full first-instance
       ```
 
-- API
+- API {#api}
 
    To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get) gRPC API call.
 
@@ -200,9 +200,9 @@ You can use the following settings:
 
 To set up metadata service parameters for a VM instance:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -228,11 +228,7 @@ To set up metadata service parameters for a VM instance:
         --metadata-options gce-http-endpoint=enabled
       ```
 
-- API
-
-   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -274,6 +270,10 @@ To set up metadata service parameters for a VM instance:
       ```bash
       yc compute instance get <VM_name>
       ```
+
+- API {#api}
+
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
 {% endlist %}
 

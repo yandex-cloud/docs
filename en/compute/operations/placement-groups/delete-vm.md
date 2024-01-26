@@ -6,9 +6,9 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the placement group belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -19,7 +19,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
    1. In the line with the VM instance, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.placement-group.instances.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.placement-group.instances.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -78,11 +78,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
-- API
-
-   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -140,6 +136,10 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes in the [management console]({{ link-console-main }}).
+      You can check the changes in the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
 {% endlist %}

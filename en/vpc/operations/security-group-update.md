@@ -2,9 +2,9 @@
 
 After creating a security group, you can change its name and description, and [add](security-group-add-rule.md) or [remove](security-group-delete-rule.md) rules.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To change the name or description of a group:
 
@@ -15,7 +15,7 @@ After creating a security group, you can change its name and description, and [a
    1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the group name and description and click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    To update the security group, run this command:
 
@@ -23,7 +23,7 @@ After creating a security group, you can change its name and description, and [a
    yc vpc security-group update <group_ID> --new-name test-sg-renamed
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -83,7 +83,7 @@ After creating a security group, you can change its name and description, and [a
       yc vpc security-group get <security_group_name>
       ```
 
-- API
+- API {#api}
 
    To change the security group name or description, use the [update](../api-ref/SecurityGroup/update.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update) gRPC API call, and provide the following in the request:
 

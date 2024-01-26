@@ -4,9 +4,9 @@ You can view internal IP addresses that are assigned to cloud resources in your 
 
 To view a list of internal addresses used in a subnet:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder with the subnet.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -14,7 +14,7 @@ To view a list of internal addresses used in a subnet:
    1. Click the subnet name.
    1. Go to the **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -46,7 +46,7 @@ To view a list of internal addresses used in a subnet:
       +-----------+------------+---------------------------------------+
       ```
 
-- API
+- API {#api}
 
    Use the [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/ListUsedAddresses](../api-ref/grpc/subnet_service.md#ListUsedAddresses) gRPC API call and provide the ID of the subnet you want to change in the `subnetId` request parameter.
 

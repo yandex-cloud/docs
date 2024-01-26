@@ -8,15 +8,15 @@ You can only change the storage size by using the CLI or API.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where your file store is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your file storage resides.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-   1. In the row of the desired file storage, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-   1. Change the file storage parameters, for example, rename it by editing the **{{ ui-key.yacloud.common.name }}** field.
+   1. In the appropriate file storage row, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Change the file storage parameters, e.g., rename it by editing the **{{ ui-key.yacloud.common.name }}** field.
 
       {% note info %}
 
@@ -26,7 +26,7 @@ You can only change the storage size by using the CLI or API.
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -78,7 +78,7 @@ You can only change the storage size by using the CLI or API.
 
    1. Update the storage parameters by including the `--id` or`--name` of the appropriate storage in your command. For example, update:
 
-      * The name and description:
+      * Name and description:
 
          ```bash
          yc compute filesystem update \
@@ -124,7 +124,7 @@ You can only change the storage size by using the CLI or API.
          status: READY
          ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -149,13 +149,13 @@ You can only change the storage size by using the CLI or API.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can verify that the storage has been updated and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+   You can check the storage update and its new configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc compute filesystem get <storage_name>
    ```
 
-- API
+- API {#api}
 
    Use the [update](../../api-ref/Filesystem/update.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Update](../../api-ref/grpc/filesystem_service.md#Update) gRPC API call.
 

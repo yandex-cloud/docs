@@ -4,16 +4,16 @@ You can stop and restart a network load balancer, if required.
 
 ## Stop a network load balancer {#stop}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you need to stop a load balancer.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. In the line of the load balancer to stop, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_stop }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_stop }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -22,12 +22,12 @@ You can stop and restart a network load balancer, if required.
    To stop a load balancer that is in the `ACTIVE` status, run this command:
 
    ```bash
-   yc load-balancer network-load-balancer stop <load balancer ID or name>
+   yc load-balancer network-load-balancer stop <load_balancer_name_or_ID>
    ```
 
    You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
-- API
+- API {#api}
 
    To stop a network load balancer, use the [stop](../api-ref/NetworkLoadBalancer/stop.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Stop](../api-ref/grpc/network_load_balancer_service.md#Stop) gRPC API call.
 
@@ -39,16 +39,16 @@ You can stop and restart a network load balancer, if required.
 
 You can restart network load balancers that have the `Stopped` status.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you need to start a load balancer.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. In the line of the load balancer to start, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_start }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -57,12 +57,12 @@ You can restart network load balancers that have the `Stopped` status.
    To start a load balancer that has the `STOPPED` status, run this command:
 
    ```bash
-   yc load-balancer network-load-balancer start <load balancer ID or name>
+   yc load-balancer network-load-balancer start <load_balancer_name_or_ID>
    ```
 
    You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
-- API
+- API {#api}
 
    To start a network load balancer, use the [start](../api-ref/NetworkLoadBalancer/start.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Start](../api-ref/grpc/network_load_balancer_service.md#Start) gRPC API call.
 

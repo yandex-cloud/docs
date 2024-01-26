@@ -9,9 +9,9 @@ description: "Follow this guide to schedule a disk snapshot's creation in {{ com
 
 To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation of [disk snapshots](../../concepts/snapshot.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -30,8 +30,8 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
       * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_schedule-policy }}** field, select how often the snapshots will be created: `{{ ui-key.yacloud.compute.snapshots-schedules.label_hourly }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_daily }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_weekly }}`, [or `{{ ui-key.yacloud.compute.snapshots-schedules.label_custom }}`](../../concepts/snapshot-schedule.md#cron). The time of snapshot creation is written in the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
       * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_start-at }}** field, set the start date for your schedule.
       * Select the policy for snapshot retention:
-         * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}**: All created scheduled snapshots are kept.
-         * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Set the number of the last snapshots to retain or the number of days for which the snapshots to be retained are created. Other snapshots created by this schedule are deleted automatically.
+         * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}**: All the snapshots created according to this schedule will be retained.
+         * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Set the number of the last snapshots to be retained or the number of days for which the snapshots are to be retained. Other snapshots created according to this schedule will be deleted automatically.
 
          {% note info %}
 
@@ -41,7 +41,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -66,11 +66,11 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
       {% endnote %}
 
-      If you need to set a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, add the parameter `--snapshot-count` or `--retention-period`. For example:
+      If you need to configure a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, add the parameter `--snapshot-count` or `--retention-period`. For example:
       * `--snapshot-count 5`: Retain 5 latest snapshots.
       * `--retention-period 72h`: Retain snapshots for the last 3 days.
 
-      To add the beginning date for a schedule, use the `--start-at` parameter. For example:
+      To add the beginning date for a schedule, use the `--start-at` parameter. Here is an example:
       * `--start-at "2022-12-31T16:39:00+05:00"`: The schedule starts on December 31, 2022 at 16:39 UTC+5.
       * `--start-at "2h"`: The schedule starts two hours before the current time point.
 
@@ -136,7 +136,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
       snapshot_spec: {}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -185,7 +185,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
    yc compute snapshot-schedule get <schedule_name>
    ```
 
-- API
+- API {#api}
 
   1. Get the list of disks using the [list](../../api-ref/Disk/list.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
 
@@ -201,9 +201,9 @@ Snapshots are created and deleted automatically only while the schedule is on (`
 
 ### Snapshots are created every day {#daily}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To set up daily creation of snapshots:
 

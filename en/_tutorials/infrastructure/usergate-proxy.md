@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The price for the UserGate gateway includes:
 
-* Fee for continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using [UserGate NGFW](/marketplace/products/usergate/ngfw).
 * Fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
@@ -36,16 +36,16 @@ The price for the UserGate gateway includes:
 
 Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md) that will host your VM.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner and select **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
    1. Enter the network name: `usergate-network`.
    1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
    1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the network parameters for `usergate-network` and its `usergate-subnet-{{ region-id }}-a` subnet:
 
@@ -121,7 +121,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -133,7 +133,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    1. Create a network named `usergate-network` using the gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) call or the REST API [create](../../vpc/api-ref/Network/create.md) method for the Network resource.
    1. Create a subnet named `usergate-subnet-{{ region-id }}-a` using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the REST API [create](../../vpc/api-ref/Subnet/create.md) method for the Subnet resource.
@@ -142,9 +142,9 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 ## Create a security group {#create-security-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to create a group.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -175,7 +175,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    Run the following command:
 
@@ -258,7 +258,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
    For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add the `usergate-sg` security group parameters to the configuration file:
 
@@ -316,7 +316,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -328,7 +328,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
@@ -338,9 +338,9 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 The gateway will need a static [public IP address](../../vpc/concepts/address.md#public-addresses).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -349,7 +349,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field.
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    Run this command:
 
@@ -376,9 +376,9 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 ## Create a UserGate VM {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
@@ -415,7 +415,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair.
    1. Get the `usergate-sg` security group ID:
@@ -476,7 +476,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. [Get](../../compute/operations/images-with-pre-installed-software/get-list.md) an ID of the latest version of the UserGate NGFW gateway from the list of public images.
    1. In the configuration file, describe the parameters of the `usergate-proxy` VM:
@@ -519,7 +519,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -531,7 +531,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    Create the `usergate-proxy` VM using the REST API [create](../../compute/api-ref/Instance/create.md) method for the Instance resource.
 

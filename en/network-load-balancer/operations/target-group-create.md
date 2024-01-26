@@ -5,13 +5,13 @@ description: "Follow this guide to create a {{ network-load-balancer-name }} tar
 
 # Creating a {{ network-load-balancer-name }} target group
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a new [target group](../concepts/target-resources.md):
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a target group.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a target group.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
    1. Click **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
@@ -22,13 +22,13 @@ description: "Follow this guide to create a {{ network-load-balancer-name }} tar
    1. Select the VMs to add to the target group.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's create target group command:
+   1. See the description of the CLI create target group command:
 
       ```bash
       yc load-balancer target-group create --help
@@ -37,29 +37,29 @@ description: "Follow this guide to create a {{ network-load-balancer-name }} tar
    1. Create a target group and add the appropriate VMs to it as targets by specifying the VM parameters in one or more `--target` parameters:
 
       ```bash
-      yc load-balancer target-group create <target group name> \
-         --target subnet-id=<subnet ID>,`
-                 `address=<VM internal IP>
+      yc load-balancer target-group create <target_group_name> \
+         --target subnet-id=<subnet_ID>,`
+                 `address=<VM_internal_IP_address>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Describe the parameters of the target group resource in a configuration file:
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_lb_target_group" "foo" {
-        name      = "<target group name>"
+        name      = "<target_group_name>"
         target {
-          subnet_id = "<subnet ID>"
-          address   = "<internal IP address of resource>"
+          subnet_id = "<subnet_ID>"
+          address   = "<resource_internal_IP_address>"
         }
         target {
-          subnet_id = "<subnet ID>"
-          address   = "<internal IP address of resource 2>"
+          subnet_id = "<subnet_ID>"
+          address   = "<resource_2_internal_IP_address>"
         }
       }
       ```
@@ -79,7 +79,7 @@ description: "Follow this guide to create a {{ network-load-balancer-name }} tar
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To create a new target group, use the [create](../api-ref/TargetGroup/create.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create) gRPC API call.
 

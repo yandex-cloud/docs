@@ -48,9 +48,9 @@ Create a cloud network named `my-network` with subnets in all the availability z
 
 1. Create a cloud network:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       To create a [cloud network](../../vpc/concepts/network.md):
       1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
@@ -58,7 +58,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
       1. Enter a network name: `my-network`.
       1. Click **Create network**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
       yc vpc network create --name my-network
       ```
 
-   - API
+   - API {#api}
 
       Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
 
@@ -78,9 +78,9 @@ Create a cloud network named `my-network` with subnets in all the availability z
 
 2. Create a subnet in the network `my-network`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       To create a subnet:
       1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
@@ -90,7 +90,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
-   - CLI
+   - CLI {#cli}
 
       To create a subnet, run the following command:
 
@@ -102,7 +102,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
         --range 10.1.0.0/16
       ```
 
-   - API
+   - API {#api}
 
       Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
@@ -113,9 +113,9 @@ Create a cloud network named `my-network` with subnets in all the availability z
 
 Create a file named `setpass` with a script that will set a password for the local administrator account when creating VMs via the CLI:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```
    #ps1
@@ -131,9 +131,9 @@ Learn more about security best practices for Active Directory on the [official w
 
 Create a virtual machine for Windows Server with Remote Desktop Services. This VM will have internet access.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-vm`.
@@ -152,7 +152,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
    {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
    ```
     yc compute instance create \
@@ -166,7 +166,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       --metadata-from-file user-data=setpass
    ```
 
-- API
+- API {#api}
 
    Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
 
@@ -176,21 +176,21 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 1. Restart `my-rds-vm`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
      1. On the folder page in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
      1. Select `my-rds-vm`.
      1. Click ![image](../../_assets/options.svg) and select **Restart**.
 
-   - CLI
+   - CLI {#cli}
 
      ```
      yc compute instance restart my-rds-vm
      ```
 
-   - API
+   - API {#api}
 
      Use the [restart](../../compute/api-ref/Instance/restart.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Restart](../../compute/api-ref/grpc/instance_service.md#Restart) gRPC API call.
 
@@ -199,9 +199,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 1. Connect to `my-rds-vm` using [RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
 1. Assign Active Directory roles:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
@@ -212,9 +212,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 1. Create an Active Directory forest:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
@@ -228,9 +228,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 1. Add firewall rules that protect Active Directory from external network requests:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       Set-NetFirewallRule `
@@ -252,9 +252,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 1. Add the Network Service system user to the Terminal Server License Servers group in the Active Directory security group:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       net localgroup "Terminal Server License Servers" /Add 'Network Service'
@@ -270,9 +270,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
    {% endnote %}
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       New-ItemProperty `
@@ -286,9 +286,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 1. Specify the RDS licensing service:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       New-ItemProperty `
@@ -302,9 +302,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 1. (Optional) Limit the number of permitted concurrent server sessions:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       New-ItemProperty `
@@ -320,9 +320,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 Install the Remote Desktop Session Host role on the server:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```powershell
    Install-WindowsFeature RDS-RD-Server -IncludeManagementTools
@@ -355,9 +355,9 @@ Add the server to the Terminal Server License Servers group in the Active Direct
 
 1. Create test users:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       New-ADUser `
@@ -391,9 +391,9 @@ Add the server to the Terminal Server License Servers group in the Active Direct
 
 1. Grant `Remote Desktop Users` rights to the users:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       Add-ADGroupMember -Members 'ru1' -Identity 'Remote Desktop Users'
@@ -407,9 +407,9 @@ Add the server to the Terminal Server License Servers group in the Active Direct
 
 1. Set up RDP access rights for the `Remote Desktop Users` group:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       & secedit /export /cfg sec_conf_export.ini /areas user_rights

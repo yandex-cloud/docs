@@ -65,6 +65,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](vm-connect/powershell.md)
 * [{#T}](vm-connect/os-login-create-vm.md)
 * [{#T}](vm-connect/enable-os-login.md)
+* [{#T}](vm-connect/os-login-export-certificate.md)
 * [{#T}](vm-connect/os-login.md)
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)

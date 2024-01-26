@@ -2,9 +2,9 @@
 
 You can move [public IP addresses](../concepts/address.md) between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where the address is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -13,7 +13,7 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
    1. In the window that opens, select the destination folder.
    1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -86,7 +86,7 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
 
       For more information about the `yc vpc address move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/address/move.md).
 
-- API
+- API {#api}
 
    To move a [public IP address](../concepts/address.md#public-addresses) to a different folder, use the [move](../api-ref/Address/move.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Move](../api-ref/grpc/address_service.md#Move) gRPC API call, and provide the following in the request:
 
@@ -106,9 +106,9 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
 
 Move an address from the current folder by specifying the address name and destination folder name:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc vpc address move site-1 \
@@ -121,9 +121,9 @@ Move an address from the current folder by specifying the address name and desti
 
 Move an address from a different folder. Specify the address ID and the source and destination folder IDs:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc vpc address move e9br252il3ce******** \

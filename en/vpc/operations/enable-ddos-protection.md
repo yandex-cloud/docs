@@ -1,13 +1,13 @@
-# Enable protection from DDoS attacks
+# Enabling DDoS protection
 
 DDoS protection activates when a virtual machine is [created](../../compute/quickstart/quick-create-linux) and public IPs are [reserved](get-static-ip.md).
 
 Protected addresses are allocated from a separate pool; therefore, you cannot enable and disable protection for a previously reserved address.
 
 ## Enabling DDoS protection when creating a virtual machine {#enable-on-vm-creation}
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    When configuring the network on a new virtual machine, select the automatically assigned public IP address or select an address from the list of reserved addresses.
 
@@ -17,9 +17,9 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
 ## Enabling DDoS protection when reserving IP addresses {#enable-on-reservation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To reserve a protected static IP address:
 
@@ -31,7 +31,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
    1. Select **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 

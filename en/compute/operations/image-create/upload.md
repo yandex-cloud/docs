@@ -38,9 +38,9 @@ Upload your image to {{ objstorage-name }} and get a link to the uploaded image:
 
 Create a new image from the link obtained in {{ objstorage-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -55,7 +55,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
    1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
    1. Click **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a new image via the link, use the flag `--source-uri`. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), use the `--pooled` flag.
 
@@ -88,18 +88,18 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
    {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
 
-- API
+- API {#api}
 
    Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. In the request, specify the link to the image.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create an image:
    1. Describe the resource parameters in the `yandex_compute_image` configuration file.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_compute_image" "image-1" {

@@ -5,9 +5,9 @@ description: "Follow this guide to delete a rule from a security group."
 
 # Deleting a rule from a security group
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a rule from a security group:
 
@@ -19,7 +19,7 @@ description: "Follow this guide to delete a rule from a security group."
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    To delete a rule from a group:
 
@@ -84,7 +84,7 @@ description: "Follow this guide to delete a rule from a security group."
       ...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -159,7 +159,7 @@ description: "Follow this guide to delete a rule from a security group."
       yc vpc security-group get <security_group_name>
       ```
 
-- API
+- API {#api}
 
    To delete a rule from a security group, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call, and provide the following in the request:
 

@@ -5,9 +5,9 @@ description: "Follow this guide to attach a target group to a network load balan
 
 # Attaching a target group to a network load balancer
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To attach a [target group](../concepts/target-resources.md) to a network load balancer:
 
@@ -18,7 +18,7 @@ description: "Follow this guide to attach a target group to a network load balan
    1. Configure health check settings.
    1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_attach-tg }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -33,16 +33,16 @@ description: "Follow this guide to attach a target group to a network load balan
    1. Attach a target group to your load balancer by specifying the group ID and health check settings in the appropriate command parameters:
 
       ```bash
-      yc load-balancer network-load-balancer attach-target-group <load balancer ID or name> \
-         --target-group target-group-id=<target group ID>,`
-                       `healthcheck-name=<health check name>,`
-                       `healthcheck-interval=<health check interval>s,`
-                       `healthcheck-timeout=<response timeout>s,`
-                       `healthcheck-unhealthythreshold=<number of failed health checks for Unhealthy status>,`
-                       `healthcheck-healthythreshold=<number of successful health checks for Healthy status>,`
-                       `healthcheck-tcp-port=<TCP port>,`
-                       `healthcheck-http-port=<HTTP port>,`
-                       `healthcheck-http-path=<URL for health checks>
+      yc load-balancer network-load-balancer attach-target-group <load_balancer_name_or_ID> \
+         --target-group target-group-id=<target_group_ID>,`
+                       `healthcheck-name=<health_check_name>,`
+                       `healthcheck-interval=<health_check_interval>s,`
+                       `healthcheck-timeout=<response_timeout>s,`
+                       `healthcheck-unhealthythreshold=<number_of_failed_health_checks_for_Unhealthy_status>,`
+                       `healthcheck-healthythreshold=<number_of_successful_health_checks_for_Healthy_status>,`
+                       `healthcheck-tcp-port=<TCP_port>,`
+                       `healthcheck-http-port=<HTTP_port>,`
+                       `healthcheck-http-path=<URL>
       ```
 
       Where:
@@ -53,21 +53,21 @@ description: "Follow this guide to attach a target group to a network load balan
 
       For more information about check parameters, see [Resource health check](../concepts/health-check).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the {{ TF }} configuration file and add the `attached_target_group` section to the network load balancer description:
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "<network load balancer name>"
+        name = "<load_balancer_name>"
         ...
         attached_target_group {
-          target_group_id = "<target group ID>"
+          target_group_id = "<target_group_ID>"
           healthcheck {
-            name = "<health check name>"
+            name = "<health_check_name>"
             http_options {
-              port = <port number>
-              path = "<URL for health checks>"
+              port = <port_number>
+              path = "<URL>"
             }
           }
         }
@@ -92,7 +92,7 @@ description: "Follow this guide to attach a target group to a network load balan
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To attach a target group to a network load balancer, use the [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AttachTargetGroup](../api-ref/grpc/network_load_balancer_service.md#AttachTargetGroup) gRPC API call and provide the following in the request:
 

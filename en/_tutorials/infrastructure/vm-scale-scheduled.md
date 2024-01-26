@@ -35,9 +35,9 @@ The cost of the infrastructure includes:
 
 The [service account](../../iam/concepts/users/service-accounts.md) will be linked to the {{ compute-name }} instance group and {{ sf-name }} function.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -51,7 +51,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a service account:
 
@@ -102,7 +102,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
-- API
+- API {#api}
 
    1. Create a service account named `vm-scale-scheduled-sa`. To do this, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
 
@@ -115,7 +115,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
       To do this, use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -126,9 +126,9 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
 Your instance group will be hosted in the [cloud network](../../vpc/concepts/network.md) of {{ vpc-full-name }} and its subnets.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -137,7 +137,7 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
    1. Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a network named `vm-scale-scheduled-network`:
 
@@ -203,14 +203,14 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
       - 192.168.2.0/24
       ```
 
-- API
+- API {#api}
 
    1. Create a `vm-scale-scheduled-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
 
    1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -221,9 +221,9 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
 
 An instance group is created with manual [scaling](../../compute/concepts/instance-groups/scale.md) so that a {{ sf-name }} function can manage the group size.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -254,7 +254,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
 
          * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select `vm-scale-scheduled-sa`.
          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to be created on the VM. Make up a name.
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public SSH key. You can create a key pair by following the [instructions](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public SSH key. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
@@ -272,7 +272,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Get the IDs of the resources you created at the previous steps:
 
@@ -374,7 +374,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
       status: ACTIVE
       ```
 
-- API
+- API {#api}
 
    1. Get the IDs of the resources you created at the previous steps:
 
@@ -391,7 +391,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
    1. Create an instance group named `vm-scale-scheduled-ig` based on the specification provided in `specification.yaml`. To do this, use the [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call.
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -404,9 +404,9 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
 
 The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) commands that update the instance group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -433,7 +433,7 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
 
    1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a file named `handler.sh` with the following code:
 
@@ -459,7 +459,7 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
       status: ACTIVE
       ```
 
-   1. Create the function version:
+   1. Create a function version:
 
       ```bash
       yc serverless function version create --folder-name example-folder \
@@ -500,7 +500,7 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
         IG_NAME: vm-scale-scheduled-ig
       ```
 
-- API
+- API {#api}
 
    1. Create a `vm-scale-scheduled-function` using the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create) gRPC API call. You can find the ID of the created function in the output.
    1. Create a function version using the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call. The function version should have the following code:
@@ -508,7 +508,7 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
       {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -519,9 +519,9 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
 
 A [trigger](../../functions/concepts/trigger/index.md) sets conditions for running a function. For scheduled function calls, use a [timer trigger](../../functions/concepts/trigger/timer.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -543,7 +543,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
       1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, reset the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`) field.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    Run the following command:
 
@@ -573,12 +573,12 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
-   Use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call to create a trigger of the `timer` type with the `*/2 * * * ?` cron expression *` linked to the function `vm-scale-scheduled-function` of the `$latest` version and the `vm-scale-scheduled-sa` service account.
+   Use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call to create a trigger of the `timer` type with the `*/2 * * * ? *` cron expression linked to the function `vm-scale-scheduled-function` of the `$latest` version and the `vm-scale-scheduled-sa` service account.
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -587,9 +587,9 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
 ## Test instance group scaling {#test-scale}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -598,7 +598,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
    1. Under **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}**, make sure the number of instances changes every two minutes: increases from 2 to 3, then decreases from 3 to 2, and so on. To check if the instance group has been updated, open ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.compute.group.switch_operations }}**.
 
 
-- CLI
+- CLI {#cli}
 
    Run the following command several times:
 
@@ -623,7 +623,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
    The value of the `target_size` field for the group should change from `2` to `3` and back.
 
-- API
+- API {#api}
 
    Get information about the `vm-scale-scheduled-ig` instance group multiple times using the [get](../../compute/api-ref/InstanceGroup/get.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Get](../../compute/api-ref/grpc/instance_group_service.md#Get) gRPC API call. The value of the `target_size` field for the group should change from `2` to `3` and back.
 
@@ -656,7 +656,7 @@ To set up scaling for your instance group using {{ TF }}:
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/vm-scale-scheduled-terraform.zip) (2 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `vm-scale-scheduled.tf` configuration file and the `vm-scale-scheduled-function.zip` archive with the {{ sf-name }} function code.
 
-   - Creating files manually
+   - Manually
 
       1. Create a directory for files:
       1. In the directory, create:
@@ -689,7 +689,7 @@ To set up scaling for your instance group using {{ TF }}:
    * `cloud_id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to create resources in.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
    * `username`: Name of the user to be created on the VM. Make up a name.
-   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. You can create a key pair by following the [instructions](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Create resources:
 

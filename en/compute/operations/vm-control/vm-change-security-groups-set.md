@@ -4,9 +4,9 @@ You can assign multiple [security groups](../../../vpc/operations/security-group
 
 For more information about how to change a VM name, description, and tags, see [{#T}](vm-update.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update a list of security groups applied to your VM:
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.

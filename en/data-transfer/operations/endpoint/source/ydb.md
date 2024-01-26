@@ -3,7 +3,7 @@ title: "How to configure a {{ ydb-full-name }} source endpoint in {{ data-transf
 description: "In this tutorial, you will learn how to set up a {{ ydb-full-name }} source endpoint when creating or updating it in {{ data-transfer-full-name }}."
 ---
 
-# Configuring a {{ ydb-name }} source endpoint
+# Configuring {{ ydb-name }} source endpoints
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 * {{ ydb-full-name }} DB connection settings. These are required parameters.
@@ -14,14 +14,14 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name.md) %}
 

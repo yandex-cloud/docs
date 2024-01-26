@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} can be used free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
 
 
 ## Prepare a test target {#target-prepare}
@@ -37,9 +37,9 @@ To learn how to integrate the gRPC framework for different programming languages
 
 You can also use {{ load-testing-name }} for load testing of a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
 
-For a public service, allow incoming HTTPS traffic to port `8080`.
+For a public service, allow incoming HTTPS traffic on port `8080`.
 
-For a service whose subnet and security group differ from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic to port `8080` in the security group where the test target is located.
+For a service whose subnet and security group differ from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `8080` in the security group where the test target is located.
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -49,7 +49,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure a network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This ensures the agent has access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. Thus, the agent will have access to {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
@@ -113,9 +113,9 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ## Run a test {#run-test}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
    1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.

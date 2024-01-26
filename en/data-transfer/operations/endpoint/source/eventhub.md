@@ -4,9 +4,9 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 ## Settings {#settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.eventhub.console.form.eventhub.EventhubConnection.namespace_name.title }}**: Specify the namespace that the hub will relate to.
 
@@ -30,9 +30,9 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.eventhub.console.form.eventhub.EventhubAdvancedSettings.transformer.title }}**:

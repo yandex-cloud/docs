@@ -12,9 +12,9 @@ You cannot restore an address after it is deleted.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete the static address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -22,7 +22,7 @@ You cannot restore an address after it is deleted.
    1. Click ![image](../../_assets/options.svg) next to the IP you need and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -56,7 +56,7 @@ You cannot restore an address after it is deleted.
       yc vpc address delete e9b6un9gkso6********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -115,7 +115,7 @@ You cannot restore an address after it is deleted.
       yc vpc address list
       ```
 
-- API
+- API {#api}
 
    To delete a [static IP address](../concepts/address.md), use the [delete](../api-ref/Address/delete.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Delete](../api-ref/grpc/address_service.md#Delete) gRPC API call, and provide the ID of the IP address to delete in the `addressId` request parameter.
 

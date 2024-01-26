@@ -4,9 +4,9 @@ You can get the information that the VM outputs to the serial port. This can be 
 
 To access the output data, you need the `сompute.operator` or `{{ roles-viewer }}` [role](../../security/index.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -14,7 +14,7 @@ To access the output data, you need the `сompute.operator` or `{{ roles-viewer 
    1. Go to the **{{ ui-key.yacloud.compute.instance.switch_service-console }}** tab.
    1. To use the **CTRL** + **F** keyboard shortcut to search, enable **{{ ui-key.yacloud.compute.instance.service-console.raw-mode }}** in the top-right corner.
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -34,7 +34,7 @@ To access the output data, you need the `сompute.operator` or `{{ roles-viewer 
       yc compute instance get-serial-port-output first-instance > output.txt
       ```
 
-- API
+- API {#api}
 
    To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/GetSerialPortOutput](../../api-ref/grpc/instance_service.md#GetSerialPortOutput) gRPC API call.
 

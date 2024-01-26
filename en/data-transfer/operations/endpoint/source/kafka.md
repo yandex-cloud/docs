@@ -1,6 +1,6 @@
 ---
-title: "How to configure a source {{ KF }} endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a source {{ KF }} endpoint in {{ data-transfer-full-name }}."
+title: "How to configure an {{ KF }} source endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up an {{ KF }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring {{ KF }} source endpoints
@@ -15,16 +15,16 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mkf.viewer }}` role](../../../../managed-kafka/security/index.md#mkf-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mkf.viewer }}` role](../../../../managed-kafka/security/index.md#mkf-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connection with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-kafka.md) %}
 
@@ -34,9 +34,9 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 Connection with the {{ KF }} cluster with explicitly specified network addresses and broker host ports.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-kafka.md) %}
 
@@ -48,9 +48,9 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**:

@@ -14,9 +14,9 @@ To use the CLI, [create a profile](profile/profile-create.md).
 
 To use the CLI in scripts, you can use flags for a non-interactive installation:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    Run this command:
 

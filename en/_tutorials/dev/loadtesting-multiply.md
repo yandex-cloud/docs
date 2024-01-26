@@ -10,11 +10,11 @@ Load testing using multiple agents is used when:
 Agents start and apply the load on the testing target synchronously. The [testing results](../../load-testing/concepts/load-test-results.md) are available as generalized and independent [reports](../../load-testing/concepts/reports.md) on each agent.
 
 To run the load testing using multiple agents:
-1. [Prepare your cloud](#before-you-begin)
-1. [Prepare your infrastructure](#infrastructure-prepare)
-1. [Create a test agent](#create-agents)
-1. [Run a test](#run-test)
-1. [View the testing results](#see-results)
+1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your infrastructure](#infrastructure-prepare).
+1. [Create a test agent](#create-agents).
+1. [Run a test](#run-test).
+1. [View the testing results](#see-results).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 If the agent is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} can be used free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -37,7 +37,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 ### Configure a network {#network-setup}
 
-[Set up](../../vpc/operations/create-nat-gateway.md) an [NAT gateway](../../vpc/concepts/gateways.md) in the [subnet](../../vpc/concepts/network.md#subnet) where you are going to place your agents. This ensures the agents have access to {{ load-testing-name }}.
+[Set up](../../vpc/operations/create-nat-gateway.md) a [NAT gateway](../../vpc/concepts/gateways.md) in the [subnet](../../vpc/concepts/network.md#subnet) to host the agents. This will allow the agents to access {{ load-testing-name }}.
 
 ### Configure the {#security-group-setup} security group.
 
@@ -74,9 +74,9 @@ In this example, the load will be applied to an external service named `example.
 1. If you do not have an SSH key pair yet, [create one](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Create the first agent:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create your agent.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
@@ -118,9 +118,9 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
 
 ## Run a test {#run-test}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
    1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
@@ -130,11 +130,11 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
 
          In this example, the agents will have different test configurations. To use the same configuration, in the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select all the agents you need to use.
       1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
-         * **{{ ui-key.yacloud.load-testing.field_settings-type }}**: Select `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`
-         * **{{ ui-key.yacloud.load-testing.field_load-generator }}**: Select `Pandora`
-         * **{{ ui-key.yacloud.load-testing.field_target-address }}**: Enter the address of the service to test: `example.myservice.ru`
-         * **{{ ui-key.yacloud.load-testing.field_target-port }}**: Set to `80` (default port for the HTTP protocol)
-         * **Testing threads**: `1000`
+         * **{{ ui-key.yacloud.load-testing.field_settings-type }}**: Select `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`.
+         * **{{ ui-key.yacloud.load-testing.field_load-generator }}**: Select `Pandora`.
+         * **{{ ui-key.yacloud.load-testing.field_target-address }}**: Enter the address of the service to be tested, `example.myservice.ru`.
+         * **{{ ui-key.yacloud.load-testing.field_target-port }}**: Set to `80` (default port for the HTTP protocol).
+         * **Testing threads**: `1000`.
 
          This means that the load generator can simultaneously process 1,000 operations (create 1,000 connections or wait for 1,000 responses from the service at the same time). You can learn more about testing pipelines [here](../../load-testing/concepts/testing-stream.md).
 
@@ -189,9 +189,9 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
 
 ## View the testing results {#see-results}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
    1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.

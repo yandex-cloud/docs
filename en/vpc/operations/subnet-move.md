@@ -2,9 +2,9 @@
 
 You can move [subnets](../concepts/network.md) between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder with the subnet.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -19,7 +19,7 @@ You can move [subnets](../concepts/network.md) between folders within a single [
 
    {% endnote %}
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -91,7 +91,7 @@ You can move [subnets](../concepts/network.md) between folders within a single [
       ```
       For more information about the `yc vpc subnet move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/move.md).
 
-- API
+- API {#api}
 
    To move a [subnet](../concepts/network.md#subnet) to a different folder, use the [move](../api-ref/Subnet/move.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Move](../api-ref/grpc/subnet_service.md#Move) gRPC API call, and provide the following in the request:
 
@@ -111,9 +111,9 @@ You can move [subnets](../concepts/network.md) between folders within a single [
 
 Move a subnet from the current folder by specifying the subnet name and destination folder name:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc vpc subnet move subnet-a \
@@ -126,9 +126,9 @@ Move a subnet from the current folder by specifying the subnet name and destinat
 
 Move a subnet from a different folder. Specify the subnet ID and the source and destination folder IDs:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc vpc subnet move enc39op1vq9m******** \

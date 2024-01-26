@@ -4,18 +4,18 @@ You can modify a [DNS zone](../concepts/dns-zone.md) after it is created by rena
 
 To update a DNS zone:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to update a DNS zone.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to update a DNS zone.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-   1. Click ![image](../../_assets/options.svg) in the row next to the zone to update.
+   1. Click ![image](../../_assets/options.svg) in the row of the zone to update.
    1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the zone settings.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@ To update a DNS zone:
 
    To update a DNS zone:
 
-   1. View a description of the CLI's update zone command:
+   1. View a description of the CLI update zone command:
 
       ```
       yc dns zone update --help
@@ -32,23 +32,25 @@ To update a DNS zone:
    1. Change the visibility of the zone in the networks:
 
       ```
-      yc dns zone update <zone name or ID> --network-ids=c645mh47vscba1d64tbs,
+      yc dns zone update <zone_name_or_ID> --network-ids=<network_IDs_for_the_zone>,
       ```
+
+      Where `--network-ids` refers to the IDs of the networks for the zone.
 
       Result:
 
       ```
-      id: aet29qhara5jeg45tbjg
-      folder_id: aoerb349v3h4bupphtaf
+      id: aet29qhara5j********
+      folder_id: aoerb349v3h4********
       created_at: "2021-02-21T09:21:03.935Z"
-      name: <new zone name>
+      name: new-zone-name
       zone: staging.
       private_visibility:
         network_ids:
-        - c645mh47vscba1d64tbs
+        - c645mh47vsc********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -99,10 +101,10 @@ To update a DNS zone:
       You can make sure the DNS zone has been updated in the [management console]({{ link-console-main }}) or via the [CLI](../../cli/quickstart.md) command below:
 
       ```
-      yc dns zone get <DNS zone name>
+      yc dns zone get <zone_name>
       ```
 
-- API
+- API {#api}
 
    To update a DNS zone, use the [update](../api-ref/DnsZone/update.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Update](../api-ref/grpc/dns_zone_service.md#Update) gRPC API call.
 

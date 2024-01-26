@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -8,7 +8,7 @@
    1. Click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
    1. Open the **{{ ui-key.yacloud.common.metadata }}** menu and remove the keys by clicking ![image](../../_assets/cross.svg).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -26,7 +26,7 @@
       yc compute instance remove-metadata <VM_ID> --keys <SSH_key_name>
       ```
 
-- API
+- API {#api}
 
    To remove SSH keys from the VM metadata, use the [updateMetadata](../../compute/api-ref/Instance/updateMetadata.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/UpdateMetadata](../../compute/api-ref/grpc/instance_service.md#UpdateMetadata) gRPC API call.
 

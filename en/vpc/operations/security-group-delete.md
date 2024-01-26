@@ -13,9 +13,9 @@ You cannot delete security group created by default in the network.
 
 To delete a security group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete the security group.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -24,7 +24,7 @@ To delete a security group:
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -58,7 +58,7 @@ To delete a security group:
       yc vpc security-group delete test-sg-cli
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -133,7 +133,7 @@ To delete a security group:
       yc vpc security-group list
       ```
 
-- API
+- API {#api}
 
    Use the [delete](../api-ref/SecurityGroup/delete.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete) gRPC API call, and provide the ID of the security group you want to to delete in the `securityGroupId` request parameter.
 

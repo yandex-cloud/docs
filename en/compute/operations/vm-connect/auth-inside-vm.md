@@ -17,9 +17,9 @@ To link a service account to a VM, you must have permission to use this account.
 
 ### Linking to an existing VM {#link-with-exist-instance}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -28,7 +28,7 @@ To link a service account to a VM, you must have permission to use this account.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select an existing service account or create a new one.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@ To link a service account to a VM, you must have permission to use this account.
    yc compute instance update my-instance --service-account-name test
    ```
 
-- API
+- API {#api}
 
    Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call. Specify the service account ID in your request.
 
@@ -48,9 +48,9 @@ To link a service account to a VM, you must have permission to use this account.
 
 ### Linking to a new VM {#link-with-new-instance}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the management console, you can link a service account that is in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the new VM. If the service account is in a different folder, use the CLI or API.
 
@@ -58,7 +58,7 @@ To link a service account to a VM, you must have permission to use this account.
 
    ![image](../../../_assets/compute/connect-sa.png)
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@ To link a service account to a VM, you must have permission to use this account.
      --service-account-name my-robot
    ```
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call. Specify the service account ID in your request.
 
@@ -84,9 +84,9 @@ To link a service account to a VM, you must have permission to use this account.
 
 To authenticate from inside a VM on behalf of the linked service account:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. [Connect](../vm-connect/ssh.md) to your VM over SSH.
 
@@ -111,7 +111,7 @@ To authenticate from inside a VM on behalf of the linked service account:
 
       The [lifetime of an {{ iam-name }} token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an {{ iam-name }} token more often, e.g., every hour. To learn the remaining token lifetime, use the API instructions.
 
-- API
+- API {#api}
 
    1. Connect to the VM via [SSH](../vm-connect/ssh.md).
    1. Get an {{ iam-name }} token from metadata in Google Compute Engine format:

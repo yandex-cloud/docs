@@ -13,9 +13,9 @@ You cannot cancel an instance group's deletion or restore it. Along with the gro
 
 To delete an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -23,7 +23,7 @@ To delete an instance group:
    1. In the line with the appropriate instance group, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -48,13 +48,7 @@ To delete an instance group:
 
       {{ ig-name }} will launch the instance deletion process.
 
-- API
-
-   Use the [delete](../../api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
-
-   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -73,5 +67,11 @@ To delete an instance group:
       {% endnote %}
 
    1. Type `yes` and press **Enter**.
+
+- API {#api}
+
+   Use the [delete](../../api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
+
+   To request the list of available instance groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances) gRPC API call.
 
 {% endlist %}

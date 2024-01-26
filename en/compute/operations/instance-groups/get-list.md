@@ -7,15 +7,15 @@ description: "Follow this guide to get a list of instance groups."
 
 To get a list of instance groups:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -31,7 +31,7 @@ To get a list of instance groups:
 
       {% include [instance-group-list](../../../_includes/instance-groups/instance-group-list.md) %}
 
-- API
+- API {#api}
 
    Use the [list](../../api-ref/InstanceGroup/list.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/List](../../api-ref/grpc/instance_group_service.md#List) gRPC API call.
 

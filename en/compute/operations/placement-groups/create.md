@@ -4,23 +4,23 @@ Create a [placement group](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your placement group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
    1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
    1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** and choose **{{ ui-key.yacloud.compute.placement-groups.button_create-instance-pg }}**.
-   1. Enter a name for the placement group. The naming requirements are as follows:
+   1. Enter a name for the placement group. The requirements for it are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
    1. (Optional) Add a placement group description.
    1. Click **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -52,11 +52,7 @@ Create a [placement group](../../concepts/placement-groups.md).
       +----------------------+----------+----------+
       ```
 
-- API
-
-   Use the [create](../../api-ref/PlacementGroup/create.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Create](../../api-ref/grpc/placement_group_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -118,6 +114,10 @@ Create a [placement group](../../concepts/placement-groups.md).
       ```bash
       yc compute placement-group list
       ```
+
+- API {#api}
+
+   Use the [create](../../api-ref/PlacementGroup/create.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Create](../../api-ref/grpc/placement_group_service.md#Create) gRPC API call.
 
 {% endlist %}
 

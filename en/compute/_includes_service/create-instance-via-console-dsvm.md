@@ -1,8 +1,8 @@
 Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhilnsbc) image:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -39,7 +39,7 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data required to access the VM:
       * (Optional) Select or create a [service account](../../iam/concepts/index.md#sa). With a service account, you can flexibly configure access rights for your resources.
-      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * (Optional) Enable access to the [serial console](../operations/index.md#serial-console) in the **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** field, if required.
 
@@ -47,6 +47,6 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../vpc/concepts/address) and [hostname](../../vpc/concepts/address.md#fqdn) (FQDN).
+   The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../vpc/concepts/address) and [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
 {% endlist %}

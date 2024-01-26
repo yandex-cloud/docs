@@ -1,17 +1,17 @@
-# Endpoint management
+# Managing endpoints
 
-The source [endpoint](../../concepts/index.md#endpoint) describes the settings of the database that information will be transferred from using {{ data-transfer-name }}, and the target endpoint — the database you are going to transfer the data to. You can [create](#create), [edit](#update), [clone](#clone), or [delete](#delete) such endpoints.
+The source [endpoint](../../concepts/index.md#endpoint) describes the settings of the database that information will be transferred from using {{ data-transfer-name }}, while the target endpoint, the database you are going to transfer the data to. You can [create](#create), [edit](#update), [clone](#clone), or [delete](#delete) such endpoints.
 
 ## Getting a list of endpoints {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    {{ yc-dt }} endpoint list
    ```
 
-- API
+- API {#api}
 
    Use the API [list](../../api-ref/Endpoint/list.md) method.
 
@@ -34,9 +34,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 {% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -51,7 +51,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
 
-- CLI
+- CLI {#cli}
 
    {% note info %}
 
@@ -82,7 +82,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    
    {% note info %}
@@ -131,7 +131,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 
-- API
+- API {#api}
 
     {% note info %}
 
@@ -161,9 +161,9 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -174,7 +174,7 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
    1. Click **{{ ui-key.yacloud.common.apply }}**.
 
-- CLI
+- CLI {#cli}
 
    {% note info %}
 
@@ -205,7 +205,7 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target. You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with the endpoint description.
 
@@ -222,7 +222,7 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% note info %}
 
@@ -251,9 +251,9 @@ You cannot change the endpoint and database types when cloning.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -277,9 +277,9 @@ Before you [delete](../transfer.md#delete) an endpoint, delete all the transfers
 
 To delete an endpoint:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -287,7 +287,7 @@ To delete an endpoint:
    1. Click **{{ ui-key.yacloud.common.delete }}** in the top panel.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -301,11 +301,11 @@ To delete an endpoint:
 
     You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
 
-- API
+- API {#api}
 
     Use the [delete](../../api-ref/Endpoint/delete) API method and provide the ID of the required endpoint in the `endpointID` request parameter.
 

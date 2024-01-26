@@ -2,9 +2,9 @@
 
 After creating a cloud network, you can change its name, description, and tags.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -66,7 +66,7 @@ After creating a cloud network, you can change its name, description, and tags.
         --labels new_label=test_label
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -123,7 +123,7 @@ After creating a cloud network, you can change its name, description, and tags.
       yc vpc network get <network_name>
       ```
 
-- API
+- API {#api}
 
    To update a [cloud network](../concepts/network.md), use the [update](../api-ref/Network/update.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Update](../api-ref/grpc/network_service.md#Update) gRPC API call, and provide the following in the request:
 
@@ -151,9 +151,9 @@ After creating a cloud network, you can change its name, description, and tags.
 
 You can change a cloud network using its name instead of its ID:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```
    yc vpc network update test-network-1 \

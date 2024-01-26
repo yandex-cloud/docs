@@ -8,13 +8,13 @@ The possible ways to solve this issue include:
 
 {% cut "Select a different availability zone" %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Select another availability zone on the VM creation page under **{{ ui-key.yacloud.compute.instances.create.section_base }}**.
 
-- CLI
+- CLI {#cli}
 
    Specify a different availability zone in the `--zone` parameter of the VM create command. You can get the list of availability zones for this parameter by running the `yc compute zone list` command.
 
@@ -30,13 +30,13 @@ If you already have stopped VMs that fail to start due to the error, you can [mo
 
 Reduce the number of cores, the amount of RAM, disk space, and the number of GPUs connected to the VM.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Reduce the amount of employed resources on the VM creation or update page under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**.
 
-- CLI
+- CLI {#cli}
 
    Reduce the amount of resources in the following parameters of the VM create or update command:
 
@@ -58,13 +58,13 @@ If you have a [placement group](../concepts/placement-groups.md) set up for your
 
 {% cut "Change the VM type from preemptible to non-preemptible" %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    On the page for creating a new VM or updating a stopped one, disable the **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}** option. Retry to create a new VM or restart an existing one.
 
-- CLI
+- CLI {#cli}
 
    Provide the `--preemptible=false` parameter when updating a stopped VM. If creating a new VM, do not specify the `--preemptible` parameter.
 
@@ -78,7 +78,7 @@ In scenarios with preemptible VMs, you can also use [instance groups](../concept
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the issue persists, [create a request for technical support](https://console.cloud.yandex.ru/support?section=contact).
+If the issue persists, [create a request for technical support]({{ link-console-support }}).
 
 In the request, specify the following information:
 

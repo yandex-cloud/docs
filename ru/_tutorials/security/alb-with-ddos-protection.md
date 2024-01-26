@@ -653,15 +653,15 @@ Commercial support is available at
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Готовый архив
+   - Готовый архив {#ready}
 
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/alb-with-ddos-protection.zip) (3 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `alb-with-ddos-protection.tf` и файл с пользовательскими данными `alb-with-ddos-protection.auto.tfvars`.
 
-   - Вручную
+   - Вручную {#manual}
 
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `alb-with-ddos-protection.tf`:

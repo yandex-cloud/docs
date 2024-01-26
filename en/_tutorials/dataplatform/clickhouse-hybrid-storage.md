@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
@@ -26,6 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       
       * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
 
+
       * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}**: At least 15 GB.
       * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**: Disabled.
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
@@ -33,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    
    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -50,9 +51,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
       This file describes:
 
       * Network.
+
       * Subnet.
-            * Default security group and rules required to connect to the cluster from the internet.
-      * {{ mch-name }} cluster with hybrid storage enabled.
+
+      
+      * Default security group and rules required to connect to the cluster from the internet.
+
+
+      * {{ mch-name }} cluster with hybrid storage enabled
 
    1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
 
@@ -82,7 +88,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    apt-get update && apt-get install curl xz-utils
    ```
 
-1. [Set up clickhouse client](../../managed-clickhouse/operations/connect.md#clickhouse-client) and use it to connect to the database.
+1. [Set up clickhouse-client](../../managed-clickhouse/operations/connect.md#clickhouse-client) and use it to connect to the database.
 
 ### Explore the test dataset (optional) {#explore-dataset}
 
@@ -131,7 +137,7 @@ The expression for TTL in the example above is complex because of the selected t
 
 {% endnote %}
 
-Between network disk storage and object storage, data is not moved line by line but in [chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Make sure to choose the TTL expression and the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) so that TTL matches for all the rows in the data chunk. Otherwise, you may have problems moving data into object storage as TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
+Between network disk storage and object storage, data is not moved line by line but in [parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Make sure to choose the TTL expression and the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) so that TTL is the same for all rows in the data part. Otherwise, you may have problems moving data into object storage as TTL expires if one data part contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
 
 To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
 
@@ -273,13 +279,13 @@ To find out the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

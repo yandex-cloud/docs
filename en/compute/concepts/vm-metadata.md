@@ -16,9 +16,9 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 * [For a Linux VM](../operations/vm-create/create-linux-vm.md), provide the public SSH key to be able to connect to it.
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   In the CLI, you can specify metadata in any of the three parameters:
   * `--metadata-from-file`: Provide metadata as a file, e.g., `--metadata-from-file key=path/to/file`. This is convenient when providing values consisting of multiple strings.
@@ -39,7 +39,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
   ...
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    In {{ TF }}, you can specify metadata in three ways:
    * As a separate file with user metadata to process by the `cloud-init` agent. Under `metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
@@ -67,7 +67,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
       {% endcut %}
 
-   * In the `metadata` section, as a line with user metadata. If the value is multiline, use `\n` to split lines, e.g.:
+   * In the `metadata` section, as a line with user metadata. If the value is multiline, use `\n` to split lines. For example:
 
       ```hcl
       ...
@@ -93,7 +93,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
       If no such string is found, but you see the `no authorized ssh keys fingerprints found for user` string, it means that you did not provide your SSH key correctly. In this case, check the format or try providing the SSH keys in the `user-data` field.
 
-- API
+- API {#api}
 
   In the API, specify the metadata in the `metadata` property as a JSON object, e.g.:
 
@@ -182,7 +182,7 @@ To request an identity document:
 
    {% endlist %}
 
-   Sample response:
+   Response example:
 
    ```
    {"instanceId":"fhmm5252k8vl********","productCodes":null,"imageId":"fd8evlqsgg4e********","productIds":["f2e3ia802lab********"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}

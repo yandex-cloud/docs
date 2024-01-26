@@ -74,6 +74,7 @@ Uploading data to data marts is a transfer of preset data to storage for its sub
 * [{{ metrika }} to {{ CH }}](metrika-to-clickhouse.md)
 * [{{ PG }} to {{ CH }}](rdbms-to-clickhouse.md)
 * [{{ GP }} to {{ PG }}](greenplum-to-postgresql.md)
+* [{{ yandex-direct }} to {{ CH }}](direct-to-mch.md)
 
 ## Importing data to {{ objstorage-name }} {#upload-to-storage}
 

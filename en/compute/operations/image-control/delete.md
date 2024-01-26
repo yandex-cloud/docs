@@ -15,9 +15,9 @@ Deleting an image does not delete the VMs and disks created from this image. The
 
 To delete an image:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the management console, select the folder the image belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -25,7 +25,7 @@ To delete an image:
    1. In the line of the appropriate image, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.images.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.images.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -49,11 +49,7 @@ To delete an image:
         --name first-image
       ```
 
-- API
-
-   Use the [delete](../../api-ref/Image/delete.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Delete](../../api-ref/grpc/image_service.md#Delete) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -72,5 +68,9 @@ To delete an image:
       {% endnote %}
 
    1. Type `yes` and press **Enter**.
+
+- API {#api}
+
+   Use the [delete](../../api-ref/Image/delete.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Delete](../../api-ref/grpc/image_service.md#Delete) gRPC API call.
 
 {% endlist %}

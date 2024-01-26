@@ -7,9 +7,9 @@ description: "Follow this guide to create a public DNS zone."
 
 To create a public [DNS zone](../concepts/dns-zone.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you need to create a DNS zone.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -20,7 +20,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       1. **{{ ui-key.yacloud.common.name }}** of the zone.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -43,15 +43,15 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       Result:
 
       ```
-      id: aet2q4fn8i8icfug97p0
-      folder_id: aoerb349v3h4bupphtaf
+      id: aet2q4fn8i8i********
+      folder_id: aoerb349v3h4********
       created_at: "2021-03-03T19:07:08.685Z"
       name: production-zone
       zone: www.example.com.
       public_visibility: {}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -64,7 +64,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
          * `labels`: Set of DNS zone labels. This is an optional parameter.
-         * `public`: Zone visibility (public or private). This is an optional parameter.
+         * `public`: Zone visibility, public or private. This is an optional parameter.
 
       1. DNS record parameters:
 
@@ -74,7 +74,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
          * `ttl`: Record time to live (TTL) in seconds before updating the record value. This is an optional parameter.
          * `data`: Record value. This is an optional parameter.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_network" "foo" {}
@@ -108,7 +108,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
 
       {% note alert %}
 
@@ -126,10 +126,10 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc dns zone get <DNS zone name>
+      yc dns zone get <zone_name>
       ```
 
-- API
+- API {#api}
 
    To create a public DNS zone, use the [create](../api-ref/DnsZone/create.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Create](../api-ref/grpc/dns_zone_service.md#Create) gRPC API call.
 

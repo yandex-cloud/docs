@@ -8,7 +8,7 @@ In {{ yandex-cloud }}, you can move a disk to another folder within one cloud.
 
 ## Limitations {#limits}
 
-Limitations when moving a disk: 
+Limitations when moving a disk:
 
 * In [{{ monitoring-full-name }}](../../../monitoring/), metrics are not movable. The metrics in the previous folder stay there and new metrics will already be created in the new folder.
 * You can move VMs only within a single cloud.
@@ -17,9 +17,9 @@ Limitations when moving a disk:
 
 To change a disk's folder:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -80,7 +80,7 @@ To change a disk's folder:
 
       For more information about the `yc compute disk move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/move.md).
 
-- API
+- API {#api}
 
    Use the [move](../../api-ref/Disk/move.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Move](../../api-ref/grpc/disk_service.md#Move) gRPC API call.
 

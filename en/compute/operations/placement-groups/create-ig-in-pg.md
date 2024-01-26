@@ -2,9 +2,9 @@
 
 You can create an [instance group](../../concepts/instance-groups/index.md) in a [placement group](../../concepts/placement-groups.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -32,7 +32,7 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
       yc vpc network list
       ```
 
-      If there are none, [create one](../../../vpc/operations/network-create.md).
+      If there are none, [create a network](../../../vpc/operations/network-create.md).
 
    1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
@@ -184,7 +184,7 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
       * vCPUs: 2; RAM: 2 GB.
       * Network HDD: 32 GB.
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 

@@ -122,7 +122,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
             image:
               name: gcr.io/kaniko-project/executor:debug
               entrypoint: [""]
-          script:
+            script:
               - mkdir -p /kaniko/.docker
               - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
               - >-
@@ -306,16 +306,16 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. [Delete the created Docker images](../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Delete the {{ managed-k8s-name }} cluster and {{ container-registry-name }} registry:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
       1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
       1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
       1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
       1. Delete the `k8s-and-registry-for-gitlab.tf` configuration file.

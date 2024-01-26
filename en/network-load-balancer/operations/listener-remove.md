@@ -5,9 +5,9 @@ description: "Follow this guide to delete a listener."
 
 # Deleting a listener
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a [listener](../concepts/listener.md) for your network load balancer:
 
@@ -17,7 +17,7 @@ description: "Follow this guide to delete a listener."
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}**, click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the listener to delete.
    1. In the menu that opens, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -26,13 +26,13 @@ description: "Follow this guide to delete a listener."
    To delete a listener for your network load balancer, run this command:
 
    ```bash
-   yc load-balancer network-load-balancer remove-listener <load balancer ID or name> \
-      --listener-name=<listener name>
+   yc load-balancer network-load-balancer remove-listener <load_balancer_name_or_ID> \
+      --listener-name=<listener_name>
    ```
 
    You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list) and the listener name with [network load balancer details](load-balancer-list.md#get).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -45,10 +45,10 @@ description: "Follow this guide to delete a listener."
       resource "yandex_lb_network_load_balancer" "foo" {
         ...
         listener {
-          name = "<listener name>"
-          port = <port number>
+          name = "<listener_name>"
+          port = <port_number>
           external_address_spec {
-            ip_version = "<IP version: ipv4 or ipv6>"
+            ip_version = "<IP_version>"
           }
         }
         ...
@@ -63,7 +63,7 @@ description: "Follow this guide to delete a listener."
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To remove a network load balancer's listener, use the [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../api-ref/grpc/network_load_balancer_service.md#RemoveListener) gRPC API call and provide the following in the request:
 

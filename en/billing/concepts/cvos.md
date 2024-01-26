@@ -26,7 +26,7 @@ Information about CVoS usage and its expiration is displayed in the management c
 
 {% note info %}
 
-Standard prices apply to {{ yandex-cloud }} services that aren't covered by the CVoS terms. For more information about pricing rules for all services, see the [Pricing](/prices) page.
+{{ yandex-cloud }} services not covered by a CVoS are billed based on standard prices. For more information about pricing rules for all services, see the [Pricing](/prices) page.
 
 {% endnote %}
 
@@ -53,9 +53,9 @@ See details of using and paying for your CVoS below.
 
    4.1. If the actual volume is less than or equal to the CVoS, the amount is only charged pursuant to the agreement. To calculate the amount charged, use one of the following [formulas](#formula).
 
-   Funds for the use of {{ yandex-cloud }} services that aren't covered by the CVoS terms are charged at the standard prices. Go to step 5.
+   {{ yandex-cloud }} services not covered by a CVoS are billed based on standard prices. Go to step 5.
 
-   4.2. If the actual volume exceeds the CVoS, the difference between the total volume and the CVoS is additionally charged at the [standard prices](/prices). Go to step 5.
+   4.2. If the actual volume exceeds the CVoS, the difference between the total volume and the CVoS will be additionally charged based on [standard prices](/prices). Go to step 5.
 
 1. At the beginning of the next billing period, your personal account balance and payment for the services used are verified: depending on the [billing account type](../concepts/billing-account.md#ba-types), you may be issued an invoice or the linked bank card may be debited. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
@@ -78,6 +78,8 @@ The amount charged for the CVoS is determined using the following formulas:
    ![image](../../_assets/billing/cud-month-amount.svg)
 
 {% endlist %}
+
+In a leap year, the amount calculated for one additional calendar day in February will be added to the annual amount.
 
 The total amount charged depends on whether any {{ yandex-cloud }} services that are not covered by the CVoS terms were used during the billing period. For more information, see [How to pay for resources](../payment/index.md).
 

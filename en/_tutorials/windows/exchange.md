@@ -48,9 +48,9 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
 1. Create a cloud network:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       To create a [cloud network](../../vpc/concepts/network.md):
 
@@ -59,7 +59,7 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
       1. Enter the network name: `exchange-network`.
       1. Click **Create network**.
 
-   - CLI
+   - CLI {#cli}
 
       To create a cloud network, run the command:
 
@@ -71,9 +71,9 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
 1. Create three `exchange-network` subnets:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       To create a subnet:
 
@@ -86,7 +86,7 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
       Repeat these steps for two more subnets, `exchange-subnet-b` and `exchange-subnet-c`, in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones with the `10.2.0.0/16` and `10.3.0.0/16` CIDR, respectively.
 
-   - CLI
+   - CLI {#cli}
 
       To create subnets, run the following commands:
 
@@ -130,9 +130,9 @@ Learn more about security best practices for Active Directory on the [official w
 
 Create two virtual machines for Active Directory. These VMs will not have internet access.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `ad-vm-a`.
@@ -141,7 +141,7 @@ Create two virtual machines for Active Directory. These VMs will not have intern
    1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and the amount of RAM:
+      * Specify the required number of vCPUs and the amount of RAM:
          * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB
@@ -151,9 +151,9 @@ Create two virtual machines for Active Directory. These VMs will not have intern
 
    {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-   Repeat the steps for the VM `ad-vm-b` in the `{{ region-id }}-b` availability zone and connect it to the subnet `exchange-subnet-b`.
+   Repeat the steps for the `ad-vm-b` VM in the `{{ region-id }}-b` availability zone and connect it to the `exchange-subnet-b` subnet.
 
-- CLI
+- CLI {#cli}
 
    ```
    yc compute instance create \
@@ -183,9 +183,9 @@ Create two virtual machines for Active Directory. These VMs will not have intern
 
 A file server with internet access is used to configure VMs with Active Directory.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `fsw-vm`.
@@ -194,7 +194,7 @@ A file server with internet access is used to configure VMs with Active Director
    1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and the amount of RAM:
+      * Specify the required number of vCPUs and the amount of RAM:
          * **vCPU**: 2
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 4 GB
@@ -204,7 +204,7 @@ A file server with internet access is used to configure VMs with Active Director
 
    {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
    ```
    yc compute instance create \
@@ -225,7 +225,7 @@ A file server with internet access is used to configure VMs with Active Director
 VMs with Active Directory do not have internet access, so they should be configured from the `fsw-vm` VM using RDP.
 
 1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
-1. Start the RDP client on the `fsw-vm` VM instance and connect to `ad-vm-a`. Enter `Administrator` as the username and then your password.
+1. On the `fsw-vm` VM instance, start the RDP client and connect to the `ad-vm-a` VM. Enter `Administrator` as the username and then your password.
 1. On the `ad-vm-a` VM, run PowerShell and set a static address:
 
    ```powershell
@@ -305,7 +305,7 @@ VMs with Active Directory do not have internet access, so they should be configu
 ## Configure the second domain controller {#install-ad-2}
 
 1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
-1. Start the RDP client on the `fsw-vm` VM instance and connect to `ad-vm-b`. Enter `Administrator` as the username and then your password.
+1. On the `fsw-vm` VM instance, start the RDP client and connect to the `ad-vm-b` VM. Enter `Administrator` as the username and then your password.
 1. Create a temporary folder:
 
    ```
@@ -399,9 +399,9 @@ VMs with Active Directory do not have internet access, so they should be configu
 
 1. Create a VM named `vm-exchange-a`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name: `vm-exchange-a`.
@@ -411,7 +411,7 @@ VMs with Active Directory do not have internet access, so they should be configu
       1. Add another 250 GB SSD named `db-a`.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the number of vCPUs and the amount of RAM:
+         * Specify the required number of vCPUs and the amount of RAM:
             * **vCPU**: 8
             * **Guaranteed vCPU share**: 100%
             * **RAM**: 32 GB
@@ -421,7 +421,7 @@ VMs with Active Directory do not have internet access, so they should be configu
 
       {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-   - CLI
+   - CLI {#cli}
 
       ```
       yc compute instance create \
@@ -439,7 +439,7 @@ VMs with Active Directory do not have internet access, so they should be configu
    {% endlist %}
 
 1. Connect to `fsw-vm` using RDP.
-1. On `fsw-vm`, start the RDP client and connect to `vm-exchange-a`. Enter `Administrator` as the username and then your password. Launch PowerShell.
+1. On the `fsw-vm` VM instance, start the RDP client and connect to the `vm-exchange-a` VM. Enter `Administrator` as the username and then your password. Launch PowerShell.
 1. Configure the DNS client:
 
    ```powershell
@@ -483,9 +483,9 @@ VMs with Active Directory do not have internet access, so they should be configu
 
 1. Create a VM named `vm-exchange-b`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name: `vm-exchange-b`.
@@ -495,7 +495,7 @@ VMs with Active Directory do not have internet access, so they should be configu
       1. Add another 250 GB SSD named `db-b`.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the number of vCPUs and the amount of RAM:
+         * Specify the required number of vCPUs and the amount of RAM:
             * **vCPU**: 8
             * **Guaranteed vCPU share**: 100%
             * **RAM**: 32 GB
@@ -505,7 +505,7 @@ VMs with Active Directory do not have internet access, so they should be configu
 
       {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-   - CLI
+   - CLI {#cli}
 
       ```
       yc compute instance create \
@@ -523,7 +523,7 @@ VMs with Active Directory do not have internet access, so they should be configu
    {% endlist %}
 
 1. Connect to `fsw-vm` using RDP.
-1. On `fsw-vm`, start the RDP client and connect to `vm-exchange-b`. Enter `Administrator` as the username and then your password. Launch PowerShell.
+1. On the `fsw-vm` VM instance, start the RDP client and connect to the `vm-exchange-b` VM. Enter `Administrator` as the username and then your password. Launch PowerShell.
 1. Configure the DNS client:
 
    ```powershell
@@ -598,7 +598,7 @@ Repeat these commands for the `vm-exchange-b` VM.
 
 ### Configure the Database Availability Group {#dag-configuration}
 
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and then your password.
+1. On the `fsw-vm` VM instance, start the RDP client and use it to connect to the `vm-exchange-a` VM. Enter `yantoso\Administrator` as the username and then your password.
 1. Run the Exchange Management Shell.
 1. Create a Database Availability Group:
 
@@ -625,9 +625,9 @@ Repeat these commands for the `vm-exchange-b` VM.
    Result:
 
    ```powershell
-   Name        Member Servers                       Operational Servers
-   ----        --------------                       -------------------
-   ycdag       {VM-EXCHANGE-A, VM-EXCHANGE-B}       {VM-EXCHANGE-A, VM-EXCHANGE-B}
+   Name             Member Servers                                      Operational Servers
+   ----             --------------                                      -------------------
+   ycdag            {VM-EXCHANGE-A, VM-EXCHANGE-B}                      {VM-EXCHANGE-A, VM-EXCHANGE-B}
    ```
 
 1. Create a mail server database:
@@ -712,9 +712,9 @@ To work with various client applications, you need to create virtual directories
 
 It distributes the load across Exchange servers in different availability zones.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a [network load balancer](../../network-load-balancer/concepts/index.md).
 
@@ -736,7 +736,7 @@ It distributes the load across Exchange servers in different availability zones.
    1. Keep the other parameters as default and click **Apply**.
    1. Click **Create**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a network load balancer:
 
@@ -815,9 +815,9 @@ Edge Transport servers handle the main user load: accept emails from the interne
 
 Create a VM named `vm-edge-a`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-a`.
@@ -826,7 +826,7 @@ Create a VM named `vm-edge-a`:
    1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and the amount of RAM:
+      * Specify the required number of vCPUs and the amount of RAM:
          * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB
@@ -836,7 +836,7 @@ Create a VM named `vm-edge-a`:
 
    {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
    ```
    yc compute instance create \
@@ -856,9 +856,9 @@ Create a VM named `vm-edge-a`:
 
 Create a VM named `vm-edge-b`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-b`.
@@ -867,7 +867,7 @@ Create a VM named `vm-edge-b`:
    1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and the amount of RAM:
+      * Specify the required number of vCPUs and the amount of RAM:
          * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB
@@ -877,7 +877,7 @@ Create a VM named `vm-edge-b`:
 
    {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
    ```
    yc compute instance create \
@@ -1084,9 +1084,9 @@ Each Edge Transport server must subscribe to a website in its own availability z
    Result:
 
    ```powershell
-   Name            Site                       Domain
-   ----            ----                       ------
-   vm-edge-a       yantoso.net/Confi...       {{ region-id }}.internal
+   Name            Site                 Domain
+   ----            ----                 ------
+   vm-edge-a       yantoso.net/Confi... {{ region-id }}.internal
    ```
 
 1. Check the sync status:
@@ -1131,10 +1131,10 @@ Each Edge Transport server must subscribe to a website in its own availability z
    Result:
 
    ```powershell
-   Name            Site                       Domain
-   ----            ----                       ------
-   vm-edge-a       yantoso.net/Confi...       {{ region-id }}.internal
-   vm-edge-b       yantoso.net/Confi...       {{ region-id }}.internal
+   Name            Site                 Domain
+   ----            ----                 ------
+   vm-edge-a       yantoso.net/Confi... {{ region-id }}.internal
+   vm-edge-b       yantoso.net/Confi... {{ region-id }}.internal
    ```
 
 1. Check the sync status:

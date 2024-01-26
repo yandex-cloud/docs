@@ -212,15 +212,15 @@ ns1.{{ dns-ns-host-sld }}.
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Готовый архив
+   - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/static.zip) (2 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `static.tf`, файлы `index.html` и `error.html`.
 
-   - Вручную
+   - Вручную {#manual}
 
      1. Создайте папку для файлов.
      1. Создайте в папке конфигурационный файл `static.tf`:

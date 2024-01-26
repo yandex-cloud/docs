@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -16,7 +16,7 @@
       You will be able to reset the shutdown strategy back to OPPORTUNISTIC after all the instances in the group are moved to the new availability zone and deleted from the old one.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../cli-install.md) %}
 
@@ -79,7 +79,7 @@
       ...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -146,7 +146,7 @@
       yc compute instance-group get <instance_group_name>
       ```
 
-- API
+- API {#api}
 
    Use the [update](../../compute/api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../compute/api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 

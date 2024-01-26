@@ -13,28 +13,28 @@ description: "Follow this guide to change network load balancer settings."
 
 After you create a network load balancer, you can:
 
-* [{#T}](#change-name-and-description)
+* [{#T}](#change-name-and-description).
 
-* [{#T}](#change-labels)
+* [{#T}](#change-labels).
 
-* [{#T}](#change-target-group)
+* [{#T}](#change-target-group).
 
-* [{#T}](#add-target-group)
+* [{#T}](#add-target-group).
 
-* [{#T}](#add-listener)
+* [{#T}](#add-listener).
 
 ## Changing a load balancer's name and description {#change-name-and-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
    1. Enter a new name and description for the load balancer.
    1. Click **{{ ui-key.yacloud.common.edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -45,7 +45,7 @@ After you create a network load balancer, you can:
    1. View the current `name` and `description` of the load balancer:
 
       ```bash
-      yc load-balancer network-load-balancer get <load balancer ID or name>
+      yc load-balancer network-load-balancer get <load_balancer_name_or_ID>
       ```
 
       You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list).
@@ -59,12 +59,12 @@ After you create a network load balancer, you can:
    1. Enter a new name and description for the load balancer:
 
       ```bash
-      yc load-balancer network-load-balancer update <load balancer ID or name> \
-         --new-name=<load balancer's new name> \
-         --description=<load balancer's new description>
+      yc load-balancer network-load-balancer update <load_balancer_name_or_ID> \
+         --new-name=<new_load_balancer_name> \
+         --description=<new_load_balancer_description>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -76,8 +76,8 @@ After you create a network load balancer, you can:
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name        = "<network load balancer name>"
-        description = "<network load balancer description>"
+        name        = "<load_balancer_name>"
+        description = "<load_balancer_description>"
         ...
       ```
 
@@ -89,7 +89,7 @@ After you create a network load balancer, you can:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/NetworkLoadBalancer/update.md) API method and include the following in the request:
 
@@ -104,16 +104,16 @@ After you create a network load balancer, you can:
 
 ## Changing load balancer labels {#change-labels}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
    1. Change load balancer labels.
    1. Click **{{ ui-key.yacloud.common.edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -124,7 +124,7 @@ After you create a network load balancer, you can:
    1. View the current load balancer's `labels` and their values:
 
       ```bash
-      yc load-balancer network-load-balancer get <load balancer ID or name>
+      yc load-balancer network-load-balancer get <load_balancer_name_or_ID>
       ```
 
       You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list).
@@ -138,11 +138,11 @@ After you create a network load balancer, you can:
    1. Set new values for the load balancer labels:
 
       ```bash
-      yc load-balancer network-load-balancer update <load balancer ID or name> \
-         --labels <key1>=<value1>,<key2>=<value2>,...
+      yc load-balancer network-load-balancer update <load_balancer_name_or_ID> \
+         --labels <key_1>=<value_1>,<key_2>=<value_2>,...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -156,8 +156,8 @@ After you create a network load balancer, you can:
       resource "yandex_lb_network_load_balancer" "foo" {
         ...
         labels = {
-          <key1> = "value1"
-          <key2> = "value2"
+          <key_1> = "<value_1>"
+          <key_2> = "<value_2>"
           ...
         }
         ...
@@ -171,7 +171,7 @@ After you create a network load balancer, you can:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/NetworkLoadBalancer/update.md) API method and include the following in the request:
 
@@ -185,9 +185,9 @@ After you create a network load balancer, you can:
 
 ## Changing a target group or its health check settings {#change-target-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
@@ -198,7 +198,7 @@ After you create a network load balancer, you can:
       1. Click **{{ ui-key.yacloud.common.apply }}**.
    1. Click **{{ ui-key.yacloud.common.edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -215,16 +215,16 @@ After you create a network load balancer, you can:
    1. Specify the target group's new ID and health check settings:
 
       ```bash
-      yc load-balancer network-load-balancer update <load balancer ID or name> \
-         --target-group target-group-id=<target group ID>,`
-                       `healthcheck-name=<health check name>,`
-                       `healthcheck-interval=<health check interval>s,`
-                       `healthcheck-timeout=<response timeout>s,`
-                       `healthcheck-unhealthythreshold=<number of failed health checks for Unhealthy status>,`
-                       `healthcheck-healthythreshold=<number of successful health checks for Healthy status>,`
-                       `healthcheck-tcp-port=<TCP port>,`
-                       `healthcheck-http-port=<HTTP port>,`
-                       `healthcheck-http-path=<URL for health checks>
+      yc load-balancer network-load-balancer update <load_balancer_name_or_ID> \
+         --target-group target-group-id=<target_group_ID>,`
+                       `healthcheck-name=<health_check_name>,`
+                       `healthcheck-interval=<health_check_interval>s,`
+                       `healthcheck-timeout=<response_timeout>s,`
+                       `healthcheck-unhealthythreshold=<number_of_failed_health_checks_for_Unhealthy_status>,`
+                       `healthcheck-healthythreshold=<number_of_successful_health_checks_for_Healthy_status>,`
+                       `healthcheck-tcp-port=<TCP_port>,`
+                       `healthcheck-http-port=<HTTP_port>,`
+                       `healthcheck-http-path=<URL>
       ```
 
       Where:
@@ -233,7 +233,7 @@ After you create a network load balancer, you can:
 
       You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list) and the target group ID with a [list of folder target groups](target-group-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -245,15 +245,15 @@ After you create a network load balancer, you can:
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "<network load balancer name>"
+        name = "<load_balancer_name>"
         ...
         attached_target_group {
-          target_group_id = "<target group ID>"
+          target_group_id = "<target_group_ID>"
           healthcheck {
-            name = "<health check name>"
+            name = "<health_check_name>"
             http_options {
-              port = <port number>
-              path = "<URL for health checks>"
+              port = <port_number>
+              path = "<URL>"
             }
           }
         }
@@ -276,7 +276,7 @@ After you create a network load balancer, you can:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/NetworkLoadBalancer/update.md) API method and include the following in the request:
 

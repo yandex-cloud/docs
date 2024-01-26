@@ -3,7 +3,7 @@ title: "How to connect to a VM via OS Login"
 description: "Follow this guide to connect to a VM via OS Login."
 ---
 
-# Connecting to a VM through OS Login
+# Connecting to a VM via OS Login
 
 {% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
 
@@ -24,26 +24,26 @@ Please note that you cannot use an [SSH key pair](./ssh.md#creating-ssh-keys) to
 
 1. View a description of the CLI command to connect to a VM:
 
-    ```bash
-    yc compute ssh --help
-    ```
+   ```bash
+   yc compute ssh --help
+   ```
 
 1. Get a list of all VMs in the default folder:
 
-    ```bash
-    yc compute instance list
-    ```
+   ```bash
+   yc compute instance list
+   ```
 
-    Result
+   Result:
 
-    ```text
-    +----------------------+-----------------+---------------+---------+----------------------+
-    |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-    +----------------------+-----------------+---------------+---------+----------------------+
-    | fhm0b28lgf********** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-    | fhm9gk85nj********** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
-    +----------------------+-----------------+---------------+---------+----------------------+
-    ```
+   ```text
+   +----------------------+-----------------+---------------+---------+----------------------+
+   |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
+   +----------------------+-----------------+---------------+---------+----------------------+
+   | fhm0b28lgf********** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+   | fhm9gk85nj********** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+   +----------------------+-----------------+---------------+---------+----------------------+
+   ```
 
 1. Connect to the VM by specifying its name. The connect command depends on the VM's Linux version:
 
@@ -76,3 +76,7 @@ Please note that you cannot use an [SSH key pair](./ssh.md#creating-ssh-keys) to
           --id <VM_ID> \
           -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
       ```
+
+## Connecting to a VM over SSH using an OS Login certificate {#connect-via-exported-certificate}
+
+{% include [oslogin-connect-with-exported-cert](../../../_includes/compute/oslogin-connect-with-exported-cert.md) %}

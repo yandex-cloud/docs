@@ -10,9 +10,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
     1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md#create-cluster) in any [availability zone](../../overview/concepts/geo-scope.md) with publicly available hosts in any suitable configuration with the following settings:
 
@@ -35,7 +35,7 @@ Prepare the infrastructure:
         * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
         * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -107,17 +107,17 @@ Prepare the infrastructure:
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
     1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ MY }}` type and specify the cluster connection parameters in it:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ MY }}_source_cluster>` from the drop-down list
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}**: `mmy_db`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy_user`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `<user_password>`
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ MY }}_source_cluster>` from the drop-down list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}**: `mmy_db`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy_user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `<user_password>`.
 
     1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
@@ -130,7 +130,7 @@ Prepare the infrastructure:
     1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
     1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the `mysql-postgresql.tf` file, set the `transfer_enabled` parameter to `1`.
 
@@ -192,16 +192,16 @@ Before deleting the created resources, [deactivate the transfer](../../data-tran
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
     * [Transfer](../../data-transfer/operations/transfer.md#delete)
     * [Endpoints](../../data-transfer/operations/endpoint/index.md#delete)
     * [{{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md)
     * [{{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md)
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
     If you created your resources using {{ TF }}:
 

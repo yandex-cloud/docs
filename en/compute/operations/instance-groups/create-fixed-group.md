@@ -10,13 +10,13 @@ You can create a group with a fixed number of instances. The size of this [insta
 
 To create a fixed-size instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-fixed-group-via-concole.md](../../../_includes/instance-groups/create-fixed-group-via-concole.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -28,18 +28,18 @@ To create a fixed-size instance group:
       {{ yc-compute-ig }} create --help
       ```
 
-   1. Check whether there are [networks](../../../vpc/concepts/network.md#network) in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+   1. Check if there are any [networks](../../../vpc/concepts/network.md#network) in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc vpc network list
       ```
 
-      If there are not any, [create one](../../../vpc/operations/network-create.md).
+      If there are none, [create a network](../../../vpc/operations/network-create.md).
    1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
-   1. Create a YAML file with any name (for example, `specification.yaml`).
+   1. Create a YAML file with any name, e.g., `specification.yaml`.
    1. In the created file, indicate the following:
       * General information about the instance group:
 
@@ -168,14 +168,14 @@ To create a fixed-size instance group:
       ```
 
       This command creates a group of three similar instances with the following configuration:
-      * Named `first-fixed-group`.
-      * Running CentOS 7.
-      * In the `default-net` network.
-      * In the `{{ region-id }}-a` availability zone.
-      * With 2 vCPUs and 2 GB of RAM.
-      * With a 32 GB network HDD.
+      * Name: `first-fixed-group`
+      * OS: CentOS 7
+      * Network: `default-net`
+      * Availability zone: `{{ region-id }}-a`
+      * vCPUs: 2; RAM: 2 GB
+      * Network HDD: 32 GB
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -294,7 +294,7 @@ To create a fixed-size instance group:
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 

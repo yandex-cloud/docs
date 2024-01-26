@@ -14,9 +14,9 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
 1. If the [VM](../../concepts/vm.md) is started and running (its [status](../../concepts/vm-statuses.md) is `RUNNING`), [stop it](../vm-control/vm-stop-and-start.md#stop).
 1. Attach [file storage](../../concepts/filesystem.md) to the VM in {{ compute-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the file store.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -25,11 +25,12 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
       1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
       1. Click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
       1. In the window that opens:
+
          1. Select the VM.
-         1. Specify the device name for accessing file storage in the VM.
+         1. Specify the device name for accessing file storage in the VM. Save this name as you will need it when mounting the storage.
          1. Click **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -49,8 +50,9 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
            zone        = "{{ region-id }}-a"
 
            filesystem {
-             filesystem_id = "fhmaikp755grp4mlvvem"
+             filesystem_id = "fhmaikp755gr********"
            }
+         }
          ...
          ```
 
@@ -60,45 +62,53 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
 
          {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      You can verify that the storage has been added to the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check the storage attachment to the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc compute instance get <VM_name>
       ```
 
-   - API
+   - API {#api}
 
      Use the [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem) gRPC API call.
 
    {% endlist %}
 
-1. Mount file storage to the VM:
-   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
-   1. Run this command:
+1. Mount the file store on the VM:
 
-      ```bash
-      sudo mount -t virtiofs <device_name> <mount_path>
-      ```
-
-      If, while attaching file storage to your VM, you did not specify a device name or forgot it, you can get the name with this [CLI](../../../cli/quickstart.md) command:
+   1. If you do not know the device name, run this command:
 
       ```bash
       yc compute instance get <VM_name>
       ```
 
       Result:
+
       ```yaml
       ...
       filesystems:
          - mode: READ_WRITE
-            device_name: my-storage-device
-            filesystem_id: epdb1jata63j********
+         device_name: storagename
+         filesystem_id: epdb1jata63j********
       ...
       ```
 
-      Use the value of the `device_name` field in `filesystems` as the device name.
+      Save the `device_name` value from the `filesystems` section.
 
-   1. Check that the file storage has been mounted:
+   1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
+
+   1. Run this command:
+
+      ```bash
+      sudo mount -t virtiofs <device_name> <mount_path>
+      ```
+
+      Where:
+
+      * `<device_name>`: Previously saved device name.
+      * `<mount_path>`: Folder or disk on which to mount the file store, e.g., `/mnt/vfs0`.
+
+   1. Check that the file store has been mounted:
 
       ```bash
       df -T
@@ -118,7 +128,7 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
       filesystem        virtiofs      66774660       0  66774660   0% /mnt/vfs0
       ```
 
-   1. In order for file storage to be mounted every time the VM is started, add a line to the `/etc/fstab` file in the following format:
+   1. For the file store to be mounted every time the VM is started, add the following string to the `/etc/fstab` file:
 
       ```
       <device_name>  <mount_path> virtiofs    rw    0   0
