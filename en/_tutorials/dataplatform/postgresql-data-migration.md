@@ -51,17 +51,17 @@ If you no longer need the resources you created, [delete them](#clear-out-logica
 
 Create the required resources:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
-   Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. In this case:
+   Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. In which case:
 
    * The {{ PG }} version must be the same or higher than the version in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
    * When creating a cluster, specify the same database name as in the source cluster.
    * Enable the same [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) as in the source cluster.
 
-* Using Terraform
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -271,15 +271,15 @@ To complete synchronization of the source cluster and the target cluster:
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-migration-pgsql-mpg.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -319,9 +319,9 @@ If you no longer need the resources you created, [delete them](#clear-out-backup
 
 Create the required resources:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. The following parameters must be the same as in the source cluster:
 
@@ -347,7 +347,7 @@ Create the required resources:
    1. If you use security groups for the intermediate VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect.md#configure-security-groups).
 
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -505,17 +505,17 @@ Make sure the errors only apply to the extensions and check the integrity of you
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    * [Delete the {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
    * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-restore-pgsql-mpg.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

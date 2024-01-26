@@ -1,6 +1,6 @@
 # Moving a VM to another folder
 
-When a VM is being created, it's placed in the current folder.
+When you create a VM, it is placed in the current folder.
 
 In {{ yandex-cloud }}, you can move a VM to another folder within one cloud. You do not have to stop the VM when moving it.
 
@@ -8,7 +8,7 @@ You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../
 
 ## Limitations {#limits}
 
-Limitations when moving a VM: 
+Limitations when moving a VM:
 
 * In [{{ monitoring-full-name }}](../../../monitoring/), metrics are not movable. The metrics in the previous folder stay there and new metrics will already be created in the new folder.
 * You can move VMs only within a single cloud.
@@ -17,9 +17,9 @@ Limitations when moving a VM:
 
 ### Updating a VM's folder {#change-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -78,7 +78,7 @@ Limitations when moving a VM:
 
       For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/move.md).
 
-- API
+- API {#api}
 
    Use the [move](../../api-ref/Instance/move.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move) gRPC API call.
 
@@ -153,9 +153,9 @@ Limitations when moving a VM:
 
 A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#subnet) in the source folder. To move your VM to a subnet in the destination folder:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you moved the VM.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -166,7 +166,7 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
    1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a new subnet and click **{{ ui-key.yacloud.common.save }}**.
    1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -246,7 +246,7 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
       yc compute instance start fhm0b28lgfp4********
       ```
 
-- API
+- API {#api}
 
    Use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/instance_service.md#UpdateNetworkInterface) gRPC API call.
 

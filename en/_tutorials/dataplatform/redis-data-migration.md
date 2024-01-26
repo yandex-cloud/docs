@@ -27,9 +27,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a {{ mrd-name }} cluster](../../managed-redis/operations/cluster-create.md) with any suitable configuration. To connect to a cluster from a user's local machine rather than a {{ yandex-cloud }} cloud network, enable TLS support and public host access when creating your cluster.
 
@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. If you use {{ vpc-name }} security groups, [configure them](../../managed-redis/operations/connect/index.md#configuring-security-groups).
 
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -328,15 +328,15 @@ The total number of keys in the cluster must be equal to the number of keys proc
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    * [Delete the {{ mrd-full-name }} cluster](../../managed-redis/operations/cluster-delete.md).
    * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

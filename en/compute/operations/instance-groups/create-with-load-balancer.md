@@ -10,9 +10,9 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
 
 To create an instance group with an L7 load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your instance group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -36,7 +36,7 @@ To create an instance group with an L7 load balancer:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
          * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
-         * Specify disk size.
+         * Specify the disk size.
          * To add more disks, click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
          * Choose a [platform](../../../compute/concepts/vm-platforms.md).
@@ -80,7 +80,7 @@ To create an instance group with an L7 load balancer:
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_variables }}**, enter the `{{ ui-key.yacloud.common.label_key }}`-`{{ ui-key.yacloud.common.label_value }}` pairs, if needed.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -92,7 +92,7 @@ To create an instance group with an L7 load balancer:
       {{ yc-compute-ig }} create --help
       ```
 
-   1. Check whether there are [networks](../../../vpc/concepts/network.md#network) in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+   1. Check if there are any [networks](../../../vpc/concepts/network.md#network) in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc vpc network list
@@ -248,17 +248,17 @@ To create an instance group with an L7 load balancer:
       ```
 
       This command creates a group of three similar instances with the following configuration:
-      * Named `first-fixed-group-with-l7-balancer`.
-      * Running CentOS 7.
-      * In the `default-net` network.
-      * In the `{{ region-id }}-a` availability zone.
-      * With 2 vCPUs and 2 GB of RAM.
-      * With a 32 GB network HDD.
-      * With a target group named `first-target-group`.
+      * Name: `first-fixed-group-with-l7-balancer`
+      * OS: CentOS 7
+      * Network: `default-net`
+      * Availability zone: `{{ region-id }}-a`
+      * vCPUs: 2; RAM: 2 GB
+      * Network HDD: 32 GB
+      * With a target group named `first-target-group`
 
    After that, you can add the `first-target-group` target group to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-update.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -382,7 +382,7 @@ To create an instance group with an L7 load balancer:
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/InstanceGroup/create.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API call.
 

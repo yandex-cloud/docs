@@ -3,7 +3,7 @@ title: "How to configure a {{ PG }} target endpoint in {{ data-transfer-full-nam
 description: "In this tutorial, you will learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ PG }} target endpoints
+# Configuring a {{ PG }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -15,32 +15,32 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `postgres-target`.
 
    {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `postgres_target`.
 
    {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -65,7 +65,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
 
@@ -75,25 +75,25 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 For OnPremise, all fields are filled in manually.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `postgres-target`.
 
    {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `postgres_target`.
 
    {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -121,7 +121,7 @@ For OnPremise, all fields are filled in manually.
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
 
@@ -129,9 +129,9 @@ For OnPremise, all fields are filled in manually.
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 

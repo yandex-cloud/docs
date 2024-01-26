@@ -7,9 +7,9 @@ description: "Follow this guide to create and set up a NAT gateway."
 
 To create and set up a NAT gateway:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -38,7 +38,7 @@ To create and set up a NAT gateway:
    1. In the window that opens, select the created table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -91,7 +91,7 @@ To create and set up a NAT gateway:
         --route-table-name=test-route-table
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -132,7 +132,7 @@ To create and set up a NAT gateway:
 
    Where `folder_id` is the ID of the folder hosting the subnet.
 
-- API
+- API {#api}
 
    1. Create a NAT gateway. Use the [create](../api-ref/Gateway/create.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Create](../api-ref/grpc/gateway_service.md#Create) gRPC API call, and provide the following in the request:
 

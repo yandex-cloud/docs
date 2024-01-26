@@ -6,9 +6,9 @@ The size of a disk must be a multiple of 93 GB.
 
 ## Create a separate non-replicated disk {#nr-disk}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -39,7 +39,7 @@ The size of a disk must be a multiple of 93 GB.
 
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -74,7 +74,7 @@ The size of a disk must be a multiple of 93 GB.
       disk_placement_policy: {}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -133,7 +133,7 @@ The size of a disk must be a multiple of 93 GB.
          yc compute disk list
          ```
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
 
@@ -143,9 +143,9 @@ The size of a disk must be a multiple of 93 GB.
 
 You can only create a disk in an existing disk placement group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -169,7 +169,7 @@ You can only create a disk in an existing disk placement group.
       If you want to set another schedule, you can [add](../disk-control/configure-schedule.md#add-schedule) it after the disk is created.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -251,7 +251,7 @@ You can only create a disk in an existing disk placement group.
          ```
 
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
 

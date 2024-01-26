@@ -8,9 +8,9 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    export YC_GPU_CLUSTER=$(yc compute gpu-cluster list --format=json | jq -r .[].id)
@@ -27,7 +27,7 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
      --gpu-cluster-id=$YC_GPU_CLUSTER
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -37,6 +37,14 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
       ```hcl
       provider "yandex" {
         zone = "{{ region-id }}-a"
+      }
+
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<disk_name>"
+        type     = "<disk_type>"
+        zone     = "{{ region-id }}-a"
+        size     = "<disk_size>"
+        image_id = "<ID_of_image_with_drivers>"
       }
 
       resource "yandex_compute_instance" "default" {
@@ -52,10 +60,7 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
         }
 
         boot_disk {
-          initialize_params {
-            image_id = "<ID_of_image_with_drivers>"
-            size     = "64"
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
 
         network_interface {
@@ -84,8 +89,8 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
 
       Where:
 
+      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description, where `image_id` is the ID of the image with the drivers.
       * `gpu_cluster_id`: GPU cluster ID. This is a required parameter.
-      * `image_id`: ID of the image with the drivers. This is a required parameter.
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md).
       * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) your VM will be created in.
 

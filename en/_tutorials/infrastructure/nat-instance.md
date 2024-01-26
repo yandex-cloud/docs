@@ -36,9 +36,9 @@ The cost of NAT instance support includes:
 
 ## Create a test VM {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create your test VM.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -53,12 +53,12 @@ The cost of NAT instance support includes:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connection yourself.
+      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    Save the username, private SSH key, and internal IP for the test VM.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -70,9 +70,9 @@ The cost of NAT instance support includes:
 
 To create a security group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab:
@@ -99,7 +99,7 @@ To create a security group:
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -107,9 +107,9 @@ To create a security group:
 
 ## Create a NAT instance {#create-nat-instance}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a NAT instance.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -129,7 +129,7 @@ To create a security group:
 
    Save the username, private SSH key, and internal and public IPs for the NAT instance.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -143,9 +143,9 @@ Creating an NAT instance only automatically configures a single network interfac
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Create a route table and add a static route to it:
 
@@ -168,7 +168,7 @@ Creating an NAT instance only automatically configures a single network interfac
       1. Click ![image](../../_assets/options.svg) in the row of the subnet with the test VM and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
       1. In the window that opens, select the `nat-instance-route` table in the **{{ ui-key.yacloud.vpc.subnet.add-route-table.popup-route-table_field_route-table-id }}** field and click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -239,7 +239,7 @@ To set up routing through a NAT instance using {{ TF }}:
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/nat-instance-tf.zip) (2 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `nat-instance.tf` configuration file and the `nat-instance.auto.tfvars` file with user data.
 
-   - Creating files manually
+   - Manually
 
       1. Create a directory for the file with the infrastructure description.
       1. Create the `nat-instance.tf` configuration file in the directory:

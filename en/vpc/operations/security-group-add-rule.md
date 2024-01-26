@@ -7,9 +7,9 @@ description: "You can add rules using the management console, CLI, and {{ vpc-na
 
 You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a rule:
 
@@ -46,7 +46,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
    1. Click **{{ ui-key.yacloud.common.save }}** once again.
 
-- CLI
+- CLI {#cli}
 
    To add a rule to an existing group:
 
@@ -105,7 +105,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
       To get help about the `--add-rule` parameter, run `yc vpc security-group update-rules --help`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -262,7 +262,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       yc vpc security-group get <security_group_name>
       ```
 
-- API
+- API {#api}
 
    To add a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call, and provide the following in the request:
 

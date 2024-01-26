@@ -13,9 +13,9 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a [network load balancer](../concepts/index.md).
 
@@ -64,7 +64,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       1. Click **{{ ui-key.yacloud.common.apply }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -83,17 +83,17 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
          --listener name=<listener_name>,`
                    `port=<port>,`
                    `target-port=<target_port>,`
-                   `protocol=<protocol:_tcp_or_udp>,`
-                   `external-ip-version=<IP_version:_ipv4_or_ipv6> \
+                   `protocol=<protocol>,`
+                   `external-ip-version=<IP_version> \
          --target-group target-group-id=<target_group_ID>,`
                        `healthcheck-name=<health_check_name>,`
                        `healthcheck-interval=<health_check_interval>s,`
                        `healthcheck-timeout=<health_check_timeout>s,`
                        `healthcheck-unhealthythreshold=<number_of_failed_health_checks_for_Unhealthy_status>,`
                        `healthcheck-healthythreshold=<number_of_successful_health_checks_for_Healthy_status>,`
-                       `healthcheck-tcp-port=<TCP port>,`
-                       `healthcheck-http-port=<HTTP port>,`
-                       `healthcheck-http-path=<URL_to_perform_health_checks_at>
+                       `healthcheck-tcp-port=<TCP_port>,`
+                       `healthcheck-http-port=<HTTP_port>,`
+                       `healthcheck-http-path=<URL>
       ```
 
       Where:
@@ -102,7 +102,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
       {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -110,17 +110,17 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
    1. Describe the parameters of the network load balancer resource in a configuration file.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "<network_load_balancer_name>"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        name = "<load_balancer_name>"
+        deletion_protection = "<deletion_protection>"
         listener {
           name = "<listener_name>"
           port = <port_number>
           external_address_spec {
-            ip_version = "<IP_version:_ipv4_or_ipv6>"
+            ip_version = "<IP_version>"
           }
         }
         attached_target_group {
@@ -129,7 +129,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
             name = "<health_check_name>"
             http_options {
               port = <port_number>
-              path = "<URL_to_perform_health_checks_at>"
+              path = "<URL>"
             }
           }
         }
@@ -141,7 +141,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       * `name`: Name of the network load balancer.
       * `deletion_protection`: Network load balancer deletion protection. You cannot delete a load balancer with this option enabled. If load balancer deletion protection is enabled, you can still delete its listeners and target groups. The default value is `false`.
       * `listener`: Listener parameters:
-         * `name`: Name of the listener.
+         * `name`: Listener name.
          * `port`: Port in the range of `1` to `32767` that the network load balancer will receive incoming traffic on.
          * `external_address_spec`: Specification of the listener for the external load balancer:
             * `ip_version`: External IP address specification. Set the IP address version: `ipv4` or `ipv6`. The default value is `ipv4`.
@@ -159,7 +159,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To create a new network load balancer, use the [create](../api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../api-ref/grpc/network_load_balancer_service.md#Create) gRPC API call.
 
@@ -171,9 +171,9 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
 Create a network load balancer named `test-load-balancer-1` without a listener and target group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Run the following command:
 
@@ -181,7 +181,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
    yc load-balancer network-load-balancer create test-load-balancer-1
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the resource parameters without the `listener` and `attached_target_group` sections:
 
@@ -202,7 +202,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
 
@@ -237,9 +237,9 @@ Create a network load balancer with a listener and attached target group with th
    * Port for HTTP health checks: `80`
    * URL for health checks: `/`
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Run the following command:
 
@@ -260,7 +260,7 @@ Create a network load balancer with a listener and attached target group with th
                     `healthcheck-http-path=/
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the resource parameters with the `listener` and `attached_target_group` sections:
 
@@ -304,7 +304,7 @@ Create a network load balancer with a listener and attached target group with th
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
 

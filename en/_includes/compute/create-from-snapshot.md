@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
@@ -85,9 +85,9 @@
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../../compute/concepts/placement-groups.md).
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../vpc/concepts/address.md) and [hostname](../../vpc/concepts/address.md#fqdn) (FQDN).
+   The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../vpc/concepts/address.md) and [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -124,7 +124,7 @@
       To create a VM without a public IP, remove the `--public-ip` flag.
 
 
-- API
+- API {#api}
 
    Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
 

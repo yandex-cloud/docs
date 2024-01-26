@@ -7,6 +7,31 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+## Version 0.115.0 (18/12/23) {#version0.115.0}
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### Managed database services {#managed-db}
+
+**{{ mgp-name }}**
+
+* Added the `--backup-retain-period-days` flag to the `yc managed-greenplum cluster create` and `yc managed-greenplum cluster update` commands.
+
+**{{ mch-name }}**
+
+* The `network-id` parameter for `yc clickhouse cluster restore` is now optional.
+
+#### {{ alb-name }} {#alb}
+
+* Added the `--security-profile-id` parameter to the `yc alb virtual-host create` and `yc alb virtual-host update` commands to specify a security profile from {{ sws-name }}.
+
+#### {{ compute-name }} {#compute}
+
+* The `yc compute instance`, `yc compute disk`, `yc compute image`, `yc compute snapshot`, `yc compute snapshot-schedule`, `yc compute placement-group`, `yc compute host-group`, `yc compute disk-placement-group`, `yc compute filesystem`, and `yc compute gpu-cluster` commands can now show access rights that you can manage using `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+* Added the `yc compute instance simulate-maintenance-event` command.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.114.0 (05/12/23) {#version0.114.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -55,8 +80,6 @@ Added parameters to the `yc cdn resource update` and `yc cdn resource create` co
 * Extended the list of fields in the default list of shards and clusters.
 * Added backup type and size info to the list of backups.
 * Fixed the bug that occurred when trying to restore a cluster with hybrid storage or SQL Management enabled using the `yc clickhouse cluster restore` command.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.113.0 (31/10/23) {#version0.113.0}
 
@@ -549,7 +572,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 * Added the `sasl-enabled-mechanisms` parameter for setting and changing the configuration settings of Kafka brokers to the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands.
 
-* Fixed the bug with altering of the connectors' `properties` field.
+* Fixed the bug with the connectors' `properties` field being changed.
 
 **{{ mpg-name }}**
 
@@ -822,7 +845,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 #### Changes to the CLI {#cli}
 
-* Fixed the error running `yc` with a large number of arguments passed.
+* Fixed the `yc` run error when transmitting a large number of arguments.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -1645,7 +1668,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 #### {{ container-registry-name }} {#container-registry}
 
-Added commands for managing the allowed IP addresses for pushing and pulling Docker images:
+Added commands for managing the allowed IP addresses for pushing and pulling the Docker images:
 * `yc container registry add-ip-permissions` adds IP addresses.
 * `yc container registry list-ip-permissions` allows you to view IP addresses.
 * `yc container registry set-ip-permissions` sets IP addresses.
@@ -2489,7 +2512,7 @@ Added support for {{ api-gw-full-name }}.
 
 Support for the cryptographic key management service: {{ kms-full-name }}.
 
-{{ kms-name }} allows you to create encryption keys and implement data protection models in your applications and services.
+{{ kms-name }} allows you to create encryption keys and implement data protection schemas in your applications and services.
 
 Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
 

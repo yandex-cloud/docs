@@ -45,9 +45,9 @@ The cost of maintaining your {{ CH }} database for Graphite includes:
 
 Register the `rollup` configuration in a cluster to decimate and aggregate or average the contents of a database for Graphite:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -78,7 +78,7 @@ Register the `rollup` configuration in a cluster to decimate and aggregate or av
 
       For more information about the `managed-clickhouse cluster add-graphite-rollup` command, see the [CLI reference](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
 
-- API
+- API {#api}
 
    Use the REST API [update](../../managed-clickhouse/api-ref/Cluster/update.md) method by passing the required `rollup` parameters in the query body:
 
@@ -155,9 +155,9 @@ Register the `rollup` configuration in a cluster to decimate and aggregate or av
 
 ## Create a GraphiteMergeTree table {#table-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ CH }} CLI
+- {{ CH }} CLI {#cli}
 
    In the {{ CH }} CLI interface, run a query to create a [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table. Provide the name of the `rollup` section described earlier:
 

@@ -23,9 +23,9 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
    * **External load balancer** (`EXTERNAL` type):
 
-      1. Wait until the resources of the target group in the new availability zone pass a [health check](../../../network-load-balancer/concepts/health-check.md) and switch to the `HEALTHY` status. For more information, refer to [{#T}](../../../network-load-balancer/operations/check-resource-health.md).
+      1. Wait until the resources of the target group in the new availability zone pass a [health check](../../../network-load-balancer/concepts/health-check.md) and switch to the `HEALTHY` status. See [{#T}](../../../network-load-balancer/operations/check-resource-health.md).
 
-         After this, the load balancer will start routing traffic through the new availability zone. This may take up to 2 minutes. For more information, refer to [Achieving routing convergence in the availability zone](../../../network-load-balancer/concepts/specifics.md#nlb-zone-converge).
+         After this, the load balancer will start routing traffic through the new availability zone. This may take up to 2 minutes. See [Achieving routing convergence in the availability zone](../../../network-load-balancer/concepts/specifics.md#nlb-zone-converge).
 
       1. Delete the group instances from the old availability zone:
 
@@ -40,9 +40,9 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
       1. Make sure the subnet in the old availability zone has no resources left.
       1. Move the subnet to the new availability zone:
 
-         {% list tabs %}
+         {% list tabs group=instructions %}
 
-         - CLI
+         - CLI {#cli}
 
             {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -93,6 +93,6 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
          The subnet will be moved to the new availability zone together with the internal load balancer's listeners.
 
-         After this, the load balancer will start routing traffic through the new availability zone. This may take up to 2 minutes. For more information, refer to [Achieving routing convergence in the availability zone](../../../network-load-balancer/concepts/specifics.md#nlb-zone-converge).
+         After this, the load balancer will start routing traffic through the new availability zone. This may take up to 2 minutes. See [Achieving routing convergence in the availability zone](../../../network-load-balancer/concepts/specifics.md#nlb-zone-converge).
 
       1. Move the resources that need access to the internal load balancer to the subnet that you moved from the old availability zone or [set up](../../../vpc/operations/static-route-create.md) static routing to the load balancer.

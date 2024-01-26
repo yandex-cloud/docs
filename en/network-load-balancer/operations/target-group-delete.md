@@ -11,9 +11,9 @@ Before deleting a target group, detach it from the network load balancer. You ca
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a [target group](../concepts/target-resources.md):
    1. In the [management console]({{ link-console-main }}), select the folder to delete a target group from.
@@ -23,13 +23,13 @@ Before deleting a target group, detach it from the network load balancer. You ca
    1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's delete target group command:
+   1. See the description of the CLI delete target group command:
 
       ```bash
       yc load-balancer target-group delete --help
@@ -38,12 +38,12 @@ Before deleting a target group, detach it from the network load balancer. You ca
    1. Delete the target group from the default folder:
 
       ```bash
-      yc load-balancer target-group delete <target group ID or name>
+      yc load-balancer target-group delete <target_group_name_or_ID>
       ```
 
       You can get the target group ID and name with a [list of target groups in the folder](target-group-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -54,14 +54,14 @@ Before deleting a target group, detach it from the network load balancer. You ca
 
       ```hcl
       resource "yandex_lb_target_group" "foo" {
-        name      = "<target group name>"
+        name      = "<target_group_name>"
         target {
-          subnet_id = "<subnet ID>"
-          address   = "<internal IP address of resource>"
+          subnet_id = "<subnet_ID>"
+          address   = "<resource_internal_IP_address>"
         }
         target {
-          subnet_id = "<subnet ID>"
-          address   = "<internal IP address of resource 2>"
+          subnet_id = "<subnet_ID>"
+          address   = "<resource_2_internal_IP_address>"
         }
       }
       ```
@@ -74,7 +74,7 @@ Before deleting a target group, detach it from the network load balancer. You ca
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To delete a target group, use the [delete](../api-ref/TargetGroup/delete.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete) gRPC API call.
 

@@ -12,9 +12,9 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## Basic settings {#managed-service}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Data Streams UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-data-streams-source.md) %}
 
@@ -26,9 +26,9 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**:

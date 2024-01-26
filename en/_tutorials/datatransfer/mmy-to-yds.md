@@ -12,9 +12,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) in any suitable [configuration](../../managed-mysql/concepts/instance-types.md) with publicly available hosts and the following settings:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
@@ -30,7 +30,7 @@ Prepare the infrastructure:
 
    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `yds-sa` with the `yds.editor` role. The transfer will use it to access {{ yds-name }}.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -52,7 +52,7 @@ Prepare the infrastructure:
 
    1. In the `mysql-yds.tf` file, specify the {{ MY }} user password.
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -100,9 +100,9 @@ Prepare the infrastructure:
 
 1. Create a source endpoint and a transfer.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ MY }}` type and specify the cluster connection parameters in it:
 
@@ -114,14 +114,14 @@ Prepare the infrastructure:
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `mysql-yds.tf` file, specify the following variables:
 
          * `yds_endpoint_id`: ID of the target endpoint.
          * `transfer_enabled`: Set `1` to enable transfer creation.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -163,21 +163,21 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the {{ yds-name }} stream](../../data-streams/operations/manage-streams.md#delete-data-stream).
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
    * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
    * [{{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `mysql-yds.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

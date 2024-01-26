@@ -61,9 +61,9 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -72,7 +72,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
    1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select `{{ ui-key.yacloud.vpc.networks.create.field_is-default }}`.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -166,7 +166,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
       For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -222,7 +222,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    1. Create a network named `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
    1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` and `example-subnet-{{ region-id }}-c` in the three availability zones by calling the gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../../vpc/api-ref/Subnet/create.md) method.
@@ -231,9 +231,9 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 ## Create a bucket in {{ objstorage-name }} {#create-buckets}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -243,7 +243,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
    1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Create a bucket:
 
@@ -267,7 +267,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
         --acl public-read
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add bucket parameters to the configuration file:
 
@@ -303,7 +303,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    Use the [create](../../storage/s3/api-ref/bucket/create.md) REST API method.
 
@@ -331,16 +331,16 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 1. Upload a file to the bucket:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket.
       1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `index.html` file for uploading.
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
       1. Upload the `index.html` file to the bucket:
 
@@ -355,7 +355,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
          upload: v1/index.html to s3://<bucket_name>/index.html
          ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. To the configuration file, add the parameters of the `v1/index.html` file uploaded to the bucket:
 
@@ -392,7 +392,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
          1. Confirm that you want to create the resources.
 
-   - API
+   - API {#api}
 
       Use the [upload](../../storage/s3/api-ref/object/upload.md) REST API method.
 
@@ -404,9 +404,9 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 To create security groups:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -436,7 +436,7 @@ To create security groups:
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    Run the following command:
 
@@ -498,7 +498,7 @@ To create security groups:
 
    For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add the `example-sg` security group parameters to the configuration file:
 
@@ -557,7 +557,7 @@ To create security groups:
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    Use the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
@@ -567,9 +567,9 @@ To create security groups:
 
 ## Create {{ alb-name }} backend groups {#create-l7backend}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -586,7 +586,7 @@ To create security groups:
 
    If you are going to complete the next steps in {{ TF }}, copy the ID of the `example-bg` backend group from the ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
 
-- API
+- API {#api}
 
    Use the [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) gRPC API call or the [create](../../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
 
@@ -594,9 +594,9 @@ To create security groups:
 
 ## Create an HTTP router and a virtual host {#create-route-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -617,7 +617,7 @@ To create security groups:
 
    1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. Create the `example-router` HTTP Router:
 
@@ -684,7 +684,7 @@ To create security groups:
 
       For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add parameters of the `example-router` HTTP router, its virtual hosts and routes, to the configuration file:
 
@@ -734,7 +734,7 @@ To create security groups:
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    1. Create the `example-router` HTTP router using the gRPC API [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/http_router_service.md#Create) call or the [create](../../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
    1. Create the `example-vh` virtual host linked to the router and its route using the gRPC API [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) call or the [create](../../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
@@ -743,9 +743,9 @@ To create security groups:
 
 ## Create an L7 load balancer {#create-balancer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -767,7 +767,7 @@ To create security groups:
    1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `example-router`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. Get the IDs of subnets for `example-network`:
 
@@ -887,7 +887,7 @@ To create security groups:
 
       For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add the parameters of the `example-balancer` L7 load balancer to the configuration file:
 
@@ -957,7 +957,7 @@ To create security groups:
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    Use the [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) gRPC API call or the [create](../../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
 
@@ -965,9 +965,9 @@ To create security groups:
 
 ## Create a CDN resource {#create-cdn-resource}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1008,7 +1008,7 @@ To create security groups:
       1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. If the CDN provider is not activated yet, run this command:
 
@@ -1072,7 +1072,7 @@ To create security groups:
       yc cdn resource update <resource_ID> --redirect-http-to-https
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add parameters of the CDN resources to the configuration file:
       ```hcl
@@ -1159,7 +1159,7 @@ To create security groups:
 
    This enables a redirect for the resource.
 
-- API
+- API {#api}
 
    Use the [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) gRPC API call or the [create](../../cdn/api-ref/Resource/create.md) REST API method.
 
@@ -1173,9 +1173,9 @@ To configure DNS:
 
 1. Get the domain name of the CDN load balancer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1197,9 +1197,9 @@ To configure DNS:
 
    {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public DNS zone, create one:
@@ -1219,7 +1219,7 @@ To configure DNS:
          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `cl-********.edgecdn.ru` format.
          1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       1. If you do not have a public DNS zone, create one:
 
@@ -1253,7 +1253,7 @@ To configure DNS:
 
          For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. Add the parameters of the `example-dns-zone` DNS zone and its CNAME records to the configuration file:
 
@@ -1297,7 +1297,7 @@ To configure DNS:
 
          1. Confirm that you want to create the resources.
 
-   - API
+   - API {#api}
 
       1. Create a DNS zone named `example-dns-zone` using the gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
       1. Add the `cdn` CNAME record to the zone, copying the `cl-********.edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.

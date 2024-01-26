@@ -26,18 +26,18 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-load` and assign it the `editor` role:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to create a service account.
-      1. Go to the **Service accounts** tab.
-      1. Click **Create service account**.
-      1. Enter the name `for-load`.
-      1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **Add role** and select the role `editor`.
-      1. Click **Create**.
+      1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to create a service account.
+      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-load`.
+      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the [`editor` role](../../iam/concepts/access-control/roles.md).
+      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. Create a service account:
 
@@ -64,28 +64,29 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
            --subject serviceAccount:ajeab0cnib1pdefe21dm
          ```
 
-   - API
+   - API {#api}
 
-      Use the methods:
-      1. [create](../../iam/api-ref/ServiceAccount/create.md) for the `ServiceAccount` resource to create a `for-load` service account.
-      1. [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) for the `Folder` resource in order to assign the `editor` role to the service account in the current folder.
+      1. Create a service account named `for-load`:
+         Use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+      1. Assign the `editor` role to the service account in the current folder:
+         Use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
 
    {% endlist %}
 
 1. Create a [network](../../vpc/concepts/network.md#network) named `yc-auto-network` and [subnets](../../vpc/concepts/network.md#subnet) in two [availability zones](../../overview/concepts/geo-scope.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create an instance group.
-      1. Select **{{ vpc-name }}**.
-      1. Click **Create network**.
-      1. Enter the network name `yc-auto-network`.
-      1. Select the additional option **Create subnets**.
-      1. Click **Create network**.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `yc-auto-network`.
+      1. Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. Create a network:
 
@@ -138,62 +139,64 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          - 192.168.2.0/24
          ```
 
-   - API
+   - API {#api}
 
-      1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the `Network` resource.
-      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones using the [create](../../vpc/api-ref/Subnet/create.md) method for the `Subnet` resource.
+      1. Create a network:
+         Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
+      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones:
+         Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
    {% endlist %}
 
-## Create an instance group from a {{ coi }}{#create-vm-group}
+## Create an instance group from a {{ coi }} {#create-vm-group}
 
-1. All the instance groups are created from the image [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
+1. All instance groups are created from [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
    
-   - Management console
+   - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
-      1. Select **{{ compute-name }}**.
-      1. On the **Virtual machines** page, go to the **Instance groups** tab.
-      1. Click **Create group**.
-      1. Under **Basic parameters**:
-         * Enter the **Name** of the group `group-for-load`.
-         * Select the `for-load` **Service account**.
-      1. Under **Allocation**, select the `{{ region-id }}-a` and `{{ region-id }}-b` **Availability zones**.
-      1. Under **Instance template**, click **Define**:
-         * Under **Image/boot disk selection**, select the **Container Solution** tab.
-         * Click **Configure**.
-         * In the **Docker container settings** window:
-            * **Name** it `nginx`.
-            * In the **Docker image** field, click the **Enter link** button and type `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
-            * Click **Apply**.
-         * In the **Disks** section:
-            * For the boot disk, specify the **Size** of 30 GB.
-         * Under **Network settings**:
-            * Select the `for-load` **Network**.
-         * Under **Access**:
-            * Select the `for-load` **Service account**.
-            * In the **Login** field, enter the name of the user to be created on the VM.
-            * In the **SSH key** field, paste the contents of the public key file.
-         * Click **Save**.
-      1. Under **Allow when creating and updating**:
-         * In the **Reduce below target value** field, enter `4`.
-      1. In the **Scalability** section:
-         * In the **Type** field, select `Fixed`.
-         * Set the **Size** to `6`.
-      1. Under **Integration with Load Balancer**:
-         * Enable the option **Create target group**.
-         * In the **Name of the target group** field, enter `load-generator`.
-      1. Click **Create**.
- 
+      1. In the [management console]({{ link-console-main }}), select a folder to host your instance group.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+      1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
+         * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `group-for-load`.
+         * Select the `for-load` **{{ ui-key.yacloud.compute.groups.create.field_service-account }}**.
+      1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` and `{{ region-id }}-b` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
+      1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
+         * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
+         * Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
+         * In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window:
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** field, specify `nginx`.
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** field, click **{{ ui-key.yacloud.component.image-field.button_custom-image }}** and type `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
+            * Click **{{ ui-key.yacloud.common.apply }}**.
+         * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+            * For the boot disk, specify the **{{ ui-key.yacloud.compute.instances.create.column_disk-size }}** of `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+         * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** field, select `for-load`.
+         * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select `for-load`.
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to be created on the VM.
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
+         * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+      1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
+         * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}** field, enter `4`.
+      1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
+         * In the **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}** field, select `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}`.
+         * Set the **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** to `6`.
+      1. Under **{{ ui-key.yacloud.compute.groups.create.section_ylb }}**:
+         * Enable **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**.
+         * In the **{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** field, specify `load-generator`.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
 
-      1. Find out the ID of the latest version of the {{ coi }} [public image](../../compute/operations/images-with-pre-installed-software/get-list.md).
+   - CLI {#cli}
 
-         A {{ coi }} in a [{{ container-registry-full-name }}](../../container-registry/) registry can be updated and changed according to the new releases. In this case, the image on a VM isn't updated to the latest version automatically. To create an instance group with the latest {{ coi }} version, you need to check whether it's available yourself:
+      1. Find out the ID of the latest version of the [public](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
+
+         A {{ coi }} in a [{{ container-registry-full-name }}](../../container-registry/) registry may be updated and changed with new releases. This will not automatically update the VM image to the latest version. To create an instance group with the latest {{ coi }} version, you should check its availability yourself:
 
          ```bash
          yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
@@ -239,28 +242,30 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          application_load_balancer_state: {}
          ```
 
-   - API
+   - API {#api}
 
-      Use the methods:
-      1. [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) for the `Image` resource to get the ID of the latest version of the `container-optimized-image` image in the `standard-images` family.
-      1. [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) for the `InstanceGroup` resource to create an instance group to meet the following specification:
+      1. Get the ID of the `container-optimized-image` latest version in the `standard-images` family:
+         Use the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method for the [Image](../../compute/api-ref/Image/index.md) resource or the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily) gRPC API call.
+      1. Create an instance group based on the following specification:
 
          {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
+
+         Use the [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call.
 
    {% endlist %}
 
 1. Make sure that the instance group was created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-      1. Select **{{ compute-name }}**.
-      1. Go to **Instance groups**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Click the `group-for-load` instance group name.
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       yc compute instance-group list-instances group-for-load
@@ -278,9 +283,9 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
       ```
 
-   - API
+   - API {#api}
 
-      See the list of the instance groups you created using the method [List](../../compute/api-ref/InstanceGroup/list.md) for the resource `InstanceGroup`.
+      To view the list of created instance groups, use the [list](../../compute/api-ref/InstanceGroup/list.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/List](../../compute/api-ref/grpc/instance_group_service.md#List) gRPC API call.
 
    {% endlist %}
 
@@ -288,28 +293,29 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 1. Create a network load balancer named `load-generator` and connect it to the instance group you created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-      1. In the list of services, select **{{ network-load-balancer-name }}**.
-      1. Click **Create a network load balancer**.
-      1. **Name** it `load-generator`.
-      1. In the **Public address** field, select the value **Auto**.
-      1. Click **Add listener** under **Listeners**.
-         * In the window that opens, enter `http` as the **Listener name**.
-         * In the **Port** field, enter `80`: the balancer will use this port to accept incoming traffic.
-         * In the **Target port** field, enter `80`: the balancer will redirect traffic to this port.
-         * Click **Add**.
-      1. Under **Target groups**, click **Add target group**.
-      1. In the **Target group** drop-down list, select `load-generator`.
-      1. In the target group block, click **Configure**:
-         * In the window that opens, enter the **Path** `/hello`: the load balancer will use this path to send health check requests to target group VMs.
-         * Click **Apply**.
-      1. Click **Create**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `load-generator`.
+      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select `{{ ui-key.yacloud.common.label_auto }}`.
+      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
+      1. In the window that opens:
+         * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}** field, specify `http`.
+         * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** field, enter `80`: the balancer will use this port to accept incoming traffic.
+         * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** field, enter `80`: the balancer will redirect traffic to this port.
+         * Click **{{ ui-key.yacloud.common.add }}**.
+      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
+      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** list, select `load-generator`.
+      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**:
+         * In the window that opens, enter the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** `/hello`: the load balancer will use this path to send health check requests to target group VMs.
+         * Click **{{ ui-key.yacloud.common.apply }}**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. Get the ID of the `load-generator` target group:
 
@@ -345,26 +351,26 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
                path: /hello
          ```
 
-   - API
+   - API {#api}
 
-      1. Create a load balancer using the method [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the `NetworkLoadBalancer` resource.
-      1. Add a listener to the balancer using the method [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the `NetworkLoadBalancer` resource.
-      1. Attach the target group to the balancer using the method [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) for the `NetworkLoadBalancer` resource.
-      1. Add the balancer to the instance group using the method [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) for the `TargetGroup` resource.
+      1. Create a load balancer using the [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Create) gRPC API call.
+      1. Add a listener to the load balancer using the [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) REST API method for the `NetworkLoadBalancer` resource or the [NetworkLoadBalancerService/AddListener](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AddListener) gRPC API call.
+      1. Attach the target group to the load balancer using the [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) REST API method for the `NetworkLoadBalancer` resource or the [NetworkLoadBalancerService/AttachTargetGroup](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AttachTargetGroup) gRPC API call.
+      1. Add the load balancer to the instance group using the [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) REST API method for the [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#AddTargets) gRPC API call.
 
    {% endlist %}
 
 1. Make sure that the network load balancer `load-generator` is created and attached to the instance group:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
-      1. Select **{{ network-load-balancer-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
       1. Click on the name of the network load balancer `load-generator`.
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       yc load-balancer network-load-balancer list
@@ -383,9 +389,9 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 
 
-   - API
+   - API {#api}
 
-      Use the [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) method for the `NetworkLoadBalancer` resource.
+      Use the [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/List](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#List) gRPC API call.
 
    {% endlist %}
 
@@ -393,15 +399,15 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 1. Get the IP address of the load balancer that you created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-      1. In the list of services, select **{{ network-load-balancer-name }}**.
-      1. Copy the **IP address** of the load balancer.
+      1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. Copy the **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** of the `load-generator` load balancer.
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       yc load-balancer network-load-balancer get load-generator | grep "address"
@@ -413,9 +419,9 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         address: 84.252.133.110
       ```
 
-   - API
+   - API {#api}
 
-      Use the [get](../../network-load-balancer/api-ref/NetworkLoadBalancer/get.md) method for the `NetworkLoadBalancer` resource.
+      Use the [get](../../network-load-balancer/api-ref/NetworkLoadBalancer/get.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Get](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Get) gRPC API call.
 
    {% endlist %}
 
@@ -438,22 +444,22 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 ## Update the instance group under load {#update-spec}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-   1. Select **{{ compute-name }}**.
-   1. Go to **Instance groups**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click the `group-for-load` instance group name.
-   1. On the group page, click ![pencil](../../_assets/pencil.svg) **Edit**.
-   1. Under **Instance template**, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Edit**.
-      * Under **Disks**, enter the new disk size of 35 GB.
-      * Click **Save**.
-   1. Click **Save changes**.
-   1. Under **VM states**, you'll see disk size changes for all VMs in the group step-by-step.
+   1. Click ![edit](../../_assets/edit.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, enter the new disk size of `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
+   1. Under **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}**, you will see disk size changes for all VM instances in the group, step-by-step.
 
-- CLI
+- CLI {#cli}
 
    1. In the `specification.yaml` specification, enter the new disk size of 35 GB and save the file:
 
@@ -481,7 +487,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       status: ACTIVE
       ```
 
-- API
+- API {#api}
 
    1. In the specification, enter the new disk size of 35 GB:
 
@@ -491,7 +497,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       ...
       ```
 
-   1. Use the method [updateFromYaml](../../compute/api-ref/InstanceGroup/updateFromYaml.md) for the resource `InstanceGroup` to update the `load-generator` instance group according to the new specification.
+   1. To update the `load-generator` instance group based on the new specification, use the [updateFromYaml](../../compute/api-ref/InstanceGroup/updateFromYaml.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/UpdateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#UpdateFromYaml) gRPC API call.
 
 {% endlist %}
 
@@ -512,41 +518,41 @@ Transfer/sec:     206.94B
 
 If there is no error line in the result, such as `Socket errors`, it means that all requests were processed.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To delete the created resources:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Delete the load balancer:
-      1. Go to the root of the folder.
-      1. In the list of services, select **{{ network-load-balancer-name }}**.
-      1. To the right of the `load-generator` load balancer line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. In the window that opens, click **Delete**.
+      1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. To the right of the `load-generator` load balancer line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.remove }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.common.remove }}**.
    1. Delete the instance group:
-      1. Go to the root of the folder.
-      1. In the list of services, select **{{ compute-name }}**.
-      1. Go to the **Instance groups** tab.
-      1. To the right of the `load-generator` instance group line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. In the window that opens, click **Delete**.
+      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. To the right of the `load-generator` group line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Delete the service account:
-      1. Go to the root of the folder.
-      1. Go to the **Service accounts** tab.
-      1. To the right of the `yc-auto-sa` account line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. In the window that opens, click **Delete**.
+      1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
+      1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. To the right of the `yc-auto-sa` account line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
    1. Delete the network and subnets:
-      1. Go to the root of the folder.
-      1. In the list of services, select **{{ vpc-name }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder where you created the network and subnets.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Select the network `yc-auto-network`.
-      1. Under **Subnets**:
-         1. To the right of the `yc-auto-subnet-1` subnet line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-         1. In the window that opens, click **Delete**.
+      1. Under **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**:
+         1. To the right of the `yc-auto-subnet-1` line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+         1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
          1. Also delete the subnet `yc-auto-subnet-2`.
-      1. In the upper-right corner, click **Delete**.
+      1. In the top-right corner, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    Run the following commands one-by-one:
 
@@ -559,13 +565,12 @@ To delete the created resources:
    yc vpc network delete yc-auto-network
    ```
 
-- API
+- API {#api}
 
-   Use the methods:
-   1. [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) for the `NetworkLoadBalancer` resource to delete the `load-generator` load balancer.
-   1. [delete](../../compute/api-ref/InstanceGroup/delete.md) for the `InstanceGroup` resource to delete the `load-generator` instance group.
-   1. [delete](../../iam/api-ref/ServiceAccount/delete.md) for the `ServiceAccount` resource to delete the `yc-auto-sa` service account.
-   1. [delete](../../vpc/api-ref/Subnet/delete.md) for the `Subnet` resource to delete the `yc-auto-subnet-1` and `yc-auto-subnet-2` subnets.
-   1. [delete](../../vpc/api-ref/Network/delete.md) for the resource `Network` to delete the network `yc-auto-network`.
+   1. To delete the `load-generator` load balancer, use the [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Delete](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Delete) gRPC API call.
+   1. Delete the `load-generator` instance group using the [delete](../../compute/api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../compute/api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
+   1. Delete the `yc-auto-sa` service account using the [delete](../../iam/api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../iam/api-ref/grpc/service_account_service.md#Delete) gRPC API call.
+   1. Delete `yc-auto-subnet-1` and `yc-auto-subnet-2` using the [delete](../../vpc/api-ref/Subnet/delete.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../../vpc/api-ref/grpc/subnet_service.md#Delete) gRPC API call.
+   1. Delete the `yc-auto-network` using the [delete](../../vpc/api-ref/Network/delete.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Delete](../../vpc/api-ref/grpc/network_service.md#Delete) gRPC API call.
 
 {% endlist %}

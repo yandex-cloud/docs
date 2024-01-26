@@ -1,6 +1,6 @@
 ---
-title: "How to configure a source {{ PG }} endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a source {{ PG }} endpoint in {{ data-transfer-full-name }}."
+title: "How to configure a {{ PG }} source endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up a {{ PG }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring {{ PG }} source endpoints
@@ -17,32 +17,32 @@ Before you get started, check the [Service specifics for {{ PG }} sources and ta
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `postgres-source`.
 
    {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `postgres_source`.
 
    {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -68,7 +68,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
 
@@ -78,25 +78,25 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 For OnPremise, all fields are filled in manually.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `postgres-source`.
 
    {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `postgres_source`.
 
    {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -125,7 +125,7 @@ For OnPremise, all fields are filled in manually.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
 
@@ -133,9 +133,9 @@ For OnPremise, all fields are filled in manually.
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Data is only transferred from listed tables.
 
@@ -160,7 +160,7 @@ For OnPremise, all fields are filled in manually.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}**: If necessary, set detailed settings for parallel copying of tables (if parallel copying parameters are set in the transfer).
 
-- CLI
+- CLI {#cli}
 
    * `--include-table`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
 
@@ -184,7 +184,7 @@ For OnPremise, all fields are filled in manually.
       * `--transfer-before-data`: At the initial stage of the transfer.
       * `--transfer-after-data`: At the final stage of the transfer.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * `include_tables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
 
@@ -230,7 +230,7 @@ For OnPremise, all fields are filled in manually.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    * `includeTables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
 

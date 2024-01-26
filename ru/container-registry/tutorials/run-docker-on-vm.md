@@ -549,15 +549,15 @@ Hi, I'm inside
 1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Готовый архив
+   - Готовый архив {#ready}
 
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/run-docker-on-vm-terraform.zip) (1,5 КБ).
      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `run-docker-on-vm.tf`.
 
-   - Создание вручную
+   - Вручную {#manual}
 
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `run-docker-on-vm.tf`:

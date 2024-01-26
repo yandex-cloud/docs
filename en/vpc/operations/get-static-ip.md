@@ -8,9 +8,9 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -21,7 +21,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       * (Optional) Under **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}**, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** and **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -54,7 +54,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
       The static public IP address is reserved.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -62,7 +62,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Static public IP address name. Use this name format:
+      * `name`: Static public IP address name. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -94,7 +94,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       yc vpc address list
       ```
 
-- API
+- API {#api}
 
    To reserve a static IP address, use the [create](../api-ref/Address/create.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Create](../api-ref/grpc/address_service.md#Create) gRPC API call, and provide the following in the request:
 

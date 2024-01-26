@@ -4,9 +4,9 @@ After creating a cluster, you can change its name, description, or labels.
 
 For information about how to add a VM to a cluster, see [{#T}](./gpu-add-to-cluster.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -32,7 +32,7 @@ For information about how to add a VM to a cluster, see [{#T}](./gpu-add-to-clus
       --new-name updated-gpu-cluster
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

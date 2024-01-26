@@ -2,9 +2,9 @@
 
 After creating a [subnet](../concepts/network.md#subnet), you can change its name, description, and DHCP settings.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), change to the folder where you need to update a subnet.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -13,7 +13,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
    1. Configure as appropriate.
    1. Click **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -68,7 +68,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       - 192.168.0.0/24
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -124,7 +124,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       yc vpc subnet get <subnet_name>
       ```
 
-- API
+- API {#api}
 
    To change the [subnet](../concepts/network.md#subnet), use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call, and provide the following in the request:
 
@@ -152,9 +152,9 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
 ### Changing a subnet using the name flag {#using-name-flag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    You can change a subnet by using its name instead of its ID:
 

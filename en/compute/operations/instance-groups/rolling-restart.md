@@ -8,9 +8,9 @@ For example, if the maximum number of unhealthy instances per group set in the d
 
 To restart group instances one by one:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -123,7 +123,7 @@ To restart group instances one by one:
 
    For more information about the `{{ yc-compute-ig }} rolling-restart` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/rolling-restart.md).
 
-- API
+- API {#api}
 
    Use the [rollingRestart](../../api-ref/InstanceGroup/rollingRestart.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/rollingRestart](../../api-ref/grpc/instance_group_service.md#RollingRestart) gRPC API call.
 

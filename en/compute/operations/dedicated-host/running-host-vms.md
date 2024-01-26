@@ -6,9 +6,9 @@ If you do not have a group of dedicated hosts, [create](create-host-group.md) on
 
 To create a VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -100,7 +100,7 @@ To create a VM:
           - fhm1ab2mhnf3cd1610f5
       ```
 
-- API
+- API {#api}
 
   1. Find out the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/List](../../api-ref/grpc/host_group_service.md#List) gRPC API call.
   1. Find out the IDs of dedicated hosts in the group using the [listHosts](../../api-ref/HostGroup/listHosts.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/ListHosts](../../api-ref/grpc/host_group_service.md#ListHosts) gRPC API call.
@@ -130,9 +130,9 @@ Create a VM with the following characteristics:
 
 To do this, follow these steps:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

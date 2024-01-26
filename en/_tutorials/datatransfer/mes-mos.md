@@ -14,9 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare the infrastructure:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a {{ mes-name }} cluster](../../managed-elasticsearch/operations/cluster-create.md) or a [custom {{ ES }} installation]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
 
@@ -32,10 +32,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and specify the parameter values.
+      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and specify the parameter values.
       1. Download the [data-transfer-mes-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-elasticsearch-to-opensearch/blob/main/data-transfer-mes-mos.tf) configuration file to the same working directory.
 
          This file describes:
@@ -180,14 +180,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `data-transfer-mes-mos.tf` file, specify the variables:
 
@@ -215,9 +215,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Check that the `people` index in the {{ mos-name }} cluster contains the transferred data:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    Run this command:
 
@@ -228,7 +228,7 @@ Check that the `people` index in the {{ mos-name }} cluster contains the transfe
         --request GET 'https://<{{ OS }}_Data_Node_host_address>:{{ port-mos }}/people/_search?pretty'
    ```
 
-- {{ OS }} Dashboards
+- {{ OS }} Dashboards {#opensearch}
 
    1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
    1. Select the `Global` tenant.
@@ -246,19 +246,19 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. Delete the other resources depending on how they were created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Delete the {{ mes-name }} cluster](../../managed-elasticsearch/operations/cluster-delete.md).
       1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
       1. [Delete the subnet](../../vpc/operations/subnet-delete.md) and [network](../../vpc/operations/network-delete.md).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
-      1. In the terminal window, switch to the directory containing the infrastructure plan.
+      1. In the terminal window, go to the directory containing the infrastructure plan.
       1. Delete the `data-transfer-mes-mos.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate

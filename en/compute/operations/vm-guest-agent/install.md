@@ -1,8 +1,8 @@
-# Installing the password reset agent on Windows Server virtual machine
+# Installing the password reset agent on a Windows Server VM
 
 
 
-To reset user passwords on Windows Server virtual machines using {{ yandex-cloud }}, install the password reset agent and its update software.
+To reset user passwords on Windows Server VMs using {{ yandex-cloud }}, install the password reset agent and its update software.
 
 
 {% include [password-reset-linux](../../../_includes/compute/password-reset-linux.md) %}
@@ -14,9 +14,9 @@ To install the agent and configure its auto update:
 1. [Connect to the VM via RDP](../vm-connect/rdp.md).
 1. Download and set up the agent update software:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       1. Get the software's most recent version number:
 

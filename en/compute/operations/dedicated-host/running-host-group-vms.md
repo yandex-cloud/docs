@@ -6,9 +6,9 @@ If you do not have a group of dedicated hosts, [create](create-host-group.md) on
 
 To create a VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -83,7 +83,7 @@ To create a VM:
           - abcdefg1hi23gkl16dnf
       ```
 
-- API
+- API {#api}
 
   1. Find out the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/List](../../api-ref/grpc/host_group_service.md#List) gRPC API call.
   1. Create a VM instance using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
@@ -111,9 +111,9 @@ Create a VM with the following characteristics:
 
 To do this, follow these steps:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -140,8 +140,8 @@ To do this, follow these steps:
 
    Where:
 
-   * `--cloud-id`: [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md).
-   * `--folder-id`: ID of the folder.
+   * `--cloud-id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md).
+   * `--folder-id`: Folder ID.
    * `--zone`: Availability zone where the group of dedicated hosts resides.
    * `--name`: VM name.
    * `--platform`: VM platform.

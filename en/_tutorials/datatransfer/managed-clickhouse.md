@@ -3,9 +3,9 @@
 1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-ch).
 1. Prepare the infrastructure:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-ch).
 
@@ -19,14 +19,14 @@
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
          * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}`.
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
+         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`
 
             Select a target cluster from the list and specify its connection settings.
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy }}_ type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -59,7 +59,7 @@
             * `target_clickhouse_version`: {{ CH }} version.
             * `target_user` and `target_password`: Database owner username and password.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -83,19 +83,19 @@
 
 1. Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually created resources
+   - Manually created resources {#manual}
 
       * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
       * [Delete the completed transfer](../../data-transfer/operations/transfer.md#delete).
       * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
-   * Resources created using {{ TF }}
+   - Resources created with {{ TF }} {#tf}
 
-      1. In the terminal window, switch to the directory containing the infrastructure plan.
+      1. In the terminal window, go to the directory containing the infrastructure plan.
       1. Delete the `data-transfer-ch-mch.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate

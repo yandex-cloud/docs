@@ -21,9 +21,9 @@ This section explains how to create GPU clusters. Currently, GPU clusters can on
 
 After creating a cluster, you can [add](gpu-add-to-cluster.md) VMs from the same availability zone to it.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) VMs from the same
       yc compute gpu-cluster create --interconnect-type infiniband
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -70,9 +70,9 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) VMs from the same
 
       Where:
 
-      * `name`: Cluster name. Required parameter.
+      * `name`: Cluster name. This is a required parameter.
       * `interconnect_type`: Type of connection. You can currently create clusters with the `InfiniBand` connection type only. This is a required parameter.
-      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. Optional parameter.
+      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional parameter.
 
       For more information about the `yandex_compute_gpu_cluster` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_gpu_cluster).
 

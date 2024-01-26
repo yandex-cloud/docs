@@ -12,18 +12,18 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
 
 ## Create a {{ mpg-name }} cluster {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    [Create](../../managed-postgresql/operations/cluster-create.md#create-cluster) a {{ mpg-name }} cluster of any suitable configuration with the following settings:
 
    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
    * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ PG }} version used for working with <q>1C:Enterprise</q>. The names of these versions end with `-1c`.
-   * **{{ ui-key.yacloud.mdb.forms.section_resource }}**: At least `s2.small`
+   * **{{ ui-key.yacloud.mdb.forms.section_resource }}**: At least `s2.small`.
    * **{{ ui-key.yacloud.mdb.forms.section_host }}**: Add at least two more hosts in different availability zones. This provides the fault tolerance of the cluster. The database is automatically replicated. For more information, see [{#T}](../../managed-postgresql/concepts/replication.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -94,13 +94,13 @@ List of extensions installed in PostgreSQL {{ pg.versions.console.str-1c }} clus
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#create-cluster):
 

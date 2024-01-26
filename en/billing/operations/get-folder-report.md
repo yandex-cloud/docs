@@ -21,9 +21,9 @@ You can get a CSV file with your general or per-resource spending details.
 
 ## Get expense details {#download-detail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
    1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
@@ -52,7 +52,7 @@ The information can be updated in any daily file within a month.
 
 {% note tip %}
 
-Files with details from buckets aren't deleted automatically, but you can set up a deletion schedule. For more information, see [Object lifecycle](../../storage/concepts/lifecycles.md) ({{ objstorage-name }} refers to files in a bucket as _objects_).
+Files with details from buckets are not deleted automatically, but you can configure scheduled deletion. For more information, see [Object lifecycle](../../storage/concepts/lifecycles.md) ({{ objstorage-name }} refers to files in a bucket as _objects_).
 
 {% endnote %}
 
@@ -68,7 +68,7 @@ The table contains the following columns:
 * `cloud_name`: Cloud name.
 * `folder_id`: Folder ID.
 * `folder_name`: Name of the folder at the time of exporting details. This field may be empty if you deleted the folder before exporting the details.
-* `resource_id`: Resource ID, resource name, or subscription ID. This field may be empty if the use of the service refers to the entire folder or it does not contain any resources. Correlation between services and `resource_id` column values:
+* `resource_id`: Resource ID, resource name, or subscription ID. The value of this field may be empty if the use of the service refers to the entire folder or it does not contain any resources. Correlation between services and `resource_id` column values:
    * {{ compute-name }} and {{ marketplace-name }}: ID of the VM, disk snapshot, disk image, or other resource installed using {{ marketplace-name }}.
    * {{ objstorage-name }}: Bucket name.
    * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.

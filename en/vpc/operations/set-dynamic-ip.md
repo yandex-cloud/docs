@@ -2,9 +2,9 @@
 
 You can convert a static public IP address set for a cloud resource to dynamic. If a dynamic IP address is used by a VM, it will disappear when the VM is stopped and change when it is started again.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the appropriate address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -12,7 +12,7 @@ You can convert a static public IP address set for a cloud resource to dynamic. 
    1. Click ![image](../../_assets/options.svg) next to the IP you need and select **{{ ui-key.yacloud.vpc.addresses.button_action-dynamic }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_dynamic }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -63,7 +63,7 @@ You can convert a static public IP address set for a cloud resource to dynamic. 
 
       The IP address is now dynamic.
 
-- API
+- API {#api}
 
    To change the type of a public IP address from static to dynamic, use the [update](../api-ref/Address/update.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Update](../api-ref/grpc/address_service.md#Update) gRPC API call, and provide the following in the request:
 

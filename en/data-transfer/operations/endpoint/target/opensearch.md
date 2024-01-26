@@ -1,9 +1,9 @@
 ---
-title: "How to set up a target {{ OS }} endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a target {{ OS }} endpoint in {{ data-transfer-full-name }}."
+title: "How to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring target endpoints {{ OS }}
+# Configuring an {{ OS }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -16,16 +16,16 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mos.viewer }}` role](../../../../managed-opensearch/security/index.md#mos-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mos.viewer }}` role](../../../../managed-opensearch/security/index.md#mos-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connection with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed OpenSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-opensearch.md) %}
 
@@ -36,9 +36,9 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 Connecting to nodes with explicitly specified network addresses and ports.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise OpenSearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-opensearch.md) %}
 
@@ -46,9 +46,9 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 

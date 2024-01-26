@@ -7,7 +7,7 @@ items:
         href: quickstart/index.md
       - name: Creating a Linux VM
         href: quickstart/quick-create-linux.md
-      - name: Creating instance groups
+      - name: Creating an instance group
         href: quickstart/ig.md
   - name: Step-by-step guides
     items:
@@ -99,6 +99,8 @@ items:
         items:
           - name: Connecting to a VM via SSH
             href: operations/vm-connect/ssh.md
+          - name: Exchanging files with VMs
+            href: operations/vm-connect/scp-sftp.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
           - name: Connecting to a VM via PowerShell
@@ -109,7 +111,9 @@ items:
                 href: operations/vm-connect/os-login-create-vm.md
               - name: Setting up OS Login on an existing VM
                 href: operations/vm-connect/enable-os-login.md
-              - name: Connecting to a VM through OS Login
+              - name: Exporting an OS Login certificate
+                href: operations/vm-connect/os-login-export-certificate.md
+              - name: Connecting to a VM via OS Login
                 href: operations/vm-connect/os-login.md
           - name: Working with {{ yandex-cloud }} from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
@@ -227,7 +231,7 @@ items:
             href: operations/serial-console/windows-sac.md
           - name: Disabling access to the serial console
             href: operations/serial-console/disable.md
-      - name: Creating instance groups
+      - name: Creating an instance group
         items:
           - name: Creating a fixed-size instance group
             href: operations/instance-groups/create-fixed-group.md
@@ -309,6 +313,8 @@ items:
             href: operations/gpu-cluster/gpu-cluster-update.md
           - name: Deleting a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-delete.md
+      - name: Getting a list of operations with the service's resources
+        href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Tutorials
@@ -453,7 +459,7 @@ items:
             href: pricing-archive/pricing-30042019.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

@@ -167,7 +167,7 @@ description: "Из статьи вы узнаете, как установить
   Чтобы установить агент при создании виртуальной машины через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
   ```
-  #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash"
+  #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```
 
   Для корректной установки агента и отправки метрик у созданной виртуальной машины должен быть доступ в интернет. 

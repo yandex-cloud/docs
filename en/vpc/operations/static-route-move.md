@@ -2,9 +2,9 @@
 
 You can move cloud resources between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To move a [route table](../concepts/static-routes.md) to another folder:
 
@@ -15,7 +15,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
    1. Select the destination folder from the drop-down list.
    1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       ```
       For more information about the `yc vpc route-table move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/route-table/move.md).
 
-- API
+- API {#api}
 
    To move a [route table](../concepts/static-routes.md) to a different folder, use the [move](../api-ref/RouteTable/move.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move) gRPC API call, and provide the following in the request:
 
@@ -101,9 +101,9 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
 Move a route table from the current folder by specifying the table name and destination folder name:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc vpc route-table move table-1 \

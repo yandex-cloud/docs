@@ -4,9 +4,9 @@ If you want to suspend the instance group [update](../../concepts/instance-group
 
 To pause an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -14,7 +14,7 @@ To pause an instance group:
    1. In the line with the appropriate instance group, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-pause }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
-- API
+- API {#api}
 
    Use the [pauseProcesses](../../api-ref/InstanceGroup/pauseProcesses.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/PauseProcesses](../../api-ref/grpc/instance_group_service.md#PauseProcesses) gRPC API call.
 

@@ -45,11 +45,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Create the required resources:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
-   1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration. In this case:
+   1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration. In which case:
 
       * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
@@ -74,7 +74,7 @@ Create the required resources:
    1. If you use security groups for the intermediate VM and the {{ mmy-name }} cluster, [configure them](../../managed-mysql/operations/connect.md#configure-security-groups).
 
 
-* Using Terraform
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -319,15 +319,15 @@ You can get the cluster ID with a [list of clusters in the folder](../../managed
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
    * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
-* Using Terraform
+- {{ TF }} {#tf}
 
    To delete the infrastructure created with {{ TF }}:
 

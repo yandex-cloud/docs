@@ -4,9 +4,9 @@ Delete the [placement group](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the placement group belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -15,7 +15,7 @@ Delete the [placement group](../../concepts/placement-groups.md).
    1. In the line with the placement group, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -66,11 +66,7 @@ Delete the [placement group](../../concepts/placement-groups.md).
       +----+------+----------+
       ```
 
-- API
-
-   Use the [delete](../../api-ref/PlacementGroup/delete.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Delete](../../api-ref/grpc/placement_group_service.md#Delete) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -127,5 +123,9 @@ Delete the [placement group](../../concepts/placement-groups.md).
       ```bash
       yc compute placement-group list
       ```
+
+- API {#api}
+
+   Use the [delete](../../api-ref/PlacementGroup/delete.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/Delete](../../api-ref/grpc/placement_group_service.md#Delete) gRPC API call.
 
 {% endlist %}

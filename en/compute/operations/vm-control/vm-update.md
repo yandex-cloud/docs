@@ -4,9 +4,9 @@ After you create a VM, you can edit its name, description, tags, platform, or me
 
 For information about editing a VM configuration, see [{#T}](vm-update-resources.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   To update a VM:
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
@@ -16,7 +16,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
   1. Edit the VM parameters, e.g., rename it by editing the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
        --new-name windows-vm
      ```
 
-- API
+- API {#api}
 
   To update a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
@@ -58,9 +58,9 @@ Changing the VM name does not change the host name or the FQDN. For more informa
 
 To view the list of configurable parameters, run the command:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc compute instance update --help
@@ -72,9 +72,9 @@ To view the list of configurable parameters, run the command:
 
 To change the name and description of a VM, follow these steps:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@ To change the name and description of a VM, follow these steps:
        --description "changed description vm via CLI"
      ```
 
-- API
+- API {#api}
 
   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
@@ -111,9 +111,9 @@ Metadata based on different operating systems may differ. When you change an exi
 
 To update VM metadata, follow these steps:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -161,9 +161,9 @@ To update VM metadata, follow these steps:
 
 To make sure that users can [connect](../vm-connect/os-login.md) to the VM via [OS Login](../../../organization/concepts/os-login.md), enable this option in the VM settings:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -172,7 +172,7 @@ To make sure that users can [connect](../vm-connect/os-login.md) to the VM via [
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enable the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -197,7 +197,7 @@ To make sure that users can [connect](../vm-connect/os-login.md) to the VM via [
         --metadata enable-oslogin=true
       ```
 
-- API
+- API {#api}
 
    In the `metadata` field, set `enable-oslogin=true` in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 

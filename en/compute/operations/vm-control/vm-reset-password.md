@@ -3,7 +3,7 @@ title: "How to reset a user password on a Windows Server VM"
 description: "Follow this guide to reset a user password on a Windows Server VM."
 ---
 
-# Resetting a user password on a Windows Server virtual machine
+# Resetting a user password on a Windows Server VM
 
 To reset a user password on a Windows Server VM using {{ yandex-cloud }} tools, you need:
 
@@ -13,13 +13,13 @@ To reset a user password on a Windows Server VM using {{ yandex-cloud }} tools, 
 
 To reset a password:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Management console
+- Management console {#console}
 
    {% include [vm-reset-password-windows-console](../../../_includes/compute/vm-reset-password-windows-console.md) %}
 
-- PowerShell
+- PowerShell {#powershell}
 
    1. Run PowerShell as an administrator.
    1. Install the password reset module (once):

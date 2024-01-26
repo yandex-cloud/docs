@@ -6,14 +6,14 @@ description: "Use this tutorial to create a Linux VM."
 # Creating a VM from a public Linux image
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    {% include [create-instance-via-console-linux](../../_includes_service/create-instance-via-console-linux.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -73,7 +73,98 @@ description: "Use this tutorial to create a Linux VM."
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-- API
+- {{ TF }} {#tf}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   1. In the configuration file, describe the parameters of the resources you want to create:
+
+      ```hcl
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<disk_name>"
+        type     = "<disk_type>"
+        zone     = "<availability_zone>"
+        size     = "<disk_size>"
+        image_id = "<image_ID>"
+      }
+
+      resource "yandex_compute_instance" "vm-1" {
+        name                      = "linux-vm"
+        allow_stopping_for_update = true
+        platform_id               = "standard-v3"
+        zone                      = "<availability_zone>"
+
+        resources {
+          cores  = "<number_of_vCPU_cores>"
+          memory = "<GB_of_RAM>"
+        }
+
+        boot_disk {
+          disk_id = yandex_compute_disk.boot-disk.id
+        }
+
+        network_interface {
+          subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+          nat       = true
+        }
+
+        metadata = {
+          ssh-keys = "<username>:<SSH_key_contents>"
+        }
+      }
+
+      resource "yandex_vpc_network" "network-1" {
+        name = "network1"
+      }
+
+      resource "yandex_vpc_subnet" "subnet-1" {
+        name           = "subnet1"
+        zone           = "<availability_zone>"
+        v4_cidr_blocks = ["192.168.10.0/24"]
+        network_id     = "${yandex_vpc_network.network-1.id}"
+      }
+      ```
+
+      Where:
+
+      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
+         * `name`: Disk name.
+         * `type`: Type of the disk being created.
+         * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
+         * `size`: Disk size in GB.
+         * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+
+            {% include [id-info](../../../_includes/compute/id-info.md) %}
+
+      * `yandex_compute_instance`: Description of the VM:
+         * `name`: VM name.
+         * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
+         * `platform_id`: [Platform](../../concepts/vm-platforms.md).
+         * `zone`: Availability zone to host the VM.
+         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `boot_disk`: Boot disk settings. Specify the disk ID.
+         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `metadata`: In the metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `yandex_vpc_network`: Description of the cloud network.
+      * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
+
+      {% note info %}
+
+      If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+
+      {% endnote %}
+
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+
+   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
+- API {#api}
 
    Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource:
    1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
@@ -166,9 +257,9 @@ description: "Use this tutorial to create a Linux VM."
       * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size.
 
-        {% include [id-info](../../../_includes/compute/id-info.md) %}
+         {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-        The disk size must be not less than the minimum value specified in the image details.
+         Disk size must not be less than the minimum value specified in the image details.
       * `networkInterfaceSpecs`: [Network](../../../vpc/concepts/network.md#network) settings.
          * `subnetId`: ID of the selected subnet.
          * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, specify:
@@ -195,84 +286,8 @@ description: "Use this tutorial to create a Linux VM."
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-- {{ TF }}
-
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
-   1. In the configuration file, describe the parameters of the resources you want to create:
-
-      ```hcl
-      resource "yandex_compute_instance" "vm-1" {
-
-        name                      = "linux-vm"
-        allow_stopping_for_update = true
-        platform_id               = "standard-v3"
-        zone                      = "<availability_zone>"
-
-        resources {
-          cores  = "<number_of_vCPU_cores>"
-          memory = "<amount_of_RAM_in_GB>"
-        }
-
-        boot_disk {
-          initialize_params {
-            image_id = "<image_ID>"
-          }
-        }
-
-        network_interface {
-          subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
-          nat       = true
-        }
-
-        metadata = {
-          ssh-keys = "<username>:<SSH_key_contents>"
-        }
-      }
-
-      resource "yandex_vpc_network" "network-1" {
-        name = "network1"
-      }
-
-      resource "yandex_vpc_subnet" "subnet-1" {
-        name           = "subnet1"
-        zone           = "<availability_zone>"
-        v4_cidr_blocks = ["192.168.10.0/24"]
-        network_id     = "${yandex_vpc_network.network-1.id}"
-      }
-      ```
-
-      Where:
-      * `yandex_compute_instance`: Description of the VM:
-         * `name`: VM name.
-         * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
-         * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
-         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot [disk](../../concepts/disk.md) settings. Specify the ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
-         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
-         * `metadata`: In the metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `yandex_vpc_network`: Description of the cloud network.
-      * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
-
-      {% note info %}
-
-      If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
-
-      {% endnote %}
-
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
-   1. Create resources:
-
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
-
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
-
-   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
-
 {% endlist %}
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md)
+* [{#T}](../vm-connect/ssh.md).

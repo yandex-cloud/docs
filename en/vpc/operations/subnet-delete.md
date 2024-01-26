@@ -12,9 +12,9 @@ You cannot restore a subnet after it is deleted.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a subnet.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -22,7 +22,7 @@ You cannot restore a subnet after it is deleted.
    1. Click ![image](../../_assets/options.svg) next to the subnet you need and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -59,7 +59,7 @@ You cannot restore a subnet after it is deleted.
       yc vpc subnet delete test-subnet-1
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -121,7 +121,7 @@ You cannot restore a subnet after it is deleted.
       yc vpc subnet list
       ```
 
-- API
+- API {#api}
 
    To delete a [subnet](../concepts/network.md#subnet), use the [delete](../api-ref/Subnet/delete.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../api-ref/grpc/subnet_service.md#Delete) gRPC API call and provide the ID of the subnet to be deleted in the `subnetId` request parameter.
 
@@ -135,9 +135,9 @@ You cannot restore a subnet after it is deleted.
 
 ### Deleting a subnet from a particular folder {#from-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Delete a subnet from another folder:
 

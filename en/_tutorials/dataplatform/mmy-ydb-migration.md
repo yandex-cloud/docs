@@ -12,9 +12,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration.
 
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. If you are using security groups, [configure them](../../managed-kafka/operations/connect.md#configuring-security-groups) so that you can connect to the cluster from the internet.
 
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -114,21 +114,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create a source endpoint and transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
          * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`
          * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
-            Select a source cluster from the list and specify the cluster connection settings.
+            Select a source cluster from the list and specify its connection settings.
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. Uncomment the following in the `data-transfer-mmy-ydb.tf` file:
 
@@ -157,9 +157,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Make sure the data from the source {{ mmy-name }} cluster has been moved to the {{ ydb-name }} database:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -167,7 +167,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
       1. Check that the {{ ydb-name }} database contains the `<source_cluster_DB_name>_measurements` table with the test data.
 
-   * CLI
+   - CLI {#cli}
 
       1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
       1. Check that the database contains the `<source_cluster_DB_name>_measurements` table with the test data:
@@ -186,11 +186,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
        ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
    ```
 
-1. Check that the {{ ydb-name }} database shows information about the row added:
+1. Check that the {{ ydb-name }} database shows information about the added row:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -198,7 +198,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
       1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table.
 
-   * CLI
+   - CLI {#cli}
 
       1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
       1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table:
@@ -224,19 +224,19 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. If you created the service account along with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    * [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
    * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mmy-ydb.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

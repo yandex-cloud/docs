@@ -1,8 +1,8 @@
 # Deploying a fault-tolerant architecture with preemptible VMs
 
-In this tutorial, you will create a {{ sf-name }} function in [Node.js](../../functions/lang/nodejs/index.md) that will be invoked on a schedule and restart a stopped [preemptible {{ compute-name }} VM](../../compute/concepts/preemptible-vm.md).
+In this tutorial, you will create a [{{ sf-full-name }}](../../functions/) [function](../../functions/concepts/function.md) in [Node.js](../../functions/lang/nodejs/index.md) that will be invoked on a schedule and restart a stopped [preemptible {{ compute-full-name }} VM](../../compute/concepts/preemptible-vm.md).
 
-The architecture described here is suitable for VMs with non-critical loads. It allows you to use cost advantages of preemptible VMs and, in the event of a VM's shutdown, ensures that the idle time is less than a minute.
+The architecture described here is suitable for [VMs](../../compute/concepts/vm.md) with non-critical loads. It allows you to use cost advantages of preemptible VMs and, in the event of a VM's shutdown, ensures that the idle time is less than a minute.
 
 To deploy a fault-tolerant architecture with a preemptible VM:
 1. [Prepare the environment](#prepare).
@@ -17,44 +17,39 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
-* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
-* Fee for VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Secret storage and request fees (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* Fee for VM computing resources (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
+* Fee for VM [disks](../../compute/concepts/disk.md) (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
+* Fee for using a dynamic or a static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* [Secret](../../lockbox/concepts/secret.md) storage and request fees (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 * Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* Fee for logging operations and data storage in a log group (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) if you use {{ cloud-logging-name }}.
-
+* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) if you use [{{ cloud-logging-name }}](../../logging/).
 
 ## Prepare the environment {#prepare}
 
-1. [Create](../../iam/operations/sa/create.md) a service account that will be used to invoke the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-functions-invoker }}` and `{{ roles-lockbox-payloadviewer }}` roles.
+1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) that will be used to invoke the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-functions-invoker }}` and `{{ roles-lockbox-payloadviewer }}` [roles](../../iam/concepts/access-control/roles.md).
 1. [Create](../../compute/operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible VM.
-
 
 ## Create a secret {#create-secret}
 
-Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store an OAuth token.
+Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [OAuth token](../../iam/concepts/authorization/oauth-token.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
-   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, such as `oauth-token`.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `oauth-token`.
    1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
-
       * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `key_token`.
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the [OAuth token](../../iam/concepts/authorization/oauth-token.md) value required for function authorization.
-
+      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the OAuth token value required for function authorization.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a secret, run this command:
 
@@ -62,27 +57,22 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
    yc lockbox secret create --name oauth-token \
      --payload "[{'key': 'key_token', 'text_value': '<OAuth_token>'}]"
    ```
-   Where `text_value` is the value of the [OAuth token](../../iam/concepts/authorization/oauth-token.md) required for function authorization.
+
+   Where `text_value` is the value of the OAuth token required for function authorization.
 
    Result:
 
-   ```
+   ```text
    done (1s)
    id: e6qu9ik259lb********
    folder_id: b1g9d2k0itu4********
-   created_at: "2023-10-28T12:19:03.888Z"
-   name: oauth-token
-   status: ACTIVE
-   current_version:
-     id: e6qq5tgfrp9k********
-     secret_id: e6qu9ik259lb********
-     created_at: "2023-10-28T12:19:03.888Z"
+   ...
      status: ACTIVE
      payload_entry_keys:
        - key_token
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the secret parameters:
 
@@ -104,7 +94,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
       * `name`: Secret name.
       * `key`: Secret key.
-      * `text_value`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) value required for function authorization.
+      * `text_value`: OAuth token value required for function authorization.
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
@@ -120,8 +110,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
@@ -132,7 +121,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
       1. Confirm the secret creation: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create) gRPC API call.
 
@@ -146,16 +135,16 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
    import { serviceClients, Session, cloudApi } from '@yandex-cloud/nodejs-sdk';
 
    const {
-       compute: {
-           instance_service: {
-               ListInstancesRequest,
-               GetInstanceRequest,
-               StartInstanceRequest,
-           },
-           instance: {
-               IpVersion,
-           },
+     compute: {
+       instance_service: {
+         ListInstancesRequest,
+         GetInstanceRequest,
+         StartInstanceRequest,
        },
+       instance: {
+         IpVersion,
+       },
+     },
    } = cloudApi;
 
    const FOLDER_ID = process.env.FOLDER_ID;
@@ -163,29 +152,29 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
    const OAUTHTOKEN = process.env.OAUTHTOKEN;
 
    export const handler = async function (event, context) {
-       const session = new Session({ oauthToken: OAUTHTOKEN });
-       const instanceClient = session.client(serviceClients.InstanceServiceClient);
-       const list = await instanceClient.list(ListInstancesRequest.fromPartial({
-           folderId: FOLDER_ID,
-       }));
-       const state = await instanceClient.get(GetInstanceRequest.fromPartial({
-           instanceId: INSTANCE_ID,
-       }));
+     const session = new Session({ oauthToken: OAUTHTOKEN });
+     const instanceClient = session.client(serviceClients.InstanceServiceClient);
+     const list = await instanceClient.list(ListInstancesRequest.fromPartial({
+       folderId: FOLDER_ID,
+     }));
+     const state = await instanceClient.get(GetInstanceRequest.fromPartial({
+       instanceId: INSTANCE_ID,
+     }));
 
-       var status = state.status
+     var status = state.status
 
-       if (status == 4){
-           const startcommand = await instanceClient.start(StartInstanceRequest.fromPartial({
-               instanceId: INSTANCE_ID,
-           }));
+     if (status == 4){
+       const startcommand = await instanceClient.start(StartInstanceRequest.fromPartial({
+         instanceId: INSTANCE_ID,
+       }));
+     }
+
+     return {
+       statusCode: 200,
+       body: {
+         status
        }
-
-       return {
-           statusCode: 200,
-           body: {
-               status
-           }
-       };
+     };
    };
    ```
 
@@ -206,45 +195,37 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
 ## Create a function {#func-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Create a function:
-
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. In the window that opens, enter `function-restart-vms` as the function name.
       1. Click **{{ ui-key.yacloud.common.create }}**.
-
-   1. Create the function version:
-
+   1. Create a [function version](../../functions/concepts/function.md#version):
       1. Select the `nodejs18` runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `function-js.zip` archive you created earlier.
       1. Specify the entry point: `index.handler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the previously created service account with rights to invoke the function.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-
             * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) in which to restart the stopped VM instances.
             * `INSTANCE_ID`: [ID of the VM instance](../../compute/operations/vm-info/get-info.md#outside-instance) to restart at interruption.
-
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
-
             * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** field, specify `OAUTHTOKEN`.
             * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** field, select the previously created `oauth-token` secret.
             * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** field, select a version for the secret.
             * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** field, select `key_token` as the key name.
-
          * If you do not want to save logs and pay for using {{ cloud-logging-name }}, disable logging: select `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` in the **{{ ui-key.yacloud.logging.label_destination }}** field under **{{ ui-key.yacloud.logging.label_title }}**.
-
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -258,7 +239,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
       Result:
 
-      ```bash
+      ```text
       id: d4ebrmenrr7l********
       folder_id: b1g9d2k0itu4********
       created_at: "2023-10-28T17:26:58.200799757Z"
@@ -267,7 +248,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
       status: ACTIVE
       ```
 
-   1. Create a function version named `function-restart-vms`:
+   1. Create a [function version](../../functions/concepts/function.md#version) named `function-restart-vms`:
 
       ```bash
       yc serverless function version create \
@@ -291,12 +272,9 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
       * `--entrypoint`: Entry point.
       * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with rights to invoke the function.
       * `--environment`: Environment variables:
-
          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) in which to restart the stopped VM instances.
          * `INSTANCE_ID`: [ID of the VM instance](../../compute/operations/vm-info/get-info.md#outside-instance) to restart at interruption.
-
       * `--secret`: {{ lockbox-name }} secret details:
-
          * `name`: Secret name.
          * `version-id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
          * `key`: Secret key.
@@ -306,39 +284,20 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
       Result:
 
-      ```bash
+      ```text
       done (16s)
       id: d4etv5f4sjet********
       function_id: d4ebrmenrr7l********
-      created_at: "2023-10-28T16:24:27.786Z"
-      runtime: nodejs18
-      entrypoint: index.handler
-      resources:
-        memory: "134217728"
-      execution_timeout: 3s
-      service_account_id: ajeh2dukocg3********
-      image_size: "14381056"
-      status: ACTIVE
-      tags:
-        - $latest
-      environment:
-        FOLDER_ID: b1g9d2k0itu4********
-        INSTANCE_ID: epdpdqouc1d9********
-      secrets:
-        - id: e6qtqla8rkuk********
-          version_id: e6qts789v5rf********
-          key: key_token
-          environment_variable: OAUTHTOKEN
+      ...
       log_options:
         disabled: true
         folder_id: b1g9d2k0itu4********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-   1. In the configuration file, describe the `function-restart-vms` function parameters and its versions:
+   1. In the configuration file, describe the `function-restart-vms` function parameters and its [versions](../../functions/concepts/function.md#version):
 
       ```hcl
       resource "yandex_function" "function-restart-vms" {
@@ -376,23 +335,17 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
       * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account with rights to invoke a function.
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create your function in.
       * `environment`: Environment variables:
-
          * `FOLDER_ID`: ID of the folder in which to restart the stopped VM instances.
          * `INSTANCE_ID`: [ID of the VM instance](../../compute/operations/vm-info/get-info.md#outside-instance) to restart at interruption.
-
       * `secrets`: {{ lockbox-name }} secret details:
-
          * `id`: Secret ID.
          * `version_id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
          * `key`: Secret key.
          * `environment_variable`: Environment variable where the secret will be kept.
-
       * `zip_filename`: Path to the `index-js.zip` archive you created earlier.
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
@@ -400,10 +353,8 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
          ```bash
@@ -420,7 +371,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
          Result:
 
-         ```bash
+         ```text
          id: d4ees84gsdsd********
          folder_id: b1g9d2k0itu4********
          created_at: "2023-08-09T10:11:40.740Z"
@@ -430,7 +381,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
          status: ACTIVE
          ```
 
-- API
+- API {#api}
 
    To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create) gRPC API call.
 
@@ -442,36 +393,27 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
 {% include [trigger-time](../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
-
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [trigger](../../functions/concepts/trigger/index.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-
    1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-
       * Enter the trigger name: `timer`.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
-
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, enter `* * ? * * *` or select `{{ ui-key.yacloud.common.button_cron-1min }}`.
-
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `function-restart-vms` function and specify:
-
       * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**](../../functions/concepts/function.md#tag): `$latest`.
       * Previously created service account with rights to invoke the function.
-
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
-   To create a trigger that invokes a function, run this command:
+   To create a [trigger](../../functions/concepts/trigger/index.md) that invokes a function, run this command:
 
    ```bash
    yc serverless trigger create timer \
@@ -489,25 +431,19 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
    Result:
 
-   ```bash
+   ```text
    id: a1sv54ekvknb********
    folder_id: b1g9d2k0itu4********
    created_at: "2023-08-08T19:46:22.860681482Z"
-   name: timer
-   rule:
-     timer:
-       cron_expression: '* * ? * * *'
-       invoke_function_with_retry:
-         function_id: d4ebrmenrr7l********
+   ...
          function_tag: $latest
          service_account_id: ajeh2dukocg3********
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
-   To create a trigger that launches a function:
-
+   To create a [trigger](../../functions/concepts/trigger/index.md) that launches a function:
    1. In the configuration file, describe the `timer` trigger parameters:
 
       ```hcl
@@ -530,9 +466,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
       * `service_account_id`: ID of the service account with rights to invoke a function.
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
@@ -540,10 +474,8 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
          ```bash
@@ -560,21 +492,17 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
          Result:
 
-         ```bash
+         ```text
          id: a1s4bvdvmod0********
          folder_id: b1g9d2k0itu4********
          created_at: "2023-08-09T10:19:12.356Z"
-         name: timer
-         rule:
-           timer:
-             cron_expression: '* * ? * * *'
-             invoke_function:
+         ...
                function_id: d4ebrmenrr7l********
                service_account_id: ajeh2dukocg3********
          status: ACTIVE
          ```
 
-- API
+- API {#api}
 
    To create a timer, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
@@ -582,24 +510,18 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
 ## Test the function {#test}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you created your preemptible VM.
-
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-
    1. In the left-hand panel, select **{{ ui-key.yacloud.compute.switch_instances }}**.
-
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM name and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
-
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
-
    1. Check the VM status in a minute or later. Make sure it changes to `Running`.
 
 {% endlist %}
-
 
 ## How to delete the resources you created {#clear-out}
 

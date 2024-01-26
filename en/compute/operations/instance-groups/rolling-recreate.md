@@ -8,9 +8,9 @@ For example, if the maximum number of unhealthy instances per group set in the d
 
 To recreate group instances one by one:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -123,7 +123,7 @@ To recreate group instances one by one:
 
    For more information about the `{{ yc-compute-ig }} rolling-recreate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/rolling-recreate.md).
 
-- API
+- API {#api}
 
    Use the [rollingRecreate](../../api-ref/InstanceGroup/rollingRecreate.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/RollingRecreate](../../api-ref/grpc/instance_group_service.md#RollingRecreate) gRPC API call.
 

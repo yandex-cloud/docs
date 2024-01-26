@@ -58,9 +58,9 @@
 
 Создайте необходимые ресурсы:
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-* Вручную
+- Вручную {#manual}
 
     [Создайте кластер {{ mpg-name }}](../operations/cluster-create.md) с публичным доступом к хостам. При этом:
 
@@ -68,7 +68,7 @@
     * Имя базы данных должно быть такое же, как и в кластере-источнике.
     * Включите те же [расширения {{ PG }}](../operations/extensions/cluster-extensions.md), что и в базе-источнике.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}

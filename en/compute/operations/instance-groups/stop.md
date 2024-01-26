@@ -8,11 +8,11 @@ If you stop a single instance in a group instead of the whole group, {{ ig-name 
 
 {% endnote %}
 
-Only disks are charged for stopped instances. If you don't want to pay for disk usage, then reduce the instance group size to 0 or [delete the group](delete.md). To avoid losing data, [make snapshots of the disks](../disk-control/create-snapshot.md).
+Only disks are billable for stopped instances. If you do not want to pay for disk usage, reduce the instance group size to 0 or [delete the group](delete.md). To avoid losing data, [make snapshots of the disks](../disk-control/create-snapshot.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -20,7 +20,7 @@ Only disks are charged for stopped instances. If you don't want to pay for disk 
    1. In the line with the appropriate instance group, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-stop }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_stop }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -45,7 +45,7 @@ Only disks are charged for stopped instances. If you don't want to pay for disk 
 
       {{ ig-name }} will begin stopping instances in the group. When all instances are stopped, the group switches to the `STOPPED` status.
 
-- API
+- API {#api}
 
    You can stop an instance group by using the [stop](../../api-ref/InstanceGroup/stop.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Stop](../../api-ref/grpc/instance_group_service.md#Stop) gRPC API call.
 

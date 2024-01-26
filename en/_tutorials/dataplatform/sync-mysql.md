@@ -21,9 +21,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Infrastructure costs for data transfers include:
 
-1. Fee for continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+1. Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 1. Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-1. Fee for continuously running cluster {{ mmy-name }} (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+1. Fee for a continuously running {{ mmy-name }} cluster (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 1. Fee for {{ data-transfer-name }} (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing)).
 
 
@@ -31,9 +31,9 @@ Infrastructure costs for data transfers include:
 
 1. Create a VM with an online store named `web-store-vm` based on MySQL:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       Create a disk with a pre-configured public image of the VM with the online store:
 

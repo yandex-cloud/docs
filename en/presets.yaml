@@ -707,6 +707,8 @@ default:
   yagpt-name: YandexGPT
   yandex-360: Yandex 360
   yandex-cloud: Yandex Cloud
+  yandex-direct: Yandex Direct
+  yandex-oauth: Yandex.OAuth
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
   yc-dp: yc dataproc

@@ -2,9 +2,9 @@
 
 If you created a virtual machine without a public IP, you can bind it to an IP [you reserved](../../../vpc/operations/get-static-ip.md) in {{ vpc-name }} or to one automatically selected by {{ compute-name }} from among available IPs.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -16,7 +16,7 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
       * If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select the address that you would like to bind to your VM.
       * Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -87,7 +87,7 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
 
    For more information about the `yc compute instance add-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/add-one-to-one-nat.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 

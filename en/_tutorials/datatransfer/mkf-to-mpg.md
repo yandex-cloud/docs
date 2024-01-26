@@ -12,9 +12,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare the infrastructure:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md#create-cluster) in any [availability zone](../../overview/concepts/geo-scope.md), with any appropriate configuration, and allow public access to it.
 
@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
          * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -183,9 +183,9 @@ Create a local `sample.json` file with the following test data:
 
 1. Create a target endpoint and a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
@@ -193,11 +193,11 @@ Create a local `sample.json` file with the following test data:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ PG }}_target_cluster>` from the drop-down list.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`.
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In `kafka-postgresql.tf`, specify the following variables:
 
@@ -261,19 +261,19 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources, depending on the method used to create them:
+1. Delete the other resources depending on how they were created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       * [Target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
       * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
       * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
-      1. In the terminal window, switch to the directory containing the infrastructure plan.
+      1. In the terminal window, go to the directory containing the infrastructure plan.
       1. Delete the `kafka-postgresql.tf` configuration file.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

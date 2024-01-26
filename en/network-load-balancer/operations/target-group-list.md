@@ -4,14 +4,14 @@ You can request detailed information about each target group you created.
 
 ## Getting a list of target groups in a folder {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. In the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -37,7 +37,7 @@ You can request detailed information about each target group you created.
 
 
 
-- API
+- API {#api}
 
    Use the [list](../api-ref/TargetGroup/list.md) API method and provide the folder ID in the `folderId` request parameter.
 
@@ -45,15 +45,15 @@ You can request detailed information about each target group you created.
 
 ## Getting detailed information about a target group {#get}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. In the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
    1. Click the name of the target group you need.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -62,12 +62,12 @@ You can request detailed information about each target group you created.
    To get information about a target group, run this command:
 
    ```bash
-   yc load-balancer target-group get <target group ID or name>
+   yc load-balancer target-group get <target_group_name_or_ID>
    ```
 
    You can get the target group ID and name with a [list of target groups in the folder](#list).
 
-- API
+- API {#api}
 
    Use the [get](../api-ref/TargetGroup/get.md) API method and provide the target group ID in the `targetGroupId` request parameter.
 
@@ -77,15 +77,15 @@ You can request detailed information about each target group you created.
 
 ## Viewing a list of operations in a target group {#list-operations}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. In the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
    1. Click the name of the target group and go to ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -94,12 +94,12 @@ You can request detailed information about each target group you created.
    To get a list of operations, run the following command:
 
    ```bash
-   yc load-balancer target-group list-operations <target group ID or name>
+   yc load-balancer target-group list-operations <target_group_name_or_ID>
    ```
 
    You can get the target group ID and name with a [list of target groups in the folder](#list).
 
-- API
+- API {#api}
 
    Use the [listOperations](../api-ref/TargetGroup/listOperations.md) API method and provide the target group ID in the `networkLoadBalancerId` request parameter.
 

@@ -9,9 +9,9 @@ description: "Follow this guide to change a disk snapshot schedule in {{ compute
 
 To change basic settings of a snapshot schedule:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -38,7 +38,7 @@ To change basic settings of a snapshot schedule:
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -110,7 +110,7 @@ To change basic settings of a snapshot schedule:
       * `--description`: Description.
       * `--expression`: [Cron expression](../../concepts/snapshot-schedule.md#cron).
       * `--retention-period`: Period of snapshot retention in seconds (`s`), minutes (`m`), or hours (`h`).
-      * `--snapshot-count`: Number of stored snapshots. Use either `--snapshot-count` or `--retention-period`. See about [retention policies](../../concepts/snapshot-schedule.md#retention).
+      * `--snapshot-count`: Number of stored snapshots. Use either `--snapshot-count` or `--retention-period`. See [retention policies](../../concepts/snapshot-schedule.md#retention).
       * `--start-at`: Start date and time. You can also specify a period related to the current time point. For example: `"2022-12-31T16:39:00+05:00"`, `"2h"`.
       * `--labels`: List of labels in `key=value` format.
 
@@ -131,7 +131,7 @@ To change basic settings of a snapshot schedule:
       snapshot_spec: {}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -172,7 +172,7 @@ To change basic settings of a snapshot schedule:
    yc compute snapshot-schedule get <schedule_name>
    ```
 
-- API
+- API {#api}
 
    1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
 
@@ -186,9 +186,9 @@ To change basic settings of a snapshot schedule:
 
 To change a list of disks for which snapshots are scheduled:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -201,7 +201,7 @@ To change a list of disks for which snapshots are scheduled:
 
       * To delete a disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, next to the disk you want to delete from the schedule, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -430,7 +430,7 @@ To change a list of disks for which snapshots are scheduled:
       snapshot_spec: {}
       ```
 
-- API
+- API {#api}
 
    1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
    1. Get the list of disks using the [list](../../api-ref/Disk/list.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
@@ -442,9 +442,9 @@ To change a list of disks for which snapshots are scheduled:
 
 ### Updating the name of a schedule {#change-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To set a new name for the schedule:
 

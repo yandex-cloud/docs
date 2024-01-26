@@ -12,16 +12,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For clarity, we will create all required resources in {{ yandex-cloud }}. Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration with the `gp-user` admin username and public hosts.
 
    1. [Create a {{ mpg-full-name }} target cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts. When creating a cluster, specify:
 
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`
-      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
 
    
    1. If you are using security groups in clusters, make sure they are set up correctly and allow connecting to the clusters:
@@ -30,7 +30,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -79,9 +79,9 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 1. Create a target endpoint and a transfer:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Manually
+   - Manually {#manual}
 
         1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
@@ -101,9 +101,9 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
             {% endnote %}
 
-    * Using {{ TF }}
+   - {{ TF }} {#tf}
 
-        1. Specify the variables in the file `greenplum-postgresql.tf`:
+        1. Specify the variables in the `greenplum-postgresql.tf` file:
 
             * `gp_source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: Set `1` to enable transfer creation.
@@ -170,7 +170,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
    ```
 
 1. [Reactivate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Make sure that you see the changes in the `x_tab` table on the {{ PG }} target:
+1. Check the changes in the `x_tab` table on the {{ PG }} target:
 
    ```sql
    SELECT id, name FROM db1.public.x_tab;
@@ -193,14 +193,14 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 * [Delete both the source endpoint and the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 * Delete the clusters:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
       * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
         If you created your resources using {{ TF }}:
 

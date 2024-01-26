@@ -41,16 +41,16 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
 1. Create a [cloud network](../../vpc/concepts/network.md).
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. Select **{{ vpc-short-name }}** in the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name: `rdgw-network`.
       1. Click **Create network**.
 
-   - CLI
+   - CLI {#cli}
 
       ```
       yc vpc network create --name rdgw-network
@@ -67,7 +67,8 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       name: rdgw-network
       default_security_group_id: enpa139ji55jti00u5sg
       ```
-   - API
+
+   - API {#api}
 
       Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
 
@@ -75,9 +76,9 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
 1. Create a subnet in the network `rdgw-network`.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. Select **{{ vpc-short-name }}** in the folder to create a subnet in.
       1. Click the name of the cloud network.
@@ -86,7 +87,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
-   - CLI
+   - CLI {#cli}
 
       ```
       yc vpc subnet create `
@@ -111,7 +112,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       - 10.1.0.0/16
       ```
 
-   - API
+   - API {#api}
 
       Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
@@ -121,9 +122,9 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
 Create and set up a [security group](../../vpc/concepts/security-groups.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Select **{{ vpc-short-name }}** in the folder where you want to create a security group.
    1. Open the **Security groups** tab.
@@ -143,7 +144,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
       1. Select the **Outgoing traffic** or **Incoming traffic** tab.
       1. Click **Add rule**.
       1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
+      1. In the **Protocol** field, specify the appropriate protocol or leave **Any** to allow traffic transmission over any protocol.
       1. In the **Purpose** or **Source** field, select the purpose of the rule:
          * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
          * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
@@ -151,7 +152,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
 
    1. Click **Save**.
 
-- CLI
+- CLI {#cli}
 
    ```
    yc vpc security-group create --name=my-rdgw-sg `
@@ -183,7 +184,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
       - 0.0.0.0/0
    ```
 
-- API
+- API {#api}
 
    Use the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call.
 
@@ -193,9 +194,9 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
 
 Create a VM with a public address:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-gw`.
@@ -204,7 +205,7 @@ Create a VM with a public address:
    1. Under **Disks**, enter 60 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and the amount of RAM:
+      * Specify the required number of vCPUs and the amount of RAM:
          * **vCPU**: 2
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 4 GB
@@ -213,7 +214,7 @@ Create a VM with a public address:
 
    {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
    1. In the PowerShell terminal, create a script named `setpass` to set up a password for the `Administrator` account using the `user-data` field in the [VM metadata](../../compute/concepts/vm-metadata.md). The `cloudbase-init` utility executes it on the first run.
 
@@ -384,9 +385,9 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
 1. Create a VM with no internet access and connect to it during the test.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name: `test-vm`.
@@ -395,7 +396,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
       1. Under **Disks**, enter 60 GB for the size of the boot disk.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the number of vCPUs and the amount of RAM:
+         * Specify the required number of vCPUs and the amount of RAM:
             * **vCPU**: 2
             * **Guaranteed vCPU share**: 100%
             * **RAM**: 4 GB
@@ -404,7 +405,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
       {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-   - CLI
+   - CLI {#cli}
 
       Create a VM:
 
@@ -454,7 +455,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         placement_policy: {}
       ```
 
-   - API
+   - API {#api}
 
       Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
 
@@ -462,7 +463,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
 1. Import the created certificate to the `Trusted Roots Certificate Authorities` directory on the computer that you will use to connect to the test VM.
 
-   To connect to the gateway using the VM name, specify the name and external IP address of the created RDGW in the `C:\Windows\system32\drivers\etc\hosts` file. For example:
+   To connect to the gateway using the VM name, specify the name and external IP address of the created RDGW in the `C:\Windows\system32\drivers\etc\hosts` file. Here is an example:
 
    ```powershell
    87.250.250.242 my-rds-gw

@@ -11,9 +11,9 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a route table and add [static routes](../concepts/static-routes.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a static route.
@@ -40,7 +40,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
    1. In the window that opens, select the created table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a route table and add [static routes](../concepts/static-routes.md):
    1. View a description of the CLI command for creating routing tables:
@@ -133,7 +133,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       route_table_id: enp1sdveovdp********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -178,7 +178,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -196,7 +196,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
          yc vpc route-table list
          ```
 
-- API
+- API {#api}
 
    To create a route table and add [static routes](../concepts/static-routes.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) gRPC API call, and provide the following in the request:
 

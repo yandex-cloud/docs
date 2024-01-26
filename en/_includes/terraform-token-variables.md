@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    ```bash
    export YC_TOKEN=$(yc iam create-token)
@@ -13,7 +13,7 @@
    * `YC_CLOUD_ID`: Cloud ID.
    * `YC_FOLDER_ID`: Folder ID.
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```powershell
    $Env:YC_TOKEN=$(yc iam create-token)

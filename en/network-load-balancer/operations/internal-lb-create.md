@@ -19,9 +19,9 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create an [internal network load balancer](../concepts/nlb-types.md):
    1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
@@ -66,7 +66,7 @@ The internal load balancer's listener is assigned a random IP address from the r
       1. Click **{{ ui-key.yacloud.common.apply }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -88,9 +88,9 @@ The internal load balancer's listener is assigned a random IP address from the r
          --listener name=<listener_name>,`
                    `port=<port>,`
                    `target-port=<target_port>,`
-                   `protocol=<protocol:_tcp_or_udp>,`
+                   `protocol=<protocol>,`
                    `internal-subnet-id=<subnet_ID>,`
-                   `internal-ip-version=<IP_version:_ipv4_or_ipv6> \
+                   `internal-ip-version=<IP_version> \
          --target-group target-group-id=<target_group_ID>,`
                        `healthcheck-name=<health_check_name>,`
                        `healthcheck-interval=<health_check_interval>s,`
@@ -99,14 +99,14 @@ The internal load balancer's listener is assigned a random IP address from the r
                        `healthcheck-healthythreshold=<number_of_successful_health_checks_for_Healthy_status>,`
                        `healthcheck-tcp-port=<TCP_port>,`
                        `healthcheck-http-port=<HTTP_port>,`
-                       `healthcheck-http-path=<URL_to_perform_health_checks_at>
+                       `healthcheck-http-path=<URL>
       ```
 
       Where:
 
-      * `type`: Load balancer type.
-      * `listener`: Listener parameters:
-         * `name`: Name of the listener.
+      * `--type`: Load balancer type.
+      * `--listener`: Listener parameters:
+         * `name`: Listener name.
          * `port`: Port where the load balancer will accept incoming traffic. The acceptable values are from `1` to `32767`.
          * `target-port`: Port to which the load balancer will redirect traffic. The acceptable values are from `1` to `32767`.
          * `protocol`: Protocol the listener will use (`TCP` or `UDP`).
@@ -115,7 +115,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -125,19 +125,19 @@ The internal load balancer's listener is assigned a random IP address from the r
 
    1. Describe the parameters of the network load balancer resource in a configuration file:
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "<network_load_balancer_name>"
+        name = "<load_balancer_name>"
         type = "internal"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        deletion_protection = "<deletion_protection>"
         listener {
           name = "<listener_name>"
           port = <port_number>
           internal_address_spec {
             subnet_id = "<subnet_ID>"
-            ip_version = "<IP_version:_ipv4_or_ipv6>"
+            ip_version = "<IP_version>"
           }
         attached_target_group {
           target_group_id = "<target_group_ID>"
@@ -145,7 +145,7 @@ The internal load balancer's listener is assigned a random IP address from the r
             name = "<health_check_name>"
               http_options {
                 port = <port_number>
-                path = "<URL_to_perform_health_checks_at>"
+                path = "<URL>"
               }
           }
         }
@@ -158,7 +158,7 @@ The internal load balancer's listener is assigned a random IP address from the r
       * `type`: Type of the network load balancer. Use `internal` to create an internal network load balancer.
       * `deletion_protection`: Internal network load balancer deletion protection. You cannot delete a load balancer with this option enabled. If load balancer deletion protection is enabled, you can still delete its listeners and target groups. The default value is `false`.
       * `listener`: Listener parameters:
-         * `name`: Name of the listener.
+         * `name`: Listener name.
          * `port`: Port in the range of `1` to `32767` that the network load balancer will receive incoming traffic on.
          * `internal_address_spec`: Specification of the listener for the external load balancer:
             * `subnet_id`: Subnet.
@@ -175,7 +175,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To create an internal network load balancer, use the [create](../api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../api-ref/grpc/network_load_balancer_service.md#Create) gRPC API call.
 
@@ -187,9 +187,9 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 Create an internal network load balancer named `internal-lb-test-1` without a listener and target group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create an internal load balancer without a listener, run the command:
 
@@ -198,7 +198,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
       --type=internal
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the resource parameters without the `listener` and `attached_target_group` sections:
 
@@ -219,7 +219,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
 
@@ -255,9 +255,9 @@ Create an internal network load balancer with a listener and attached target gro
    * Port for HTTP health checks: `80`
    * URL for health checks: `/`
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Run the following command:
 
@@ -280,7 +280,7 @@ Create an internal network load balancer with a listener and attached target gro
                     `healthcheck-http-path=/
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the resource parameters with the `listener` and `attached_target_group` sections:
 
@@ -326,7 +326,7 @@ Create an internal network load balancer with a listener and attached target gro
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
 

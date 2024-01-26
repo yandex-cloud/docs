@@ -6,11 +6,11 @@ title: "How to get information about a disk in {{ compute-full-name }}"
 
 You can get the disk size, availability zone, and other disk information.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 To get information about a disk:
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

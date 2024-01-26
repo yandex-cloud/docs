@@ -12,11 +12,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
 1. Prepare the infrastructure and start the data transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
-      1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration. In this case:
+      1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration. In which case:
 
          * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
@@ -37,8 +37,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MYSQL }}`.
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MYSQL }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
             Select a target cluster from the list and specify its connection settings.
 
@@ -51,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% endnote %}
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
 
@@ -113,17 +113,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
    * [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
    * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mysql-mmy.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

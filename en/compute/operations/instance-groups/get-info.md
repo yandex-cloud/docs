@@ -6,16 +6,16 @@ You can only use the CLI or API to retrieve user [metadata](../../concepts/vm-me
 
 To get information about an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-   1. Click on the name of the group you need.
+   1. Click the name of the group.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -38,7 +38,7 @@ To get information about an instance group:
       {{ yc-compute-ig }} get --name first-instance-group
       ```
 
-- API
+- API {#api}
 
    Use the [get](../../api-ref/InstanceGroup/get.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Get](../../api-ref/grpc/instance_group_service.md#Get) gRPC API call.
 

@@ -35,15 +35,15 @@ To [create](../vm-create/create-from-snapshots.md) a VM in a different availabil
 
 {% note info %}
 
-If data is being written to the disk, its move may fail. In this case, stop the disk write operation or shut down the VM and restart the disk move.
+If data is being written to the disk, its move may fail. In this case, stop the disk write operation or shut down the VM and restart the move.
 
 {% endnote %}
 
 To attach the disk to a VM from a different availability zone, move it:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@ To attach the disk to a VM from a different availability zone, move it:
 
       Where:
 
-      * `--id`: ID of the disk to be moved.
+      * `--id`: ID of the disk you need to move.
       * `--destination-zone-id`: ID of the availability zone to move the disk to, e.g., `{{ region-id }}-a`.
 
       If you are moving a [disk in a placement group](../../concepts/disk-placement-group.md), provide the group ID in the `--disk-placement-group-id` parameter.

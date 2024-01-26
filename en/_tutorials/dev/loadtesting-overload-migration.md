@@ -40,9 +40,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
 
 ## Migrate the testing results {#transfer-results}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 
@@ -59,9 +59,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
 
 ## Check the results {#check-results}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 
@@ -79,9 +79,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
 
 To delete the test results migrated from Yandex OverLoad:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 

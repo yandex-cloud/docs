@@ -18,26 +18,26 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mmg.viewer }}` role](../../../../managed-mongodb/security/index.md#mmg-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmg.viewer }}` role](../../../../managed-mongodb/security/index.md#mmg-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `mongo-target`.
 
    {% include [Managed MongodDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `mongo_target`.
 
@@ -72,7 +72,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [Managed MongodDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
 
@@ -83,19 +83,19 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 Connecting to the database with explicitly specified network addresses and ports.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `mongo-target`.
 
    {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `mongo_target`.
 
@@ -139,7 +139,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [On premise MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mongodb.md) %}
 
@@ -147,9 +147,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}**: Enter a name for the database. If you do not specify any name, the source database name will be used.
 
@@ -165,7 +165,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
          Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * `database`: Specify the database name if you want to create collections in a database that is different from the source database.
 

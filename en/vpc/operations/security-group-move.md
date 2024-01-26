@@ -5,9 +5,9 @@ description: "Follow this guide to move a security group to a different folder."
 
 # Moving a security group to a different folder
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To move a [security group](../concepts/security-groups.md) to a different folder:
 
@@ -18,7 +18,7 @@ description: "Follow this guide to move a security group to a different folder."
    1. Select the destination folder from the drop-down list.
    1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -94,7 +94,7 @@ description: "Follow this guide to move a security group to a different folder."
 
       For more information about the `yc vpc security-group move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/move.md).
 
-- API
+- API {#api}
 
    To move a [security group](../concepts/security-groups.md) to a different folder, use the [move](../api-ref/SecurityGroup/move.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Move](../api-ref/grpc/security_group_service.md#Move) gRPC API call, and provide the following in the request:
 
@@ -114,9 +114,9 @@ description: "Follow this guide to move a security group to a different folder."
 
 Move a security group from the current folder by specifying the group name and destination folder name:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc vpc security-group move my-sg-1 \
@@ -129,9 +129,9 @@ Move a security group from the current folder by specifying the group name and d
 
 Move a security group from a different folder. Specify the group ID and the source and destination folder IDs:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc vpc security-group move encemkpqg8fh******** \

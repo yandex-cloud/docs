@@ -175,6 +175,8 @@ items:
             href: tutorials/rdbms-to-clickhouse.md
           - name: '{{ GP }} to {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
+          - name: '{{ yandex-direct }} to {{ CH }}'
+            href: tutorials/direct-to-mch.md
       - name: Uploading data to {{ objstorage-name }}
         items:
           - name: '{{ MY }} to {{ objstorage-name }}'

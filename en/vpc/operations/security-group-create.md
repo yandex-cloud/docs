@@ -9,9 +9,9 @@ description: "Follow this guide to create a security group."
 
 To create a new [security group](../concepts/security-groups.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a security group.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -31,7 +31,7 @@ To create a new [security group](../concepts/security-groups.md):
    1. Click **{{ ui-key.yacloud.common.save }}**. Add other rules, if required.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a group with an IPv4 CIDR rule, run the command:
 
@@ -51,7 +51,7 @@ To create a new [security group](../concepts/security-groups.md):
       * `protocol`: Data transfer protocol. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
       * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets to deal with outgoing and incoming traffic.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -113,7 +113,7 @@ To create a new [security group](../concepts/security-groups.md):
          ```
          terraform plan
          ```
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    3. Deploy cloud resources.
 
@@ -125,7 +125,7 @@ To create a new [security group](../concepts/security-groups.md):
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create) gRPC API call, and provide the following in the request:
 

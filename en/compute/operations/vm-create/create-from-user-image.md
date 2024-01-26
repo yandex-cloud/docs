@@ -13,9 +13,9 @@ Make sure the uploaded image is in the `READY` status.
 
 ## Create a VM from the prepared image {#create-vm-from-image}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
@@ -111,7 +111,7 @@ Make sure the uploaded image is in the `READY` status.
 
    The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -160,11 +160,7 @@ Make sure the uploaded image is in the `READY` status.
       The `yc-user` user will be created on the VM with the public key from the `~/.ssh/id_ed25519.pub` file. The VM gets a [public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, remove the `--public-ip` flag.
 
 
-- API
-
-   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -172,8 +168,15 @@ Make sure the uploaded image is in the `READY` status.
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
-      resource "yandex_compute_instance" "vm-1" {
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<disk_name>"
+        type     = "<disk_type>"
+        zone     = "<availability_zone>"
+        size     = "<disk_size>"
+        image_id = "<user_image_ID>"
+      }
 
+      resource "yandex_compute_instance" "vm-1" {
         name                      = "vm-from-image"
         allow_stopping_for_update = true
         platform_id               = "standard-v3"
@@ -181,13 +184,11 @@ Make sure the uploaded image is in the `READY` status.
 
         resources {
           cores  = <number_of_vCPU_cores>
-          memory = <amount_of_RAM_in_GB>
+          memory = <GB_of_RAM>
         }
 
         boot_disk {
-          initialize_params {
-            image_id = "<image_ID>"
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
 
         network_interface {
@@ -212,13 +213,20 @@ Make sure the uploaded image is in the `READY` status.
       ```
 
       Where:
+
+      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
+         * `name`: Disk name.
+         * `type`: Type of the disk being created.
+         * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
+         * `size`: Disk size in GB.
+         * `image_id`: ID of the image to create the VM from. Specify the identifier of the [uploaded](../image-create/upload.md) image.
       * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
          * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
+         * `zone`: Availability zone to host the VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot disk settings. Specify the identifier of the [uploaded](../image-create/upload.md) image.
+         * `boot_disk`: Boot disk settings. Specify the disk ID.
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
          * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the cloud network.
@@ -237,6 +245,10 @@ Make sure the uploaded image is in the `READY` status.
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 {% endlist %}
 
