@@ -1,6 +1,6 @@
 ---
 title: "Stopping and starting {{ PG }} clusters in {{ mpg-name }}"
-description: "If necessary, you can stop and restart a {{ PG }} database cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups."
+description: "If necessary, you can stop and restart a {{ PG }} database cluster. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups."
 ---
 
 # Stopping and starting {{ PG }} clusters
@@ -19,15 +19,15 @@ A cluster that has no backups cannot be stopped. To stop it, [create its backup]
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the cluster from the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
    1. Confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -41,7 +41,7 @@ A cluster that has no backups cannot be stopped. To stop it, [create its backup]
 
    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To stop a cluster, use the [stop](../api-ref/Cluster/stop.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -53,15 +53,15 @@ A cluster that has no backups cannot be stopped. To stop it, [create its backup]
 
 You can restart **STOPPED** clusters.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the stopped cluster from the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
    1. Confirm that you want to start the cluster: click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** in the dialog box that opens.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -75,7 +75,7 @@ You can restart **STOPPED** clusters.
 
    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To start a cluster, use the [start](../api-ref/Cluster/start.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

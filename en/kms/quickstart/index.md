@@ -13,9 +13,9 @@ To get started with {{ kms-name }}:
 
 ## Create a symmetric encryption key {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Create a symmetric encryption key:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a key.
@@ -32,11 +32,11 @@ To get started with {{ kms-name }}:
 
 ## Encrypt text using the key {#encrypt}
 
-Come up with a secret text, for example <q>The launch is scheduled for Marchember 42.</q>. The text size must not exceed 32 KB. To encrypt large volumes of data, use [envelope encryption](../concepts/envelope.md).
+Come up with a secret text, for example: <q>The launch is scheduled for Marchember 42.</q>. The text size must not exceed 32 KB. To encrypt large volumes of data, use [envelope encryption](../concepts/envelope.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Encrypt the text:
 
@@ -62,9 +62,9 @@ Come up with a secret text, for example <q>The launch is scheduled for Marchembe
 
 Decrypt the `ciphertext` binary file from the previous step.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Decrypt the text:
 

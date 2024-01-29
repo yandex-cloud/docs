@@ -6,9 +6,9 @@ To learn more about updates within one version and host maintenance, see [{#T}](
 
 ## Viewing a list of available versions {#version-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the [management console]({{ link-console-main }}), open the page where {{ mos-name }} clusters are [created](cluster-create.md) or [updated](update.md). You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
@@ -24,16 +24,16 @@ Make sure the update does not affect your applications:
 
 ## Updating the version {#start-version-update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select a cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the appropriate {{ OS }} version.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 

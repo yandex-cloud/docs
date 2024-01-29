@@ -1,11 +1,11 @@
 # Retrieving the CAPTCHA keys
 
 
-In this section, you'll learn how to retrieve the CAPTCHA keys. With the client key, you can [add a {{ captcha-name }} widget](../quickstart.md#add-widget) to your page. You'll need a server key to [check the user response](../quickstart.md#check-answer).
+In this section, you will learn how to retrieve the CAPTCHA keys. With the client key, you can [add a {{ captcha-name }} widget](../quickstart.md#add-widget) to your page. You will need a server key to [check the user response](../quickstart.md#check-answer).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.

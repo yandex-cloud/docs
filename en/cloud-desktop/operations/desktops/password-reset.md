@@ -5,9 +5,9 @@ description: "In this tutorial, you will learn how to reset a user password for 
 
 # Resetting a desktop user's password
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
@@ -17,7 +17,7 @@ description: "In this tutorial, you will learn how to reset a user password for 
    1. Confirm the password reset.
    1. Save a new password from the pop-up window and close it.
 
-- User desktop showcase
+- User desktop showcase {#desktop-showcase}
 
    1. Open the [User desktop showcase]({{ link-cloud-desktop-showcase }}).
    1. If the desktop you want to connect to is in the `Stopped` status, run it by clicking ![image](../../../_assets/console-icons/play.svg) and confirm the action.

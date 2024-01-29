@@ -58,11 +58,11 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
            image: {{ registry }}/crpjd37scfv6********/hello:1.1
    ```
 
-1. Create an application:
+1. Create an app:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -82,9 +82,9 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
 
 1. View information about the created app:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      kubectl describe deployment hello
@@ -161,9 +161,9 @@ When you create a service with the `LoadBalancer` type, {{ yandex-cloud }} contr
 
 1. Create a network load balancer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      kubectl apply -f load-balancer.yaml
@@ -179,15 +179,15 @@ When you create a service with the `LoadBalancer` type, {{ yandex-cloud }} contr
 
 1. View information about the network load balancer created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select your default folder.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      kubectl describe service hello
@@ -220,9 +220,9 @@ When you create a service with the `LoadBalancer` type, {{ yandex-cloud }} contr
 
 1. Make sure the application is available from the internet:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      curl http://130.193.50.111
@@ -271,7 +271,7 @@ spec:
 In {{ managed-k8s-name }}, the following advanced settings are available for a service with the `LoadBalancer` type:
 * Assign a [pre-allocated public IP address](../../vpc/operations/get-static-ip.md) using the `loadBalancerIP` parameter.
 
-  
+   
   When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
 
 

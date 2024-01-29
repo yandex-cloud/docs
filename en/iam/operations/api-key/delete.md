@@ -5,9 +5,9 @@ description: "Follow this guide to delete an API key."
 
 # Deleting API keys
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -17,7 +17,7 @@ description: "Follow this guide to delete an API key."
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-access-key }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -46,19 +46,7 @@ description: "Follow this guide to delete an API key."
       yc iam api-key delete <ID>
       ```
 
-- API
-
-   Delete the API key using the [delete](../../api-ref/ApiKey/delete.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
-
-   ```bash
-   export APIKEY_ID=ajeke74kbp5b********
-   export IAM_TOKEN=CggaATEVAgA...
-   curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
-       https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
-   ```
-   You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -68,9 +56,9 @@ description: "Follow this guide to delete an API key."
 
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
-          service_account_id = "<service_account_ID>"
-          description        = "<key_description>"
-          pgp_key            = "<PGP_key>"
+        service_account_id = "<service_account_ID>"
+        description        = "<key_description>"
+        pgp_key            = "<PGP_key>"
       }
       ```
 
@@ -87,7 +75,7 @@ description: "Follow this guide to delete an API key."
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -104,5 +92,18 @@ description: "Follow this guide to delete an API key."
       ```
       yc iam key list --service-account-id <service_account_ID>
       ```
+
+- API {#api}
+
+   Delete the API key using the [delete](../../api-ref/ApiKey/delete.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
+
+   ```bash
+   export APIKEY_ID=ajeke74kbp5b********
+   export IAM_TOKEN=CggaATEVAgA...
+   curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
+       https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
+   ```
+
+   You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete) gRPC API call.
 
 {% endlist %}

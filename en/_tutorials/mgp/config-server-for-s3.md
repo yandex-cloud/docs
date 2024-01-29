@@ -13,9 +13,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+* Manually {#manual}
 
    1. [Create a {{ mgp-name }} cluster](../../managed-greenplum/operations/cluster-create.md) with any suitable configuration.
 
@@ -37,7 +37,7 @@ Prepare the infrastructure:
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 
 
-* Using Terraform
+* {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -203,9 +203,9 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+* Manually {#manual}
 
    
    1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
@@ -216,7 +216,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Delete a cloud network](../../vpc/operations/network-delete.md).
 
 
-* Using Terraform
+* {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

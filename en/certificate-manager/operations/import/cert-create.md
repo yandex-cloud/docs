@@ -6,9 +6,9 @@ As an example, let's look at how to add a custom certificate using a self-signed
 
 To create a self-signed certificate using the `OpenSSL` library, run the command below:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    ```bash
    openssl req -x509 -newkey rsa:4096 -nodes \
@@ -18,7 +18,7 @@ To create a self-signed certificate using the `OpenSSL` library, run the command
      -subj '/CN=example.com'
    ```
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```PowerShell
    openssl req -x509 -newkey rsa:4096 -nodes `
@@ -46,9 +46,9 @@ The `req` command launched with the above parameters will issue a self-signed ce
 
 To add a custom certificate to {{ certificate-manager-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to add a custom certificate to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -68,7 +68,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
       1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -106,7 +106,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
       not_before: "2020-09-15T06:48:26Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -152,7 +152,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
    yc certificate-manager certificate get <certificate_name>
    ```
 
-- API
+- API {#api}
 
    To add a certificate, use the [create](../../api-ref/Certificate/create.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create) gRPC API call.
 
@@ -164,9 +164,9 @@ A new certificate with the `Issued` status appears in the certificate list.
 
 You can store a {{ certificate-manager-name }} user certificate's public part in [{{ lockbox-name }}](../../../lockbox/quickstart.md). To add a certificate:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

@@ -35,12 +35,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
+
    1. [Create a {{ mkf-name }} cluster](../managed-kafka/operations/cluster-create.md) with any suitable configuration.
    1. [Create a topic](../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between {{ KFC }} and the {{ mkf-name }} cluster.
-   1. [Create a user](../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them the rights](../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
+   1. [Create a user](../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them permission](../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
 
       * `ACCESS_ROLE_CONSUMER`
       * `ACCESS_ROLE_PRODUCER`
@@ -49,7 +50,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
 
 
-- Using Terraform
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -67,7 +68,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Properly configured {{ mkf-name }} cluster.
 
    1. In the file, specify a password for the `user` user, which will be used for accessing {{ mkf-name }} clusters as well as a username and the public SSH key for the virtual machine. If the virtual machine has Ubuntu 20.04 installed from the recommended [image list](../compute/operations/images-with-pre-installed-software/get-list.md), the username specified here will be ignored. If this is the case, use `ubuntu` as your username for the [connection](#prepare-vm).
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -209,9 +210,9 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    
    1. [Delete the VM](../compute/operations/vm-control/vm-delete.md).
@@ -219,13 +220,13 @@ Delete the resources you no longer need to avoid paying for them:
    1. [Delete the {{ mkf-name }} cluster](../managed-kafka/operations/cluster-delete.md).
 
 
-- Using Terraform
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#before-you-begin):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `kafka-connect.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -233,7 +234,7 @@ Delete the resources you no longer need to avoid paying for them:
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm updating the resources:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

@@ -5,10 +5,12 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
+      - name: All guides
+        href: operations/index.md
       - name: Managing organizations
         items:
           - name: Overview
-            href: operations/index.md
+            href: operations/manage-org.md
           - name: Creating an organization
             href: operations/enable-org.md
           - name: Editing organization data
@@ -23,16 +25,26 @@ items:
             href: operations/manage-users.md
           - name: Adding a user
             href: operations/add-account.md
-          - name: Getting user ID or email
+          - name: Getting the user ID or email
             href: operations/users-get.md
-          - name: Granting permissions
-            href: operations/roles.md
           - name: Deleting a user account
             href: operations/edit-account.md
           - name: Leaving an organization
             href: operations/leave-organization.md
       - name: Managing user groups
         href: operations/manage-groups.md
+      - name: Access management
+        items:
+          - name: Overview
+            href: operations/security.md
+          - name: Making a user an organization administrator
+            href: operations/add-org-admin.md
+          - name: Assigning a role to a user
+            href: operations/add-role.md
+          - name: Assigning a role to a user group
+            href: operations/groups-access-binding.md
+          - name: Revoking a role from a user
+            href: operations/revoke-role.md
       - name: OS Login
         items:
           - name: Enabling access
@@ -97,6 +109,8 @@ items:
             href: api-ref/grpc/group_service.md
           - name: OrganizationService
             href: api-ref/grpc/organization_service.md
+          - name: OsLoginService
+            href: api-ref/grpc/os_login_service.md
           - name: SshCertificateService
             href: api-ref/grpc/ssh_certificate_service.md
           - name: UserService
@@ -157,6 +171,26 @@ items:
                 href: api-ref/Organization/update.md
               - name: updateAccessBindings
                 href: api-ref/Organization/updateAccessBindings.md
+          - name: OsLogin
+            items:
+              - name: Overview
+                href: api-ref/OsLogin/index.md
+              - name: createProfile
+                href: api-ref/OsLogin/createProfile.md
+              - name: deleteProfile
+                href: api-ref/OsLogin/deleteProfile.md
+              - name: getProfile
+                href: api-ref/OsLogin/getProfile.md
+              - name: getSettings
+                href: api-ref/OsLogin/getSettings.md
+              - name: listProfiles
+                href: api-ref/OsLogin/listProfiles.md
+              - name: setDefaultProfile
+                href: api-ref/OsLogin/setDefaultProfile.md
+              - name: updateProfile
+                href: api-ref/OsLogin/updateProfile.md
+              - name: updateSettings
+                href: api-ref/OsLogin/updateSettings.md
           - name: SshCertificate
             items:
               - name: Overview

@@ -19,20 +19,20 @@ To move subclusters to a different availability zone, follow this [guide](migrat
 
 You can change the number of hosts in data storage and processing subclusters:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate subcluster and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
    1. Enter or select the required number of hosts in the **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}** field.
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
    {{ dataproc-name }} will run the add host operation.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -56,7 +56,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
       You can request a subcluster name or ID with a [list of cluster subclusters](subclusters.md#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -88,9 +88,9 @@ You can change the computing power of hosts in a separate subcluster. It depends
 
 {% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To change the [host class](../concepts/instance-types.md) for a subcluster:
 
@@ -102,7 +102,7 @@ You can change the computing power of hosts in a separate subcluster. It depends
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -144,7 +144,7 @@ You can change the computing power of hosts in a separate subcluster. It depends
 
       You can request a subcluster name or ID with a [list of cluster subclusters](subclusters.md#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -194,9 +194,9 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**.
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
@@ -208,7 +208,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
    1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** setting and specify the target CPU utilization level.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -250,7 +250,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
       You can request a subcluster name or ID with a [list of cluster subclusters](#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -319,9 +319,9 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**.
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To change the storage size for a subcluster:
 
@@ -334,7 +334,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
    {{ dataproc-name }} will run the update subcluster operation.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -360,7 +360,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
    If all these conditions are met, {{ dataproc-name }} launches the operation to increase storage space.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To increase the subcluster storage size:
 
@@ -401,9 +401,9 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
 ## Changing security groups {#change-sg-set}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
@@ -412,7 +412,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
    1. Select the appropriate security groups.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

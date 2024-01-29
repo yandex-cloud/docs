@@ -8,11 +8,11 @@ description: "Follow this guide to create a CAPTCHA."
 {{ captcha-name }} allows you to create a CAPTCHA of multiple levels of complexity. You can:
 
 * Connect a CAPTCHA to multiple websites.
-* Set parameters of any CAPTCHA layout elements, such as background, possible errors, or the **I'm not a robot** button appearance.
+* Set the parameters of all CAPTCHA layout elements, including background, possible errors, or the **I'm not a robot** button style.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
@@ -21,15 +21,15 @@ description: "Follow this guide to create a CAPTCHA."
 
          {% include [name-format](../../_includes/smartcaptcha/name-format.md) %}
 
-      * **{{ ui-key.yacloud.smartcaptcha.label_main-challenge }}**: Type of the [main task](../concepts/tasks.md#main-task) to be solved by the user.
-      * **{{ ui-key.yacloud.smartcaptcha.label_additional-challenge }}**: Type of the [additional task](../concepts/tasks.md#additional-task) to be solved by the user.
-      * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}**: Complexity of a task for the user:
+      * **{{ ui-key.yacloud.smartcaptcha.label_main-challenge }}**: Type of the [main task](../concepts/tasks.md#main-task) to be completed by the user.
+      * **{{ ui-key.yacloud.smartcaptcha.label_additional-challenge }}**: Type of the [additional task](../concepts/tasks.md#additional-task) to be completed by the user.
+      * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}**: Complexity of the task presented to the user:
          * `{{ ui-key.yacloud.smartcaptcha.value_complexity-easy }}`: Simple task.
          * `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`: Intermediate complexity task.
          * `{{ ui-key.yacloud.smartcaptcha.value_complexity-hard }}`: Difficult task.
 
          You can see a sample task in the preview window.
-      * **{{ ui-key.yacloud.smartcaptcha.label_no-hostname-check }}**: Use this option to disable [domain validation](../concepts/domain-validation.md).
+      * **{{ ui-key.yacloud.smartcaptcha.label_no-hostname-check }}**: Option disabling [domain validation](../concepts/domain-validation.md).
       * **{{ ui-key.yacloud.smartcaptcha.label_allowed-sites }}**: As IP addresses or domain names. Do not use `http`, `https`, or `/` at the end, e.g., `example.com`.
 
          The CAPTCHA will also be valid for all subdomains of the specified domain names.
@@ -40,7 +40,7 @@ description: "Follow this guide to create a CAPTCHA."
          * `Dark theme`
          * `Blue`
 
-         Under **{{ ui-key.yacloud.smartcaptcha.label_section-customization }}**, you can set custom parameters for the task dialog box and other elements: fill out the form or describe styles in `JSON` format.
+         Under **{{ ui-key.yacloud.smartcaptcha.label_section-customization }}**, you can set custom parameters for the task window and other elements: fill out the form or describe styles in `JSON` format.
 
          All changes are displayed in the preview window.
    1. Click **{{ ui-key.yacloud.common.create }}**.

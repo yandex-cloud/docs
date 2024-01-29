@@ -72,13 +72,23 @@ By default, buckets are created with restricted access, as specified in the [IAM
 
 If required, you can configure permissions to the buckets and objects they contain using [ACLs](acl.md).
 
+## Statistics {#stats}
+
+{{ objstorage-name }} automatically delivers bucket performance metrics to [{{ monitoring-full-name }}](../../monitoring/).
+
+Performance statistics are available from the [bucket page](../operations/buckets/get-stats.md#storage-ui) or the [{{ monitoring-name }} interface](../operations/buckets/get-stats.md#monitoring).
+
+For a list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
+
+You can also access aggregate bucket statistics [through the {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
+
 ## Recommendations and limitations {#details-of-usage}
 
 - You cannot rename buckets.
 - The number of buckets does not affect the performance of {{ objstorage-name }}. How many buckets you use to store your data is up to you.
 - Buckets cannot be nested.
 - In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
-- You can only delete an empty bucket.
+- You can only delete empty buckets.
 - After deleting a bucket, you may not be able to immediately create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you released before you claim it again. Do not delete buckets without a reason.
 - Uploading objects quickly one by one may lead to exceeding the specified maximum bucket size.
 - After deleting objects from a bucket, their storage capacity is retained for some time.

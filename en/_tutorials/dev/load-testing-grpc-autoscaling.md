@@ -15,7 +15,7 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 ## Prepare your cloud {#prepare-cloud}
 
 1. Register a [domain name](../../dns/concepts/resource-record.md) for your website.
-1. If [security groups](../../vpc/concepts/security-groups.md) are enabled for your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [create](../../vpc/operations/security-group-create.md) a group according to the rules described in [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+1. [Create a security group](../../vpc/operations/security-group-create.md) with the rules described in [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 1. [Set up the {{ managed-k8s-name }} cluster](../../managed-kubernetes/quickstart.md).
 1. [Install Metrics Provider](../../managed-kubernetes/operations/applications/metrics-provider.md).
 1. Install the Ingress controller:
@@ -29,7 +29,7 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 The infrastructure support costs include:
 * Fee for using the [master](../../managed-kubernetes/concepts/index.md#master) and outgoing {{ managed-k8s-name }} traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources of the [L7 load balancer](../../application-load-balancer/concepts/index.md) (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if you use [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 
 ## Prepare a test target {#prepare-target}
@@ -95,7 +95,7 @@ This instruction will use a gRPC service as a test target.
          nodePort: 30085
    ```
 
-1. Create an application:
+1. Create an app:
 
    ```bash
    kubectl apply -f grpc-server.yaml
@@ -184,7 +184,7 @@ This instruction will use a gRPC service as a test target.
 
    Where:
    * `<website_name>`: Domain name the TLS certificate corresponds to.
-   * `<IP address>` : IP address of the website.
+   * `<IP address>`: IP address of the website.
 
    The ADDRESS column must contain an IP address. Otherwise, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod).
 1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} stating the load balancer's public IP. If you are using ExternalDNS with a plugin for {{ dns-name }}, this record will be created automatically.

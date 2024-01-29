@@ -14,7 +14,7 @@ To restore a cluster from a backup, follow [this guide](../operations/cluster-ba
 
 The first backup and every seventh backup are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
 
-All cluster data is automatically backed up every day. You cannot create a backup manually or disable auto backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set a start time for these backups. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
+All cluster data is automatically backed up every day. You cannot create a backup manually or disable auto backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. The exact backup size is not displayed.
 

@@ -66,9 +66,9 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
 
 1. Create a folder named `net-folder`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![Create icon](../../_assets/create.png) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
       1. Enter the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) name: `net-folder`.
@@ -76,9 +76,9 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
       1. Disable **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** to create your network and subnets manually.
       1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
-      Similarly, create two more folders without the {{ vpc-short-name }} network, naming them as `dev-folder` and `prod-folder`.
+      Similarly, create two more folders without the {{ vpc-short-name }} network, and name them `dev-folder` and `prod-folder`.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -88,7 +88,7 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
 
       {% endnote %}
 
-      1. See a description of the create folder command:
+      1. View the description of the create folder command:
 
          ```bash
          yc resource-manager folder create --help
@@ -102,9 +102,9 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
          yc resource-manager folder create --name prod-folder
          ```
 
-   - Terraform
+   - {{ TF }} {#tf}
 
-      1. If you do not have {{ TF }} yet, [set up and configure](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) it.
+      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
       1. Specify the {{ yandex-cloud }} Terraform provider configuration:
@@ -163,12 +163,12 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
             terraform apply
             ```
 
-         1. Confirm the resources have been updated and wait for the operation to complete.
+         1. Confirm updating the resources and wait for the operation to complete.
 
-   - API
+   - API {#api}
 
       To create a folder, use:
-      * The [create](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/create) (`REST API`) method for the [Folder](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/) resource.
+      * [create](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/create) (`REST API`) method for the [Folder](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/) resource.
       * The [FolderService/Create](https://cloud.yandex.ru/docs/resource-manager/api-ref/grpc/folder_service#Create) (`gRPC API`) call.
 
    {% endlist %}
@@ -187,9 +187,9 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
 1. Create a network:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       To create a [cloud network](../../vpc/concepts/network.md):
       1. In the [management console]({{ link-console-main }}), go to `net-folder`.
@@ -200,7 +200,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
       1. Disable [Create subnets](../../vpc/operations/subnet-create.md) to create subnets manually.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       To create a [cloud network](../../vpc/concepts/network.md):
       1. See the description of the CLI command for creating a cloud network:
@@ -215,7 +215,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
          yc vpc network create --folder-name net-folder --name shared-net
          ```
 
-   - Terraform
+   - {{ TF }} {#tf}
 
       1. Describe the target (cloud network):
 
@@ -237,23 +237,23 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
          terraform apply
          ```
 
-      1. Confirm that the resources have been updated.
+      1. Confirm updating the resources.
 
       1. Wait for the operation to complete.
 
-   - API
+   - API {#api}
 
       To create a cloud network, use:
-      * The [create](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) (`REST API`) method for the [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) resource
+      * [create](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) (`REST API`) method for the [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) resource.
       * The [NetworkService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/network_service#Create) (`gRPC API`) call
 
    {% endlist %}
 
 1. Create the `subnet-a` network in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       To create a [subnet](../../vpc/concepts/network.md#subnet):
       1. In the [management console]({{ link-console-main }}), go to `net-folder`.
@@ -269,7 +269,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
       Similarly, create `subnet-b` and `subnet-c` in **net-folder**.
 
 
-   - CLI
+   - CLI {#cli}
 
       To create a [subnet](../../vpc/concepts/network.md#subnet):
 
@@ -300,7 +300,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
          yc vpc subnet list --folder-name prod-folder
          ```
 
-   - Terraform
+   - {{ TF }} {#tf}
 
       1. Describe the targets (cloud subnets):
 
@@ -342,12 +342,12 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
          terraform apply
          ```
 
-      1. Confirm the resources have been updated and wait for the operation to complete.
+      1. Confirm updating the resources and wait for the operation to complete.
 
-   - API
+   - API {#api}
 
       To create a subnet, use:
-      * The [create](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/create) (`REST API`) method for the [Subnet](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/) resource.
+      * [create](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/create) (`REST API`) method for the [Subnet](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/) resource.
       * The [SubnetService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/subnet_service#Create) (`gRPC API`) call.
 
    {% endlist %}
@@ -357,9 +357,9 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
 Move `subnet-b` to `dev-folder`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To move a subnet to another folder:
 
@@ -385,9 +385,9 @@ Create VMs with the following parameters:
 | dev-vm | dev-folder | {{ region-id }}-b | subnet-b |
 | prod-vm | prod-folder | {{ region-id }}-c | subnet-c |
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Create a Linux VM named `net-vm` in `net-folder`:
 
@@ -396,7 +396,7 @@ Create VMs with the following parameters:
    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter the name: `net-vm`.
-      * Select an availability zone `{{ region-id }}-a`.
+      * Select the `{{ region-id }}-a` availability zone.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the `subnet-a` subnet.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
@@ -412,7 +412,7 @@ Create VMs with the following parameters:
 
    {% endnote %}
 
-- CLI
+- CLI {#cli}
 
    1. Describe a template for VM metadata in a separate `vm-init.tpl` file:
 
@@ -476,7 +476,7 @@ Create VMs with the following parameters:
       PROD_VM_IP=$(yc compute instance get prod-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
       ```
 
-- Terraform
+- {{ TF }} {#tf}
 
    1. Describe the input variables:
 
@@ -633,12 +633,12 @@ Create VMs with the following parameters:
       terraform apply
       ```
 
-   1. Confirm the resources have been updated and wait for the operation to complete.
+   1. Confirm updating the resources and wait for the operation to complete.
 
-- API
+- API {#api}
 
    To create a VM, use:
-   * The [create](https://cloud.yandex.ru/docs/compute/api-ref/Instance/create) (`REST API`) method for the [Compute Instance](https://cloud.yandex.ru/docs/compute/api-ref/Instance/) resource.
+   * [create](https://cloud.yandex.ru/docs/compute/api-ref/Instance/create) (`REST API`) method for the [Compute Instance](https://cloud.yandex.ru/docs/compute/api-ref/Instance/) resource.
    * The [InstanceService/Create](https://cloud.yandex.ru/docs/compute/api-ref/grpc/instance_service#Create) (`gRPC API`) call.
 
 {% endlist %}

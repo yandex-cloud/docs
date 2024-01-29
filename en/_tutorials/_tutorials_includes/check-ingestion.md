@@ -1,8 +1,8 @@
 ## Test sending and receiving data {#check-ingestion}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you created a data stream, transfer, and bucket.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.

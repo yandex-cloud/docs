@@ -10,7 +10,7 @@ The general value format is as follows:
 {{ at-event-prefix }}.audit.<service_name>.<event_name>
 ```
 
-Below are events for the services:
+On this page, you will find events for the following services:
 
 * [{{ dns-name }}](#dns)
 * [{{ lockbox-name }}](#lockbox)
@@ -48,11 +48,4 @@ Service name: `kms`
 
 Service name: `storage`
 
-| Event name | Description |
---- | ---
-| `ObjectAclUpdate` | Updating an object's ACL in a bucket |
-| `ObjectCreate` | Creating an object in a bucket |
-| `ObjectDelete` | Deleting an object from a bucket |
-| `ObjectTagsDelete` | Deleting bucket object tags |
-| `ObjectTagsUpdate` | Updating bucket object tags |
-| `ObjectUpdate` | Updating an object in a bucket |
+{% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}

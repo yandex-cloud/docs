@@ -7,9 +7,9 @@ description: "Step-by-step guide for editing a backend group."
 
 ## Update a group's basic parameters {#update-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% note info %}
 
@@ -41,7 +41,7 @@ description: "Step-by-step guide for editing a backend group."
 
    1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -110,7 +110,7 @@ description: "Step-by-step guide for editing a backend group."
       created_at: "2022-11-30T17:46:05.599491104Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -155,7 +155,7 @@ description: "Step-by-step guide for editing a backend group."
       yc alb backend-group get --name <backend_group_name>
       ```
 
-- API
+- API {#api}
 
    To change the basic group parameters, use the [update](../api-ref/BackendGroup/update.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update) gRPC API call.
 
@@ -163,9 +163,9 @@ description: "Step-by-step guide for editing a backend group."
 
 ## Add a backend to a group {#add-backend}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -178,7 +178,7 @@ description: "Step-by-step guide for editing a backend group."
 
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -311,7 +311,7 @@ description: "Step-by-step guide for editing a backend group."
 
    {% endcut %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -374,7 +374,7 @@ description: "Step-by-step guide for editing a backend group."
       yc alb backend-group get --name <backend_group_name>
       ```
 
-- API
+- API {#api}
 
    To change the basic group parameters, use the [addBackend](../api-ref/BackendGroup/addBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#AddBackend) gRPC API call.
 
@@ -382,9 +382,9 @@ description: "Step-by-step guide for editing a backend group."
 
 ## Update parameters for a backend in a group {#update-backend}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -394,7 +394,7 @@ description: "Step-by-step guide for editing a backend group."
    1. In the window that opens, set the backend settings. For more information about the settings, see [above](#add-backend).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -533,7 +533,7 @@ description: "Step-by-step guide for editing a backend group."
 
       {% endcut %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -595,7 +595,7 @@ description: "Step-by-step guide for editing a backend group."
       yc alb backend-group get --name <backend_group_name>
       ```
 
-- API
+- API {#api}
 
    To change the backend parameters in the group, use the [updateBackend](../api-ref/BackendGroup/updateBackend.md) REST API method for the [UpdateBackend](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/UpdateBackend](../api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call.
 
@@ -605,9 +605,9 @@ description: "Step-by-step guide for editing a backend group."
 
 To remove a backend from a group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -616,7 +616,7 @@ To remove a backend from a group:
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -663,7 +663,7 @@ To remove a backend from a group:
       created_at: "2021-02-11T20:46:21.688940670Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -708,7 +708,7 @@ To remove a backend from a group:
       yc alb backend-group get --name <backend_group_name>
       ```
 
-- API
+- API {#api}
 
    Use the [removeBackend](../api-ref/BackendGroup/removeBackend.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend) gRPC API call.
 

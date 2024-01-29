@@ -101,6 +101,10 @@ items:
           Delivering data from {{ mkf-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/mkf-to-mch-migration.md
+      - name: >-
+          Migrating data from {{ yandex-direct }} using {{ sf-full-name }}, {{
+          objstorage-full-name }}, and {{ data-transfer-full-name }}
+        href: tutorials/transfer-from-direct.md
   - name: Concepts
     items:
       - name: Resource relationships

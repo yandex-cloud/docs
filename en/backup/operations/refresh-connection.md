@@ -63,9 +63,9 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
 1. Disconnect from the VM.
 1. Make sure the outdated VM is no longer on the list of VMs connected to {{ backup-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.

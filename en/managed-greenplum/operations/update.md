@@ -23,16 +23,16 @@ To move a cluster to a different availability zone, [restore it from a backup](c
 
 ## Change the cluster name and description {#change-name-and-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** at the top of the page.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -60,7 +60,7 @@ To move a cluster to a different availability zone, [restore it from a backup](c
          --description <new_cluster_description>
       ```
 
-- API
+- API {#api}
 
    To change a cluster's name and description, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -75,16 +75,16 @@ To move a cluster to a different availability zone, [restore it from a backup](c
 
 ## Change the public access setting {#change-public-access}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** at the top of the page.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, enable or disable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -107,7 +107,7 @@ To move a cluster to a different availability zone, [restore it from a backup](c
 
       Where `assign-public-ip` is public access to the cluster, true or false.
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
@@ -130,9 +130,9 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 ## Changing additional cluster settings {#change-additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -167,7 +167,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -215,7 +215,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -238,9 +238,9 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 You can edit your cluster's [scheduled maintenance operations](../concepts/maintenance.md#regular-ops) settings.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -250,7 +250,7 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
    To edit your cluster's scheduled maintenance operations settings, use the REST API [update](../api-ref/Cluster/update.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call, and provide the following in the request:
 
@@ -259,8 +259,8 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
       * `start.hours`: Start hour of the `VACUUM` operation in UTC. Valid values: from `0` to `23`, with `19` by default.
       * `start.minutes`: Start minute of the `VACUUM` operation in UTC. Valid values: from `0` to `59`, with `0` by default.
-      * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. The default value is `36,000`. Once this period expires, `VACUUM` will be forced to terminate.
-      * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36,000`. Once this period expires, the operation will be forced to terminate.
+      * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. The default value is `36,000`. As soon as this period expires, `VACUUM` will be forced to terminate.
+      * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36,000`. As soon as this period expires, the operation will be forced to terminate.
 
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -272,9 +272,9 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
 You can change the DBMS settings of the hosts in your cluster.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -282,7 +282,7 @@ You can change the DBMS settings of the hosts in your cluster.
    1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -313,7 +313,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {{ mgp-short-name }} runs the update cluster settings operation.
 
-- API
+- API {#api}
 
    To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -330,9 +330,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To increase the cluster storage size:
 
@@ -343,7 +343,7 @@ You can change the DBMS settings of the hosts in your cluster.
    1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 

@@ -19,12 +19,12 @@ The request body contains data in JSON format:
 }
 ```
 
-| Field | Description | Acceptable values | Comment |
-| ----- | ----- | ----- | ----- |
-| `name` | Query name | | If the parameter is not specified, it's assigned the default name |
-| `type` | Request type | `STREAMING` or `ANALYTICS` | The default value is `ANALYTICS` |
-| `text` | Query text | String | Required |
-| `description` | Query description | | The default value is an empty string |
+| Field | Description | Acceptable values | Comment | Constraints |
+| ----- | ----- | ----- | ----- | ----- |
+| `name` | Query name | | If the parameter is not specified, it's assigned the default name | Length should not exceed 1024 bytes |
+| `type` | Request type | `STREAMING` or `ANALYTICS` | The default value is `ANALYTICS` | |
+| `text` | Query text | String | Required | Length should be between 1 and 102400 bytes |
+| `description` | Query description | | The default value is an empty string | Length should not exceed 10240 bytes |
 
 ## Response {#response}
 

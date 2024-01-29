@@ -4,9 +4,9 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
 
 To add a new Let's Encrypt® [certificate](../../concepts/managed-certificate.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a certificate to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -20,7 +20,7 @@ To add a new Let's Encrypt® [certificate](../../concepts/managed-certificate.md
    1. Select the [type of check for domain rights](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` or `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
    1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -32,7 +32,7 @@ To add a new Let's Encrypt® [certificate](../../concepts/managed-certificate.md
       yc certificate-manager certificate request --help
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc certificate-manager certificate request \
@@ -56,7 +56,7 @@ To add a new Let's Encrypt® [certificate](../../concepts/managed-certificate.md
       updated_at: "2020-09-15T08:49:11.533771Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -91,7 +91,7 @@ To add a new Let's Encrypt® [certificate](../../concepts/managed-certificate.md
    yc certificate-manager certificate get <certificate_name>
    ```
 
-- API
+- API {#api}
 
    To add a certificate, use the [requestNew](../../api-ref/Certificate/requestNew.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/RequestNew](../../api-ref/grpc/certificate_service.md#RequestNew) gRPC API call.
 

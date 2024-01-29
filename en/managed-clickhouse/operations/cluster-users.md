@@ -32,14 +32,14 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 ## Getting a list of users {#list-users}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -54,13 +54,13 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-- SQL
+- SQL {#sql}
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
    1. Get a list of users:
@@ -73,9 +73,9 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 ## Adding a user {#adduser}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
@@ -98,7 +98,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    See the [example of creating a user with read-only access](#example-create-readonly-user).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -135,7 +135,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    See the [example of creating a user with read-only access](#example-create-readonly-user).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -168,7 +168,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To add a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -179,7 +179,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    * (Optional) List of {{ CH }} user settings, in the `userSpec.settings` parameter.
    * (Optional) List of quota user settings, in the `userSpec.quotas[]` parameter.
 
-- SQL
+- SQL {#sql}
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
    1. Create a user:
@@ -196,11 +196,11 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 ## Changing a password {#updateuser}
 
-We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not use SQL to change your password; otherwise, the password may revert to the previous one after [maintenance](../concepts/maintenance.md).
+We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not use SQL to change your password; otherwise, the password may reset to the previous one after [maintenance](../concepts/maintenance.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
@@ -209,7 +209,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -227,7 +227,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -262,7 +262,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update a password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -279,11 +279,11 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 ## Changing the admin password {#admin-password-change}
 
-We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not use SQL to change your password; otherwise, the password may revert to the previous one after [maintenance](../concepts/maintenance.md).
+We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not use SQL to change your password; otherwise, the password may reset to the previous one after [maintenance](../concepts/maintenance.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -307,7 +307,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -337,7 +337,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -354,9 +354,9 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 ## Changing user settings {#update-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
@@ -373,7 +373,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    1. Edit the user [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) under **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -431,7 +431,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       You cannot use this command to delete an existing setting. You can only explicitly set it to its default value (specified for [each setting](#clickhouse-settings)).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -505,7 +505,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -518,7 +518,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-- SQL
+- SQL {#sql}
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
    1. To alter the set of user roles and privileges, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
@@ -543,15 +543,15 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 ## Deleting a user {#removeuser}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -566,7 +566,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -586,14 +586,14 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
 
-- SQL
+- SQL {#sql}
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
    1. Delete the user:
@@ -612,11 +612,11 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 Let's say you need to add a new user named `ro-user` with the password `Passw0rd` to the existing `mych` cluster, and:
 * The user has access to the `db1` database of the cluster.
-* The access is read-only, so the user isn't allowed to change any settings.
+* The access is read-only, so the user is not allowed to change any settings.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the `mych` cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
@@ -627,7 +627,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
    1. Set the **Readonly** field value to `1`.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    Run the command:
 
@@ -653,7 +653,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
       DB::Exception: Cannot modify 'readonly' setting in readonly mode.
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -691,7 +691,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- SQL
+- SQL {#sql}
 
    1. [Connect](connect.md) to the `mych` cluster using [the `admin` account](#sql-user-management).
    1. Create a user:

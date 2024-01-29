@@ -8,9 +8,9 @@ The {{ yandex-cloud }} SDK is most convenient for encrypting small amounts of da
 
 Before you start, you need to add dependencies.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    Add dependencies using [Apache Maven](https://maven.apache.org/):
 
@@ -22,7 +22,7 @@ Before you start, you need to add dependencies.
    </dependency>
    ```
 
-- Go
+- Go {#go}
 
    Install the SDK:
 
@@ -41,9 +41,9 @@ You can authenticate using:
 
 ### Authentication using the service account linked to the {{ yandex-cloud }} VM {#vm}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    Get authenticated using the service account linked to the VM:
 
@@ -51,7 +51,7 @@ You can authenticate using:
    CredentialProvider credentialProvider = Auth.computeEngineBuilder().build();
    ```
 
-- Go
+- Go {#go}
 
    Authenticate using the service account linked to the VM:
 
@@ -65,9 +65,9 @@ You can authenticate using:
 
 The `key.json` file must contain an authorized key for the service account. For information about how to create authorized keys, see [{#T}](../../../iam/operations/authorized-key/create.md).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    Authenticate using any service account:
 
@@ -76,7 +76,7 @@ The `key.json` file must contain an authorized key for the service account. For 
 
    ```
 
-- Go
+- Go {#go}
 
    Authenticate using any service account:
 
@@ -95,9 +95,9 @@ The `key.json` file must contain an authorized key for the service account. For 
 
 The `token` variable is your [OAuth token](../../../iam/concepts/authorization/oauth-token.md).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    Authenticate using a Yandex account:
 
@@ -105,7 +105,7 @@ The `token` variable is your [OAuth token](../../../iam/concepts/authorization/o
    CredentialProvider credentialProvider = Auth.oauthTokenBuilder().build();
    ```
 
-- Go
+- Go {#go}
 
    Authenticate using a Yandex account:
 
@@ -126,9 +126,9 @@ Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code us
 * `ciphertext`: Encrypted text
 * `aad`: [AAD context](../../concepts/symmetric-encryption.md#add-context)
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    ```Java
    SymmetricCryptoServiceBlockingStub symmetricCryptoService = ServiceFactory.builder()
@@ -160,7 +160,7 @@ Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code us
 
    ```
 
-- Go
+- Go {#go}
 
    ```Go
    sdk, err := ycsdk.Build(context, ycsdk.Config{

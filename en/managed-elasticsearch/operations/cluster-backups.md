@@ -25,9 +25,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 ### Getting a list of backups {#list-backups}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get a list of cluster backups:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
@@ -37,7 +37,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -60,7 +60,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    +----------------------+----------------------+----------------------+----------------------+
    ```
 
-- API
+- API {#api}
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -74,9 +74,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 ### Getting information about backups {#get-backup}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get information about the backup of an existing cluster:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
@@ -86,7 +86,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -100,7 +100,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
 
-- API
+- API {#api}
 
    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
@@ -112,9 +112,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 ### Creating a backup {#create-backup}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
@@ -122,7 +122,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -144,7 +144,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
       You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -162,9 +162,9 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
 When creating a new cluster, set all required parameters.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To restore an existing cluster from a backup:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
@@ -183,7 +183,7 @@ When creating a new cluster, set all required parameters.
 
    {{ mes-name }} will launch the operation to create a cluster from the backup.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -280,7 +280,7 @@ When creating a new cluster, set all required parameters.
          {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
 
 
-- API
+- API {#api}
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 

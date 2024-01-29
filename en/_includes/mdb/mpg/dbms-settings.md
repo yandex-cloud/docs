@@ -1206,34 +1206,34 @@
 
    Acceptable values include:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Management console/CLI
+   - Management console/CLI {#console}
 
       * `on`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
       * `off`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
       * `local`: A transaction is committed if the WAL is written to the master disk.
-      * `remote_write`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+      * `remote_write`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
       * `remote_apply`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
 
       The default value is `on`.
 
-   * {{ TF }}
+   - {{ TF }} {#tf}
 
       * `1` or `"SYNCHRONOUS_COMMIT_ON"`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
       * `2` or `"SYNCHRONOUS_COMMIT_OFF"` : A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
       * `3` or `"SYNCHRONOUS_COMMIT_LOCAL"`: A transaction is committed if the WAL is written to the master disk.
-      * `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+      * `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
       * `5` or `"SYNCHRONOUS_COMMIT_REMOTE_APPLY"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
 
       The default value is `"SYNCHRONOUS_COMMIT_ON"`.
 
-   * API
+   - API {#api}
 
       * `SYNCHRONOUS_COMMIT_ON`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
       * `SYNCHRONOUS_COMMIT_OFF`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
       * `SYNCHRONOUS_COMMIT_LOCAL`: A transaction is committed if the WAL is written to the master disk.
-      * `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+      * `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
       * `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
 
       The default value is `SYNCHRONOUS_COMMIT_ON`.

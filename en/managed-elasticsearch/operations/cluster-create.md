@@ -32,9 +32,9 @@ When creating a {{ mes-name }} cluster, specify parameters separately for the ho
 
 You can use hosts only with the _Data node_ role, without creating dedicated hosts for the _Master node_ role. In this case, hosts with the _Data node_ role combine the two roles.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a {{ mes-name }} cluster:
 
@@ -111,7 +111,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    1. Configure the [DBMS settings](../concepts/settings-list.md), if required.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -186,7 +186,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -291,7 +291,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a {{ mes-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mes-name }} cluster should be placed, in the `folderId` parameter.
@@ -305,7 +305,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    * [Network](../../vpc/concepts/network.md#network) ID in the `networkId` parameter.
 
 
-   * [Security group](../../vpc/concepts/security-groups.md) identifiers in the `securityGroupIds` parameter.
+   * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
 
 
    * List of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
@@ -325,9 +325,9 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a {{ mes-name }} cluster with a single host, provide a single `--host` parameter.
 
@@ -367,7 +367,7 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mes-name }} cluster. The configuration file for the {{ mes-name }} cluster is as follows:
 

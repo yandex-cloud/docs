@@ -10,12 +10,12 @@ For an example of the scope of responsibility for managing vulnerabilities and s
 
 We recommend using the image [vulnerability scanner](../../../container-registry/concepts/vulnerability-scanner.md) integrated into {{ container-registry-short-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the images in.
-   1. From the list of services, select {{ container-registry-short-name }}.
+   1. In the list of services, select {{ container-registry-short-name }}.
    1. Go to each of the images and check the value of the **Scan status** column.
 
 {% endlist %}
@@ -25,7 +25,7 @@ We recommend using the image [vulnerability scanner](../../../container-registry
 We recommend that clients scan their own hosts for vulnerabilities. Cloud resources support the installation of custom virtual images of vulnerability scanners or software agents on hosts. There are many fee-based and free solutions for scanning.
 
 Network scanners scan hosts that are accessible over a network. Generally, authentication can be configured on network scanners.
- 
+
 Examples of free network scanners:
 - [Nmap](https://nmap.org/)
 - [OpenVAS](https://www.openvas.org/)
@@ -35,9 +35,9 @@ Example of a free scanner that operates as an agent on hosts: [Wazuh](https://do
 
 You can also use a [solution](/marketplace/products/scanfactory/scanfactory) from {{ marketplace-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Run a manual check.
 
@@ -47,9 +47,9 @@ You can also use a [solution](/marketplace/products/scanfactory/scanfactory) fro
 
 Customers hosting their own software in {{ yandex-cloud }} can perform external security scans for the hosted software, including penetration tests. You can run your own scans or use contractors. For more information, see [Rules for performing external security scans](../../../security/compliance/pentest.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Run a manual check.
 
@@ -71,7 +71,7 @@ To mitigate risks associated with web attacks, we recommend using a Web Applicat
 
 [Solution: A fault-tolerant installation of PT Application Firewall built on {{ yandex-cloud }}](https://github.com/yandex-cloud-examples/yc-webinar-pt-application-firewall-ha-operations)
 
-You can also install Wallarm WAF in [{{ managed-k8s-name }}](../../../managed-kubernetes/). For more information, refer to the [instructions](https://docs.wallarm.com/admin-en/installation-kubernetes-en/) in the Wallarm documentation. This is a BYOL licensing model (a license purchased from a third-party vendor).
+You can also install Wallarm WAF in [{{ managed-k8s-name }}](../../../managed-kubernetes/). See the [guide](https://docs.wallarm.com/admin-en/installation-kubernetes-en/) in the Wallarm documentation. This is a BYOL licensing model (a license purchased from a third-party vendor).
 
 ##### Managed WAF {#managed-waf}
 
@@ -79,15 +79,15 @@ A customer receives a cloud WAF as a service from {{ yandex-cloud }}. They are p
 
 [Solution: Installing a damn vulnerable web application (DVWA) in {{ yandex-cloud }} using {{ TF }} to test Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the images in.
-   1. From the list of services, select {{ compute-short-name }}.
+   1. In the list of services, select {{ compute-short-name }}.
    1. Make sure there is at least one VM with a WAF image.
 
-- Manual check
+- Manual check {#manual}
 
    Contact your account manager from the Yandex Cloud team or your company's information security service to find out if Managed WAF is used for your organization.
 

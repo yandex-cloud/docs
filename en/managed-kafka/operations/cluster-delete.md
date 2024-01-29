@@ -13,9 +13,9 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 
 ## Deleting a cluster {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a cluster from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -23,7 +23,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
    1. Read the warning displayed.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -35,14 +35,14 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
    {{ yc-mdb-kf }} cluster delete <cluster_name_or_ID>
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
-- API
+- API {#api}
 
    To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

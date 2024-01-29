@@ -32,9 +32,9 @@ The cost of infrastructure support includes a fee for a bucket (see [Pricing for
 
 ### Create a bucket for audit logs {#create-backet}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create a [bucket](../../storage/concepts/bucket.md) in, e.g., `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -52,9 +52,9 @@ The cost of infrastructure support includes a fee for a bucket (see [Pricing for
 
 Create a service account named `trail-sa`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -71,9 +71,9 @@ Use the same method to create a service account named `bucket-yq-sa`.
 
 Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` service account:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. The `audit-trails.viewer` role to the organization:
 
@@ -98,8 +98,8 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 
       ```bash
       yc resource-manager folder add-access-binding example-folder \
-          --role storage.uploader \
-          --subject serviceAccount:<service_account_ID>
+        --role storage.uploader \
+        --subject serviceAccount:<service_account_ID>
       ```
 
       Where `--subject` is the ID of the `trail-sa` service account.
@@ -116,9 +116,9 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 
 Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-folder`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc resource-manager folder add-access-binding example-folder \
@@ -141,9 +141,9 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-
 
 ## Create a trail {#create-trail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -170,9 +170,9 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-
 
 A connection must be created only the first time a trail is connected to {{ yq-short-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -193,9 +193,9 @@ A connection must be created only the first time a trail is connected to {{ yq-s
 
 Open the page to create an analytical query to {{ at-name }} logs:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder with a trail.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

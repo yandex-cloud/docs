@@ -11,9 +11,9 @@ To export audit logs of a cloud:
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. Assign roles to the service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -60,9 +60,9 @@ To export audit logs of a cloud:
 
 To create a trail that exports audit logs from the cloud:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

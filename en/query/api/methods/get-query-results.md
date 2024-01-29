@@ -10,10 +10,10 @@ The method returns query execution results. If the query contains multiple `SELE
 
 Parameters are passed in URLs as query parameters.
 
-| Parameter | Description | Default value |
-| ----- | ----- | ----- |
-| `offset` | Number of the result array string to get query results from | 0 |
-| `limit` | Number of result rows  | 100 |
+| Parameter | Description | Default value | Constraints |
+| ----- | ----- | ----- | ----- |
+| `offset` | Number of the result array string to get query results from | 0 | Should be non-negative |
+| `limit` | Number of result rows  | 100 | Value should be between 1 and 1000 |
 
 ## Response {#response}
 

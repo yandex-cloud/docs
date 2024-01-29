@@ -17,12 +17,12 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 ## Copying a single object {#copy-single-object}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -46,12 +46,12 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 ## Copying all bucket objects to another bucket {#copy-from-bucket-to-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -80,9 +80,9 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 To copy objects to a bucket hosted in a different [organization](../../../overview/roles-and-resources.md), [create](../../../iam/operations/sa/create.md) two service accounts: one with the [`storage.viewer`](../../security/index.md#storage-viewer) role for the source bucket and the other one with the [`storage.editor`](../../security/index.md#storage-editor) role for the target bucket.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md) for each organization.
    1. Set the target bucket's [access control list (ACL)](../../concepts/acl.md) with full access permissions granted to the source bucket's service account:

@@ -1,8 +1,8 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
-   1. [Log in]({{ link-passport-login }}) to the organization administrator account.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator.
 
    1. Go to [{{ org-full-name }}]({{link-org-main}}).
 
@@ -10,7 +10,7 @@
 
    1. In the top-right corner, click **{{ ui-key.yacloud_org.entity.group.action_create }}** and enter a group name and description.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

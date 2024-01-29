@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Create a subnet:
 
@@ -36,7 +36,7 @@
       * `zone`: Availability zone you want to move your node group to (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`).
       * `subnet-id` and `subnets`: ID of the new subnet you created earlier.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% note alert %}
 
@@ -46,7 +46,12 @@
 
    {% endnote %}
 
-   1. Add the new subnet's manifest to the cluster configuration file and change the node group location:
+   1. Make the following changes to the configuration file:
+      * Add a new subnet manifest (`yandex_vpc_subnet` resource) in the availability zone to which you want to move the node group.
+      * Change the node group location parameters (`yandex_kubernetes_node_group` resource):
+         * `allocation_policy.location.subnet_id`: Remove this parameter if it is in the manifest.
+         * `allocation_policy.location.zone`: Specify the availability zone you want to move the node group to.
+         * `instance_template.network_interface.subnet_ids`: Specify the new subnet ID. Add this parameter if it is not in the manifest.
 
       ```hcl
       resource "yandex_vpc_subnet" "my-new-subnet" {
@@ -79,7 +84,7 @@
       * `name`: Subnet name.
       * `zone`: Availability zone you want to move your node group to (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`).
       * `network_id`: ID of the network the new subnet belongs to.
-      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
       * `subnet_ids`: ID of the new subnet.
 
    1. Check that the configuration file is correct.

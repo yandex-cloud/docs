@@ -5,18 +5,23 @@ description: "In this tutorial, you will learn how to download an object from {{
 
 # Downloading an object
 
+{% list tabs group=instructions %}
 
-{% list tabs %}
-
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
-   1. Select the bucket you need.
-   1. Select the object to download.
+   1. Select the bucket from which you want to download an object.
+   1. Navigate to the object page by clicking its name.
    1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.file.button_download }}**.
 
-- AWS CLI
+   {% note info %}
+
+   You can also use [CyberDuck](../../tools/cyberduck.md) or [WinSCP](../../tools/winscp.md) tools to download or upload objects using the GUI.
+
+   {% endnote %}
+
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -113,7 +118,7 @@ description: "In this tutorial, you will learn how to download an object from {{
         {aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key $x d:\downloads\$x}
       ```
 
-- API
+- API {#api}
 
    To download an object, use the [get](../../s3/api-ref/object/get.md) S3 API method.
 

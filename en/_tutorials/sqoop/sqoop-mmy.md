@@ -88,7 +88,7 @@ You can create other resources manually or using {{ TF }}.
 
 ## Preparing the source cluster {#prepare}
 
-1. [Connect to the](../../managed-mysql/operations/connect.md) `db1` database of the {{ mmy-full-name }} cluster as `user1`.
+1. [Connect to](../../managed-mysql/operations/connect.md) the `db1` database of the {{ mmy-full-name }} cluster as `user1`.
 1. Add test data to the database. The example uses a simple table with people's names and ages:
 
    1. Create a table:
@@ -199,13 +199,13 @@ Let's assume that:
 
 {% include [Check import](./check-import.md) %}
 
-## Delete the resources you created {#clear-out}
+## Deletе the resources you created {#clear-out}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+* Manually {#manual}
 
    1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
    1. If you reserved a public static IP address for the VM, release and [delete it](../../vpc/operations/address-delete.md).
@@ -218,7 +218,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. Delete the [subnet](../../vpc/operations/subnet-delete.md).
    1. Delete the [cloud network](../../vpc/operations/network-delete.md).
 
-* Using Terraform
+* {{ TF }} {#tf}
 
    To delete the infrastructure created with {{ TF }}:
 

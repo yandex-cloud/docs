@@ -13,9 +13,9 @@ Follow this guide to create a new trail that will upload audit logs of your orga
 1. Make sure your cloud has a bucket where you can store audit logs. [Create a new bucket](../storage/quickstart.md#the-first-bucket) with restricted access, if required.
 1. [Create](../iam/operations/sa/create.md) a service account and assign the following roles to it:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -63,9 +63,9 @@ Follow this guide to create a new trail that will upload audit logs of your orga
 
 To create the first trail in {{ at-name }} and start the process of management event audit log management:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

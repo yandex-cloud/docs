@@ -22,9 +22,9 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 ## Creating a connection to a cluster {#create-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Make sure that {{ datalens-name }} is [activated](#activate-datalens) in the appropriate folder and you [can access](#allow-access) the cluster from it.
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -54,9 +54,9 @@ Once the connection is created, you can:
 
 ## Viewing a list of cluster connections {#connectors-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
@@ -65,9 +65,9 @@ Once the connection is created, you can:
 
 ## Updating a cluster connection {#update-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
@@ -80,9 +80,9 @@ Once the connection is created, you can:
 
 ## Deleting a cluster connection {#delete-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
@@ -94,9 +94,9 @@ Once the connection is created, you can:
 
 ## Connection settings {#connector-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Specify a name for the connection.
    1. If the cluster and {{ datalens-name }} are in the same folder:

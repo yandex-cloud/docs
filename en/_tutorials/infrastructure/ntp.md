@@ -46,7 +46,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 ## Prepare the infrastructure {#prepare-infrastructure}
 
 1. If you do not have a VM, [create](../../compute/operations/#vm-create) one.
-1. [Attach](../../compute/operations/vm-control/vm-attach-public-ip.md) a public IP address to the VM.
+1. [Assign](../../compute/operations/vm-control/vm-attach-public-ip.md) a public IP address to the VM.
 
 ## Set up synchronization {#setup-ntp}
 
@@ -76,7 +76,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
       
       ```text
-      FallbackNTP=ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de
+      FallbackNTP=ntp1.yandex.net ntp2.yandex.net ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
       ```
 
 
@@ -116,7 +116,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
       sudo nano /etc/ntp.conf
       ```
 
-   1. Specify the recommended server addresses. Comment out default server addresses with <q>#</q> at the beginning of the relevant line, for example:
+   1. Specify the recommended server addresses. Comment out default server addresses with `#` at the beginning of the relevant line, e.g.:
 
       
       ```text
@@ -127,10 +127,12 @@ The cost of clock synchronization using NTP includes fees for computing resource
       # server 1.ubuntu.pool.ntp.org
       # server 2.ubuntu.pool.ntp.org
       # server 3.ubuntu.pool.ntp.org
+      server ntp1.yandex.net
+      server ntp2.yandex.net
       server ntp0.NL.net
       server ntp2.vniiftri.ru
       server ntp.ix.ru
-      server ntps1-0.eecsit.tu-berlin.de
+      server ntps1-1.cs.tu-berlin.de
       ```
 
 
@@ -163,7 +165,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
       
       ```powershell
-      w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de"
+      w32tm /config /syncfromflags:manual /manualpeerlist:"ntp1.yandex.net ntp2.yandex.net ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de"
       ```
 
 
@@ -234,12 +236,18 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
    
    ```bash
-        remote           refid      st t when poll reach   delay   offset  jitter
+       remote           refid      st t when poll reach   delay   offset  jitter
    ==============================================================================
-   +ntp0.nl.uu.net  .GPS.            1 u  111  128  377   41.220    1.662   0.214
-   +ntp2.vniiftri.r .MRS.            1 u   99  128  377    7.540    1.697   0.417
-   *ntp.ix.ru       .GPS.            1 u   45  128  377    4.343    1.456   0.296
-   +ntps1-0.eecsit. .PPS.            1 u   36  128  377   30.128    1.258   0.265
+   ntp.ubuntu.com  .POOL.          16 p    -   64    0    0.000   +0.000   0.000
+   indigoberry.yan .INIT.          16 u    -   64    0    0.000   +0.000   0.000
+   ivoryberry.yand .INIT.          16 u    -   64    0    0.000   +0.000   0.000
+   ntp0.nl.uu.net  .GPS.            1 u    1   64    1   47.692   -8.929   0.000
+   ntp2.vniiftri.r .MRS.            1 u    1   64    1   10.946   -8.960   0.000
+   ntp.ix.ru       .GLN.            1 u    5   64    1    7.266   -8.459   0.000
+   ntps1-1.eecsit. .GPS.            1 u    2   64    1   32.314   -8.960   0.000
+   alphyn.canonica 132.163.96.1     2 u    4   64    1  121.368   -9.121   0.000
+   185.125.190.58  86.23.195.30     2 u    3   64    1   52.084   -8.337   0.000
+   185.125.190.56  194.121.207.249  2 u    1   64    1   53.791   -8.268   0.000
    ```
 
 
@@ -249,7 +257,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
    Run the command below and specify the VM name:
 
    ```powershell
-   w32tm /query /computer:<VM_name> /configuration
+   w32tm /query /configuration
    ```
 
    Result:
@@ -259,7 +267,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
    ...
    [TimeProviders]
    ...
-   NtpServer: ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de (Local)
+   NtpServer: ntp1.yandex.net ntp2.yandex.net ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
    ...
    ```
 

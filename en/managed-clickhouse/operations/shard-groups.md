@@ -4,14 +4,14 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 ## Listing shard groups in a cluster {#list-shard-groups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -26,7 +26,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of shard groups in a cluster, use the [listShardGroups](../api-ref/Cluster/listShardGroups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShardGroups](../api-ref/grpc/cluster_service.md#ListShardGroups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -36,15 +36,15 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 ## Viewing detailed information about a shard group {#get-shard-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
    1. Select a shard group to view detailed information.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -60,26 +60,26 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get detailed information about a shard group, use the [getShardGroup](../api-ref/Cluster/getShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/GetShardGroup](../api-ref/grpc/cluster_service.md#GetShardGroup) gRPC API call and provide the following in the request:
-   * The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
 
 {% endlist %}
 
 ## Creating a shard group {#create-shard-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.shard-groups.button_add-group }}**.
    1. Fill in the form fields and click **{{ ui-key.yacloud.common.apply }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -99,9 +99,9 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   Shard names can be requested with a [list of shards in the cluster](shards.md#list-shards).
+   You can request a shard name with a [list of shards in the cluster](shards.md#list-shards).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -136,7 +136,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a shard group, use the [createShardGroup](../api-ref/Cluster/createShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateShardGroup](../api-ref/grpc/cluster_service.md#CreateShardGroup) gRPC API call and provide the following in the request:
    * ID of the cluster in which you want to create a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -148,15 +148,15 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 ## Changing a shard group {#update-shard-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the required shard group and select **{{ ui-key.yacloud.common.edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -180,9 +180,9 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    You can request the name of the shard group with a [list of shard groups in the cluster](#list-shard-groups).
 
-   Shard names can be requested with a [list of shards in the cluster](shards.md#list-shards).
+   You can request a shard name with a [list of shards in the cluster](shards.md#list-shards).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -217,7 +217,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update a shard group, use the [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateShardGroup](../api-ref/grpc/cluster_service.md#UpdateShardGroup) gRPC API call and provide the following in the request:
    * ID of the cluster in which you want to change a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -236,15 +236,15 @@ Deleting a group of shards doesn't affect the shards in the group: they are kept
 
 Tables created on the deleted group are kept, but they are disabled and attempts to query them result in errors. However, you can delete these tables before or after you delete the shard group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the required shard group and select **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -262,7 +262,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    You can request the name of the shard group with a [list of shard groups in the cluster](#list-shard-groups).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -280,7 +280,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a shard group, use the [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShardGroup](../api-ref/grpc/cluster_service.md#DeleteShardGroup) gRPC API call and provide the following in the request:
    * ID of the cluster you want to delete a group from, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).

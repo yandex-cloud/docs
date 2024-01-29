@@ -11,9 +11,9 @@ description: "Follow this guide to create a resource."
 
 To create a [resource](../../concepts/resource.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder in which to create a resource.
 
@@ -68,7 +68,7 @@ To create a [resource](../../concepts/resource.md):
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -144,7 +144,7 @@ To create a [resource](../../concepts/resource.md):
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Make sure to activate the CDN provider before a resource is created. You can activate it in the [management console]({{ link-console-main }}) or using the [YC CLI](../../../cli/quickstart.md) command:
 
@@ -155,8 +155,8 @@ To create a [resource](../../concepts/resource.md):
    ```
 
    Where:
-   * `--folder-id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) where you want to activate the CDN provider.
-   * `--type`: Provider type, it may only take the `gcore` value.
+   * `--folder-id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) in which you want to activate the CDN provider.
+   * `--type`: Provider type, the only possible value is `gcore`.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -184,15 +184,15 @@ To create a [resource](../../concepts/resource.md):
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: (Optional) Flag indicating whether content is available to end users (`true` means that CDN content is available and `false` means it is not available). The default value is `true`.
+      * `active`: (Optional) Flag for content availability to end users (`true`: CDN content is available to clients; `false`: content not available). The default value is `true`.
       * `origin_protocol`: (Optional) Origin protocol. The default value is `HTTP`.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
-      * `secondary_hostnames`: (optional) Additional domain names.
+      * `secondary_hostnames`: (Optional) Additional domain names.
       * `ssl_certificate`: (Optional) SSL certificate parameters:
          * `type`: Certificate type, possible values are:
             * `not_used`: No certificate is used. Default value:
             * `certificate_manager`: Custom [{{ certificate-manager-full-name }}](../../../certificate-manager/concepts/imported-certificate.md) certificate. Specify the certificate ID in the `certificate_manager_id` parameter.
-         * `certificate_manager_id`: Custom certificate's ID in {{ certificate-manager-name }}.
+         * `certificate_manager_id`: User certificate ID in {{ certificate-manager-name }}.
       * `options`: (Optional) Additional parameters of the CDN resource:
          * `redirect_http_to_https`: Parameter for client redirects from HTTP to HTTPS, `true` or `false`. Available if an SSL certificate is used.
 
@@ -208,7 +208,7 @@ To create a [resource](../../concepts/resource.md):
       yc cdn resource list
       ```
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
 
@@ -222,9 +222,9 @@ To create a [resource](../../concepts/resource.md):
 
 ## Examples {#examples}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Create a resource with HTTP:
 

@@ -11,9 +11,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For clarity, we will create all required resources in {{ yandex-cloud }}. Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. Create a source {{ mpg-name }} cluster in any applicable [configuration](../managed-postgresql/concepts/instance-types.md) with publicly available hosts and the following settings:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
@@ -33,9 +33,9 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       * [{{ mpg-name }}](../managed-postgresql/operations/connect.md#configuring-security-groups).
 
 
-   1. [Grant the `mdb_replication` role](../managed-postgresql/operations/grant#grant-privilege) to the `pg-user` in the {{ mpg-name }} cluster.
+   1. [Grant the `mdb_replication` role](../managed-postgresql/operations/grant#grant-privilege) to `pg-user` in the {{ mpg-name }} cluster.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -94,9 +94,9 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 1. Create a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a source endpoint](../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
@@ -117,7 +117,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
       1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. Set the `transfer_enabled` variable to `1` in the `postgresql-to-clickhouse.tf` file.
 
@@ -210,15 +210,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 * Make sure the transfer has the **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** status and [delete](../data-transfer/operations/transfer.md#delete) it.
 * Delete the endpoints and clusters:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
-      * [The source endpoint and the target endpoint](../data-transfer/operations/endpoint/index.md#delete).
+      * [Both the source and target endpoints](../data-transfer/operations/endpoint/index.md#delete).
       * [{{ mpg-name }}](../managed-postgresql/operations/cluster-delete.md).
       * [{{ mch-name }}](../managed-clickhouse/operations/cluster-delete.md).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       If you created your resources using {{ TF }}:
 

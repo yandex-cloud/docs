@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
@@ -11,7 +11,7 @@
    1. Save a new password from the pop-up window and close it.
    1. At the top right, click ![image](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.vdi.button_download-rdp }}**.
 
-- User desktop showcase
+- User desktop showcase {#desktop-showcase}
 
    1. Open the [User desktop showcase]({{ link-cloud-desktop-showcase }}).
    1. Authenticate using [Yandex ID](https://yandex.com/support/id/index.html) or [Single Sign-On (SSO)](../../organization/concepts/add-federation.md).

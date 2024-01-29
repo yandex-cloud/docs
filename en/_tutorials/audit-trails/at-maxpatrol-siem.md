@@ -33,9 +33,9 @@ On behalf of a service account, the trail will gather logs from all the organiza
 
 Create a service account in the same folder as the trail, such as `example-folder`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -43,7 +43,7 @@ Create a service account in the same folder as the trail, such as `example-folde
    1. Enter `maxpatrol-sa` as your service account name.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -70,9 +70,9 @@ Create a service account in the same folder as the trail, such as `example-folde
 
 Assign your `maxpatrol-sa` service account the `audit-trails.viewer` and the `yds.editor` roles:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. The `audit-trails.viewer` role to the organization:
 
@@ -125,9 +125,9 @@ Assign your `maxpatrol-sa` service account the `audit-trails.viewer` and the `yd
 
 MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access-key.md) to authorize {{ yds-name }} data stream queries.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -142,7 +142,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
    {% endnote %}
 
-- CLI
+- CLI {#cli}
 
    Create a static access key for the `maxpatrol-sa` service account:
 
@@ -176,9 +176,9 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
 The database is required for the `{{ yds-name }}` data stream.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_ydb }}**.
@@ -189,7 +189,7 @@ The database is required for the `{{ yds-name }}` data stream.
 
    Wait for the database status to change to `Running`.
 
-- CLI
+- CLI {#cli}
 
    1. Create a database:
 
@@ -231,9 +231,9 @@ The database is required for the `{{ yds-name }}` data stream.
 
 This is the data stream the trail will upload organization resource logs to.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
@@ -251,9 +251,9 @@ This is the data stream the trail will upload organization resource logs to.
 
 The trail will collect the management event (Control Plane) audit logs for all of your organization's resources and [upload](../../audit-trails/operations/export-organization-data-streams.md) them to the `maxpatrol-stream` data stream.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select the **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}** option.

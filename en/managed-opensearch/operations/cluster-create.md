@@ -19,9 +19,9 @@ For more information, see [{#T}](../concepts/index.md).
 
 When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-groups.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a cluster:
 
@@ -35,7 +35,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       1. Select the {{ OS }} version.
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
@@ -107,7 +107,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- API
+- API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 

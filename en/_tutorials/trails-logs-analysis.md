@@ -25,9 +25,9 @@ The infrastructure support cost includes:
 
 ### Create a service account and assign roles {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [service account](../iam/concepts/users/service-accounts.md).
   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -36,7 +36,7 @@ The infrastructure support cost includes:
   1. Click ![](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `audit-trails.viewer` and `yds.editor` [roles](../iam/concepts/access-control/roles.md).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -85,7 +85,7 @@ The infrastructure support cost includes:
       * `--role`: Role being assigned.
       * `--subject`: ID of the `sa-trail-logs` service account.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../_includes/terraform-install.md) %}
 
@@ -123,7 +123,7 @@ The infrastructure support cost includes:
         terraform plan
         ```
 
-     If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -133,7 +133,7 @@ The infrastructure support cost includes:
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
   1. Create a service account using the [create](../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource.
   1. Find out the service account ID:
@@ -212,9 +212,9 @@ The infrastructure support cost includes:
 
 ### Create a {{ CH }} cluster {#create-ch-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-clickhouse }}**.
   1. Specify the settings for a {{ CH }} cluster:
@@ -228,7 +228,7 @@ The infrastructure support cost includes:
         * Access from [{{ data-transfer-full-name }}](../data-transfer/)
   1. After configuring all settings, click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Check whether the folder has any [subnets](../vpc/concepts/network.md#subnet) for the cluster hosts:
 
@@ -257,7 +257,7 @@ The infrastructure support cost includes:
 
      For more information about the `yc managed-clickhouse cluster create` command, see the [CLI reference](../cli/cli-ref/managed-services/managed-clickhouse/cluster/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Add a description of the cluster and cluster hosts to the configuration file:
 
@@ -309,7 +309,7 @@ The infrastructure support cost includes:
         terraform plan
         ```
 
-     If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -319,7 +319,7 @@ The infrastructure support cost includes:
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
   Use the [create](../managed-clickhouse/api-ref/Cluster/create.md) REST API method.
 
@@ -329,9 +329,9 @@ The infrastructure support cost includes:
 
 A data stream is used to upload audit logs.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
   1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, click **{{ ui-key.yacloud.common.label_create-new_female }}**. A new {{ ydb-name }} database creation page will open.
@@ -350,9 +350,9 @@ A data stream is used to upload audit logs.
 
 A [trail](../audit-trails/concepts/trail.md) will be uploading management event [audit logs](../audit-trails/concepts/format.md) for all the resources in your folder to a {{ yds-name }} stream.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}**.
   1. Enter the name of the created trail: `folder-trail`.
@@ -373,9 +373,9 @@ A [trail](../audit-trails/concepts/trail.md) will be uploading management event 
 
 To create a [transfer](../data-transfer/concepts/index.md#transfer), you need to specify the source [endpoint](../data-transfer/concepts/index.md#endpoint) that leads to a {{ yds-name }} stream.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -418,11 +418,11 @@ To create a [transfer](../data-transfer/concepts/index.md#transfer), you need to
 
 ## Create a target endpoint for a {{ CH }} database {#create-target-endpoint}
 
-To create transfer, you need to specify the target endpoint with {{ CH }} database settings.
+To create a transfer, you need to specify the target endpoint with {{ CH }} database settings.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -431,21 +431,21 @@ To create transfer, you need to specify the target endpoint with {{ CH }} databa
   1. Enter the endpoint name: `target-logs-ch`.
   1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field, select `{{ CH }}`.
   1. Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**, specify:
-     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}** Select the `trail-logs` cluster.
-     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user`
-     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the DB user's password.
-     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: `trail_data`
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**. Select the `trail-logs` cluster.
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user`.
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the DB user password.
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: `trail_data`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 ## Create a transfer {#create-datatransfer}
 
-Using transfer, data is migrated between the source service (a stream) and the target service (a {{ CH }} database).
+A transfer will migrate data between the source service (a stream) and the target service (a {{ CH }} database).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
@@ -457,7 +457,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
   1. Click ![ellipsis](../_assets/console-icons/ellipsis.svg) next to the name of the transfer and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
   1. Wait until the transfer status changes to `{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}`.
 
-- CLI
+- CLI {#cli}
 
   Create a transfer named `logs-transfer`:
 
@@ -475,7 +475,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
 
   For more information about the `yc datatransfer transfer create` command, see the [CLI reference](../cli/cli-ref/managed-services/datatransfer/transfer/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Add a transfer description to the configuration file.
 
@@ -503,7 +503,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
         terraform plan
         ```
 
-     If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -613,5 +613,5 @@ Example dashboard:
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 * [Delete the cluster](../managed-postgresql/operations/cluster-delete.md) named `trail-logs`.
 * [Delete the stream](../data-streams/operations/manage-streams.md#delete-data-stream) named `trail-logs-stream`.
-* [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+* [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 * [Delete the transfer](../data-transfer/operations/transfer.md#delete) named `logs-transfer`.

@@ -10,12 +10,24 @@ curl https://{{ api-host }}/endpoints
 {
  "endpoints": [
   {
+   "id": "ai-foundation-models",
+   "address": "llm.{{ api-host }}:443"
+  },
+  {
+   "id": "ai-llm",
+   "address": "llm.{{ api-host }}:443"
+  },
+  {
    "id": "ai-speechkit",
    "address": "transcribe.{{ api-host }}:443"
   },
   {
    "id": "ai-stt",
    "address": "transcribe.{{ api-host }}:443"
+  },
+  {
+   "id": "ai-stt-v3",
+   "address": "stt.{{ api-host }}:443"
   },
   {
    "id": "ai-translate",
@@ -26,8 +38,16 @@ curl https://{{ api-host }}/endpoints
    "address": "vision.{{ api-host }}:443"
   },
   {
+   "id": "ai-vision-ocr",
+   "address": "ocr.{{ api-host }}:443"
+  },
+  {
    "id": "alb",
    "address": "alb.{{ api-host }}:443"
+  },
+  {
+   "id": "apigateway-connections",
+   "address": "apigateway-connections.{{ api-host }}:443"
   },
   {
    "id": "application-load-balancer",
@@ -38,8 +58,20 @@ curl https://{{ api-host }}/endpoints
    "address": "alb.{{ api-host }}:443"
   },
   {
+   "id": "baas",
+   "address": "backup.{{ api-host }}:443"
+  },
+  {
+   "id": "backup",
+   "address": "backup.{{ api-host }}:443"
+  },
+  {
    "id": "billing",
    "address": "billing.{{ api-host }}:443"
+  },
+  {
+   "id": "broker-data",
+   "address": "iot-data.{{ api-host }}:443"
   },
   {
    "id": "cdn",
@@ -54,8 +86,16 @@ curl https://{{ api-host }}/endpoints
    "address": "data.certificate-manager.{{ api-host }}:443"
   },
   {
+   "id": "cloudbackup",
+   "address": "backup.{{ api-host }}:443"
+  },
+  {
    "id": "clouddesktops",
    "address": "clouddesktops.{{ api-host }}:443"
+  },
+  {
+   "id": "cloudvideo",
+   "address": "video.{{ api-host }}:443"
   },
   {
    "id": "compute",
@@ -92,6 +132,10 @@ curl https://{{ api-host }}/endpoints
   {
    "id": "iam",
    "address": "iam.{{ api-host }}:443"
+  },
+  {
+   "id": "iot-broker",
+   "address": "iot-broker.{{ api-host }}:443"
   },
   {
    "id": "iot-data",
@@ -178,6 +222,10 @@ curl https://{{ api-host }}/endpoints
    "address": "mdb.{{ api-host }}:443"
   },
   {
+   "id": "managed-opensearch",
+   "address": "mdb.{{ api-host }}:443"
+  },
+  {
    "id": "managed-postgresql",
    "address": "mdb.{{ api-host }}:443"
   },
@@ -203,6 +251,10 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "mdb-mysql",
+   "address": "mdb.{{ api-host }}:443"
+  },
+  {
+   "id": "mdb-opensearch",
    "address": "mdb.{{ api-host }}:443"
   },
   {
@@ -258,6 +310,10 @@ curl https://{{ api-host }}/endpoints
    "address": "serverless-functions.{{ api-host }}:443"
   },
   {
+   "id": "serverless-gateway-connections",
+   "address": "apigateway-connections.{{ api-host }}:443"
+  },
+  {
    "id": "serverless-triggers",
    "address": "serverless-triggers.{{ api-host }}:443"
   },
@@ -268,6 +324,10 @@ curl https://{{ api-host }}/endpoints
   {
    "id": "storage-api",
    "address": "storage.{{ api-host }}:443"
+  },
+  {
+   "id": "video",
+   "address": "video.{{ api-host }}:443"
   },
   {
    "id": "vpc",

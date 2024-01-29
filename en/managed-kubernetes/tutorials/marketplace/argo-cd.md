@@ -17,15 +17,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
    1. [Create service accounts](../../../iam/operations/sa/create.md):
       * Service account for {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) assembled in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md) and pull them to run [pods](../../concepts/index.md#pod).
+      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) that you build in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md), as well as pull them to run [pods](../../concepts/index.md#pod).
 
       {% note tip %}
 
@@ -39,7 +39,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
    1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -275,31 +275,31 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the created Docker images](../../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Delete the {{ managed-k8s-name }} cluster and {{ container-registry-name }} registry:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
-     1. [Delete the {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-     1. [Delete the {{ container-registry-name }} registry](../../../container-registry/operations/registry/registry-delete.md).
-     1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
-     1. [Delete the created service accounts](../../../iam/operations/sa/delete.md).
+      1. [Delete the {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+      1. [Delete the {{ container-registry-name }} registry](../../../container-registry/operations/registry/registry-delete.md).
+      1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
+      1. [Delete the created service accounts](../../../iam/operations/sa/delete.md).
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
-     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the `k8s-argocd.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+      1. Delete the `k8s-argocd.tf` configuration file.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-     1. Confirm updating the resources.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
+      1. Confirm updating the resources.
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        All the resources described in the `k8s-argocd.tf` configuration file will be deleted.
+         All the resources described in the `k8s-argocd.tf` configuration file will be deleted.
 
    {% endlist %}
 

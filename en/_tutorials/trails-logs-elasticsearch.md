@@ -10,9 +10,9 @@ The solution described in the tutorial follows the procedure below:
 
 The following data required for log analysis is uploaded to the {{ mes-name }} cluster:
 
-* A dashboard with use cases and statistics.
-* A set of `Saved Queries` to search for security events.
-* A set of `Detection Rules` with correlation rules for which alerts are preset.
+* Dashboard with use cases and statistics.
+* Set of `Saved Queries` to search for security events.
+* Set of `Detection Rules` with correlation rules for which alerts are preset.
 
 All the [source files](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk) for the solution are stored in the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library).
 
@@ -55,9 +55,9 @@ The infrastructure support cost includes:
 
 ### Create a new bucket to use for uploading audit logs {#create-backet}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../storage/concepts/bucket.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -73,9 +73,9 @@ The infrastructure support cost includes:
 
 ### Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -83,7 +83,7 @@ The infrastructure support cost includes:
    1. Enter a name for the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a service account, run the following command:
 
@@ -99,9 +99,9 @@ The infrastructure support cost includes:
 
 Assign the `audit-trails.viewer` and `storage.uploader` roles to the service account:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. The `storage.uploader` [role](../storage/security/index.md#storage-uploader) to the folder with a bucket:
 
@@ -127,7 +127,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       1. Select the `audit-trails.viewer` role.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Assign the `storage.uploader` [role](../storage/security/index.md#storage-uploader) to the folder with your bucket:
 
@@ -157,24 +157,24 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
 
       * `--role`: Role being assigned.
       * `--id`: ID of the cloud the service account resides in.
-      * `--service-account-id`: ID of the `trails-sa` service account.
+      * `--service-account-id`: ID of `trails-sa`.
 
 {% endlist %}
 
 ### Check your roles {#check-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the cloud to collect the audit logs from.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. At the top right, select **{{ ui-key.yacloud_org.common.resource-acl.label_inherited-bindings }}** to display the roles inherited from the organization.
    1. Make sure that you have the following roles:
-      * `iam.serviceAccounts.user` for the service account
-      * `audit-trails.editor` for the folder to host the trail
-      * `audit-trails.viewer` for the cloud whose audit logs will be collected
-      * `storage.viewer` for the bucket or the folder
+      * `iam.serviceAccounts.user` for the service account.
+      * `audit-trails.editor` for the folder to host the trail.
+      * `audit-trails.viewer` for the cloud whose audit logs will be collected.
+      * `storage.viewer` for the bucket or the folder.
 
 {% endlist %}
 
@@ -182,9 +182,9 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
 
 If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a cloud network.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -193,7 +193,7 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
    1. Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a cloud network, run the command:
 
@@ -207,9 +207,9 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 
 ### Create subnets {#create-subnets}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create a subnet in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -220,10 +220,10 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
    1. Enter the subnet CIDR: its IP address and mask, e.g., `10.128.0.0/24`.
    1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Create two more subnets:
-      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR
-      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR
+      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR.
+      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR.
 
-- CLI
+- CLI {#cli}
 
    1. Get the name of the cloud network to create a subnet in:
 
@@ -281,15 +281,15 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 
 {% note info %}
 
-You can also deploy the required environment using {{ TF }}. For more information, refer to a [sample configuration file](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/terraform/example/main.tf).
+You can also deploy the required environment using {{ TF }}. See a [sample configuration file](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/terraform/example/main.tf).
 
 {% endnote %}
 
 ## Create a trail {#create-trail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -320,12 +320,12 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
 
 ## Deploy a {{ ES }} cluster and intermediate VM {#create-cluster-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Download a directory with [{{ TF }} modules](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/tree/main/terraform/modules):
-      * `yc-managed-elk` creates a {{ ES }} cluster and assigns a password to the `admin` user. Cluster parameters:
+      * `yc-managed-elk` creates an {{ ES }} cluster and assigns a password to the `admin` user. The cluster parameters are as follows:
          * Number of hosts: Three, one in each availability zone.
          * [Host class](../managed-elasticsearch/concepts/instance-types.md#available-flavors): s2.medium.
          * Edition: `Platinum`.
@@ -420,7 +420,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
       terraform plan
       ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources:
 

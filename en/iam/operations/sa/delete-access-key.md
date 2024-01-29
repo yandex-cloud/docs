@@ -5,9 +5,9 @@ description: "In this tutorial, you will learn how to delete static access keys 
 
 # Deleting static access keys
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder that the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -15,7 +15,7 @@ description: "In this tutorial, you will learn how to delete static access keys 
    1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_service-account-keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the key to be deleted and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-api-key }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ description: "In this tutorial, you will learn how to delete static access keys 
       yc iam access-key delete <ID>
       ```
 
-- API
+- API {#api}
 
    To delete a static key, use the [delete](../../api-ref/AccessKey/delete.md) REST API method for the [AccessKey](../../api-ref/AccessKey/index.md) REST API resource or the [AccessKeyService/Delete](../../api-ref/grpc/access_key_service.md#Delete) gRPC API call.
 

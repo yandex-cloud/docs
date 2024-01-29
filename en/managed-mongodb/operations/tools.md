@@ -58,14 +58,14 @@ db.currentOp({ "$ownOps": true })
 
 You can find the most detailed information about {{ MG }} performance in the logs.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -87,7 +87,7 @@ You can find the most detailed information about {{ MG }} performance in the log
 
       You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To view logs, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

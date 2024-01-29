@@ -86,9 +86,9 @@ To disable the read-only mode:
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To increase the cluster storage size:
 
@@ -97,7 +97,7 @@ To disable the read-only mode:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -118,7 +118,7 @@ To disable the read-only mode:
           --disk-size <storage_size_in_GB>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To increase the cluster storage size:
 
@@ -152,7 +152,7 @@ To disable the read-only mode:
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -174,9 +174,9 @@ To disable the read-only mode:
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ mpg-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
@@ -193,7 +193,7 @@ To disable the read-only mode:
 
    1. Click **Save changes**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -218,7 +218,7 @@ To disable the read-only mode:
                                  `emergency-usage-threshold=<percentage_for_immediate_increase>
       ```
 
-- API
+- API {#api}
 
    To enable automatic increase of storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 

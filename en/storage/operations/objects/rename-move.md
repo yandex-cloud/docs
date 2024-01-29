@@ -7,9 +7,9 @@ description: "In this tutorial, you will learn how to rename and move an object 
 
 ## Renaming {#rename}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. To rename an object, run this command:
@@ -36,9 +36,9 @@ description: "In this tutorial, you will learn how to rename and move an object 
 
 ## Moving {#move}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. To move an object, e.g., from one bucket to another, run this command:

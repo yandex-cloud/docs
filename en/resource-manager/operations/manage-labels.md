@@ -6,9 +6,9 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
 ## Adding a label {#add-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    The example below shows how to add a label to a {{ compute-name }} VM instance. You can add a label to another resource in the same way.
 
@@ -20,7 +20,7 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
    1. Specify the key and value and press **Enter**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -55,7 +55,7 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
    > ...
    > ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -101,9 +101,9 @@ You can create a label with multiple values. For example, create a label named `
 
 You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -144,7 +144,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
    > ...
    > ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -171,9 +171,9 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 ## Deleting a label {#remove-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    The example below shows how to delete a label from a {{ compute-name }} VM. You can delete a label from another resource in the same way.
 
@@ -184,7 +184,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
    1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the label in question and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -216,7 +216,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
    > ...
    > ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 

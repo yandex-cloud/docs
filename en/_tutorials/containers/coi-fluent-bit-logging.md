@@ -248,31 +248,31 @@ yc compute instance create \
 
 ## View the logs {#read-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group, the ID of which you specified in `spec.yaml`.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-  1. Select the `default` log group. The page that opens will show the log group records.
+   1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group, the ID of which you specified in `spec.yaml`.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. Select the `default` log group. The page that opens will show the log group records.
 
-- CLI
+- CLI {#cli}
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To view records in the log group, run the command:
+   To view records in the log group, run the command:
 
   ```bash
   yc logging read --group-id=<log_group_ID>
   ```
 
-  Where `--group-id` is the ID of the `default` log group specified in `spec.yaml`.
+   Where `--group-id` is the ID of the `default` log group specified in `spec.yaml`.
 
-- API
+- API {#api}
 
-  You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md).
+   You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md).
 
 {% endlist %}
 

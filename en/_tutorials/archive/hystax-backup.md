@@ -84,9 +84,9 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
 ## Create a bucket {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -105,7 +105,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
    1. Save the bucket name. You will need it later.
 
-- API
+- API {#api}
 
    Use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/) resource or the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call.
 
@@ -116,9 +116,9 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair. You will need them when creating a VM.
 1. To create a VM with recommended configuration and a boot disk from the Hystax Acura Backup image:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -149,13 +149,13 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public SSH key.
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run the following command:
+      Run this command:
 
       ```bash
       yc compute instance create \
@@ -185,7 +185,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
       * `service-account-id`: ID of the [previously created](#create-sa) service account. You can get a list of accounts using the `yc iam service-account list` command.
       * `ssh-key`: Path to the public SSH key file. The default username for access via SSH is `yc-user`.
 
-   - API
+   - API {#api}
 
       Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
 
@@ -195,9 +195,9 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
 VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup may reboot, make the IP static.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -207,7 +207,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
    1. Save the IP. You will need it later.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -259,7 +259,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
       The `reserved` parameter value changed to `true` and the IP address is now static.
    1. Save the IP. You will need it later.
 
-- API
+- API {#api}
 
    Use the [update](../../vpc/api-ref/Address/update.md) REST API method for the [Address](../../vpc/api-ref/Address/index.md) resource or the [AddressService/Update](../../vpc/api-ref/grpc/address_service.md#Update) gRPC API call.
 
@@ -301,9 +301,9 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
    * **S3 Host**: `{{ s3-storage-host }}`.
    * **S3 Port**: `443`.
    * **Enable HTTPS**: Select the option to enable HTTPS connections.
-   * **S3 Access Key ID**: The access key ID (obtained when [Creating a service account](#create-sa)).
-   * **S3 Secret Access Key**: The secret key (obtained when [Creating a service account](#create-sa)).
-   * **S3 Bucket**: The name of the bucket that stores VM backups (you set it when [Creating a bucket](#create-bucket)).
+   * **S3 Access Key ID**: Access key ID (obtained when [Creating a service account](#create-sa)).
+   * **S3 Secret Access Key**: Secret key (obtained when [Creating a service account](#create-sa)).
+   * **S3 Bucket**: Name of the bucket that stores VM backups (you set it when [Creating a bucket](#create-bucket)).
    * **Hystax Acura Control Panel Public IP**: Replace the value with the Hystax Acura Backup VM's public IP (assigned when [Creating a VM with Hystax Acura Backup](#create-acura-vm)).
    * **Additional parameters**: Advanced settings. Do not edit this field.
 1. Click **Next**.
@@ -379,9 +379,9 @@ VM replication will start. A VM replica will include all the data of the origina
 
 The DR plan includes a VM description and the network settings. The plan determines the VMs to recover to your cloud and the VM configuration, subnet, and IP. You can have a plan generated automatically or create one manually:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Automatically
+- Automatically {#auto}
 
    1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
    1. Check the VMs you need on the list, click **Bulk actions**, and select **Generate DR plan**. You can also generate a plan for a group of VMs by clicking ![image](../../_assets/options.svg) in the group header.
@@ -399,7 +399,7 @@ The DR plan includes a VM description and the network settings. The plan determi
    1. In the **Port ip** field, enter a new IP for the VM from the selected subnet.
    1. Click **Save**.
 
-- Manually
+- Manually {#manual}
 
    1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
    1. Click **Add DR Plan**.

@@ -19,9 +19,9 @@ After creating a {{ mkf-name }} cluster, you can:
 
 You cannot increase the number of {{ KF }} broker hosts unless a cluster includes at least two broker hosts in different availability zones. You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -31,7 +31,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -64,7 +64,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
       {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> --resource-preset <host_class>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -108,7 +108,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
    To change the class and number of broker hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -122,16 +122,16 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
 ## Changing the {{ ZK }} host class {#change-zookeeper}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Select a new [**{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**](../concepts/instance-types.md).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -191,7 +191,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
    To change the class of {{ ZK }} hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -213,9 +213,9 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To increase the cluster storage size:
 
@@ -224,7 +224,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -256,7 +256,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
       If no size units are specified, gigabytes are used.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To increase the cluster storage size
 
@@ -297,13 +297,13 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -312,9 +312,9 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
 ## Updating security group and public access settings {#change-sg-set}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -324,7 +324,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -353,7 +353,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -391,7 +391,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
    To change the security group and public access settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -411,9 +411,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 ## Changing additional cluster settings {#change-additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -423,7 +423,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -467,7 +467,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -512,7 +512,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -540,9 +540,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 ## Changing {{ KF }} settings {#change-kafka-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -552,7 +552,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -580,7 +580,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
       * `--log-flush-interval-messages`: Number of messages in the log to trigger flushing to disk.
       * `--log-flush-interval-ms`: Maximum time a message can be stored in memory before flushing to disk.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -616,7 +616,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
    To change {{ KF }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -634,10 +634,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 ## Moving a cluster {#move-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -660,7 +660,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -671,15 +671,15 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 ## Changing security groups {#change-sg-set}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -700,7 +700,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
          --security-group-ids <list_of_security_groups>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -727,13 +727,13 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
    To update security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
-   - List of settings to update in the `updateMask` parameter.
+   - List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

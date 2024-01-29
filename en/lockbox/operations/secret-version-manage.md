@@ -15,9 +15,9 @@ Secret version control enables you to:
 
 ## Creating a new version {#create-version}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -30,7 +30,7 @@ Secret version control enables you to:
          You can create multiple key-value pairs per version.
    1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -84,7 +84,7 @@ Secret version control enables you to:
    yc lockbox secret list-versions <secret_ID>
    ```
 
-- API
+- API {#api}
 
    To create a new secret version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call.
 
@@ -92,9 +92,9 @@ Secret version control enables you to:
 
 ## Getting information about a version {#get-version}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -102,7 +102,7 @@ Secret version control enables you to:
    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, you will see a list of all secret versions with information about them.
    1. Click a version to see the details about its key-value pairs.
 
-- API
+- API {#api}
 
    To get information about a version, use the [listVersions](../api-ref/Secret/listVersions.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ListVersions](../api-ref/grpc/secret_service.md#ListVersions) gRPC API call.
 
@@ -110,9 +110,9 @@ Secret version control enables you to:
 
 ## Creating a version based on another version {#create-version-based-on-other}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -126,7 +126,7 @@ Secret version control enables you to:
          You can create multiple key-value pairs per version.
    1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
 
-- API
+- API {#api}
 
    To create a version based on another version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call.
 
@@ -134,9 +134,9 @@ Secret version control enables you to:
 
 ## Changing the current version {#backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -145,7 +145,7 @@ Secret version control enables you to:
    1. Select **{{ ui-key.yacloud.lockbox.field_make-version-current }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_action-make-version-current }}**.
 
-- API
+- API {#api}
 
    To change the current version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
 
@@ -153,9 +153,9 @@ Secret version control enables you to:
 
 ## Scheduling version destruction {#set-deleting-time}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -165,7 +165,7 @@ Secret version control enables you to:
    1. Enter the destruction pending period.
    1. Click **{{ ui-key.yacloud.lockbox.forms.button_schedule-destruction }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -195,7 +195,7 @@ Secret version control enables you to:
         - secret-key
       ```
 
-- API
+- API {#api}
 
    To schedule a version deletion, use the [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ScheduleVersionDestruction](../api-ref/grpc/secret_service.md#ScheduleVersionDestruction) gRPC API call.
 

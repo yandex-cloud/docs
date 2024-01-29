@@ -42,9 +42,9 @@ The cost of data storage support includes:
 
 ## Connect the stream to the log group {#stream-log-connect}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. Next to the log group where the logs are sent, click ![options](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.

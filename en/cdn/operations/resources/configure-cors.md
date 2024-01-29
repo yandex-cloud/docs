@@ -9,9 +9,9 @@ description: "Follow this guide to configure CORS when responding to clients."
 
 To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [resource](../../concepts/resource.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
@@ -30,7 +30,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -98,7 +98,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -178,13 +178,13 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
+      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc cdn resource list
       ```
 
-- API
+- API {#api}
 
    Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
 

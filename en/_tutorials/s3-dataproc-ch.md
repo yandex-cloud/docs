@@ -10,9 +10,9 @@ As an example, we use two CSV tables to be joined, imported to Parquet format, a
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a service account](../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` role.
    1. {% include [basic-before-buckets](../_includes/data-proc/tutorials/basic-before-buckets.md) %}
@@ -60,7 +60,7 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -239,9 +239,9 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [{{ mch-name }} cluster](../managed-clickhouse/operations/cluster-delete.md).
    1. [{{ dataproc-name }} cluster](../data-proc/operations/cluster-delete.md).
@@ -249,10 +249,10 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Cloud network](../vpc/operations/network-delete.md).
    1. [Service account](../iam/operations/sa/delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. [Delete the objects](../storage/operations/objects/delete.md) from the buckets.
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `s3-dataproc-ch.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Kibana
+- Kibana {#kibana}
 
   
   **If a host with the _Data node_ role is assigned a public IP address:**
@@ -81,13 +81,13 @@
   {% include [kibana-api](mes-kibana-api.md) %}
 
 
-- Bash
+- Bash {#bash}
 
   **Command example for connecting via SSL:**
 
   {% include [default-connstring](./mes/default-connstring.md) %}
 
-- PowerShell
+- PowerShell {#powershell}
 
   **Command example for connecting via SSL:**
 
@@ -100,7 +100,7 @@
 
   In the window that opens, enter the user's password.
 
-- Python
+- Python {#python}
 
   **Before connecting, install the dependencies:**
 
@@ -144,7 +144,7 @@
   python3 connect.py
   ```
 
-- Go
+- Go {#go}
 
   **Before connecting, install the dependencies:**
 

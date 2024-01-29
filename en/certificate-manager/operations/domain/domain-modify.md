@@ -1,6 +1,6 @@
 ---
 title: "How to update a domain description"
-description: "This guide describes how you can update a domain description."
+description: "Follow this guide to update a domain description."
 ---
 
 # Updating a domain description
@@ -9,9 +9,9 @@ description: "This guide describes how you can update a domain description."
 
 After creating a domain, you can update its description. To update the description of a domain:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the domain was created.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.

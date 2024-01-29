@@ -31,9 +31,9 @@ The price for backups via Duplicati includes:
 
 To create a bucket for backups:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
 

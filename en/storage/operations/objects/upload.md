@@ -11,9 +11,9 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
 ## Regular uploads {#simple}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the management console, you can work with {{ objstorage-name }} buckets like a hierarchical file system.
 
@@ -30,7 +30,7 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
    In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
    1. To upload a single object, run the command:
@@ -59,7 +59,7 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
    The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). All upload features {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command (see sample operations with [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -83,7 +83,7 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
       Where:
       * `access_key`: ID of the static access key.
-      * `secret_key`: Value of the secret access key.
+      * `secret_key`: Secret access key value.
       * `bucket`: Name of the bucket to add the object to. This is a required parameter.
       * `key`: Name of the object in the bucket. This is a required parameter. The name format is as follows:
 
@@ -116,7 +116,7 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To upload an object, use the [upload](../../s3/api-ref/object/upload.md) S3 API method.
 
@@ -127,12 +127,12 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
 If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buckets/configure-object-lock.md) enabled, you can specify object lock settings (disable deleting or overwriting) when uploading an object version.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -166,7 +166,7 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
 
       You can place an object version only under an object lock with a retention period (the `object-lock-mode` and `object-lock-retain-until-date` parameters), only under a legal hold (`object-lock-legal-hold-status`), or under both. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
 
-- API
+- API {#api}
 
    To upload an object version with a lock, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers to apply a retention period and `X-Amz-Object-Lock-Legal-Hold` to put a legal hold.
 
@@ -174,9 +174,9 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
 
 If a bucket already has the [default object locks set for a certain period](../../concepts/object-lock.md#default) configured, you should upload any objects to it with their [MD5 hash](https://{{ lang }}.wikipedia.org/wiki/MD5) specified:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Calculate a file's MD5 hash and encode it with [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
 
@@ -211,9 +211,9 @@ If a bucket already has the [default object locks set for a certain period](../.
       * `--object-lock-mode` and `--object-lock-mode` to place an object version under an object lock for a certain period with a configuration different from the bucket's object lock default settings.
       * `--object-lock-legal-hold-status` to place an object version under a legal hold.
 
-      For more information about these parameters, see the instructions above.
+      For more information about these parameters, see the guide above.
 
-- API
+- API {#api}
 
    To upload an object version with a default retention period, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `Content-MD5` header.
 

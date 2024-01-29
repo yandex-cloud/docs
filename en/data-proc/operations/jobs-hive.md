@@ -4,9 +4,9 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
 ## Create a job {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
@@ -28,7 +28,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
       * Path to the file with the queries to be executed.
    1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -60,7 +60,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/Job/create) API method and include the following information in the request:
 

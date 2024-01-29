@@ -1,10 +1,10 @@
 To change the name or description of a group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
-   1. [Log in]({{ link-passport-login }}) to the organization administrator account.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator.
 
    1. Go to [{{org-full-name}}]({{ link-org-main }}).
 
@@ -16,7 +16,7 @@ To change the name or description of a group:
 
    1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

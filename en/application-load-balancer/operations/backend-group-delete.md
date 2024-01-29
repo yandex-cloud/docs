@@ -13,9 +13,9 @@ description: "Follow this guide to delete a backend group."
 
 To delete a backend group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -25,7 +25,7 @@ To delete a backend group:
       To do this with multiple groups, select the groups to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ To delete a backend group:
       yc alb backend-group list
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -94,7 +94,7 @@ To delete a backend group:
       yc alb backend-group list
       ```
 
-- API
+- API {#api}
 
    Use the [delete](../api-ref/BackendGroup/delete.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Delete](../api-ref/grpc/backend_group_service.md#Delete) gRPC API call.
 

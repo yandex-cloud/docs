@@ -14,9 +14,9 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
 ## Select a certificate from {{ certificate-manager-name }} {#cert-manager}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
@@ -34,36 +34,36 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to edit a bucket ACL:
+   1. View a description of the CLI command to edit a bucket ACL:
 
-     ```bash
-     yc storage bucket update --help
-     ```
+      ```bash
+      yc storage bucket update --help
+      ```
 
-  1. Run the following command:
+   1. Run the following command:
 
-     ```bash
-     yc storage bucket set-https --name <bucket_name> --certificate-id <certificate_ID>
-     ```
+      ```bash
+      yc storage bucket set-https --name <bucket_name> --certificate-id <certificate_ID>
+      ```
 
-     Where:
-     * `--name`: Name of the bucket to configure HTTPS for.
-     * `--certificate-id`: Certificate ID in {{ certificate-manager-name }}.
+      Where:
+      * `--name`: Name of the bucket to configure HTTPS for.
+      * `--certificate-id`: Certificate ID in {{ certificate-manager-name }}.
 
-     Result:
+      Result:
 
-     ```text
-     source_type: SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
-     certificate_id: fpqe2g0hfr0e********
-     ```
+      ```text
+      source_type: SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
+      certificate_id: fpqe2g0hfr0e********
+      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -122,7 +122,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
       You can use the [management console]({{ link-console-main }}) to check the selected certificate.
 
-- API
+- API {#api}
 
    To select a certificate from {{ certificate-manager-name }}, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig) gRPC API call.
 
@@ -142,9 +142,9 @@ Where `domain.pem` is the domain certificate, `intermediate.pem` is the intermed
 
 To upload a certificate:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -155,7 +155,7 @@ To upload a certificate:
    1. Add the certificate and secret key.
    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
-- API
+- API {#api}
 
    To upload your own security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig) gRPC API call.
 

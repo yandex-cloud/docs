@@ -27,9 +27,9 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
 
 ## Create an {{ objstorage-name }} bucket {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -41,28 +41,30 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
 
 ## Get expense details {#get-billing-detail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
    1. Select the billing account you need from the list.
    1. Go to the **{{ ui-key.yacloud.billing.account.switch_detail }}** tab.
    1. At the top right, click **{{ ui-key.yacloud.billing.account.detail.button_export }}** and select **{{ ui-key.yacloud.billing.account.detail.button_create-periodic-export }}**.
    1. In the window that opens:
+
       * In the **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** field, enter the name of the bucket you [created earlier](#create-bucket). A CSV file with your expense details will be kept there.
       * In the **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** field, enter the name of the directory for the file. The last character must be `/`.
       * In the **{{ ui-key.yacloud.billing.account.exports.field_locale }}** field, select the language to display product names in: **{{ ui-key.yacloud.billing.account.exports.locale_value_en-lang }}** or **{{ ui-key.yacloud.billing.account.exports.locale_value_ru-lang }}**.
       * In the **{{ ui-key.yacloud.billing.account.exports.field_detail-type }}** field, select the **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** type of details.
+
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 ## Generate a report {#create-report}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    1. Run the query against {{ objstorage-name }} and save the output to a file:
 

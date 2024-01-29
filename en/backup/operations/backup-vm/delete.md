@@ -5,9 +5,9 @@ description: "In this tutorial, you will learn how to delete a VM backup in **{{
 
 # Deleting a backup
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -15,7 +15,7 @@ description: "In this tutorial, you will learn how to delete a VM backup in **{{
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the appropriate backup, and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@ description: "In this tutorial, you will learn how to delete a VM backup in **{{
 
    For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/delete.md).
 
-- API
+- API {#api}
 
    To delete a backup, use the [delete](../../backup/api-ref/Backup/delete.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/Delete](../../backup/api-ref/grpc/backup_service.md#Delete) gRPC API call.
 

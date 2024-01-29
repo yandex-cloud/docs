@@ -2,16 +2,16 @@
 
 To update a folder name or description, use the management console, CLI, API, or {{ TF }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
    1. Enter a new name and description for the folder.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ To update a folder name or description, use the management console, CLI, API, or
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -89,7 +89,7 @@ To update a folder name or description, use the management console, CLI, API, or
       yc resource-manager folder list-operations <folder_name_or_ID>
       ```
 
-- API
+- API {#api}
 
    To update a folder, use the [update](../../api-ref/Folder/update.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Update](../../api-ref/grpc/folder_service.md#Update) gRPC API call.
 

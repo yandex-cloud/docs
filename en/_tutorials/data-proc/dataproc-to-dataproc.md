@@ -12,9 +12,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a service account](../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` role.
    1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
@@ -37,7 +37,7 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -195,19 +195,19 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. [Delete the {{ metastore-name }} cluster](../../data-proc/operations/metastore/cluster-delete.md).
 1. Delete other resources depending on how they were created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [{{ dataproc-name }} clusters](../../data-proc/operations/cluster-delete.md)
       1. [{{ objstorage-name }} buckets](../../storage/operations/buckets/delete.md)
       1. [Cloud network](../../vpc/operations/network-delete.md)
       1. [Service account](../../iam/operations/sa/delete.md)
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. [Delete the objects](../../storage/operations/objects/delete.md) from the buckets.
-      1. In the terminal window, switch to the directory containing the infrastructure plan.
+      1. In the terminal window, go to the directory containing the infrastructure plan.
       1. Delete the `dataproc-to-dataproc.tf` configuration file.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

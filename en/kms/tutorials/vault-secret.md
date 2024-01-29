@@ -117,7 +117,7 @@ The environment variable values prevail over those from the configuration file.
    ...
    ```
 
-- Any service account with a key
+- Any service account
 
    ```json
    ...
@@ -159,6 +159,7 @@ To stop paying for the resources you created:
 * [Delete the {{ kms-name }} key](../../kms/operations/key.md#delete).
 
 ## See also {#see-also}
+
 * [Hashicorp Vault](https://www.vaultproject.io/)
 * [Seal/Unseal in Vault](https://www.vaultproject.io/docs/concepts/seal)
 * [Seal configuration in Vault](https://www.vaultproject.io/docs/configuration/seal)

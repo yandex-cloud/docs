@@ -33,9 +33,9 @@ Learn more about [{{ objstorage-full-name }} pricing plans](../../storage/pricin
 
 ## Create a bucket {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
 
@@ -48,7 +48,7 @@ Backups in {{ objstorage-name }} are performed on behalf of a [service account](
 To create a service account:
 
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.admin` [role](../../iam/concepts/access-control/roles.md#storage-admin) to the service account.
-1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret access key right away. You won't be able to access the private key parameters again after you close the window.
+1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and the secret key right away. After you close the window, the private key parameters will become unavailable.
 
 ## Create a cloud instance on {{ objstorage-full-name }} {#new-becloudinstance}
 
@@ -113,7 +113,7 @@ To create a service account:
 1. Select **Microsoft Windows computers and servers**, and then click **Next**.
 1. Enable **Allow Backup Exec to establish a trust with the servers** and click **Next**.
 1. Add the server and click **Next**.
-1. (optional) Select the options for the agent update and remote computer restart and click **Next**.
+1. (Optional) Select the options for the agent update and remote computer restart and click **Next**.
 1. Check the selected settings and click **Install**.
 
 ## Configure backup settings {#add-target}
@@ -128,9 +128,9 @@ To create a service account:
 
 ## Test the backup procedure {#test-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder with backups.
    1. Select **{{ objstorage-short-name }}**.

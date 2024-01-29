@@ -8,9 +8,9 @@
 
 Before you start, you need to add dependencies.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    Add dependencies using [Apache Maven](https://maven.apache.org/):
 
@@ -28,9 +28,9 @@ Before you start, you need to add dependencies.
 
 Create a {{ yandex-cloud }} provider for the AWS Encryption SDK and use the methods of the [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/com/amazonaws/encryptionsdk/AwsCrypto.html) class to encrypt and decrypt data.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    ```java
    YcKmsMasterKeyProvider provider = new YcKmsMasterKeyProvider()
@@ -51,7 +51,7 @@ Create a {{ yandex-cloud }} provider for the AWS Encryption SDK and use the meth
 
    Where:
 
-   * `endpoint` – `{{ api-host }}:443`.
+   * `endpoint`: `{{ api-host }}:443`.
    * `credentials`: Determines the authentication method (for more information, see [Authentication in the {{ yandex-cloud }} SDK](sdk.md#auth)).
    * `keyId`: ID of the [key in {{ kms-short-name }}](../../concepts/key.md).
    * `plaintext`: Unencrypted text.
@@ -61,6 +61,7 @@ Create a {{ yandex-cloud }} provider for the AWS Encryption SDK and use the meth
 {% endlist %}
 
 #### See also {#see-also}
-* [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html).
-* [The {{ yandex-cloud }} provider for the AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto).
+
+* [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html)
+* [{{ yandex-cloud }} provider for the AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto).
 * [Examples of using {{ yandex-cloud }} KMS Providers for the AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto/src/main/java/com/yandex/cloud/kms/providers/examples).

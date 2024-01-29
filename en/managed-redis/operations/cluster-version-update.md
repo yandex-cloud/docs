@@ -14,9 +14,9 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot c
 
 ### Viewing a list of available {{ RD }} versions {#version-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select a cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -41,9 +41,9 @@ Make sure this does not affect your applications:
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to upgrade.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -53,7 +53,7 @@ Make sure this does not affect your applications:
 
    Once the update is launched, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -80,13 +80,13 @@ Make sure this does not affect your applications:
 
       Once the update is launched, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
 
-- API
+- API {#api}
 
    To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ RD }} version number in the `configSpec.version` parameter.
-   * List of cluster configuration fields to be changed for the `updateMask` parameter.
+   * List of cluster configuration fields to be updated in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -96,9 +96,9 @@ Make sure this does not affect your applications:
 
 Let's assume you need to upgrade your cluster from version {{ versions.cli.previous }} to version {{ versions.cli.latest }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. To retrieve a list of clusters and find out their IDs and names, run the command below:
 

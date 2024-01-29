@@ -25,9 +25,9 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
 1. Get a public encryption key and save it:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Management console
+    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -36,7 +36,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
       1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download a public encryption key.
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -72,7 +72,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
           Save the obtained key to a file, such as `public.key`. Make sure that lines in the file do not start with spaces.
 
-    - API
+    - API {#api}
 
       To get a public encryption key, use the [AsymmetricEncryptionCryptoService/GetPublicKey](../api-ref/grpc/asymmetric_encryption_crypto_service.md#GetPublicKey) gRPC API call.
 
@@ -82,9 +82,9 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
     {% include [asymmetric-encryption-message-size-note](../../_includes/kms/a-encryption-message-size-note.md) %}
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
       In the terminal, run this command:
 
@@ -107,7 +107,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       As a result of executing the command, the encrypted message will be saved to the specified file in `base64` encoding.
 
-    - Java
+    - Java {#java}
 
       ```java
       import org.bouncycastle.util.io.pem.PemObject;
@@ -163,7 +163,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       {% include [encrypt-code-legend](../../_includes/kms/encrypt-code-legend.md) %}
 
-    - Go
+    - Go {#go}
 
       ```golang
        import (
@@ -215,7 +215,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       {% include [encrypt-code-legend](../../_includes/kms/encrypt-code-legend.md) %}
 
-    - Python
+    - Python {#python}
 
       ```python
       from cryptography.hazmat.primitives.asymmetric import rsa, padding
@@ -269,9 +269,9 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
 ## Decrypt data {#decryption}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -312,7 +312,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       As a result of executing the command, the encrypted message will be decrypted with the private encryption key in {{ kms-short-name }} and the decrypted text will be saved to the specified file.
 
-- API
+- API {#api}
 
   To decrypt data, use the [AsymmetricEncryptionCryptoService/Decrypt](../api-ref/grpc/asymmetric_encryption_crypto_service.md#Decrypt) gRPC API call.
 

@@ -1,4 +1,4 @@
-# Setting up the Gateway API
+# Setting up Gateway API
 
 The [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
 
@@ -25,16 +25,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create a {{ k8s }} cluster and a [group of nodes](../../../managed-kubernetes/concepts/index.md#node-group).
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
       1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
       1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
+      1. [Configure security groups](../../operations/connect/security-groups.md#rules-internal) for the network traffic of your {{ managed-k8s-name }} cluster.
       1. [Create a rule for connecting to the services from the internet](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes), then apply it to the cluster's node group.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -44,17 +45,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Download the [k8s-gateway-api.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gateway-api.tf) cluster configuration file to the same working directory. The file describes:
          * Network.
          * Subnet.
-         * [Security group](../../operations/connect/security-groups.md) and rules required for the cluster, node group, and {{ k8s }} instance to run:
-            * Rules for service traffic.
-            * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-            * Rules for connecting to services from the internet.
+         * [Security group](../../operations/connect/security-groups.md) and rules required for cluster and node group operation:
+            * [Rules for service traffic](../../operations/connect/security-groups.md#rules-internal).
+            * [Rules for accessing the {{ k8s }} API and managing a cluster](../../operations/connect/security-groups.md#rules-master) with `kubectl` through ports `443` and `6443`.
+            * [Rules for accessing services from the Internet](../../operations/connect/security-groups.md#rules-nodes).
          * {{ k8s }} cluster.
          * Service account required to use the {{ k8s }} cluster and node group.
       1. Specify the following in the configuration file:
          * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
          * {{ k8s }} version for the {{ k8s }} cluster and node groups.
          * {{ k8s }} cluster CIDR.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -72,7 +73,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) required for the Gateway API:
-1. [Assign it the roles](../../../iam/operations/sa/assign-role-for-sa.md):
+1. [Assign it the following roles](../../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `certificate-manager.admin`: To use certificates registered in [{{ certificate-manager-full-name }}](../../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in the [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) [target groups](../../../application-load-balancer/concepts/target-group.md).
@@ -166,14 +167,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Two applications will be created to test the Gateway API (`tutum/hello-world` and `nginxdemos/hello`). For each application, you will need to configure and run three YAML files.
 * `dev-gw.yaml` and `prod-gw.yaml` are the settings for the Gateway. In these manifest files, specify:
-  * The [security group](../../operations/connect/security-groups.md) in which your {{ k8s }} cluster is deployed, in the `metadata.annotations.gateway.alb.yc.io/security-groups` parameter.
-  * The name of your DNS zone, with the prefixes `*.dev` and `*.prod`, in the `hostname` parameters.
-  * IP addresses for the `dev` and `prod` environments `spec.addresses.value`.
+   * The [security group](../../operations/connect/security-groups.md) in which your {{ k8s }} cluster is deployed, in the `metadata.annotations.gateway.alb.yc.io/security-groups` parameter.
+   * The name of your DNS zone, with the prefixes `*.dev` and `*.prod`, in the `hostname` parameters.
+   * IP addresses for the `dev` and `prod` environments `spec.addresses.value`.
 * `dev-route.yaml` and `prod-route.yaml`: Routing setup for the applications. In these manifests, you need to specify the name of your DNS zone with the `app.dev` and `app.prod` prefixes in the `spec.hostnames` parameter.
 * `dev-app.yaml` and `prod-app.yaml`: Settings for the applications. These manifests will be used to create:
-  * A namespace (it's unique for each application).
-  * [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for the application.
-  * [Service](../../concepts/index.md#service).
+   * A namespace (it's unique for each application).
+   * [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for the application.
+   * [Service](../../concepts/index.md#service).
 
 ### Configure the application for the dev environment {#configure-dev}
 
@@ -489,29 +490,29 @@ To test your Gateway API operation, follow these links in your browser:
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
-  1. [Delete a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. [Delete the {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
   1. [Delete the created service account](../../../iam/operations/sa/delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
   1. Delete the `k8s-gateway-api.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
-     ```bash
-     terraform validate
-     ```
+      ```bash
+      terraform validate
+      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  1. Confirm updating the resources.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+   1. Confirm updating the resources.
 
-     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     All the resources described in the `k8s-gateway-api.tf` configuration file will be deleted.
+      All the resources described in the `k8s-gateway-api.tf` configuration file will be deleted.
 
 {% endlist %}

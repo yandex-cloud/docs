@@ -4,9 +4,9 @@ Users specified under **Service notifications** in the folder settings get notif
 
 To add a user to the list of notification recipients:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-cloud }}), select the folder to configure. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
    1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** tab.
@@ -34,7 +34,7 @@ To add a user to the list of notification recipients:
 
    In the folder **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** section, you can see the users subscribed to the folder notifications by default, because they are subscribed to the parent cloud's notifications. To do this, enable **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_inherited-subscribers }}**.
 
-- API
+- API {#api}
 
    Currently, you cannot add users to the list of notification recipients using the API.
 

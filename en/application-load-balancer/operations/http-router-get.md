@@ -6,11 +6,11 @@ title: "How to get information about an HTTP router in {{ alb-full-name }}"
 
 You can view a router's ID, its hosts, and routes in the hosts.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 To get information about an HTTP router:
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

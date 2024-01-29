@@ -28,9 +28,11 @@ The available storage size does not depend on the host class. For storage limita
 ## Available host classes {#available-flavors}
 
 
-Hosts in {{ mes-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mes-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any standard platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
 
 The full list of possible host configurations on each platform is provided below.
+
+{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 
 {% include [instance-types-code](../../_includes/mdb/mes-instance-types-code.md) %}
 

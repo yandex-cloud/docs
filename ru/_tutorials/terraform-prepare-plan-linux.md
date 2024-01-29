@@ -16,6 +16,21 @@
 
    ```hcl
    <настройки провайдера>
+   resource "yandex_compute_disk" "boot-disk-1" {
+     name     = "boot-disk-1"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = "fd87va5cc00gaq2f5qfb"
+   }
+
+   resource "yandex_compute_disk" "boot-disk-2" {
+     name     = "boot-disk-2"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = "fd87va5cc00gaq2f5qfb"
+   }
 
    resource "yandex_compute_instance" "vm-1" {
      name = "terraform1"
@@ -26,9 +41,7 @@
      }
 
      boot_disk {
-       initialize_params {
-         image_id = "fd87va5cc00gaq2f5qfb"
-       }
+       image_id = yandex_compute_disk.boot-disk-1.id
      }
 
      network_interface {
@@ -50,9 +63,7 @@
      }
 
      boot_disk {
-       initialize_params {
-         image_id = "fd87va5cc00gaq2f5qfb"
-       }
+       image_id = yandex_compute_disk.boot-disk-2.id
      }
 
      network_interface {

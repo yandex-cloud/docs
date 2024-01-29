@@ -7,9 +7,9 @@ description: "This guide describes how you can check domain rights."
 
 To check rights for domains:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -18,7 +18,7 @@ To check rights for domains:
    1. When the domain rights check is passed, the domain check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
    1. After the rights check status for all your domains changes to `Valid`, the certificate is issued and its status becomes `Issued`.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -30,7 +30,7 @@ To check rights for domains:
       yc certificate-manager certificate get --help
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc certificate-manager certificate get \
@@ -91,7 +91,7 @@ To check rights for domains:
       ...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -138,7 +138,7 @@ To check rights for domains:
       * The `yandex_cm_certificate` resource parameters are as follows:
 
          * `domains`: Domain to create a certificate for.
-         * `challenge_type`: Domain owner verification method that may take one of the following values:
+         * `challenge_type`: Domain owner verification method. The possible values include:
 
             * `DNS_CNAME`: Create a DNS record in CNAME format with the specified value. This method is recommended for automatic certificate renewal.
             * `DNS_TXT`: Create a DNS record in TXT format with the specified value.
@@ -168,7 +168,7 @@ To check rights for domains:
    yc certificate-manager certificate get <certificate_name> --full
    ```
 
-- API
+- API {#api}
 
    To get the information required to pass the rights check for a domain, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/certificate_service.md#Get) gRPC API call with the `view=FULL` flag.
 

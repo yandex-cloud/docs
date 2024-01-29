@@ -18,15 +18,15 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 ## How to create a {{ MY }} cluster {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
+   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
@@ -84,7 +84,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -187,7 +187,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -299,7 +299,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          ```hcl
          resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
-           ...
+             ...
              backup_retain_period_days = <backup_retention_period>
              ...
          }
@@ -321,11 +321,11 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mmy-name }} cluster should be placed, in the `folderId` parameter.
-   * {{ mmy-name }} cluster name in the `name` parameter. The cluster name must be unique within the folder.
+   * {{ mmy-name }} cluster name in the `name` parameter. It must be unique within the folder.
    * {{ mmy-name }} cluster environment in the `environment` parameter.
    * {{ mmy-name }} cluster configuration in the `configSpec` parameter.
    * DB configuration in one or more `databaseSpecs` parameters.
@@ -337,7 +337,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    * [Network](../../vpc/concepts/network.md#network) ID in the `networkId` parameter.
 
    
-   * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
+   * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
 
 
    If required, provide the [backup](../concepts/backup.md) start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
@@ -362,9 +362,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a {{ mmy-name }} cluster with a single host, provide a single `--host` parameter.
 
@@ -412,7 +412,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
         --permissions ALL
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mmy-name }} cluster and a network for it with the following test characteristics:
 
@@ -504,9 +504,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 ### Creating a multi-host cluster {#creating-multiple-hosts-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a multi-host {{ mmy-name }} cluster, provide as many `--host` parameters as there should be hosts in your cluster.
 
@@ -569,7 +569,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
         --permissions ALL
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mmy-name }} cluster and a network for it with the following test characteristics:
 

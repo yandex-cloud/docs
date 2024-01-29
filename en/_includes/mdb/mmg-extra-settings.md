@@ -1,6 +1,4 @@
-- **{{ ui-key.yacloud.mdb.forms.backup-window-start }}**{#setting-backup-start}
-
-   The time in UTC (in 24-hour format) to start [backing up](../../managed-mongodb/operations/cluster-backups.md) the cluster. If the time is not set, the backup will start at 22:00 UTC.
+- {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**{#setting-backup-saving}
    
@@ -17,7 +15,7 @@
 
 - {% include [datatransfer access](console/datatransfer-access.md) %}
 
-- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) tool in the cluster. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage. 
+- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 - {% include [Deletion protection](console/deletion-protection.md) %}
 

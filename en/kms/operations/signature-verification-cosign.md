@@ -21,15 +21,15 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
 
 1. Get an [IAM token](../../iam/concepts/authorization/iam-token.md) and save it to the `$YC_IAM_TOKEN` environment variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       export YC_IAM_TOKEN=$(yc iam create-token)
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       $env:YC_IAM_TOKEN = $(yc iam create-token)

@@ -21,9 +21,9 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
 ## Adding encryption to a bucket {#add}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a {{ kms-short-name }} key:
    1. In the [management console]({{ link-console-main }}), select the bucket for which you want to configure encryption.
@@ -34,7 +34,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -93,7 +93,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -111,9 +111,9 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
 ## Removing bucket encryption {#del}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To remove encryption, delete the {{ kms-short-name }} key:
    1. In the [management console]({{ link-console-main }}), select the bucket for which you want to remove encryption.
@@ -121,7 +121,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
    1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 

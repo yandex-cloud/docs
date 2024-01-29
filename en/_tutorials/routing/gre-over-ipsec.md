@@ -52,9 +52,9 @@ Save the private key in a secure location, as you will not be able to connect to
 
 To test tunneling between two different virtual networks, place {{ yandex-cloud }} resources in different folders. To create a new folder:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![image](../../_assets/create.png) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}** at the top right.
    1. Enter the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) name: `site-a`.
@@ -62,7 +62,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
    1. Select **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -73,11 +73,11 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
    --description "Folder for site-a"
    ```
 
-- API
+- API {#api}
 
    To create a folder, use the [create](../../resource-manager/api-ref/Folder/create.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/Create](../../resource-manager/api-ref/grpc/folder_service.md#Create) gRPC API call.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -115,7 +115,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform plan
          ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -141,9 +141,9 @@ Repeat the steps to create a second folder named `site-b`.
 
 ### Create your first VM with a Cisco Cloud Services Router
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `site-a`.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select the **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}** option.
@@ -170,9 +170,9 @@ Repeat the steps to create a second folder named `site-b`.
 
 ### Set the host name for the router {#hostname}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your VM.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -200,9 +200,9 @@ Repeat the steps to create a second folder named `site-b`.
 
 Create a user with the administrative rights and password authentication disabled:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the serial console, run this command:
 
@@ -234,9 +234,9 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 ### Configure authentication using SSH keys {#enable-ssh}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the serial console, enable access to the VM over SSH:
 
@@ -559,17 +559,17 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
    - Сisco-router-b VM
 
-     ```bash
-     router bgp 65002
-        bgp log-neighbor-changes
-        neighbor 192.168.0.1 remote-as 65001
-        address-family ipv4
-           network 10.1.1.2 mask 255.255.255.255
-           neighbor 192.168.0.1 activate
-           exit
-        exit
-     exit
-     ```
+      ```bash
+      router bgp 65002
+         bgp log-neighbor-changes
+         neighbor 192.168.0.1 remote-as 65001
+         address-family ipv4
+            network 10.1.1.2 mask 255.255.255.255
+            neighbor 192.168.0.1 activate
+            exit
+         exit
+      exit
+      ```
 
    {% endlist %}
 

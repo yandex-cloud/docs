@@ -36,7 +36,7 @@ The infrastructure support costs include:
    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter the name: `dvwa-server`.
-      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-22-04-lts).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Enter the `ycuser` username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
@@ -86,9 +86,9 @@ The infrastructure support costs include:
 
 1. Create a `pt-firewall` VM from the [PT Application Firewall](/marketplace/products/pt/pt-application-firewall) public image:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
       1. In the list of services, select **{{ compute-name }}**.
@@ -114,13 +114,13 @@ The infrastructure support costs include:
 
 1. Go to the [serial console](../../compute/operations/serial-console/index.md) of the created VM:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the VM was created.
       1. Go to **{{ compute-name }}** and select the `pt-firewall` VM.
-      1. Click the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+      1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
       1. Enter `pt` as your username and `positive` as your password.
       1. You will be prompted to change the password. Enter the current password (`positive`) and set a new password meeting the system requirements.
       1. Possible further actions will be suggested. Set `0`.

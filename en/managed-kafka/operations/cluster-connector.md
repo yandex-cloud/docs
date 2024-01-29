@@ -15,15 +15,15 @@ You can:
 
 ## Getting a list of connectors {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@ You can:
 
    You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of connectors, use the [list](../api-ref/Connector/list.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/List](../api-ref/grpc/connector_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -58,16 +58,16 @@ You can:
 
 ## Getting detailed information about a connector {#get}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
    1. Click the name of the connector you need.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -91,7 +91,7 @@ You can:
 
    You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get connector details, use the [get](../api-ref/Connector/get.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Get](../api-ref/grpc/connector_service.md#Get) gRPC API call and provide the following in the request:
 
@@ -102,9 +102,9 @@ You can:
 
 ## Creating a connector {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -135,7 +135,7 @@ You can:
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -206,7 +206,7 @@ You can:
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Check the list of [Mirrormaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
 
@@ -284,7 +284,7 @@ You can:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_connect).
 
-- API
+- API {#api}
 
    To create a connector, use the [create](../api-ref/Connector/create.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Create](../api-ref/grpc/connector_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -295,9 +295,9 @@ You can:
 
 ## Editing a connector {#update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -306,7 +306,7 @@ You can:
    1. Edit the connector properties as needed.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -351,7 +351,7 @@ You can:
 
       You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Check the list of [Mirrormaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
 
@@ -428,7 +428,7 @@ You can:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_connect).
 
-- API
+- API {#api}
 
    To update a connector, use the [update](../api-ref/Connector/update.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Update](../api-ref/grpc/connector_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -446,16 +446,16 @@ When you pause a connector:
 
 To pause a connector:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -468,7 +468,7 @@ To pause a connector:
       --cluster-name=<cluster_name>
    ```
 
-- API
+- API {#api}
 
    To pause a connector, use the [pause](../api-ref/Connector/pause.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Pause](../api-ref/grpc/connector_service.md#Pause) gRPC API call and provide the following in the request:
 
@@ -479,16 +479,16 @@ To pause a connector:
 
 ## Resuming a connector {#resume}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -501,7 +501,7 @@ To pause a connector:
       --cluster-name=<cluster_name>
    ```
 
-- API
+- API {#api}
 
    To resume a connector, use the [resume](../api-ref/Connector/resume.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Resume](../api-ref/grpc/connector_service.md#Resume) gRPC API call and provide the following in the request:
 
@@ -514,9 +514,9 @@ To pause a connector:
 
 Using import, you can bring the existing connectors under {{ TF }} management.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. In the {{ TF }} configuration file, specify the connector you want to import:
 
@@ -536,9 +536,9 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
 ## Deleting a connector {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -546,7 +546,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.common.delete }}**.
    1. Click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -559,7 +559,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
       --cluster-name <cluster_name>
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -576,7 +576,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_connect).
 
-- API
+- API {#api}
 
    To delete a connector, use the [delete](../api-ref/Connector/delete.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Delete](../api-ref/grpc/connector_service.md#Delete) gRPC API call and provide the following in the request:
 
@@ -589,9 +589,9 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
 ### MirrorMaker {#settings-mm2}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
    * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: Number of topic copies stored in the cluster.
@@ -639,7 +639,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
       For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
-- CLI
+- CLI {#cli}
 
    * `--cluster-name`: Cluster name.
    * `--direction`: Connector direction:
@@ -675,7 +675,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
       * `sasl-password`: User password for connecting the connector to the external cluster.
       * `ssl-truststore-certificates`: List of PEM certificates.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * **properties**: Comma-separated list of advanced connector settings in `<key>:<value>` format. Here are some sample keys:
 
@@ -713,9 +713,9 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
 ### S3 Sink {#settings-s3}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
    * **{{ ui-key.yacloud.kafka.field_connector-compression-type }}**: Select the codec to compress messages:
@@ -746,7 +746,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
       For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
-- CLI
+- CLI {#cli}
 
    * `--cluster-name`: Cluster name.
    * `--tasks-max`: Number of concurrent processes. We recommend a value of at least `2` for even replication load distribution.
@@ -776,7 +776,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
    * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * **properties**: Comma-separated list of advanced connector settings in `<key>:<value>` format. Here are some sample keys:
 

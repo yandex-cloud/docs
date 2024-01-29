@@ -33,9 +33,9 @@ To follow the steps in this section, you will need:​
 
 ## Create a federation in your organization {#create-federation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a federation:
 
@@ -65,7 +65,7 @@ To follow the steps in this section, you will need:​
 
    1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -81,48 +81,47 @@ To follow the steps in this section, you will need:​
 
       ```bash
       yc organization-manager federation saml create --name my-federation \
-          --organization-id <organization ID> \
+          --organization-id <organization_ID> \
           --auto-create-account-on-login \
           --cookie-max-age 12h \
           --issuer "http://example.com/adfs/services/trust" \
-          --sso-binding POST \
           --sso-url "https://example.com/adfs/ls/" \
+          --sso-binding POST \
           --force-authn
       ```
 
       Where:
 
-      * `name`: Federation name. It must be unique within the folder.
-      * `organization-id`: Your organization ID.
-      * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-
+      * `--name`: Federation name. It must be unique within the folder.
+      * `--organization-id`: Organization ID.
+      * `--auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
-      * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
-      * `issuer`: IdP server ID to be used for authentication.
+      * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
+      * `--issuer`: ID of the IdP server to be used for authentication.
 
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
 
-      * `sso-url`: URL of the page that the browser redirects the user to for authentication.
+      * `--sso-url`: URL to which the browser redirects the user for authentication.
 
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your AD FS server.
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+      * `--sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-- API
+- API {#api}
 
    1. Create a file with the request body, e.g., `body.json`:
 
       ```json
       {
         "name": "my-federation",
-        "organizationId": "<organization ID>",
+        "organizationId": "<organization_ID>",
         "autoCreateAccountOnLogin": true,
         "cookieMaxAge":"43200s",
         "issuer": "http://example.com/adfs/services/trust",
@@ -160,7 +159,7 @@ To follow the steps in this section, you will need:​
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -197,7 +196,7 @@ To follow the steps in this section, you will need:​
       ```
       resource "yandex_organizationmanager_saml_federation" federation {
        name            = "my-federation"
-       organization_id = "<organization ID>"
+       organization_id = "<organization_ID>"
        auto_create_account_on_login = "true"
        issuer          = "http://example.com/adfs/services/trust"
        sso_url         = "https://example.com/adfs/ls/"
@@ -261,9 +260,9 @@ To get an AD FS certificate:
 
 To add a certificate to a federation:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -280,7 +279,7 @@ To add a certificate to a federation:
       * To paste the contents of a copied certificate, select the **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** method and paste the contents.
    1. Click **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -300,11 +299,11 @@ To add a certificate to a federation:
         --certificate-file test.pem
       ```
 
-- API
+- API {#api}
 
    To add a certificate, use the [create](../../api-ref/Certificate/create.md) method for the [Certificate](../../api-ref/Certificate/index.md) resource:
 
-   1. Create a request body by specifying the contents of the certificate's `data` property:
+   1. Create the request body by specifying the contents of the certificate's `data` property:
 
       ```json
       {
@@ -317,7 +316,7 @@ To add a certificate to a federation:
    1. Send the add certificate request:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA...
+      export IAM_TOKEN=CggaAT********
       curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -400,15 +399,15 @@ Create a relying party trust for the federation you created in the cloud:
 
 When AD FS authenticates a user, it sends a SAML message to {{ yandex-cloud }} to confirm successful authentication. The message must contain the name ID that uniquely identifies the user and may also contain some other user data, such as the user's name or email address. Make sure to set up a mapping between the user attributes and Outgoing Claim Types. Types of personal data supported by {{ org-full-name }} are given below.
 
-User data | Comment | Outgoing Claim Type
---------- | ------- | -------------------
-Unique user ID | Required attribute. We recommend using the **User-Principal-Name** or email address. | Name ID
-Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute.<br> Value length limit: {{ saml-limit-last-name }}. | Surname
-Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute.<br> Value length limit: {{ saml-limit-first-name }}. | Given Name
-Full name | Displayed in {{ yandex-cloud }} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute.<br> Value length limit: {{ saml-limit-display-name }}. | Name
-Email | Used to send notifications from {{ yandex-cloud }} services. Example:&nbsp;`smith@example.com`<br>We recommend using the **E-Mail-Address** attribute.<br> Value length limit: {{ saml-limit-email }}. | E-Mail Address
-Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890<br>We recommend using the `Telephone-Number` attribute.<br> Value length limit: {{ saml-limit-phone }}. | Type `phone` in the **Outgoing Claim Type** field
-Profile image | Displayed in {{ yandex-cloud }} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar).<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | Type `thumbnailPhoto` in the **Outgoing Claim Type** field
+| User data | Comment | Outgoing Claim Type |
+------------------- | ----------- | -------------------
+| Unique user ID | Required attribute. We recommend using the **User-Principal-Name** or email address. | Name ID |
+| Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute.<br> Value length limit: {{ saml-limit-last-name }}. | Surname |
+| Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute.<br> Value length limit: {{ saml-limit-first-name }}. | Given Name |
+| Full name | Displayed in {{ yandex-cloud }} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute.<br> Value length limit: {{ saml-limit-display-name }}. | Name |
+| Email | Used to send notifications from {{ yandex-cloud }} services. Example:&nbsp;`smith@example.com`<br>We recommend using the **E-Mail-Address** attribute.<br> Value length limit: {{ saml-limit-email }}. | E-Mail Address |
+| Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890<br>We recommend using the `Telephone-Number` attribute.<br> Value length limit: {{ saml-limit-phone }}. | Type `phone` in the **Outgoing Claim Type** field. |
+| Profile image | Displayed in {{ yandex-cloud }} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar).<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | Type `thumbnailPhoto` in the **Outgoing Claim Type** field. |
 
 {% note warning %}
 
@@ -470,7 +469,7 @@ The `thumbnailPhoto` attribute supports files of up to 100 KB. The recommended f
 1. To add a profile image for a single user, run the command:
 
    ```
-   Set-ADUser <username> -Replace @{thumbnailPhoto=([byte[]](Get-Content "<image path>" -Encoding byte))}
+   Set-ADUser <user_name> -Replace @{thumbnailPhoto=([byte[]](Get-Content "<path_to_image>" -Encoding byte))}
    ```
 
 1. To bulk add profile images for multiple users:
@@ -488,14 +487,14 @@ The `thumbnailPhoto` attribute supports files of up to 100 KB. The recommended f
    1. Run this command:
 
       ```
-      Import-Csv <CSV file path> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
+      Import-Csv <path_to_CSV_file> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
       ```
 
 ## Add users to your organization {#add-users}
 
 If you did not enable the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option when creating a federation, you will have to add federated users to your organization manually.
 
-To do this, you need to know the name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you do not know what the server returns as the name ID, contact the administrator who configured authentication for your federation.
+To do this, you need to know the user name IDs returned by the Identity Provider (IdP) server together with the successful authentication response. This is usually the user's primary email address. If you do not know what the server returns as the name ID, contact the administrator who configured authentication for your federation.
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
@@ -503,9 +502,9 @@ A user can be added by an organization administrator (the `organization-manager.
 
 To add federation users to an organization:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
@@ -521,7 +520,7 @@ To add federation users to an organization:
 
    1. Click **{{ ui-key.yacloud_org.actions.add }}**. This will give the users access to the organization.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -540,7 +539,7 @@ To add federation users to an organization:
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
-- API
+- API {#api}
 
    To add identity federation users to the cloud:
 

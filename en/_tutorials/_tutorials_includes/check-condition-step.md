@@ -2,9 +2,9 @@
 
 Make sure that the state file is uploaded to {{ objstorage-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Open the [management console]({{ link-console-main }}) and select the folder with the bucket created.
    1. Select **{{ objstorage-name }}**.

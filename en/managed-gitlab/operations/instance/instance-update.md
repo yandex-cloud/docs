@@ -4,9 +4,9 @@ After you create a [{{ GL }} instance](../../concepts/index.md#instance), you ca
 
 ## Changing the name and description of an instance {#change-name-and-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ GL }} instance](../../concepts/index.md#instance) is located.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.

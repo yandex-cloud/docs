@@ -7,9 +7,9 @@ description: "Follow this guide to delete all objects."
 
 To clear a bucket and not [pay](../../pricing.md) for storage:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -127,7 +127,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
 
       The list may contain parts of objects that began uploading before and finished uploading after the previous step executed. If the list is not empty, repeat steps 4 and 5.
 
-- Python 3 (boto3)
+- boto3 {#boto3}
 
    Run the following code:
 
@@ -152,7 +152,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
            multipart_upload.abort()
    ```
 
-- API
+- API {#api}
 
    Use the [deleteMultipleObjects](../../s3/api-ref/object/deletemultipleobjects.md) S3 API method.
 

@@ -10,14 +10,14 @@ Each cluster may have only 1 subcluster with a master host, which is why you can
 
 ## Getting a list of subclusters in a {#list-subclusters} cluster
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -37,9 +37,9 @@ Each cluster may have only 1 subcluster with a master host, which is why you can
 
 The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ link-console-quotas }}) by the number of vCPUs and the amount of RAM that VMs in your cloud can use. To view the available resources, go to the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) section and find **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
@@ -71,7 +71,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
       1. (Optional) Enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create-subcluster }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -106,7 +106,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
       * `--subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
       * `--hosts-count`: Subcluster host count. The minimum value is `1` and the maximum value is `32`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -156,9 +156,9 @@ You cannot delete data storage subclusters.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a subcluster:
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
@@ -168,7 +168,7 @@ You cannot delete data storage subclusters.
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-remove-subcluster_button }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -183,7 +183,7 @@ You cannot delete data storage subclusters.
 
    You can request a subcluster name or ID with a [list of cluster subclusters](#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

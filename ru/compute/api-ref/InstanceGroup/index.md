@@ -147,7 +147,13 @@ A set of methods for managing InstanceGroup resources.
         "deviceName": "string",
         "filesystemId": "string"
       }
-    ]
+    ],
+    "metadataOptions": {
+      "gceHttpEndpoint": "string",
+      "awsV1HttpEndpoint": "string",
+      "gceHttpToken": "string",
+      "awsV1HttpToken": "string"
+    }
   },
   "scalePolicy": {
     "testAutoScale": {
@@ -385,6 +391,11 @@ instanceTemplate.<br>filesystemSpecs[] | **object**<br><p>Array of filesystems t
 instanceTemplate.<br>filesystemSpecs[].<br>mode | **string**<br><p>Mode of access to the filesystem that should be attached.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access. Default value.</li> </ul> 
 instanceTemplate.<br>filesystemSpecs[].<br>deviceName | **string**<br><p>Name of the device representing the filesystem on the instance.</p> <p>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc.</p> <p>If not specified, a random value will be generated.</p> <p>Value must match the regular expression ``\|[a-z][-_0-9a-z]{0,19}``.</p> 
 instanceTemplate.<br>filesystemSpecs[].<br>filesystemId | **string**<br><p>ID of the filesystem that should be attached.</p> <p>The maximum string length in characters is 128. Value must match the regular expression ``[-a-zA-Z0-9._{}]*``.</p> 
+instanceTemplate.<br>metadataOptions | **object**<br><p>Metadata options for the instance</p> 
+instanceTemplate.<br>metadataOptions.<br>gceHttpEndpoint | **string**<br><p>Enabled access to GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+instanceTemplate.<br>metadataOptions.<br>awsV1HttpEndpoint | **string**<br><p>Enabled access to AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+instanceTemplate.<br>metadataOptions.<br>gceHttpToken | **string**<br><p>Enabled access to IAM credentials with GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+instanceTemplate.<br>metadataOptions.<br>awsV1HttpToken | **string**<br><p>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
 scalePolicy | **object**<br><p><a href="/docs/compute/concepts/instance-groups/scale">Scaling policy</a> of the instance group.</p> 
 scalePolicy.<br>testAutoScale | **object**
 scalePolicy.<br>testAutoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

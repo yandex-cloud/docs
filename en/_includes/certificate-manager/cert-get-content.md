@@ -2,9 +2,9 @@ You can upload a certificate chain and a private key to use on your own, for exa
 
 To get the contents of a certificate:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    The command will display a certificate chain and a private key and save their contents to the `--chain` and `--key` files, respectively.
 
@@ -21,7 +21,7 @@ To get the contents of a certificate:
      --key private_key.pem
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -77,7 +77,7 @@ To get the contents of a certificate:
          terraform output -raw certificate_key
          ```
 
-- API
+- API {#api}
 
    To get the certificate contents, use the [get](../../certificate-manager/api-ref/CertificateContent/get.md) REST API method for the [CertificateContent](../../certificate-manager/api-ref/CertificateContent/) resource or the [CertificateContentService/Get](../../certificate-manager/api-ref/grpc/certificate_content_service.md#Get) gRPC API call.
 

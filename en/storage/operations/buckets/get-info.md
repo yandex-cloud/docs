@@ -9,9 +9,9 @@ description: "Follow this guide to get bucket information and statistics."
 
 To view full information about a [bucket](../../concepts/bucket.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -77,9 +77,9 @@ To view full information about a [bucket](../../concepts/bucket.md):
 
 To view the statistics for a bucket:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

@@ -21,6 +21,8 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+   {% include [sg-ui-access](../_includes/mdb/maf/note-sg-ui-access.md) %}
+
 1. [Create a {{ objstorage-full-name }} bucket](../storage/operations/buckets/create.md) for storing {{ maf-name }} [DAG files](concepts/index.md#about-the-service).
 1. [Create a service account](../iam/operations/sa/create.md).
 1. [Assign the service account the `storage.viewer` role](../iam/operations/sa/assign-role-for-sa.md) for the folder or bucket.

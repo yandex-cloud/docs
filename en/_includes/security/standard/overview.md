@@ -23,7 +23,7 @@ List of changes to version 1.1. compared to version 1.0:
    * 3.4.2 Integrity control of a VM runtime environment.
    * 3.28 Antivirus protection is used.
    * 3.29 {{ managed-k8s-full-name }} security guidelines are used.
-   * 4.16 There is a guide for cloud administrators on what to do if their cloud secrets are compromised.
+   * 4.16 There is a guide for cloud administrators on handling compromised secrets.
 
 * Updated the following items:
 

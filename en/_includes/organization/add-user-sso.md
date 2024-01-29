@@ -1,10 +1,10 @@
 ### Add federated users {#add-user-sso}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
    1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
    1. In the top-right corner, click ![icon-users](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
@@ -12,7 +12,7 @@
    1. List the name IDs of users, separating them with line breaks.
    1. Click **Add**. This will give the users access to the organization.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -32,7 +32,7 @@
          --name-ids <list_of_user_name_IDs>
       ```
 
-- API
+- API {#api}
 
    Use the [addUserAccounts](../../iam/api-ref/Federation/addUserAccounts.md) REST API method for the [Federation](../../iam/api-ref/Federation/index.md) resource or the [FederationService/AddUserAccounts](../../iam/api-ref/grpc/federation_service.md#AddUserAccounts) gRPC API call and provide the following in the request:
 

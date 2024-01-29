@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a network](../../vpc/operations/network-create.md) named `data-proc-network` with the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option disabled.
    1. In `data-proc-network`, [create a subnet](../../vpc/operations/subnet-create.md) with the following parameters:
@@ -60,7 +60,7 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. If you do not have {{ TF }} yet, [set up and configure](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) it.
    1. [Download the file with the provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -104,9 +104,9 @@ Prepare the infrastructure:
 
 Create resources:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create an internal DNS zone](../../dns/operations/zone-create-private.md) with the following settings:
 
@@ -118,7 +118,7 @@ Create resources:
       * **{{ ui-key.yacloud.common.name }}**: `data-proc-test-user.org.`
       * **{{ ui-key.yacloud.dns.label_records }}**: [FQDN of the {{ dataproc-name }} cluster master host](../../data-proc/operations/connect.md#fqdn)
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. [Get the FQDN](../../data-proc/operations/connect.md#fqdn) of the {{ dataproc-name }} cluster master host.
    1. In the `data-proc-dns-connect.tf` file, specify the variable:
@@ -151,14 +151,14 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 
 ## Delete the cluster and recreate it {#recreate-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md) and create a new one with [identical characteristics](#deploy-infrastructure).
    1. [Change the DNS record](../../dns/operations/resource-record-update.md) that you created [earlier](#dns-record) and specify the FQDN of the master host of the newly created cluster in the **{{ ui-key.yacloud.dns.label_records }}** parameter.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. Delete the `yandex_dataproc_cluster` section in the `data-proc-dns-connect.tf` file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -219,9 +219,9 @@ rc1a-dataproc-m-8kompl81232cdsu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
    1. If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
@@ -230,7 +230,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Delete the network](../../vpc/operations/network-delete.md).
    1. [Delete the DNS zone](../../dns/operations/zone-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

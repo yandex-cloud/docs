@@ -51,9 +51,9 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Instructions
+- Step-by-step guide {#instruction}
 
    Generate the parts that make up a JWT:
    * `header`: Base64Url-encoded JWT headers.
@@ -118,9 +118,9 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
    Save the result as a Base64Url-encoded string.
 
-   If you generate a token using [jwt.io](https://jwt.io), note that `\n` in the key value must be replaced by line breaks.
+   If you generate a token using [jwt.io](https://jwt.io), note that `\n` in the key value must be replaced with line breaks.
 
-- Python
+- Python {#python}
 
    Example of creating a JWT using [PyJWT](https://github.com/jpadilla/pyjwt/).
 
@@ -155,7 +155,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
        headers={'kid': key_id})
    ```
 
-- Java
+- Java {#java}
 
    Example of creating a JWT using [JJWT](https://github.com/jwtk/jjwt).
 
@@ -200,7 +200,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    }
    ```
 
-- C#
+- C# {#csharp}
 
    Example of creating a JWT using [jose-jwt](https://www.nuget.org/packages/jose-jwt/).
 
@@ -294,7 +294,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
       }
       ```
 
-- Go
+- Go {#go}
 
    Example of creating a JWT using [golang-jwt](https://github.com/golang-jwt/jwt).
 
@@ -346,7 +346,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    }
    ```
 
-- Node.js
+- Node.js {#node}
 
    Example of creating a JWT using [node-jose](https://github.com/cisco/node-jose):
 
@@ -376,7 +376,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
        });
    ```
 
-- PHP
+- PHP {#php}
 
    Example of creating a JWT using [PHP JWT Framework](https://github.com/web-token/jwt-framework).
 
@@ -430,7 +430,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    $token = $serializer->serialize($jws);
    ```
 
-- C++
+- C++ {#cpp}
 
    Example of creating a JWT using [jwt-cpp](https://github.com/Thalhammer/jwt-cpp).
 
@@ -467,7 +467,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    }
    ```
 
-- Ruby
+- Ruby {#ruby}
 
    Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt).
 
@@ -512,9 +512,9 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 * The key belongs to the service account.
 * The signature is valid.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- API
+- API {#api}
 
    To get an IAM token, use the [create](../../api-ref/IamToken/create.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/iam_token_service.md#CreateForServiceAccount) gRPC API call.
 
@@ -529,9 +529,9 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
    Where `<JWT_token>` is the JWT received in the previous step.
 
-- Go
+- Go {#go}
 
-   An example of a JWT exchange for an IAM token:
+   Example of a JWT exchange for an IAM token:
 
    ```go
    import (

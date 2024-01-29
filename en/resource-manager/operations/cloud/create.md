@@ -7,9 +7,9 @@ To create an additional cloud:
 
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
       1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
    1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, select a billing account.
@@ -21,7 +21,7 @@ To create an additional cloud:
    1. Enter the organization you are going to link the cloud to.
    1. Click **{{ ui-key.yacloud.common.create }}**. The `default` folder page in the new cloud opens.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -63,7 +63,7 @@ To create an additional cloud:
       yc resource-manager cloud list
       ```
 
-- API
+- API {#api}
 
    To create a cloud, use the [create](../../api-ref/Cloud/create.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Create](../../api-ref/grpc/cloud_service.md#Create) gRPC API call.
 

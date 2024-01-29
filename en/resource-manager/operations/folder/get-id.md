@@ -5,9 +5,9 @@ description: "In this tutorial, you will learn how to get a folder ID in {{ yand
 
 # Getting the folder ID
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [management console]({{ link-console-cloud }}) and select the appropriate folder from the list on the left. On the page that opens, the folder ID is shown on top, next to the folder name.
 
@@ -19,7 +19,7 @@ description: "In this tutorial, you will learn how to get a folder ID in {{ yand
    {{ link-console-main }}/folders/<folder_ID>
    ```
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -59,7 +59,7 @@ description: "In this tutorial, you will learn how to get a folder ID in {{ yand
    yc resource-manager folder list --cloud-id b1glku4lgd6g********
    ```
 
-- API
+- API {#api}
 
    To get the list of folders with IDs, use the [list](../../api-ref/Folder/list.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/List](../../api-ref/grpc/folder_service.md#List) gRPC API call.
 

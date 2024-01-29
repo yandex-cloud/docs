@@ -120,7 +120,7 @@ To create and set up a NAT gateway:
    }
 
    resource "yandex_vpc_route_table" "rt" {
-     name       = test-route-table
+     name       = "test-route-table"
      network_id = "<network_ID>"
 
      static_route {

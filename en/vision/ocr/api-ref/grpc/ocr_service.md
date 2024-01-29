@@ -27,7 +27,7 @@ source | **oneof:** `content`<br>
 &nbsp;&nbsp;content | **bytes**<br>Bytes with data 
 mime_type | **string**<br>Specifications of the ([MIME type](https://en.wikipedia.org/wiki/Media_type)). Each specification contains the file to analyze and features to use for analysis. Restrictions: <ul><li>Supported file formats: `JPEG`, `PNG`, `WEBP`, `PDF`. </li><li>Maximum file size: 20 MB. </li><li>Image size should not exceed 20M pixels (length x width). </li><li>The number of pages in a PDF file should not exceed 200 (each page counts as 1 request).</li></ul> 
 language_codes[] | **string**<br>List of the languages to recognize text. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`). 
-model | **string**<br>Model to use for text detection. The maximum string length is 50 characters. Possible values: <ul><li>`page` (default): this model is suitable for detecting multiple text entries in an image. </li><li>`passport`: passport, the main double-page spread. </li><li>`driver-license-front`: driver's license, the front side. </li><li>`driver-license-back`: driver's license, the reverse side. </li><li>`vehicle-registration-front`: front side of the vehicle registration certificate. </li><li>`vehicle-registration-back`: back side of the vehicle registration certificate.</li></ul> The maximum string length in characters is 50.
+model | **string**<br>Model to use for text detection. The maximum string length in characters is 50.
 
 
 ### RecognizeTextResponse {#RecognizeTextResponse}

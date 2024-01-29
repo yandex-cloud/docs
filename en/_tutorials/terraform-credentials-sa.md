@@ -87,12 +87,18 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          ```
 
          Where:
-         * `<service-name>`: Name of the [service](../cli/cli-ref/index.md#service-manage) whose resource you want to assign the role to, e.g., `resource-manager`.
-         * `<resource>`: Resource category, e.g., `cloud`.
-         * `<resource-name>`: Name of the resource. You can specify a resource by its name or ID.
-         * `<resource-id>`: Resource ID.
+
+         * `<service-name>`: Name of the [service](../cli/cli-ref/index.md#service-manage) for whose resource you want to assign the role, e.g., `resource-manager`.
+         * `<resource>`: Resource category, e.g., `cloud` to assign a role for the entire cloud or `folder` to assign a role for a directory.
+         * `<resource-name>`: Name of the resource. You can specify a resource by its name or ID (cloud or directory name).
+         * `<resource-id>`: Resource ID (cloud or directory ID).
          * `<role-id>`: Assigned [role](../iam/concepts/access-control/roles.md), e.g., `{{ roles-cloud-owner }}`.
-         * `<service-account-id>`: The identifier of the service account assigned the role.
+         * `<service-account-id>`: ID of the service account the role is assigned to.
+
+         For example:
+         ```sh
+         yc resource-manager folder add-access-binding **********9n9hi2qu --role editor --subject serviceAccount:**********qhi2qu
+         ```
 
          Result:
 

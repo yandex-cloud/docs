@@ -36,9 +36,9 @@ The infrastructure support costs include:
 
 To create a VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name: `sftp-server`.

@@ -16,9 +16,9 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
 ## Creating a VM {#creating-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -44,7 +44,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
    {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}
 
-- CLI
+- CLI {#cli}
 
    1. Select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
 

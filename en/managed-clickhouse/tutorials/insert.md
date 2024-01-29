@@ -125,8 +125,8 @@ Result:
 - Python: `3.8.5`; pip3: `20.0.2`.
 
 Let's say a single-host {{ mch-name }} `chcluster` cluster is created with the `db1` database and you need to insert user data into the `db1.users` table. Let's assume that each user record contains the following information:
-- The `id` of the user.
-- The username `name`.
+- User `id`.
+- User `name`.
 
 To insert user data in the Cap'n Proto and Protobuf formats into the `db1.users` table:
 1. [Install dependencies](#satisfy-dependencies).
@@ -145,7 +145,7 @@ To insert user data in the Cap'n Proto and Protobuf formats into the `db1.users`
 
    To learn more about supported data types, see the documentation for [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3), and [{{ CH }}]({{ ch.docs }}/sql-reference/data-types/).
 
-1. [Connect to the cluster](../operations/connect.md) and create the `db1.users` table of the desired type, if you haven't created it yet:
+1. [Connect to the cluster](../operations/connect.md) and create the `db1.users` table of the preferred format, if you have not created it yet:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
@@ -165,9 +165,9 @@ pip3 install protobuf varint pycapnp
 
 1. Create a file with a schema description:
 
-   {% list tabs %}
+   {% list tabs group=data_format %}
 
-   - Cap'n Proto
+   - Cap'n Proto {#capn}
 
       `user.capnp`
       ```
@@ -181,7 +181,7 @@ pip3 install protobuf varint pycapnp
 
       To learn more about the file format, see the [documentation for Cap'n Proto](https://capnproto.org/language.html).
 
-   - Protobuf
+   - Protobuf {#protobuf}
 
       `user.proto`
       ```
@@ -227,9 +227,9 @@ To prepare scripts:
 
 1. Create files with Python code:
 
-   {% list tabs %}
+   {% list tabs group=data_format %}
 
-   - Cap'n Proto
+   - Cap'n Proto {#capn}
 
       `capnproto-example.py`
       ```python
@@ -282,7 +282,7 @@ To prepare scripts:
 
       execute_query(
           '''
-          INSERT INTO {database}.users FORMAT {type} SETTINGS format_schema='{name}:{cls}'
+          INSERT INTO {database}.users SETTINGS format_schema='{name}:{cls}' FORMAT {type}
           '''.format(database=DB_NAME,
                      type=SCHEMA_TYPE,
                      name=SCHEMA_NAME,
@@ -293,9 +293,9 @@ To prepare scripts:
       1. Gets the `User` class from the connected `user.capnp` (`from user_capnp import User`).
       1. Executes requests to the cluster over HTTPS using SSL.
       1. Writes the test dataset to the User class object (`def add_user ...`) and adds this object to the `message` I/O bitstream.
-      1. Inserts the data from the `message` bitstream to the `db1.users` table based on data of the `User` from the format schema `schema-capnproto` in the cluster.
+      1. Inserts the data from the `message` bitstream to the `db1.users` table based on the `User` class data from the `schema-capnproto` format schema in the cluster.
 
-   - Protobuf
+   - Protobuf {#protobuf}
 
       `protobuf-example.py`
       ```python
@@ -347,7 +347,7 @@ To prepare scripts:
       add_user(message, 23, 'Tim')
 
       execute_query(
-          '''INSERT INTO {database}.users FORMAT {type} SETTINGS format_schema='{name}:{cls}'
+          '''INSERT INTO {database}.users SETTINGS format_schema='{name}:{cls}' FORMAT {type}
           '''.format(database=DB_NAME,
                      type=SCHEMA_TYPE,
                      name=SCHEMA_NAME,
@@ -367,15 +367,15 @@ To prepare scripts:
 
 1. Run the scripts you prepared [previously](#prepare-scripts):
 
-   {% list tabs %}
+   {% list tabs group=data_format %}
 
-   - Cap'n Proto
+   - Cap'n Proto {#capn}
 
       ```bash
       python3 capnproto-example.py
       ```
 
-   - Protobuf
+   - Protobuf {#protobuf}
 
       ```bash
       python3 protobuf-example.py
@@ -385,9 +385,9 @@ To prepare scripts:
 
 1. [Connect to the cluster](../operations/connect.md) and make sure that the data was successfully inserted by running the `SELECT` query:
 
-   {% list tabs %}
+   {% list tabs group=data_format %}
 
-   - Cap'n Proto
+   - Cap'n Proto {#capn}
 
       ```sql
       SELECT * FROM db1.users;
@@ -399,7 +399,7 @@ To prepare scripts:
       └────┴──────┘
       ```
 
-   - Protobuf
+   - Protobuf {#protobuf}
 
       ```sql
       SELECT * FROM db1.users;

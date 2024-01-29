@@ -11,9 +11,9 @@ You can create backups and restore clusters from existing backups, including poi
 
 ## Getting a list of backups {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get a list of cluster backups:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
@@ -23,7 +23,7 @@ You can create backups and restore clusters from existing backups, including poi
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -46,7 +46,7 @@ You can create backups and restore clusters from existing backups, including poi
    +--------------------------+---------------------+----------------------+---------------------+
    ```
 
-- API
+- API {#api}
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -58,9 +58,9 @@ You can create backups and restore clusters from existing backups, including poi
 
 ## Getting information about backups {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get information about the backup of an existing cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
@@ -70,7 +70,7 @@ You can create backups and restore clusters from existing backups, including poi
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -84,7 +84,7 @@ You can create backups and restore clusters from existing backups, including poi
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
 
-- API
+- API {#api}
 
    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
@@ -94,9 +94,9 @@ You can create backups and restore clusters from existing backups, including poi
 
 ## Creating a backup {#create-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
@@ -104,7 +104,7 @@ You can create backups and restore clusters from existing backups, including poi
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -126,7 +126,7 @@ You can create backups and restore clusters from existing backups, including poi
 
       You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -142,15 +142,15 @@ In single-host clusters, you create a backup by reading data from the master hos
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To restore an existing cluster from a backup:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
-   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. To restore the cluster state [to the required point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), configure **{{ ui-key.yacloud.mdb.forms.field_date }}** as appropriate.
 
@@ -161,7 +161,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
    1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. To restore the cluster state to the required point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** as appropriate. You can enter the value manually or select it from the drop-down calendar.
 
@@ -170,7 +170,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    {{ mmy-name }} will launch the operation to create a cluster from the backup.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -201,7 +201,7 @@ For a new cluster, you should set all the parameters that are required at creati
       +--------------------------+---------------------+----------------------+---------------------+
       ```
 
-      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with creation of its backup.
+      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with the point when the backup is created.
 
    1. Request the creation of a cluster from a backup:
 
@@ -253,7 +253,7 @@ For a new cluster, you should set all the parameters that are required at creati
          * `network-ssd-nonreplicated`
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Use {{ TF }} to restore:
 
@@ -321,7 +321,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Do not use resources of the databases (`yandex_mdb_mysql_database`) and users (`yandex_mdb_mysql_user`). They will be restored from the backup.
 
-   1. In this configuration file, add a `restore` block with the name of the backup to restore the cluster from:
+   1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -346,7 +346,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
@@ -358,13 +358,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
 ## Setting the backup start time {#set-backup-window}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   In the [management console]({{ link-console-main }}), you can only set the backup start time when [updating a cluster](update.md).
+   In the [management console]({{ link-console-main }}), you can set the backup start time when [creating](cluster-create.md) or [updating](update.md) a cluster.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -381,7 +381,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -401,8 +401,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Where:
 
-      * `hours`: Backup start hour (UTC)
-      * `minutes`: Backup start minute (UTC)
+      * `hours`: Backup start hour (UTC).
+      * `minutes`: Backup start minute (UTC).
 
    1. Make sure the settings are correct.
 
@@ -416,7 +416,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -432,13 +432,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
 The minimum host priority when creating backups is `0`, the maximum is `100`, and the default is `0`. A replicated host with the highest priority serves as the backup source. For more information, see [Creating backups](../concepts/backup.md#size).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the [management console]({{ link-console-main }}), a host's priority is set when [creating](cluster-create.md) a cluster, [adding](../operations/hosts.md#add) new cluster hosts, or [updating the settings](../operations/hosts.md#update) of the existing hosts.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -456,7 +456,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
    You can request the host name with a [list of cluster hosts](hosts.md#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To set the host priority, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) gRPC API call and provide the following in the request:
 

@@ -4,9 +4,9 @@ You can assign roles to a service account for any resources in any cloud if thes
 
 Access rights will be inherited by child resources from their parent resources. For example, if a service account is assigned a role for a cloud, the service account will be granted the appropriate permissions to all resources in all folders of this cloud.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    You assign roles to a service account the same way as to a user account.
 
@@ -21,7 +21,7 @@ Access rights will be inherited by child resources from their parent resources. 
    1. Select a role in the folder.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -46,11 +46,7 @@ Access rights will be inherited by child resources from their parent resources. 
 
    {% include [grant-role-for-sa-to-folder-via-cli](grant-role-for-sa-to-folder-via-cli.md) %}
 
-- API
-
-   {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -82,7 +78,7 @@ Access rights will be inherited by child resources from their parent resources. 
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -100,6 +96,10 @@ Access rights will be inherited by child resources from their parent resources. 
       yc resource-manager folder list-access-bindings <folder_name_or_ID>
       ```
 
+- API {#api}
+
+   {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
+
 {% endlist %}
 
 ## Assigning a role for an organization {#binding-role-organization}
@@ -108,9 +108,9 @@ Access rights are inherited from an organization by all resources created in the
 
 To grant a service account access rights to an organization, you need the `{{ roles-organization-admin }}` role or higher.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
    1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
 
@@ -130,7 +130,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -210,7 +210,60 @@ To grant a service account access rights to an organization, you need the `{{ ro
         --subject serviceAccount:aje6o61dvog2********
       ```
 
-- API
+- {{ TF }} {#tf}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   1. In the configuration file, describe the parameters of the resources you want to create:
+
+      Here is an example of the configuration file structure:
+
+      ```
+      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
+        organization_id   = "<organization_ID>"
+        role              = "<role>"
+        members           = [
+                              "serviceAccount:<service_account_ID>",
+                            ]
+      }
+      ```
+
+      Where:
+
+      * `organization_id`: [Organization ID](../../organization/operations/org-profile.md). This is a required parameter.
+      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`. This is a required parameter.
+      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. This is a required parameter.
+
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+
+   1. Make sure the configuration files are valid.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run a check using this command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will point them out.
+
+   1. Deploy cloud resources.
+
+      1. If the configuration does not contain any errors, run this command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+
+      All the resources you need will then be created in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc organization-manager organization list-access-bindings <organization_name_or_ID>
+      ```
+
+- API {#api}
 
    To assign the service account a role for the organization, use the [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../organization/api-ref/Organization/index.md) resource:
 
@@ -266,7 +319,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
       }
       ```
 
-   1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and the `roleId` property to the appropriate role, such as `{{ roles-viewer }}`, and specify the `serviceAccount` type and service account ID in the `subject` property:
+   1. Create a request body, for example, in the `body.json` file. Set the `action` property to `ADD` and the `roleId` property to the appropriate role, such as `{{ roles-viewer }}`, and specify the `serviceAccount` type and service account ID in the `subject` property:
 
       **body.json:**
 
@@ -294,58 +347,6 @@ To grant a service account access rights to an organization, you need the `{{ ro
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
         -X POST "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-      ```
-
-- {{ TF }}
-
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-   1. In the configuration file, describe the parameters of the resources you want to create:
-
-      Here is an example of the configuration file structure:
-
-      ```
-      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
-        organization_id   = "<organization_ID>"
-        role              = "<role>"
-        members           = [
-                              "serviceAccount:<service_account_ID>",
-                            ]
-      }
-      ```
-
-      Where:
-      * `organization_id`: [Organization ID](../../organization/operations/org-profile.md). This is a required parameter.
-      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`. This is a required parameter.
-      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. This is a required parameter.
-
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
-   1. Make sure the configuration files are valid.
-
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
-
-         ```
-         terraform plan
-         ```
-
-      If the configuration is described correctly, the terminal displays a list of the roles assigned. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-      All the resources you need will then be created in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-      ```bash
-      yc organization-manager organization list-access-bindings <organization_name_or_ID>
       ```
 
 {% endlist %}

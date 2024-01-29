@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
    1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
 
@@ -16,39 +16,39 @@
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
-{% include [cli-install](../cli-install.md) %}
+   {% include [cli-install](../cli-install.md) %}
 
-1. Assign a [role](../../iam/concepts/access-control/roles.md) for the group:
+   1. Assign a [role](../../iam/concepts/access-control/roles.md) for the group:
 
-   ```bash
-   yc organization-manager organization add-access-binding \
-   --subject=group:<group_ID> \
-   --role=<role_ID> \
-   <organization_ID>
-   ```
+      ```bash
+      yc organization-manager organization add-access-binding \
+        --subject=group:<group_ID> \
+        --role=<role_ID> \
+        <organization_ID>
+      ```
 
-1. Make sure the requested rights are granted:
+   1. Make sure the requested rights are granted:
 
-   ```bash
-   yc organization-manager organization list-access-bindings <organization_ID>
-   ```
+      ```bash
+      yc organization-manager organization list-access-bindings <organization_ID>
+      ```
 
-   A response contains a list of all roles assigned to users and groups in the organization:
+      A response contains a list of all roles assigned to users and groups in the organization:
 
-   ```
-   +------------------------------------------+--------------+----------------------+
-   |                 ROLE ID                  | SUBJECT TYPE |      SUBJECT ID      |
-   +------------------------------------------+--------------+----------------------+
-   | organization-manager.admin               | userAccount  | ajev1p2345lj******** |
-   | organization-manager.organizations.owner | userAccount  | ajev1p2345lj******** |
-   | editor                                   | group        | ajev1p2345lj******** |
-   | viewer                                   | group        | ajev1p2345lj******** |
-   +------------------------------------------+--------------+----------------------+
-   ```
+      ```
+      +------------------------------------------+--------------+----------------------+
+      |                 ROLE ID                  | SUBJECT TYPE |      SUBJECT ID      |
+      +------------------------------------------+--------------+----------------------+
+      | organization-manager.admin               | userAccount  | ajev1p2345lj******** |
+      | organization-manager.organizations.owner | userAccount  | ajev1p2345lj******** |
+      | editor                                   | group        | ajev1p2345lj******** |
+      | viewer                                   | group        | ajev1p2345lj******** |
+      +------------------------------------------+--------------+----------------------+
+      ```
 
-- Terraform
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../terraform-install.md) %}
 

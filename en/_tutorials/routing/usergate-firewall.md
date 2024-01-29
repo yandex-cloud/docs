@@ -34,16 +34,16 @@ The price for the UserGate gateway includes:
 
 Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md) that will host your VM.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Network**.
    1. Enter the network name: `usergate-network`.
    1. Enable the **Create subnets** option.
    1. Click **Create network**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the network parameters for `usergate-network` and its subnets:
 
@@ -121,7 +121,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -133,7 +133,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    1. Create a network named `usergate-network` using the gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) call or the REST API [create](../../vpc/api-ref/Network/create.md) method for the Network resource.
    1. Create a subnet named `usergate-subnet-{{ region-id }}-a` using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the REST API [create](../../vpc/api-ref/Subnet/create.md) method for the Subnet resource.
@@ -144,9 +144,9 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 The gateway will need a static [public IP address](../../vpc/concepts/address.md#public-addresses).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
    1. In the list of services, select **{{ vpc-name }}**.
@@ -155,7 +155,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
    1. Click **Reserve address**.
 
-- CLI
+- CLI {#cli}
 
    Run this command:
 
@@ -178,7 +178,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
    For more information about the `yc vpc address create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/address/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    In the configuration file, describe the parameters of the public IP address `yandex_vpc_address`:
 
@@ -197,12 +197,12 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 ## Create a UserGate VM {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the [management console]({{ link-console-main }}) folder page, click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter the VM name as `usergate-firewall`.
+   1. In the **Name** field, enter `usergate-firewall` as the VM name.
    1. Select the `{{ region-id }}-a` availability zone.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, then select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
    1. Under **Computing resources**:
@@ -216,7 +216,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
          {% note info %}
 
-         These parameters are good for functional testing of the gateway. To calculate the parameters for the production workload, read the [official recommendations](https://www.usergate.com/products/usergate-vm) from UserGate.
+         These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the [UserGate official recommendations](https://www.usergate.com/products/usergate-vm).
 
          {% endnote %}
 
@@ -234,7 +234,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
    1. Click **Create VM**.
 
-- CLI
+- CLI {#cli}
 
    1. [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair.
 
@@ -288,7 +288,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. [Get](../../compute/operations/images-with-pre-installed-software/get-list.md) an ID of the latest version of the UserGate NGFW gateway from the list of public images.
    1. In the configuration file, describe the parameters of the `usergate-firewall` VM:
@@ -330,7 +330,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -342,7 +342,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    Create the `usergate-proxy` VM using the REST API [create](../../compute/api-ref/Instance/create.md) method for the Instance resource.
 
@@ -426,9 +426,9 @@ You can also add other traffic filtering rules. We don't recommend combining ser
 
 Create a [static route](../../vpc/concepts/static-routes.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a static route.
    1. In the list of services, select **{{ vpc-name }}**.
@@ -454,9 +454,9 @@ Create a [static route](../../vpc/concepts/static-routes.md):
    1. In the window that opens, select the created table from the list.
    1. Click **Link**.
 
-- CLI
+- CLI {#cli}
 
-   To create a route table and add [static routes](../../vpc/concepts/static-routes.md):
+   To create a routing table and add [static routes](../../vpc/concepts/static-routes.md):
    1. View a description of the CLI command for creating routing tables:
 
       ```bash
@@ -545,7 +545,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
       route_table_id: e2l5345dlgr1ugidhmov
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To create a route table and add [static routes](../../vpc/concepts/static-routes.md):
 
@@ -586,7 +586,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

@@ -8,9 +8,9 @@ For more information, see [{#T}](../concepts/logs.md).
 
 ## Viewing log entries {#logging-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name.
@@ -46,7 +46,7 @@ For more information, see [{#T}](../concepts/logs.md).
       * Number of messages per page.
       * Message interval (one of the standard intervals or an ad-hoc one).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -111,13 +111,13 @@ For more information, see [{#T}](../concepts/logs.md).
 
 ## Disabling sending logs {#disable-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md), add the `dataproc:disable_cloud_logging` property set to `true`.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

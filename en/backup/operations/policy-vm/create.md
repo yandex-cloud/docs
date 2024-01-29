@@ -5,9 +5,9 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
 # Creating a backup policy
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a backup policy.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -19,7 +19,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
       The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) VM backups every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
-      For more information, refer to [Full backup policy specification](../../concepts/policy.md#specification).
+      See [Full backup policy specification](../../concepts/policy.md#specification).
 
    1. Create a backup policy:
 
@@ -119,7 +119,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -190,88 +190,88 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
      Where:
 
-     * `archive_name`: Generated archive names. This is an optional parameter. The parameter variables include:
-       * `Machine Name`: VM name.
-       * `Plan ID`: Plan ID.
-       * `Unique ID`: Unique identifier.
-       Make sure the last character in the generated archive name is not a variable.
-     * `cbt`: Configuration for tracking backup contents. This is an optional parameter. The possible values include:
-       * `CHANGED_BLOCK_TRACKING_UNSPECIFIED`: Not set.
-       * `USE_IF_ENABLED`: Use if enabled.
-       * `ENABLE_AND_USE`: Enable and use.
-       * `DO_NOT_USE`: Do not use.
-       The default value is `DO_NOT_USE`.
-     * `compression`: Backup compression ratio. This is an optional parameter. The possible values include:
-       * `NORMAL`: Standard compression.
-       * `HIGH`: High compression ratio.
-       * `MAX`: Maximum compression.
-       * `OFF`: Disabled.
-       The default value is `NORMAL`.
-     * `fast_backup_enabled`: Fast backup for tracking changes to files. When enabled, file changes are detected by the file size and timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. The value can be `true` or `false`.
-     * `format`: Backup format. This is an optional parameter. The possible values include:
-       * `VERSION_11`: Deprecated format, not recommended.
-       * `VERSION_12`: Recommended format for fast backup and recovery.
-       * `AUTO`: Automatic format selection. The default value is `VERSION_12`. The exception is creating incremental backups for images created in other versions.
-     * `multi_volume_snapshotting_enabled`: Creating snapshots of multiple volumes at the same time. This is an optional parameter. The value can be `true` or `false`.
-     * `name`: Backup policy name.
-     * `performance_window_enabled`: Time windows to limit backup performance. This is an optional parameter. The value can be `true` or `false`. The default value is `false`.
-     * `preserve_file_security_settings`: Retain security file settings. This is an optional parameter. The value can be `true` or `false`. The default value is `true`. We recommend using the `true` value.
-     * `quiesce_snapshotting_enabled`: Using `quiescing` mode when creating snapshots. This is an optional parameter. The value can be `true` or `false`. The default value is `false`.
-     * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional parameter. The value can be `true` or `false`. The default value is `true`.
-     * `splitting_bytes`: Parameter that defines the size for splitting backups. This is an optional parameter. The default value is `9223372036854775807`.
-     * `vss_provider`: VSS settings. This is an optional parameter. The value can be `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
+      * `archive_name`: Generated archive names. This is an optional parameter. The parameter variables include:
+         * `Machine Name`: VM name.
+         * `Plan ID`: Plan ID.
+         * `Unique ID`: Unique identifier.
+            Make sure the last character in the generated archive name is not a variable.
+      * `cbt`: Configuration for tracking backup contents. This is an optional parameter. The possible values include:
+         * `CHANGED_BLOCK_TRACKING_UNSPECIFIED`: Not set.
+         * `USE_IF_ENABLED`: Use if enabled.
+         * `ENABLE_AND_USE`: Enable and use.
+         * `DO_NOT_USE`: Do not use.
+            The default value is `DO_NOT_USE`.
+      * `compression`: Backup compression ratio. This is an optional parameter. The possible values include:
+         * `NORMAL`: Standard compression.
+         * `HIGH`: High compression ratio.
+         * `MAX`: Maximum compression.
+         * `OFF`: Disabled.
+            The default value is `NORMAL`.
+      * `fast_backup_enabled`: Fast backup for tracking changes to files. When enabled, file changes are detected by the file size and timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. It may take either the `true` or `false` value.
+      * `format`: Backup format. This is an optional parameter. The possible values include:
+         * `VERSION_11`: Deprecated format, not recommended.
+         * `VERSION_12`: Recommended format for fast backup and recovery.
+         * `AUTO`: Automatic format selection. The default value is `VERSION_12`. The exception is creating incremental backups for images created in other versions.
+      * `multi_volume_snapshotting_enabled`: Creating snapshots of multiple volumes at the same time. This is an optional parameter. It may take either the `true` or `false` value.
+      * `name`: Backup policy name.
+      * `performance_window_enabled`: Time windows to limit backup performance. This is an optional parameter. It may take either the `true` or `false` value. The default value is `false`.
+      * `preserve_file_security_settings`: Retain security file settings. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`. We recommend using the `true` value.
+      * `quiesce_snapshotting_enabled`: Using `quiescing` mode when creating snapshots. This is an optional parameter. It may take either the `true` or `false` value. The default value is `false`.
+      * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`.
+      * `splitting_bytes`: Parameter that defines the size for splitting backups. This is an optional parameter. The default value is `9223372036854775807`.
+      * `vss_provider`: VSS settings. This is an optional parameter. The value can be `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
 
-     * `reattempts`: Parameters of backup reattempts in the event of failure:
-       * `enabled`: Retry creating a backup if noncritical errors occur (for example, when failing to connect to a target disk). This is an optional parameter. The value can be `true` or `false`. The default value is `true`.
-       * `interval`: Reattempt interval. This is an optional parameter. The default value is `5m`.
-       * `max_attempts`: Maximum number of reattempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
+      * `reattempts`: Parameters of backup reattempts in the event of failure:
+         * `enabled`: Retry creating a backup if noncritical errors occur (for example, when failing to connect to a target disk). This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`.
+         * `interval`: Reattempt interval. This is an optional parameter. The default value is `5m`.
+         * `max_attempts`: Maximum number of reattempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
 
-     * `retention`: Backup retention parameters:
-       * `after_backup`: Apply backup retention rules after the backup is completed. The value can be `true` or `false`.
-       * `rules`: Backup retention rules:
-          * `max_age`: Delete backups whose age exceeds `max_age`.
-          * `max_count`: Delete backups if their number exceeds `max_count`.
-          * `repeat_period`: Period for applying the rules.
-          The `max_age` and `max_count` attributes are mutually exclusive. Using one of them disables the use of the other.
+      * `retention`: Backup retention parameters:
+         * `after_backup`: Apply backup retention rules after the backup is completed. It may take either the `true` or `false` value.
+         * `rules`: Backup retention rules:
+            * `max_age`: Delete backups whose age exceeds `max_age`.
+            * `max_count`: Delete backups if their number exceeds `max_count`.
+            * `repeat_period`: Period for applying the rules.
+               The `max_age` and `max_count` attributes are mutually exclusive. Using one of them disables the use of the other.
 
-     * `scheduling`: Backup schedule parameters:
-       * `enabled`: Enable backup scheduling. This is an optional parameter. The value can be `true` or `false`. The default value is `true`.
-       * `max_parallel_backups`: Maximum number of parallel backups. This is an optional parameter. The default value is `0` (unlimited).
-       * `random_max_delay`: Sets a random delay between concurrent jobs. This is an optional parameter. The default value is `30m`.
-       * `scheme`: Backup schedule scheme. This is an optional parameter. The possible values include:
-          * `ALWAYS_INCREMENTAL`: Always incremental.
-          * `ALWAYS_FULL`: Always full.
-          * `WEEKLY_FULL_DAILY_INCREMENTAL`: Weekly: full; daily: incremental.
-          * `WEEKLY_INCREMENTAL`: Weekly: incremental.
-          The default value is `ALWAYS_INCREMENTAL`.
-       * `weekly_backup_day`: Day of the week for weekly backups. This is an optional parameter. The default value is `MONDAY`.
-       * `execute_by_time`: Settings for backups at a specified time:
-          * `include_last_day_of_month`: Making backups on the last day of each month. This is an optional parameter. The value can be `true` or `false`. The default value is `false`.
-          * `monthdays`: List of days to apply the schedule on. This is an optional parameter. Used in `MONTHLY` format.
-          * `months`: List of months to apply the schedule in. This is an optional parameter.
-          * `repeat_at`: List of time periods in the `HH:MM` (24-hour) format to apply the schedule in. This is an optional parameter.
-          * `repeat_every`: Frequency for repeating backups. This is an optional parameter.
-          * `type`: Schedule type. The possible values are `HOURLY`, `DAILY`, `WEEKLY`, or `MONTHLY`.
-          * `weekdays`: List of days of the week to apply the backup on. Used in `WEEKLY` format.
+      * `scheduling`: Backup schedule parameters:
+         * `enabled`: Enable backup scheduling. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`.
+         * `max_parallel_backups`: Maximum number of parallel backups. This is an optional parameter. The default value is `0` (unlimited).
+         * `random_max_delay`: Sets a random delay between concurrent jobs. This is an optional parameter. The default value is `30m`.
+         * `scheme`: Backup schedule scheme. This is an optional parameter. The possible values include:
+            * `ALWAYS_INCREMENTAL`: Always incremental.
+            * `ALWAYS_FULL`: Always full.
+            * `WEEKLY_FULL_DAILY_INCREMENTAL`: Weekly: full; daily: incremental.
+            * `WEEKLY_INCREMENTAL`: Weekly: incremental.
+               The default value is `ALWAYS_INCREMENTAL`.
+         * `weekly_backup_day`: Day of the week for weekly backups. This is an optional parameter. The default value is `MONDAY`.
+         * `execute_by_time`: Settings for backups at a specified time:
+            * `include_last_day_of_month`: Making backups on the last day of each month. This is an optional parameter. It may take either the `true` or `false` value. The default value is `false`.
+            * `monthdays`: List of days to apply the schedule on. This is an optional parameter. Used in `MONTHLY` format.
+            * `months`: List of months to apply the schedule in. This is an optional parameter.
+            * `repeat_at`: List of time periods in the `HH:MM` (24-hour) format to apply the schedule in. This is an optional parameter.
+            * `repeat_every`: Frequency for repeating backups. This is an optional parameter.
+            * `type`: Schedule type. The possible values are `HOURLY`, `DAILY`, `WEEKLY`, or `MONTHLY`.
+            * `weekdays`: List of days of the week to apply the backup on. Used in `WEEKLY` format.
 
-     * `vm_snapshot_reattempts`: Parameters of snapshot creation reattempts in the event of failure:
-       * `enabled`: Retry creating a VM snapshot if an error occurs. This is an optional parameter. The value can be `true` or `false`. The default value is `true`.
-       * `interval`: Interval between reattempts. This is an optional parameter. The default value is `5m`.
-       * `max_attempts`: Maximum number of reattempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
+      * `vm_snapshot_reattempts`: Parameters of snapshot creation reattempts in the event of failure:
+         * `enabled`: Retry creating a VM snapshot if an error occurs. This is an optional parameter. It may take either the `true` or `false` value. The default value is `true`.
+         * `interval`: Interval between reattempts. This is an optional parameter. The default value is `5m`.
+         * `max_attempts`: Maximum number of reattempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
 
-     For more information about the `yandex_backup_policy` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/backup_policy).
+      For more information about the `yandex_backup_policy` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/backup_policy).
 
-  1. Create resources:
+   1. Create resources:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-     ```bash
-     yc backup policy list
-     ```
+      ```bash
+      yc backup policy list
+      ```
 
-- API
+- API {#api}
 
    To create a [backup policy](../../concepts/policy.md), use the [create](../../backup/api-ref/Policy/create.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Create](../../backup/api-ref/grpc/policy_service.md#Create) gRPC API call.
 

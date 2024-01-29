@@ -98,11 +98,11 @@ The cost of the infrastructure includes:
 
 ### Create a cloud network {#create-network}
 
-If you don't have a [cloud network](../../vpc/concepts/network.md#network) yet, create one in the folder for ViPNet Coordinator VA, such as `vipnet-folder`:
+If you do not have a [cloud network](../../vpc/concepts/network.md#network) yet, create one in the folder for ViPNet Coordinator VA, such as `vipnet-folder`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `vipnet-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
@@ -111,7 +111,7 @@ If you don't have a [cloud network](../../vpc/concepts/network.md#network) yet, 
    1. Disable the **Create subnets** option.
    1. Click **Create network**.
 
-- CLI
+- CLI {#cli}
 
    To create a cloud network, run the command:
 
@@ -130,9 +130,9 @@ If you don't have a [cloud network](../../vpc/concepts/network.md#network) yet, 
 
 Create a [subnet](../../vpc/concepts/network.md#subnet) named `public-subnet` for the ViPNet Coordinator VA external interface:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `vipnet-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
@@ -154,7 +154,7 @@ Create a [subnet](../../vpc/concepts/network.md#subnet) named `public-subnet` fo
 
    {% endnote %}
 
-- CLI
+- CLI {#cli}
 
    1. Create `public-subnet`:
 
@@ -192,9 +192,9 @@ Create a [subnet](../../vpc/concepts/network.md#subnet) named `public-subnet` fo
 
 Create the `segment1-rt`, `segment2-rt`, and `segment3-rt` route tables:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `vipnet-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
@@ -215,9 +215,9 @@ Create the `segment1-rt`, `segment2-rt`, and `segment3-rt` route tables:
 
 Link the route tables to the subnets:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `vipnet-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
@@ -532,9 +532,9 @@ The tutorial uses the demo versions of the keys.
 
 ### Upload disk images to {{ objstorage-name }} {#upload-image-s3}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Create a bucket:
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
@@ -566,9 +566,9 @@ The tutorial uses the demo versions of the keys.
 
 ### Create disk images in {{ compute-name }} {#create-image-compute}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example_folder`.
    1. Select **{{ compute-name }}**.
@@ -577,9 +577,9 @@ The tutorial uses the demo versions of the keys.
    1. Specify the image name: `vipnet-va-disk1`.
    1. Insert the link to the first disk image in {{ objstorage-name }}.
    1. Click **Upload**.
-   1. Create again for the second image `vipnet-va-disk2`.
+   1. Repeat the steps for the second image, `vipnet-va-disk2`.
 
-- CLI
+- CLI {#cli}
 
    To create disk images in {{ compute-name }}, run the following commands:
 
@@ -593,9 +593,9 @@ The tutorial uses the demo versions of the keys.
 
 ## Create a VM with ViPNet Coordinator VA in the cloud {#create-vipnet-cloud}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Configure the variables for creating a VM:
 
@@ -631,7 +631,7 @@ The tutorial uses the demo versions of the keys.
 
       Where:
       * `name`: VM name.
-      * `hostname`: VM host's name.
+      * `hostname`: VM host name.
       * `zone`: Availability zone that corresponds to the selected subnet for the VM.
       * `create-boot-disk`: Boot disk parameters.
       * `create-disk`: Parameters of an additional disk.
@@ -649,9 +649,9 @@ The tutorial uses the demo versions of the keys.
 
 ### Connect to ViPNet Coordinator VA using the serial console {#serial-console}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Go to the serial console of the created VM:
    1. In the [management console]({{ link-console-main }}), select `vipnet-folder`.
@@ -675,9 +675,9 @@ The tutorial uses the demo versions of the keys.
 
 ### Enable SSH {#enable-ssh}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Switch to admin mode:
 

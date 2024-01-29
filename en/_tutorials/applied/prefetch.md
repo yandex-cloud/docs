@@ -48,9 +48,9 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 Create two buckets: one will store files and the other will store request logs for the first one.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Create a bucket for files:
@@ -63,7 +63,7 @@ Create two buckets: one will store files and the other will store request logs f
       1. Enter a **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** for the bucket.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Create a bucket for files:
 
@@ -98,7 +98,7 @@ Create two buckets: one will store files and the other will store request logs f
       }
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -153,7 +153,7 @@ Create two buckets: one will store files and the other will store request logs f
 
       1. Confirm that you want to create the bucket.
 
-- API
+- API {#api}
 
    Use the API [create](../../storage/s3/api-ref/bucket/create.md) method.
 
@@ -163,9 +163,9 @@ Create two buckets: one will store files and the other will store request logs f
 
 Make sure that, when a user sends a request, files are downloaded from the CDN server cache rather than directly from the bucket. To do this, enable bucket logging.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Create a file with logging settings in JSON format. Here is an example:
 
@@ -197,7 +197,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       * `--bucket`: Name of the source bucket to enable action logging for.
       * `--bucket-logging-status`: Path to the logging settings file.
 
-- API
+- API {#api}
 
    Use the [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) API method for the bucket with files. HTTP request body:
 
@@ -219,9 +219,9 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 ## Upload a file to the bucket {#upload-object}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the bucket with files.
@@ -229,7 +229,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    1. In the window that opens, select the `ycgame-update-v1.1.exe` patch file and click **{{ ui-key.yacloud.common.open }}**.
    1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    Run this command:
 
@@ -246,7 +246,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    upload: <ycgame-update-v1.1.exe_file_path> to s3://<name_of_bucket_with_files>/ycgame-update-v1.1.exe
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add the parameters of the [object](../../storage/concepts/object.md) to upload to the configuration file you created in the [bucket creation step](#create-buckets):
       * `bucket`: Name of the bucket to add the object to.
@@ -259,7 +259,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       ...
       resource "yandex_storage_object" "patch-v1-1" {
         access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
+        secret_key = "<private_key>"
         bucket = "<name_of_bucket_with_files>"
         key    = "ycgame-update-v1.1.exe"
         source = "<path_to_file>/ycgame-update-v1.1.exe"
@@ -284,7 +284,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
       1. Confirm that you want to create the object.
 
-- API
+- API {#api}
 
    Use the API [upload](../../storage/s3/api-ref/object/upload.md) method.
 
@@ -292,9 +292,9 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 ## Create a CDN resource and enable caching {#create-cdn-resource}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
    1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
@@ -334,7 +334,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -376,7 +376,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       yc cdn resource update <resource_ID> --redirect-http-to-https
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add parameters of the CDN resources to the configuration file:
 
@@ -451,7 +451,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    This enables a redirect for the resource.
 
-- API
+- API {#api}
 
    Use the gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) call or the REST API [create](../../cdn/api-ref/Resource/create.md) method. To enable [caching](../../cdn/concepts/caching.md) on CDN servers, add the `edge_cache_settings` field to the request body.
 
@@ -461,9 +461,9 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 1. Get a domain name generated for the created CDN resource on the `.edgecdn.ru` domain:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
@@ -484,9 +484,9 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public DNS zone, create one:
@@ -503,7 +503,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the URL you copied on the `.edgecdn.ru` domain with a dot at the end.
          1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. If you do not have a public DNS zone, create one:
 
@@ -559,7 +559,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
          The list should contain the `cdn.ycprojectblue.example.` record.
 
-   - API
+   - API {#api}
 
       1. If you do not have a public DNS zone, create one using a gRPC API call to [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) or the REST API [create](../../dns/api-ref/DnsZone/create.md) method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
       1. In the zone, create a [record](../../dns/concepts/resource-record.md) named `cdn CNAME cl-********.edgecdn.ru.` using a gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) call or the REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) method.
@@ -570,9 +570,9 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 ## Preload content to the cache of CDN servers {#prefetch-content}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
    1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
@@ -586,7 +586,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    1. Click **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -601,7 +601,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
 
-- API
+- API {#api}
 
    Use the gRPC API [CacheService/Prefetch](../../cdn/api-ref/grpc/cache_service.md#Prefetch) call or the [prefetch](../../cdn/api-ref/Cache/prefetch.md) REST API method.
 
@@ -618,16 +618,16 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 1. Get the logs of requests to the bucket with files:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket with the logs.
       1. Click the name of the object corresponding to the `ycgame-update-v1.1.exe` download time.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
       1. Get a list of objects with logs:
 
@@ -661,7 +661,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
          download: s3://<name_of_bucket_with_logs>/2021-10-01-13-38-02-E69EAEC1C9083756 to 2021-10-01-13-38-02-E69EAEC1C9083756
          ```
 
-   - API
+   - API {#api}
 
       1. Get a list of objects in the bucket with logs using the [listObjects](../../storage/s3/api-ref/bucket/listobjects.md) API method.
       1. In the resulting list, find the object whose log was saved after downloading `ycgame-update-v1.1.exe` and download it using the API [get](../../storage/s3/api-ref/object/get.md) method.

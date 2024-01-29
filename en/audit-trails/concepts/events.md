@@ -230,15 +230,15 @@ Service name: `compute`.
 | `UpdateSnapshotScheduleDisks` | Updating disk snapshot schedule parameters |
 | `instancegroup` | Managing an instance group |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
-| `instancegroup.DeleteInstanceGroup` | Deleting an instance group. |
-| `instancegroup.DeleteInstanceGroupInstances` | Deleting an instance from a group |
+| `instancegroup.DeleteInstanceGroup` | Deleting an instance group |
+| `instancegroup.DeleteInstanceGroupInstances` | Removing an instance from a group |
 | `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
 | `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
 | `instancegroup.RollingRestartInstanceGroupInstances` | Restarting instances in a group one by one |
-| `instancegroup.SetInstanceGroupAccessBindings` | Assigning roles for an instance group |
+| `instancegroup.SetInstanceGroupAccessBindings` | Assigning roles to an instance group |
 | `instancegroup.StartInstanceGroup` | Starting an instance group |
 | `instancegroup.StopInstanceGroup` | Stopping an instance group |
-| `instancegroup.StopInstanceGroupInstances` | Stopping an instance in a group |
+| `instancegroup.StopInstanceGroupInstances` | Stopping an instance from a group |
 | `instancegroup.UpdateInstanceGroup` | Updating an instance group |
 | `instancegroup.UpdateInstanceGroupAccessBindings` | Updating roles for an instance group |
 
@@ -702,28 +702,7 @@ Service name: `loadbalancer`.
 
 Service name: `storage`.
 
-| Event name | Description |
---- | ---
-| `BucketAclUpdate` | Updating the ACL for a bucket |
-| `BucketCorsUpdate` | Updating the CORS configuration for a bucket |
-| `BucketCreate` | Creating a bucket |
-| `BucketDelete` | Deleting a bucket |
-| `BucketEncryptionUpdate` | Updating bucket encryption settings |
-| `BucketVersioningUpdate` | Updating bucket versioning settings |
-| `BucketHttpsUpdate` | Updating the HTTPS configuration for a bucket |
-| `BucketLifecycleUpdate` | Changing the lifecycle of an object in a bucket |
-| `BucketPolicyUpdate` | Updating the access policies for a bucket |
-| `BucketTagsUpdate` | Updating bucket tags |
-| `BucketUpdate` | Updating a bucket |
-| `BucketWebsiteUpdate` | Updating a website configuration |
-| `ObjectAclUpdate` | Updating an object's ACL in a bucket ^*^ |
-| `ObjectCreate` | Creating an object in a bucket ^*^ |
-| `ObjectDelete` | Deleting an object from a bucket ^*^ |
-| `ObjectUpdate` | Updating an object in a bucket ^*^ |
-| `ObjectTagsDelete` | Deleting object tags |
-| `ObjectTagsUpdate` | Updating object tags |
-
-\* The audit log does not include the above events by default. To find out whether these events can be added to the audit log, contact [support]({{ link-console-support }}).
+{% include [storage-events](../../_includes/audit-trails/events/storage-events.md) %}
 
 ## {{ search-api-name }} {#searchapi}
 

@@ -10,13 +10,13 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 ## Getting a list of database clusters in a folder {#list-clusters}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
    +----------------------+--------------+---------------------+--------+---------+
    ```
 
-- API
+- API {#api}
 
    To get a list of DB clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
@@ -48,14 +48,14 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 ## Getting detailed information about a cluster {#get-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -69,7 +69,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
    You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
-- API
+- API {#api}
 
    To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -81,15 +81,15 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 {% include [list-operations-about](../../_includes/mdb/list-operations-about.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.cluster.switch_operations }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -103,7 +103,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
    You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of cluster operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

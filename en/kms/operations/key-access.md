@@ -5,9 +5,9 @@ description: "Follow this guide to grant encryption key access rights."
 
 # Granting encryption key access rights
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the key is stored.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -19,7 +19,7 @@ description: "Follow this guide to grant encryption key access rights."
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../security/index.md#roles-list).
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

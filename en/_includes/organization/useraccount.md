@@ -6,9 +6,9 @@ You can invite a user to an organization via the management console or {{ org-fu
 
 ### Send an invitation {#send-invitation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
    1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
@@ -20,7 +20,7 @@ You can invite a user to an organization via the management console or {{ org-fu
 
    1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
 
-- Management console
+- Management console {#console}
 
    1. [Log in]({{ link-passport-login }}) to the cloud administrator account.
    1. Log in to the [management console]({{ link-console-main }}).

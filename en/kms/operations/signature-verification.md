@@ -35,9 +35,9 @@ A signature based on a private key is used for messages of up to 32 KB.
 
 1. Get a public signature key and save it:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Management console
+    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate digital signature key pair.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -46,7 +46,7 @@ A signature based on a private key is used for messages of up to 32 KB.
       1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the digital signature public key.
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -86,11 +86,11 @@ A signature based on a private key is used for messages of up to 32 KB.
 
 1. Create a message signature:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
-      1. View a description of the CLI command to get a digital signature:
+      1. View the description of the CLI command to get a digital signature:
 
           ```bash
           yc kms asymmetric-signature-crypto sign --help
@@ -147,9 +147,9 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
 1. Get a digital signature public key and save it:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Management console
+    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate digital signature key pair.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -158,7 +158,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the signature public key.
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -180,9 +180,9 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
 1. Get a file's hash:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
       Run this command:
 
@@ -200,7 +200,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       * `<path_to_source_file>`: Path to the file whose hash you want to get.
       * `<path_to_hash_file>`: Path to the file to save the hash to.
 
-    - PowerShell
+    - PowerShell {#powershell}
 
       Run this command:
 
@@ -225,11 +225,11 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
 1. Create a hash-based file signature:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
-      1. View a description of the CLI command to get a hash-based digital signature:
+      1. View the description of the CLI command to get a hash-based digital signature:
 
           ```bash
           yc kms asymmetric-signature-crypto sign-hash --help

@@ -32,7 +32,7 @@ For the resource to run properly, you must have:
 * Rights to all the domain names you entered.
 * Access to DNS settings for domain names.
 
-   For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer, in `cl-********.edgecdn.ru` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
+   For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer, in the `cl-********.edgecdn.ru` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
 
    ```
    cdn.example.com. CNAME cl-********.edgecdn.ru
@@ -81,6 +81,14 @@ If no user requests have been sent to the resource for 90 days, its status chang
 * **{{ ui-key.yacloud.cdn.label_responses2xx }}**, **3xx**, **4xx**, and **5xx**: Number of responses with the respective HTTP status codes sent by CDN servers to clients.
 
 You can view statistics on the resource page in the [management console]({{ link-console-main }}).
+
+## Resource performance statistics {#resource-stats}
+
+{{ cdn-name }} automatically sends resource performance metrics to the [{{ monitoring-full-name }}](../../monitoring/) service.
+
+You can view performance statistics on the [resource page](../operations/resources/get-stats.md#cdn-ui) or in the [{{ monitoring-name }} interface](../operations/resources/get-stats.md#monitoring).
+
+For a list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
 
 #### See also {#see-also}
 

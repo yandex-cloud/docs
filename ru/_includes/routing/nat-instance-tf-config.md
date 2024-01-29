@@ -112,6 +112,24 @@ resource "yandex_compute_image" "nat-instance-ubuntu" {
   source_family = "nat-instance-ubuntu"
 }
 
+# Создание загрузочных дисков
+
+resource "yandex_compute_disk" "boot-disk-ubuntu" {
+  name     = "boot-disk-ubuntu"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.ubuntu-1804-lts.id
+}
+
+resource "yandex_compute_disk" "boot-disk-nat" {
+  name     = "boot-disk-nat"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.nat-instance-ubuntu.id
+}
+
 # Создание ВМ
 
 resource "yandex_compute_instance" "test-vm" {
@@ -126,9 +144,7 @@ resource "yandex_compute_instance" "test-vm" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.ubuntu-1804-lts.id
-    }
+    image_id = yandex_compute_disk.boot-disk-ubuntu.id
   }
 
   network_interface {
@@ -155,9 +171,7 @@ resource "yandex_compute_instance" "nat-instance" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.nat-instance-ubuntu.id
-    }
+    image_id = yandex_compute_disk.boot-disk-nat.id
   }
 
   network_interface {

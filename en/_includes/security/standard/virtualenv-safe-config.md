@@ -19,11 +19,11 @@ According to the PCI DSS standard, access to a VM via a serial console is consid
 
 {% endnote %}
 
-We recommend using access to the serial console only when absolutely necessary.
- 
-{% list tabs %}
+We do not recommend using access to the serial console unless it is absolutely necessary.
 
-- Performing a check in the management console
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
 
    1. In the management console, select the folder to check the VMs in.
    1. In the list of services, select **{{ compute-name }}**.
@@ -32,7 +32,7 @@ We recommend using access to the serial console only when absolutely necessary.
    1. **Serial console access** must be disabled.
    1. If it is disabled for all the VMs, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -68,9 +68,9 @@ When deploying virtual machines, we recommend:
 * Use this image to create a VM or [{#T}](../../../compute/concepts/instance-groups/index.md).
 * Look up the virtual machine's information to check that it was created using this image.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the folder to check the VMs in.
    1. In the list of services, select **{{ compute-name }}**.
@@ -79,7 +79,7 @@ When deploying virtual machines, we recommend:
    1. Under **Source**, find the **Identifier** parameter.
    1. If every disk displays the ID of your benchmark image, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -136,9 +136,9 @@ Scan your Terraform manifests using [Checkov](https://github.com/bridgecrewio/ch
 * [Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
 * [Example: Storing a {{ TF }} state in {{ objstorage-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/remote-backend).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Collect data about using the {{ TF }} best security practices from different points.
 
@@ -155,9 +155,9 @@ Numerous information security standards require integrity control of critical fi
 
 Paid solutions are also available in Yandex Cloud marketplace, such as [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Collect data about using integrity control from different points.
 
@@ -167,9 +167,9 @@ Paid solutions are also available in Yandex Cloud marketplace, such as [Kaspersk
 
 To control a VM's runtime environment (e.g., to enable access from the VM to a secure repository only when running it in the YC CLI cloud), you can use the [identity document](../../../compute/concepts/vm-metadata.md#identity-document) mechanism. When creating a VM, an identity document that stores information about the VM is generated. It contains IDs of the VM, [{{ marketplace-full-name }}](/marketplace) product, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/vm-metadata.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Make sure that critical VMs have identity documents signed.
 
@@ -217,17 +217,17 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
 [Example of a secure {{ objstorage-name }} configuration: {{ TF }}](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket)
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the buckets in.
    1. In the list of services, select **{{ objstorage-name }}**.
-   1. Click the three dots next to each bucket and check their ACLs for allUsers and allAuthenticatedUsers.
-   1. Open the bucket and check the ACL of each of its objects for allUsers and allAuthenticatedUsers.
+   1. Click the three dots next to each bucket and check their ACLs for `allUsers` and `allAuthenticatedUsers`.
+   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
    1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
    1. Run the command below to check the bucket ACL for `allUsers` and `allAuthenticatedUsers`:
@@ -255,19 +255,19 @@ Bucket Policy [examples](../../../storage/concepts/policy.md#config-examples):
 
 We recommend making sure that your {{ objstorage-name }} bucket uses at least one policy.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the bucket policies in.
-   1. From the list of services, select {{ objstorage-name }}.
+   1. In the list of services, select {{ objstorage-name }}.
    1. Go to **Access policy**.
    1. Make sure that at least one policy is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
-   1. Run the command below to check the bucket ACL for allUsers and allAuthenticatedUsers:
+   1. Run the command below to check the bucket ACL for `allUsers` and `allAuthenticatedUsers`:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }} s3api get-bucket-policy --bucket <your bucket's name>
@@ -295,16 +295,16 @@ In addition, to protect object versions against deletion, use [object locks](../
 
 The storage period of critical data in a bucket is determined by the client's information security requirements and information security standards. For example, the PCI DSS standard states that audit logs should be stored for at least one year and be available online for at least three months.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the buckets in.
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Open the settings of all buckets.
    1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
    1. Run the command below to check whether versioning is enabled:
@@ -347,9 +347,9 @@ You can only use {{ TF }}/API to check if logging is enabled by following the [i
 
 If [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in buckets are required, the customer should configure the CORS policy in accordance with the customer's information security requirements. For more information, see the {{ objstorage-name }} documentation, [CORS configuration of buckets](../../../storage/s3/api-ref/cors/xml-config.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the buckets in.
    1. In the list of services, select **{{ objstorage-name }}**.
@@ -366,18 +366,18 @@ If [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_s
 
 #### 3.11 A security group is assigned in managed databases {#db-security-group}
 
-We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from specific IP addresses. See the instructions in [Creating a security group](../../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
+We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from specific IP addresses. To do this, follow the steps in [Creating a security group](../../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, find the **Security group** parameter and make sure that at least one security group is assigned.
    1. If the parameters of each object have at least one security group set, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. Run the command below to search for Managed PostgreSQL DBs with no SG:
 
@@ -393,7 +393,7 @@ We recommend prohibiting internet access to databases that contain critical data
 
    1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Checking if managed databases have SGs
+- Checking if managed databases have SGs {#db-check}
 
    1. Run the command below to search for Managed MySQL DBs with no SG:
 
@@ -416,18 +416,18 @@ We recommend prohibiting internet access to databases that contain critical data
 If any databases without security groups are found, assign them or enable the **Default security group** [functionality](../../../vpc/concepts/security-groups.md#default-security-group.md).
 
 #### 3.12 No public IP address is assigned in managed databases {#db-ip}
-Assigning a public IP to a managed database raises information security risks. We recommend that you don't assign an external IP unless absolutely necessary.
+Assigning a public IP to a managed database raises information security risks. We do not recommend assigning an external IP unless it is absolutely necessary.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, go to the **Hosts** tab.
    1. If the parameters of each object have the **Public access** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -459,16 +459,16 @@ Disable public access if it is not required.
 
 In {{ yandex-cloud }} managed databases, you can enable deletion protection. Deletion protection manages cluster protection from accidental deletion by a user. Enabled protection will not prevent a manual connection to a cluster to delete data.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, go to the **Advanced settings** tab.
    1. If the parameters of each object have the **Deletion protection** option enabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -501,18 +501,18 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
 
 #### 3.14 The setting that enables access from {{ datalens-short-name }} is not activated unless needed {#db-datalens-access}
 
-You shouldn't enable access to databases containing critical data from the management console, [{{ datalens-short-name }}](../../../datalens), or other services unless you have to. Access from {{ datalens-short-name }} may be required for data analysis and visualization. For such access, the {{ yandex-cloud }} service network is used, with authentication and TLS encryption. You can enable and disable access from {{ datalens-short-name }} or other services in the cluster settings or when creating it in the advanced settings section.
+Do not enable access to databases containing critical data from the management console, [{{ datalens-short-name }}](../../../datalens), or other services unless you have to. Access from {{ datalens-short-name }} may be required for data analysis and visualization. For such access, the {{ yandex-cloud }} service network is used, with authentication and TLS encryption. You can enable and disable access from {{ datalens-short-name }} or other services in the cluster settings or when creating it in the advanced settings section.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, go to the **Advanced settings** tab.
    1. If the parameters of each object have **Access from {{ datalens-short-name }}** disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -549,16 +549,16 @@ You may need access to the database from the management console to send [SQL que
 
 We recommend that you enable this type of access only if needed, because it raises information security risks. In normal mode, use a standard DB connection as a DB user.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, go to the **Advanced settings** tab.
    1. If the parameters of each object have **Access from the management console** disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -595,9 +595,9 @@ We recommend that you enable this type of access only if needed, because it rais
 
 In cases where the use of public functions is not explicitly required, we recommend that you use private functions. For more information about setting up access to functions, see [Managing rights to access functions](../../../functions/operations/function/function-public.md). We recommend using private functions and assigning rights to invoke functions to specific cloud users.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the functions in.
    1. In the list of services, select **{{ sf-name }}**.
@@ -605,7 +605,7 @@ In cases where the use of public functions is not explicitly required, we recomm
    1. In the function settings, go to the **Overview** tab.
    1. If the parameters of each object have the **Public function** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. Run the command below to search for `allUsers` access rights at the {{ sf-name }} level in all folders:
 
@@ -632,11 +632,11 @@ In cases where the use of public functions is not explicitly required, we recomm
 
 Hosts and hypervisors running {{ sf-name }} contain all the applicable updates for side-channel attack protection. However, keep in mind that different clients' functions are not isolated by cores. Thus, there is technically an attack surface between one user's function and another's. {{ yandex-cloud }} security experts believe that side-channel attacks are unlikely in the context of functions, but this risk must be accounted for, particularly in the overall threats and risk analysis model employed by the PCI DSS infrastructure.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
-   Make sure the most critical systems don't use {{ sf-name }} or this is considered in the risk analysis model.
+   Make sure the most critical systems do not use {{ sf-name }} or this is considered in the risk analysis model.
 
 {% endlist %}
 
@@ -645,7 +645,7 @@ Hosts and hypervisors running {{ sf-name }} contain all the applicable updates f
 The {{ sf-name }} service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the {{ sf-name }} side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with {{ yandex-cloud }}. For more information about time synchronization, see the {{ compute-short-name }} documentation, [Configuring clock synchronization](../../../compute/tutorials/ntp.md).
 
 #### 3.19 Specifics of header management in {{ sf-name }} are considered {#http-functions}
-If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} will automatically process this JSON and the user will receive data as a standard HTTP response. The client needs to manage the response headers on their own in accordance with regulator requirements and the threat model. For more information on how to process an HTTP request, see the {{ sf-name }} documentation, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
+If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} will automatically process this JSON and the user will receive data as a standard HTTP response. The client needs to manage the response headers on their own in accordance with regulator requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
 
 #### 3.20 {{ serverless-containers-short-name }}/{{ sf-name }} uses the {{ vpc-short-name }} internal network {#vpc-functions}
 
@@ -657,17 +657,17 @@ If necessary, you can specify a cloud network in function settings. In this case
 * Has access to the internet and user resources in the given network, such as databases and VMs.
 * Has an IP address within the `198.19.0.0/16` range when accessing user resources.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the functions in.
-   1. From the list of services, select {{ sf-name }}.
+   1. In the list of services, select {{ sf-name }}.
    1. Open all the functions.
    1. In the object settings, go to the **Edit function version** tab.
    1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. Run the command below to search for any cloud functions that have no network settings specified in {{ vpc-short-name }}:
 
@@ -710,9 +710,9 @@ When accessing the database in dedicated mode, we recommend that you use it insi
 
 When setting up database permissions, use the principle of least privilege.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the database in.
    1. In the list of services, select **{{ ydb-name }}**.
@@ -720,7 +720,7 @@ When setting up database permissions, use the principle of least privilege.
    1. In the database settings, go to the **Network** tab.
    1. If the parameters of each object have the **Public IP addresses** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -760,16 +760,16 @@ When creating backups on demand in {{ objstorage-name }}, follow the recommendat
 
 We recommend that you limit access to your {{ container-registry-short-name }} to specific IPs.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the registry in.
    1. In the list of services, select **{{ container-registry-short-name }}**.
    1. In the settings of the specific registry, go to the **Access for IP address** tab.
    1. If specific IPs to allow access for are set in the parameters, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -801,20 +801,19 @@ Specify the IP addresses for registry access.
 
 We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers should be used for the purposes of administering VMs or other containers.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the VMs in.
    1. In the list of services, select **{{ compute-short-name }}**.
    1. Open the settings of a specific VM with a **Container Optimized Image**.
    1. In the Docker container's **Settings**, find the **Privileged mode** parameter.
-   1. If it s disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
-       
+   1. If it is disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -851,7 +850,7 @@ We do not recommend that you use privileged containers to run loads that process
 
 #### 3.26 A {{ certificate-manager-full-name }} certificate is valid for at least 30 days {#certificate-validity}
 
-{{ certificate-manager-full-name }} lets you manage TLS certificates for API gateways in the API Gateway service and for websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
+You can use {{ certificate-manager-full-name }} to manage TLS certificates for your API gateways in the API Gateway, as well as your websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
 
 When using TLS in your application, we recommend that you limit the list of your trusted root certificate authorities (root CA).
 
@@ -859,16 +858,16 @@ When using certificate pinning, keep in mind that Let's Encrypt certificates are
 
 We recommend that you update certificates in advance if they are not [updated automatically](../../../certificate-manager/concepts/challenges.md#auto).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the VMs in.
    1. In the list of services, select **{{ certificate-manager-full-name }}**.
    1. Open the settings of each certificate and find the **End date** parameter.
    1. If the parameter shows that the certificate will be valid for at least 30 days more, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -903,9 +902,9 @@ Update the certificate or set up auto updates.
 
 See the recommendations [here](../../../managed-gitlab/concepts/security.md#secure-instance).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Run a manual check.
 
@@ -916,9 +915,9 @@ See the recommendations [here](../../../managed-gitlab/concepts/security.md#secu
 Make sure to provide anti-malware protection within your scope of responsibility. You can use a variety of solutions from our partners in [{{ marketplace-full-name }}](/marketplace).
 [Antivirus solution images](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol) are available in {{ marketplace-full-name }}. License types and other required information are available in the product descriptions.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Make sure that critical systems are protected with antivirus solutions.
 
