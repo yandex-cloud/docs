@@ -5,9 +5,9 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
 ## Revoking a role {#revoke-one-role}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the management console, you can only revoke a cloud or a folder role.
 
@@ -26,7 +26,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
       1. Select a user from the list and click ![image](../../../_assets/console-icons/ellipsis.svg) next to the username.
       1. If you want to revoke all of the user's roles in the cloud, click **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** and confirm the revocation.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -46,36 +46,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
       * `<subject-type>`: [Subject](../../concepts/access-control/index.md#subject) type to revoke a role from.
       * `<subject_ID>`: Subject ID.
 
-- API
-
-   To revoke a resource role from a subject, delete the corresponding access binding:
-
-   1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
-   1. Create a request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `editor` role from the `ajei8n54hmfh********` user:
-
-      **body.json:**
-      ```json
-      {
-          "accessBindingDeltas": [{
-              "action": "REMOVE",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "ajei8n54hmfh********",
-                      "type": "userAccount"
-                      }
-                  }
-              }
-          ]
-      }
-      ```
-
-
-    1. Revoke the role by deleting the specified access binding:
-
-        {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -123,5 +94,34 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
            ```
            yc resource-manager cloud list-access-bindings <cloud_name_or_ID>
            ```
+
+- API {#api}
+
+   To revoke a resource role from a subject, delete the corresponding access binding:
+
+   1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
+   1. Create a request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `editor` role from the `ajei8n54hmfh********` user:
+
+      **body.json:**
+      ```json
+      {
+          "accessBindingDeltas": [{
+              "action": "REMOVE",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "ajei8n54hmfh********",
+                      "type": "userAccount"
+                      }
+                  }
+              }
+          ]
+      }
+      ```
+
+
+    1. Revoke the role by deleting the specified access binding:
+
+        {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
 {% endlist %}

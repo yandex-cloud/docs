@@ -294,6 +294,14 @@
   1. Опишите в конфигурационном файле параметры ВМ `usergate-firewall`:
 
      ```
+     resource "yandex_compute_disk" "boot-disk" {
+       name     = "boot-disk"
+       type     = "network-hdd"
+       zone     = "{{ region-id }}-a"
+       size     = "110"
+       image_id = "<идентификатор_образа_UserGate_NGFW>"
+     }
+
      resource "yandex_compute_instance" "usergate-firewall" {
        name        = "usergate-firewall"
        platform_id = "standard-v3"
@@ -306,10 +314,7 @@
        }
 
        boot_disk {
-         initialize_params {
-           image_id = "<идентификатор_образа_UserGate_NGFW>"
-           size     = 110
-         }
+         image_id = yandex_compute_disk.boot-disk.id
        }
 
        network_interface {

@@ -4,15 +4,15 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
 
 ## Getting a list of cluster hosts {#list-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the {{ mmg-name }} cluster.
    1. Select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,9 +36,9 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
    +----------------------------+----------------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
-   You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the {{ mmg-name }} cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of {{ mmg-name }} cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -56,13 +56,13 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 
 | Sharding type | MONGOD | MONGOINFRA | MONGOS | MONGOCFG |
 --- | --- | --- | --- | ---
-| No sharding | ⩾ 1 | N/A | — | — |
-| Standard | ⩾ 1 | ⩾ 3 | N/A | — |
-| Advanced | ⩾ 1 | N/A | ⩾ 2 | ⩾ 3 |
+| No sharding | ⩾ 1 | — | — | — |
+| Standard | ⩾ 1 | ⩾ 3 | — | — |
+| Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3 |
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a host to your {{ mmg-name }} cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
@@ -71,11 +71,11 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
    1. Specify the host parameters:
       * [Availability zone](../../overview/concepts/geo-scope.md).
       * [Subnet](../../vpc/concepts/network.md#subnet) (if the required subnet is not on the list, create it).
-      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}. You cannot edit this setting after you create a host.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}. You cannot change this setting after you create a host.
       * Host type and shard name, if sharding is enabled for the {{ mmg-name }} cluster.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -122,9 +122,9 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 
       {{ mmg-name }} will run the add host operation.
 
-      The subnet ID should be specified if the [availability zone](../../overview/concepts/geo-scope.md) contains multiple subnets; otherwise, {{ mmg-name }} automatically selects the sole subnet. You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
+      The subnet ID should be specified if the [availability zone](../../overview/concepts/geo-scope.md) contains multiple subnets; otherwise, {{ mmg-name }} automatically selects the sole subnet. You can request the {{ mmg-name }} cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To add a host to your {{ mmg-name }} cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -197,7 +197,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -225,9 +225,9 @@ If the host is a primary one at the time of removal, {{ mmg-name }} automaticall
 
 From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may remove the `MONGOS`, `MONGOCFG`, or `MONGOINFRA` hosts that exceed the [minimum number](#hosts-table) needed for sharding.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To remove a host from a {{ mmg-name }} cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
@@ -235,7 +235,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
    1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the line of the necessary host and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, check **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -250,7 +250,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 
    You can request the host name with a list of [{{ mmg-name }} cluster hosts](#list-hosts) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To remove a host from a {{ mmg-name }} cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -269,7 +269,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -294,16 +294,16 @@ During this operation:
 
    {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To forcibly resync a host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
    1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.mongodb.hosts.action_resetup-host }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -316,9 +316,9 @@ During this operation:
       --cluster-name <cluster_name>
    ```
 
-   You can get the host name with a [list of hosts in the folder](hosts.md#list-hosts). You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the host name with a [list of hosts in the folder](hosts.md#list-hosts). You can request the {{ mmg-name }} cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To resync a host, use the [resetupHosts](../api-ref/Cluster/resetupHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ResetupHosts](../api-ref/grpc/cluster_service.md#ResetupHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
@@ -342,9 +342,9 @@ You can only restart one host at a time.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -357,7 +357,7 @@ You can only restart one host at a time.
      --cluster-name <cluster_name>
    ```
 
-- API
+- API {#api}
 
    To restart a host, use the [restartHosts](../api-ref/Cluster/restartHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/RestartHosts](../api-ref/grpc/cluster_service.md#RestartHosts) gRPC API call and provide the following in the request:
    * {{ mmg-name }} cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).

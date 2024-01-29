@@ -33,9 +33,9 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
@@ -43,7 +43,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
    1. Expand the **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** list and select the roles you want to assign to the user in the **Grants** field.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -61,7 +61,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
    You can request the cluster name with the [list of clusters](cluster-list.md) in the folder and the username, with the [list of users](cluster-users.md#list-users).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To assign roles to a cluster user:
 
@@ -91,7 +91,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To specify a new list of the required user roles, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -109,14 +109,14 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 ## Granting a privilege to a user {#grant-privilege}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - SQL
 
    1. [Connect](connect.md) to the database under the database owner's account.
    1. Run the `GRANT` command. For a detailed description of the command syntax, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-grant.html).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    You can grant user privileges via {{ TF }} only in a cluster with public hosts.
 
@@ -205,14 +205,14 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 ## Revoking a privilege from a user {#revoke-privilege}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - SQL
 
    1. [Connect](connect.md) to the database under the database owner's account.
    1. Run the `REVOKE` command. For a detailed description of the command syntax, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-revoke.html).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    If you previously granted a privilege using {{ TF }}:
 

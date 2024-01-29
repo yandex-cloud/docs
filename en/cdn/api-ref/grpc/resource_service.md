@@ -221,8 +221,8 @@ excepted_values[] | **string**<br>The list of IP addresses to be allowed or deni
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key.</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: The option is deprecated. SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData)**<br>Certificate data. 
 
 
@@ -454,8 +454,8 @@ excepted_values[] | **string**<br>The list of IP addresses to be allowed or deni
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key.</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: The option is deprecated. SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData1)**<br>Certificate data. 
 
 
@@ -724,7 +724,7 @@ excepted_values[] | **string**<br>The list of IP addresses to be allowed or deni
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData2)**<br>Certificate data. 
 
 
@@ -797,8 +797,8 @@ labels | **map<string,string>**<br>Labels of the resource.
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key.</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: The option is deprecated. SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData3)**<br>Certificate data. 
 
 
@@ -1004,7 +1004,7 @@ excepted_values[] | **string**<br>The list of IP addresses to be allowed or deni
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData3)**<br>Certificate data. 
 
 
@@ -1069,8 +1069,8 @@ labels | **map<string,string>**<br>Labels of the resource.
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key.</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: The option is deprecated. SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData4)**<br>Certificate data. 
 
 

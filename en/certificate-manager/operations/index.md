@@ -15,7 +15,7 @@ description: "In this tutorial, you will learn how to work with {{ certificate-m
 - [{#T}](managed/cert-modify.md)
 - [{#T}](managed/cert-delete.md)
 
-## User certificate {#imported-certificate}
+## Custom certificate {#imported-certificate}
 
 - [{#T}](import/cert-create.md)
 - [{#T}](import/cert-get-content.md)
@@ -30,6 +30,10 @@ description: "In this tutorial, you will learn how to work with {{ certificate-m
 - [{#T}](domain/domain-modify.md)
 - [{#T}](domain/domain-delete.md)
 
-## Backups
+## Backups {#backup}
 
 - [{#T}](cert-backup.md)
+
+## Certificate status tracking {#alerts}
+
+- [{#T}](alert.md)

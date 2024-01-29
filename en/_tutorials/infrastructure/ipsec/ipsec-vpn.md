@@ -20,6 +20,12 @@ The infrastructure deployment cost for this solution based on IPsec gateways inc
 
 ### Create an SSH key pair {#create-ssh-keys}
 
+To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you need a key pair: the public key is placed on the VM, while the private one is stored on the user's device. This method is more secure than connecting with a username and password.
+
+{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
+
+To create a key pair:
+
 {% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
 
 ## Set up a cloud site {#cloud-setup}
@@ -124,251 +130,130 @@ Wait for the VM status to change to `Running`.
 
 To set up the gateway, use the IP addresses, username, and SSH key that you specified when creating the `cloud-gw` VM.
 
-{% note warning %}
-
-For strongSwan setup, we [recommend using](https://docs.strongswan.org/docs/5.9/howtos/introduction.html#_configuration_files) the [swanctl.conf](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html) file format. To learn how to set up the gateway in the legacy configuration format, see the `ipsec.conf` tab.
-
-{% endnote %}
-
-{% list tabs %}
-
-- swanctl.conf
-
-   1. Connect to the VM over SSH:
+1. Connect to the VM over SSH:
 
       ```bash
       ssh ipsec@<x1.x1.x1.x1>
       ```
 
-   1. Set the date and time parameters for the VM:
+1. Set the date and time parameters for the VM:
 
-      ```bash
-      sudo timedatectl set-timezone Europe/Moscow
-      sudo timedatectl set-ntp True
-      timedatectl
-      ```
+    ```bash
+    sudo timedatectl set-timezone Europe/Moscow
+    sudo timedatectl set-ntp True
+    timedatectl
+    ```
 
-   1. To ensure optimal ICMP performance, disable the `ICMP Redirects` feature on the IPsec gateway:
+1. To ensure optimal ICMP performance, disable the `ICMP Redirects` feature on the IPsec gateway:
 
-      ```bash
-      sudo su -c "echo 'net.ipv4.conf.eth0.send_redirects=0' >> /etc/sysctl.conf"
-      sudo su -c "echo 'net.ipv4.conf.default.send_redirects=0' >> /etc/sysctl.conf"
-      ```
+    ```bash
+   	sudo su -c "echo 'net.ipv4.conf.eth0.send_redirects=0' >> /etc/sysctl.conf"
+   	sudo su -c "echo 'net.ipv4.conf.default.send_redirects=0' >> /etc/sysctl.conf"
+    ```
 
-      For more information, see the [strongSwan documentation](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
+    For more information, see the [strongSwan documentation](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
 
-   1. Create a backup of the `swanctl.conf` file:
+1. Create a backup of the `swanctl.conf` file:
 
-      ```bash
-      sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
-      ```
+    ```bash
+    sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
+    ```
 
-   1. Create a configuration for the main IPsec gateway in the `/etc/swanctl/swanctl.conf` file:
+1. Create a configuration for the main IPsec gateway in the `/etc/swanctl/swanctl.conf` file:
 
-      ```bash
-      sudo nano /etc/swanctl/swanctl.conf
-      ```
+    ```bash
+    sudo nano /etc/swanctl/swanctl.conf
+    ```
 
-      In the file that opens, specify:
+    In the file that opens, specify:
 
-      ```bash
-      connections {
-        cloud-ipsec {
-          local_addrs = 172.16.0.10
-          remote_addrs = <x2.x2.x2.x2>
-          local {
-            auth = psk
-          }
-          remote {
-            auth = psk
-          }
-          version = 2 # IKEv2
-          mobike = no
-          proposals = aes128gcm16-prfsha256-ecp256, default
-          dpd_delay = 10s
-          children {
-            cloud-ipsec {
-              # List of local IPv4 subnets
-              local_ts = 172.16.1.0/24, 172.16.2.0/24
+    ```bash
+    connections {
+      cloud-ipsec {
+        local_addrs = 172.16.0.10
+        remote_addrs = <x2.x2.x2.x2>
+        local {
+          auth = psk
+        }
+        remote {
+          auth = psk
+        }
+        version = 2 # IKEv2
+        mobike = no
+        proposals = aes128gcm16-prfsha256-ecp256, default
+        dpd_delay = 10s
+        children {
+          cloud-ipsec {
+            # List of local IPv4 subnets
+            local_ts = 172.16.1.0/24, 172.16.2.0/24
 
-              # List of remote IPv4 subnets
-              remote_ts = 10.10.0.0/16
+            # List of remote IPv4 subnets
+            remote_ts = 10.10.0.0/16
 
-              start_action = trap
-              esp_proposals = aes128gcm16
-              dpd_action = clear
-            }
+            start_action = trap
+            esp_proposals = aes128gcm16
+            dpd_action = clear
           }
         }
       }
+    }
 
-      # Pre-shared key (PSK) for IPsec connection
-      secrets {
-        ike-cloud-ipsec {
-          secret = <ipsec_password>
-        }
+    # Pre-shared key (PSK) for IPsec connection
+    secrets {
+      ike-cloud-ipsec {
+        secret = <ipsec_password>
       }
-      ```
+    }
+    ```
 
-      Where:
+     Where:
 
-      * `cloud-ipsec`: IPsec connection name.
-      * `remote_addrs`: Public IP address of the remote IPsec gateway (`<x2.x2.x2.x2>`).
-      * `proposals`: [Internet Key Exchange Version 2 (IKEv2)](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_internet_key_exchange_version_2_ikev2). A list of ciphers that can be used for encrypting the IPsec connection control channel.
-      * `esp_proposals`: [Encapsulating Security Payload](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_encapsulating_security_payload_esp). A list of ciphers that can be used for encrypting the transmitted data.
-      * `secret`: [Pre-Shared Key](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_psk_based_authentication). The `<ipsec_password>` key (password) to use to establish an IPsec connection.
+    * `cloud-ipsec`: IPsec connection name.
+    * `remote_addrs`: Public IP address of the remote IPsec gateway (`<x2.x2.x2.x2>`).
+    * `proposals`: [Internet Key Exchange Version 2 (IKEv2)](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_internet_key_exchange_version_2_ikev2). A list of ciphers that can be used for encrypting the IPsec connection control channel.
+    * `esp_proposals`: [Encapsulating Security Payload](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_encapsulating_security_payload_esp). A list of ciphers that can be used for encrypting the transmitted data.
+    * `secret`: [Pre-Shared Key](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_psk_based_authentication). The `<ipsec_password>` key (password) to use to establish an IPsec connection.
 
-      {% note info %}
+    {% note info %}
 
-      You can set additional parameters in the `swanctl.conf` file based on the [strongSwan documentation](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html).
+    You can set additional parameters in the `swanctl.conf` file based on the [strongSwan documentation](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html).
 
-      For example, to transfer data via an IPsec connection faster, use [optimized encryption algorithms](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html#_authenticated_encryption_aead_algorithms) in [IKEv2](https://docs.strongswan.org/docs/5.9/features/ietf.html#_ikev2) mode. These algorithms should be supported on the remote IPsec gateway platform if it is different from strongSwan.
+    For example, to transfer data via an IPsec connection faster, use [optimized encryption algorithms](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html#_authenticated_encryption_aead_algorithms) in [IKEv2](https://docs.strongswan.org/docs/5.9/features/ietf.html#_ikev2) mode. These algorithms should be supported on the remote IPsec gateway platform if it is different from strongSwan.
 
-      {% endnote %}
+    {% endnote %}
 
-   1. Upload the configuration to strongSwan:
+1. Upload the configuration to strongSwan:
 
-      ```bash
-      sudo swanctl --load-all
-      ```
+    ```bash
+    sudo swanctl --load-all
+    ```
 
-   1. Restart strongSwan:
+1. Restart strongSwan:
 
-      ```bash
-      sudo systemctl restart strongswan
-      ```
+    ```bash
+    sudo systemctl restart strongswan
+    ```
 
-   1. Check the strongSwan status:
+1. Check the strongSwan status:
 
-      ```bash
-      sudo swanctl -L
-      ```
+    ```bash
+    sudo swanctl -L
+    ```
 
-   1. (Optional) View the strongSwan logs:
+1. (Optional) View the strongSwan logs:
 
-      ```bash
-      sudo journalctl -u strongswan --no-pager
-      sudo journalctl -u strongswan -n 20
-      sudo journalctl -u strongswan -f
-      ```
+    ```bash
+    sudo journalctl -u strongswan --no-pager
+    sudo journalctl -u strongswan -n 20
+    sudo journalctl -u strongswan -f
+    ```
 
-   1. Terminate the `cloud-gw` connection:
+1. Terminate the `cloud-gw` connection:
 
-      ```bash
-      exit
-      ```
+    ```bash
+    exit
+    ```
 
-- ipsec.conf
-
-   1. Connect to the VM over SSH:
-
-      ```bash
-      ssh ipsec@<x1.x1.x1.x1>
-      ```
-
-   1. Create a configuration for the main IPsec gateway in the `/etc/swanctl/ipsec.conf` file:
-
-      ```bash
-      sudo nano /etc/ipsec.conf
-      ```
-
-      In the `/etc/ipsec.conf` file that opens, specify the required parameters for the main IPsec gateway's setup:
-
-      ```bash
-      config setup
-        charondebug="all"
-        uniqueids=yes
-        strictcrlpolicy=no
-
-      conn cloud-to-remote-site
-        authby=secret
-        left=%defaultroute
-        leftid=<x1.x1.x1.x1>
-        leftsubnet=172.16.1.0/24
-        right=<x2.x2.x2.x2>
-        rightsubnet=10.10.0.0/16
-        ike=aes256-sha2_256-modp1024!
-        esp=aes256-sha2_256!
-        keyingtries=0
-        ikelifetime=1h
-        lifetime=8h
-        dpddelay=30
-        dpdtimeout=120
-        dpdaction=restart
-        auto=start
-      ```
-
-      Where:
-
-      * `conn`: Name of the connection to the remote IPsec gateway.
-      * `leftid`: Public IP address of the main IPsec gateway on the {{ yandex-cloud }} side ( `<x1.x1.x1.x1>`).
-      * `leftsubnet`: List of prefixes for subnets located behind the IPsec gateway on the {{ yandex-cloud }} side.
-      * `right`: Public IP address of the remote IPsec gateway (`<x2.x2.x2.x2>`).
-      * `rightsubnet`: List of prefixes for subnets located behind the remote IPsec gateway.
-      * `ike`, `esp`: Encryption algorithms to use to set up an IPsec connection between the IPsec gateways. For the list of encryption algorithms that can be used for [IKEv2](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html) and [IKEv1](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites) modes, see the strongSwan documentation. `IKEv1` mode is considered obsolete and is not recommended for use.
-
-   1. Create a configuration for the main IPsec gateway in the `/etc/swanctl/ipsec.secrets` file:
-
-      ```bash
-      sudo nano /etc/ipsec.secrets
-      ```
-
-      In the `/etc/ipsec.secrets` configuration file that opens, specify the IP addresses of your IPsec gateways and set a password (Pre-Shared Key) for an IPsec connection to the remote gateway:
-
-      ```bash
-      <x1.x1.x1.x1> <x2.x2.x2.x2> : PSK "<ipsec_password>"
-      ```
-
-      Where:
-
-      * `<ipsec_password>`: Key/password used by the gateways to establish an IPsec connection.
-      * `<x1.x1.x1.x1>`: Public IP address of the main IPsec gateway on the {{ yandex-cloud }} side.
-      * `<x2.x2.x2.x2>`: Public IP address of the remote IPsec gateway.
-
-      You can set additional parameters in the configuration file based on the [strongSwan documentation](https://wiki.strongswan.org/projects/strongswan/wiki).
-
-      {% cut "If you need to deploy an IPsec gateway and resources behind it in one subnet" %}
-
-      In the IPsec gateway configuration file, add exclusive rules for the default gateway's IP address and the IPsec gateway's own (private) IP address:
-
-      ```bash
-      conn passthrough-1
-        left=%defaultroute
-        leftsubnet=<IP_address_of_default_subnet_gateway>
-        rightsubnet=10.10.0.0/8
-        type=passthrough
-        auto=route
-      conn passthrough-2
-        left=%defaultroute
-        leftsubnet=<internal_IP_address_of_IPsec_instance>
-        rightsubnet=10.0.0.0/8
-        type=passthrough
-        auto=route
-      ```
-
-      Where:
-
-      * `<IP_address_of_default_subnet_gateway>`: Prefix of the subnet hosting the IPsec gateway and resources behind it.
-      * `<internal_IP_address_of_IPsec_instance>`: IPsec gateway's private IP address.
-
-      The IPsec gateway will be available for diagnostics and will respond via [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol).
-
-      {% endcut %}
-
-
-   1. Restart strongSwan:
-
-      ```bash
-      sudo systemctl restart strongswan-starter
-      ```
-
-   1. Terminate the `cloud-gw` connection:
-
-      ```bash
-      exit
-      ```
-
-{% endlist %}
 
 #### Deploy test VMs on the cloud site {#cloud-test-vm}
 
@@ -483,220 +368,130 @@ Wait for the VM status to change to `Running`.
 
 To set up the gateway, use the IP addresses, username, and SSH key that you specified when creating the `remote-gw` VM.
 
-{% note warning %}
+1. Connect to the VM over SSH:
 
-For strongSwan setup, we [recommend using](https://docs.strongswan.org/docs/5.9/howtos/introduction.html#_configuration_files) the [swanctl.conf](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html) file format. To learn how to set up the gateway in the legacy configuration format, see the `ipsec.conf` tab.
+    ```bash
+    ssh ipsec@<x2.x2.x2.x2>
+    ```
 
-{% endnote %}
+1. Set the date and time parameters for the VM:
 
-{% list tabs %}
+    ```bash
+    sudo timedatectl set-timezone Europe/Moscow
+    sudo timedatectl set-ntp True
+    timedatectl
+    ```
 
-- swanctl.conf
+1. To ensure optimal ICMP performance, disable the `ICMP Redirects` feature on the IPsec gateway:
 
-   1. Connect to the VM over SSH:
-
-      ```bash
-      ssh ipsec@<x2.x2.x2.x2>
-      ```
-
-   1. Set the date and time parameters for the VM:
-
-      ```bash
-      sudo timedatectl set-timezone Europe/Moscow
-      sudo timedatectl set-ntp True
-      timedatectl
-      ```
-
-   1. To ensure optimal ICMP performance, disable the `ICMP Redirects` feature on the IPsec gateway:
-
-      ```bash
+    ```bash
       sudo su -c "echo 'net.ipv4.conf.eth0.send_redirects=0' >> /etc/sysctl.conf"
       sudo su -c "echo 'net.ipv4.conf.default.send_redirects=0' >> /etc/sysctl.conf"
-      ```
+    ```
 
-      For more information, see the [strongSwan documentation](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
+    For more information, see the [strongSwan documentation](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
 
-   1. Create a backup of the `swanctl.conf` file:
+1. Create a backup of the `swanctl.conf` file:
 
-      ```bash
-      sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
-      ```
+    ```bash
+    sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
+    ```
 
-   1. Create a configuration for the remote IPsec gateway in the `/etc/swanctl/swanctl.conf` file:
+1. Create a configuration for the remote IPsec gateway in the `/etc/swanctl/swanctl.conf` file:
 
-      ```bash
-      sudo nano /etc/swanctl/swanctl.conf
-      ```
+    ```bash
+    sudo nano /etc/swanctl/swanctl.conf
+    ```
 
-      In the file that opens, specify:
+    In the file that opens, specify:
 
-      ```bash
-      connections {
-        cloud-ipsec {
-          local_addrs = 10.10.20.20
-          remote_addrs = <x1.x1.x1.x1>
-          local {
-            auth = psk
-          }
-          remote {
-            auth = psk
-          }
-          version = 2 # IKEv2
-          mobike = no
-          proposals = aes128gcm16-prfsha256-ecp256, default
-          dpd_delay = 10s
-          children {
-            cloud-ipsec {
-              # List of local IPv4 subnets
-              local_ts = 10.10.0.0/16
+    ```bash
+    connections {
+      cloud-ipsec {
+        local_addrs = 10.10.20.20
+        remote_addrs = <x1.x1.x1.x1>
+        local {
+          auth = psk
+        }
+        remote {
+          auth = psk
+        }
+        version = 2 # IKEv2
+        mobike = no
+        proposals = aes128gcm16-prfsha256-ecp256, default
+        dpd_delay = 10s
+        children {
+          cloud-ipsec {
+            # List of local IPv4 subnets
+            local_ts = 10.10.0.0/16
 
-              # List of remote IPv4 subnets
-              remote_ts = 172.16.1.0/24, 172.16.2.0/24
+            # List of remote IPv4 subnets
+            remote_ts = 172.16.1.0/24, 172.16.2.0/24
 
-              start_action = trap
-              esp_proposals = aes128gcm16
-              dpd_action = clear
-            }
+            start_action = trap
+            esp_proposals = aes128gcm16
+            dpd_action = clear
           }
         }
       }
+    }
 
-      # Pre-shared key (PSK) for IPsec connection
-      secrets {
-        ike-cloud-ipsec {
-          secret = <ipsec_password>
-        }
+    # Pre-shared key (PSK) for IPsec connection
+    secrets {
+      ike-cloud-ipsec {
+        secret = <ipsec_password>
       }
-      ```
+    }
+    ```
 
-      Where:
+    Where:
 
-      * `cloud-ipsec`: IPsec connection name.
-      * `remote_addrs`: Public IP address of the main IPsec gateway (`<x1.x1.x1.x1>` ).
-      * `proposals`: [Internet Key Exchange Version 2 (IKEv2)](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_internet_key_exchange_version_2_ikev2). A list of ciphers that can be used for encrypting the IPsec connection control channel.
-      * `esp_proposals`: [Encapsulating Security Payload](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_encapsulating_security_payload_esp). A list of ciphers that can be used for encrypting the transmitted data.
-      * `secret`: [Pre-Shared Key](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_psk_based_authentication). The `<ipsec_password>` key (password) to use to establish an IPsec connection.
+    * `cloud-ipsec`: IPsec connection name.
+    * `remote_addrs`: Public IP address of the main IPsec gateway (`<x1.x1.x1.x1>` ).
+    * `proposals`: [Internet Key Exchange Version 2 (IKEv2)](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_internet_key_exchange_version_2_ikev2). A list of ciphers that can be used for encrypting the IPsec connection control channel.
+    * `esp_proposals`: [Encapsulating Security Payload](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_encapsulating_security_payload_esp). A list of ciphers that can be used for encrypting the transmitted data.
+    * `secret`: [Pre-Shared Key](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_psk_based_authentication). The `<ipsec_password>` key (password) to use to establish an IPsec connection.
 
-      {% note info %}
+    {% note info %}
 
-      You can set additional parameters in the `swanctl.conf` file based on the [strongSwan documentation](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html).
+    You can set additional parameters in the `swanctl.conf` file based on the [strongSwan documentation](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html).
 
-      For example, to transfer data via an IPsec connection faster, use [optimized encryption algorithms](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html#_authenticated_encryption_aead_algorithms) in [IKEv2](https://docs.strongswan.org/docs/5.9/features/ietf.html#_ikev2) mode. These algorithms should be supported on the remote IPsec gateway platform if it is different from strongSwan.
+    For example, to transfer data via an IPsec connection faster, use [optimized encryption algorithms](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html#_authenticated_encryption_aead_algorithms) in [IKEv2](https://docs.strongswan.org/docs/5.9/features/ietf.html#_ikev2) mode. These algorithms should be supported on the remote IPsec gateway platform if it is different from strongSwan.
 
-      {% endnote %}
+    {% endnote %}
 
-   1. Upload the configuration to strongSwan:
+1. Upload the configuration to strongSwan:
 
-      ```bash
-      sudo swanctl --load-all
-      ```
+    ```bash
+    sudo swanctl --load-all
+    ```
 
-   1. Restart strongSwan:
+1. Restart strongSwan:
 
-      ```bash
-      sudo systemctl restart strongswan
-      ```
+    ```bash
+    sudo systemctl restart strongswan
+    ```
 
-   1. Check the strongSwan status:
+1. Check the strongSwan status:
 
-      ```bash
-      sudo swanctl -L
-      ```
+    ```bash
+    sudo swanctl -L
+    ```
 
-   1. (Optional) View the strongSwan logs:
+1. (Optional) View the strongSwan logs:
 
-      ```bash
-      sudo journalctl -u strongswan --no-pager
-      sudo journalctl -u strongswan -n 20
-      sudo journalctl -u strongswan -f
-      ```
+    ```bash
+    sudo journalctl -u strongswan --no-pager
+    sudo journalctl -u strongswan -n 20
+    sudo journalctl -u strongswan -f
+    ```
 
-   1. Terminate the `remote-gw` connection:
+1. Terminate the `remote-gw` connection:
 
-      ```bash
-      exit
-      ```
+    ```bash
+    exit
+    ```
 
-- ipsec.conf
-
-   1. Connect to the VM over SSH:
-
-      ```bash
-      ssh ipsec@<x2.x2.x2.x2>
-      ```
-
-   1. Create a configuration for the remote IPsec gateway in the `/etc/swanctl/ipsec.conf` file:
-
-      ```bash
-      sudo nano /etc/ipsec.conf
-      ```
-
-      In the `/etc/ipsec.conf` file that opens, specify the required parameters for the remote IPsec gateway's setup. These parameter values will mirror the main IPsec gateway's parameter values.
-
-      ```bash
-      config setup
-        charondebug="all"
-        uniqueids=yes
-        strictcrlpolicy=no
-
-      conn remote-site-to-cloud
-        authby=secret
-        left=%defaultroute
-        leftid=<x2.x2.x2.x2>
-        leftsubnet=10.10.0.0/16
-        right=<x1.x1.x1.x1>
-        rightsubnet=172.16.1.0/24
-        ike=aes256-sha2_256-modp1024!
-        esp=aes256-sha2_256!
-        keyingtries=0
-        ikelifetime=1h
-        lifetime=8h
-        dpddelay=30
-        dpdtimeout=120
-        dpdaction=restart
-        auto=start
-      ```
-
-      Where:
-
-      * `conn`: Name of the connection to the IPsec gateway on the {{ yandex-cloud }} side.
-      * `leftid`: Public IP address of the remote IPsec gateway (`<x2.x2.x2.x2>`).
-      * `leftsubnet`: List of prefixes for subnets located behind the remote IPsec gateway.
-      * `right`: Public IP address of the IPsec gateway on the {{ yandex-cloud }} side (`<x1.x1.x1.x1>`).
-      * `rightsubnet`: List of prefixes for subnets located behind the IPsec gateway on the {{ yandex-cloud }} side.
-      * `ike`, `esp`: Encryption algorithms to use to set up an IPsec connection between the IPsec gateways. For the list of encryption algorithms that can be used for [IKEv2](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html) and [IKEv1](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites) modes, see the strongSwan documentation. `IKEv1` mode is considered obsolete and is not recommended for use.
-
-   1. Create a configuration for the main IPsec gateway in the `/etc/swanctl/ipsec.secrets` file:
-
-      ```bash
-      sudo nano /etc/ipsec.secrets
-      ```
-
-      In the `/etc/ipsec.secrets` configuration file that opens, specify the IP addresses of your IPsec gateways and set a password (pre-shared key) for an IPsec connection to the main gateway:
-
-      ```bash
-      <x2.x2.x2.x2> <x1.x1.x1.x1> : PSK "<ipsec_password>"
-      ```
-
-      Where:
-
-      * `<ipsec_password>`: Key/password used by the gateways to establish an IPsec connection.
-      * `<x1.x1.x1.x1>`: Public IP address of the main IPsec gateway on the {{ yandex-cloud }} side.
-      * `<x2.x2.x2.x2>`: Public IP address of the remote IPsec gateway.
-
-   1. Restart strongSwan:
-
-      ```bash
-      sudo systemctl restart strongswan-starter
-      ```
-
-   1. Terminate the `cloud-gw` connection:
-
-      ```bash
-      exit
-      ```
-
-{% endlist %}
 
 #### Deploy a test VM on the remote site {#remote-test-vm}
 
@@ -767,23 +562,13 @@ To activate an IPsec connection between the gateways:
 
 ### Test connectivity between the VMs {#ipsec-test-vm}
 
-{% note warning %}
+1. Connect to the `cloud-gw` main IPsec gateway:
 
-The commands to test an IPsec connection will differ depending on the strongSwan configuration file format.
+    ```bash
+    ssh ipsec@<x1.x1.x1.x1>
+    ```
 
-{% endnote %}
-
-{% list tabs %}
-
-- swanctl.conf
-
-   1. Connect to the `cloud-gw` main IPsec gateway:
-
-      ```bash
-      ssh ipsec@<x1.x1.x1.x1>
-      ```
-
-      1. Check the strongSwan status:
+    1. Check the strongSwan status:
 
          ```bash
          sudo swanctl -L
@@ -812,303 +597,241 @@ The commands to test an IPsec connection will differ depending on the strongSwan
              remote: 10.10.0.0/16
          ```
 
-      1. Check active IPsec connections:
-
-         ```bash
-         sudo swanctl -l
-         ```
-
-         Result:
-
-         ```bash
-         cloud-ipsec: #6, ESTABLISHED, IKEv2, 80e6fa659b4f6307_i* 9f63a85191df1e48_r
-           local  '172.16.0.10' @ 172.16.0.10[4500]
-           remote '10.10.20.20' @ <x2.x2.x2.x2>[4500]
-           AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
-           established 9716s ago, rekeying in 4107s
-           cloud-ipsec: #19, reqid 1, INSTALLED, TUNNEL-in-UDP, ESP:AES_GCM_16-128
-             installed 682s ago, rekeying in 2735s, expires in 3278s
-             in  cf9668bb,      0 bytes,     0 packets
-             out c3a00b2c,      0 bytes,     0 packets
-             local  172.16.1.0/24 172.16.2.0/24
-             remote 10.10.0.0/16
-         ```
-
-         If the connection status is `ESTABLISHED`, the IPsec connection is established and active.
-
-      1. Terminate the `cloud-gw` connection:
-
-         ```bash
-         exit
-         ```
-
-   1. Connect to the `remote-gw` remote IPsec gateway:
-
-      ```bash
-      ssh ipsec@<x2.x2.x2.x2>
-      ```
-
-      1. Check the strongSwan status:
-
-         ```bash
-         sudo swanctl -L
-         ```
-
-         Result:
-
-         ```bash
-         remote-site-to-cloud: IKEv1/2, reauthentication every 3060s, no rekeying, dpd delay 30s
-           local:  %any
-           remote: <x1.x1.x1.x1>
-           local pre-shared key authentication:
-             id: <x2.x2.x2.x2>
-           remote pre-shared key authentication:
-             id: <x1.x1.x1.x1>
-           remote-site-to-cloud: TUNNEL, rekeying every 28260s, dpd action is restart
-             local:  10.10.0.0/16
-             remote: 172.16.1.0/24
-         cloud-ipsec: IKEv2, no reauthentication, rekeying every 14400s, dpd delay 10s
-           local:  10.10.20.20
-           remote: <x1.x1.x1.x1>
-           local pre-shared key authentication:
-           remote pre-shared key authentication:
-           cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is clear
-             local:  10.10.0.0/16
-             remote: 172.16.1.0/24 172.16.2.0/24
-         ```
-
-      1. Check active IPsec connections:
-
-         ```bash
-         sudo swanctl -l
-         ```
-
-         Result:
-
-         ```bash
-         cloud-ipsec: #6, ESTABLISHED, IKEv2, 80e6fa659b4f6307_i 9f63a85191df1e48_r*
-           local  '10.10.20.20' @ 10.10.20.20[4500]
-           remote '172.16.0.10' @ <x1.x1.x1.x1>[4500]
-           AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
-           established 9833s ago, rekeying in 3346s
-           cloud-ipsec: #19, reqid 1, INSTALLED, TUNNEL-in-UDP, ESP:AES_GCM_16-128
-             installed 799s ago, rekeying in 2620s, expires in 3161s
-             in  c3a00b2c,      0 bytes,     0 packets
-             out cf9668bb,      0 bytes,     0 packets
-             local  10.10.0.0/16
-             remote 172.16.1.0/24 172.16.2.0/24
-         ```
-
-         If the connection status is `ESTABLISHED`, the IPsec connection is established and active.
-
-      1. Terminate the `remote-gw` connection:
-
-         ```bash
-         exit
-         ```
-
-   1. Connect to `vm-a`:
-
-      ```bash
-      ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.1.5
-      ```
-
-      1. Set the date and time parameters for the VM:
+    1. Check active IPsec connections:
+
+        ```bash
+        sudo swanctl -l
+        ```
+
+        Result:
+
+        ```bash
+        cloud-ipsec: #6, ESTABLISHED, IKEv2, 80e6fa659b4f6307_i* 9f63a85191df1e48_r
+          local  '172.16.0.10' @ 172.16.0.10[4500]
+          remote '10.10.20.20' @ <x2.x2.x2.x2>[4500]
+          AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
+          established 9716s ago, rekeying in 4107s
+          cloud-ipsec: #19, reqid 1, INSTALLED, TUNNEL-in-UDP, ESP:AES_GCM_16-128
+            installed 682s ago, rekeying in 2735s, expires in 3278s
+            in  cf9668bb,      0 bytes,     0 packets
+            out c3a00b2c,      0 bytes,     0 packets
+            local  172.16.1.0/24 172.16.2.0/24
+            remote 10.10.0.0/16
+        ```
+
+        If the connection status is `ESTABLISHED`, the IPsec connection is established and active.
+
+    1. Terminate the `cloud-gw` connection:
+
+        ```bash
+        exit
+        ```
+
+1. Connect to the `remote-gw` remote IPsec gateway:
+
+    ```bash
+    ssh ipsec@<x2.x2.x2.x2>
+    ```
+
+    1. Check the strongSwan status:
+
+        ```bash
+        sudo swanctl -L
+        ```
+
+        Result:
+
+        ```bash
+        remote-site-to-cloud: IKEv1/2, reauthentication every 3060s, no rekeying, dpd delay 30s
+          local:  %any
+          remote: <x1.x1.x1.x1>
+          local pre-shared key authentication:
+            id: <x2.x2.x2.x2>
+          remote pre-shared key authentication:
+            id: <x1.x1.x1.x1>
+          remote-site-to-cloud: TUNNEL, rekeying every 28260s, dpd action is restart
+            local:  10.10.0.0/16
+            remote: 172.16.1.0/24
+        cloud-ipsec: IKEv2, no reauthentication, rekeying every 14400s, dpd delay 10s
+          local:  10.10.20.20
+          remote: <x1.x1.x1.x1>
+          local pre-shared key authentication:
+          remote pre-shared key authentication:
+          cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is clear
+            local:  10.10.0.0/16
+            remote: 172.16.1.0/24 172.16.2.0/24
+        ```
+
+   1. Check active IPsec connections:
+
+        ```bash
+        sudo swanctl -l
+        ```
+
+        Result:
+
+        ```bash
+        cloud-ipsec: #6, ESTABLISHED, IKEv2, 80e6fa659b4f6307_i 9f63a85191df1e48_r*
+          local  '10.10.20.20' @ 10.10.20.20[4500]
+          remote '172.16.0.10' @ <x1.x1.x1.x1>[4500]
+          AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
+          established 9833s ago, rekeying in 3346s
+          cloud-ipsec: #19, reqid 1, INSTALLED, TUNNEL-in-UDP, ESP:AES_GCM_16-128
+            installed 799s ago, rekeying in 2620s, expires in 3161s
+            in  c3a00b2c,      0 bytes,     0 packets
+            out cf9668bb,      0 bytes,     0 packets
+            local  10.10.0.0/16
+            remote 172.16.1.0/24 172.16.2.0/24
+        ```
+
+        If the connection status is `ESTABLISHED`, the IPsec connection is established and active.
+
+    1. Terminate the `remote-gw` connection:
+
+        ```bash
+        exit
+        ```
+
+1. Connect to `vm-a`:
+
+     ```bash
+     ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.1.5
+     ```
+
+    1. Set the date and time parameters for the VM:
 
-         ```bash
-         sudo timedatectl set-timezone Europe/Moscow
-         sudo timedatectl set-ntp True
-         timedatectl
-         ```
+        ```bash
+        sudo timedatectl set-timezone Europe/Moscow
+        sudo timedatectl set-ntp True
+        timedatectl
+        ```
 
-      1. Test IP connectivity between `vm-a` and `vm-1`:
+    1. Test IP connectivity between `vm-a` and `vm-1`:
 
-         ```bash
-         ping -c4 10.10.10.10
-         ```
+        ```bash
+        ping -c4 10.10.10.10
+        ```
 
-         Result:
+        Result:
 
-         ```bash
-         PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
-         64 bytes from 10.10.10.10: icmp_seq=1 ttl=58 time=4.92 ms
-         64 bytes from 10.10.10.10: icmp_seq=2 ttl=58 time=4.33 ms
-         64 bytes from 10.10.10.10: icmp_seq=3 ttl=58 time=4.31 ms
-         64 bytes from 10.10.10.10: icmp_seq=4 ttl=58 time=4.38 ms
+        ```bash
+        PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
+        64 bytes from 10.10.10.10: icmp_seq=1 ttl=58 time=4.92 ms
+        64 bytes from 10.10.10.10: icmp_seq=2 ttl=58 time=4.33 ms
+        64 bytes from 10.10.10.10: icmp_seq=3 ttl=58 time=4.31 ms
+        64 bytes from 10.10.10.10: icmp_seq=4 ttl=58 time=4.38 ms
 
-         --- 10.10.10.10 ping statistics ---
-         4 packets transmitted, 4 received, 0% packet loss, time 3005ms
-         rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
-         ```
+        --- 10.10.10.10 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+        rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
+        ```
 
-      1. Terminate the `vm-a` connection:
+    1. Terminate the `vm-a` connection:
 
-         ```bash
-         exit
-         ```
+        ```bash
+        exit
+        ```
 
-   1. Connect to `vm-b`:
+1. Connect to `vm-b`:
 
-      ```bash
-      ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.2.5
-      ```
+    ```bash
+    ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.2.5
+    ```
 
-      1. Set the date and time parameters for the VM:
+    1. Set the date and time parameters for the VM:
 
-         ```bash
-         sudo timedatectl set-timezone Europe/Moscow
-         sudo timedatectl set-ntp True
-         timedatectl
-         ```
+        ```bash
+        sudo timedatectl set-timezone Europe/Moscow
+        sudo timedatectl set-ntp True
+        timedatectl
+        ```
 
-      1. Test IP connectivity between `vm-b` and `vm-1`:
+    1. Test IP connectivity between `vm-b` and `vm-1`:
 
-         ```bash
-         ping -c4 10.10.10.10
-         ```
+        ```bash
+        ping -c4 10.10.10.10
+        ```
 
-         Result:
+        Result:
 
-         ```bash
-         PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
-         64 bytes from 10.10.10.10: icmp_seq=1 ttl=58 time=4.92 ms
-         64 bytes from 10.10.10.10: icmp_seq=2 ttl=58 time=4.33 ms
-         64 bytes from 10.10.10.10: icmp_seq=3 ttl=58 time=4.31 ms
-         64 bytes from 10.10.10.10: icmp_seq=4 ttl=58 time=4.38 ms
+        ```bash
+        PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
+        64 bytes from 10.10.10.10: icmp_seq=1 ttl=58 time=4.92 ms
+        64 bytes from 10.10.10.10: icmp_seq=2 ttl=58 time=4.33 ms
+        64 bytes from 10.10.10.10: icmp_seq=3 ttl=58 time=4.31 ms
+        64 bytes from 10.10.10.10: icmp_seq=4 ttl=58 time=4.38 ms
 
-         --- 10.10.10.10 ping statistics ---
-         4 packets transmitted, 4 received, 0% packet loss, time 3005ms
-         rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
-         ```
+        --- 10.10.10.10 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+        rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
+        ```
 
-      1. Terminate the `vm-b` connection:
+    1. Terminate the `vm-b` connection:
 
-         ```bash
-         exit
-         ```
+        ```bash
+        exit
+        ```
 
-   1. Connect to `vm-1`:
+1. Connect to `vm-1`:
 
-      ```bash
-      ssh -J ipsec@<x2.x2.x2.x2> ipsec@10.10.10.10
-      ```
+    ```bash
+    ssh -J ipsec@<x2.x2.x2.x2> ipsec@10.10.10.10
+    ```
 
-      1. Set the date and time parameters for the VM:
+    1. Set the date and time parameters for the VM:
 
-         ```bash
-         sudo timedatectl set-timezone Europe/Moscow
-         sudo timedatectl set-ntp True
-         timedatectl
-         ```
+        ```bash
+        sudo timedatectl set-timezone Europe/Moscow
+        sudo timedatectl set-ntp True
+        timedatectl
+        ```
 
-      1. Test IP connectivity between `vm-1` and `vm-a`:
+    1. Test IP connectivity between `vm-1` and `vm-a`:
 
-         ```bash
-         ping -c4 172.16.1.5
-         ```
+        ```bash
+        ping -c4 172.16.1.5
+        ```
 
-         Result:
+        Result:
 
-         ```bash
-         PING 172.16.1.5 (172.16.1.5) 56(84) bytes of data.
-         64 bytes from 172.16.1.5: icmp_seq=1 ttl=58 time=4.92 ms
-         64 bytes from 172.16.1.5: icmp_seq=2 ttl=58 time=4.33 ms
-         64 bytes from 172.16.1.5: icmp_seq=3 ttl=58 time=4.31 ms
-         64 bytes from 172.16.1.5: icmp_seq=4 ttl=58 time=4.38 ms
+        ```bash
+        PING 172.16.1.5 (172.16.1.5) 56(84) bytes of data.
+        64 bytes from 172.16.1.5: icmp_seq=1 ttl=58 time=4.92 ms
+        64 bytes from 172.16.1.5: icmp_seq=2 ttl=58 time=4.33 ms
+        64 bytes from 172.16.1.5: icmp_seq=3 ttl=58 time=4.31 ms
+        64 bytes from 172.16.1.5: icmp_seq=4 ttl=58 time=4.38 ms
 
-         --- 172.16.1.5 ping statistics ---
-         4 packets transmitted, 4 received, 0% packet loss, time 3005ms
-         rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
-         ```
+        --- 172.16.1.5 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+        rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
+        ```
 
-      1. Test IP connectivity between `vm-1` and `vm-b`:
+    1. Test IP connectivity between `vm-1` and `vm-b`:
 
-         ```bash
-         ping -c4 172.16.2.5
-         ```
+        ```bash
+        ping -c4 172.16.2.5
+        ```
 
-         Result:
+        Result:
 
-         ```bash
-         PING 172.16.2.5 (172.16.2.5) 56(84) bytes of data.
-         64 bytes from 172.16.2.5: icmp_seq=1 ttl=58 time=4.92 ms
-         64 bytes from 172.16.2.5: icmp_seq=2 ttl=58 time=4.33 ms
-         64 bytes from 172.16.2.5: icmp_seq=3 ttl=58 time=4.31 ms
-         64 bytes from 172.16.2.5: icmp_seq=4 ttl=58 time=4.38 ms
+        ```bash
+        PING 172.16.2.5 (172.16.2.5) 56(84) bytes of data.
+        64 bytes from 172.16.2.5: icmp_seq=1 ttl=58 time=4.92 ms
+        64 bytes from 172.16.2.5: icmp_seq=2 ttl=58 time=4.33 ms
+        64 bytes from 172.16.2.5: icmp_seq=3 ttl=58 time=4.31 ms
+        64 bytes from 172.16.2.5: icmp_seq=4 ttl=58 time=4.38 ms
 
-         --- 172.16.2.5 ping statistics ---
-         4 packets transmitted, 4 received, 0% packet loss, time 3005ms
-         rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
-         ```
+        --- 172.16.2.5 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+        rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
+        ```
 
-      1. Terminate the `vm-1` connection:
+    1. Terminate the `vm-1` connection:
 
-         ```bash
-         exit
-         ```
+        ```bash
+        exit
+        ```
 
-- ipsec.conf
-
-   1. Connect to the `cloud-gw` main IPsec gateway:
-
-      ```bash
-      ssh ipsec@<x1.x1.x1.x1>
-      ```
-
-   1. Make sure the connection between the gateways has been established:
-
-      ```bash
-      sudo ipsec status
-      ```
-
-      Result:
-
-      ```bash
-      Routed Connections:
-      cloud-ipsec{2}:  ROUTED, TUNNEL, reqid 1
-      cloud-ipsec{2}:   172.16.1.0/24 172.16.2.0/24 === 10.10.0.0/16
-      Security Associations (1 up, 0 connecting):
-      cloud-ipsec[6]: ESTABLISHED 2 hours ago, 172.16.0.10[172.16.0.10]...<x2.x2.x2.x2>[10.10.20.20]
-      cloud-ipsec{19}:  INSTALLED, TUNNEL, reqid 1, ESP in UDP SPIs: cf9668bb_i c3a00b2c_o
-      cloud-ipsec{19}:   172.16.1.0/24 172.16.2.0/24 === 10.10.0.0/16
-      ```
-
-      The `ESTABLISHED` status means that a tunnel between gateways was created.
-
-   1. Check the strongSwan daemon status:
-
-      ```bash
-      systemctl status strongswan-starter
-      ```
-
-      Result:
-
-      ```bash
-      ● strongswan-starter.service - strongSwan IPsec IKEv1/IKEv2 daemon using ipsec.conf
-          Loaded: loaded (/lib/systemd/system/strongswan-starter.service; enabled; vendor preset: enabled)
-          Active: active (running) since Sun 2023-05-28 21:54:02 MSK; 1h ago
-        Main PID: 738 (starter)
-            Tasks: 18 (limit: 1028)
-          Memory: 8.1M
-              CPU: 8.246s
-          CGroup: /system.slice/strongswan-starter.service
-                  ├─738 /usr/lib/ipsec/starter --daemon charon --nofork
-                  └─798 /usr/lib/ipsec/charon
-      ```
-
-   1. In addition, you can get detailed information about IPsec connections and strongSwan performance:
-
-      ```bash
-      journalctl -u strongswan-starter
-      ```
-
-   1. Terminate the connection to the `cloud-gw` main IPsec gateway:
-
-      ```bash
-      exit
-      ```
-
-{% endlist %}
 
 ## How to delete the resources you created {#clear-out}
 

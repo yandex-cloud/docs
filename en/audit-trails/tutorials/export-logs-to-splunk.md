@@ -45,9 +45,9 @@ The infrastructure support cost includes:
 
 ### Create a new bucket to use for uploading audit logs {#create-backet}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -69,16 +69,16 @@ The infrastructure support cost includes:
 
 ### Create an encryption key in {{ kms-name }} {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
       * Any name and optional description.
-      * Encryption algorithm, such as AES-256.
+      * Encryption algorithm, e.g., AES-256.
       * [Rotation](../../kms/concepts/index.md#rotation) period (how often to change key versions).
       * Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -88,9 +88,9 @@ The infrastructure support cost includes:
 
 ### Enable bucket encryption {#backet-encoding}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the bucket for which you want to configure encryption.
    1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
@@ -104,9 +104,9 @@ The infrastructure support cost includes:
 
 ### Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -121,9 +121,9 @@ The infrastructure support cost includes:
 
 ## Assign roles to the service account {#add-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Assign the [audit-trails.viewer](../../audit-trails/security/#roles) role to the folder whose resources will be polled for audit logs:
 
@@ -167,7 +167,7 @@ The infrastructure support cost includes:
       Where:
 
       * `--role`: Role being assigned.
-      * `--id`: ID of the KMS key
+      * `--id`: KMS key ID.
       * `--service-account-id`: Service account ID.
 
 {% endlist %}
@@ -181,9 +181,9 @@ To create the trail, make sure you have the following roles:
 * `audit-trails.viewer` for the folder from which audit logs will be collected.
 * `storage.viewer` for the bucket or the folder.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create the trail.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -228,11 +228,11 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
 
 ## Set up a NAT gateway for the subnet with the intermediate VM {#enable-nat}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. Create an NAT gateway:
+   1. Create a NAT gateway:
       1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the intermediate VM.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
@@ -262,9 +262,9 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
 
 ## Create a VM for continuous log delivery to Splunk {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Clone a [repository](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk) from [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library):
@@ -304,7 +304,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
       terraform plan
       ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:

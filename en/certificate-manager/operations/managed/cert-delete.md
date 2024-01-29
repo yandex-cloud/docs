@@ -7,9 +7,9 @@ description: "Follow this guide to delete a Let's Encrypt certificate."
 
 To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -18,7 +18,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -67,7 +67,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
       updated_at: "2020-09-15T09:10:06.981Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -103,7 +103,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
    yc certificate-manager certificate list
    ```
 
-- API
+- API {#api}
 
    To delete a certificate, use the [delete](../../api-ref/Certificate/delete.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Delete](../../api-ref/grpc/certificate_service.md#Delete) gRPC API call.
 

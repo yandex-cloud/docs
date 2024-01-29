@@ -6,15 +6,15 @@ You can add, rename, and remove databases, as well as view information about the
 
 ## Getting a list of cluster databases {#list-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
 
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -29,7 +29,7 @@ You can add, rename, and remove databases, as well as view information about the
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
-- API
+- API {#api}
 
    To get a list of databases in a cluster, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -41,9 +41,9 @@ You can add, rename, and remove databases, as well as view information about the
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name.
@@ -52,7 +52,7 @@ You can add, rename, and remove databases, as well as view information about the
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
    1. Specify the database settings.
 
-      * Name.
+      * Name
 
          {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -68,7 +68,7 @@ You can add, rename, and remove databases, as well as view information about the
 
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -107,7 +107,7 @@ You can add, rename, and remove databases, as well as view information about the
 
       {{ mpg-short-name }} runs the create database operation.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -146,7 +146,7 @@ You can add, rename, and remove databases, as well as view information about the
 
    {% endnote %}
 
-- API
+- API {#api}
 
    To create a database in a cluster, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -159,9 +159,9 @@ You can add, rename, and remove databases, as well as view information about the
 
 ## Renaming a database {#rename-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -190,7 +190,7 @@ You can add, rename, and remove databases, as well as view information about the
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To rename a database in a cluster, use the [update](../api-ref/User/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -208,15 +208,15 @@ You can add, rename, and remove databases, as well as view information about the
 
 ## Deleting a database {#remove-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, and confirm the deletion.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -231,7 +231,7 @@ You can add, rename, and remove databases, as well as view information about the
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -249,7 +249,7 @@ You can add, rename, and remove databases, as well as view information about the
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and provide the following in the request:
 

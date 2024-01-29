@@ -4,9 +4,9 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 ## Connecting an origin group when creating a resource {#connect-while-creating}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder in which to create a resource.
 
@@ -22,7 +22,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -135,7 +135,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -172,7 +172,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To add an origin group when creating a resource, use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
 
@@ -180,9 +180,9 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 ## Connecting an origin group when editing resource settings {#connect-while-changing}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
@@ -198,7 +198,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -359,7 +359,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
-- API
+- API {#api}
 
    To add an origin group when editing resource settings, use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
 

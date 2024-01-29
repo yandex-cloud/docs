@@ -4,9 +4,9 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
 ## Enabling logging {#enable-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -25,7 +25,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
          You can set multiple rules.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -76,7 +76,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
             discard_percent: "70"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -113,7 +113,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
    yc alb load-balancer get <load_balancer_name>
    ```
 
-- API
+- API {#api}
 
    To enable logging, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
 
@@ -121,9 +121,9 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
 ## Updating logging parameters {#update-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -142,7 +142,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -191,7 +191,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
             discard_percent: "70"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -228,7 +228,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
    yc alb load-balancer get <load_balancer_name>
    ```
 
-- API
+- API {#api}
 
    To update the logging parameters, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
 
@@ -236,9 +236,9 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
 ## Disabling logging {#disable-logging}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -246,7 +246,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
    1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, disable the **{{ ui-key.yacloud.alb.label_log-requests }}** option.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -278,7 +278,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
         disable: true
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -300,7 +300,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
    yc alb load-balancer get <load_balancer_name>
    ```
 
-- API
+- API {#api}
 
    To disable logging, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
 

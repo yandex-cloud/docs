@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    Verify the digital signature using [OpenSSL](https://www.openssl.org/):
 
@@ -14,16 +14,16 @@
 
    Where:
    * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The possible values include:
-       * `sha256` for SHA-256 algorithms
-       * `sha384` for SHA-384 algorithms
-       * `sha512` for SHA-512 algorithms
+      * `sha256` for SHA-256 algorithms
+      * `sha384` for SHA-384 algorithms
+      * `sha512` for SHA-512 algorithms
    * `-verify`: Path to the file with a public signature key.
    * `-signature`: Path to the digital signature file.
    * `<path_to_signed_file>`: Path to the file whose digital signature is being verified.
 
    If the signature is correct, the OpenSSL utility returns the `Verified OK` status.
 
-- Java
+- Java {#java}
 
    ```java
    import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -91,7 +91,7 @@
 
    The code verifies the ECDSA signature. It returns `true` if the signature is correct and `false` if it is not.
 
-- Go
+- Go {#go}
 
    ```golang
    import (
@@ -165,7 +165,7 @@
 
    The code verifies the ECDSA signature. It returns `true` if the signature is correct and `false` if it is not.
 
-- Python
+- Python {#python}
 
    ```python
    import base64

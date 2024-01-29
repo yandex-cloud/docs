@@ -32,15 +32,15 @@ Learn more about other cluster updates:
 
 ## Change service account settings {#change-service-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Select the service account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -61,11 +61,11 @@ Learn more about other cluster updates:
         --service-account-id <service_account_ID>
       ```
 
-      You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    {{ mes-short-name }} will run the service account update for the cluster.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -90,7 +90,7 @@ Learn more about other cluster updates:
 
       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -109,12 +109,12 @@ Learn more about other cluster updates:
 
 ## Changing the host class {#change-resource-preset}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. To change the class of {{ ES }} hosts with the *Data node* role:
       1. Select the **{{ ui-key.yacloud.opensearch.title_data-node }}** tab.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the class for the host.
@@ -123,7 +123,7 @@ Learn more about other cluster updates:
       1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the class for the host.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -145,9 +145,9 @@ Learn more about other cluster updates:
         --masternode-resource-preset <Master_node_host_class>
       ```
 
-   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -188,7 +188,7 @@ Learn more about other cluster updates:
 
       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -202,7 +202,7 @@ Learn more about other cluster updates:
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
 
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -212,9 +212,9 @@ Learn more about other cluster updates:
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To increase the cluster storage size:
 
@@ -228,7 +228,7 @@ Learn more about other cluster updates:
       1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, specify the disk size.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -255,9 +255,9 @@ Learn more about other cluster updates:
       * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
       * `--masternode-disk-size`: Storage size in gigabytes for hosts with the Master node role.
 
-   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To increase the cluster storage size:
 
@@ -301,7 +301,7 @@ Learn more about other cluster updates:
       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 
-- API
+- API {#api}
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -329,9 +329,9 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select a cluster and click ![Pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -339,7 +339,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -368,7 +368,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       All the supported parameters are listed in [{#T}](../concepts/settings-list.md).
 
-- API
+- API {#api}
 
    To change {{ ES }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -385,16 +385,16 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 ## Changing the admin password {#change-admin-password}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Enter a new password for `admin` in the **{{ ui-key.yacloud.mdb.forms.section_user }}** section.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -433,7 +433,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    {{ mes-short-name }} will launch the `admin` password update for a cluster.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -463,7 +463,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -480,9 +480,9 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 ## Changing additional cluster settings {#change-additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -496,7 +496,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -531,9 +531,9 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -579,7 +579,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 

@@ -1,6 +1,6 @@
-# Authorizing in {{ yandex-cloud }}
+# Authorization in {{ yandex-cloud }}
 
-When a user does something with a resource in {{ yandex-cloud }}, IAM checks whether the user has the necessary access rights to perform this operation.
+When a user does something with a resource in {{ yandex-cloud }}, IAM checks whether the user has the access rights required to perform this operation.
 
 Users get permissions along with resource roles. For more information about how roles are assigned and how the list of permissions is checked, see [{#T}](../access-control/index.md).
 
@@ -14,19 +14,19 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 ### Authentication using a {{ yandex-cloud }} account {#passport}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-  Authentication is carried out automatically when you log in to your Yandex or Yandex 360 account.
-
-
-- CLI
-
-  To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/user.md). After this, authentication will work automatically.
+  You are automatically authenticated when logging in to your Yandex or Yandex 360 account.
 
 
-- API
+- CLI {#cli}
+
+  To perform operations in the CLI, authenticate by following [this guide](../../../cli/operations/authentication/user.md). After this, authentication will work automatically.
+
+
+- API {#api}
 
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
 
@@ -41,13 +41,13 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 ### Service account authentication {#sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
-  To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/service-account.md). After this, authentication will work automatically.
+  To perform operations in the CLI, authenticate by following [this guide](../../../cli/operations/authentication/service-account.md). After this, authentication will work automatically.
 
-- API
+- API {#api}
 
   There are three ways to perform operations on behalf of a service account:
 
@@ -69,17 +69,17 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 ### Federated user authentication {#saml-federation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   {% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
 
   The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../../../organization/concepts/add-federation.md).
 
-- CLI
+- CLI {#cli}
 
-  To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/federated-user.md).
+  To perform operations in the CLI, authenticate by following [this guide](../../../cli/operations/authentication/federated-user.md).
 
   {% include [include](../../../_includes/cli/success-auth-via-federation.md) %}
 
@@ -88,4 +88,3 @@ Before authorization, a user must get authenticated, meaning they must log in un
 #### See also {#see-also}
 
 [{#T}](../index.md#accounts)
-

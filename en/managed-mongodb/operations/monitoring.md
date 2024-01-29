@@ -94,9 +94,9 @@ This page displays charts showing the load on an individual host in the cluster:
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
@@ -123,7 +123,7 @@ The recommended thresholds are as follows:
 
 | Metric | Parameter | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
 |---------------------------------|:-------------------------------:|:----------------------------------------------------:|:---------------------------------------------------:|
-| DB write availability | `can_write` | `Equals 0` | N/A |
+| DB write availability | `can_write` | `Equals 0` | — |
 | Replication delay | `replset_status-replicationLag` | `180` | `30` |
 | Storage space used | `disk.used_bytes` | 90% of the storage size | 70% of the storage size |
 

@@ -12,9 +12,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For clarity, we will create all required resources in {{ yandex-cloud }}. Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ mgp-full-name }} source cluster](../managed-greenplum/operations/cluster-create.md#create-cluster) with any suitable configuration.
 
@@ -27,7 +27,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       * [{{ mgp-name }}](../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -149,14 +149,14 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 * [Delete both the source endpoint and the target endpoint](../data-transfer/operations/endpoint/index.md#delete).
 * Delete the clusters:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       * [{{ mch-name }}](../managed-clickhouse/operations/cluster-delete.md).
       * [{{ mgp-name }}](../managed-greenplum/operations/cluster-delete.md).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       If you created your resources using {{ TF }}:
 

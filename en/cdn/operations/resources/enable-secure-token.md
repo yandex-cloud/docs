@@ -16,9 +16,9 @@ To enable access via a secure token:
 1. On your website, set up [generation](../../concepts/secure-tokens.md#link-generation-code) of signed links with secure tokens.
 1. Enable access to the CDN resource via a secure token:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       {% include [include](../../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@ To enable access via a secure token:
          * `--secure-key`: Previously created secret key.
          * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a signed link. If the parameter is not set, file access will be allowed from any IP.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -126,7 +126,7 @@ To enable access via a secure token:
       yc cdn resource get <resource_ID>
       ```
 
-   - API
+   - API {#api}
 
       Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
 
@@ -140,9 +140,9 @@ To enable access via a secure token:
 
 To disable access to a CDN resource via a secure token:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Run this command:
 
@@ -156,7 +156,7 @@ To disable access to a CDN resource via a secure token:
    * `--id`: ID of the CDN resource for which to disable access via a secure token.
    * `--clear-secure-key`: Parameter that disables access via a secure token.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the {{ TF }} configuration file and delete the `secure_key` and `enable_ip_url_signing` parameters from the section with the CDN resource description:
 
@@ -183,7 +183,7 @@ To disable access to a CDN resource via a secure token:
    yc cdn resource get <resource_ID>
    ```
 
-- API
+- API {#api}
 
    Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
 

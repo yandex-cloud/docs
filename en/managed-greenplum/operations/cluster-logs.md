@@ -6,20 +6,26 @@
 
 ## Getting a cluster log {#get-log}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
    1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
-   1. If required, request the `GREENPLUM_POOLER` log and select the hosts and logging level in the drop-down lists next to the date input field.
+   1. Select the service type for which you want to output logs:
+
+      * `GREENPLUM`: {{ GP }} operations log.
+      * `GREENPLUM_POOLER`: Connection pooler operations log.
+      * `GREENPLUM_PXF`: [PXF](external-tables.md) protocol log.
+
+   1. Select the hosts and logging level if needed.
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
    If there are too many records and not all of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -48,7 +54,10 @@
 
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
       * {% include [logs output format](../../_includes/cli/logs/format.md) %}
-      * `--service-type`: Service type to display records for (`greenplum` or `greenplum-pooler`).
+      * `--service-type`: Service type for which you want to output records:
+         * `greenplum`: {{ GP }} operations log.
+         * `greenplum-pooler`: Connection manager operations log.
+         * `greenplum-pxf`: [PXF](external-tables.md) protocol log.
       * `--columns`: List of columns with output data:
          * `hostname`: [Host name](./hosts/cluster-hosts.md#list-hosts).
          * `level`: Logging level, such as `info`.
@@ -69,7 +78,7 @@
 
    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a cluster log, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) gRPC API call, and provide in the request:
 
@@ -89,9 +98,9 @@
 
 This method allows you to get cluster logs in real time.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -105,7 +114,7 @@ This method allows you to get cluster logs in real time.
 
    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a cluster log stream, use the [streamLogs](../api-ref/Cluster/streamLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) gRPC API call, and provide in the request:
 

@@ -21,9 +21,9 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 ## How to create a {{ PG }} cluster {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
@@ -121,7 +121,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -209,7 +209,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -217,9 +217,9 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    To create a cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
-      * DB cluster: Description of the cluster and its hosts.
-      * Database: Description of the cluster's DB.
-      * User: Description of the cluster user.
+      * DB cluster: Description of the cluster and its hosts
+      * Database: Description of the cluster DB
+      * User: Description of the cluster user
 
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -323,7 +323,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the cluster should be placed, in the `folderId` parameter.
@@ -337,7 +337,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
    * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
 
    
-   * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
+   * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
 
 
    * DB configuration in one or more `databaseSpecs` parameters.
@@ -388,9 +388,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
@@ -427,7 +427,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mpg-name }} cluster and a network for it with the following test characteristics:
 

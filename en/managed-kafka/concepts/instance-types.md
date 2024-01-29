@@ -1,6 +1,6 @@
 ---
 title: "{{ mkf-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the Apache Kafka cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage does not depend on the host class."
+description: "The host class determines the computing power allocated for each host in the Apache Kafka cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class."
 ---
 
 # {{ KF }} host classes
@@ -14,7 +14,7 @@ The host class also determines which [disk types](./storage.md) are available:
 * **s2**, **m2**, **s3**, **m3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`
 * **b2**, **b3**: `network-ssd`, `network-hdd`
 
-The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 
 
@@ -24,6 +24,8 @@ The available storage does not depend on the host class. For storage limitations
 Hosts in {{ mkf-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../compute/concepts/vm-platforms.md) for a detailed description.
 
 The full list of possible host configurations on each platform is provided below.
+
+{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
 {% include [instance-types-code](../../_includes/mdb/mkf-instance-types-code.md) %}
 

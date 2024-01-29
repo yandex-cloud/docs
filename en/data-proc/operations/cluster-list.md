@@ -4,13 +4,13 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 ## Getting a list of clusters in a folder {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -22,7 +22,7 @@ You can get detailed information about each {{ dataproc-name }} cluster.
    {{ yc-dp }} cluster list
    ```
 
-- API
+- API {#api}
 
    Use the [list](../api-ref/Cluster/list.md) API method.
 
@@ -30,14 +30,14 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 ## Getting detailed information about a cluster {#detail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -51,7 +51,7 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
    You can get the cluster ID and name with a [list of clusters in the folder](#list).
 
-- API
+- API {#api}
 
    Use the [get](../api-ref/Cluster/get.md) API method and include the cluster ID in the `clusterId` request parameter.
 
@@ -61,14 +61,14 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 ## Viewing a list of operations in a cluster {#operations}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.dataproc.switch_operations }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -82,7 +82,7 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
    You can get the cluster ID and name with a [list of clusters in the folder](#list).
 
-- API
+- API {#api}
 
    Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and provide the cluster ID in the `clusterId` request parameter.
 

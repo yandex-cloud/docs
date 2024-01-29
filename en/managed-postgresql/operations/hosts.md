@@ -9,14 +9,14 @@ You can add and remove cluster hosts and manage their settings. To move cluster 
 
 ## Getting a list of cluster hosts {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -44,7 +44,7 @@ You can add and remove cluster hosts and manage their settings. To move cluster 
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -56,9 +56,9 @@ You can add and remove cluster hosts and manage their settings. To move cluster 
 
 The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page and find the **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** section.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a host to the cluster:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -73,7 +73,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
 
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -132,7 +132,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
    {{ mpg-short-name }} will run the add host operation.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To add a host to the cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -173,7 +173,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -193,9 +193,9 @@ If you cannot [connect](connect.md) to the added host, check that the cluster [s
 
 For each host in a {{ mpg-short-name }} cluster, you can specify the [replication](../concepts/replication.md) source and manage host [public access](../concepts/network.md#public-access-to-a-host).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To change the parameters of the cluster host:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -206,7 +206,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
    1. Click **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -231,7 +231,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
    To [manually manage replication threads](../concepts/replication.md#replication-manual) in the cluster, change the host's replication source in the `--replication-source` parameter.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To change the parameters of the cluster host:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -266,7 +266,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update host parameters, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -294,16 +294,16 @@ You can remove a host from a {{ PG }} cluster if it is not the only host in it. 
 
 If the host is the master when deleted, {{ mpg-short-name }} automatically assigns the next highest-priority replica as the master.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To remove a host from a cluster:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -318,7 +318,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
    You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To remove a host from a cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -337,7 +337,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

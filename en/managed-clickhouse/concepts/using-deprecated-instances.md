@@ -1,6 +1,6 @@
 # Using deprecated host classes in {{ mch-name }}
 
-Starting January 1, 2024, the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, and `b2.small` host classes will be deprecated for {{ mch-name }}.
+Starting January 1, 2024, the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, and `b2.small` host classes are deprecated for {{ mch-name }}.
 
 What this means for you as a user:
 

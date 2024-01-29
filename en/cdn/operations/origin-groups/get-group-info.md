@@ -10,9 +10,9 @@ You can get information about an individual [origin](#get-origin) or an [origin 
 
 To get the URL and other details of an origin:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -48,9 +48,9 @@ To get the URL and other details of an origin:
 
 To get the name, set of origins, and other details of an origin group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

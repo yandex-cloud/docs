@@ -1,11 +1,11 @@
 ---
 title: "{{ dataproc-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage size does not depend on the host class."
+description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class."
 ---
 
 # {{ dataproc-name }} host classes
 
-The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change accordingly.
 
 The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
@@ -18,6 +18,8 @@ A suitable host class depends on driver deploy mode:
 {% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
 
 The full list of possible host configurations on each platform is provided below.
+
+{% include [zone-d-host-restrictions](../../_includes/mdb/ru-central1-d-broadwell.md) %}
 
 {% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 

@@ -98,15 +98,15 @@ Before using the application, make sure that the proper [rules for connecting to
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Find out the load balancer's IP address with the following description: `cluster <your_cluster_name>, service <namespace>/thumbor`.
   1. Open `http://<load_balancer_IP>/unsafe/<bucket_image_name>` in the browser address bar.
 
-- CLI
+- CLI {#cli}
 
   1. Run the command below to get the load balancer's IP address:
 

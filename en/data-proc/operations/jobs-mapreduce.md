@@ -9,9 +9,9 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
 
 ## Create a job {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
@@ -31,12 +31,12 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
    1. (Optional) Specify the paths to the additional JAR files, if any.
    1. (Optional) Configure advanced settings:
 
-      * Specify paths to the necessary files and archives.
+      * Specify paths to the required files and archives.
       * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
 
    1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -71,7 +71,7 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
 
    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/Job/create) API method and include the following information in the request:
 

@@ -31,9 +31,9 @@ Make sure the update does not affect your applications:
 
 ## Upgrading a cluster {#start-update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select the appropriate cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -44,7 +44,7 @@ Make sure the update does not affect your applications:
 
    The upgrade time depends on multiple factors, e.g., the amount of data or the number of databases in the cluster. The upgrade usually takes several minutes, and 10 minutes or more for large databases.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -73,7 +73,7 @@ Make sure the update does not affect your applications:
 
    The upgrade time depends on multiple factors, e.g., the amount of data or the number of databases in the cluster. The upgrade usually takes several minutes, and 10 minutes or more for large databases.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -101,7 +101,7 @@ Make sure the update does not affect your applications:
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To upgrade a cluster to a specific {{ MY }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -119,9 +119,9 @@ Make sure the update does not affect your applications:
 
 Let's assume you need to upgrade your cluster from version 5.7 to 8.0.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. To get a list of clusters and find out their IDs and names, run this command:
 
@@ -161,7 +161,7 @@ Let's assume you need to upgrade your cluster from version 5.7 to 8.0.
       {{ yc-mdb-my }} cluster update mysql406 --mysql-version 8.0
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
    1. Set the `version` field value to `8.0` in the `yandex_mdb_mysql_cluster` resource.

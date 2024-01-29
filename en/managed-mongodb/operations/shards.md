@@ -28,9 +28,9 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
@@ -54,7 +54,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
    The cluster will start updating, with the requested hosts and first shard of the cluster created.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -133,7 +133,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
          * `disk-size`: Storage size in GB.
          * `disk-type`: [Disk type](../concepts/storage.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
 
@@ -232,7 +232,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
-- API
+- API {#api}
 
    To enable cluster sharding, use the [enableSharding](../api-ref/Cluster/enableSharding.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/EnableSharding](../api-ref/grpc/cluster_service.md#EnableSharding) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -242,14 +242,14 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 ## Listing shards in a cluster {#list-shards}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -274,7 +274,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -286,9 +286,9 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mmg-full-name }}**.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
@@ -296,7 +296,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
    1. Enter a name for the shard and add the number of hosts you need.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -317,7 +317,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
 
@@ -349,7 +349,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
-- API
+- API {#api}
 
    To add a shard to a cluster, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
 
@@ -371,16 +371,16 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
    1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required shard row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -393,9 +393,9 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
      --cluster-name=<cluster_name>
    ```
 
-   You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
+   You can request the shard name with a [list of cluster shards](#list-shards) and the cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -412,7 +412,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
-- API
+- API {#api}
 
    To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) gRPC API call and provide the following in the request:
 

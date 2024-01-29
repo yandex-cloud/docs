@@ -22,14 +22,14 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 ## Creating a connection to a cluster {#create-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Make sure that {{ datalens-name }} is [activated](#activate-datalens) in the appropriate folder and you [can access](#allow-access) the cluster from it.
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
-   1. Click **Create connection**.
+   1. Click **Create connection**.
 
       {% cut "I have no "Create connection" button" %}
 
@@ -55,9 +55,9 @@ Once the connection is created, you can:
 
 ## Viewing a list of cluster connections {#connectors-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
@@ -66,9 +66,9 @@ Once the connection is created, you can:
 
 ## Updating a cluster connection {#update-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
@@ -81,9 +81,9 @@ Once the connection is created, you can:
 
 ## Deleting a cluster connection {#delete-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **Managed Service for MySQL**.
    1. Click on the name of the cluster and select the **DataLens** tab.
@@ -95,15 +95,15 @@ Once the connection is created, you can:
 
 ## Connection settings {#connector-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    If the cluster and {{ datalens-name }} are in the same folder:
    1. Open the **Select in folder** tab.
    1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
    1. Select the database and user from the drop-down lists.
-   1. Enter the password for the user. For more information, refer to also [{#T}](../../datalens/operations/connection/create-mysql.md) and [{#T}](../../datalens/concepts/dataset/settings.md#access-management) in the {{ datalens-name }} documentation.
+   1. Enter the password for the user. See also [{#T}](../../datalens/operations/connection/create-mysql.md) and [{#T}](../../datalens/concepts/dataset/settings.md#access-management) in the {{ datalens-name }} documentation.
 
    If the cluster and {{ datalens-name }} are in different folders:
    1. Go to the **Specify manually** tab.

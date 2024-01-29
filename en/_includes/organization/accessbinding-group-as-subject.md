@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
    1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
 
@@ -16,7 +16,7 @@
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -32,7 +32,7 @@
 
       Where:
 
-      * `<service_name>`: Name of the service whose resource requires assigning a role, such as `resource-manager`, to be accessed.
+      * `<service_name>`: Name of the service whose resource requires a role for access, e.g., `resource-manager`.
       * `<resource>`: Resource category, e.g., `cloud`.
       * `<resource_name_or_ID>`: Name or ID of the resource. You can specify the resource name or ID.
       * `--role`: Role ID, e.g., `{{ roles-cloud-owner }}`.
@@ -46,7 +46,53 @@
         --subject group:aje6o61dvog2********
       ```
 
-- API
+- {{ TF }} {#tf}
+
+   If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Add the resource parameters to the configuration file and specify the required role and group:
+
+      ```
+      resource "yandex_resourcemanager_cloud_iam_member" "admin" {
+        cloud_id    = "<cloud_ID>"
+        role        = "<role_ID>"
+        member      = "group:<group_ID>"
+      }
+      ```
+
+      Where:
+
+      * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
+      * `role`: [Role](../../iam/concepts/access-control/roles.md) being assigned. This is a required parameter.
+      * `member`: Group the role is assigned to. It should be specified in `group:<group_ ID>` format. This is a required parameter.
+
+      For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+
+   1. Deploy cloud resources.
+
+      1. If the configuration does not contain any errors, run this command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+
+      All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc resource-manager folder list-access-bindings <folder_name_or_ID>
+      ```
+
+- API {#api}
 
    Use the `updateAccessBindings` REST API method for the respective resource.
 
@@ -77,54 +123,5 @@
    * [{#T}](../../iam/operations/sa/set-access-bindings.md)
    * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
    * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
-
-- Terraform
-
-   If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-   1. Add the resource parameters to the configuration file and specify the required role and group:
-
-      ```
-      resource "yandex_resourcemanager_cloud_iam_member" "admin" {
-        cloud_id    = "<cloud_ID>"
-        role        = "<role_ID>"
-        member      = "group:<group_ID>"
-      }
-      ```
-
-      Where:
-
-      * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
-      * `role`: [Role](../../iam/concepts/access-control/roles.md) being assigned. This is a required parameter.
-      * `member`: Group the role is assigned to. It should be specified in `group:<group_ ID>` format. This is a required parameter.
-
-      For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
-
-   1. Make sure the configuration files are valid.
-
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
-
-         ```
-         terraform plan
-         ```
-
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
-
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-      All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-      ```bash
-      yc resource-manager folder list-access-bindings <folder_name>|<folder_ID>
-      ```
 
 {% endlist %}

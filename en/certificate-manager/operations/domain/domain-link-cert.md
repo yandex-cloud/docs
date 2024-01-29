@@ -11,9 +11,9 @@ To confirm your rights to a domain, link to it a [Let's Encrypt certificate](../
 
 A certificate linked to the domain is used to provide a TLS connection in [integrated cloud services](../../concepts/domains/services.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the domain was created.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.

@@ -22,9 +22,9 @@ When restored to the current state, the new cluster will match the state of:
 * Existing cluster at the time of recovery.
 * Deleted cluster at the time of archiving the most recent WAL.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
 
@@ -55,7 +55,7 @@ When restored to the current state, the new cluster will match the state of:
 
    {{ mpg-name }} will launch the operation to create a cluster from the backup.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -84,7 +84,7 @@ When restored to the current state, the new cluster will match the state of:
       +--------------------------+---------------------+----------------------+---------------------+
       ```
 
-      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with creation of its backup.
+      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with the point when the backup is created.
 
    1. Request the creation of a cluster from a backup:
 
@@ -136,7 +136,7 @@ When restored to the current state, the new cluster will match the state of:
          * `network-ssd-nonreplicated`
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Use {{ TF }} to restore:
 
@@ -234,7 +234,7 @@ When restored to the current state, the new cluster will match the state of:
 
    {{ TF }} will create the new cluster. The databases and users are deployed from the backup.
 
-- API
+- API {#api}
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
@@ -248,9 +248,9 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Creating a backup {#create-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
@@ -258,7 +258,7 @@ When restored to the current state, the new cluster will match the state of:
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -279,7 +279,7 @@ When restored to the current state, the new cluster will match the state of:
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To create a cluster backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -291,9 +291,9 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Getting a list of backups {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get a list of cluster backups:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -303,7 +303,7 @@ When restored to the current state, the new cluster will match the state of:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -322,7 +322,7 @@ When restored to the current state, the new cluster will match the state of:
    +--------------------------+---------------------+----------------------+---------------------+
    ```
 
-- API
+- API {#api}
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -335,9 +335,9 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Getting information about backups {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get information about the backup of an existing cluster:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -347,7 +347,7 @@ When restored to the current state, the new cluster will match the state of:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -361,7 +361,7 @@ When restored to the current state, the new cluster will match the state of:
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
 
-- API
+- API {#api}
 
    To get information about a cluster backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
@@ -371,13 +371,13 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Setting the backup start time {#set-backup-window}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the management console, you can set the backup start time when [creating](cluster-create.md) or [updating a cluster](update.md).
 
-- CLI
+- CLI {#cli}
 
    To set the backup start time, use the `-- backup-window-`start flag. Time is given in `HH:MM:SS` format.
 
@@ -404,7 +404,7 @@ When restored to the current state, the new cluster will match the state of:
       --backup-window-start 11:25:00
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -443,7 +443,7 @@ When restored to the current state, the new cluster will match the state of:
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -459,9 +459,9 @@ When restored to the current state, the new cluster will match the state of:
 
 You can only delete backups that were created manually.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the {{ mpg-name }} cluster whose backup you want to delete.
@@ -470,7 +470,7 @@ You can only delete backups that were created manually.
    1. Select **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
    1. Confirm deletion and click **{{ ui-key.yacloud.mdb.cluster.backups.action_delete-backup }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -492,7 +492,7 @@ You can only delete backups that were created manually.
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
 
-- API
+- API {#api}
 
    To delete a backup, use the [delete](../api-ref/Backup/delete.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Delete](../api-ref/grpc/backup_service.md#Delete) gRPC API call and provide the backup ID in the `backupId` request parameter.
 

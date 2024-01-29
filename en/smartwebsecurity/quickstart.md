@@ -25,16 +25,16 @@ The security profile is the main {{ sws-name }} component, which consists of a s
 
 To create a security profile:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your profile in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       Preset profiles include:
-      * [Basic default rule](concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }} [action type](concepts/rules.md#rule-action).
+      * [Basic default rule](concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` [action type](concepts/rules.md#rule-action).
       * [Smart Protection rule](concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
 
       {% include [smart-protection-tip](../_includes/smartwebsecurity/smart-protection-tip.md) %}
@@ -47,9 +47,9 @@ To create a security profile:
 
 ## Check your security profile settings {#profile-check}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Select the `test-sp1` profile that you created earlier.
    1. Make sure the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab contains a rule with the following parameters:
@@ -66,9 +66,9 @@ To create a security profile:
 
 ## Connect the security profile to the virtual host {#profile-connect}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. At the top right, click ![plug](../_assets/smartwebsecurity/plug.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
    1. In the window that opens, select:
@@ -79,7 +79,7 @@ To create a security profile:
          To connect the profile to another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
    1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      You will see the connected virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
+      You will see the connected virtual host in the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab.
 
 {% endlist %}
 

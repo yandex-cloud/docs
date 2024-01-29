@@ -37,6 +37,8 @@ items:
             href: operations/buckets/tagging.md
           - name: Getting bucket information and statistics
             href: operations/buckets/get-info.md
+          - name: Viewing bucket metrics
+            href: operations/buckets/get-stats.md
       - name: Objects
         items:
           - name: Uploading an object
@@ -87,7 +89,7 @@ items:
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
-      - name: Integrating an L7 load balancer with the CDN and Object Storage
+      - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
@@ -205,9 +207,25 @@ items:
         items:
           - name: Docker container for (S)FTP(S)
             href: tools/sftps.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    items:
+      - name: Current pricing policy
+        href: pricing.md
+      - name: Archive
+        items:
+          - name: Before January 1, 2019
+            href: pricing-archive/pricing-01012019.md
+          - name: From January 1 to March 1, 2019
+            href: pricing-archive/pricing-01032019.md
+  - name: YC CLI reference
+    href: ../cli/cli-ref/managed-services/storage/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: REST (Amazon S3-compatible)
         items:
@@ -421,22 +439,12 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: update
                     href: api-ref/Bucket/update.md
-  - name: Metric reference
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: Log reference
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
+  - name: Bucket logs
     href: logs-ref.md
-  - name: Access management
-    href: security/index.md
-  - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before January 1, 2019
-            href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
-            href: pricing-archive/pricing-01032019.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa.md
 base: en/storage

@@ -25,9 +25,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. Create the following [service accounts](../../iam/operations/sa/create.md) for the {{ managed-k8s-name }} cluster:
 
@@ -52,12 +52,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The key data is required for the [installation](#install-alb-ingress-controller) of the ALB Ingress Controller application.
 
-   1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
+   1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Specify these settings at creation:
 
       * Specify the previously created service account for resources.
-      * If your plan is to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP to the cluster.
+      * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate it a public IP address. To allow connections from outside the network, assign a public IP to the cluster.
 
-   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
+   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Specify these settings at creation:
 
       * Specify the previously created service account for nodes.
       * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
@@ -69,7 +69,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a custom {{ cloud-logging-name }} log group](../../logging/operations/create-group.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -460,16 +460,16 @@ No settings need to be specified to save logs to the default log group.
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
    1. [Delete the service accounts](../../iam/operations/sa/delete.md).
    1. [Delete the log group](../../logging/operations/delete-group.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `k8s-and-registry-for-alb.tf` configuration file.

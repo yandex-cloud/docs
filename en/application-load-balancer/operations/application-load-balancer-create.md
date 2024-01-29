@@ -7,9 +7,9 @@ description: "Follow this guide to create an L7 load balancer."
 
 To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
 
@@ -69,7 +69,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -266,7 +266,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
             discard_percent: "90"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -326,7 +326,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
          If you omit this parameter, any traffic will be allowed for the load balancer.
       * `allocation_policy`: Description of the L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zone and subnet IDs.
       * `listener`: Description of the L7 load balancer's [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) parameters:
-         * `name`: Name of the listener. The name format is as follows:
+         * `name`: Listener name. The name format is as follows:
 
             {% include [name-format](../../_includes/name-format.md) %}
 
@@ -353,7 +353,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -371,7 +371,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
          yc alb load-balancer list
          ```
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancer/Create](../api-ref/grpc/load_balancer_service.md#Create) gRPC API call.
 

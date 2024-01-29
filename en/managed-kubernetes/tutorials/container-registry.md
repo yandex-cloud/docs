@@ -32,15 +32,15 @@ Create the following [service accounts](../../iam/operations/sa/create.md):
 To create a service account for making the resources required by the {{ managed-k8s-name }} cluster.
 1. Write the folder ID from your CLI profile configuration to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       FOLDER_ID=$(yc config get folder-id)
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```shell script
       $FOLDER_ID = yc config get folder-id
@@ -50,15 +50,15 @@ To create a service account for making the resources required by the {{ managed-
 
 1. Create a service account:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       yc iam service-account create --name k8s-res-sa-$FOLDER_ID
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```shell script
       yc iam service-account create --name k8s-res-sa-$FOLDER_ID
@@ -68,15 +68,15 @@ To create a service account for making the resources required by the {{ managed-
 
 1. Write the service account ID to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       RES_SA_ID=$(yc iam service-account get --name k8s-res-sa-${FOLDER_ID} --format json | jq .id -r)
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```shell script
       $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
@@ -104,18 +104,18 @@ To create a service account for making the resources required by the {{ managed-
 
 ### Create a service account for security group nodes {#node-sa}
 
-To create a service account to be used by {{ managed-k8s-name }} nodes to download Docker images from the registry.
+To create a service account to be used by {{ managed-k8s-name }} nodes to download Docker images from the registry:
 1. Write the folder ID from your CLI profile configuration to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       FOLDER_ID=$(yc config get folder-id)
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```shell script
       $FOLDER_ID = yc config get folder-id
@@ -125,15 +125,15 @@ To create a service account to be used by {{ managed-k8s-name }} nodes to downlo
 
 1. Create a service account:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       yc iam service-account create --name k8s-node-sa-$FOLDER_ID
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```shell script
       yc iam service-account create --name k8s-node-sa-$FOLDER_ID
@@ -143,15 +143,15 @@ To create a service account to be used by {{ managed-k8s-name }} nodes to downlo
 
 1. Write the service account ID to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       NODE_SA_ID=$(yc iam service-account get --name k8s-node-sa-${FOLDER_ID} --format json | jq .id -r)
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```shell script
       $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
@@ -206,15 +206,15 @@ Build a Docker image and push it to the registry.
 1. Assemble the Docker image.
    1. Get the ID of the [previously created](#registry-create) registry and write it to the variable:
 
-      {% list tabs %}
+      {% list tabs group=programming_language %}
 
-      - Bash
+      - Bash {#bash}
 
          ```bash
          REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
          ```
 
-      - PowerShell
+      - PowerShell {#powershell}
 
          ```shell script
          $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
@@ -329,15 +329,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. Delete resources {{ container-registry-name }}.
    1. Find the name of the Docker image pushed to the registry:
 
-      {% list tabs %}
+      {% list tabs group=programming_language %}
 
-      - Bash
+      - Bash {#bash}
 
          ```bash
          IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
          ```
 
-      - PowerShell
+      - PowerShell {#powershell}
 
          ```shell script
          $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id

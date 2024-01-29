@@ -16,9 +16,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md) with the name `group-coi` and assign it the `editor` [role](../../iam/concepts/access-control/roles.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to create a service account.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -27,7 +27,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       1. To assign the service account a role for the current folder, click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. Create a service account:
 
@@ -44,7 +44,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
          name: group-coi
          ```
 
-      1. Assign a role to the service account:
+      1. Assign the role to the service account:
 
          ```bash
          yc resource-manager folder add-access-binding b0g12ga82bcv******** \
@@ -52,7 +52,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
            --subject serviceAccount:ajeabccde01d********
          ```
 
-   - API
+   - API {#api}
 
       Use the [Create](../../iam/api-ref/ServiceAccount/create.md) method for the `ServiceAccount` resource.
 
@@ -60,9 +60,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 1. Create a [network](../../vpc/concepts/network.md#network) named `yc-auto-network` and [subnet](../../vpc/concepts/network.md#subnet) in [availability zone](../../overview/concepts/geo-scope.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -71,7 +71,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       1. Select the additional option: **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
       1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. Create a network:
 
@@ -106,7 +106,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
          - 192.168.1.0/24
          ```
 
-   - API
+   - API {#api}
 
       1. Create a network using the [Create](../../vpc/api-ref/Network/create.md) method for the `Networks` resource.
       1. Create a subnet in the `{{ region-id }}-a` availability zone using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
@@ -178,9 +178,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 1. Create an instance group named `group-coi-containers` using the `specification.yaml` specification:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       Run this command:
 
@@ -200,7 +200,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       status: ACTIVE
       ```
 
-   - API
+   - API {#api}
 
       Use the [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
 
@@ -208,16 +208,16 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 1. Make sure the instance group from the {{ coi }} and with multiple Docker containers was created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Go to **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Click the `group-coi-containers` instance group name.
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       yc compute instance-group list-instances group-coi-containers
@@ -234,7 +234,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
       ```
 
-   - API
+   - API {#api}
 
       See the list of the instance you created using the [List](../../compute/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
 
@@ -244,9 +244,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to one of the instances via SSH:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       ssh yc-user@{{ external-ip-examples.0 }}
@@ -267,9 +267,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 1. View a list of Docker containers running on the VM:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       sudo docker ps -a

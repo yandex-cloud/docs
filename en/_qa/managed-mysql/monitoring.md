@@ -8,18 +8,18 @@ To view charts in [{{ monitoring-full-name }}]({{ link-monitoring }}), on the ho
 
 #### How do I view logs? {#logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the cluster page and click the **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
    1. At the top of the page, select an available log:
       * `MYSQL_ERROR`: Primary {{ MY }} log containing error messages; always enabled.
       * `MYSQL_SLOW_QUERY`: Slow query information; enabled if `long_query_time` is greater than `0`.
       * `MYSQL_AUDIT`: Information on database connections.
-      * `MYSQL_GENERAL`: Full query list. We recommend enabling it only for cluster debugging purposes in a development environment.
+      * `MYSQL_GENERAL`: Full query list. We recommend enabling it only for cluster debugging purposes in the development environment.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -76,10 +76,10 @@ When selecting a metric, set the `service` parameter to **{{ ui-key.yacloud_moni
 
 For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space.
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space
 
-Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)

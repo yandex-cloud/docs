@@ -1,11 +1,11 @@
 ---
 title: "{{ mmg-name }} host classes"
-description: "The host class determines the computing power allocated for each host in a MongoDB cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage size does not depend on the host class."
+description: "The host class determines the computing power allocated for each host in a MongoDB cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class."
 ---
 
 # {{ MG }} host classes
 
-The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change accordingly.
 
 
 The host class also determines which [disk types](./storage.md) are available:
@@ -22,6 +22,8 @@ For storage limitations, see [{#T}](limits.md).
 Hosts in {{ mmg-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../compute/concepts/vm-platforms.md) for a detailed description.
 
 The full list of possible host configurations on each platform is provided below.
+
+{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
 {% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 

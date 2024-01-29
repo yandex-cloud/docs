@@ -12,16 +12,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create a {{ managed-k8s-name }} cluster and a [node group](../../managed-kubernetes/concepts/index.md#node-group).
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
       1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
       1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
       1. [Create a rule for connecting to the services from the internet](../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) and apply it to the {{ managed-k8s-name }} cluster's node group.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -66,9 +66,9 @@ Install Filebeat OSS by following [this guide](../operations/applications/filebe
 
 Make sure that the {{ mos-name }} cluster is receiving logs from the {{ managed-k8s-name }} cluster:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    Run this command:
 
@@ -79,7 +79,7 @@ Make sure that the {{ mos-name }} cluster is receiving logs from the {{ managed-
      --request GET 'https://<{{ OS }}_DATA_host_name>:{{ port-mos }}/_cat/indices?v'
    ```
 
-- {{ OS }} Dashboards
+- {{ OS }} Dashboards {#opensearch}
 
    1. Connect to the {{ mos-name }} cluster using [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
    1. Select the `Global` tenant.
@@ -99,15 +99,15 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 Delete the other resources, depending on the method used to create them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
    1. [Delete the created service account](../../iam/operations/sa/delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
    1. Delete the `k8s-cluster.tf` configuration file.

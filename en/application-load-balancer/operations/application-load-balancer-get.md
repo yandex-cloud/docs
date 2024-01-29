@@ -6,11 +6,11 @@ title: "How to get information about an L7 load balancer in {{ alb-full-name }}"
 
 You can view a load balancer's ID, listeners, location, security groups, and logging settings.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 To get information about an L7 load balancer:
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

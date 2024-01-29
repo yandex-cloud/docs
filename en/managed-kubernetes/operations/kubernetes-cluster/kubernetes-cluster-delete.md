@@ -13,52 +13,52 @@ description: "Follow this guide to delete a {{ k8s }} cluster."
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) from.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row of the {{ k8s }} cluster to delete.
-  1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.k8s.clusters.popup-confirm_button_delete }}**.
+   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) from.
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row of the {{ k8s }} cluster to delete.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.k8s.clusters.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Delete the {{ k8s }} cluster:
+   1. Delete the {{ k8s }} cluster:
 
-     ```bash
-     yc managed-kubernetes cluster delete test-k8s-cluster
-     ```
+      ```bash
+      yc managed-kubernetes cluster delete test-k8s-cluster
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     done
-     ```
+      ```bash
+      done
+      ```
 
-  1. Make sure that the {{ k8s }} cluster was deleted:
+   1. Make sure that the {{ k8s }} cluster was deleted:
 
-     ```bash
-     yc managed-kubernetes cluster list
-     ```
+      ```bash
+      yc managed-kubernetes cluster list
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     +----+------+------------+--------+--------+-------------------+-------------------+
-     | ID | NAME | CREATED AT | HEALTH | STATUS | EXTERNAL ENDPOINT | INTERNAL ENDPOINT |
-     +----+------+------------+--------+--------+-------------------+-------------------+
-     +----+------+------------+--------+--------+-------------------+-------------------+
-     ```
+      ```bash
+      +----+------+------------+--------+--------+-------------------+-------------------+
+      | ID | NAME | CREATED AT | HEALTH | STATUS | EXTERNAL ENDPOINT | INTERNAL ENDPOINT |
+      +----+------+------------+--------+--------+-------------------+-------------------+
+      +----+------+------------+--------+--------+-------------------+-------------------+
+      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
-  {% include [terraform-delete-mdb-cluster](../../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+   {% include [terraform-delete-mdb-cluster](../../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
-- API
+- API {#api}
 
-  To delete a {{ k8s }} cluster, use the [delete](../../api-ref/Cluster/delete.md) method for the [Cluster](../../api-ref/Cluster/) resource.
+   To delete a {{ k8s }} cluster, use the [delete](../../api-ref/Cluster/delete.md) method for the [Cluster](../../api-ref/Cluster/) resource.
 
 {% endlist %}

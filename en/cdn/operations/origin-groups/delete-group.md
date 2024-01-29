@@ -9,9 +9,9 @@ description: "In this tutorial, you will learn how to delete a {{ cdn-name }} or
 
 To delete an [origin group](../../concepts/origins.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -19,7 +19,7 @@ To delete an [origin group](../../concepts/origins.md):
    1. Click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -57,7 +57,7 @@ To delete an [origin group](../../concepts/origins.md):
 
       For more information about the `yc cdn origin-group delete` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/delete.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -72,7 +72,7 @@ To delete an [origin group](../../concepts/origins.md):
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    Use the [delete](../../api-ref/OriginGroup/delete.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Delete](../../api-ref/grpc/origin_group_service.md#Delete) gRPC API call.
 
@@ -82,9 +82,9 @@ To delete an [origin group](../../concepts/origins.md):
 
 To delete multiple origin groups:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete several resource groups from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.

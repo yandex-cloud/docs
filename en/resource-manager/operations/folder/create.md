@@ -2,13 +2,13 @@
 
 A _folder_ is a space where {{ yandex-cloud }} resources are created and [grouped](../../concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-folder](../../../_includes/create-folder.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -38,7 +38,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
            --description "my first folder with description"
          ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -85,7 +85,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
          terraform plan
          ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -103,7 +103,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
       yc resource-manager cloud list
       ```
 
-- API
+- API {#api}
 
    To create a folder, use the [create](../../api-ref/Folder/create.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Create](../../api-ref/grpc/folder_service.md#Create) gRPC API call.
 

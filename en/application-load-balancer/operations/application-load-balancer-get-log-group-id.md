@@ -3,20 +3,20 @@ title: "How to get a log group ID for an L7 load balancer in {{ alb-full-name }}
 description: "Follow this guide to get the ID of a log group for an L7 balancer."
 ---
 
-# Getting a log group ID for an L7 load balancer
+# Getting log group ID of an L7 load balancer
 
 To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) to which the L7 load balancer sends its [logs](../concepts/application-load-balancer.md#logging):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Click the name of the load balancer you need.
    1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, click the log group name in the **{{ ui-key.yacloud.alb.label_log-group }}** field.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -59,7 +59,7 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
 
       The ID of the {{ cloud-logging-name }} log group will be specified under `log_options` in the `log_group_id` field. Please note that the `log_group_id` field that follows the `subnet_id` field contains a different ID that refers to the outdated logging service.
 
-- API
+- API {#api}
 
    Use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) gRPC API call.
 
@@ -69,15 +69,15 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
 
 If, when creating an L7 load balancer, you kept the **{{ ui-key.yacloud.alb.label_default-log-group }}** value in the **{{ ui-key.yacloud.alb.label_log-group }}** field, do the following to find out its ID:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. Save the ID of the log group named `default`.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

@@ -7,9 +7,9 @@ description: "In this article, you will learn how to link a {{ compute-name }} V
 
 ## Linking a VM to a backup policy {#attach-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder in which to link a VM to a backup policy.
    1. In the list of services, select **{{ backup-name }}**.
@@ -17,7 +17,7 @@ description: "In this article, you will learn how to link a {{ compute-name }} V
    1. Select the policy to link the VM to.
    1. Under **Virtual machines**, click ![image](../../../_assets/console-icons/plus.svg) **Attach VM**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@ description: "In this article, you will learn how to link a {{ compute-name }} V
 
    For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/apply.md).
 
-- API
+- API {#api}
 
    Use the [apply](../../backup/api-ref/Policy/apply.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Apply](../../backup/api-ref/grpc/policy_service.md#Apply) gRPC API call.
 
@@ -56,9 +56,9 @@ description: "In this article, you will learn how to link a {{ compute-name }} V
 
 ## Unlinking a VM from a backup policy {#detach-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder in which to unlink a VM from a backup policy.
   1. In the list of services, select **{{ backup-name }}**.
@@ -66,7 +66,7 @@ description: "In this article, you will learn how to link a {{ compute-name }} V
   1. Select the policy to unlink the VM from.
   1. Under **Virtual machines**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM to be unlinked from the policy and select **Detach from policy**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -97,7 +97,7 @@ description: "In this article, you will learn how to link a {{ compute-name }} V
 
   For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/revoke.md).
 
-- API
+- API {#api}
 
   Use the [revoke](../../backup/api-ref/Policy/revoke.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Revoke](../../backup/api-ref/grpc/policy_service.md#Revoke) gRPC API call.
 

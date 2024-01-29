@@ -4,19 +4,19 @@
 
 #### 9.1 {{ captcha-full-name }} is used {#use-smartcaptcha}
 
-To mitigate risks associated with automated attacks on applications, we recommend using [{{ captcha-full-name }}](/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows tasks to those users whose requests it considers suspicious. You do not have to place the **"I’m not a robot"** button on the page.
+To mitigate the risks associated with automated attacks on applications, we recommend using [{{ captcha-full-name }}](/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows tasks to those users whose requests it considers suspicious. You do not have to place the **"I’m not a robot"** button on the page.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
   1. Select **{{ captcha-full-name }}**.
   1. Make sure at least one CAPTCHA is [created](../../../smartcaptcha/operations/create-captcha.md) for your application.
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 [Guide on creating a CAPTCHA in {{ captcha-full-name }}](../../../smartcaptcha/operations/create-captcha.md).
 
@@ -26,11 +26,11 @@ To mitigate risks associated with automated attacks on applications, we recommen
 
 #### 9.2 Docker image scans on push to {{ container-registry-full-name }} {#upload-policy}
 
-[Auto scans](../../../container-registry/tutorials/image-auto-scan.md) of Docker images on push are critical for early detection and elimination of vulnerabilities and ensure secure deployment of containers. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
+[Auto scans](../../../container-registry/tutorials/image-auto-scan.md) of Docker images on push are critical for early detection and elimination of vulnerabilities to ensure secure deployment of containers. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder that the registry with Docker images belongs to.
   1. Select the appropriate registry in **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -39,19 +39,19 @@ To mitigate risks associated with automated attacks on applications, we recommen
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-[Guide on scanning Docker images on push](../../../container-registry/operations/scanning-docker-image.md#automatically)
+[Guide on scanning Docker images on push](../../../container-registry/operations/scanning-docker-image.md#automatically).
 
-#### 9.3 Regularly scanning Docker images stored in {{ container-registry-name }} {#periodic-scan}
+#### 9.3 Regular scanning of Docker images stored in {{ container-registry-name }} {#periodic-scan}
 
-Scheduled scanning of Docker images is an automated process that checks containerized images for vulnerabilities and compliance with security standards. Such scans are regular and automatic, which ensures the consistency of image checks for vulnerabilities. This allows maintaining a high security level in the long run. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
+Scheduled scanning of Docker images is an automated process that checks containerized images for vulnerabilities and compliance with security standards. Such scans are regular and automatic to ensure the consistency of image checks for vulnerabilities and maintain a high security level in the long run. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
 
-We recommend setting up a schedule for scans to be performed at least once a week.
+We recommend setting up a schedule for scans to be run at least once a week.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder that the registry with Docker images belongs to.
   1. Select the appropriate registry in **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -60,19 +60,19 @@ We recommend setting up a schedule for scans to be performed at least once a wee
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-[Guide on scheduled scanning of Docker images](../../../container-registry/operations/scanning-docker-image.md#scheduled)
+[Guide on scheduled scanning of Docker images](../../../container-registry/operations/scanning-docker-image.md#scheduled).
 
-#### 9.4 Containerized images used in production environments have the last scan date not older than a week {#last-scan-date}
+#### 9.4 Containerized images used in production environments have the last scan date a week ago or less {#last-scan-date}
 
 Checking Docker images used in production environments with the last scan date not older than a week ensures that you continuously monitor and update security measures, eliminating potential vulnerabilities that might have occurred since the last scan. This also helps you make sure you are not deploying containers with recently detected vulnerabilities and enhance the security level. You can automate this process by [setting up a schedule](#periodic-scan) in the Vulnerability scanner.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
-  Run the command below to search for containerized images with the last scan date not older than a week:
+  Run the command below to search for containerized images with the last scan date a week ago or less:
 
   ```bash
   export ORG_ID=<organization_ID>
@@ -92,58 +92,58 @@ Checking Docker images used in production environments with the last scan date n
 
 #### 9.5 Software artifacts are built using attestations {#provenance-attestation}
 
-Attestations are used when building software artifacts to ensure a secure and verifiable record of an artifact's origin, integrity, and SBOM compliance. This helps ensure the artifact's reliability throughout its lifecycle. A Software Bill of Materials (SBOM) is required to secure a supply chain, manage vulnerabilities, comply with requirements, assess risks, ensure transparency, and respond to incidents in an effective way.
+Attestations are used when building software artifacts to ensure a secure and verifiable record of an artifact's origin, integrity, and SBOM compliance. This helps ensure the artifact reliability throughout its lifecycle. A Software Bill of Materials (SBOM) is required to secure a supply chain, manage vulnerabilities, comply with requirements, assess risks, ensure transparency, and respond to incidents in an effective way.
 
-With {{ mgl-name }}, attestations are easier to use, as the service has a feature for generating a [provenance attestation](https://about.gitlab.com/releases/2022/06/22/gitlab-15-1-released/#slsa-2-attestation-included-for-build-artifacts). An SBOM can be generated through [syft](https://github.com/anchore/syft), a third-party software tool.
+With {{ mgl-name }}, attestations are easier to use, as the service has a feature for generating a [provenance attestation](https://about.gitlab.com/releases/2022/06/22/gitlab-15-1-released/#slsa-2-attestation-included-for-build-artifacts). An SBOM can be generated using [syft](https://github.com/anchore/syft), a third-party software tool.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
   Make sure that artifact attestation is performed while building an application.
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-[Gitlab guidelines for software artifact attestation](https://docs.gitlab.com/ee/ci/runners/configure_runners.html#artifact-attestation)
+[Gitlab guide for software artifact attestation](https://docs.gitlab.com/ee/ci/runners/configure_runners.html#artifact-attestation).
 
 #### 9.6 Ensuring artifact integrity {#pipeline-artifacts-cosign}
 
-Signing artifacts enhances security, ensuring validity, integrity, trust, and compliance with requirements in your software.
+Signing artifacts enhances security to ensure your software validity, integrity, reliability, and compliance with the requirements.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
   Make sure that artifacts are signed while building an application.
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 You can sign artifacts within a pipeline using [Cosign](https://github.com/sigstore/cosign), a third-party command line utility for signing [artifacts](https://docs.sigstore.dev/signing/quickstart/), images, and [in-to-to attestations](https://github.com/in-toto/attestation/tree/main/spec/predicates), and then upload them to {{ container-registry-full-name }}.
 
 #### 9.7 Artifacts are verified on deployment {#artifacts-checked}
 
-To ensure the reliability, security, and compatibility of applications in [{{ managed-k8s-name }}](../../../managed-kubernetes/), a service for automatically scaling and deploying applications, you need to minimize the risk of issues, vulnerabilities, and failures during your application's deployment and runtime. To do this, use [signatures and signature verification](../../../container-registry/tutorials/sign-with-cosign.md) in {{ managed-k8s-name }} with Cosign and [Kyverno](../../../managed-kubernetes/operations/applications/kyverno.md).
+To ensure the reliability, security, and compatibility of applications in [{{ managed-k8s-name }}](../../../managed-kubernetes/), a service for automatic scaling and deployment of applications, you need to minimize the risk of issues, vulnerabilities, and failures during your application deployment and runtime. To do this, use [signatures and signature verification](../../../container-registry/tutorials/sign-with-cosign.md) in {{ managed-k8s-name }} with Cosign and [Kyverno](../../../managed-kubernetes/operations/applications/kyverno.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
   Make sure that artifacts are verified while building an application.
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-[Guide on setting up an artifact's signature](../../../container-registry/tutorials/sign-with-cosign.md)
+[Guide on setting up the artifact signature](../../../container-registry/tutorials/sign-with-cosign.md).
 
 #### 9.8 Protected templates of a secure pipeline are used {#pipeline-blocks}
 
 When working with {{ mgl-name }}, make sure you use built-in GitLab security mechanisms to secure your pipeline. The following [options of pipeline usage](../../../managed-gitlab/concepts/security.md#security-pipeline-usage) are available for your projects:
 
-* Creating a pipeline in an individual project and adding it to other projects using the [`include` function](https://docs.gitlab.com/ee/ci/yaml/includes.html). Available for all license types.
+* Creating a pipeline in an individual project and connecting it to other projects using the [`include` function](https://docs.gitlab.com/ee/ci/yaml/includes.html). Available for all license types.
 * Using the [`Compliance framework and pipeline` mechanism](https://docs.gitlab.com/ee/user/project/settings/index.html#compliance-frameworks) that you can run in any group project. Available for the `Ultimate` license.
-* Copying pipeline sections to `.gitlab-ci.yml` files of your projects.
+* Copying pipeline sections to `.gitlab-ci.yml` files in your projects.

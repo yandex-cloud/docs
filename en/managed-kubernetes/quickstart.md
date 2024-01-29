@@ -23,12 +23,13 @@ To get started with {{ managed-k8s-name }}:
 1. If you do not have any [subnets](../vpc/concepts/network.md#subnet), [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
 1. Create the following [service accounts](../iam/operations/sa/create.md):
 
-   * Service account with the [roles](security/index.md#yc-api) `k8s.clusters.agent` and `vpc.publicAdmin` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+   * Service account with the [k8s.clusters.agent](security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster requires.
    * Service account with the [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
    You can use the same service account for both operations.
 
    {% include [k8s.tunnelClusters.agent role](../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
+1. [Configure security groups](operations/connect/security-groups.md#rules-internal) for the network traffic of your {{ managed-k8s-name }} cluster.
 
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
 
@@ -59,9 +60,9 @@ For more information, see the [step-by-step guide for creating a {{ managed-k8s-
 
 ## Add credentials to the kubectl configuration file {#add-conf}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../_includes/cli-install.md) %}
 

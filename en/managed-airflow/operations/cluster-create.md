@@ -20,9 +20,9 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
 ## Create a cluster {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
@@ -56,6 +56,8 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
       * Cloud network
       * Subnet in each of the selected availability zones
       * [Security group](../../vpc/concepts/security-groups.md) for the cluster network traffic
+
+         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
    1. Set the number of instances and resources for the {{ maf-name }} [components](../concepts/index.md#components):
 

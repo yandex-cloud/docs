@@ -42,13 +42,13 @@ The security profile is the main {{ sws-name }} component, which consists of a s
 
 To create a security profile:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your profile in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder to create your profile in.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       Preset profiles include:
       * [Basic default rule](../smartwebsecurity/concepts/rules.md#base-rules) enabled for all traffic with the [`{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` action type](../smartwebsecurity/concepts/rules.md#rule-action).
@@ -56,39 +56,39 @@ To create a security profile:
 
       {% include [smart-protection-tip](../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
-  1. Enter the profile name, e.g., `test-sp1`.
-  1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`. Thus, if no other rules are set, all traffic to the protected resource will be denied.
-  1. Click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
-  1. In the rule creation window:
+   1. Enter the profile name, e.g., `test-sp1`.
+   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`. Thus, if no other rules are set, all traffic to the protected resource will be denied.
+   1. Click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+   1. In the rule creation window:
       1. Enter the rule name, e.g., `test-rule1`.
       1. Set the rule priority, e.g., `999800`. The rule will have higher priority than the preconfigured ones.
 
-          {% include [preconfigured-rules-priority](../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
+         {% include [preconfigured-rules-priority](../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
 
       1. Select the `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}` rule type.
       1. Select the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}` action.
 
-          The rule will describe conditions under which requests will be directed to the backend of the test application.
+         The rule will describe conditions under which requests will be directed to the backend of the test application.
       1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field, select {{ ui-key.yacloud.smart-web-security.overview.condition_name-ip-range }}.
       1. In the **IP conditions** field that appears, select `Matches or belongs to range` and set the public IP address of the device from which to send requests to the L7 load balancer, e.g., `158.160.100.200`.
       1. Click **{{ ui-key.yacloud.common.add }}**.
 
-          The rule you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
-  1. Click **{{ ui-key.yacloud.common.create }}**.
+         The rule you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 ## Connect the security profile to the virtual host {#profile-connect}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), choose the folder where you want to connect a security profile to an {{ alb-name }} virtual host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Select the `test-sp1` profile.
-  1. Click ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-  1. In the window that opens, select:
+   1. In the [management console]({{ link-console-main }}), choose the folder where you want to connect a security profile to an {{ alb-name }} virtual host.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+   1. Select the `test-sp1` profile.
+   1. Click ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+   1. In the window that opens, select:
       * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}** `test-load-balancer`
       * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}** `test-http-router`
       * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}** `test-virtual-host`
@@ -103,11 +103,11 @@ To create a security profile:
 1. Open the terminal on the device whose IP you specified in the allow rule.
 1. Send a request to the backend of the test application:
 
-    ```bash
-    curl -v <public_IP-address_of_L7-load_balancer>
-    ```
+   ```bash
+   curl -v <public_IP-address_of_L7-load_balancer>
+   ```
 
-    This command should list the contents of the directory with your test web server.
+   This command should list the contents of the directory with your test web server.
 
 1. Repeat the request from a different IP address. As a result, you should see a message about a failure to establish a connection to the server.
 

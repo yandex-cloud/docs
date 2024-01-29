@@ -12,7 +12,7 @@ keywords:
 
 # Backups in {{ mpg-name }}
 
-{{ mpg-short-name }} provides automatic and manual database backups.
+{{ mpg-short-name }} supports automatic and manual database backups.
 
 {{ mpg-name }} allows you to restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later cluster backups.
 
@@ -37,7 +37,7 @@ The first and every seventh automatic backups as well as all manually created ba
 All cluster data is automatically backed up every day. You cannot disable such automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
 
 * [Retention time](#storage).
-* Backup start time. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
+* Time interval during which the backup starts. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. The exact backup size is not displayed.
 
@@ -61,7 +61,7 @@ Specifics of storing backups in {{ mpg-name }}:
 
    * Manually created backups are stored with no time limit.
 
-* Once you delete a cluster, all its backups persist for seven days.
+* After you delete a cluster, all its backups are kept for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 

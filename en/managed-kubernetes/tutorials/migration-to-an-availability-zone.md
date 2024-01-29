@@ -1,11 +1,15 @@
 # Migrating {{ managed-k8s-name }} resources to a different availability zone
 
-
 {% note info %}
 
-{{ managed-k8s-name }} only supports [node group](../concepts/index.md#node-group) migration. Going forward, you will also be able to migrate your [master host](../concepts/index.md#master) to another availability zone.
+{% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}
 
 {% endnote %}
+
+To migrate {{ managed-k8s-name }} resources from one availability zone to another:
+
+1. [Migrate a master host](#transfer-a-master).
+1. [Migrate the node group and the pod workloads](#transfer-a-node-group).
 
 ## Getting started {#before-you-begin}
 
@@ -13,16 +17,298 @@
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+## Migrate your master host to a different availability zone {#transfer-a-master}
+
+Migration of a [master host](../concepts/index.md#master) depends on its type: [zonal](#zonal) or [regional](#regional).
+
+### Migrating a zonal master host {#zonal}
+
+A zonal master is located in one availability zone. You can only migrate the master host from the `{{ region-id }}-c` zone to the `{{ region-id }}-d` zone. During migration, the master host is restarted, and the {{ k8s }} server API becomes briefly unavailable. Once migrated, the master host's public and private IP addresses remain the same; the cluster and node group are not recreated.
+
+To migrate a zonal master host to a different availability zone:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   1. Create a subnet in the `{{ region-id }}-d` availability zone:
+
+      ```bash
+      yc vpc subnet create \
+         --name <subnet_name> \
+         --zone {{ region-id }}-d \
+         --network-id <network_ID> \
+         --range <subnet_CIDR>
+      ```
+
+      In the command, specify the following subnet parameters:
+
+      * `--name`: Subnet name.
+      * `--zone`: Availability zone.
+      * `--network-id`: ID of the network the new subnet belongs to.
+      * `--range`: List of IPv4 addresses for outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+
+   1. Migrate your master host to a different availability zone:
+
+      ```bash
+      {{ yc-k8s }} cluster update \
+         --name <cluster_name> \
+         --zone {{ region-id }}-d \
+         --subnet-id <new_subnet_ID>
+      ```
+
+- {{ TF }} {#tf}
+
+   {% include [master-tf-mifration-warning](../../_includes/managed-kubernetes/master-tf-mifration-warning.md) %}
+
+   1. In the cluster configuration file, update the format of the cluster location section (`zonal`), but do not change the parameter values:
+
+      **Old format**:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "<cluster_name>" {
+         ...
+         master {
+            ...
+            zonal {
+               subnet_id = yandex_vpc_subnet.my-old-subnet.id
+               zone      = "{{ region-id }}-c"
+            }
+         }
+         ...
+      }
+      ```
+
+      **New format**:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "<cluster_name>" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-old-subnet.id
+               zone      = "{{ region-id }}-c"
+            }
+         }
+         ...
+      }
+      ```
+
+   1. Make sure no {{ TF }} resource parameter changes have been detected:
+
+      ```bash
+      terraform plan
+      ```
+
+      If {{ TF }} detects the changes, validate all cluster parameter values: they should match the current state.
+
+   1. Add the new network's manifest to the cluster configuration file and change the cluster location:
+
+      ```hcl
+      resource "yandex_vpc_subnet" "my-new-subnet" {
+         name           = "<network_name>"
+         zone           = "{{ region-id }}-d"
+         network_id     = yandex_vpc_network.k8s-network.id
+         v4_cidr_blocks = ["<subnet_CIDR>"]
+      }
+
+      ...
+
+      resource "yandex_kubernetes_cluster" "<cluster_name>" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-new-subnet.id
+               zone      = "{{ region-id }}-d"
+            }
+         }
+         ...
+      }
+      ```
+
+      The old subnet for the cluster, `my-old-subnet`, is replaced by `my-new-subnet` with these parameters:
+
+      * `name`: Subnet name.
+      * `zone`: `{{ region-id }}-d` availability zone.
+      * `network_id`: ID of the network the new subnet belongs to.
+      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+
+   1. Check that the configuration file is correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+{% endlist %}
+
+### Migrating a regional master host {#regional}
+
+A regional master host is created and distributed across three subnets in different availability zones. You can change [only one availability zone](../../overview/concepts/ru-central1-c-deprecation.md) for a regional master host: from `{{ region-id }}-c` to `{{ region-id }}-d`. Three subnets and availability zones are specified for host migration. During migration, the master host keeps running, the cluster and node group not being recreated.
+
+To migrate a regional master host to a different set of availability zones:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   1. Create a subnet in the `{{ region-id }}-d` availability zone:
+
+      ```bash
+      yc vpc subnet create \
+         --name <subnet_name> \
+         --zone {{ region-id }}-d \
+         --network-id <network_ID> \
+         --range <subnet_CIDR>
+      ```
+
+      In the command, specify the following subnet parameters:
+
+      * `--name`: Subnet name.
+      * `--zone`: Availability zone.
+      * `--network-id`: ID of the network the new subnet belongs to.
+      * `--range`: List of IPv4 addresses for outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+
+   1. Migrate your master host to a different set of availability zones:
+
+      ```bash
+      {{ yc-k8s }} cluster update \
+         --name <cluster_name> \
+         --master-location zone={{ region-id }}-a,subnet-id=<subnet_ID> \
+         --master-location zone={{ region-id }}-b,subnet-id=<subnet_ID> \
+         --master-location zone={{ region-id }}-d,subnet-id=<subnet_ID>
+      ```
+
+      Specify the appropriate subnet for each availability zone.
+
+- {{ TF }} {#tf}
+
+   {% include [master-tf-mifration-warning](../../_includes/managed-kubernetes/master-tf-mifration-warning.md) %}
+
+   1. In the cluster configuration file, update the format of the cluster location section (`regional`), but do not change the parameter values:
+
+      **Old format**:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "<cluster_name>" {
+         ...
+         master {
+            ...
+            regional {
+               region = "ru-central1"
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-a.id
+                  zone      = yandex_vpc_subnet.my-subnet-a.zone
+               }
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-b.id
+                  zone      = yandex_vpc_subnet.my-subnet-b.zone
+               }
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-c.id
+                  zone      = yandex_vpc_subnet.my-subnet-c.zone
+               }
+            }
+         }
+         ...
+      }
+      ```
+
+      **New format**:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "<cluster_name>" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-a.id
+               zone      = yandex_vpc_subnet.my-subnet-a.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-b.id
+               zone      = yandex_vpc_subnet.my-subnet-b.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-c.id
+               zone      = yandex_vpc_subnet.my-subnet-c.zone
+            }
+         }
+         ...
+      }
+      ```
+
+   1. Make sure no {{ TF }} resource parameter changes have been detected:
+
+      ```bash
+      terraform plan
+      ```
+
+      If {{ TF }} detects changes, validate all cluster parameter values: they should match the current state.
+
+   1. Add the new subnet's manifest to the cluster configuration file and change the cluster location:
+
+      ```hcl
+      resource "yandex_vpc_subnet" "my-subnet-d" {
+         name           = "<network_name>"
+         zone           = "{{ region-id }}-d"
+         network_id     = yandex_vpc_network.k8s-network.id
+         v4_cidr_blocks = ["<subnet_CIDR>"]
+      }
+
+      ...
+
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-a.id
+               zone      = yandex_vpc_subnet.my-subnet-a.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-b.id
+               zone      = yandex_vpc_subnet.my-subnet-b.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-d.id
+               zone      = yandex_vpc_subnet.my-subnet-d.zone
+            }
+            ...
+         }
+      ...
+      }
+      ```
+
+      The cluster's subnet named `my-subnet-c` is replaced with `my-subnet-d` that has the following parameters:
+
+      * `name`: Subnet name.
+      * `zone`: Availability zone.
+      * `network_id`: ID of the network the new subnet belongs to.
+      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+
+   1. Check that the configuration file is correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+{% endlist %}
 
 ## Migrate the node group and the pod workloads to a different availability zone {#transfer-a-node-group}
 
 Node group migration works differently depending on the type of workload in the pods:
 
-* [Stateless workload](#stateless): The functioning of applications in the pods during migration depends on how the workload is distributed among the cluster nodes. If the pods reside both in the node group you are migrating and the groups for which the availability zone remains the same, the applications will continue to run. If the pods only reside in the group you are migrating, both the pods and the applications in them will have to be stopped for a short while.
+* [Stateless workload](#stateless): Operation of applications in pods during migration depends on the load distribution among cluster nodes. If the pods are deployed both in a node group being migrated and groups where the availability zone stays the same, the applications continue to run. If the pods are only deployed in the migrating group, both the pods and the applications within them will have to be stopped for a short period of time.
 
    Examples of stateless workloads include the web server, {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), and REST API applications.
 
-* [Stateful workloads](#stateful): The pods and applications will have to be stopped for a short while regardless of the distribution of workload among the cluster nodes.
+* [Stateful workloads](#stateful): The pods and applications will have to be stopped for a short while, regardless of how the workload is distributed among the cluster nodes.
 
    Examples of stateful workloads include databases and storages.
 
@@ -30,9 +316,9 @@ Node group migration works differently depending on the type of workload in the 
 
 1. Check if the `nodeSelector`, `affinity`, or `topology spread constraints` strategies are being used to assign the pods to the group's nodes. For more information on strategies, see [{#T}](../concepts/usage-recommendations.md#high-availability) and the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/). To check how a pod is assigned to its associated node and unlink them:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.

@@ -2,9 +2,9 @@
 
 You can only restore object versions if a bucket supports [versioning](../../concepts/versioning.md). You can only restore the versions that were uploaded with versioning enabled. To enable versioning, follow the [instructions](../buckets/versioning.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% note warning %}
 
@@ -20,7 +20,7 @@ You can only restore object versions if a bucket supports [versioning](../../con
    1. In the list of objects, click ![options](../../../_assets/console-icons/ellipsis.svg) in the row with the appropriate object and select **{{ ui-key.yacloud.storage.file.button_version-history }}**.
    1. In the list of versions, click **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the appropriate version. This restores the selected version and displays it as the current one.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    To restore an object's version using the [AWS CLI](../../tools/aws-cli.md):
 
@@ -128,7 +128,7 @@ You can only restore object versions if a bucket supports [versioning](../../con
 
       For more information about the command, see its description in the [Amazon documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html).
 
-- API
+- API {#api}
 
    To restore an object's version:
 

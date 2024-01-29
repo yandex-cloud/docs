@@ -15,9 +15,9 @@ The minimum required role is `storage.editor`.
 
 To delete an object:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
@@ -38,7 +38,7 @@ To delete an object:
 
    {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -142,7 +142,7 @@ To delete an object:
       * `--bucket`: Bucket name
       * `--query`: Query in [JMESPath](https://jmespath.org/) format
 
-      Here is an example of a command that deletes from `sample-bucket` all objects located in the `screenshots` folder whose filenames start with the date `20231002`:
+      Here is an example of a command that deletes all objects that are located in the `screenshots` folder, and whose filenames start with the date `20231002`, from `sample-bucket`:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
@@ -153,7 +153,7 @@ To delete an object:
         {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key $x}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -210,7 +210,7 @@ To delete an object:
 
       You can check the changes in the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    Use the [delete](../../s3/api-ref/object/delete.md) S3 API method.
 
@@ -224,9 +224,9 @@ If [object lock](../buckets/configure-object-lock.md) is enabled in the bucket, 
 
 To check whether lock has been put and delete the object version when possible:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -287,7 +287,7 @@ To check whether lock has been put and delete the object version when possible
       * `--version-id`: Object version ID.
       * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
 
-- API
+- API {#api}
 
    1. To get the details of the lock applied to an object version, use the [getObjectRetention](../../s3/api-ref/object/getobjectretention.md) (retention) and [getObjectLegalHold](../../s3/api-ref/object/getobjectlegalhold.md) (legal hold) S3 API methods.
    1. If you only have `GOVERNANCE` retention set and you have the `storage.admin` role, delete the object version using the [delete](../../s3/api-ref/object/delete.md) S3 API method. In your request, specify the version ID and the `X-Amz-Bypass-Governance-Retention` header to confirm lock bypass.

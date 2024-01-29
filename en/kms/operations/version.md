@@ -6,17 +6,17 @@ You can make key versions primary (a primary key version is used for encryption 
 
 To make a version primary:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-   1. Click the desired key in the list to open its attribute page.
+   1. Click the key you need in the list to open its attribute page.
    1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Get a list of versions for the desired key:
 
@@ -44,7 +44,7 @@ To make a version primary:
         --version-id abj8cvn99nam********
       ```
 
-- API
+- API {#api}
 
    Use the [setPrimaryVersion](../../kms/api-ref/SymmetricKey/setPrimaryVersion.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetPrimaryVersion](../../kms/api-ref/grpc/symmetric_key_service.md#SetPrimaryVersion) gRPC API call.
 
@@ -62,9 +62,9 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To destroy a version:
 
@@ -76,7 +76,7 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
    The version will change its status to `Scheduled for destruction`, and the **{{ ui-key.yacloud.kms.symmetric-key.overview.column_version-destroy }}** column will show the date the destruction is scheduled for.
 
-- CLI
+- CLI {#cli}
 
    To destroy a version:
 
@@ -108,7 +108,7 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
       The status of the version switches to `SCHEDULED_FOR_DESTRUCTION` and the `destroy_at` field shows the time when destruction is scheduled for.
 
-- API
+- API {#api}
 
    Use the [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#ScheduleVersionDestruction) gRPC API call.
 
@@ -118,9 +118,9 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
 If you scheduled the destruction of a key version, you can cancel it before the scheduled date:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -130,7 +130,7 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
    The version reverts to the `ACTIVE` status.
 
-- CLI
+- CLI {#cli}
 
    1. Get a list of versions for the desired key:
 
@@ -160,7 +160,7 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
       The version reverts to the `ACTIVE` status.
 
-- API
+- API {#api}
 
    Use the [cancelVersionDestruction](../../kms/api-ref/SymmetricKey/cancelVersionDestruction.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/CancelVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#CancelVersionDestruction) gRPC API call.
 

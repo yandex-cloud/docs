@@ -29,9 +29,9 @@ Your application back ends will be deployed on the VM instance of the [target gr
 
 In this example, we will assume there is only one VM in the target group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your target group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -41,11 +41,11 @@ In this example, we will assume there is only one VM in the target group.
    1. Select the `test-vm1` VM.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../_includes/cli-install.md) %}
 
-   Run the following command:
+   Run this command:
 
    ```bash
    yc alb target-group create test-target-group \
@@ -58,9 +58,9 @@ In this example, we will assume there is only one VM in the target group.
 
 [Backend groups](concepts/backend-group.md) contain settings for traffic balancing and target resource health check. Create a group and add one backend to it.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
@@ -80,7 +80,7 @@ In this example, we will assume there is only one VM in the target group.
       1. **{{ ui-key.yacloud.alb.label_path }}**: `/`
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a backend group:
 
@@ -106,9 +106,9 @@ In this example, we will assume there is only one VM in the target group.
 
 [HTTP routers](concepts/http-router.md) define the rules for routing requests sent to backends and allow you to modify requests directly in the balancer.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -122,7 +122,7 @@ In this example, we will assume there is only one VM in the target group.
    1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `test-backend-group`.
    1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create an HTTP router:
 
@@ -154,9 +154,9 @@ A [load balancer](concepts/application-load-balancer.md) receives requests and d
 
 As an example, let's create a balancer with a node in the same subnet and same availability zone.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_load-balancers }}**.
    1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
@@ -174,7 +174,7 @@ As an example, let's create a balancer with a node in the same subnet and same a
    1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `test-http-router`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a load balancer with a node in the same subnet:
 

@@ -12,16 +12,16 @@ You can track the state of a {{ dataproc-name }} cluster and its individual host
 
 To view detailed information about the {{ dataproc-name }} cluster state:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
    The tab displays the following charts:
 
-   * **Active nodes**: Number of running hosts (except control hosts).
+   * **Active nodes**: Number of running hosts (other than master hosts).
    * **Apps failed**: Number of applications with runtime errors.
    * **Available RAM**: Amount of free RAM (in bytes) available in YARN for hosts in data storage and processing subclusters.
    * **Available virtual cores**: Number of cores available in YARN.
@@ -34,9 +34,9 @@ To view detailed information about the {{ dataproc-name }} cluster state:
 
 To view detailed information about the state of individual {{ dataproc-name }} hosts:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
@@ -56,16 +56,16 @@ To view detailed information about the state of individual {{ dataproc-name }} h
 
 ## Integration with {{ monitoring-full-name }} {#monitoring-integration}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state metric alerts:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select **{{ dataproc-name }}**.
-   1. In the appropriate chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+   1. In the chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
    1. Click **{{ ui-key.yacloud.common.create }}**.

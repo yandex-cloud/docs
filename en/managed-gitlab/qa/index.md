@@ -34,8 +34,8 @@ Users with the `Guest` and `Reporter` roles cannot push changes.
 
 For more information about roles, see the [{{ GL }} documentation]({{ gl.docs }}/ee/user/permissions.html).
 
-#### How do I import a project from gitlab.com to {{ mgl-name }}?
+#### How to migrate data from {{ GL }} to {{ mgl-name }}? {#migration}
 
-Follow the project import and export guide in the [{{ GL }} documentation]({{ gl.docs }}/ee/user/project/settings/import_export.html).
+You can migrate data from a {{ GL }} custom installation to {{ mgl-name }}. To do it, follow [this guide](../operations/instance/migration.md). Before starting, see the [service provision procedure](../concepts/migration.md).
 
-If the described method does not suit you for some reason, set up server integration using [this guide]({{ gl.docs }}/ee/integration/gitlab.html), contact the {{ yandex-cloud }} [tech support]({{ link-console-support }}) to provide them with the obtained `Application ID` and `Secret` values and specify other parameters you need.
+You cannot migrate data from {{ GL }}.com to {{ mgl-name }}: migration is only available for {{ GL }} installed on a server or local computer (self-managed {{ GL }}).

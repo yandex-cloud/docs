@@ -13,9 +13,9 @@ description: "Follow this guide to set up hosting."
 
 ## Static website hosting {#hosting}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure hosting for.
    1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
@@ -25,7 +25,7 @@ description: "Follow this guide to set up hosting."
       * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to be displayed in the event of 4xx errors. By default, {{ objstorage-name }} returns its own page.
    1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -37,7 +37,7 @@ description: "Follow this guide to set up hosting."
       yc storage bucket update --help
       ```
 
-   1. Create a hosting configuration file in JSON format. For example:
+   1. Create a hosting configuration file in JSON format. Here is an example:
 
       ```json
       {
@@ -89,7 +89,7 @@ description: "Follow this guide to set up hosting."
      redirect_all_requests: {}
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -130,7 +130,7 @@ description: "Follow this guide to set up hosting."
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. This is an optional parameter.
+         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
 
    1. Make sure the configuration files are valid.
 
@@ -141,7 +141,7 @@ description: "Follow this guide to set up hosting."
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -155,7 +155,7 @@ description: "Follow this guide to set up hosting."
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To set up hosting for a static website, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
@@ -163,9 +163,9 @@ description: "Follow this guide to set up hosting."
 
 ## Redirect all requests {#redirects}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure redirection for.
    1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
@@ -175,7 +175,7 @@ description: "Follow this guide to set up hosting."
       * (Optional) Protocol if the specified host accepts requests only over a specific protocol.
    1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -225,7 +225,7 @@ description: "Follow this guide to set up hosting."
       created_at: "2022-12-14T08:42:16.273717Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -261,7 +261,7 @@ description: "Follow this guide to set up hosting."
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. This is an optional parameter.
+         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
          * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
@@ -296,7 +296,7 @@ description: "Follow this guide to set up hosting."
 
       You can use the [management console]({{ link-console-main }}) to check the request redirect settings.
 
-- API
+- API {#api}
 
    To set up a redirect for all bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
@@ -306,9 +306,9 @@ description: "Follow this guide to set up hosting."
 
 ## Conditional request redirection {#redirects-on-conditions}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure conditional request redirects for.
    1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
@@ -324,7 +324,7 @@ description: "Follow this guide to set up hosting."
       * Replace the key: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}** specified in the condition.
    1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -336,7 +336,7 @@ description: "Follow this guide to set up hosting."
       yc storage bucket update --help
       ```
 
-   1. Create a file with conditional redirect settings in JSON format. For example:
+   1. Create a file with conditional redirect settings in JSON format. Here is an example:
 
       ```json
       {
@@ -395,7 +395,7 @@ description: "Follow this guide to set up hosting."
       created_at: "2022-12-14T08:42:16.273717Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -448,7 +448,7 @@ description: "Follow this guide to set up hosting."
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. This is an optional parameter.
+         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
          * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
@@ -483,7 +483,7 @@ description: "Follow this guide to set up hosting."
 
       You can use the [management console]({{ link-console-main }}) to check the settings for conditionally redirecting requests.
 
-- API
+- API {#api}
 
    To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 

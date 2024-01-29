@@ -6,9 +6,9 @@
 
 To enable log export for a [resource](../../concepts/resource.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
@@ -26,7 +26,7 @@ To enable log export for a [resource](../../concepts/resource.md):
 
    1. Click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
 
-- API
+- API {#api}
 
    Use the [activate](../../api-ref/RawLogs/activate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Activate](../../api-ref/grpc/raw_logs_service.md#Activate) gRPC API call.
 
@@ -40,9 +40,9 @@ If the status is `FAIL`, the service does not export logs. Please contact [techn
 
 To edit export parameters:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
@@ -56,7 +56,7 @@ To edit export parameters:
 
    1. Enter the required parameters and click **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
    Use the [update](../../api-ref/RawLogs/update.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Update](../../api-ref/grpc/raw_logs_service.md#Update) gRPC API call.
 
@@ -66,9 +66,9 @@ To edit export parameters:
 
 To disable export:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
@@ -80,7 +80,7 @@ To disable export:
 
    1. In the top-right corner, click **{{ ui-key.yacloud.cdn.button_resource-deactivate-raw-logs }}**.
 
-- API
+- API {#api}
 
    Use the [deactivate](../../api-ref/RawLogs/deactivate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Deactivate](../../api-ref/grpc/raw_logs_service.md#Deactivate) gRPC API call.
 

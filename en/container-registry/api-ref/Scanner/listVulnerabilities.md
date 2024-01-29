@@ -42,7 +42,9 @@ orderBy | <p>An order expression that orders resources listed in the response. T
         "package": "string",
         "source": "string",
         "version": "string",
-        "fixedBy": "string"
+        "fixedBy": "string",
+        "origin": "string",
+        "type": "string"
       }
     }
   ],
@@ -62,4 +64,6 @@ vulnerabilities[].<br>package.<br>package | **string**<br><p>The package name wh
 vulnerabilities[].<br>package.<br>source | **string**<br><p>The package manager name. Ex.: yum, rpm, dpkg.</p> 
 vulnerabilities[].<br>package.<br>version | **string**<br><p>The version of the package where vulnerability has been found.</p> 
 vulnerabilities[].<br>package.<br>fixedBy | **string**<br><p>The version of the package where vulnerability has been fixed.</p> 
+vulnerabilities[].<br>package.<br>origin | **string**<br><p>The place where vulnerability is originated (OS, lang package, etc.)</p> 
+vulnerabilities[].<br>package.<br>type | **string**<br><p>The type of vulnerability origin - name of OS if origin="os" or package type (jar, gobinary, etc.) if origin="lang"</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/container-registry/api-ref/Image/list#query_params">pageSize</a>, use the <a href="/docs/container-registry/api-ref/Scanner/listVulnerabilities#responses">nextPageToken</a> as the value for the <a href="/docs/container-registry/api-ref/Image/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/container-registry/api-ref/Scanner/listVulnerabilities#responses">nextPageToken</a> to continue paging through the results.</p> 

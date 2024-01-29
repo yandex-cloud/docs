@@ -7,9 +7,9 @@ description: "Follow this guide to create a backend group."
 
 To create a [backend group](../concepts/backend-group.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your backend group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -38,7 +38,7 @@ To create a [backend group](../concepts/backend-group.md):
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -241,7 +241,7 @@ To create a [backend group](../concepts/backend-group.md):
 
       {% endcut %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -317,7 +317,7 @@ To create a [backend group](../concepts/backend-group.md):
       yc alb backend-group list
       ```
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/BackendGroup/create.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Create](../api-ref/grpc/backend_group_service.md#Create) gRPC API call.
 

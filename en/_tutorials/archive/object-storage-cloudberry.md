@@ -35,14 +35,14 @@ Backups in {{ objstorage-name }} are performed on behalf of a [service account](
 
 To create a service account:
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md#editor) to your service account.
-1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret access key right away. You will not be able to view the private access key parameters again after you close the window.
+1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and the secret key right away. After you close the window, the private key parameters will become unavailable.
 
 
 ## Create a bucket {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
 

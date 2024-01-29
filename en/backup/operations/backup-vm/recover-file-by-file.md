@@ -7,9 +7,9 @@ description: "This guide describes how you can restore individual directories an
 
 You can restore individual files and directories from a backup to any VM connected to {{ backup-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.

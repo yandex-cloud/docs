@@ -6,15 +6,15 @@ Switching takes on average less than a minute. The cluster may be unavailable fo
 
 For more information about selecting a different primary replica, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/rs.stepDown/).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
    1. Click ![options](../../_assets/console-icons/ellipsis.svg) in the row of the `PRIMARY` host and select **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -29,7 +29,7 @@ For more information about selecting a different primary replica, see the [{{ MG
 
    You can request the name of the shard primary replica with a [list of cluster hosts](hosts.md#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To switch to a different primary replica, use the [stepdownHosts](../api-ref/Cluster/stepdownHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StepdownHosts](../api-ref/grpc/cluster_service.md#StepdownHosts) gRPC API call and provide the following in the request:
 

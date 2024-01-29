@@ -31,9 +31,9 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
 ## Setting up access rights {#configure-acl}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located. If there is no bucket, [create](../../storage/operations/buckets/create.md) one and [populate](../../storage/operations/objects/upload.md) it with the required data.
 

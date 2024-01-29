@@ -36,14 +36,14 @@ Clusters with local disks have a fault-tolerant 3-host configuration. Fewer host
 
 In a failover cluster with multiple hosts, you can switch the master role from the current master host to the replica host. After this operation, the current master host becomes the replica host of the new master.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the cluster page and click the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

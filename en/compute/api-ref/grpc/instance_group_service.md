@@ -93,6 +93,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -206,6 +207,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy}
@@ -488,6 +499,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec1)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions1)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -601,6 +613,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions1}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy1}
@@ -861,6 +883,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec2)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions2)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec2}
@@ -974,6 +997,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions2}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy2}
@@ -1322,6 +1355,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec3)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions3)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec3}
@@ -1435,6 +1469,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions3}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy3}
@@ -1696,6 +1740,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec4)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions4)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec4}
@@ -1809,6 +1854,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions4}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy4}
@@ -2157,6 +2212,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec5)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions5)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec5}
@@ -2270,6 +2326,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions5}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy5}
@@ -2567,6 +2633,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec6)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions6)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec6}
@@ -2680,6 +2747,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions6}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy6}
@@ -2978,6 +3055,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec7)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions7)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec7}
@@ -3091,6 +3169,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions7}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy7}
@@ -3389,6 +3477,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec8)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions8)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec8}
@@ -3502,6 +3591,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions8}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy8}
@@ -3799,6 +3898,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec9)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions9)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec9}
@@ -3912,6 +4012,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions9}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy9}
@@ -4330,6 +4440,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec10)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions10)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec10}
@@ -4443,6 +4554,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions10}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy10}
@@ -4741,6 +4862,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec11)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions11)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec11}
@@ -4854,6 +4976,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions11}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy11}
@@ -5384,6 +5516,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec12)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions12)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec12}
@@ -5497,6 +5630,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions12}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy12}
@@ -5794,6 +5937,7 @@ name | **string**<br>Name of the instance. In order to be unique it must contain
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 placement_policy | **[PlacementPolicy](#PlacementPolicy13)**<br>Placement Group 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec13)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
+metadata_options | **[MetadataOptions](#MetadataOptions13)**<br>Metadata options for the instance 
 
 
 ### ResourcesSpec {#ResourcesSpec13}
@@ -5907,6 +6051,16 @@ Field | Description
 mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### MetadataOptions {#MetadataOptions13}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy13}

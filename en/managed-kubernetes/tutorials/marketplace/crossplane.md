@@ -20,14 +20,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create a {{ k8s }} cluster and a [group of nodes](../../../managed-kubernetes/concepts/index.md#node-group).
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
       1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
       1. [Create service accounts](../../../iam/operations/sa/create.md):
-         * Service account with the [roles](../../security/index.md#yc-api) `k8s.clusters.agent` and `vpc.publicAdmin` for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is created. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
+         * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is created. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
          * Service account with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) [role](../../../iam/concepts/access-control/roles.md). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
 
          {% note tip %}
@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -199,29 +199,29 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. Delete the other resources:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
-     1. [Delete the {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-     1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
-     1. [Delete the created service accounts](../../../iam/operations/sa/delete.md).
+      1. [Delete the {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+      1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
+      1. [Delete the created service accounts](../../../iam/operations/sa/delete.md).
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
-     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the `k8s-cluster.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+      1. Delete the `k8s-cluster.tf` configuration file.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-     1. Confirm updating the resources.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
+      1. Confirm updating the resources.
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+         All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
 
    {% endlist %}

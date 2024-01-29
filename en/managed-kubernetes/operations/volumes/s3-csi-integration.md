@@ -6,7 +6,7 @@ To use {{ CSI }} capabilities:
 1. [Set up a work environment](#create-environment).
 1. [Configure {{ CSI }}](#configure-csi).
 
-For more information, refer to:
+See also:
 * [Using {{ CSI }} with a `PersistentVolume`](#csi-usage)
 * [Examples of creating a `PersistentVolume`](#examples)
 
@@ -19,9 +19,9 @@ For more information, refer to:
 
 ## Set up {{ CSI }} {#configure-csi}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Using {{ marketplace-full-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
    Install the {{ CSI }} application for S3 by following [this step-by-step guide](../applications/csi-s3.md#install-fb-marketplace). While installing the application, specify the following parameters:
    * **Namespace**: `kube-system`.
@@ -30,7 +30,7 @@ For more information, refer to:
 
    After installing the application, you can create [static](../../concepts/volume.md#static-provisioning) and [dynamic](../../concepts/volume.md#dynamic-provisioning) `PersistentVolumes` to use {{ objstorage-name }} buckets.
 
-- Manually
+- Manually {#manual}
 
    1. Create a file named `secret.yaml` and specify the {{ CSI }} access settings in it:
 
@@ -101,17 +101,17 @@ With {{ CSI }} configured, there are certain things to note about creating stati
 For a dynamic `PersistentVolume`:
 * Specify the name of the storage class in the `spec.storageClassName` parameter when creating a `PersistentVolumeClaim`.
 * If required, specify a bucket name in the `bucket` parameter when [creating a storage class](#configure-csi). This affects {{ CSI }} behavior:
-  * If you specified a bucket name in the `bucket` parameter when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each created `PersistentVolume`.
+   * If you specified a bucket name in the `bucket` parameter when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each created `PersistentVolume`.
 
-    {% note info %}
+      {% note info %}
 
-    This setting can be useful if the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) enforces strict [quotas]({{ link-console-quotas }}) on the number of {{ objstorage-name }} buckets.
+      This setting can be useful if the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) enforces strict [quotas]({{ link-console-quotas }}) on the number of {{ objstorage-name }} buckets.
 
-    {% endnote %}
+      {% endnote %}
 
-  * If you omitted a bucket name in the `bucket` parameter, {{ CSI }} will create a separate bucket for each `PersistentVolume` created.
+   * If you omitted a bucket name in the `bucket parameter`, {{ CSI }} will create a separate bucket for each `PersistentVolume` created.
 
-[Example of creating](#create-dynamic-pvc) a dynamic `PersistentVolume`.
+[Example of creating](#create-dynamic-pvc) a dynamic `PersistentVolume`
 
 ### Static PersistentVolume {#spvc-csi-usage}
 
@@ -119,17 +119,17 @@ For a static `PersistentVolume`:
 * Leave the `spec.storageClassName` parameter empty when creating `PersistentVolumeClaim`.
 * Specify the name of the desired bucket or bucket directory in the `spec.csi.volumeHandle` parameter when creating `PersistentVolume`. If there is no such bucket, create one.
 
-  {% note info %}
+   {% note info %}
 
-  Deleting this type of `PersistentVolume` will not automatically delete its associated bucket.
+   Deleting this type of `PersistentVolume` will not automatically delete its associated bucket.
 
-  {% endnote %}
+   {% endnote %}
 
 * To update [GeeseFS](../../../storage/tools/geesefs.md) options for working with a bucket, specify them in the `spec.csi.volumeAttributes.options` parameter when creating a `PersistentVolume`. For example, in the `--uid` option, you can specify the ID of the user being the owner of all files in storage. To get a list of GeeseFS options, run the `geesefs -h` command or find it in the [GitHub repository](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
 
-  The GeeseFS options specified in the `parameters.options` parameter of `StorageClass` for static `PersistentVolumes` are ignored. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
+   The GeeseFS options specified in the `parameters.options` parameter of `StorageClass` for static `PersistentVolumes` are ignored. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
-[Example of creating](#create-static-pvc) a static `PersistentVolume`.
+[Example of creating](#create-static-pvc) a static `PersistentVolume`
 
 ## Use cases {#examples}
 
@@ -221,7 +221,7 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
       kubectl get pods
       ```
 
-   While running, the pod will execute the `date` command several times and write its result to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
+   While running, the pod will execute the `date` command several times and it write its result to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
 1. Make sure that the file is in the bucket:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the `pvc-<dynamic_bucket_name>` bucket.

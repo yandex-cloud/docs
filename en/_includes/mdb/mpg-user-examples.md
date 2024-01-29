@@ -2,7 +2,7 @@
 
 ### Add a user with read-only permissions {#user-readonly}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - SQL
 
@@ -45,7 +45,7 @@
    REVOKE USAGE ON SCHEMA myschema FROM user2;
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    You can grant user privileges via {{ TF }} only in a cluster with public hosts.
 

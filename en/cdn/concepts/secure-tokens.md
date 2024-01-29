@@ -34,9 +34,9 @@ Use one of the examples below to generate a signed link.
 
 ### Signed links with restricted access based on IP {#link-code-ip-access}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- PHP
+- PHP {#php}
 
    ```php
    <?php
@@ -64,7 +64,7 @@ Use one of the examples below to generate a signed link.
    * `$hostname`: CDN resource [domain name](./resource.md#hostnames), e.g., `cdn.example.com`.
    * `$url`: Ready-to-use [signed link](#protected-link) to the file.
 
-- Python
+- Python {#python}
 
    ```python
    import base64
@@ -87,7 +87,7 @@ Use one of the examples below to generate a signed link.
    * `hostname`: CDN resource [domain name](./resource.md#hostnames), e.g., `cdn.example.com`.
    * `secured_url`: Ready-to-use [signed link](#protected-link) to the file.
 
-- OpenSSL
+- OpenSSL {#openssl}
 
    ```bash
    echo -n '<link_validity><file_path><IP_address> <secret_key>' | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d ='<link_validity><file_path><IP_address> <secret_key>' = '{expires}{path}{ip} {secret_key}'
@@ -103,9 +103,9 @@ Use one of the examples below to generate a signed link.
 
 ### Signed links with no restriction on access based on IP {#link-code-no-ip}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- PHP
+- PHP {#php}
 
    ```php
    <?php
@@ -131,7 +131,7 @@ Use one of the examples below to generate a signed link.
    * `$hostname`: CDN resource [domain name](./resource.md#hostnames), e.g., `cdn.example.com`.
    * `$url`: Ready-to-use [signed link](#protected-link) to the file.
 
-- Python
+- Python {#python}
 
    ```python
    import base64
@@ -152,7 +152,7 @@ Use one of the examples below to generate a signed link.
    * `hostname`: CDN resource [domain name](./resource.md#hostnames), e.g., `cdn.example.com`.
    * `secured_url`: Ready-to-use [signed link](#protected-link) to the file.
 
-- OpenSSL
+- OpenSSL {#openssl}
 
    ```bash
    echo -n '<link_validity><file_path> <secret_key>' | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d = '<link_validity><file_path> <secret_key>' = '{expires}{path} {secret_key}'

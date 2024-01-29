@@ -10,9 +10,9 @@ To support your own domain:
 
 1. On the DNS server, create a public [DNS zone](../../../dns/concepts/dns-zone.md) and a [resource record](../../../dns/concepts/resource-record.md) to link your domain name to the bucket:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - {{ dns-full-name }}
+   - {{ dns-full-name }} {#dns}
 
       1. In the [management console]({{ link-console-main }}), go to the bucket you want to use your own domain for.
       1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
@@ -52,7 +52,7 @@ To support your own domain:
 
       {% endcut %}
 
-   - Third-party DNS server
+   - Third-party DNS server {#third-party-dns-server}
 
       Example of DNS zone parameters:
       * Zone: `example.com.`

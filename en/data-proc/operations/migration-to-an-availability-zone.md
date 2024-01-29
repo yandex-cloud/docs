@@ -15,3 +15,5 @@ To move {{ dataproc-name }} subclusters to a different availability zone:
 1. [Set up a NAT gateway and link a route table](../../vpc/operations/create-nat-gateway.md) to the new subnet.
 1. [Create a cluster](cluster-create.md#create) in the appropriate availability zone.
 1. [Delete the cluster](cluster-delete.md) in the source availability zone.
+
+{% include [zone-d-host-restrictions](../../_includes/mdb/ru-central1-d-broadwell.md) %}

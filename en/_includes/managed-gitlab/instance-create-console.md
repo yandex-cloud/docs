@@ -30,6 +30,7 @@
       * It must not start or end with a dash character.
 
    1. Set up the retention period for automatic backups (in days).
+   1. (Optional) Change the backup start time. The default time is 00:00 UTC (Coordinated Universal Time). The backup starts within 30 minutes of the specified time.
 
 1. Under **{{ ui-key.yacloud.gitlab.label_admin-section }}**, specify:
    * **{{ ui-key.yacloud.gitlab.field_admin-email }}**: Email address of the {{ GL }} instance administrator. This mailbox will receive an email with a link for creating a password.

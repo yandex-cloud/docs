@@ -18,28 +18,25 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 * List of [security groups](../connect/security-groups.md)
 * Settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/).
 
-  [Security groups](../../../vpc/concepts/security-groups.md) are at the [Preview stage](../../../overview/concepts/launch-stages.md). If they are not available on your [network](../../../vpc/concepts/network.md#network), all incoming and outgoing traffic for the resources will be allowed. No additional setup is required.
-
-  To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
-
   {% note alert %}
 
-  Do not delete the security groups bound to a running {{ managed-k8s-name }} cluster as this might result in disruptions in its operation and data loss.
+   Do not delete the security groups bound to a running {{ managed-k8s-name }} cluster as this might result in disruptions in its operation and data loss.
 
-  {% endnote %}
+   {% endnote %}
 
-* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet).
+* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet) .
 
-  {% note warning %}
+   {% note warning %}
 
-  If you change the subnet mask of an active {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
+   If you change the subnet mask of an active {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
 
-  {% endnote %}
+   {% endnote %}
 
+To learn how to change a cluster's [availability zone](../../../overview/concepts/geo-scope.md), see [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   To update a {{ managed-k8s-name }} cluster:
   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
@@ -48,7 +45,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
   1. Change the required parameters in the window that opens.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -101,15 +98,15 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
        * `--daily-maintenance-window`: Update daily at the selected time.
        * `--weekly-maintenance-window`: Update on selected days.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
-  To update a {{ managed-k8s-name }} cluster:
-  1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
+   To update a {{ managed-k8s-name }} cluster:
+   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
       For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
    1. Edit the required parameters in the {{ managed-k8s-name }} cluster description.
 
-      To edit the settings for submitting logs to {{ cloud-logging-name }}, configure the `master_logging` section parameters. If there is no such section, create one.
+      To edit the settings for submitting logs to {{ cloud-logging-name }}, configure the `master_logging` section parameters. If there is no such section, create one:
 
       {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
@@ -127,7 +124,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
       For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster }}).
 
-- API
+- API {#api}
 
    To edit {{ managed-k8s-name }} cluster parameters, use the [update](../../api-ref/Cluster/update.md) method for the [Cluster](../../api-ref/Cluster/) resource.
 
@@ -135,98 +132,94 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
 {% endlist %}
 
-## Managing {{ managed-k8s-name }} cluster labels {#manage-label}
+## Managing {{ managed-k8s-name }} cluster cloud labels {#manage-label}
 
-You can perform the following actions with [{{ managed-k8s-name }} cluster labels](../../concepts/index.md#node-labels):
+You can perform the following actions with [{{ managed-k8s-name }} cluster cloud labels](../../concepts/index.md#node-labels):
+
 * [Add](#add-label)
 * [Edit](#update-label)
 * [Delete](#remove-label)
 
-### Adding a label {#add-label}
+### Adding a cloud label {#add-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
-  Run this command:
+   Run this command:
 
-  ```bash
-  yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
-  ```
+   ```bash
+   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
+   ```
 
-  Result:
+   Result:
 
-  ```bash
-  done (1s)
-  id: abcd123ef4gh********
-  folder_id: l1m01nopqr1s********
-  ...
-  description: My test {{ k8s }} cluster
-  labels:
-    new_label: test_label
-  ...
-  ```
-
-{% endlist %}
-
-### Editing a label {#update-label}
-
-{% list tabs %}
-
-- CLI
-
-  Run this command:
-
-  ```bash
-  yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
-  ```
-
-  {% note warning %}
-
-  The existing set of `labels` is completely overwritten by the transmitted set.
-
-  {% endnote %}
-
-  ```bash
-  yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
-  ```
-
-  Result:
-
-  ```bash
-  done (1s)
-  id: abcd123ef4gh********
-  folder_id: l1m01nopqr1s********
-  ...
-  description: My test {{ k8s }} cluster
-  labels:
-    test_label: my_k8s_label
-  ...
-  ```
+   ```bash
+   done (1s)
+   id: abcd123ef4gh********
+   folder_id: l1m01nopqr1s********
+   ...
+   description: My test {{ k8s }} cluster
+   labels:
+     new_label: test_label
+   ...
+   ```
 
 {% endlist %}
 
-### Deleting a label {#remove-label}
+### Updating a cloud label {#update-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
-  Run this command:
+- CLI {#cli}
 
-  ```bash
-  yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
-  ```
+- CLI {#cli}
+
+   Run this command:
+
+   ```bash
+   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
+   ```
+
 
   Result:
 
-  ```bash
-  done (1s)
-  id: cati493bu7ia********
-  folder_id: b1g88tflru0e********
-  created_at: "2019-11-20T11:26:36Z"
-  name: k8s-demo
-  ...
-  ```
+   ```bash
+   done (1s)
+   id: abcd123ef4gh********
+   folder_id: l1m01nopqr1s********
+   ...
+   description: My test {{ k8s }} cluster
+   labels:
+     test_label: my_k8s_label
+   ...
+   ```
+
+{% endlist %}
+
+### Deleting a cloud label {#remove-label}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   Run this command:
+
+   ```bash
+   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
+   ```
+
+   Result:
+
+   ```bash
+   done (1s)
+   id: cati493bu7ia********
+   folder_id: b1g88tflru0e********
+   created_at: "2019-11-20T11:26:36Z"
+   name: k8s-demo
+   ...
+   ```
 
 {% endlist %}

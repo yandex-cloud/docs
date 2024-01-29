@@ -6,172 +6,172 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
 
    You can use an existing {{ managed-k8s-name }} cluster or [create a new one](../kubernetes-cluster/kubernetes-cluster-create.md).
 
-1. Create a node group with {{ k8s }} labels.
+1. Create a node group with {{ k8s }} labels:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Select the {{ managed-k8s-name }} cluster to create a node group for.
-     1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-     1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
-     1. Enter a name for the {{ managed-k8s-name }} node group.
-     1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select a {{ k8s }} version for {{ managed-k8s-name }} nodes.
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
-        * Select the scaling policy type.
-        * Specify the number of nodes in the {{ managed-k8s-name }} node group.
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [instances](../../../compute/concepts/vm.md) by which you can exceed or reduce the size of the {{ managed-k8s-name }} group.
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-        * Choose a [platform](../../../compute/concepts/vm-platforms.md).
-        * Specify the required number of vCPUs, [guaranteed vCPU performance](../../../compute/concepts/performance-levels.md), and the amount of RAM.
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
-        * Specify the node **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** {{ managed-k8s-name }}:
-          * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-hdd }}`: Standard network drive; network block storage on an HDD.
-          * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd }}`: Fast network drive; network block storage on an SSD.
-          * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
-          * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-io-m3 }}`: Network drive with the same performance characteristics as `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
-        * Specify the {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
-        * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, choose a method for assigning an IP address:
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP pool.
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
-        * Specify how {{ managed-k8s-name }} nodes should be distributed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} node:
-        * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
-     1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
-        * In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select your preferred [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Automatic updates disabled.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Updates allowed at any time.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}** field.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
-        * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-labels }}** field, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}** and specify the label key and value. Add multiple labels if needed.
-     1. Click **{{ ui-key.yacloud.common.create }}**.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+      1. Select the {{ managed-k8s-name }} cluster to create a node group for.
+      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+      1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+      1. Enter a name for the {{ managed-k8s-name }} node group.
+      1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select a {{ k8s }} version for {{ managed-k8s-name }} nodes.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
+         * Select the scaling policy type.
+         * Specify the number of nodes in the {{ managed-k8s-name }} node group.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [instances](../../../compute/concepts/vm.md) by which you can exceed or reduce the size of the {{ managed-k8s-name }} group.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+         * Choose a [platform](../../../compute/concepts/vm-platforms.md).
+         * Specify the required number of vCPUs, [guaranteed vCPU performance](../../../compute/concepts/performance-levels.md), and the amount of RAM.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
+         * Specify the {{ managed-k8s-name }} node **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}**:
+            * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-hdd }}`: Standard network drive; network block storage on an HDD.
+            * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd }}`: Fast network drive; network block storage on an SSD.
+            * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
+            * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-io-m3 }}`: Network drive with the same performance characteristics as `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
+         * Specify the {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
+         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, choose a method for assigning an IP address:
+            * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP pool.
+            * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+         * Specify how {{ managed-k8s-name }} nodes should be distributed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} node:
+         * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
+      1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
+         * In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select your preferred [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
+            * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Automatic updates disabled.
+            * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Updates allowed at any time.
+            * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}** field.
+            * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
+         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-labels }}** field, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}** and specify the label key and value. Add multiple labels if needed.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
-     Create a {{ managed-k8s-name }} node group:
+      Create a {{ managed-k8s-name }} node group:
 
-     ```bash
-     yc managed-kubernetes node-group create \
-      --name k8s-labels-node \
-      --cluster-name k8s-labels \
-      --disk-type network-ssd \
-      --fixed-size 1 \
-      --node-labels environment=production,apps/tier=backend
-     ```
+      ```bash
+      yc managed-kubernetes node-group create \
+       --name k8s-labels-node \
+       --cluster-name k8s-labels \
+       --disk-type network-ssd \
+       --fixed-size 1 \
+       --node-labels environment=production,apps/tier=backend
+      ```
 
-     Where:
+      Where:
 
-     * `--name`: Name of the {{ managed-k8s-name }} node group.
-     * `--cluster-name`: Name of the {{ managed-k8s-name }} cluster where the node group is created.
-     * `--disk-type`: [Disk type](../../../compute/concepts/disk.md) on the {{ managed-k8s-name }} node.
-     * `--fixed-size`: Number of {{ managed-k8s-name }} nodes in the group.
-     * `--node-labels`: {{ managed-k8s-name }} node labels. You can specify multiple labels separated by commas.
+      * `--name`: Name of the {{ managed-k8s-name }} node group.
+      * `--cluster-name`: Name of the {{ managed-k8s-name }} cluster where the node group is created.
+      * `--disk-type`: [Disk type](../../../compute/concepts/disk.md) on the {{ managed-k8s-name }} node.
+      * `--fixed-size`: Number of {{ managed-k8s-name }} nodes in the group.
+      * `--node-labels`: {{ managed-k8s-name }} node labels. You can specify multiple labels separated by commas.
 
-     Result:
+      Result:
 
-     ```bash
-     done (2m19s)
-     id: catkuapro07e********
-     cluster_id: abcsk1s2f3fm********
-     created_at: "2020-09-24T13:32:24Z"
-     name: k8s-labels-node
-     status: RUNNING
-     node_template:
-       platform_id: standard-v2
-       resources_spec:
-         memory: "4294967296"
-         cores: "2"
-         core_fraction: "100"
-       boot_disk_spec:
-         disk_type_id: network-ssd
-         disk_size: "103079215104"
-       v4_address_spec: {}
-       scheduling_policy: {}
-     scale_policy:
-       fixed_scale:
-         size: "1"
-     allocation_policy:
-       locations:
-       - zone_id: {{ region-id }}-a
-         subnet_id: e9bm87gkjd81********
-     deploy_policy:
-       max_expansion: "3"
-     instance_group_id: cl1v2gh33j1c********
-     node_version: "1.17"
-     version_info:
-       current_version: "1.17"
-     maintenance_policy:
-       auto_upgrade: true
-       auto_repair: true
-       maintenance_window:
-         anytime: {}
-     node_labels:
-       apps/tier: backend
-       environment: production
-     ```
+      ```bash
+      done (2m19s)
+      id: catkuapro07e********
+      cluster_id: abcsk1s2f3fm********
+      created_at: "2020-09-24T13:32:24Z"
+      name: k8s-labels-node
+      status: RUNNING
+      node_template:
+        platform_id: standard-v2
+        resources_spec:
+          memory: "4294967296"
+          cores: "2"
+          core_fraction: "100"
+        boot_disk_spec:
+          disk_type_id: network-ssd
+          disk_size: "103079215104"
+        v4_address_spec: {}
+        scheduling_policy: {}
+      scale_policy:
+        fixed_scale:
+          size: "1"
+      allocation_policy:
+        locations:
+        - zone_id: {{ region-id }}-a
+          subnet_id: e9bm87gkjd81********
+      deploy_policy:
+        max_expansion: "3"
+      instance_group_id: cl1v2gh33j1c********
+      node_version: "1.17"
+      version_info:
+        current_version: "1.17"
+      maintenance_policy:
+        auto_upgrade: true
+        auto_repair: true
+        maintenance_window:
+          anytime: {}
+      node_labels:
+        apps/tier: backend
+        environment: production
+      ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
-     {% note warning %}
+      {% note warning %}
 
-     A {{ managed-k8s-name }} node group will be recreated from scratch.
+      A {{ managed-k8s-name }} node group will be recreated from scratch.
 
-     {% endnote %}
+      {% endnote %}
 
-     1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
+      1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-        For more information about creating this file, see [{#T}](node-group-create.md).
-     1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
+         For more information about creating this file, see [{#T}](node-group-create.md).
+      1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
 
-        ```hcl
-        resource "yandex_kubernetes_node_group" "<node_group_name>" {
-          cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
-          ...
-          node_labels = {
-            "<label1>" = "<value1>"
-            "<label2>" = "<value2>"
-            ...
-          }
-        }
-        ```
+         ```hcl
+         resource "yandex_kubernetes_node_group" "<node_group_name>" {
+           cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
+           ...
+           node_labels = {
+             "<label1>" = "<value1>"
+             "<label2>" = "<value2>"
+             ...
+           }
+         }
+         ```
 
-     1. Make sure the configuration files are valid.
+      1. Make sure the configuration files are valid.
 
-        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-     1. Confirm updating the resources.
+      1. Confirm updating the resources.
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+         For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
-   - API
+   - API {#api}
 
-     To create a {{ managed-k8s-name }} node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+      To create a {{ managed-k8s-name }} node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
    {% endlist %}
 
 1. Get information about the created node group with {{ k8s }} labels:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where the {{ managed-k8s-name }} cluster was created.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Select the {{ managed-k8s-name }} cluster where the node group was created.
-     1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-     1. Open the page of one of the {{ managed-k8s-name }} nodes and go to the **{{ ui-key.yacloud.k8s.node.overview.label_labels }}** tab. The tab lists the system and user labels of the {{ managed-k8s-name }} node.
+      1. In the [management console]({{ link-console-main }}), select the folder where the {{ managed-k8s-name }} cluster was created.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+      1. Select the {{ managed-k8s-name }} cluster where the node group was created.
+      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+      1. Open the page of one of the {{ managed-k8s-name }} nodes and go to the **{{ ui-key.yacloud.k8s.node.overview.label_labels }}** tab. The tab lists the system and user {{ k8s }} node labels.
 
-   - CLI
+   - CLI {#cli}
 
-     1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-     1. View all the nodes in a {{ managed-k8s-name }} cluster:
+      1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+      1. View all the nodes in a {{ managed-k8s-name }} cluster:
 
          ```bash
          kubectl get nodes
@@ -185,7 +185,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
          catkuapro07e********-lskc   Ready    <none>   1h   v1.17.8
          ```
 
-     1. Get information on a selected {{ managed-k8s-name }} cluster node:
+      1. Get information on a selected {{ managed-k8s-name }} cluster node:
 
          ```bash
          kubectl describe node catkuapro07e********-hgjd
@@ -213,8 +213,8 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
                              yandex.cloud/preemptible=false
          ```
 
-   - API
+   - API {#api}
 
-     To view {{ managed-k8s-name }} node details, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+      To view {{ managed-k8s-name }} node details, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
    {% endlist %}

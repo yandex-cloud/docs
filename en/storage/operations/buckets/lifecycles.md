@@ -4,9 +4,9 @@
 
 Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This operation takes a few hours to complete.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure object lifecycles for.
    1. Select **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}**.
@@ -17,7 +17,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
       For more information, see [{#T}](../../s3/api-ref/lifecycles/xml-config.md).
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -111,7 +111,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
      --remove-lifecycle-rules
    ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
    To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
@@ -181,7 +181,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
         --lifecycle-configuration file://lifecycles.json
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -302,7 +302,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
@@ -315,7 +315,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To manage bucket object lifecycles, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/lifecycles/upload.md) S3 API method.
 

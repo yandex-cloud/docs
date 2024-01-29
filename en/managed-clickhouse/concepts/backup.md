@@ -37,7 +37,7 @@ Backups are created based on a random replica host. This is why, if there is no 
 * [The tables are not replicated](replication.md#replicated-tables) on all shard hosts.
 * The tables are not replicated and are only hosted on some of the shard hosts.
 
-You can set the backup start time when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
+When [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster, you can set the time interval during which the backup will start. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 Backups are only created on running clusters. If you do not use a {{ mch-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings).
 

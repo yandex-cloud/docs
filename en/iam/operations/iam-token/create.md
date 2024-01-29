@@ -11,9 +11,9 @@ description: "Follow this guide to get an IAM token for an account."
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@ description: "Follow this guide to get an IAM token for an account."
   yc iam create-token
   ```
 
-- API
+- API {#api}
 
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
 
@@ -38,3 +38,7 @@ description: "Follow this guide to get an IAM token for an account."
 ### Using an IAM token obtained via the CLI {#use-cli}
 
 {% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
+
+#### See also {#see-also}
+
+* [Using an IAM token in a Helm chart](../../../container-registry/operations/helm-chart/helm-chart-push.md)

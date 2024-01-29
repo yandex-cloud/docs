@@ -1,11 +1,11 @@
 # Deleting a CAPTCHA
 
 
-In this section, you'll learn how to delete a CAPTCHA.
+In this section, you will learn how to delete a CAPTCHA.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.

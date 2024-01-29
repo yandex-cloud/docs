@@ -1,6 +1,6 @@
 # Terminating TLS connections
 
-[{{ alb-full-name }}](../../application-load-balancer/) [L7 load balancers](../../application-load-balancer/concepts/application-load-balancer.md) can _terminate_ TLS connections: send certificates to clients, decrypt incoming traffic to send to the backends, and encrypt [backend](../../application-load-balancer/concepts/backend-group.md) responses to forward to clients. This scenario describes configuring a load balancer to terminate TLS connections using a [certificate](../../certificate-manager/concepts/index.md) from [{{ certificate-manager-full-name }}](../../certificate-manager/) and to redirect HTTP requests to HTTPS.
+[{{ alb-full-name }}](../../application-load-balancer/) [L7 load balancers](../../application-load-balancer/concepts/application-load-balancer.md) can _terminate_ TLS connections: send certificates to clients, decrypt incoming traffic to send to the backends, and encrypt [backend](../../application-load-balancer/concepts/backend-group.md) responses prior to forwarding them to clients. This scenario describes configuring a load balancer to terminate TLS connections using a [certificate](../../certificate-manager/concepts/index.md) from [{{ certificate-manager-full-name }}](../../certificate-manager/) and to redirect HTTP requests to HTTPS.
 
 This scenario uses `my-site.com` as an example domain name.
 
@@ -38,9 +38,9 @@ All the resources created in the use case will belong to the same [cloud network
 
 To create a network:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -48,7 +48,7 @@ To create a network:
    1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -60,15 +60,15 @@ For your virtual hosting to run, you need to assign a static public IP address t
 
 To reserve an IP address:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -80,9 +80,9 @@ To reserve an IP address:
 
 To create security groups:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab.
@@ -116,7 +116,7 @@ To create security groups:
       | `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `mysite-sg-balancer` |
       | `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -126,13 +126,13 @@ To create security groups:
 
 For users to access the site using the secure HTTPS protocol (HTTP over TLS), the site must have a TLS certificate issued. For use in the L7 load balancer, import the certificate into {{ certificate-manager-name }}.
 
-If your website does not have a certificate, you can [use {{ certificate-manager-name }} to get a certificate from Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md). This does not require additional steps after creating a certificate. It is imported automatically.
+If your website does not have a certificate, you can [use {{ certificate-manager-name }} to get one from Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md). This does not require additional steps after creating a certificate. It is imported automatically.
 
 To import an existing certificate for `my-site.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}** and select the **{{ ui-key.yacloud.certificate-manager.action_import }}** option.
@@ -142,7 +142,7 @@ To import an existing certificate for `my-site.com`:
    1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with the key or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -152,9 +152,9 @@ To import an existing certificate for `my-site.com`:
 
 To create a [VM group](../../compute/concepts/instance-groups/index.md) for `my-site.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Open the **{{ ui-key.yacloud.compute.switch_groups }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -181,7 +181,7 @@ To create a [VM group](../../compute/concepts/instance-groups/index.md) for `my-
 
       {% note alert %}
 
-      Once created, the VM will be assigned an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
+      Once created, the VM is assigned an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 
@@ -190,7 +190,7 @@ To create a [VM group](../../compute/concepts/instance-groups/index.md) for `my-
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and specify `mysite-tg` as the instance group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -230,9 +230,9 @@ For the backends, groups will implement [health checks](../../application-load-b
 
 To create a backend group for `my-site.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Open the **{{ ui-key.yacloud.alb.label_backend-groups }}** tab. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
@@ -246,7 +246,7 @@ To create a backend group for `my-site.com`:
    1. Enter the **{{ ui-key.yacloud.alb.label_path }}** to be accessed by the load balancer for health checks: `/`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -258,9 +258,9 @@ The backend group should be linked to an [HTTP router](../../application-load-ba
 
 To create an HTTP router:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Open the **{{ ui-key.yacloud.alb.label_http-routers }}** tab. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -273,7 +273,7 @@ To create an HTTP router:
    1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the `my-site-bg` group.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -281,9 +281,9 @@ To create an HTTP router:
 
 ## Create an L7 load Balancer {#create-l7-balancer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
@@ -311,7 +311,7 @@ To create an HTTP router:
          1. Select the `mysite-cert` certificate and the `mysite-router` HTTP router.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -334,9 +334,9 @@ The `my-site.com` domain name must be mapped to the L7 load balancer IP address 
 
    {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public [DNS zone](../../dns/concepts/dns-zone.md), create one:
@@ -353,7 +353,7 @@ The `my-site.com` domain name must be mapped to the L7 load balancer IP address 
          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied IP address of the load balancer.
          1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -403,7 +403,7 @@ To create the infrastructure for terminating TLS connections using {{ TF }}:
          * `tls-termination-config.tf`: Configuration of the infrastructure you create.
          * `tls-terminationg.auto.tfvars`: File with user data.
 
-   - Creating files manually
+   - Manually
 
       1. Create a directory for configuration files.
 

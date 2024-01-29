@@ -7,9 +7,9 @@ description: "To control access to an object in an {{ objstorage-name }}, you ca
 
 To control access to an object in an {{ objstorage-name }} bucket, you can use an [ACL](../../concepts/acl.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
@@ -20,7 +20,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
    1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -47,7 +47,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
       Where:
       * `access_key`: ID of the static access key.
-      * `secret_key`: Value of the secret access key.
+      * `secret_key`: Secret access key value.
       * `acl`: [Predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of an object. `private` (default): {{ yandex-cloud }} users are authorized based on their roles in {{ iam-short-name }}.
 
       For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).
@@ -82,7 +82,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
       You can verify the change to a security group in the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To edit an ACL object, use the [objectPutAcl](../../s3/api-ref/acl/objectput.md) S3 API method.
 

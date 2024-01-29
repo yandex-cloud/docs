@@ -213,13 +213,13 @@ Here is an example of creating a signed URL to download the `object-for-share.tx
 
 ## Examples of getting pre-signed links in {{ objstorage-name }} tools {#example-for-getting-in-tools}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [storage-get-link-for-download](../_includes_service/storage-get-link-for-download.md) %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    You can also use AWS CLI to generate a link for downloading an object. To do this, run the following command:
 
@@ -229,7 +229,7 @@ Here is an example of creating a signed URL to download the `object-for-share.tx
 
    To generate the link properly, make sure to provide the `--endpoint-url` parameter pointing to the {{ objstorage-name }} hostname. For detailed information, see [this section covering AWS CLI specifics](../tools/aws-cli.md#specifics).
 
-- boto3
+- boto3 {#boto3}
 
    The example below generates a pre-signed URL for downloading the `object-for-share` object from the `bucket-with-objects` bucket. The URL is valid for 100 seconds.
 

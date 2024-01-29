@@ -6,9 +6,9 @@ If you do not have a service account yet, [create one](../sa/create.md) and [ass
 
 To create a static access key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -24,7 +24,7 @@ To create a static access key:
 
       {% endnote %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -69,13 +69,9 @@ To create a static access key:
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
       ```
 
-   1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
+   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
-- API
-
-   To create an access key, use the [create](../../api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -97,7 +93,7 @@ To create a static access key:
 
       For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -106,7 +102,7 @@ To create a static access key:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -127,6 +123,10 @@ To create a static access key:
          yc iam access-key list --service-account-name=<service_account_name>
          ```
 
+- API {#api}
+
+   To create an access key, use the [create](../../api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 ## Examples {#examples}
@@ -135,16 +135,26 @@ To create a static access key:
 
 Add a description when creating an access key.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc iam access-key create --service-account-name my-robot \
      --description "this key is for my bucket"
    ```
 
-- API
+- {{ TF }} {#tf}
+
+   ```hcl
+   resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+   service_account_id = "<service_account_ID>"
+   description        = "this key is for my bucket"
+   pgp_key            = "BIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+x....."
+   }
+   ```
+
+- API {#api}
 
    ```bash
    curl -X POST \
@@ -155,16 +165,6 @@ Add a description when creating an access key.
          "description": "this key is for my bucket"
      }' \
      https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
-   ```
-
-- {{ TF }}
-
-   ```hcl
-   resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-   service_account_id = "<service_account_ID>"
-   description        = "this key is for my bucket"
-   pgp_key            = "BIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+x....."
-   }
    ```
 
 {% endlist %}

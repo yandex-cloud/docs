@@ -5,15 +5,15 @@ description: "In this tutorial, you will learn how to get a cloud ID in {{ yande
 
 # Retrieving a cloud ID
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [management console]({{ link-console-main }}) and [select](switch-cloud.md) the appropriate cloud. On the page that opens, the cloud ID is shown on top, next to the cloud name, and in the **{{ ui-key.yacloud.common.id }}** line of the **{{ ui-key.yacloud.iam.cloud.switch_overview }}** tab.
 
    1. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
 
-- CLI
+- CLI {#cli}
 
    If you know the name of the cloud, pass it as a parameter in the `get` command:
 
@@ -43,7 +43,7 @@ description: "In this tutorial, you will learn how to get a cloud ID in {{ yande
    +----------------------+------------+--------------------------+
    ```
 
-- API
+- API {#api}
 
    To get the list of clouds with IDs, use the [list](../../api-ref/Cloud/list.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/List](../../api-ref/grpc/cloud_service.md#List) gRPC API call.
 

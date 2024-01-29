@@ -16,9 +16,9 @@ To learn more, see [Replication](../concepts/replication.md).
 
 ## Enabling fault tolerance for the cluster {#add-zk}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
@@ -28,7 +28,7 @@ To learn more, see [Replication](../concepts/replication.md).
    1. Change the {{ ZK }} host settings, if required. To do this, hover over the required host row and click ![image](../../_assets/console-icons/pencil.svg).
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -54,7 +54,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
       You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -170,7 +170,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To enable fault tolerance for a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/cluster_service.md#AddZookeeper) gRPC API call. For the added hosts, specify the settings for three {{ ZK }} hosts by listing them in the `hostSpecs` parameter.
 
@@ -180,15 +180,15 @@ To learn more, see [Replication](../concepts/replication.md).
 
 {{ ZK }} hosts get the following specs by default:
 * Host class: `b2.medium`.
-* 10 GB of network SSD [storage](../concepts/storage.md) (`{{ disk-type-example }}`).
+* Network SSD [storage](../concepts/storage.md) (`{{ disk-type-example }}`): 10 GB.
 
 {% endnote %}
 
 ## Adding a {{ ZK }} host {#add-zk-host}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
@@ -196,7 +196,7 @@ To learn more, see [Replication](../concepts/replication.md).
    1. If required, change the host settings.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -229,7 +229,7 @@ To learn more, see [Replication](../concepts/replication.md).
         --host zone-id=<availability_zone>,subnet-id=<subnet_ID>,type=zookeeper
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -260,7 +260,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To add a {{ ZK }} host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to locate the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -270,16 +270,16 @@ To learn more, see [Replication](../concepts/replication.md).
 
 ## Deleting a {{ ZK }} host {#delete-zk-host}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
    1. Hover over the required host row and click ![image](../../_assets/console-icons/xmark.svg).
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -294,7 +294,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
    You can request the host name with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -312,7 +312,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a {{ ZK }} host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
    * ID of the cluster in which the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).

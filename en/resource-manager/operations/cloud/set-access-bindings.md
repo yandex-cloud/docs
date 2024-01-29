@@ -5,13 +5,13 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 ## Assign a role for the cloud {#access-to-user}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    1. View a description of the command to assign a role for a cloud:
 
@@ -78,7 +78,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -137,7 +137,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
       After that access rights are granted for the cloud.
 
-- API
+- API {#api}
 
    Use the [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings) gRPC API call.
 
@@ -207,13 +207,13 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 ## Assign multiple roles {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [set-access-binding-multiple-users-cloud-console](../../../_includes/resource-manager/set-access-binding-multiple-users-cloud-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
 
@@ -245,7 +245,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Describe the properties of the cloud access rights in a configuration file. Assign the `editor` role to one user and the `viewer` role to another user:
 
@@ -297,7 +297,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
       After that access rights are granted for the cloud.
 
-- API
+- API {#api}
 
    Assign the `editor` role to one user and the `viewer` role to another user:
 
@@ -360,9 +360,9 @@ A service account can be [assigned](../../../iam/operations/sa/assign-role-for-s
 
 Allow the `test-sa` service account to manage the `my-cloud` cloud and its resources:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    You assign roles to a service account the same way as to a user account.
 
@@ -370,7 +370,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
 
    {% include [set-accessbinding-sa-cloud-console](../../../_includes/iam/set-accessbinding-sa-cloud-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
 
@@ -396,7 +396,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
         --subject serviceAccount:<service_account_ID>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Assign the `editor` role to a service account.
 
@@ -442,7 +442,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
 
       After that access rights are granted for the cloud.
 
-- API
+- API {#api}
 
    1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
 

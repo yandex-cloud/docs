@@ -1,9 +1,3 @@
-To connect to a [VM](../compute/concepts/vm.md) over SSH, you need a key pair: the public key is placed on the VM, while the private one is stored on the user's device. This method is more secure than connecting with a username and password.
-
-{% include [vm-connect-ssh-linux-note](vm-connect-ssh-linux-note.md) %}
-
-To create a key pair:
-
 {% list tabs group=operating_system %}
 
 - Linux/macOS {#linux-macos}
@@ -15,9 +9,9 @@ To create a key pair:
       ssh-keygen -t ed25519
       ```
 
-      After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name (`id_ed25519`). The key pair will be created in the `~/.ssh` directory.
+      After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name and path suggested by the command.
 
-      The public key will be saved to the `<key_name>.pub` file.
+      The key pair will be created in the current directory. The public key will be saved in a file with a `.pub` extension.
 
 - Windows 10 {#windows}
 
@@ -30,11 +24,9 @@ To create a key pair:
       ssh-keygen -t ed25519
       ```
 
-      After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name (`id_ed25519`).
+      After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name and path suggested by the command.
 
-      The key pair will be created in `C:\Users\<username>\.ssh\` or `C:\Users\<username>\` depending on the command line interface.
-
-      The public key will be saved to the `<key_name>.pub` file.
+      The key pair will be created in the current directory. The public key will be saved in a file with a `.pub` extension.
 
 - Windows 7/8 {#windows7-8}
 

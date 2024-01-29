@@ -5,9 +5,9 @@ description: "Follow this guide to delete a rule from a security profile."
 
 # Deleting a rule from a security profile
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [rule](../concepts/rules.md) from a [security profile](../concepts/profiles.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.

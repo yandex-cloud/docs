@@ -6,35 +6,35 @@ To find out the `ID` or `NAME` of a [node group](../../concepts/index.md#node-gr
 
 Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} cluster:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of the {{ k8s }} cluster.
-  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the name of the {{ k8s }} cluster.
+   1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 
-- CLI
+- CLI {#cli}
 
-  Run this command:
+   Run this command:
 
-  ```bash
-  yc managed-kubernetes node-group list
-  ```
+   ```bash
+   yc managed-kubernetes node-group list
+   ```
 
-  Result:
+   Result:
 
-  ```text
-  +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-  |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
-  +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-  | catvhf4iv6dt******** | catcafja9ktu******** | test-nodegroup | cl1ec3le3qv3******** | 2019-04-09 10:56:22 | RUNNING |    2 |
-  +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-  ```
+   ```text
+   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+   |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
+   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+   | catvhf4iv6dt******** | catcafja9ktu******** | test-nodegroup | cl1ec3le3qv3******** | 2019-04-09 10:56:22 | RUNNING |    2 |
+   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+   ```
 
-- API
+- API {#api}
 
-  To get the list of node groups in the default folder, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+   To get the list of node groups in the default folder, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
 {% endlist %}
 
@@ -42,37 +42,37 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 
 To access a node group, use the `ID` or `NAME` parameters from the [previous](node-group-list.md#list) section.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of the {{ k8s }} cluster.
-  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. Click the name of the node group.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the name of the {{ k8s }} cluster.
+   1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+   1. Click the name of the node group.
 
-- CLI
+- CLI {#cli}
 
-  Get detailed information about the node group:
+   Get detailed information about the node group:
 
-  ```bash
-  yc managed-kubernetes node-group get test-nodegroup
-  ```
+   ```bash
+   yc managed-kubernetes node-group get test-nodegroup
+   ```
 
-  Result:
+   Result:
 
-  ```text
-  id: catvhf4iv6dt********
-  cluster_id: catcafja9ktu********
-  created_at: "2019-04-09T10:56:22Z"
-  ...
-      subnet_id: b0c0jfcpqgng********
-  instance_group_id: cl1ec3le3qv3********
-  node_version: 1.13.3
-  ```
+   ```text
+   id: catvhf4iv6dt********
+   cluster_id: catcafja9ktu********
+   created_at: "2019-04-09T10:56:22Z"
+   ...
+       subnet_id: b0c0jfcpqgng********
+   instance_group_id: cl1ec3le3qv3********
+   node_version: 1.13.3
+   ```
 
-- API
+- API {#api}
 
-  You can get detailed information about a node group using the [get](../../api-ref/NodeGroup/get.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+   You can get detailed information about a node group using the [get](../../api-ref/NodeGroup/get.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
 {% endlist %}

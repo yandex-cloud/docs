@@ -103,4 +103,4 @@ You can add `IfExists` to the end of any operator name (except the [Null](#null)
 
 ### Null operator {#null}
 
-The result of a `Null` operator is `true` if a condition key is not present in the request at the time of authorization. If the key exists and its value is not null, then `false`.
+The `Null` operator returns `true` if a condition key is missing from the request at the time of authorization. If the key exists and its value is not null, then `false`.

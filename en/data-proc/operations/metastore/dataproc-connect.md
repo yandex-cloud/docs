@@ -14,9 +14,9 @@ To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. [Create a {{ metastore-name }} cluster](./cluster-create.md).
    1. When [creating](../cluster-create.md) or [updating](../cluster-update.md) a {{ dataproc-name }} cluster, specify the following [property](../../concepts/settings-list.md):

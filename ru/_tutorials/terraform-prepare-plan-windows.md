@@ -37,7 +37,15 @@
     data "yandex_compute_image" "default" {
       family = var.image_family
     }
-    
+
+    resource "yandex_compute_disk" "boot-disk" {
+      name     = "boot-disk"
+      type     = var.disk_type
+      zone     = "{{ region-id }}-a"
+      size     = var.disk_size
+      image_id = yandex_compute_image.default.id
+    }
+
     data "template_file" "default" {
       template = file("${path.module}/init.ps1")
       vars = {
@@ -58,11 +66,7 @@
       }
     
       boot_disk {
-        initialize_params {
-          image_id = data.yandex_compute_image.default.id
-          size     = var.disk_size
-          type     = var.disk_type
-        }
+        image_id = yandex_compute_disk.boot-disk.id
       }
     
       network_interface {
@@ -181,7 +185,7 @@
 
 1. `terraform.tfvars` — файл, где хранятся значения переменных для создаваемых внутри ВМ учетных записей и токены доступа.
 
-    {% cut "Файл terraform.tfvars " %}
+    {% cut "Файл terraform.tfvars" %}
 
     ```
     name       = "<my_server_name>"

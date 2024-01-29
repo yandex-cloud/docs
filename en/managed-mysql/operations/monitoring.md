@@ -134,18 +134,18 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
       If the chart is close to the maximum value, it may mean that open connections cannot be closed.
 
-      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections) .
+      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections).
 
-   * **Threads running**: The number of running threads.
+   * **Threads running**: Number of running threads.
 
       As the load on the host increases, this value grows rapidly.
 
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
@@ -174,7 +174,7 @@ The recommended thresholds are as follows:
 |-------------------------------------|:-------------------------:|:-------------------------:|:-------------------------:|
 | Replication delay | `mysql_replication_lag` | `600` | `60` |
 | Number of healthy hosts | `mysql_is_alive` | `<host_count>: 2` | `<host_count>: 1` |
-| Average query execution time | `mysql_latency_query_avg` | N/A | `2,000` |
+| Average query execution time | `mysql_latency_query_avg` | — | `2,000` |
 | Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 | CPU usage | `cpu.idle` | `10` | `20` |
 

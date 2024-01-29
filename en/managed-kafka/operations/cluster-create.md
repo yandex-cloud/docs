@@ -17,9 +17,9 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -93,7 +93,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running` and its state to `Alive`. This may take some time.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -169,7 +169,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -259,7 +259,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a {{ mkf-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mkf-name }} cluster should be placed, in the `folderId` parameter.
@@ -298,9 +298,9 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 Using import, you can bring the existing clusters under {{ TF }} management.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. In the {{ TF }} configuration file, specify the cluster you want to import:
 
@@ -322,9 +322,9 @@ Using import, you can bring the existing clusters under {{ TF }} management.
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Create a {{ mkf-name }} cluster with the following test characteristics:
 
@@ -363,7 +363,7 @@ Using import, you can bring the existing clusters under {{ TF }} management.
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mkf-name }} cluster with the following test characteristics:
    * Cloud ID: `{{ tf-cloud-id }}`
@@ -383,7 +383,7 @@ Using import, you can bring the existing clusters under {{ TF }} management.
    * Public access: Allowed
    * Protection against accidental {{ mkf-name }} cluster deletion: Enabled
 
-   The configuration file for the {{ mkf-name }} cluster is as follows:
+   The configuration file for this {{ mkf-name }} cluster is as follows:
 
    
    

@@ -21,9 +21,9 @@ For more information about using the Admin API and existing limitations, see [{#
 
 Prior to creating a topic, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -38,7 +38,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    1. Under **{{ ui-key.yacloud.kafka.section_topic-config }}**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -62,7 +62,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
       If necessary, specify the [topic settings](../concepts/settings-list.md#topic-settings) here.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -94,7 +94,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
-- API
+- API {#api}
 
    To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/topic_service.md#Create) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to create a topic. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -115,9 +115,9 @@ You cannot reduce the number of partitions in {{ mkf-name }} topics. You cannot 
 
 For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -131,7 +131,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -153,7 +153,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
         --replication-factor <replication_factor>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -185,7 +185,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
-- API
+- API {#api}
 
    To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/topic_service.md#Update) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -200,15 +200,15 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 ## Listing topics in a cluster {#list-topics}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -221,7 +221,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    ```
 
 
-- API
+- API {#api}
 
    To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/topic_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -232,16 +232,16 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 ## Getting detailed information about a topic {#get-topic}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
    1. Click the topic name.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -254,7 +254,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    ```
 
 
-- API
+- API {#api}
 
    To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/topic_service.md#Get) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -267,9 +267,9 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 Using import, you can bring the existing cluster topics under {{ TF }} management.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. In the {{ TF }} configuration file, specify the topic you want to import:
 
@@ -291,9 +291,9 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 {% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -301,7 +301,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic you need and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -320,7 +320,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
       {{ yc-mdb-kf }} topic delete <topic_name> --cluster-name <cluster_name>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -337,7 +337,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
-- API
+- API {#api}
 
    To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) gRPC API call and provide the following in the request:
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).

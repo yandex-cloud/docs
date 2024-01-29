@@ -7,7 +7,7 @@ description: "Follow this guide to locally export an OS Login certificate so it 
 
 {% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
 
-You can use a certificate to enable a user or a third-party tool, such as [Terraform](https://www.terraform.io/) or [Ansible](https://www.ansible.com/), to use SSH to connect to a VM with OS Login access enabled. To do this, locally export an OS Login certificate and use it to access a VM using a standard SSH client.
+You can use a certificate to enable a user or a third-party tool, such as [Terraform](https://www.terraform.io/) or [Ansible](https://www.ansible.com/), to use SSH to connect to a VM with OS Login access enabled. To do this, locally export an OS Login certificate and use it to access a VM using a standard SSH client. The exported certificate is valid for one hour.
 
 {% include [oslogin-export-certificate](../../../_includes/compute/oslogin-export-certificate.md) %}
 

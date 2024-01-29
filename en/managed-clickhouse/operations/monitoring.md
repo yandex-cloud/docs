@@ -17,9 +17,9 @@ description: "In this tutorial, you will learn how to monitor the state of {{ CH
 
 To view detailed information about the {{ mch-name }} cluster state:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
@@ -63,7 +63,7 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **Inserted data**: Data insertion rate (in bytes per second).
    * **Inserted data per host**: Data insertion rate on each host (in bytes per second).
    * **Inserted rows per host**: Row insertion rate on each host (in rows per second).
-   * **Max data parts per partition**: Highest number of data parts per partition among all tables. The limit for this value is set in the [DBMS settings](../concepts/settings-list.md#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
+   * **Max data parts per partition**: Highest number of data parts per partition among all tables. The limit for this value is set in the [DBMS settings](../concepts/settings-list#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
    * **Max replication delay across tables**: Longest replication delay across tables. Values greater than a few seconds may indicate excessive load or replication issues.
    * **Memory usage**: Use of RAM, in bytes.
    * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed in bytes and %).
@@ -90,15 +90,15 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **Average latency per ZooKeeper host**: Average time it takes each ZooKeeper host to respond.
    * **Average transaction time per {{ CH }} host**: Average time it takes each {{ CH }} host to execute a transaction. It indicates the time {{ CH }} spends to access ZooKeeper.
    * **Connections per ZooKeeper host**: Number of connections on each ZooKeeper host.
-   * **CPU cores usage**: Number processor cores used.
+   * **CPU cores usage**: Number of processor cores used.
    * **CPU cores usage per host**: Number of processor cores used on each host.
    * **CPU usage per host**: Usage of processor cores on each host.
-   * **Disk read per host:** Disk read rate on each host (in bytes per second).
+   * **Disk read per host**: Disk read rate on each host (in bytes per second).
    * **Disk space usage**: Shows how much disk space is used (in bytes). Two charts are displayed: one for each host and one for all hosts.
    * **Disk space usage per host**: Shows how much disk space is used on each host (%).
    * **Disk usage per host**: Speed of disk operations on each host (in bytes per second).
    * **Disk write per host**: Disk write rate on each host (in bytes per second).
-   * **Ephemeral nodes**: The number of Ephemeral nodes.
+   * **Ephemeral nodes**: Number of Ephemeral nodes.
 
    {% note info %}
 
@@ -123,9 +123,9 @@ To view detailed information about the {{ mch-name }} cluster state:
 
 To view detailed information about the state of individual {{ mch-name }} hosts:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
@@ -146,11 +146,11 @@ To view detailed information about the state of individual {{ mch-name }} hosts:
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
@@ -190,9 +190,9 @@ You can view the current storage size in the [detailed information about the clu
 
 To view a cluster's state and status:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.

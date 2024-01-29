@@ -29,15 +29,15 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
 ## Retrieving a list of installed extensions {#list-extensions}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** section.
    1. In the **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** column, you will see a list of extensions enabled for each database.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -52,7 +52,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
    The enabled extensions will be listed in the `extensions` list.
 
-- API
+- API {#api}
 
    To get a list of extensions for a database, use the [get](../../api-ref/Database/get.md) REST API method for the [Database](../../api-ref/Database/index.md) resource or the [DatabaseService/Get](../../api-ref/grpc/database_service.md#Get) gRPC API call and provide the following in the request:
 
@@ -63,16 +63,16 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
 ## Editing a list of installed extensions {#update-extensions}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
    1. In the required database row, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage-extensions }}**.
    1. Select the extensions you need and click **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -92,7 +92,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
    {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -121,7 +121,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To edit the list of extensions for a database, use the [update](../../api-ref/Database/update.md) REST API method for the [Database](../../api-ref/Database/index.md) resource or the [DatabaseService/Update](../../api-ref/grpc/database_service.md#Update) gRPC API call and provide the following in the request:
 

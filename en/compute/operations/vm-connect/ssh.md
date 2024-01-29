@@ -7,11 +7,9 @@ description: "Using this guide, you can connect to a VM with an SSH key pair: th
 
 The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH uses a key pair: the public key is placed on the VM and the private key is stored on the user device. To enable another user to connect to your VM, add an SSH key for them by following this [guide](#vm-authorized-keys). Connecting with a key pair is more secure than doing so with a username and password.
 
-{% note info %}
+{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
 You cannot use an SSH key pair to connect to a VM with [access via OS Login](./os-login.md) enabled. However, it is recommended to always specify SSH keys when creating a VM: this way, you will be able to [connect to a VM via SSH](#vm-connect) if you disable OS Login access for it.
-
-{% endnote %}
 
 
 ## Creating an SSH key pair {#creating-ssh-keys}
@@ -52,7 +50,7 @@ You can also copy the key using the command line:
 
       Paste the public key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field when creating a new VM in the [management console]({{ link-console-main }}).
 
-- MacOS {#macos}
+- macOS {#macos}
 
    1. Run the terminal.
    1. Output the file contents:

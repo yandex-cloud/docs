@@ -6,13 +6,13 @@ If you do not have a service account yet, [create one](../sa/create.md) and [ass
 
 To create an API key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   {% include [create-console](../../../_includes/iam/create-api-key-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -59,23 +59,7 @@ To create an API key:
 
       To learn how to provide the key to a request, read the guides for the [services](../../concepts/authorization/api-key.md#supported-services) that support this authorization method.
 
-- API
-
-   1. [Find out the service account ID](../sa/get-id.md).
-   1. Create an API key using the [create](../../api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
-
-      ```bash
-      export SERVICEACCOUNT_ID=<service_account_ID>
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer $IAM_TOKEN" \
-        -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
-        https://iam.{{ api-host }}/iam/v1/apiKeys
-      ```
-      You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -106,7 +90,7 @@ To create an API key:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -124,6 +108,23 @@ To create an API key:
       yc iam key list --service-account-id <service_account_ID>
       ```
 
+- API {#api}
+
+   1. [Find out the service account ID](../sa/get-id.md).
+   1. Create an API key using the [create](../../api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
+
+      ```bash
+      export SERVICEACCOUNT_ID=<service_account_ID>
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $IAM_TOKEN" \
+        -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
+        https://iam.{{ api-host }}/iam/v1/apiKeys
+      ```
+
+      You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 ## Examples {#examples}
@@ -132,33 +133,18 @@ To create an API key:
 
 To make it easier to find an API key without knowing its ID, add a description when creating it:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc iam api-key create --service-account-name my-robot \
      --description "this API-key is for my-robot"
    ```
 
-- API
+- {{ TF }} {#tf}
 
-   ```bash
-   export SERVICEACCOUNT_ID=<service_account_ID>
-   export IAM_TOKEN=CggaATEVAgA...
-   curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer $IAM_TOKEN" \
-     -d "{
-         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
-         \"description\": \"this API-key is for my-robot\"
-     }" \
-     https://iam.{{ api-host }}/iam/v1/apiKeys
-   ```
-
-- {{ TF }}
-
-   1. Add parameters of resource to the configuration file:
+   1. Add resource parameters to the configuration file:
 
       * `service_account_id`: Service account ID. This is a required parameter.
       * `description`: Key description. This is an optional parameter.
@@ -185,7 +171,7 @@ To make it easier to find an API key without knowing its ID, add a description w
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -198,6 +184,21 @@ To make it easier to find an API key without knowing its ID, add a description w
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+   ```bash
+   export SERVICEACCOUNT_ID=<service_account_ID>
+   export IAM_TOKEN=CggaATEVAgA...
+   curl -X POST \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer $IAM_TOKEN" \
+     -d "{
+         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
+         \"description\": \"this API-key is for my-robot\"
+     }" \
+     https://iam.{{ api-host }}/iam/v1/apiKeys
+   ```
 
 {% endlist %}
 

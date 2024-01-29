@@ -96,6 +96,14 @@ resource "yandex_compute_image" "lamp-vm-image" {
   source_family = var.vm_image_family
 }
 
+resource "yandex_compute_disk" "boot-disk" {
+  name     = "bootvmdisk"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.lamp-vm-image.id
+}
+
 # Создание ВМ
 
 resource "yandex_compute_instance" "vm-lamp" {
@@ -108,9 +116,7 @@ resource "yandex_compute_instance" "vm-lamp" {
     memory        = 1
   }
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.lamp-vm-image.id
-    }
+    image_id = yandex_compute_disk.boot-disk.id
   }
   network_interface {
     subnet_id          = yandex_vpc_subnet.subnet-1.id

@@ -4,9 +4,9 @@
 
 For example, if you provide the users of your service with the ability to upload objects to {{ objstorage-name }}, then, by limiting the maximum volume, you can better control user actions and avoid unnecessary costs.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
@@ -17,7 +17,7 @@ For example, if you provide the users of your service with the ability to upload
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
    1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@ For example, if you provide the users of your service with the ability to upload
       created_at: "2022-12-16T13:58:18.933814Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -95,7 +95,7 @@ For example, if you provide the users of your service with the ability to upload
 
       Where:
       * `access_key`: ID of the static access key.
-      * `secret_key`: Value of the secret access key.
+      * `secret_key`: Secret access key value.
       * `max_size`: Maximum bucket size (bytes).
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
@@ -130,7 +130,7 @@ For example, if you provide the users of your service with the ability to upload
 
       You can verify changes to your bucket in the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To limit the maximum bucket size, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
 

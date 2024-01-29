@@ -9,9 +9,9 @@ description: "In this tutorial, you will learn how to edit a {{ cdn-name }} orig
 
 To edit an [origin group](../../concepts/origins.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -21,7 +21,7 @@ To edit an [origin group](../../concepts/origins.md):
    1. Edit as appropriate.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -79,7 +79,7 @@ To edit an [origin group](../../concepts/origins.md):
 
       For more information about the `yc cdn origin-group update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/update.md).
 
-- API
+- API {#api}
 
    To update an origin group, use the [update](../../api-ref/OriginGroup/update.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Update](../../api-ref/grpc/origin_group_service.md#Update) gRPC API call.
 
@@ -95,9 +95,9 @@ You can only delete backup origins.
 
 To remove an origin from an origin group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -105,7 +105,7 @@ To remove an origin from an origin group:
    1. Select the appropriate origin and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- API
+- API {#api}
 
    Use the [delete](../../api-ref/Origin/delete.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Delete](../../api-ref/grpc/origin_service.md#Delete) gRPC API call.
 
@@ -121,9 +121,9 @@ You can only delete backup origins.
 
 To remove multiple origins from a group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.

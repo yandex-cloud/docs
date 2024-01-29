@@ -28,9 +28,9 @@ To set up DNS query caching:
 
 ### Create an infrastructure {#create-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. Create a [cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
    1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` [role](../../iam/concepts/access-control/roles.md).
@@ -38,7 +38,7 @@ To set up DNS query caching:
       * [{{ k8s }} version](../concepts/release-channels-and-updates.md): 1.20 or higher.
       * Public access to the internet: Enabled.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -48,17 +48,17 @@ To set up DNS query caching:
    1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster to operate:
+      * [Security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
          * Rules for service traffic.
          * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
       * {{ managed-k8s-name }} cluster.
-      * [Service account](../../iam/concepts/users/service-accounts.md) required for the cluster and [{{ managed-k8s-name }} node group](../concepts/index.md#node-group) to operate.
+      * [Service account](../../iam/concepts/users/service-accounts.md) required to use the cluster and [{{ managed-k8s-name }} node group](../concepts/index.md#node-group).
    1. Specify the following in the configuration file:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} versions](../concepts/release-channels-and-updates.md) for the cluster and {{ managed-k8s-name }} node groups.
       * {{ managed-k8s-name }} cluster CIDR.
       * Name of the {{ managed-k8s-name }} cluster service account.
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -83,15 +83,15 @@ To set up DNS query caching:
 
 ## Install NodeLocal DNS {#install}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- Using {{ marketplace-full-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
    Install [NodeLocal DNS](/marketplace/products/yc/node-local-dns) using {{ marketplace-name }} as described in this [guide](../operations/applications/node-local-dns.md#marketplace-install).
 
 
-- Manually
+- Manually {#manual}
 
    1. Retrieve the service [IP address](../../vpc/concepts/address.md) for `kube-dns`:
 
@@ -358,15 +358,15 @@ To change the configuration, edit the appropriate `configmap`. For example, to e
    ```text
    ...
    apiVersion: v1
-   data:
-   Corefile: |
-   cluster.local:53 {
-     log
-     errors
-     cache {
-       success 9984 30
-       denial 9984 5
-     }
+     data:
+       Corefile: |
+         cluster.local:53 {
+             log
+             errors
+             cache {
+                     success 9984 30
+                     denial 9984 5
+             }
    ...
    ```
 
@@ -523,7 +523,7 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    1. Save the file and run the `kubelet` restart command:
 
       ```bash
-      systemctl daemon-reload &amp;&amp; systemctl restart kubelet
+      systemctl daemon-reload && systemctl restart kubelet
       ```
 
       Next, exit the container mode by running the `exit` command.
@@ -615,18 +615,18 @@ service "node-local-dns" deleted
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If static [public IP addresses](../../vpc/concepts/address.md#public-addresses) were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
    1. Delete the `k8s-node-local-dns.tf` configuration file.
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

@@ -70,9 +70,9 @@ You can [assign the role](../../iam/operations/sa/assign-role-for-sa.md) to an e
 
 For the {{ backup-name }} agent to exchange data with the [backup provider](index.md#providers) servers, make sure the VM is granted network access to the IP addresses of {{ backup-name }} resources based on the following table:
 
-{% list tabs %}
+{% list tabs group=traffic %}
 
-- Egress traffic
+- Egress traffic {#outgoing}
 
    | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
    --- | --- | --- | ---

@@ -36,9 +36,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 ## How to create a {{ CH }} cluster {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
@@ -58,7 +58,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
-      * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
+      * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the characteristics of all existing instances change, too.
 
       
       * Select the [disk type](../concepts/storage.md).
@@ -123,7 +123,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -279,7 +279,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
       {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -411,7 +411,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
@@ -478,9 +478,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
@@ -491,12 +491,12 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Environment: `production`.
    * Network: `default`.
    * Security group: `{{ security-group }}`.
-   * With a single {{ CH }} host of the `{{ host-class }}` class in the `b0rcctk2rvtr********` subnet and the `{{ region-id }}-a` availability zone.
+   * Number of {{ CH }} hosts of the `{{ host-class }}` class in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1.
    * {{ CK }}.
-   * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
-   * With one user, `user1`, with the `user1user1` password.
-   * With one database, `db1`.
-   * Protection against accidental cluster deletion.
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+   * User: `user1`, with the `user1user1` password.
+   * Database: `db1`.
+   * Protection against accidental cluster deletion: Enabled.
 
 
    Run the following command:
@@ -520,7 +520,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mch-name }} cluster and a network for it with the following test characteristics:
 
@@ -537,11 +537,11 @@ If you specified security group IDs when creating a cluster, you may also need t
       * Network: `cluster-net`.
       * Availability zone: `{{ region-id }}-a`.
 
-   * With 20 GB of local SSD storage (`{{ disk-type-example }}`).
-   * Database name `db1`.
-   * With a user named `user1` with the `user1user1` password.
+   * Local SSD storage (`{{ disk-type-example }}`): 32 GB.
+   * Database name: `db1`.
+   * User: `user1`, with the `user1user1` password.
 
-   The configuration files for this cluster look like this:
+   The configuration files for this cluster are as follows:
 
    1. Configuration file with a description of provider settings:
 
@@ -565,9 +565,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ### Creating a multi-host cluster {#creating-a-multi-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mch-name }} cluster with the following test characteristics:
 
@@ -587,12 +587,12 @@ If you specified security group IDs when creating a cluster, you may also need t
       These subnets will belong to the `cluster-net` network.
 
       * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-   * With 32 GB of local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts.
-   * With 10 GB of local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts.
-   * Database name `db1`.
-   * With a user named `user1` with the `user1user1` password.
+   * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts: 32 GB.
+   * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts: 10 GB.
+   * Database name: `db1`.
+   * User: `user1`, with the `user1user1` password.
 
-   The configuration files for this cluster look like this:
+   The configuration files for this cluster are as follows:
 
    1. Configuration file with a description of provider settings:
 

@@ -57,7 +57,7 @@ The infrastructure support costs include:
 * Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
 * Fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../application-load-balancer/pricing.md)).
 * Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../cdn/pricing.md)).
-* Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../dns/pricing.md)).
+* Fee for public DNS queries and DNS zones if using {{ dns-full-name }} (see [{{ dns-name }} pricing](../dns/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
 
@@ -70,9 +70,9 @@ For a Let's Encrypt® certificate, have your [rights checked](../certificate-man
 
 All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -81,7 +81,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
    1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](cli-install.md) %}
 
@@ -175,7 +175,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       For more information about the `yc vpc subnet create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](terraform-install.md) %}
 
@@ -231,7 +231,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    1. Create the `canary-network` network using the [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) or REST API [create](../vpc/api-ref/Network/create.md) gRPC API method.
    1. Create the `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` and `canary-subnet-{{ region-id }}-c` in the three availability zones by calling the [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../vpc/api-ref/Subnet/create.md) gRPC API method.
@@ -240,22 +240,22 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 ## Create buckets in {{ objstorage-name }} {#create-buckets}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Create a blue bucket for the backend stable version:
+   1. Create a "blue" bucket for the backend stable version:
 
       1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-   1. Similarly, create a green bucket for the backend test version.
+   1. Similarly, create a "green" bucket for the backend test version.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Create a "blue" bucket for the backend stable version:
 
@@ -279,11 +279,11 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
         --acl public-read
       ```
 
-   1. Similarly, create a green bucket for the backend test version and enable public access to it.
+   1. Similarly, create a "green" bucket for the backend test version and enable public access to it.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
-   1. Add the parameters of the blue (backend stable version) and green (backend test version) buckets to the configuration file:
+   1. Add the parameters of the "blue" (backend stable version) and "green" (backend test version) buckets to the configuration file:
 
       ```hcl
       ...
@@ -322,7 +322,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    Use the [create](../storage/s3/api-ref/bucket/create.md) REST API method.
 
@@ -366,19 +366,19 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 1. Upload files to buckets:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Select the blue bucket.
+      1. Select the "blue" bucket.
       1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `index.html` file for version 1.
-      1. Similarly, upload the `index.html` version 2 file to the green bucket.
+      1. Similarly, upload the `index.html` version 2 file to the "green" bucket.
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
-      1. Upload the `index.html` version 1 file to the blue bucket:
+      1. Upload the `index.html` version 1 file to the "blue" bucket:
 
          ```bash
          aws --endpoint-url https://{{ s3-storage-host }} \
@@ -404,9 +404,9 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
          upload: v2/index.html to s3://<green_bucket_name>/index.html
          ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
-      1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to the blue and green buckets, respectively:
+      1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to the "blue" and "green" buckets, respectively:
 
          ```hcl
          ...
@@ -447,7 +447,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
          1. Confirm that you want to create the resources.
 
-   - API
+   - API {#api}
 
       Use the [upload](../storage/s3/api-ref/object/upload.md) REST API method.
 
@@ -459,9 +459,9 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 To create security groups:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
@@ -490,7 +490,7 @@ To create security groups:
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    Run the following command:
 
@@ -552,7 +552,7 @@ To create security groups:
 
    For more information about the `yc vpc security-group create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add the `canary-sg` security group parameters to the configuration file:
 
@@ -610,7 +610,7 @@ To create security groups:
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    Use the [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call or the [create](../vpc/api-ref/SecurityGroup/create.md) REST API method.
 
@@ -620,9 +620,9 @@ To create security groups:
 
 ## Create {{ alb-name }} backend groups#create-l7backend.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Create a backend group named `canary-bg-production` with the` canary-backend-blue` and `canary-backend-green` backends:
 
@@ -649,7 +649,7 @@ To create security groups:
 
    If you are going to complete the next steps in {{ TF }}, copy the IDs of the `canary-bg-production` and `canary-bg-staging` backend groups from the ![image](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
 
-- API
+- API {#api}
 
    Use the [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/BackendGroup/create.md) REST API method.
 
@@ -657,9 +657,9 @@ To create security groups:
 
 ## Create an HTTP router and virtual hosts {#create-route-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -688,7 +688,7 @@ To create security groups:
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. Create the `canary-router` HTTP Router:
 
@@ -799,7 +799,7 @@ To create security groups:
             backend_group_id: ds765atleota********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. To the configuration file, add parameters of the `canary-router` HTTP router, its virtual hosts and routes:
 
@@ -864,7 +864,7 @@ To create security groups:
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    1. Create the example-router HTTP `canary-router` using the [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
    1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router, then create their routes using the [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
@@ -873,9 +873,9 @@ To create security groups:
 
 ## Create an L7 load balancer {#create-balancer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -897,7 +897,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `canary-router`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. Get the IDs of subnets for `canary-network`:
 
@@ -1017,7 +1017,7 @@ To create security groups:
 
       For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add the parameters of the `canary-balancer` L7 load balancer to the configuration file:
 
@@ -1087,7 +1087,7 @@ To create security groups:
 
       1. Confirm that you want to create the resources.
 
-- API
+- API {#api}
 
    Use the [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) gRPC API call or the [create](../application-load-balancer/api-ref/LoadBalancer/create.md) REST API method.
 
@@ -1095,9 +1095,9 @@ To create security groups:
 
 ## Create a CDN resource {#create-cdn-resource}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1147,7 +1147,7 @@ To create security groups:
       1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. If the CDN provider is not activated yet, run this command:
 
@@ -1214,7 +1214,7 @@ To create security groups:
       yc cdn resource update <resource_ID> --redirect-http-to-https
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Add parameters of the CDN resources to the configuration file:
 
@@ -1303,7 +1303,7 @@ To create security groups:
 
    This enables redirect for the resource.
 
-- API
+- API {#api}
 
    Use the [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) gRPC API call or the [create](../cdn/api-ref/Resource/create.md) REST API method.
 
@@ -1317,9 +1317,9 @@ To configure DNS:
 
 1. Get the domain name of the CDN load balancer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1342,9 +1342,9 @@ To configure DNS:
 
    {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public DNS zone, create one:
@@ -1366,7 +1366,7 @@ To configure DNS:
 
       1. In a similar way, in the same zone, create a CNAME record for `cdn-staging.yandexcloud.example`. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn-staging`.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       1. If you do not have a public DNS zone, create one:
 
@@ -1401,7 +1401,7 @@ To configure DNS:
 
          For more information about the `yc dns zone add-records` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/add-records.md).
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. Add the parameters of the `canary-dns-zone` DNS zone and its CNAME records to the configuration file:
 
@@ -1452,7 +1452,7 @@ To configure DNS:
 
          1. Confirm that you want to create the resources.
 
-   - API
+   - API {#api}
 
       1. Create a DNS zone named `canary-dns-zone` using the [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) gRPC API call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
       1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-********.edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
@@ -1472,9 +1472,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 1. Open a browser and go to `https://cdn.yandexcloud.example/index.html`. You should see a page indicating version 1.
 1. Delete `index.html` from the CDN resource cache:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1485,7 +1485,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Enter the path to the uploaded file: `/index.html`.
       1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       1. Get the ID of the CDN resource that you created:
 
@@ -1529,7 +1529,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          For more information about the `yc cdn cache purge` command, see the [CLI reference](../cli/cli-ref/managed-services/cdn/cache/purge.md).
 
-   - API
+   - API {#api}
 
       1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
       1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
@@ -1542,9 +1542,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
 1. Disable caching of the CDN resource and delete the `index.html` file from the cache:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1554,7 +1554,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Disable the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** option.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - API
+   - API {#api}
 
       1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
       1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
@@ -1563,9 +1563,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
 1. Delete `index.html` from the cache:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1576,7 +1576,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Enter the path to the uploaded file: `/index.html`.
       1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       1. Get the ID of the CDN resource that you created:
 
@@ -1616,7 +1616,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
            --path "/index.html"
          ```
 
-   - API
+   - API {#api}
 
       1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
       1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
@@ -1625,9 +1625,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
 1. Configure the `canary-bg-production` so that 20% of the traffic coming to the `cdn.yandexcloud.example` domain name is processed by the `canary-backend-green` backend that runs version 2:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -1642,7 +1642,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Similarly set the weight to 20 instead of 0 for `canary-backend-green`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       1. For the `canary-backend-blue` backend, set the weight to 80 instead of 100:
 
@@ -1696,7 +1696,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
          created_at: "2021-11-03T10:28:47.680825561Z"
          ```
 
-   - API
+   - API {#api}
 
       Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
 
@@ -1711,9 +1711,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
 1. Re-enable caching:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1723,7 +1723,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - API
+   - API {#api}
 
       1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
       1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
@@ -1734,9 +1734,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
 1. Disable caching of the CDN resource and delete the `index.html` file from the cache:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1746,7 +1746,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Disable the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** option.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - API
+   - API {#api}
 
       1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
       1. Disable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.
@@ -1755,9 +1755,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
 1. Delete `index.html` from the cache:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1768,7 +1768,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Enter the path to the uploaded file: `/index.html`.
       1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       1. Get the ID of the CDN resource that you created:
 
@@ -1808,7 +1808,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
            --path "/index.html"
          ```
 
-   - API
+   - API {#api}
 
       1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
       1. Delete the `index.html` file from the cache using the [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) gRPC API call or the [purge](../cdn/api-ref/Cache/purge.md) method.
@@ -1817,9 +1817,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
 1. Forward all traffic of the `cdn.yandexcloud.example` domain name back to the `canary-backend-blue` backend running version 1:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -1834,7 +1834,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Similarly, set the weight to 0 instead of 100 for `canary-backend-green`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       1. For the `canary-backend-blue` backend, set the weight to 100 instead of 0:
 
@@ -1886,7 +1886,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
          created_at: "2021-11-03T10:28:47.680825561Z"
          ```
 
-   - API
+   - API {#api}
 
       Use the [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) gRPC API call or the [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) REST API method.
 
@@ -1896,9 +1896,9 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 1. Similarly to steps 1–2, switch all the traffic for the `cdn-staging.yandexcloud.example` domain name to `canary-backend-green` running version 2 and check the switching in the browser.
 1. Re-enable caching:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1908,7 +1908,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - API
+   - API {#api}
 
       1. Get the ID of the CDN resource you created using the [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) gRPC API call or the [list](../cdn/api-ref/Resource/list.md) REST API method.
       1. Enable caching using the [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) gRPC API call or the [list](../cdn/api-ref/Resource/update.md) REST API method.

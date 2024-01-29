@@ -7,9 +7,9 @@ description: "To control access to an {{ objstorage-name }} bucket, besides {{ i
 
 To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name }}](../../../iam/), you can also use an [ACL](../../concepts/acl.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
@@ -19,7 +19,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
    1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -63,7 +63,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
    Setting up individual permissions
 
    : 1. To grant a {{ yandex-cloud }} user or service account permissions using an ACL, get their ID. For more information, see [{#T}](../../../iam/operations/users/get.md) and [{#T}](../../../iam/operations/sa/get-id.md).
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc storage bucket update --name <bucket_name> \
@@ -98,7 +98,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
       created_at: "2022-12-14T08:42:16.273717Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -146,7 +146,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -159,7 +159,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To edit a bucket's ACL, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [bucketPutAcl](../../s3/api-ref/acl/bucketput.md) S3 API method.
 

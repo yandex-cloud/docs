@@ -4,9 +4,9 @@
 
 To get a new version of a user certificate:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -23,7 +23,7 @@ To get a new version of a user certificate:
       1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
    1. Click **{{ ui-key.yacloud.common.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -77,7 +77,7 @@ To get a new version of a user certificate:
       not_before: "2020-09-15T08:12:57Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -119,7 +119,7 @@ To get a new version of a user certificate:
    yc certificate-manager certificate get <certificate_name>
    ```
 
-- API
+- API {#api}
 
    To renew a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
 

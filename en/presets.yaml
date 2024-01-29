@@ -7590,7 +7590,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.25
+        tag: 0.4.27
     yc_gitlab-agent:
       helmChart:
         name: >-

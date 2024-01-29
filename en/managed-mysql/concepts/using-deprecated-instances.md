@@ -1,6 +1,6 @@
 # Using deprecated host classes in {{ mmy-name }}
 
-Starting January 1, 2024, the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, and `b2.small` host classes will be deprecated for {{ mmy-name }}.
+Starting January 1, 2024, the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, and `b2.small` host classes are deprecated for {{ mmy-name }}.
 
 What this means for you as a user:
 
@@ -12,4 +12,4 @@ What this means for you as a user:
 
 - You can [restore a cluster from a backup](../operations/cluster-backups.md) only to [existing host classes](instance-types.md).
 
-   You cannot restore a cluster from a backup to `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, or `b2.small` hosts even if the backup was created from a cluster consisting of such hosts.
+   You cannot restore a cluster from a backup to `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, or `b2.small` class hosts even if the backup was created from a cluster consisting of such hosts.

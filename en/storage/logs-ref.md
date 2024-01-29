@@ -1,5 +1,7 @@
 # {{ objstorage-name }} log reference
 
+This section describes the log fields delivered by the bucket.
+
 {{ objstorage-name }} logs are stored in JSON format. A single log entry represents one request to a bucket.
 
 

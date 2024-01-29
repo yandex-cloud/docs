@@ -69,9 +69,9 @@ You can set up security groups for [connections to cluster hosts](connect.md) th
 
 A cluster must include a subcluster with a master host and at least one subcluster for data storage or processing.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
@@ -165,7 +165,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -316,7 +316,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
    
-   1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
+   1. To create a cluster deployed on [dedicated host groups](../../compute/concepts/dedicated-host.md), specify their IDs as a comma-separated list in the `--host-group-ids` parameter:
 
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
@@ -343,7 +343,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       * (Optional) `timeout`: Script execution timeout in seconds. If your initialization script runs longer than this time period, it will be terminated.
       * (Optional) `args`: Arguments separated by commas with which an initialization script must be executed.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
       {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -544,7 +544,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-- API
+- API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create) API method and include the following in the request:
 
@@ -590,9 +590,9 @@ After your cluster's status changes to **Running**, you can [connect](connect.md
 
 ### Creating a lightweight cluster for Spark and PySpark jobs {#creating-a-light-weight-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Create a {{ dataproc-name }} cluster to run Spark jobs without HDFS and data storage subclusters and set the test characteristics:
 

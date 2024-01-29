@@ -4,9 +4,9 @@ By default, cloud owners (all users with the `{{ roles-cloud-owner }}` role) get
 
 If you want users to get notifications from services, add them to the list of users subscribed to notifications:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Open the [Service notifications]({{ link-cloud-notifications }}) page for the selected cloud. If necessary, [switch to another cloud](switch-cloud.md).
    1. Click **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
@@ -31,7 +31,7 @@ If you want users to get notifications from services, add them to the list of us
 
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
-- API
+- API {#api}
 
    Currently, you cannot add users to the list of notification subscribers using the API.
 

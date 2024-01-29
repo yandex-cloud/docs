@@ -2,9 +2,9 @@
 
 {{ mos-name }} cluster [host groups](../concepts/host-groups.md) reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). To move a host group from one availability zone to another:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
@@ -15,6 +15,8 @@
 {% endlist %}
 
 Repeat the steps to move each host group.
+
+{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 
 ## Specifics of migration in {{ data-transfer-full-name }}{#data-transfer}
 

@@ -7,11 +7,56 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
-## Version 0.115.0 (18/12/23) {#version0.115.0}
+## Version 0.116.0 (15/01/24) {#version0.116.0}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
+#### Networks in serverless computing services {#serverless}
+
+Added the `yc serverless network` command group to manage networks that are used in serverless computing services ({{ sf-name }}, {{ serverless-containers-name }}, and {{ api-gw-name }}):
+
+* `yc serverless network get-used`: Get information about the network connected to the resources of serverless computing services.
+* `yc serverless network list-used`: Get a list of networks connected to the resources of serverless computing services.
+* `yc serverless network list-connections`: Get a list of resources of serverless computing services that are connected to any network in the specified area (network, directory, or cloud).
+* `yc serverless network trigger-used-cleanup`: Initiate an early cleanup of the network from system subnets if it is no longer used in serverless computing services.
+
+#### {{ iam-name }} {#iam}
+
+* Support for listing more than 1,000 resources via the `limit` parameter has been added to the `iam`, `resource-manager` and `organization-manager` command tree.
+
+#### {{ objstorage-name }}
+
+* Added support for `andOperation` to the `yc storage bucket update --lifecycle-rules/--lifecycle-rules-from-file` command to combine conditions in the `filter`.
+* Now you can edit the `--encryption key-id=foobarbaz123` encryption key in the `yc storage bucket update` command: `--remove-encryption`.
+
 #### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* Now you can specify the `cloud-storage-data-cache-max-size` parameter in the `{{ yc-mdb-ch }} cluster update` command in an easy-to-read format.
+
+#### {{ cdn-name }} {#cdn}
+
+Added the parameters to the `yc cdn resource update` and `yc cdn resource create` commands to define the *ip address acl* option:
+
+* `--policy-type`: Client access policy by IP addresses; either *allow* or *deny*.
+* `--acl-excepted-values`: List of IP addresses for which access will be allowed or denied depending on the specified policy type.
+
+#### {{load-testing-name}}
+
+Added the `yc loadtesting` command tree to manage the load testing service:
+
+* `yc loadtesting agent`: Load testing agent management.
+* `yc loadtesting test-config`: Management of load test configuration templates.
+* `yc loadtesting test`: Launching load tests and managing the performed load tests.
+
+## Previous releases {#previous-releases}
+
+### Version 0.115.0 (18/12/23) {#version0.115.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### Managed database services {#managed-db}
 
 **{{ mgp-name }}**
 
@@ -21,16 +66,14 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 * The `network-id` parameter for `yc clickhouse cluster restore` is now optional.
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * Added the `--security-profile-id` parameter to the `yc alb virtual-host create` and `yc alb virtual-host update` commands to specify a security profile from {{ sws-name }}.
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * The `yc compute instance`, `yc compute disk`, `yc compute image`, `yc compute snapshot`, `yc compute snapshot-schedule`, `yc compute placement-group`, `yc compute host-group`, `yc compute disk-placement-group`, `yc compute filesystem`, and `yc compute gpu-cluster` commands can now show access rights that you can manage using `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
 * Added the `yc compute instance simulate-maintenance-event` command.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.114.0 (05/12/23) {#version0.114.0}
 
@@ -1493,7 +1536,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about in the [documentation](../logging/).
+{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about , see [our relevant documentation](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -2150,7 +2193,7 @@ Added support for {{ api-gw-full-name }}.
 
 {{ api-gw-name }} is a service for managing API gateways that supports [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) and a set of extensions for interacting with other cloud services.
 
-{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about in the [documentation](../api-gateway/).
+{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about , see [our relevant documentation](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 

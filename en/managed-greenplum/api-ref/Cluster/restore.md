@@ -71,7 +71,10 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore
 
   },
   "segmentHostCount": "string",
-  "segmentInHost": "string"
+  "segmentInHost": "string",
+  "restoreOnly": [
+    "string"
+  ]
 }
 ```
 
@@ -118,6 +121,7 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 segmentHostCount | **string** (int64)<br><p>Number of segment hosts</p> 
 segmentInHost | **string** (int64)<br><p>Number of segments on each host</p> 
+restoreOnly[] | **string**<br><p>List of databases and tables to restore</p> <p>The maximum number of elements is 50. The maximum string length in characters for each value is 256. Each value must match the regular expression ``[a-zA-Z0-9\*_]*(\/[a-zA-Z0-9\*_]*){0,2}``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,7 +16,7 @@ In single-host clusters, the only master host is brought out of its running stat
 In multi-host clusters, upgrades follow the procedure below:
 
 1. The master is unavailable during upgrades. During this time, the replicas continue running in read-only mode. No [failover](../concepts/replication.md#replication-auto) occurs. After an upgrade, the master is not returned to a running state until all the replicated hosts are upgraded. It is temporarily unavailable even for reading.
-1. The replicas are sequentially made unavailable and upgraded. The replicas are queued randomly. Following an upgrade, the replicas are returned to a running state in read-only mode.
+1. The replicas are sequentially made unavailable and upgraded. Their queue positions are random. Following an upgrade, the replicas are returned to a running state in read-only mode.
 
    A two-host cluster is unavailable while its replica is upgrading. In a cluster of three or more hosts, at least one replica will be available for reading.
 
@@ -41,9 +41,9 @@ Make sure this does not affect your applications:
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the appropriate cluster from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -54,7 +54,7 @@ Make sure this does not affect your applications:
 
    The time it takes a cluster to upgrade depends on database size and normally is a few minutes. If a database is very large, an upgrade may take 10 or more minutes.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -83,7 +83,7 @@ Make sure this does not affect your applications:
 
    The time it takes a cluster to upgrade depends on database size and normally is a few minutes. If the database is very large, an upgrade may take up to 10 minutes.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -112,7 +112,7 @@ Make sure this does not affect your applications:
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To upgrade a cluster to a specific {{ PG }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -128,9 +128,9 @@ Make sure this does not affect your applications:
 
 Let's say you need to upgrade your cluster from version 11 to version 12.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. To get a list of clusters and find out their IDs and names, run this command:
 

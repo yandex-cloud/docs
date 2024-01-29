@@ -15,9 +15,9 @@ To get information on object queries, [enable logging](../operations/buckets/ena
 
 ## Getting query statistics {#request-stat}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    1. Run the query against {{ objstorage-name }} and save the output to a file:
 
@@ -35,7 +35,7 @@ To get information on object queries, [enable logging](../operations/buckets/ena
             key=<object_key>
             ```
 
-         * S3 Select expression to select object data, to a variable named `$query`:
+         * S3 Select expression to request object data, to a variable named `$query`:
 
             ```bash
             query='<query_expression>'

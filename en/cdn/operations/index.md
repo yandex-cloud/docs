@@ -24,6 +24,7 @@ description: "This page provides a list of step-by-step guides for {{ cdn-name }
 * [{#T}](resources/configure-additions.md)
 * [{#T}](resources/disable-resource.md)
 * [{#T}](resources/delete-resource.md)
+* [{#T}](resources/get-stats.md)
 
 ## Origin groups {#origin-groups}
 

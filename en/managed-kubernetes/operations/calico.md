@@ -22,9 +22,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create an infrastructure:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
       1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), activate the Calico network policy controller:
@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * Using the CLI, set the `--enable-network-policy` flag.
          * Using the [create](../api-ref/Cluster/create.md) method for the [Cluster](../api-ref/Cluster) resource.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -342,14 +342,14 @@ The created `access-nginx` network policies allow connections for pods with the 
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a public static IP address for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
    1. Delete the `k8s-calico.tf` configuration file.

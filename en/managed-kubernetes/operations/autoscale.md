@@ -26,9 +26,9 @@ You can only enable automatic scaling of this type when creating a [{{ managed-k
 
 To create an autoscalable {{ managed-k8s-name }} node group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following parameters:
   * Scaling **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`.
@@ -36,7 +36,7 @@ To create an autoscalable {{ managed-k8s-name }} node group:
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: Specify the maximum number of {{ managed-k8s-name }} nodes allowed in the group.
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: Number of {{ managed-k8s-name }} nodes to be created together with the group (this number must be between the minimum and the maximum number of nodes in the group).
 
-- CLI
+- CLI {#cli}
 
   1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -56,7 +56,7 @@ To create an autoscalable {{ managed-k8s-name }} node group:
        --auto-scale min=<minimum_number_of_nodes>, max=<maximum_number_of_nodes>, initial=<initial_number_of_nodes>
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -93,9 +93,9 @@ For more information about {{ k8s-ca }}, see [{#T}](../concepts/autoscale.md#ca)
 
 ## Configuring horizontal pod autoscaling {#hpa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Create a {{ k8s-hpa }} for your application, for example:
 
@@ -119,9 +119,9 @@ For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hp
 
 ## Configuring vertical pod autoscaling {#vpa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Install {{ k8s-vpa }} from the following [repository](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
 

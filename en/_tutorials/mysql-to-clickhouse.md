@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ mmy-name }} source cluster](../managed-mysql/operations/cluster-create.md) with any suitable configuration. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
@@ -34,7 +34,7 @@ Prepare the infrastructure:
       * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
 
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -114,9 +114,9 @@ Prepare the infrastructure:
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a source endpoint](../data-transfer/operations/endpoint/index.md#create):
 
@@ -135,7 +135,7 @@ Prepare the infrastructure:
    1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
    1. [Activate](../data-transfer/operations/transfer.md#activate) your transfer.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the `data-transfer-mmy-mch.tf` file, set the `transfer_enabled` variable to `1`.
 
@@ -244,18 +244,18 @@ WHERE __data_transfer_delete_time == 0;
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Delete the transfer](../data-transfer/operations/transfer.md#delete-transfer).
    1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
    1. [Delete the {{ mmy-name }} cluster](../managed-mysql/operations/cluster-delete.md).
    1. [Delete the {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mmy-mch.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

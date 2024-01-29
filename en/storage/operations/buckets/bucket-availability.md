@@ -9,9 +9,9 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
 {% include [storage-public-operations](../../_includes_service/storage-public-operations.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
@@ -20,7 +20,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
    1. Select the type of access for bucket operations.
    1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -83,7 +83,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
       created_at: "2022-12-16T13:58:18.933814Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -110,7 +110,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
       Where:
       * `access_key`: ID of the static access key.
-      * `secret_key`: Value of the secret access key.
+      * `secret_key`: Secret access key value.
       * `read`: Read access to bucket objects.
       * `list`: Access to list of bucket objects.
 
@@ -125,7 +125,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -139,7 +139,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To allow public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
 

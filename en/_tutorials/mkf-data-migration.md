@@ -15,9 +15,9 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 
 ### Create a cluster and a connector {#create-cluster-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. Prepare the target cluster:
       * Create an [admin user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`.
@@ -45,7 +45,7 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 
       * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}**, select **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -104,9 +104,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 #### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a {{ mkf-name }} target cluster](../managed-kafka/operations/cluster-create.md):
 
@@ -115,7 +115,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a new Linux VM](../compute/operations/vm-create/create-linux-vm.md) for MirrorMaker on the same network the target cluster is on. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access when creating it.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -301,15 +301,15 @@ To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cw
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    * [Delete the {{ mkf-full-name }} cluster](../managed-kafka/operations/cluster-delete.md).
    * [Delete the virtual machine](../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../vpc/operations/address-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

@@ -310,7 +310,7 @@
           name           = "subnet-a"
           description    = "NET folder subnet"
           v4_cidr_blocks = ["10.1.11.0/24"]
-          zone           = "ru-central1-a"
+          zone           = "{{ region-id }}-a"
           network_id     = yandex_vpc_network.shared_net.id
         }
    
@@ -319,7 +319,7 @@
           name           = "subnet-b"
           description    = "DEV folder subnet"
           v4_cidr_blocks = ["10.1.12.0/24"]
-          zone           = "ru-central1-b"
+          zone           = "{{ region-id }}-b"
           network_id     = yandex_vpc_network.shared_net.id
         }
    
@@ -328,7 +328,7 @@
           name           = "subnet-c"
           description    = "PROD folder subnet"
           v4_cidr_blocks = ["10.1.13.0/24"]
-          zone           = "ru-central1-c"
+          zone           = "{{ region-id }}-c"
           network_id     = yandex_vpc_network.shared_net.id
         }
         ```
@@ -444,7 +444,7 @@
 
      ```bash
      yc compute instance create --name=net-vm --hostname=net-vm \
-       --zone=ru-central1-a \
+       --zone={{ region-id }}-a \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
@@ -452,19 +452,19 @@
        --metadata-from-file user-data=vm-config.txt
  
      yc compute instance create --name=dev-vm --hostname=dev-vm \
-       --zone=ru-central1-b \
+       --zone={{ region-id }}-b \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-ru-central1-b,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=default-{{ region-id }}-b,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
  
      yc compute instance create --name=prod-vm --hostname=prod-vm \
-       --zone=ru-central1-c \
+       --zone={{ region-id }}-c \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-ru-central1-c,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=default-{{ region-id }}-c,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
      ```
   
@@ -519,21 +519,43 @@
        family = "ubuntu-2204-lts"
      }
 
+     resource "yandex_compute_disk" "boot-disk-1" {
+       name     = "boot-disk-1"
+       type     = "network-hdd"
+       zone     = "{{ region-id }}-a"
+       size     = "20"
+       image_id = yandex_compute_image.vm_image.id
+     }
+
+     resource "yandex_compute_disk" "boot-disk-2" {
+       name     = "boot-disk-2"
+       type     = "network-hdd"
+       zone     = "{{ region-id }}-b"
+       size     = "20"
+       image_id = yandex_compute_image.vm_image.id
+     }
+
+     resource "yandex_compute_disk" "boot-disk-3" {
+       name     = "boot-disk-3"
+       type     = "network-hdd"
+       zone     = "{{ region-id }}-c"
+       size     = "20"
+       image_id = yandex_compute_image.vm_image.id
+     }
+
      resource "yandex_compute_instance" "net_vm" {
        folder_id   = yandex_resourcemanager_folder.net_folder.id
        name        = "net-vm"
        hostname    = "net-vm"
        platform_id = "standard-v3"
-       zone        = "ru-central1-a"
+       zone        = "{{ region-id }}-a"
        resources {
          cores  = 2
          memory = 4
        }
 
        boot_disk {
-         initialize_params {
-           image_id = data.yandex_compute_image.vm_image.id
-         }
+         image_id = yandex_compute_disk.boot-disk-1.id
        }
 
        network_interface {
@@ -554,16 +576,14 @@
        name        = "dev-vm"
        hostname    = "dev-vm"
        platform_id = "standard-v3"
-       zone        = "ru-central1-b"
+       zone        = "{{ region-id }}-b"
        resources {
          cores  = 2
          memory = 4
        }
 
        boot_disk {
-         initialize_params {
-           image_id = data.yandex_compute_image.vm_image.id
-         }
+         image_id = yandex_compute_disk.boot-disk-2.id
        }
 
        network_interface {
@@ -584,16 +604,14 @@
        name        = "prod-vm"
        hostname    = "prod-vm"
        platform_id = "standard-v3"
-       zone        = "ru-central1-c"
+       zone        = "{{ region-id }}-c"
        resources {
          cores  = 2
          memory = 4
        }
 
        boot_disk {
-         initialize_params {
-           image_id = data.yandex_compute_image.vm_image.id
-         }
+         image_id = yandex_compute_disk.boot-disk-3.id
        }
 
        network_interface {

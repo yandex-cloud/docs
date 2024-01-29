@@ -3,16 +3,16 @@
 
 To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role for the cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate cloud in the list on the left.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.delete }}**.
    1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `Delete now`. The default cloud deletion delay is 7 days.
    1. Click **{{ ui-key.yacloud.common.delete }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -68,7 +68,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role f
       yc resource-manager cloud list
       ```
 
-- API
+- API {#api}
 
    To delete the cloud, use the [CloudService/Delete](../../api-ref/grpc/cloud_service.md#Delete) gRPC API call.
 

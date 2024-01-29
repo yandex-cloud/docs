@@ -41,9 +41,9 @@ Before creating a VM:
 
 To create a VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 
@@ -80,7 +80,7 @@ To create a VM:
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -274,7 +274,7 @@ To create a single-node file server using {{ TF }}:
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/single-node-file-server.zip) (1 KB).
       1. Unpack the archive to the directory. As a result, it should include a configuration file named `single-node-file-server.tf`.
 
-   - Creating files manually
+   - Manually
 
       1. Create a directory for files:
       1. Create a configuration file named `single-node-file-server.tf` in the folder:

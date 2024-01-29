@@ -15,7 +15,7 @@ The **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** opt
 
 ## Resulting XML is not a SAMLResponse {#not-saml2-response}
 
-The response received from the IdP server is a correct XML but not a correct `SAMLResponse`. You can learn more about `SAMLResponse` requirements in the [SAML V2.0 specification](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf#page=46).
+The response received from the IdP server is a valid XML, but it is not a valid `SAMLResponse`. You can learn more about `SAMLResponse` requirements in the [SAML V2.0 specification](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf#page=46).
 
 ## SAMLResponse is an incorrect XML {#invalid-xml-response}
 
@@ -73,23 +73,23 @@ This type of identity federations is no longer supported. Contact [support]({{ l
 
 `Sso url: isn't valid schema. The scheme must be HTTPS or HTTP`
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Invalid URL protocol in the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field. You can only use HTTP and HTTPS.
 
-- CLI
+- CLI {#cli}
 
    Invalid URL protocol in the `sso-url` field. You can only use HTTP and HTTPS.
 
-- API
-
-   Invalid URL protocol in the `ssoUrl` field. You can only use HTTP and HTTPS.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Invalid URL protocol in the `sso_url` field. You can only use HTTP and HTTPS.
+
+- API {#api}
+
+   Invalid URL protocol in the `ssoUrl` field. You can only use HTTP and HTTPS.
 
 {% endlist %}
 
@@ -97,23 +97,23 @@ This type of identity federations is no longer supported. Contact [support]({{ l
 
 `Sso url: isn't valid (the link to the IdP login page)`
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Invalid URL in the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field. Please check the URL.
 
-- CLI
+- CLI {#cli}
 
    Invalid URL in the `sso-url` field. Please check the URL.
 
-- API
-
-   Invalid URL in the `ssoUrl` field. Please check the URL.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Invalid URL in the `sso_url` field. Please check the URL.
+
+- API {#api}
+
+   Invalid URL in the `ssoUrl` field. Please check the URL.
 
 {% endlist %}
 

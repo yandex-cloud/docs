@@ -6,7 +6,7 @@ In this article, you will learn how to set up transfers of external metrics to {
 
 To set up the transfer of metrics:
 1. [{#T}](#create-files)
-1. [{#T}](#install)
+1. [{#T}](#install).
 1. [{#T}](#validate)
 1. [{#T}](#clear-out)
 
@@ -17,6 +17,7 @@ To set up the transfer of metrics:
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Create a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
+1. [Configure security groups](../../operations/connect/security-groups.md#rules-internal) for the network traffic of your {{ managed-k8s-name }} cluster.
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 

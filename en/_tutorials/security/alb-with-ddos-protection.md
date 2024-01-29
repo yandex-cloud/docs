@@ -27,17 +27,17 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 To create a network:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-   1. Name the network: `ddos-network`.
+   1. Name the network `ddos-network`.
    1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -79,7 +79,7 @@ To create a network:
 
       For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -91,9 +91,9 @@ To create a network:
 
 To create security groups:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
@@ -128,7 +128,7 @@ To create security groups:
       | `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `ddos-sg-balancer` |
       | `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
-- CLI
+- CLI {#cli}
 
    To create a security group for your load balancer, run the command:
 
@@ -156,7 +156,7 @@ To create security groups:
 
    For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -168,9 +168,9 @@ Your application backends will be deployed on the VM instance of the [target gro
 
 To create an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -203,7 +203,7 @@ To create an instance group:
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and enter `tg-ddos` as the group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Get the resource IDs required to create an instance group using the following commands:
       * [yc iam service-account get <service_account_name>](../../cli/cli-ref/managed-services/iam/service-account/get.md): For a service account.
@@ -321,7 +321,7 @@ To create an instance group:
 
       For more information about the `yc compute instance-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -337,9 +337,9 @@ You cannot do this using the [CLI](../../cli/).
 
 To protect a load balancer against DDoS attacks, reserve a static public IP address with the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** option:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** and click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
@@ -347,7 +347,7 @@ To protect a load balancer against DDoS attacks, reserve a static public IP addr
    1. Enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -361,9 +361,9 @@ For the backends, groups will implement [health checks](../../application-load-b
 
 To create a backend group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
@@ -377,7 +377,7 @@ To create a backend group:
    1. Enter the **{{ ui-key.yacloud.alb.label_path }}** to be accessed by the load balancer for health checks: `/`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -450,7 +450,7 @@ To create a backend group:
 
       For more information about the `yc alb backend-group add-http-backend` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -462,9 +462,9 @@ The backend group should be linked to an [HTTP router](../../application-load-ba
 
 To create an HTTP router and add a route to it:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -479,7 +479,7 @@ To create an HTTP router and add a route to it:
    1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select the group you created earlier.
    1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -539,7 +539,7 @@ To create an HTTP router and add a route to it:
 
       For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -549,9 +549,9 @@ To create an HTTP router and add a route to it:
 
 To create a load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_load-balancers }}**.
@@ -567,7 +567,7 @@ To create a load balancer:
    1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `ddos-router`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a load balancer with nodes in the cloud network subnets:
 
@@ -591,7 +591,7 @@ To create a load balancer:
 
       For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
@@ -664,7 +664,7 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/alb-with-ddos-protection.zip) (3 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `alb-with-ddos-protection.tf` configuration file and the `alb-with-ddos-protection.auto.tfvars` file with user data.
 
-   - Creating files manually
+   - Manually
 
       1. Create a directory for the file with the infrastructure description.
       1. In the directory, create a configuration file named `alb-with-ddos-protection.tf`:

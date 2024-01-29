@@ -2,14 +2,14 @@
 
 You can get the ID, email address, and other user information.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
    {% include [users-info](../../../_includes/users-info.md) %}
 
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ You can get the ID, email address, and other user information.
           default_email: just.mad.hatter@yandex.ru
       ```
 
-- API
+- API {#api}
 
    If you know the user's login, use the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) REST API method for the [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md) resource or the [YandexPassportUserAccount/GetByLogin](../../api-ref/grpc/yandex_passport_user_account_service.md#GetByLogin) gRPC API call.
 

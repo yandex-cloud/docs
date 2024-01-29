@@ -1,4 +1,4 @@
-# Cluster extension
+# Expanding a cluster
 
 You can expand a {{ mgp-name }} cluster by adding segment hosts to it. You need to add at least two hosts.
 
@@ -8,9 +8,9 @@ The `gp_expand` utility is used to expand a cluster. For more information about 
 
 ## Add segment hosts {#add-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Select a cluster and open the ![hosts-edit](../../_assets/../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
@@ -22,7 +22,7 @@ The `gp_expand` utility is used to expand a cluster. For more information about 
       * **{{ ui-key.yacloud.greenplum.field_expand-duration }}**: Timeout for data redistribution across the new segments, in seconds. For `0` (recommended value), the timeout will be selected automatically based on cluster configuration and the amount of data.
    1. Click **{{ ui-key.yacloud.greenplum.action_expand-start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -53,7 +53,7 @@ The `gp_expand` utility is used to expand a cluster. For more information about 
 
       You can get the cluster ID and name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To add segment hosts, use the [expand](../../api-ref/Cluster/expand.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Expand](../../api-ref/grpc/cluster_service.md#Expand) gRPC API call and provide the following in the request:
 

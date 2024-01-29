@@ -7,9 +7,9 @@ description: "Follow this guide to delete a secret."
 
 To delete a secret:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -18,7 +18,7 @@ To delete a secret:
    1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@ To delete a secret:
       +----------------------+-----------------+------------+---------------------+----------------------+--------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -117,7 +117,7 @@ To delete a secret:
    yc lockbox secret list
    ```
 
-- API
+- API {#api}
 
    To delete a secret, use the [delete](../api-ref/Secret/delete.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Delete](../api-ref/grpc/secret_service.md#Delete) gRPC API call.
 

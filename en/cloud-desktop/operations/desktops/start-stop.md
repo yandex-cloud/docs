@@ -7,9 +7,9 @@ description: "In this tutorial, you will learn how to start, restart, and stop a
 
 ## Start {#start}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
@@ -17,7 +17,7 @@ description: "In this tutorial, you will learn how to start, restart, and stop a
    1. Next to the desktop to start, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vdi.button_start }}**.
    1. Confirm that you want to start the desktop.
 
-- User desktop showcase
+- User desktop showcase {#desktop-showcase}
 
    1. Open the [User desktop showcase]({{ link-cloud-desktop-showcase }}).
    1. In the card of the desktop to start, click ![image](../../../_assets/console-icons/play.svg).
@@ -27,9 +27,9 @@ description: "In this tutorial, you will learn how to start, restart, and stop a
 
 ## Restart {#restart}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
@@ -37,7 +37,7 @@ description: "In this tutorial, you will learn how to start, restart, and stop a
    1. Next to the desktop to restart, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vdi.button_restart }}**.
    1. Confirm that you want to restart the desktop.
 
-- User desktop showcase
+- User desktop showcase {#desktop-showcase}
 
    1. Open the [User desktop showcase]({{ link-cloud-desktop-showcase }}).
    1. In the card of the desktop to restart, click ![image](../../../_assets/console-icons/arrow-rotate-right.svg).
@@ -47,9 +47,9 @@ description: "In this tutorial, you will learn how to start, restart, and stop a
 
 ## Stop {#stop}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
@@ -57,7 +57,7 @@ description: "In this tutorial, you will learn how to start, restart, and stop a
    1. Next to the desktop to stop, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vdi.button_stop }}**.
    1. Confirm that you want to stop the desktop.
 
-- User desktop showcase
+- User desktop showcase {#desktop-showcase}
 
    1. Open the [User desktop showcase]({{ link-cloud-desktop-showcase }}).
    1. In the card of the desktop to stop, click ![image](../../../_assets/console-icons/power.svg).

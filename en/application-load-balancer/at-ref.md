@@ -1,10 +1,8 @@
 # {{ at-full-name }} audit log reference
 
-{{ at-name }} supports tracking of management (Control Plane) events for {{ alb-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
+{{ at-name }} supports tracking of management events (control plane) for {{ alb-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
 
-The value of the `event_type` field (_event type_) is determined by the source service of the event.
-
-The general value format is as follows:
+General view of the `event_type` field value:
 
 ```text
 {{ at-event-prefix }}.audit.apploadbalancer.<event_name>

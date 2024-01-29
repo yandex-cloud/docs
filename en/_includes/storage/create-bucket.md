@@ -1,8 +1,8 @@
 The minimum role required to create a bucket is `storage.editor`. See the [role description](../../storage/security/#storage-editor) for details.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
    1. Select **{{ objstorage-name }}**.
@@ -27,7 +27,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -85,7 +85,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
       created_at: "2022-12-16T14:05:12.196007Z"
       ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
 
@@ -104,7 +104,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
    {% endnote %}
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -185,7 +185,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 

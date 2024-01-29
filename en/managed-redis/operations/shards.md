@@ -10,15 +10,15 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 ## Listing shards in a cluster {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the name of the cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
    +--------------+
    ```
 
-- API
+- API {#api}
 
    To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -52,9 +52,9 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 ## Getting detailed information about a shard {#get}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -66,7 +66,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
    {{ yc-mdb-rd }} shards get <shard_name> --cluster-name <cluster_name>
    ```
 
-- API
+- API {#api}
 
    To get shard details, use the [getShard](../api-ref/Cluster/getShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/GetShard](../api-ref/grpc/cluster_service.md#GetShard) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
@@ -74,13 +74,13 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 {% endlist %}
 
-You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
+You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in a folder](cluster-list.md).
 
 ## Adding a shard {#add}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to add a shard to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -93,7 +93,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
       * In the **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** field, choose the availability zone, select **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**, and enable the **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** option.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -118,7 +118,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
             `replica-priority=50
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -152,14 +152,14 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To add a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard in the `shardName` parameter.
    * In the array of `hostSpecs` parameters, the shard host configuration.
 
-   You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
+   You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in a folder](cluster-list.md).
 
 {% endlist %}
 
@@ -173,9 +173,9 @@ All the shard hosts are deleted with the shard.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to delete the shard from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -183,7 +183,7 @@ All the shard hosts are deleted with the shard.
    1. In the line of the appropriate shard, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -196,9 +196,9 @@ All the shard hosts are deleted with the shard.
      --cluster-name=<cluster_name>
    ```
 
-   You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
+   You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in a folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -216,13 +216,13 @@ All the shard hosts are deleted with the shard.
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard to delete in the `shardName` parameter.
 
-   You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
+   You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in a folder](cluster-list.md).
 
 {% endlist %}
 
@@ -232,9 +232,9 @@ New shards are created without hash slots and can't accept data. To begin popula
 
 For more information, see [{#T}](../concepts/sharding.md#scaling).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To rebalance a cluster:
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster in question.
@@ -248,7 +248,7 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
    {% endnote %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -263,7 +263,7 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- API
+- API {#api}
 
    To rebalance a cluster, use the [rebalance](../api-ref/Cluster/rebalance.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Rebalance](../api-ref/grpc/cluster_service.md#Rebalance) gRPC API call.
 

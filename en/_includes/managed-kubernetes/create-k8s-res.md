@@ -4,9 +4,9 @@
 
 Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and specify the previously created [service accounts](../../iam/concepts/users/service-accounts.md) in the `--service-account-id` and `--node-service-account-id` flags.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    Run this command:
 
@@ -21,7 +21,7 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
      --node-service-account-id $NODE_SA_ID
    ```
 
-- PowerShell
+- PowerShell {#powershell}
 
    Run this command:
 
@@ -48,9 +48,9 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
       * Look for `Healthy` in the **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** column.
 1. Create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group):
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       yc managed-kubernetes node-group create \
@@ -66,7 +66,7 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
         --async
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```shell script
       > yc managed-kubernetes node-group create `

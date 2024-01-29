@@ -1,5 +1,5 @@
 ---
-title: "Tutorial on changing {{ RD }} cluster settings in {{ mrd-full-name }}"
+title: "How to change {{ RD }} cluster settings in {{ mrd-full-name }}"
 description: "In this tutorial, you will learn how to change settings for a {{ RD }} cluster."
 ---
 
@@ -33,9 +33,9 @@ Learn more about other cluster updates:
 
 ## Change the cluster name and description {#change-name-and-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -44,7 +44,7 @@ Learn more about other cluster updates:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -66,7 +66,7 @@ Learn more about other cluster updates:
         --description <new_cluster_description>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% note alert %}
 
@@ -102,7 +102,7 @@ Learn more about other cluster updates:
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change a cluster's name and description, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -117,9 +117,9 @@ Learn more about other cluster updates:
 
 ## Changing the host class {#change-resource-preset}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -135,7 +135,7 @@ Learn more about other cluster updates:
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -186,7 +186,7 @@ Learn more about other cluster updates:
 
       {{ mrd-short-name }} will run the update host class command for the cluster.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -216,7 +216,7 @@ Learn more about other cluster updates:
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -235,9 +235,9 @@ Learn more about other cluster updates:
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To increase the cluster storage size:
 
@@ -248,7 +248,7 @@ Learn more about other cluster updates:
    1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_disk }}** section.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -271,7 +271,7 @@ Learn more about other cluster updates:
 
       If all the criteria are met, {{ mrd-short-name }} starts increasing the size of the {{ RD }} host disks.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To increase the cluster storage size:
 
@@ -303,7 +303,7 @@ Learn more about other cluster updates:
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -319,9 +319,9 @@ Learn more about other cluster updates:
 
 You can change the DBMS settings of the hosts in your cluster. All supported settings are described in [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update the [DBMS settings](../concepts/settings-list.md) for the cluster:
 
@@ -333,7 +333,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    1. Configure the available parameters according to the [{{ RD }} documentation](https://redis.io/documentation).
    1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To update the [DBMS settings](../concepts/settings-list.md) for the cluster:
 
@@ -374,7 +374,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -388,9 +388,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 ## Changing additional cluster settings {#change-additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -402,7 +402,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -441,7 +441,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -458,9 +458,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 ## Moving a cluster {#move-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
@@ -468,7 +468,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    1. Select a folder you want to move the cluster to.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -491,7 +491,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
 
@@ -503,9 +503,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 ## Changing security groups {#change-sg-set}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -513,7 +513,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -534,7 +534,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
         --security-group-ids <list_of_security_group_IDs>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -561,7 +561,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 

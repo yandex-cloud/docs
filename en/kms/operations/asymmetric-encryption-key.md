@@ -15,9 +15,9 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
 ## Creating an encryption key pair {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your key pair in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -29,7 +29,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
       1. Enable deletion protection if required.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -71,7 +71,8 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
       status: ACTIVE
       encryption_algorithm: RSA_2048_ENC_OAEP_SHA_256
       ```
-- API
+
+- API {#api}
 
   To create an encryption key pair, use the [AsymmetricEncryptionKeyService/Create](../api-ref/grpc/asymmetric_encryption_key_service.md#Create) gRPC API call.
 
@@ -81,9 +82,9 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
 After creating an encryption key pair, you can change its name, description, and labels, as well as enable or disable deletion protection.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -93,7 +94,7 @@ After creating an encryption key pair, you can change its name, description, and
       1. Change the required key pair attributes.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -137,7 +138,7 @@ After creating an encryption key pair, you can change its name, description, and
 
       The command has renamed the encryption key pair and enabled its deletion protection.
 
-- API
+- API {#api}
 
   To update an encryption key pair, use the [AsymmetricEncryptionKeyService/Update](../api-ref/grpc/asymmetric_encryption_key_service.md#Update) gRPC API call.
 
@@ -145,9 +146,9 @@ After creating an encryption key pair, you can change its name, description, and
 
 ## Deleting an encryption key pair {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -156,7 +157,7 @@ After creating an encryption key pair, you can change its name, description, and
   1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -189,7 +190,7 @@ After creating an encryption key pair, you can change its name, description, and
       encryption_algorithm: RSA_2048_ENC_OAEP_SHA_256
       ```
 
-- API
+- API {#api}
 
   To delete an encryption key pair, use the [AsymmetricEncryptionKeyService/Delete](../api-ref/grpc/asymmetric_encryption_key_service.md#Delete) gRPC API call.
 

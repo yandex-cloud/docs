@@ -4,9 +4,9 @@ You can [configure](application-load-balancer-manage-logs.md) the delivery of L7
 
 To view logs of the L7 Load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -19,9 +19,9 @@ To view logs of the L7 Load balancer:
 
 You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -29,7 +29,7 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
    1. Select the number of messages per page and the period: 1 hour, 3 hours, 1 day, 1 week, or 2 weeks.
    1. To view full information about the message, click the arrow at the beginning of the row.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -69,7 +69,7 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
 
    For more information on how to read logs using the CLI, see [{#T}](../../logging/operations/read-logs.md).
 
-- API
+- API {#api}
 
    To view log group entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
 

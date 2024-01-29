@@ -1,8 +1,8 @@
 ## Create a data stream {#create-stream}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create a data stream in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.

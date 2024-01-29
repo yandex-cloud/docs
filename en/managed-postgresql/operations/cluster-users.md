@@ -15,14 +15,14 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
 ## Getting a list of users {#list-users}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -37,7 +37,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- API
+- API {#api}
 
    To get a list of cluster users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -49,9 +49,9 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
 {% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
@@ -68,7 +68,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
    1. Configure the [DBMS settings](../concepts/settings-list.md#dbms-user-settings) for the user.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -99,7 +99,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -138,11 +138,11 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To create a cluster user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userSpec.name` parameter.
    * User password in the `userSpec.password` parameter.
 
@@ -161,9 +161,9 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
 ## Changing a password {#updateuser}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
@@ -172,7 +172,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
    {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -190,7 +190,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -220,17 +220,17 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To update a cluster user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
-   * New user password, in the `password` parameter.
+   * New user password in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
-   * List of user configuration fields to be changed (in this case, `password`), in the `updateMask` parameter.
+   * List of user configuration fields to be changed (in this case, `password`) in the `updateMask` parameter.
 
    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -246,9 +246,9 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
@@ -262,7 +262,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
    1. Click **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** to change the maximum allowed number of connections for the user (**Conn limit**), enable/disable the user to connect to a cluster (**Login**), or update other [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings).
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -304,7 +304,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       You can request the cluster name with a [list of clusters in the folder](#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -353,14 +353,14 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To update a cluster user's settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
    * New values for [user settings](../concepts/settings-list.md#dbms-user-settings).
-   * List of user configuration fields to be changed, in the `updateMask` parameter.
+   * List of user configuration fields to be changed in the `updateMask` parameter.
 
    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -368,16 +368,16 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
 ## Deleting a user {#removeuser}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
    1. Confirm the deletion.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -392,7 +392,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -410,11 +410,11 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
 
 {% endlist %}

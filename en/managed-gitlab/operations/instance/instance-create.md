@@ -5,11 +5,9 @@ description: "In this tutorial, you will learn how to create a {{ mgl-name }} in
 
 # Creating a {{ mgl-name }} instance
 
-## How to create a {{ GL }} instance {#create}
+{% list tabs group=instructions %}
 
-{% list tabs %}
-
-- Management console
+- Management console {#console}
 
   {% include [instance-create-console](../../../_includes/managed-gitlab/instance-create-console.md) %}
 

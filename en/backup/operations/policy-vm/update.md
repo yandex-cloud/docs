@@ -7,9 +7,9 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
 ## Changing basic settings {#update-basic-parameters}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to change the policy.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -21,7 +21,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
       The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) VM backups every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
-      For more information, refer to [Full backup policy specification](../../concepts/policy.md#specification).
+      See [Full backup policy specification](../../concepts/policy.md#specification).
 
    1. Get the ID of the backup policy to update:
 
@@ -119,7 +119,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/update.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -204,7 +204,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
      yc backup policy get <policy_ID>
      ```
 
-- API
+- API {#api}
 
    To update the basic parameters of a [backup policy](../../concepts/policy.md), use the [update](../../backup/api-ref/Policy/update.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update) gRPC API call.
 
@@ -212,9 +212,9 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
 ## Updating a VM list {#update-vm-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the policy is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -225,7 +225,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
       * To add a new VM, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** under **{{ ui-key.yacloud.backup.label_linked-instances }}**. In the window that opens, select the VM to link to the policy and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
       * To remove a VM, under **{{ ui-key.yacloud.backup.label_linked-instances }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM to be unlinked from the policy and select **{{ ui-key.yacloud.backup.action_detach-instance }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -279,7 +279,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
          For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/revoke.md).
 
-- API
+- API {#api}
 
    To update the list of VMs whose backups are created based on a [backup policy](../../concepts/policy.md), use the [update](../../backup/api-ref/Policy/update.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update) gRPC API call.
 

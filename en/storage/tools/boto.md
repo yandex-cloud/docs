@@ -1,6 +1,6 @@
 # boto3 and boto
 
-[boto3](https://github.com/boto/boto3) and [boto](https://github.com/boto/boto): Development tools offer SDKs for the Python 2.x and 3.x programming languages. The SDKs are designed for working with AWS services.
+[boto3](https://github.com/boto/boto3) and [boto](https://github.com/boto/boto) are software development kits (SDKs) for the Python 2.x and 3.x programming languages. The SDKs are designed for working with AWS services.
 
 
 ## Getting started {#before-you-begin}
@@ -9,21 +9,21 @@
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 {% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
 ## Setup {#setup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Locally
+- Locally {#locally}
 
    {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-- In Cloud Functions
+- {{ sf-full-name }} {#functions}
 
-   [Add environment variables](../../functions/operations/function/version-manage#version-env) to a function in Yandex Cloud Functions:
+   [Add environment variables](../../functions/operations/function/version-manage#version-env) to a function in {{ sf-name }}:
 
    * `AWS_ACCESS_KEY_ID`: Service account's static key ID.
    * `AWS_SECRET_ACCESS_KEY`: Secret key.
@@ -37,9 +37,9 @@
 ## Example {#boto-example}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Locally
+- Locally {#locally}
 
    boto3:
 
@@ -51,7 +51,7 @@
 
    {% endcut %}
 
-- In Cloud Functions
+- {{ sf-full-name }} {#functions}
 
    See the example in the [video conversion guide](../../functions/tutorials/video-converting-queue.md).
 

@@ -31,7 +31,7 @@ Please note that the infrastructure for Hystax Acura and Hystax Acura Cloud Agen
 
 The cost of the resources required to use Hystax Acura Live Migration includes:
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for image storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for storing images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for each completed migration (see [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}).
 
@@ -75,9 +75,9 @@ Save the security group ID. You will need it when creating VMs with Hystax Acura
 
 Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) image:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -104,12 +104,12 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
       * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Select the previously created `hystax-acura-account` service account.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, e.g., `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, such as `yc-user`.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

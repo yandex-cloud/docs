@@ -13,12 +13,12 @@ You can only extend a compliance-mode retention. You cannot shrink it or replace
 
 To put or configure a retention:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -46,7 +46,7 @@ To put or configure a retention:
 
       * `--bypass-governance-retention`: Flag that shows that a lock is bypassed. Select it if an object version is already locked in governance mode.
 
-- API
+- API {#api}
 
    Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method.
 
@@ -58,12 +58,12 @@ The minimum required role is `storage.admin`.
 
 To remove a retention:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -83,7 +83,7 @@ To remove a retention:
       * `--retention`: Settings of an object lock with a retention period. In both parameters, empty lines are specified to remove a lock.
       * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
 
-- API
+- API {#api}
 
    Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and an empty `Retention` element.
 
@@ -96,13 +96,13 @@ The minimum required role is `storage.uploader`.
 
 To put or configure a legal hold:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -125,7 +125,7 @@ To put or configure a legal hold:
             * `ON`: Enabled.
             * `OFF`: Disabled.
 
-- API
+- API {#api}
 
    Use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
 

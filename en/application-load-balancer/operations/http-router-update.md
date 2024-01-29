@@ -7,9 +7,9 @@ description: "Follow this guide to update parameters of an HTTP router."
 
 To update the HTTP router parameters:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -19,7 +19,7 @@ To update the HTTP router parameters:
    1. Edit the router, virtual host, or route settings.
    1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -66,7 +66,7 @@ To update the HTTP router parameters:
 
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -140,7 +140,7 @@ To update the HTTP router parameters:
       yc alb http-router get <HTTP_router_ID>
       ```
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/HttpRouter/update.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Update](../api-ref/grpc/http_router_service.md#Update) gRPC API call.
 
@@ -150,9 +150,9 @@ To update the HTTP router parameters:
 
 To add a new route to an HTTP router's virtual host:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -162,7 +162,7 @@ To add a new route to an HTTP router's virtual host:
    1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
    1. Set the route parameters and click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -552,7 +552,7 @@ To add a new route to an HTTP router's virtual host:
          ...
          ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -612,7 +612,7 @@ To add a new route to an HTTP router's virtual host:
       yc alb virtual-host get <virtual_host_ID>
       ```
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/VirtualHost/update.md) REST API method for the [VirtualHost](../api-ref/VirtualHost/index.md) resource or the [VirtualHostService/Update](../api-ref/grpc/virtual_host_service.md#Update) gRPC API call.
 
@@ -622,9 +622,9 @@ To add a new route to an HTTP router's virtual host:
 
 To change the order of HTTP router routes:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -636,7 +636,7 @@ To change the order of HTTP router routes:
    1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Finish editing the router and click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    * **HTTP**
 
@@ -674,7 +674,7 @@ To change the order of HTTP router routes:
 
       1. Add the route to a desired position using one of the ways described above.
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/VirtualHost/update.md) REST API method for the [VirtualHost](../api-ref/VirtualHost/index.md) resource or the [VirtualHostService/Update](../api-ref/grpc/virtual_host_service.md#Update) gRPC API call.
 

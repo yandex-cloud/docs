@@ -128,29 +128,9 @@ yc managed-kubernetes node-group add-metadata \
 
 To connect, specify the {{ managed-k8s-name }} node [public IP address](../../vpc/concepts/address.md#public-addresses). You can find it using one of the following methods.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- kubectl CLI
-
-  1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-  1. Run this command:
-
-     ```bash
-     kubectl get nodes -o wide
-     ```
-
-     Result:
-
-     ```bash
-     NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
-     cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-     cl17i6943n92********-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-     ```
-
-     The public IP address is listed in the `EXTERNAL-IP` column.
-
-- Management console
+- Management console {#console}
 
   1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section in the folder where you created your {{ managed-k8s-name }} cluster.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
@@ -159,7 +139,7 @@ To connect, specify the {{ managed-k8s-name }} node [public IP address](../../vp
   1. Click the VM that you want to find the public address for.
   1. The public IP address is shown in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section in **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Find out the ID of the instance group that corresponds to the {{ managed-k8s-name }} node group.
 
@@ -197,6 +177,26 @@ To connect, specify the {{ managed-k8s-name }} node [public IP address](../../vp
      | ef37ddhg9i7j******** | cl17i6943n92********-ovah | 10.0.0.22~84.201.149.184 | RUNNING [53m] |                |
      +----------------------+---------------------------+--------------------------+---------------+----------------+
      ```
+
+- kubectl CLI {#kubectl}
+
+   1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+   1. Run this command:
+
+      ```bash
+      kubectl get nodes -o wide
+      ```
+
+      Result:
+
+      ```bash
+      NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
+      cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+      cl17i6943n92********-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+      ```
+
+      The public IP address is listed in the `EXTERNAL-IP` column.
 
 {% endlist %}
 

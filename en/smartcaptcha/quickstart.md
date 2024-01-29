@@ -15,15 +15,15 @@ To get started with the service:
 
 ## Getting started {#before-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you do not have an account yet.
 1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 
 
 ## Create a CAPTCHA {#creat-captcha}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
@@ -45,9 +45,9 @@ To get started with the service:
 
 ## Retrieve the CAPTCHA keys {#get-keys}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
@@ -103,9 +103,9 @@ To validate the token, send a GET request to `https://smartcaptcha.yandexcloud.n
 
 Example of the token validation function:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
    ```js
    const https = require('https'),
@@ -153,7 +153,7 @@ Example of the token validation function:
    });
    ```
 
-- PHP
+- PHP {#php}
 
    ```php
    define('SMARTCAPTCHA_SERVER_KEY', '<server_key>');
@@ -190,7 +190,7 @@ Example of the token validation function:
    }
    ```
 
-- Python
+- Python {#python}
 
    ```py
    import requests

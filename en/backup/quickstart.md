@@ -22,9 +22,9 @@ The minimum [folder](../resource-manager/concepts/resources-hierarchy.md#folder)
 
 To activate the service:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to activate the service.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -34,9 +34,9 @@ To activate the service:
 
 ## Set up a service account {#prepare-service-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -52,9 +52,9 @@ To activate the service:
 
 ## Create a VM {#vm-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -89,9 +89,9 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
 
 1. Make sure the {{ backup-name }} agent has been installed:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -106,9 +106,9 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
 
 1. Link your VM to a backup policy:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -121,9 +121,9 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
 
    You can also link your VM to a backup policy in {{ compute-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
