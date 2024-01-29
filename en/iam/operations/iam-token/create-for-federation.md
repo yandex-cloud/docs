@@ -11,9 +11,9 @@ The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime canno
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

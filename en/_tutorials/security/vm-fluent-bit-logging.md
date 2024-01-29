@@ -344,9 +344,9 @@ To set up log transfer:
 
 ## View the logs {#read-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder that you specified in the `td-agent-bit` service settings.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -354,7 +354,7 @@ To set up log transfer:
    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
    1. The page that opens will show the log group records.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -367,7 +367,7 @@ To set up log transfer:
 
    Where `--folder-id` is the folder ID specified in the `td-agent-bit` service settings.
 
-- API
+- API {#api}
 
    To view log group entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
 

@@ -4,13 +4,13 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 ## Assign a role for a folder {#access-to-user}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -162,7 +162,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      yc resource-manager folder list-access-bindings <folder_name_or_ID>
      ```
 
-- API
+- API {#api}
 
    Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call. You will need the folder ID and the ID of the user to whom you want to assign the role for the folder.
 
@@ -228,13 +228,13 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 ## Assign multiple roles {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-multiple-users-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -257,7 +257,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
         --access-binding role=viewer,subject=userAccount:helj89sfj80a********
       ```
 
-- {{ TF }}
+
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -340,7 +341,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      yc resource-manager folder list-access-bindings <folder_name_or_ID>
      ```
 
-- API
+- API {#api}
 
    Assign the `editor` role to one user and the `viewer` role to another user:
 
@@ -399,19 +400,19 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 ## Folder access for a service account {#access-to-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [grant-role-console-sa](../../../_includes/grant-role-console-sa.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [grant-role-for-sa-to-folder-via-cli](../../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -487,7 +488,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       yc resource-manager folder list-access-bindings <folder_name_or_ID>
       ```
 
-- API
+- API {#api}
 
    {% include [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
@@ -496,15 +497,15 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 ## Folder access for a federated user {#access-to-federated-user}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    The role assignment procedure is the same as for a user with a Yandex account. The user's federation name is shown next to the username.
 
    {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    1. Choose a role from the list in [Roles](../../../iam/concepts/access-control/roles.md).
    1. [Get the user ID](../../../iam/operations/users/get.md).

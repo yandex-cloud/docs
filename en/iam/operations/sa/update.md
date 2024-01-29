@@ -5,9 +5,9 @@ description: "Follow this guide to update a service account."
 
 # Updating a service account
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -21,7 +21,7 @@ description: "Follow this guide to update a service account."
    1. Change the description of your service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -60,11 +60,7 @@ description: "Follow this guide to update a service account."
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-- API
-
-   To update a service account, use the [update](../../api-ref/ServiceAccount/update.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Update](../../api-ref/grpc/service_account_service.md#Update) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -111,5 +107,9 @@ description: "Follow this guide to update a service account."
       ```bash
       yc iam service-account list
       ```
+
+- API {#api}
+
+   To update a service account, use the [update](../../api-ref/ServiceAccount/update.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Update](../../api-ref/grpc/service_account_service.md#Update) gRPC API call.
 
 {% endlist %}

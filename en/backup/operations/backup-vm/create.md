@@ -11,9 +11,9 @@ VM backups in {{ backup-name }} are automatically created on the schedule specif
 
 To create a non-scheduled VM backup:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder in which to create a backup.
   1. In the list of services, select **{{ compute-name }}**.

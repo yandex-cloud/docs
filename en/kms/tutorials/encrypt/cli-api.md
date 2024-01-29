@@ -8,11 +8,11 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 ## Encrypt data {#encryption}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
-   The command encrypts the plain text provided in the `--plaintext-file` and writes the resulting ciphertext to `--ciphertext-file`.
+   The command encrypts the plain text provided in `--plaintext-file` and writes the resulting ciphertext to `--ciphertext-file`.
 
    * `--id`: ID of the [KMS key](../../concepts/key.md), make sure you set either the `--id` or `--name` flag.
    * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
@@ -28,7 +28,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
      --ciphertext-file ciphertext-file
    ```
 
-- API
+- API {#api}
 
    To encrypt data, use the [encrypt](../../api-ref/SymmetricCrypto/encrypt.md) REST API method for the [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/Encrypt](../../api-ref/grpc/symmetric_crypto_service.md#Encrypt) gRPC API call.
 
@@ -36,9 +36,9 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 ## Decrypt data {#decryption}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    The command decrypts the ciphertext provided in `--ciphertext-file` and writes the resulting plain text to `--plaintext-file`:
 
@@ -55,7 +55,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
      --plaintext-file decrypted-file
    ```
 
-- API
+- API {#api}
 
    To decrypt data, use the [decrypt](../../api-ref/SymmetricCrypto/decrypt.md) REST API method for the [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/Decrypt](../../api-ref/grpc/symmetric_crypto_service.md#Decrypt) gRPC API call.
 

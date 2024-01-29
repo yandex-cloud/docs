@@ -5,9 +5,9 @@ description: "In this tutorial, you will learn how to delete a desktop in {{ clo
 
 # Deleting a desktop
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.

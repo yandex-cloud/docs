@@ -11,9 +11,9 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -22,7 +22,7 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
    1. In the **{{ ui-key.yacloud.backup.field_recover-to-vm }}** field, select the VM you created the backup from. In the list, this VM is marked as `({{ ui-key.yacloud.backup.context_current-vm }})`.
    1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -63,7 +63,7 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
 
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
 
-- API
+- API {#api}
 
    To restore a VM from a backup, use the [startRecovery](../../backup/api-ref/Backup/startRecovery.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery) gRPC API call.
 

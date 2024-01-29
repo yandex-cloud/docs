@@ -8,9 +8,9 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## How to create a {{ mgp-name }} cluster {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
@@ -115,7 +115,7 @@ For more information, see [{#T}](../concepts/index.md).
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -243,7 +243,7 @@ For more information, see [{#T}](../concepts/index.md).
       * `--datalens-access`: Access from {{ datalens-full-name }}, true or false.
       * `--datatransfer-access`: Access from {{ data-transfer-full-name }}, true or false.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
       {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -340,7 +340,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-- API
+- API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -374,9 +374,9 @@ For more information, see [{#T}](../concepts/index.md).
 
 ### Creating a cluster {#create-example}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Create a {{ mgp-name }} cluster with the following test characteristics:
 

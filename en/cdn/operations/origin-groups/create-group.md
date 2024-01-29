@@ -7,9 +7,9 @@ description: "Follow this guide to create an origin group."
 
 To create an [origin group](../../concepts/origins.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -26,7 +26,7 @@ To create an [origin group](../../concepts/origins.md):
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -72,7 +72,7 @@ To create an [origin group](../../concepts/origins.md):
 
       For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -83,13 +83,6 @@ To create an [origin group](../../concepts/origins.md):
       Here is an example of the configuration file structure:
 
       ```
-      provider "yandex" {
-        token     = "<OAuth_token>"
-        cloud_id  = "<cloud_ID>"
-        folder_id = "<folder_ID>"
-        zone      = "<default_availability_zone>"
-      }
-
       resource "yandex_cdn_origin_group" "my_group" {
         name = "<group_name>"
         use_next = true
@@ -109,11 +102,11 @@ To create an [origin group](../../concepts/origins.md):
       Where:
 
       * `name`: Origin group name.
-      * `use_next`: Shows if the next origin on the list should be used.
-      * `origin`: The origin specification:
-         * `source`: The origin IP address or domain name.
-         * `enabled`: Flag indicating whether an origin is enabled.
-         * `backup`: Flag indicating whether an origin is a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
+      * `use_next`: Use the next origin on the list.
+      * `origin`: Origin specification:
+         * `source`: Origin IP address or domain name.
+         * `enabled`: Origin enabled flag.
+         * `backup`: Flag marking the origin as a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
 
       For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_origin_group).
 
@@ -127,7 +120,7 @@ To create an [origin group](../../concepts/origins.md):
       yc cdn origin-group list
       ```
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/OriginGroup/create.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Create](../../api-ref/grpc/origin_group_service.md#Create) gRPC API call.
 

@@ -39,16 +39,16 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. To change the class of {{ MY }} hosts, under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -91,7 +91,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       {{ mmy-short-name }} will run the update host class command for the cluster.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -121,7 +121,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -137,9 +137,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To increase the cluster storage size:
 
@@ -148,7 +148,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -169,7 +169,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         --disk-size <storage_size_GB>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To increase the cluster storage size:
 
@@ -201,7 +201,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -217,9 +217,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -227,7 +227,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -252,7 +252,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       {{ mmy-short-name }} runs the update cluster settings operation.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -282,7 +282,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change {{ MY }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -296,13 +296,13 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% endlist %}
 
-For more information on how to update the {{ MY }} settings, see [Q&A](../qa/configuring.md).
+For more information on how to update the {{ MY }} settings, see [FAQ](../qa/configuring.md).
 
 ## Changing additional cluster settings {#change-additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -310,7 +310,7 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
 
       {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -361,7 +361,7 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -428,7 +428,7 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -453,9 +453,9 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
 
 ## Moving a cluster {#move-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
@@ -463,7 +463,7 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
    1. Select a folder you want to move the cluster to.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -486,7 +486,7 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -513,7 +513,7 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
 
@@ -525,15 +525,15 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
 
 ## Changing security groups {#change-sg-set}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -554,7 +554,7 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
         --security-group-ids <list_of_security_group_IDs>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -581,7 +581,7 @@ For more information on how to update the {{ MY }} settings, see [Q&A](../qa/con
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 

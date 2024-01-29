@@ -188,6 +188,14 @@
      source_family = "ubuntu-2004-lts"
    }
 
+   resource "yandex_compute_disk" "boot-disk-vm3" {
+     name     = "boot-disk-3"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = yandex_compute_image.ubuntu_2004.id
+   }
+
    resource "yandex_compute_instance" "vm-3" {
      name = "terraform3"
 
@@ -197,9 +205,7 @@
      }
 
      boot_disk {
-       initialize_params {
-         image_id = yandex_compute_image.ubuntu_2004.id
-       }
+      image_id = yandex_compute_disk.boot-disk-vm3.id
      }
 
      network_interface {

@@ -4,9 +4,9 @@ You can get detailed information about each [{{ GL }} instance](../../concepts/i
 
 ## Getting a list of instances in a folder {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 
@@ -18,11 +18,11 @@ Instance details:
 * Domain.
 * Status.
 * Resources: RAM, vCPU, storage size.
-* The administrator's login and email address.
+* Admin's username and email address.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ GL }} instance is located.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
@@ -34,9 +34,9 @@ Instance details:
 
 The list shows operations with instances and resources linked to them.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ GL }} instance is located.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.

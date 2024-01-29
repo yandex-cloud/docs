@@ -1,6 +1,6 @@
 ---
 title: "{{ mrd-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change to match it. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts; the maximum amount of data is 75% of the available memory."
+description: "The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts; the maximum amount of data is 75% of the available memory."
 ---
 
 # {{ RD }} host classes
@@ -17,9 +17,9 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 The host class also determines which [disk types](./storage.md) are available:
 
-* **hm1**: `network-ssd`, `local-ssd`.
-* **hm2**, **hm3**: `network-ssd`, `local-ssd`, and `network-ssd-nonreplicated`.
-* **b2**, **b3**: `network-ssd`.
+* **hm1**: `network-ssd`, `local-ssd`
+* **hm2**, **hm3**: `network-ssd`, `local-ssd`, and `network-ssd-nonreplicated`
+* **b2**, **b3**: `network-ssd`
 
 
 
@@ -38,6 +38,8 @@ Configuration types:
 * **high-memory**: Standard configurations for {{ RD }}.
 
    A cluster with this configuration type may contain one or more hosts (within the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts in a cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
+
+{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
 {% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 

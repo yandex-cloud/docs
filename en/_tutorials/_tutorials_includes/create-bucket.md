@@ -1,8 +1,8 @@
 ## Create a bucket {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.

@@ -17,13 +17,13 @@ An ID or email can be received by users with the `organization-manager.admin` or
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
    {% include [users-info](../../_includes/users-info.md) %}
 
-- CLI
+- CLI {#cli}
 
    1. See the description of the command to get information about an organization's users:
 
@@ -34,16 +34,16 @@ An ID or email can be received by users with the `organization-manager.admin` or
    1. Get user information by specifying the organization ID:
 
       ```
-      yc organization-manager user list --organization-id bof33mc4bik7bg
+      yc organization-manager user list --organization-id bof33m********
       +----------------------+----------+------------------+-----------------------+
       |          ID          | USERNAME |      EMAIL       |     FEDERATION ID     |
       +----------------------+----------+------------------+-----------------------+
-      | ajeebjmlsdk9guz4kejh | hatter   | hatter@{{yandex-domain}} | gyuiawudhiksd21hsdjh  |
-      | bsdeoujmzsdks1guzker | alice    | alice@{{yandex-domain}}  |                       |
+      | ajeebjmlsdk9******** | hatter   | hatter@{{yandex-domain}} | gyuiawudhiks********  |
+      | bsdeoujmzsdk******** | alice    | alice@{{yandex-domain}}  |                       |
       +----------------------+----------+------------------+-----------------------+
       ```
 
-- API
+- API {#api}
 
    Get user parameters with an [API call](../api-ref/User/listMembers.md).
 

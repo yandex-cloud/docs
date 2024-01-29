@@ -4,13 +4,13 @@
 
 ## Applying or editing a policy {#apply-policy}
 
-The minimum role required to apply or modify an access policy is `storage.configurer`. For more information, refer to the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
 
 To apply or edit a bucket access policy:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you need to configure a bucket access policy.
    1. Select **{{ objstorage-name }}**.
@@ -41,7 +41,7 @@ To apply or edit a bucket access policy:
    1. Add and configure rules as required.
    1. Click **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -99,7 +99,7 @@ To apply or edit a bucket access policy:
       created_at: "2022-12-14T08:42:16.273717Z"
       ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
    {% note info %}
 
@@ -129,7 +129,7 @@ To apply or edit a bucket access policy:
       ```
 
       Once completed, save the configuration to a file named `policy.json`.
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       aws --endpoint https://{{ s3-storage-host }} s3api put-bucket-policy \
@@ -139,7 +139,7 @@ To apply or edit a bucket access policy:
 
    If a previous access policy already exists for a bucket, it will be completely overwritten once you apply the new policy.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -192,7 +192,7 @@ To apply or edit a bucket access policy:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 
@@ -204,7 +204,7 @@ To apply or edit a bucket access policy:
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To manage your bucket policy, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [PutBucketPolicy](../../s3/api-ref/policy/put.md) S3 API method. If a previous access policy already exists for a bucket, it will be completely overwritten once you apply the new policy.
 
@@ -214,20 +214,20 @@ To apply or edit a bucket access policy:
 
 ## Viewing a policy {#view-policy}
 
-The minimum role required to view an access policy is `storage.configViewer`. For more information, refer to the [role description](../../../storage/security/#storage-config-viewer).
+The minimum role required to view an access policy is `storage.configViewer`. See the [role description](../../../storage/security/#storage-config-viewer).
 
 To view the access policy applied to a bucket:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you need to view a bucket access policy.
    1. Select **{{ objstorage-name }}**.
    1. Select a bucket from the list.
    1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
    Run the following command:
 
@@ -247,7 +247,7 @@ To view the access policy applied to a bucket:
 
    For more information about parameters, see the [data schema](../../s3/api-ref/policy/scheme.md) description.
 
-- API
+- API {#api}
 
    Use the [GetBucketPolicy](../../s3/api-ref/policy/get.md) S3 API method.
 
@@ -255,13 +255,13 @@ To view the access policy applied to a bucket:
 
 ## Deleting a policy {#delete-policy}
 
-The minimum role required to delete an access policy is `storage.configurer`. For more information, refer to the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to delete an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
 
 To delete a bucket policy:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you need to configure a bucket access policy.
    1. Select **{{ objstorage-name }}**.
@@ -270,7 +270,7 @@ To delete a bucket policy:
    1. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
    Run the following command:
 
@@ -279,7 +279,7 @@ To delete a bucket policy:
      --bucket <bucket_name>
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -338,7 +338,7 @@ To delete a bucket policy:
 
       Afterwards, the bucket policy will be deleted from the specified folder. You can verify that the bucket policy is no longer there in the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    Use the [DeleteBucketPolicy](../../s3/api-ref/policy/delete.md) S3 API method.
 

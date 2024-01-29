@@ -1,5 +1,5 @@
-# Metric reference
+# Metric reference {{ monitoring-full-name }}
 
-This section describes the bucket metrics delivered to [{{ monitoring-full-name }}](../monitoring/).
+This section describes the bucket metrics delivered to [{{ monitoring-name }}](../monitoring/).
 
-{% include [alb](../_includes/monitoring/metrics-ref/storage.md) %}
+{% include [storage](../_includes/monitoring/metrics-ref/storage.md) %}

@@ -4,13 +4,13 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
 ## Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -32,11 +32,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-- API
-
-   To create a service account, use the [create](../../api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../api-ref/grpc/service_account_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -83,6 +79,10 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
          yc iam service-account list
          ```
 
+- API {#api}
+
+   To create a service account, use the [create](../../api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../api-ref/grpc/service_account_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 
@@ -92,16 +92,25 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
 Create a service account with the following name and description:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc iam service-account create --name my-robot \
      --description "this is my favorite service account"
    ```
 
-- API
+- {{ TF }} {#tf}
+
+   ```hcl
+    resource "yandex_iam_service_account" "sa" {
+      name        = "my-robot"
+      description = "this is my favorite service account"
+    }
+   ```
+
+- API {#api}
 
    ```bash
    curl -X POST \
@@ -113,15 +122,6 @@ Create a service account with the following name and description:
            "description": "this is my favorite service account"
        }' \
        https://iam.{{ api-host }}/iam/v1/serviceAccounts
-   ```
-
-- {{ TF }}
-
-   ```hcl
-    resource "yandex_iam_service_account" "sa" {
-      name        = "my-robot"
-      description = "this is my favorite service account"
-    }
    ```
 
 {% endlist %}

@@ -17,9 +17,9 @@ Images with OS Login support are available on [{{ marketplace-full-name }}](/mar
 
 To enable OS Login access at the organization level:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
   1. Go to [{{ org-full-name }}]({{ link-org-main }}).

@@ -16,9 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
 
@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. Grant the [service account](../../iam/concepts/users/service-accounts.md) **READ and WRITE** permissions to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account and save its ID and value. You will not be able to get the key value again.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -199,16 +199,16 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
 
 If you no longer need the resources you created, delete them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    * [Delete the clusters {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    * If you reserved [public static IP addresses](../../vpc/concepts/address.md#public-addresses) for the {{ managed-k8s-name }} clusters, [delete them](../../vpc/operations/address-delete.md).
    * [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
    * [Delete the service account](../../iam/operations/sa/delete.md) used to work with Velero.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `velero-backup.tf` configuration file.

@@ -18,9 +18,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 ## How to create a {{ RD }} cluster {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a DB cluster in.
@@ -28,7 +28,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
+      * Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
       * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
@@ -99,7 +99,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -177,7 +177,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -240,7 +240,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
       Where:
-      * `environment`: `PRESTABLE` or `PRODUCTION`.
+      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
       * `version`: {{ RD }} version, {{ versions.tf.str }}.
       * `host`: Host parameters:
@@ -269,7 +269,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a {{ RD }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
@@ -292,9 +292,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
@@ -330,7 +330,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mrd-name }} cluster and a network for it with the following test characteristics:
 
@@ -415,9 +415,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ### Creating sharded clusters {#creating-a-sharded-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a [sharded](../concepts/sharding.md) {{ mrd-name }} cluster with the following test characteristics:
 

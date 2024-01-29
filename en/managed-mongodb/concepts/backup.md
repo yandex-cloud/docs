@@ -12,7 +12,7 @@ keywords:
 
 # Backups in {{ mmg-name }}
 
-{{ mmg-short-name }} provides automatic and manual database backups.
+{{ mmg-short-name }} supports automatic and manual database backups.
 
 {{ mmg-name }} allows you to restore the state of a cluster to _any point in time_ (Point-in-Time-Recovery, PITR) between the time you create the oldest backup to the moment when you archive the most recent oplog collection. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster oplog.
 
@@ -36,7 +36,7 @@ You can create backups both automatically and manually; in both cases, you get a
 All cluster data is automatically backed up every day. You cannot disable such automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
 
 * [Retention time](#storage).
-* Backup start time. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
+* Time interval during which the backup starts. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. To find out its exact size, request a [list of backups](../operations/cluster-backups.md#list-backups).
 
@@ -56,7 +56,7 @@ Storing backups in {{ mmg-name }}:
 
    * Manually created backups are stored with no time limit.
 
-* Once you delete a cluster, all its backups persist for seven days.
+* After you delete a cluster, all its backups are kept for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}

@@ -20,9 +20,9 @@ To log requests to the bucket:
 
 1. Enable logging in the source bucket that you want to track.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
       To enable logging via the [AWS CLI](../../tools/aws-cli.md):
 
@@ -39,7 +39,7 @@ To log requests to the bucket:
 
          Where:
 
-         * `TargetBucket`: Name of the target bucket to write logs to.
+         * `TargetBucket`: Name of the target bucket for the logs.
          * `TargetPrefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
 
       1. Enable logging in the bucket:
@@ -56,7 +56,7 @@ To log requests to the bucket:
          * `--bucket`: Name of the source bucket to enable action logging for.
          * `--bucket-logging-status`: Path to the logging settings file.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -102,7 +102,7 @@ To log requests to the bucket:
 
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-   - API
+   - API {#api}
 
       To enable logging for your bucket, use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method.
 
@@ -128,9 +128,9 @@ To log requests to the bucket:
 
 To get the name of the target bucket and the prefix of the key for the log object, follow these steps:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    To retrieve the logging settings via the [AWS CLI](../../tools/aws-cli.md):
 
@@ -154,7 +154,7 @@ To get the name of the target bucket and the prefix of the key for the log objec
    }
    ```
 
-- API
+- API {#api}
 
    Use the [getBucketLogging](../../s3/api-ref/bucket/getBucketLogging.md) S3 API method.
 
@@ -177,9 +177,9 @@ To get the name of the target bucket and the prefix of the key for the log objec
 
 To get logs, download the object prefixed with `logs/` from the target bucket:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target bucket with logs is located.
    1. Select **{{ objstorage-name }}**.
@@ -193,9 +193,9 @@ To get logs, download the object prefixed with `logs/` from the target bucket:
 
 To disable logging, follow these steps:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -237,7 +237,7 @@ To disable logging, follow these steps:
 
    You can check the changes in the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    Use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method. In the request body, send the `<BucketLoggingStatus>` parameter with an empty value.
 

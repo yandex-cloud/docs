@@ -17,9 +17,9 @@ description: "In this tutorial, you'll learn how to monitor the state of {{ KF }
 
 To view detailed information about the {{ mkf-name }} cluster state:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -51,9 +51,9 @@ To view detailed information about the {{ mkf-name }} cluster state:
 
 To view detailed information about the state of individual {{ mkf-name }} hosts:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -76,9 +76,9 @@ To view detailed information about the state of individual {{ mkf-name }} hosts:
 
 To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
@@ -97,8 +97,8 @@ The recommended thresholds are as follows:
 | Metric | Parameter | `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.label_warning }}` |
 |------------------------------------|---------------------------------------------------------|----------------------------|----------------------------|
 | Number of healthy hosts | `kafka_is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
-| Partition replication status | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | N/A | `Greater than 0` |
-| Number of lagging replicas | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `Greater than 0` | N/A |
+| Partition replication status | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | — | `Greater than 0` |
+| Number of lagging replicas | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `Greater than 0` | — |
 | Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.label_warning }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:

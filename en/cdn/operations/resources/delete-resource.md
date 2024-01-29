@@ -5,16 +5,16 @@ description: "Follow this guide to delete a resource."
 
 # Deleting a resource
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
    1. Click the resource name.
    1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** and then click **{{ ui-key.yacloud.common.delete }}** in the window that opens.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -57,7 +57,7 @@ description: "Follow this guide to delete a resource."
       yc cdn resource list
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -118,7 +118,7 @@ description: "Follow this guide to delete a resource."
       yc cdn resource list
       ```
 
-- API
+- API {#api}
 
    To delete a resource, use the [delete](../../api-ref/Resource/delete.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Delete](../../api-ref/grpc/resource_service.md#Delete) gRPC API call.
 

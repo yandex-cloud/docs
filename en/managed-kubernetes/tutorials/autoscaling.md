@@ -24,7 +24,7 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    * The `sa-k8s-nodes` service account to manage a group of nodes:
      * `container-registry.images.puller`: For pulling images from [{{ container-registry-full-name }}](../../container-registry/).
 1. [Create a network](../../vpc/quickstart.md) named `k8s-network` to host your cluster. When creating your network, select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
-1. [Create security groups](../operations/connect/security-groups.md) for the master and the nodes:
+1. [Create security groups](../operations/connect/security-groups.md):
    * `sg-k8s`: For [master and node group](../operations/connect/security-groups.md#rules-internal).
    * `k8s-public-services`: For providing [public access to services from the Internet](../operations/connect/security-groups.md#rules-nodes).
    * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/connect/security-groups.md#rules-master).

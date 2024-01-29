@@ -33,16 +33,16 @@ The infrastructure support costs include:
 1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in as a user.
 1. Create a service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -62,7 +62,7 @@ The infrastructure support costs include:
       name: sa-glusterfs
       ```
 
-   - API
+   - API {#api}
 
       To create a service account, use the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API method or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the `ServiceAccount` resource.
 
@@ -70,9 +70,9 @@ The infrastructure support costs include:
 
 1. Assign the service account the administrator [role](../../iam/concepts/access-control/roles.md) for the folder:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -80,7 +80,7 @@ The infrastructure support costs include:
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog box that opens and select the `admin` role.
 
-   - CLI
+   - CLI {#cli}
 
       Run this command:
       ```
@@ -89,7 +89,7 @@ The infrastructure support costs include:
          --subject serviceAccount:<service_account_ID>
       ```
 
-   - API
+   - API {#api}
 
       To assign the service account a role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
 
@@ -97,9 +97,9 @@ The infrastructure support costs include:
 
 1. Set up the CLI profile to execute operations on behalf of the service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it to the file:
          ```
@@ -329,16 +329,16 @@ This will create three VMs for hosting client code (`client01`, `client02`, and 
    ```
 1. Shut down one of the storage VMs, e.g., `gluster02`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Choose `gluster02` from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. View a description of the CLI command to stop a VM:
 
@@ -351,7 +351,7 @@ This will create three VMs for hosting client code (`client01`, `client02`, and 
          yc compute instance stop gluster02
          ```
 
-   - API
+   - API {#api}
 
       Use the [stop](../../compute/api-ref/Instance/stop.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Stop](../../compute/api-ref/grpc/instance_service.md#Stop) gRPC API call.
 

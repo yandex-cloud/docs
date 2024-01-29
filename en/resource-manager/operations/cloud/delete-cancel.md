@@ -10,9 +10,9 @@ You can cancel deletion while a cloud's status is `PENDING_DELETION`.
 
 To be able to cancel the deletion of a cloud, you must have the `{{ roles-cloud-owner }}` role for the cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate cloud in the list on the left.
 
@@ -20,7 +20,7 @@ To be able to cancel the deletion of a cloud, you must have the `{{ roles-cloud-
 
    The pending cloud deletion will be canceled.
 
-- API
+- API {#api}
 
    Currently, you cannot cancel cloud deletion using the API.
 

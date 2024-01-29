@@ -67,9 +67,9 @@ For each Kubernetes version, a certain Kyverno version is supported. The require
 
 If you no longer need the Kyverno application, delete it:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Using {{ marketplace-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Click the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
@@ -77,7 +77,7 @@ If you no longer need the Kyverno application, delete it:
    1. [Connect to the cluster](../connect/index.md#kubectl-connect) using kubectl.
    1. [Clear the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), or else the cluster will not run properly.
 
-- Using Helm
+- Helm {#helm}
 
    1. [Connect to the cluster](../connect/index.md#kubectl-connect) using kubectl.
    1. Delete the application:

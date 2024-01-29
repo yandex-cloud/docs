@@ -15,7 +15,7 @@ description: "Follow this guide to configure the automatic management of pod res
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Create security groups](../operations/connect/security-groups.md) for the [{{ k8s }} master](../concepts/index.md#master) and its [nodes](../concepts/index.md#node-group):
+1. [Create security groups](../operations/connect/security-groups.md):
    * `sg-k8s`: For [master and node group](../operations/connect/security-groups.md#rules-internal).
    * `k8s-public-services`: For [public access to services from the internet](../operations/connect/security-groups.md#rules-nodes).
    * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/connect/security-groups.md#rules-master).
@@ -23,7 +23,7 @@ description: "Follow this guide to configure the automatic management of pod res
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
 
    * Use the previously created security groups.
-   * If your plan is to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP to the cluster.
+   * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP to the cluster.
 
 1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
 
@@ -186,7 +186,7 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
 1. Make sure that {{ k8s-vpa }} is managing the `nginx` application pod resources:
 
    ```bash
-   kubectl get pod <name of an nginx pod> --output yaml
+   kubectl get pod <nginx pod name> --output yaml
    ```
 
    Result:

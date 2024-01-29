@@ -10,15 +10,15 @@ description: "To back up and save your TLS certificate, get the certificate ID a
 To save a certificate:
 1. Get the certificate ID.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate is located.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Copy the contents of the **{{ ui-key.yacloud.common.id }}** field for the certificate you want to save.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@ To save a certificate:
          yc cm certificate list
          ```
 
-   - API
+   - API {#api}
 
       To get the certificate ID, use the [list](../api-ref/Certificate/list.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/List](../api-ref/grpc/certificate_service.md#List) gRPC API call.
 
@@ -45,9 +45,9 @@ To save a certificate:
 
 1. Get the contents of the certificate.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -69,7 +69,7 @@ To save a certificate:
          ...
          ```
 
-   - API
+   - API {#api}
 
       To get the certificate contents, use the [get](../api-ref/CertificateContent/get.md) REST API method for the [CertificateContent](../api-ref/CertificateContent/) resource or the [CertificateContentService/Get](../api-ref/grpc/certificate_content_service.md#Get) gRPC API call.
 
@@ -90,9 +90,9 @@ To restore a user certificate from the certificate chain and key files:
 1. Prepare the files with the certificate contents.
 1. Import the certificate.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the certificate will be restored.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -110,7 +110,7 @@ To restore a user certificate from the certificate chain and key files:
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -132,7 +132,7 @@ To restore a user certificate from the certificate chain and key files:
          ...
          ```
 
-   - API
+   - API {#api}
 
       To import a certificate, use the [create](../api-ref/Certificate/create.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/Create](../api-ref/grpc/certificate_service.md#Create) gRPC API call.
 
@@ -145,4 +145,4 @@ The saved [Let's Encrypt certificate](../concepts/managed-certificate.md) become
 
 #### See also {#see-also}
 
-* [{#T}](import/cert-create.md)
+* [{#T}](import/cert-create.md).

@@ -11,9 +11,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
       * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../../resource-manager/security/index.md#roles-list) [role](../../iam/concepts/access-control/roles.md) to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
    1. [Create a registry in {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -418,9 +418,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
@@ -428,7 +428,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
    1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
    1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.

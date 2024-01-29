@@ -6,16 +6,16 @@ description: "In this tutorial, you'll learn how to switch over to another cloud
 # Switch clouds
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate cloud or folder in the list on the left.
 
       ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
 
 
-- CLI
+- CLI {#cli}
 
    There are two ways to choose the cloud that is used in the CLI by default:
    * Select a cloud when [creating a profile](../../../cli/operations/profile/profile-create.md);
@@ -53,7 +53,7 @@ description: "In this tutorial, you'll learn how to switch over to another cloud
       yc config set cloud-id b1gjqgj3hhvj********
       ```
 
-- API
+- API {#api}
 
    Currently, you cannot switch to another cloud using the API.
 

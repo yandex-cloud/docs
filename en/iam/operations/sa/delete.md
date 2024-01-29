@@ -11,13 +11,13 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [delete-sa-via-console](../../../_includes/iam/delete-sa-via-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -51,11 +51,7 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
       yc iam service-account delete my-robot
       ```
 
-- API
-
-   To delete a service account, use the [delete](../../api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../api-ref/grpc/service_account_service.md#Delete) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -105,6 +101,10 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
       ```bash
       yc iam service-account list
       ```
+
+- API {#api}
+
+   To delete a service account, use the [delete](../../api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../api-ref/grpc/service_account_service.md#Delete) gRPC API call.
 
 {% endlist %}
 

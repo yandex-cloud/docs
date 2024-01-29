@@ -18,11 +18,11 @@ To get started with {{ certificate-manager-name }}, you need:
 
    {% endnote %}
 
-1. A public bucket in Object Storage with exactly the same name as the domain. If that bucket doesn't exist, create it:
+1. Public bucket in Object Storage with exactly the same name as the domain. If you do not have a bucket yet, create one:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -36,9 +36,9 @@ To get started with {{ certificate-manager-name }}, you need:
 
 1. Set up [hosting](../../storage/operations/hosting/setup.md) in your bucket:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. In the **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the same name as the domain.
@@ -60,9 +60,9 @@ To get started with {{ certificate-manager-name }}, you need:
 
 ## Create a request for a Let's Encrypt certificate {#request-certificate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -80,9 +80,9 @@ To get started with {{ certificate-manager-name }}, you need:
 
 ### Creating a check file {#create-file}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Select a certificate with the `Validating` status in the list and click it.
@@ -96,9 +96,9 @@ To get started with {{ certificate-manager-name }}, you need:
 
 ### Uploading the file and performing the check {#upload-and-check}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. In the **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the same name as the domain.
@@ -112,7 +112,7 @@ To get started with {{ certificate-manager-name }}, you need:
    1. Click ![image](../../_assets/options.svg) to the right of the file and select **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
    1. Confirm the deletion.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Upload your file to the bucket so that it resides in the `.well-known/acme-challenge` subdirectory:
 
@@ -139,9 +139,9 @@ To renew a certificate, you have to perform certain actions. Keep track of the l
 
 ## Set up static website access over HTTPS {#hosting-certificate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.

@@ -12,9 +12,9 @@ New data for charts is received every {{ graph-update }}.
 
 To view detailed information about the {{ mos-name }} cluster state:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
@@ -120,9 +120,9 @@ This page displays charts showing the load on the cluster's host group. Which ch
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
@@ -154,7 +154,7 @@ The recommended thresholds are as follows:
 | JVM heap memory used | `opensearch_jvm_mem_heap_used_percent` | `top_last(1)` | Over 90% of host RAM |                                   |
 | Storage space used | `opensearch_fs_total_used_percent` | `top_last(1)` | Over 90% of the storage size | Over 85% of the storage size |
 | Using the JVM long-lived object pool | `opensearch_jvm_mem_heap_pressure` | `top_last(1)` | Over 90% of host RAM | Over 75% of host RAM |
-| Storage space used | `disk.used_bytes` | N/A | 90% of the storage size | 80% of the storage size |
+| Storage space used | `disk.used_bytes` | — | 90% of the storage size | 80% of storage size |
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
@@ -170,14 +170,14 @@ You can view the host's current storage size and RAM amount in the [detailed inf
 
 To view a cluster's state and status:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
 
-- API
+- API {#api}
 
    Use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the ID of the cluster to delete in the `clusterId` request parameter.
 

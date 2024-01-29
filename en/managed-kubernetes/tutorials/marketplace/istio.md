@@ -1,6 +1,6 @@
 # Using Istio
 
-[Istio](https://istio.io/latest/about/service-mesh/) implements a _service mesh_, a low-latency infrastructure layer used to process a massive volume of network communications between services in a {{ managed-k8s-name }} cluster.
+[Istio](https://istio.io/latest/about/service-mesh/) is designed for setting up a _service mesh_, a low-latency infrastructure layer for handling a large amount of network communications across services in {{ managed-k8s-name }} clusters.
 
 To view Istio usage options:
 
@@ -20,16 +20,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create a {{ k8s }} cluster and a [group of nodes](../../../managed-kubernetes/concepts/index.md#node-group).
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
       1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
       1. [Create service accounts](../../../iam/operations/sa/create.md):
 
-         * Service account with the [roles](../../security/index.md#yc-api) `k8s.clusters.agent` and `vpc.publicAdmin` for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is created. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
-         * Service account with the [](../../../iam/concepts/access-control/roles.md) [{{ roles-cr-puller }} role](../../../iam/concepts/access-control/roles.md#cr-images-puller). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
+         * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is created. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
+         * Service account with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) [role](../../../iam/concepts/access-control/roles.md). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
 
          {% note tip %}
 
@@ -41,7 +41,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -188,7 +188,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    Result:
 
    ```text
-   &lt;title&gt;Todoapp&lt;/title&gt;
+   <title>Todoapp</title>
    ```
 
 1. Publish the app:
@@ -212,7 +212,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. To run the web app, paste the obtained IP into the browser address bar.
 
-   Each time the page is refreshed, its content will be updated. Depending on the version of the pod processing your request, you will see:
+   Each time the page is refreshed, its content will be updated. Depending on the version of the pod that is serving your request, you will see:
 
    * Pod `v1`: Section with a to-do list.
    * Pod `v2`: Section with a to-do list and a section with recommendations.
@@ -303,7 +303,7 @@ virtualservice.networking.istio.io/todoapp-vs configured
 
 ## Simulate a service failure {#injection-failures}
 
-With Istio, you can test an app for robustness by simulating service failures.
+With Istio, you can test an app's reliability by simulating service failures.
 When accessing the `recommender` service, there is a 3-second timeout. If the service does not respond within this time, the recommendations section is not displayed.
 
 You can simulate a failure by specifying a timeout longer than 3 seconds in the `VirtualService` resource configuration. For example, the section below implements a 50-percent probability of a 5-second delay:
@@ -348,7 +348,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
 
 ## Redistribute traffic {#traffic-redistribution}
 
-When upgrading the microservice version, you can redistribute traffic between its versions without affecting the number of application pods. You can manage traffic routes using the `weight` parameter of the `VirtualService` resource.
+When upgrading the microservice version, you can redistribute traffic across its versions without affecting the number of application pods. You can manage traffic routes using the `weight` parameter of the `VirtualService` resource.
 
 To redistribute traffic in your [test app](#test-application):
 
@@ -402,7 +402,7 @@ To test how your [test app](#test-application) runs in different modes:
    peerauthentication.security.istio.io/default created
    ```
 
-1. Try creating a pod in the `default` namespace to test a connection to the `todoapp` service:
+1. Try to create a pod in the `default` namespace to test a connection to the `todoapp` service:
 
    ```bash
    kubectl run -i -n default \
@@ -436,7 +436,7 @@ To test how your [test app](#test-application) runs in different modes:
    peerauthentication.security.istio.io "default" deleted
    ```
 
-1. Try creating a pod once again:
+1. Try to create a pod again:
 
    ```bash
    kubectl run -i -n default \
@@ -522,15 +522,15 @@ To test how your [test app](#test-application) runs in different modes:
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
    1. [Delete the created service accounts](../../../iam/operations/sa/delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
    1. Delete the `k8s-cluster.tf` configuration file.

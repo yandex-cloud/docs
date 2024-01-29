@@ -5,9 +5,9 @@ description: "Follow this guide to delete an instance."
 
 # Deleting an instance
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to delete a [{{ GL }} instance](../../concepts/index.md#instance) from.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.

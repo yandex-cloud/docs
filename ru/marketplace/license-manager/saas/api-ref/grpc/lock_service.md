@@ -10,6 +10,7 @@ A set of methods for managing subscription locks.
 | Call | Description |
 | --- | --- |
 | [Ensure](#Ensure) | Checks if the she specified subscription is already locked to the specified resource. |
+| [Get](#Get) | Returns the specified subscription lock. |
 
 ## Calls LockService {#calls}
 
@@ -21,7 +22,7 @@ Checks if the she specified subscription is already locked to the specified reso
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[EnsureLockMetadata](#EnsureLockMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[licensemanager.v1.Lock](./lock_service#v1)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[licensemanager.v1.Lock](./instance_service#v1)<br>
 
 ### EnsureLockRequest {#EnsureLockRequest}
 
@@ -44,7 +45,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[EnsureLockMetadata](#EnsureLockMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[licensemanager.v1.Lock](./lock_service#v1)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[licensemanager.v1.Lock](./instance_service#v1)>**<br>if operation finished successfully. 
 
 
 ### EnsureLockMetadata {#EnsureLockMetadata}
@@ -52,5 +53,18 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 lock_id | **string**<br>ID of the subscription lock. 
+
+
+## Get {#Get}
+
+Returns the specified subscription lock.
+
+**rpc Get ([GetLockRequest](#GetLockRequest)) returns ([licensemanager.v1.Lock](./instance_service#v1))**
+
+### GetLockRequest {#GetLockRequest}
+
+Field | Description
+--- | ---
+lock_id | **string**<br>Required. ID of the subscription lock. 
 
 

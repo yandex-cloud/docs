@@ -10,14 +10,14 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 ## Getting a list of cluster hosts {#list-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -41,7 +41,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -53,9 +53,9 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
@@ -70,7 +70,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       * Select the **{{ ui-key.yacloud.clickhouse.hosts.dialog.field_copy_schema }}** option to copy the schema from a random replica to the new host.
 
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -131,7 +131,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -164,7 +164,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To add a host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -188,9 +188,9 @@ Use the copy data schema option only if the schema is the same on all replica ho
 
 You can modify public access settings for every host in a {{ mch-name }} cluster.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To change the parameters of the cluster host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
@@ -199,7 +199,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
    1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -217,7 +217,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
    You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -248,7 +248,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
-- API
+- API {#api}
 
    To update host parameters, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -278,15 +278,15 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -301,7 +301,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -319,7 +319,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).

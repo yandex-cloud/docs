@@ -6,9 +6,9 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 ## Adding or updating labels {#add-edit-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -30,7 +30,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
       * `Value`: Label value of the `string` type.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -60,7 +60,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
    That will add the labels to the object. You can check the new labels and the object's configuration using the [AWS CLI or S3 API](#get-tag).
 
-- API
+- API {#api}
 
    To add or edit object labels, use the [putObjectTagging](../../s3/api-ref/object/putobjecttagging.md) S3 API method.
 
@@ -68,9 +68,9 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 ## Viewing labels {#get-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -105,7 +105,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
    }
    ```
 
-- API
+- API {#api}
 
    To view object labels, use the [getObjectTagging](../../s3/api-ref/object/getobjecttagging.md) S3 API method.
 
@@ -113,9 +113,9 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 ## Deleting labels {#delete-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -133,7 +133,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
    * `--key`: Bucket object [key](../../concepts/object.md#key).
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -160,7 +160,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
    That will delete the object's labels. You can check the deletion of labels and the object's configuration using the [AWS CLI or S3 API](#get-tag).
 
-- API
+- API {#api}
 
    To delete object labels, use the [deleteObjectTagging](../../s3/api-ref/object/deleteobjecttagging.md) S3 API method.
 

@@ -10,9 +10,9 @@ The target VM's operating system must match that of the source VM the backup was
 
 To restore a VM from a backup of another VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -29,7 +29,7 @@ To restore a VM from a backup of another VM:
       If you do not select this option, once the source VM you created the backup from is restored, it will become outdated. To continue creating backups of this VM, [refresh](../refresh-connection.md) its connection to {{ backup-name }}.
    1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
-- CLI
+- CLI {#cli}
 
    1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -101,7 +101,7 @@ To restore a VM from a backup of another VM:
 
    Once the source VM you created the backup from is restored, it becomes outdated. To avoid conflicts between the two VMs when making backups, [delete](../../../compute/operations/vm-control/vm-delete.md) the outdated VM or [refresh](../refresh-connection.md) its connection to {{ backup-name }}:
 
-- API
+- API {#api}
 
    To restore a VM from a backup of another VM, use the [startRecovery](../../backup/api-ref/Backup/startRecovery.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery) gRPC API call.
 

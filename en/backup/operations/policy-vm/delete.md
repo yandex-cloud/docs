@@ -5,9 +5,9 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
 
 # Deleting a backup policy
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the policy from.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -15,7 +15,7 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the appropriate policy, and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
 
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/delete.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -124,7 +124,7 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
      yc backup policy list
      ```
 
-- API
+- API {#api}
 
    To delete a [backup policy](../../concepts/policy.md), use the [delete](../../backup/api-ref/Policy/delete.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Delete](../../backup/api-ref/grpc/policy_service.md#Delete) gRPC API call.
 

@@ -33,9 +33,9 @@ When restored to the current state, the new cluster will match the state of:
 
 {% include [mmg-pitr-preview-note](../../_includes/mdb/mmg-pitr-preview-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To restore an existing cluster from a backup:
 
@@ -65,7 +65,7 @@ When restored to the current state, the new cluster will match the state of:
 
    {{ mmg-name }} will launch the operation to create a cluster from the backup.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -96,7 +96,7 @@ When restored to the current state, the new cluster will match the state of:
       +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
       ```
 
-      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with creation of its backup.
+      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with the point when the backup is created.
 
    1. Run the command to create a new cluster from a backup (the example shows only some parameters):
 
@@ -129,7 +129,7 @@ When restored to the current state, the new cluster will match the state of:
 
       * `--performance-diagnostics`: Enable performance diagnostics for the cluster, `true` or `false`.
 
-- API
+- API {#api}
 
    To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
@@ -142,9 +142,9 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Creating a backup {#create-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
@@ -152,7 +152,7 @@ When restored to the current state, the new cluster will match the state of:
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -174,7 +174,7 @@ When restored to the current state, the new cluster will match the state of:
 
       You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -186,9 +186,9 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Getting a list of backups {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get a list of cluster backups:
 
@@ -209,7 +209,7 @@ When restored to the current state, the new cluster will match the state of:
    * Start time of backup creation in UTC (Coordinated Universal Time).
    * End time of backup creation in UTC.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -240,7 +240,7 @@ When restored to the current state, the new cluster will match the state of:
    * Backup size.
    * Backup type: `Automated` or `Manual`.
 
-- API
+- API {#api}
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -252,9 +252,9 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Getting information about backups {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get information about the backup of an existing cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
@@ -264,7 +264,7 @@ When restored to the current state, the new cluster will match the state of:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -278,7 +278,7 @@ When restored to the current state, the new cluster will match the state of:
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
 
-- API
+- API {#api}
 
    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
@@ -302,9 +302,9 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
 * With databases and users that existed in the cluster at the time of recovery.
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Run the following command:
 

@@ -7,9 +7,9 @@ description: "Follow this guide to update a secret."
 
 To update a secret:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -19,7 +19,7 @@ To update a secret:
    1. Update the name and description of the secret. If necessary, select **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -55,7 +55,7 @@ To update a secret:
         - <key>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -91,7 +91,7 @@ To update a secret:
    yc lockbox secret get <secret_name>
    ```
 
-- API
+- API {#api}
 
    To update a secret, use the [update](../api-ref/Secret/update.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Update](../api-ref/grpc/secret_service.md#Update) gRPC API call.
 

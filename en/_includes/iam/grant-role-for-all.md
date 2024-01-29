@@ -2,9 +2,9 @@
 
 For example, allow any authenticated user to view folder information:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -16,7 +16,7 @@ For example, allow any authenticated user to view folder information:
    1. Select the `resource-manager.viewer` role.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -28,7 +28,7 @@ For example, allow any authenticated user to view folder information:
      --subject system:allAuthenticatedUsers
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -53,7 +53,7 @@ For example, allow any authenticated user to view folder information:
 
       * `member`: User to assign the role to. To add all users, create an entry in the format `system:<allUsers|allAuthenticatedUsers>`, where `<allUsers|allAuthenticatedUsers>` is one of [system groups](../../iam/concepts/access-control/system-group.md). This is a required parameter.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       ...
@@ -102,7 +102,7 @@ For example, allow any authenticated user to view folder information:
       yc resource-manager folder list-access-bindings <folder_name_or_ID>
       ```
 
-- API
+- API {#api}
 
    1. Create a request body, for example, in the `body.json` file. In `roleId`, assign the `viewer` role. In the `subject` property, specify the `system` type and the `allAuthenticatedUsers` ID:
 

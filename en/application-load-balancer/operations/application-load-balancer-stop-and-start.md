@@ -13,9 +13,9 @@ You can restart a load balancer at any time to continue using it. All the data a
 
 To stop an L7 load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -23,7 +23,7 @@ To stop an L7 load balancer:
 
       To apply this action to multiple load balancers, select the appropriate load balancers in the list, click **{{ ui-key.yacloud.common.stop }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.stop }}** in the window that opens.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -98,7 +98,7 @@ To stop an L7 load balancer:
 
       For more information about the `application-load-balancer load-balancer stop` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/stop.md).
 
-- API
+- API {#api}
 
    Use the [stop](../api-ref/LoadBalancer/stop.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Stop](../api-ref/grpc/load_balancer_service.md#Stop) gRPC API call.
 
@@ -110,9 +110,9 @@ The **{{ ui-key.yacloud.common.start }}** command starts a stopped L7 load balan
 
 To start a load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -120,7 +120,7 @@ To start a load balancer:
 
       To apply this action to multiple load balancers, select the appropriate load balancers in the list, click **{{ ui-key.yacloud.common.start }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.start }}** in the window that opens.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -195,7 +195,7 @@ To start a load balancer:
 
       For more information about the `application-load-balancer load-balancer start` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/start.md).
 
-- API
+- API {#api}
 
    Use the [start](../api-ref/LoadBalancer/start.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Start](../api-ref/grpc/load_balancer_service.md#Start) gRPC API call.
 

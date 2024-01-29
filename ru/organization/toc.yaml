@@ -117,6 +117,8 @@ items:
             href: api-ref/grpc/group_service.md
           - name: OrganizationService
             href: api-ref/grpc/organization_service.md
+          - name: OsLoginService
+            href: api-ref/grpc/os_login_service.md
           - name: SshCertificateService
             href: api-ref/grpc/ssh_certificate_service.md
           - name: UserService
@@ -177,6 +179,26 @@ items:
                 href: api-ref/Organization/update.md
               - name: updateAccessBindings
                 href: api-ref/Organization/updateAccessBindings.md
+          - name: OsLogin
+            items:
+              - name: Overview
+                href: api-ref/OsLogin/index.md
+              - name: createProfile
+                href: api-ref/OsLogin/createProfile.md
+              - name: deleteProfile
+                href: api-ref/OsLogin/deleteProfile.md
+              - name: getProfile
+                href: api-ref/OsLogin/getProfile.md
+              - name: getSettings
+                href: api-ref/OsLogin/getSettings.md
+              - name: listProfiles
+                href: api-ref/OsLogin/listProfiles.md
+              - name: setDefaultProfile
+                href: api-ref/OsLogin/setDefaultProfile.md
+              - name: updateProfile
+                href: api-ref/OsLogin/updateProfile.md
+              - name: updateSettings
+                href: api-ref/OsLogin/updateSettings.md
           - name: SshCertificate
             items:
               - name: Overview

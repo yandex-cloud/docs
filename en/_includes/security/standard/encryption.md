@@ -20,9 +20,9 @@ If your corporate information security policy sets specific key size and rotatio
 
 To protect critical data in {{ objstorage-full-name }}, we recommend using bucket server-side encryption with {{ kms-full-name }} keys. This encryption method protects against accidental or intentional publication of the bucket content on the web. For more information, see [Encryption](../../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the buckets in.
    1. In the list of services, select **{{ objstorage-name }}**.
@@ -31,7 +31,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
    1. Make sure that encryption is enabled and the {{ kms-short-name }} encryption key is specified.
    1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
    1. Run the command below to check whether encryption is enabled:
@@ -76,11 +76,11 @@ Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually 
 * [Configuring HTTPS](../../../storage/operations/hosting/certificate.md)
 * [Bucket](../../../storage/concepts/bucket.md)
 
-When using [{{ objstorage-name }}](../../../storage/), be sure that support for TLS protocols below version 1.2 is disabled at the client level. Use the bucket policy [`aws:securetransport`](../../../storage/s3/api-ref/policy/conditions.md) to ensure that running without TLS is disabled for the bucket.
+When using [{{ objstorage-name }}](../../../storage/), make sure that support for TLS protocols below version 1.2 is disabled at the client level. Use the bucket policy [`aws:securetransport`](../../../storage/s3/api-ref/policy/conditions.md) to ensure that running without TLS is disabled for the bucket.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the buckets in.
    1. In the list of services, select **{{ objstorage-name }}**.
@@ -96,11 +96,11 @@ Enable access over HTTPS if a bucket is used for hosting a static website.
 
 #### 4.3 {{ alb-full-name }} uses HTTPS {#alb-https}
 
-[{{ alb-name }}](../../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See[how to set up the listener](../../../application-load-balancer/concepts/application-load-balancer.md) in the {{ alb-full-name }} documentation.
+[{{ alb-name }}](../../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../../application-load-balancer/concepts/application-load-balancer.md) in the {{ alb-full-name }} documentation.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the load balancers in.
    1. In the list of services, select **{{ alb-name }}**.
@@ -108,7 +108,7 @@ Enable access over HTTPS if a bucket is used for hosting a static website.
    1. Make sure that **HTTPS** is specified for the load balancer.
    1. If HTTPS is specified, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -141,16 +141,16 @@ Enable an HTTPS listener using the instructions.
 
 [{{ api-gw-name }}](../../../api-gateway/) supports secure connections over HTTPS. You can link your own domain and upload your own security certificate to access your [API gateway](../../../api-gateway/concepts/index.md) over HTTPS.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the gateways in.
    1. In the list of services, select **{{ api-gw-name }} → Gateway settings → Domains**.
    1. Make sure the domain and certificate are enabled.
    1. If the domain and certificate are active, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -185,9 +185,9 @@ Enable an HTTPS listener using the instructions.
 
 [{{ cdn-name }}](../../../cdn/) supports secure connections to origins over HTTPS. You can also upload your own security certificate to access your [CDN resource](../../../cdn/concepts/resource.md) over HTTPS.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the resources in.
    1. In the list of services, select **{{ cdn-name }}**.
@@ -196,7 +196,7 @@ Enable an HTTPS listener using the instructions.
    1. Make sure the **Certificate** field specifies your own certificate or a **Let’s encrypt** certificate.
    1. If HTTPS and your own certificate are specified, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -233,9 +233,9 @@ Enable an HTTPS listener using the instructions.
 
 If disk encryption is required, place your application files on a VM's secondary disk (not the boot disk) and configure full disk encryption for it.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Manually check whether this solution is used for critical VMs.
 
@@ -247,15 +247,15 @@ If disk encryption is required, place your application files on a VM's secondary
 
 #### 4.7 For critical data, MDB encryption with {{ kms-short-name }} is used {#self-data-kms}
 
-If data encryption is required, make sure to encrypt data at the application level prior to writing it to a database, for example, using [{{ kms-short-name }}](../../../kms/operations/symmetric-encryption.md) and add-on, such as `pgcrypto`.
+If data encryption is required, make sure to encrypt data at the application level prior to writing it to a database, for example, using [{{ kms-short-name }}](../../../kms/operations/symmetric-encryption.md) and an add-on, such as `pgcrypto`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Make sure that the stored data is encrypted.
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    To get a list of all extensions set in a database, run this command:
 
@@ -282,11 +282,11 @@ For client-side encryption, we recommend that you use the following libraries:
 * Google Tink and its [{{ kms-short-name }} integration](../../../kms/tutorials/encrypt/google-tink.md).
 * [{{ yandex-cloud }} SDK](../../../kms/tutorials/encrypt/sdk.md) with any other cryptographic library compatible with PCI DSS or any standards used in your company.
 
-For a comparison of libraries, see the {{ kms-short-name }} documentation,  [Which encryption method should I choose?](../../../kms/tutorials/encrypt/).
+For a comparison of libraries, see the {{ kms-short-name }} documentation, [Which encryption method should I choose?](../../../kms/tutorials/encrypt/).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manual check
+- Manual check {#manual}
 
    Make sure that the stored data is encrypted.
 
@@ -306,9 +306,9 @@ To use the HSM, when creating a key, select AES-256 HSM as the algorithm type. T
 
 We recommend using HSMs for {{ kms-short-name }} keys to enhance the security level.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the keys in.
    1. In the list of services, select **{{ kms-name }}**.
@@ -316,7 +316,7 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
    1. Make sure the **Encryption algorithm** field is set to **AES-256 HSM**.
    1. If AES-256 HSM is specified, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -354,19 +354,19 @@ We recommend that you grant granular permissions for specific keys in the {{ kms
 For more information about security measures for access control, see [Authentication and access control](../../../security/domains/access.md).
 
 To verify the {{ kms-short-name }} key access rights, check out who is granted access rights to:
-* An organization, cloud, and folders with permissions such as: `admin`, `editor`, `kms.admin`, `kms.editor`, and `kms.keys.encrypterDecrypter`.
-* Keys such as: `kms.keys.encrypterDecrypter` and `kms.editor`.
+* Organization, cloud, and folders with the `admin`, `editor`, `kms.admin`, `kms.editor`, and `kms.keys.encrypterDecrypter` permissions.
+* `kms.keys.encrypterDecrypter` and `kms.editor` keys.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the key access rights in.
    1. Click the **Access bindings** tab.
    1. Make sure the `admin`, `editor`, `kms.admin`, `kms.editor`, and `kms.keys.encrypterDecrypter` roles are only granted to users under control.
    1. You can only verify the key access rights in the CLI.
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -429,7 +429,7 @@ Check out who is granted access to {{ kms-short-name }} keys.
 #### 4.11 For {{ kms-short-name }} keys, rotation is enabled {#keys-rotation}
 
 To improve the security of your infrastructure, we recommend that you categorize your encryption keys into two groups:
-* Keys for services that process critical data but do not store it. e.g., {{ message-queue-name }} and {{ sf-name }}.
+* Keys for services that process critical data but do not store it, e.g., {{ message-queue-name }} and {{ sf-name }}.
 * Keys for services that store critical data, e.g., Managed Services for Databases.
 
 For the first group, we recommend that you set up automatic key rotation with a rotation period longer than the data processing period in these services. When the rotation period expires, the old key versions must be deleted. In the case of automatic rotation and the deletion of old key versions, previously processed data cannot be restored and decrypted.
@@ -446,9 +446,9 @@ Destroying any version of a key means destroying all data encrypted with it. You
 
 For more information about key rotation, see the {{ kms-short-name }} documentation, [Key version](../../../kms/concepts/version.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the keys in.
    1. In the list of services, select **{{ kms-name }}**.
@@ -456,7 +456,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
    1. Find the **Rotation period** parameter.
    1. If the parameter is set to any value different from **No rotation**, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -485,11 +485,11 @@ Set the key rotation period.
 
 #### 4.12 Make sure that deletion protection is enabled for {{ kms-short-name }} keys {#keys-deletion-protection}
 
-Deleting a {{ kms-short-name }} key always means destroying data. Therefore, be sure to protect the keys against accidental deletion. {{ kms-short-name }} has the necessary feature.
+Deleting a {{ kms-short-name }} key always means destroying data. Therefore, make sure to protect the keys against accidental deletion. {{ kms-short-name }} has the necessary feature.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the keys in.
    1. In the list of services, select **{{ kms-name }}**.
@@ -497,7 +497,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, be 
    1. Find the **Deletion protection** parameter.
    1. If it is set to **Yes**, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -546,9 +546,9 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the secrets in.
    1. In the list of services, select **{{ lockbox-short-name }}**.
@@ -556,7 +556,7 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
    1. Find the **Deletion protection** parameter.
    1. If {{ lockbox-short-name }} is used or {{ k8s }} VMs or entities have Hashicorp Vault installed, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. See what organizations are available to you and write down the ID you need:
 
@@ -593,9 +593,9 @@ We recommend using Serverless integration with {{ lockbox-short-name }} for tha
 
 Make sure that the secrets are used as described above.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the functions in.
    1. In the list of services, select **{{ sf-name }}**.
@@ -603,7 +603,7 @@ Make sure that the secrets are used as described above.
    1. Find the **{{ lockbox-short-name }} secrets** parameter.
    1. If the parameters of each object specify **{{ lockbox-short-name }} secrets** or there are no environment variables with secret data, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
    1. Run the command below to search for all the cloud functions that use no {{ lockbox-short-name }} secrets and make sure that these functions use no secret data in environment variables:
 

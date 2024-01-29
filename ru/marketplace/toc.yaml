@@ -102,6 +102,8 @@ items:
         items:
           - name: Overview
             href: license-manager/saas/api-ref/grpc/index.md
+          - name: InstanceService
+            href: license-manager/saas/api-ref/grpc/instance_service.md
           - name: LockService
             href: license-manager/saas/api-ref/grpc/lock_service.md
           - name: OperationService
@@ -110,10 +112,18 @@ items:
         items:
           - name: Overview
             href: license-manager/saas/api-ref/index.md
+          - name: Instance
+            items:
+              - name: Overview
+                href: license-manager/saas/api-ref/Instance/index.md
+              - name: get
+                href: license-manager/saas/api-ref/Instance/get.md
           - name: Lock
             items:
               - name: Overview
                 href: license-manager/saas/api-ref/Lock/index.md
               - name: ensure
                 href: license-manager/saas/api-ref/Lock/ensure.md
+              - name: get
+                href: license-manager/saas/api-ref/Lock/get.md
 base: ru/marketplace

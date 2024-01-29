@@ -150,6 +150,14 @@ resource "yandex_compute_image" "joomla-pg-vm-image" {
   source_family = "centos-stream-8"
 }
 
+resource "yandex_compute_disk" "boot-disk" {
+  name     = "bootvmdisk"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "10"
+  image_id = yandex_compute_image.joomla-pg-vm-image.id
+}
+
 # Создание ВМ
 
 resource "yandex_compute_instance" "joomla-pg-vm" {
@@ -164,10 +172,7 @@ resource "yandex_compute_instance" "joomla-pg-vm" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.joomla-pg-vm-image.id
-      size     = 10
-    }
+   image_id = yandex_compute_disk.boot-disk.id
   }
 
   network_interface {

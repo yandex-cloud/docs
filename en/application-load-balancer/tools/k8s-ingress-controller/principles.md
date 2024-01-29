@@ -67,24 +67,24 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 
 IDs of resources of an {{ alb-name }} load balancer deployed in the `Ingress` configuration are specified in the custom `IngressGroupStatus` resource of the {{ managed-k8s-name }} cluster. To view them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Select the {{ managed-k8s-name }} cluster whose `Ingress` configuration was used to create a load balancer.
-  1. On the {{ managed-k8s-name }} cluster page, go to the ![shapes-3](../../../_assets/console-icons/shapes-3.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}** tab.
-  1. Select `ingressgroupstatuses.alb.yc.io` and open the **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}** tab.
-  1. Select a resource with the `Ingress` resource group name specified in the `ingress.alb.yc.io/group-name` annotation and go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
+   1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Select the {{ managed-k8s-name }} cluster whose `Ingress` configuration was used to create a load balancer.
+   1. On the {{ managed-k8s-name }} cluster page, go to the ![shapes-3](../../../_assets/console-icons/shapes-3.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}** tab.
+   1. Select `ingressgroupstatuses.alb.yc.io` and open the **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}** tab.
+   1. Select a resource with the `Ingress` resource group name specified in the `ingress.alb.yc.io/group-name` annotation and go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
 
-- CLI
+- kubectl CLI {#kubectl}
 
-  1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-  1. Run this command:
+   1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+   1. Run this command:
 
-     ```bash
-     kubectl describe IngressGroupStatus
-     ```
+      ```bash
+      kubectl describe IngressGroupStatus
+      ```
 
 {% endlist %}

@@ -37,7 +37,7 @@ To set up SAML authentication:
    https://c-<{{ ES }} cluster_ID>.rw.{{ dns-zone }}/api/security/saml/callback
    ```
 
-   The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
 
@@ -66,9 +66,9 @@ Incorrect settings may cause the cluster to fail.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.auth.auth-providers }}** tab.
@@ -108,7 +108,7 @@ Incorrect settings may cause the cluster to fail.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- API
+- API {#api}
 
    1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
    1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/auth_service.md#AddProviders) gRPC API call and provide the following in the request:
@@ -211,9 +211,9 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 
 1. Configure roles for the {{ mes-name }} cluster:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
@@ -259,9 +259,9 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 
 To log in to the {{ mes-name }} cluster using the new user's credentials:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.

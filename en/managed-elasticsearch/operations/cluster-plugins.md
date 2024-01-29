@@ -11,9 +11,9 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
 ## Retrieving a list of installed plugins {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -27,9 +27,9 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
    Enabled plugins will be shown in the `plugins` list.
 
-   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of installed plugins, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -41,9 +41,9 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
 ## Editing a list of installed plugins {#update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -56,9 +56,9 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
       --plugins=<plugin_1_name>,...,<plugin_N_name>
    ```
 
-   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -88,7 +88,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
-- API
+- API {#api}
 
    To update the list of installed plugins, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.

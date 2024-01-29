@@ -9,9 +9,9 @@ This section describes how to assign a role to a user with a Yandex account. The
 
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the management console, you can only assign a role for a cloud or folder:
 
@@ -26,7 +26,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
       {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -39,6 +39,7 @@ This section describes how to assign a role to a user with a Yandex account. The
           --role <role_ID> \
           --subject userAccount:<user_ID>
       ```
+
 
       Where:
 
@@ -57,39 +58,7 @@ This section describes how to assign a role to a user with a Yandex account. The
       ```
 
 
-- API
-
-   Use the `updateAccessBindings` REST API method for the respective resource.
-
-   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
-   1. [Get the user ID](../users/get.md).
-   1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
-
-      **body.json:**
-      ```json
-      {
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "gfei8n54hmfh********",
-                      "type": "userAccount"
-                      }
-                  }
-              }
-          ]
-      }
-      ```
-
-   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
-
-    For detailed instructions on how to assign a role to a resource, see:
-    * [{#T}](../sa/set-access-bindings.md).
-    * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md).
-    * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -97,9 +66,9 @@ This section describes how to assign a role to a user with a Yandex account. The
 
       * `cloud_id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
       * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to, specified as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
-      Example of the configuration file structure:
+      Here is a sample configuration file structure:
 
       ```
       resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
@@ -142,18 +111,50 @@ This section describes how to assign a role to a user with a Yandex account. The
         yc resource-manager folder list-access-bindings <folder_name_or_ID>
         ```
 
+- API {#api}
+
+   Use the `updateAccessBindings` REST API method for the respective resource.
+
+   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. [Get the user ID](../users/get.md).
+   1. Create a request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+
+      **body.json:**
+      ```json
+      {
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "gfei8n54hmfh********",
+                      "type": "userAccount"
+                      }
+                  }
+              }
+          ]
+      }
+      ```
+
+   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
+
+    For the detailed guide on how to assign a role to a resource, see:
+    * [{#T}](../sa/set-access-bindings.md).
+    * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md).
+    * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md).
+
 {% endlist %}
 
 
 ## Assign multiple roles {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-multiple-users-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -182,7 +183,7 @@ This section describes how to assign a role to a user with a Yandex account. The
             --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
-- API
+- API {#api}
 
    1. To assign the `editor` role to one user and the `viewer` role to another user, add multiple access bindings to the request body file in `accessBindingDeltas`.
       
@@ -262,9 +263,9 @@ This section describes how to assign a role to a user with a Yandex account. The
 
 In the management console, you can assign a [federated user](../../../organization/concepts/add-federation.md) a role for an individual cloud or folder.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    The role assignment procedure is the same as for a user with a Yandex account. The user's federation name is shown next to the username.
 
@@ -278,7 +279,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
       {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -308,13 +309,13 @@ In the management console, you can assign a [federated user](../../../organizati
           --subject federatedUser:aje6o61dvog2********
       ```
 
-- API
+- API {#api}
 
    Use the `updateAccessBindings` REST API method for the respective resource.
 
    1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
    1. [Get the user ID](../users/get.md).
-   1. Create a request body, for example, in a `body.json` file. In the `action` property, specify `ADD`, and in the `subject` property, `federatedUser` as the type and the user ID:
+   1. Create a request body, for example, in the `body.json` file. In the `action` property, specify `ADD`, and in the `subject` property, `federatedUser` as the type and the user ID:
 
       **body.json:**
 
@@ -342,9 +343,9 @@ In the management console, you can assign a [federated user](../../../organizati
 
 ## Resource access for a group of users {#access-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Assign the group of users a role in the cloud:
 
@@ -359,7 +360,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
    The group name will be displayed in **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** in the cloud along with the other users with roles in this cloud.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

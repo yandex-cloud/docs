@@ -6,9 +6,9 @@ You can add alerts about a certificate's expiration or failure.
 
 To create an alert:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create an alert in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
@@ -24,8 +24,8 @@ To create an alert:
          * (Optional) If you choose multiple certificates, use the `series_min()` function that selects the minimum value.
       1. Set up the main and additional alert parameters:
          * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**. The condition is less than or equal to. The number of days for **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** is `4` and for **{{ ui-key.yacloud_monitoring.alert.status_warn }}**, `14`.
-         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**
-         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**
+         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**.
+         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**.
 
          
          For more information, see [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
@@ -40,9 +40,9 @@ To create an alert:
 
 To create an alert:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create an alert in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
@@ -58,8 +58,8 @@ To create an alert:
          * (Optional) If you choose multiple certificates, use the `series_sum()` function that calculates the sum of values.
       1. Set up the main and additional alert parameters:
          * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**. The condition is more than. The number of faulty certificates for **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** is `0`.
-         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**
-         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**
+         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**.
+         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**.
 
          
          For more information, see [{#T}](../../monitoring/concepts/alerting/alert.md#condition).

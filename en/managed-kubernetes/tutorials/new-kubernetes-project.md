@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create service accounts {#create-sa}
 
 For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) to run, the following [service accounts](../../iam/concepts/users/service-accounts.md) are required:
-* Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+* Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster needs.
 * Service account with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). [Nodes](../../managed-kubernetes/concepts/index.md#node-group) will pull the required Docker images from the registry on behalf of this service account.
 * For the {{ alb-name }} Ingress controller to run, you need service accounts with the following roles:
   * [alb.editor](../../iam/concepts/access-control/roles.md#alb-editor): To create the required resources.
@@ -79,55 +79,55 @@ For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-
 To create a service account for making the resources required by the {{ managed-k8s-name }} cluster:
 1. Write the folder ID from your {{ yandex-cloud }} CLI profile configuration to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     FOLDER_ID=$(yc config get folder-id)
-     ```
+      ```bash
+      FOLDER_ID=$(yc config get folder-id)
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     $FOLDER_ID = yc config get folder-id
-     ```
+      ```shell script
+      $FOLDER_ID = yc config get folder-id
+      ```
 
    {% endlist %}
 
 1. Create a service account:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     yc iam service-account create --name k8s-res-sa-$FOLDER_ID
-     ```
+      ```bash
+      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     yc iam service-account create --name k8s-res-sa-$FOLDER_ID
-     ```
+      ```shell script
+      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
+      ```
 
    {% endlist %}
 
 1. Write the service account ID to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     RES_SA_ID=$(yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | jq .id -r)
-     ```
+      ```bash
+      RES_SA_ID=$(yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | jq .id -r)
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
-     ```
+      ```shell script
+      $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
+      ```
 
    {% endlist %}
 
@@ -145,55 +145,55 @@ To create a service account for making the resources required by the {{ managed-
 To create a service account that lets nodes download the necessary Docker images from the registry:
 1. Write the folder ID from your {{ yandex-cloud }} CLI profile configuration to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     FOLDER_ID=$(yc config get folder-id)
-     ```
+      ```bash
+      FOLDER_ID=$(yc config get folder-id)
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     $FOLDER_ID = yc config get folder-id
-     ```
+      ```shell script
+      $FOLDER_ID = yc config get folder-id
+      ```
 
    {% endlist %}
 
 1. Create a service account:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     yc iam service-account create --name k8s-node-sa-$FOLDER_ID
-     ```
+      ```bash
+      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     yc iam service-account create --name k8s-node-sa-$FOLDER_ID
-     ```
+      ```shell script
+      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
+      ```
 
    {% endlist %}
 
 1. Write the service account ID to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     NODE_SA_ID=$(yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | jq .id -r)
-     ```
+      ```bash
+      NODE_SA_ID=$(yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | jq .id -r)
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
-     ```
+      ```shell script
+      $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
+      ```
 
    {% endlist %}
 
@@ -210,55 +210,55 @@ To create a service account that lets nodes download the necessary Docker images
 
 1. Write the folder ID from your {{ yandex-cloud }} CLI profile configuration to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     FOLDER_ID=$(yc config get folder-id)
-     ```
+      ```bash
+      FOLDER_ID=$(yc config get folder-id)
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     $FOLDER_ID = yc config get folder-id
-     ```
+      ```shell script
+      $FOLDER_ID = yc config get folder-id
+      ```
 
    {% endlist %}
 
 1. Create a service account:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     yc iam service-account create --name k8s-ic-sa-$FOLDER_ID
-     ```
+      ```bash
+      yc iam service-account create --name k8s-ic-sa-$FOLDER_ID
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     yc iam service-account create --name k8s-ic-sa-$FOLDER_ID
-     ```
+      ```shell script
+      yc iam service-account create --name k8s-ic-sa-$FOLDER_ID
+      ```
 
    {% endlist %}
 
 1. Write the service account ID to the variable:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
-     ```bash
-     IC_SA_ID=$(yc iam service-account get --name k8s-ic-sa-$FOLDER_ID --format json | jq .id -r)
-     ```
+      ```bash
+      IC_SA_ID=$(yc iam service-account get --name k8s-ic-sa-$FOLDER_ID --format json | jq .id -r)
+      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
-     ```shell script
-     $RES_SA_ID = (yc iam service-account get --name k8s-ic-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
-     ```
+      ```shell script
+      $RES_SA_ID = (yc iam service-account get --name k8s-ic-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
+      ```
 
    {% endlist %}
 
@@ -326,15 +326,15 @@ Build a Docker image and push it to the registry.
 1. Assemble the Docker image.
    1. Get the ID of the [previously created](#registry-create) registry and write it to the variable:
 
-      {% list tabs %}
+      {% list tabs group=programming_language %}
 
-      - Bash
+      - Bash {#bash}
 
          ```bash
          REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
          ```
 
-      - PowerShell
+      - PowerShell {#powershell}
 
          ```shell script
          $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
@@ -523,15 +523,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. Delete resources {{ container-registry-name }}.
    1. Find out the ID of the Docker image pushed to the registry:
 
-      {% list tabs %}
+      {% list tabs group=programming_language %}
 
-      - Bash
+      - Bash {#bash}
 
          ```bash
          IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
          ```
 
-      - PowerShell
+      - PowerShell {#powershell}
 
          ```powershell
          $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id

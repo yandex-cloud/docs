@@ -12,7 +12,7 @@ keywords:
 
 # Backups in {{ mmy-name }}
 
-{{ mmy-short-name }} provides automatic and manual database backups.
+{{ mmy-short-name }} supports automatic and manual database backups.
 
 {{ mmy-name }} allows you to restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting recovery point with entries from the binary logs of later cluster backups.
 
@@ -41,7 +41,7 @@ To restore a cluster from a backup, [follow this guide](../operations/cluster-ba
 
 You can create backups both automatically and manually; in both cases, you get a [full physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all databases.
 
-You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set a start time for these backups. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
+You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage.
 
@@ -64,7 +64,7 @@ Storing backups in {{ mmy-name }}:
 
 * In an existing cluster, you can set up the retention period for automatic backups ranging from 7 (default) to 60 days. Manual backups are stored with no time limit.
 
-* Once you delete a cluster, all its backups persist for seven days.
+* After you delete a cluster, all its backups are kept for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 

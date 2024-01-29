@@ -14,9 +14,9 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a cluster:
 
@@ -28,12 +28,12 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
+      * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
       * (Optional) Enter a cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       * Specify the DBMS version.
 
@@ -78,7 +78,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
 
 
-      By default, hosts are created in different availability zones. For details, see the [host management](hosts.md).
+      By default, hosts are created in different availability zones. See the [host management](hosts.md).
 
    1. Configure additional cluster settings, if required:
 
@@ -90,7 +90,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -134,7 +134,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
         --deletion-protection=<deletion_protection>
       ```
 
-      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
+      You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
 
 
       Where:
@@ -144,7 +144,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP, `true` or `false`.
 
 
@@ -161,7 +161,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -266,7 +266,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -278,7 +278,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
    * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
 
    
-   * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
+   * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
 
 
    * Database configuration in one or more `databaseSpecs` parameters.
@@ -304,24 +304,24 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mmg-name }} cluster with the following test characteristics:
 
    
-   * Name: `mymg`.
-   * Environment: `production`.
-   * Network: `{{ network-name }}`.
-   * Security group ID: `{{ security-group }}`.
-   * `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1.
-   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-   * User: `user1`, with the `user1user1` password.
-   * Database: `db1`.
-   * Protection against accidental cluster deletion: Enabled.
+   * Name: `mymg`
+   * Environment: `Production`
+   * Network: `{{ network-name }}`
+   * Security group ID: `{{ security-group }}`
+   * `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`
+   * Protection against accidental cluster deletion: Enabled
 
 
    Run the following command:
@@ -343,7 +343,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Create a {{ mmg-name }} cluster and a network for it with the following test characteristics:
 
@@ -453,30 +453,30 @@ Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
 
 Cluster test characteristics:
 
-* Name: `mymg`.
-* Environment: `PRODUCTION`.
-* Protection against accidental cluster deletion: Enabled.
-* Version: `{{ versions.tf.latest }}`.
-* Database: `db1`.
-* User: `user1`.
-* Password: `user1user1`.
-* `MONGOD` host class: `{{ host-class }}`.
-* `MONGOINFRA` host class: `c3-c2-m4`.
-* SSD network storage: `{{ disk-type-example }}`.
-* Storage size: 10 GB.
+* Name: `mymg`
+* Environment: `PRODUCTION`
+* Protection against accidental cluster deletion: Enabled
+* Version: `{{ versions.tf.latest }}`
+* Database: `db1`
+* User: `user1`
+* Password: `user1user1`
+* `MONGOD` host class: `{{ host-class }}`
+* `MONGOINFRA` host class: `c3-c2-m4`
+* Network SSD storage: `{{ disk-type-example }}`
+* Storage size: 10 GB
 
 Network characteristics:
 
-* Network: `mynet`.
+* Network: `mynet`
 * Security group: `mymg-sg` with the `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
 
-* Subnet: `mysubnet`.
-* Availability zone: `{{ region-id }}-a`.
-* Range: `10.5.0.0/24` (only for {{ TF }}).
+* Subnet: `mysubnet`
+* Availability zone: `{{ region-id }}-a`
+* Range: `10.5.0.0/24` (only for {{ TF }})
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a {{ mmg-name }} cluster with standard sharding, run this command:
 
@@ -510,7 +510,7 @@ Network characteristics:
       --security-group-ids {{ security-group }}
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    The configuration file for a cluster with standard sharding is as follows:
 
@@ -610,28 +610,28 @@ Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
 
 Cluster test characteristics:
 
-* Name: `mymg`.
-* Environment: `PRODUCTION`.
-* Protection against accidental cluster deletion: Enabled.
-* Version: `{{ versions.tf.latest }}`.
-* Database: `db1`.
-* User: `user1`.
-* Password: `user1user1`.
-* Host class: `{{ host-class }}`.
-* SSD network storage: `{{ disk-type-example }}`.
-* Storage size: 10 GB.
+* Name: `mymg`
+* Environment: `PRODUCTION`
+* Protection against accidental cluster deletion: Enabled
+* Version: `{{ versions.tf.latest }}`
+* Database: `db1`
+* User: `user1`
+* Password: `user1user1`
+* Host class: `{{ host-class }}`
+* Network SSD storage: `{{ disk-type-example }}`
+* Storage size: 10 GB
 
 Network characteristics:
 
-* Network: `mynet`.
+* Network: `mynet`
 * Security group: `mymg-sg` with the `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
-* Subnet: `mysubnet`.
-* Availability zone: `{{ region-id }}-a`.
-* Range: `10.5.0.0/24` (only for {{ TF }}).
+* Subnet: `mysubnet`
+* Availability zone: `{{ region-id }}-a`
+* Range: `10.5.0.0/24` (only for {{ TF }})
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To create a {{ mmg-name }} cluster with extended sharding, run this command:
 
@@ -674,7 +674,7 @@ Network characteristics:
      --security-group-ids {{ security-group }}
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    The configuration file for a cluster with advanced sharding is as follows:
 

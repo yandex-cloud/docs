@@ -2,6 +2,8 @@
 
 All {{ mgp-name }} cluster hosts are located in the same {{ yandex-cloud }} [availability zone](../../../overview/concepts/geo-scope.md). To move hosts from one availability zone to another, [restore your cluster from a backup](../cluster-backups.md#restore). During cluster recovery from a backup, specify a new availability zone.
 
+{% include [zone-d-disk-restrictions](../../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+
 ## Specifics of migration in {{ data-transfer-full-name }} {#data-transfer}
 
 If your cluster acts as an [endpoint](../../../data-transfer/concepts/index.md#endpoint) at data transfer using {{ data-transfer-name }}:

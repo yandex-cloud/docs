@@ -15,16 +15,16 @@ If you delete a VM from {{ compute-name }} using the management console it is al
 
 To delete a VM from {{ backup-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the VM from.
    1. In the list of services, select **{{ backup-name }}**.
    1. Next to the VM to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Delete**.
    1. Confirm the deletion.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -46,7 +46,7 @@ To delete a VM from {{ backup-name }}:
       yc backup vm delete <VM_ID>
       ```
 
-- API
+- API {#api}
 
    Use the [delete](../backup/api-ref/Resource/delete.md) REST API method for the [Resource](../backup/api-ref/Resource/index.md) resource or the [ResourceService/Delete](../backup/api-ref/grpc/resource_service.md#Delete) gRPC API call.
 

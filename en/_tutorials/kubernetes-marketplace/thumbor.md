@@ -19,13 +19,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#infra}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
 
-      * Service account for resources with the [roles](../../managed-kubernetes/security/index.md#yc-api) `k8s.clusters.agent` and `vpc.publicAdmin` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
+      * Service account for resources with the [k8s.clusters.agent](../../managed-kubernetes/security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
       * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
 
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}.
    1. [Grant the `thumbor-sa` service account](../../storage/operations/objects/edit-acl.md) the `READ` permission for the bucket.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -133,9 +133,9 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 1. Upload the images to the bucket:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. In the [management console]({{ link-console-main }}), select the folder to upload an object to.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -147,7 +147,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
       In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       You can only upload objects to a bucket after you create it. Therefore, a separate configuration file is used for uploading images.
 
@@ -303,9 +303,9 @@ You will see the prepared images of different sizes. Each image carries a [Creat
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    Delete:
 
@@ -317,7 +317,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Service accounts](../../iam/operations/sa/delete.md).
    1. [Buckets](../../storage/operations/buckets/delete.md) and [objects in them](../../storage/operations/objects/delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `images-for-thumbor.tf` configuration file. To delete a bucket, first delete the objects in it.

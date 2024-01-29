@@ -29,9 +29,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a user for a producer or consumer in a cluster:
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
@@ -45,7 +45,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1. [Grant permissions](#grant-permission) for relevant topics.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -85,7 +85,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -117,7 +117,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
-- API
+- API {#api}
 
    To create a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -139,9 +139,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
 ## Changing a user password {#update-password}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -151,7 +151,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -167,7 +167,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -198,7 +198,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
-- API
+- API {#api}
 
    To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -215,9 +215,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
 ## Changing user settings {#update-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -226,7 +226,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1. [Grant](#grant-permission) or [revoke](#revoke-permission) permissions for topics, if necessary.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -234,7 +234,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    Using the CLI, you can [grant](#grant-permission) and [revoke](#revoke-permission) topic permissions.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -264,7 +264,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
-- API
+- API {#api}
 
    To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -281,9 +281,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
 {% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -313,7 +313,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1. To grant permissions to other topics, repeat the steps.
    1. (Optional) If you granted permissions for a topic accidentally, [revoke them](#revoke-permission).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -354,7 +354,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
         --permission topic=topic2,role=producer
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -397,7 +397,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
-- API
+- API {#api}
 
    To grant user permissions, use the [grantPermission](../api-ref/User/grantPermission.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/GrantPermission](../api-ref/grpc/user_service.md#GrantPermission) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -411,9 +411,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
 If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/topics.md#management) in a cluster, you will no longer be able to manage topics. Do not revoke this role without first granting it to another user.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -423,7 +423,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
    1. Find the appropriate topic in the list of topics.
    1. Delete the role you no longer need: click the ![image](../../_assets/console-icons/xmark.svg) icon next to the role name. To revoke all permissions for a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/console-icons/xmark.svg) at the end of the line.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -446,7 +446,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
    To revoke all the permissions granted to the user, use the console or delete the user.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -466,7 +466,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
-- API
+- API {#api}
 
    To revoke user permissions, use the [revokePermission](../api-ref/User/revokePermission.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/RevokePermission](../api-ref/grpc/user_service.md#RevokePermission) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -478,15 +478,15 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
 ## Getting a list of users in a cluster {#list-accounts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -506,7 +506,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
       ```
 
 
-- API
+- API {#api}
 
    To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -519,9 +519,9 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
 Using import, you can bring the existing cluster users under {{ TF }} management.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the {{ TF }} configuration file, specify the user you want to import:
 
@@ -543,9 +543,9 @@ Using import, you can bring the existing cluster users under {{ TF }} management
 
 If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. To avoid this, assign this role to another user before deleting the admin user.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -553,7 +553,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -565,7 +565,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
    {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster_name>
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -584,7 +584,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
-- API
+- API {#api}
 
    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).

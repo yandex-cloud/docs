@@ -13,6 +13,14 @@ provider "yandex" {
   zone = "{{ region-id }}-a"
 }
 
+resource "yandex_compute_disk" "boot-disk" {
+  name     = "bootvmdisk"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = "<идентификатор_образа>"
+}
+
 resource "yandex_compute_instance" "vm-wordpress-mysql" {
   name        = "wp-mysql-tutorial-web"
   platform_id = "standard-v3"
@@ -25,9 +33,7 @@ resource "yandex_compute_instance" "vm-wordpress-mysql" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = "<идентификатор_образа>"
-    }
+    image_id = yandex_compute_disk.boot-disk.id
   }
 
   network_interface {

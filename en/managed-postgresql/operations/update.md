@@ -37,16 +37,16 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for the {{ PG }} hosts.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -87,7 +87,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {{ mpg-short-name }} will run the update host class command for the cluster.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -119,7 +119,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change the class of cluster hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -142,9 +142,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -152,7 +152,7 @@ You can change the DBMS settings of the hosts in your cluster.
    1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -183,7 +183,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {{ mpg-short-name }} runs the update cluster settings operation.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -218,7 +218,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change {{ PG }} server settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -232,9 +232,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
 ## Changing additional cluster settings {#change-additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -242,7 +242,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -314,7 +314,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -407,7 +407,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -451,9 +451,9 @@ For more information, see [{#T}](../concepts/replication.md).
 
 To switch the master:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and select the ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
@@ -462,13 +462,13 @@ To switch the master:
       * To switch the master to a specific replica, disable the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option and then select the required replica from the drop-down list.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the following command:
+   Run this command:
 
    ```bash
    {{ yc-mdb-pg }} cluster start-failover <cluster_name_or_ID> \
@@ -477,7 +477,7 @@ To switch the master:
 
    You can request the replica host name with a [list of cluster hosts](hosts.md#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -506,7 +506,7 @@ To switch the master:
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To switch the master host, use the [startFailover](../api-ref/Cluster/startFailover.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) gRPC API call and provide the following in the request:
 
@@ -517,9 +517,9 @@ To switch the master:
 
 ## Moving a cluster {#move-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
@@ -527,7 +527,7 @@ To switch the master:
    1. Select a folder you want to move the cluster to.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -550,7 +550,7 @@ To switch the master:
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
 
@@ -566,15 +566,15 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
 ## Changing security groups {#change-sg-set}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -595,7 +595,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
           --security-group-ids <list_of_security_group_IDs>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -622,7 +622,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 

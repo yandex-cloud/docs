@@ -337,8 +337,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt1)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet}
@@ -692,8 +692,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt2)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet1}
@@ -957,8 +957,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt3)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfig {#PXFConfig2}
@@ -1370,8 +1370,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt4)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfig {#PXFConfig3}
@@ -1898,8 +1898,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt5)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet4}
@@ -2309,8 +2309,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt6)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet5}
@@ -2680,8 +2680,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt7)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet6}
@@ -3293,8 +3293,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt8)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet7}
@@ -3360,6 +3360,7 @@ placement_group_id | **string**<br>ID of the placement group.
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 segment_host_count | **int64**<br>Number of segment hosts 
 segment_in_host | **int64**<br>Number of segments on each host 
+restore_only[] | **string**<br>List of databases and tables to restore The maximum number of elements is 50. The maximum string length in characters for each value is 256. Each value must match the regular expression ` [a-zA-Z0-9\\*_]*(\\/[a-zA-Z0-9\\*_]*){0,2} `.
 
 
 ### GreenplumRestoreConfig {#GreenplumRestoreConfig}
@@ -3693,8 +3694,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt9)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet8}

@@ -11,14 +11,14 @@ description: "In this tutorial, you will learn how to delete a cluster in {{ mgp
 
 ## Deleting a cluster {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -32,12 +32,12 @@ description: "In this tutorial, you will learn how to delete a cluster in {{ mgp
 
    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure created with {{ TF }}:
 
    1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the {{ TF }} configuration file of the desired cluster.
+   1. Delete the {{ TF }} configuration file of the cluster.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -54,7 +54,7 @@ description: "In this tutorial, you will learn how to delete a cluster in {{ mgp
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

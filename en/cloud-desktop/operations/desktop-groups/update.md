@@ -5,9 +5,9 @@ description: "Follow this guide to update a desktop group."
 
 # Updating a desktop group
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the desktop group is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.

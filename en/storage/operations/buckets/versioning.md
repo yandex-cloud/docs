@@ -15,9 +15,9 @@ You cannot disable versioning once you enable it, but you can pause the creation
 
 Enable bucket versioning:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -47,7 +47,7 @@ Enable bucket versioning:
       created_at: "2022-12-14T08:42:16.273717Z"
       ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -60,7 +60,7 @@ Enable bucket versioning:
      --versioning-configuration 'Status=Enabled'
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -90,7 +90,7 @@ Enable bucket versioning:
    * `versioning`: Bucket versioning management:
       * `enabled`: Enables bucket versioning. This is an optional parameter.
 
-- API
+- API {#api}
 
    To manage bucket versioning, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [putBucketVersioning](../../s3/api-ref/bucket/putBucketVersioning.md) S3 API method.
 

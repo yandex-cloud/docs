@@ -2,9 +2,9 @@ Use {{ kms-short-name }} keys to encrypt secrets, that is, confidential informat
 
 Make sure you specify the encryption key when creating a {{ k8s }} cluster, as you cannot add it when updating the cluster.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Specify a key when creating a {{ k8s }} cluster:
    1. In the [management console]({{ link-console-main }}), select the folder to create your {{ k8s }} cluster in.
@@ -14,7 +14,7 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
    1. Enter all the other parameters to [create your cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -40,12 +40,7 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
          ...
       ```
 
-- API
-
-   Specify the encryption key when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ k8s }} cluster. To do this, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) resource or the [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/cluster_service.md#Create) gRPC API call.
-   Provide the key ID in the respective parameter of the `kmsProvider` field.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -71,6 +66,11 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
    1. Create a cluster.
 
       {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+
+- API {#api}
+
+   Specify the encryption key when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ k8s }} cluster. To do this, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) resource or the [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/cluster_service.md#Create) gRPC API call.
+   Provide the key ID in the respective parameter of the `kmsProvider` field.
 
 {% endlist %}
 

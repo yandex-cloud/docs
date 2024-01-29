@@ -30,7 +30,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 
 {% note info %}
 
-You can also invite users to your organization directly, from your cloud page in the management console. For more information, see [this guide](./operations/users/create.md).
+You can also invite users to your organization directly from your cloud page in the management console. For more information, see [this guide](./operations/users/create.md).
 
 {% endnote %}
 
@@ -41,9 +41,9 @@ To grant a user access to a cloud resource, assign the user a role to the resour
 
 To specify which operations the user can perform, assign relevant roles to the user. For example, allow the user to view cloud resources and manage a folder:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Assign the user a role in the cloud:
 
@@ -60,9 +60,9 @@ To specify which operations the user can perform, assign relevant roles to the u
 
 If the assigned roles are no longer needed, revoke them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * To revoke a role only in the folder:
 

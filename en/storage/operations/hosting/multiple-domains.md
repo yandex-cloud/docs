@@ -8,23 +8,23 @@ description: "Use this guide to set up support for multiple domain names for a w
 {% note info %}
 
 This guide describes how to set up support for a website's primary domain name and its [subdomain](https://en.wikipedia.org/wiki/Subdomain), e.g., `example.com` and `www.example.com`.
-To set up an additional domain, e.g., `example2.com`, [create](../buckets/create.md) a bucket with its name. Next, [configure](setup.md#hosting) hosting for this bucket and [specify](setup.md#redirects) the parameters for a redirect from it to the primary domain.
+To set up an additional domain, e.g., `example2.com`, [create](../buckets/create.md) a bucket with its name.Next, [configure](setup.md#hosting) hosting for this bucket and [specify](setup.md#redirects) the parameters for a redirect from it to the primary domain.
 
 {% endnote %}
 
-To support multiple domain names for your website, such as `example.com` and `www.example.com`:
+To support multiple domain names for your website, e.g., `example.com` and `www.example.com`:
 
-1. [Create](../buckets/create.md) a bucket. Give it a domain name, such as `www.example.com`.
+1. [Create](../buckets/create.md) a bucket. Give it a domain name, e.g., `www.example.com`.
 
 1. {% include [setup-bucket.md](../../../_includes/storage/setup-bucket.md) %}
 
-1. [Link](./own-domain.md) a domain name, such as `www.example.com`, to your bucket.
+1. [Link](./own-domain.md) a domain name, e.g., `www.example.com`, to your bucket.
 
-1. On the DNS server, add another [resource record](../../../dns/concepts/resource-record.md) to link one more domain name, such as `example.com`, to the bucket:
+1. On the DNS server, add another [resource record](../../../dns/concepts/resource-record.md) to link one more domain name, e.g., `example.com`, to the bucket:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - {{ dns-full-name }}
+   - {{ dns-full-name }} {#dns}
 
       [Create](../../../dns/operations/resource-record-create.md) a resource record in {{ dns-name }} with the following parameters:
 
@@ -36,7 +36,7 @@ To support multiple domain names for your website, such as `example.com` and `ww
 
       Updating the resource records may take some time.
 
-   - Third-party DNS server
+   - Third-party DNS server {#third-party-dns-server}
 
       [CNAME](../../../dns/concepts/resource-record.md#cname) resource record example:
 

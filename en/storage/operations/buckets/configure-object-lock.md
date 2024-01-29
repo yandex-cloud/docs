@@ -16,9 +16,9 @@ The minimum required role is `storage.admin`.
 
 To enable object locks:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -37,7 +37,7 @@ To enable object locks:
    * `--object-lock-configuration`: Lock configuration in the bucket. The `ObjectLockEnabled=Enabled` value enables object lock.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
-- API
+- API {#api}
 
    Use the [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md) S3 API method, [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
 
@@ -52,9 +52,9 @@ The minimum required role is `storage.admin`.
 
 To set up default object locks:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -79,7 +79,7 @@ To set up default object locks:
 
          {% note alert %}
 
-         This is a required field. If you omit `Enabled` in this parameter, you'll see the `InvalidRequest` error message, and object lock will not be enabled. For details, see also [Disabling object locks](#disable).
+         This is a required field. If you omit `Enabled` in this parameter, you'll see the `InvalidRequest` error message, and object lock will not be enabled. See also [Disabling object locks](#disable).
 
          {% endnote %}
 
@@ -118,9 +118,9 @@ The minimum required role is `storage.admin`.
 
 To disable object locks:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -139,7 +139,7 @@ To disable object locks:
    * `--object-lock-configuration`: Lock configuration in the bucket. The `ObjectLockEnabled=""` value disables object lock.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
-- API
+- API {#api}
 
    To disable object lock for a bucket, use the[putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md) S3 API method, [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
 

@@ -35,5 +35,6 @@ journalSize | **string** (int64)<br><p>Size of the journal associated with backu
 ## Methods {#methods}
 Method | Description
 --- | ---
+[delete](delete.md) | 
 [get](get.md) | Returns the specified backup of Greenplum® cluster.
 [list](list.md) | Returns the list of available backups for the specified Greenplum® cluster.

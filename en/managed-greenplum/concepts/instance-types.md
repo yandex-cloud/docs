@@ -3,7 +3,7 @@
 The host class determines the computing power allocated for each host in a cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. Once a cluster is created, you cannot change its host classes.
 
 
-The host class also determines which [disk types](./storage.md) are available:
+For master hosts, the host class determines which [disk types](./storage.md) are available:
 
 * **s2**, **i2**: `local-ssd` and `network-ssd-nonreplicated`.
 * **s3**, **i3**: `network-ssd`, `network-hdd`, `local-ssd`, and `network-ssd-nonreplicated`.
@@ -19,6 +19,8 @@ The available storage size does not depend on the host class. For storage limita
 
 
 {{ mgp-name }} cluster hosts are deployed on {{ compute-full-name }} virtual machines on Intel Cascade Lake and Intel Ice Lake [platforms](../../compute/concepts/vm-platforms.md) with a guaranteed vCPU share of 100%. The full list of possible host configurations is provided below.
+
+{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 
 Configuration types:
 

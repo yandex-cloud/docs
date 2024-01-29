@@ -36,3 +36,4 @@ templateId | **string**<br><p>ID of the subscription template.</p>
 Method | Description
 --- | ---
 [ensure](ensure.md) | Checks if the she specified subscription is already locked to the specified resource. If it is not locked, locks the subscription to the resource.
+[get](get.md) | Returns the specified subscription lock.

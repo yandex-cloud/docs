@@ -5,9 +5,9 @@ description: "Follow this guide to configure access to a secret."
 
 # Configuring access to a secret
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -18,7 +18,7 @@ description: "Follow this guide to configure access to a secret."
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../security/index.md#roles-list).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -56,7 +56,7 @@ description: "Follow this guide to configure access to a secret."
          * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
          * `--role`: [Role](../security/index.md#roles-list) being assigned.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -92,7 +92,7 @@ description: "Follow this guide to configure access to a secret."
       yc lockbox secret list-access-binding <secret_ID>
       ```
 
-- API
+- API {#api}
 
    To configure access to a secret, use the [setAccessBindings](../api-ref/Secret/setAccessBindings.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/SetAccessBindings](../api-ref/grpc/secret_service.md#SetAccessBindings) gRPC API call.
 

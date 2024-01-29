@@ -4,9 +4,9 @@ You can upload an object in parts using [multipart upload](../../concepts/multip
 
 To delete a partially uploaded object:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete an object from.
    1. Select **{{ objstorage-name }}**.
@@ -19,7 +19,7 @@ To delete a partially uploaded object:
 
    In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -39,7 +39,7 @@ To delete a partially uploaded object:
      --bucket <bucket_name>
    ```
 
-- API
+- API {#api}
 
    Use the [abortUpload](../../s3/api-ref/multipart/abortupload.md) S3 API method.
 

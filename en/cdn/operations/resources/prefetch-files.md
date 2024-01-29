@@ -7,9 +7,9 @@ description: "Use this guide to prefetch files to CDN servers."
 
 To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../concepts/origins.md) to CDN servers:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your [resource](../../concepts/resource.md) is located.
 
@@ -25,7 +25,7 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
 
    1. Click **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
 
       For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
 
-- API
+- API {#api}
 
    Use the [prefetch](../../api-ref/Cache/prefetch.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Prefetch](../../api-ref/grpc/cache_service.md#Prefetch) gRPC API call.
 

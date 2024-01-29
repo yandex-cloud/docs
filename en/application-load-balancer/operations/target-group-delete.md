@@ -3,7 +3,7 @@ title: "Deleting a target group from an application load balancer"
 description: "To delete a target group, in the management console, select the folder that hosts the target group. Select {{ alb-name }}. In the left-hand menu, select Target groups. Select the target group and click the select icon. In the menu that opens, select Delete. To do this with multiple groups, select the groups to delete from the list and click Delete at the bottom of the screen."
 ---
 
-# Delete a {{ alb-name }} target group
+# Delete a target group {{ alb-name }}
 
 {% note warning %}
 
@@ -13,9 +13,9 @@ description: "To delete a target group, in the management console, select the fo
 
 To delete a target group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -26,13 +26,13 @@ To delete a target group:
       To do this with multiple groups, select the groups to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's delete target group command:
+   1. See the description of the CLI delete target group command:
 
       ```bash
       yc alb target-group delete --help
@@ -50,7 +50,7 @@ To delete a target group:
       yc alb target-group list
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -91,7 +91,7 @@ To delete a target group:
       yc alb target-group list
       ```
 
-- API
+- API {#api}
 
    Use the [delete](../api-ref/TargetGroup/delete.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete) gRPC API call.
 

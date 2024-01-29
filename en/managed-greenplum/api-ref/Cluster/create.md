@@ -241,8 +241,8 @@ configSpec.<br>backgroundActivities.<br>analyzeAndVacuum | **object**
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start | **object**
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
-configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 0 to 86399, inclusive.</p> 
-configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 0 to 86399, inclusive.</p> 
+configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
+configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
 configSpec.<br>pxfConfig | **object**
 configSpec.<br>pxfConfig.<br>connectionTimeout | **integer** (int64)<br><p>Connection</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
 configSpec.<br>pxfConfig.<br>uploadTimeout | **integer** (int64)<br><p>Acceptable values are 5 to 600, inclusive.</p> 

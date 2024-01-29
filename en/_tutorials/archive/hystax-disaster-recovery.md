@@ -88,9 +88,9 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
 
 ### Run the VM
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -122,7 +122,7 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -174,9 +174,9 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
 
 VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboot, make the IP static.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To convert a dynamic public IP address to static:
    1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
@@ -186,7 +186,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -355,9 +355,9 @@ For instance, if you are protecting two VMs with `10.155.0.23` and `192.168.0.3`
 
 To create subnets:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section in the folder to create a subnet in.
    1. Click the name of the cloud network.
@@ -369,7 +369,7 @@ To create subnets:
 
    Save the **IDs** of the created subnets. You will need these when you create your disaster recovery (DR) plan.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -429,9 +429,9 @@ For more details, see [this step-by-step guide](../../vpc/operations/subnet-crea
 
 The DR plan includes a VM description and the network settings. You can have a plan generated automatically or create one manually.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Generate
+- Automatically {#auto}
 
    To generate a DR plan automatically:
    1. Open the Hystax Acura control panel. Click the Hystax logo.
@@ -440,7 +440,7 @@ The DR plan includes a VM description and the network settings. You can have a p
    1. Under **Subnets** on the right, specify the properties of the previously created subnets: **Subnet ID** and **CIDR**.
    1. Click **Save**.
 
-- Manually
+- Manually {#manual}
 
    To create a DR plan manually:
    1. Open the Hystax Acura control panel. Click the Hystax logo.

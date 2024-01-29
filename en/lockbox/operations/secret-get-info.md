@@ -8,9 +8,9 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
 ## Getting information about a secret {#secret-info}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -50,9 +50,9 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
 ## Getting the contents of a secret {#secret-contents}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -83,9 +83,9 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
 ## Viewing access rights to a secret {#secret-access}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

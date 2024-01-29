@@ -6,9 +6,9 @@ You can add or remove instances from a target group.
 
 To add a VM to a target group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -27,7 +27,7 @@ To add a VM to a target group:
       1. Click **{{ ui-key.yacloud.alb.button_add-target }}**.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -85,7 +85,7 @@ To add a VM to a target group:
       created_at: "2023-07-25T08:55:14.172526884Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -164,7 +164,7 @@ To add a VM to a target group:
       yc alb target-group get --name <target_group_name>
       ```
 
-- API
+- API {#api}
 
    Use the [addTargets](../api-ref/TargetGroup/addTargets.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../api-ref/grpc/target_group_service.md#AddTargets) gRPC API call.
 
@@ -174,9 +174,9 @@ To add a VM to a target group:
 
 To remove a VM from a target group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -185,7 +185,7 @@ To remove a VM from a target group:
    1. To the right of the VM, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -231,7 +231,7 @@ To remove a VM from a target group:
       created_at: "2023-06-10T13:14:55.239094324Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -272,7 +272,7 @@ To remove a VM from a target group:
       yc alb target-group get --name <target_group_name>
       ```
 
-- API
+- API {#api}
 
    Use the [removeTargets](../api-ref/TargetGroup/removeTargets.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroup/RemoveTargets](../api-ref/grpc/target_group_service.md#RemoveTargets) gRPC API call.
 

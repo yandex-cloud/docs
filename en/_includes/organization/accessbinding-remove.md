@@ -1,11 +1,11 @@
 
 To revoke a group role from a user:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
-   1. [Log in]({{ link-passport-login }}) to the organization administrator account.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator.
 
    1. Go to [{{org-full-name}}]({{ link-org-main }}).
 

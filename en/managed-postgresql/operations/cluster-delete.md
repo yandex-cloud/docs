@@ -1,6 +1,6 @@
 ---
 title: "Deleting a PostgreSQL cluster"
-description: "After you delete a PostgreSQL database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, safely save the cluster ID before deleting the cluster."
+description: "After you delete a PostgreSQL database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
 ---
 
 # Deleting {{ PG }} clusters
@@ -14,15 +14,15 @@ description: "After you delete a PostgreSQL database cluster, its backups are ke
 
 ## Deleting a cluster {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Open the folder page in the management console.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate cluster, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,13 +36,13 @@ description: "After you delete a PostgreSQL database cluster, its backups are ke
 
    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
    {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

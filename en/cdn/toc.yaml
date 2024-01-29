@@ -43,6 +43,8 @@ items:
             href: operations/resources/disable-resource.md
           - name: Deleting a resource
             href: operations/resources/delete-resource.md
+          - name: Viewing resource statistics
+            href: operations/resources/get-stats.md
       - name: Origin groups
         items:
           - name: Creating an origin group

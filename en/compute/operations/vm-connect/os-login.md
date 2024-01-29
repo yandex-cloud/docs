@@ -80,3 +80,9 @@ Please note that you cannot use an [SSH key pair](./ssh.md#creating-ssh-keys) to
 ## Connecting to a VM over SSH using an OS Login certificate {#connect-via-exported-certificate}
 
 {% include [oslogin-connect-with-exported-cert](../../../_includes/compute/oslogin-connect-with-exported-cert.md) %}
+
+{% note info %}
+
+The certificate is valid for one hour. After this time has elapsed, you will need to [export](./os-login-export-certificate.md) a new certificate to connect to the VM.
+
+{% endnote %}

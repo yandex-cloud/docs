@@ -31,9 +31,9 @@ The infrastructure costs for image recognition and data storage include:
 
 To create an {{ objstorage-name }} bucket to store the source images and recognition results:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform your steps in.
    1. On the folder page, click **Create resource** and select **Bucket**.
@@ -46,20 +46,20 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 ## Create a VM {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+   1. In the [management console] ({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
    1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
-   1. Under **Disks and file storages**, specify the following configuration:
-      * **Type**: SSD
-      * **Size**: 19 GB
+   1. Under **Disks and file storages**, select the parameters:
+      * **Type**: SSD.
+      * **Size**: 19 GB.
    1. Under **Computing resources**, select:
       * **Platform**: Intel Cascade Lake
       * **Guaranteed vCPU share**: 20%
@@ -77,7 +77,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       * Enter the username in the **Login** field.
       * In the **SSH key** field, paste the contents of the public key file.
 
-         You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
+         You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    1. Click **Create VM**.
    1. Wait for the VM status to change to `Running` and save its public IP address: you will need it for SSH connection.
 
@@ -91,9 +91,9 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 1. [Install](../../cli/quickstart.md#install) the {{ yandex-cloud }} CLI and [create](../../cli/quickstart.md#initialize) a profile.
 1. Make sure that the {{ yandex-cloud }} CLI runs correctly:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       Run the following command on the VM:
 
@@ -115,9 +115,9 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 ### Set up a service account {#configure-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Create a service account:
 
@@ -128,8 +128,8 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       ```
 
       Where:
-      * `--name`: Service account name, such as `vision-sa`.
-      * `--description`: Description of the service account, e.g., `This is the Vision service account`.
+      * `--name` is the service account name, such as `vision-sa`.
+      * `--description` is a description of the service account, for example, `this is the vision service account`.
 
       Result:
 
@@ -163,7 +163,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
       Where:
       * `--service-account-id`: Service account ID.
-      * `--description`: Key description, e.g., `This key is for Vision`.
+      * `--description`: A description for the key, for example, `this key is for vision`.
 
       Result:
 
@@ -177,8 +177,8 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       secret: YC...J5
       ```
 
-      Save the following parameters (you will need them to set up the AWS CLI):
-      * `key_id`: ID of the static access key.
+      Save the following parameters (you'll need them to set up the AWS CLI utility):
+      * `key_id`: The ID of the static access key.
       * `secret`: Secret key.
    1. Create an [authorized key](../../iam/concepts/authorization/key.md) for a service account:
 
@@ -190,7 +190,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
       Where:
       * `--service-account-id`: Service account ID.
-      * `--output`: Name of the JSON file with an authorized key.
+      * `--output`: The name of JSON file with an authorized key.
 
       Result:
 
@@ -231,7 +231,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 ### Set up the AWS CLI {#configure-aws-cli}
 
-1. Update the packages installed in the VM operating system. To do this, run this command:
+1. Update the packages installed in the VM operating system. To do this, run the command:
 
    ```bash
    sudo yum update -y
@@ -310,13 +310,13 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    sudo yum install jq -y
    ```
 
-1. Install the `nano` text editor:
+1. Install the text editor `nano`:
 
    ```bash
    sudo yum install nano -y
    ```
 
-1. Set the environment variables required for the script to run:
+1. Set the environment variables necessary for the script to run:
 
    ```bash
    export BUCKETNAME="<bucket_name>"
@@ -325,8 +325,8 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    ```
 
    Where:
-   * `BUCKETNAME`: Bucket name.
-   * `FOLDERID`: Folder ID.
+   * `BUCKETNAME`: The bucket name.
+   * `FOLDERID`: The folder ID.
    * `IAMTOKEN`: {{ iam-name }} token you obtained when [setting up the service account](#configure-sa).
 
 ### Create a script {#create-script}
@@ -334,9 +334,9 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 The script includes the following steps:
 1. Create the relevant directories.
 1. Unpack the archive with images.
-1. Process all images one by one:
-   1. Encode the image as Base64.
-   1. Create a request body for the image.
+1. Process all the images one-by-one:
+   1. Base64-encode the image.
+   1. Create a request body for the given image.
    1. Send the image in a POST request to {{ vision-name }} for recognition.
    1. Save the result to the `output.json` file.
    1. Extract the recognized text from `output.json` and save it to a text file.
@@ -347,7 +347,7 @@ The script includes the following steps:
 For your convenience, the text of the script includes comments to each step.
 
 To implement the script:
-1. Create a file, e.g., `vision.sh`, and open it in the `nano` text editor:
+1. Create a file, for example, `vision.sh` and open it in the `nano` text editor:
 
    ```bash
    sudo nano vision.sh
@@ -438,9 +438,9 @@ To implement the script:
 
 ## Double-check the recognition results {#check-result}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder where the bucket with the recognition results is located.
    1. Select **{{ objstorage-name }}**.

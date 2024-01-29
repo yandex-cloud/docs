@@ -1,8 +1,8 @@
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -21,7 +21,7 @@
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
+   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
    1. [Configure the default security group](../../managed-gitlab/operations/connect.md) required for the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) to run.
    1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
    1. [Create an authorized key](../../iam/operations/authorized-key/create.md) for the service account with the `{{ roles-cr-pusher }}` role and save it to the `key.json` file:
@@ -34,7 +34,7 @@
 
       This key is required to access the registry from {{ GL }}.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -58,7 +58,7 @@
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.
       * Name of the {{ managed-k8s-name }} cluster service account.
       * Name of the {{ container-registry-name }} registry.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

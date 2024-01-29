@@ -10,13 +10,13 @@ You can manage user permissions at the level of an individual database by updati
 
 ## Changing user privileges {#grant-privilege}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
-   1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
 
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
 
@@ -37,7 +37,7 @@ You can manage user permissions at the level of an individual database by updati
    1. If necessary, set the [administrative privileges](../concepts/settings-list.md#setting-administrative-privileges) for the user.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -65,7 +65,7 @@ You can manage user permissions at the level of an individual database by updati
 
       To grant or revoke the `ALL_PRIVILEGES` privilege, specify the `ALL` synonym as the privilege name.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -100,13 +100,13 @@ You can manage user permissions at the level of an individual database by updati
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API
+- API {#api}
 
    To update user privileges, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
-   * The name of the DB that you want to change the list of user privileges for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
+   * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
+   * Name of the database where you want to update the list of user privileges, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
    * New list of user privileges as an array in the `permissions.roles` parameter.
    * List of user configuration fields to update (`permissions` in this case) in the `updateMask` parameter.
 

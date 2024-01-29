@@ -52,9 +52,9 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 ### Create a bucket for audit logs {#create-backet}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create a bucket in, e.g., `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -73,9 +73,9 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 ### Create an encryption key in {{ kms-name }} {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -89,9 +89,9 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 ### Enable bucket encryption {#backet-encoding}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the previously created bucket.
    1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
@@ -106,9 +106,9 @@ You need to create two accounts: one for a trail and one for a bucket.
 
 Create the `sa-arcsight` service account:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -129,9 +129,9 @@ Create the `sa-arcsight-bucket` service account the same way.
 
 You will need the key ID and secret key when mounting the bucket.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -147,7 +147,7 @@ You will need the key ID and secret key when mounting the bucket.
 
       {% endnote %}
 
-- CLI
+- CLI {#cli}
 
    1. Create an access key for `sa-arcsight-bucket`:
 
@@ -174,9 +174,9 @@ You will need the key ID and secret key when mounting the bucket.
 
 Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDecrypter` roles:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. The `audit-trails.viewer` [role](../../audit-trails/security/#roles) to the folder:
 
@@ -229,9 +229,9 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
 
 Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypter` roles:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. The `storage.viewer` role to the folder:
 
@@ -267,9 +267,9 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
 ## Create a trail {#create-trail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

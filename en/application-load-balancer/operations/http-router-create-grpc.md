@@ -7,9 +7,9 @@ description: "Follow this guide to create an HTTP router for gRPC traffic."
 
 To create an [HTTP router](../concepts/http-router.md) and add a [route](../concepts/http-router.md#routes) to it:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -51,7 +51,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -63,7 +63,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       yc alb http-router create --help
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc alb http-router create <HTTP_router_name>
@@ -152,7 +152,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
            max_timeout: 60s
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -219,7 +219,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       yc alb http-router get <HTTP_router_name>
       ```
 
-- API
+- API {#api}
 
    Use the [create](../api-ref/HttpRouter/create.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Create](../api-ref/grpc/http_router_service.md#Create) gRPC API call.
 

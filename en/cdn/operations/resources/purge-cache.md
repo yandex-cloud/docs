@@ -7,9 +7,9 @@ description: "Follow this guide to purge the resource cache."
 
 To [purge the cache](../../concepts/caching.md) of the resource:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
@@ -28,7 +28,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
    1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -97,7 +97,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
       For more information about the `yc cdn cache purge` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/purge.md).
 
-- API
+- API {#api}
 
    Use the [purge](../../api-ref/Cache/purge.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Purge](../../api-ref/grpc/cache_service.md#Purge) gRPC API call.
 

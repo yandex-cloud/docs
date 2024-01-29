@@ -2,11 +2,11 @@ You can assign a role for a group as a resource. You can grant roles to users an
 
 For example, allow a user to view group information and manage its members.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
-   1. [Log in]({{ link-passport-login }}) to the organization administrator account.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator.
 
    1. Go to [{{org-full-name}}]({{ link-org-main }}).
 

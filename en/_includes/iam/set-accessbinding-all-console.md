@@ -1,10 +1,10 @@
 {% include [set-access-to-all](./set-access-to-all.md) %}
 
-For instance, allow any authenticated user to view information about the cloud `my-cloud`:
+For instance, allow any authenticated user to view information about the `my-cloud` cloud:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), [select](../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -16,7 +16,7 @@ For instance, allow any authenticated user to view information about the cloud `
    1. Select the `resource-manager.viewer` role.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the subject type, specify `system`:
 
@@ -26,7 +26,7 @@ For instance, allow any authenticated user to view information about the cloud `
      --subject system:allAuthenticatedUsers
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Assign the `viewer` role to the `allAuthenticatedUsers` system group:
 
@@ -72,7 +72,7 @@ For instance, allow any authenticated user to view information about the cloud `
 
       After that access rights are granted for the cloud.
 
-- API
+- API {#api}
 
    Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the `subject` property, specify the `system` type:
 

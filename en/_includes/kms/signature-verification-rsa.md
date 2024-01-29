@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    Verify the digital signature using [OpenSSL](https://www.openssl.org/):
 
@@ -25,7 +25,7 @@
 
    If the signature is correct, the OpenSSL utility returns the `Verified OK` status.
 
-- Java
+- Java {#java}
 
    ```java
    import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -95,7 +95,7 @@
 
    The code verifies the RSA digital signature. It returns `true` if the signature is correct and `false` if it is not.
 
-- Go
+- Go {#go}
 
    ```golang
    import (
@@ -164,7 +164,7 @@
 
    The code verifies the RSA digital signature. It returns `true` if the signature is correct and `false` if it is not.
 
-- Python
+- Python {#python}
 
    ```python
    import base64

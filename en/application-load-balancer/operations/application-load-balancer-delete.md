@@ -7,9 +7,9 @@ description: "Follow this guide to delete an L7 load balancer."
 
 To delete an L7 load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -18,7 +18,7 @@ To delete an L7 load balancer:
       To do this with multiple load balancers, select the load balancers to delete in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ To delete an L7 load balancer:
       done (1m10s)
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -119,7 +119,7 @@ To delete an L7 load balancer:
       yc alb load-balancer list
       ```
 
-- API
+- API {#api}
 
    Use the [delete](../api-ref/LoadBalancer/delete.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Delete](../api-ref/grpc/load_balancer_service.md#Delete) gRPC API call.
 

@@ -40,9 +40,9 @@ You can set more detailed rules for security groups, such as allowing traffic in
 
 ## Create a cluster {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a server.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.

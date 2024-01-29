@@ -17,9 +17,9 @@ You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concept
 
 ### Viewing a list of available {{ ES }} versions {#version-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -37,16 +37,16 @@ Make sure this does not affect your applications:
 
 ### Updating the {{ ES }} version {#start-version-update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the appropriate {{ ES }} version.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@ Make sure this does not affect your applications:
       {{ yc-mdb-es }} cluster update <cluster_name_or_ID> --version <{{ ES }}_version>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -99,7 +99,7 @@ Make sure this does not affect your applications:
 
       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -124,16 +124,16 @@ As of June 13, 2022, the `Gold` [edition](../concepts/es-editions.md) in {{ mes-
 
 You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cluster. Before you downgrade the edition, make sure that reduced functionality will not affect your applications.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.elasticsearch.base_field_edition }}** field, select the required {{ ES }} edition: `Basic` or `Platinum`.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -160,7 +160,7 @@ You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cl
 
       Where `--edition` is the {{ ES }} edition: `basic` or `platinum`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -193,7 +193,7 @@ You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cl
 
    {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update the {{ ES }} edition, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 

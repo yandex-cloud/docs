@@ -246,5 +246,7 @@ package | **string**<br>The package name where vulnerability has been found.
 source | **string**<br>The package manager name. Ex.: yum, rpm, dpkg. 
 version | **string**<br>The version of the package where vulnerability has been found. 
 fixed_by | **string**<br>The version of the package where vulnerability has been fixed. 
+origin | **string**<br>The place where vulnerability is originated (OS, lang package, etc.) 
+type | **string**<br>The type of vulnerability origin - name of OS if origin="os" or package type (jar, gobinary, etc.) if origin="lang" 
 
 

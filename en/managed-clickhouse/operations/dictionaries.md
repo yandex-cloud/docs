@@ -20,14 +20,14 @@ Changes to the dictionary settings take effect after [restarting the cluster](./
 
 ## Getting a list of dictionaries {#get-dicts-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,22 +49,22 @@ Changes to the dictionary settings take effect after [restarting the cluster](./
 
    The added dictionaries are displayed in the `dictionaries:` section of command execution results.
 
-- API
+- API {#api}
 
    To get a list of dictionaries, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call.
 
-- SQL
+- SQL {#sql}
 
-   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. [Connect](connect.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
    1. Run the `SHOW DICTIONARIES` [query]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries).
 
 {% endlist %}
 
 ## Adding a dictionary {#add-dictionary}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% note warning %}
 
@@ -77,7 +77,7 @@ Changes to the dictionary settings take effect after [restarting the cluster](./
    1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
    1. Specify [dictionary settings](#settings-console) and click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% note warning %}
 
@@ -106,7 +106,7 @@ Changes to the dictionary settings take effect after [restarting the cluster](./
          ...
       ```
 
-- API
+- API {#api}
 
    {% note warning %}
 
@@ -116,7 +116,7 @@ Changes to the dictionary settings take effect after [restarting the cluster](./
 
    To add a dictionary, use the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary) gRPC API call.
 
-- SQL
+- SQL {#sql}
 
    {% note warning %}
 
@@ -141,15 +141,15 @@ Changes to the dictionary settings take effect after [restarting the cluster](./
 
 ## Removing a dictionary {#delete-dictionary}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dictionary you want to delete and select **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -171,13 +171,13 @@ Changes to the dictionary settings take effect after [restarting the cluster](./
         --dict-name <dictionary_name> \
       ```
 
-- API
+- API {#api}
 
    To delete a dictionary, use the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteExternalDictionary](../api-ref/grpc/cluster_service.md#DeleteExternalDictionary) gRPC API call.
 
-- SQL
+- SQL {#sql}
 
-   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. [Connect](connect.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
    1. Run the `DROP DICTIONARY <DB_name>.<dictionary_name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
 
 {% endlist %}
@@ -396,9 +396,9 @@ For more information about the settings, see the description of the [createExter
 
 ## Examples
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Add a dictionary with test characteristics:
 

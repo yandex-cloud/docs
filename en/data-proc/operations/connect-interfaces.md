@@ -12,16 +12,16 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 ### Enabling component interfaces {#ui-proxy-enable}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Select a cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** on the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** option.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list).
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
@@ -50,15 +50,15 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 ### Retrieving a list of connection URLs {#ui-proxy-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name.
    1. Connection links for the component web interfaces can be found under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -72,7 +72,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list).
 
-- API
+- API {#api}
 
    Use the [listUILinks](../api-ref/Cluster/listUILinks.md) API method and include the cluster ID in the `clusterId` request parameter.
 

@@ -29,9 +29,9 @@ To get the content of the secret, access it using the API. If you make a request
 
 You can use this logic in scripts, services, and applications where you need to use the content of your secret.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@ You can use this logic in scripts, services, and applications where you need to 
           text_value: value_2
       ```
 
-- API
+- API {#api}
 
    To get the content of the secret:
    1. [Get an IAM token](../iam/operations/iam-token/create.md) required for authentication and save it to the variable:

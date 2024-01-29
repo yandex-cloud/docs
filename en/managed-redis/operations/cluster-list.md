@@ -10,14 +10,14 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
 ## Getting a list of database clusters in a folder {#list-clusters}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder to get a list of clusters for.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
    +----------------------+---------------+-----------------------------+--------+---------+
    ```
 
-- API
+- API {#api}
 
    To get a list of DB clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call.
 
@@ -49,15 +49,15 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
 ## Getting detailed information about a cluster {#get-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder to get cluster details for.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the cluster name.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -71,7 +71,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
    You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
-- API
+- API {#api}
 
    To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call.
 

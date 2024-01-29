@@ -10,18 +10,18 @@ In some cases, certificates can be renewed without any user action. For more inf
 
 To update a Let's Encrypt certificate:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. In the list, select the certificate with the `Renewing` status to be updated.
    1. In the window that opens, you can find the details you need to pass the domain rights check under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. For more information, see [{#T}](../../concepts/challenges.md).
-   1. When the domain rights check is passed, the domain check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** changes to `Valid`.
+   1. When the domain rights check is passed, the domain check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
    1. After the rights check status for all your domains changes to `Valid`, the certificate is issued and its status becomes `Issued`.
 
-- API
+- API {#api}
 
    To renew a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
 

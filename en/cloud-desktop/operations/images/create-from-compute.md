@@ -11,9 +11,9 @@ To create a {{ cloud-desktop-name }} [custom image](../../concepts/images.md#cus
 1. [Create](../../../compute/operations/image-create/create-from-disk.md) an image from the VM's disk.
 1. Add the image to {{ cloud-desktop-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create an image.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.

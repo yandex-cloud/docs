@@ -7,16 +7,16 @@ description: "In this tutorial, you will learn how to deactivate and activate a 
 
 ## Deactivating a secret {#secret-deactivate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the secret and select **{{ ui-key.yacloud.lockbox.button_deactivate-secret }}**.
    1. Confirm the deactivation.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "In this tutorial, you will learn how to deactivate and activate a 
           - secret-key
       ```
 
-- API
+- API {#api}
 
    To deactivate a secret, use the [deactivate](../api-ref/Secret/deactivate.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Deactivate](../api-ref/grpc/secret_service.md#Deactivate) gRPC API call.
 
@@ -57,15 +57,15 @@ description: "In this tutorial, you will learn how to deactivate and activate a 
 
 ## Activating a secret {#secret-activate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the secret and select **{{ ui-key.yacloud.lockbox.button_activate-secret }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -98,7 +98,7 @@ description: "In this tutorial, you will learn how to deactivate and activate a 
           - secret-key
       ```
 
-- API
+- API {#api}
 
    To activate a secret, use the [activate](../api-ref/Secret/activate.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/Activate](../api-ref/grpc/secret_service.md#Activate) gRPC API call.
 

@@ -11,9 +11,9 @@ You can only delete empty buckets. In the management console, information about 
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a bucket from.
    1. Select **{{ objstorage-name }}**. This opens a page with a list of buckets.
@@ -22,7 +22,7 @@ You can only delete empty buckets. In the management console, information about 
 
    {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -61,7 +61,7 @@ You can only delete empty buckets. In the management console, information about 
 
       {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -132,7 +132,7 @@ You can only delete empty buckets. In the management console, information about 
         --bucket $x}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -187,7 +187,7 @@ You can only delete empty buckets. In the management console, information about 
 
       You can check the changes in the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To delete a bucket, use the [delete](../../api-ref/Bucket/delete.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Delete](../../api-ref/grpc/bucket_service.md#Delete) gRPC API call, or the [deleteBucket](../../s3/api-ref/bucket/delete.md) S3 API method.
 

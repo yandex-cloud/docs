@@ -6,11 +6,11 @@ title: "How to get information about a backend group in {{ alb-full-name }}"
 
 You can view a group's ID, backends, and backend target groups.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 To get information about a backend group:
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

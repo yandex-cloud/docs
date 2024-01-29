@@ -16,9 +16,9 @@ You can delete an {{ AF }} cluster if you no longer need it.
 
 Before deleting a cluster, disable its deletion protection if it is enabled.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a cluster from.
    1. Select **{{ maf-name }}**.

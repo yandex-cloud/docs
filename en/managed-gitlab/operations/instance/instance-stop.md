@@ -6,9 +6,9 @@ You are not charged while your instance is stopped: you continue to pay only fo
 
 ## Stopping a {#stop-instance} instance
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Find the required instance in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.stop }}**.
@@ -20,9 +20,9 @@ You are not charged while your instance is stopped: you continue to pay only fo
 
 You can restart your **Stopped** instance.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Find the stopped cluster in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.common.start }}**.

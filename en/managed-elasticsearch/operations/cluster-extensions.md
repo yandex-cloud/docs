@@ -11,9 +11,9 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 ## Retrieving a list of installed user extensions {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -27,7 +27,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of installed user extensions, use the [list](../api-ref/Extension/list.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/List](../api-ref/grpc/extension_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -43,9 +43,9 @@ All extensions must be in TXT format and added to a ZIP archive.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@ All extensions must be in TXT format and added to a ZIP archive.
 
    * `--disabled`: User extension status. Provide this parameter to disable the new version of a user extension immediately after it is added or updated. Do not set this parameter to enable it. When the new extension version is enabled, the old one is disabled automatically.
 
-- API
+- API {#api}
 
    To add or update a user extension, use the [create](../api-ref/Extension/create.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Create](../api-ref/grpc/extension_service.md#Create) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
@@ -96,9 +96,9 @@ All extensions must be in TXT format and added to a ZIP archive.
 
 ## Enabling or disabling user extensions {#update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -112,11 +112,11 @@ All extensions must be in TXT format and added to a ZIP archive.
       --active
    ```
 
-   You can get the cluster ID with a [list of folder clusters](cluster-list.md#list-clusters) and the extension ID with a [list of cluster extensions](#list).
+   You can get the cluster ID with a [list of folder clusters](cluster-list.md#list-clusters) and the extension ID, with a [list of cluster extensions](#list).
 
    To enable an extension, provide the `--active` parameter. To disable one, do not set it.
 
-- API
+- API {#api}
 
    To enable or disable a user extension, use the [update](../api-ref/Extension/update.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Update](../api-ref/grpc/extension_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -131,9 +131,9 @@ All extensions must be in TXT format and added to a ZIP archive.
 
 ## Deleting user extensions {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -146,9 +146,9 @@ All extensions must be in TXT format and added to a ZIP archive.
       --cluster-id <cluster_ID>
    ```
 
-   You can get the cluster ID with a [list of folder clusters](cluster-list.md#list-clusters) and the extension ID with a [list of cluster extensions](#list).
+   You can get the cluster ID with a [list of folder clusters](cluster-list.md#list-clusters) and the extension ID, with a [list of cluster extensions](#list).
 
-- API
+- API {#api}
 
    To delete a user extension, use the [delete](../api-ref/Extension/delete.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Delete](../api-ref/grpc/extension_service.md#Delete) gRPC API call and provide the following in the request:
 

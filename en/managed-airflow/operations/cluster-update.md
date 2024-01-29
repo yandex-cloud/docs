@@ -1,20 +1,20 @@
 ---
-title: "Editing an {{ AF }} cluster"
-description: "After creating a cluster, you can modify its basic and advanced settings."
+title: "Updating an {{ AF }} cluster"
+description: "After creating a cluster, you can change its basic and advanced settings."
 keywords:
-  - Editing an {{ AF }} cluster
-  - {{ AF }} cluster
-  - {{ AF}}
+  - "Updating an {{ AF }} cluster"
+  - "{{ AF }} cluster"
+  - "{{ AF }}"
   - Airflow
 ---
 
-# Editing {{ AF }} clusters
+# Updating {{ AF }} clusters
 
-After creating a cluster, you can modify its basic and advanced settings.
+After creating a cluster, you can change its basic and advanced settings.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
@@ -23,6 +23,8 @@ After creating a cluster, you can modify its basic and advanced settings.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, edit the cluster name and description, delete labels, or add new ones.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [security group](../../vpc/concepts/security-groups.md) for cluster network traffic or create a new group.
+
+      {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
    1. Under the settings of {{ maf-name }} [components](../concepts/index.md#components), such as **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, and **{{ ui-key.yacloud.airflow.section_workers }}**, specify the number of instances and resources.
 

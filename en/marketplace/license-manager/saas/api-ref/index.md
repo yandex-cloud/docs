@@ -8,4 +8,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
+[Instance](Instance/index.md) | A set of methods for managing subscription instances.
 [Lock](Lock/index.md) | A set of methods for managing subscription locks.

@@ -6,9 +6,9 @@ You can use {{ kms-name }} to create, rotate, and destroy symmetric encryption k
 
 To create a key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -21,7 +21,7 @@ To create a key:
 
    The key is created along with its first version: click the key in the list to open the page with its attributes.
 
-- CLI
+- CLI {#cli}
 
    Run this command:
 
@@ -40,17 +40,17 @@ To create a key:
 
    The key is created along with its first version. It is specified in the `primary_version` field.
 
-- API
-
-   Use the [create](../../kms/api-ref/SymmetricKey/create.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Create](../../kms/api-ref/grpc/symmetric_key_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    {% include [terraform-key-create](../../_includes/kms/terraform-key-create.md) %}
+
+- API {#api}
+
+   Use the [create](../../kms/api-ref/SymmetricKey/create.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Create](../../kms/api-ref/grpc/symmetric_key_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -60,9 +60,9 @@ After creating a key, you can change any of its attributes. If you change the en
 
 To edit a key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -70,7 +70,7 @@ To edit a key:
    1. In the line with the appropriate key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Change the key attributes and click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    Run this command:
 
@@ -89,16 +89,12 @@ To edit a key:
    * `--default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
    * `--rotation-period`: Key rotation period. To disable automatic rotation for an updated key, do not specify the `--rotation-period` parameter.
 
-- API
-
-   Use the [update](../../kms/api-ref/SymmetricKey/update.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Update](../../kms/api-ref/grpc/symmetric_key_service.md#Update) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To edit a key:
    1. Open the {{ TF }} configuration file and change the required parameters of the `yandex_kms_symmetric_key` resource.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       ...
@@ -145,6 +141,10 @@ To edit a key:
       yc kms symmetric-key get <key_name>
       ```
 
+- API {#api}
+
+   Use the [update](../../kms/api-ref/SymmetricKey/update.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Update](../../kms/api-ref/grpc/symmetric_key_service.md#Update) gRPC API call.
+
 {% endlist %}
 
 ## Rotate a key {#rotate}
@@ -153,9 +153,9 @@ When a key is rotated, a new version is generated and immediately set as the def
 
 To rotate a key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -163,7 +163,7 @@ To rotate a key:
    1. In the line with the appropriate key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-rotate }}**.
    1. Confirm the rotation (make sure that changing the default version will not affect your work).
 
-- CLI
+- CLI {#cli}
 
    Run the command with the key ID or name specified:
 
@@ -171,7 +171,7 @@ To rotate a key:
    yc kms symmetric-key rotate example-key
    ```
 
-- API
+- API {#api}
 
    Use the [rotate](../../kms/api-ref/SymmetricKey/rotate.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Rotate](../../kms/api-ref/grpc/symmetric_key_service.md#Rotate) gRPC API call.
 
@@ -189,9 +189,9 @@ By destroying a key you also destroy all its versions. You cannot delete a key d
 
 To destroy a key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -199,7 +199,7 @@ To destroy a key:
    1. In the line with the appropriate key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.kms.symmetric-key.overview.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    Run the command with the key ID or name specified:
 
@@ -207,11 +207,7 @@ To destroy a key:
    yc kms symmetric-key delete example-key
    ```
 
-- API
-
-   Use the [delete](../../kms/api-ref/SymmetricKey/delete.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Delete](../../kms/api-ref/grpc/symmetric_key_service.md#Delete) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To delete a key created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the key description.
@@ -262,6 +258,10 @@ To destroy a key:
       ```bash
       yc kms symmetric-key list
       ```
+
+- API {#api}
+
+   Use the [delete](../../kms/api-ref/SymmetricKey/delete.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Delete](../../kms/api-ref/grpc/symmetric_key_service.md#Delete) gRPC API call.
 
 {% endlist %}
 

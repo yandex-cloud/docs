@@ -7,9 +7,9 @@ description: "Follow this guide to enable origin shielding."
 
 To enable [origin shielding](../../concepts/origins-shielding.md) for a [resource](../../concepts/resource.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.

@@ -53,9 +53,9 @@ Incorrect settings may cause the cluster to fail.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
@@ -78,7 +78,7 @@ Incorrect settings may cause the cluster to fail.
 
    1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
 
-- API
+- API {#api}
 
    1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
    1. To set identity provider settings on the cluster side, use the [updateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateAuthSettings](../api-ref/grpc/cluster_service.md#UpdateAuthSettings) gRPC API call, and provide the following in the request:

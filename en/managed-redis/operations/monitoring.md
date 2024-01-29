@@ -17,9 +17,9 @@ description: "Using monitoring tools in the management console, you can track th
 
 To view detailed information about the {{ mrd-name }} cluster state:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -154,9 +154,9 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
 To view detailed information about the state of individual {{ mrd-name }} hosts:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -183,9 +183,9 @@ To view detailed information about the state of individual {{ mrd-name }} hosts:
 
 To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
@@ -205,10 +205,10 @@ The recommended thresholds are as follows:
 
 | Metric | Parameter | `Alarm` | `Warning` |
 |----------------------------------------------------------------------------------------------------------:|:-------------------:|:------------------------:|:------------------------:|
-| DB write availability | `can_write` | `Equals 0` | N/A |
+| DB write availability | `can_write` | `Equals 0` | — |
 | Number of Out of Memory errors, per hour | `redis_oom_count` | `Greater than 2` | `Greater than 0` |
 | RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory` | 90% RAM | 75% RAM |
-| Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
+| Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of storage size |
 
 For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
@@ -224,9 +224,9 @@ You can view a host's current RAM amount in the [cluster details](cluster-list.m
 
 To view a cluster's state and status:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.

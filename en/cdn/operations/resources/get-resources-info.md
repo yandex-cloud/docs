@@ -8,9 +8,9 @@ You can get the domain name, creation date, and other resource information.
 
 To get information about a resource:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

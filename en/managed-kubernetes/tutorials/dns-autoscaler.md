@@ -23,45 +23,45 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create {{ managed-k8s-name }} resources:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
-     1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
+      1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
-     1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
+      1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-     1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md). The [security group](../../vpc/concepts/security-groups.md) of the {{ managed-k8s-name }} cluster must allow incoming connections on ports `443` and `6443`.
+      1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md). The [security group](../../vpc/concepts/security-groups.md) of the {{ managed-k8s-name }} cluster must allow incoming connections on ports `443` and `6443`.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
-     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
-        * [Network](../../vpc/concepts/network.md#network).
-        * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Default security group and rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
-          * Rules for service traffic.
-          * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` (through ports 443 and 6443).
-        * {{ managed-k8s-name }} cluster.
-        * {{ managed-k8s-name }} node group.
-        * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
-     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
+         * [Network](../../vpc/concepts/network.md#network).
+         * [Subnet](../../vpc/concepts/network.md#subnet).
+         * [Default security group and rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
+            * Rules for service traffic.
+            * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` (through ports 443 and 6443).
+         * {{ managed-k8s-name }} cluster.
+         * {{ managed-k8s-name }} node group.
+         * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
+      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-     1. Create the required infrastructure:
+         If there are any errors in the configuration files, {{ TF }} will point them out.
+      1. Create the required infrastructure:
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
 
@@ -296,28 +296,28 @@ kube-dns-autoscaler  0/0    0           0          3h53m
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
-  [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+   [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
-  To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-  1. In the terminal window, navigate to the directory with the infrastructure plan.
-  1. Delete the `k8s-cluster.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. Delete the `k8s-cluster.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
-     ```bash
-     terraform validate
-     ```
+      ```bash
+      terraform validate
+      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  1. Confirm updating the resources.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+   1. Confirm updating the resources.
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+      All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
 
 {% endlist %}

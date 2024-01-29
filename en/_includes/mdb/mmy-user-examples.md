@@ -2,18 +2,18 @@
 
 ### Creating a user with read-only permissions {#user-read-only}
 
-To create a new user named `user2` with the password `SecretPassword` and read-only access to the `db1` database in an existing cluster named `cluster1`:
+To create a new user named `user2` with the `SecretPassword` password and read-only access to the `db1` database in an existing `cluster1`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) named `user2`. When creating a user:
 
    1. Add the `db1` database to the list of DBs.
    1. Add the `SELECT` role for the `db1` database.
 
-- CLI
+- CLI {#cli}
 
    1. Create a user named `user2`:
 
@@ -32,7 +32,7 @@ To create a new user named `user2` with the password `SecretPassword` and read-o
         --permissions "SELECT"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -57,7 +57,7 @@ To create a new user named `user2` with the password `SecretPassword` and read-o
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

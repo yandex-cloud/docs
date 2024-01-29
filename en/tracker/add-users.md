@@ -35,7 +35,7 @@ To invite a user to an organization:
 
   You can also invite users in {{ org-full-name }}. For more information, see the [documentation](../organization/operations/add-account.md).
 
-  The administrator can [grant user permissions](../organization/operations/roles.md) only after the user accepts the invitation. To make sure the user gets the appropriate permissions or joins a [group](../organization/concepts/groups.md) immediately after accepting the invitation, you can add them to the {{ org-full-name }} group. To do this:
+  The administrator can [grant user permissions](../organization/operations/add-role.md) only after the user accepts the invitation. To make sure the user gets the appropriate permissions or joins a [group](../organization/concepts/groups.md) immediately after accepting the invitation, you can add them to the {{ org-full-name }} group. To do this:
 
   1. [Send an invitation](../_includes/organization/add-user.md#useraccount) to {{ org-full-name }}.
 

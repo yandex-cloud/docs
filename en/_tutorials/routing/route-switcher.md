@@ -12,14 +12,14 @@ In the flow chart used in this example, a NAT instance called `NAT-A` is the mai
 
 {% cut "Description of scheme elements" %}
 
-   | Element name | Description |
-   | ----------- | ----------- |
-   | NAT-A, NAT-B | NAT instances that provide cloud resource access to the internet through translation of the resources' internal IP addresses to the NAT instances' public IPs |
-   | VPC: demo | {{ vpc-name }} network |
-   | private-a | Subnet in the `ru-central1-a` availability zone hosting resources that require access to the internet |
-   | public-a, public-b | Subnets in the `ru-central1-a` and `ru-central1-b` availability zones hosting the NAT instances |
-   | public ip a, public ip b | NAT instance public IPs |
-   | NLB | Internal network load balancer required for the route-switcher module to run; it checks whether the NAT instances are available by performing health checks on port TCP 22 |
+| Element name | Description |
+| ----------- | ----------- |
+| NAT-A, NAT-B | NAT instances that provide cloud resource access to the internet through translation of the resources' internal IP addresses to the NAT instances' public IPs. |
+| VPC: demo | {{ vpc-name }} network |
+| private-a | Subnet in the `ru-central1-a` availability zone hosting resources that require access to the internet. |
+| public-a, public-b | Subnets in the `ru-central1-a` and `ru-central1-b` availability zones hosting the NAT instances. |
+| public ip a, public ip b | NAT instance public IPs. |
+| NLB | Internal network load balancer required for the route-switcher module to run; it checks whether the NAT instances are available by performing health checks on port TCP 22. |
 
 {% endcut %}
 
@@ -67,16 +67,16 @@ The infrastructure support cost includes:
 1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in as a user.
 1. Create a service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -97,7 +97,7 @@ The infrastructure support cost includes:
       name: sa-terraform
       ```
 
-   - API
+   - API {#api}
 
       To create a service account, use the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API method or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the `ServiceAccount` resource.
 
@@ -105,9 +105,9 @@ The infrastructure support cost includes:
 
 1. Assign the service account the administrator [role](../../iam/concepts/access-control/roles.md) for the folder:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -115,7 +115,7 @@ The infrastructure support cost includes:
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click **Add role** in the dialog box that opens and select the `admin` role.
 
-   - CLI
+   - CLI {#cli}
 
       Run this command:
 
@@ -125,7 +125,7 @@ The infrastructure support cost includes:
          --subject serviceAccount:<service_account_ID>
       ```
 
-   - API
+   - API {#api}
 
       To assign the service account a role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
 
@@ -133,9 +133,9 @@ The infrastructure support cost includes:
 
 1. Set up the CLI profile to execute operations on behalf of the service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it to the file:
 
@@ -147,9 +147,9 @@ The infrastructure support cost includes:
          ```
 
          Where:
-         * `service-account-id`: ID of your service account
-         * `folder-id`: ID of the folder where the service account was created
-         * `output`: Name of the file with the authorized key
+         * `service-account-id`: ID of your service account.
+         * `folder-id`: ID of the folder in which the service account was created.
+         * `output`: Name of the file with the authorized key.
 
          Result:
 
@@ -281,9 +281,9 @@ The infrastructure support cost includes:
 
 1. Make sure the NAT instances are running and available within the network:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ network-load-balancer-name }}** and go to the `route-switcher-lb-...` network load balancer page.
@@ -312,9 +312,9 @@ The infrastructure support cost includes:
 
 1. Connect to the `test-vm` serial console:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -361,16 +361,16 @@ The infrastructure support cost includes:
 
 1. Disable the main NAT instance by emulating a system failure:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Choose the `nat-a` instance in the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. View a description of the CLI command to stop a VM:
 
@@ -384,7 +384,7 @@ The infrastructure support cost includes:
          yc compute instance stop nat-a
          ```
 
-   - API
+   - API {#api}
 
       Use the [stop](../../compute/api-ref/Instance/stop.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Stop](../../compute/api-ref/grpc/instance_service.md#Stop) gRPC API call.
 
@@ -403,16 +403,16 @@ The infrastructure support cost includes:
 1. Enable outgoing traffic from the test VM with a `ping`.
 1. Run the main NAT instance by emulating system recovery:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Choose the `nat-a` instance in the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. View a description of the CLI command to stop a VM:
 
@@ -426,7 +426,7 @@ The infrastructure support cost includes:
          yc compute instance start nat-a
          ```
 
-   - API
+   - API {#api}
 
       Use the [start](../../compute/api-ref/Instance/start.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Start](../../compute/api-ref/grpc/instance_service.md#Start) gRPC API call.
 

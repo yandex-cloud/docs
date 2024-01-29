@@ -14,9 +14,9 @@ The guide covers actions for mitigation of risks related to federation failure.
 1. Verify federation functionality by logging in as a federated user.
 1. Assign the `organization-manager.organizations.owner` role to a federated user:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```yc
       yc organization-manager organization add-access-binding \
@@ -33,9 +33,9 @@ The guide covers actions for mitigation of risks related to federation failure.
 
    If you are using an existing service account, make sure it does not have [static](../../iam/concepts/authorization/access-key.md) or [API keys](../../iam/concepts/authorization/api-key.md).
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```yc
       yc iam api-key list --service-account-id=<service_account_ID>
@@ -48,9 +48,9 @@ The guide covers actions for mitigation of risks related to federation failure.
 
    A security officer can upgrade their role up to `organization-manager.organizations.owner` by being in control of the service account assigned this role. Make sure that only security officers have administrator access to the `security` cloud and the service account by running the command below:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```yc
       yc iam service-account list-access-bindings --id <service_account_ID>
@@ -64,9 +64,9 @@ The guide covers actions for mitigation of risks related to federation failure.
 
 1. Assign the `organization-manager.organizations.owner` role to the service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```yc
       yc organization-manager organization add-access-binding \
@@ -81,9 +81,9 @@ The guide covers actions for mitigation of risks related to federation failure.
 1. Save the key file in trusted storage.
 1. Delete the `organization-manager.organizations.owner` role for the passport account using the console or the command-line interface:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```yc
       yc organization-manager organization remove-access-binding \

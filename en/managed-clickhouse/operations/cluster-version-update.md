@@ -14,15 +14,15 @@ To learn more about updates within a single version and host maintenance, see [M
 
 ## List of available versions
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    You can view a list of available versions on the create and edit cluster screen in the [management console]({{ link-console-main }}):
 
    ![ch-versions](../../_assets/mdb/clickhouse-version.png)
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ To learn more about updates within a single version and host maintenance, see [M
    yc managed-clickhouse version list
    ```
 
-- API
+- API {#api}
 
    To view the list of available versions, use the [list](../api-ref/Versions/list.md) REST API method for the [Versions](../api-ref/Versions/index.md) resource or the [VersionsService/List](../api-ref/grpc/versions_service.md#List) gRPC API call.
 
@@ -50,9 +50,9 @@ Make sure this does not affect your applications:
 
 ## Updating the version {#start-update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** page in the folder where you want to update the {{ CH }} version.
    1. In the list of clusters, select the one to change.
@@ -60,9 +60,9 @@ Make sure this does not affect your applications:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the appropriate version in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-   When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   When the change starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -106,7 +106,7 @@ Make sure this does not affect your applications:
 
    When the update starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -133,7 +133,7 @@ Make sure this does not affect your applications:
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 

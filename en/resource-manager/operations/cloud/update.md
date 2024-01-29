@@ -1,10 +1,10 @@
 # Renaming a cloud
 
-To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or a higher role in that cloud. You cannot rename a suspended cloud. If you cannot perform this operation, contact the cloud [administrator](../../../iam/concepts/access-control/roles.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
+To rename a cloud, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or higher for that cloud. You cannot rename a suspended cloud. If you cannot perform this operation, contact the cloud [administrator](../../../iam/concepts/access-control/roles.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate cloud in the list on the left.
    1. Click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.edit }}**.
@@ -14,7 +14,7 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
 
    1. Click **{{ ui-key.yacloud.iam.cloud.edit.popup-edit-cloud_button_save }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -70,7 +70,7 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
       yc resource-manager cloud list
       ```
 
-- API
+- API {#api}
 
    To rename a cloud, use the [update](../../api-ref/Cloud/update.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update) gRPC API call.
 

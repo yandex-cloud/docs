@@ -33,9 +33,9 @@ The cost of maintaining a bucket with encryption includes:
 
 You can create a new bucket or use an existing one. To create a bucket, run:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -50,7 +50,23 @@ You can create a new bucket or use an existing one. To create a bucket, run:
    1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-- {{ TF }}
+- AWS CLI {#aws-cli}
+
+   1. If you do not have the AWS CLI yet, [install and configure it](../tools/aws-cli.md).
+
+   1. Run this command:
+
+      ```bash
+      aws s3 mb s3://<bucket_name> --endpoint-url=https://{{ s3-storage-host }}
+      ```
+
+      Result:
+
+      ```bash
+      make_bucket: <bucket_name>
+      ```
+
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -123,7 +139,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       terraform plan
       ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    3. Deploy cloud resources.
 
@@ -144,31 +160,15 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
          You can check the new resources using the [management console]({{ link-console-main }}).
 
-- AWS CLI
-
-   1. If you do not have the AWS CLI yet, [install and configure it](../tools/aws-cli.md).
-
-   1. Run the following command:
-
-      ```bash
-      aws s3 mb s3://<bucket_name> --endpoint-url=https://{{ s3-storage-host }}
-      ```
-
-      Result:
-
-      ```bash
-      make_bucket: <bucket_name>
-      ```
-
 {% endlist %}
 
 ## Create a key {#create-key}
 
 Create a new key or use an existing one. To create a key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a key.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -182,9 +182,9 @@ Create a new key or use an existing one. To create a key:
 
    The key is created along with its first version: click the key in the list to open the page with its attributes.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
-   Run the following command:
+   Run this command:
 
    ```bash
    yc kms symmetric-key create \
@@ -201,7 +201,7 @@ Create a new key or use an existing one. To create a key:
 
    The key is created along with its first version. It is specified in the `primary_version` field.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
@@ -280,7 +280,7 @@ Create a new key or use an existing one. To create a key:
          terraform plan
          ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -302,7 +302,7 @@ Create a new key or use an existing one. To create a key:
 
          You can check the new resources using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    Use the [create](../../kms/api-ref/SymmetricKey/create.md) method for the `SymmetricKey` resource.
 
@@ -312,9 +312,9 @@ Create a new key or use an existing one. To create a key:
 
 To enable bucket encryption with a {{ kms-short-name }} key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -323,7 +323,30 @@ To enable bucket encryption with a {{ kms-short-name }} key:
    1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `key-1`.
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
-- {{ TF }}
+- AWS CLI {#aws-cli}
+
+   Run this command:
+
+   ```
+   aws s3api put-bucket-encryption \
+     --bucket <bucket_name> \
+     --endpoint-url=https://{{ s3-storage-host }} \
+     --server-side-encryption-configuration '{
+   	  "Rules": [
+   	    {
+   		  "ApplyServerSideEncryptionByDefault": {
+   		    "SSEAlgorithm": "aws:kms",
+   		    "KMSMasterKeyID": "<KMS_key_ID>"
+   		  },
+   		  "BucketKeyEnabled": true
+   		}
+   	  ]
+   	}'
+   ```
+
+   As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
+
+- {{ TF }} {#tf}
 
    1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
@@ -410,7 +433,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
          terraform plan
          ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -434,29 +457,6 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
          As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
 
-- AWS CLI
-
-   Run this command:
-
-   ```
-   aws s3api put-bucket-encryption \
-     --bucket <bucket_name> \
-     --endpoint-url=https://{{ s3-storage-host }} \
-     --server-side-encryption-configuration '{
-   	  "Rules": [
-   	    {
-   		  "ApplyServerSideEncryptionByDefault": {
-   		    "SSEAlgorithm": "aws:kms",
-   		    "KMSMasterKeyID": "<KMS_key_ID>"
-   		  },
-   		  "BucketKeyEnabled": true
-   		}
-   	  ]
-   	}'
-   ```
-
-   As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
-
 {% endlist %}
 
 ## Disable encryption {#disable-encryption}
@@ -469,9 +469,9 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -480,7 +480,19 @@ After you disable bucket encryption, previously uploaded objects will be stored 
    1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
-- {{ TF }}
+- AWS CLI {#aws-cli}
+
+   Run this command:
+
+   ```bash
+   aws s3api delete-bucket-encryption \
+     --bucket <bucket_name> \
+     --endpoint-url=https://{{ s3-storage-host }}
+   ```
+
+   As a result of successful execution, bucket encryption will be disabled.
+
+- {{ TF }} {#tf}
 
    1. Describe the resources in the configuration file. To disable encryption, delete or comment out the `server_side_encryption_configuration` section for the `yandex_storage_bucket` resource:
 
@@ -568,7 +580,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
          terraform plan
          ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -589,17 +601,5 @@ After you disable bucket encryption, previously uploaded objects will be stored 
          * Bucket
 
          Bucket encryption in the specified folder will be disabled. You can check the resources update and configuration using the [management console]({{ link-console-main }}).
-
-- AWS CLI
-
-   Run this command:
-
-   ```bash
-   aws s3api delete-bucket-encryption \
-     --bucket <bucket_name> \
-     --endpoint-url=https://{{ s3-storage-host }}
-   ```
-
-   As a result of successful execution, bucket encryption will be disabled.
 
 {% endlist %}

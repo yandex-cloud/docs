@@ -4,9 +4,9 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 ## Assign a role to a service account {#assign-role-to-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -19,13 +19,13 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. Choose the role.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the command to assign a role for a service account as a resource:
+   1. View the description of the command to assign a role for a service account as a resource:
 
       ```bash
       yc iam service-account add-access-binding --help
@@ -90,9 +90,60 @@ This section describes how to assign [roles](../../concepts/access-control/roles
           --subject userAccount:gfei8n54hmfh********
         ```
 
-- API
+- {{ TF }} {#tf}
 
-   Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/service_account_service.md#UpdateAccessBindings) gRPC API call. You will need the service account ID and the ID of the user who is assigned the role for the service account.
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
+
+      * `service_account_id`: ID of the service account to configure access for.
+      * `role`: Role being assigned. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to, specified as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+
+      Here is an example of the configuration file structure:
+
+      ```
+      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+        service_account_id = "<service_account_ID>"
+        role               = "<role>"
+        members            = [
+          "federatedUser:<user_ID>",
+        ]
+      }
+      ```
+
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+
+   1. Make sure the configuration files are valid.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run a check using this command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+
+   1. Deploy cloud resources.
+
+      1. If the configuration does not contain any errors, run this command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+
+      All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+      ```
+      yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
+      ```
+
+- API {#api}
+
+   Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/service_account_service.md#UpdateAccessBindings) gRPC API call. You will need the ID of the service account and the ID of the user to whom you want to assign the role for the service account.
 
    1. Find out the service account ID using the [list](../../api-ref/ServiceAccount/list.md) REST API method:
 
@@ -155,57 +206,6 @@ This section describes how to assign [roles](../../concepts/access-control/roles
          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
         ```
 
-- {{ TF }}
-
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
-   1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
-
-      * `service_account_id`: ID of the service account to configure access for.
-      * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
-
-      Example of the configuration file structure:
-
-      ```
-      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-        service_account_id = "<service_account_ID>"
-        role               = "<role>"
-        members            = [
-          "federatedUser:<user_ID>",
-        ]
-      }
-      ```
-
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
-
-   1. Make sure the configuration files are valid.
-
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
-
-         ```
-         terraform plan
-         ```
-
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-      All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-      ```
-      yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
-      ```
-
 {% endlist %}
 
 ## Examples {#examples}
@@ -217,9 +217,9 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 ### Assign multiple roles {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -245,7 +245,85 @@ This section describes how to assign [roles](../../concepts/access-control/roles
           --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
-- API
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  To assign several roles to a service account created with {{ TF }}:
+
+  1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
+
+      * `service_account_id`: ID of the service account to configure access for.
+      * `role`: Role being assigned. This is a required parameter.
+
+      {% note info %}
+
+      For each role, only one `yandex_iam_service_account_iam_binding` resource can be used.
+
+      {% endnote %}
+
+      * `members`: List of users or service account the role is being assigned to, specified as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+
+    {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
+
+    
+    ```hcl
+    ...
+    resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+      service_account_id = "aje82upckiqh********"
+      role               = "admin"
+      members = [
+        "userAccount:aje82upckiqh********",
+      ]
+    }
+    resource "yandex_iam_service_account_iam_binding" "admin-account-iam2" {
+      service_account_id = "aje82upckiqh********"
+      role               = "viewer"
+      members = [
+        "userAccount:aje82upckiqh********",
+      ]
+    }
+    ...
+    ```
+
+
+    {% endcut %}
+
+    For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+
+  1. Check the configuration using this command:
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, you will get this message:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+  1. Run this command:
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+
+  1. Apply the configuration changes:
+      ```
+      terraform apply
+      ```
+
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+      ```
+      yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
+      ```
+
+- API {#api}
 
    Assign the `editor` role to one user and the `viewer` role to another user:
 
@@ -298,82 +376,6 @@ This section describes how to assign [roles](../../concepts/access-control/roles
         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
     ```
 
-- {{ TF }}
-
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
-   To assign several roles to a service account created with {{ TF }}:
-
-    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
-
-       * `service_account_id`: ID of the service account that access must be configured for.
-       * `role`: Role being assigned. Required parameter.
-
-       {% note info %}
-
-       For each role, only one `yandex_iam_service_account_iam_binding` resource can be used.
-
-       {% endnote %}
-
-       * `members`: List of users or service account the role is being assigned to. It is specified in the format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
-
-     {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
-
-     
-     ```hcl
-     ...
-     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-       service_account_id = "aje82upckiqh********"
-       role               = "admin"
-       members = [
-         "userAccount:aje82upckiqh********",
-       ]
-     }
-     resource "yandex_iam_service_account_iam_binding" "admin-account-iam2" {
-       service_account_id = "aje82upckiqh********"
-       role               = "viewer"
-       members = [
-         "userAccount:aje82upckiqh********",
-       ]
-     }
-     ...
-     ```
-
-
-     {% endcut %}
-
-     For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
-
-    1. Check the configuration using this command:
-       ```
-       terraform validate
-       ```
-
-       If the configuration is correct, you will get this message:
-
-       ```
-       Success! The configuration is valid.
-       ```
-
-    1. Run this command:
-       ```
-       terraform plan
-       ```
-
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
-    1. Apply the configuration changes:
-       ```
-       terraform apply
-       ```
-
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-       You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-       ```
-       yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
-       ```
 
 {% endlist %}
 
@@ -381,9 +383,9 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 [Impersonation](../../concepts/access-control/index.md#impersonation) enables a user to perform actions on behalf of a service account using the `--impersonate-service-account-id` flag. To do this, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -460,9 +462,9 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 Allow the `test-sa` service account to manage the `my-robot` service account:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -491,56 +493,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
         --subject serviceAccount:ajebqtreob2d********
       ```
 
-- API
-
-   1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
-
-      ```bash
-      curl -H "Authorization: Bearer <IAM_token>" \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
-      ```
-
-      Result:
-
-      ```
-      {
-       "serviceAccounts": [
-        {
-         "id": "ajebqtreob2d********",
-         "folderId": "b1gvmob95yys********",
-         "createdAt": "2018-10-18T13:42:40Z",
-         "name": "test-sa",
-         "description": "test-description"
-        },
-        {
-         "id": "aje6o61dvog2********",
-         "folderId": "b1gvmob95yys********",
-         "createdAt": "2018-10-15T18:01:25Z",
-         "name": "my-robot"
-        }
-       ]
-      }
-      ```
-
-   1. Assign the `test-sa` service account the `editor` role for another `my-robot` service account. In the `subject` property, specify the `serviceAccount` type and the `test-sa` ID. In the request URL, specify the `my-robot` ID as a resource:
-
-      ```bash
-      curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM_token>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "ajebqtreob2d********",
-                      "type": "serviceAccount"
-          }}}]}' \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
-      ```
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -601,6 +554,55 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
       ```
 
+- API {#api}
+
+   1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
+
+      ```bash
+      curl -H "Authorization: Bearer <IAM_token>" \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
+      ```
+
+      Result:
+
+      ```
+      {
+       "serviceAccounts": [
+        {
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
+         "createdAt": "2018-10-18T13:42:40Z",
+         "name": "test-sa",
+         "description": "test-description"
+        },
+        {
+         "id": "aje6o61dvog2********",
+         "folderId": "b1gvmob95yys********",
+         "createdAt": "2018-10-15T18:01:25Z",
+         "name": "my-robot"
+        }
+       ]
+      }
+      ```
+
+   1. Assign the `test-sa` service account the `editor` role for another `my-robot` service account. In the `subject` property, specify the `serviceAccount` type and the `test-sa` ID. In the request URL, specify the `my-robot` ID as a resource:
+
+      ```bash
+      curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM_token>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "ajebqtreob2d********",
+                      "type": "serviceAccount"
+          }}}]}' \
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+      ```
+
 {% endlist %}
 
 ### Allowing all users to access the resource {#access-to-all}
@@ -609,9 +611,9 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 For example, allow any authenticated user to view information about the `my-robot` service account:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -623,28 +625,7 @@ For example, allow any authenticated user to view information about the `my-robo
      --subject system:allAuthenticatedUsers
    ```
 
-- API
-
-
-   Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the `subject` property, specify the `system` type:
-
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM_token>" \
-       -d '{
-       "accessBindingDeltas": [{
-           "action": "ADD",
-           "accessBinding": {
-               "roleId": "viewer",
-               "subject": {
-                   "id": "allAuthenticatedUsers",
-                   "type": "system"
-       }}}]}' \
-       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
-   ```
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -704,5 +685,25 @@ For example, allow any authenticated user to view information about the `my-robo
       ```
       yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
       ```
+
+- API {#api}
+
+   Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the `subject` property, specify the `system` type:
+
+   ```bash
+   curl -X POST \
+       -H 'Content-Type: application/json' \
+       -H "Authorization: Bearer <IAM_token>" \
+       -d '{
+       "accessBindingDeltas": [{
+           "action": "ADD",
+           "accessBinding": {
+               "roleId": "viewer",
+               "subject": {
+                   "id": "allAuthenticatedUsers",
+                   "type": "system"
+       }}}]}' \
+       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+   ```
 
 {% endlist %}

@@ -42,9 +42,9 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
 ### Create a federation {#create-federation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -61,13 +61,13 @@ Do not close the page where you create an app in Google Workspace: you will get 
    1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
       ```
-      https://accounts.google.com/o/saml2?idpid=<SAML app ID>
+      https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
       ```
 
    1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, paste the link copied from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
       ```
-      https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
+      https://accounts.google.com/o/saml2/idp?idpid=<SAML_application_ID>
       ```
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
@@ -77,7 +77,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
    1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -93,107 +93,51 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       ```bash
       yc organization-manager federation saml create --name my-federation \
-          --organization-id <organization ID> \
+          --organization-id <organization_ID> \
           --auto-create-account-on-login \
           --cookie-max-age 12h \
-          --issuer "https://accounts.google.com/o/saml2?idpid=<SAML application ID>" \
+          --issuer "https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>" \
+          --sso-url "https://accounts.google.com/o/saml2/idp?idpid=<SAML_application_ID>" \
           --sso-binding POST \
-          --sso-url "https://accounts.google.com/o/saml2/idp?idpid=<SAML application ID>" \
           --force-authn
       ```
 
       Where:
 
-      * `name`: Federation name. It must be unique within the folder.
+      * `--name`: Federation name. It must be unique within the folder.
 
-      * `organization-id`: Your organization ID.
+      * `--organization-id`: Organization ID.
 
-      * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-
+      * `--auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
-      * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
+      * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
-      * `issuer`: IdP server ID to be used for authentication.
+      * `--issuer`: ID of the IdP server to be used for authentication.
 
          Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. This is a link in the format:
 
          ```
-         https://accounts.google.com/o/saml2?idpid=<SAML app ID>
+         https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
          ```
 
-      * `sso-url`: URL of the page that the browser redirects the user to for authentication.
+      * `--sso-url`: URL to which the browser redirects the user for authentication.
 
          Use the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
-         https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
+         https://accounts.google.com/o/saml2/idp?idpid=<SAML_application_ID>
          ```
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+      * `--sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-- API
-
-   1. Create a file with the request body, e.g., `body.json`:
-
-      ```json
-      {
-        "name": "my-federation",
-        "organizationId": "<organization ID>",
-        "autoCreateAccountOnLogin": true,
-        "cookieMaxAge":"43200s",
-        "issuer": "https://accounts.google.com/o/saml2?idpid=<SAML application ID>",
-        "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=<SAML application ID>",
-        "ssoBinding": "POST",
-        "securitySettings": {
-          "forceAuthn": true
-        }
-      }
-      ```
-
-      Where:
-
-      * `name`: Federation name. It must be unique within the folder.
-
-      * `organizationId`: Organization ID.
-
-      * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
-
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
-
-      * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
-
-      * `issuer`: IdP server ID to be used for authentication.
-
-         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
-
-         ```
-         https://accounts.google.com/o/saml2?idpid=<SAML app ID>
-         ```
-      * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
-
-         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace ** Google IdP information** page. The link should have the following format:
-
-         ```
-         https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
-         ```
-
-         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
-
-      * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
-
-      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
-
-   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -208,7 +152,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
          Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
-         https://accounts.google.com/o/saml2?idpid=<SAML app ID>
+         https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
          ```
 
       * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
@@ -217,7 +161,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
          Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace ** Google IdP information** page. The link should have the following format:
 
          ```
-         https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
+         https://accounts.google.com/o/saml2/idp?idpid=<SAML_application_ID>
          ```
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
@@ -238,10 +182,10 @@ Do not close the page where you create an app in Google Workspace: you will get 
       ```
       resource "yandex_organizationmanager_saml_federation" federation {
        name            = "my-federation"
-       organization_id = "<organization ID>"
+       organization_id = "<organization_ID>"
        auto_create_account_on_login = "true"
-       issuer          = "https://accounts.google.com/o/saml2?idpid=<SAML application ID>"
-       sso_url         = "https://accounts.google.com/o/saml2/idp?idpid=<SAML application ID>"
+       issuer          = "https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>"
+       sso_url         = "https://accounts.google.com/o/saml2/idp?idpid=<SAML_application_ID>"
        sso_binding     = "POST"
        security_settings {
           encrypted_assertions = "true"
@@ -272,15 +216,70 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
 
+- API {#api}
+
+   1. Create a file with the request body, e.g., `body.json`:
+
+      ```json
+      {
+        "name": "my-federation",
+        "organizationId": "<organization ID>",
+        "autoCreateAccountOnLogin": true,
+        "cookieMaxAge":"43200s",
+        "issuer": "https://accounts.google.com/o/saml2?idpid=<SAML application ID>",
+        "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=<SAML application ID>",
+        "ssoBinding": "POST",
+        "securitySettings": {
+          "forceAuthn": true
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Federation name. It must be unique within the folder.
+
+      * `organizationId`: Organization ID.
+
+      * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+
+      * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
+
+      * `issuer`: IdP server ID to be used for authentication.
+
+         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+
+         ```
+         https://accounts.google.com/o/saml2?idpid=<SAML app ID>
+         ```
+      * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
+
+         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace ** Google IdP information** page. The link should have the following format:
+
+         ```
+         https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
+         ```
+
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
+      * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+
+      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
+
+   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
+
 {% endlist %}
 
 ### Add certificates {#add-certificate}
 
 While authenticating, the {{ org-name }} service should be able to verify the IdP server certificate. To enable this, download a certificate from the open Google Workspace **Google IdP Information** page and add it to the created federation:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
@@ -298,7 +297,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
    1. Click **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -318,7 +317,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
         --certificate-file certificate.pem
       ```
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/Certificate/create.md) method for the [Certificate](../../api-ref/Certificate/index.md) resource:
 
@@ -335,7 +334,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
    1. Send the add certificate request:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
+      $ export IAM_TOKEN=CggaAT********
       $ curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -362,7 +361,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. In the **Service provider information** step, specify information about {{ yandex-cloud }} that acts as a service provider:
 
-   * In the **ACS URL** and **Entity ID** fields, enter the URL to redirect users to after successful authentication:
+   * In the **ACS URL** and **Object ID** fields, enter the URL to redirect users to after successful authentication:
 
       ```
       https://{{ auth-host }}/federations/<federation_ID>
@@ -435,9 +434,9 @@ To do this, you will need user name IDs. They are returned by the IdP server alo
 
 A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant roles to a user, see [Roles](../../security/index.md#admin).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
@@ -453,7 +452,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. Click **{{ ui-key.yacloud_org.actions.add }}**. This will give the users access to the organization.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -474,11 +473,11 @@ A user can be added by an organization administrator (the `organization-manager.
 
       Where:
 
-      * `id`: Federation ID.
+      * `--id`: Federation ID.
 
-      * `name-ids`: User name IDs.
+      * `--name-ids`: Users' name IDs.
 
-- API
+- API {#api}
 
    To add identity federation users to the cloud:
 

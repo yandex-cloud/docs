@@ -13,9 +13,9 @@ description: "Follow this guide to delete an HTTP router."
 
 To delete an HTTP router:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -25,7 +25,7 @@ To delete an HTTP router:
       To do this with multiple HTTP routers, select the routers to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ To delete an HTTP router:
       yc alb http-router list
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -120,7 +120,7 @@ To delete an HTTP router:
       yc alb http-router list
       ```
 
-- API
+- API {#api}
 
    Use the [delete](../api-ref/HttpRouter/delete.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouter/Delete](../api-ref/grpc/http_router_service.md#Delete) gRPC API call.
 

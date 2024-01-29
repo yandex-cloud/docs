@@ -8,6 +8,6 @@ In {{ org-name }}, you can create an identity federation with any credential man
 
 * [Add a Yandex](add-account.md) user.
 * [Get the user's ID or email](users-get.md).
-* [Assign access rights](roles.md).
+* [Assign access rights](add-role.md).
 * [Edit or delete an employee's account](edit-account.md).
 * [Remove an employee from an organization](leave-organization.md).

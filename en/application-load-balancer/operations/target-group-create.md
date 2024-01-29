@@ -1,6 +1,6 @@
 ---
-title: "Creating an {{ alb-full-name }} target group"
-description: "To create an {{ alb-full-name }} target group, in the management console, select the folder to create your target group in. In the list of services, select {{ alb-name }}. In the left-hand menu, select **Target groups**. Click **Create target group**. Enter the name of the target group. Select the VMs. Click **Create**."
+title: "Creating a {{ alb-full-name }} target group"
+description: "To create a {{ alb-full-name }} target group, in the management console, select the appropriate folder. In the list of services, select {{ alb-name }}. In the left-hand menu, select Target groups. Click **Create target group**. Enter the name of the target group. Select the VMs. Click **Create**."
 ---
 
 # Creating an {{ alb-name }} target group
@@ -9,9 +9,9 @@ Create VMs in the working folder by following the [guide](../../compute/operatio
 
 To create a [target group](../concepts/target-group.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your target group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -32,13 +32,13 @@ To create a [target group](../concepts/target-group.md):
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's create target group command:
+   1. See the description of the CLI create target group command:
 
       ```bash
       yc alb target-group create --help
@@ -98,7 +98,7 @@ To create a [target group](../concepts/target-group.md):
       created_at: "2023-07-25T08:55:14.172526884Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

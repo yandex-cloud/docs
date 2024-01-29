@@ -1,4 +1,4 @@
-# Updating a {{ dataproc-name }} cluster
+# Updating {{ dataproc-name }} clusters
 
 After creating a cluster, you can change its basic and advanced settings.
 
@@ -6,11 +6,11 @@ After creating a cluster, you can change its basic and advanced settings.
 You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more information, see [Working with logs](logging.md#disable-logs).
 
 
-To move a cluster to a different availability zone, follow this [guide](migration-to-an-availability-zone.md).
+To move a cluster to a different availability zone, follow [this guide](migration-to-an-availability-zone.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -31,7 +31,7 @@ To move a cluster to a different availability zone, follow this [guide](migratio
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -78,7 +78,7 @@ To move a cluster to a different availability zone, follow this [guide](migratio
 
    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

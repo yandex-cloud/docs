@@ -13,9 +13,9 @@ To collect audit logs of an individual cloud:
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. Assign roles to a service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -65,9 +65,9 @@ To collect audit logs of an individual cloud:
 
 To create the first trail in {{ at-name }} and start the audit log management process:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

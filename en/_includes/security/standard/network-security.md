@@ -7,7 +7,7 @@ To isolate applications from each other, put resources in different [security gr
 
 #### 2.1 Cloud objects use a firewall or security groups {#firewall}
 
-With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. For instructions on how to set up security groups, see [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
+With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. See the guide on how to set up security groups in [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
 
 You can use security groups to protect:
 * VMs
@@ -25,25 +25,25 @@ You can manage network access without security groups, for example, using a sepa
 
 Make sure you use security groups in your [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) on each cloud object, or a separate VM based on the NGFW from {{ marketplace-name }}, or the Bring Your Own Image (BYOI) approach that allows you to deploy your own equipment or system images.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    Check if there are security groups in different objects:
    1. Open the [{{ yandex-cloud }} management console]({{ link-console-main }}) in your browser.
    1. Go to each cloud and [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and open all resources listed in "Objects that security groups can be applied to", one by one.
    1. In the object settings, find the **Security group** parameter and make sure that at least one security group is assigned.
-   1. If the parameters of each object with security group support have at least one group set, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object with security group support have at least one group set, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
    Check whether the NGFW is used instead of security groups:
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Go to each cloud and folder and open all VM [disks](../../../compute/concepts/vm.md) one by one.
    1. In the disk settings, find the **{{ marketplace-short-name }} product** parameter.
-   1. If the disk **{{ marketplace-short-name }} product** parameters have one of the NGFW product names specified, such as Check Point CloudGuard IaaS — Firewall & Threat Prevention PAYG or UserGate NGFW, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the disk **{{ marketplace-short-name }} product** parameters have one of the NGFW product names specified, such as Check Point CloudGuard IaaS — Firewall & Threat Prevention PAYG or UserGate NGFW, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
-   1. See what organizations are available to you and write down the desired `ID`:
+   1. See what organizations are available to you and write down the `ID` you need:
 
       ```bash
       yc organization-manager organization list
@@ -61,7 +61,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. If the result with the cloud resource `ID` is output, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. If the result with the cloud resource `ID` is output, proceed to the "Guides and solutions to use".
 
    Check whether the NGFW is used instead of a security group:
    1. Run the command to search for the NGFW in the cloud. By default, the command searches for Checkpoint or Usergate. If you use a custom image, specify it.
@@ -76,7 +76,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
       done
       ```
 
-   1. If the `ID` of a VM with the NGFW is output, the recommendation is fulfilled. If an empty string is output, proceed to the "Instructions and solutions to use".
+   1. If the `ID` of a VM with the NGFW is output, the recommendation is fulfilled. If an empty string is output, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -91,18 +91,18 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
 
 To apply security groups to your cloud objects in {{ vpc-name }}, make sure there is at least one security group. You can also create a [default security group](../../../vpc/concepts/security-groups.md#default-security-group) that will be assigned to cloud objects when connecting to [subnets](../../../vpc/concepts/network.md#subnet) if they have no security group. Make sure that each network has at least one security group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Go to each cloud and then to each folder and each {{ vpc-name }}.
    1. Go to **Security groups**.
-   1. If at least one security group for each {{ vpc-name }} or the default security group is found, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If at least one security group for each {{ vpc-name }} or the default security group is found, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
-   1. See what organizations are available to you and write down the desired `ID`:
+   1. See what organizations are available to you and write down the `ID` you need:
 
       ```bash
       yc organization-manager organization list
@@ -119,7 +119,7 @@ To apply security groups to your cloud objects in {{ vpc-name }}, make sure ther
       done
       ```
 
-   1. If each of the `SG_ID` combinations next to the `FOLDER_ID` of the folder hosting it has the `IDs` specified, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If each of the `SG_ID` combinations next to the `FOLDER_ID` of the folder hosting it has the `IDs` specified, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -143,18 +143,18 @@ If no port range is set, it is considered that access is granted across all port
 
 Make sure to only allow access through the ports that your application requires to run and from the IPs to connect to your objects from.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Go to each cloud and then to each folder and each {{ vpc-name }}.
    1. Go to **Security groups**.
-   1. If there is no security group containing network access rules that allow access through any port and from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If there is no security group containing network access rules that allow access through any port and from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
-   1. See what organizations are available to you and write down the desired `ID`:
+   1. See what organizations are available to you and write down the `ID` you need:
 
       ```bash
       yc organization-manager organization list
@@ -173,7 +173,7 @@ Make sure to only allow access through the ports that your application requires 
       done
       ```
 
-   1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If you see a non-empty `SG_ID`, proceed to the "Instructions and solutions to use".
+   1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If you see a non-empty `SG_ID`, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -189,18 +189,18 @@ We recommend that you only allow access to your cloud infrastructure through con
 * Source: CIDR.
 * CIDR blocks: 0.0.0.0/0 (access from any IP address) or ::/0 (ipv6).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Go to each cloud and then to each folder and each {{ vpc-name }}.
    1. Go to **Security groups**.
-   1. If there is no security group containing network access rules that allow access through control ports from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If there is no security group containing network access rules that allow access through control ports from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
-   1. See what organizations are available to you and write down the desired `ID`:
+   1. See what organizations are available to you and write down the `ID` you need:
 
       ```bash
       yc organization-manager organization list
@@ -219,7 +219,7 @@ We recommend that you only allow access to your cloud infrastructure through con
       done
       ```
 
-   1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not null, proceed to the "Instructions and solutions to use".
+   1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -234,22 +234,22 @@ We recommend that you only allow access to your cloud infrastructure through con
 * [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is the {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Qrator Labs. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
 * [Extended](/services/ddos-protection) DDoS protection operates at layers 3 and 7 of the OSI model. You can also track loads and attack properties, as well as enable Soundwall WAF in your Qrator Labs account. To enable extended protection, contact your manager or the tech support service.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check from the management console (basic protection)
+- Performing a check from the management console (basic protection) {#console}
 
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Open all created networks.
    1. Go to **IP addresses**.
-   1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Running a manual check (extended protection)
+- Running a manual check (extended protection) {#manual}
 
    Contact your account manager to find out if you have extended DDoS protection activated.
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
-   1. See what organizations are available to you and write down the desired `ID`:
+   1. See what organizations are available to you and write down the `ID` you need:
 
       ```bash
       yc organization-manager organization list
@@ -268,7 +268,7 @@ We recommend that you only allow access to your cloud infrastructure through con
       done
       ```
 
-   1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -287,8 +287,8 @@ To enable administrators to establish remote connections to your cloud resources
    * [Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
    * Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
 
-   For more information, see the details in the [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md) section. You can also use certified data cryptographic security tools.
-* A dedicated private connection between a remote site and {{ yandex-cloud }} using {{ interconnect-name }}.
+   See the details in the [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md) section. You can also use certified data cryptographic security tools.
+* Dedicated private connection between a remote site and {{ yandex-cloud }} using {{ interconnect-name }}.
 
 To access the infrastructure using control protocols (such as SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.
 
@@ -296,9 +296,9 @@ For better control of administrative actions, we recommend that you use PAM (Pri
 
 To access web services deployed in the cloud, use TLS version 1.2 or higher.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Open all created networks.
@@ -306,7 +306,7 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
    1. If routes to remote sites' private networks through VMs with a VPN gateway are found, the recommendation is fulfilled.
    1. Check the VMs in each cloud for VPN gateways. In addition, check if their security groups have open ports for the VPN.
 
-- Manual check
+- Manual check {#manual}
 
    Contact your account manager to find out if you have {{ interconnect-name }} activated. If yes, check if remote access is used.
 
@@ -316,7 +316,7 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
 
 Possible options for setting up outbound internet access:
 * [Public IP address](../../../vpc/concepts/address.md#public-addresses). Assigned to a VM according to the one-to-one NAT rule.
-* [Egress NAT (NAT gateway)](../../../vpc/operations/create-nat-gateway.md). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We don't recommend that you use Egress NAT for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
+* [Egress NAT (NAT gateway)](../../../vpc/operations/create-nat-gateway.md). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We do not recommend using Egress NAT for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
 * [NAT instance](../../../tutorials/routing/nat-instance.md). The NAT function is performed by a separate VM. You can create this VM using a [NAT instance]({{ link-cloud-marketplace }}/products/yc/nat-instance-ubuntu-18-04-lts) image from {{ marketplace-name }}.
 
 **Comparison of internet access methods**:
@@ -346,18 +346,18 @@ Possible options for setting up outbound internet access:
 
 Regardless of which option you select for setting up outbound internet access, be sure to limit traffic using one of the mechanisms described above. To build a secure system, use static IP addresses, since they can be added to the list of exceptions of the receiving party's firewall.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Performing a check in the management console
+- Performing a check in the management console {#console}
 
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Go to the appropriate folder.
    1. Go to **IP addresses**.
-   1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
-- Performing a check via the CLI
+- Performing a check via the CLI {#cli}
 
-   1. See what organizations are available to you and write down the desired `ID`:
+   1. See what organizations are available to you and write down the `ID` you need:
 
       ```bash
       yc organization-manager organization list
@@ -375,7 +375,7 @@ Regardless of which option you select for setting up outbound internet access, b
       done
       ```
 
-   1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
    1. Run the command below to see if there is Egress NAT (NAT gateway):
 
       ```bash
@@ -387,7 +387,7 @@ Regardless of which option you select for setting up outbound internet access, b
       done
       ```
 
-   1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
    1. Run the command below to see if there is a NAT instance:
 
       ```bash
@@ -400,7 +400,7 @@ Regardless of which option you select for setting up outbound internet access, b
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. If you see the `ID` of a NAT instance, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. If you see the `ID` of the NAT instance, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 

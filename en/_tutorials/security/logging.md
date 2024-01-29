@@ -43,9 +43,9 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
 
 To create a network:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -57,9 +57,9 @@ To create a network:
 
 ## Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -80,9 +80,9 @@ You will create three security groups: one for the load balancer, another one fo
 
 To create security groups:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab.
@@ -137,9 +137,9 @@ Logs received from the load balancer will be written to the database that is par
 
 To create a cluster and a database:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
@@ -205,9 +205,9 @@ As an example, we'll save data from the following message fields, which are logg
 
 You need to create a log table in advance:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    After [creating the cluster](#set-up-db-create-cluster), you will be automatically redirected to the **{{ ui-key.yacloud.mdb.clusters.label_title }}** page.
 
@@ -238,9 +238,9 @@ As web servers for your site, you will use an [instance group](../../compute/con
 
 To create an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Open the **{{ ui-key.yacloud.compute.switch_groups }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -288,9 +288,9 @@ It may take a few minutes to create an instance group. Once created, the group [
 
 ## Create a {{ cloud-logging-full-name }} log group {#create-log-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../../logging/concepts/log-group.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -311,9 +311,9 @@ For the backends in the group, a [health check](../../application-load-balancer/
 
 To create a backend group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
@@ -335,9 +335,9 @@ The backend group should be linked to an [HTTP router](../../application-load-ba
 
 To create an HTTP router:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -355,9 +355,9 @@ To create an HTTP router:
 
 To create a load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
@@ -380,9 +380,9 @@ The [function](../../functions/concepts/function.md) will receive messages from 
 
 To create a function:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -499,9 +499,9 @@ The [trigger](../../functions/concepts/trigger/index.md) will receive copies of 
 
 To create a trigger:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
@@ -532,7 +532,7 @@ To create a trigger:
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -561,7 +561,7 @@ To create a trigger:
 
    For more information about the command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/trigger/create/logging.md).
 
-- API
+- API {#api}
 
    Use the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call or the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method.
 
@@ -571,9 +571,9 @@ To create a trigger:
 
 1. Get the public IP address of the load balancer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Find the `alb-logging-balancer` load balancer in the list and copy its IP address.
@@ -583,9 +583,9 @@ To create a trigger:
 1. Open `http://<Load_balancer_IP_address>` in the browser. Refresh the page several times.
 1. Make sure that the logs contain information about your requests to the load balancer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
       1. Select the `alb-logging-cluster` cluster.

@@ -43,13 +43,13 @@ For specific port forwarding at NGINX Ingress controller installation, follow [t
 
 ## Install the certificate manager {#install-certs-manager}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Using {{ marketplace-full-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
    Install the cert-manager app with the {{ dns-full-name }} ACME webhook plugin [according to the guide](../operations/applications/cert-manager-cloud-dns.md).
 
-- Manually
+- Manually {#manual}
 
    1. Install the [latest version](https://github.com/cert-manager/cert-manager/releases) of the certificate manager configured to issue Let's Encrypt® certificates. For example, run the following command for version 1.21.1:
 

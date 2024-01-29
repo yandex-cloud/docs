@@ -10,9 +10,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
@@ -30,10 +30,10 @@ Prepare the infrastructure:
    1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
    1. [Create a log group](../../logging/operations/create-group.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [k8s-cluster-with-log-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster-with-log-group.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory.
 
       This file describes:
@@ -149,9 +149,9 @@ Prepare the infrastructure:
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a static [public IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, release and [delete it](../../vpc/operations/address-delete.md).
@@ -159,7 +159,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
    1. [Delete the log group](../../logging/operations/delete-group.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
    1. Delete the `k8s-cluster-with-log-group.tf` configuration file.

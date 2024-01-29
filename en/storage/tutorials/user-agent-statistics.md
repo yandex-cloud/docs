@@ -14,9 +14,9 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
 
 ## Getting visit statistics {#session-stat}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    1. Run the query against {{ objstorage-name }} and save the output to a file:
 

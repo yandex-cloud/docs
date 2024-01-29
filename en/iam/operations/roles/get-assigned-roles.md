@@ -13,9 +13,9 @@ To view the permissions granted to an account for a resource, retrieve the list 
 
 You can view a list of inherited roles for the folder or the cloud in the management console, in the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section of the corresponding folder or cloud.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the management console, you can view roles only for the folder, cloud, or organization. To view roles for other resources, use the CLI or API.
 
@@ -27,9 +27,9 @@ You can view a list of inherited roles for the folder or the cloud in the manage
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. The service account's roles for the current folder are listed in the column **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}**.
+   1. The service account's roles for the current folder are listed in the **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}** column.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ You can view a list of inherited roles for the folder or the cloud in the manage
       In the server response, find all the rows where the subject contains the account ID and the `allUsers` and `allAuthenticatedUsers` [system groups](../../concepts/access-control/system-group.md) as subjects.
    1. Repeat the previous two steps for all the parent resources.
 
-- API
+- API {#api}
 
    1. Get your account ID:
       1. [Guide](../sa/get-id.md) for service accounts.

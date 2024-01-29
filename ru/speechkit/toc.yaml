@@ -33,6 +33,8 @@ items:
         href: stt/normalization.md
       - name: Анализ результатов распознавания
         href: stt/analysis.md
+      - name: Определение дикторов
+        href: stt/speaker-labeling.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
       - name: Определение конца фразы

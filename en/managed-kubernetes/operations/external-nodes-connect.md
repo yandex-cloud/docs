@@ -7,7 +7,7 @@ description: "Follow this guide to connect external nodes to a {{ managed-k8s-na
 
 {% note info %}
 
-Connecting [external nodes](../concepts/external-nodes.md) to a [{{ managed-k8s-name }} cluster](./index.md#kubernetes-cluster) is at the [Preview](../../overview/concepts/launch-stages.md) stage. Using this feature is free of charge.
+Connecting [external nodes](../concepts/external-nodes.md) to a [{{ managed-k8s-name }} cluster](./index.md#kubernetes-cluster) is at the [Preview](../../overview/concepts/launch-stages.md) stage. You will not be charged for using them.
 
 {% endnote %}
 
@@ -35,16 +35,16 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** and then **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
   1. Enter a name for the {{ managed-k8s-name }} node group.
   1. Click **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
 
    1. To a YAML file named `ext-nodegroup.yaml`, save a specification of a `NodeGroup` object under the `mks.yandex.cloud/v1alpha1` {{ managed-k8s-name }} API group in the `yandex-system` [namespace](../concepts/index.md#namespace):
 
@@ -66,9 +66,9 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
 
 ## Adding nodes to a cluster {#add-node}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the required {{ managed-k8s-name }} node group.
@@ -77,7 +77,7 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
   1. Click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}** to add more IP addresses if needed.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   In the {{ managed-k8s-name }} node group object specification, list the IP addresses of the connecting servers accessible from the {{ managed-k8s-name }} cluster's cloud network:
 
@@ -107,14 +107,14 @@ Once the system components have been installed, the servers will initiate {{ man
 
 A node connection to a {{ managed-k8s-name }} cluster is complete when new nodes in a `Ready` state become available in the cluster:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the details of the relevant {{ managed-k8s-name }} node group.
   1. Select the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 
-- CLI
+- CLI {#cli}
 
   ```bash
   kubectl get node -o wide -w
@@ -147,16 +147,16 @@ kubectl -n yandex-system create secret generic <secret_name> --from-file=ssh-pri
 
 In the `NodeGroup` resource specification, include the name of the relevant secret:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the details of the relevant {{ managed-k8s-name }} node group.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Select the desired secret from the drop-down list.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   ```bash
   kubectl -n yandex-system edit nodegroup external-node-group
@@ -174,7 +174,7 @@ In the `NodeGroup` resource specification, include the name of the relevant secr
     provisionBySsh:
       sshKeySecret:
         name: <secret_name>
-        namespace: system
+        namespace: yandex-system
   ```
 
 {% endlist %}
@@ -208,16 +208,16 @@ For a semi-automated installation, set up all {{ managed-k8s-name }} external no
 
 ## Deleting external nodes from a cluster {#remove-node}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Go to the details of the relevant {{ managed-k8s-name }} node group.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Delete the IP addresses of the appropriate {{ managed-k8s-name }} nodes.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   To disconnect the {{ managed-k8s-name }} nodes, delete their IP addresses from the `spec.ips` field of the `NodeGroup` resource:
 
@@ -231,14 +231,14 @@ For a semi-automated installation, set up all {{ managed-k8s-name }} external no
 
 If there are issues, review the events in the `yandex-system` namespace first:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_events }}** tab.
   1. Select the `yandex-system` namespace.
 
-- CLI
+- CLI {#cli}
 
   ```bash
   kubectl -n yandex-system get events

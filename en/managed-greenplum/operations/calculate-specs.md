@@ -4,9 +4,9 @@ This section provides recommendations to optimize the cluster configuration for 
 
 In addition, when creating a cluster in the management console, you can use a wizard that will help you choose the optimal configuration:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
@@ -47,7 +47,7 @@ Segment hosts are designed to store data and process queries against such data, 
    * The new hosts will have the same configuration (RAM, vCPU cores, and number of segments per host) as the segment hosts when creating the cluster.
    * You cannot add fewer than two new segment hosts.
 
-* Recommended number of segments per host depends on the following two parameters:
+* The recommended number of segments per host depends on the following two parameters:
 
    * Number of vCPU cores per host:
 
@@ -83,7 +83,7 @@ This is equal to 20 `{{ i2.2xlarge }}` hosts with 4 segments per host or 10 `{{ 
 
 ## Configuration of master hosts {#master}
 
-Master hosts are designed to handle connections and keep coordinate the work of segments. These hosts don't store or process data, which is why they have lower performance requirements.
+Master hosts are designed to handle connections and keep coordinate the work of segments. These hosts do not store or process data, which is why they have lower performance requirements.
 
 We recommend using the same [type of disks](../concepts/storage.md) for both the master and the segment hosts.
 

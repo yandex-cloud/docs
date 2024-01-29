@@ -8,9 +8,9 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md).
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md). Save the [key](../../../iam/concepts/authorization/key.md) ID and secret key, you will need them when installing the application.
-1. (Optional) To make new volumes fit into a single bucket with different prefixes, create an [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../storage/operations/buckets/create.md). Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
+1. [Create](../../../iam/operations/sa/create.md) a service account with the `storage.editor` [role](../../../storage/security/index.md#storage-editor).
+1. [Create](../../../iam/operations/sa/create-access-key.md) a static access key for the service account. Save the key ID and secret key, you will need them when installing the application.
+1. (Optional) To make new volumes fit into a single bucket with different prefixes, [create](../../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket. Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

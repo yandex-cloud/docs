@@ -8,9 +8,9 @@ It supports [Java](https://github.com/yandex-cloud/kms-clients-java/tree/master/
 
 Before you start, you need to add dependencies.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    Add dependencies using [Apache Maven](https://maven.apache.org/):
 
@@ -22,7 +22,7 @@ Before you start, you need to add dependencies.
    </dependency>
    ```
 
-- Go
+- Go {#go}
 
    Run this command:
 
@@ -43,9 +43,9 @@ The code uses the following variables:
 * `ciphertext`: Encrypted text
 * `aad`: [AAD context](../../concepts/symmetric-encryption.md#add-context)
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    Create an [Aead](https://google.github.io/tink/javadoc/tink/1.3.0/index.html?com/google/crypto/tink/Aead.html) object and use the encrypt and decrypt methods for data encryption and decryption:
 
@@ -66,9 +66,9 @@ The code uses the following variables:
    byte[] plaintext = aead.decrypt(ciphertext, aad);
    ```
 
-- Go
+- Go {#go}
 
-   Create an [aead](https://pkg.go.dev/github.com/google/tink/go/aead?tab=doc) object and use the encrypt and decrypt methods for data encryption and decryption:
+   Create an [Aead](https://pkg.go.dev/github.com/google/tink/go/aead?tab=doc) object and use the encrypt and decrypt methods for data encryption and decryption:
 
    ```
    sdk, err := ycsdk.Build(context, ycsdk.Config{

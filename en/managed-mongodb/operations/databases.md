@@ -1,17 +1,17 @@
-# Database management in {{ mmg-name }}
+# Managing databases in {{ mmg-name }}
 
 You can add and remove databases, as well as view information about them.
 
 ## Getting a list of cluster databases {#list-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -26,7 +26,7 @@ You can add and remove databases, as well as view information about them.
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
    To get a list of cluster databases, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -38,9 +38,9 @@ You can add and remove databases, as well as view information about them.
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name.
@@ -52,7 +52,7 @@ You can add and remove databases, as well as view information about them.
 
    1. [Authorize](cluster-users.md#updateuser) the appropriate cluster users for access to the database created.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -73,7 +73,7 @@ You can add and remove databases, as well as view information about them.
 
    [Authorize](cluster-users.md#updateuser) the appropriate cluster users for access to the database created.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -104,7 +104,7 @@ You can add and remove databases, as well as view information about them.
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To create a new database in a cluster, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -117,15 +117,15 @@ You can add and remove databases, as well as view information about them.
 
 ## Deleting a database {#remove-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
    1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the same row as the DB and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -140,7 +140,7 @@ You can add and remove databases, as well as view information about them.
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -160,7 +160,7 @@ You can add and remove databases, as well as view information about them.
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and provide the following in the request:
 

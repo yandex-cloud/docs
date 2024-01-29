@@ -40,9 +40,9 @@ The cost for backup and recovery includes:
 
 To create a bucket for backups in {{ objstorage-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
    1. On the folder page, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
@@ -67,9 +67,9 @@ Make sure to immediately save the ID `key_id` and secret key `secret`. You will 
 
 To create a VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name: `bacula-vm`.
@@ -446,7 +446,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
    sudo bacula-dir -tc /etc/bacula/bacula-dir.conf
    ```
 
-   If there aren't any error messages, the configuration is correct.
+   If there are no error messages, the configuration is correct.
 
 ### Configure Storage Daemon {#configure-storage-daemon}
 
@@ -498,7 +498,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
    sudo bacula-sd -tc /etc/bacula/bacula-sd.conf
    ```
 
-   If there aren't any error messages, the configuration is correct.
+   If there are no error messages, the configuration is correct.
 
 ### Create passwords for Bacula components {#create-bacula-passwords}
 
@@ -643,9 +643,9 @@ To set passwords for Bacula components:
 
 To make sure that the backup is complete:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Open the bucket.

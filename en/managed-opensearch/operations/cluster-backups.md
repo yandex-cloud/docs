@@ -20,9 +20,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ### Getting a list of backups {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get a list of cluster backups:
 
@@ -34,7 +34,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
-- API
+- API {#api}
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -46,9 +46,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ### Getting information about backups {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To get information about the backup of an existing cluster:
 
@@ -60,7 +60,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
-- API
+- API {#api}
 
    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
@@ -70,9 +70,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ### Creating a backup {#create-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the cluster name and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
@@ -80,7 +80,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- API
+- API {#api}
 
    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -96,15 +96,15 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
 When creating a new cluster, set all required parameters.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To restore an existing cluster from a backup:
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the cluster name and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
-   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -113,13 +113,13 @@ When creating a new cluster, set all required parameters.
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
    1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    {{ mos-name }} will launch the operation to create a cluster from the backup.
 
-- API
+- API {#api}
 
    To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 

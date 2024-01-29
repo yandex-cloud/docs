@@ -2,9 +2,9 @@
 
 To delete a folder, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or higher for the folder. If you cannot perform this operation, contact an [administrator](../../../iam/concepts/access-control/roles.md#admin) or the [folder owner](../../concepts/resources-hierarchy.md#owner).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
 
@@ -16,7 +16,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To cancel, click ![***](../../../_assets/console-icons/ellipsis.svg) to the right of the folder and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
       To have the operation progress details shown before the operation is completed, set the `--async` flag.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -93,7 +93,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
       yc resource-manager folder list
       ```
 
-- API
+- API {#api}
 
    To delete a folder, use the [delete](../../api-ref/Folder/delete.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete) gRPC API call.
 

@@ -6,14 +6,14 @@ You can add and remove users, as well as manage their settings.
 
 ## Getting a list of users {#list-users}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -27,7 +27,7 @@ You can add and remove users, as well as manage their settings.
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- API
+- API {#api}
 
    To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -37,9 +37,9 @@ You can add and remove users, as well as manage their settings.
 
 ## Adding a user {#adduser}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
@@ -61,7 +61,7 @@ You can add and remove users, as well as manage their settings.
    1. If necessary, specify the [{{ MY }} settings and administrative privileges](../concepts/settings-list.md#dbms-user-settings) for the user.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -82,7 +82,7 @@ You can add and remove users, as well as manage their settings.
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -120,11 +120,11 @@ You can add and remove users, as well as manage their settings.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API
+- API {#api}
 
    To add a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userSpec.name` parameter.
    * User password in the `userSpec.password` parameter.
 
@@ -137,18 +137,18 @@ You can add and remove users, as well as manage their settings.
 
 ## Changing a password {#updateuser}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
    1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
    {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -166,7 +166,7 @@ You can add and remove users, as well as manage their settings.
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -197,13 +197,13 @@ You can add and remove users, as well as manage their settings.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API
+- API {#api}
 
    To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
-   * New user password, in the `password` parameter.
+   * New user password in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
@@ -221,17 +221,17 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -260,7 +260,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -309,11 +309,11 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API
+- API {#api}
 
    To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
    * New values for user settings.
    * List of user configuration fields to update in the `updateMask` parameter.
@@ -324,15 +324,15 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
 ## Deleting a user {#removeuser}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -346,7 +346,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -364,11 +364,11 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API
+- API {#api}
 
    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
 
 {% endlist %}

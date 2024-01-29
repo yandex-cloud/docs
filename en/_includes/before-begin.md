@@ -1,18 +1,18 @@
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
-Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder doesn't exist, create it:
+Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder does not exist, create it:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   {% include [create-folder](create-folder.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](cli-install.md) %}
 
-  1. See a description of the create folder command:
+  1. View the description of the create folder command:
 
       ```bash
       yc resource-manager folder create --help
@@ -37,9 +37,8 @@ Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and s
              --description "my first folder with description"
           ```
 
-- API
+- API {#api}
 
   Use the [create](../resource-manager/api-ref/Folder/create.md) method for the [Folder](../resource-manager/api-ref/Folder/index.md) resource of the {{ resmgr-full-name }} service.
 
 {% endlist %}
-

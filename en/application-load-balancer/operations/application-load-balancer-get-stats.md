@@ -1,6 +1,6 @@
 # Viewing L7 load balancer statistics
 
-Load balancer [statistics](../concepts/application-load-balancer.md#stats) are automatically logged in the [{{ monitoring-full-name }}](../../monitoring/) metrics.
+{{ alb-name }} automatically sends load balancer performance metrics to the [{{ monitoring-full-name }}](../../monitoring/) service.
 
 For a full list of metrics, see the [reference](../metrics.md).
 
@@ -10,9 +10,9 @@ For a full list of metrics, see the [reference](../metrics.md).
 
 To view the statistics:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -29,9 +29,9 @@ To view the statistics:
 
 To view the statistics:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.

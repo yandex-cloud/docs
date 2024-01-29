@@ -16,45 +16,45 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create {{ managed-k8s-name }} resources:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
-     1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
+      1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
-     1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
+      1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-     1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md). The [security group](../../vpc/concepts/security-groups.md) of the {{ managed-k8s-name }} cluster must allow incoming connections on ports `443` and `6443`.
+      1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md). The [security group](../../vpc/concepts/security-groups.md) of the {{ managed-k8s-name }} cluster must allow incoming connections on ports `443` and `6443`.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
-     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
-        * [Network](../../vpc/concepts/network.md#network).
-        * [Subnet](../../vpc/concepts/network.md#subnet).
-        * Default [security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
-          * Rules for service traffic.
-          * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` (through ports 443 and 6443).
-        * {{ managed-k8s-name }} cluster.
-        * {{ managed-k8s-name }} node group.
-        * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
-     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
+         * [Network](../../vpc/concepts/network.md#network).
+         * [Subnet](../../vpc/concepts/network.md#subnet).
+         * Default [security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
+            * Rules for service traffic.
+            * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` (through ports 443 and 6443).
+         * {{ managed-k8s-name }} cluster.
+         * {{ managed-k8s-name }} node group.
+         * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
+      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-     1. Create the required infrastructure:
+         If there are any errors in the configuration files, {{ TF }} will point them out.
+      1. Create the required infrastructure:
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
 
@@ -64,7 +64,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Configure the DNS server {#setup-dns}
 
-When configuring, it is important to achieve IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers themselves can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). In the example below, a DNS server with address `10.129.0.3` and name `ns.example.com` serves the zone `example.com`.
+When setting up the configuration, it is important that there is IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). The example below assumes that the DNS server has the `10.129.0.3` address and the `ns.example.com` name and serves a zone called `example.com`.
 
 ## Specify a corporate DNS zone {#setup-zone}
 
@@ -153,28 +153,28 @@ Address:  10.129.0.3
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 1. Delete the {{ managed-k8s-name }} cluster:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
-     [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+      [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
-     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the resources using this command:
+      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+      1. Delete the resources using this command:
 
-        ```bash
-        terraform destroy
-        ```
+         ```bash
+         terraform destroy
+         ```
 
-        {% note alert %}
+         {% note alert %}
 
-        {{ TF }} will delete all the resources that you created using it, such as {{ managed-k8s-name }} clusters, networks, subnets, and [VMs](../../compute/concepts/vm.md).
+         {{ TF }} will delete all the resources that you created using it, such as {{ managed-k8s-name }} clusters, networks, subnets, and [VMs](../../compute/concepts/vm.md).
 
-        {% endnote %}
+         {% endnote %}
 
-     1. Confirm the deletion of resources.
+      1. Confirm the deletion of resources.
 
    {% endlist %}
 

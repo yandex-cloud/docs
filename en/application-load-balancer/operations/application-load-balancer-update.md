@@ -7,9 +7,9 @@ description: "Follow this guide to edit an L7 load balancer."
 
 To update the parameters of an L7 load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -39,7 +39,7 @@ To update the parameters of an L7 load balancer:
 
    1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -236,7 +236,7 @@ To update the parameters of an L7 load balancer:
 
       {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -321,7 +321,7 @@ To update the parameters of an L7 load balancer:
       yc alb load-balancer get <load_balancer_name>
       ```
 
-- API
+- API {#api}
 
    Use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update) gRPC API call.
 
@@ -331,9 +331,9 @@ To update the parameters of an L7 load balancer:
 
 To delete a listener for your L7 load balancer:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -341,7 +341,7 @@ To delete a listener for your L7 load balancer:
    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the listener name and select **{{ ui-key.yacloud.common.delete }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -353,7 +353,7 @@ To delete a listener for your L7 load balancer:
       yc alb load-balancer remove-listener --help
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc alb load-balancer remove-listener <load_balancer_name_or_ID> \
@@ -366,7 +366,7 @@ To delete a listener for your L7 load balancer:
       done (50s)
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -440,7 +440,7 @@ To delete a listener for your L7 load balancer:
       yc alb load-balancer get <L7_load_balancer_name>
       ```
 
-- API
+- API {#api}
 
    Use the [removeListener](../api-ref/LoadBalancer/removeListener.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/RemoveListener](../api-ref/grpc/load_balancer_service.md#RemoveListener) gRPC API call.
 

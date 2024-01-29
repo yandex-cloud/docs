@@ -1,6 +1,6 @@
 ---
 title: "Deleting a Redis cluster"
-description: "After you delete a Redis database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, safely save the cluster ID before deleting the cluster."
+description: "After you delete a Redis database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
 ---
 
 # Deleting {{ RD }} clusters
@@ -14,16 +14,16 @@ description: "After you delete a Redis database cluster, its backups are kept fo
 
 ## Deleting a cluster {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder to delete the cluster from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. In the line of the appropriate cluster, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
    1. In the window that opens, check **Delete cluster** and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -37,13 +37,13 @@ description: "After you delete a Redis database cluster, its backups are kept fo
 
    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the ID of the cluster to be deleted in the `clusterId` request parameter.
 

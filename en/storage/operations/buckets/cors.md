@@ -1,17 +1,17 @@
 # Configuring CORS
 
-{{ objstorage-name }} lets you manage [CORS configurations](../../concepts/cors.md) in the bucket.
+{{ objstorage-name }} allows you to manage [CORS configurations](../../concepts/cors.md) in the bucket.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure CORS for.
    1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.cors.label_title }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
    1. This will open a page where you can add, delete, and edit configuration rules. For a detailed description of the configuration fields, see [{#T}](../../s3/api-ref/cors/xml-config.md).
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@
      --remove-cors
    ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
    To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
@@ -111,7 +111,7 @@
         --endpoint-url=https://{{ s3-storage-host }}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -172,7 +172,7 @@
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
@@ -185,7 +185,7 @@
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To manage CORS configurations for buckets, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/cors/upload.md) S3 API method.
 
