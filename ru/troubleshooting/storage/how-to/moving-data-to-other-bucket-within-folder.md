@@ -8,7 +8,7 @@
 
 В Object Storage поддерживается функциональность Server Side Copy (копирование на стороне сервера). 
 Для переноса воспользуйтесь командой
-`aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive s3:bucket1/ s3:bucket2/`
+`aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive s3://bucket1/ s3://bucket2/`
 
 Перед выполнением команды из вышеуказанного примера выполните следующие замены:
 - где `bucket1` - бакет-источник (из которого будет производиться перенос/копирование)

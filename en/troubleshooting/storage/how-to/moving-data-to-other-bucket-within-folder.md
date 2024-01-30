@@ -8,7 +8,7 @@ You can't move your bucket contents to another folder or cloud directly, but yo
 
 Object Storage supports the Server Side Copy functionality.
 To copy the data, use the command:
-`aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive s3:bucket1/ s3:bucket2/`
+`aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive s3://bucket1/ s3://bucket2/`
 
 Before running the above command, make the following substitutions:
 - `bucket1` is your source bucket (you copy data from it).
