@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/delete-external-link.md
 Чтобы удалить внешнюю связь, используйте HTTP-запрос с методом `DELETE`. 
 
 ```
-DELETE /{{ ver }}/issues/<issue-id>/remotelinks/<external-link-id>
+DELETE /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/remotelinks/<идентификатор_внешней_связи>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -25,8 +25,8 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<issue-id> | Идентификатор или ключ текущей задачи. | Строка
-\<external-link-id> | [Идентификатор внешней связи](get-external-links.md). | Строка
+\<ключ_или_идентификатор_задачи> | Идентификатор или ключ текущей задачи. | Строка
+\<идентификатор_внешней_связи> | [Идентификатор внешней связи](get-external-links.md). | Строка
 
 {% endcut %}   
 	

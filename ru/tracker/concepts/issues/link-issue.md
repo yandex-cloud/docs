@@ -12,13 +12,13 @@ sourcePath: ru/tracker/api-ref/concepts/issues/link-issue.md
 Для создания связи используйте HTTP-запрос с методом `POST`:
 
 ```json
-POST /{{ ver }}/issues/<issue-id>/links
+POST /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/links
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
-    "relationship": "<тип связи>",
+    "relationship": "<тип_связи>",
     "issue": "<задача>"
 }
 ```
@@ -65,8 +65,8 @@ issue {#issue} | Идентификатор или ключ связываемо
 
   ```json
     {
-      "self" : "https://{{ host }}/v2/issues/TEST-1/links/1048570",
-      "id" : 1048570,
+      "self" : "https://{{ host }}/v2/issues/TEST-1/links/10*****",
+      "id" : 10*****,
       "type" : {
         "self" : "https://{{ host }}/v2/linktypes/relates",
         "id" : "relates",
@@ -76,19 +76,19 @@ issue {#issue} | Идентификатор или ключ связываемо
       "direction" : "inward",
       "object" : {
         "self" : "https://{{ host }}/v2/issues/STARTREK-2",
-        "id" : "4ff3e8dae4b0e2ac27f6eb43",
+        "id" : "4ff3e8dae4b0e2ac********",
         "key" : "TREK-2",
         "display" : "NEW!!!"
       },
       "createdBy" : {
-        "self" : "https://{{ host }}/v2/users/1120000000004859",
-        "id": "<id сотрудника>",
-        "display": "<отображаемое имя сотрудника>"
+        "self" : "https://{{ host }}/v2/users/44********",
+        "id": "44********",
+        "display": "Иван Иванов"
       },
       "updatedBy" : {
-        "self": "https://{{ host }}/v2/users/1120000000049224",
-        "id": "<id сотрудника>",
-        "display": "<отображаемое имя сотрудника>"
+        "self": "https://{{ host }}/v2/users/44********",
+        "id": "44********",
+        "display": "Иван Иванов"
       },
       "createdAt" : "2014-06-18T12:06:02.401+0000",
       "updatedAt" : "2014-06-18T12:06:02.401+0000"

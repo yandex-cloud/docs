@@ -27,8 +27,8 @@ default:
   link-migration-form: /services/tracker#tracker-form
   link-billing: https://billing.cloud.yandex.ru/
   link-bind-ba: https://tracker.yandex.ru/admin/licenses/users?billing-account=1
-  link-tracker-example-1: https://tracker.yandex.ru/TEST-1234
-  link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
+  link-tracker-example-1: https://tracker.yandex.ru/<ключ_задачи>
+  link-tracker-example-2: https://tracker.yandex.ru/<ключ_очереди>
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
   link-balance-invoices: https://balance.yandex.ru/invoices.xml
   link-id-auth: https://yandex.ru/support/id/authorization/lite.html

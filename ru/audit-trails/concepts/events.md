@@ -122,17 +122,7 @@
 
 Имя сервиса — `certificatemanager`.
 
-Имя события | Описание
---- | ---
-`CreateCertificate` | Добавление сертификата
-`CreateDomain` | Добавление домена
-`UpdateCertificate` | Изменение сертификата
-`UpdateDomain` | Изменение домена
-`DeleteCertificate` | Удаление сертификата
-`DeleteDomain` | Удаление домена
-`UpdateCertificateAccessBindings` | Изменение привязок прав доступа для сертификата
-`SetCertificateAccessBindings` | Назначение привязок прав доступа для сертификата
-`SetDomainPrimaryCertificate` | Назначение домену основного сертификата
+{% include [cm-events](../../_includes/audit-trails/events/cm-events.md) %}
 
 ## {{ dns-name }} {#dns}
 
@@ -241,33 +231,7 @@
 
 Имя сервиса — `iam`.
 
-Имя события | Описание
---- | ---
-`AddFederatedUserAccounts` | Добавление пользователя в федерацию
-`CreateAccessKey` | Создание статического ключа
-`CreateApiKey` | Создание API-ключа
-`CreateCertificate` | Добавление сертификата для федерации
-`CreateFederation` | Создание федерации
-`CreateIamCookieForSubject` | Вход федеративного пользователя ^*^
-`CreateKey` | Создание пары ключей для сервисного аккаунта
-`CreateServiceAccount` | Создание сервисного аккаунта
-`DeleteAccessKey` | Удаление статического ключа
-`DeleteApiKey` | Удаление API-ключа
-`DeleteCertificate` | Удаление сертификата для федерации
-`DeleteFederation` | Удаление федерации
-`DeleteKey` | Удаление пары ключей для сервисного аккаунта
-`DeleteServiceAccount` | Удаление сервисного аккаунта
-`DetectLeakedCredential` | Обнаружение секрета в открытом источнике
-`UpdateAccessKey` | Обновление статического ключа
-`UpdateApiKey` | Обновление API-ключа
-`UpdateCertificate` | Обновление сертификата
-`UpdateFederation` | Обновление федерации
-`UpdateKey` | Обновление пары ключей
-`UpdateServiceAccount` | Обновление сервисного аккаунта
-`UpdateServiceAccountAccessBindings` | Изменение привязок прав доступа для сервисного аккаунта
-`SetServiceAccountAccessBindings` | Назначение привязок прав доступа для сервисного аккаунта
-
-\* Событие попадает в аудитный лог, только если [область сбора аудитных логов](./trail.md#collecting-area) трейла — `Организация`.
+{% include [iam-events](../../_includes/audit-trails/events/iam-events.md) %}
 
 ## {{ iot-name }} {#iot}
 
@@ -286,47 +250,13 @@
 
 Имя сервиса — `kms`.
 
-Имя события | Описание
---- | ---
-`CancelDeleteSymmetricKey` | Отмена ранее запланированного уничтожения ключа
-`CancelSymmetricKeyVersionDestruction` | Отмена ранее запланированного уничтожения версии симметричного ключа
-`CreateAsymmetricEncryptionKey` | Создание асимметричной ключевой пары шифрования
-`CreateAsymmetricSignatureKey` | Создание ключевой пары электронной подписи
-`CreateSymmetricKey` | Создание симметричного ключа
-`DeleteAsymmetricEncryptionKey` | Изменение асимметричной ключевой пары шифрования
-`DeleteAsymmetricSignatureKey` | Изменение ключевой пары электронной подписи
-`DeleteSymmetricKey` | Удаление симметричного ключа
-`RotateSymmetricKey` | Ротация симметричного ключа
-`ScheduleSymmetricKeyVersionDestruction` | Назначение срока уничтожения версии симметричного ключа
-`SetAsymmetricEncryptionKeyAccessBindings` | Выбор привязок прав доступа для асимметричной ключевой пары шифрования
-`SetAsymmetricSignatureKeyAccessBindings` | Выбор привязок прав доступа для ключевой пары электронной подписи
-`SetPrimarySymmetricKeyVersion` | Выбор основной версии симметричного ключа
-`SetSymmetricKeyAccessBindings` | Выбор привязок прав доступа для симметричного ключа
-`UpdateAsymmetricEncryptionKey` | Изменение асимметричной ключевой пары шифрования
-`UpdateAsymmetricSignatureKey` | Изменение ключевой пары электронной подписи
-`UpdateSymmetricKey` | Изменение симметричного ключа
-`UpdateSymmetricKeyAccessBindings` | Изменение привязок прав доступа для симметричного ключа
-`UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение привязок прав доступа для асимметричной ключевой пары шифрования
+{% include [kms-events](../../_includes/audit-trails/events/kms-events.md) %}
 
 ## {{ lockbox-name }} {#lockbox}
 
 Имя сервиса — `lockbox`.
 
-Имя события | Описание
---- | ---
-`AddVersion` | Добавление версии секрета
-`ActivateSecret` | Активация секрета
-`CancelVersionDestruction` | Отмена ранее запланированного уничтожения версии секрета
-`CreateSecret` | Создание секрета
-`DeactivateSecret` | Деактивация секрета
-`DeleteSecret` | Удаление секрета
-`GetPayload` | Получение доступа к содержимому секрета ^*^
-`ScheduleVersionDestruction` | Распланирование уничтожения версии секрета
-`SetSecretAccessBindings` | Выбор привязок прав доступа для секрета
-`UpdateSecret` | Изменение секрета
-`UpdateSecretAccessBindings` | Изменение привязок прав доступа для секрета
-
-\* Указанное событие по умолчанию не входит в аудитный лог. Чтобы оценить возможность добавления этого события, обратитесь в [службу поддержки]({{ link-console-support }}).
+{% include [lockbox-events](../../_includes/audit-trails/events/lockbox-events.md) %}
 
 ## {{ mkf-short-name }} {#managed-service-for-kafka}
 
@@ -624,44 +554,13 @@
 
 Имя сервиса — `organizationmanager`.
 
-Имя события | Описание
---- | ---
-`AcceptInvitation` | Принятие приглашения
-`CreateInvitations` | Создание приглашения
-`CreateGroup` | Создание группы пользователей
-`CreateMembership` | Добавление пользователя в организацию
-`CreateOrganization` | Создание организации
-`DeleteInvitation` | Удаление приглашения
-`DeleteGroup` | Удаление группы пользователей
-`DeleteMembership` | Удаление пользователя из организации
-`DeleteOrganization` | Удаление организации
-`RejectInvitation` | Отказ от приглашения
-`ResendInvitation` | Повторная отправка приглашения
-`SetGroupAccessBindings` | Назначение привязок прав доступа к группе пользователей
-`SetOrganizationAccessBindings` | Назначение привязок прав доступа к организации
-`UpdateGroup` | Изменение группы пользователей
-`UpdateGroupAccessBindings` | Изменение привязок прав доступа к группе пользователей
-`UpdateGroupMembers` | Изменение состава участников группы пользователей
-`UpdateOrganization` | Изменение организации
-`UpdateOrganizationAccessBindings` | Изменение привязок прав доступа к организации
+{% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
 
 ## {{ resmgr-name }} {#resmgr}
 
 Имя сервиса — `resourcemanager`.
 
-Имя события | Описание
---- | ---
-`AddCloudToOrganization` | Добавление облака в организацию
-`CreateCloud` | Создание облака
-`CreateFolder` | Создание каталога
-`DeleteCloud` | Удаление облака
-`DeleteFolder` | Удаление каталога
-`UpdateCloud` | Изменение облака
-`UpdateCloudAccessBindings` | Изменение привязок прав доступа на облако
-`UpdateFolder` | Обновление каталога
-`UpdateFolderAccessBindings` | Изменение привязок прав доступа на каталог
-`SetCloudAccessBindings` | Назначение привязок прав доступа на облако
-`SetFolderAccessBindings` | Назначение привязок прав доступа на каталог
+{% include [resmgr-events](../../_includes/audit-trails/events/resmgr-events.md) %}
 
 ## {{ sws-name }} {#smartwebsecurity}
 
@@ -677,11 +576,7 @@
 
 Имя сервиса — `smartcaptcha`.
 
-Имя события | Описание
---- | ---
-`CreateCaptcha` | Создание капчи
-`DeleteCaptcha` | Удаление капчи
-`UpdateCaptcha` | Изменение капчи
+{% include [captcha-events](../../_includes/audit-trails/events/captcha-events.md) %}
 
 ## {{ vpc-name }} {#vpc}
 

@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/attachments/delete-attachment.m
 Чтобы удалить файл, используйте HTTP-запрос с методом `DELETE`.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/attachments/<attachmentId>
+DELETE /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/attachments/<идентификатор_файла>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -27,7 +27,7 @@ Authorization: OAuth <OAuth-токен>
 > - Используется HTTP-метод DELETE.
 >
 > ```
-> DELETE /v2/entities/project/6586d6fee2b9ef74********/attachments/123
+> DELETE /v2/entities/project/<идентификатор_проекта>/attachments/123
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}

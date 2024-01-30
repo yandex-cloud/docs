@@ -79,7 +79,7 @@
 1. Дождитесь загрузки страницы и в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** скопируйте и сохраните ссылку для вызова функции.
 	Пример ссылки:
 	```
-	https://functions.yandexcloud.net/d4e94uav31086c******
+	https://functions.yandexcloud.net/d4e94uav3108********
 	```
 1. Активируйте опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
 
@@ -106,7 +106,7 @@
 	Где `https://functions.yandexcloud.net/<идентификатор_функции>` — ссылка для вызова функции, которую вы сохранили при создании функции.
 	Пример:
 	```
-	https://functions.yandexcloud.net/d4e94uav31086c******?id=not_var{{issue.key}}
+	https://functions.yandexcloud.net/d4e94uav3108********?id=not_var{{issue.key}}
 	```
 1. Нажмите кнопку **Создать**.
 

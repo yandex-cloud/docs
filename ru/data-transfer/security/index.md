@@ -22,6 +22,12 @@ description: "Управление доступом в сервисе по пе�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [roles-intro](../../_includes/roles-intro.md) %}
+
+![image](../../_assets/data-transfer/security/service-roles-hierarchy.svg)
+
+### Сервисные роли {#service-roles}
+
 {% include [data-transfer-auditor](../../_includes/iam/roles/data-transfer-auditor.md) %}
 
 {% include [data-transfer-viewer](../../_includes/iam/roles/data-transfer-viewer.md) %}
@@ -30,15 +36,17 @@ description: "Управление доступом в сервисе по пе�
 
 {% include [data-transfer-admin](../../_includes/iam/roles/data-transfer-admin.md) %}
 
-### {{ roles-viewer }} {#viewer}
+### Примитивные роли {#primitive-roles}
+
+#### {{ roles-viewer }} {#viewer}
 
 {% include [roles-viewer](../../_includes/roles-viewer.md) %}
 
-### {{ roles-editor }} {#editor}
+#### {{ roles-editor }} {#editor}
 
 {% include [roles-editor](../../_includes/roles-editor.md) %}
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 

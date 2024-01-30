@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/get-user.md
 Для получения информации о пользователе используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /v2/users/<uid/login>
+GET /v2/users/<логин_или_идентификатор_пользователя>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -24,7 +24,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<uid/login\> | Уникальный идентификатор учетной записи или логин пользователя. | Строка
+\<логин_или_идентификатор_пользователя\> | Уникальный идентификатор учетной записи или логин пользователя. | Строка
 
 {% endcut %}
 
@@ -42,16 +42,16 @@ Authorization: OAuth <OAuth-токен>
     ```json
        [
           {
-          "self": "https://{{ host }}/v2/users/1234567890",
-          "uid": 1234567890,
-          "login": "<user_login>",
-          "trackerUid": 1234567890,
-          "passportUid": 1234567890,
-          "cloudUid": "bfbdrb1aa248v8n5vkcq",
-          "firstName": "<Имя>",
-          "lastName": "<Фамилия>",
-          "display": "<Имя Фамилия>",
-          "email": "<login@yandex.ru>",
+          "self": "https://{{ host }}/v2/users/12********",
+          "uid": 12********,
+          "login": "<логин_пользователя>",
+          "trackerUid": 12********,
+          "passportUid": 12********,
+          "cloudUid": "bfbdrb1aa248********",
+          "firstName": "<имя>",
+          "lastName": "<фамилия>",
+          "display": "<отображаемое_имя>",
+          "email": "<электронная_почта>",
           "external": false,
           "hasLicense": true,
           "dismissed": false,

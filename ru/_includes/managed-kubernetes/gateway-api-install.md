@@ -58,7 +58,7 @@
       --set folderId='<идентификатор_каталога>' \
       --set networkId='<идентификатор_облачной_сети>' \
       --set subnetId='<идентификатор_подсети>' \
-      --set-file saKeySecretKey='<путь_к_ранее_сгенерированному_sa-key.json>' \
+      --set-file saKeySecretKey='<путь_к_файлу_sa-key.json>' \
       gateway-api ./gateway-api/
    ```
 

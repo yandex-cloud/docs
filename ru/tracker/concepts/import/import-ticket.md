@@ -20,20 +20,20 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-ticket.md
 ```json
 POST /{{ ver }}/issues/_import 
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
   "queue": "TEST",
   "summary": "Test",
   "createdAt": "2017-08-29T12:34:41.740+0000",
-  "createdBy": 1110000000011111
+  "createdBy": 11********
 }
 ```
 
 При необходимости вы можете расширить список полей, доступных для импорта. Для этого [создайте](../../user/create-param.md) в {{ tracker-name }} дополнительные поля и укажите их в теле запроса в формате:
 ```
-"field_name": "значение поля"
+"<имя_поля>": "<значение_поля>"
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
@@ -92,7 +92,7 @@ favoritedBy | Массив с идентификаторами или логин
 >```json
 >POST /{{ ver }}/issues/_import 
 >Host: {{ host }}
->Authorization: OAuth <токен>
+>Authorization: OAuth <OAuth-токен>
 >{{ org-id }}
 >
 >{
@@ -100,11 +100,11 @@ favoritedBy | Массив с идентификаторами или логин
 >  "summary": "Test",
 >  "key": "TEST-1",
 >  "createdAt": "2017-08-29T12:34:41.740+0000",
->  "createdBy": 1110000000011111,
+>  "createdBy": 11********,
 >  "updatedAt": "2017-09-09T11:24:31.140+0000",
->  "updatedBy": 1110000000011111,
+>  "updatedBy": 11********,
 >  "resolvedAt": "2017-09-08T09:33:42.250+0000",
->  "resolvedBy": 1110000000011111,
+>  "resolvedBy": 11********,
 >  "status": 17,
 >  "deadline": "2017-09-07",
 >  "resolution": 1,
@@ -112,23 +112,23 @@ favoritedBy | Массив с идентификаторами или логин
 >  "description": "Test",
 >  "start": "2017-09-04",
 >  "end": "2017-09-07",
->  "assignee": 1110000000011111,
+>  "assignee": 11********,
 >  "priority": 3,
 >  "affectedVersions": [1, 2, 3],
 >  "fixVersions": [4, 5, 6],
 >  "components": [7, 8, 9],
 >  "tags": ["test", "tag"],
 >  "sprint": [1, 2, 3],
->  "followers": [1110000000011111, 2220000000022222],
->  "access": [1110000000011111, 2220000000022222],
->  "unique": "issue_5182786599824772824459",
+>  "followers": [11********, 22********],
+>  "access": [11********, 22********],
+>  "unique": "issue_51827865998247********",
 >  "followingMaillists": ["test@test.yaconnect.com", "mail@test.yaconnect.com"],
 >  "originalEstimation": 3600000,
 >  "estimation": 3600000,
 >  "spent": 3600000,
 >  "storyPoints": 1.0,
->  "votedBy": [1110000000011111, 2220000000022222],
->  "favoritedBy": [1110000000011111, 2220000000022222]
+>  "votedBy": [11********, 22********],
+>  "favoritedBy": [11********, 22********]
 >}
 >```
 
@@ -145,7 +145,7 @@ favoritedBy | Массив с идентификаторами или логин
     ```json
     {
       "self": "https://{{ host }}/v2/issues/TEST-1",
-      "id": "141b2ef1e4b036e9f8397458",
+      "id": "141b2ef1e4b036e9********",
       "key": "TEST-1",
       "version": 1,
       "summary": "Test",
@@ -153,16 +153,16 @@ favoritedBy | Массив с идентификаторами или логин
       "estimation": "P1H",
       "spent": "P1H",
       "updatedBy": {
-        "self": "https://{{ host }}/v2/users/1110000000011111",
-        "id": "1110000000011111",
-        "display": "Ivan Ivanov"
+        "self": "https://{{ host }}/v2/users/11********",
+        "id": "11********",
+        "display": "Иван Иванов"
       },
       "resolvedAt": "2017-09-08T09:33:42.250+0000",
       "start": "2017-09-04",
       "resolvedBy": {
-        "self": "https://{{ host }}/v2/users/1110000000011111",
-        "id": "1110000000011111",
-        "display": "Ivan Ivanov"
+        "self": "https://{{ host }}/v2/users/11********",
+        "id": "11********",
+        "display": "Иван Иванов"
       },
       "description": "Test",
       "followingMaillists": [
@@ -215,25 +215,25 @@ favoritedBy | Массив с идентификаторами или логин
       "createdAt": "2017-08-29T12:34:41.740+0000",
       "followers": [
         {
-          "self": "https://{{ host }}/v2/users/1110000000011111",
-          "id": "1110000000011111",
-          "display": "Ivan Ivanov"
+          "self": "https://{{ host }}/v2/users/11********",
+          "id": "11********",
+          "display": "Иван Иванов"
         },
         {
-          "self": "https://{{ host }}/v2/users/2220000000022222",
-          "id": "2220000000022222",
+          "self": "https://{{ host }}/v2/users/22********",
+          "id": "22********",
           "display": "Petr Petrov"
         }
       ],
       "assignee": {
-        "self": "https://{{ host }}/v2/users/1110000000011111",
-        "id": "1110000000011111",
-        "display": "Ivan Ivanov"
+        "self": "https://{{ host }}/v2/users/11********",
+        "id": "11********",
+        "display": "Иван Иванов"
       },
       "createdBy": {
-        "self": "https://{{ host }}/v2/users/1110000000011111",
-        "id": "1110000000011111",
-        "display": "Ivan Ivanov"
+        "self": "https://{{ host }}/v2/users/11********",
+        "id": "11********",
+        "display": "Иван Иванов"
       },
       "commentWithoutExternalMessageCount": 0,
       "votes": 0,
@@ -290,17 +290,17 @@ favoritedBy | Массив с идентификаторами или логин
       ],
       "access": [
         {
-          "self": "https://{{ host }}/v2/users/1110000000011111",
-          "id": "1110000000011111",
-          "display": "Ivan Ivanov"
+          "self": "https://{{ host }}/v2/users/11********",
+          "id": "11********",
+          "display": "Иван Иванов"
         },
         {
-          "self": "https://{{ host }}/v2/users/2220000000022222",
-          "id": "2220000000022222",
+          "self": "https://{{ host }}/v2/users/22********",
+          "id": "22********",
           "display": "Petr Petrov"
         }
       ],
-      "unique": "issue_5182786599824772824459",
+      "unique": "issue_51827865998247********",
       "favorite": false
     }
     ```

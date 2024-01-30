@@ -45,7 +45,7 @@ The results of the last query run are saved and stored for 24 hours.
 
 _Data schema_ is a list of source data fields and types that have no explicit schema, such as {{ objstorage-short-name }} buckets or {{ yds-short-name }} streams. A schema should describe all fields to use in a query. If a query accesses data using a [connection](#connection), specify the schema in the request body. If you use a [binding](#binding), specify the data schema in its properties.
 
-When working with {{ mch-name }} or {{ mpg-name }}, the schema is automatically extracted from the DBMS's, so you cannot explicitly specify it for such sources.
+When working with the {{ mch-name }} or {{ mpg-name }} sources, you cannot specify the schema explicitly since it is automatically extracted from the DBMS's.
 
 ## Checkpoint {#checkpoint}
 

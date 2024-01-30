@@ -5,9 +5,9 @@ description: "This guide describes how you can delete a stream in the AWS SDK."
 
 # Deleting a stream in the AWS SDK
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
   To delete a [stream](../../concepts/glossary.md#stream-concepts), use the `delete_stream` method. When you invoke this method, you should specify the following parameters:
   * Name of the stream to delete, e.g., `example-stream`.

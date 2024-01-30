@@ -12,11 +12,11 @@ sourcePath: ru/tracker/api-ref/post-column.md
 Чтобы создать колонку на доске задач, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
 ```
-POST /{{ ver }}/boards/<board-id>/columns/
+POST /{{ ver }}/boards/<идентификатор_доски>/columns/
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
-If-Match: "<номер версии>"
+If-Match: "<номер_версии>"
 
 {
   "name": "Согласовать",
@@ -39,10 +39,10 @@ If-Match: "<номер версии>"
 
 - **Authorization**
 
-    OAuth-токен в формате `OAuth <значение токена>`, например:
+    OAuth-токен в формате `OAuth <OAuth-токен>`, например:
 
     ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
+    OAuth 0c4181a7c2cf4521964a72ff********
     ```
 
 
@@ -61,7 +61,7 @@ If-Match: "<номер версии>"
 
 Параметр | Описание | Тип данных
 ----- | ----- | -----
-\<board-id\> | Идентификатор доски | Число
+\<идентификатор_доски\> | Идентификатор доски | Число
 
 {% endcut %}
 

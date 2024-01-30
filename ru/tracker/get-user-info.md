@@ -25,7 +25,7 @@ Authorization: OAuth <OAuth-токен>
 ```bash
 curl --request GET "{{ host }}/v2/myself" \
      --header "Authorization: OAuth <OAuth-токен>" \
-     --header "X-Cloud-Org-Id: <идентификатор организации>"
+     --header "X-Cloud-Org-Id: <идентификатор_организации>"
 ```
 
 ## Формат ответа {#answer}
@@ -42,16 +42,16 @@ curl --request GET "{{ host }}/v2/myself" \
     ```json
        [
           {
-          "self": "https://{{ host }}/v2/users/1234567890",
-          "uid": 1234567890,
-          "login": "<user_login>",
-          "trackerUid": 1234567890,
-          "passportUid": 1234567890,
-          "cloudUid": "bfbdrb1aa248v8n5vkcq",
-          "firstName": "<Имя>",
-          "lastName": "<Фамилия>",
-          "display": "<Имя Фамилия>",
-          "email": "<login@yandex.ru>",
+          "self": "https://{{ host }}/v2/users/12********",
+          "uid": 12********,
+          "login": "<логин_пользователя>",
+          "trackerUid": 12********,
+          "passportUid": 12********,
+          "cloudUid": "bfbdrb1aa248********",
+          "firstName": "<имя>",
+          "lastName": "<фамилия>",
+          "display": "<отображаемое_имя>",
+          "email": "<электронная_почта>",
           "external": false,
           "hasLicense": true,
           "dismissed": false,

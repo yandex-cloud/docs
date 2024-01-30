@@ -7,9 +7,9 @@ description: "Follow this guide to configure the environment for your programmin
 
 Configure the environment for your programming language:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
   1. Download and install [Python](https://www.python.org/downloads/) 3.6 or higher.
   1. Install the Boto3 library:

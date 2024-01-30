@@ -5,13 +5,13 @@ description: "This guide describes how you can create a stream in the AWS SDK."
 
 # Creating a stream in the AWS SDK
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
    Use the `create_stream` method to create a stream. When you invoke this method, you should specify the following parameters:
    * Name of a stream being created, e.g., `example-stream`.
-   * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) to create the stream in, such as `b1gi1kuj2dht********`.
+   * [ID of a cloud](../../../resource-manager/operations/cloud/get-id.md) to host the stream, e.g., `b1gi1kuj2dht********`.
    * ID of an existing [serverless](../../../ydb/pricing/serverless.md) {{ ydb-short-name }} database, e.g., `cc8028jgtuab********`. For information about how to create a database, see the [{{ ydb-short-name }} documentation](../../../ydb/quickstart.md#create-db).
    * Number of shards, e.g., `1`.
 

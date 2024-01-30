@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.

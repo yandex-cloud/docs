@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-external-links.md
 Чтобы получить список внешних связей задачи, используйте HTTP-запрос с методом `GET`. 
 
 ```
-GET /{{ ver }}/issues/<issue-id>/remotelinks
+GET /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/remotelinks
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -36,8 +36,8 @@ Authorization: OAuth <OAuth-токен>
    [ 
 
      {
-        "self": "https://{{ host }}/{{ ver }}/issues/<issue-id>/remotelinks/51299313",
-        "id": 51299313,
+        "self": "https://{{ host }}/{{ ver }}/issues/<ключ_или_идентификатор_задачи>/remotelinks/51******",
+        "id": 51******,
         "type": {
             "self": "https://{{ host }}/{{ ver }}/linktypes/relates",
             "id": "relates",
@@ -46,24 +46,24 @@ Authorization: OAuth <OAuth-токен>
         },
         "direction": "outward",
         "object": {
-            "self": "https://{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/<object-id>",
-            "id": "<object-id>",
-            "key": "<object-key>",
+            "self": "https://{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/13570010********",
+            "id": "13570010********",
+            "key": "TEST-17",
             "application": {
-                "self": "https://{{ host }}/{{ ver }}/applications/<application-id>",
-                "id": "<application-id>",
-                "type": "<application-type>",
-                "name": "<application-name>"
+                "self": "https://{{ host }}/{{ ver }}/applications/25811000********",
+                "id": "25811000********",
+                "type": "app",
+                "name": "test-app"
             }
         },
         "createdBy": {
-            "self": "https://{{ host }}/{{ ver }}/users/1120000000044110",
-            "id": "user-name",
+            "self": "https://{{ host }}/{{ ver }}/users/77********",
+            "id": "77********",
             "display": "display-user-name"
         },
         "updatedBy": {
-            "self": "https://{{ host }}/{{ ver }}/users/1120000000044110",
-            "id": "user-name",
+            "self": "https://{{ host }}/{{ ver }}/users/77********",
+            "id": "77********",
             "display": "display-user-name"
         },
         "createdAt": "2021-07-14T18:59:54.552+0000",

@@ -16,9 +16,9 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
 
 1. Create a queue named `sample-queue`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
       ```bash
       aws sqs create-queue \
@@ -60,9 +60,9 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
 
 1. Send a message to the created queue using the saved queue URL:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
       ```bash
       aws sqs send-message \
@@ -90,9 +90,9 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
 
 1. Accept the message from the queue:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
       ```bash
       aws sqs receive-message \
@@ -136,9 +136,9 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
 
    To delete a message received from the queue, use the `ReceiptHandle` parameter value you saved earlier:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
       ```bash
       aws sqs delete-message \
@@ -156,9 +156,9 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
 
 1. Delete the queue:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
       ```bash
       aws sqs delete-queue \

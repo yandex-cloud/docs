@@ -7,9 +7,9 @@ description: "Follow this guide to receive and delete messages."
 
 Messages queued in {{ message-queue-name }} are received by consumers, i.e., components of distributed applications. After messages are received and processed, they should be deleted from the queue.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
    1. [Create](message-queue-new-queue.md) a message queue and [send](message-queue-send-message.md) a test message to it.
@@ -76,9 +76,9 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
 
 If the delete command is executed successfully, no text is output to the terminal. To check the deletion of the message:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the message queue.
    1. In the list of services, select **{{ message-queue-name }}**.

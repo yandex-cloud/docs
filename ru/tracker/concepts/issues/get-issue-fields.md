@@ -11,9 +11,9 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-issue-fields.md
 Чтобы получить возможные значения поля задачи, используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /{{ ver }}/fields/<field-id>
+GET /{{ ver }}/fields/<идентификатор_поля>
 Host: {{ host }}
-Authorization: OAuth <токен> 
+Authorization: OAuth <OAuth-токен> 
 {{ org-id }}
 ```
 
@@ -23,7 +23,7 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<field-id\> | Идентификатор поля задачи. | Строка
+\<идентификатор_поля\> | Идентификатор поля задачи. | Строка
 
 {% endcut %}
 
@@ -67,8 +67,8 @@ Authorization: OAuth <токен>
         },
         "order": 14,
         "category": {
-            "self": "https://{{ host }}/v2/fields/categories/58bc3b921d9c7d68164e",
-            "id": "58bc3b921d9c7d68164e",
+            "self": "https://{{ host }}/v2/fields/categories/58bc3b921d9c********",
+            "id": "58bc3b921d9c********",
             "display": "Системные"
         }
     }

@@ -7,10 +7,10 @@ To view all issues in the queue, open its page:
 1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
 1. Select a filter to show the list of queues:
-   * **My Queues**.
+   * **My queues**
    * **Owned by me**
-   * **Favorites**.
-   * **Recently viewed**.
+   * **Favorites**
+   * **Recently viewed**
 
 1. If you cannot see all relevant queues, expand the list:
 

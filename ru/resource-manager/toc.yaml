@@ -57,6 +57,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/resource-manager/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -119,6 +123,8 @@ items:
                 href: api-ref/Folder/update.md
               - name: updateAccessBindings
                 href: api-ref/Folder/updateAccessBindings.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы

@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/get-info-local-field.md
 Чтобы получить информацию о локальном поле очереди, используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /{{ ver }}/queues/<queue-id>/localFields/<field-key>
+GET /{{ ver }}/queues/<ключ_или_идентификатор_очереди>/localFields/<ключ_поля>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -24,8 +24,8 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
-\<field-key> | Ключ локального поля. <br/>Чтобы получить ключ, используйте HTTP [запрос](get-local-fields.md):<br/>`GET /v2/queues/<queue-id>/localFields`| Строка
+\<ключ_или_идентификатор_очереди\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
+\<ключ_поля> | Ключ локального поля. <br/>Чтобы получить ключ, используйте HTTP [запрос](get-local-fields.md):<br/>`GET /v2/queues/<ключ_или_идентификатор_очереди>/localFields`| Строка
 
 {% endcut %}
 
@@ -43,7 +43,7 @@ Authorization: OAuth <OAuth-токен>
      {
         "type": "local",
         "self": "https://{{ host }}/v2/queues/ORG/localFields/loc_field_key",
-        "id": "6054ae3a2b6b2c7f80bb9a93--loc_field_key",
+        "id": "6054ae3a2b6b2c7f********--loc_field_key",
         "name": "loc_field_name",
         "description": "описание локального поля",
         "key": "loc_field_key",
@@ -69,8 +69,8 @@ Authorization: OAuth <OAuth-токен>
         },
         "order": 3,
         "category": {
-            "self": "https://{{ host }}/v2/fields/categories/000000000000000000000001",
-            "id": "000000000000000000000001",
+            "self": "https://{{ host }}/v2/fields/categories/0000000000000001********",
+            "id": "0000000000000001********",
             "display": "Системные"
         },
         "queue": {

@@ -40,11 +40,11 @@ When initializing the `"yandex_ydb_table_changefeed"` resource, you can specify 
 
 Inside the changefeed resource resides the `consumer` section. [Consumer](https://ydb.tech/en/docs/concepts/topic#consumer) is a named entity for reading data from the topic. The consumer has several parameters, the main one of which is the consumer `name`. When initializing the `"yandex_ydb_table_changefeed"` resource, you can set up multiple consumers or create none, in which case you will not be able to read data from the changefeed.
 
-Here is the full list of `consumer ` parameters:
+Here is the full list of `consumer` parameters:
 | **Field name** | **Type** | **Description** |
 | --- | --- | --- |
 | name | `string`<br>`required` | Consumer name |
 | supported_codecs | `array[string]`<br>`optional` | Supported data encodings |
-| starting_message_timestamp_ms | `integer`<br>`optional` | Timestamp in the UNIX timestamp format, from which the consumer will start reading data |
+| starting_message_timestamp_ms | `integer`<br>`optional` | Timestamp in UNIX timestamp format, from which the consumer will start reading data |
 
 The consumer name is used in the SDK or CLI to [read data](https://ydb.tech/en/docs/best_practices/cdc#read) from the topic.

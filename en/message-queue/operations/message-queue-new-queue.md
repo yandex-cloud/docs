@@ -9,9 +9,9 @@ Message queues in {{ message-queue-name }} enable [messaging](../concepts/messag
 
 To create a new message queue:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your queue in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
@@ -28,12 +28,14 @@ To create a new message queue:
       * **{{ ui-key.yacloud.ymq.queue.form.field_sending-delay }}**: Specify the amount of time during which a new message cannot be picked from the queue.
       * **{{ ui-key.yacloud.ymq.queue.form.field_receiving-delay }}**: Specify the message receipt timeout.
    1. To redirect undelivered messages to the [dead letter queue (DLQ)](../concepts/dlq.md), do the following under **{{ ui-key.yacloud.ymq.queue.form.section_message-settings }}**:
+
       * Enable **{{ ui-key.yacloud.ymq.queue.form.switch_redirect-messages }}**.
       * Specify **{{ ui-key.yacloud.ymq.queue.form.field_messages-queue }}**.
       * Set **{{ ui-key.yacloud.ymq.queue.form.field_max-read-tries }}**.
+
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
 
@@ -58,7 +60,7 @@ To create a new message queue:
       }
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [ymq-terraform](../_includes_service/mq-terraform.md) %}
 

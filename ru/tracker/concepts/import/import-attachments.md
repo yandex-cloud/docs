@@ -23,12 +23,12 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 - Прикрепить файл к задаче
    
     ```json
-    POST /{{ ver }}/issues/<issue_id>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
+    POST /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
     Host: {{ host }}
-    Authorization: OAuth <токен>
+    Authorization: OAuth <OAuth-токен>
     {{ org-id }}
     Content-Type: multipart/form-data
-    <file_data>
+    <файл>
     ```
     {% include [headings-content-multi-data](../../../_includes/tracker/api/headings-content-multi-data.md) %}
 
@@ -36,8 +36,8 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
        
     Параметр | Описание | Тип данных
     --- | --- | ---
-    \<issues-id\> | Ключ задачи, к которой будет прикреплен файл. | Строка
-    \<comment_id\> | Идентификатор комментария, к которому будет прикреплен файл. | Строка
+    \<ключ_или_идентификатор_задачи\> | Ключ задачи, к которой будет прикреплен файл. | Строка
+    \<идентификатор_комментария\> | Идентификатор комментария, к которому будет прикреплен файл. | Строка
 
     {% endcut %}
 
@@ -66,12 +66,12 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 - Прикрепить файл к комментарию
 
     ```json
-    POST /{{ ver }}/issues/<issue_id>/comments/<comment_id>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
+    POST /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/comments/<идентификатор_комментария>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
     Host: {{ host }}
-    Authorization: OAuth <токен>
+    Authorization: OAuth <OAuth-токен>
     {{ org-id }}
     Content-Type: multipart/form-data
-    <file_data>
+    <файл>
     ```
 
     {% include [headings-content-multi-data](../../../_includes/tracker/api/headings-content-multi-data.md) %}
@@ -80,8 +80,8 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 
     Параметр | Описание | Тип данных
     --- | --- | ---
-    \<issues-id\> | Ключ задачи, к которой будет прикреплен файл. | Строка
-    \<comment_id\> | Идентификатор комментария, к которому будет прикреплен файл. | Строка
+    \<ключ_или_идентификатор_задачи\> | Ключ задачи, к которой будет прикреплен файл. | Строка
+    \<идентификатор_комментария\> | Идентификатор комментария, к которому будет прикреплен файл. | Строка
 
     {% endcut %}
 
@@ -103,7 +103,7 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 
     Параметр | Описание | Тип данных
     --- | --- | ---
-    \<file_data\> | Файл в бинарном формате. Размер файла не должен превышать 1024 Мбит. | Строка
+    \<файл\> | Файл в бинарном формате. Размер файла не должен превышать 1024 Мбит. | Строка
 
     {% endcut %}
 
@@ -127,9 +127,9 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
       "content" : "{{ host }}/v2/issues/JUNE-2/attachments/123/pic.png",
       "thumbnail" : "{{ host }}/v2/issues/JUNE-2/thumbnails/123",
 	  "createdBy" : {
-		"self" : "https://{{ host }}/v2/users/12314567890",
-		"id" : "1234567890",
-		"display" : "<отображаемое имя сотрудника>"
+		"self" : "https://{{ host }}/v2/users/12********",
+		"id" : "12********",
+		"display" : "<отображаемое_имя_сотрудника>"
 	  },
 	  "createdAt" : "2017-06-11T05:16:01.339+0000",
 	  "mimetype" : "image/png",

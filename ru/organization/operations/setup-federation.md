@@ -20,9 +20,9 @@
 
 ## Создать федерацию удостоверений {#create-federation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -60,7 +60,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -114,7 +114,7 @@
         * (Опционально) `--case-insensitive-name-ids` — идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
         * (Опционально) {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -183,7 +183,7 @@
 
   {% endnote %}
 
-- API
+- API {#api}
 
   1. Создайте файл с телом запроса, например `body.json`:
 
@@ -254,9 +254,9 @@
 
 1. Добавьте сертификат в федерацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -275,7 +275,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -295,7 +295,7 @@
         --certificate-file <путь_к_файлу_сертификата>
       ```
 
-- API
+- API {#api}
 
   1. Сформируйте файл с телом запроса `body.json`, указав содержимое сертификата в свойстве `data`:
 

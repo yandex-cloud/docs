@@ -244,7 +244,7 @@ coredns-7c********-s5jgz  1/1    Running  0         57m
 Чтобы разрешить уменьшение числа узлов {{ managed-k8s-name }}, сконфигурируйте для них объект [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/), в котором есть возможность останавливать до двух подов CoreDNS одновременно:
 
 ```bash
-kubectl create poddisruptionbudget <имя pdb> \
+kubectl create poddisruptionbudget <имя_pdb> \
   --namespace=kube-system \
   --selector k8s-app=kube-dns \
   --min-available=2
@@ -256,7 +256,7 @@ kubectl create poddisruptionbudget <имя pdb> \
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: <имя pdb>
+  name: <имя_pdb>
 spec:
   minAvailable: 2
   selector:

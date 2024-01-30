@@ -32,9 +32,9 @@ The cost includes:
 
 ## Create a bucket for storing logs {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -43,7 +43,7 @@ The cost includes:
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
   1. Create a bucket:
@@ -59,7 +59,7 @@ The cost includes:
      make_bucket: <bucket_name>
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -81,7 +81,7 @@ The cost includes:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Use the [create](../../storage/s3/api-ref/bucket/create.md) REST API method.
 
@@ -89,9 +89,9 @@ The cost includes:
 
 ## Enable log export {#logs-export}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Create a `log-config.json` file with the following content:
 
@@ -115,7 +115,7 @@ The cost includes:
 
       Where `--bucket` is the name of the bucket you need action logging enabled for.
 
-- API
+- API {#api}
 
   Use the REST API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) method.
 
@@ -125,9 +125,9 @@ The cost includes:
 
 ### Create a {{ CH }} cluster {#create-ch-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
@@ -156,7 +156,7 @@ The cost includes:
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -189,7 +189,7 @@ The cost includes:
         --websql-access=true
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Add a description of the cluster and cluster hosts to the configuration file:
 
@@ -242,7 +242,7 @@ The cost includes:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Use the [create](../../managed-clickhouse/api-ref/Cluster/create.md) REST API method.
 
@@ -254,9 +254,9 @@ Wait for the cluster status to change to `Alive`.
 
 ### Change user settings {#user-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Select the `s3-logs` cluster.
   1. Go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
@@ -273,9 +273,9 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 
 ### Create a table in the database {#create-table}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Select the `s3-logs` cluster.
   1. Go to the **{{ ui-key.yacloud.mysql.cluster.switch_explore }}** tab.
@@ -333,9 +333,9 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 
 ## Create a connection in {{ datalens-short-name }} {#create-connection}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. Select the `s3-logs` cluster.
   1. Go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
@@ -366,7 +366,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 
 1. Click **Create**.
 1. In the top-right corner, click **Save**.
-1. Enter the dataset name `s3-dataset` and click **Create**.
+1. Enter the dataset name: `s3-dataset`, and click **Create**.
 1. When the dataset is saved, click **Create chart** in the top-right corner.
 
 ## Create charts in {{ datalens-short-name }} {#create-charts}

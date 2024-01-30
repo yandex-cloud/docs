@@ -7,9 +7,9 @@ description: "Follow this guide to add data to a table."
 
 To add two records to the `series` table:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* AWS CLI
+* AWS CLI {#cli}
 
    Run the commands by replacing `https://your-database-endpoint` with the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
 

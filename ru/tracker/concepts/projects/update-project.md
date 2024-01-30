@@ -14,13 +14,13 @@ sourcePath: ru/tracker/api-ref/concepts/projects/update-project.md
 Чтобы изменить проект, используйте HTTP-запрос с методом `PUT`. Параметры запроса передаются в его теле в формате JSON.
 
 ```
-PUT /{{ ver }}/projects/<project-id>?version=<номер версии>
+PUT /{{ ver }}/projects/<идентификатор_проекта>?version=<номер_версии>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
-    "queues": "<ключ очереди>" 
+    "queues": "<ключ_очереди>" 
 }
 ```
 
@@ -30,7 +30,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<project-id> | Идентификатор проекта | Число
+\<идентификатор_проекта> | Идентификатор проекта | Число
 
 {% endcut %}  
 
@@ -91,8 +91,8 @@ endDate | Дата завершения проекта в формате `YYYY-M
         "name": "Проект",
         "description": "Проект с изменениями",
         "lead": {
-            "self": "https://{{ host }}/v2/users/12314567890",
-            "id": "1234567890",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "status": "launched",

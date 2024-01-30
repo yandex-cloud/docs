@@ -1,0 +1,5 @@
+1. Самостоятельно удалите из {{ yandex-cloud }} все [ресурсы](../../resource-manager/concepts/resources-hierarchy.md#rm-resources), [облака](../../organization/concepts/manage-services.md#cloud), [организации](../../organization/concepts/membership.md), [сообщества](../../datasphere/concepts/community.md) {{ ml-platform-name }} и [пространства](../../speechsense/concepts/resources-hierarchy.md#space) {{ speechsense-name }}, если они создавались.
+1. [Погасите существующую задолженность](../../billing/concepts/billing-threshold.md#arrears) по оплате ресурсов {{ yandex-cloud }}.
+1. Направьте в [техническую поддержку]({{ link-console-support }}) запрос на удаление [платежного аккаунта](../../billing/concepts/billing-account.md), указав его идентификатор (можно посмотреть на вкладке [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }})).
+
+Пожалуйста, обратите внимание, что данная процедура необратима.

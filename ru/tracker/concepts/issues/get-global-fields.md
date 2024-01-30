@@ -13,7 +13,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-global-fields.md
 ```json
 GET /{{ ver }}/fields
 Host: {{ host }}
-Authorization: OAuth <токен> 
+Authorization: OAuth <OAuth-токен> 
 {{ org-id }}
 ```
 
@@ -54,8 +54,8 @@ Authorization: OAuth <токен>
         },
         "order": 1,
         "category": {
-            "self": "https://{{ host }}/v2/fields/categories/000000000000000000000001",
-            "id": "000000000000000000000001",
+            "self": "https://{{ host }}/v2/fields/categories/0000000000000001********",
+            "id": "0000000000000001********",
             "display": "Системные"
         },
         "type": "standard"

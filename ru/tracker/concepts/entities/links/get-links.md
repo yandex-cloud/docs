@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/links/get-links.md
 Для получения связей сущности используйте HTTP-запрос с методом `GET`.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/links
+GET /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/links
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -37,7 +37,7 @@ Authorization: OAuth <OAuth-токен>
 > - Используется HTTP-метод GET.
 >
 > ```
-> GET /v2/entities/project/65a26adc46b9746d********/links?fields=id,summary
+> GET /v2/entities/project/<идентификатор_проекта>/links?fields=id,summary
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}

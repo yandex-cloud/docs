@@ -28,7 +28,7 @@
 
   {% note info %}
   
-  Также доска проекта отображается в разделе ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** на панели слева. По умолчанию такая доска имеет название <q>Доска проекта `<название проекта>`</q>.
+  Также доска проекта отображается в разделе ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** на панели слева. По умолчанию такая доска имеет название «Доска проекта `<название_проекта>`».
   
   {% endnote %}
 

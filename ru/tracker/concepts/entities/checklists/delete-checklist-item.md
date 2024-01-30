@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/checklists/delete-checklist-ite
 Чтобы удалить пункт в чеклисте, используйте HTTP-запрос с методом `DELETE`. Параметры запроса передаются в его теле в формате JSON.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/checklistItems/<checklistItemId>
+DELETE /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/checklistItems/<идентификатор_пункта_чеклиста>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -27,11 +27,11 @@ Authorization: OAuth <OAuth-токен>
 > Пример: Удалить пункт в чеклисте
 >
 > - Используется HTTP-метод DELETE.
-> - В чеклисте удаляется пункт с идентификатором `6586d6fee2b9ef72********` (<q>Второй пункт чеклиста</q>).
+> - В чеклисте удаляется пункт с идентификатором `6586d6fee2b9ef72********` («Второй пункт чеклиста»).
 > - В ответе выводится информация о всех пунктах чеклиста (`fields=checklistItems`).
 >
 > ```
-> DELETE /v2/entities/project/6586d6fee2b9ef74********/checklistItems/6586d6fee2b9ef72********?fields=checklistItems
+> DELETE /v2/entities/project/<идентификатор_проекта>/checklistItems/<идентификатор_пункта_чеклиста>?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
@@ -55,9 +55,9 @@ Authorization: OAuth <OAuth-токен>
       "shortId": 0,
       "entityType": "project",
       "createdBy": {
-          "self": "{{ host }}/v2/users/1990********",
-          "id": "id_сотрудника",
-          "display": "Имя_Фамилия",
+          "self": "{{ host }}/v2/users/19********",
+          "id": "19********",
+          "display": "Имя Фамилия",
           "cloudUid": "ajeppa7dgp53********",
           "passportUid": "15********"
       },

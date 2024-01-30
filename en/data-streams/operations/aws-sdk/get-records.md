@@ -1,17 +1,17 @@
 ---
 title: "Reading data from a stream in the AWS SDK"
-description: "This guide describes how you can get data from a stream in the AWS SDK."
+description: "Follow this guide to retrieve data from a stream in the AWS SDK."
 ---
 
 # Reading data from a stream in the AWS SDK
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
   You can get data from a stream using the `get_shard_iterator` and `get_record/get_records` methods. When you invoke this method, you should specify the following parameters:
   * Name of the stream, e.g., `example-stream`.
-  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) the stream is located in, such as `b1gi1kuj2dht********`.
+  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) the stream is located in, e.g., `b1gi1kuj2dht********`.
   * {{ ydb-short-name }} database ID with the stream, e.g., `cc8028jgtuab********`.
 
   You also need to [configure](prepare.md) the AWS SDK and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `yds.viewer` role.

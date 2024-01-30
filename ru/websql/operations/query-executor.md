@@ -1,10 +1,12 @@
-# Выполнение SQL-запросов
+# Работа с редактором SQL-запросов
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+Редактор SQL-запросов открывается на панели данных, когда вы выбираете в окне **Диспетчер соединений** базу данных, таблицу или представление. 
+
 ## Выполнить запрос {#execute-query}
 
-Чтобы выполнить запрос к базе данных, с ней должно быть [установлено соединение](connect.md##connect-db). Если соединение неактивно, [активируйте](connect.md#update-connection) его.
+Чтобы выполнить запрос к базе данных, [установите](connect.md##connect-db) или [активируйте](connect.md#update-connection) соединение с ней.
 
 {% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 

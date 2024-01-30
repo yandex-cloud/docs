@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/attachments/get-attachment.md
 Чтобы получить информацию о прикрепленном файле, используйте HTTP-запрос с методом `GET`.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/attachments/<attachmentId>
+GET /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/attachments/<идентификатор_файла>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -28,7 +28,7 @@ Authorization: OAuth <OAuth-токен>
 > - В ответе выводится информация о прикрепленном файле сущности.
 >
 > ```
-> GET /v2/entities/project/6586d6fee2b9ef74********/attachments/5
+> GET /v2/entities/project/<идентификатор_проекта>/attachments/5
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
@@ -51,9 +51,9 @@ Authorization: OAuth <OAuth-токен>
       "name": "flowers.jpg", 
       "content": "{{ host }}/v2/attachments/5/flowers.jpg",
       "createdBy": {
-          "self": "{{ host }}/v2/users/1990********",
-          "id": "id_сотрудника",
-          "display": "Имя_Фамилия",
+          "self": "{{ host }}/v2/users/19********",
+          "id": "19********",
+          "display": "Имя Фамилия",
           "cloudUid": "ajeppa7dgp53********",
           "passportUid": "15********"
       },

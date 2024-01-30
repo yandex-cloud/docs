@@ -35,7 +35,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<entityType> |Тип сущности:<ul><li>project — проект;</li><li>portfolio — портфель.</li></ul>| Строка
+\<тип_сущности> |Тип сущности:<ul><li>project — проект;</li><li>portfolio — портфель.</li></ul>| Строка
 
 {% endcut %}  
 
@@ -139,12 +139,12 @@ rootOnly | Выводить только не вложенные сущност�
             "version": 7,
             "shortId": 8,
             "entityType": "project",
-            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 11******** },
             "createdAt": "2023-11-23T17:33:25.427+0000",
             "updatedAt": "2023-11-24T12:21:43.838+0000",
             "fields": {
                 "entityStatus": "in_progress",
-                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/2222222290", "id": "2222222290", "display": "Имя Наблюдателя", "cloudUid": "ajeprm0fjnql********", "passportUid": 2222222290 }]
+                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/22********", "id": "22********", "display": "Имя Наблюдателя", "cloudUid": "ajeprm0fjnql********", "passportUid": 22******** }]
             }
         },
         {
@@ -153,12 +153,12 @@ rootOnly | Выводить только не вложенные сущност�
             "version": 4,
             "shortId": 3,
             "entityType": "project",
-            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 11******** },
             "createdAt": "2023-11-23T11:31:33.874+0000",
             "updatedAt": "2023-11-23T21:52:10.863+0000",
             "fields": {
                 "entityStatus": "draft",
-                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/2222222290", "id": "2222222290", "display": "Имя Наблюдателя", "cloudUid": "ajeprm0fjnql********", "passportUid": 2222222290 }]
+                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/22********", "id": "22********", "display": "Имя Наблюдателя", "cloudUid": "ajeprm0fjnql********", "passportUid": 22******** }]
             }
         }
       ],

@@ -9,9 +9,9 @@
 
 - **Authorization**
 
-    OAuth-токен в формате `OAuth <значение_токена>`, например:
+    OAuth-токен в формате `OAuth <OAuth-токен>`, например:
     ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
+    OAuth 0c4181a7c2cf4521964a72ff********
     ```
 - **X-Org-ID** или **X-Cloud-Org-ID**
 

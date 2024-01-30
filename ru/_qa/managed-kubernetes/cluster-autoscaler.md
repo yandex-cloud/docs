@@ -17,7 +17,7 @@
 Поды `kube-system`, поды с `local-storage` и поды без контроллера репликации можно расселить. Для этого установите аннотацию `"safe-to-evict": "true"`:
 
 ```bash
-kubectl annotate pod <имя пода> cluster-autoscaler.kubernetes.io/safe-to-evict=true
+kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-evict=true
 ```
 
 {% endnote %}
@@ -33,7 +33,7 @@ kubectl annotate pod <имя пода> cluster-autoscaler.kubernetes.io/safe-to-
   Проверьте наличие аннотации на узле:
 
   ```bash
-  kubectl describe node <имя узла> | grep scale-down-disabled
+  kubectl describe node <имя_узла> | grep scale-down-disabled
   ```
 
   Результат:
@@ -45,13 +45,13 @@ kubectl annotate pod <имя пода> cluster-autoscaler.kubernetes.io/safe-to-
   Установите аннотацию:
 
   ```bash
-  kubectl annotate node <имя узла> cluster-autoscaler.kubernetes.io/scale-down-disabled=true
+  kubectl annotate node <имя_узла> cluster-autoscaler.kubernetes.io/scale-down-disabled=true
   ```
 
   Снять аннотацию можно, выполнив команду `kubectl` со знаком `-`:
 
   ```bash
-  kubectl annotate node <имя узла> cluster-autoscaler.kubernetes.io/scale-down-disabled-
+  kubectl annotate node <имя_узла> cluster-autoscaler.kubernetes.io/scale-down-disabled-
   ```
 
 #### Почему под удалился, а размер группы узлов не уменьшается? {#not-scaling-pod}

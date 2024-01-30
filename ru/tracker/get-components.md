@@ -43,11 +43,11 @@ Authorization: OAuth <OAuth-токен>
             "key": "ORG",
             "display": "Организация"
         },
-        "description": "<Описание компонента>",
+        "description": "<описание_компонента>",
         "lead": {
-               "self": "https://{{ host }}/v2/users/1120000000016876",
-               "id": "<id сотрудника>",
-               "display": "<Отображаемое имя сотрудника>"
+               "self": "https://{{ host }}/v2/users/11********",
+               "id": "11********",
+               "display": "Иван Иванов"
             },
         "assignAuto": false
       },

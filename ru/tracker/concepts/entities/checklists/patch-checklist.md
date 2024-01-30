@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/checklists/patch-checklist.md
 Чтобы изменить пункты в чеклисте, используйте HTTP-запрос с методом `PATCH`. Параметры запроса передаются в его теле в формате JSON.
 
 ```json
-PATCH /{{ ver }}/entities/<entityType>/<id>/checklistItems
+PATCH /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -21,7 +21,7 @@ Authorization: OAuth <OAuth-токен>
   "id": "<идентификатор_пункта>",
   "text": "<текст_пункта>",
   "checked": true,
-  "assignee": "<идентификатор_или_логин_исполнителя>",
+  "assignee": "<логин_или_идентификатор_исполнителя>",
   "deadline": {
     "date": "2021-05-09T00:00:00.000+0000",
     "deadlineType": "date"
@@ -73,12 +73,12 @@ deadlineType | Тип данных параметра `deadline`. | Строка
 > Пример: Изменить два пункта в чеклисте
 >
 > - Используется HTTP-метод PATCH.
-> - В первом пункте чеклиста меняется название на <q>Измененный первый пункт чеклиста</q>. Значения остальных полей сбрасываются (исполнитель, дедлайн, отметка о выполнении и тип пункта).
+> - В первом пункте чеклиста меняется название на «Измененный первый пункт чеклиста». Значения остальных полей сбрасываются (исполнитель, дедлайн, отметка о выполнении и тип пункта).
 > - Во втором пункте изменяется исполнитель и ставится отметка о выполнении. Значения остальных полей сбрасываются (дедлайн и тип пункта).
 > - В ответе выводится информация о всех пунктах чеклиста (`fields=checklistItems`).
 >
 > ```
-> PATCH /v2/entities/project/6586d6fee2b9ef74********/checklistItems?fields=checklistItems
+> PATCH /v2/entities/project/<идентификатор_проекта>/checklistItems?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
@@ -91,7 +91,7 @@ deadlineType | Тип данных параметра `deadline`. | Строка
 >   {
 >      "id": "658953a65c0f1b21********",
 >      "text":"Второй пункт чеклиста.",
->      "assignee": 15699000********,
+>      "assignee": 19*********,
 >      "checked": true
 >   }
 > ]
@@ -115,9 +115,9 @@ deadlineType | Тип данных параметра `deadline`. | Строка
       "shortId": 0,
       "entityType": "project",
       "createdBy": {
-          "self": "{{ host }}/v2/users/1990********",
-          "id": "id_сотрудника",
-          "display": "Имя_Фамилия",
+          "self": "{{ host }}/v2/users/19********",
+          "id": "19********",
+          "display": "Имя Фамилия",
           "cloudUid": "ajeppa7dgp53********",
           "passportUid": "15********"
       },

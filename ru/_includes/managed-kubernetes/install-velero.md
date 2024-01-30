@@ -8,7 +8,7 @@
 
     {% note warning  %}
 
-    Если имя пространства имен, где установлено приложение Velero, отличается от `velero`, для всех последующих команд дополнительно используйте параметр `--namespace <пространство имен приложения Velero>`.
+    Если имя пространства имен, где установлено приложение Velero, отличается от `velero`, для всех последующих команд дополнительно используйте параметр `--namespace <пространство_имен_приложения_Velero>`.
 
     {% endnote %}
 
@@ -24,7 +24,7 @@
 
         ```bash
         yc iam access-key create \
-           --service-account-name=<имя сервисного аккаунта> \
+           --service-account-name=<имя_сервисного_аккаунта> \
            --format=json > sa-key.json
         ```
 
@@ -32,8 +32,8 @@
 
         ```ini
         [default]
-          aws_access_key_id=<идентификатор ключа>
-          aws_secret_access_key=<секретная часть ключа>
+          aws_access_key_id=<идентификатор_ключа>
+          aws_secret_access_key=<секретная_часть_ключа>
         ```
 
     1. Установите серверную часть Velero в кластер {{ managed-k8s-name }}:
@@ -43,7 +43,7 @@
         velero.io/csi-volumesnapshot-class="true" && \
         velero install \
           --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
-          --bucket <имя бакета {{ objstorage-name }}> \
+          --bucket <имя_бакета> \
           --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
           --provider aws \
           --secret-file ./credentials \
@@ -55,7 +55,7 @@
 
         Где:
         * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и регион.
-        * `--bucket` — имя бакета для хранения резервных копий, [созданного ранее](#before-you-begin).
+        * `--bucket` — имя бакета {{ objstorage-name }} для хранения резервных копий, [созданного ранее](#before-you-begin).
         * `--plugins` — образы плагина для совместимости с AWS API.
         * `--provider` — имя провайдера объектного хранилища.
         * `--secret-file` — полный путь к файлу с данными статического ключа доступа.

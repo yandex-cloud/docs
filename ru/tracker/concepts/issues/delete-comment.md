@@ -10,7 +10,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/delete-comment.md
 Чтобы удалить комментарий, используйте HTTP-запрос с методом `DELETE`:
 
 ```
-DELETE /{{ ver }}/issues/<issue-id>/comments/<comment-id>
+DELETE /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/comments/<идентификатор_комментария>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -22,8 +22,8 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<issue-id> | Идентификатор или ключ текущей задачи. | Строка
-\<comment-id> | [Уникальный идентификатор комментария](get-comments.md#section_xc3_53j_p1b) в числовом формате (id) или формате строки (longId). | Строка или число
+\<ключ_или_идентификатор_задачи> | Идентификатор или ключ текущей задачи. | Строка
+\<идентификатор_комментария> | [Уникальный идентификатор комментария](get-comments.md#section_xc3_53j_p1b) в числовом формате (id) или формате строки (longId). | Строка или число
 
 {% endcut %} 
 
@@ -32,7 +32,7 @@ Authorization: OAuth <OAuth-токен>
 > - Используется HTTP-метод DELETE.
 >  
 > ```
-> DELETE /v2/issues/JUNE-2/comments/53a170e8e4b07a4c3358d60a
+> DELETE /v2/issues/JUNE-2/comments/<идентификатор_комментария>
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}

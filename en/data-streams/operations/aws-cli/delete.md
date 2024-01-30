@@ -5,9 +5,9 @@ description: "This guide describes how you can delete a stream in the AWS CLI."
 
 # Deleting a stream in the AWS CLI
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   To delete a [stream](../../concepts/glossary.md#stream-concepts), run the command:
 
@@ -18,13 +18,13 @@ description: "This guide describes how you can delete a stream in the AWS CLI."
   ```
 
   * `--endpoint`: Specify the `https://yds.serverless.yandexcloud.net` endpoint to delete a stream that receives data over the AWS Kinesis Data Streams protocol.
-  * `--stream-name`: Consists of the availability zone, the folder ID, the {{ ydb-full-name }} database ID, and the stream name.
+  * `--stream-name`: Consists of the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-     > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
-     > * `aws_stream`: Stream name.
-     > * `{{ region-id }}`: Availability zone.
-     > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
-     > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
+     > For example, specify the `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` stream ID if:
+     > * `aws_stream`: Stream name
+     > * `{{ region-id }}`: Region
+     > * `aoeu1kuk2dhtaupdb1es`: Folder ID
+     > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID
 
   Command example:
 

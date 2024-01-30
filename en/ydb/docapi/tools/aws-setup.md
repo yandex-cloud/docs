@@ -18,13 +18,13 @@ To use the AWS tools, follow these steps:
 
    The service account must be created in the same folder with the database.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
 
-   - CLI
+   - CLI {#cli}
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -44,7 +44,7 @@ To use the AWS tools, follow these steps:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
-   - API
+   - API {#api}
 
       To create a service account, use the [create](../../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) resource.
 
@@ -56,9 +56,9 @@ To use the AWS tools, follow these steps:
 
 1. Get the key ID and access key of the created service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. Go to the folder that the service account belongs to.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -74,7 +74,7 @@ To use the AWS tools, follow these steps:
 
          {% endnote %}
 
-   - CLI
+   - CLI {#cli}
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -110,7 +110,7 @@ To use the AWS tools, follow these steps:
 
       1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
 
-   - API
+   - API {#api}
 
       To create an access key, use the [create](../../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../../iam/api-ref/AccessKey/index.md) resource.
 

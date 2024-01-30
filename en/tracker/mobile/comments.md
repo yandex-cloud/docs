@@ -16,7 +16,7 @@ You can use the comments section to specify a key for a different issue so that 
 
 ## Replying to comments {#answer-comment}
 
-1. Click ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Respond**. The comment you are replying to will be quoted in the response.
+1. Click ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Reply**. The comment you are replying to will be quoted in the response.
 
 1. Make your changes and tap ![](../../_assets/tracker/send.png).
 
@@ -86,3 +86,5 @@ If, while having a discussion with your teammates, you decided to create a new i
 1. Fill in the fields the same way as when [creating a regular issue](create-ticket.md#create-task).
 
 1. Click **Create**.
+
+

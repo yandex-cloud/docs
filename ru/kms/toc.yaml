@@ -103,6 +103,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/kms/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -173,6 +177,8 @@ items:
                 href: api-ref/SymmetricKey/update.md
               - name: updateAccessBindings
                 href: api-ref/SymmetricKey/updateAccessBindings.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы

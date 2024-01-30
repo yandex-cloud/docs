@@ -16,9 +16,9 @@ We recommend using the advanced method for tracking time, as it has more flexibl
 
 ## Basic time tracking {#limited-spent-time}
 
-The **Time spent** category of issue fields shows the time planned for and spent on the issue.
+The **Time tracking** category in the issue fields shows the time according to plan and the actual time spent on the issue.
 
-Before getting started with an issue, we recommend that you specify the time you're planning to spend on it. When the work is complete, you can compare your preliminary evaluation with the actually spent time.
+Before starting out on an issue, we recommend that you specify the time you plan to spend on it. When your work is done, you will be able to compare your preliminary estimate against the actual time you spent.
 
 * **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}**: Time planned for resolving the issue.
 
@@ -40,7 +40,7 @@ To log time:
 
 1. Fill in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}** field.
 
-   For example:
+   Here is an example:
    * 1 week and 3 days: `1w 3d`.
    * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`.
 
@@ -70,9 +70,9 @@ Any user can register their spent time, not only the issue's assignee. The [Time
 
 ### View time spent {#show-time-spent}
 
-You can see how much time was spent on an issue in the right-hand panel on the issue page, under **Time spent**, or in the [Time spent report](../manager/statistics.md#section_uxt_3ft_xz).
+You can view the time spent on an issue under **Time tracking** in the right-hand panel on the issue page or in the [Time spent report](../manager/statistics.md#section_uxt_3ft_xz).
 
-If the issue does not have the **Time spent** section, add it as follows:
+If the issue does not show the **Time tracking** section, add it:
 
 1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** in the right-hand panel.
 
@@ -98,9 +98,9 @@ To enable advanced time tracking for queue issues:
 1. In **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-working-calendar }}**, choose one of the options.
 1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}**.
 
-As a result, a new section called **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** will appear in the queue issues. All data of the **Time spent** issue fields will be transferred to this section.
+As a result, a new section called **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** will appear in the queue issues. All data of the **Time tracking** issue fields will be transferred to this section.
 
-To switch back to basic time tracking, disable **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** in the queue settings. Data from the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be transferred to the fields of the **Time spent** category.
+To switch back to basic time tracking, disable **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** in the queue settings. Data from the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be transferred to the fields of the **Time tracking** category.
 
 ### Registering time spent {#add-extended-time-spent}
 
@@ -111,7 +111,7 @@ To log time:
 1. In the right-hand panel, click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**.
 1. Fill in the **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}** field.
 
-   For example:
+   Here is an example:
 
    * 1 week and 3 days: `1w 3d`.
    * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`.

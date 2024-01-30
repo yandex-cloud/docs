@@ -9,9 +9,9 @@ sourcePath: ru/tracker/api-ref/common-format.md
 Общий вид запросов к {{ api-name }}:
 
 ```
-<метод> /{{ ver }}/<resources>/<resource_id>/?<param>=<value>
+<метод> /{{ ver }}/<тип_ресурса>/<идентификатор_ресурса>/?<параметр>=<значение>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 {
    Тело запроса в формате JSON
@@ -30,7 +30,7 @@ def my_function():
         # Тело запроса в формате JSON
     }
     head =  {
-        "Authorization": "OAuth <токен>",
+        "Authorization": "OAuth <OAuth-токен>",
         "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
     }
     session.headers.update(head)
@@ -68,11 +68,11 @@ my_function()
 
  - `Host: {{ host }}`
 
- - `Authorization: OAuth <ваш OAuth-токен>` — при доступе по [протоколу OAuth 2.0](concepts/access.md#section_about_OAuth).
+ - `Authorization: OAuth <OAuth-токен>` — при доступе по [протоколу OAuth 2.0](concepts/access.md#section_about_OAuth).
 
-   `Authorization: Bearer <ваш IAM-TOKEN>` — при доступе по [IAM-токену](concepts/access.md#iam-token).
+   `Authorization: Bearer <IAM-токен>` — при доступе по [IAM-токену](concepts/access.md#iam-token).
 
- - `X-Org-ID: <идентификатор организации>` или `X-Cloud-Org-ID: <идентификатор организации>`
+ - `X-Org-ID: <идентификатор_организации>` или `X-Cloud-Org-ID: <идентификатор_организации>`
     
    Если у вас только организация {{ org-full-name }}, используйте заголовок `X-Cloud-Org-ID`, если только {{ ya-360 }} или оба типа организаций — `X-Org-ID`. Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **ID организации для API**.
     
@@ -89,7 +89,7 @@ my_function()
 
   - ```json
         {
-            "followers": { "add": ["<id сотрудника1>", "<id сотрудника2>"] }
+            "followers": { "add": ["<идентификатор_сотрудника_1>", "<идентификатор_сотрудника_2>"] }
         }
     ```
 
@@ -102,13 +102,13 @@ my_function()
       {
         "followers": {
           "replace": [
-              {"target": "<идентификатор1>", "replacement": "<идентификатор2>"},
-              {"target": "<идентификатор3>", "replacement": "<идентификатор4>"}]
+              {"target": "<идентификатор_1>", "replacement": "<идентификатор_2>"},
+              {"target": "<идентификатор_3>", "replacement": "<идентификатор_4>"}]
         }
       }
       ```
 
-- Например, чтобы изменить тип задачи на <q>Ошибка</q>, используйте один из способов:
+- Например, чтобы изменить тип задачи на «Ошибка», используйте один из способов:
 
   - `{"type": 1}`
   - `{"type": "bug"}`
@@ -169,8 +169,8 @@ my_function()
 
 - Используется HTTP-метод PATCH.
 - Редактируется задача TEST-1.
-- Новый тип задачи: <q>Ошибка</q>.
-- Новый приоритет задачи: <q>Низкий</q>.
+- Новый тип задачи: «Ошибка».
+- Новый приоритет задачи: «Низкий».
 
 {% list tabs %}
 
@@ -182,8 +182,8 @@ my_function()
   Authorization: OAuth <OAuth-токен>
   {{ org-id }}
   {
-    "summary": "Новое название задачи",
-    "description": "Новое описание задачи",
+    "summary": "<новое_название_задачи>",
+    "description": "<новое_описание_задачи>",
     "type": {
         "id": "1",
         "key": "bug"
@@ -204,8 +204,8 @@ my_function()
       session = requests.Session()
       url = "https://{{ host }}/{{ ver }}/issues/TEST-1"
       json = {
-          "summary": "Новое название задачи",
-          "description": "Новое описание задачи",
+          "summary": "<новое_название_задачи>",
+          "description": "<новое_описание_задачи>",
           "type": {
               "id": "1",
               "key": "bug"
@@ -216,7 +216,7 @@ my_function()
               }
           }
       head =  {
-          "Authorization": "OAuth <токен>",
+          "Authorization": "OAuth <OAuth-токен>",
           "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
       }
       session.headers.update(head)
@@ -276,10 +276,10 @@ my_function()
 {% cut "Пример 3: Создать задачу." %}
  
 - Используется HTTP-метод POST.
-- Создается задача с названием <q>Test Issue</q> в очереди с [ключом](manager/create-queue.md#key) <q>TREK</q>.
-- Новая задача является подзадачей <q>JUNE-2</q>.
-- Тип создаваемой задачи – <q>Ошибка</q>.
-- Исполнитель задачи – <user_login>
+- Создается задача с названием «Test Issue» в очереди с [ключом](manager/create-queue.md#key) «TREK».
+- Новая задача является подзадачей «JUNE-2».
+- Тип создаваемой задачи – «Ошибка».
+- Исполнитель задачи – <логин_пользователя>
  
 {% list tabs %}
 
@@ -336,8 +336,8 @@ my_function()
 {% cut "Пример 4: Найти задачи очереди, которые назначены на заданного сотрудника. Результаты отобразить постранично." %}
 
 - Используется HTTP-метод POST.
-- Ключ очереди – <q>TREK</q>.
-- Исполнитель задачи – <user_login>.
+- Ключ очереди – «TREK».
+- Исполнитель задачи – <логин_пользователя>.
 
 {% list tabs %}
 

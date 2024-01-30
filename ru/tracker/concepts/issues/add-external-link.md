@@ -12,15 +12,15 @@ sourcePath: ru/tracker/api-ref/concepts/issues/add-external-link.md
 Чтобы создать внешнюю связь, используйте HTTP-запрос с методом `POST`. 
 
 ```
-POST /{{ ver }}/issues/<issue-id>/remotelinks?backlink=true
+POST /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/remotelinks?backlink=true
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
     "relationship": "RELATES",
-    "key": "<ключ объекта>",
-    "origin": "<идентификатор приложения>"
+    "key": "<ключ_объекта>",
+    "origin": "<идентификатор_приложения>"
 }
 ```
 
@@ -63,8 +63,8 @@ origin | Идентификатор приложения, с объектом к
 
    ```json
     {
-        "self": "https://{{ host }}/{{ ver }}/issues/<issue-id>/remotelinks/51455195", 
-        "id": 51455195,
+        "self": "https://{{ host }}/{{ ver }}/issues/<ключ_или_идентификатор_задачи>/remotelinks/51******", 
+        "id": 51******,
         "type": {
             "self": "https://{{ host }}/{{ ver }}/linktypes/relates",
             "id": "relates",
@@ -73,24 +73,24 @@ origin | Идентификатор приложения, с объектом к
         },
         "direction": "outward",
         "object": {
-            "self": "https://{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/<object-id>",
-            "id": "<object-id>",
-            "key": "<object-key>",
+            "self": "https://{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/13570010********",
+            "id": "13570010********",
+            "key": "TEST-17",
             "application": {
-                "self": "https://{{ host }}/{{ ver }}/applications/<application-id>",
-                "id": "<application-id>",
-                "type": "<application-type>",
-                "name": "<application-name>"
+                "self": "https://{{ host }}/{{ ver }}/applications/25811000********",
+                "id": "25811000********",
+                "type": "app",
+                "name": "test-app"
             }
         },
         "createdBy": {
-            "self": "https://{{ host }}/{{ ver }}/users/1120000000232694",
-            "id": "user-name",
+            "self": "https://{{ host }}/{{ ver }}/users/11********",
+            "id": "11********",
             "display": "display-user-name"
         },
         "updatedBy": {
-            "self": "https://{{ host }}/{{ ver }}/users/1120000000232694",
-            "id": "user-name",
+            "self": "https://{{ host }}/{{ ver }}/users/11********",
+            "id": "11********",
             "display": "display-user-name"
         },
         "createdAt": "2021-07-19T06:18:09.327+0000",
@@ -106,7 +106,7 @@ origin | Идентификатор приложения, с объектом к
     self | Адрес ресурса API, который содержит информацию о внешней связи. | Строка
     id | Идентификатор связи. | Строка
     [type](#type) | Блок с информацией о типе связи. | Объект
-    direction {#direction} | <q>Направление</q> связи. Параметр релевантен для несимметричных типов связей, например <q>Родительская задача</q> — <q>Подзадача</q>. Возможны следующие значения:<ul><li>`outward` — задача, указанная в запросе, является основной для объекта.</li><li>`inward` — объект является основным для задачи, указанной в запросе.</li></ul> | Строка
+    direction {#direction} | «Направление» связи. Параметр релевантен для несимметричных типов связей, например «Родительская задача» — «Подзадача». Возможны следующие значения:<ul><li>`outward` — задача, указанная в запросе, является основной для объекта.</li><li>`inward` — объект является основным для задачи, указанной в запросе.</li></ul> | Строка
     [object](#object){#object-param} | Блок с информацией об объекте внешнего приложения. | Объект
     [createdBy](#createdBy) | Блок с информацией о создателе связи. | Объект
     [updatedBy](#updatedBy) | Блок с информацией о последнем сотруднике, изменявшим связь. | Объект
@@ -120,8 +120,8 @@ origin | Идентификатор приложения, с объектом к
     ----- | ----- | -----
     self | Адрес ресурса API, который содержит информацию о типе связи. | Строка
     id | Идентификатор типа связи. | Строка
-    inward | Название типа связи в зависимости от [<q>направления</q>](#direction). | Строка
-    outward | Название типа связи в зависимости от [<q>направления</q>](#direction). | Строка
+    inward | Название типа связи в зависимости от [«направления»](#direction). | Строка
+    outward | Название типа связи в зависимости от [«направления»](#direction). | Строка
   
   
     **Поля объекта** `object` {#object}

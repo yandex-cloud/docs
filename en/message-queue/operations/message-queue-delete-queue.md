@@ -7,16 +7,16 @@ description: "Follow this guide to delete a message queue."
 
 To delete a message queue:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the queue belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
    1. In the row of the queue you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Get the URL of the message queue to be deleted:
 
@@ -39,7 +39,7 @@ To delete a message queue:
       * `--queue-url`: URL of the queue to be deleted.
       * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    If you created a message queue using {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.

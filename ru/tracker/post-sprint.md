@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/post-sprint.md
 ```json
 POST /{{ ver }}/sprints
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
@@ -59,8 +59,8 @@ id | Идентификатор доски. | Строка
 
     ```json
     {
-      "self" : "https://{{ host }}/v2/sprints/4469",
-      "id" : 4469,
+      "self" : "https://{{ host }}/v2/sprints/44**",
+      "id" : 44**,
       "version" : 1,
       "name" : "Новый Спринт",
       "board" : {
@@ -71,8 +71,8 @@ id | Идентификатор доски. | Строка
       "status" : "draft",
       "archived" : false,
       "createdBy" : {
-        "self" : "https://{{ host }}/v2/users/1120000000014425",
-        "id" : "1120000000014425",
+        "self" : "https://{{ host }}/v2/users/33********",
+        "id" : "33********",
         "display" : "Виктор Булдаков"
       },
       "createdAt" : "2015-06-23T17:03:24.799+0000",
