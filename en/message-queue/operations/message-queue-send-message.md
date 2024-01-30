@@ -12,9 +12,9 @@ To send a message to a queue:
 1. If you do not have a message queue in {{ message-queue-name }}, [create](message-queue-new-queue.md) one.
 1. Run the following command in the terminal:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - AWS CLI
+   - AWS CLI {#aws_cli}
 
       ```bash
       aws sqs send-message \
@@ -38,7 +38,7 @@ To send a message to a queue:
       }
       ```
 
-   - cURL
+   - cURL {#curl}
 
       ```bash
       curl -X POST \

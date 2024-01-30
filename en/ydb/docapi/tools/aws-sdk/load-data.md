@@ -23,9 +23,9 @@ The `series_id` and `title` values are used as the primary key of the `Series` t
 
 To upload data to the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesLoadData` project:
 
@@ -228,7 +228,7 @@ To upload data to the `Series` table:
       Added series: 5 Twin Peaks
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesLoadData.py` file, for example, using the nano editor:
 
@@ -285,7 +285,7 @@ To upload data to the `Series` table:
       Added series: 5 Twin Peaks
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesLoadData.php` file, for example, using the nano editor:
 
@@ -377,7 +377,7 @@ To upload data to the `Series` table:
       Added series: 5 Twin Peaks
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesLoadData.js` file, for example, using the nano editor:
 
@@ -446,7 +446,7 @@ To upload data to the `Series` table:
       Added series: True Detective
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesLoadData.rb` file, for example, using the nano editor:
 

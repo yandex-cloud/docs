@@ -10,7 +10,7 @@ The primary key of the `Series` table is compound and consists of the following 
 * `series_id`: Partition key (field type: number).
 * `title`: Sort key (field type: string).
 
-To find all series with the partition key 3, you need to pass this value in the `query` method. You can also limit a selection by series title, specifying a condition for the sort key. For example, you can find series with the partition key 3 whose title starts with a T.
+To find all series with the partition key 3, you need to provide this value in the `query` method. You can also limit a selection by series title, specifying a condition for the sort key. For example, you can find series with the partition key 3 whose title starts with a T.
 
 In addition to `query`, you can use the `scan` method to extract all tabular data. The `scan` method reads each record and returns all the data in the table. You can use the filter to set criteria for the returned records but the filter is applied only after scanning the entire table.
 
@@ -18,9 +18,9 @@ In addition to `query`, you can use the `scan` method to extract all tabular dat
 
 To extract data using `query` from the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesQuery01` project:
 
@@ -198,7 +198,7 @@ To extract data using `query` from the `Series` table:
 
       {% endnote %}
 
-      First, you create the `querySpec` object, which describes query parameters, and then pass this object to the `query` method.
+      First, you create the `querySpec` object, which describes query parameters, and then provide this object to the `query` method.
 
    1. Build a project:
 
@@ -223,7 +223,7 @@ To extract data using `query` from the `Series` table:
       3: True Detective
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesQuery01.py` file, for example, using the nano editor:
 
@@ -279,7 +279,7 @@ To extract data using `query` from the `Series` table:
       3 : True Detective
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesQuery01.php` file, for example, using the nano editor:
 
@@ -372,7 +372,7 @@ To extract data using `query` from the `Series` table:
       3: True Detective
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesQuery01.js` file, for example, using the nano editor:
 
@@ -438,7 +438,7 @@ To extract data using `query` from the `Series` table:
       - 3: True Detective
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesQuery01.rb` file, for example, using the nano editor:
 
@@ -522,9 +522,9 @@ To extract data using `query` from the `Series` table:
 
 To find a series with the partition key 3 and the title starting with a T in the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesQuery02` project:
 
@@ -719,7 +719,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       3: True Detective
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesQuery02.py` file, for example, using the nano editor:
 
@@ -776,7 +776,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       3 : True Detective
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesQuery02.php` file, for example, using the nano editor:
 
@@ -863,7 +863,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       3: True Detective
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesQuery02.js` file, for example, using the nano editor:
 
@@ -932,7 +932,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       - 3: True Detective
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesQuery02.rb` file, for example, using the nano editor:
 
@@ -1014,9 +1014,9 @@ To find a series with the partition key 3 and the title starting with a T in the
 
 To extract data using `scan` from the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesScan` project:
 
@@ -1206,7 +1206,7 @@ To extract data using `scan` from the `Series` table:
       { Item: {title=Silicon Valley, series_id=2, info={release_date=2014-04-06T00:00:00Z}} }
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesScan.py` file, for example, using the nano editor:
 
@@ -1261,7 +1261,7 @@ To extract data using `scan` from the `Series` table:
 
       To filter the found data, you can specify selection conditions in the optional `FilterExpression` parameter.
 
-      With every call, the `scan` method returns a subset of records called a page. Then the `LastEvaluatedKey` value in the response is passed to the `scan` method via the `ExclusiveStartKey` parameter. When the last page is returned, the `LastEvaluatedKey` value isn't included in the response.
+      With every call, the `scan` method returns a subset of records called a page. Then the `LastEvaluatedKey` value in the response is passed to the `scan` method via the `ExclusiveStartKey` parameter. When the last page is returned, the `LastEvaluatedKey` value is not included in the response.
 
    1. Run the program:
 
@@ -1290,7 +1290,7 @@ To extract data using `scan` from the `Series` table:
       {'release_date': '2014-04-06'}
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesScan.php` file, for example, using the nano editor:
 
@@ -1386,7 +1386,7 @@ To extract data using `scan` from the `Series` table:
       2: Silicon Valley
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesScan.js` file, for example, using the nano editor:
 
@@ -1470,7 +1470,7 @@ To extract data using `scan` from the `Series` table:
       Scan successful.
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesScan.rb` file, for example, using the nano editor:
 

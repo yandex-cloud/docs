@@ -7,9 +7,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
 
 To read a record from the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesItemOps02` project:
 
@@ -187,7 +187,7 @@ To read a record from the `Series` table:
       Record obtained: { Item: {title=Supernatural, series_id=3, info={release_date=2015-09-13, series_info=Supernatural is an American television series created by Eric Kripke}} }
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesItemOps02.py` file, for example, using the nano editor:
 
@@ -246,7 +246,7 @@ To read a record from the `Series` table:
                               'created by Eric Kripke'}}
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesItemOps02.php` file, for example, using the nano editor:
 
@@ -341,7 +341,7 @@ To read a record from the `Series` table:
       }
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesItemOps02.js` file, for example, using the nano editor:
 
@@ -409,7 +409,7 @@ To read a record from the `Series` table:
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesItemOps02.rb` file, for example, using the nano editor:
 

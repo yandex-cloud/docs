@@ -36,7 +36,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<entityType> |Тип создаваемой сущности:<ul><li>project — создать проект;</li><li>portfolio — создать портфель.</li></ul>| Строка
+\<тип_сущности> |Тип создаваемой сущности:<ul><li>project — создать проект;</li><li>portfolio — создать портфель.</li></ul>| Строка
 
 {% endcut %}
 
@@ -84,8 +84,8 @@ entityStatus | Статус:<ul><li>draft — Черновик;</li><li>in_progr
 > Пример: Создать проект
 > 
 > - Используется HTTP-метод POST.
-> - Создается проект с названием <q>Test Project</q>. 
-> - К проекту подключается очередь с [ключом](../../manager/create-queue.md#key) <q>TREK</q>.
+> - Создается проект с названием «Test Project». 
+> - К проекту подключается очередь с [ключом](../../manager/create-queue.md#key) «TREK».
 > 
 > ```
 > POST /v2/entities/project/ HTTP/1.1
@@ -118,7 +118,7 @@ entityStatus | Статус:<ul><li>draft — Черновик;</li><li>in_progr
        "version": 1,
        "shortId": 6,
        "entityType": "project",
-       "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/111111117", "id": "111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk*******", "passportUid": 111111117 },
+       "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk*******", "passportUid": 11******** },
        "createdAt": "2023-11-23T11:47:49.743+0000",
        "updatedAt": "2023-11-23T11:47:49.743+0000"
    }

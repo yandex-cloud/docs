@@ -2,15 +2,28 @@ title: Search API
 description:
   - >-
     Search API is a service that allows you to send requests to the Yandex
-    search database and get responses in XML format. The service is designed for
-    developers responsible for enabling a search across a website, a group of
-    websites, or on the internet.
+    search database and get responses in XML format. The service is tailored for
+    developers and webmasters, helping them to implement the search feature on
+    individual websites, groups of websites, or across the internet.
+    Additionally, it offers features to monitor website ranking for specific
+    queries in Yandex search results.
   - >-
     The service is subject to the <a
     href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
+    service level is defined in  <a
     href="https://yandex.com/legal/cloud_sla_search_api">Service Level for {{
     search-api-full-name }}</a>.
+  - <h2>Terms of Use and License Agreement</h2>
+  - >-
+    In addition to the {{ yandex-cloud }} Terms of Use, the following Terms of
+    Use apply to {{ search-api-name }}:
+  - >-
+    <ul> <li><a href="https://yandex.ru/legal/cloud_terms_search_api">{{
+    search-api-full-name }} Terms of Use</a> for residents of Russia and
+    Kazakhstan.</li> <li><a
+    href="https://yandex.com/legal/cloud_terms_search_api">{{
+    search-api-full-name }} Terms of Use</a> for non-residents of Russia and
+    Kazakhstan.</li> </ul>
 meta:
   title: Search API
   description: >-
@@ -23,14 +36,14 @@ links:
   - title: Restrictions and requirements
     description: Restrictions and requirements
     href: concepts/limits
-  - title: General procedure for activation
-    description: General procedure for activation
+  - title: How to activate
+    description: How to activate
     href: operations/workaround
   - title: Registration
     description: Registration
     href: operations/registration
   - title: Request for search results
-    description: Request for search results
+    description: Scrollable search results
     href: concepts/index
   - title: Pricing policy
     description: Service pricing and cost calculations

@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/create-local-field.md
 Чтобы создать локальное поле, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON:
 
 ```json
-POST /{{ ver }}/queues/<queue-id>/localFields
+POST /{{ ver }}/queues/<ключ_или_идентификатор_очереди>/localFields
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -24,7 +24,7 @@ Authorization: OAuth <OAuth-токен>
         "ru": "Название на русском языке"
     },
     "id": "loc_field_key",
-    "category": "000000000000000000000003",
+    "category": "0000000000000003********",
     "type": "ru.yandex.startrek.core.fields.StringFieldType"
 }
 
@@ -36,7 +36,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
+\<ключ_или_идентификатор_очереди\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
 
 {% endcut %}
 
@@ -72,12 +72,12 @@ values | Значения для выпадающего списка. | Масс
 
 {% endcut %}
 
->Пример: Создать локальное поле типа <q>Выпадающий список</q> с фиксированным набором строковых значений:
+>Пример: Создать локальное поле типа «Выпадающий список» с фиксированным набором строковых значений:
 >
 >- Используется HTTP-метод POST.
 >- Создается локальное поле для очереди DESIGN.
 >- Тип поля: `FixedListOptionsProvider`.
->- Значения в выпадающем списке: <q>первый элемент списка</q>, <q>второй элемент списка</q>, <q>третий элемент списка</q>.
+>- Значения в выпадающем списке: «первый элемент списка», «второй элемент списка», «третий элемент списка».
 >
 >```json
 >POST /v2/queues/DESIGN/localFields
@@ -92,7 +92,7 @@ values | Значения для выпадающего списка. | Масс
 >    "ru": "Название на русском языке"
 >},
 >"id": "loc_field_key",
->"category": "000000000000000000000003",
+>"category": "0000000000000003********",
 >"type": "ru.yandex.startrek.core.fields.StringFieldType",
 >"optionsProvider": {
 >    "type": "FixedListOptionsProvider",
@@ -119,7 +119,7 @@ values | Значения для выпадающего списка. | Масс
      {
         "type": "local",
         "self": "https://{{ host }}/v2/queues/ORG/localFields/loc_field_key",
-        "id": "6054ae3a2b6b2c7f80bb9a93--loc_field_key",
+        "id": "6054ae3a2b6b2c7f********--loc_field_key",
         "name": "Название поля на русском языке",
         "description": "Описание локального поля",
         "key": "loc_field_key",
@@ -136,8 +136,8 @@ values | Значения для выпадающего списка. | Масс
         },
         "order": 100, 
         "category": {
-            "self": "https://{{ host }}/v2/fields/categories/000000000000000000000003",
-            "id": "000000000000000000000003",
+            "self": "https://{{ host }}/v2/fields/categories/0000000000000003********",
+            "id": "0000000000000003********",
             "display": "category_name"
         }    
      }

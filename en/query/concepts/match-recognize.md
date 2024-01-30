@@ -2,7 +2,7 @@
 
 A **data pattern** is a combination of events, as well as conditions and correlations between these events, used to track various regularities and detect events. Pattern searching is used for analyzing and monitoring event streams in real time, enabling prompt response to changes and making crucial decisions. In data analysis systems, a data pattern builds a rule by which the system determines whether the incoming event stream meets certain criteria; this results in triggering specific actions or notifications.
 
-Here is a hands-on example of pattern processing in a data stream created by an IoT device with buttons and events triggered by their activation. Let's assume you need to find and process the following sequence of button presses: `button 1`, `button 2`, and `button 3`. The data is transmitted as JSON strings, which are distributed across the `ts` and `button` columns of the `input_stream` data stream using [data bindings](glossary.md#binding).
+Here is a hands-on example of pattern processing in a data stream produced by an IoT device, where pressing its buttons triggers certain events. Let's assume you need to find and process the following sequence of button presses: `button 1`, `button 2`, and `button 3`. The data is transmitted as JSON strings, which are distributed across the `ts` and `button` columns of the `input_stream` data stream using [data bindings](glossary.md#binding).
 
 The structure of the transmitted data is as follows:
 ```json
@@ -203,7 +203,7 @@ Result:
 
 ##### **Example 2** {#match-example2}
 
-When a quantifier allowing multiple matches is applied to the first pattern variable, one row will be added to the result for each match of this element. As a result, the number of resulting rows will equal the number of matches of the first element in the pattern.
+When a quantifier that allows multiple matches is applied to the first pattern variable, one row will be added to the result for each match of this element. As a result, the number of resulting rows will equal the number of matches of the first element in the pattern.
 
 ```sql
 MEASURES

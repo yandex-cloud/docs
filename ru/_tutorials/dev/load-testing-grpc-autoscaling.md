@@ -300,8 +300,7 @@
      api_address: loadtesting.{{ api-host }}:443
    ```
 
-   Где:
-   * `target` — название вашего сайта и порт (для HTTPS: 443).
+   Где `target` — название вашего сайта и порт (для HTTPS: 443).
 1. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и выберите сохраненный ранее файл `ammo.json`.

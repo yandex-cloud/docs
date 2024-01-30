@@ -4,17 +4,22 @@ To authenticate in {{ yandex-cloud }} and manage YDB databases via Terraform, yo
 
 You can create and set up a service account by following this guide:
 1. In the management console, select the folder to create a service account in.
+
 1. In the **Service accounts** tab, click `Create service account`.
-1. Enter a name for the service account:
-   * 3 to 63 characters long.
-   * The name may contain lowercase Latin letters, numbers, and hyphens.
-   * The first character of the name must be a letter, the last one cannot be a hyphen.
+
+1. Enter a name for the service account.
+    * 3 to 63 characters long.
+    * The name may contain lowercase Latin letters, numbers, and hyphens.
+    * The first character of the name must be a letter, the last one cannot be a hyphen.
 1. Assign the service account the roles required to manage YDB resources: `admin`, `ydb.admin`.
+
 1. Click **Create**.
- 
+
 Go to **Service account** and create an authorized key for Terraform authentication in {{ yandex-cloud }}:
 1. Click `Create new key` and select `Create authorized key`.
+
 1. Enter the **Key description** (optional) and click **Create**.
+
 1. Click **Download key file** to download the key file locally.
 
 Now to the final step in authentication setup: create a special profile for connecting to {{ yandex-cloud }} on the local machine using yc CLI.
@@ -34,15 +39,19 @@ Where:
 * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
 Add authentication data to environment variables:
-{% list tabs %}
-- Bash
+
+{% list tabs group=programming_language %}
+
+- Bash {#bash}
+
    ```bash
    export YC_TOKEN=$(yc iam create-token)
    export YC_CLOUD_ID=$(yc config get cloud-id)
    export YC_FOLDER_ID=$(yc config get folder-id)
    ```
 
-- PowerShell
+- PowerShell {#powershell}
+
    ```powershell
    $Env:YC_TOKEN=$(yc iam create-token)
    $Env:YC_CLOUD_ID=$(yc config get cloud-id)

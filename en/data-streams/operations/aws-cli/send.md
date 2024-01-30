@@ -1,15 +1,15 @@
 ---
-title: "Tutorial on sending the data from {{ ydb-full-name }} to an AWS CLI stream"
-description: "In this tutorial, you'll learn how to send data from {{ ydb-full-name }} to an AWS CLI stream."
+title: "How to send data from {{ ydb-full-name }} to an AWS CLI stream"
+description: "In this tutorial, you will learn how to send data from {{ ydb-full-name }} to an AWS CLI stream."
 ---
 
 # Sending data to a stream in the AWS CLI
 
 {% include [trigger](../../../_includes/data-streams/trigger.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   To send data to a [stream](../../concepts/glossary.md#stream-concepts), run the command:
 
@@ -25,13 +25,13 @@ description: "In this tutorial, you'll learn how to send data from {{ ydb-full-n
   Where:
 
   * `--endpoint`: Specify the endpoint `https://yds.serverless.yandexcloud.net` to send data to a stream over the AWS Kinesis Data Streams protocol.
-  * `--stream-name`: Consists of the availability zone, the folder ID, the {{ ydb-full-name }} database ID, and the stream name.
+  * `--stream-name`: Consists of the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-    > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
-    > * `aws_stream`: Stream name.
-    > * `{{ region-id }}`: Region.
-    > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
-    > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
+    > For example, specify the `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` stream ID if:
+    > * `aws_stream`: Stream name
+    > * `{{ region-id }}`: Region
+    > * `aoeu1kuk2dhtaupdb1es`: Folder ID
+    > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID
   * `--cli-binary-format`: Binary object format.
   * `--data`: Transmitted data.
   * `--partition-key`: [Shard](../../concepts/glossary.md#shard) in the stream where the data is sent.

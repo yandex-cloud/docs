@@ -48,7 +48,7 @@
    helm install \
      --namespace <пространство_имен> \
      --create-namespace \
-     --set config.folder_id=<идентификатор_каталога,_в_котором_находится_зона_Cloud_DNS> \
+     --set config.folder_id=<идентификатор_каталога_с_DNS-зоной> \
      --set-file config.auth.json=<путь_к_файлу_с_авторизованным_ключом_сервисного_аккаунта> \
      externaldns ./externaldns/
     ```

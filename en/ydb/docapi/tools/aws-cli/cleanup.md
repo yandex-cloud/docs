@@ -3,13 +3,13 @@ title: "How to delete created resources in {{ ydb-full-name }}"
 description: "Follow this guide to delete the resources you created."
 ---
 
-# Deleting created resources
+# Deletе the resources you created
 
 If you no longer need the `series` table, delete it:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* AWS CLI
+* AWS CLI {#cli}
 
    Run the command by replacing `https://your-database-endpoint` with the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
 

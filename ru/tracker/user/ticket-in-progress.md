@@ -15,7 +15,7 @@
 
 {% endnote %}
 
-> Ваша задача находится в статусе <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>. Начиная работать над задачей, переведите ее в статус <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>. После того как задача будет решена, измените ее статус на <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>. Если позже вам понадобится вернуться к задаче, вы можете снова перевести ее в статус <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>.
+> Ваша задача находится в статусе «{{ ui-key.startrek-backend.applinks.samsara.status.open }}». Начиная работать над задачей, переведите ее в статус «{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}». После того как задача будет решена, измените ее статус на «{{ ui-key.startrek-backend.applinks.samsara.status.closed }}». Если позже вам понадобится вернуться к задаче, вы можете снова перевести ее в статус «{{ ui-key.startrek-backend.applinks.samsara.status.open }}».
 
 ## Работать над задачей {#section_c3t_l53_d1b}
 
@@ -32,9 +32,9 @@
 
 ## Закрыть задачу {#section_kyj_gbm_2z}
 
-Когда вы закончите работать над задачей, переведите ее в финальный статус (обычно это статус <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>) и выберите **резолюцию** — причину, по которой работа над задачей окончена. Список доступных резолюций зависит от [настроек очереди](../manager/add-ticket-type.md).
+Когда вы закончите работать над задачей, переведите ее в финальный статус (обычно это статус «{{ ui-key.startrek-backend.applinks.samsara.status.closed }}») и выберите **резолюцию** — причину, по которой работа над задачей окончена. Список доступных резолюций зависит от [настроек очереди](../manager/add-ticket-type.md).
 
-> Задачу, над которой вы работаете, решили отменить. Чтобы зафиксировать это в {{ tracker-name }}, переведите задачу в статус <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q> и укажите резолюцию <q>Отменено</q>.
+> Задачу, над которой вы работаете, решили отменить. Чтобы зафиксировать это в {{ tracker-name }}, переведите задачу в статус «{{ ui-key.startrek-backend.applinks.samsara.status.closed }}» и укажите резолюцию «Отменено».
 
 
 

@@ -1,13 +1,13 @@
 ---
 title: "Getting stream information"
-description: "This guide describes how you can get information about a stream."
+description: "Follow this guide to get information about a stream."
 ---
 
 # Getting stream information
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To get a description of the created [stream](../../concepts/glossary.md#stream-concepts), run the command:
 
@@ -18,13 +18,13 @@ description: "This guide describes how you can get information about a stream."
    ```
 
    * `--endpoint`: Specify the `https://yds.serverless.yandexcloud.net` endpoint to get information about the stream that data is sent to over the AWS Kinesis Data Streams protocol.
-   * `--stream-name`: Consists of the availability zone, the folder ID, the {{ ydb-full-name }} database ID, and the stream name.
+   * `--stream-name`: Consists of the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
-      > * `aws_stream`: Stream name.
-      > * `{{ region-id }}`: Region.
-      > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
-      > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
+      > For example, specify the `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` stream ID if:
+      > * `aws_stream`: Stream name
+      > * `{{ region-id }}`: Region
+      > * `aoeu1kuk2dhtaupdb1es`: Folder ID
+      > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID
 
    Command example:
 

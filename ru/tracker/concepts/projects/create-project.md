@@ -20,8 +20,8 @@ Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
-    "name": "Название проекта",
-    "queues": "<ключ очереди>"
+    "name": "<название_проекта>",
+    "queues": "<ключ_очереди>"
 }
 ```
 
@@ -68,8 +68,8 @@ endDate | Дата завершения проекта в формате `YYYY-M
         "name": "Проект",
         "description": "Новый проект",
         "lead": {
-            "self": "https://{{ host }}/v2/users/12314567890",
-            "id": "1234567890",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "status": "launched",

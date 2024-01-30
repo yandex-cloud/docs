@@ -13,9 +13,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 ### Creating a serverless database {#create-db-serverless}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -30,7 +30,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    Wait for the database status to change to `Running`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -77,7 +77,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    Every serverless database is created with geographic redundancy in three [availability zones](../../overview/concepts/geo-scope.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -136,7 +136,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    > }
    > ```
 
-- API
+- API {#api}
 
    To create a serverless database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -149,9 +149,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 ### Updating serverless database parameters {#update-db-serverless}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -162,7 +162,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-billing }}**, set the [provisioned throughput capacity](../pricing/serverless.md#prices-ru).
    1. Click **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -192,7 +192,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       >   --sls-throttling-rcu 100
       > ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -249,7 +249,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    > }
    > ```
 
-- API
+- API {#api}
 
    To change the serverless database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and specify the database ID in the `databaseId` request parameter.
 
@@ -273,9 +273,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 ### Creating a dedicated database {#create-db-dedicated}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -315,7 +315,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    Wait for the database status to change to `Running`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -376,7 +376,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       >   --async
       > ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -450,7 +450,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    > }
    > ```
 
-- API
+- API {#api}
 
    To create a dedicated database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -467,9 +467,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 ### Updating dedicated database parameters {#update-db-dedicated}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -480,7 +480,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       1. Under **{{ ui-key.yacloud.ydb.forms.label_section-storage }}**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
    1. Click **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -505,7 +505,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    You cannot decrease the number of storage groups.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -540,7 +540,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    yc ydb database get <DB_name>
    ```
 
-- API
+- API {#api}
 
    To change the dedicated database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and specify the database ID in the `databaseId` request parameter.
 
@@ -554,14 +554,14 @@ To move a database to a different availability zone, follow [this guide](migrati
 
 ## Viewing the list of databases {#list-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to get a list of databases for.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -573,7 +573,7 @@ To move a database to a different availability zone, follow [this guide](migrati
    yc ydb database list
    ```
 
-- API
+- API {#api}
 
    To get a list of databases in the folder, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
@@ -581,16 +581,16 @@ To move a database to a different availability zone, follow [this guide](migrati
 
 ## Deleting a database {#delete-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the DB from.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
    1. Confirm the deletion.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -602,7 +602,7 @@ To move a database to a different availability zone, follow [this guide](migrati
    yc ydb database delete <DB_name>
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -641,7 +641,7 @@ To move a database to a different availability zone, follow [this guide](migrati
    yc ydb database list
    ```
 
-- API
+- API {#api}
 
    To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and specify the deleted database ID in the `databaseId` request parameter.
 

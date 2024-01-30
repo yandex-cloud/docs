@@ -7,9 +7,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
 
 To conditionally delete a record from the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesItemOps06` project:
 
@@ -215,7 +215,7 @@ To conditionally delete a record from the `Series` table:
       Series data deleted.
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesItemOps06.py` file, for example, using the nano editor:
 
@@ -315,7 +315,7 @@ To conditionally delete a record from the `Series` table:
                             'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesItemOps06.php` file, for example, using the nano editor:
 
@@ -423,7 +423,7 @@ To conditionally delete a record from the `Series` table:
       Record deleted.
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesItemOps06.js` file, for example, using the nano editor:
 
@@ -477,7 +477,7 @@ To conditionally delete a record from the `Series` table:
           })
       ```
 
-      You can delete a single item by specifying its primary key using the command `DeleteItemCommand`. If necessary, you can specify the `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
+      You can delete a single record by specifying its primary key using the `DeleteItemCommand` command. If necessary, you can specify the `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
 
    1. Run the program:
 
@@ -520,7 +520,7 @@ To conditionally delete a record from the `Series` table:
       Deletion successful: {}
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesItemOps06.rb` file, for example, using the nano editor:
 

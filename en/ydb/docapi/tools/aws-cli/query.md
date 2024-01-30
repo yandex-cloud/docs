@@ -7,9 +7,9 @@ description: "Follow this guide to select data from a table."
 
 To select data from the `series` table by the `series_id` key:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    Run the command by replacing `https://your-database-endpoint` with the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
 

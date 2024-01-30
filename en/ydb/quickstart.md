@@ -28,9 +28,9 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
 ### Create a serverless database {#serverless}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -46,7 +46,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
   Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
   1. Create a database:
@@ -87,7 +87,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. Check the status of the created database:
 
      ```bash
-     yc ydb database get <name>
+     yc ydb database get <DB_name>
      ```
 
      Where `DB_name` is the name of the new DB.
@@ -98,9 +98,9 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
 ### Create a database on dedicated servers {#dedicated}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -135,7 +135,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
      Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -219,7 +219,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. Check the status of the created database:
 
      ```bash
-     yc ydb database get <name>
+     yc ydb database get <DB_name>
      ```
 
      Where `DB_name` is the name of the new DB.
@@ -230,9 +230,9 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
 ## Run a query to the database {#query}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is located.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -253,7 +253,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
      0 1
      ```
 
-- {{ ydb-short-name }} CLI
+- {{ ydb-short-name }} CLI {#cli}
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 

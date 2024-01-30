@@ -75,7 +75,7 @@ resolutions | Массив с идентификаторами или ключа
            "version": 1400150916068,
            "name": "Дизайн",
            "lead": {
-              "self": "https://{{ host }}/v2/users/1120000000004859",
+              "self": "https://{{ host }}/v2/users/44********",
               "id": "artemredkin",
               "display": "Artem Redkin"
         },

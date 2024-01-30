@@ -12,15 +12,15 @@ sourcePath: ru/tracker/api-ref/concepts/issues/add-checklist-item.md
 Чтобы создать чеклист или добавить в него новые пункты, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
 ```json
-POST /{{ ver }}/issues/<issue-id>/checklistItems
+POST /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
-    "text": "<Текст пункта>",
+    "text": "<текст_пункта>",
     "checked": true,
-    "assignee" : "1134669209",
+    "assignee" : "<логин_или_идентификатор_пользователя>",
     "deadline": {
             "date": "2021-05-09T00:00:00.000+0000",
             "deadlineType": "date"
@@ -72,22 +72,22 @@ deadlineType | Тип данных параметра `deadline`. | Строка
     ```json
     {
         "self": "https://{{ host }}/v2/issues/ORG-3",
-        "id": "5f981c00b982f0755dbdc13d",
+        "id": "5f981c00b982f075********",
         "key": "ORG-3",
         "version": 133,
         "lastCommentUpdatedAt": "2020-12-13T13:18:22.965+0000",
         "pendingReplyFrom": [
             {
-                "self": "https://{{ host }}/v2/users/1134669289",
-                "id": "id сотрудника",
+                "self": "https://{{ host }}/v2/users/12********",
+                "id": "12********",
                 "display": "Имя Фамилия"
             }
         ],
         "summary": "Название задачи",
         "statusStartTime": "2020-11-03T11:19:24.733+0000",
         "updatedBy": {
-            "self": "https://{{ host }}/v2/users/19904929",
-            "id": "id сотрудника",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "description": "Описание задачи",
@@ -104,26 +104,26 @@ deadlineType | Тип данных параметра `deadline`. | Строка
             "display": "Средний"
         },
         "previousStatusLastAssignee": {
-            "self": "https://{{ host }}/v2/users/1134669289",
-            "id": "id сотрудника",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "createdAt": "2020-10-27T13:09:20.085+0000",
         "followers": [
             {
-                "self": "https://{{ host }}/v2/users/19904929",
-                "id": "id сотрудника",
+                "self": "https://{{ host }}/v2/users/12********",
+                "id": "12********",
                 "display": "Имя Фамилия"
             }
         ],
         "createdBy": {
-            "self": "https://{{ host }}/v2/users/1134669289",
-            "id": "id сотрудника",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "checklistItems": [
             {
-                "id": "5fde5f0a1aee261dd3b62edb",
+                "id": "5fde5f0a1aee261d********",
                 "text": "пункт чеклиста",
                 "textHtml": "текст пункта в формате HTML",
                 "checked": false,
@@ -132,8 +132,8 @@ deadlineType | Тип данных параметра `deadline`. | Строка
         ],
         "votes": 0,
         "assignee": {
-            "self": "https://{{ host }}/v2/users/1134669289",
-            "id": "id сотрудника",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "deadline": "2020-10-28",

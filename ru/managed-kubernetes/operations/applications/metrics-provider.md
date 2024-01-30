@@ -77,12 +77,12 @@
      --set yandexMetrics.downsampling.gapFilling=<заполнение_данных> \
      --set yandexMetrics.downsampling.maxPoints=<максимальное_количество_точек> \
      --set yandexMetrics.downsampling.gridInterval=<ширина_временного_окна_прореживания> \
-     --set yandexMetrics.downsampling.disabled=<true_или_false> \
+     --set yandexMetrics.downsampling.disabled=<режим_прореживания_данных> \
      metric-provider ./chart/
    ```
 
    Обязательные параметры:
-   * `namespace` — [пространство имен](../../concepts/index.md#namespace), где будет развернут провайдер.
+   * `--namespace` — [пространство имен](../../concepts/index.md#namespace), где будет развернут провайдер.
    * `yandexMetrics.folderId` — [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать провайдер.
    * `window` — ширина временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например `5d10h30m20s`).
    * `yandexMetrics.token.serviceAccountJson` — путь к файлу со статическим ключом сервисного аккаунта с ролью `monitoring.viewer`.
@@ -95,7 +95,7 @@
      * `PREVIOUS` — возвращает значение из предыдущей точки.
    * `yandexMetrics.downsampling.maxPoints` — максимальное количество точек, которое будет получено в ответе на запрос. Значение параметра должно быть больше `10`.
    * `yandexMetrics.downsampling.gridInterval` — ширину временного окна (сетки) в миллисекундах. Используется для прореживания: точки внутри окна объединяются в одну при помощи функции агрегации. Значение параметра должно быть больше `0`.
-   * `yandexMetrics.downsampling.disabled` — отключение прореживания данных.
+   * `yandexMetrics.downsampling.disabled` — отключение прореживания данных. Возможные значения: `true` или `false`.
 
      {% note info %}
 

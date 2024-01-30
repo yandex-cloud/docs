@@ -120,6 +120,10 @@ items:
   - name: Справочник ролей
     href: roles-reference.md
     hidden: true
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/iam/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -294,6 +298,8 @@ items:
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

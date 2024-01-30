@@ -30,7 +30,7 @@ description: "По умолчанию {{ tracker-name }} отправляет в
 
 <!---1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}-->
 
-1. Перейдите по ссылке [{{ link-tracker }} settings]({{ link-settings }}).
+1. Перейдите по ссылке [{{ link-tracker }}settings]({{ link-settings }}).
 
 1. В блоке **Имя отправителя в письмах** выберите нужный вариант.
 

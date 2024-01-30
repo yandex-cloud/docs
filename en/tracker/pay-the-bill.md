@@ -80,13 +80,13 @@ To check your account balance:
 
 You can view the full history of payments to your billing account on the **{{ ui-key.yacloud.billing.account.switch_history }}** page or in Yandex&#160;Balance. The payer type affects how the deposit history is tracked.
 
-{% list tabs %}
+{% list tabs group=customers %}
 
-- Businesses and individual entrepreneurs
+- Businesses and individual entrepreneurs {#businesses}
 
    Organizations and individual entrepreneurs can track their full deposit history in Yandex Balance on the [Invoices]({{ link-balance-invoices }}) page.
 
-- Individuals
+- Individuals {#individuals}
 
    1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 

@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-transitions.md
 Для получения списка возможных переходов используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /v2/issues/<issue-id>/transitions
+GET /v2/issues/<ключ_или_идентификатор_задачи>/transitions
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}

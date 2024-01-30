@@ -7,6 +7,24 @@ description: "Видеозаписи конференций и вебинаро�
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+### 2024: Анонс {#announcement-2024}
+
+* Новые возможности работы с моделями.
+
+  * [Видео](https://www.youtube.com/watch?v=3W5ePOLQg64).
+
+### 2024: Webinar {#webinar-2024}
+
+* Дообучение модели {{ yagpt-name }} в {{ ml-platform-full-name }}.
+
+  * [Видео](https://www.youtube.com/watch?v=hGrH0Shovtk).
+
+### 2024: Practical ML Conf {#ml-conf-2024}
+
+* Запуск локального ML-процесса в облаке с помощью {{ ds-jobs }}.
+
+  * [Статья](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/788872/).
+
 ### 2023: Yandex Scale {#yandex-scale-2023}
 
 * ML в {{ yandex-cloud }}: было, есть и будет.

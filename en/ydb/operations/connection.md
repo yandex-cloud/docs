@@ -13,13 +13,13 @@ To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-## Get connection parameters {#endpoint-and-path}
+## Get connection details {#endpoint-and-path}
 
 To get the database connection details:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the [management console]({{ link-console-main }}).
    1. Select the folder hosting your DB and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -32,7 +32,7 @@ To get the database connection details:
 
          > Sample DB path: `{{ ydb.path-serverless }}`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. {% include [cli-install](../../_includes/cli-install.md) %}
    1. Get a list of databases in the folder:
@@ -62,7 +62,7 @@ To get the database connection details:
       > * Endpoint: `{{ ydb.ep-dedicated }}`.
       > * Path: `{{ ydb.path-dedicated }}`.
 
-- API
+- API {#api}
 
    Use the [get](../api-ref/Database/get.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Get](../api-ref/grpc/database_service.md#Get) gRPC API call and provide the database ID in the `databaseId` request parameter.
 
@@ -139,7 +139,7 @@ Set up the selected mode:
       yc iam create-token
       ```
 
-   1. Save the received token to a file.
+   1. Save the token to a file.
    1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your IAM token in the `--iam-token-file` parameter.
 
       To avoid entering it every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile](https://ydb.tech/en/docs/reference/ydb-cli/profile/create).

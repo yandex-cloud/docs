@@ -12,13 +12,13 @@ sourcePath: ru/tracker/api-ref/concepts/issues/edit-comment.md
 Чтобы изменить комментарий, который был [добавлен к задаче](add-comment.md) ранее, используйте HTTP-запрос с методом `PATCH`. Параметр запроса передается в его теле в формате JSON:
 
 ```json
-PATCH /{{ ver }}/issues/<issue-id>/comments/<comment-id>
+PATCH /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/comments/<идентификатор_комментария>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
-   "text": "<новый текст комментария>"
+   "text": "<новый_текст_комментария>"
 }
 ```
 
@@ -28,8 +28,8 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<issue-id> | Идентификатор или ключ текущей задачи. | Строка
-\<comment-id> | [Уникальный идентификатор комментария](get-comments.md#section_xc3_53j_p1b) в числовом формате (id) или формате строки (longId). | Строка или число
+\<ключ_или_идентификатор_задачи> | Идентификатор или ключ текущей задачи. | Строка
+\<идентификатор_комментария> | [Уникальный идентификатор комментария](get-comments.md#section_xc3_53j_p1b) в числовом формате (id) или формате строки (longId). | Строка или число
 
 {% endcut %} 
 
@@ -65,32 +65,32 @@ attachmentIds | Список [идентификаторов вложений](t
   {
     "self" : "https://{{ host }}/v2/issues/TREK-1/comments/684",
     "id" : "684",  
-    "longId" : "5fc4bc634e121b12f44a0488",  
-    "text" : "<текст комментария>",
+    "longId" : "5fc4bc634e121b12********",  
+    "text" : "Текст комментария",
     "createBody" : {
-     "self" : "https://{{ host }}/v2/users/1120000000016876",
-     "id" : "<id пользователя>",
-     "display" : "<отображаемое имя пользователя>"
+     "self" : "https://{{ host }}/v2/users/11********",
+     "id" : "11********",
+     "display" : "Иван Иванов"
     },
     "updateBody" : {
-     "self" : "https://{{ host }}/v2/users/1120000000016876",
-     "id" : "<id пользователя>",
-     "display" : "<отображаемое имя пользователя>"
+     "self" : "https://{{ host }}/v2/users/11********",
+     "id" : "11********",
+     "display" : "Иван Иванов"
     },
     "createdAt" : "2020-11-30T09:33:23.638+0000",  
     "updatedAt" : "2020-11-30T09:39:07.631+0000",  
     "summonees" : [
      { 
-      "self" : "https://{{ host }}/v2/users/1120000000016576",
-      "id" : "<id пользователя>",
-      "display" : "<отображаемое имя пользователя>"
+      "self" : "https://{{ host }}/v2/users/11********",
+      "id" : "11********",
+      "display" : "Иван Иванов"
      } 
     ],
    "maillistSummonees" : [
      { 
       "self" : "https://{{ host }}/v2/maillists/usertest@test.ru",
-      "id" : "<адрес рассылки>",
-      "display" : "<отображаемое имя рассылки>"
+      "id" : "usertest@test.ru",
+      "display" : "Рассылка от Ивана"
      } 
     ], 
     "version" : 2,  

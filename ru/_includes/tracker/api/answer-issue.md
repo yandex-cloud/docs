@@ -2,14 +2,14 @@
 [
     {
     "self": "https://{{ host }}/v2/issues/TREK-9844",
-    "id": "593cd211ef7e8a332414f2a7",
+    "id": "593cd211ef7e8a33********",
     "key": "TREK-9844",
     "version": 7,
     "lastCommentUpdatedAt": "2017-07-18T13:33:44.291+0000",
     "summary": "subtask",
     "parent": {
         "self": "https://{{ host }}/v2/issues/JUNE-2",
-        "id": "593cd0acef7e8a332414f28e",
+        "id": "593cd0acef7e8a33********",
         "key": "JUNE-2",
         "display": "Task"
         },
@@ -18,15 +18,15 @@
         ],
 
     "updatedBy": {
-        "self": "https://{{ host }}/v2/users/1120000000016876",
-        "id": "<id сотрудника>",
-        "display": "<отображаемое имя сотрудника>"
+        "self": "https://{{ host }}/v2/users/11********",
+        "id": "11********",
+        "display": "Иван Иванов"
         },
     "description": "<#<html><head></head><body><div>test</div><div>&nbsp;</div><div>&nbsp;</div> </body></html>#>",
     "sprint": [
             {
-        "self": "https://{{ host }}/v2/sprints/5317",
-        "id": "5317",
+        "self": "https://{{ host }}/v2/sprints/53**",
+        "id": "53**",
         "display": "спринт1"
             }
         ],
@@ -46,21 +46,21 @@
     "createdAt": "2017-06-11T05:16:01.339+0000",
     "followers": [
         {
-        "self": "https://{{ host }}/v2/users/1120000000016876",
-        "id": "<id сотрудника>",
-        "display": "<отображаемое имя сотрудника>"
+        "self": "https://{{ host }}/v2/users/11********",
+        "id": "11********",
+        "display": "Иван Иванов"
         }
         ],
     "createdBy": {
-        "self": "https://{{ host }}/v2/users/1120000000049224",
-        "id": "<id сотрудника>",
-        "display": "<отображаемое имя сотрудника>"
+        "self": "https://{{ host }}/v2/users/11********",
+        "id": "11********",
+        "display": "Иван Иванов"
         },
     "votes": 0,
     "assignee": {
-        "self": "https://{{ host }}/v2/users/1120000000049224",
-        "id": "<id сотрудника>",
-        "display": "<отображаемое имя сотрудника>"
+        "self": "https://{{ host }}/v2/users/11********",
+        "id": "11********",
+        "display": "Иван Иванов"
         },
     "project": {
         "display": "Проект Стартрек",

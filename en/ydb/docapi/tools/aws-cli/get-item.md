@@ -7,9 +7,9 @@ description: "Follow this guide to read data from a table."
 
 To read data from the `series` table:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* AWS CLI
+* AWS CLI {#cli}
 
    Run the command by replacing `https://your-database-endpoint` with the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
 

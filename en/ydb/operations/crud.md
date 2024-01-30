@@ -128,7 +128,7 @@ VALUES
 
 ### INSERT {#insert}
 
-The [INSERT](https://ydb.tech/en/docs/yql/reference/syntax/insert_into) statement is used to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the error message `Transaction rolled back due to constraint violation: insert_pk.`.
+The [INSERT](https://ydb.tech/en/docs/yql/reference/syntax/insert_into) statement is used to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the following error message: `Transaction rolled back due to constraint violation: insert_pk.`.
 
 {% note info %}
 
@@ -166,7 +166,7 @@ The [UPDATE](https://ydb.tech/en/docs/yql/reference/syntax/update) statement cha
 UPDATE <table_name> SET <column_1_name>=<new_column_1_value>, ... ,<column_N_name>=<new_column_N_value> WHERE <condition_for_row_filter>;
 ```
 
-UPDATE statements can't change primary key values. Enter and execute the following UPDATE statement to change the value of the `title` column from "Test Episode" to "Test Episode Updated" for the episode with `series_id = 2`, `season_id = 1`, and `episode_id = 3`.
+UPDATE statements cannot change primary key values. Enter and execute the following UPDATE statement to change the value of the `title` column from "Test Episode" to "Test Episode Updated" for the episode with `series_id = 2`, `season_id = 1`, and `episode_id = 3`.
 
 ```sql
 UPDATE episodes

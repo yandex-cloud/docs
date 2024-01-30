@@ -10,9 +10,9 @@ sourcePath: ru/tracker/api-ref/concepts/issues/issue-worklog.md
 Чтобы получить записи о затраченном на задачу времени, используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /{{ ver }}/issues/<issue-id>/worklog
+GET /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/worklog
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
@@ -22,7 +22,7 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<issue-id\> | Идентификатор или ключ задачи. | Строка
+\<ключ_или_идентификатор_задачи\> | Идентификатор или ключ задачи. | Строка
 
 {% endcut %}
 
@@ -44,18 +44,18 @@ Authorization: OAuth <токен>
       "version": 1402121720882,
       "issue": {
         "self": "https://{{ host }}/v2/issues/TEST-324",
-        "id": "515ec9eae4b09cfa984e2047",
+        "id": "515ec9eae4b09cfa********",
         "key": "TEST-324",
         "display": "важная задача"
         },
       "comment": "важный комментарий",
       "createdBy": {
-        "self": "https://{{ host }}/v2/users/1120000000014909",
+        "self": "https://{{ host }}/v2/users/66********",
         "id": "veikus",
         "display": "Artem Veikus"
         },
       "updatedBy": {
-        "self": "https://{{ host }}/v2/users/1120000000014909",
+        "self": "https://{{ host }}/v2/users/66********",
         "id": "veikus",
         "display": "Artem Veikus"
         },

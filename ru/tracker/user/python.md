@@ -20,9 +20,9 @@
 1. Инициализируйте клиент в коде вашей программы:
     ```
     from yandex_tracker_client import TrackerClient
-    client = TrackerClient(token='<token>', org_id='<org_id>')
+    client = TrackerClient(token='<OAuth-токен>', org_id='<идентификатор_организации>')
     ```
-    Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации.
+    Здесь `<OAuth-токен>` — ваш OAuth-токен, а `<идентификатор_организации>` — идентификатор организации.
 
 В клиенте используйте такой же формат данных, как в [API {{ tracker-name }}](../concepts/access.md).
 

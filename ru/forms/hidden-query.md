@@ -17,10 +17,10 @@
 1. [Получите ссылку на форму](publish.md#section_link) и добавьте в конец URL-адреса GET-параметр `?utm_source=site_name_1`.
 
     - Пример ссылки на форму без GET-параметра: 
-      `{{ link-forms }}u/6191b18d99e21b1b45b9c82/`
+      `{{ link-forms }}u/6191b18d99e21b1********/`
 
     - Пример ссылки на форму с GET-параметром: 
-      `{{ link-forms }}u/6191b18d99e21b1b45b9c82?utm_source=site_name_1`
+      `{{ link-forms }}u/6191b18d99e21b1********?utm_source=site_name_1`
 
 1. Разместите ссылку на форму с GET-параметром на веб-сайте.
 

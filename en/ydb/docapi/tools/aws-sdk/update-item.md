@@ -11,9 +11,9 @@ In the following example, the value of the existing `release_date` attribute is 
 
 To update a movie record in the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesItemOps03` project:
 
@@ -209,7 +209,7 @@ To update a movie record in the `Series` table:
       }
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesItemOps03.py` file, for example, using the nano editor:
 
@@ -286,7 +286,7 @@ To update a movie record in the `Series` table:
                              'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesItemOps03.php` file, for example, using the nano editor:
 
@@ -394,7 +394,7 @@ To update a movie record in the `Series` table:
       }
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesItemOps03.js` file, for example, using the nano editor:
 
@@ -472,7 +472,7 @@ To update a movie record in the `Series` table:
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesItemOps03.rb` file, for example, using the nano editor:
 
@@ -576,9 +576,9 @@ To update a movie record in the `Series` table:
 
 To increase the `rating` atomic counter for a series:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesItemOps04` project:
 
@@ -768,7 +768,7 @@ To increase the `rating` atomic counter for a series:
       }
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesItemOps04.py` file, for example, using the nano editor:
 
@@ -841,7 +841,7 @@ To increase the `rating` atomic counter for a series:
                              'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesItemOps04.php` file, for example, using the nano editor:
 
@@ -944,7 +944,7 @@ To increase the `rating` atomic counter for a series:
       }
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesItemOps04.js` file, for example, using the nano editor:
 
@@ -1022,7 +1022,7 @@ To increase the `rating` atomic counter for a series:
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesItemOps04.rb` file, for example, using the nano editor:
 
@@ -1121,9 +1121,9 @@ To increase the `rating` atomic counter for a series:
 
 To update a record in the `Series` table when the condition is satisfied:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesItemOps05` project:
 
@@ -1340,7 +1340,7 @@ To update a record in the `Series` table when the condition is satisfied:
       }
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesItemOps05.py` file, for example, using the nano editor:
 
@@ -1444,7 +1444,7 @@ To update a record in the `Series` table when the condition is satisfied:
                              'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesItemOps05.php` file, for example, using the nano editor:
 
@@ -1571,7 +1571,7 @@ To update a record in the `Series` table when the condition is satisfied:
       }
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesItemOps05.js` file, for example, using the nano editor:
 
@@ -1676,7 +1676,7 @@ To update a record in the `Series` table when the condition is satisfied:
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesItemOps05.rb` file, for example, using the nano editor:
 

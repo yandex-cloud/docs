@@ -87,7 +87,7 @@ To add a note to a column:
 
 1. Open the board page.
 
-1. At the top of the column, click ![](../../_assets/tracker/svg/actions.svg), then select ![](../../_assets/tracker/svg/icon-note.svg)&nbsp;**Add note**.
+1. At the top of the column, click ![](../../_assets/tracker/svg/actions.svg), then select ![](../../_assets/tracker/svg/icon-note.svg)&nbsp;**Add a note**.
 
 1. Enter the text of your note. Use buttons on the panel to format the text if needed.
 

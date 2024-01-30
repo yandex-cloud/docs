@@ -7,9 +7,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
 To create a table named `Series` with the `series_id` partition key and the `title` sort key:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesCreateTable` project:
 
@@ -194,7 +194,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       Table status: ACTIVE
       ```
 
-- Python
+- Python {#python}
 
    The code below uses the `print` function from Python 3. To use this function in Python 2.6 or higher, add the `from __future__ import print_function` line at the beginning of the file.
 
@@ -261,7 +261,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       Table status: ACTIVE
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesCreateTable.php` file, for example, using the nano editor:
 
@@ -343,7 +343,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       Table status: ACTIVE
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesCreateTable.js` file, for example, using the nano editor:
 
@@ -427,7 +427,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesCreateTable.rb` file, for example, using the nano editor:
 

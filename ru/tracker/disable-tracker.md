@@ -15,7 +15,7 @@
 
 {% note info %}
 
-Чтобы не платить за использование {{ tracker-name }}, вы можете отключить платные возможности и оставить сотрудникам только бесплатный доступ в режиме [<q>{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_read_only }}</q>](access.md#readonly). Полностью отключить {{ tracker-name }} невозможно. 
+Чтобы не платить за использование {{ tracker-name }}, вы можете отключить платные возможности и оставить сотрудникам только бесплатный доступ в режиме [«{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_read_only }}»](access.md#readonly). Полностью отключить {{ tracker-name }} невозможно. 
 
 {% endnote %}
 

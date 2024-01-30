@@ -1,4 +1,4 @@
-# Managing streams
+# Managing data streams
 
 You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#stream-concepts), [edit](#edit-data-stream) their settings, [create](#create-data-stream) a new stream, or [delete](#delete-data-stream) an existing one.
 
@@ -8,9 +8,9 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 
 ## Viewing a list of streams {#list-data-streams}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to get the list of streams for.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**. A list of streams opens.
@@ -19,9 +19,9 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 
 ## Change stream settings {#edit-data-stream}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the stream settings.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
@@ -39,9 +39,9 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 
 ## Deleting a stream {#delete-data-stream}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete a stream from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.

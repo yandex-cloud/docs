@@ -183,28 +183,28 @@
           'SHA512': hashes.SHA512
       }
 
-  # Check if the provided hash algorithm is supported
-  if hash_algorithm not in hash_algorithms:
-      raise ValueError('Unsupported hash algorithm: ' + hash_algorithm)
+      # Check if the provided hash algorithm is supported
+      if hash_algorithm not in hash_algorithms:
+          raise ValueError('Unsupported hash algorithm: ' + hash_algorithm)
 
-  # Loading a PEM Encoded Public Key
-  public_key = serialization.load_pem_public_key(
-      public_key_b64.encode(),
-      backend = default_backend()
-  )
+      # Loading a PEM Encoded Public Key
+      public_key = serialization.load_pem_public_key(
+          public_key_b64.encode(),
+          backend = default_backend()
+      )
 
-  # Create Signature object and initialize it with the public key
-  signature = ec.ECDSA(hash_algorithms[hash_algorithm]())
+      # Create Signature object and initialize it with the public key
+      signature = ec.ECDSA(hash_algorithms[hash_algorithm]())
 
-  # Update the Signature object with the message data
-  message_bytes = message.encode()
+      # Update the Signature object with the message data
+      message_bytes = message.encode()
 
-  # Verify the signature using the original message and the decoded signature
-  try:
-      public_key.verify(signature_der, message_bytes, signature)
-      return True
-  except InvalidSignature:
-      return False
+      # Verify the signature using the original message and the decoded signature
+      try:
+          public_key.verify(signature_der, message_bytes, signature)
+          return True
+      except InvalidSignature:
+          return False
 
   def test_verify_signature():
       public_key_b64 = """

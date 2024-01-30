@@ -1,12 +1,12 @@
 # Monitoring processes in queues
 
-You can monitor the handling processes for messages in queues using monitoring tools in the management console. These tools display diagnostic information in the form of charts.
+You can monitor the handling processes for messages in queues using monitoring tools in the management console. These tools display diagnostic information as charts.
 
 To view this information:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the message queue belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
@@ -61,10 +61,11 @@ To view this information:
 * **Receive attempts per message, count**: The number of registered attempts to receive a message.
 
    The value increases if a message was received by the consumer but returned to the queue after the [visibility timeout](../concepts/visibility-timeout.md) expired. The lines on the chart correspond to the number of receive attempts:
-   * 0-1.
-   * 2.
-   * 3-5.
-   * More than 5.
+    
+    * 0-1
+    * 2
+    * 3-5
+    * More than 5
 
 ## Deleting messages {#delete}
 

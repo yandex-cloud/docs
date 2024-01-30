@@ -62,7 +62,7 @@
 ## П {#rus-p}
 
 Параметры задачи
-:   Параметры задачи — это такие атрибуты, как <q>{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}</q>, <q>{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}</q>, <q>{{ ui-key.startrek-backend.fields.issue.status-key-value }}</q> и так далее. Параметры можно [изменить на странице задачи](user/edit-ticket.md#edit-fields).
+:   Параметры задачи — это такие атрибуты, как «{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}», «{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}», «{{ ui-key.startrek-backend.fields.issue.status-key-value }}» и так далее. Параметры можно [изменить на странице задачи](user/edit-ticket.md#edit-fields).
 
 Призвать в комментарии
 :   Призвать пользователя в комментарии — значит указать имя пользователя при [отправке комментария к задаче](user/comments.md#call-comment), чтобы обратить его внимание на этот комментарий. Выбранному пользователю придет оповещение с текстом комментария по почте и в ![](../_assets/tracker/svg/bell_2.svg) **Уведомлениях** {{ tracker-name }} (если до этого пользователь открывал интерфейс {{ tracker-name }}).
@@ -73,7 +73,7 @@
 ## Р {#rus-r}
 
 Резолюция
-:   Резолюция — это атрибут задачи, который обозначает причину ее закрытия. Например, задача может быть закрыта, потому что она выполнена (резолюция <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}</q>) или потому что она дублирует другую задачу (резолюция <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}</q>).
+:   Резолюция — это атрибут задачи, который обозначает причину ее закрытия. Например, задача может быть закрыта, потому что она выполнена (резолюция «{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}») или потому что она дублирует другую задачу (резолюция «{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}»).
 
 ## С {#rus-s}
 
@@ -81,10 +81,10 @@
 :   Связь — это ссылка из одной задачи на другую, которая показывает зависимость между этими задачами. Например, если одна задача подчинена другой. Или выполнение одной задачи зависит от результата другой задачи. [Подробнее о связях между задачами.](user/links.md)
 
 Спринт {#sprint-definition}
-:   В [гибких методологиях](#agile) спринт — это итерация работы над проектом, обычно длится 1–4 недели. В {{ tracker-name }} можно [работать со спринтами](manager/create-agile-sprint.md) на доске задач типа <q>Скрам</q>.
+:   В [гибких методологиях](#agile) спринт — это итерация работы над проектом, обычно длится 1–4 недели. В {{ tracker-name }} можно [работать со спринтами](manager/create-agile-sprint.md) на доске задач типа «Скрам».
 
 Статус
-:   Статус — это атрибут задачи, который обозначает, на каком этапе находится выполнение задачи. Например: <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>, <q>{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>.
+:   Статус — это атрибут задачи, который обозначает, на каком этапе находится выполнение задачи. Например: «{{ ui-key.startrek-backend.applinks.samsara.status.open }}», «{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}», «{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}», «{{ ui-key.startrek-backend.applinks.samsara.status.closed }}».
 
 ## Т {#rus-t}
 
@@ -92,7 +92,7 @@
 :   Тег — это произвольная метка, которую можно добавить к задаче. С помощью тегов удобно группировать задачи по любому признаку, а затем искать задачи с определенными тегами. Чтобы добавить теги к задаче, [отредактируйте параметр **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}**](user/edit-ticket.md#edit-fields).
 
 Тип задачи
-:   Задачи в {{ tracker-name }} можно разделить на несколько типов, например: <q>Новая возможность</q>, <q>Ошибка</q>, <q>Улучшение</q>. В очереди для каждого типа задачи можно [настроить свой рабочий процесс](manager/add-ticket-type.md).
+:   Задачи в {{ tracker-name }} можно разделить на несколько типов, например: «Новая возможность», «Ошибка», «Улучшение». В очереди для каждого типа задачи можно [настроить свой рабочий процесс](manager/add-ticket-type.md).
 
 ## Ф {#rus-f}
 
@@ -125,7 +125,7 @@ SLA
 :   SLA в {{ tracker-name }} — это [набор правил](manager/sla.md), который устанавливает временные рамки для обработки задач очереди. Например, вы можете задать время, за которое исполнитель должен отреагировать на новую задачу, ответить на комментарий заказчика или полностью закончить работу над задачей. [Подробнее об использовании SLA.](sla-head.md)
 
 Story
-:   В [гибких методологиях](#agile) User Story (<q>пользовательская история</q>) — это описание возможности или функции, которую требуется реализовать в продукте. В {{ tracker-name }} есть тип задач Story, который можно использовать для [группировки любых задач](user/links.md) с общей темой.
+:   В [гибких методологиях](#agile) User Story («пользовательская история») — это описание возможности или функции, которую требуется реализовать в продукте. В {{ tracker-name }} есть тип задач Story, который можно использовать для [группировки любых задач](user/links.md) с общей темой.
 
 Story Point
 :   Относительная единица трудоемкости задач. Обычно единица Story Point не эквивалентна какому-то определенному количеству человеко-часов. [Команда оценивает задачи совместно](manager/planning-poker.md), сравнивая их с какой-нибудь простой задачей.

@@ -5,9 +5,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 
 To add a new record to the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesItemOps01` project:
 
@@ -194,7 +194,7 @@ To add a new record to the `Series` table:
       {}
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesItemOps01.py` file, for example, using the nano editor:
 
@@ -258,7 +258,7 @@ To add a new record to the `Series` table:
                             'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesItemOps01.php` file, for example, using the nano editor:
 
@@ -341,7 +341,7 @@ To add a new record to the `Series` table:
       Series added: 3 - Supernatural
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesItemOps01.js` file, for example, using the nano editor:
 
@@ -409,7 +409,7 @@ To add a new record to the `Series` table:
       Series added: {}
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesItemOps01.rb` file, for example, using the nano editor:
 

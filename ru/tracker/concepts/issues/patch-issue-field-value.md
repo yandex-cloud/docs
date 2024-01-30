@@ -11,9 +11,9 @@ sourcePath: ru/tracker/api-ref/concepts/issues/patch-issue-field-value.md
 Чтобы изменить возможные значения поля задачи, используйте HTTP-запрос с методом `PATCH`:
 
 ```json
-PATCH /{{ ver }}/fields/<field-id>?version=<field-version>
+PATCH /{{ ver }}/fields/<идентификатор_поля>?version=<версия_поля>
 Host: {{ host }}
-Authorization: OAuth <токен> 
+Authorization: OAuth <OAuth-токен> 
 {{ org-id }}
 
 {
@@ -22,7 +22,7 @@ Authorization: OAuth <токен>
         "en": "Название поля на английском языке",
         "ru": "Название поля на русском языке"
     },
-    "category": "000000000000000000000002",
+    "category": "0000000000000002********",
     "order": 102,
     "description": "Описание поля",
     "readonly": true,
@@ -43,8 +43,8 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<field-id\> | Идентификатор поля задачи. | Строка
-\<field-version\> | Версия поля задачи. | Строка
+\<идентификатор_поля\> | Идентификатор поля задачи. | Строка
+\<версия_поля\> | Версия поля задачи. | Строка
 
 {% endcut %}
 
@@ -112,8 +112,8 @@ values | Массив со значениями поля. | Массив
         },
         "order": 14,
         "category": {
-            "self": "https://{{ host }}/v2/fields/categories/58bc3b921d9c7d68164e",
-            "id": "58bc3b921d9c7d68164e",
+            "self": "https://{{ host }}/v2/fields/categories/58bc3b921d9c********",
+            "id": "58bc3b921d9c********",
             "display": "Системные"
         }
     }

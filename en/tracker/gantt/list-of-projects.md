@@ -34,7 +34,7 @@ On a Gantt chart for a list of projects, you can appoint or change an employee i
 
 {% note info %}
 
-If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the project bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select the **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}** item under **Issue bar**.
+If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the project bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select the **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}** item in the **Issue bar** section.
 
 {% endnote %}
 
@@ -58,4 +58,4 @@ In a similar way, you can also use the chart to appoint and change assignees for
 
 * To set up their display order in the list, click ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**{{ ui-key.startrek.ui_components_SortButton.default-title }}**, specify the parameter, and click ![](../../_assets/tracker/svg/new-first.svg). In this case, you will not be able to move issues manually.
 
-* To filter the project list, use the filter builder. For this, on the ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Filters** panel, under **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-projects }}**, select the parameters and specify the values to use for generating a project list. Under **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-issues }}**, you can also set up additional filtering by issues within your projects.
+* To filter the project list, use the filter builder. In the ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Filters** panel, under **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-projects }}**, select the parameters and specify the values to use for generating a project list. Under **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-issues }}**, you can also set up additional filtering by issues within your projects.
