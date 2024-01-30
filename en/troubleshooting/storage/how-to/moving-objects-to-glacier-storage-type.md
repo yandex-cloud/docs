@@ -11,7 +11,7 @@ Follow these steps:
 
 1. Change your bucket to the [glacier storage type](../../../storage/concepts/storage-class.md#changing-storage-class).
 2. [Install and set up the AWS CLI utility](../../../storage/tools/aws-cli.md).
-3. Run this command: `aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive s3:*\<BUCKET_NAME>\ s3:*\<BUCKET_NAME\>`.
+3. Run this command: `aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive s3://*\<BUCKET_NAME>\ s3://*\<BUCKET_NAME\>`.
 
 {% note info %}
 
@@ -21,7 +21,7 @@ Before running the command, make sure to replace `<BUCKET_NAME>` with your bucke
 
 In such a case, data transfer between storage types will occur directly within Object Storage, without first downloading objects to the local host running the AWS CLI.
 You can also specify the storage type for your object using the `--storage-class` option in the AWS CLI:
-`aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive s3:*\<BUCKET_NAME\> s3:*\<BUCKET_NAME\> --storage-class GLACIER`
+`aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive s3://*\<BUCKET_NAME\> s3://*\<BUCKET_NAME\> --storage-class GLACIER`
 
 Any of the above options will only change storage type for objects in the bucket.
 No duplicate objects will be created in the bucket as a result of this operation.
