@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-issue.md
 Для получения задачи используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /v2/issues/<issue-id>
+GET /v2/issues/<ключ_или_идентификатор_задачи>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}

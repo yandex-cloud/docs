@@ -32,7 +32,7 @@ Let's look at groups of settings for the dedicated database. First, set the two 
 * `folder_id`: ID of the directory (folder) in {{ yandex-cloud }} where the database will be created. This is a required parameter.
 
 Next, you can define the number of virtual machines allocated to the database and their configuration:
-* `resource_preset_id`: Name of the VM configuration template. You can use the following templates: `medium`, `medium-m64`, `medium-m96`, `large`, and `xlarge`. They differ in the processor platform, number of vCPUs, and amount of RAM. This [article](../concepts/resources.md#resource-presets) gives a detailed description of the VM template configurations.
+* `resource_preset_id`: Name of the VM configuration template. You can use the following templates: `medium`, `medium-m64`, `medium-m96`, `large`, and `xlarge`. They differ in the processor platform, number of vCPUs, and amount of RAM. This [tutorial](../concepts/resources.md#resource-presets) gives a detailed description of the VM template configurations.
 * `scale_policy.fixed_scale.size`: This parameter sets the number of VM instances to be used by the database. The minimum recommended number of VM instances is two (for the production environment).
 
 The configuration of data storage properties is described by the `storage_config` section, which sets up the following options:

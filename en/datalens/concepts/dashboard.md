@@ -17,6 +17,7 @@ For more information about dashboards, see the following sections:
 * [{#T}](../dashboard/settings.md)
 * [{#T}](../dashboard/versioning.md)
 * [{#T}](../dashboard/dashboard_parameters.md)
+* [{#T}](../dashboard/embedded-objects.md)
 * Step-by-step guides:
 
   * [{#T}](../operations/dashboard/create.md)

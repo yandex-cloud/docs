@@ -7,8 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% note info %}
 
-Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-viewer }}` (или `{{ roles-viewer }}`).
-Для написания запросов в QL-чартах используйте [язык запросов Yandex Monitoring](../../../monitoring/concepts/querying.md).
+* Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-viewer }}` (или `{{ roles-viewer }}`).
+* Для написания запросов в QL-чартах используйте [язык запросов Yandex Monitoring](../../../monitoring/concepts/querying.md).
+* При написании запросов не используйте [метку](../../../monitoring/concepts/data-model.md#label) `folderId`.
 
 {% endnote %}
 

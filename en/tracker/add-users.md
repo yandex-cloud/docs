@@ -19,9 +19,9 @@ If [full access for new users](access.md#access-new-users) is enabled automatica
 
 To invite a user to an organization:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-full-name }}
+- {{ org-full-name }} {#cloud-org}
 
   1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
@@ -49,7 +49,7 @@ To invite a user to an organization:
 
   1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
-- {{ ya-360 }}
+- {{ ya-360 }} {#ya360}
 
   Users can be added to an organization only in [{{ ya-360 }}]({{ link-ya-360 }}). Do that on the organization management page. For more information about adding users to {{ ya-360 }}, see the [documentation](https://yandex.com/support/business/users.html#add-users).
 
@@ -61,9 +61,9 @@ An identity federation is a technology that allows you to implement a Single Sig
 
 To create an identity federation for an organization:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-full-name }}
+- {{ org-full-name }} {#cloud-org}
 
   1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
@@ -77,7 +77,7 @@ To create an identity federation for an organization:
 
   To learn more about creating an identity federation, see the [{{ org-full-name }} documentation](../organization/concepts/add-federation.md).
 
-- {{ ya-360 }}
+- {{ ya-360 }} {#ya360}
 
   Follow the [guide](https://yandex.ru/support/business/sso/setup.html) in the {{ ya-360 }} documentation.
 

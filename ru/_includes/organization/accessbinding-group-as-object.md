@@ -4,7 +4,7 @@
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- Интерфейс {{ org-name }} {#cloud-org}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
 

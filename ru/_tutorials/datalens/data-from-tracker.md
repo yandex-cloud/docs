@@ -87,10 +87,10 @@ description: "Для визуализация данных из {{ tracker-short
 1. В новом окне введите в адресную строку браузера адрес:
 
     ```
-    https://oauth.yandex.ru/authorize?response_type=token&client_id=ID
+    https://oauth.yandex.ru/authorize?response_type=token&client_id=<идентификатор_приложения>
     ```
 
-    Где `ID` — идентификатор созданного приложения в поле **ClientID**.
+    Где `client_id` — идентификатор созданного приложения в поле **ClientID**.
 
 1. Авторизуйтесь с помощью учетной записи {{ tracker-short-name }}, которая будет использоваться для визуализации.
 1. Сохраните полученный [OAuth токен](https://cloud.yandex.ru/docs/tracker/concepts/access#section_about_OAauth).

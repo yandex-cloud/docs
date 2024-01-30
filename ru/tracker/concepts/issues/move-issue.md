@@ -24,7 +24,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/move-issue.md
 Для переноса задачи используйте HTTP-запрос с методом `POST`:
 
 ```json
-POST /{{ ver }}/issues/<issue-id>/_move?queue=<queue-id>
+POST /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/_move?queue=<ключ_или_идентификатор_очереди>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -39,7 +39,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 ----- | ----- | -----
-\<queue-id\> | Ключ очереди, в которую необходимо перенести задачу. | Строка
+\<ключ_или_идентификатор_очереди\> | Ключ очереди, в которую необходимо перенести задачу. | Строка
 
 **Дополнительные параметры**
 
@@ -62,7 +62,7 @@ expand | Дополнительные поля, которые будут вкл
 > Пример: Перенести задачу
 > 
 > - Используется HTTP-метод POST.
-> - Задача <q>TEST-1</q> перемещается в очередь <q>NEW</q>.
+> - Задача «TEST-1» перемещается в очередь «NEW».
 > 
 > ```
 > POST /v2/issues/TEST-1/_move?queue=NEW
@@ -84,7 +84,7 @@ expand | Дополнительные поля, которые будут вкл
     ```json
     {
         "self": "https://{{ host }}/v2/issues/NEW-1",
-        "id": "1a2345678b",
+        "id": "1a********",
         "key": "NEW-1",
         "version": 2,
         "aliases": [
@@ -96,7 +96,7 @@ expand | Дополнительные поля, которые будут вкл
             "key": "TEST",
             "display": "TEST"
         },
-        "description": "<описание задачи>",
+        "description": "Перенести задачу в другую очередь",
         "type": {
             "self": "https://{{ host }}/v2/issuetypes/2",
             "id": "2",
@@ -109,9 +109,9 @@ expand | Дополнительные поля, которые будут вкл
         },
         "summary": "Тест",
         "updatedBy": {
-            "self": "https://{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
-            "display": "Имя Фамилия"
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
+            "display": "Иван Иванов"
         },
         "priority": {
             "self": "https://{{ host }}/v2/priorities/3",
@@ -121,20 +121,20 @@ expand | Дополнительные поля, которые будут вкл
         },
         "followers": [
             {
-                "self": "https://{{ host }}/v2/users/1234567890",
-                "id": "1234567890",
-                "display": "Имя Фамилия"
+                "self": "https://{{ host }}/v2/users/12********",
+                "id": "12********",
+                "display": "Иван Иванов"
             }
         ],
         "createdBy": {
-            "self": "https://{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
-            "display": "Имя Фамилия"
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
+            "display": "Иван Иванов"
         },
         "assignee": {
-            "self": "https://{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
-            "display": "Имя Фамилия"
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
+            "display": "Иван Иванов"
         },
         "queue": {
             "self": "https://{{ host }}/v2/queues/NEW",

@@ -10,9 +10,9 @@ sourcePath: ru/tracker/api-ref/concepts/issues/delete-worklog.md
 Чтобы удалить записи о затраченном на задачу времени, используйте HTTP-запрос с методом `DELETE`:
 
 ```json
-DELETE /{{ ver }}/issues/<issue-id>/worklog/<worklog-id>
+DELETE /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/worklog/<идентификатор_записи>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
@@ -22,8 +22,8 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<issue-id\> | Идентификатор или ключ задачи. | Строка
-\<worklog-id\> | Идентификатор записи о затраченном времени. | Строка
+\<ключ_или_идентификатор_задачи\> | Идентификатор или ключ задачи. | Строка
+\<идентификатор_записи\> | Идентификатор записи о затраченном времени. | Строка
 
 {% endcut %}
 

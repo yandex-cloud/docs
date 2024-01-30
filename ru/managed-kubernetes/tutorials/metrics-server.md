@@ -84,7 +84,7 @@
      name: metrics-server-config
      namespace: kube-system
      resourceVersion: "303569"
-     uid: 931b88ca-21da-4d04-a3c1-da7e8c95cc47
+     uid: 931b88ca-21da-4d04-a3c1-da7e********
    ```
 
    {% endcut %}

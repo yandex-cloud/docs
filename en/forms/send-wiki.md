@@ -1,4 +1,4 @@
-# Add a response to {{ wiki-name }}
+# Adding a response to {{ wiki-name }}
 
 
 {% note warning %}
@@ -8,11 +8,11 @@ Integration with {{ wiki-name }} can be configured by users of [{{ forms-full-na
 {% endnote %}
 
 
-You can integrate your form with [{{ wiki-name }}]({{ link-wiki }}) to save user responses on a wiki page. For example, if you're using a form to register participants for an event, you can automatically create a list of participants in {{ wiki-name }}. For more information about wiki pages, see the [{{ wiki-name }} documentation](../wiki/old-editor.md).
+You can integrate your form with [{{ wiki-name }}]({{ link-wiki }}) to save user responses on a Wiki page. For example, if you are using a form to register participants for an event, you can automatically create a list of participants in {{ wiki-name }}. For more information about Wiki pages, see the [{{ wiki-name }} documentation](../wiki/old-editor.md).
 
 {% note alert %}
 
-Integration won't work if user access to a {{ wiki-name }} page is restricted. In this case, [grant access](../wiki/page-management/access-setup.md) to your page for the service account `@yndx-wiki-cnt-robot`.
+Integration will not work if user access to a {{ wiki-name }} page is restricted. In this case, [grant access](../wiki/page-management/access-setup.md) to your page for the service account `@yndx-wiki-cnt-robot`.
 
 {% endnote %}
 
@@ -41,7 +41,7 @@ To set up adding responses from forms to a {{ wiki-name }} page:
 
    ![](../_assets/forms/wiki-var-example-new.png)
 
-1. For the user to get a link to the Wiki page after filling out the form, enable the **Show messages about the results of actions** option under the action name.
+1. To get a link to the Wiki page after filling out the form, enable the **Show messages about the results of actions** option under the action name.
 
 1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -51,21 +51,19 @@ To set up adding responses from forms to a {{ wiki-name }} dynamic table:
 
 1. Select the form and open the **Integration** tab.
 
-1. Select a [group of actions](notifications.md#add-integration) for which you want to set up sending responses to {{ wiki-name }} and click ![](../_assets/forms/wiki-notification-new.png) **{{ wiki-name }}** at the bottom of the group.
+1. Select a [group of actions](notifications.md#add-integration) for which you want to configure responses to {{ wiki-name }} and click ![](../_assets/forms/wiki-notification-new.png) **{{ wiki-name }}** at the bottom of the group.
 
-1. Specify the address of the dynamic table to send data from the form to. For example: `users/login/my-page`.
+1. Specify the address of the dynamic table to send the data from the form to. Specify the address without a domain. For example: `users/login/my-page`.
 
-1. In {{ wiki-full-name }}, find out the ID of the column where you want to add records.
+1. In the **Select action** field, specify the table to add the data to.
 
-   1. On the dynamic table page, click ![](../_assets/wiki/svg/actions-icon.svg) → **Settings** to the right of the column name.
+1. In the **Record data** section, select the column to which you want to add records. You can select more than one column. Below indicate what data you want to add to the table. You can use [wiki markup](../wiki/static-markup.md) in the text. To add to the text a response to a prompt or other data from the form:
 
-   1. Copy the **Unique ID** field value.
+   1. In the column text box, click ![](../_assets/forms/add-var.png).
 
-1. In {{ forms-full-name }}, on the integration page, under **Column and value**, click **Add column** and paste the column ID you copied. In the field next to it, specify what data to add to the table. You can format the text using [wiki markup](../wiki/static-markup.md). To add a response to a prompt or other form data to the text:
+   1. Select a [variable](vars.md) from the list to add to the field. For example, you can add a user's name and email address to the text.
 
-   1. Click ![](../_assets/forms/add-var.png) to the right of the field.
-
-   1. Select a [variable](vars.md) from the list to add to the field. For instance, you can add a user's name and email address to the text.
+1. In the **Add response to page** field, select where to add the new rows: the beginning or the end of the table.
 
 1. To get a link to the Wiki page after filling out the form, enable the **Show messages about the results of actions** option under the action name.
 

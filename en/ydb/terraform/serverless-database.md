@@ -5,7 +5,7 @@ description: "Use this tutorial to create or update parameters of a serverless d
 
 # Creating and editing parameters of a serverless database
 
-Open the configuration file in your project (it should already include a [provider initialization section](./configure.md)) and add the following code to it:
+The configuration file in your project should already include a [code section for initializing providers](./configure.md). Open the file and add this code:
 
 ```tf
 resource "yandex_ydb_database_serverless" "database1" {
@@ -26,7 +26,7 @@ Note that the resource initialization strings consist of three parts:
 * Resource name enclosed in quotes: `"yandex_ydb_database_serverless"`.
 * Resource internal ID within the configuration file: `"database1"` (not the database name in the cloud).
 
-The resource ID together with its name serve as an address for retrieving parameters of the created resource. We will demonstrate this technique further in the documentation. Now, let's describe the parameters of the `"yandex_ydb_database_serverless"` resource:
+The resource ID together with its name serve as an address for retrieving parameters of the created resource, as is described further below. The `"yandex_ydb_database_serverless"` resource has the following parameters:
 * `name`: Name of the database. It may contain lowercase Latin letters, digits, and hyphens. The first character must be a letter, the last one cannot be a hyphen. It must be from 3 to 63 characters long. This is a required parameter.
 * `deletion_protection`: Database deletion protection (does not ensure protection of the database content). The default value is `false`.
 * `enable_throttling_rcu_limit`: Enable the throughput limit. This is an optional parameter. The default value is `false`.
@@ -40,4 +40,4 @@ If there are no errors, run the `terraform plan` command. This command will crea
 
 Terraform will create all the required resources. You can check the changes using the [management console](https://console.cloud.yandex.com/) or this Yandex Cloud CLI command: `yc ydb database get <database_name>`. The terminal will display information about the created database.
 
-If you need to change the parameters of the created database, edit the configuration file and run this command sequence: `terraform validate`, `terraform plan`, and `terraform apply`. For example, you can change the database name (name), the data storage limit (`storage_size_limit`), etc. Be cautious: if you change the database ID (in our case, it is `"database1"`), the database will be recreated, and its data will be lost.
+If you need to change the parameters of the created database, edit the configuration file and run this command sequence: `terraform validate`, `terraform plan`, and `terraform apply`. For example, you can change the database name (name), the data storage limit (`storage_size_limit`), etc. Warning: If you change the database ID (`"database1"` in this case) the database will be recreated, and its data will be lost.

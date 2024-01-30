@@ -172,14 +172,14 @@ Number of elements must be less than or equal to 1"}
 1. Узнайте версию кластера {{ managed-k8s-name }}:
 
    ```bash
-   yc managed-kubernetes cluster get <идентификатор_или_имя_кластера> | grep version:
+   yc managed-kubernetes cluster get <имя_или_идентификатор_кластера> | grep version:
    ```
 
    Идентификатор и имя кластера {{ managed-k8s-name }} можно получить со [списком кластеров в каталоге](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#list).
 1. Узнайте версию группы узлов {{ managed-k8s-name }}:
 
    ```bash
-   yc managed-kubernetes node-group get <идентификатор_или_имя_группы_узлов> | grep version:
+   yc managed-kubernetes node-group get <имя_или_идентификатор_группы_узлов> | grep version:
    ```
 
    Идентификатор и имя группы узлов {{ managed-k8s-name }} можно получить со [списком групп узлов в кластере](../../managed-kubernetes/operations/node-group/node-group-list.md#list).

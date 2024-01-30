@@ -7,9 +7,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
 
 To delete the `Series` table:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    1. Create the `SeriesDeleteTable` project:
 
@@ -180,7 +180,7 @@ To delete the `Series` table:
       Table Series deleted.
       ```
 
-- Python
+- Python {#python}
 
    1. Create the `SeriesDeleteTable.py` file, for example, using the nano editor:
 
@@ -222,7 +222,7 @@ To delete the `Series` table:
       Table Series deleted.
       ```
 
-- PHP
+- PHP {#php}
 
    1. Create the `SeriesDeleteTable.php` file, for example, using the nano editor:
 
@@ -283,7 +283,7 @@ To delete the `Series` table:
       Table deleted.
       ```
 
-- Node.js
+- Node.js {#node}
 
    1. Create the `SeriesDeleteTable.js` file, for example, using the nano editor:
 
@@ -359,7 +359,7 @@ To delete the `Series` table:
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
    1. Create the `SeriesDeleteTable.rb` file, for example, using the nano editor:
 

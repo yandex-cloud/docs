@@ -10,9 +10,9 @@ sourcePath: ru/tracker/api-ref/get-sprint.md
 Чтобы получить параметры спринта, используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /{{ ver }}/sprints/<sprint-id>
+GET /{{ ver }}/sprints/<идентификатор_спринта>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
@@ -22,7 +22,7 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<sprint-id\> | Идентификатор спринта. | Строка
+\<идентификатор_спринта\> | Идентификатор спринта. | Строка
 
 {% endcut %}
 
@@ -38,8 +38,8 @@ Authorization: OAuth <токен>
 
     ```json
     {
-      "self" : "https://{{ host }}/v2/sprints/4469",
-      "id" : 4469,
+      "self" : "https://{{ host }}/v2/sprints/44**",
+      "id" : 44**,
       "version" : 1435288720018,
       "name" : "спринт1",
       "board" : {
@@ -50,8 +50,8 @@ Authorization: OAuth <токен>
       "status" : "in_progress",
       "archived" : false,
       "createdBy" : {
-        "self" : "https://{{ host }}/v2/users/1120000000014425",
-        "id" : "1120000000014425",
+        "self" : "https://{{ host }}/v2/users/33********",
+        "id" : "33********",
         "display" : "Виктор Булдаков"
       },
       "createdAt" : "2015-06-23T17:03:24.799+0000",

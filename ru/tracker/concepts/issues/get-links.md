@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-links.md
 Для получения списка связей задачи используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /{{ ver }}/issues/<issue-id>/links
+GET /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/links
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -46,8 +46,8 @@ Authorization: OAuth <OAuth-токен>
     ```json
     [
         {
-            "self": "https://{{ host }}/v2/issues/JUNE-2/links/4709605",
-            "id": 4709605,
+            "self": "https://{{ host }}/v2/issues/JUNE-2/links/47*****",
+            "id": 47*****,
             "type": {
                 "self": "https://{{ host }}/v2/linktypes/subtask",
                 "id": "subtask",
@@ -57,26 +57,26 @@ Authorization: OAuth <OAuth-токен>
             "direction": "outward",
             "object": {
                 "self": "https://{{ host }}/v2/issues/TREK-9844",
-                "id": "593cd211ef7e8a332414f2a7",
+                "id": "593cd211ef7e8a33********",
                 "key": "TREK-9844",
                 "display": "subtask"
             },
             "createdBy": {
-                "self": "https://{{ host }}/v2/users/1120000000049224",
-                "id": "<id сотрудника>",
-                "display": "<отображаемое имя сотрудника>"
+                "self": "https://{{ host }}/v2/users/11********",
+                "id": "11********",
+                "display": "Иван Иванов"
             },
             "updatedBy": {
-                "self": "https://{{ host }}/v2/users/1120000000049224",
-                "id": "<id сотрудника>",
-                "display": "<отображаемое имя сотрудника>"
+                "self": "https://{{ host }}/v2/users/11********",
+                "id": "11********",
+                "display": "Иван Иванов"
             },
             "createdAt": "2017-06-11T05:16:01.421+0000",
             "updatedAt": "2017-06-11T05:16:01.421+0000",
             "assignee": {
-                "self": "https://{{ host }}/v2/users/1120000000049224",
-                "id": "<id сотрудника>",
-                "display": "<отображаемое имя сотрудника>"
+                "self": "https://{{ host }}/v2/users/11********",
+                "id": "11********",
+                "display": "Иван Иванов"
             },
             "status": {
                 "self": "https://{{ host }}/v2/statuses/1",

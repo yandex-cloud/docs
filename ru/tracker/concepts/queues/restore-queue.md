@@ -21,9 +21,9 @@ sourcePath: ru/tracker/api-ref/concepts/queues/restore-queue.md
 Для восстановления удаленной очереди используйте HTTP-запрос с методом `POST`.
 
 ```
-POST /v2/queues/<queue-id>/_restore
+POST /v2/queues/<ключ_или_идентификатор_очереди>/_restore
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
@@ -33,7 +33,7 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 ----- | ----- | -----
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
+\<ключ_или_идентификатор_очереди\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
 
 {% endcut %}
 
@@ -53,9 +53,9 @@ Authorization: OAuth <токен>
         "version": 5,
         "name": "Test",
         "lead": {
-               "self": "https://{{ host }}/v2/users/1120000000016876",
-               "id": "<id сотрудника>",
-               "display": "<отображаемое имя сотрудника>"
+               "self": "https://{{ host }}/v2/users/11********",
+               "id": "11********",
+               "display": "Иван Иванов"
         },
         "assignAuto": false,
         "defaultType": {

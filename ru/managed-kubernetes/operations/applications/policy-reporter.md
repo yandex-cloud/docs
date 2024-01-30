@@ -69,15 +69,21 @@
      --namespace <пространство_имен> \
      --create-namespace \
      --set clusterId=<идентификатор_кластера> \
-     --set ui.enabled=<включение_Policy_Reporter_UI_(true_или_false)> \
-     --set target.s3.enabled=<экспорт_в_Object_Storage_(true_или_false)> \
+     --set ui.enabled=<включение_Policy_Reporter_UI> \
+     --set target.s3.enabled=<экспорт_в_Object_Storage> \
      --set target.s3.bucket=<имя_бакета_Object_Storage> \
      --set-file serviceaccountawskeyvalue=<путь_к_файлу_со_статическим_ключом_сервисного_аккаунта> \
-     --set target.kinesis.enabled=<экспорт_в_Data_Streams_(true_или_false)> \
+     --set target.kinesis.enabled=<экспорт_в_Data_Streams> \
      --set target.kinesis.endpoint=<эндпоинт_потока_Data_Streams> \
      --set target.kinesis.streamName=<имя_потока_Data_Streams> \
      policy-reporter ./policy-reporter/
    ```
+
+   Где: 
+
+   * `ui.enabled` — включение Policy Reporter UI. Возможные значения: `true` или `false`.
+   * `target.s3.enabled` — экспорт в {{ objstorage-name }}. Возможные значения: `true` или `false`.
+   * `target.kinesis.enabled` — экспорт в {{ yds-name }}. Возможные значения: `true` или `false`.
 
    Параметры `target.s3.bucket` и `serviceaccountawskeyvalue` необходимы только при включенном экспорте в {{ objstorage-name }} `target.s3.enabled=true`, а `target.kinesis.endpoint` и `target.kinesis.streamName` — при включенном экспорте в {{ yds-name }} `target.kinesis.enabled=true`.
 

@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/checklists/delete-checklist.md
 Чтобы удалить все пункты в чеклисте, используйте HTTP-запрос с методом `DELETE`.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/checklistItems
+DELETE /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -31,7 +31,7 @@ Authorization: OAuth <OAuth-токен>
 > - В ответе выводится информация о чеклисте (`fields=checklistItems`).
 >
 > ```
-> DELETE /v2/entities/project/6586d6fee2b9ef74********/checklistItems?fields=checklistItems
+> DELETE /v2/entities/project/<идентификатор_проекта>/checklistItems?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
@@ -55,9 +55,9 @@ Authorization: OAuth <OAuth-токен>
       "shortId": 0,
       "entityType": "project",
       "createdBy": {
-          "self": "{{ host }}/v2/users/1990********",
-          "id": "id_сотрудника",
-          "display": "Имя_Фамилия",
+          "self": "{{ host }}/v2/users/19********",
+          "id": "19********",
+          "display": "Имя Фамилия",
           "cloudUid": "ajeppa7dgp53********",
           "passportUid": "15********"
       },

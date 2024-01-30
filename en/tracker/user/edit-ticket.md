@@ -10,11 +10,11 @@ The issue pages are updated in real time. If someone edits or comments on the is
 
 ## Changing issue names {#edit-name}
 
-Tap the issue name. Edit the text and press **Enter**.
+Click the issue name. Edit the text and press **Enter**.
 
 ## Editing issue descriptions {#edit-description}
 
-To the right of the issue description, tap ![](../../_assets/tracker/svg/icon-edit.svg) and edit the text. Use [YFM markup](markup.md) to format text. Click **Save** to save your changes.
+To the right of the issue description, click ![](../../_assets/tracker/svg/icon-edit.svg) and edit the text. Use [YFM markup](markup.md) to format text. Click **Save** to save your changes.
 
 
 You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues. When entering the issue key, use ALL CAPS.

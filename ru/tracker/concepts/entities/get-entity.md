@@ -14,7 +14,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/get-entity.md
 Чтобы получить параметры сущности, используйте HTTP-запрос с методом `GET`.
 
 ```
-GET /{{ ver }}/entities/<entityType>/<entityId>?expand=attachments&fields=summary,teamAccess
+GET /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>?expand=attachments&fields=summary,teamAccess
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -66,7 +66,7 @@ expand | Дополнительная информация, которая бу�
       "version": 3,
       "shortId": 2,
       "entityType": "project",
-      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 11******** },
       "createdAt": "2023-11-23T11:07:57.298+0000",
       "updatedAt": "2023-11-23T15:46:26.391+0000",
       "attachments": [
@@ -75,7 +75,7 @@ expand | Дополнительная информация, которая бу�
             "id": "8",
             "name": "file1.docx",
             "content": "{{ host }}/{{ ver }}/attachments/8/file1.docx",
-            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 11******** },
             "createdAt": "2023-11-23T15:46:20.617+0000",
             "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             "size": 18585
@@ -85,7 +85,7 @@ expand | Дополнительная информация, которая бу�
             "id": "9",
             "name": "file2.pdf",
             "content": "{{ host }}/{{ ver }}/attachments/9/file2.pdf",
-            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 11******** },
             "createdAt": "2023-11-23T15:46:25.932+0000",
             "mimetype": "application/pdf",
             "size": 175656

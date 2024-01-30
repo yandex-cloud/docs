@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/checklists/move-checklist-item.
 Чтобы переместить пункт в чеклисте, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
 ```json
-POST /{{ ver }}/entities/<entityType>/<id>/checklistItems/<checklistItemId>/_move
+POST /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/checklistItems/<идентификатор_пункта_чеклиста>/_move
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -43,11 +43,11 @@ before | Идентификатор пункта чеклиста, перед к
 > Пример: Переместить пункт в чеклисте
 >
 > - Используется HTTP-метод POST.
-> - В чеклисте перемещаем пункт <q>Третий пункт чеклиста</q> и вставляем его перед пунктом <q>Второй пункт чеклиста</q>.
+> - В чеклисте перемещаем пункт «Третий пункт чеклиста» и вставляем его перед пунктом «Второй пункт чеклиста».
 > - В ответе выводится информация о всех пунктах чеклиста (`fields=checklistItems`).
 >
 > ```
-> POST /v2/entities/project/6586d6fee2b9ef74********/checklistItems/6586d6fee2b9ef72********/_move?fields=checklistItems
+> POST /v2/entities/project/<идентификатор_проекта>/checklistItems/<идентификатор_пункта_чеклиста>/_move?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
@@ -75,9 +75,9 @@ before | Идентификатор пункта чеклиста, перед к
       "shortId": 0,
       "entityType": "project",
       "createdBy": {
-          "self": "{{ host }}/v2/users/1990********",
-          "id": "id_сотрудника",
-          "display": "Имя_Фамилия",
+          "self": "{{ host }}/v2/users/19********",
+          "id": "19********",
+          "display": "Имя Фамилия",
           "cloudUid": "ajeppa7dgp53********",
           "passportUid": "15********"
       },

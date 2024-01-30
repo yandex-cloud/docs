@@ -27,20 +27,13 @@
 
 Имя сервиса — `lockbox`.
 
-Имя события | Описание
---- | ---
-`GetPayload` | Факт доступа к содержимому секрета
+{% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
 ## {{ kms-name }} {#kms}
 
 Имя сервиса — `kms`.
 
-Имя события | Описание
---- | ---
-`Decrypt` | Расшифрование шифртекста с помощью ключа
-`Encrypt` | Шифрование тестовой строки с помощью ключа
-`GenerateDataKey` | Формирование ключа с высокой энтропией для шифрования по схеме Envelope Encryption
-`ReEncrypt` | Расшифрование шифртекста ключом с предыдущей версией и шифрование расшифрованного текста новой версией этого же ключа
+{% include [kms-events-dp](../../_includes/audit-trails/events/kms-events-dp.md) %}
 
 ## {{ objstorage-name }} {#objstorage}
 

@@ -14,7 +14,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/get-project.md
 Чтобы получить параметры проекта, используйте HTTP-запрос с методом `GET`.
 
 ```
-GET /{{ ver }}/projects/<project-id>
+GET /{{ ver }}/projects/<идентификатор_проекта>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -27,7 +27,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<project-id> | Идентификатор проекта | Число
+\<идентификатор_проекта> | Идентификатор проекта | Число
 
 {% endcut %}  
 
@@ -60,8 +60,8 @@ expand | Дополнительные поля, которые будут вкл
         "name": "Проект",
         "description": "Новый проект",
         "lead": {
-            "self": "https://{{ host }}/v2/users/12314567890",
-            "id": "1234567890",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "status": "launched",

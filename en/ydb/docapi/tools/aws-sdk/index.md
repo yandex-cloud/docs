@@ -43,15 +43,15 @@ This section describes how to use the AWS SDK for several programming languages 
 
 Configure the environment for your programming language:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
    The examples in the section on building Java applications are based on [Apache Maven](https://maven.apache.org/).
 
    To learn more about the AWS SDK for Java, see the [AWS documentation](https://aws.amazon.com/sdk-for-java/).
 
-- Python
+- Python {#python}
 
    1. [Install](https://www.python.org/downloads/) Python 3.6 or higher.
    1. Install the Boto3 library:
@@ -62,21 +62,21 @@ Configure the environment for your programming language:
 
       For more information about the AWS SDK for Python (Boto), see the [AWS documentation](https://aws.amazon.com/sdk-for-python/).
 
-- PHP
+- PHP {#php}
 
    1. Install [PHP](https://www.php.net/).
    1. Configure the [AWS SDK for PHP](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
 
    To learn more about the AWS SDK for PHP, see the [AWS documentation](https://aws.amazon.com/sdk-for-php/).
 
-- Node.js
+- Node.js {#node}
 
    1. Install [Node.js](https://nodejs.org/).
    1. Install [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
 
    To learn more about the AWS SDK for Node.js, see the [documentation](https://aws.amazon.com/sdk-for-node-js/).
 
-- Ruby
+- Ruby {#ruby}
 
    1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
    1. Install [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-install.html).

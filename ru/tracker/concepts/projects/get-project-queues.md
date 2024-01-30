@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/get-project-queues.md
 Чтобы получить список очередей проекта, используйте HTTP-запрос с методом `GET`.
 
 ```
-GET /{{ ver }}/projects/<project-id>/queues
+GET /{{ ver }}/projects/<идентификатор_проекта>/queues
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -24,7 +24,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<project-id> | Идентификатор проекта | Число
+\<идентификатор_проекта> | Идентификатор проекта | Число
 
 {% endcut %}  
 
@@ -58,8 +58,8 @@ expand | Дополнительные поля, которые будут вкл
             "name": "Default",
             "description": "Описание очереди «Default» (ORG)",
             "lead": {
-                "self": "https://{{ host }}/v2/users/780889736",
-                "id": "780889736",
+                "self": "https://{{ host }}/v2/users/78********",
+                "id": "78********",
                 "display": "Робот сервиса Tracker "
             },
             "assignAuto": false,
@@ -91,8 +91,8 @@ expand | Дополнительные поля, которые будут вкл
             "name": "Testing",
             "description": "Описание очереди «Testing» (TEST)",
             "lead": {
-                "self": "https://{{ host }}/v2/users/1234567890",
-                "id": "1234567890",
+                "self": "https://{{ host }}/v2/users/12********",
+                "id": "12********",
                 "display": "Имя Фамилия"
             },
             "assignAuto": true,

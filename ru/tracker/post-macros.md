@@ -12,18 +12,18 @@ sourcePath: ru/tracker/api-ref/post-macros.md
 Чтобы создать макрос, используйте HTTP-запрос с методом `POST`:
 
 ```json
-POST /{{ ver }}/queues/<queue-id>/macros
+POST /{{ ver }}/queues/<ключ_или_идентификатор_очереди>/macros
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
-  "name": "Тестовый макрос",
-  "body": "Тестовый комментарий\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
+  "name": "<имя_макроса>",
+  "body": "<текст_комментария>\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
   "fieldChanges": [
     {
-      "field": "tags",
-      "value": "tag1"
+      "field": "<идентификатор_поля_задачи>",
+      "value": "<значение_поля_задачи>"
     }, 
      ...
   ]
@@ -36,7 +36,7 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<queue-id> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
+\<ключ_или_идентификатор_очереди> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
 
 {% endcut %} 
 

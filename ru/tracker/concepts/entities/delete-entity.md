@@ -14,7 +14,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/delete-entity.md
 Чтобы удалить сущность, используйте HTTP-запрос с методом `DELETE`.
 
 ```
-DELETE /{{ ver }}//entities/<entityType>/<entityId>?withBoard=true
+DELETE /{{ ver }}//entities/<тип_сущности>/<идентификатор_сущности>?withBoard=true
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}

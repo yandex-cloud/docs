@@ -117,6 +117,7 @@ The following limitations apply when using parameters:
    * `date`
    * `datetime`
    * `_action_params`
+   * `_autoupdate`
 
    Parameters with these keys are ignored and not saved.
 

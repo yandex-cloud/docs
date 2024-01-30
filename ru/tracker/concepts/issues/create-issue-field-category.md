@@ -58,9 +58,9 @@ description | Описание категории. | Строка
 
     ```json
     {
-        "id" : "604f9920d23cd5e1697ee3",
+        "id" : "604f9920d23cd5********",
         "name" : "category_name",
-        "self" : "https://{{ host }}/v2/fields/categories/604f9920d23cd5e1697ee3",
+        "self" : "https://{{ host }}/v2/fields/categories/604f9920d23cd5********",
         "version" : 1
     }
     ```

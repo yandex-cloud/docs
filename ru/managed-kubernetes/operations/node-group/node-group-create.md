@@ -26,19 +26,19 @@
 
      ```bash
      {{ yc-k8s }} node-group create \
-       --allowed-unsafe-sysctls=<имена_небезопасных_параметров_ядра,_через_запятую> \
+       --allowed-unsafe-sysctls=<имена_небезопасных_параметров_ядра> \
        --cluster-name <имя_кластера> \
        --cores <количество_vCPU> \
        --core-fraction <гарантированная_доля_vCPU> \
        --daily-maintenance-window <настройки_окна_обновлений> \
-       --disk-size <размер_хранилища_в_ГБ> \
-       --disk-type <тип_хранилища:_network-nvme_или_network-hdd> \
+       --disk-size <размер_хранилища_ГБ> \
+       --disk-type <тип_хранилища> \
        --fixed-size <фиксированное_количество_узлов_в_группе> \
        --location <настройки_размещения_хостов_кластера> \
        --memory <количество_ГБ_RAM> \
        --name <имя_группы_узлов> \
-       --network-acceleration-type <standard_или_software-accelerated> \
-       --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],subnets=[<имена_подсетей>],ipv4-address=<nat_или_auto> \
+       --network-acceleration-type <тип_ускорения_сети> \
+       --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],subnets=[<имена_подсетей>],ipv4-address=<способ_назначения_IP-адреса> \
        --platform-id <идентификатор_платформы> \
        --container-runtime <среда_запуска_контейнеров> \
        --preemptible \
@@ -56,7 +56,7 @@
      * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов {{ managed-k8s-name }}.
      * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
      * `--disk-size` — [размер диска](../../../compute/concepts/disk.md#maximum-disk-size) узла {{ managed-k8s-name }}.
-     * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks_types) узла {{ managed-k8s-name }}.
+     * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks_types) узла {{ managed-k8s-name }}: `network-nvme` или `network-hdd`.
      * `--fixed-size` — количество узлов в группе узлов {{ managed-k8s-name }}.
      * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md), [сеть](../../../vpc/concepts/network.md#network) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы {{ managed-k8s-name }}. Можно указать несколько вариантов.
 

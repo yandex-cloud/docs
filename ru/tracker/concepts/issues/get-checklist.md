@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-checklist.md
 Чтобы получить параметры чеклиста, используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /{{ ver }}/issues/<issue-id>/checklistItems
+GET /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -24,7 +24,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<issue-id\> | Идентификатор или ключ задачи | Строка
+\<ключ_или_идентификатор_задачи\> | Идентификатор или ключ задачи | Строка
 
 {% endcut %}
 
@@ -39,19 +39,19 @@ Authorization: OAuth <OAuth-токен>
     Тело ответа содержит информацию о пунктах чеклиста в формате JSON.
     ```json
     {
-        "id": "5fde5f0a1aee261dd3b62edb",
+        "id": "5fde5f0a1aee261d********",
         "text": "пункт чеклиста",
         "textHtml": "текст пункта в формате HTML",
         "checked": false,
         "assignee": {
-            "id": 1134669209,
+            "id": 11********,
             "display": "Имя Фамилия",
-            "passportUid": 1134669209,
+            "passportUid": 11********,
             "login": "user_login",
             "firstName": "Имя",
             "lastName": "Фамилия",
             "email": "user_login@example.com",
-            "trackerUid": 1134669209
+            "trackerUid": 11********
         },
         "deadline": {
             "date": "2021-05-09T00:00:00.000+0000",

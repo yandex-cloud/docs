@@ -42,11 +42,11 @@ yc certificate-manager certificate list
 Результат выполнения команды:
 
 ```text
-+-----------------+-------+----------------+---------------------+----------+--------+
-|       ID        | NAME  |    DOMAINS     |      NOT AFTER      |   TYPE   | STATUS |
-+-----------------+-------+----------------+---------------------+----------+--------+
-| <идентификатор> | <имя> | <доменное_имя> | 2022-01-06 17:19:37 | IMPORTED | ISSUED |
-+-----------------+-------+----------------+---------------------+----------+--------+
++----------------------+-----------+----------------+---------------------+----------+--------+
+|          ID          |   NAME    |    DOMAINS     |      NOT AFTER      |   TYPE   | STATUS |
++----------------------+-----------+----------------+---------------------+----------+--------+
+| fpq8diorouhp******** | sert-test |    test.ru     | 2022-01-06 17:19:37 | IMPORTED | ISSUED |
++----------------------+-----------+----------------+---------------------+----------+--------+
 ```
 
 {% list tabs %}
@@ -267,7 +267,7 @@ yc certificate-manager certificate list
        annotations:
          ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
          ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
-         ingress.alb.yc.io/external-ipv4-address: <auto_или_статический_IP-адрес>
+         ingress.alb.yc.io/external-ipv4-address: <способ_назначения_IP-адреса>
          ingress.alb.yc.io/group-name: my-ingress-group
      spec:
        tls:
@@ -539,7 +539,7 @@ yc certificate-manager certificate list
        annotations:
          ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
          ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
-         ingress.alb.yc.io/external-ipv4-address: <auto_или_статический_IP-адрес>
+         ingress.alb.yc.io/external-ipv4-address: <способ_назначения_IP-адреса>
          ingress.alb.yc.io/group-name: my-ingress-group
      spec:
        tls:
@@ -650,7 +650,7 @@ yc certificate-manager certificate list
     apiVersion: alb.yc.io/v1alpha1
     kind: IngressGroupSettings
     metadata:
-      name: <имя_для_настроек_Ingress-группы_в_аннотации_ingress.alb.yc.io/group-settings-name>
+      name: <имя_для_настроек_Ingress-группы>
     logOptions:
       logGroupID: <идентификатор_пользовательской_лог-группы>
       discardRules:
@@ -667,6 +667,8 @@ yc certificate-manager certificate list
             - 200
             - 404
     ```
+
+    Где `name` — имя для настроек Ingress-группы в аннотации `ingress.alb.yc.io/group-settings-name`.
 
 1. Примените настройки для Ingress-группы:
 

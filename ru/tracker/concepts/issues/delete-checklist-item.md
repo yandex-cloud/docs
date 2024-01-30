@@ -10,9 +10,9 @@ sourcePath: ru/tracker/api-ref/concepts/issues/delete-checklist-item.md
 Чтобы удалить пункт чеклиста из задачи, используйте HTTP-запрос с методом `DELETE`:
 
 ```
-DELETE /{{ ver }}/issues/<issue-id>/checklistItems/<checklistItem-id>
+DELETE /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/checklistItems/<идентификатор_пункта_чеклиста>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
@@ -22,8 +22,8 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<issue-id\> | Идентификатор или ключ задачи. | Строка
-\<checklistItem-id\> | Идентификатор пункта чеклиста. Чтобы получить идентификатор, выполните [запрос](get-checklist.md#answer). | Строка
+\<ключ_или_идентификатор_задачи\> | Идентификатор или ключ задачи. | Строка
+\<идентификатор_пункта_чеклиста\> | Идентификатор пункта чеклиста. Чтобы получить идентификатор, выполните [запрос](get-checklist.md#answer). | Строка
 
 {% endcut %}
 
@@ -40,22 +40,22 @@ Authorization: OAuth <токен>
   ```json
   {
       "self": "https://{{ host }}/v2/issues/ORG-3",
-      "id": "5f981c00b982f0755dbdc13d",
+      "id": "5f981c00b982f075********",
       "key": "ORG-3",
       "version": 151,
       "lastCommentUpdatedAt": "2020-12-13T13:18:22.965+0000",
       "pendingReplyFrom": [
           {
-              "self": "https://{{ host }}/v2/users/1134669289",
-              "id": "id сотрудника",
+              "self": "https://{{ host }}/v2/users/12********",
+              "id": "12********",
               "display": "Имя Фамилия"
           }
       ],
       "summary": "Название задачи",
       "statusStartTime": "2020-11-03T11:19:24.733+0000",
       "updatedBy": {
-          "self": "https://{{ host }}/v2/users/19904929",
-          "id": "id сотрудника",
+          "self": "https://{{ host }}/v2/users/19********",
+          "id": "19********",
           "display": "Имя Фамилия"
       },
       "checklistDone": "0",
@@ -83,38 +83,38 @@ Authorization: OAuth <токен>
           "display": "Средний"
       },
       "previousStatusLastAssignee": {
-          "self": "https://{{ host }}/v2/users/1134669289",
-          "id": "id сотрудника",
+          "self": "https://{{ host }}/v2/users/12********",
+          "id": "12********",
           "display": "Имя Фамилия"
       },
       "createdAt": "2020-10-27T13:09:20.085+0000",
       "followers": [
           {
-              "self": "https://{{ host }}/v2/users/19904929",
-              "id": "id сотрудника",
+              "self": "https://{{ host }}/v2/users/19********",
+              "id": "19********",
               "display": "Имя Фамилия"
           }
       ],
       "createdBy": {
-          "self": "https://{{ host }}/v2/users/1134669289",
-          "id": "id сотрудника",
+          "self": "https://{{ host }}/v2/users/12********",
+          "id": "12********",
           "display": "Имя Фамилия"
       },
       "checklistItems": [
            {
-                 "id": "5fde5f0a1aee261dd3b62edb",
+                 "id": "5fde5f0a1aee261d********",
                  "text": "пункт чеклиста",
                  "textHtml": "текст пункта в формате HTML",
                  "checked": false,
                  "assignee": {
-                    "id": 1134669209,
+                    "id": 11********,
                     "display": "Имя Фамилия",
-                    "passportUid": 1134669209,
+                    "passportUid": 11********,
                     "login": "user_login",
                     "firstName": "Имя",
                     "lastName": "Фамилия",
                     "email": "user_login@example.com",
-                    "trackerUid": 1134669209
+                    "trackerUid": 11********
                     },
                  "deadline": {
                     "date": "2021-05-09T00:00:00.000+0000",
@@ -128,8 +128,8 @@ Authorization: OAuth <токен>
      "checklistTotal": 4,
      "votes": 0,
      "assignee": {
-          "self": "https://{{ host }}/v2/users/1134669289",
-          "id": "id сотрудника",
+          "self": "https://{{ host }}/v2/users/12********",
+          "id": "12********",
           "display": "Имя Фамилия"
       },
      "deadline": "2020-10-28",

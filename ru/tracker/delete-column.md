@@ -12,11 +12,11 @@ sourcePath: ru/tracker/api-ref/delete-column.md
 Чтобы удалить колонку, используйте HTTP-запрос с методом `DELETE`.
 
 ```
-DELETE /{{ ver }}/boards/<board-id>/columns/<column-id>
+DELETE /{{ ver }}/boards/<идентификатор_доски>/columns/<идентификатор_колонки>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
-If-Match: "<номер версии>"
+If-Match: "<номер_версии>"
 ```
 
 {% cut "Заголовки" %}
@@ -30,10 +30,10 @@ If-Match: "<номер версии>"
 
 - **Authorization**
 
-    OAuth-токен в формате `OAuth <значение токена>`, например:
+    OAuth-токен в формате `OAuth <OAuth-токен>`, например:
 
     ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
+    OAuth 0c4181a7c2cf4521964a72ff********
     ```
 
 
@@ -52,8 +52,8 @@ If-Match: "<номер версии>"
 
 Параметр | Описание | Тип данных
 ----- | ----- | -----
-\<board-id\> | Идентификатор доски | Число
-\<column-id\> | Идентификатор колонки | Число
+\<идентификатор_доски\> | Идентификатор доски | Число
+\<идентификатор_колонки\> | Идентификатор колонки | Число
 
 {% endcut %}
 

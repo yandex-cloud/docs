@@ -17,7 +17,7 @@ The Telegram messenger uses bots to automatically send messages to group chats a
 1. Add the bot you created to the Telegram group chat you want to send {{ tracker-name }} notifications to.
    If you want to receive {{ tracker-name }} notifications privately, start a chat with the bot.
 
-1. Find out the ID of the Telegram chat where you want to post notifications. You can view this ID by using a dedicated bot, such as `@myidbot`:
+1. Find out the ID of the Telegram chat where you want to post notifications. You can view this ID by using a dedicated bot, e.g., `@myidbot`:
    - To find out the ID of a group chat, add the bot to this chat and send it a message saying `/getgroupid`. Please keep in mind that group chat IDs start with a minus sign `-`.
    - You can send private messages using your account ID. To do this, send the bot a private message saying `/getid`.
 

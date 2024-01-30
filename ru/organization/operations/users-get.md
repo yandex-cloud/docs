@@ -19,7 +19,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- Интерфейс {{ org-name }} {#cloud-org}
 
   {% include [users-info](../../_includes/users-info.md) %}
 

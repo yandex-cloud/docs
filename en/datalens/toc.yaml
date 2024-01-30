@@ -695,6 +695,8 @@ items:
         href: dashboard/versioning.md
       - name: Parameters
         href: dashboard/dashboard_parameters.md
+      - name: Embedding objects
+        href: dashboard/embedded-objects.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Step-by-step guides
@@ -772,7 +774,7 @@ items:
         href: concepts/optimization_recommendations.md
       - name: '{{ datalens-name }} errors'
         href: troubleshooting/errors/all.md
-      - name: FAQ
+      - name: Q&A
         items:
           - name: All questions
             href: qa/index.md
@@ -945,7 +947,7 @@ items:
       - name: YT table has no schema. Only schematized tables are supported
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
-      - name: Failed to create <object type>
+      - name: Could not create <object type>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
       - name: Object request error

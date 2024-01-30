@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/checklists/patch-checklist-item
 Чтобы изменить пункт в чеклисте, используйте HTTP-запрос с методом `PATCH`. Параметры запроса передаются в его теле в формате JSON.
 
 ```json
-PATCH /{{ ver }}/entities/<entityType>/<id>/checklistItems/<checklistItemId>
+PATCH /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/checklistItems/<идентификатор_пункта_чеклиста>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -20,7 +20,7 @@ Authorization: OAuth <OAuth-токен>
 {
   "text": "<текст_пункта>",
   "checked": true,
-  "assignee": "<идентификатор_или_логин_исполнителя>",
+  "assignee": "<логин_или_идентификатор_исполнителя>",
   "deadline": {
     "date": "2021-05-09T00:00:00.000+0000",
     "deadlineType": "date"
@@ -63,13 +63,13 @@ deadlineType | Тип данных параметра `deadline`. | Строка
 > - В ответе выводится информация о всех пунктах чеклиста (`fields=checklistItems`).
 >
 > ```
-> PATCH /v2/entities/project/6586d6fee2b9ef74********/checklistItems/658a41cba977626a********?fields=checklistItems
+> PATCH /v2/entities/project/<идентификатор_проекта>/checklistItems/<идентификатор_пункта_чеклиста>?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
 > 
 > {
->    "text":"Измененный пункт чеклиста.",
+>    "text":"<измененный_пункт_чеклиста>",
 >    "checked": true
 > }
 > ```
@@ -92,9 +92,9 @@ deadlineType | Тип данных параметра `deadline`. | Строка
       "shortId": 0,
       "entityType": "project",
       "createdBy": {
-          "self": "{{ host }}/v2/users/1990********",
-          "id": "id_сотрудника",
-          "display": "Имя_Фамилия",
+          "self": "{{ host }}/v2/users/19********",
+          "id": "19********",
+          "display": "Имя Фамилия",
           "cloudUid": "ajeppa7dgp53********",
           "passportUid": "15********"
       },

@@ -61,7 +61,7 @@
         * `KUBE_URL` — адрес [мастера {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
 
           ```bash
-          yc managed-kubernetes cluster get <идентификатор_или_имя_кластера> --format=json \
+          yc managed-kubernetes cluster get <имя_или_идентификатор_кластера> --format=json \
              | jq -r .master.endpoints.external_v4_endpoint
           ```
 

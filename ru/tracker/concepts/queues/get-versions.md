@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/get-versions.md
 Для получения версий очереди используйте HTTP-запрос с методом `GET`.
 
 ```
-GET /v2/queues/<queue-id>/versions
+GET /v2/queues/<ключ_или_идентификатор_очереди>/versions
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -24,7 +24,7 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 ----- | ----- | -----
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
+\<ключ_или_идентификатор_очереди\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
 
 {% endcut %}
 
@@ -50,8 +50,8 @@ Authorization: OAuth <OAuth-токен>
     ```json
     [
         {
-            "self": "https://{{ host }}/v2/versions/49650",
-            "id": 49650,
+            "self": "https://{{ host }}/v2/versions/49***",
+            "id": 49***,
             "version": 1,
             "queue": {
                 "self": "https://{{ host }}/v2/queues/JUNE",

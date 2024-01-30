@@ -11,11 +11,11 @@ sourcePath: ru/tracker/api-ref/concepts/access.md
 
 * `Host: {{ host }}`
 
-* `Authorization: OAuth <ваш OAuth-токен>` — при доступе по [протоколу OAuth 2.0](#section_about_OAuth).
+* `Authorization: OAuth <OAuth-токен>` — при доступе по [протоколу OAuth 2.0](#section_about_OAuth).
 
-  `Authorization: Bearer <ваш IAM-TOKEN>` — при доступе при помощи [IAM-токена](#iam-token).
+  `Authorization: Bearer <IAM-токен>` — при доступе при помощи [IAM-токена](#iam-token).
 
-* `X-Org-ID или X-Cloud-Org-ID: <идентификатор организации>`
+* `X-Org-ID или X-Cloud-Org-ID: <идентификатор_организации>`
 
    Если у вас только организация {{ org-full-name }}, используйте заголовок `X-Cloud-Org-ID`, если только {{ ya-360 }} или оба типа организаций — `X-Org-ID`.
 
@@ -49,7 +49,7 @@ sourcePath: ru/tracker/api-ref/concepts/access.md
    1. В личном кабинете [Яндекс OAuth]({{ link-OAuth }}) выберите созданное ранее приложение и скопируйте его идентификатор из поля **ClientID**. Затем сформируйте ссылку для запроса токена:
       
       ```
-      {{ link-OAuth }}authorize?response_type=token&client_id=<идентификатор приложения>
+      {{ link-OAuth }}authorize?response_type=token&client_id=<идентификатор_приложения>
       ```
   
    1. Перейдите по ссылке и скопируйте OAuth-токен.
@@ -107,10 +107,10 @@ IAM-токен действует не больше {{ iam-token-lifetime }} и 
 
     ```
     from yandex_tracker_client import TrackerClient
-    client = TrackerClient(token=<token>, org_id=<org_id>)
+    client = TrackerClient(token=<OAuth-токен>, org_id=<идентификатор_организации>)
     ```
 
-    Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации.
+    Здесь `<OAuth-токен>` — ваш OAuth-токен, а `<идентификатор_организации>` — идентификатор организации.
 
 В клиенте используйте такой же формат данных, как в API {{ tracker-name }}.
 

@@ -11,9 +11,9 @@ sourcePath: ru/tracker/api-ref/concepts/issues/patch-issue-field-name.md
 Чтобы изменить название поля задачи, используйте HTTP-запрос с методом `PATCH`:
 
 ```json
-PATCH /{{ ver }}/fields/<field-id>?version=<field-version>
+PATCH /{{ ver }}/fields/<идентификатор_поля>?version=<версия_поля>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
@@ -31,8 +31,8 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<field-id\> | Идентификатор поля задачи. | Строка
-\<field-version\> | Версия поля задачи. | Строка
+\<идентификатор_поля\> | Идентификатор поля задачи. | Строка
+\<версия_поля\> | Версия поля задачи. | Строка
 
 {% endcut %}
 
@@ -93,8 +93,8 @@ ru | Название поля на русском языке. | Строка
         },
         "order": 14,
         "category": {
-            "self": "https://{{ host }}/v2/fields/categories/58bc3b921d9c7d68164e",
-            "id": "58bc3b921d9c7d68164e",
+            "self": "https://{{ host }}/v2/fields/categories/58bc3b921d9c********",
+            "id": "58bc3b921d9c********",
             "display": "Системные"
         }
     }

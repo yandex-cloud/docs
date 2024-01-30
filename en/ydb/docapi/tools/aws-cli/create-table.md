@@ -5,9 +5,9 @@ description: "Follow this guide to create a table in the AWS CLI."
 
 # Creating a table in the AWS CLI
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    {% note warning %}
 
@@ -25,7 +25,7 @@ description: "Follow this guide to create a table in the AWS CLI."
       endpoint=<your_DB_endpoint>
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       aws dynamodb create-table \

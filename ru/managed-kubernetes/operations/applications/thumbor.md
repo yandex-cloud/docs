@@ -61,7 +61,7 @@
      helm install \
        --namespace <пространство_имен_для_Thumbor> \
        --create-namespace \
-       --set bucket_name='<имя_бакета_Object_Storage>' \
+       --set bucket_name='<имя_бакета>' \
        --set allow_unsafe_url='true' \
        --set root_path='<имя_подкаталога_в_бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
@@ -78,7 +78,7 @@
      helm install \
        --namespace <пространство_имен_для_Thumbor> \
        --create-namespace \
-       --set bucket_name='<имя_бакета_Object_Storage>' \
+       --set bucket_name='<имя_бакета>' \
        --set allow_unsafe_url='false' \
        --set security_key='<ключ_безопасности_для_подписывания_URL>' \
        --set root_path='<имя_подкаталога_в_бакете>' \

@@ -1,6 +1,6 @@
 # Создание статических ключей доступа
 
-Это инструкция по созданию [статических ключей доступа](../../concepts/authorization/access-key.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md).
+Это инструкция по созданию [статических ключей доступа](../../concepts/authorization/access-key.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md) при работе с [сервисами](../../concepts/authorization/access-key.md#supported-services), которые поддерживают такой способ авторизации.
 
 Если у вас еще нет сервисного аккаунта, [создайте его](create.md) и [назначьте ему роли](assign-role-for-sa.md).
 

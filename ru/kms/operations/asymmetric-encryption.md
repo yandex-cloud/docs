@@ -230,27 +230,27 @@ description: "Следуя данной инструкции, вы сможет�
               'SHA512': hashes.SHA512
           }
 
-      # Check if the provided hash algorithm is supported
-      if hash_algorithm not in hash_algorithms:
-          raise ValueError('Unsupported hash algorithm: ' + hash_algorithm)
+          # Check if the provided hash algorithm is supported
+          if hash_algorithm not in hash_algorithms:
+              raise ValueError('Unsupported hash algorithm: ' + hash_algorithm)
 
-      # Loading a PEM Encoded Public Key
-      public_key = serialization.load_pem_public_key(
-          public_key_string.encode()
-      )
-
-      # Text encryption
-      ciphertext = public_key.encrypt(
-          plaintext.encode(),
-          padding.OAEP(
-              mgf=padding.MGF1(algorithm=hash_algorithms[hash_algorithm]()),
-              algorithm=hash_algorithms[hash_algorithm](),
-              label=None
+          # Loading a PEM Encoded Public Key
+          public_key = serialization.load_pem_public_key(
+              public_key_string.encode()
           )
-      )
 
-      # Return ciphertext in Byte array format
-      return ciphertext
+          # Text encryption
+          ciphertext = public_key.encrypt(
+              plaintext.encode(),
+              padding.OAEP(
+                  mgf=padding.MGF1(algorithm=hash_algorithms[hash_algorithm]()),
+                  algorithm=hash_algorithms[hash_algorithm](),
+                  label=None
+              )
+          )
+
+          # Return ciphertext in Byte array format
+          return ciphertext
 
       def test_encrypt_text():
           plaintext = "<сообщение>"

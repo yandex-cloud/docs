@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/issues/delete-attachment.md
 Чтобы удалить файл, используйте HTTP-запрос с методом `DELETE`.
 
 ```
-DELETE /{{ ver }}/issues/<issue-id>/attachments/<attachment-id>/
+DELETE /{{ ver }}/issues/<ключ_или_идентификатор_задачи>/attachments/<идентификатор_файла>/
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -24,8 +24,8 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 ----- | ----- | -----
-\<issue-id\> | Идентификатор или ключ задачи | Строка
-\<attachment-id\> | Уникальный идентификатор файла | Строка или число
+\<ключ_или_идентификатор_задачи\> | Идентификатор или ключ задачи | Строка
+\<идентификатор_файла\> | Уникальный идентификатор файла | Строка или число
 
 {% endcut %}
 

@@ -51,8 +51,8 @@ expand | Дополнительные поля, которые будут вкл
         "name": "Проект 1",
         "description": "Первый проект",
         "lead": {
-            "self": "https://{{ host }}/v2/users/12314567890",
-            "id": "1234567890",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "status": "launched",
@@ -67,8 +67,8 @@ expand | Дополнительные поля, которые будут вкл
         "name": "Проект 2",
         "description": "Еще один проект",
         "lead": {
-            "self": "https://{{ host }}/v2/users/12314567890",
-            "id": "1234567890",
+            "self": "https://{{ host }}/v2/users/12********",
+            "id": "12********",
             "display": "Имя Фамилия"
         },
         "status": "launched",

@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/comments/delete-comment.md
 Для удаления комментария используйте HTTP-запрос с методом `DELETE`.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/comments/<commentId>
+DELETE /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/comments/<идентификатор_комментария>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -38,7 +38,7 @@ notifyAuthor | Уведомлять автора изменений. Значе�
 > - Используется HTTP-метод DELETE.
 >
 > ```
-> DELETE /v2/entities/project/6586d6fee2b9ef74********/comments/16
+> DELETE /v2/entities/project/<идентификатор_проекта>/comments/16
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}

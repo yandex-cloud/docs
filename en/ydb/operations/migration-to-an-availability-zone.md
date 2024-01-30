@@ -7,9 +7,9 @@ A dedicated database is hosted in multiple [availability zones](../../overview/c
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating your database.
 1. Move the {{ ydb-short-name }} database to a new set of subnets:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -24,7 +24,7 @@ A dedicated database is hosted in multiple [availability zones](../../overview/c
          --subnet-id <subnet_ID_in_{{ region-id }}-d_availability_zone>
       ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 

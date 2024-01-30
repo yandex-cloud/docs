@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/get-events-relative.md
 Для получения истории событий с постраничным отображением используйте HTTP-запрос с методом `GET`.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/events/_relative
+GET /{{ ver }}/entities/<тип_сущности>/<идентификатор_сущности>/events/_relative
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
@@ -50,10 +50,10 @@ Authorization: OAuth <OAuth-токен>
 >
 > - Используется HTTP-метод GET.
 > - В ответе выводится информация о трех событиях.
-> - Список начинается с события, следующего после `65a26b254dbe6208********`.
+> - Список начинается с события, следующего после `<идентификатор_события_1>`.
 >
 > ```
-> GET /v2/entities/project/6586d6fee2b9ef74********/events/_relative?perPage=3&from=65a26b254dbe6208********
+> GET /v2/entities/project/<идентификатор_проекта>/events/_relative?perPage=3&from=<идентификатор_события_1>
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
@@ -75,9 +75,9 @@ Authorization: OAuth <OAuth-токен>
           {
               "id": "65a26b254dbe6212********", 
               "author": {
-                  "self": "{{ host }}/v2/users/1993********",
-                  "id": "id_сотрудника",
-                  "display": "Имя_Фамилия",
+                  "self": "{{ host }}/v2/users/19********",
+                  "id": "19********",
+                  "display": "Имя Фамилия",
                   "cloudUid": "ajeppa7dgp71********",
                   "passportUid": "16********"
               },
@@ -97,9 +97,9 @@ Authorization: OAuth <OAuth-токен>
           {
               "id": "65a26b264dbe6215********", 
               "author": {
-                  "self": "{{ host }}/v2/users/1993********",
-                  "id": "id_сотрудника",
-                  "display": "Имя_Фамилия",
+                  "self": "{{ host }}/v2/users/19********",
+                  "id": "19********",
+                  "display": "Имя Фамилия",
                   "cloudUid": "ajeppa7dgp71********",
                   "passportUid": "16********"
               },
@@ -114,9 +114,9 @@ Authorization: OAuth <OAuth-токен>
                           "display": "Текст комментария", 
                           "addedSummonees": [
                               {
-                                  "self": "{{ host }}/v2/users/1993********",
-                                  "id": "id_сотрудника",
-                                  "display": "Имя_Фамилия",
+                                  "self": "{{ host }}/v2/users/19********",
+                                  "id": "19********",
+                                  "display": "Имя Фамилия",
                                   "cloudUid": "ajeppa7dgp71********",
                                   "passportUid": "16********"
                               }
@@ -130,9 +130,9 @@ Authorization: OAuth <OAuth-токен>
           {
               "id": "65a26b384dbe6216********",  
               "author": {
-                  "self": "{{ host }}/v2/users/1993********",
-                  "id": "id_сотрудника",
-                  "display": "Имя_Фамилия",
+                  "self": "{{ host }}/v2/users/19********",
+                  "id": "19********",
+                  "display": "Имя Фамилия",
                   "cloudUid": "ajeppa7dgp71********",
                   "passportUid": "16********"
               },

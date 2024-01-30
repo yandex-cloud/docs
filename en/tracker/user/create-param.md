@@ -94,7 +94,7 @@ To add a new issue field (parameter):
 
 1. Make sure you are authorized as an [administrator](../role-model.md).
 
-1. On the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Admin settings** → **{{ tracker-name }} setting** .
+1. On the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Admin settings** → **{{ tracker-name }} setting**.
 
 1. Click the **Fields** tab.
 

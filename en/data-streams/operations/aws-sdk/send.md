@@ -7,13 +7,13 @@ description: "In this tutorial, you will learn how to send data from {{ ydb-shor
 
 {% include [trigger](../../../_includes/data-streams/trigger.md) %}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
   To send data to a data stream, use the `put_record/put_records` method. When you invoke this method, you should specify the following parameters:
   * Name of the stream, e.g., `example-stream`.
-  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) the stream is located in, such as `b1gi1kuj2dht********`.
+  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) the stream is located in, e.g., `b1gi1kuj2dht********`.
   * {{ ydb-short-name }} database ID with the stream, e.g., `cc8028jgtuab********`.
   * Data being sent, e.g., `message`.
 

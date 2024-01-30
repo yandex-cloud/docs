@@ -10,9 +10,9 @@ sourcePath: ru/tracker/api-ref/concepts/issues/get-worklog.md
 Чтобы получить записи о затраченном времени, используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /{{ ver }}/worklog?createdBy=<идентификатор или имя пользователя>&createdAt=from:<начало временного диапазона>&createdAt=to:<окончание временного диапазона>
+GET /{{ ver }}/worklog?createdBy=<имя_или_идентификатор_пользователя>&createdAt=from:<начало>&createdAt=to:<окончание>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
@@ -37,7 +37,7 @@ createdAt=to | Окончание временного диапазона, в к
 ```json
 POST /{{ ver }}/worklog/_search
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
@@ -85,18 +85,18 @@ to | Окончание временного диапазона, в которы
       "version": 1402121720882,
       "issue": {
         "self": "https://{{ host }}/v2/issues/TEST-324",
-        "id": "515ec9eae4b09cfa984e2047",
+        "id": "515ec9eae4b09cfa********",
         "key": "TEST-324",
         "display": "важная задача"
       },
       "comment": "важный комментарий",
       "createdBy": {
-        "self": "https://{{ host }}/v2/users/1120000000014909",
+        "self": "https://{{ host }}/v2/users/66********",
         "id": "veikus",
         "display": "Artem Veikus"
       },
       "updatedBy": {
-        "self": "https://{{ host }}/v2/users/1120000000014909",
+        "self": "https://{{ host }}/v2/users/66********",
         "id": "veikus",
         "display": "Artem Veikus"
       },
