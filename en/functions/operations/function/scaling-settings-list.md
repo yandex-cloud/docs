@@ -5,9 +5,9 @@ description: "Follow this guide to view function scaling settings."
 
 # Viewing function scaling settings
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -18,7 +18,7 @@ description: "Follow this guide to view function scaling settings."
       * **zone_requests_limit**: Number of concurrent function calls in an availability zone.
       * **provisioned_instances_count**: Number of provisioned instances.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -44,12 +44,12 @@ description: "Follow this guide to view function scaling settings."
    ```
 
 
-- API
+- API {#api}
 
    To view function scaling settings, use the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/function_service.md#ListScalingPolicies) gRPC API call.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can view scaling settings of a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

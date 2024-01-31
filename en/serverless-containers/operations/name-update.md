@@ -5,9 +5,9 @@ description: "Follow this guide to update a container name."
 
 # Updating a container name
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -19,7 +19,7 @@ description: "Follow this guide to update a container name."
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -47,7 +47,7 @@ description: "Follow this guide to update a container name."
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -104,7 +104,7 @@ description: "Follow this guide to update a container name."
    yc serverless container get <container_ID>|<container_name>
    ```
 
-- API
+- API {#api}
 
    To rename a container, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update) gRPC API call.
 

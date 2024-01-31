@@ -1,15 +1,15 @@
 The log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) time. You can filter records using the [filer expression language](../../logging/concepts/filter.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. Click the row with the log group you want to view.
    1. The page that opens will show the log group records.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -66,7 +66,7 @@ The log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) tim
 
    This command will display records from the most recent hour and will continue to return new records until you terminate it by pressing **Ctrl** + **C**. The `--follow` flag is incompatible with `--since` and `--until`.
 
-- API
+- API {#api}
 
    To view log group entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
 

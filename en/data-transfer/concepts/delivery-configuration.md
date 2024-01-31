@@ -25,7 +25,7 @@ In this case, the **Exactly-once** strategy is implemented for DMBS-level data i
    | {{ OS }} database: Your own or as part of the [{{ mos-short-name }} service](../../managed-opensearch/) | ![yes](../../_assets/common/yes.svg) |
    | {{ ydb-name }} database: as part of the [{{ ydb-name }} service](../../ydb/). | ![yes](../../_assets/common/yes.svg) |
    | [{{ objstorage-full-name }}](../../storage/) bucket | ![no](../../_assets/common/no.svg) |
-   | Data stream in [{{ yds-full-name }}](../../data-streams/)                                    | ![no](../../_assets/common/no.svg) |
+   |[{{ yds-full-name }}](../../data-streams/) data stream                                                    | ![no](../../_assets/common/no.svg) |
 
 {% note tip %}
 

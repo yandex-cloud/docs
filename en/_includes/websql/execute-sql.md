@@ -6,7 +6,7 @@ To build a query:
    SELECT * FROM <table_name> LIMIT 10;
    ```
 1. Use this query or edit it. The interface will suggest relevant parts of the SQL query and highlight errors.
-1. Click **Execute**.
+1. Click **Run**.
 
 In the results panel, you will see a table with the query results.
 
@@ -27,3 +27,5 @@ When editing or running a query, you can use the following keyboard shortcuts (c
    * Run a query: **⌘** + **⏎**.
 
 {% endlist %}
+
+Click **Open Command Palette** (![image](../../_assets/websql/palette.svg)) to view a complete list of available commands and their corresponding keyboard shortcuts.

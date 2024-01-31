@@ -27,9 +27,9 @@ The infrastructure support cost for this scenario includes:
 
 ## Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -45,9 +45,9 @@ The infrastructure support cost for this scenario includes:
 
 ## Create a {{ ydb-short-name }} database {#create-database}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -67,9 +67,9 @@ The infrastructure support cost for this scenario includes:
 
 ## Create a function {#create-function}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create the function in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -135,9 +135,9 @@ The infrastructure support cost for this scenario includes:
 
 ## Test the function {#test-function}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and check out the testing results.

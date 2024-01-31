@@ -5,9 +5,9 @@ description: "In this guide, you will learn how to export logs from {{ cloud-log
 
 # Exporting logs
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your log sink.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -22,7 +22,7 @@ description: "In this guide, you will learn how to export logs from {{ cloud-log
 
     The file will be saved to the bucket specified in the settings of the selected log sink.
 
-- API
+- API {#api}
 
     To export logs, use the [run](../api-ref/Export/run.md) REST API method for the [Export](../api-ref/Export/index.md) resource or the [ExportService/Run](../api-ref/grpc/export_service.md#Run) gRPC API call.
 

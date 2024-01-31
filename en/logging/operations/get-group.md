@@ -5,9 +5,9 @@ description: "Follow this guide to get information about a log group."
 
 # Getting information about a log group
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -15,7 +15,7 @@ description: "Follow this guide to get information about a log group."
    1. Select a log group.
    1. The **{{ ui-key.yacloud.common.overview }}** page will show the log group details.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -46,7 +46,7 @@ description: "Follow this guide to get information about a log group."
    data_stream: /ru-central1/b1gia87mbaom********/etnu60k6l8ft********/sample-stream
    ```
 
-- API
+- API {#api}
 
    To get detailed information about a log group, use the [get](../api-ref/LogGroup/get.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Get](../api-ref/grpc/log_group_service.md#Get) gRPC API call.
 

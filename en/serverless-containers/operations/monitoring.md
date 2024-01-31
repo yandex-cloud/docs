@@ -1,14 +1,14 @@
 # Viewing container monitoring charts
 
- You can monitor containers at runtime using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/). 
+You can monitor containers at runtime using the monitoring tools in your management console. These tools display diagnostic information as charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/).
 
 The chart update period is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -29,13 +29,13 @@ The chart update period is 15 seconds.
 
 | Metric name | Units | Explanations |
 |----|----|----|
-| `serverless.containers.inflight` | Invocations | Number of concurrent container invocations. |
-| `serverless.containers.started_per_second` | Calls per second | Frequency of container invocations. |
-| `serverless.containers.finished_per_second` | Calls per second | Frequency of completing container invocation processing. |
-| `serverless.containers.errors_per_second` | Errors per second | Frequency of errors when processing container invocations. |
-| `serverless.containers.initializations_per_second` | Initializations per second | Frequency of initializing new container instances. |
-| `serverless.containers.execution_time_milliseconds` | Calls per second | Histogram of the container invocation frequency distribution by request processing time in milliseconds. Request processing time intervals are shown in the `bin` label. |
-| `serverless.containers.used_memory_bytes` | Calls per second | Histogram of the container invocation frequency distribution by RAM used in bytes. Intervals of the RAM used by the request are shown in the `bin` label. |
+| `serverless.containers.inflight` | Invocations | Number of concurrent container invocations |
+| `serverless.containers.started_per_second` | Invocations per second | Frequency of container invocations |
+| `serverless.containers.finished_per_second` | Invocations per second | Frequency of completing container invocation processing |
+| `serverless.containers.errors_per_second` | Errors per second | Frequency of errors when processing container invocations |
+| `serverless.containers.initializations_per_second` | Initializations per second | Frequency of initializing new container instances |
+| `serverless.containers.execution_time_milliseconds` | Invocations per second | Histogram of the container invocation frequency distribution by request processing time in milliseconds. Request processing time intervals are shown in the `bin` label. |
+| `serverless.containers.used_memory_bytes` | Invocations per second | Histogram of the container invocation frequency distribution by RAM used in bytes. Intervals of the RAM used by the request are shown in the `bin` label. |
 
 ### Custom metrics labels {#labels}
 

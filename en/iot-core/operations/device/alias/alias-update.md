@@ -2,9 +2,9 @@
 
 Aliases are linked to specific devices. To update an alias, you [need the device ID or name](../device-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update an alias:
 
@@ -16,7 +16,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
    1. Update the values of the alias fields.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../../_includes/cli-install.md) %}
 
@@ -45,7 +45,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
      events: $devices/areqjd6un3af********/events
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
@@ -106,7 +106,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
       yc iot device get <device_name>
       ```
 
-- API
+- API {#api}
 
    To update an alias, use the [update](../../../api-ref/Device/update.md) REST API method for the [Device](../../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../../api-ref/grpc/device_service.md#Update) gRPC API call.
 

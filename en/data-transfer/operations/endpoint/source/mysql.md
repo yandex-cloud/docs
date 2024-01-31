@@ -2,15 +2,53 @@
 title: "How to configure a {{ MY }} source endpoint in {{ data-transfer-full-name }}"
 description: "In this tutorial, you will learn how to set up a {{ MY }} source endpoint in {{ data-transfer-full-name }}."
 ---
+# Transferring data from a {{ MY }} source endpoint
 
-# Configuring {{ MY }} source endpoints
+{{ data-transfer-full-name }} enables you to migrate data from a {{ MY }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ MY }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Perform required operations with the database](#db-actions) and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data from {{ MY }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+   * [Migrating the {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
+   * [Migration with storage changed from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
+   * [Migration with storage changed from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
+
+1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
+
+* [Capturing changes from {{ MY }} and delivering to {{ DS }}](../../../tutorials/mmy-to-yds.md).
+* [Capturing changes from {{ MY }} and delivering to {{ KF }}](../../../tutorials/cdc-mmy.md).
+
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+
+   * [Loading data from {{ MY }} to the {{ CH }} data mart](../../../tutorials/mysql-to-clickhouse.md).
+
+1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
+
+   * [Loading {{ MY }} data to the {{ objstorage-name }} scalable storage](../../../tutorials/mmy-objs-migration.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Preparing the source database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/mysql-prepare.md) %}
+
+## Configuring the {{ MY }} source endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
-## {{ mmy-name }} cluster {#managed-service}
+### {{ mmy-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -72,7 +110,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 For OnPremise, all fields are filled in manually.
 
@@ -129,7 +167,7 @@ For OnPremise, all fields are filled in manually.
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -158,8 +196,8 @@ For OnPremise, all fields are filled in manually.
    * `--timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
    * Schema transfer settings:
-      * `--transfer-before-data`: When activating transfer.
-      * `--transfer-after-data`: When deactivating transfer.
+      * `--transfer-before-data`: When activating a transfer.
+      * `--transfer-after-data`: When deactivating a transfer.
 
 - {{ TF }} {#tf}
 
@@ -197,7 +235,7 @@ For OnPremise, all fields are filled in manually.
 
 {% endlist %}
 
-### Settings for transferring a DB schema when enabling and disabling a transfer {#schema-migrations-settings}
+#### Settings for transferring a DB schema when enabling and disabling a transfer {#schema-migrations-settings}
 
 During a transfer, the database schema is transferred from the source to the target. The transfer is performed in two stages:
 
@@ -209,9 +247,9 @@ During a transfer, the database schema is transferred from the source to the tar
 
    This step is performed at the end of the transfer operation when it is deactivated. If the transfer keeps running in replication mode, the final stage of the transfer will be performed only when replication stops. At this stage, you can enable the migration of views and stored procedures, stored functions, and triggers.
 
-   At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to <q>read-only</q> mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
+   At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to "read-only" mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
 
-## Known limitations {#known-limitations}
+### Known limitations {#known-limitations}
 
 If you are setting up a transfer from a {{ MY }} cluster, use the cluster master server. During its operation, the transfer creates service tables in the source database. Therefore, you cannot use a {{ MY }} replica as a source, because it is read-only.
 
@@ -222,3 +260,58 @@ If you are setting up a transfer from a {{ MY }} cluster to a {{ CH }} cluster, 
 * The source endpoint assigns the UTC+0 time zone to data of the `DATETIME` type.
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
+
+{% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
+
+## Configuring the data target {#supported-targets}
+
+Configure one of the supported data targets:
+
+* [{{ PG }}](../target/postgresql.md).
+* [{{ MY }}](../target/mysql.md).
+* [{{ CH }}](../target/clickhouse.md).
+* [{{ GP }}](../target/greenplum.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ KF }}](../target/kafka.md).
+* [{{ DS }}](../target/data-streams.md).
+* [{{ ES }}](../target/elasticsearch.md).
+* [{{ OS }}](../target/opensearch.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Operations with the database during transfer {#db-actions}
+
+{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) %}
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+Known issues when using a {{ MY }} endpoint:
+
+* [Single transaction log size exceeds 4 GB](#binlog-size).
+* [New tables are not added](#no-new-tables).
+* [Error when transferring from AWS RDS for {{ MY }}](#aws-binlog-time).
+* [Error when transfering tables without primary keys](#primary-keys).
+* [Binary log access error](#binlog-bytes).
+* [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
+* [Time shift in the DATETIME data type when transferring to {{ CH }}](#timeshift).
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [binlog-size](../../../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
+
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+
+{% include [aws-binlog-time](../../../../_includes/data-transfer/troubles/mysql/aws-binlog-time.md) %}
+
+{% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [binlog-bytes](../../../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [timezone-shift](../../../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}

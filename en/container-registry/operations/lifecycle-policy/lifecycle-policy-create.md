@@ -2,9 +2,9 @@
 
 You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a [repository](../../concepts/repository.md). To find out the name of a repository, request a [list of repositories in the registry](../repository/repository-list.md#repository-get).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -25,7 +25,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
             * (Optional) **{{ ui-key.yacloud.common.description }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -89,7 +89,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
       +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -135,7 +135,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
     yc container repository lifecycle-policy list --registry-id <registry_ID>
    ```
 
-- API
+- API {#api}
 
    To create a lifecycle policy, use the [Create](../../api-ref/grpc/lifecycle_policy_service.md#Create) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
 

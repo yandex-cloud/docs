@@ -11,15 +11,15 @@ To back up your Docker images:
 
 1. View the list of available [registries](registry.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to view a list of registries.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
       1. You can see a list of registries on the **{{ ui-key.yacloud.cr.switch_registry }}** tab.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@ To back up your Docker images:
       +----------------------+-------------+----------------------+
       ```
 
-   - API
+   - API {#api}
 
       Use the [list](../api-ref/Registry/list.md) method for the [Registry](../api-ref/Registry/) resource.
 
@@ -47,9 +47,9 @@ To back up your Docker images:
 
 1. Get information about Docker images in each registry:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to view information about Docker images.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -57,7 +57,7 @@ To back up your Docker images:
       1. On the **{{ ui-key.yacloud.cr.registry.overview.section_repositories }}** page, click the name of the repository.
       1. On the **{{ ui-key.yacloud.cr.registry.overview.section_images }}** page you can see the Docker images.
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       yc container image list --registry-name my-registry
@@ -75,17 +75,17 @@ To back up your Docker images:
       +----------------------+---------------------+-----------------------------+-------+-----------------+
       ```
 
-   - API
+   - API {#api}
 
       Use the [list](../api-ref/Image/list.md) method for the [Image](../api-ref/Image/) resource.
 
    {% endlist %}
 
-1. Download the Docker images you want from each registry using their full address: `{{ registry }}/<name>:<tag>`:
+1. Download the Docker images you want from each registry using their full address, `{{ registry }}/<name>:<tag>`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       docker pull {{ registry }}/crp1abc2tl3d********/ubuntu:hello
@@ -104,9 +104,9 @@ To back up your Docker images:
 
 1. Make sure the Docker image has been pulled:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       docker image list

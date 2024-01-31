@@ -1,5 +1,11 @@
 # Миграция объектов в воркбуки
 
+{% note info %}
+
+Выполнить миграцию может пользователь с ролью `{{ roles-datalens-admin }}`.
+
+{% endnote %}
+
 Для миграции можно выбрать любой объект ([подключение](../concepts/connection.md), [датасет](../concepts/dataset/index.md), [чарт](../concepts/chart/index.md), [дашборд](../concepts/dashboard.md)) и выполнить ее способом [переноса](#migration-transfer) или [копирования](#migration-copy).
 
 ## Миграция переносом {#migration-transfer}

@@ -62,9 +62,9 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 
 ### Create a bucket in {{ objstorage-name }} {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -84,9 +84,9 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 
 ### Upload the image to the bucket {#upload-image}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder that contains the previously created bucket.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -99,9 +99,9 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 
 ### Get a link to the uploaded image {#get-image-link}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder that contains the previously created bucket.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -116,9 +116,9 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 
 Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -156,9 +156,9 @@ Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
 
 To have the Telegram bot respond to the `/start` and `/help` commands and send an image in response to any other text, create a [function](../../functions/concepts/function.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create the function in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -224,9 +224,9 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 
 ## Configure a link between the function and the Telegram bot {#function-bind-bot}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.

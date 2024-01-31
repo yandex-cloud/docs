@@ -81,9 +81,9 @@ The infrastructure support cost for this scenario includes:
 
 ## Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -92,7 +92,7 @@ The infrastructure support cost for this scenario includes:
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    1. [Create](../../iam/operations/sa/create.md#create-sa) a service account:
 
@@ -132,7 +132,7 @@ The infrastructure support cost for this scenario includes:
 
    For more information about the commands, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/index.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -163,7 +163,7 @@ The infrastructure support cost for this scenario includes:
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    To create a service account and assign it a [role](../../iam/concepts/access-control/roles.md), use the [create](../../iam/api-ref/ServiceAccount/create.md) and [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) methods for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
@@ -171,9 +171,9 @@ The infrastructure support cost for this scenario includes:
 
 ## Create an authorized key {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -181,7 +181,7 @@ The infrastructure support cost for this scenario includes:
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
-   1. Enter a description for the [authorized key](../../iam/concepts/authorization/key.md) so that you can easily find it in the management console.
+   1. Enter a description for the [authorized key](../../iam/concepts/authorization/key.md) so you can easily find it in the management console.
    1. Save both the private and public parts of the authorized key to the `examples/serverless/functions/YDB-connect-from-serverless-function/service_account_key_file.json` file:
 
       ```json
@@ -193,7 +193,7 @@ The infrastructure support cost for this scenario includes:
       }
       ```
 
-- CLI
+- CLI {#cli}
 
    Run this command:
 
@@ -205,7 +205,7 @@ The infrastructure support cost for this scenario includes:
 
    If successful, the private part of the authorized key (`privateKey`) and the ID of its public part (`id`) will be written to the `service_account_key_file.json` file.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the authorized key parameters:
 
@@ -235,7 +235,7 @@ The infrastructure support cost for this scenario includes:
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    To create an authorized access key, use the [create](../../iam/api-ref/Key/create.md) method for the [Key](../../iam/api-ref/Key/index.md) resource.
 
@@ -243,9 +243,9 @@ The infrastructure support cost for this scenario includes:
 
 ## Create a {{ ydb-short-name }} database {#create-database}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -291,7 +291,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
    ```
 
    This script creates a new function in your folder and makes it public.
-1. Create the function version:
+1. Create a function version:
 
    ```bash
    ./deploy/create-func-ver.sh
@@ -339,9 +339,9 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
 ## Test the function {#test-function}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the function is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.

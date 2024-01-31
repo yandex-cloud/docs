@@ -16,9 +16,9 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 {% include [trigger-time](trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
@@ -51,7 +51,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -78,7 +78,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
     * `--name`: Trigger name.
     * `--broker-id`: [Broker ID](../../iot-core/operations/broker/broker-list.md).
-    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger fires for all broker topics.
+    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all broker topics.
 
     {% include [trigger-param](../iot-core/trigger-param-cf.md) %}
 
@@ -108,7 +108,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
     status: ACTIVE
     ```
 
-- API
+- API {#api}
 
   To create a trigger for {{ iot-name }}, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 

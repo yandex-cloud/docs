@@ -10,9 +10,9 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 ## Viewing roles assigned for a log group {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
     +---------+--------------+-----------------------+
     ```
 
-- API
+- API {#api}
 
   To view the roles assigned for a custom log group, use the [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/ListAccessBindings](../api-ref/grpc/log_group_service.md#ListAccessBindings) gRPC API call.
 
@@ -42,9 +42,9 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 ## Assigning roles for a log group {#add-access}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     To assign a [role](../security/index.md) to a custom log group, run this command:
 
@@ -93,7 +93,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-- API
+- API {#api}
 
   To assign roles for a custom log group, use the [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/SetAccessBindings](../api-ref/grpc/log_group_service.md#SetAccessBindings) gRPC API call.
 
@@ -101,9 +101,9 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 ## Revoking roles assigned for a log group {#revoke}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     To revoke a [role](../security/index.md) assigned for a custom log group, run the command:
 
@@ -152,7 +152,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-- API
+- API {#api}
 
   To revoke roles assigned to a custom log group, use the [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/UpdateAccessBindings](../api-ref/grpc/log_group_service.md#UpdateAccessBindings) gRPC API call.
 

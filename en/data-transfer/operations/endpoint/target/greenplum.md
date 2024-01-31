@@ -1,9 +1,50 @@
 ---
-title: "Tutorial on setting up a {{ GP }} target endpoint in {{ data-transfer-full-name }}"
+title: "How to set up a {{ GP }} target endpoint in {{ data-transfer-full-name }}"
 description: "In this tutorial, you will learn how to set up a {{ GP }} target endpoint in {{ data-transfer-full-name }}."
 ---
+# Transferring data to a {{ GP }} target endpoint
 
-# Configuring a {{ GP }} target endpoint
+{{ data-transfer-full-name }} enables you to migrate data to a {{ GP }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Configure one of the supported data sources](#supported-sources).
+1. [Prepare the {{ GP }}](#prepare) database for the transfer.
+1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](../../../troubleshooting/index.md) to resolve them.
+
+## Scenarios for transferring data to {{ GP }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+   * [Migrating the {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+   * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the data source {#supported-sources}
+
+Configure one of the supported data sources:
+
+* [{{ PG }}](../source/postgresql.md).
+* [{{ MY }}](../source/mysql.md).
+* [{{ GP }}](../source/greenplum.md).
+* [{{ objstorage-full-name }}](../source/object-storage.md).
+* [{{ KF }}](../source/kafka.md).
+* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ DS }}](../source/data-streams.md).
+* [{{ ydb-name }}](../source/ydb.md).
+* [Oracle](../source/oracle.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+## Preparing the target database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/greenplum-prepare.md) %}
+
+## Configuring the {{ GP }} target endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -11,7 +52,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 * [Additional parameters](#additional-settings).
 
 
-## {{ mgp-name }} cluster {#managed-service}
+### {{ mgp-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -32,7 +73,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 {% endlist %}
 
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 Connecting to the database with explicitly specified network addresses and ports.
 
@@ -44,7 +85,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -63,5 +104,7 @@ Connecting to the database with explicitly specified network addresses and ports
       Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
 
 {% endlist %}
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
 {% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}

@@ -5,9 +5,9 @@ description: "Follow this guide to delete a trigger label in {{ sf-name }}."
 
 # Deleting a trigger label in {{ sf-name }}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ description: "Follow this guide to delete a trigger label in {{ sf-name }}."
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -107,7 +107,7 @@ description: "Follow this guide to delete a trigger label in {{ sf-name }}."
       yc serverless trigger get <trigger ID>
       ```
 
-- API
+- API {#api}
 
    To delete a trigger label, use the [update](../../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../../triggers/api-ref/grpc/trigger_service.md#Update) gRPC API call.
 

@@ -21,15 +21,15 @@ To create a trigger, you need:
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* (Optional) [Bucket](../../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket , [create one](../../../storage/operations/buckets/create.md) with restricted access.
+* (Optional) [Bucket](../../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
@@ -61,7 +61,7 @@ To create a trigger, you need:
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -127,7 +127,7 @@ To create a trigger, you need:
    ```
 
 
-- API
+- API {#api}
 
    To create an email trigger, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 

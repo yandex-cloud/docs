@@ -15,9 +15,9 @@ To prepare a container's Docker image:
 
 ### Application and Dockerfile examples {#examples}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
    **index.js**
 
@@ -51,7 +51,7 @@ To prepare a container's Docker image:
    CMD [ "node", "index.js" ]
    ```
 
-- Python
+- Python {#python}
 
    **index.py**
 
@@ -88,7 +88,7 @@ To prepare a container's Docker image:
    CMD [ "python", "index.py" ]
    ```
 
-- Go
+- Go {#go}
 
    **index.go**
 

@@ -7,9 +7,9 @@ description: "Follow this guide to set up a canary release for an API gateway."
 
 You can only set up a canary release for OpenAPI specifications with variables (see [Specification parameterization](../concepts/extensions/parametrization.md)).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -19,7 +19,7 @@ You can only set up a canary release for OpenAPI specifications with variables (
    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** field, list the variables and their values to be used in the canary release.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -45,10 +45,10 @@ You can only set up a canary release for OpenAPI specifications with variables (
 
       Where:
 
-      * `--canary-weight`: Percentage of requests to be processed by the canary release.
+      * `--canary-weight`: Percentage of requests to be handled by the canary release.
       * `--canary-variables`: Variables for the canary release listed as `key=value`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -110,7 +110,7 @@ You can only set up a canary release for OpenAPI specifications with variables (
       yc serverless api-gateway get <API_gateway_name>
       ```
 
-- API
+- API {#api}
 
    To set up a canary release, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
 

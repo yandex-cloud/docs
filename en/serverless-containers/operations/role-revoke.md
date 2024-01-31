@@ -5,9 +5,9 @@ description: "Use this guide to revoke roles assigned to a container."
 
 # Revoking roles assigned to a container
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To revoke a [role](../security/index.md) for a container, run this command:
 
@@ -45,7 +45,7 @@ description: "Use this guide to revoke roles assigned to a container."
       done (1s)
       ```
 
-- API
+- API {#api}
 
    To revoke container roles, use the [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/container_service.md#UpdateAccessBindings) gRPC API call.
 

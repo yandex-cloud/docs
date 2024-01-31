@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** → [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
          * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
          * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Select the same security group as for the {{ mrd-name }} cluster.
 
@@ -178,9 +178,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Start the dump recovery process:
 
-   {% list tabs %}
+   {% list tabs group=connection %}
 
-   - Connecting without using TLS
+   - Connecting without TLS {#without-tls}
 
       {% include [Install requirements](../../_includes/mdb/mrd/connect/bash/install-requirements.md) %}
 
@@ -239,7 +239,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../../managed-redis/concepts/sharding.md).
 
-   - Connecting via TLS
+   - Connecting via TLS {#with-tls}
 
       {% include [Install requirements SSL](../../_includes/mdb/mrd/connect/bash/install-requirements-ssl.md) %}
 

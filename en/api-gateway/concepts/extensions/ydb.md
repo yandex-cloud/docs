@@ -4,7 +4,7 @@
 
 ## Supported operations
 
-| Operation | Supported parameters | What returns {{ api-gw-name }} in JSON format<br/>if the operation is successful |
+| Operation | Supported parameters | What {{ api-gw-name }} returns in JSON format<br/>if the operation is successful |
 ----|----|-----
 | [PutItem](../../../ydb/docapi/api-ref/actions/putItem.md) | `table_name` | Element saved in the table |
 | [GetItem](../../../ydb/docapi/api-ref/actions/getItem.md) | `table_name`<br/>`key` | Element read from table |
@@ -14,17 +14,17 @@
 
 To convert the request body into an associative array with values of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type and place it into the `Item` parameter when performing the `PutItem` operation, pass it in JSON format.
 
-If an object in JSON format emerges for the `UpdateItem` operation, the [AttributeUpdates](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html) set of changes will be generated and placed into the appropriate operation parameter.
+If an object in JSON format emerges in the request body for the `UpdateItem` operation, the [AttributeUpdates](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html) set of changes will be generated and inserted into the appropriate operation parameter.
 
 ## Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
 | Parameter | Type | Required | Parameter<br/>placement | Description |
-----|----|-----|----|----
-`action` | `string` | Yes | No | Operation in progress. Possible values: `PutItem`, `GetItem`, `UpdateItem`, `DeleteItem`, or `Scan`.
-`database` | `string` | Yes | No | Relative path to the database.
-`service_account_id` | `string` | Yes | No | Service account ID. Used for authorization when performing a database operation. If this parameter is not specified, the value of the `service_account_id` [top-level parameter](./index.md#top-level) is used.
+|----|----|-----|----|----|
+| `action` | `string` | Yes | No | Operation in progress. Possible values: `PutItem`, `GetItem`, `UpdateItem`, `DeleteItem`, or `Scan`. |
+| `database` | `string` | Yes | No | Relative path to the database. |
+| `service_account_id` | `string` | Yes | No | Service account ID. Used for authorization when performing a database operation. If not specified, it defaults to the [top-level `service_account_id` parameter](./index.md#top-level). |
 | `table_name` | `string` | Yes | Yes | Name of the table with which the operation is performed. |
 | `key` | `string` | No | Yes | Primary key of the element with which the operation is performed. A set of attributes and their values in JSON format. You must specify all key attributes. Attribute values are automatically converted to objects of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type. Used in the [GetItem](../../../ydb/docapi/api-ref/actions/getItem.md), [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md), and [DeleteItem](../../../ydb/docapi/api-ref/actions/deleteItem.md) operations. |
 | `update_expression` | `string` | No | Yes | Expression that specifies how and which attributes must be updated. Used in the [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md) operation. |
@@ -32,7 +32,9 @@ If an object in JSON format emerges for the `UpdateItem` operation, the [Attribu
 | `limit` | `string` | No | Yes | Maximum number of elements read. Used in the [Scan](../../../ydb/docapi/api-ref/actions/scan.md) operation. |
 | `exclusive_start_key` | `string` | No | Yes | Primary key of the element which the search starts from. A set of attributes and their values in JSON format. Attribute values are automatically converted to objects of the [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) type. Used in the [Scan](../../../ydb/docapi/api-ref/actions/scan.md) operation. |
 
-## Extension specification {#spec}
+## Specification examples {#examples}
+
+### Extension specification {#spec}
 
 Here is an example of the REST API service that enables you to create, obtain, update, and delete movie entities:
 
@@ -242,3 +244,83 @@ components:
 x-yc-apigateway:
   service_account_id: ajent55o2h**********
 ```
+
+### Specification for tables with multiple primary keys {#composite-primary-key-spec}
+
+If using tables with multiple primary keys, describe each one in the specification, and specify the values from both columns in your request. The example below shows a request to the `staff` table. It contains information about the company employees and a key consisting of two columns: `FirstName` and `LastName`.
+
+{{ api-gw-name }} specification example:
+
+```yaml
+openapi: 3.0.0
+info:
+  title: Staff API
+  version: 1.0.0
+servers:
+  - url: https://d3drb9haai**********.apigw.yandexcloud.net
+paths:
+  /staff:
+    get:
+      description: Get member info by first and last name
+      x-yc-apigateway-integration:
+        type: cloud_ydb
+        action: GetItem
+        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
+        table_name: staff
+        key: '{"FirstName": "{FirstName}", "LastName": "{LastName}"}'
+      operationId: getStaffMemberById
+      parameters:
+        - description: First name of member
+          explode: false
+          in: query
+          name: FirstName
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: Last name of member
+          explode: false
+          in: query
+          name: LastName
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+          description: success
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+          description: Got member
+components:
+  schemas:
+    success:
+      properties:
+        id:
+          type: string
+x-yc-apigateway:
+  service_account_id: ajent55o2h**********
+```
+
+Request for information on the employee Ivan Ivanov:
+
+```bash
+curl -X GET -H "Authorization: Bearer `yc iam create-token`" \
+"https://d5d16gda7ell********.apigw.yandexcloud.net/staff?FirstName=Ivan&LastName=Ivanov"
+```
+
+Where:
+
+* `staff`: The requested table.
+* `FirstName`: First part of the key.
+* `LastName`: Second part of the key.
+
+This will return information on the employee.

@@ -9,29 +9,30 @@ The source code used in this scenario is available on [GitHub](https://github.co
 {% endnote %}
 
 Once connected, you can:
+
 * [Send messages](../operations/publish.md).
 * [Subscribe a device or registry to receive messages](../operations/subscribe.md).
 
 To connect to {{ iot-full-name }} and start messaging:
-* [Get started](#before-you-begin).
-* [Create the required {{ iot-full-name }} resources](#resources)
-   * [Create a registry and add a certificate to it](#registry)
-   * [Create a device and add a certificate to it](#device)
-* [Connect to {{ iot-full-name }}](#connect)
-* [Log in to {{ iot-full-name }}](#auth)
-   * [Authorization using certificates](#certs)
-   * [Authorization using a username and password](#log-pass)
-* [Establish a connection](#establish-connection)
-* [Subscribe to a topic and get messages](#subscribe)
-* [Send a message](#publish)
-* [Terminate the connection](#disconnect)
 
-## Before you start {#before-you-begin}
+* [Create the required {{ iot-full-name }} resources](#resources):
+   * [Create a registry and add a certificate to it](#registry).
+   * [Create a device and add a certificate to it](#device).
+* [Connect to {{ iot-full-name }}](#connect).
+* [Authenticate in {{ iot-full-name }}](#auth):
+   * [Authentication using certificates](#certs).
+   * [Authentication by username and password](#log-pass).
+* [Establish a connection](#establish-connection).
+* [Subscribe to a topic and receive messages](#subscribe).
+* [Send a message](#publish).
+* [Terminate the connection](#disconnect).
 
-1. If you do not have the command line interface {{ yandex-cloud }} yet, [install and initialize it](../../cli/quickstart.md#install).
-1. Download and install a development environment for .Net. For instance, [Microsoft Visual Studio](https://visualstudio.microsoft.com/ru/vs/).
+## Getting started {#before-you-begin}
 
-## Create the required {{ iot-full-name }} resources{#resources}
+1. If you do not have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
+1. Download and install a development environment for .Net, e.g., [Microsoft Visual Studio](https://visualstudio.microsoft.com/ru/vs/).
+
+## Create the required {{ iot-full-name }} resources {#resources}
 
 ### Create a registry and add a certificate to it {#registry}
 
@@ -39,7 +40,7 @@ If you already have a certificate, start with the second step.
 
 1. Create a certificate for the registry (skip this step if you already have a registry certificate):
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout registry-key.pem \
@@ -51,13 +52,13 @@ If you already have a certificate, start with the second step.
 
 1. Create a registry:
 
-   ```shell script
+   ```bash
    yc iot registry create --name my-registry
    ```
 
 1. Add a certificate to the registry:
 
-   ```shell script
+   ```bash
    yc iot registry certificate add \
      --registry-name my-registry \ # Registry name.
      --certificate-file registry-cert.pem # Path to the public part of the certificate.
@@ -69,7 +70,7 @@ If you already have a certificate, start with the second step.
 
 1. (optional) Create a certificate for the device:
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout device-key.pem \
@@ -82,13 +83,13 @@ If you already have a certificate, start with the second step.
 1. [Review a list of the registries](../operations/registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../operations/registry/registry-create.md).
 1. Create a device:
 
-   ```shell script
+   ```bash
    yc iot device create --registry-name my-registry --name my-device
    ```
 
 1. Add a certificate to the device:
 
-   ```shell script
+   ```bash
    yc iot device certificate add \
      --device-name my-device \ # Device name.
      --certificate-file device-cert.pem # Path to the public part of the certificate.
@@ -142,17 +143,17 @@ Where:
 
         The lower the values of these parameters, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of sending payable `PINGREQ` commands.
 
-## Log in to {{ iot-full-name }} {#auth}
+## Authenticate in {{ iot-full-name }} {#auth}
 
-There are two [authorization](../concepts/authorization.md) methods:
+There are two [authentication](../concepts/authorization.md) methods:
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
 
-### Authorization using certificates {#certs}
+### Authentication using certificates {#certs}
 
-When logging in with X.509 certificates, it's most convenient to use [PKCS#12](https://en.wikipedia.org/wiki/PKCS12) certificates in PFX format. To generate a certificate in PKCS#12 format from PEM certificates, run the command:
+When authenticating with X.509 certificates, it is most convenient to use [PKCS#12](https://en.wikipedia.org/wiki/PKCS12) certificates in PFX format. To generate a certificate in PKCS#12 format from PEM certificates, run the command:
 
-```shell script
+```bash
 openssl pkcs12 -export -out cert.pfx -inkey key.pem -in cert.pem
 ```
 
@@ -162,7 +163,7 @@ To load certificates in your project, use the following code:
 X509Certificate2 certificate = new X509Certificate2(certPath);
 ```
 
-The client certificate used for authorization on the server is specified when setting up a TLS connection:
+The client certificate used for authentication on the server is specified when setting up a TLS connection:
 
 ```C#
 X509Certificate2 certificate = new X509Certificate2(certPath);
@@ -210,9 +211,9 @@ private static bool CertificateValidationCallback(X509Certificate cert, X509Chai
 }
 ```
 
-### Authorization using a username and password {#log-pass}
+### Authenticating by username and password {#log-pass}
 
-Logging in with a username and password in {{ iot-full-name }} requires the TLS protocol. To do this, use the `MqttClientOptionsBuilderTlsParameters` class:
+Authentication with a username and password in {{ iot-full-name }} requires the TLS protocol. To do this, use the `MqttClientOptionsBuilderTlsParameters` class:
 
 ```C#
 // Setting up a TLS connection

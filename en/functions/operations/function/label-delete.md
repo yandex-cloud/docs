@@ -5,9 +5,9 @@ description: "Follow this guide to delete a function label."
 
 # Deleting a function label
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ description: "Follow this guide to delete a function label."
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -102,7 +102,7 @@ description: "Follow this guide to delete a function label."
    yc serverless function get <function_name>|<function_ID>
    ```
 
-- API
+- API {#api}
 
    To delete a function label, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update) gRPC API call.
 

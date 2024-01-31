@@ -7,9 +7,9 @@ description: "Follow this guide to mount a bucket to a function."
 
 {% include [read-note](../../../_includes/functions/read-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -22,7 +22,7 @@ description: "Follow this guide to mount a bucket to a function."
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}**: [Folder](../../../storage/concepts/object.md#folder) within the bucket. If you leave this field empty, the entire bucket will be mounted.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- API
+- API {#api}
 
     To mount a bucket, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
 

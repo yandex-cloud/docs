@@ -2,7 +2,7 @@
 
 In this tutorial, you will deploy an online game based on Node.js using WebSocket.
 
-The game's static resources will be stored in a {{ objstorage-name }} bucket and its data in {{ ydb-name }} databases. The game data will be transferred in {{ yds-name }} streams and handled by {{ sf-name }} functions. For messaging between the app components, we will use a {{ message-queue-name }} queue. Secrets are securely delivered to the app using {{ lockbox-name }}. A {{ api-gw-name }} API gateway will accept user requests and redirect them to {{ sf-name }} functions.
+The game's static resources will be stored in a {{ objstorage-name }} bucket and its data in {{ ydb-name }} databases. The game data will be transferred in {{ yds-name }} streams and handled by {{ sf-name }} functions. For messaging between the app components, we will use a {{ message-queue-name }} queue. Secrets are securely delivered to the app using {{ lockbox-name }}. An {{ api-gw-name }} API gateway will accept user requests and redirect them to {{ sf-name }} functions.
 
 Game user authorization is based on integration with Telegram.
 
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost for this tutorial includes:
 
 * Fee for data operations and the amount of stored data (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* Data stream usage costs (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
+* Fee for using a data stream (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
 * Secret storage fees (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for data storage and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for requests to the created API gateways and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
@@ -503,9 +503,9 @@ Create a database named `game-data` to store the game data and a database named 
 
 ## Create a {{ yds-name }} data stream {#yds-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS
+- AWS CLI {#cli}
 
    ```bash
    echo $YDB_DATA_STREAMS_DATABASE

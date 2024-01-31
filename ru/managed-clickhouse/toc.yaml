@@ -108,6 +108,10 @@ items:
           sf-full-name }}, {{ objstorage-full-name }} и {{
           data-transfer-full-name }}
         href: tutorials/transfer-from-direct.md
+      - name: >-
+          Загрузка данных из {{ objstorage-full-name }} в {{ mch-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/object-storage-to-clickhouse.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

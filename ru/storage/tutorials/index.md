@@ -30,3 +30,4 @@ description: "На странице представлен список прак
 
 
 * [{#T}](./object-storage-to-postgresql.md)
+* [{#T}](./object-storage-to-clickhouse.md)

@@ -2,9 +2,9 @@
 
 To provide access to a [resource](../../../iam/concepts/access-control/resources-with-access-control.md), assign a user a [role](../../../iam/concepts/access-control/roles.md) to the resource itself or a resource from which access privileges are inherited, such as a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) or a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). For more information, see [{#T}](../../../iam/concepts/access-control/index.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to assign a role for a resource.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -21,7 +21,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
          1. In the **{{ ui-key.yacloud.component.acl-dialog.column_permissions }}** drop-down list, select the required roles.
          1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
    1. Describe the following in a configuration file:
@@ -126,7 +126,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. This is a test step, so no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
 
       {% note alert %}
 
@@ -155,7 +155,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
          yc container repository list-access-bindings <repository_name_or_ID>
          ```
 
-- API
+- API {#api}
 
    To assign a user, service account, or group a role for access to a resource, use the `updateAccessBindings` method for the `registry` and `repository` resources.
 

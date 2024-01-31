@@ -21,14 +21,14 @@ If you no longer need the resources you created, [delete them](#clear-out-master
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
    1. [Create service accounts](../../iam/operations/sa/create.md#create-sa):
-      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the [](../../iam/concepts/access-control/roles.md)[ {{ roles-editor }} role](../../iam/concepts/access-control/roles.md#editor) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
+      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
       * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
          {% note tip %}
@@ -42,7 +42,7 @@ Prepare the infrastructure:
    1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
    1. [Create a log group](../operations/create-group.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -115,9 +115,9 @@ If you manually created the infrastructure, enable the `master logging` setting:
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a static [public IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, release and [delete it](../../vpc/operations/address-delete.md).
@@ -125,7 +125,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
    1. [Delete the log group](../../logging/operations/delete-group.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
    1. Delete the `k8s-cluster-with-master-logging.tf` configuration file.

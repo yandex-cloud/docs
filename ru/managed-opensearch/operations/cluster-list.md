@@ -19,6 +19,27 @@ keywords:
 
   В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы запросить список {{ OS }}-кластеров в каталоге, заданном по умолчанию, выполните команду:
+
+  ```bash
+  {{ yc-mdb-os }} cluster list
+  ```
+
+  ```text
+  +----------------------+------+-----------------------------+--------+---------+
+  |          ID          | NAME |         CREATED AT          | HEALTH | STATUS  |
+  +----------------------+------+-----------------------------+--------+---------+
+  | c9wlk4v14uq7******** | myos | 2023-12-19T10:04:14.645214Z | ALIVE  | RUNNING |
+  | ...                                                                          |
+  +----------------------+------+-----------------------------+--------+---------+
+  ```
+
 - API {#api}
 
   Чтобы получить список кластеров в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/cluster_service.md#List) и передайте в запросе идентификатор требуемого каталога в параметре `folderId`.
@@ -35,6 +56,20 @@ keywords:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
   1. Нажмите на имя нужного кластера.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить информацию об {{ OS }}-кластере, выполните команду:
+
+  ```bash
+  {{ yc-mdb-os }} cluster get <имя_или_идентификатор_кластера>
+  ```
+
+  Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
 - API {#api}
 

@@ -4,13 +4,34 @@ description: "Follow this guide to configure a {{ metrika-endpoint }} source end
 noIndex: true
 ---
 
-# Configuring {{ metrika-endpoint }} source endpoints
+# Transferring data from a {{ metrika }} source endpoint
+
+{{ data-transfer-name }} enables you to transfer data from a [{{ metrika }}]({{ metrika-link }}) tag to a {{ yandex-cloud }} managed database.
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](../../../troubleshooting/index.md) to resolve them.
+
+## Scenarios for transferring data from {{ metrika }} {#scenarios}
+
+With {{ data-transfer-name }}, you can transfer data from a [{{ metrika }}]({{ metrika-link }}) tag to a {{ CH }} cluster. Such a transfer ensures the data transferred from {{ metrika }} are complete and allows:
+
+* Processing data with {{ CH }} tools.
+* Streaming data from {{ CH }} to other locations.
+* Visualizing data using [{{ datalens-full-name }}]({{ link-datalens-main }}) or other services.
+
+See [this tutorial](../../../tutorials/metrika-to-clickhouse.md) on how to transfer {{ metrika }} tag data to a {{ CH }} cluster.
+
+For a detailed description of other possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the {{ metrika-endpoint }} source endpoint {#endpoint-settings}
 
 {% include [note-metrica-pro](../../../../_includes/data-transfer/note-metrica-pro.md) %}
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to [{{ metrika }}]({{ metrika-link }}).
-
-## Settings {#settings}
 
 {% list tabs group=instructions %}
 
@@ -27,6 +48,14 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 For more information about the settings, see the [service documentation]({{ link-yandex }}/support/metrica/index.html).
 
-See [this tutorial](../../../tutorials/metrika-to-clickhouse.md) on how to transfer {{ metrika }} tag data to a {{ CH }} cluster.
+## Configuring the data target {#supported-targets}
+
+Configure the supported data target:
+
+* [{{ CH }}](../target/clickhouse.md).
+
+For a complete list of supported {{ data-transfer-full-name }} sources and targets, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

@@ -66,9 +66,9 @@ Firebase:
 
 ## Create an API gateway {#create-gateway}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -118,7 +118,7 @@ Firebase:
 
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -192,7 +192,7 @@ Firebase:
       log_group_id: ckghq1hm19********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -254,7 +254,7 @@ Firebase:
 
    This will create an API gateway in the specified folder.
 
-- API
+- API {#api}
 
    To create an API gateway, use the [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
 
@@ -307,11 +307,11 @@ Firebase:
 
 Deploy a static website:
 
-1. Create a {{ objstorage-name }} bucket:
+1. Create an {{ objstorage-name }} bucket:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -321,7 +321,7 @@ Deploy a static website:
          1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
          1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -354,7 +354,7 @@ Deploy a static website:
          created_at: "2023-06-08T11:57:49.898024Z"
          ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -402,7 +402,7 @@ Deploy a static website:
 
       This will create a bucket in the specified folder.
 
-   - API
+   - API {#api}
 
       To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 
@@ -410,9 +410,9 @@ Deploy a static website:
 
 1. Upload objects to the {{ objstorage-name }} bucket:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to upload objects to.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -428,9 +428,9 @@ Deploy a static website:
 
 1. Set up static website hosting:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), go to `bucket-for-tutorial`.
       1. Go to ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
@@ -440,7 +440,7 @@ Deploy a static website:
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
       1. In the **{{ ui-key.yacloud.storage.bucket.website.field_link }}** field, copy your website's URL.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -483,7 +483,7 @@ Deploy a static website:
          created_at: "2022-12-14T08:42:16.273717Z"
          ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -521,7 +521,7 @@ Deploy a static website:
 
       This will set up hosting in the bucket.
 
-   - API
+   - API {#api}
 
       To set up hosting for a static website, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../storage/s3/api-ref/hosting/upload.md) S3 API method.
 

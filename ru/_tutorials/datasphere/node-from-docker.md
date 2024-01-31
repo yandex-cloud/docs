@@ -124,20 +124,14 @@
    ```text
    # syntax=docker/dockerfile:1
    FROM nvcr.io/nvidia/tritonserver:22.01-py3
-   
-   RUN mkdir -p /models/resnet50_640x640/1/model.savedmodel/ &&\
-     curl -L "https://tfhub.dev/tensorflow/faster_rcnn/resnet50_v1_640x640/1?tf-hub-format=compressed" |\
-     tar -zxvC /models/resnet50_640x640/1/model.savedmodel/ &&\
-     mkdir -p /models/resnet101_640x640/1/model.savedmodel/ &&\
-     curl -L "https://tfhub.dev/tensorflow/faster_rcnn/resnet101_v1_640x640/1?tf-hub-format=compressed" |\
-     tar -zxvC /models/resnet101_640x640/1/model.savedmodel/ && \
-     mkdir -p /models/resnet152_640x640/1/model.savedmodel/ &&\
+
+   RUN mkdir -p /models/resnet152_640x640/1/model.savedmodel/ &&\
      curl -L "https://tfhub.dev/tensorflow/faster_rcnn/resnet152_v1_640x640/1?tf-hub-format=compressed" |\
      tar -zxvC /models/resnet152_640x640/1/model.savedmodel/ &&\
      mkdir -p /models/inception_resnet_v2_640x640/1/model.savedmodel/ &&\
      curl -L "https://tfhub.dev/tensorflow/faster_rcnn/inception_resnet_v2_640x640/1?tf-hub-format=compressed" |\
      tar -zxvC /models/inception_resnet_v2_640x640/1/model.savedmodel/
-   
+
    ENTRYPOINT ["/opt/tritonserver/nvidia_entrypoint.sh",\
                "tritonserver",\
                "--model-repository=/models",\
@@ -156,7 +150,7 @@
 1. Соберите Docker-образ:
 
    ```bash
-   docker build -t triton-docker .
+   docker build -t triton-docker --platfom linux/amd64 .
    ```
 
 ### Загрузите Docker-образ в {{ container-registry-name }} {#push-docker}
@@ -171,12 +165,6 @@
    
       ```bash
       yc config set folder-name data-folder
-      ```
-   
-   1. Получите список реестров каталога `data-folder`:
-
-      ```bash
-      yc container registry list 
       ```
 
    1. [Аутентифицируйтесь в {{ container-registry-name }}](../../container-registry).
@@ -204,7 +192,24 @@
         {{ registry }}
       ```
 
-   1. Загрузите Docker-образ в {{ container-registry-name }}. Вместо <идентификатор_реестра> подставьте идентификатор вашего реестра `datasphere-registry`:
+   1. Получите список реестров каталога `data-folder`:
+
+      ```bash
+      yc container registry list 
+   
+      ```
+
+      Идентификатор реестра понадобится вам на следующем шаге. Пример вывода команды:
+
+      ```text
+      +----------------------+---------------------+----------------------+
+      |          ID          |        NAME         |      FOLDER ID       |
+      +----------------------+---------------------+----------------------+
+      | crp86bmgl1da******** | datasphere-registry | b1g4bh24c406******** |
+      +----------------------+---------------------+----------------------+
+      ```
+
+   1. Загрузите Docker-образ в {{ container-registry-name }}. Вместо `<идентификатор_реестра>` подставьте идентификатор вашего реестра `datasphere-registry`:
 
       ```bash
       docker tag triton-docker {{ registry }}/<идентификатор_реестра>/triton:v1
@@ -227,7 +232,7 @@
 1. Создайте ноду. Для этого на странице проекта в правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**. Задайте основные параметры ноды:
    * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите **{{ ui-key.yc-ui-datasphere.common.docker }}**.
    * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** — `triton`.
-   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** задайте путь к образу {{ container-registry-name }}. Его можно получить в консоли управления или в CLI, выполнив команду `yc container registry list`. 
+   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** задайте путь к образу {{ container-registry-name }} вида `cr.yandex/<идентификатор_реестра>/<имя_образа>:<тег>` Его можно получить в консоли управления, скопировав полное значение (вместе с тегом) на странице репозитория. Также вы можете заполнить поле вручную. Идентификатор реестра можно получить в CLI, выполнив команду `yc container registry list`. 
    * Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** и укажите:
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** — `json_key`.
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}** — выберите `key-for-sa`.
@@ -242,14 +247,14 @@
       * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}** — 8000.
    * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}** — выберите **HTTP**.
-      * **{{ ui-key.yc-ui-datasphere.common.port }}** — 8020.
+      * **{{ ui-key.yc-ui-datasphere.common.port }}** — 8000.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}** — `/v2/health/ready`.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}** — 1.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}** — 20.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}** — 3.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}** — 3.
 1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите каталог `data-folder`.
-1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите [конфигурацию](../../datasphere/concepts/configurations.md) `c1.4`, [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Идентификатор [подсети](../../vpc/concepts/network.md#subnet) оставьте пустым, {{ ml-platform-name }} будет использовать свою сеть по умолчанию. 
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите [конфигурацию](../../datasphere/concepts/configurations.md) `g1.1`, [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Идентификатор [подсети](../../vpc/concepts/network.md#subnet) оставьте пустым, {{ ml-platform-name }} будет использовать свою сеть по умолчанию. 
 1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}** оставьте значение каталога по умолчанию.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 

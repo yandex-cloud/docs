@@ -38,9 +38,9 @@ The infrastructure support costs include:
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md) and grant it the `container-registry.images.puller` [role](../../iam/concepts/access-control/roles.md) for the previously created registry:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to create a service account.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -54,7 +54,7 @@ The infrastructure support costs include:
       1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select `container-registry.images.puller`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@ The infrastructure support costs include:
          name: myservice-acc
          ```
 
-      1. Assign a role to the service account:
+      1. Assign the role to the service account:
 
          ```bash
          yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
@@ -90,17 +90,17 @@ The infrastructure support costs include:
          ```
 
          Where:
-         * `<service_name>`: `Container` service name.
+         * `<service_name>`: `container` service name.
          * `<resource>`: Category of the `registry` resource.
          * `<resource_name_or_ID>`: Name or ID of the resource the role is assigned for.
          * `--role`: `container-registry.images.puller` role ID.
          * `--subject`: ID of the service account (e.g., `ajelabcde12f********`) to which the role is assigned.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       See section [{#T}](#terraform).
 
-   - API
+   - API {#api}
 
       Use the `updateAccessBindings` method for the `registry` resource.
 
@@ -110,9 +110,9 @@ The infrastructure support costs include:
 
 1. Create a VM with a public IP address and link the service account you created to it:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -160,7 +160,7 @@ The infrastructure support costs include:
          * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. View a description of the CLI create VM command:
 
@@ -217,11 +217,11 @@ The infrastructure support costs include:
 
          This will create a VM called `first-instance`.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       See section [{#T}](#terraform).
 
-   - API
+   - API {#api}
 
       Create a VM using the [Create](../../compute/api-ref/Instance/create.md) method for the `Instance` resource:
       1. Prepare the key pair (public and private keys) for SSH access to the VM.
@@ -376,7 +376,7 @@ The infrastructure support costs include:
          ```
 
 
-   - Using an {{ iam-name }} token
+   - Using an IAM token
 
       {% note info %}
 

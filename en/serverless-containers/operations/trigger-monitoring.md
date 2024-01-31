@@ -11,9 +11,9 @@ The chart update period is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
 
@@ -49,9 +49,9 @@ To get started with [metrics](../../monitoring/concepts/data-model.md#metric), [
 | `serverless.triggers.`<br/>`error_per_second` | Errors per second | <ul><li>`request`: Container invocations</li><li>`message_queue`: Accesses to the {{ message-queue-full-name }}</li><li>`dlq`: Accesses to the Dead Letter Queue</li></ul> | Frequency of errors when processing container invocations |
 | `serverless.triggers.`<br/>`access_error_per_second` | Errors per second | <ul><li>`request`: Container invocations</li><li>`message_queue`: Accesses to the {{ message-queue-full-name }}</li><li>`dlq`: Accesses to the Dead Letter Queue</li></ul> | Access error frequency when processing container invocations |
 | `serverless.triggers.`<br/>`retry_per_second` | Invocations per second | <ul><li>`request`: Container invocations</li></ul> | Frequency of repeat container invocations in the event of an error |
-| `serverless.triggers.`<br/>`read_events_per_second` | Events per second | <ul><li>`incoming`: Events causing any trigger to fire, except for a trigger for {{ message-queue-full-name }}</li><li>`message_queue`: Events causing a trigger to fire for {{ message-queue-full-name }}</li></ul> | Frequency of events causing a trigger to fire |
+| `serverless.triggers.`<br/>`read_events_per_second` | Events per second | <ul><li>`incoming`: Events causing any trigger to fire, except for a trigger for {{ message-queue-full-name }}.</li><li>`message_queue`: Events causing a trigger to fire for {{ message-queue-full-name }}.</li></ul> | Frequency of events causing a trigger to fire |
 | `serverless.triggers.`<br/>`execution_time_milliseconds` | Invocations per second | <ul><li>`request`: Container invocations</li></ul> | Histogram of the container invocation frequency distribution by request processing time in milliseconds. Request processing time intervals are shown in the `bin` label. |
-| `serverless.triggers.`<br/>`event_size_exceeded_per_second` | Errors per second | <ul><li>`incoming`: Events causing any trigger to fire except for {{ message-queue-full-name }} | Frequency of errors when the message size limit is exceeded |
+| `serverless.triggers.`<br/>`event_size_exceeded_per_second` | Errors per second | <ul><li>`incoming`: Events causing any trigger to fire except for {{ message-queue-full-name }}. | Frequency of errors when the message size limit is exceeded. |
 
 ### Custom metrics labels {#labels}
 

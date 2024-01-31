@@ -45,4 +45,5 @@ description: "This page provides a list of step-by-step guides for {{ monitoring
 
 * [{#T}](prometheus/ingestion/index.md)
 * [{#T}](prometheus/querying/index.md)
+* [{#T}](prometheus/read-write-for-kubernetes.md)
 

@@ -17,7 +17,7 @@ To create a trigger, you need:
 
    * To invoke a container.
    * To read from the stream that activates the trigger when data is sent there.
-   * (optional) To write to the Dead Letter Queue.
+   * (Optional) To write to the Dead Letter Queue.
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
@@ -27,9 +27,9 @@ To create a trigger, you need:
 
 {% include [trigger-time](../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
@@ -52,7 +52,7 @@ To create a trigger, you need:
       * Size of the message group in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
       * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data passed to a container may exceed the specified group size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the group size.
+      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data transmitted to a container may exceed the specified group size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the group size.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -64,7 +64,7 @@ To create a trigger, you need:
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -97,7 +97,7 @@ To create a trigger, you need:
 
    * `--stream`: Data stream name.
    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
-   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of data passed to a container may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of data transmitted to a container may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
    * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
@@ -129,7 +129,7 @@ To create a trigger, you need:
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    To create a trigger for {{ yds-name }}, use the [create](../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 

@@ -2,15 +2,53 @@
 title: "How to configure an {{ KF }} target endpoint in {{ data-transfer-full-name }}"
 description: "In this tutorial, you will learn how to set up an {{ KF }} target endpoint in {{ data-transfer-full-name }}."
 ---
+# Transferring data to an {{ KF }} target endpoint
 
-# Configuring an {{ KF }} target endpoint
+{{ data-transfer-full-name }} enables you to migrate data to an {{ KF }} queue and implement various scenarios of data processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Configure one of the supported data sources](#supported-sources).
+1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+
+## Scenarios for transferring data to {{ KF }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+   Mirroring data across queues is a separate migration task.
+   * [{{ KF }} mirroring](../../../tutorials/mkf-to-mkf.md)
+
+1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
+
+   * [{{ MY }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-mmy.md).
+   * [{{ PG }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-mpg.md).
+   * [{{ ydb-short-name }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-ydb.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the data source {#supported-sources}
+
+Configure one of the supported data sources:
+
+* [{{ PG }}](../source/postgresql.md).
+* [{{ MY }}](../source/mysql.md).
+* [{{ KF }}](../source/kafka.md).
+* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ DS }}](../source/data-streams.md).
+* [{{ ydb-name }}](../source/ydb.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+## Configuring the {{ KF }} target endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * [{{ mkf-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings and [serialization settings](#serializer), including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Apache Kafka topic settings](#kafka-settings).
 
-## {{ mkf-name }} cluster {#managed-service}
+### {{ mkf-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -30,7 +68,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 Connecting to the database with explicitly specified network addresses.
 
@@ -42,7 +80,7 @@ Connecting to the database with explicitly specified network addresses.
 
 {% endlist %}
 
-## Topic settings {{ KF }} {#kafka-settings}
+### Topic settings {{ KF }} {#kafka-settings}
 
 {% list tabs group=instructions %}
 
@@ -58,7 +96,7 @@ Connecting to the database with explicitly specified network addresses.
 
 {% endlist %}
 
-## {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
+### {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
 
 {% list tabs group=instructions %}
 
@@ -67,3 +105,6 @@ Connecting to the database with explicitly specified network addresses.
    {% include [serializer](../../../../_includes/data-transfer/serializer.md) %}
 
 {% endlist %}
+
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

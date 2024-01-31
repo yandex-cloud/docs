@@ -3,7 +3,32 @@ title: "How to configure a {{ GP }} source endpoint in {{ data-transfer-full-nam
 description: "In this tutorial, you will learn how to set up a {{ GP }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ GP }} source endpoints
+# Transferring data from the {{ GP }} source endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data from a {{ GP }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ GP }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](../../../troubleshooting/index.md) to resolve them.
+
+## Scenarios for transferring data from {{ GP }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+   * [Migrating the {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
+
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+
+   * [Loading data from {{ GP }} to the {{ CH }} data mart](../../../tutorials/greenplum-to-clickhouse.md).
+   * [Loading data from {{ GP }} to the {{ PG }} data mart](../../../tutorials/greenplum-to-postgresql.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the {{ GP }} source endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -12,7 +37,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 
 
-## {{ mgp-name }} cluster {#managed-service}
+### {{ mgp-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -34,7 +59,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 Connecting to the database with explicitly specified network addresses and ports.
 
@@ -46,7 +71,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -76,7 +101,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Specifics of working with the Greenplum source {#advanced}
+### Specifics of working with the Greenplum source {#advanced}
 
 {{ data-transfer-name }} only supports {{ GP }} version 6. {{ GP }} versions 4 and 5 are not supported.
 
@@ -97,3 +122,16 @@ When starting a transfer with parallel copy enabled, the service copies data int
 To guarantee snapshot consistency, transfers with parallel copy enabled need to ensure that data in the tables being transferred remains static. For `ACCESS SHARE` locks (by default), the service does not guarantee that the data will remain static: this must be assured externally. For `SHARE` locks, the {{ GP }} mechanisms guarantee that data in the source tables remains static.
 
 {% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}
+
+
+## Configuring the data target {#supported-targets}
+
+Configure one of the supported data targets:
+
+* [{{ PG }}](../target/postgresql.md).
+* [{{ CH }}](../target/clickhouse.md).
+* [{{ GP }}](../target/greenplum.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

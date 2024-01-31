@@ -31,9 +31,9 @@ The infrastructure support costs include:
 
 ## Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -54,9 +54,9 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
 ### Create a registry {#registry}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In [the management console]({{ link-console-main }}), select the folder where you want to create a registry.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -79,9 +79,9 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
 ### Create a device {#device}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    Once a registry is created, you will see its settings.
 
@@ -111,9 +111,9 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
 ### Create a cluster {#cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -145,7 +145,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
-      * Database name. it must be unique within the folder and contain only Latin letters, numbers, and underscores.
+      * Database name. It must be unique within the folder and contain only Latin letters, numbers, and underscores.
       * DB owner username. It may only contain Latin letters, numbers, and underscores.
       * User password. It must be from 8 to 128 characters long.
 
@@ -167,9 +167,9 @@ After creating the cluster, you will be automatically redirected to the **{{ ui-
 
 Wait for the cluster status to change to `Alive`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Select the `my-pg-database` cluster.
    1. Go to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
@@ -188,7 +188,7 @@ As a sample data source, the scenario uses an air sensor that measures the follo
 * Pressure
 * Temperature
 
-The sensor outputs the result in JSON format. For example:
+The sensor outputs the result in JSON format. Here is an example:
 
 ```json
 {
@@ -207,9 +207,9 @@ Write the received information to a DB table using a function.
 
 Once you [connect to the cluster](#connect-to-cluster), create a table. To do this:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the edit window, enter the following query:
 
@@ -241,9 +241,9 @@ Once you [connect to the cluster](#connect-to-cluster), create a table. To do th
 
 The function will receive messages from the MQTT broker and write data to the table created in the previous step.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -257,9 +257,9 @@ The function will receive messages from the MQTT broker and write data to the ta
 
 After creating the function, you will be automatically redirected to the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** page.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
 
@@ -309,9 +309,9 @@ After creating the function, you will be automatically redirected to the **{{ ui
 
 The trigger will accept copies of messages from the device topic and pass them to the function for processing.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.

@@ -101,6 +101,8 @@ items:
         href: concepts/caching.md
       - name: Защищенные токены
         href: concepts/secure-tokens.md
+      - name: Политика доступа по IP-адресам
+        href: concepts/ip-address-acl.md
       - name: Выгрузка логов
         href: concepts/logs.md
       - name: Квоты и лимиты

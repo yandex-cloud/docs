@@ -3,14 +3,52 @@ title: "How to configure an {{ KF }} source endpoint in {{ data-transfer-full-na
 description: "In this tutorial, you will learn how to set up an {{ KF }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ KF }} source endpoints
+# Transferring data from an {{ KF }} source endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data from an {{ KF }} queue and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ KF }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+
+## Scenarios for transferring data from {{ KF }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+   Mirroring data across queues is a separate migration task.
+
+   * [{{ KF }} mirroring](../../../tutorials/mkf-to-mkf.md).
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+
+   * [{{ KF }} to {{ CH }}](../../../tutorials/mkf-to-mch.md).
+   * [{{ KF }} to {{ PG }}](../../../tutorials/mkf-to-mpg.md).
+   * [{{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
+   * [{{ KF }} to {{ ES }}](../../../tutorials/mkf-to-mes.md).
+   * [{{ KF }} to {{ MG }}](../../../tutorials/mkf-to-mmg.md).
+   * [{{ KF }} to {{ MY }}](../../../tutorials/mkf-to-mmy.md).
+   * [{{ KF }} to {{ OS }}](../../../tutorials/mkf-to-mos.md).
+   * [{{ KF }} to {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
+   * [{{ KF }} to {{ DS }}](../../../tutorials/mkf-to-yds.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Preparing the source database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/kafka.md) %}
+
+## Configuring the {{ KF }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * [{{ mkf-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional settings](#additional-settings).
 
-## {{ mkf-name }} cluster {#managed-service}
+### {{ mkf-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -30,7 +68,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 Connection with the {{ KF }} cluster with explicitly specified network addresses and broker host ports.
 
@@ -42,7 +80,7 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
 {% endlist %}
 
-## Advanced settings {#additional-settings}
+### Advanced settings {#additional-settings}
 
 
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
@@ -86,3 +124,23 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
    * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}
 
 {% endlist %}
+
+## Configuring the data target {#supported-targets}
+
+Configure one of the supported data targets:
+
+* [{{ PG }}](../target/postgresql.md).
+* [{{ MY }}](../target/mysql.md).
+* [{{ MG }}](../target/mongodb.md)
+* [{{ CH }}](../target/clickhouse.md).
+* [{{ GP }}](../target/greenplum.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ KF }}](../target/kafka.md).
+* [{{ DS }}](../target/data-streams.md).
+* [{{ ES }}](../target/elasticsearch.md).
+* [{{ OS }}](../target/opensearch.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

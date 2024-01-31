@@ -5,9 +5,9 @@ description: "In this guide, you will learn how to create a log sink in {{ cloud
 
 # Creating a log sink
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your log sink.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -24,7 +24,7 @@ description: "In this guide, you will learn how to create a log sink in {{ cloud
     1. Select a service account authorized to upload objects to the bucket.
     1. Click **{{ ui-key.yacloud.logging.button_create-sink }}**.
 
-- CLI
+- CLI {#cli}
 
     To create a log sink, run the following command:
     ```
@@ -51,7 +51,7 @@ description: "In this guide, you will learn how to create a log sink in {{ cloud
       bucket: bucket-name
     ```
 
-- API
+- API {#api}
 
     To create a log sink, use the [create](../api-ref/Sink/create.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/Create](../api-ref/grpc/sink_service.md#Create) gRPC API call.
 

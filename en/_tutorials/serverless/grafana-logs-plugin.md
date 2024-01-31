@@ -71,9 +71,9 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 ## Create a service account {#create-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -82,7 +82,7 @@ The cost of resources includes a fee for logging operations and log storage in a
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `logging.reader` role.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -119,7 +119,7 @@ The cost of resources includes a fee for logging operations and log storage in a
       done (1s)
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -175,7 +175,7 @@ The cost of resources includes a fee for logging operations and log storage in a
       yc iam service-account list
       ```
 
-- API
+- API {#api}
 
    To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
 
@@ -185,9 +185,9 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 ## Create an authorized key for a service account {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -200,7 +200,7 @@ The cost of resources includes a fee for logging operations and log storage in a
    1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
 
-- CLI
+- CLI {#cli}
 
    Create authorized keys for the `grafana-plugin` service account:
 
@@ -223,7 +223,7 @@ The cost of resources includes a fee for logging operations and log storage in a
    }
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -270,7 +270,7 @@ The cost of resources includes a fee for logging operations and log storage in a
          yc iam key list --service-account-id <service_account_ID>
          ```
 
-- API
+- API {#api}
 
    To create an access key, use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create) gRPC API call.
 
@@ -311,9 +311,9 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 ## Create a log group {#create-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the `grafana-plugin` service account.
    1. Select **{{ cloud-logging-name }}**.
@@ -322,7 +322,7 @@ The cost of resources includes a fee for logging operations and log storage in a
    1. Set the log group record retention period.
    1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a log group, run the command:
 
@@ -350,7 +350,7 @@ The cost of resources includes a fee for logging operations and log storage in a
    retention_period: 3600s
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the log group parameters:
 
@@ -404,7 +404,7 @@ The cost of resources includes a fee for logging operations and log storage in a
       yc logging group list
       ```
 
-- API
+- API {#api}
 
    To create a log group, use the [create](../../logging/api-ref/LogGroup/create.md) REST API method for the [LogGroup](../../logging/api-ref/LogGroup/index.md) resource or the [LogGroupService/Create](../../logging/api-ref/grpc/log_group_service.md#Create) gRPC API call.
 
@@ -412,9 +412,9 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 ## Add records to the log group {#add-records}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To add records to a log group, run the command:
 
@@ -451,7 +451,7 @@ The cost of resources includes a fee for logging operations and log storage in a
       * `--message`: Message
       * `--level`: Logging level
 
-- API
+- API {#api}
 
    To add entries to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write) gRPC API call.
 

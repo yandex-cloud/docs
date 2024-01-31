@@ -11,9 +11,9 @@ To allow any user to invoke a function without passing an authorization header, 
 
 As an example, we use the function described in [{#T}](../function/version-manage.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
 
@@ -40,10 +40,10 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
    1. You will see the function execution result in the **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** field.
 
-- HTTPS
+- HTTPS {#https}
 
    You can find the function invocation link in:
-   * The **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. To do this, in the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and click the required function row.
+   * **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. To do this, in the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and click the required function row.
    * The `http_invoke_url` parameter. To do this, run the following command:
       ```
       yc serverless function get <function name>
@@ -65,7 +65,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
       https://{{ sf-url }}/b09bhaokchn9pnbrlseb
       ```
 
-      The following response appears on the page:
+      The following response will appear on the page:
 
       ```
       Hello, World!
@@ -77,7 +77,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
       https://{{ sf-url }}/b09bhaokchn9pnbrlseb?name=<username>
       ```
 
-      The following response appears on the page:
+      The following response will appear on the page:
 
       ```
       Hello, Username!
@@ -88,7 +88,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
       https://{{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<version tag>
       ```
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -116,7 +116,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
       ```
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can call a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

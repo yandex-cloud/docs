@@ -92,17 +92,10 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 
 #### См. также {#see-also}
 
-
 * Попробуйте синтез речи с помощью демо на [странице сервиса](/services/speechkit#demo).
 * Ознакомьтесь с параметрами метода [API v1](request.md) и запросов [API v3](../tts-v3/api-ref/grpc/).
 * Посмотрите примеры использования API {{ speechkit-name }}:
   * [{#T}](api/tts-ogg.md)
   * [{#T}](api/tts-wav.md)
   * [{#T}](api/tts-ssml.md)
-* Посмотрите примеры использования Python SDK:
-  * [{#T}](../sdk/python/request.md)
-  * [{#T}](../sdk/python/synthesis.md)
-  * [{#T}](../sdk/python/templates-bvp-bvss.md)
-  * [{#T}](../sdk/python/templates-bvcc.md)
-
-
+  

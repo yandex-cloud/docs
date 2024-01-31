@@ -6,9 +6,9 @@ A {{ lockbox-short-name }} secret transmitted to a function is cached in {{ sf-n
 
 A new version of a function is created when secrets are transmitted. You cannot transmit secrets to an existing version.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -27,7 +27,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
 
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. A new version of the function with the specified secrets will be created.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -70,7 +70,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
 
       You can transmit multiple secrets to a function. To do this, specify the `--secret` parameter as many times as needed.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -118,9 +118,9 @@ A new version of a function is created when secrets are transmitted. You cannot 
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check whether the function and its settings are updated in the [management console]({{ link-console-main }}).
+   You can check the function update and its configuration in the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To transmit a {{ lockbox-name }} secret to a function, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
 

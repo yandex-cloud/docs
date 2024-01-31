@@ -73,3 +73,6 @@ According to the [offer](https://yandex.ru/legal/cloud_oferta/?lang=en), you can
 The cost of using {{ marketplace-full-name }} is the total cost of using {{ marketplace-full-name }} products. To review the items that make up the usage costs in detail, see the [details](../../billing/operations/check-charges.md) under Billing, grouping by product.
 
 
+#### Is it possible to withdraw money from the balance? {#refund}
+
+To withdraw any funds that will not be used for {{ yandex-cloud }} services, please [refer]({{ link-console-support }}) to the **{{ ui-key.yacloud.component.navigation-menu.label_help-center }}** section in the management console or send an email to [{{ link-support-mail }}](mailto:{{ link-support-mail }}).

@@ -13,4 +13,5 @@ description: "Various use cases for network infrastructure in {{ yandex-cloud }}
 * [Implementing fault-tolerant scenarios for network VMs](route-switcher.md)
 * [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall](high-accessible-dmz.md)
 * [{#T}](dataproc-nat-instance.md)
+* [Configuring a secure GRE tunnel on top of IPsec](gre-over-ipsec.md)
 * [Connecting to {{ objstorage-name }} from {{ vpc-name }}](./storage-vpc-access.md)

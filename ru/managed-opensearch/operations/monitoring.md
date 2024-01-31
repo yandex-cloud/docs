@@ -177,6 +177,22 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы узнать состояние и статус кластера, запросите информацию о нем:
+
+    ```bash
+    {{ yc-mdb-os }} cluster get <имя_или_идентификатор_кластера>
+    ```
+
+    Состояние кластера указано в параметре `health`, статус кластера — в параметре `status`.
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API {#api}
 
     Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор удаляемого кластера в параметре `clusterId`.

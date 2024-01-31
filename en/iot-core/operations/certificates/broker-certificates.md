@@ -23,9 +23,9 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 ## Adding a certificate {#add-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the broker certificate to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -46,7 +46,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
          1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -75,7 +75,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
    created_at: "2019-05-29T16:40:48.230Z"
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -140,7 +140,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       yc iot broker certificate list --broker-name <broker_name>
       ```
 
-- API
+- API {#api}
 
    To add a certificate to a broker, use the [addCertificate](../../broker/api-ref/Broker/addCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddCertificate](../../broker/api-ref/grpc/broker_service.md#AddCertificate) gRPC API call.
 
@@ -148,9 +148,9 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
 ## Deleting a certificate {#delete-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker certificate from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -160,7 +160,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
    1. In the row with the certificate you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -187,7 +187,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       +-------------+------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -247,7 +247,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       yc iot broker certificate list --broker-name <broker_name>
       ```
 
-- API
+- API {#api}
 
    To delete a broker certificate, use the [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/broker_service.md#DeleteCertificate) gRPC API call.
 

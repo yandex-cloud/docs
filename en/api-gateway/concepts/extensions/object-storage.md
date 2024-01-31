@@ -1,6 +1,6 @@
 # x-yc-apigateway-integration:object_storage extension
 
-The `x-yc-apigateway-integration:object_storage` extension passes request handling control to {{ objstorage-short-name }} for distributing static files.
+The `x-yc-apigateway-integration:object_storage` extension enables {{ objstorage-short-name }} to manage request handling for serving static files.
 
 ## Supported parameters {#parameters}
 
@@ -10,8 +10,8 @@ The `x-yc-apigateway-integration:object_storage` extension passes request handli
 ----|----|----
 | `bucket` | `string` | [Bucket](../../../storage/concepts/bucket.md) name. |
 | `object` | `string` | [Object](../../../storage/concepts/object.md) name. Supports parameter standardization from the path of the original request. <br>Parameters are substituted in `object`. |
-| `error_object` | `string` | This is an optional parameter. [Object](../../../storage/concepts/object.md) name returned if HTTP error code 4xx is received instead of `object`. |
-| `service_account_id` | `string` | ID of the service account used for authorization when accessing {{ objstorage-short-name }}. If the parameter is omitted, the value of the [top-level](./index.md#top-level) `service_account_id` parameter is used. If there is no top-level parameter, the object is available without authorization. |
+| `error_object` | `string` | This is an optional parameter. [Object](../../../storage/concepts/object.md) name returned if an HTTP error code 4xx is received instead of `object`. |
+| `service_account_id` | `string` | ID of the service account used for authorization when accessing {{ objstorage-short-name }}. If not specified, it defaults to the [top-level](./index.md#top-level) `service_account_id` parameter. If there is no top-level parameter either, the object is available without authorization. |
 
 
 ## Extension specification {#spec}

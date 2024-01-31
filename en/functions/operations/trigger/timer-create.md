@@ -10,9 +10,9 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
@@ -45,7 +45,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -72,7 +72,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    * `--name`: Timer name.
    * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
-   * `--payload`: Message to be delivered to the function if the timer triggers. String length should not exceed 4,096 characters.
+   * `--payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -102,7 +102,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -112,7 +112,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    1. In the configuration file, describe the trigger parameters:
 
-      * `name`: Timer name in the following format:
+      * `name`: Timer name. The name format is as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -150,7 +150,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -168,7 +168,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
          yc serverless trigger get <trigger_ID>
          ```
 
-- API
+- API {#api}
 
    To create a timer, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 

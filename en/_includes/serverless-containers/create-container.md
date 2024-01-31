@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -12,7 +12,7 @@
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -35,7 +35,7 @@
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -59,7 +59,7 @@
       * `service_account_id`: [Service account](../../iam/concepts/users/service-accounts.md) ID.
       * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL in {{ container-registry-name }}.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       ```hcl
@@ -111,7 +111,7 @@
       yc serverless container list
       ```
 
-- API
+- API {#api}
 
    To create a container, use the [create](../../serverless-containers/containers/api-ref/Container/create.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/container_service.md#Create) gRPC API call.
 

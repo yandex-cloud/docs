@@ -4,9 +4,9 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
 {% include [monitoring-topic](../../../../_includes/iot-core/monitoring-topic.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create an alias:
 
@@ -21,7 +21,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       1. Repeat the steps for each alias you add.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../../_includes/cli-install.md) %}
 
@@ -54,7 +54,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
      --topic-aliases <alias_name>='$devices/{id}/<events,_state,_commands_or_config>'
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
@@ -121,7 +121,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       yc iot device get <device_name>
       ```
 
-- API
+- API {#api}
 
    To create an alias, use the [create](../../../api-ref/Device/create.md) REST API method for the [Device](../../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../../api-ref/grpc/device_service.md#Create) gRPC API call.
 

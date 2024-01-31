@@ -60,7 +60,7 @@
       * **{{ ui-key.yacloud.alb.label_send }}** — данные, которые отправляются на эндпоинт для проверки состояния.
       * **{{ ui-key.yacloud.alb.label_receive }}** — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
       
-  Подробнее см. в разделе [{#T}](../../application-load-balancer/concepts/backend-group.md#health-checks).
+  {% include [backend-healthcheck](backend-healthcheck.md) %}
 
   Чтобы добавить проверку состояния, внизу блока бэкенда нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}** и задайте настройки проверки.
 

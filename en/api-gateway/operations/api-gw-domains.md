@@ -10,11 +10,11 @@ It must be a third-level domain or lower. For example, you can connect the www.e
 
 To connect a domain to an API gateway:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
-   1. Host a CNAME record with your DNS provider or on your own DNS server:
+   1. Add a CNAME record to your DNS provider or to your own DNS server:
 
       ```
       <domain> IN CNAME <API_gateway_service_domain>
@@ -51,7 +51,7 @@ To connect a domain to an API gateway:
       1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, select a certificate, and enter a domain name (FQDN).
 
-- API
+- API {#api}
 
    To add a domain to an API gateway, use the [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/apigateway_service.md#AddDomain) gRPC API call.
 

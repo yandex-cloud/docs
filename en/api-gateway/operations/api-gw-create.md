@@ -45,9 +45,9 @@ paths:
 
 {% endcut %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -58,7 +58,7 @@ paths:
    1. Configure additional API gateway settings if needed.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -80,7 +80,7 @@ paths:
          --spec=<path_to_specification_file>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -88,14 +88,14 @@ paths:
 
    {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
+- API {#api}
 
-- {{ yandex-cloud }} Toolkit
+   To create an API gateway, use the [create](../apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
+
+
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
-
-- API
-
-   To create an API gateway, use the [create](../apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
 
 {% endlist %}

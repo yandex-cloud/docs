@@ -4,9 +4,9 @@ Apart from text, you can write [structured logs](../concepts/logs.md#structured-
 
 ## Applications and Dockerfile examples
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
    **index.js**
    ```
@@ -42,7 +42,7 @@ Apart from text, you can write [structured logs](../concepts/logs.md#structured-
    CMD [ "node", "index.js" ]
    ```
 
-- Python
+- Python {#python}
 
    **requirements.txt**
    ```
@@ -103,7 +103,7 @@ Apart from text, you can write [structured logs](../concepts/logs.md#structured-
    CMD [ "python", "index.py" ]
    ```
 
-- Go
+- Go {#go}
 
    **index.go**
    ```

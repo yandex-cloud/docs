@@ -1,19 +1,19 @@
 ---
 title: "Getting an invocation link"
-description: "This guide describes how you can get an invocation link."
+description: "Follow this guide to get an invocation link."
 ---
 
 # Getting an invocation link
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Select the container. You will find the invocation link in the **{{ ui-key.yacloud.serverless-containers.label_url }}** field.
 
-- CLI
+- CLI {#cli}
 
    To get an invocation link, run the following command:
 
@@ -35,7 +35,7 @@ description: "This guide describes how you can get an invocation link."
 
    You will find the invocation link in the `url` field.
 
-- API
+- API {#cli}
 
   To get a container invocation link, use the [get](../containers/api-ref/Container/get.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Get](../containers/api-ref/grpc/container_service.md#Get) gRPC API call.
 

@@ -5,9 +5,9 @@ description: "Follow this guide to assign roles to a container."
 
 # Assigning roles to a container
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To assign a [role](../security/index.md) to a container, run this command:
 
@@ -45,7 +45,7 @@ description: "Follow this guide to assign roles to a container."
       done (1s)
       ```
 
-- API
+- API {#api}
 
    To assign roles for a container, use the [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/SetAccessBindings](../containers/api-ref/grpc/container_service.md#SetAccessBindings) gRPC API call.
 

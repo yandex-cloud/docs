@@ -37,9 +37,9 @@ Subscribe a registry to a device or devices using the following parameters:
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    - Subscribe a registry to a single device's topic:
 
@@ -134,9 +134,9 @@ Subscribe a device to a registry using the following parameters:
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    - Subscribe a device to topics that are commands for a specific device:
 

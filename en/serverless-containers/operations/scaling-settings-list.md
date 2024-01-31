@@ -5,15 +5,15 @@ description: "Follow this guide to view container scaling settings."
 
 # Viewing container scaling settings
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Select the container. The number of provisioned instances is displayed under **{{ ui-key.yacloud.serverless-containers.section-revisions }}**, in the row with the active container revision.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "Follow this guide to view container scaling settings."
 
    The number of provisioned instances is displayed in the `min_instances` field.
 
-- API
+- API {#api}
 
    To view container scaling settings, use the [getRevision](../containers/api-ref/Container/getRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/GetRevision](../containers/api-ref/grpc/container_service.md#GetRevision) gRPC API call.
 

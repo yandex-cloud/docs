@@ -337,6 +337,10 @@ items:
           data-transfer-full-name }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
+          Загрузка данных из {{ objstorage-full-name }} в {{ mch-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-clickhouse.md
+      - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md

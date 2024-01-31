@@ -8,9 +8,9 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
 ## Create a VM from a {{ coi }} with an additional volume for a Docker container {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

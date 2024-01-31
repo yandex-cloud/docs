@@ -28,12 +28,12 @@ There is no backup of function code. We recommend saving it on your own.
 
 {% endnote %}
 
-{% include [version-list](../../_includes/functions/version-get.md) %}
+{% include [version-get](../../_includes/functions/version-get.md) %}
 
 ## Getting a list of triggers {#trigger-list}
 
-{% include [version-list](../../_includes/functions/trigger-list.md) %}
+{% include [trigger-list](../../_includes/functions/trigger-list.md) %}
 
 ## Getting information about a trigger {#trigger-get}
 
-{% include [version-list](../../_includes/functions/trigger-get.md) %}
+{% include [trigger-get](../../_includes/functions/trigger-get.md) %}

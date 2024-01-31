@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -9,7 +9,7 @@
    1. Select the device.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -32,7 +32,7 @@
   +------------------------------------------+---------------------+
   ```
 
-- API
+- API {#api}
 
   To get a list of device certificates, use the [listCertificates](../../iot-core/api-ref/Device/listCertificates.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/ListCertificates](../../iot-core/api-ref/grpc/device_service.md#ListCertificates) gRPC API call.
 

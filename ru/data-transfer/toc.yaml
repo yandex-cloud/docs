@@ -209,6 +209,8 @@ items:
             href: tutorials/object-storage-to-postgresql.md
           - name: '{{ yandex-direct }} в {{ CH }}'
             href: tutorials/direct-to-mch.md
+          - name: '{{ objstorage-name }} в {{ CH }}'
+            href: tutorials/object-storage-to-clickhouse.md
       - name: Загрузка данных в {{ objstorage-name }}
         items:
           - name: '{{ MY }} в {{ objstorage-name }}'

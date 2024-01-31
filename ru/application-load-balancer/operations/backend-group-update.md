@@ -184,7 +184,11 @@ description: "Пошаговая инструкция по изменению г
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Добавьте в группу бэкенд и проверку состояния. Внутри группы все бэкенды должны быть одного [типа](../concepts/backend-group.md#group-types) — `HTTP` или `Stream`.
+  Добавьте в группу бэкенд и проверку состояния.
+
+  {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
+
+  Внутри группы все бэкенды должны быть одного [типа](../concepts/backend-group.md#group-types) — `HTTP` или `Stream`.
 
   {% cut "HTTP-бэкенд" %} 
 
@@ -363,6 +367,8 @@ description: "Пошаговая инструкция по изменению г
         * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
           * `path` — путь.
 
+        {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
+
       Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
@@ -532,6 +538,8 @@ description: "Пошаговая инструкция по изменению г
      ```
 
      {% endcut %}
+    
+     {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
 - {{ TF }} {#tf}
 
@@ -583,6 +591,8 @@ description: "Пошаговая инструкция по изменению г
        * `unhealthy_threshold` — порог неработоспособности.
        * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
          * `path` — путь.
+      
+      {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:

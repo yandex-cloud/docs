@@ -5,9 +5,9 @@ description: "Follow this guide to create a device."
 
 # Creating a device
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -48,7 +48,7 @@ description: "Follow this guide to create a device."
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -148,7 +148,7 @@ description: "Follow this guide to create a device."
       status: ACTIVE
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -213,7 +213,7 @@ description: "Follow this guide to create a device."
          ```
          terraform plan
          ```
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -225,7 +225,7 @@ description: "Follow this guide to create a device."
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To create a device, use the [create](../../api-ref/Device/create.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../api-ref/grpc/device_service.md#Create) gRPC API call.
 

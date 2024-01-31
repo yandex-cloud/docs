@@ -94,9 +94,9 @@ In our example, we use a configuration file named `example.tf`, which is located
 
 Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Make sure the configuration files are valid.
 
@@ -114,15 +114,15 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
          Result:
 
-        ```
-        Refreshing Terraform state in-memory prior to plan...
-        The refreshed state will be used to calculate this plan, but will not be
-        persisted to local or remote state storage.
-        ...
-        Note: You did not specify an "-out" parameter to save this plan, so Terraform
-        cannot guarantee that exactly these actions will be performed if
-        "terraform apply" is subsequently run.
-        ```
+         ```
+         Refreshing Terraform state in-memory prior to plan...
+         The refreshed state will be used to calculate this plan, but will not be
+         persisted to local or remote state storage.
+         ...
+         Note: You did not specify an "-out" parameter to save this plan, so Terraform
+         cannot guarantee that exactly these actions will be performed if
+         "terraform apply" is subsequently run.
+         ```
 
    1. Deploy your resources in {{ yandex-cloud }}.
 
@@ -198,7 +198,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
          Warning: Permanently added '<public_IP_address>' (ECDSA) to the list of known hosts.
          Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
-          * Documentation:  https://help.ubuntu.com
+          * Documentation: https://help.ubuntu.com
          ...
          Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
          applicable law.
@@ -313,9 +313,9 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Make sure the configuration files are valid.
 
@@ -333,15 +333,15 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
          Result:
 
-        ```
-        Refreshing Terraform state in-memory prior to plan...
-        The refreshed state will be used to calculate this plan, but will not be
-        persisted to local or remote state storage.
-        ...
-        Note: You did not specify an "-out" parameter to save this plan, so Terraform
-        cannot guarantee that exactly these actions will be performed if
-        "terraform apply" is subsequently run.
-        ```
+         ```
+         Refreshing Terraform state in-memory prior to plan...
+         The refreshed state will be used to calculate this plan, but will not be
+         persisted to local or remote state storage.
+         ...
+         Note: You did not specify an "-out" parameter to save this plan, so Terraform
+         cannot guarantee that exactly these actions will be performed if
+         "terraform apply" is subsequently run.
+         ```
 
    1. Deploy your resources in {{ yandex-cloud }}.
 
@@ -418,7 +418,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
          Warning: Permanently added '<public_IP_address_of_VM_1>' (ECDSA) to the list of known hosts.
          Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
-          * Documentation:  https://help.ubuntu.com
+          * Documentation: https://help.ubuntu.com
          ...
          Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
          applicable law.

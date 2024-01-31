@@ -5,9 +5,9 @@ description: "Follow this guide to update a function label."
 
 # Updating a function label
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -17,7 +17,7 @@ description: "Follow this guide to update a function label."
 
    {% note warning %}
 
-   The existing set of `labels` is completely replaced by the set transmitted.
+   The existing set of `labels` is completely overwritten by the transmitted set.
 
    {% endnote %}
 
@@ -39,7 +39,7 @@ description: "Follow this guide to update a function label."
    http_invoke_url: https://{{ sf-url }}/b097d9ous3ge********
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -107,7 +107,7 @@ description: "Follow this guide to update a function label."
    yc serverless function get <function_name>|<function_ID>
    ```
 
-- API
+- API {#api}
 
    To update a function label, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update) gRPC API call.
 

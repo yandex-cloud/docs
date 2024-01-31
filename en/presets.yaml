@@ -142,7 +142,6 @@ default:
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   ES: Elasticsearch
-  eventhub-name: EventHub
   external-ip-examples:
     '0': 84.201.155.117
     '1': 84.252.131.221
@@ -6371,6 +6370,8 @@ default:
                       security_groups:
                         title: Security groups
                     ClickHouseConnectionType:
+                      managed:
+                        title: Managed cluster
                       on_premise:
                         title: On-premise
                     ClickHouseCredentials:
@@ -6531,29 +6532,6 @@ default:
                         title: Host
                       port:
                         title: Port
-            eventhub:
-              console:
-                form:
-                  eventhub:
-                    EventhubAdvancedSettings:
-                      converter:
-                        title: Conversion rules
-                      transformer:
-                        title: Transformation rules
-                    EventhubConnection:
-                      hub_name:
-                        title: Event hub
-                      key_value:
-                        title: Key value
-                      namespace_name:
-                        title: Namespace
-                      topic:
-                        title: Topic
-                    EventhubSource:
-                      consumer_group:
-                        title: Consumer group
-                      starting_offset:
-                        title: Starting offset
             greenplum:
               console:
                 form:
