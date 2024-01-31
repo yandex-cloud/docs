@@ -5,9 +5,9 @@ description: "Follow this guide to get information about a sink."
 
 # Getting information about a sink
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where your log sink is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -15,7 +15,7 @@ description: "Follow this guide to get information about a sink."
    1. Select a sink.
    1. The **{{ ui-key.yacloud.common.overview }}** page will show the sink details.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ description: "Follow this guide to get information about a sink."
      bucket: test-bucket
    ```
 
-- API
+- API {#api}
 
    To get detailed information about a sink, use the [get](../api-ref/Sink/get.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/Get](../api-ref/grpc/sink_service.md#Get) gRPC API call.
 

@@ -13,9 +13,9 @@ You can only delete an empty [registry](../../concepts/registry.md). Make sure t
 
 To access a registry, use its ID or name. For information about how to get the registry ID or name, see [{#T}](registry-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   To delete a registry:
   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to delete a registry from.
@@ -23,7 +23,7 @@ To access a registry, use its ID or name. For information about how to get the r
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.cr.overview.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -54,7 +54,7 @@ To access a registry, use its ID or name. For information about how to get the r
      +----+------+-----------+
      ```
 
-- API
+- API {#api}
 
   To delete the registry, use the [delete](../../api-ref/Registry/delete.md) method for the [Registry](../../api-ref/Registry/) resource.
 

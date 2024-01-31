@@ -33,9 +33,9 @@ The cost of resources for the script includes:
 
 To create a bucket to place the HTML page of your service in and configure it for hosting static websites:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select your working folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -118,9 +118,9 @@ To create a bucket to place the HTML page of your service in and configure it fo
 
 To create a service account for the service components to interact:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to your working folder.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -138,9 +138,9 @@ To create a service account for the service components to interact:
 
 To create a {{ ydb-name }} database and configure it to store URLs:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to your working folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -175,9 +175,9 @@ To create a {{ ydb-name }} database and configure it to store URLs:
 
 To create and set up a URL shortening function:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to your working folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -337,9 +337,9 @@ To create and set up a URL shortening function:
 
 To publish the service via {{ api-gw-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to your working folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.

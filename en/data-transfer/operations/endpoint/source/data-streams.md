@@ -3,14 +3,44 @@ title: "How to configure a {{ yds-full-name }} source endpoint in {{ data-transf
 description: "Follow this guide to configure a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ yds-full-name }} source endpoints
+# Transferring data from a {{ yds-full-name }} source endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data from a {{ yds-name }} queue and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ yds-name }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data from {{ yds-name }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+   Mirroring data across {{ yds-name }} queues is a separate migration task.
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+
+   * [{{ DS }} to {{ CH }}](../../../tutorials/yds-to-clickhouse.md).
+   * [{{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
+   * [{{ DS }} to {{ OS }}](../../../tutorials/trails-to-os.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Preparing the source database {#prepare}
+
+{% include [prepare yds db](../../../../_includes/data-transfer/endpoints/sources/yds-prepare.md) %}
+
+## Configuring the {{ yds-name }} source endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * Stream [connection settings](#managed-service) in [{{ yds-full-name }}](#managed-service). These are required parameters.
 * [Additional settings](#additional-settings).
 
-## Basic settings {#managed-service}
+### Basic settings {#managed-service}
 
 {% list tabs group=instructions %}
 
@@ -20,7 +50,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% endlist %}
 
-## Advanced settings {#additional-settings}
+### Advanced settings {#additional-settings}
 
 
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
@@ -70,3 +100,36 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.allow_ttl_rewind.title }}**: Select this option to continue a transfer if a topic's TTL is exceeded (some data will be lost). If the option is not selected, a transfer will be aborted with a data loss error.
 
 {% endlist %}
+
+
+## Configuring the data target {#supported-targets}
+
+Configure one of the supported data targets:
+
+* [{{ PG }}](../target/postgresql.md).
+* [{{ MY }}](../target/mysql.md).
+* [{{ MG }}](../target/mongodb.md)
+* [{{ CH }}](../target/clickhouse.md).
+* [{{ GP }}](../target/greenplum.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ KF }}](../target/kafka.md).
+* [{{ DS }}](../target/data-streams.md).
+* [{{ ES }}](../target/elasticsearch.md).
+* [{{ OS }}](../target/opensearch.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+* [Transfer failure](#overloaded)
+* [{{ sf-short-name }} redirects](#redirects)
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [overloaded](../../../../_includes/data-transfer/troubles/overloaded.md) %}
+
+{% include [redirects](../../../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
+

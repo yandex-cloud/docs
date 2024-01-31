@@ -7,9 +7,9 @@ description: "Follow this guide to mount a bucket to a container."
 
 {% include [read-note](../../_includes/functions/read-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -22,7 +22,7 @@ description: "Follow this guide to mount a bucket to a container."
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}**: [Folder](../../storage/concepts/object.md#folder) within the bucket. If you leave this field empty, the entire bucket will be mounted.
     1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
-- API
+- API {#api}
 
   To mount a bucket, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 

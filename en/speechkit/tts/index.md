@@ -102,7 +102,4 @@ For a full list of available formats and their characteristics, see [{#T}](../fo
 * Python SDK use cases:
    * [{#T}](../sdk/python/request.md)
    * [{#T}](../sdk/python/synthesis.md)
-   * [{#T}](../sdk/python/templates-bvp-bvss.md)
-   * [{#T}](../sdk/python/templates-bvcc.md)
-
 

@@ -12,9 +12,9 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
@@ -49,7 +49,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -120,7 +120,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -158,9 +158,9 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
       * `object_storage`: Storage parameters:
          * `bucket_id`: Bucket ID.
          * Select one or more [event](../../concepts/trigger/os-trigger.md#event) types to be handled by the trigger:
-            * `create`: The trigger will invoke the function when a new object is created in the storage. The value can be `true` or `false`.
-            * `update`: The trigger will invoke the function when a new object is updated in the storage. The value can be `true` or `false`.
-            * `delete`: The trigger will invoke the function when a new object is deleted from the storage. The value can be `true` or `false`.
+            * `create`: The trigger will invoke the function when a new object is created in the storage. It may take either the `true` or `false` value.
+            * `update`: The trigger will invoke the function when a new object is updated in the storage. It may take either the `true` or `false` value.
+            * `delete`: The trigger will invoke the function when a new object is deleted from the storage. It may take either the `true` or `false` value.
          * `prefix`: [Prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
          * `suffix`: [Suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
       * `function`: Settings for the function, which will be activated by the trigger:
@@ -178,7 +178,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -196,7 +196,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
          yc serverless trigger get <trigger ID>
          ```
 
-- API
+- API {#api}
 
    To create a trigger for {{ objstorage-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 

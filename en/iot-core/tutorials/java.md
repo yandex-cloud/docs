@@ -1,6 +1,6 @@
 # Working with {{ iot-full-name }} in Java
 
-In this scenario, you'll learn how to connect to {{ iot-full-name }} using the [Paho](https://www.eclipse.org/paho/clients/java/) library written in Java. It assumes that you know how to develop in Java.
+In this scenario, you will learn how to connect to {{ iot-full-name }} using the [Paho](https://www.eclipse.org/paho/clients/java/) library written in Java. It assumes that you know how to develop in Java.
 
 {% note info %}
 
@@ -9,29 +9,30 @@ The source code used in this scenario is available on [GitHub](https://github.co
 {% endnote %}
 
 Once connected, you can:
+
 * [Send messages](../operations/publish.md).
 * [Subscribe a device or registry to receive messages](../operations/subscribe.md).
 
 To connect to {{ iot-full-name }} and start messaging:
-* [Get started](#before-you-begin)
-* [Create the required {{ iot-full-name }} resources](#resources)
-   * [Create a registry and add a certificate to it](#registry)
-   * [Create a device and add a certificate to it](#device)
-* [Connect to {{ iot-full-name }}](#configure)
-* [Log in to {{ iot-full-name }}](#auth)
-    * [Authorization using certificates](#certs)
-    * [Authorization using a username and password](#log-pass)
-* [Establish a connection](#connect)
-* [Subscribe to a topic and get messages](#subscribe)
-* [Send a message](#publish)
-* [Terminate the connection](#disconnect)
 
-## Before you start {#before-you-begin}
+* [Create the required {{ iot-full-name }} resources](#resources):
+   * [Create a registry and add a certificate to it](#registry).
+   * [Create a device and add a certificate to it](#device).
+* [Connect to {{ iot-full-name }}](#configure).
+* [Authenticate in {{ iot-full-name }}](#auth):
+   * [Authentication using certificates](#certs).
+   * [Authentication by username and password](#log-pass).
+* [Establish a connection](#connect).
+* [Subscribe to a topic and receive messages](#subscribe).
+* [Send a message](#publish).
+* [Terminate the connection](#disconnect).
 
-1. If you do not have the command line interface {{ yandex-cloud }} yet, [install and initialize it](../../cli/quickstart.md#install).
+## Getting started {#before-you-begin}
+
+1. If you do not have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
 1. Download and install [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html).
 
-## Create the required {{ iot-full-name }} resources{#resources}
+## Create the required {{ iot-full-name }} resources {#resources}
 
 ### Create a registry and add a certificate to it {#registry}
 
@@ -39,7 +40,7 @@ If you already have a certificate, start with the second step.
 
 1. Create a certificate for the registry:
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout registry-key.pem \
@@ -51,13 +52,13 @@ If you already have a certificate, start with the second step.
 
 1. Create a registry:
 
-   ```shell script
+   ```bash
    yc iot registry create --name my-registry
    ```
 
 1. Add a certificate to the registry:
 
-   ```shell script
+   ```bash
    yc iot registry certificate add \
      --registry-name my-registry \ # Registry name.
      --certificate-file registry-cert.pem # Path to the public part of the certificate.
@@ -69,7 +70,7 @@ If you already have a certificate, start with the second step.
 
 1. Create a certificate for the device:
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout device-key.pem \
@@ -82,13 +83,13 @@ If you already have a certificate, start with the second step.
 1. [Review a list of the registries](../operations/registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../operations/registry/registry-create.md).
 1. Create a device:
 
-   ```shell script
+   ```bash
    yc iot device create --registry-name my-registry --name my-device
    ```
 
 1. Add a certificate to the device:
 
-   ```shell script
+   ```bash
    yc iot device certificate add \
      --device-name my-device \ # Device name.
      --certificate-file device-cert.pem # Path to the public part of the certificate.
@@ -114,23 +115,23 @@ connOpts.setKeepAliveInterval(keepAliveInterval);
 
 Where:
 
-* `MqttClient` is a class that specifies the {{ iot-full-name }} connection parameters:
-    * Address and port.
-    * Client ID.
-* `MqttConnectOptions` is a class that sets the connection options. You can use the default settings, but we recommend setting the `keepAliveInterval` parameter. Its value determines the frequency of sending `PINGREQ` commands. The lower the `keepAliveInterval` value, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of sending payable `PINGREQ` commands.
-* `listener` is a class that implements the `MqttCallback` interface. It's used for handling events such as server connection loss (`connectionLost`), message delivery (`deliveryComplete`), and new message arrival (`messageArrived`).
+* `MqttClient`: Class that specifies the {{ iot-full-name }} connection parameters:
+    * Address and port
+    * Client ID
+* `MqttConnectOptions`: Class that sets the connection options. You can use the default settings, but we recommend setting the `keepAliveInterval` parameter. Its value determines the frequency of sending `PINGREQ` commands. The lower the `keepAliveInterval` value, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of sending payable `PINGREQ` commands.
+* `listener`: Class that implements the `MqttCallback` interface. It is used for handling such events as server connection loss (`connectionLost`), message delivery (`deliveryComplete`), and new message arrival (`messageArrived`).
 
-## Log in to {{ iot-full-name }} {#auth}
+## Authenticate in {{ iot-full-name }} {#auth}
 
-There are two [authorization](../concepts/authorization.md) methods:
+There are two [authentication](../concepts/authorization.md) methods:
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
 
-### Authorization using certificates {#certs}
+### Authentication using certificates {#certs}
 
-When logging in with X.509 certificates, you use [PKCS#12](https://en.wikipedia.org/wiki/PKCS12) certificates (.p12 files). To generate this certificate from PEM certificates, run the command:
+When authenticating with X.509 certificates, use [PKCS#12](https://en.wikipedia.org/wiki/PKCS12) certificates (.p12 files). To generate this certificate from PEM certificates, run the command:
 
-```shell script
+```bash
 openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 ```
 
@@ -138,7 +139,7 @@ openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 
 In the example available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java), certificates are loaded from files with the following structure:
 
-```
+```text
   /my_registry        Registry directory |current directory|. The example should be run from this directory.
   `- /device          Device directory |device|.
   |  `- cert.pem      Device certificate in PEM format.
@@ -154,11 +155,13 @@ In the example available on [GitHub](https://github.com/yandex-cloud/examples/tr
 A certificate from the certificate authority (CA) is set as a static variable named `TRUSTED_ROOT`.
 
 The example uses the following certificate loading method:
+
 ```java
 private SSLSocketFactory getSocketFactoryWithCerts(String certsDir)
 ```
 
 Certificates are loaded in several stages:
+
 1. Load the certificate used for server authentication:
 
     ```java
@@ -174,7 +177,8 @@ Certificates are loaded in several stages:
     TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
     tmf.init(tks);
     ```
-1. Load the client certificate used for authorization on the server from the `keystore.p12` file:
+
+1. Load the client certificate used for authentication on the server from the `keystore.p12` file:
 
     ```java
     final char[] emptyPassword = "".toCharArray();
@@ -184,6 +188,7 @@ Certificates are loaded in several stages:
     kmf.init(ks, emptyPassword);
     ```
 1. Get an instance of the `SSLSocketFactory` class:
+
     ```java
     SSLContext ctx = SSLContext.getInstance("TLS");
     ctx.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
@@ -196,9 +201,9 @@ After that, pass the obtained `SSLSocketFactory` instance to the connection para
 connOpts.setSocketFactory(sslSocketFactory);
 ```
 
-### Authorization using a username and password {#log-pass}
+### Authenticating by username and password {#log-pass}
 
-Since logging in with a username and password in {{ iot-full-name }} requires the TLS protocol, you need to load the certificate used for server authentication:
+Since authentication using a username and password in {{ iot-full-name }} requires the TLS protocol, you need to load the certificate used for server authentication:
 
 ```java
 // Loading the CA certificate from the `TRUSTED_ROOT` static variable.
@@ -220,7 +225,6 @@ private SSLSocketFactory getSocketFactory()
     ctx.init(null, tmf.getTrustManagers(), null);
     return ctx.getSocketFactory();
 }
-
 ```
 
 In the connection settings, specify the username (registry or device ID) and password:
@@ -266,7 +270,6 @@ client.connect(connOpts);
 
 Where `listener` is a class that implements the `MqttCallback` interface.
 
-
 ## Subscribe to a topic and get messages {#subscribe}
 
 Subscribe to a topic using the following code. In the `subscribe` method, specify the `topic` you want to subscribe to and the level of quality of service (`QoS`).
@@ -302,8 +305,6 @@ client.subscribe(topic, qos, messageListener);
 
 Where `messageListener` is a class that implements the `IMqttMessageListener` interface.
 
-
-
 ## Send a message {#publish}
 
 Send a message using the following code. In the `publish` method, specify the `topic` you want to send a message to and the message text using the `MqttMessage` class. You can also specify the desired `qos` level for an instance of the `MqttMessage` class, if required.
@@ -332,7 +333,6 @@ client.connect(connOpts);
 ```
 
 Where `listener` is a class that implements the `MqttCallback` interface.
-
 
 ## Terminate the connection {#disconnect}
 

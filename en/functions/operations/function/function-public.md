@@ -2,16 +2,16 @@
 
 To allow any user to invoke a function without passing an authorization header, make it public.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select the function you want to make public.
    1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -29,7 +29,7 @@ To allow any user to invoke a function without passing an authorization header, 
    done (1s)
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -52,7 +52,7 @@ To allow any user to invoke a function without passing an authorization header, 
       Where:
 
       * `function_id`: Function ID. To find out the function ID, [get a list of functions](function-list.md) in the folder.
-      * `role`: Role to assign.
+      * `role`: Role to be assigned.
       * `members`: List of users to assign the role to.
 
          To make a function public, assign the `{{ roles-functions-invoker }}` role to all unauthorized users (`allUsers` [system group](../../../iam/concepts/access-control/system-group.md)).
@@ -93,7 +93,7 @@ To allow any user to invoke a function without passing an authorization header, 
       yc serverless function list-access-bindings <function_name>
       ```
 
-- API
+- API {#api}
 
    To make a function public, use the [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/function_service.md#SetAccessBindings) gRPC API call.
 

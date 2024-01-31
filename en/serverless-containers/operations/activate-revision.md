@@ -7,9 +7,9 @@ description: "Follow this guide to make a container revision active."
 
 {% include [active-revision](../../_includes/serverless-containers/active-revision.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -18,7 +18,7 @@ description: "Follow this guide to make a container revision active."
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-containers.popup-confirm-edit-active-revision_button_confirm }}**. The revision status will change from `Obsolete` to `Active`.
 
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@ description: "Follow this guide to make a container revision active."
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    To make a container revision active, use either the [rollback](../../serverless-containers/containers/api-ref/Container/rollback.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/Rollback](../../serverless-containers/containers/api-ref/grpc/container_service.md#Rollback) gRPC API call.
 

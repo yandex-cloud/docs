@@ -21,9 +21,9 @@ To authorize an HTTP request, {{ api-gw-short-name }} calls the function specifi
 ----|----|----
 | `function_id` | `string` | ID of the [function](../../../functions/concepts/function.md). |
 | `tag` | `string` | This is an optional parameter. [Tag of the function version](../../../functions/concepts/function.md#tag). Default value: `$latest`.<br>Parameters are substituted in `tag`. |
-| `service_account_id` | `string` | Service account ID. Used for authorization when invoking a function. If the parameter is omitted, the value of the top-level [`service_account_id`](./index.md#top-level) parameter is used. If there is no top-level parameter, the function is invoked without authorization. |
+| `service_account_id` | `string` | Service account ID. Used for authorization when invoking a function. If not specified, it defaults to the [top-level](./index.md#top-level) `service_account_id` parameter. If there is no top-level parameter, the function is invoked without authorization. |
 | `authorizer_result_ttl_in_seconds` | `int` | This is an optional parameter. A time limit on keeping the function response stored in the local {{ api-gw-short-name }} cache. If the parameter is omitted, the response is not cached. |
-| `authorizer_result_caching_mode` | `string` | This is an optional parameter. Authorization result caching mode To use it, make sure to specify the `authorizer_result_ttl_in_seconds` parameter. Possible values: `path` or `URI`. |
+| `authorizer_result_caching_mode` | `string` | This is an optional parameter. Authorization result caching mode. To use it, make sure to specify the `authorizer_result_ttl_in_seconds` parameter. Possible values: `path` or `URI`. |
 
 ## Extension specification {#spec}
 

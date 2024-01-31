@@ -5,15 +5,15 @@ description: "Follow this guide to get a list of sinks."
 
 # Getting a list of sinks
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of sinks.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-arrow-down.svg) **{{ ui-key.yacloud.logging.label_sinks }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -35,7 +35,7 @@ description: "Follow this guide to get a list of sinks."
    +----------------------+-----------+----------------------+----------------------+------------------+
    ```
 
-- API
+- API {#api}
 
    To get a list of sinks, use the [list](../api-ref/Sink/list.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/List](../api-ref/grpc/sink_service.md#List) gRPC API call.
 

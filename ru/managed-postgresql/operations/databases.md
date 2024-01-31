@@ -192,7 +192,7 @@
 
 - API {#api}
 
-    Чтобы переименовать базу данных в кластере, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и передайте в запросе:
+    Чтобы переименовать базу данных в кластере, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера, в котором находится база данных, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Имя базы данных в параметре `databaseName`. Чтобы узнать имя базы, [получите список баз данных в кластере](#list-db).

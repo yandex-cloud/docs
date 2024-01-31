@@ -1,4 +1,4 @@
-# Creating a VM with {{ coi }}
+# Creating a VM from a {{ coi }}
 
 Create a VM from a [{{ coi }}](../concepts/index.md) and run a Docker container on it.
 
@@ -6,12 +6,12 @@ Create a VM from a [{{ coi }}](../concepts/index.md) and run a Docker container 
 
 If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 
-## Create a VM with a Docker container from a {{ coi }} image {#create-vm}
+## Create a VM with a Docker container from a {{ coi }} {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -40,7 +40,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
    1. Set the remaining VM parameters by following [this guide](../../compute/operations/vm-create/create-linux-vm.md).
 
 
-- CLI using flags
+- CLI using flags {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -99,7 +99,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
    Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).
 
-- CLI using a specification file
+- CLI using a specification file {#spec-cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

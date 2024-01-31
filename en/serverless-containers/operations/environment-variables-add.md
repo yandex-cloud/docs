@@ -2,9 +2,9 @@
 
 When you add environment variables, a new container revision is created. You cannot add environment variables to an existing revision.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -13,7 +13,7 @@ When you add environment variables, a new container revision is created. You can
    1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, specify the environment variable and click **{{ ui-key.yacloud.common.add }}**. You can add multiple environment variables.
    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. A new container revision with the specified environment variables will be created.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ When you add environment variables, a new container revision is created. You can
    * `--memory`: Required memory. The default value is 128 MB.
    * `--environment`: Environment variables in `key=value` format. You can specify multiple pairs separated by commas.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -98,13 +98,13 @@ When you add environment variables, a new container revision is created. You can
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can verify that you have added the environment variables in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/) command:
+   You can check the new environment variables using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
    ```
    yc serverless container revision get <revision_ID>
    ```
 
-- API
+- API {#api}
 
    To add an environment variable, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 

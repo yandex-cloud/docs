@@ -2,9 +2,9 @@
 
 Any users and [service accounts](../../../iam/concepts/users/service-accounts.md) with [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) access rights can use the created [registry](../../concepts/registry.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -16,7 +16,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
    1. (Optional) Add labels.
    1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -76,7 +76,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
       +----------------------+--------+----------------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
    1. To a configuration file, add the parameters of the registry that you want to create. Use `example.tf` in `~/cloud-terraform`:
@@ -160,7 +160,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
          A registry named `my-registry` is created in the folder.
       1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    To create a registry, use the [create](../../api-ref/Registry/create.md) method for the [Registry](../../api-ref/Registry/) resource.
 

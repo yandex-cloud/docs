@@ -11,9 +11,9 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
 
@@ -38,7 +38,7 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -78,7 +78,7 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    You can create a timer using the [create](../../triggers/api-ref/Trigger/create.md) API method.
 
@@ -88,9 +88,9 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 
 To make sure the timer is running properly, view the function logs. They should show that the function is invoked every minute.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
 
@@ -100,7 +100,7 @@ To make sure the timer is running properly, view the function logs. They should 
 
    1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is 1 hour.
 
-- CLI
+- CLI {#cli}
 
    To view the function logs, run this command:
 

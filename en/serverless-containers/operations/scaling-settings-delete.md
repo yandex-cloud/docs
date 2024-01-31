@@ -5,9 +5,9 @@ description: "Follow this guide to delete container scaling settings."
 
 # Deleting container scaling settings
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -16,7 +16,7 @@ description: "Follow this guide to delete container scaling settings."
    1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, specify the number of provisioned instances equal to `0`.
    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
-- CLI
+- CLI {#cli}
 
    To delete scaling settings for a container, create a new container revision and set the `min-instances` parameter to `0`:
 
@@ -56,7 +56,7 @@ description: "Follow this guide to delete container scaling settings."
     status: ACTIVE
     ```
 
-- API
+- API {#api}
 
    To delete container scaling settings, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 

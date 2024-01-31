@@ -2,9 +2,9 @@
 
 To access a [device](../../concepts/index.md#device), use its unique ID or name. For information on retrieving the unique device ID or name, see [{#T}](device-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a device:
 
@@ -15,7 +15,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    1. To the right of the name of the device to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       +----+------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -95,7 +95,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       yc iot device list --registry-id <registry ID>
       ```
 
-- API
+- API {#api}
 
    To delete a device, use the [delete](../../api-ref/Device/delete.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Delete](../../api-ref/grpc/device_service.md#Delete) gRPC API call.
 

@@ -5,9 +5,9 @@ description: "Follow this guide to delete an API gateway."
 
 # Deleting API gateways
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete an API gateway:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete an API gateway.
@@ -15,7 +15,7 @@ description: "Follow this guide to delete an API gateway."
    1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    To delete an API gateway, run the command below:
 
@@ -31,7 +31,7 @@ description: "Follow this guide to delete an API gateway."
    done (18s)
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -125,14 +125,14 @@ description: "Follow this guide to delete an API gateway."
       yc serverless api-gateway list
       ```
 
+- API {#api}
 
-- {{ yandex-cloud }} Toolkit
+   To delete an API gateway, use the [delete](../apigateway/api-ref/ApiGateway/delete.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete) gRPC API call.
+
+
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can delete an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
-
-- API
-
-   To delete an API gateway, use the [delete](../apigateway/api-ref/ApiGateway/delete.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete) gRPC API call.
 
 {% endlist %}

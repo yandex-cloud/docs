@@ -33,9 +33,9 @@ To learn how to make sure a message has been sent and delivered, see [{#T}](../t
 
 Registries subscribed to this topic will know which device sent the data, because the topic contains a unique device ID.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -98,7 +98,7 @@ Registries subscribed to this topic will know which device sent the data, becaus
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-- API
+- API {#api}
 
    To send device data to a device topic, use the [publish](../api-ref/DeviceData/publish.md) REST API method for the [DeviceData](../api-ref/DeviceData/index.md) resource or the [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish) gRPC API call.
 
@@ -106,11 +106,11 @@ Registries subscribed to this topic will know which device sent the data, becaus
 
 ### Send data from a device to a registry topic {#to-registry-topic}
 
-The registry subscribed to this topic will not know which device sent the data, because the topic doesn't contain a unique device ID.
+The registry subscribed to this topic will not know which device sent the data, because the topic does not contain a unique device ID.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    - Send data to a registry topic using certificate-based authorization:
 
@@ -170,7 +170,7 @@ The registry subscribed to this topic will not know which device sent the data, 
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-- API
+- API {#api}
 
   To send device data to a registry topic, use the [publish](../api-ref/DeviceData/publish.md) REST API method for the [DeviceData](../api-ref/DeviceData/index.md) resource or the [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish) gRPC API call.
 
@@ -184,9 +184,9 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 ### Send a command to a single device {#one-device}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    - Send a command using certificate-based authorization:
 
@@ -245,7 +245,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-- API
+- API {#api}
 
   To send a command to a single device, use the [publish](../api-ref/RegistryData/publish.md) REST API method for the [RegistryData](../api-ref/RegistryData/index.md) resource or the [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish) gRPC API call.
 
@@ -253,9 +253,9 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 ### Send a command to all devices added to the registry {#all-device}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    - Send a command to all devices using certificate-based authorization:
 
@@ -315,7 +315,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-- API
+- API {#api}
 
   To send a command to all devices added to a registry, use the [publish](../api-ref/RegistryData/publish.md) REST API method for the [RegistryData](../api-ref/RegistryData/index.md) resource or the [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish) gRPC API call.
 
@@ -325,9 +325,9 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 When using a broker, you can send a message to a random topic using your username and password or any certificate assigned to the broker for authorization.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    - Send a message using your username and password for authorization:
 
@@ -365,7 +365,7 @@ When using a broker, you can send a message to a random topic using your usernam
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-- API
+- API {#api}
 
   To send a message in a broker, use the [publish](../broker/api-ref/BrokerData/publish.md) REST API method for the [BrokerData](../broker/api-ref/BrokerData/index.md) resource or the [BrokerDataService/Publish](../broker/api-ref/grpc/broker_data_service.md#Publish) gRPC API call.
 

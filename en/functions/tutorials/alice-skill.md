@@ -32,14 +32,14 @@ You can find more information about developing skills for Alice [here](https://y
 
 To create a [version](../../functions/concepts/function.md#version) of a function, you can use one of the [code upload formats](../../functions/concepts/function.md#upload). As an example, we will upload the code as a ZIP archive.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
    1. Download a sample file from GitHub: [parrot.py](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/python/parrot/parrot.py).
    1. Create a ZIP archive named `parrot-py.zip` and add the `parrot.py` file.
 
-- Node.js
+- Node.js {#node}
 
    1. Download a sample file from GitHub: [index.js](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/nodejs/parrot/index.js).
    1. Create a ZIP archive named `parrot-js.zip` and add the `index.js` file.
@@ -63,9 +63,9 @@ Once created, the function will only contain information about itself, like its 
 
 Select the programming language and create a [version of the function](../concepts/function.md#version).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the folder where you want to create the function version.
    1. Select the function to create the version for.
@@ -81,7 +81,7 @@ Select the programming language and create a [version of the function](../concep
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `parrot.handler`
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- Node.js
+- Node.js {#node}
 
    1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}** in the folder where you want to create the function version.
    1. Select the function to create the version for.

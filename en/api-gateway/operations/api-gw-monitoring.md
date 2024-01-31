@@ -5,15 +5,15 @@ description: "You can view monitoring charts in {{ api-gw-full-name }} for such 
 
 # Viewing monitoring charts in {{ api-gw-name }}
 
-You can monitor the status of API gateways using the monitoring tools in the management console. These tools display diagnostic information in the form of charts.
+You can monitor the status of API gateways using the monitoring tools in the management console. These tools display diagnostic information as charts.
 
 The chart update period is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.

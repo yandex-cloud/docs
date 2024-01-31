@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -10,29 +10,29 @@
 
    
    * Linux, MacOS:
-        ```
-        yc logging write \
-          --group-name=default \
-          --message="My message" \
-          --level=INFO \
-          --json-payload='{"request_id": "1234"}'
-        ```
-    * Windows (cmd):
-        ```
-        yc logging write ^
-          --group-name=default ^
-          --message="My message" ^
-          --level=INFO ^
-          --json-payload="{"request_id": "1234"}"
-        ```
-    * Windows (PowerShell):
-        ```
-        yc logging write `
-          --group-name=default `
-          --message="My message" `
-          --level=INFO `
-          --json-payload='"{ \"request_id\": \"1234\" }"'
-        ```
+      ```
+      yc logging write \
+        --group-name=default \
+        --message="My message" \
+        --level=INFO \
+        --json-payload='{"request_id": "1234"}'
+      ```
+   * Windows (cmd):
+      ```
+      yc logging write ^
+        --group-name=default ^
+        --message="My message" ^
+        --level=INFO ^
+        --json-payload="{"request_id": "1234"}"
+      ```
+   * Windows (PowerShell):
+      ```
+      yc logging write `
+        --group-name=default `
+        --message="My message" `
+        --level=INFO `
+        --json-payload='"{ \"request_id\": \"1234\" }"'
+      ```
 
 
 
@@ -43,7 +43,7 @@
       * `--level`: Logging level.
       * `--json-payload`: Additional information in JSON format.
 
-- API
+- API {#api}
 
    To add entries to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write) gRPC API call.
 

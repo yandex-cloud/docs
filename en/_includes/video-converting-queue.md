@@ -54,8 +54,8 @@ The infrastructure support cost includes:
 1.  [Create a table](../ydb/operations/schema.md#create-table)  in the database:
 
    * **{{ ui-key.yacloud.ydb.table.form.field_name }}**: `tasks`.
-   * **{{ ui-key.yacloud.ydb.table.form.field_type }}**:  [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../ydb/operations/schema.md#create-table). 
-   * **{{ ui-key.yacloud.ydb.table.form.label_columns }}**: One column with the name `task_id` and the `String` type.  Set the [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../ydb/operations/schema.md#create-table) attribute. 
+   * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../ydb/operations/schema.md#create-table).
+   * **{{ ui-key.yacloud.ydb.table.form.label_columns }}**: One column named `task_id` of the `String` type.  Set the [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../ydb/operations/schema.md#create-table) attribute. 
 
 1. [Create a bucket](../storage/operations/buckets/create) with restricted access in {{ objstorage-full-name }}.
 
@@ -66,9 +66,9 @@ The function implements an API which you can use to perform the following action
 * `convert`: Transfer a video to convert. The function writes the task to the `tasks` table  using the [Document API](../ydb/docapi/tools/aws-http.md). 
 * `get_task_status`: Get the task status. The function checks whether the task is completed and returns a link to a GIF file.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. [Create](../functions/operations/function/function-create.md) a function named `ffmpeg-api`.
    1. [Create](../functions/operations/function/version-manage.md) a function version:
@@ -99,11 +99,11 @@ The function implements an API which you can use to perform the following action
 
 A converter function is run by a trigger. It performs video processing and registers the execution result in the `tasks` table.
 
-Video conversion is done using the FFmpeg utility. The FFmpeg executable file is more than 70 MB in size. To upload it along with the function code, create a ZIP archive and upload it via {{ objstorage-name }}. Learn more about [code upload formats](../functions/concepts/function.md).
+Video conversion is done using the FFmpeg utility. The FFmpeg executable file is larger than 70 MB. To upload it along with the function code, create a ZIP archive and upload it via {{ objstorage-name }}. Learn more about [code upload formats](../functions/concepts/function.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. [Create](../functions/operations/function/function-create.md) a function named `ffmpeg-converter`.
    1. Create an `src.zip` archive with the following files:
@@ -145,9 +145,9 @@ Video conversion is done using the FFmpeg utility. The FFmpeg executable file is
 
 A message queue is handled using a [trigger for {{ message-queue-name }}](../functions/concepts/trigger/ymq-trigger.md). It invokes the converter function when messages arrive in `converter-queue`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -169,9 +169,9 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
 
 ### Create a task {#create-task}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-api` function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -196,9 +196,9 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
 
 After the task is created, the number of messages in the queue increases by one and a trigger fires. Make sure that messages arrive in the queue and are handled. To do this, view the queue statistics.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with `converter-queue`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
@@ -212,9 +212,9 @@ After the task is created, the number of messages in the queue increases by one 
 
 The trigger should invoke the converter function for each message in the queue. To make sure the function is invoked, check its logs.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-converter` function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -225,9 +225,9 @@ The trigger should invoke the converter function for each message in the queue. 
 
 ### Get a link to a GIF file {#get-link}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-api` function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.

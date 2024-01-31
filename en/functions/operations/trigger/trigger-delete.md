@@ -5,9 +5,9 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
 
 # Deleting a trigger in {{ sf-name }}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -16,7 +16,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
    1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -53,7 +53,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
    status: PAUSED
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -116,7 +116,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
       yc serverless trigger list
       ```
 
-- API
+- API {#api}
 
    To delete a trigger, use the [delete](../../triggers/api-ref/Trigger/delete.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Delete](../../triggers/api-ref/grpc/trigger_service.md#Delete) gRPC API call.
 

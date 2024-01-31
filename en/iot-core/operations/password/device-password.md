@@ -16,9 +16,9 @@ You can add a password to an already created device or set it when creating a de
 
 ### Adding a password to an existing device {#add}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a password to an existing device:
 
@@ -31,7 +31,7 @@ You can add a password to an already created device or set it when creating a de
    1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will be using to access your device.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create a password.<br/>Make sure you save the password, as you will need it later.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -64,7 +64,7 @@ You can add a password to an already created device or set it when creating a de
       created_at: "2019-12-16T15:11:36.892167Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -130,7 +130,7 @@ You can add a password to an already created device or set it when creating a de
       yc iot device password list --device-name <device_name>
       ```
 
-- API
+- API {#api}
 
    To add a password to a device, use the [addPassword](../../api-ref/Device/addPassword.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/AddPassword](../../api-ref/grpc/device_service.md#AddPassword) gRPC API call.
 
@@ -138,13 +138,13 @@ You can add a password to an already created device or set it when creating a de
 
 ### Setting a password for a device when creating it {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    For information on setting a password for a device being created, see [{#T}](../device/device-create.md).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -179,11 +179,11 @@ You can add a password to an already created device or set it when creating a de
       name: device-with-pass
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    For information on setting a password for a device being created, see [{#T}](../device/device-create.md).
 
-- API
+- API {#api}
 
    To set a password for a device when creating it, use the [create](../../api-ref/Device/create.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Create](../../api-ref/grpc/device_service.md#Create) gRPC API call.
 
@@ -191,9 +191,9 @@ You can add a password to an already created device or set it when creating a de
 
 ## Getting a list of device passwords {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To view the list of device passwords:
 
@@ -206,7 +206,7 @@ You can add a password to an already created device or set it when creating a de
 
    The list of device passwords will be displayed in the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -244,7 +244,7 @@ You can add a password to an already created device or set it when creating a de
       +----------------------+---------------------+
       ```
 
-- API
+- API {#api}
 
    To get a list of device passwords, use the [listPasswords](../../api-ref/Device/listPasswords.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/ListPasswords](../../api-ref/grpc/device_service.md#ListPasswords) gRPC API call.
 
@@ -252,9 +252,9 @@ You can add a password to an already created device or set it when creating a de
 
 ## Deleting a device password {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a device password:
 
@@ -266,7 +266,7 @@ You can add a password to an already created device or set it when creating a de
    1. In the row with the password you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -305,7 +305,7 @@ You can add a password to an already created device or set it when creating a de
       +----+------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -365,7 +365,7 @@ You can add a password to an already created device or set it when creating a de
       yc iot device password list --device-name <device_name>
       ```
 
-- API
+- API {#api}
 
    To delete a device password, use the [deletePassword](../../api-ref/Device/deletePassword.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/DeletePassword](../../api-ref/grpc/device_service.md#DeletePassword) gRPC API call.
 

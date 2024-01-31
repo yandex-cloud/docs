@@ -5,9 +5,9 @@ description: "Follow this guide to delete a container label."
 
 # Deleting a container label
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To delete a container label, run this command:
 
@@ -27,7 +27,7 @@ description: "Follow this guide to delete a container label."
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -84,7 +84,7 @@ description: "Follow this guide to delete a container label."
    yc serverless container get <container_ID>|<container_name>
    ```
 
-- API
+- API {#api}
 
    To delete a container label, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update) gRPC API call.
 

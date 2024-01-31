@@ -2,8 +2,33 @@
 title: "How to configure a {{ MG }} source endpoint in {{ data-transfer-full-name }}"
 description: "In this tutorial, you will learn how to set up a {{ MG }} source endpoint in {{ data-transfer-full-name }}."
 ---
+# Transferring data from a {{ MG }} source endpoint
 
-# Configuring {{ MG }} source endpoints
+{{ data-transfer-full-name }} enables you to migrate data from a {{ MG }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ MG }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Perform required operations with the database](#db-actions) and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data from {{ MG }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+   * [Migrating the {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
+
+1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Preparing the source database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/mongodb-prepare.md) %}
+
+## Configuring the {{ MG }} source endpoint {#endpoint-settings}
 
 {% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
@@ -13,7 +38,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 * [Additional parameters](#additional-settings).
 
 
-## {{ mmg-name }} cluster {#managed-service}
+### {{ mmg-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -79,7 +104,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 {% endlist %}
 
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 The settings are given for the OnPremise use case when all fields are filled in manually.
 
@@ -145,7 +170,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -169,7 +194,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 {% endlist %}
 
-If a source is experiencing high workload (over 10000 write transactions per second), we recommend that you select these settings to have no more than ten different databases at each endpoint. This will help avoid database connection errors while the transfer is ongoing.
+If a source workload is high (over 10,000 write transactions per second), we recommend that you select these settings to have no more than ten different databases at each endpoint. This will help avoid database connection errors while the transfer is ongoing.
 
 {% note info %}
 
@@ -177,3 +202,44 @@ If a source is experiencing high workload (over 10000 write transactions per sec
 1. As transfers of [timeseries collections]({{ mg.docs.comd }}/core/timeseries-collections/) are not supported, you should exclude these collections.
 
 {% endnote %}
+
+
+## Configuring the data target {#supported-targets}
+
+Configure one of the supported data targets:
+
+* [{{ MG }}](../target/mongodb.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Operations with the database during transfer {#db-actions}
+
+{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mongo-work-with-db.md) %}
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+Known issues when using a {{ MG }} endpoint:
+
+* [Collection key size exceeds 5 MB](#string-size).
+* [Collection object size exceeds 16 MB](#object-size).
+* [No tables found](#no-tables).
+* [Error when transferring a sharded cluster](#sharded).
+* [Error when transferring timeseries collections](#timeseries).
+* [Unable to recognize an external cluster IP address or FQDN](#cluster-config-issue).
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [string-size](../../../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
+
+{% include [object-size](../../../../_includes/data-transfer/troubles/mongodb/object-size.md) %}
+
+{% include [no-tables](../../../../_includes/data-transfer/troubles/mongodb/no-tables.md) %}
+
+{% include [sharded](../../../../_includes/data-transfer/troubles/mongodb/sharded.md) %}
+
+{% include [timeseries](../../../../_includes/data-transfer/troubles/mongodb/timeseries.md) %}
+
+{% include [cluster configuration](../../../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}

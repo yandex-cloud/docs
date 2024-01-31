@@ -5,9 +5,9 @@ description: "Follow this guide to update a container description."
 
 # Updating the description of a container
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -16,7 +16,7 @@ description: "Follow this guide to update a container description."
    1. Edit the container description.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -44,7 +44,7 @@ description: "Follow this guide to update a container description."
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -101,7 +101,7 @@ description: "Follow this guide to update a container description."
    yc serverless container get <container_ID>|<container_name>
    ```
 
-- API
+- API {#api}
 
    To update a container description, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update) gRPC API call.
 

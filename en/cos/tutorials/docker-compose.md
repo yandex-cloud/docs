@@ -8,9 +8,9 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
 ## Create a VM with multiple Docker containers {#docker-compose}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

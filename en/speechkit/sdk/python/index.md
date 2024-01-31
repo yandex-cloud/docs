@@ -6,5 +6,4 @@ Python SDK use cases:
 
 * [{#T}](request.md)
 * [{#T}](synthesis.md)
-* [{#T}](templates-bvp-bvss.md)
-* [{#T}](templates-bvcc.md)
+

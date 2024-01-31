@@ -144,7 +144,6 @@ default:
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   ES: Elasticsearch
-  eventhub-name: EventHub
   external-ip-examples:
     '0': 84.201.155.117
     '1': 84.252.131.221
@@ -645,6 +644,7 @@ default:
   subjects-allUsers: allUsers
   subnet-id: b0rcctk2rvtr********
   subnet-name: default-ru-central1-c
+  support-center-name: Support Center
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
@@ -725,6 +725,7 @@ default:
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-my: yc managed-mysql
+  yc-mdb-os: yc managed-opensearch
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-serverless: yc serverless
@@ -6378,6 +6379,8 @@ default:
                       security_groups:
                         title: Группы безопасности
                     ClickHouseConnectionType:
+                      managed:
+                        title: Кластер Managed Service for ClickHouse
                       on_premise:
                         title: Пользовательская инсталляция
                     ClickHouseCredentials:
@@ -6538,29 +6541,6 @@ default:
                         title: Хост
                       port:
                         title: Порт
-            eventhub:
-              console:
-                form:
-                  eventhub:
-                    EventhubAdvancedSettings:
-                      converter:
-                        title: Правила конвертации
-                      transformer:
-                        title: Правила трансформации
-                    EventhubConnection:
-                      hub_name:
-                        title: Хаб
-                      key_value:
-                        title: Ключ подключения
-                      namespace_name:
-                        title: Пространство имён
-                      topic:
-                        title: Топик
-                    EventhubSource:
-                      consumer_group:
-                        title: Группа потребителей
-                      starting_offset:
-                        title: Начальный отступ
             greenplum:
               console:
                 form:

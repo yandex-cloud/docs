@@ -9,9 +9,9 @@ description: "In this tutorial, you will learn how to delete a broker in {{ iot-
 
 To access a [broker](../../concepts/index.md#broker), use its unique ID or name. For information on retrieving the unique broker ID or name, see [{#T}](broker-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -19,7 +19,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
    1. To the right of the name of the broker you want to delete, click the ![image](../../../_assets/console-icons/ellipsis.svg) icon and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -45,7 +45,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       +----+------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -101,7 +101,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       yc iot broker list
       ```
 
-- API
+- API {#api}
 
    To delete a broker, use the [delete](../../broker/api-ref/Broker/delete.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Delete](../../broker/api-ref/grpc/broker_service.md#Delete) gRPC API call.
 

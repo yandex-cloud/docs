@@ -2,8 +2,46 @@
 title: "How to configure a {{ MG }} target endpoint in {{ data-transfer-full-name }}"
 description: "In this tutorial, you will learn how to set up a {{ MG }} target endpoint in {{ data-transfer-full-name }}."
 ---
+# Transferring data to a {{ MG }} target endpoint
 
-# Configuring a {{ MG }} target endpoint
+{{ data-transfer-full-name }} enables you to migrate data to a {{ MG }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Configure one of the supported data sources](#supported-sources).
+1. [Prepare the {{ MG }}](#prepare) database for the transfer.
+1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Perform required operations with the database](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data to {{ PG }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+   * [Migrating the {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+
+   * [Delivering data from {{ KF }} to {{ MG }}](../../../tutorials/mkf-to-mmg.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the data source {#supported-sources}
+
+Configure one of the supported data sources:
+
+* [{{ MG }}](../source/mongodb.md).
+* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ DS }}](../source/data-streams.md).
+* [{{ KF }}](../source/kafka.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+## Preparing the target database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/mongodb-prepare.md) %}
+
+## Configuring the {{ MG }} target endpoint {#endpoint-settings}
 
 {% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
@@ -13,7 +51,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 * [Additional parameters](#additional-settings).
 
 
-## {{ mmg-name }} cluster {#managed-service}
+### {{ mmg-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -79,7 +117,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 {% endlist %}
 
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 Connecting to the database with explicitly specified network addresses and ports.
 
@@ -145,7 +183,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -195,3 +233,35 @@ By default, {{ data-transfer-name }} transfers collections without sharding. If 
 Selecting the `DROP `policy will result in the service deleting all the data from the target database, including sharded collections, and replacing them with new unsharded ones when a transfer is activated.
 
 {% endnote %}
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Operations with the database during transfer {#db-actions}
+
+{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mongo-work-with-db.md) %}
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+Known issues when using a {{ MG }} endpoint:
+
+* [Collection key size exceeds 5 MB](#string-size).
+* [Collection object size exceeds 16 MB](#object-size).
+* [No tables found](#no-tables).
+* [Error when transferring a sharded cluster](#sharded).
+* [Error when transferring timeseries collections](#timeseries).
+* [Unable to recognize an external cluster IP address or FQDN](#cluster-config-issue).
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [string-size](../../../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
+
+{% include [object-size](../../../../_includes/data-transfer/troubles/mongodb/object-size.md) %}
+
+{% include [no-tables](../../../../_includes/data-transfer/troubles/mongodb/no-tables.md) %}
+
+{% include [sharded](../../../../_includes/data-transfer/troubles/mongodb/sharded.md) %}
+
+{% include [timeseries](../../../../_includes/data-transfer/troubles/mongodb/timeseries.md) %}
+
+{% include [cluster configuration](../../../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}
+

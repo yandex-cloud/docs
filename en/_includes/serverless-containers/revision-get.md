@@ -1,13 +1,13 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Select the container to get revision information for.
    1. Under **{{ ui-key.yacloud.serverless-containers.section-revisions }}**, you can find the list of container revisions and their details.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -38,7 +38,7 @@
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    To get information about a container revision, use the [getRevision](../../serverless-containers/containers/api-ref/Container/listRevisions.mdAPI) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/GetRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#GetRevision) gRPC API call.
 

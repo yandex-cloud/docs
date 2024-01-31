@@ -69,7 +69,3 @@ The logical stress should not fall on the variable part of the phrase.
    * [{{ brand-voice-premium }} and {{ brand-voice-core }}](api/tts-templates.md).
    * [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md).
 
-* Python SDK:
-
-   * [{{ brand-voice-premium }} and {{ brand-voice-core }}](../sdk/python/templates-bvp-bvss.md).
-   * [{{ brand-voice-cc-name }}](../sdk/python/templates-bvcc.md).

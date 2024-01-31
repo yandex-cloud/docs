@@ -2,9 +2,9 @@
 
 Aliases are linked to specific devices. To delete an alias, you need to [find the device ID or name](../device-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete an alias:
 
@@ -16,7 +16,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
    1. To the right of the alias to delete, click ![image](../../../../_assets/console-icons/xmark.svg).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
    name: second
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 

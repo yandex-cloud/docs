@@ -80,5 +80,4 @@ It can be useful to log data if synthesis errors occur. If you do not want to lo
 * [{{ brand-voice-name }} API](../../tts-v3/api-ref/grpc/)
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
-* [{#T}](../../sdk/python/templates-bvcc.md)
 

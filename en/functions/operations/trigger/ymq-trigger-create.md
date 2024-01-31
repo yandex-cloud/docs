@@ -27,9 +27,9 @@ To create a trigger, you need:
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
@@ -60,7 +60,7 @@ To create a trigger, you need:
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -117,7 +117,7 @@ To create a trigger, you need:
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -127,7 +127,7 @@ To create a trigger, you need:
 
    1. In the configuration file, describe the trigger parameters:
 
-      * `name`: Timer name in the following format:
+      * `name`: Timer name. The name format is as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -177,7 +177,7 @@ To create a trigger, you need:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -195,7 +195,7 @@ To create a trigger, you need:
          yc serverless trigger get <trigger ID>
          ```
 
-- API
+- API {#api}
 
    To create a trigger for {{ message-queue-full-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 

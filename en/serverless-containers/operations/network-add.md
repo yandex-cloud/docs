@@ -11,9 +11,9 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to run 
 
 {% include [network](../../_includes/functions/network.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -22,7 +22,7 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to run 
    1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, in the **{{ ui-key.yacloud.vpc.label_network }}** field, choose a cloud network to run your container in.
    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
-- API
+- API {#api}
 
    To specify a cloud network to run your container in, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 

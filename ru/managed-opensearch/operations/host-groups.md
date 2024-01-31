@@ -29,6 +29,22 @@ keywords:
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список групп хостов в кластере, запросите информацию об {{ OS }}-кластере:
+
+    ```bash
+    {{ yc-mdb-os }} cluster get <имя_или_идентификатор_кластера>
+    ```
+
+    Список групп хостов указан в параметрах `config.opensearch.node_groups` и `config.dashboards.node_groups`.
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API {#api}
 
   Чтобы получить список групп хостов в кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
@@ -38,6 +54,13 @@ keywords:
 {% endlist %}
 
 ## Добавить группу хостов в кластер {#add-host-group}
+
+При добавлении групп хостов действуют ограничения:
+
+* В кластере {{ mos-name }} может быть только одна группа хостов `Dashboards`.
+* Если вы добавляете группу хостов `{{ OS }}` и назначаете хостам роль `MANAGER`, минимальное количество хостов с такой ролью — три.
+
+Чтобы добавить группу хостов в кластер:
 
 {% list tabs group=instructions %}
 
@@ -75,6 +98,39 @@ keywords:
 
     {% endnote %}
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы добавить группу хостов в кластер, выполните команду:
+
+    ```bash
+    {{ yc-mdb-os }} node-group add --cluster-name <имя_кластера> \
+       --opensearch-node-group name=<имя_группы_хостов_{{ OS }}>,`
+                              `resource-preset-id=<класс_хостов>,`
+                              `disk-size=<размер_диска_в_байтах>,`
+                              `disk-type-id=<тип_диска>,`
+                              `hosts-count=<количество_хостов_в_группе>,`
+                              `zone-ids=<зоны_доступности>,`
+                              `subnet-names=<имена_подсетей>,`
+                              `assign-public-ip=<назначить_публичный_адрес:_true_или_false>,`
+                              `roles=<роли_хостов> \
+       --dashboards-node-group name=<имя_группы_хостов_Dashboards>,`
+                              `resource-preset-id=<класс_хостов>,`
+                              `disk-size=<размер_диска_в_байтах>,`
+                              `disk-type-id=<тип_диска>,`
+                              `hosts-count=<количество_хостов_в_группе>,`
+                              `zone-ids=<зоны_доступности>,`
+                              `subnet-names=<имена_подсетей>,`
+                              `assign-public-ip=<назначить_публичный_адрес:_true_или_false>
+    ```
+
+    В команде укажите нужные параметры в зависимости от того, какую группу хостов вы хотите добавить:
+
+    {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
+
 - API {#api}
 
     Чтобы добавить группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup).
@@ -102,6 +158,35 @@ keywords:
 ## Изменить конфигурацию группы хостов {#update-host-group}
 
 {% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить конфигурацию группы хостов, выполните команду:
+
+    ```bash
+    {{ yc-mdb-os }} node-group update --cluster-name <имя_кластера> \
+       --node-group-name <имя_группы_хостов> \
+       --resource-preset-id <класс_хостов> \
+       --disk-size <размер_диска_в_байтах> \
+       --hosts-count <количество_хостов_в_группе> \
+       --roles <роли_хостов>
+    ```
+
+    В команде укажите нужные параметры в зависимости от того, какая конфигурация группы хостов нужна:
+
+    * `--node-group-name` — имя группы хостов, которую нужно изменить.
+    * `--resource-preset-id` — новый класс хостов. Он определяет технические характеристики виртуальных машин, на которых будут развернуты узлы {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
+    * `--disk-size` — новый размер диска в байтах. Минимальное и максимальное значения зависят от выбранного класса хостов.
+    * `--hosts-count` — новое количество хостов в группе.
+    * `--roles` — новые [роли хостов](../../managed-opensearch/concepts/host-roles.md). Возможные значения:
+
+      * `data` — предоставляется только роль `DATA`;
+      * `manager` — предоставляется только роль `MANAGER`;
+      * `data+manager` или `manager+data` — предоставляются обе роли.
 
 - API {#api}
 
@@ -132,6 +217,21 @@ keywords:
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить группу хостов, выполните команду:
+
+    ```bash
+    {{ yc-mdb-os }} node-group delete --cluster-name <имя_кластера> \
+       --node-group-name <имя_группы_хостов>
+    ```
+
+    В команде укажите группу хостов, которую нужно удалить.
 
 - API {#api}
 

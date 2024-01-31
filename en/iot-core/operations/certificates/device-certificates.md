@@ -16,9 +16,9 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 ## Adding a certificate {#add-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a device certificate:
 
@@ -42,7 +42,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
          1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -65,7 +65,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    created_at: "2019-05-29T17:14:18.804Z"
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -131,7 +131,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       yc iot device certificate list --device-name <device_name>
       ```
 
-- API
+- API {#api}
 
    To add a certificate to a device, use the [addCertificate](../../api-ref/Device/addCertificate.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/AddCertificate](../../api-ref/grpc/device_service.md#AddCertificate) gRPC API call.
 
@@ -139,9 +139,9 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 ## Deleting a certificate {#delete-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a device certificate:
 
@@ -154,7 +154,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    1. In the row with the certificate in question, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -179,7 +179,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       +-------------+------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -239,7 +239,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       yc iot device certificate list --device-name <device_name>
       ```
 
-- API
+- API {#api}
 
    To delete a device certificate, use the [deleteCertificate](../../api-ref/Device/deleteCertificate.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/DeleteCertificate](../../api-ref/grpc/device_service.md#DeleteCertificate) gRPC API call.
 

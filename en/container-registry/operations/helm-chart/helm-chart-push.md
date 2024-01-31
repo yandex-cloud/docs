@@ -10,9 +10,9 @@ If you are using a Helm version lower than 3.7.1, re-upload the charts to the {{
 
 To push a Helm chart:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. [Install](https://helm.sh/docs/intro/install/) Helm 3.7.1 or higher.
 
@@ -101,9 +101,9 @@ To push a Helm chart:
 
 ## Examples {#examples}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Create a Helm chart:
 

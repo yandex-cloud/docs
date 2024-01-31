@@ -5,9 +5,9 @@ description: "Follow this guide to assign roles to a function."
 
 # Assigning roles to a function
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "Follow this guide to assign roles to a function."
       done (1s)
       ```
 
-- API
+- API {#api}
 
    To assign roles for a function, use the [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/function_service.md#SetAccessBindings) gRPC API call.
 

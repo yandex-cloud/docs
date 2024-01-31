@@ -20,9 +20,9 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
 ## Manually {#manual}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the parent [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for the [registry](../concepts/registry.md) containing the Docker image.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -34,7 +34,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
    To view Docker image scans, select the relevant image and go to the **{{ ui-key.yacloud.cr.image.label_scan-history }}** tab.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -109,7 +109,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
       +----------------------+----------------------+---------------------+--------+--------------------------------+
       ```
 
-- API
+- API {#api}
 
    To scan a Docker image, use the [scan](../api-ref/Scanner/scan.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/Scan](../api-ref/grpc/scanner_service.md#Scan) gRPC API call.
 
@@ -119,9 +119,9 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
 ## On push {#automatically}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder that the registry with Docker images belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -136,7 +136,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
          1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
    To automatically scan Docker images on push to a registry, use the [create](../api-ref/ScanPolicy/create.md) REST API method for the [ScanPolicy](../api-ref/ScanPolicy/) resource or the [ScanPolicyService/Create](../api-ref/grpc/scan_policy_service.md#Create) gRPC API call.
 
@@ -146,9 +146,9 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
 ## On schedule {#scheduled}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder that the registry with Docker images belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -165,7 +165,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
    1. Specify the frequency of Docker image scans.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
    To run scheduled Docker image scans, use the [create](../api-ref/ScanPolicy/create.md) REST API method for the [ScanPolicy](../api-ref/ScanPolicy/) resource or the [ScanPolicyService/Create](../api-ref/grpc/scan_policy_service.md#Create) gRPC API call.
 

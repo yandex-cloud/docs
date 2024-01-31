@@ -5,11 +5,11 @@ description: "You can view the execution log in {{ api-gw-full-name }} using the
 
 # Viewing execution logs in {{ api-gw-name }}
 
-The execution log uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+The execution log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) time.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Select the API gateway that you want to view the execution log for.

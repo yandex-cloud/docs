@@ -25,7 +25,3 @@ You can also detect the EOU on your own based on data from {{ speechkit-short-na
 
 {{ speechkit-short-name }} will use it as a pointer to EOU and return a complete utterance in response.
 
-You can also detect the EOU using the {{ speechkit-name }} Python SDK. For examples, see the following sections:
-
-* [{#T}](../sdk/python/templates-bvp-bvss.md)
-* [{#T}](../sdk/python/templates-bvcc.md)

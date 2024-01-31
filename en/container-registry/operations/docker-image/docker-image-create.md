@@ -1,10 +1,10 @@
 # Creating a Docker image
 
-The instructions describe how to create and build a [Docker image](../../concepts/docker-image.md) from a Dockerfile.
+The guide describes how to create and build a [Docker image](../../concepts/docker-image.md) from a Dockerfile.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Create a file named Dockerfile and add the lines below:
 

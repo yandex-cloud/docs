@@ -6,9 +6,9 @@ To access a device, use its unique ID or name. For information on retrieving the
 
 ## Updating device names {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update the name of a device:
 
@@ -20,7 +20,7 @@ To access a device, use its unique ID or name. For information on retrieving the
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -38,7 +38,7 @@ To access a device, use its unique ID or name. For information on retrieving the
    name: test-device
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -94,7 +94,7 @@ To access a device, use its unique ID or name. For information on retrieving the
       yc iot device list --registry-id <registry ID>
       ```
 
-- API
+- API {#api}
 
    To rename a device, use the [update](../../api-ref/Device/update.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../api-ref/grpc/device_service.md#Update) gRPC API call.
 
@@ -102,9 +102,9 @@ To access a device, use its unique ID or name. For information on retrieving the
 
 ## Updating device descriptions {#update-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update the description of a device:
 
@@ -116,7 +116,7 @@ To access a device, use its unique ID or name. For information on retrieving the
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -136,7 +136,7 @@ To access a device, use its unique ID or name. For information on retrieving the
    description: My first device.
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -192,7 +192,7 @@ To access a device, use its unique ID or name. For information on retrieving the
       yc iot device get <device name>
       ```
 
-- API
+- API {#api}
 
    To update a device description, use the [update](../../api-ref/Device/update.md) REST API method for the [Device](../../api-ref/Device/index.md) resource or the [DeviceService/Update](../../api-ref/grpc/device_service.md#Update) gRPC API call.
 

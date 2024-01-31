@@ -11,9 +11,9 @@ description: "This guide describes how you can view the roles assigned to a func
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ description: "This guide describes how you can view the roles assigned to a func
    +------------------------------+--------------+-----------------------+
    ```
 
-- API
+- API {#api}
 
    To view function roles, use the [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListAccessBindings](../../functions/api-ref/grpc/function_service.md#ListAccessBindings) gRPC API call.
 

@@ -19,7 +19,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
-  * [Загрузка данных из {{ objstorage-name }} в {{ PG }}](../../../tutorials/object-storage-to-postgresql.md).
+* [Загрузка данных из {{ objstorage-name }} в {{ PG }}](../../../tutorials/object-storage-to-postgresql.md);
+* [Загрузка данных из {{ objstorage-name }} в {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 

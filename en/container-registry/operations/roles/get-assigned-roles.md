@@ -7,9 +7,9 @@ description: "Follow this guide to view roles assigned for resources."
 
 To view assigned [roles](../../../iam/concepts/access-control/roles.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to view resource roles.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -22,7 +22,7 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
          1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
          1. In the window that opens, you can see a list of users and their permissions for the repository.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -55,7 +55,7 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
    > +--------------------------+------------------+----------------------+
    > ```
 
-- API
+- API {#api}
 
    Use the `listAccessBindings` method for the `registry` and `repository` resources.
 

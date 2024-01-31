@@ -4,9 +4,9 @@ Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluste
 
 ## Creating a connection {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your connection.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -41,9 +41,9 @@ The connection ID and the entry point are available on the connection page in th
 
 ### {{ mpg-name }}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
    **index.js**
 
@@ -77,7 +77,7 @@ The connection ID and the entry point are available on the connection page in th
    }
    ```
 
-- Python
+- Python {#python}
 
    ```py
    import psycopg2
@@ -97,7 +97,7 @@ The connection ID and the entry point are available on the connection page in th
        return record
    ```
 
-- Go
+- Go {#go}
 
    ```golang
    package main
@@ -163,9 +163,9 @@ The connection ID and the entry point are available on the connection page in th
 
 ### {{ mch-name }}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
    ```js
    module.exports.handler = async function (event, context) {
@@ -212,7 +212,7 @@ The connection ID and the entry point are available on the connection page in th
    };
    ```
 
-- Python
+- Python {#python}
 
    ```py
    import requests
@@ -240,7 +240,7 @@ The connection ID and the entry point are available on the connection page in th
        }
    ```
 
-- Go
+- Go {#go}
 
    ```golang
    package main

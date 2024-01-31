@@ -11,9 +11,9 @@ To get an IAM token:
 
 1. Select the programming language and create a version of the function:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Node.js
+   - Node.js {#node}
       1. Prepare a ZIP archive with the function code:
          1. Save the following code to a file named `index.js` to get the IAM token:
             * From the handler context.
@@ -62,7 +62,7 @@ To get an IAM token:
          * Entry point: `index.main`
          * Service account to get the IAM token for
 
-   - Python
+   - Python {#python}
       1. Prepare a ZIP archive with the function code:
          1. Save the following code to a file named `index.py` to get the IAM token:
             * From the handler context.

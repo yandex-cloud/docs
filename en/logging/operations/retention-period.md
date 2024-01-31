@@ -5,9 +5,9 @@ description: "Follow this guide to update a log group."
 
 # Updating a log group
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your [log group](../concepts/log-group.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -16,7 +16,7 @@ description: "Follow this guide to update a log group."
    1. Edit the log group parameters.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "Follow this guide to update a log group."
    retention_period: 86400s
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -111,7 +111,7 @@ description: "Follow this guide to update a log group."
       yc logging group get <log_group_name>
       ```
 
-- API
+- API {#api}
 
    To update a log group, use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update) gRPC API call.
 

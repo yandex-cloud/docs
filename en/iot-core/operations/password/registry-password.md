@@ -16,9 +16,9 @@ You can add a password to an existing registry or set it when creating a registr
 
 ### Adding a password to an existing registry {#add}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a password to an existing registry:
 
@@ -29,7 +29,7 @@ You can add a password to an existing registry or set it when creating a registr
    1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will be using to access your registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create a password.<br/>Make sure you save the password, as you will need it later.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -61,7 +61,7 @@ You can add a password to an existing registry or set it when creating a registr
       created_at: "2019-12-16T15:32:46.655139Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -126,7 +126,7 @@ You can add a password to an existing registry or set it when creating a registr
       yc iot registry password list --registry-name <registry_name>
       ```
 
-- API
+- API {#api}
 
    To add a password to a registry, use the [addPassword](../../api-ref/Registry/addPassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddPassword](../../api-ref/grpc/registry_service.md#AddPassword) gRPC API call.
 
@@ -134,13 +134,13 @@ You can add a password to an existing registry or set it when creating a registr
 
 ### Setting a password for a registry when creating it {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To lean about setting a password for a registry being created, please see [{#T}](../registry/registry-create.md).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -163,11 +163,11 @@ You can add a password to an existing registry or set it when creating a registr
    log_group_id: ckghhil3b5o9********
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To lean about setting a password for a registry being created, please see [{#T}](../registry/registry-create.md).
 
-- API
+- API {#api}
 
    To set a password for a registry when creating it, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create) gRPC API call.
 
@@ -175,9 +175,9 @@ You can add a password to an existing registry or set it when creating a registr
 
 ## Getting a list of registry passwords {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To view the list of registry passwords:
 
@@ -186,7 +186,7 @@ You can add a password to an existing registry or set it when creating a registr
    1. Select the required registry from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -223,7 +223,7 @@ You can add a password to an existing registry or set it when creating a registr
       +----------------------+---------------------+
       ```
 
-- API
+- API {#api}
 
    To get a list of registry passwords, use the [listPasswords](../../api-ref/Registry/listPasswords.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/ListPasswords](../../api-ref/grpc/registry_service.md#ListPasswords) gRPC API call.
 
@@ -231,9 +231,9 @@ You can add a password to an existing registry or set it when creating a registr
 
 ## Deleting a registry password {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a registry password:
 
@@ -243,7 +243,7 @@ You can add a password to an existing registry or set it when creating a registr
    1. In the row with the password you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -283,7 +283,7 @@ You can add a password to an existing registry or set it when creating a registr
       +----+------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -343,7 +343,7 @@ You can add a password to an existing registry or set it when creating a registr
       yc iot registry password list --registry-name <registry_name>
       ```
 
-- API
+- API {#api}
 
    To delete a registry password, use the [deletePassword](../../api-ref/Registry/deletePassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeletePassword](../../api-ref/grpc/registry_service.md#DeletePassword) gRPC API call.
 

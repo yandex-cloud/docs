@@ -13,9 +13,9 @@ You can only delete an empty registry. Make sure to [delete devices from the reg
 
 To access a [registry](../../concepts/index.md#registry), use its unique ID or name. For information on retrieving the unique registry ID or name, see [{#T}](registry-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a registry:
 
@@ -24,7 +24,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    1. To the right of the name of the registry to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       +----+------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -104,7 +104,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       yc iot registry list
       ```
 
-- API
+- API {#api}
 
    To delete a registry, use the [delete](../../api-ref/Registry/delete.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Delete](../../api-ref/grpc/registry_service.md#Delete) gRPC API call.
 

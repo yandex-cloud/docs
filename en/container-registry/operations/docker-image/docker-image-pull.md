@@ -2,11 +2,11 @@
 
 To download a [Docker image](../../concepts/docker-image.md), you need to know the [repository](../../concepts/repository.md) it is stored in as well as its [tag or digest](../../concepts/docker-image.md#version).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
-   1. Select the Docker image you need. To do this, [get a list of the Docker images in the registry](docker-image-list.md#docker-image-list).
+   1. Select the Docker image you need. To do this, [get a list of Docker images in the registry](docker-image-list.md#docker-image-list).
    1. Pull the Docker image from the [registry](../../concepts/registry.md):
       * Using the **tag**:
 

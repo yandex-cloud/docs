@@ -7,6 +7,6 @@ Set up resources:
 1. [Create a device](../../iot-core/operations/device/device-create.md).
 1. [Add a certificate to the device](../../iot-core/operations/certificates/device-certificates.md#add-cert).
 
-### Authorization {#auth}
+### Authentication {#auth}
 
-To send messages, you need to [log in](../../iot-core/concepts/authorization.md). To do this, use an X.509 certificate or username and password. This section provides examples for both authorization methods.
+To send messages, you must be [authenticated](../../iot-core/concepts/authorization.md). To do this, use an X.509 certificate or a username and password. This section provides examples for both authentication methods.

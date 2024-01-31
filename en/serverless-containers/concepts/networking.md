@@ -10,7 +10,7 @@ If necessary, you can specify a [cloud network](../../vpc/concepts/network.md#ne
 
 {% include [network](../../_includes/functions/network.md) %}
 
-If the user specifies a network in the container settings, each [availability zone](../../overview/concepts/geo-scope.md) will have a service subnet created with IP addresses from the 198.19.0.0/16 range. Once run, the container will be assigned an IP address from the respective subnet and will have access to all network resources.
+If the user specifies a network in the container settings, this will create a service subnet with addresses from the 198.19.0.0/16 range for each [availability zone](../../overview/concepts/geo-scope.md). Once run, the container will be assigned an IP address from the respective subnet and will have access to all network resources.
 
 {% include [network](../../_includes/functions/network-note.md) %}
 

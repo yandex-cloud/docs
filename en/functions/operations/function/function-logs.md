@@ -5,18 +5,18 @@ description: "You can view monitoring charts in {{ sf-full-name }} using the man
 
 # Viewing function logs
 
-Function execution logs are stored for 3 days. The log uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+Function execution logs are stored for 3 days. The log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) time.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Click a function to view its runtime log.
    1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is 1 hour.
 
-- CLI
+- CLI {#cli}
 
    {% include [timeslot](../../../_includes/functions/timeslot.md) %}
 

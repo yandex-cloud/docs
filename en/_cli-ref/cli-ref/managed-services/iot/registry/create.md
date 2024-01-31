@@ -23,6 +23,12 @@ Syntax:
 |`--password`|<b>`string`</b><br/>Password for entity. Usage of --read-password is more secure|
 |`--read-password`|Read password for entity from input|
 |`--generate-password`|Generate random password|
+|`--no-logging`|Disable logging for registry.|
+|`--log-group-id`|<b>`string`</b><br/>Send logs to custom log group by id.|
+|`--log-group-name`|<b>`string`</b><br/>Send logs to custom log group by name.|
+|`--log-folder-id`|<b>`string`</b><br/>Send logs to default log group of custom folder by id.|
+|`--log-folder-name`|<b>`string`</b><br/>Send logs to default log group of custom folder by name.|
+|`--min-log-level`|<b>`string`</b><br/>Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

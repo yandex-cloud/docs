@@ -2,9 +2,9 @@
 
 You can prevent a [subject](../../../iam/concepts/access-control/index.md#subject) from accessing a resource. To do this, revoke the subject's [roles](../../../iam/concepts/access-control/roles.md) for that resource or the resources that the access rights are inherited from. For more information, see [{#T}](../../../iam/concepts/access-control/index.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to revoke a role for a resource.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -25,7 +25,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
             To revoke all the user's permissions, click **{{ ui-key.yacloud.component.acl-dialog.button_revoke }}**.
          1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -88,9 +88,9 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 
 
 
-- API
+- API {#api}
 
-   Use the method `listAccessBindings` to view the roles assigned for the resources `registry` and `repository`.
+   Use the `listAccessBindings` method to view the roles assigned for the `registry` and `repository` resources.
 
    Use the `updateAccessBindings` method to revoke the role for the `registry` and `repository` resources.
 

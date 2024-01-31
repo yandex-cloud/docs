@@ -48,9 +48,9 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
 ## Create a registry {#create-registry}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your registry in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -74,7 +74,7 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -116,9 +116,9 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
       registry_id: b91hafek85**********
       fingerprint: 589ce16050****
       certificate_data: |
-           -----BEGIN CERTIFICATE-----
-           MIIE/jCCAuagAwIBAgIJAPRA...
-           -----END CERTIFICATE-----
+         -----BEGIN CERTIFICATE-----
+         MIIE/jCCAuagAwIBAgIJAPRA...
+         -----END CERTIFICATE-----
       created_at: "2019-05-27T13:41:45.295Z"
       ```
 
@@ -126,9 +126,9 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
 ## Create a device {#create-device}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -153,7 +153,7 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a device:
 
@@ -196,9 +196,9 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
       device_id: b912an77oq**********
       fingerprint: 65e5b05006***
       certificate_data: |
-           -----BEGIN CERTIFICATE-----
-           MIIE/jCCAuagAwIBAgIJANZbq...
-           -----END CERTIFICATE-----
+         -----BEGIN CERTIFICATE-----
+         MIIE/jCCAuagAwIBAgIJANZbq...
+         -----END CERTIFICATE-----
       created_at: "2019-05-27T13:45:23.306Z"
       ```
 

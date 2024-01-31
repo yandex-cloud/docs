@@ -6,9 +6,9 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
 ## Create a function {#create-func}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -16,7 +16,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     1. Name the function `bash-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -40,12 +40,12 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     status: ACTIVE
     ```
 
-- API
+- API {#api}
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
@@ -70,9 +70,9 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
 ### Create a function version {#create-version}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -88,7 +88,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -138,12 +138,12 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     ```
 
 
-- API
+- API {#api}
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

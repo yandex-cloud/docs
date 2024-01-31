@@ -8,9 +8,9 @@ To push an image, you need to [authenticate](../authentication.md) in the regist
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. View the list of available [Docker images](../../concepts/docker-image.md):
 

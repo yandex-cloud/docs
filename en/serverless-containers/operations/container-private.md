@@ -8,9 +8,9 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To make a container private, run this command:
 

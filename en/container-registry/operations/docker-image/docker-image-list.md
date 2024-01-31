@@ -11,9 +11,9 @@ Find out how to get:
 
 ## Getting a list of Docker images in a registry {#docker-image-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -33,17 +33,17 @@ Find out how to get:
    +----------------------+---------------------+----------------------------+------+-----------------+
    ```
 
-- API
+- API {#api}
 
-   To get a list of the Docker images in a registry, use the [list](../../api-ref/Image/list.md) method for the [Image](../../api-ref/Image/) resource.
+   To get a list of Docker images in a registry, use the [list](../../api-ref/Image/list.md) method for the [Image](../../api-ref/Image/) resource.
 
 {% endlist %}
 
 ## Getting information about a Docker image {#docker-image-get}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Get detailed information about a Docker image using the `id` from the [previous](#docker-image-list) item:
 
@@ -63,7 +63,7 @@ Find out how to get:
    - hello
    ```
 
-- API
+- API {#api}
 
    To get detailed information about a Docker image, use the [get](../../api-ref/Image/get.md) method for the [Image](../../api-ref/Image/) resource.
 

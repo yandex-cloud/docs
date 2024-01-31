@@ -8,16 +8,16 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select the function you want to make private.
    1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, disable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

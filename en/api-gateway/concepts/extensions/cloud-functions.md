@@ -10,9 +10,9 @@ The `x-yc-apigateway-integration:cloud-functions` extension invokes the specifie
 ----|----|----
 | `function_id` | `string` | ID of the [function](../../../functions/concepts/function.md). |
 | `tag` | `string` | This is an optional parameter. [Tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`.<br>Parameters are substituted in `tag`. |
-| `service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If the parameter is omitted, the value of the [top-level](./index.md#top-level) `service_account_id` parameter is used. If there is no top-level parameter, the function is invoked without authorization. |
-| `payload_format_version` | `string` | Function call format version. Possible values: [`0.1`](#request_v0) and [`1.0`](#request_v1). Default version is [`0.1`](#request_v0). |
-| `context` | `object` | This is an optional parameter. Operation context is an arbitrary object in `YAML` or `JSON` format. Passed to a function inside a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext`. `Context` is where parameter substitution takes place. |
+| `service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If not specified, it defaults to the [top-level](./index.md#top-level) `service_account_id` parameter. If there is no top-level parameter either, the function is invoked without authorization. |
+| `payload_format_version` | `string` | Function call format version. Possible values: [`0.1`](#request_v0) and [`1.0`](#request_v1). The default version is [`0.1`](#request_v0). |
+| `context` | `object` | This is an optional parameter. Operation context is an arbitrary object in `YAML` or `JSON` format. Passed to a function inside a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext` field. `Context` is where parameter substitution takes place. |
 
 ## Extension specification {#spec}
 

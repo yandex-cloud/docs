@@ -198,7 +198,7 @@
         Warning: Permanently added '<публичный_IP-адрес>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
-         * Documentation:  https://help.ubuntu.com
+         * Documentation: https://help.ubuntu.com
         ...
         Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
         applicable law.
@@ -418,7 +418,7 @@
         Warning: Permanently added '<публичный_IP-адрес_ВМ_1>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
-         * Documentation:  https://help.ubuntu.com
+         * Documentation: https://help.ubuntu.com
         ...
         Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
         applicable law.

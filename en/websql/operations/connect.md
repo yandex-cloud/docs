@@ -2,7 +2,7 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-In [{{ websql-full-name }}]({{ websql-link }}), you can do the following from the **Connection manager** panel (![image](../../_assets/console-icons/folder-tree.svg)):
+In [{{ websql-full-name }}]({{ websql-link }}), you can do the following using the **Connection Manager** panel (![image](../../_assets/console-icons/folder-tree.svg)):
 
 * Add connections to [databases](#connect-db) or [database clusters](#connect-cluster).
 * [Check connection settings](#change-connection-settings).
@@ -10,15 +10,15 @@ In [{{ websql-full-name }}]({{ websql-link }}), you can do the following from th
 * [Delete connections](#delete-connection) that you no longer need.
 * [Work with demo connections](#demo) to explore {{ websql-full-name }}.
 
-## Connecting to a database {#connect-db}
-
-{% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
-
 ## Connecting to a database cluster in {{ yandex-cloud }} {#connect-cluster}
 
 If you have a [{{ PG }}](../../managed-postgresql/operations/cluster-list.md), [{{ CH }}](../../managed-clickhouse/operations/cluster-list.md), or [{{ MY }}](../../managed-mysql/operations/cluster-list.md) cluster configured in {{ yandex-cloud }}, you can connect directly to it:
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
+
+## Connecting to an external database {#connect-db}
+
+{% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
 
 ## Adding a connection to a connection group {#add-connection-to-group}
 
@@ -68,7 +68,7 @@ In the Connection manager, you can view the status of connections and refresh th
 
 {% note tip %}
 
-Use the search field in the **Connection manager** panel to find a connection with the appropriate database, table, or schema.
+Use the search field on the **Connection manager** panel to find a connection with the appropriate database, table, or schema.
 
 {% endnote %}
 
@@ -76,6 +76,8 @@ To refresh an active connection:
 
 1. Select an active connection.
 1. Click **...** to the right of the connection name and choose **Refresh connection**.
+
+This will update the entire hierarchy for this connection, including tables and views. If a table was deleted from a database, you will need to refresh the connection for the changes to appear in {{ websql-full-name }}.
 
 To refresh all active connections, click ![image](../../_assets/console-icons/arrows-rotate-right.svg) in the top-right corner of the **Connection manager** panel.
 

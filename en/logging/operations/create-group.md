@@ -11,9 +11,9 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../concepts/log-group.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -26,7 +26,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
    1. (Optional) Select a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or create a new one.
    1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -76,7 +76,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -143,7 +143,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
       yc logging group list
       ```
 
-- API
+- API {#api}
 
    To create a log group, use the [create](../api-ref/LogGroup/create.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create) gRPC API call.
 

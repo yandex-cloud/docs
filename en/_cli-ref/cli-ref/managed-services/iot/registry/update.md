@@ -19,6 +19,12 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>A new name of registry.|
 |`--description`|<b>`string`</b><br/>Description of registry.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>List of KEY=VALUES pairs to add.|
+|`--no-logging`|Disable logging for registry.|
+|`--log-group-id`|<b>`string`</b><br/>Send logs to custom log group by id.|
+|`--log-group-name`|<b>`string`</b><br/>Send logs to custom log group by name.|
+|`--log-folder-id`|<b>`string`</b><br/>Send logs to default log group of custom folder by id.|
+|`--log-folder-name`|<b>`string`</b><br/>Send logs to default log group of custom folder by name.|
+|`--min-log-level`|<b>`string`</b><br/>Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'|
 |`--id`|<b>`string`</b><br/>Registry id.|
 |`--name`|<b>`string`</b><br/>Registry name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
