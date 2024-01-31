@@ -11,9 +11,9 @@ Find out how to get:
 
 ## Getting a list of registries in a folder {#registry-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -35,7 +35,7 @@ Find out how to get:
    +----------------------+--------+----------------------+
    ```
 
-- API
+- API {#api}
 
    To get a list of registries in the default folder, use the [list](../../api-ref/Registry/list.md) method for the [Registry](../../api-ref/Registry/) resource.
 
@@ -45,9 +45,9 @@ Find out how to get:
 
 To access a registry, use the `id` or `name` parameters from the [previous](#registry-list) item.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -69,7 +69,7 @@ To access a registry, use the `id` or `name` parameters from the [previous](#reg
    created_at: "2019-01-09T14:34:06.601Z"
    ```
 
-- API
+- API {#api}
 
    You can get detailed information about a registry by using the [get](../../api-ref/Registry/get.md) method for the [Registry](../../api-ref/Registry/) resource.
 

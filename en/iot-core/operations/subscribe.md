@@ -4,11 +4,11 @@ With a broker, you can subscribe to a random topic that does not start with `$` 
 
 For registries and devices, the selection of topics is limited. You can subscribe:
 
-- A registry to device events using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
-- A registry to device events using the permanent `$devices/<device ID>/state` or `$registries/<registry ID>/state` topics.
-- A device to registry commands using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
-- A device to registry commands using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
-- A registry or device to device monitoring data using the `$monitoring/<device ID>/json` topic.
+- Registry to device events using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
+- Registry to device events using the permanent `$devices/<device ID>/state` or `$registries/<registry ID>/state` topics.
+- Device to registry commands using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
+- Device to registry commands using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
+- Registry or device to device monitoring data using the `$monitoring/<device ID>/json` topic.
 
 To learn about messaging, see [{#T}](publish.md).
 
@@ -24,9 +24,9 @@ You can subscribe a registry to topics of one, multiple, or all devices added to
 
 ### Subscribe a registry to a single device's topic {#one-device}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -90,9 +90,9 @@ You can subscribe a registry to topics of one, multiple, or all devices added to
 
 The registry will only receive data from devices that send messages to the `$registries/<registry ID>/events` or `$registries/<registry ID>/state` topic.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    - Subscribe a registry to the topics of all devices using certificate-based authorization:
 
@@ -157,9 +157,9 @@ Commands from a registry can be given to a specific device or all devices in the
 
 ### Subscribe a device to topics that are commands for a specific device {#for-one}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    - Subscribe a device to topics that are commands for a specific device using certificate-based authorization:
 
@@ -221,9 +221,9 @@ Commands from a registry can be given to a specific device or all devices in the
 
 Only devices subscribed to the `$registries/<registry ID>/commands` or `$registries/<registry ID>/config` topic will receive commands.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    - Subscribe a device to topics that are commands using certificate-based authorization:
 
@@ -283,9 +283,9 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
 
 When using a broker, you can subscribe to a random topic using your username and password or any certificate assigned to the broker for authorization.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    - Subscribe to a topic using your username and password for authorization:
 

@@ -2,16 +2,32 @@
 title: "How to configure an {{ objstorage-name }} source endpoint"
 description: "Follow this guide to configure an {{ objstorage-name }} source endpoint."
 ---
+# Transferring data from an {{ objstorage-name }} source endpoint
 
-# Configuring source endpoints {{ objstorage-name }}
+{{ data-transfer-full-name }} enables you to migrate data from storage to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the storage and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+
+## Scenarios for transferring data from {{ objstorage-name }} {#scenarios}
+
+You can implement scenarios for data migration and delivery from the {{ objstorage-name }} storage to managed databases for further storage in the cloud, processing and loading into data marts for further visualization.
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the {{ objstorage-name }} source endpoint {#endpoint-settings}
 
 {% include [note-preview](../../../../_includes/preview-pp.md) %}
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to S3-compatible storage.
 
-## Settings {#settings}
+### Settings {#settings}
 
-### Bucket configuration parameters {#bucket-config}
+#### Bucket configuration parameters {#bucket-config}
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}**: Bucket name.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}**: [ID and contents of the AWS key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) used to access a private bucket.
@@ -23,7 +39,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}**: Enter the path pattern. If the bucket only includes files, use the `**` value.
 
-### Event queue configuration {#event-queue-config}
+#### Event queue configuration {#event-queue-config}
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.queue_name.title }}**: Name of the queue set up in the S3 bucket to get `s3:ObjectCreated` events.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.owner_id.title }}**: ID of the AWS account used to create the queue. Leave this field empty if the S3 bucket and queue were created by the same account.
@@ -34,7 +50,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.use_ssl.title }}**: Select this option if the remote server uses a secure SSL/TLS connection.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.verify_ssl_cert.title }}**: Allow self-signed certificates.
 
-### Data format {#data-format}
+#### Data format {#data-format}
 
 {% list tabs %}
 
@@ -60,9 +76,23 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% endlist %}
 
-### Dataset {#dataset}
+#### Dataset {#dataset}
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.schema.title }}**: Specify the schema of an auxiliary table that will be used for the connection.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.table.title }}**: Specify the name of an auxiliary table that will be used for the connection.
 
 **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Specify a JSON schema in `{"<column>": "<data_type>"}` format or list the fields for the schema of the resulting table. If you select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.infer.title }}`, the schema will be inferred automatically.
+
+## Configuring the data target {#supported-targets}
+
+Configure one of the supported data targets:
+
+* [{{ PG }}](../target/postgresql.md).
+* [{{ MY }}](../target/mysql.md).
+* [{{ CH }}](../target/clickhouse.md).
+* [{{ GP }}](../target/greenplum.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

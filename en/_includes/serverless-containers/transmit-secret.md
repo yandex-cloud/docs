@@ -6,9 +6,9 @@ A {{ lockbox-short-name }} secret transmitted to a container is cached in {{ ser
 
 A new revision of a container is created when {{ lockbox-name }} secrets are transmitted. You cannot transmit secrets to an existing revision.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -25,7 +25,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 
    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. A new container revision with the specified secrets will be created.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -64,7 +64,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 
       You can transmit multiple secrets to a container. To do this, specify the `--secret` parameter as many times as needed.
 
-- API
+- API {#api}
 
    To transmit a {{ lockbox-name }} secret to a container, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 

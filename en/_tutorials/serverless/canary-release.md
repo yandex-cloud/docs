@@ -26,9 +26,9 @@ The cost of resources to support a web application includes:
 
 ## Create a service account {#create-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -37,7 +37,7 @@ The cost of resources to support a web application includes:
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@ The cost of resources to support a web application includes:
       done (1s)
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -130,7 +130,7 @@ The cost of resources to support a web application includes:
          yc iam service-account list
          ```
 
-- API
+- API {#api}
 
    To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
 
@@ -150,9 +150,9 @@ You can use a custom function or create [any function from the list](../../funct
 
 Add the `stable` tag to the first function version and the `canary` tag to the second one.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To add a version tag, run the command:
 
@@ -178,7 +178,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
      - stable
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To add a version tag:
 
@@ -237,7 +237,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
    yc serverless function version list --function-name <function_name>
    ```
 
-- API
+- API {#api}
 
    To add a function version tag, use the [setTag](../../functions/functions/api-ref/Function/setTag.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/SetTag](../../functions/functions/api-ref/grpc/function_service.md#SetTag) gRPC API call.
 
@@ -245,9 +245,9 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
 ## Create an API gateway {#create-api-gw}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -283,7 +283,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** field, set `function.tag`=`canary`.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Save the following specification to `spec.yaml`:
 
@@ -344,7 +344,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
             string_value: canary
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To create an API gateway:
 
@@ -390,9 +390,9 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `canary.0.weight`: Percentage of requests in the canary release
-      * `canary.0.variables`: Variables for the canary release
-      * `spec`: API gateway specification
+      * `canary.0.weight`: Percentage of requests in the canary release.
+      * `canary.0.variables`: Variables for the canary release.
+      * `spec`: API gateway specification.
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
@@ -423,7 +423,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
          yc serverless api-gateway get <API_gateway_name>
          ```
 
-- API
+- API {#api}
 
    To create an API gateway, use the [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
 

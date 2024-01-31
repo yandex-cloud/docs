@@ -52,7 +52,7 @@ Wait a few minutes. If the record is correct, the verification status on the add
 
 You can send a verification email using:
 * AWS CLI
-* SMTP
+* SMTP protocol
 
 ### AWS CLI
 
@@ -64,11 +64,11 @@ You can send a verification email using:
       ```
    1. Specify the previously obtained ID of the `postbox-user` service account key:
       ```
-      AWS Access Key ID [****************ver_]: &amp;lt;service_account_key_ID&amp;gt;
+      AWS Access Key ID [****************ver_]: <service_account_key_ID>
       ```
    1. Specify the previously obtained secret key of the `postbox-user` service account:
       ```
-      AWS Secret Access Key [****************w5lb]: &amp;lt;service_account_secret_key&amp;gt;
+      AWS Secret Access Key [****************w5lb]: <service_account_secret_key>
       ```
    1. Specify ru-central1 as the default region name:
       ```

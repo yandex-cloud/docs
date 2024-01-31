@@ -8,10 +8,10 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 
 ## Create a VM with a Docker container from a {{ coi }} image {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -30,7 +30,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
    1. Set the remaining VM parameters by following [this guide](../compute/operations/vm-create/create-linux-vm.md).
 
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../_includes/cli-install.md) %}
 

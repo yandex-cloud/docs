@@ -5,9 +5,9 @@ description: "Follow this guide to create a function."
 
 # Creating a function
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -18,7 +18,7 @@ description: "Follow this guide to create a function."
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ description: "Follow this guide to create a function."
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -75,7 +75,7 @@ description: "Follow this guide to create a function."
          * `content`: Function source code. You can only use either the `content` or `package` field.
          * `content.0.zip_filename`: Name of the ZIP archive that contains the function source code.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       ```
@@ -142,12 +142,12 @@ description: "Follow this guide to create a function."
       yc serverless function list
       ```
 
-- API
+- API {#api}
 
    To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/function_service.md#Create) gRPC API call.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

@@ -10,7 +10,7 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) in API 
 
 {% include [network](../../_includes/functions/network.md) %}
 
-If the user specifies a network in the API gateway settings, each [availability zone](../../overview/concepts/geo-scope.md) will have a service subnet created with IP addresses from the 198.19.0.0/16 range. The API gateway will be assigned an IP address from the respective subnet and will have access to all network resources.
+If the user specifies a network in the API gateway settings, this will create a subnet with addresses from the 198.19.0.0/16 range for each [availability zone](../../overview/concepts/geo-scope.md). The API gateway will be assigned an IP address from the respective subnet and will have access to all network resources.
 
 {% include [network](../../_includes/functions/network-note.md) %}
 

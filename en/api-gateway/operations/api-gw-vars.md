@@ -41,9 +41,9 @@ paths:
 
 By default, variables take the values specified in the `default` field of the OpenAPI specification. You can override them by providing other values while setting up your API gateway:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to edit an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -51,7 +51,7 @@ By default, variables take the values specified in the `default` field of the Op
    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, list all the variables declared in the specification and their values.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@ By default, variables take the values specified in the `default` field of the Op
          --variables <list_of_variables>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -134,13 +134,13 @@ By default, variables take the values specified in the `default` field of the Op
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check that the API gateway has been updated using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc serverless api-gateway get <API_gateway_name>
       ```
 
-- API
+- API {#api}
 
    To set up variables for an API gateway specification, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
 

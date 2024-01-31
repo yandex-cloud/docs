@@ -11,9 +11,9 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
 
 {% include [network](../../_includes/functions/network.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -22,7 +22,7 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
     1. In the **{{ ui-key.yacloud.vpc.label_network }}** field, specify a cloud network to host your API gateway.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
-- API
+- API {#api}
 
   To specify a cloud network to host an API gateway, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
 

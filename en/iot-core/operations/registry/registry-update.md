@@ -6,9 +6,9 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
 ## Updating the name of a registry {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update the name of a registry:
 
@@ -18,7 +18,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
    name: test-registry
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -92,7 +92,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
       yc iot registry list
       ```
 
-- API
+- API {#api}
 
    To rename a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
@@ -100,9 +100,9 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
 ## Updating the description of a registry {#update-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update the description of a registry:
 
@@ -112,7 +112,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -133,7 +133,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
      test_label: my_registry_label
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -189,7 +189,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
       yc iot registry get <registry_name>
       ```
 
-- API
+- API {#api}
 
    To update a registry description, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
@@ -205,9 +205,9 @@ You can perform the following actions related to registry labels:
 
 ### Adding a label {#add-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a registry label:
 
@@ -217,7 +217,7 @@ You can perform the following actions related to registry labels:
    1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -237,7 +237,7 @@ You can perform the following actions related to registry labels:
      new_label: test_label
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -300,7 +300,7 @@ You can perform the following actions related to registry labels:
       yc iot registry get <registry_name>
       ```
 
-- API
+- API {#api}
 
    To add a label to a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
@@ -308,9 +308,9 @@ You can perform the following actions related to registry labels:
 
 ### Editing a label {#update-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update the label of a registry:
 
@@ -320,7 +320,7 @@ You can perform the following actions related to registry labels:
    1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -328,7 +328,7 @@ You can perform the following actions related to registry labels:
 
    {% note warning %}
 
-   The existing set of `labels` is completely replaced by the set transmitted.
+   The existing set of `labels` is completely overwritten by the transmitted set.
 
    {% endnote %}
 
@@ -346,7 +346,7 @@ You can perform the following actions related to registry labels:
      test_label: my_registry_label
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -404,7 +404,7 @@ You can perform the following actions related to registry labels:
       yc iot registry get <registry_name>
       ```
 
-- API
+- API {#api}
 
    To update a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 
@@ -412,9 +412,9 @@ You can perform the following actions related to registry labels:
 
 ### Deleting a label {#remove-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a registry label:
 
@@ -424,7 +424,7 @@ You can perform the following actions related to registry labels:
    1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -442,7 +442,7 @@ You can perform the following actions related to registry labels:
    name: my-registry
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -500,7 +500,7 @@ You can perform the following actions related to registry labels:
       yc iot registry get <registry_name>
       ```
 
-- API
+- API {#api}
 
    To delete a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update) gRPC API call.
 

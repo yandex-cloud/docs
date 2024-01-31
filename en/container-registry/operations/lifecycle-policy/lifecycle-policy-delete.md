@@ -5,9 +5,9 @@ description: "Follow this guide to delete a lifecycle policy."
 
 # Deleting a lifecycle policy
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -17,7 +17,7 @@ description: "Follow this guide to delete a lifecycle policy."
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the appropriate [policy](../../concepts/lifecycle-policy.md) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ description: "Follow this guide to delete a lifecycle policy."
       +----+------+---------------+--------+---------+-------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -79,9 +79,9 @@ description: "Follow this guide to delete a lifecycle policy."
     yc container repository lifecycle-policy list --registry-id <registry_ID>
    ```
 
-- API
+- API {#api}
 
-   To delete a policy, use the [Delete](../../api-ref/grpc/lifecycle_policy_service.md#Delete) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. In the `lifecycle_policy_id` parameter, specify a policy ID.
+   To delete a policy, use the [Delete](../../api-ref/grpc/lifecycle_policy_service.md#Delete) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. In the `lifecycle_policy_id` parameter, specify the policy ID.
 
    You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
 

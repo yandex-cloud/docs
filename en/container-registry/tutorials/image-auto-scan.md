@@ -36,9 +36,9 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 1. [Install](https://www.docker.com) Docker.
 1. Create a [registry](../concepts/registry.md) to push a Docker image to.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your registry in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -46,7 +46,7 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
       1. Specify a name for the registry.
       1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
       Run this command:
 
@@ -65,11 +65,11 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
       created_at: "2019-01-09T14:34:06.601Z"
       ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
 
-   - API
+   - API {#api}
 
       Use the [create](../api-ref/Registry/create.md) method for the [Registry](../api-ref/Registry/) resource.
 
@@ -77,9 +77,9 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `scanner` and assign it the `container-registry.images.scanner` [role](../../iam/concepts/access-control/roles.md) for the folder where you created the registry.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder to create a service account in.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -88,7 +88,7 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `container-registry.images.scanner`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       1. Create a service account:
 
@@ -113,11 +113,11 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
            --subject serviceAccount:<service_account_ID>
          ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
 
-   - API
+   - API {#api}
 
       Use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/) resource and [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) for [Folder](../../resource-manager/api-ref/Folder/).
 
@@ -130,9 +130,9 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 
 In {{ sf-name }}, create a function named `scan-on-push` that will run the Docker image scan:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -161,7 +161,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `Scanner`
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a function named `scan-on-push`:
 
@@ -219,11 +219,11 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
       log_group_id: ckg6nb0c7uf1********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
-- API
+- API {#api}
 
    Use the [create](../../functions/functions/api-ref/Function/create) and the [createVersion](../../functions/functions/api-ref/Function/createVersion) methods for the [Function](../../functions/functions/api-ref/Function/) resource.
 
@@ -233,9 +233,9 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
 Create a trigger that will invoke your function when creating a Docker image [tag](../concepts/docker-image.md#version).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -253,7 +253,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
       * Specify the `invoker` service account to invoke the function.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a trigger, run the command:
 
@@ -285,7 +285,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    Use the [Create](../../functions/triggers/api-ref/Trigger/create.md) method for the [Trigger](../../functions/triggers/api-ref/Trigger/) resource.
 
@@ -347,7 +347,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
          ```
 
 
-   - Using an {{ iam-full-name }} token
+   - Using an IAM token
 
       {% note info %}
 
@@ -411,15 +411,15 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
 1. View the `scan-on-push` function logs and make sure that it was executed.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list }}** section and select the `scan-on-push` function.
       1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the time period. The default time period is 1 hour.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [function-list-note](../../_includes/functions/function-list-note.md) %}
 
@@ -445,9 +445,9 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
 1. Make sure that a new scan started when you pushed the Docker image.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the parent folder for the registry containing the Docker image.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -455,7 +455,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
       1. Open the repository with the Docker image.
       1. Select the relevant Docker image and check the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** parameter value.
 
-   - CLI
+   - CLI {#cli}
 
       To view scans by Docker image, run the command:
 

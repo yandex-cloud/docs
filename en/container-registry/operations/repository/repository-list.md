@@ -7,9 +7,9 @@ description: "In this tutorial, you will learn how to get information about exis
 
 ## Getting a list of repositories in a registry {#repository-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -55,7 +55,7 @@ description: "In this tutorial, you will learn how to get information about exis
          +----------------------+-----------------------------+
          ```
 
-- API
+- API {#api}
 
    To retrieve a list of repositories in a registry, use the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
 
@@ -69,9 +69,9 @@ The repository appears in the list as soon as at least one [Docker image is push
 
 ## Getting information about a repository {#repository-get}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. View a description of the CLI command to get repository information:
 
@@ -108,7 +108,7 @@ The repository appears in the list as soon as at least one [Docker image is push
 
          You can specify both the full name of the Docker image and prefixes. For example, you can get information about the `crpvplula8p3********/myproject/myservice` repository by specifying `crpvplula8p3********/myproject/myservice`, `crpvplula8p3********/myproject`, or `crpvplula8p3********`.
 
-- API
+- API {#api}
 
    Get information about the repository.
    * By repository ID:

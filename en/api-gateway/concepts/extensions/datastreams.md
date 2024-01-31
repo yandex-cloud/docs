@@ -12,7 +12,7 @@
 | `stream_name` | `string` | {{ yds-name }} stream name. |
 | `partition_key` | `string` | This is an optional parameter. [Shard key](../../../data-streams/concepts/glossary#partition-key). If not specified, writing will be performed to a random segment. `Partition_key` is where parameter substitution takes place. |
 | `payload_format_type` | `string` | This is an optional parameter. Type of record content. If the value is `body`, only the request body will be written to the stream. If the value is `request`, the entire [request](./cloud-functions.md#request_v1) in JSON format will be written to the stream. The default value is `body`. |
-| `service_account_id` | `string` | Service account ID. Used for authorization when performing {{ yds-name }} stream operations. If this parameter is not specified, the value of the [top-level](./index.md#top-level) `service_account_id` parameter is used. |
+| `service_account_id` | `string` | Service account ID. Used for authorization when performing {{ yds-name }} stream operations. If not specified, it defaults to the [top-level](./index.md#top-level) `service_account_id` parameter. |
 
 ## Extension specification {#spec}
 

@@ -14,9 +14,9 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 
 ## Updating the name of a registry {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update the name of a [registry](../../concepts/registry.md):
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to update the registry in.
@@ -26,7 +26,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
    1. (Optional) Update labels.
    1. Click **{{ ui-key.yacloud.cr.overview.popup-update_button_update }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -46,7 +46,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
    created_at: "2019-01-15T14:39:48.154Z"
    ```
 
-- API
+- API {#api}
 
    To edit a registry name, use the [update](../../api-ref/Registry/update.md) method for the [Registry](../../api-ref/Registry/) resource.
 
@@ -54,9 +54,9 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 
 ## Updating the label of a registry {#update-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Change the registry label (not to be confused with [Docker image](../../concepts/docker-image.md) tags):
 
@@ -76,7 +76,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
      new_label: test_label
    ```
 
-- API
+- API {#api}
 
    To edit a registry label, use the [update](../../api-ref/Registry/update.md) method for the [Registry](../../api-ref/Registry/) resource.
 
@@ -84,9 +84,9 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 
 ## Configuring access for IP addresses {#access-ip}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add or delete an [IP address](../../../vpc/concepts/address.md) and configure access to a registry:
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** in the folder to update the registry in.
@@ -95,7 +95,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
    1. Click ![image](../../../_assets/console-icons/xmark.svg) in the line of the IP address to delete the permission for.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -117,7 +117,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
      --push <IP_with_PUSH_permission>
    ```
 
-- API
+- API {#api}
 
    To add, update, or delete an IP address and configure its [registry](../../concepts/registry.md) permissions, use the [updateIpPermission](../../api-ref/Registry/updateIpPermission.md) method for the [Registry](../../api-ref/Registry/) resource.
 

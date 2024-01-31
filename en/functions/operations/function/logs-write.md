@@ -4,9 +4,9 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
 
 ## Function examples
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
    **package.json**
    ```json
@@ -38,7 +38,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
    };
    ```
 
-- Python
+- Python {#python}
 
    **requirements.txt**
    ```
@@ -71,7 +71,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
 
        return "Hello, world!"
    ```
-- Go
+- Go {#go}
 
    **index.go**
    ```go
@@ -106,7 +106,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
    }
    ```
 
-- Java
+- Java {#java}
 
    **pom.xml**
    ```xml

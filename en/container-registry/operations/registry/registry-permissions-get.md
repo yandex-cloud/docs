@@ -5,9 +5,9 @@ description: "Follow this guide to get information about registry access policie
 
 # Getting information about a registry access policy
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your registry.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -15,7 +15,7 @@ description: "Follow this guide to get information about registry access policie
    1. Select the registry.
    1. The **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}** page will show the registry access policy details.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -26,7 +26,7 @@ description: "Follow this guide to get information about registry access policie
    Get formation about a registry access policy:
 
    ```bash
-   yc container registry list-ip-permissions &amp;lt;registry_name&amp;gt;
+   yc container registry list-ip-permissions <registry_name>
    ```
 
    Result:
@@ -39,7 +39,7 @@ description: "Follow this guide to get information about registry access policie
    +--------+---------------+
    ```
 
-- API
+- API {#api}
 
    To get registry access policy details, use the [listIpPermission](../../api-ref/Registry/listIpPermission.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/ListIpPermission](../../api-ref/grpc/registry_service.md#ListIpPermission) gRPC API call.
 

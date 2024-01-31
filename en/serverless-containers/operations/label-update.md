@@ -5,15 +5,15 @@ description: "Follow this guide to update a container label."
 
 # Updating a container label
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To update a container label, run this command:
 
    {% note warning %}
 
-   The existing set of `labels` is completely replaced by the set transmitted.
+   The existing set of `labels` is completely overwritten by the transmitted set.
 
    {% endnote %}
 
@@ -35,7 +35,7 @@ description: "Follow this guide to update a container label."
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -93,7 +93,7 @@ description: "Follow this guide to update a container label."
    yc serverless container get <container_ID>|<container_name>
    ```
 
-- API
+- API {#api}
 
    To update a container label, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update) gRPC API call.
 

@@ -2,10 +2,10 @@
 
 Change the Docker container settings on the VM created from a [{{ coi }}](../concepts/index.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM was created.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -15,7 +15,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 
-- CLI
+- CLI {#cli}
 
    1. View a description of the CLI command for updating VMs:
 

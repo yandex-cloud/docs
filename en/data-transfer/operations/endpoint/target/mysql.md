@@ -2,15 +2,55 @@
 title: "How to configure a {{ MY }} target endpoint in {{ data-transfer-full-name }}"
 description: "In this tutorial, you will learn how to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}."
 ---
+# Transferring data to a {{ MY }} target endpoint
 
-# Configuring a {{ MY }} target endpoint
+{{ data-transfer-full-name }} enables you to migrate data to a {{ MY }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Configure one of the supported data sources](#supported-sources).
+1. [Prepare the {{ MY }}](#prepare) database for the transfer.
+1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Perform required operations with the database](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data to {{ MY }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+* [Migrating the {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
+* [Migration with storage changed from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+
+* [Delivering data from {{ KF }} to {{ MY }}](../../../tutorials/mkf-to-mmy.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the data source {#supported-sources}
+
+Configure one of the supported data sources:
+
+* [{{ PG }}](../source/postgresql.md).
+* [{{ MY }}](../source/mysql.md).
+* [{{ objstorage-full-name }}](../source/object-storage.md).
+* [{{ KF }}](../source/kafka.md).
+* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ DS }}](../source/data-streams.md).
+* [{{ ydb-name }}](../source/ydb.md).
+
+## Preparing the target database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/mysql-prepare.md) %}
+
+## Configuring the {{ MY }} target endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
-## {{ mmy-name }} cluster {#managed-service}
+### {{ mmy-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -72,7 +112,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 For OnPremise, all fields are filled in manually.
 
@@ -129,7 +169,7 @@ For OnPremise, all fields are filled in manually.
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% note warning %}
 
@@ -196,3 +236,37 @@ You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.
    * `timezone`: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
 {% endlist %}
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Operations with the database during transfer {#db-actions}
+
+{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+Known issues when using a {{ MY }} endpoint:
+
+* [Single transaction log size exceeds 4 GB](#binlog-size).
+* [New tables are not added](#no-new-tables).
+* [Error when transferring from AWS RDS for {{ MY }}](#aws-binlog-time).
+* [Error when transfering tables without primary keys](#primary-keys).
+* [Binary log access error](#binlog-bytes).
+* [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
+* [Time shift in the DATETIME data type when transferring to {{ CH }}](#timeshift).
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [binlog-size](../../../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
+
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+
+{% include [aws-binlog-time](../../../../_includes/data-transfer/troubles/mysql/aws-binlog-time.md) %}
+
+{% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [binlog-bytes](../../../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [timezone-shift](../../../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}

@@ -121,10 +121,6 @@ items:
         href: sdk/python/request.md
       - name: Speech synthesis using the Python SDK
         href: sdk/python/synthesis.md
-      - name: Pattern-based synthesis using the Python SDK
-        href: sdk/python/templates-bvp-bvss.md
-      - name: '{{ brand-voice-cc }} pattern-based synthesis using the Python SDK'
-        href: sdk/python/templates-bvcc.md
   - name: Tutorials
     items:
       - name: All tutorials

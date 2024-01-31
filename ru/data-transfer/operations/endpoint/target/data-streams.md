@@ -36,7 +36,7 @@ description: "Из статьи вы узнаете, как задать нас�
 * [{{ MY }}](../source/mysql.md);
 * [{{ KF }}](../source/kafka.md);
 * [Aibyte](../../../transfer-matrix.md#airbyte);
-* [{{ DS }}](../source/data-streams.md)
+* [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

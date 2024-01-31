@@ -5,15 +5,15 @@ description: "You can view a monitoring chart in {{ sf-full-name }} using the ma
 
 # Viewing function monitoring charts
 
- You can monitor functions at runtime using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../../monitoring/). 
+ You can monitor functions at runtime using the monitoring tools in your management console. These tools display diagnostic information as charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../../monitoring/). 
 
 The chart update period is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
 
@@ -39,13 +39,13 @@ The chart update period is 15 seconds.
 
 | Metric name | Units | Explanations |
 |----|----|----|
-| `serverless.functions.inflight` | Invocations | Number of concurrent function invocations. |
-| `serverless.functions.started_per_second` | Calls per second | Function call frequency. |
-| `serverless.functions.finished_per_second` | Calls per second | Frequency of completing function invocation processing. |
-| `serverless.functions.errors_per_second` | Errors per second | Error frequency when processing function invocations. |
-| `serverless.functions.initializations_per_second` | Initializations per second | Frequency of new function instance initialization. |
-| `serverless.functions.execution_time_milliseconds` | Calls per second | Function invocation frequency distribution histogram by request processing time in milliseconds. Request processing time intervals are shown in the `bin` label. |
-| `serverless.functions.used_memory_bytes` | Calls per second | Function invocation frequency distribution histogram by memory used in bytes. Intervals of the RAM used by the request are shown in the `bin` label. |
+| `serverless.functions.inflight` | Invocations | Number of concurrent function invocations |
+| `serverless.functions.started_per_second` | Invocations per second | Function call frequency |
+| `serverless.functions.finished_per_second` | Invocations per second | Frequency of completing function invocation processing |
+| `serverless.functions.errors_per_second` | Errors per second | Error frequency when processing function invocations |
+| `serverless.functions.initializations_per_second` | Initializations per second | Frequency of new function instance initialization |
+| `serverless.functions.execution_time_milliseconds` | Invocations per second | Function invocation frequency distribution histogram by request processing time in milliseconds. Request processing time intervals are shown in the `bin` label. |
+| `serverless.functions.used_memory_bytes` | Invocations per second | Function invocation frequency distribution histogram by memory used in bytes. Intervals of the RAM used by the request are shown in the `bin` label. |
 
 ### Custom metrics labels {#labels}
 

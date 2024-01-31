@@ -5,9 +5,9 @@ description: "Follow this guide to get information about a function."
 
 # Getting information about a function
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -15,7 +15,7 @@ description: "Follow this guide to get information about a function."
    1. Select a function.
    1. The **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page will show the function details.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -39,12 +39,12 @@ description: "Follow this guide to get information about a function."
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    To get detailed information about a function, use the [get](../../functions/api-ref/Function/get.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Get](../../functions/api-ref/grpc/function_service.md#Get) gRPC API call.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can learn more about a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

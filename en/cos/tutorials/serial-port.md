@@ -33,9 +33,9 @@ The infrastructure support cost includes:
 
 ## Create a VM specification file {#prepare-specification-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Create a VM specification file named `cloud-config-ports.yaml` and populate it with the following data:
 
@@ -52,15 +52,15 @@ The infrastructure support cost includes:
          - <public_SSH_key_to_connect_to_VM>
    ```
 
-   In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connection yourself.
+   In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
 
 {% endlist %}
 
 ## Create a Docker container specification file {#prepare-specification-docker}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Create a specification for a Docker container as a file named `container-spec-ports.yaml` and populate it with the following data:
 
@@ -87,15 +87,15 @@ The infrastructure support cost includes:
    1. Create a VM with multiple [disks](../../compute/concepts/disk.md).
       1. Get the ID of the image to create the VM:
 
-         {% list tabs %}
+         {% list tabs group=programming_language %}
 
-         - Bash
+         - Bash {#bash}
 
             ```bash
             IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
             ```
 
-         - PowerShell
+         - PowerShell {#powershell}
 
             ```shell script
             > $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | ConvertFrom-Json).id
@@ -155,9 +155,9 @@ To get the ID of the latest image used for VM creation, run:
 
 ## Create a VM {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Enter a name for the [subnet](../../vpc/operations/subnet-create.md) to create your VM in and run:
 

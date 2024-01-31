@@ -1,13 +1,13 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry.
    1. The **{{ ui-key.yacloud.common.overview }}** page will show the registry details.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -28,7 +28,7 @@
   name: my-registry
   ```
 
-- API
+- API {#api}
 
   To get detailed information about a registry, use the [get](../../iot-core/api-ref/Registry/get.md) REST API method for the [Registry](../../iot-core/api-ref/Registry/index.md) resource or the [RegistryService/Get](../../iot-core/api-ref/grpc/registry_service.md#Get) gRPC API call.
 

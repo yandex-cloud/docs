@@ -23,9 +23,9 @@ The cost of the resources includes charges for the number of API gateway request
 
 ## Create an API gateway {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -91,9 +91,9 @@ The message will be sent to the API gateway via the existing connection. The API
 
 Open a new terminal window and test the connection using the returned connection ID.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

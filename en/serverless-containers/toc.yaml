@@ -189,6 +189,10 @@ items:
         href: tutorials/movies-database.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Configuring the connection to {{ mpg-full-name }} from a {{
+          serverless-containers-name }} container
+        href: tutorials/pg-connect.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -275,6 +279,6 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/serverless-containers

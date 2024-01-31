@@ -28,9 +28,10 @@ description: "Из статьи вы узнаете, как задать нас�
     * [Загрузка данных {{ GP }} в {{ CH }}](../../../tutorials/greenplum-to-clickhouse.md);
     * [Загрузка данных {{ MY }} в {{ CH }}](../../../tutorials/mysql-to-clickhouse.md);
     * [Загрузка данных {{ metrika }} в {{ CH }}](../../../tutorials/metrika-to-clickhouse.md);
-    * [Загрузка данных {{ yandex-direct }} в {{ CH }}](../../../tutorials/direct-to-mch.md).
+    * [Загрузка данных {{ yandex-direct }} в {{ CH }}](../../../tutorials/direct-to-mch.md);
 
-    * [Загрузка данных {{ PG }} в {{ CH }}](../../../tutorials/rdbms-to-clickhouse.md).
+    * [Загрузка данных {{ PG }} в {{ CH }}](../../../tutorials/rdbms-to-clickhouse.md);
+    * [Загрузка данных из {{ objstorage-name }} в {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 

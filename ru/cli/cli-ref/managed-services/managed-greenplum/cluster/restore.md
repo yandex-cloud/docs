@@ -44,6 +44,7 @@ Syntax:
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|
 |`--segment-host-count`|<b>`int`</b><br/>Number of segment hosts.|
 |`--segment-in-host`|<b>`int`</b><br/>Number of segments on host.|
+|`--restore-only`|<b>`value[,value]`</b><br/>A list of databases and tables to restore.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

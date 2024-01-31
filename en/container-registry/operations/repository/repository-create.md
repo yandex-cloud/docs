@@ -13,9 +13,9 @@ A repository will only be displayed after you [push](../../operations/docker-ima
 
 To create a [repository](../../concepts/repository.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -55,7 +55,7 @@ To create a [repository](../../concepts/repository.md):
       yc container repository list --registry-id <registry_ID>
       ```
 
-- API
+- API {#api}
 
    To create a repository, use the [upsert](../../api-ref/Repository/upsert.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/Upsert](../../api-ref/grpc/repository_service.md#Upsert) gRPC API call.
 

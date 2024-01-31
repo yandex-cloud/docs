@@ -2,9 +2,9 @@
 
 When creating a new version, it is assigned the `$latest` [tag](../../concepts/function.md#) by default.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -35,7 +35,7 @@ When creating a new version, it is assigned the `$latest` [tag](../../concepts/f
    log_group_id: eolv6578frac********
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -99,12 +99,12 @@ When creating a new version, it is assigned the `$latest` [tag](../../concepts/f
    yc serverless function version list --function-name <function name>
    ```
 
-- API
+- API {#api}
 
    To add a function version tag, use the [setTag](../../functions/api-ref/Function/setTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetTag](../../functions/api-ref/grpc/function_service.md#SetTag) gRPC API call.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can add a tag using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

@@ -16,9 +16,9 @@ To get started in {{ yandex-cloud }}:
 
 ## Create an API gateway {#create-api-gw}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -62,7 +62,7 @@ To get started in {{ yandex-cloud }}:
       ```
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -102,9 +102,9 @@ To get started in {{ yandex-cloud }}:
 
 Create a function to get a list of numbers. Read more about functions in the [{{ sf-name }}](../../functions/) documentation.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a function:
    1. Create a function:
@@ -136,7 +136,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `index.handler`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To create a function:
 
@@ -223,9 +223,9 @@ Create a function to get a list of numbers. Read more about functions in the [{{
 
 Add function information to the API gateway specification.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update an API gateway specification:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update an API gateway.
@@ -289,7 +289,7 @@ Add function information to the API gateway specification.
               service_account_id: <service_account_ID>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    To add function information to the API gateway specification:
 

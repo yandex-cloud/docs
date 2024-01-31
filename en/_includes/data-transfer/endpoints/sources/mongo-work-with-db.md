@@ -1,0 +1,3 @@
+* For a transfer with {{ dt-status-copy }} status, you cannot do anything that would reduce the source's logical _replication log (oplog) time window_. You should not add, remove, or reconfigure shards in any way while the copy operation is in progress, or perform any other actions that result in a shorter logical replication log window.
+
+* In transfers in {{ dt-status-repl }} status, you may encounter the key duplication problem when a sharded {{ MG }} cluster with a sharding index other than `_id` is the target. While a transfer is underway, we caution against creating clusters with sharding indexes other than `_id` on the target.

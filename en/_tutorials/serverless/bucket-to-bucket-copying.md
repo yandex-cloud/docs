@@ -34,9 +34,9 @@ The cost of resources includes:
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `s3-copy-fn` to use for invoking the function:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -45,7 +45,7 @@ The cost of resources includes:
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.uploader`, `storage.viewer`, and `{{ roles-lockbox-payloadviewer }}` roles.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -90,7 +90,7 @@ The cost of resources includes:
          done (1s)
          ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       
       {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -158,7 +158,7 @@ The cost of resources includes:
             yc iam service-account list
             ```
 
-   - API
+   - API {#api}
 
       To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
 
@@ -172,9 +172,9 @@ The cost of resources includes:
 
 Create a [static access key](../../iam/concepts/authorization/access-key.md) for the `s3-copy-fn` service account.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the service account.
    1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -184,7 +184,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. Run this command:
 
@@ -205,7 +205,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
    1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the key parameters:
 
@@ -219,7 +219,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
       For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -228,7 +228,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -249,7 +249,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
          yc iam access-key list --service-account-name=s3-copy-fn
          ```
 
-- API
+- API {#api}
 
    To create an access key, use the [create](../../iam/api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../iam/api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create) gRPC API call.
 
@@ -259,9 +259,9 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
 Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your static access key.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -282,7 +282,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    To create a secret, run this command:
 
@@ -309,7 +309,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
        - secret
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the secret parameters:
 
@@ -351,7 +351,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -363,7 +363,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
       1. Confirm the secret creation: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create) gRPC API call.
 
@@ -373,9 +373,9 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
 Create two buckets: the main one to store files and the backup one to copy the main bucket's files to.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your buckets.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -388,7 +388,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
 
    1. Similarly, create a backup bucket.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Create the main bucket:
 
@@ -405,7 +405,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
 
    1. Similarly, create a backup bucket.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the parameters of the main and backup buckets:
 
@@ -430,7 +430,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -442,7 +442,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
 
       1. Confirm the bucket creation: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    To create a bucket, use the [create](../../storage/s3/api-ref/bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource or the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call.
 
@@ -470,9 +470,9 @@ Create two buckets: the main one to store files and the backup one to copy the m
 
 Create a function that will copy a new [object](../../storage/concepts/object.md) to the backup bucket once you add it to the main bucket.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -482,7 +482,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
       1. Enter the function name: `copy-function`.
       1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
 
-   1. Create the function version:
+   1. Create a function version:
 
       1. Select the `Bash` runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Specify the `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` upload method and select the `handler-sh.zip` archive created in the previous step.
@@ -504,7 +504,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. Create a function named `copy-function`:
 
@@ -587,7 +587,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
         folder_id: b1g86q4m5vej********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the function parameters:
 
@@ -646,7 +646,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -658,7 +658,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
       1. Confirm the function creation: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create) gRPC API call.
 
@@ -670,9 +670,9 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
 Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` when you create a new object in the main bucket.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -696,7 +696,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    Run this command:
 
@@ -736,7 +736,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the trigger parameters:
 
@@ -775,7 +775,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -787,7 +787,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 
       1. Confirm the trigger creation: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    To create a trigger for {{ objstorage-name }}, use the [create](../../functions/triggers/api-ref/Trigger/create.md) method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
@@ -795,9 +795,9 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 
 ## Test the function {#test-function}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder with the main bucket.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.

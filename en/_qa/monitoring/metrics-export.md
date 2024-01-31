@@ -1,4 +1,4 @@
-# Metric collection and export
+# Collecting and exporting metrics
 
 #### How do I add a VM's RAM metric? {#add-metrics-ram}
 
@@ -18,29 +18,29 @@ You can configure collecting custom metrics yourself [](../../monitoring/operati
 
 Use a [client library](https://prometheus.io/docs/instrumenting/clientlibs/) for the programming language your application is written in and deliver metrics to {{ monitoring-name }} in the {{ prometheus-name }} format.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Go
+- Go {#go}
 
    [Prometheus client library Prometheus for Go](https://github.com/prometheus/client_golang).
 
-- Python
+- Python {#python}
 
    [Prometheus client library Prometheus for Python](https://github.com/prometheus/client_python).
 
-- PHP
+- PHP {#php}
 
    [Prometheus client library Prometheus for PHP](https://github.com/promphp/prometheus_client_php).
 
-- Java
+- Java {#java}
 
    [Prometheus client library Prometheus for Java](https://github.com/prometheus/client_java).
 
-- Node.js
+- Node.js {#node}
 
    [Prometheus client library for Node.js](https://github.com/siimon/prom-client).
 
-- C++
+- C++ {#cpp}
 
    [Prometheus client library Prometheus for C++](https://github.com/jupp0r/prometheus-cpp).
 

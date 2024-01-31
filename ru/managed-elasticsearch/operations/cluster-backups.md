@@ -226,7 +226,7 @@ keywords:
            --environment=<окружение> \
            --network-name=<имя_сети> \
            --host zone-id=<зона_доступности>,`
-                 `subnet-id=<имя_подсети>,`
+                 `subnet-id=<идентификатор_подсети>,`
                  `assign-public-ip=<публичный_доступ>,`
                  `type=<роль_хоста> \
            --datanode-resource-preset=<класс_хостов_Data_node> \

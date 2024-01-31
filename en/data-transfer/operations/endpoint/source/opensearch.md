@@ -2,8 +2,31 @@
 title: "How to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}"
 description: "In this tutorial, you will learn how to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}."
 ---
+# Transferring data from an {{ OS }} source endpoint
 
-# Configuring {{ OS }} source endpoints
+{{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ OS }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ OS }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data from {{ OS }} {#scenarios}
+
+{% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+* [Migrating the {{ OS }} cluster](../../../tutorials/os-to-mos.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Preparing the source database {#prepare}
+
+{% include [prepare opensearch db](../../../../_includes/data-transfer/endpoints/sources/opensearch-prepare.md) %}
+
+## Configuring the {{ OS }} source endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -11,7 +34,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 * [Additional parameters](#additional-settings).
 
 
-## {{ mos-name }} cluster {#managed-service}
+### {{ mos-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -32,7 +55,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 {% endlist %}
 
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 Connecting to nodes with explicitly specified network addresses and ports.
 
@@ -44,7 +67,7 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -55,3 +78,26 @@ Connecting to nodes with explicitly specified network addresses and ports.
    {% include [dump-index-warning](../../../../_includes/data-transfer/necessary-settings/ui/dump-index-warning.md) %}
 
 {% endlist %}
+
+
+## Configuring the data target {#supported-targets}
+
+Configure the target endpoint:
+
+* [{{ OS }}](../target/opensearch.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+* [Transfer failure](#ambiguous-resolution-es)
+* [Document duplication on the target](#duplication)
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [ambiguous-object-resolution-os](../../../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
+
+{% include [duplication](../../../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
+

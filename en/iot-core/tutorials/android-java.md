@@ -9,28 +9,30 @@ The source code used in this scenario is available on [GitHub](https://github.co
 {% endnote %}
 
 Once connected, you can exchange messages between your device and registry:
+
 * [Send messages](../operations/publish.md).
 * [Subscribe a device or registry to receive messages](../operations/subscribe.md).
 
 To connect to {{ iot-full-name }} and start messaging:
-* [Create the required {{ iot-full-name }} resources](#resources)
-    * [Create a registry and add a certificate to it](#registry)
-    * [Create a device and add a certificate to it](#device)
-* [Connect to {{ iot-full-name }}](#connect)
-* [Log in to {{ iot-full-name }}](#auth)
-    * [Authorization using X.509 certificates](#certs)
-    * [Authorization using a username and password](#log-pass)
-* [Establish a connection](#connect)
-* [Subscribe to a topic and get data messages](#subscribe)
-* [Send a data message](#publish)
-* [Terminate the connection](#disconnect)
+
+* [Create the required {{ iot-full-name }} resources](#resources):
+   * [Create a registry and add a certificate to it](#registry).
+   * [Create a device and add a certificate to it](#device).
+* [Connect to {{ iot-full-name }}](#connect).
+* [Authenticate in {{ iot-full-name }}](#auth):
+   * [Authentication using X.509 certificates](#certs).
+   * [Authentication by username and password](#log-pass).
+* [Establish a connection](#establish-connection).
+* [Subscribe to a topic and receive data messages](#subscribe).
+* [Send a data message](#publish).
+* [Terminate the connection](#disconnect).
 
 ## Getting started {#before-you-begin}
 
-1. If you do not have the command line interface {{ yandex-cloud }} yet, [install and initialize it](../../cli/quickstart.md#install).
+1. If you do not have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
 1. Download and install [Android Studio](https://developer.android.com/studio), a development environment for Android.
 
-## Create the required {{ iot-full-name }} resources{#resources}
+## Create the required {{ iot-full-name }} resources {#resources}
 
 ### Create a registry and add a certificate to it {#registry}
 
@@ -38,7 +40,7 @@ If you already have a certificate, go directly to the second step.
 
 1. Create a certificate for the registry (skip this step if you already have a registry certificate):
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout registry-key.pem \
@@ -47,15 +49,16 @@ If you already have a certificate, go directly to the second step.
      -days 365 \
      -subj '/CN=localhost'
    ```
+
 1. Create a registry:
 
-   ```
+   ```bash
    yc iot registry create --name my-registry
    ```
 
 1. Add a certificate to the registry:
 
-   ```
+   ```bash
    yc iot registry certificate add \
    --registry-name my-registry \ # Registry name.
      --certificate-file registry-cert.pem # Path to the public part of the certificate.
@@ -67,7 +70,7 @@ If you already have a certificate, go directly to the second step.
 
 1. (optional) Create a certificate for the device:
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout device-key.pem \
@@ -79,13 +82,13 @@ If you already have a certificate, go directly to the second step.
 
 1. Create a device:
 
-   ```
+   ```bash
    yc iot device create --name my-device
    ```
 
 1. Add a certificate to the device:
 
-   ```
+   ```bash
    yc iot device certificate add \
      --device-name my-device \ # Device name.
      --certificate-file device-cert.pem # Path to the public part of the certificate.
@@ -107,28 +110,31 @@ options.setKeepAliveInterval(keepAliveInterval);
 ```
 
 Where:
-* `MqttAndroidClient` is a class that specifies the {{ iot-full-name }} connection parameters. Client address, port, and ID.
-* `MqttConnectOptions` is a class that sets the connection options. You can use the default settings, but we recommend setting the `keepAliveInterval` parameter. Its value determines the frequency of sending `PINGREQ` commands. The lower this parameter value, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of sending payable `PINGREQ` commands.
+* `MqttAndroidClient`: Class that specifies the {{ iot-full-name }} connection parameters, i.e., the client address, port, and ID.
+* `MqttConnectOptions`: Class that sets the connection options. You can use the default settings, but we recommend setting the `keepAliveInterval` parameter. Its value determines the frequency of sending `PINGREQ` commands. The lower this parameter value, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of sending payable `PINGREQ` commands.
 
-## Log in to {{ iot-full-name }} {#auth}
+## Authenticate in {{ iot-full-name }} {#auth}
 
-There are two [authorization](../concepts/authorization.md) methods:
+There are two [authentication](../concepts/authorization.md) methods:
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
 
-### Authorization using X.509 certificates {#certs}
+### Authentication using X.509 certificates {#certs}
 
-For this type of authorization, it's most convenient to use [PKCS#12](https://en.wikipedia.org/wiki/PKCS12) certificates in PFX format. You can generate a certificate in PKCS#12 format from PEM certificates using the command:
+For this type of authentication, it is most convenient to use [PKCS#12](https://en.wikipedia.org/wiki/PKCS12) certificates in PFX format. You can generate a certificate in PKCS#12 format from PEM certificates using the command:
 
-```shell script
+```bash
 openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 ```
 
 To load certificates in your project, use the following method:
+
 ```java
 private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final InputStream devCert, final String password)
 ```
+
 Certificates are loaded in several stages:
+
 1. Load the certificate used for server authentication:
 
     ```java
@@ -143,27 +149,29 @@ Certificates are loaded in several stages:
     TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
     tmf.init(serverCaKeyStore);
     ```
-1. Load the client certificate used for server authorization:
-    ```
+
+1. Load the client certificate used for authentication on the server:
+
+    ```java
     KeyStore clientKeystore = KeyStore.getInstance("PKCS12");
     clientKeystore.load(devCert, password.toCharArray());
     ```
 
 As a result, the method returns `AdditionalKeyStoresSSLSocketFactory`:
 
-```
+```java
 return new AdditionalKeyStoresSSLSocketFactory(clientKeystore, serverCaKeyStore);
 ```
 
 The `AdditionalKeyStoresSSLSocketFactory` class is inherited from `SSLSocketFactory` and used for working with self-signed certificates. At the last stage, pass the obtained `sslSocketFactory` instance to the connection parameters:
 
-```
+```java
 options.setSocketFactory(sslSocketFactory);
 ```
 
-### Authorization using a username and password {#log-pass}
+### Authenticating by username and password {#log-pass}
 
-Since {{ iot-full-name }} requires the TLS protocol for authorization with a username and password, initialize the `AdditionalKeyStoresSSLSocketFactory` class by invoking the method:
+Since {{ iot-full-name }} requires the TLS protocol for authentication with a username and password, initialize the `AdditionalKeyStoresSSLSocketFactory` class with this method:
 
 ```java
 private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final InputStream devCert, final String password)
@@ -172,11 +180,11 @@ private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final Inp
 Pass the `null` value as `devCert`. This only loads the certificate from the server certification authority:
 
 ```java
-// Load CA certificate
+// Loading the CA certificate.
 CertificateFactory cf = CertificateFactory.getInstance("X.509");
         X509Certificate caCert = (X509Certificate) cf.generateCertificate(caCrtFile);
 
-// CA certificate is used to authenticate server
+// Using the CA certificate for server authentication.
 KeyStore serverCaKeyStore = KeyStore.getInstance(KeyStore.getDefaultType());
 serverCaKeyStore.load(null, null);
 serverCaKeyStore.setCertificateEntry("ca", caCert);
@@ -192,17 +200,18 @@ In the connection settings, specify the username (registry or device ID) and pas
 options.setUserName(mqttUserName);
 options.setPassword(mqttPassword.toCharArray());
 ```
+
 and the `SSLSocketFactory` from the code above:
 
 ```java
 options.setSocketFactory(sslSocketFactory);
 ```
 
-## Establish a connection {#connect}
+## Establish a connection {#establish-connection}
 
 Establish a connection to {{ iot-full-name }} using the following code:
 
-```
+```java
 mqttAndroidClient.connect(options,null, new IMqttActionListener() {
    @Override
    public void onSuccess(IMqttToken asyncActionToken) {
@@ -218,7 +227,7 @@ mqttAndroidClient.connect(options,null, new IMqttActionListener() {
 
 Use a callback function to process the received data:
 
-```
+```java
 mqttAndroidClient.setCallback(new MqttCallback() {
    @Override
    public void messageArrived(String topic, MqttMessage message) throws Exception {   }
@@ -249,19 +258,18 @@ subToken.setActionCallback(new IMqttActionListener() {
 
 Send messages using the following code. In the `publish` method, specify the topic that you want to send a message to and the message text. You can optionally specify the desired level of quality of service for a `MqttMessage` class instance.
 
-```
+```java
 IMqttDeliveryToken publish = mqttAndroidClient.publish("<topic>", new MqttMessage("Your message text.".getBytes()));
 ```
 
 Handle connection loss events and track message delivery using callback functions:
 
-```
+```java
 mqttAndroidClient.setCallback(new MqttCallback() {
    @Override
    public void connectionLost(Throwable cause) {
 
    }
-, MqttMessage message) throws Exception {   }
 
    @Override
    public void deliveryComplete(IMqttDeliveryToken token) {
@@ -274,7 +282,7 @@ mqttAndroidClient.setCallback(new MqttCallback() {
 
 Disconnect from {{ iot-full-name }} using the following methods:
 
-```
+```java
 mqttAndroidClient.disconnect();
 mqttAndroidClient.close();
 ```
@@ -282,5 +290,4 @@ mqttAndroidClient.close();
 Where:
 
 * The `disconnect` method terminates the server connection.
-* The `close` method releases `MqttAndroidClient` class resources.
-
+* The `close` method releases the `MqttAndroidClient` class resources.

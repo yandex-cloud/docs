@@ -121,6 +121,10 @@ items:
           Перенос данных в {{ mpg-full-name }} с использованием {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: >-
+          Загрузка данных в {{ mch-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-clickhouse.md
   - name: Концепции
     items:
       - name: Обзор

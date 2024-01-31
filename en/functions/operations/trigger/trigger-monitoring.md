@@ -11,9 +11,9 @@ The chart update period is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
 

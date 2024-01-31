@@ -1,4 +1,4 @@
-Create a [trigger for {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md) to invoke a {{ sf-name }} [function](../../functions/concepts/function.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or [Docker image tags](../../container-registry/concepts/docker-image.md#version).
+Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigger/cr-trigger.md) to invoke a {{ sf-name }} [function](../../functions/concepts/function.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or [Docker image tags](../../container-registry/concepts/docker-image.md#version).
 
 ## Getting started {#before-you-begin}
 
@@ -10,9 +10,9 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
 {% include [trigger-time](trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -45,7 +45,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -111,7 +111,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    To create a trigger for {{ container-registry-name }}, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 

@@ -7,7 +7,6 @@
         * [S3](../../data-transfer/operations/endpoint/source/s3.md)
     * [{{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md)
     * [{{ CH }}](../../data-transfer/operations/endpoint/source/clickhouse.md)
-    * [{{ eventhub-name }}](../../data-transfer/operations/endpoint/source/eventhub.md)
     * [{{ GP }}](../../data-transfer/operations/endpoint/source/greenplum.md)
     * [{{ metrika }}](../../data-transfer/operations/endpoint/source/metrika.md)
     * [{{ MG }}](../../data-transfer/operations/endpoint/source/mongodb.md)

@@ -3,7 +3,47 @@ title: "How to configure a {{ PG }} source endpoint in {{ data-transfer-full-nam
 description: "In this tutorial, you will learn how to set up a {{ PG }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ PG }} source endpoints
+# Transferring data from a {{ PG }} source endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data from a {{ PG }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ PG }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Perform required operations with the database](#db-actions) and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data from {{ PG }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+   * [Migrating the {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
+   * [Migrating data from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
+   * [Migration with storage changed from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
+   * [Migration with storage changed from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+
+1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
+
+* [Capturing changes from {{ PG }} and delivering to {{ DS }}](../../../tutorials/mpg-to-yds.md).
+* [Capturing changes from {{ PG }} and delivering to {{ KF }}](../../../tutorials/cdc-mpg.md).
+
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+
+   * [Loading data from {{ PG }} to the {{ CH }} data mart](../../../tutorials/rdbms-to-clickhouse.md).
+
+1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
+
+   * [Loading {{ PG }} data to the {{ objstorage-name }} scalable storage](../../../tutorials/mpg-to-objstorage.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Preparing the source database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/pg-prepare.md) %}
+
+## Configuring the {{ PG }} source endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -12,7 +52,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 Before you get started, check the [Service specifics for {{ PG }} sources and targets](../../../concepts/work-with-endpoints.md#postgresql).
 
-## {{ mpg-name }} cluster {#managed-service}
+### {{ mpg-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -74,7 +114,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 For OnPremise, all fields are filled in manually.
 
@@ -131,7 +171,7 @@ For OnPremise, all fields are filled in manually.
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -253,7 +293,7 @@ For OnPremise, all fields are filled in manually.
 
 {% endlist %}
 
-### Settings for transferring a DB schema when enabling and disabling a transfer {#schema-migrations-settings}
+#### Settings for transferring a DB schema when enabling and disabling a transfer {#schema-migrations-settings}
 
 {% note info %}
 
@@ -284,3 +324,84 @@ When editing the settings of an endpoint of the transfer in the {{ dt-status-rep
 {% endnote %}
 
 Replication cannot guarantee that sequence values are preserved, so we recommend updating the `sequences` on the target.
+
+## Configuring the data target {#supported-targets}
+
+Configure one of the supported data targets:
+
+* [{{ PG }}](../target/postgresql.md).
+* [{{ MY }}](../target/mysql.md).
+* [{{ CH }}](../target/clickhouse.md).
+* [{{ GP }}](../target/greenplum.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ KF }}](../target/kafka.md).
+* [{{ DS }}](../target/data-streams.md).
+* [{{ ES }}](../target/elasticsearch.md).
+* [{{ OS }}](../target/opensearch.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Operations with the database during transfer {#db-actions}
+
+{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) %}
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+Known issues when using a {{ PG }} endpoint:
+
+* [Stopping a transfer's master transaction session](#master-trans-stop).
+* [Exceeding the connection time-to-live quota](#conn-duration-quota).
+* [VIEW transfer error](#view).
+* [Error when adding a table entry by constraint](#constraint).
+* [Error when migrating all schema tables](#schema).
+* [Low transfer speed](#low-speed).
+* [Unable to transfer child tables](#successor-tables).
+* [Insufficient replication slots in a source database](#replication-slots).
+* [No data transfer after changing a source endpoint](#no-data-transfer).
+* [Transfer error when changing a master host](#master-change).
+* [Error when transferring nested transactions](#inner-tables).
+* [Error transferring tables with deferred constraints](#deferrable-constr).
+* [Cannot create a replication slot at the activation step](#lock-replication).
+* [Excessive WAL size increase](#excessive-wal).
+* [Error when replicating from an external source](#external-replication).
+* [Error when transfering tables without primary keys](#primary-keys).
+* [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
+
+{% include [conn-duration-quota](../../../../_includes/data-transfer/troubles/postgresql/conn-duration-quota.md) %}
+
+{% include [view](../../../../_includes/data-transfer/troubles/postgresql/view.md) %}
+
+{% include [constraint](../../../../_includes/data-transfer/troubles/postgresql/constraint.md) %}
+
+{% include [schema](../../../../_includes/data-transfer/troubles/postgresql/schema.md) %}
+
+{% include [low-speed](../../../../_includes/data-transfer/troubles/postgresql/low-speed.md) %}
+
+{% include [successor-tables](../../../../_includes/data-transfer/troubles/postgresql/successor-tables.md) %}
+
+{% include [replication-slots](../../../../_includes/data-transfer/troubles/postgresql/replication-slots.md) %}
+
+{% include [no-data-transfer](../../../../_includes/data-transfer/troubles/postgresql/no-data-transfer.md) %}
+
+{% include [master-change](../../../../_includes/data-transfer/troubles/postgresql/master-change.md) %}
+
+{% include [inner-tables](../../../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
+
+{% include [deferrable-tables](../../../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
+
+{% include [lock-replication](../../../../_includes/data-transfer/troubles/postgresql/lock-replication.md) %}
+
+{% include [excessive-wal](../../../../_includes/data-transfer/troubles/postgresql/excessive-wal.md) %}
+
+{% include [external-replication](../../../../_includes/data-transfer/troubles/postgresql/external-replication.md) %}
+
+{% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}

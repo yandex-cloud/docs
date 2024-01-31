@@ -5,16 +5,16 @@ description: "Follow this guide to delete a function."
 
 # Deleting a function
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the function from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. In the function row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@ description: "Follow this guide to delete a function."
    status: DELETING
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -103,12 +103,12 @@ description: "Follow this guide to delete a function."
    yc serverless function list
    ```
 
-- API
+- API {#api}
 
    To delete a function, use the [delete](../../functions/api-ref/Function/delete.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Delete](../../functions/api-ref/grpc/function_service.md#Delete) gRPC API call.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can delete a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

@@ -5,9 +5,9 @@ description: "Follow this guide to export messages to {{ yds-name }}."
 
 # Exporting messages to {{ yds-name }}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -23,7 +23,7 @@ description: "Follow this guide to export messages to {{ yds-name }}."
 
   1. Click **Add**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -80,7 +80,7 @@ description: "Follow this guide to export messages to {{ yds-name }}."
      created_at: "2023-09-18T09:52:28.840124837Z"
      ```
 
-- API
+- API {#api}
 
   To add the export to {{ yds-name }} for a registry, use the [RegistryService/AddDataStreamExport](../api-ref/grpc/registry_service.md#AddDataStreamExport) gRPC API call.
 

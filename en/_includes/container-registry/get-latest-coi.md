@@ -2,9 +2,9 @@ Find out the ID of the latest version of the [public](../../compute/operations/i
 
 A {{ coi }} in a [{{ container-registry-name }}](../../container-registry/) registry may be updated and changed with new releases. This will not automatically update the [VM](../../compute/concepts/vm.md) image to the latest version. To create an [instance group](../../compute/concepts/instance-groups/index.md) with the latest {{ coi }} version, you need to check whether it is available yourself:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
@@ -18,7 +18,7 @@ A {{ coi }} in a [{{ container-registry-name }}](../../container-registry/) regi
   ...
   ```
 
-- {{ marketplace-full-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
   1. Go to the {{ marketplace-name }} page and select the image with the configuration you need:
      * [{{ coi }}](/marketplace/products/yc/container-optimized-image).

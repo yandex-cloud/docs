@@ -1,11 +1,11 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of containers.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -27,7 +27,7 @@
     +----------------------+--------------------+-----------------------+--------+
     ```
 
-- API
+- API {#api}
 
    To view a list of containers, use the [list](../../serverless-containers/containers/api-ref/Container/list.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/List](../../serverless-containers/containers/api-ref/grpc/container_service.md#List) gRPC API call.
 

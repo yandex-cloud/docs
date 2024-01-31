@@ -7,15 +7,15 @@ description: "You can view monitoring charts in {{ serverless-containers-full-na
 
 Container runtime logs are stored for 14 days. The log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) time.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Click the container to view its runtime log.
    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab and specify the period to view the logs for. The default period is 1 hour.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

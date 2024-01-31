@@ -13,9 +13,9 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 ## Updating the name of a broker {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the broker name in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -24,7 +24,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -44,7 +44,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
    name: test-broker
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -100,7 +100,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
       yc iot broker list
       ```
 
-- API
+- API {#api}
 
    To rename a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
@@ -108,9 +108,9 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 ## Updating the description of a broker {#update-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To update the broker description:
 
@@ -121,7 +121,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -142,7 +142,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
      test_label: my_broker_label
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -198,7 +198,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
       yc iot broker get <broker_name>
       ```
 
-- API
+- API {#api}
 
    To update a broker description, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
@@ -214,9 +214,9 @@ You can perform the following actions with broker labels:
 
 ### Adding a label {#add-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the broker label to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -225,7 +225,7 @@ You can perform the following actions with broker labels:
    1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -247,7 +247,7 @@ You can perform the following actions with broker labels:
      new_label: test_label
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -310,7 +310,7 @@ You can perform the following actions with broker labels:
       yc iot broker get <broker_name>
       ```
 
-- API
+- API {#api}
 
    To add a label to a broker, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
@@ -318,9 +318,9 @@ You can perform the following actions with broker labels:
 
 ### Editing a label {#update-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the broker label in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -329,7 +329,7 @@ You can perform the following actions with broker labels:
    1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -339,7 +339,7 @@ You can perform the following actions with broker labels:
 
    {% note warning %}
 
-   The existing set of `labels` is completely replaced by the set transmitted.
+   The existing set of `labels` is completely overwritten by the transmitted set.
 
    {% endnote %}
 
@@ -357,7 +357,7 @@ You can perform the following actions with broker labels:
      test_label: my_broker_label
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -415,7 +415,7 @@ You can perform the following actions with broker labels:
       yc iot broker get <broker_name>
       ```
 
-- API
+- API {#api}
 
    To update a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 
@@ -423,9 +423,9 @@ You can perform the following actions with broker labels:
 
 ### Deleting a label {#remove-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker label from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -434,7 +434,7 @@ You can perform the following actions with broker labels:
    1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -454,7 +454,7 @@ You can perform the following actions with broker labels:
    name: my-broker
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -512,7 +512,7 @@ You can perform the following actions with broker labels:
       yc iot broker get <broker_name>
       ```
 
-- API
+- API {#api}
 
    To delete a broker label, use the [update](../../broker/api-ref/Broker/update.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update) gRPC API call.
 

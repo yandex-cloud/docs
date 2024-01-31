@@ -8,9 +8,9 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -21,7 +21,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
    1. In the top-right corner, click ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.cr.registry.button_lifecycle-dry-run }}**. Once the test is completed, the **{{ ui-key.yacloud.cr.registry.label_lifecycle-dry-runs }}** section will contain a line with the policy dry run results.
    1. To get a list of Docker images to be deleted according to the policy rules, click the line with the policy dry run results.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -89,7 +89,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
       +----------------------+---------------------+-----------------------------+------+-----------------+
       ```
 
-- API
+- API {#api}
 
   To test a lifecycle policy:
   1. Perform a policy dry run using the [DryRun](../../api-ref/grpc/lifecycle_policy_service.md#DryRun) method of the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. In the `lifecycle_policy_id` parameter, specify a policy ID. You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.

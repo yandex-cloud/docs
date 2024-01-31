@@ -5,9 +5,9 @@ description: "Follow this guide to create a registry."
 
 # Creating a registry
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your registry in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -44,7 +44,7 @@ description: "Follow this guide to create a registry."
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -115,7 +115,7 @@ description: "Follow this guide to create a registry."
       created_at: "2019-05-27T13:41:45.295Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -181,7 +181,7 @@ description: "Follow this guide to create a registry."
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -199,7 +199,7 @@ description: "Follow this guide to create a registry."
          yc iot registry list
          ```
 
-- API
+- API {#api}
 
    To create a registry, use the [create](../../api-ref/Registry/create.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create) gRPC API call.
 

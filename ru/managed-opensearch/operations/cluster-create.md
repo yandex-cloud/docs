@@ -107,6 +107,91 @@ keywords:
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать кластер:
+
+  1. Посмотрите описание команды CLI для создания кластера:
+
+      ```bash
+      {{ yc-mdb-os }} cluster create --help
+      ```
+
+  1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
+
+      ```bash
+      {{ yc-mdb-os }} cluster create \
+         --name <имя_кластера> \
+         --description <описание_кластера> \
+         --labels <метки> \
+         --environment <окружение:_production_или_prestable> \
+         --network-name <имя_сети> \
+         --security-group-ids <идентификаторы_групп_безопасности> \
+         --service-account-name <имя_сервисного_аккаунта> \
+         --delete-protection <защита_от_удаления:_true_или_false> \
+         --maintenance schedule=<тип_технического_обслуживания>,`
+                      `weekday=<день_недели>,`
+                      `hour=<час_дня> \
+         --version <версия_{{ OS }}> \
+         --read-admin-password \
+         --data-transfer-access=<true_или_false> \
+         --serverless-access=<true_или_false> \
+         --plugins <{{ OS }}_плагины> \
+         --advanced-params <дополнительные_параметры> \
+         --opensearch-node-group name=<имя_группы_хостов_{{ OS }}>,`
+                                `resource-preset-id=<класс_хостов>,`
+                                `disk-size=<размер_диска_в_байтах>,`
+                                `disk-type-id=<тип_диска>,`
+                                `hosts-count=<количество_хостов_в_группе>,`
+                                `zone-ids=<зоны_доступности>,`
+                                `subnet-names=<имена_подсетей>,`
+                                `assign-public-ip=<назначить_публичный_адрес:_true_или_false>,`
+                                `roles=<роли_хостов> \
+         --dashboards-node-group name=<имя_группы_хостов_Dashboards>,`
+                                `resource-preset-id=<класс_хостов>,`
+                                `disk-size=<размер_диска_в_байтах>,`
+                                `disk-type-id=<тип_диска>,`
+                                `hosts-count=<количество_хостов_в_группе>,`
+                                `zone-ids=<зоны_доступности>,`
+                                `subnet-names=<имена_подсетей>,`
+                                `assign-public-ip=<назначить_публичный_адрес:_true_или_false>
+      ```
+
+      Где:
+
+      * `--labels` — [метки {{ yandex-cloud }}](../../resource-manager/concepts/labels.md) в формате `<ключ>=<значение>`. Используются для логического разделения ресурсов.
+      * `--environment` — окружение:
+
+          * `production` — для стабильных версий ваших приложений.
+          * `prestable` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+
+      * `--service-account-name` — имя сервисного аккаунта для [доступа к {{ objstorage-full-name }}](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
+
+      * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем: `true` или `false`. Включенная защита от удаления кластера не помешает подключиться к нему вручную и удалить данные.
+
+      * `--maintenance` — настройки времени технического обслуживания:
+
+          * Чтобы разрешить проведение технического обслуживания в любое время, не указывайте параметр `--maintenance` в команде (конфигурация по умолчанию) либо укажите `--maintenance schedule=anytime`.
+          * Чтобы указать предпочтительное время начала обслуживания, укажите в команде параметр `--maintenance schedule=weekly,weekday=<день_недели>,hour=<час_дня_по_UTC>`. Тогда техническое обслуживание будет проходить каждую неделю в обозначенный день и время.
+
+          Операции по обслуживанию проводятся для включенных и выключенных кластеров. Во время обслуживания могут, например, применяться патчи или обновляться СУБД.
+
+      * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
+      * `--data-transfer-access` — доступ из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml): `true` или `false`.
+      * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
+      * `--plugins` — [плагины {{ OS }}](../concepts/plugins.md), которые нужно установить в кластер.
+      * `--advanced-params` — дополнительные параметры кластера. Возможные значения:
+
+          * `max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
+          * `fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
+          * `reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+
+      {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
+
 - API {#api}
 
   Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
@@ -131,5 +216,93 @@ keywords:
       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
   * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
+
+{% endlist %}
+
+## Примеры {#examples}
+
+Создайте кластер {{ mos-name }} с тестовыми характеристиками:
+
+* Имя — `my-os-clstr`.
+* Описание — `My OS cluster`.
+* Метка — `label-key` со значением `label-value`.
+* Окружение — `production`.
+* Имя сети — `{{ network-name }}`.
+* Идентификатор группы безопасности — `{{ security-group }}`.
+* Имя сервисного аккаунта — `os-account`.
+* Защита от удаления кластера — отключена.
+* Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
+* Версия {{ OS }} — `2.8`.
+* Пароль пользователя `admin` — указывается после ввода команды по созданию кластера.
+* Доступ к {{ data-transfer-name }} — включен.
+* Доступ к {{ serverless-containers-name }} — включен.
+* Подключенный плагин {{ OS }} — analysis-icu.
+* Дополнительный параметр {{ OS }} — `fielddata-cache-size=50%`.
+* Конфигурация группы узлов `{{ OS }}`:
+
+  * название группы — `os-group`;
+  * класс хостов — `{{ host-class }}`;
+  * размер диска — `10737418240` (в байтах);
+  * тип диска — `network-ssd`;
+  * количество хостов — три;
+  * зона доступности — `{{ region-id }}-b`;
+  * подсеть — `{{ network-name }}-{{ region-id }}-b`;
+  * публичный адрес — выделен;
+  * роли группы хостов — `DATA` и `MANAGER`.
+
+* Конфигурация группы хостов `Dashboards`:
+
+  * название группы — `dashboard-group`;
+  * класс хостов — `{{ host-class }}`;
+  * размер диска — `10737418240` (в байтах);
+  * тип диска — `network-ssd`;
+  * количество хостов — один;
+  * зона доступности — `{{ region-id }}-b`;
+  * подсеть — `{{ network-name }}-{{ region-id }}-b`;
+  * публичный адрес — выделен.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Выполните команду:
+
+    ```bash
+    {{ yc-mdb-os }} cluster create \
+       --name my-os-clstr \
+       --description "My OS cluster" \
+       --labels label-key=label-value \
+       --environment production \
+       --network-name {{ network-name }} \
+       --security-group-ids {{ security-group }} \
+       --service-account-name os-account \
+       --delete-protection=false \
+       --maintenance schedule=weekly,`
+                    `weekday=mon,`
+                    `hour=14 \
+       --version 2.8 \
+       --read-admin-password \
+       --data-transfer-access=true \
+       --serverless-access=true \
+       --plugins analysis-icu \
+       --advanced-params fielddata-cache-size=50% \
+       --opensearch-node-group name=os-group,`
+                              `resource-preset-id={{ host-class }},`
+                              `disk-size=10737418240,`
+                              `disk-type-id=network-ssd,`
+                              `hosts-count=3,`
+                              `zone-ids={{ region-id }}-b,`
+                              `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                              `assign-public-ip=true,`
+                              `roles=data+manager \
+       --dashboards-node-group name=dashboard-group,`
+                              `resource-preset-id={{ host-class }},`
+                              `disk-size=10737418240,`
+                              `disk-type-id=network-ssd,`
+                              `hosts-count=1,`
+                              `zone-ids={{ region-id }}-b,`
+                              `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                              `assign-public-ip=true
+    ```
 
 {% endlist %}

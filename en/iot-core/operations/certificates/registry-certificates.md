@@ -16,9 +16,9 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 ## Adding a certificate {#add-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To add a certificate to a registry:
 
@@ -40,7 +40,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
          1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -63,7 +63,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    created_at: "2019-05-29T16:40:48.230Z"
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -128,7 +128,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       yc iot registry certificate list --registry-name <registry_name>
       ```
 
-- API
+- API {#api}
 
    To add a certificate to a registry, use the [addCertificate](../../api-ref/Registry/addCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/AddCertificate](../../api-ref/grpc/registry_service.md#AddCertificate) gRPC API call.
 
@@ -136,9 +136,9 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 ## Deleting a certificate {#delete-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a registry certificate:
 
@@ -149,7 +149,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    1. In the row with the certificate in question, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -174,7 +174,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       +-------------+------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -234,7 +234,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       yc iot registry certificate list --registry-name <registry_name>
       ```
 
-- API
+- API {#api}
 
    To delete a registry certificate, use the [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeleteCertificate](../../api-ref/grpc/registry_service.md#DeleteCertificate) gRPC API call.
 

@@ -9,9 +9,9 @@ description: "Follow this guide to configure and invoke a function asynchronousl
 
 ## Setting up asynchronous invocation {#async}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -27,7 +27,7 @@ description: "Follow this guide to configure and invoke a function asynchronousl
             * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account with rights to write messages to the queue.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -62,10 +62,10 @@ description: "Follow this guide to configure and invoke a function asynchronousl
     * `--async-service-account-id`: Service account with rights to invoke the function.
     * `--async-success-ymq-arn`: Queue in {{ message-queue-name }} where messages about successful function calls should be sent to. If the parameter is omitted, messages will not be sent.
     * `--async-success-sa-id`: Service account with rights to write messages to the `async-success-ymq-arn` queue.
-    * `--async-failure-ymq-arn`: Queue in {{ message-queue-name }} where messages about unsuccessful function calls should be sent to. If the parameter is omitted, messages will not be sent.
+    * `--async-failure-ymq-arn`: Queue in {{ message-queue-name }} where messages about failed function calls should be sent to. If the parameter is omitted, messages will not be sent.
     * `--async-failure-sa-id`: Service account with rights to write messages to the `async-failure-ymq-arn` queue.
 
-- API
+- API {#api}
 
     To set up asynchronous invocation, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
 

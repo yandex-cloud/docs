@@ -3,14 +3,66 @@ title: "How to configure a {{ CH }} target endpoint in {{ data-transfer-full-nam
 description: "In this tutorial, you will learn how to set up a {{ CH }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring a {{ CH }} target endpoint
+# Transferring data to a {{ CH }} target endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data to a {{ CH }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Configure one of the supported data sources](#supported-sources).
+1. [Prepare the {{ CH }}](#prepare) database for the transfer.
+1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data to {{ CH }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+   * [Migrating the {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+   * [Delivering data from {{ KF }} to {{ CH }}](../../../tutorials/mkf-to-mch.md).
+   * [Delivering data from {{ DS }} to {{ CH }}](../../../tutorials/yds-to-clickhouse.md).
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+   * [Loading {{ GP }} data to {{ CH }}](../../../tutorials/greenplum-to-clickhouse.md).
+   * [Loading {{ MY }} data to {{ CH }}](../../../tutorials/mysql-to-clickhouse.md).
+   * [Loading {{ metrika }} data to {{ CH }}](../../../tutorials/metrika-to-clickhouse.md).
+   * [Loading {{ yandex-direct }} data to {{ CH }}](../../../tutorials/direct-to-mch.md).
+
+* [Loading {{ PG }} data to {{ CH }}](../../../tutorials/rdbms-to-clickhouse.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the data source {#supported-sources}
+
+Configure one of the supported data sources:
+
+* [{{ PG }}](../source/postgresql.md).
+* [{{ MY }}](../source/mysql.md).
+* [{{ CH }}](../source/clickhouse.md).
+* [{{ GP }}](../source/greenplum.md).
+* [{{ objstorage-full-name }}](../source/object-storage.md).
+* [{{ KF }}](../source/kafka.md).
+* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ metrika }}](../source/metrika.md).
+* [{{ DS }}](../source/data-streams.md).
+* [Oracle](../source/oracle.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+## Preparing the target database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/clickhouse-prepare.md) %}
+
+## Configuring the {{ CH }} target endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * [{{ mch-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
-## {{ mch-name }} cluster {#managed-service}
+### {{ mch-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -75,7 +127,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 Connecting to the database with explicitly specified network addresses and ports.
 
@@ -144,7 +196,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -166,7 +218,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.no_sharding.title }}**: No sharding is used.
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_column.title }}**: The name of the column in tables that data will be sharded by. A uniform distribution across shards will be determined by a hash from this column value. Specify the name of the column to be sharded in the appropriate field.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_column.title }}**: Name of the column in tables by which the data will be sharded. Uniform distribution between shards will depend on a hash from this column value. Specify the name of the column to be sharded in the appropriate field.
 
          For sharding by specific column values, specify them in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingByTransferID.transfer_to_shard.array_item_label }}** field. This field defines the mapping between the column and shard index values (the sequential number of the shard in the name-sorted list of shards), to enable sharding by specific data values.
 
@@ -191,7 +243,7 @@ Connecting to the database with explicitly specified network addresses and ports
       * `from_name`: Source table name.
       * `to_name`: Target table name.
 
-   * `sharding.column_value_hash.column_name`: The name of the column in tables that data will be [sharded](../../../../managed-clickhouse/concepts/sharding.md) by. A uniform distribution across shards will be determined by a hash from this column value.
+   * `sharding.column_value_hash.column_name`: Name of the column in tables by which the data will be [sharded](../../../../managed-clickhouse/concepts/sharding.md). Uniform distribution between shards will depend on a hash from this column value.
 
    * `sharding.transfer_id`: If `true`, the data is sharded based on the transfer ID value. The transfer will ignore the `sharding.column_value_hash.column_name` setting and will only shard the data based on the transfer ID.
 
@@ -212,5 +264,18 @@ Connecting to the database with explicitly specified network addresses and ports
          Select this option if only replication without copying data is performed.
 
 {% endlist %}
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+* [New tables are not added](#no-new-tables).
+* [Data is not transferred](#no-transfer)
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+
+{% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

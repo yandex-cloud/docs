@@ -5,9 +5,9 @@ description: "Follow this guide to delete function scaling settings."
 
 # Deleting function scaling settings
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -17,7 +17,7 @@ description: "Follow this guide to delete function scaling settings."
    1. To delete a scaling setting, set it equal to zero.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    To delete a function's scaling settings, run the command:
 
@@ -32,7 +32,7 @@ description: "Follow this guide to delete function scaling settings."
    * `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
    * `--tag`: Function version [tag](../../concepts/function.md#tag).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -97,12 +97,12 @@ description: "Follow this guide to delete function scaling settings."
    yc serverless function list-scaling-policies <function_name>|<function_ID>
    ```
 
-- API
+- API {#api}
 
    To remove function scaling settings, use the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/function_service.md#RemoveScalingPolicy) gRPC API call.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can delete scaling settings of a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

@@ -35,9 +35,9 @@ The cost of resources to support a web application includes:
 
 Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` there:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -58,9 +58,9 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
 1. Create a database in [Serverless mode](../../ydb/concepts/serverless-and-dedicated.md#serverless):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -79,9 +79,9 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
 1. Create a table named `Tasks`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the database.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -102,7 +102,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
       1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
-   - CLI
+   - CLI {#cli}
 
       Run the following query:
 
@@ -125,9 +125,9 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
 Create a [function](../../functions/concepts/function.md) for each servlet:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you created the bucket and database.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -148,7 +148,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
    1. Repeat steps 3–14 and create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
    1. Repeat steps 3–14 and create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
 
-- CLI
+- CLI {#cli}
 
    1. Create a function named `add-task`:
 
@@ -215,15 +215,15 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
       done (1s)
       ```
 
-   1. Repeat steps 1–3 and create a function named `list-tasks` with the entry point `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
-   1. Repeat steps 1–3 and create a function named `delete-task` with the entry point `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
+   1. Repeat steps 1–3 and create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
+   1. Repeat steps 1–3 and create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
 
-- API
+- API {#api}
 
    Use the [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion), and [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) API methods for the [Function](../../functions/functions/api-ref/Function) resource.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
@@ -234,9 +234,9 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
 To ensure interaction between services, create an API gateway:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created your bucket, database, and functions.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -288,7 +288,7 @@ To ensure interaction between services, create an API gateway:
 
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Save the following specification to `todo.yaml`:
 
@@ -358,7 +358,7 @@ To ensure interaction between services, create an API gateway:
       ```
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 

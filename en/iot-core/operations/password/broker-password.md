@@ -23,9 +23,9 @@ You can add a password to an existing broker or set it when creating a broker us
 
 ### Adding a password to an existing broker {#add}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password to an existing broker.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -35,7 +35,7 @@ You can add a password to an existing broker or set it when creating a broker us
    1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will use to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Make sure to save your password, as you will need it later.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -69,7 +69,7 @@ You can add a password to an existing broker or set it when creating a broker us
       created_at: "2019-12-16T15:32:46.655139Z"
       ```
 
-- API
+- API {#api}
 
    To add a password to a broker, use the [addPassword](../../broker/api-ref/Broker/addPassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/AddPassword](../../broker/api-ref/grpc/broker_service.md#AddPassword) gRPC API call.
 
@@ -77,13 +77,13 @@ You can add a password to an existing broker or set it when creating a broker us
 
 ### Setting a password for a broker when creating it {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    For information about how to set a password for a broker when creating it, see [{#T}](../broker/broker-create.md).
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -106,7 +106,7 @@ You can add a password to an existing broker or set it when creating a broker us
    log_group_id: ckghhil3b5**********
    ```
 
-- API
+- API {#api}
 
    To set a password for a broker when creating it, use the [create](../../broker/api-ref/Broker/create.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create) gRPC API call.
 
@@ -114,9 +114,9 @@ You can add a password to an existing broker or set it when creating a broker us
 
 ## Getting a list of broker passwords {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of broker passwords.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -124,7 +124,7 @@ You can add a password to an existing broker or set it when creating a broker us
    1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -161,7 +161,7 @@ You can add a password to an existing broker or set it when creating a broker us
       +----------------------+---------------------+
       ```
 
-- API
+- API {#api}
 
    To get a list of broker passwords, use the [listPasswords](../../broker/api-ref/Broker/listPasswords.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/ListPasswords](../../broker/api-ref/grpc/broker_service.md#ListPasswords) gRPC API call.
 
@@ -169,9 +169,9 @@ You can add a password to an existing broker or set it when creating a broker us
 
 ## Deleting a broker password {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker password from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -180,7 +180,7 @@ You can add a password to an existing broker or set it when creating a broker us
    1. In the row with the password you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -220,7 +220,7 @@ You can add a password to an existing broker or set it when creating a broker us
       +----+------------+
       ```
 
-- API
+- API {#api}
 
    To delete a broker password, use the [deletePassword](../../broker/api-ref/Broker/deletePassword.md) REST API method for the [Broker](../../broker/api-ref/Broker/index.md) resource or the [BrokerService/DeletePassword](../../broker/api-ref/grpc/broker_service.md#DeletePassword) gRPC API call.
 

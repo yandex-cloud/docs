@@ -11,8 +11,8 @@ The `x-yc-apigateway-integration:serverless_containers` extension invokes the sp
 | Parameter | Type | Description |
 ----|----|----
 | `container_id` | `string` | Container ID. |
-| `service_account_id` | `string` | Service account ID used for authorization when accessing a container. If the parameter is omitted, the value of the [top-level](./index.md#top-level) `service_account_id` parameter is used. |
-| `context` | `object` | Optional. Operation context is an arbitrary object in `YAML` or `JSON` format. Encoded in `Base64` and passed to the container in the `X-Yc-ApiGateway-Operation-Context` header. `Context` is where parameter substitution takes place. |
+| `service_account_id` | `string` | Service account ID used for authorization when accessing a container. If not specified, it defaults to the [top-level](./index.md#top-level) `service_account_id` parameter. |
+| `context` | `object` | This is an optional parameter. Operation context is an arbitrary object in `YAML` or `JSON` format. Encoded in `Base64` and passed to the container in the `X-Yc-ApiGateway-Operation-Context` header. `Context` is where parameter substitution takes place. |
 
 ## Extension specification {#spec}
 
@@ -38,7 +38,7 @@ Example specification:
         service_account_id: ajehfe12hhl********
 ```
 
-An example of proxying all requests to a container:
+Example of proxying all requests to a container:
 
 ```yaml
 paths:

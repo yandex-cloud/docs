@@ -47,9 +47,9 @@ The infrastructure support costs include:
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -61,7 +61,7 @@ The infrastructure support costs include:
 
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -86,11 +86,11 @@ The infrastructure support costs include:
       name: sa-live-debug
       ```
 
-   - API
+   - API {#api}
 
       To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -135,9 +135,9 @@ The infrastructure support costs include:
 
 1. Assign the service account the `{{ roles-admin }}` [role](../../iam/concepts/access-control/roles.md) for the cloud:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. On the [start page]({{ link-console-main }}) of the management console, select the required cloud.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -146,7 +146,7 @@ The infrastructure support costs include:
       1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select the `{{ roles-admin }}` role.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI
+   - CLI {#cli}
 
       Run this command:
 
@@ -161,11 +161,11 @@ The infrastructure support costs include:
       done (1s)
       ```
 
-   - API
+   - API {#api}
 
       To assign cloud roles to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -210,9 +210,9 @@ The infrastructure support costs include:
 
 1. Set up the CLI profile to execute operations on behalf of the service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it to the file:
 
@@ -342,16 +342,16 @@ For more information about usage examples, see the [yc-serverless-live-debug](ht
 
 Delete the folder with the resources required for interactive debugging of {{ sf-name }} functions:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-cloud }}), select `live-debug`.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** field, select `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
    1. Click **{{ ui-key.yacloud.common.delete }}**.
 
-- API
+- API {#api}
 
    To delete a folder, use the [delete](../../resource-manager/api-ref/Folder/delete.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/Delete](../../resource-manager/api-ref/grpc/folder_service.md#Delete) gRPC API call.
 

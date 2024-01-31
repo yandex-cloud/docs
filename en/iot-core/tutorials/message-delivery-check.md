@@ -5,7 +5,7 @@ description: "Follow this guide to test message delivery to the MQTT server."
 
 # Testing message delivery
 
-When sending a message, it is useful to make sure it has been delivered. Messages may fail to reach the MQTT server, e.g., if a [message is sent](../operations/publish.md):
+When sending a message, you may need to verify that it was delivered. Messages may fail to reach the MQTT server, e.g., if a [message is sent](../operations/publish.md):
 
 * To a non-existing [device topic](../concepts/topic/devices-topic.md).
 * From a client with writes to the specified topic disabled.
@@ -51,9 +51,9 @@ When sending messages, add the following flags to the command:
 
 Example of sending a message:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc iot mqtt publish \
@@ -74,7 +74,7 @@ Example of sending a message:
    * `--qos`: Quality of service (QoS).
    * `--debug`: Debug log output.
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    ```bash
    mosquitto_pub -h mqtt.cloud.yandex.net \
@@ -104,9 +104,9 @@ Example of sending a message:
 
 Result example:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```text
    ...
@@ -123,7 +123,7 @@ Result example:
    ...
    ```
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    ```text
    Client null sending CONNECT
@@ -151,9 +151,9 @@ To use two clients to work with the same topic:
 
 Run this command:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc iot mqtt subscribe \
@@ -172,7 +172,7 @@ Run this command:
    * `--qos`: Quality of service (QoS).
    * `--debug`: Debug log output.
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    ```bash
    mosquitto_sub -h mqtt.cloud.yandex.net \
@@ -200,9 +200,9 @@ Run this command:
 
 Result example:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```text
    ...
@@ -219,7 +219,7 @@ Result example:
    15:46:20.700092   [net]     logic waiting for msg on ibound
    ```
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    ```text
    Client null sending CONNECT
@@ -235,9 +235,9 @@ This result indicates that the client has received the [SUBACK packet](https://d
 
 Once the result is output, the command is not terminated. The MQTT client pings the topic on a regular basis waiting for a new message:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```text
    15:47:45.554570   [pinger]  ping check5
@@ -245,7 +245,7 @@ Once the result is output, the command is not terminated. The MQTT client pings 
    15:47:55.554149   [pinger]  ping check15
    ```
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    ```text
    Client null sending PINGREQ
@@ -258,9 +258,9 @@ Once the result is output, the command is not terminated. The MQTT client pings 
 
 Open a new terminal window and run this command:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```bash
    yc iot mqtt publish \
@@ -281,7 +281,7 @@ Open a new terminal window and run this command:
    * `--qos`: Quality of service (QoS).
    * `--debug`: Debug log output.
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    ```bash
    mosquitto_pub -h mqtt.cloud.yandex.net \
@@ -311,9 +311,9 @@ Open a new terminal window and run this command:
 
 Result example:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```text
    ...
@@ -330,7 +330,7 @@ Result example:
    ...
    ```
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    ```text
    Client null sending CONNECT
@@ -346,9 +346,9 @@ Result example:
 
 If the message is delivered, the subscribe to device command outputs the result. For example:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```text
    17:23:26.346405   [net]     Received Message
@@ -365,7 +365,7 @@ If the message is delivered, the subscribe to device command outputs the result.
    17:23:26.346761   [net]     outgoing waiting for an outbound message
    ```
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    ```text
    Client null received PUBLISH (d0, q1, r0, m3, '$devices/{{ device-id }}/state', ... (3 bytes))

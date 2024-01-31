@@ -17,67 +17,95 @@ items:
             href: operations/endpoint/index.md
           - name: Migrating endpoints to a different availability zone
             href: operations/endpoint/migration-to-an-availability-zone.md
-          - name: Configuring source endpoints
+          - name: Apache Kafka®
             items:
-              - name: Apache Kafka®
+              - name: Source
                 href: operations/endpoint/source/kafka.md
-              - name: AWS CloudTrail
-                href: operations/endpoint/source/aws-cloudtrail.md
-              - name: BigQuery
-                href: operations/endpoint/source/bigquery.md
-              - name: ClickHouse®
-                href: operations/endpoint/source/clickhouse.md
-              - name: Elasticsearch
-                href: operations/endpoint/source/elasticsearch.md
-              - name: EventHub
-                href: operations/endpoint/source/eventhub.md
-              - name: Greenplum®
-                href: operations/endpoint/source/greenplum.md
-              - name: '{{ metrika-endpoint }}'
-                href: operations/endpoint/source/metrika.md
-              - name: Microsoft SQL Server
-                href: operations/endpoint/source/mssql.md
-              - name: MongoDB
-                href: operations/endpoint/source/mongodb.md
-              - name: MySQL
-                href: operations/endpoint/source/mysql.md
-              - name: Object Storage
-                href: operations/endpoint/source/object-storage.md
-              - name: OpenSearch
-                href: operations/endpoint/source/opensearch.md
-              - name: Oracle
-                href: operations/endpoint/source/oracle.md
-              - name: PostgreSQL
-                href: operations/endpoint/source/postgresql.md
-              - name: S3
-                href: operations/endpoint/source/s3.md
-              - name: '{{ yds-full-name }}'
-                href: operations/endpoint/source/data-streams.md
-              - name: '{{ ydb-short-name }}'
-                href: operations/endpoint/source/ydb.md
-          - name: Configuring target endpoints
-            items:
-              - name: Apache Kafka®
+              - name: Consumer
                 href: operations/endpoint/target/kafka.md
-              - name: ClickHouse®
+          - name: AWS CloudTrail
+            items:
+              - name: Source
+                href: operations/endpoint/source/aws-cloudtrail.md
+          - name: BigQuery
+            items:
+              - name: Source
+                href: operations/endpoint/source/bigquery.md
+          - name: ClickHouse
+            items:
+              - name: Source
+                href: operations/endpoint/source/clickhouse.md
+              - name: Consumer
                 href: operations/endpoint/target/clickhouse.md
-              - name: Elasticsearch
+          - name: Elasticsearch
+            items:
+              - name: Source
+                href: operations/endpoint/source/elasticsearch.md
+              - name: Consumer
                 href: operations/endpoint/target/elasticsearch.md
-              - name: Greenplum®
+          - name: Greenplum®
+            items:
+              - name: Source
+                href: operations/endpoint/source/greenplum.md
+              - name: Consumer
                 href: operations/endpoint/target/greenplum.md
-              - name: MongoDB
+          - name: '{{ metrika-endpoint }}'
+            items:
+              - name: Source
+                href: operations/endpoint/source/metrika.md
+          - name: Microsoft SQL Server
+            items:
+              - name: Source
+                href: operations/endpoint/source/mssql.md
+          - name: MongoDB
+            items:
+              - name: Source
+                href: operations/endpoint/source/mongodb.md
+              - name: Consumer
                 href: operations/endpoint/target/mongodb.md
-              - name: MySQL
+          - name: MySQL
+            items:
+              - name: Source
+                href: operations/endpoint/source/mysql.md
+              - name: Consumer
                 href: operations/endpoint/target/mysql.md
-              - name: Object Storage
+          - name: Object Storage
+            items:
+              - name: Source
+                href: operations/endpoint/source/object-storage.md
+              - name: Consumer
                 href: operations/endpoint/target/object-storage.md
-              - name: OpenSearch
+          - name: OpenSearch
+            items:
+              - name: Source
+                href: operations/endpoint/source/opensearch.md
+              - name: Consumer
                 href: operations/endpoint/target/opensearch.md
-              - name: PostgreSQL
+          - name: Oracle
+            items:
+              - name: Source
+                href: operations/endpoint/source/oracle.md
+          - name: PostgreSQL
+            items:
+              - name: Source
+                href: operations/endpoint/source/postgresql.md
+              - name: Consumer
                 href: operations/endpoint/target/postgresql.md
-              - name: '{{ yds-full-name }}'
+          - name: S3
+            items:
+              - name: Source
+                href: operations/endpoint/source/s3.md
+          - name: '{{ yds-full-name }}'
+            items:
+              - name: Source
+                href: operations/endpoint/source/data-streams.md
+              - name: Consumer
                 href: operations/endpoint/target/data-streams.md
-              - name: '{{ ydb-short-name }}'
+          - name: '{{ ydb-short-name }}'
+            items:
+              - name: Source
+                href: operations/endpoint/source/ydb.md
+              - name: Consumer
                 href: operations/endpoint/target/yandex-database.md
       - name: Managing transfer process
         href: operations/transfer.md
@@ -237,7 +265,7 @@ items:
         href: release-notes/2308.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

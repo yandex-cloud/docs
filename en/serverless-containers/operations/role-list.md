@@ -11,9 +11,9 @@ description: "Use this guide to view roles assigned to a container."
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To view [container](../concepts/container.md) roles, run this command:
 
@@ -31,7 +31,7 @@ description: "Use this guide to view roles assigned to a container."
    +---------+--------------+-----------------------+
    ```
 
-- API
+- API {#api}
 
    To view container roles, use the [listAccessBindings](../containers/api-ref/Container/listAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/ListAccessBindings](../containers/api-ref/grpc/container_service.md#ListAccessBindings) gRPC API call.
 

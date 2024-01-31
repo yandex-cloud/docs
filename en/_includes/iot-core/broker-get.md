@@ -1,13 +1,13 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the broker is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the broker. Detailed information about the broker will be displayed on the **{{ ui-key.yacloud.common.overview }}** page.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -28,7 +28,7 @@
    name: my-broker
    ```
 
-- API
+- API {#api}
 
    To get detailed information about a broker, use the [get](../../iot-core/broker/api-ref/Broker/get.md) REST API method for the [Broker](../../iot-core/broker/api-ref/Broker/index.md) resource or the [BrokerService/Get](../../iot-core/broker/api-ref/grpc/broker_service.md#Get) gRPC API call.
 

@@ -1,13 +1,13 @@
 ---
 title: "Revoking roles assigned to a function"
-description: "Use this guide to revoke function roles."
+description: "Follow this guide to revoke the roles assigned to a function."
 ---
 
 # Revoking roles assigned to a function
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "Use this guide to revoke function roles."
       done (1s)
       ```
 
-- API
+- API {#api}
 
    To revoke function roles, use the [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/function_service.md#UpdateAccessBindings) gRPC API call.
 

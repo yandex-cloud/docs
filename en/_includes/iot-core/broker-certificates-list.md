@@ -1,13 +1,13 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the broker is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the broker. A list of certificates will be displayed in the **{{ ui-key.yacloud.iot.label_certificates }}** section.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -30,7 +30,7 @@
    +------------------------------------------+---------------------+
    ```
 
-- API
+- API {#api}
 
    To get a list of broker certificates, use the [listCertificates](../../iot-core/broker/api-ref/Broker/listCertificates.md) REST API method for the [Broker](../../iot-core/broker/api-ref/Broker/index.md) resource or the [BrokerService/ListCertificates](../../iot-core/broker/api-ref/grpc/broker_service.md#ListCertificates) gRPC API call.
 

@@ -1,9 +1,9 @@
 
 {% include [revision-service-account-note](./revision-service-account-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -12,7 +12,7 @@
    1. Specify the revision parameters.
    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a container revision, run the command:
 
@@ -59,7 +59,7 @@
    status: ACTIVE
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -119,7 +119,7 @@
       yc serverless container revision list
       ```
 
-- API
+- API {#api}
 
    To create a container revision, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision) gRPC API call.
 

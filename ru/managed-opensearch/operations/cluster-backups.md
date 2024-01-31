@@ -20,6 +20,8 @@ keywords:
 
 ### Получить список резервных копий {#list-backups}
 
+Вы можете получить список резервных копий, которые были созданы за последние 14 дней.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -33,6 +35,31 @@ keywords:
 
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список всех резервных копий в каталоге, выполните команду:
+
+    ```bash
+    {{ yc-mdb-os }} backup list
+    ```
+
+    Результат:
+
+    ```text
+    +----------------------+---------------------+-------------------+---------------------+
+    |          ID          |      CREATED AT     | SOURCE CLUSTER ID |      STARTED AT     |
+    +----------------------+---------------------+-------------------+---------------------+
+    | c9qlk4v13uq7******** | 2024-01-09 14:38:34 | c9qpm4i********   | 2024-01-09 14:38:28 |
+    | c9qpm90p3pcg******** | 2024-01-09 13:38:31 | c9qpm4i********   | 2024-01-09 13:38:28 |
+    +----------------------+---------------------+-------------------+---------------------+
+    ```
+
+    Если вы хотите ограничить список резервных копий, который выводится после запуска команды, передайте в команде флаг `--limit <количество_записей>`. Например, если вывод команды `{{ yc-mdb-os }} backup list` занимает несколько экранов, выполните команду `{{ yc-mdb-os }} backup list --limit 5`. Тогда вывод будет содержать список из последних пяти резервных копий.
 
 - API {#api}
 
@@ -60,6 +87,47 @@ keywords:
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить информацию о резервной копии кластера:
+
+    1. Получите идентификатор резервной копии вместе со списком всех резервных копий в каталоге:
+
+        ```bash
+        {{ yc-mdb-os }} backup list
+        ```
+
+        Идентификатор указан в столбце `ID` в выводе команды.
+
+    1. Получите информацию о нужной резервной копии:
+
+        ```bash
+        {{ yc-mdb-os }} backup get <идентификатор_резервной_копии>
+        ```
+
+        Пример результата команды:
+
+        ```text
+        id: c9qlk4v13uq7********
+        folder_id: {{ folder-id-example }}
+        source_cluster_id: c9qpm4i********
+        started_at: "2024-01-09T10:38:28.683Z"
+        created_at: "2024-01-09T10:38:31.685Z"
+        indices:
+          - .mdb-sli
+          - .opendistro_security
+          - .kibana_1
+          - .opendistro-job-scheduler-lock
+          - .opensearch-observability
+          - .opendistro-ism-config
+        opensearch_version: 2.8.0
+        indices_total: "6"
+        ```
+
 - API {#api}
 
     Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
@@ -79,6 +147,20 @@ keywords:
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
     {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать резервную копию данных кластера, выполните команду:
+
+    ```bash
+    {{ yc-mdb-os }} cluster backup <имя_или_идентификатор_кластера>
+    ```
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -118,6 +200,41 @@ keywords:
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
     {{ mos-name }} запустит операцию создания кластера из резервной копии.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы восстановить кластер из резервной копии:
+
+    1. Получите идентификатор резервной копии вместе со списком всех резервных копий в каталоге:
+
+        ```bash
+        {{ yc-mdb-os }} backup list
+        ```
+
+        Результат:
+
+        ```text
+        +----------------------+---------------------+-------------------+---------------------+
+        |          ID          |      CREATED AT     | SOURCE CLUSTER ID |      STARTED AT     |
+        +----------------------+---------------------+-------------------+---------------------+
+        | c9qlk4v13uq7******** | 2024-01-09 14:38:34 | c9qpm4i********   | 2024-01-09 14:38:28 |
+        | ...                                                                                  |
+        +----------------------+---------------------+-------------------+---------------------+
+        ```
+
+        Идентификатор резервной копии указан в столбце `ID`. Время завершения создания резервной копии указано в столбце `CREATED AT` в формате `yyyy-mm-dd hh:mm:ss`.
+
+    1. Запросите создание кластера из резервной копии:
+
+        ```bash
+        {{ yc-mdb-os }} cluster restore --backup-id <идентификатор_резервной_копии>
+        ```
+
+        В команде также можно передать параметры, которые задаются при создании кластера. Описание таких параметров читайте в разделе [{#T}](cluster-create.md).
 
 - API {#api}
 

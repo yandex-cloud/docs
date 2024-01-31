@@ -8,9 +8,9 @@ Your changes will apply within five minutes.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -19,7 +19,7 @@ Your changes will apply within five minutes.
    1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the trigger parameters and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -71,7 +71,7 @@ Your changes will apply within five minutes.
 
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -129,7 +129,7 @@ Your changes will apply within five minutes.
       yc serverless trigger list
       ```
 
-- API
+- API {#api}
 
    To update parameters of a trigger, use the [update](../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../triggers/api-ref/grpc/trigger_service.md#Update) gRPC API call.
 

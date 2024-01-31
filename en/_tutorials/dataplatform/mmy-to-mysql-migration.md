@@ -10,9 +10,9 @@ To migrate a database deployed in a {{ mmy-name }} cluster to a third-party {{ M
 
 1. Transfer data.
 1. Disable data writes to the source database.
-1. Switch over the load to a third-party cluster.
+1. Transfer the load to a third-party cluster.
 
-Migration across versions is supported. For example, you can move databases from {{ MY }} 5.7 to 8. The {{ MY }} major version on a third-party cluster must be equal to or higher than the version in the {{ mmy-name }} cluster.
+Migration across versions is supported. For example, you can move databases from {{ MY }} 5.7 to 8. The {{ MY }} major version on a third-party cluster must be the same or higher than the version in the {{ mmy-name }} cluster.
 
 There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a third-party {{ MY }} _target cluster_:
 
@@ -76,7 +76,7 @@ A _logical dump_ is a file with a set of commands running which one by one you c
    1 row in set (0.00 sec)
    ```
 
-   Write down the `File` and `Position` values. You'll need them when you start replication.
+   Write down the `File` and `Position` values. You will need them when starting replication.
 
 1. Create a dump of the source cluster database:
 
@@ -93,9 +93,9 @@ A _logical dump_ is a file with a set of commands running which one by one you c
 
 1. Restore the database from the dump on the target cluster:
 
-   {% list tabs %}
+   {% list tabs group=connection %}
 
-   - Connecting via SSL
+   - Connecting via SSL {#with-ssl}
 
       ```bash
       mysql --host=<master_host_FQDN> \
@@ -108,7 +108,7 @@ A _logical dump_ is a file with a set of commands running which one by one you c
             <DB_name> < <dump_file>
       ```
 
-   - Connecting without using SSL
+   - Connecting without SSL {#without-ssl}
 
       ```bash
       mysql --host=<master_host_FQDN> \
@@ -251,6 +251,6 @@ For more information about replication status, see the [{{ MY }} documentation](
    STOP SLAVE;
    ```
 
-1. Switch over the load to the target cluster.
+1. Transfer the load to the target cluster.
 1. [Remove the user](../../managed-mysql/operations/cluster-users.md#removeuser) managing replication on the source cluster.
 1. Remove the user with full access rights to the migrated database on the target cluster if you no longer need this user.

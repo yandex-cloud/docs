@@ -3,14 +3,38 @@ title: "How to configure a {{ CH }} source endpoint in {{ data-transfer-full-nam
 description: "In this tutorial, you will learn how to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ CH }} source endpoints
+# Transferring data from a {{ CH }} source endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data from a {{ CH }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ CH }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Perform required operations with the database](#db-actions) and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data from {{ CH }} {#scenarios}
+
+{% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
+* [Migrating the {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Preparing the source database {#prepare}
+
+{% include [prepare clickhouse_db](../../../../_includes/data-transfer/endpoints/sources/clickhouse-prepare.md) %}
+
+## Configuring the {{ CH }} source endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * [{{ mch-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
-## {{ mch-name }} cluster {#managed-service}
+### {{ mch-name }} cluster {#managed-service}
 
 
 {% note warning %}
@@ -75,7 +99,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-## Custom installation {#on-premise}
+### Custom installation {#on-premise}
 
 Connecting to the database with explicitly specified network addresses and ports.
 
@@ -144,7 +168,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+### Additional settings {#additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -180,7 +204,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Known limitations {#known-limitations}
+### Known limitations {#known-limitations}
 
 Transfers will fail if {{ CH }} source tables contain the following types of columns:
 
@@ -198,13 +222,35 @@ Transfers will fail if {{ CH }} source tables contain the following types of col
 | `Array(DateTime64)` | `Can't transfer type 'Array(DateTime64)', column '<column_name>'` |
 | `Map(,)` | `unhandled type Map(<type_name>, <type_name>)` |
 
-### Supported table types {#known-limitations-table-types}
+#### Supported table types {#known-limitations-table-types}
+
 If a {{ CH }} cluster is multi-host, you can transfer tables and materialized views based on `ReplicatedMergeTree` or `Distributed` engines only. Moreover, these tables and views must be present in all cluster hosts.
 
-If the list of included tables contains tables or views with other engines or they're missing in some cluster hosts, a transfer will fail with an error saying `the following tables have not Distributed or Replicated engines and are not yet supported`.
+If the list of included tables contains tables or views with other engines or they are missing in some cluster hosts, a transfer will fail with an error saying `the following tables have not Distributed or Replicated engines and are not yet supported`.
 
-### Database names {#known-limitations-db-names}
+#### Database names {#known-limitations-db-names}
 
 {{ data-transfer-full-name }} cannot transfer a {{ CH }} database if its name contains a hyphen.
+
+## Configuring the data target {#supported-targets}
+
+Configure the target endpoint:
+
+* [{{ CH }}](../target/clickhouse.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+* [New tables are not added](#no-new-tables)
+* [Data is not transferred](#no-transfer)
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+
+{% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

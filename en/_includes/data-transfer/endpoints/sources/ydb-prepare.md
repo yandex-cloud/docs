@@ -1,0 +1,1 @@
+If you selected {{ dd }} database mode, [create](../../../../vpc/operations/security-group-create.md) and [configure](../../../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting the DB.

@@ -21,9 +21,9 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 {% include [provisioned-instances-time](../../../_includes/functions/provisioned-instances-time.md)%}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -36,7 +36,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
       * **provisioned_instances_count**: Number of provisioned instances.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    To add scaling settings for a function, run the command:
 
@@ -71,7 +71,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -144,12 +144,12 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    yc serverless function list-scaling-policies <function_name>|<function_ID>
    ```
 
-- API
+- API {#api}
 
    To add function scaling settings, use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/function_service.md#SetScalingPolicy) gRPC API call.
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can add scaling settings for a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

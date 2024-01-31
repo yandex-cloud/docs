@@ -6,9 +6,9 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -34,7 +34,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
       }
       ```
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -54,7 +54,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 
    The function version with the `$latest` tag is invoked by default.
 
-- HTTPS
+- HTTPS {#https}
 
    You can view the function invocation link on the **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}** tab, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field.
 
@@ -64,14 +64,14 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    https://{{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
    ```
 
-   The following response appears on the page:
+   The following response will appear on the page:
 
    ```
    Hello, Username!
    ```
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can invoke a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 

@@ -11,9 +11,9 @@ Deleting a [Docker image](../../concepts/docker-image.md) is a deferred action o
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To delete a Docker image:
    1. Go to the repository to remove the image from:
@@ -24,7 +24,7 @@ Deleting a [Docker image](../../concepts/docker-image.md) is a deferred action o
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@ Deleting a [Docker image](../../concepts/docker-image.md) is a deferred action o
       +----+---------+------+------+-----------------+
       ```
 
-- API
+- API {#api}
 
    To delete a Docker image, use the [delete](../../api-ref/Image/delete.md) method for the [Image](../../api-ref/Image/) resource.
 

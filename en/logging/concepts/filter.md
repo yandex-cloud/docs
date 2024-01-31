@@ -1,6 +1,6 @@
 ---
 title: "Filter expression language in {{ cloud-logging-full-name }}"
-description: "You can filter log group records using the language of filter expressions. With the filter expression language, you can search records by one or more parameters and use comparison operations and boolean operators in your filters."
+description: "You can filter log group records using the filter expression language. With the filter expression language, you can search records by one or more parameters and use comparison and boolean operations in the filters."
 ---
 
 # Filter expression language
@@ -11,9 +11,9 @@ You can filter log group records using the filter expression language. With the 
 
 ## How to set a filter {#how-to}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -22,7 +22,7 @@ You can filter log group records using the filter expression language. With the 
    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
    1. Set a filter and press **Enter**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ You can filter log group records using the filter expression language. With the 
 
    {% endnote %}
 
-- API
+- API {#api}
 
    You can set a filter using the API [read](../api-ref/grpc/log_reading_service.md) method.
 

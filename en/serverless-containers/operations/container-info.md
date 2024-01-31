@@ -5,9 +5,9 @@ description: "Follow this guide to get information about a container."
 
 # Getting information about a container
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -15,7 +15,7 @@ description: "Follow this guide to get information about a container."
    1. Select the container.
    1. The **{{ ui-key.yacloud.common.overview }}** page will show the container details.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -38,7 +38,7 @@ description: "Follow this guide to get information about a container."
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    To get detailed information about a container, use the [get](../containers/api-ref/Container/get.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Get](../containers/api-ref/grpc/container_service.md#Get) gRPC API call.
 

@@ -38,9 +38,9 @@ Send a message with data using the following parameters:
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    - Send data to the device topic:
 
@@ -116,9 +116,9 @@ Send a message with a command using the following parameters:
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
    - Send a command to a single device:
 

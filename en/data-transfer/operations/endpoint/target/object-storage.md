@@ -1,8 +1,43 @@
-# Configuring {{ objstorage-name }} target endpoints
+# Transferring data to a {{ objstorage-name }} target endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data to the {{ objstorage-name }} storage and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Configure one of the supported data sources](#supported-sources).
+1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the storage and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+
+## Scenarios for transferring data to {{ objstorage-name }} {#scenarios}
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+   * [Delivering data from {{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
+
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
+
+   * [Loading data from {{ MY }} to {{ objstorage-name }}](../../../tutorials/mmy-objs-migration.md).
+   * [Loading data from {{ PG }} to {{ objstorage-name }}](../../../tutorials/mpg-to-objstorage.md).
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Configuring the data source {#supported-sources}
+
+Configure one of the supported data sources:
+
+* [{{ PG }}](../source/postgresql.md).
+* [{{ MY }}](../source/mysql.md).
+* [{{ MG }}](../source/mongodb.md).
+* [{{ KF }}](../source/kafka.md).
+* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ DS }}](../source/data-streams.md).
+* [{{ ydb-name }}](../source/ydb.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+## Configuring the {{ objstorage-name }} target endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure access to a {{ objstorage-full-name }} bucket.
-
-## Settings {{ objstorage-full-name }} {#settings}
 
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}**: Name of the [bucket](../../../../storage/concepts/bucket.md) to upload source data to.
@@ -18,8 +53,10 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}**: Name of the folder to store files in. It supports the data layout pattern by date, e.g., `2006/01/02/<folder_name>`.
 
-## Advanced settings {#additional-settings}
+### Advanced settings {#additional-settings}
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_size.title }}**: Size of files the data will be split into.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_interval.title }}**: Time after which the file will be written, regardless of its size.
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

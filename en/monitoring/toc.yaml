@@ -65,9 +65,11 @@ items:
                 href: operations/prometheus/querying/remote-read.md
               - name: Grafana
                 href: operations/prometheus/querying/grafana.md
+          - name: Reading and writing {{ k8s }} cluster metrics
+            href: operations/prometheus/read-write-for-kubernetes.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
       - name: Data model
         href: concepts/data-model.md
@@ -159,7 +161,7 @@ items:
             href: api-ref/api-ref-grpc/DashboardService.md
   - name: Metric reference
     href: metrics-ref/index.md
-  - name: Questions and answers
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md

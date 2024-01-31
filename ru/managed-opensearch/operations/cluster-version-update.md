@@ -33,6 +33,31 @@
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию {{ OS }}.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Получите имя и идентификатор нужного кластера вместе со списком всех {{ OS }}-кластеров:
+
+        ```bash
+        {{ yc-mdb-os }} cluster list
+        ```
+
+    1. Получите информацию о нужном кластере и проверьте версию в параметре `config.version`:
+
+        ```bash
+        {{ yc-mdb-os }} cluster get <имя_или_идентификатор_кластера>
+        ```
+
+    1. Обновите версию {{ OS }}:
+
+        ```bash
+        {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
+           --version <версия_{{ OS }}>
+        ```
+
 - API {#api}
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:

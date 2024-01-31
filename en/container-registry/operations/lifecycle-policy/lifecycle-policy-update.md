@@ -2,9 +2,9 @@
 
 Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you can modify its rules as well as its status, name, or description.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -23,7 +23,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
          * **{{ ui-key.yacloud.common.description }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
       To find out the policy ID, get a [list of lifecycle policies in a repository or registry](lifecycle-policy-list.md#lifecycle-policy-list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -68,13 +68,13 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This will update the lifecycle policy in the specified repository. You can check that the policy is updated using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   This will update the lifecycle policy in the specified repository. You can check the policy update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
     yc container repository lifecycle-policy list --registry-id <registry_ID>
    ```
 
-- API
+- API {#api}
 
    To edit a lifecycle policy, use the [Update](../../api-ref/grpc/lifecycle_policy_service.md#Update) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. Specify the policy ID in the `lifecycle_policy_id` property.
 
@@ -86,9 +86,9 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
 ### Updating lifecycle policy rules {#update-rules}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Prepare new [policy rules](../../concepts/lifecycle-policy.md#lifecycle-rules) and save them to a file named `new-rules.json`.
 
@@ -125,9 +125,9 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
 #### Activate a lifecycle policy {#activate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Activate a deactivated lifecycle policy by running the command below with the `--activate` flag:
 
@@ -151,9 +151,9 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
 #### Disable a lifecycle policy {#disabled}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Deactivate an active policy by running the command below with the `--disable` flag:
 
@@ -177,9 +177,9 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
 ### Updating a lifecycle policy name {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Change the policy name by running the command:
 
@@ -207,9 +207,9 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
 ### Updating a lifecycle policy description {#update-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Change the policy description by running the command:
 

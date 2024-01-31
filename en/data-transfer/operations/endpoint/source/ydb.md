@@ -3,13 +3,40 @@ title: "How to configure a {{ ydb-full-name }} source endpoint in {{ data-transf
 description: "In this tutorial, you will learn how to set up a {{ ydb-full-name }} source endpoint when creating or updating it in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ ydb-name }} source endpoints
+# Transferring data from a {{ ydb-name }} source endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data from a {{ ydb-name }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+1. [Explore possible data transfer scenarios](#scenarios).
+1. [Prepare the {{ ydb-name }}](#prepare) database for the transfer.
+1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up one of the supported data targets](#supported-targets).
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+
+## Scenarios for transferring data from {{ ydb-name }} {#scenarios}
+
+1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
+
+* [Capturing changes from {{ PG }} and delivering to {{ DS }}](../../../tutorials/ydb-to-yds.md).
+* [Capturing changes from {{ PG }} and delivering to {{ KF }}](../../../tutorials/cdc-ydb.md).
+
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+
+1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
+
+For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+
+## Preparing the source database {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/ydb-prepare.md) %}
+
+## Configuring the {{ ydb-name }} source endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 * {{ ydb-full-name }} DB connection settings. These are required parameters.
 * Transfer path list (for tables and directories).
-
-## Settings {#settings}
 
 
 {% note warning %}
@@ -38,3 +65,26 @@ To create or edit an endpoint of a managed database, you need to have the [`ydb.
     For {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfers, specifying paths is required, including when you replicate all tables.
 
 {% endlist %}
+
+
+## Configuring the data target {#supported-targets}
+
+Configure one of the supported data targets:
+
+* [{{ CH }}](../target/clickhouse.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ KF }}](../target/kafka.md).
+* [{{ DS }}](../target/data-streams.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md).
+
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+## Troubleshooting data transfer issues {#troubleshooting}
+
+Known issues when using a {{ ydb-name }} endpoint:
+
+{% include [overloaded](../../../../_includes/data-transfer/troubles/overloaded.md) %}
+
+See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.

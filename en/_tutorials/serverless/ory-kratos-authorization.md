@@ -71,9 +71,9 @@ The infrastructure support costs include:
 
 1. Create the `sa-for-kratos` [service account](../../iam/concepts/users/service-accounts.md), under which the resources for Identity Server based on Ory Kratos will be created:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -82,7 +82,7 @@ The infrastructure support costs include:
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-admin }}` role.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -119,7 +119,7 @@ The infrastructure support costs include:
          done (1s)
          ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       
       {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -175,7 +175,7 @@ The infrastructure support costs include:
             yc iam service-account list
             ```
 
-   - API
+   - API {#api}
 
       To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
 
@@ -189,9 +189,9 @@ The infrastructure support costs include:
 
 Deploy the Identity Server based on Ory Kratos application using {{ cloud-apps-full-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to deploy the application.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
@@ -226,9 +226,9 @@ Deploy the Identity Server based on Ory Kratos application using {{ cloud-apps-f
 
 Create a function that will run Identity Server based on Ory Kratos for user authorization.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -250,11 +250,11 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-func-authorizer`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-            * `KRATOS_API_BASE_PATH`: `https://<API_gateway_service_domain>/public`, where `<API_gateway_service_domain>` is the API gateway service domain you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+            * `KRATOS_API_BASE_PATH`: `https://<API_gateway_service_domain>/public`, where `<API_gateway_service_domain>` is the API gateway service domain which you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a function named `kratos-authorizer`:
 
@@ -296,7 +296,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
       * `--runtime`: Runtime environment.
       * `--entrypoint`: Entry point.
       * `--service-account-id`: ID of the `sa-func-authorizer` service account.
-      * `--environment`: Environment variables. `<API_gateway_service_domain>`: API gateway service domain you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+      * `--environment`: Environment variables. `<API_gateway_service_domain>`: API gateway service domain which you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
       * `--source-path`: Path to the `index-js.zip` archive.
 
       Result:
@@ -323,7 +323,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
         folder_id: b1g86q4m5vej8l******
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the function parameters:
 
@@ -354,7 +354,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
       * `memory`: Amount of memory allocated for function execution, in MB.
       * `execution_timeout`: Function execution timeout.
       * `service_account_id`: ID of the `sa-func-authorizer` service account.
-      * `environment`: Environment variables. `<API_gateway_service_domain>`: API gateway service domain you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+      * `environment`: Environment variables. `<API_gateway_service_domain>`: API gateway service domain which you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
       * `content`: Path to the `index-js.zip` archive with the function source code.
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
@@ -380,7 +380,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
 
       1. Confirm the function creation: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create) gRPC API call.
 
@@ -392,9 +392,9 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
 
 Create an API gateway that will be protected through authorization using the authorizer function created in the previous step.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the Identity Server based on Ory Kratos application is deployed.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -442,7 +442,7 @@ Create an API gateway that will be protected through authorization using the aut
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
    1. Save the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field from the **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}** section.
 
-- CLI
+- CLI {#cli}
 
    1. Save the following specification to `kratos.yaml`:
 
@@ -512,7 +512,7 @@ Create an API gateway that will be protected through authorization using the aut
 
 ## Check the result {#check}
 
-1. In your browser, open the Identity Server based on Ory Kratos test console page at `https://<API_gateway_service_domain>/ui/`, where `<API_gateway_service_domain>` is the API gateway service domain you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+1. In your browser, open the Identity Server based on Ory Kratos test console page at `https://<API_gateway_service_domain>/ui/`, where `<API_gateway_service_domain>` is the API gateway service domain which you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
 1. Register a user.
 1. Log in with user credentials: `https://<API_gateway_service_domain>/ui/login`.
 1. Open the developer console in your browser and copy the value of the `ory_kratos_session` cookie.

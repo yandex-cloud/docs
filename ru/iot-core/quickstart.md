@@ -159,8 +159,8 @@ X.509-сертификаты нужны для взаимодействия кл
 
         ```bash
         yc iot device create \
-           --registry-name my-registry \
-           --name my-device
+          --registry-name my-registry \
+          --name my-device
         ```
 
         Где:
@@ -181,8 +181,8 @@ X.509-сертификаты нужны для взаимодействия кл
 
         ```bash
         yc iot device certificate add \
-           --device-name my-device \
-           --certificate-file ./certs/device-cert.pem
+          --device-name my-device \
+          --certificate-file ./certs/device-cert.pem
         ```
 
         Где:

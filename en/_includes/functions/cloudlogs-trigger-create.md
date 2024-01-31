@@ -21,9 +21,9 @@ To create a trigger, you need:
 
 {% include [trigger-time](trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
@@ -67,7 +67,7 @@ To create a trigger, you need:
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -131,7 +131,7 @@ To create a trigger, you need:
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    To create a trigger for {{ cloud-logs-name }}, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 

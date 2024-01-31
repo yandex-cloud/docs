@@ -14,11 +14,13 @@ In this section, you will learn how to connect to clusters of managed databases 
 
 Create your first connection to the database.
 
-{% include notitle [connect-db](../_includes/websql/connect-to-db.md) %}
-
 If you have a [{{ PG }}](../managed-postgresql/operations/cluster-list.md), [{{ CH }}](../managed-clickhouse/operations/cluster-list.md), or [{{ MY }}](../managed-mysql/operations/cluster-list.md) cluster set up in {{ yandex-cloud }}, you can connect directly to it:
 
 {% include notitle [connect-cluster](../_includes/websql/connect-to-cluster.md) %}
+
+You can also connect to a publicly available database via the internet.
+
+{% include notitle [connect-db](../_includes/websql/connect-to-db.md) %}
 
 If the connection is successful, the structure of the cluster or database will show up in the connection manager tree. Hosts of the same cluster will appear in the _connection group_.
 
