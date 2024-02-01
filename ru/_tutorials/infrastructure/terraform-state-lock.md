@@ -134,8 +134,8 @@ description: "При работе с {{ TF }} в облаке важно иск�
     - PowerShell {#powershell}
 
       ```powershell
-      $Env:ACCESS_KEY="<идентификатор_ключа>"
-      $Env:SECRET_KEY="<секретный_ключ>"
+      $Env:AWS_ACCESS_KEY_ID="<идентификатор_ключа>"
+      $Env:AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
       ```
 
     {% endlist %}
@@ -153,11 +153,13 @@ description: "При работе с {{ TF }} в облаке важно иск�
       required_version = ">= 0.13"
 
       backend "s3" {
-        endpoint          = "{{ s3-storage-host }}"
+        endpoints = {
+          s3       = "https://{{ s3-storage-host }}"
+          dynamodb = "<эндпоинт_Document_API_БД>"
+        }
         bucket            = "<имя_бакета>"
         region            = "{{ region-id }}"
         key               = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
-        dynamodb_endpoint = "<эндпоинт_Document_API_БД>"
         dynamodb_table    = "<имя_таблицы>"
 
         skip_region_validation      = true
@@ -177,7 +179,7 @@ description: "При работе с {{ TF }} в облаке важно иск�
 1. В папке с конфигурационным файлом выполните команду:
 
     ```bash
-    terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY"
+    terraform init
     ```
 
 ## Разверните конфигурацию {#deploy}
