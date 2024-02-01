@@ -162,6 +162,7 @@ description: "При работе с {{ TF }} в облаке важно иск�
 
         skip_region_validation      = true
         skip_credentials_validation = true
+        skip_requesting_account_id  = true
       }
     }
 
