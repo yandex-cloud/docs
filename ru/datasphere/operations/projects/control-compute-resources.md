@@ -5,6 +5,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Выбрать вычислительные ресурсы
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 {% include [include](../../../_includes/datasphere/ui-control-compute-resources-intro.md) %}
 
 ## Перед началом работы {#before-begin}

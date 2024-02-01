@@ -580,8 +580,6 @@ items:
         href: serverless/grafana-logs-plugin.md
       - name: Канареечный релиз функции {{ sf-name }}
         href: serverless/canary-release.md
-      - name: Авторизация с помощью функции {{ sf-name }} в сервисе Ory Kratos
-        href: serverless/ory-kratos-authorization.md
       - name: Интерактивная отладка функций {{ sf-name }}
         href: serverless/serverless-live-debug.md
 base: ru/tutorials

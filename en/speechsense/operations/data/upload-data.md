@@ -65,7 +65,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
    	from yandex.cloud.speechsense.v1 import talk_service_pb2_grpc
    	from yandex.cloud.speechsense.v1 import audio_pb2
 
-      # For authorization with IAM token replace api_key for iam_token
+      # For IAM authentication replace the api_key parameter with iam_token
       def upload_talk(connection_id: int, metadata: Dict[str, str], api_key: str, audio_bytes: bytes):
          credentials = grpc.ssl_channel_credentials()
          channel = grpc.secure_channel('{{ speechsense-endpoint }}', credentials)
@@ -87,11 +87,11 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
                audio_data=audio_pb2.AudioChunk(data=audio_bytes)
             )
          )
-         # Authorization type: API key
+         # Authentication type: API key
          response = talk_service_stub.Upload(request, metadata=(
             ('authorization', f'Api-Key {api_key}'),
-         # For authorization with IAM token supply header
-         # ('authorization', f'Bearer {iam_token}'), 
+         # For IAM authentication supply header
+         # ('authorization', f'Bearer {iam_token}'),
          ))
 
          # Display dialog ID
@@ -166,21 +166,21 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
                )
                data = fp.read(CHUNK_SIZE_BYTES)
 
-      # For authorization with an IAM token, replace api_key with iam_token
+      # For IAM authentication replace the api_key parameter for iam_token
       def upload_talk(connection_id: int, metadata: Dict[str, str], api_key: str, audio_path: str):
          credentials = grpc.ssl_channel_credentials()
          channel = grpc.secure_channel('api.talk-analytics.yandexcloud.net:443', credentials)
          talk_service_stub = talk_service_pb2_grpc.TalkServiceStub(channel)
 
-         # Authorization type: API key
+         # Authentication type: API key
          response = talk_service_stub.UploadAsStream(
             upload_audio_requests_iterator(connection_id, metadata, audio_path),
             metadata=(('authorization', f'Api-Key {api_key}'),
-         # For authorization with an IAM token, provide the metadata
+         # For IAM authentication supply metadata
          # metadata=(('authorization', f'Bearer {iam_token}'),
          ))
 
-         # Output the dialog ID
+         # Display dialog ID
          print(f'Dialog ID: {response.talk_id}')
 
       if __name__ == '__main__':
@@ -191,7 +191,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
          parser.add_argument('--meta-path', required=False, help='JSON with the dialog metadata', type=str, default=None)
          args = parser.parse_args()
 
-         # Default values if no metadata is provided
+         # Default values if no metadata is supplied
          if args.meta_path is None:
             now = datetime.datetime.now().isoformat()
             metadata = {
@@ -240,4 +240,4 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
    * `audio-path`: Path to the audio file with the dialog.
    * `meta-path`: Path to the file with the dialog metadata.
    * `connection-id`: ID of the connection you upload the data to.
-   * `key`: API key for authorization. If using an IAM token, specify the `IAM_TOKEN` environment variable instead of `API_KEY`.
+   * `key`: API key for authentication. If using an IAM token, specify the `IAM_TOKEN` environment variable instead of `API_KEY`.

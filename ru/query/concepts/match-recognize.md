@@ -13,7 +13,7 @@
 Тело SQL-запроса к {{ yql-short-name }}:
 
 ```sql
-SELECT * FROM input_stream MATCH_RECOGNIZE ( -- выполняем паттерн-матчинг из потока input_stream
+SELECT * FROM bindings.input_stream MATCH_RECOGNIZE ( -- выполняем паттерн-матчинг из потока input_stream
     ORDER BY ts -- просматриваем события в порядке возрастания значения колонки ts (тип данных Timestamp)
     MEASURES
       LAST(B1.ts) AS b1, -- в результатах запроса будем получать последний момент нажатия на кнопку 1
@@ -174,7 +174,7 @@ DEFINE
  button: 3
  button: 3
  ```
- 
+
 
 ##### **Пример 1** {#match-example1}
 

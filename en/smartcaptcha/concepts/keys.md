@@ -11,6 +11,8 @@ The client key (`client_key`) is used for [adding the {{ captcha-name }} widget]
 
 The server key (`server_key`) is used by the website backend to get the [verification results](./validation.md#validation-result) for the user request. The server key is private and should be stored in a secure location, e.g., using [{{ lockbox-full-name }}](../../lockbox/).
 
+{{ captcha-name }} automatically generates a one time token, i.e., a request identifier used when receiving the [verification results](validation.md#validation-result) for the user request. The token is valid for five minutes.
+
 {% note warning %}
 
 Never send your {{ captcha-name }} server key to anyone, store it unencrypted, or allow it to become public. If it did become public, [create a new CAPTCHA](../operations/create-captcha.md) to replace the old one.

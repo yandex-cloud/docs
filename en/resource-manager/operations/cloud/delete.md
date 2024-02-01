@@ -1,13 +1,13 @@
 # Deleting a cloud
 
 
-To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role for the cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
+To delete a cloud, you must have the [editor](../../../iam/concepts/access-control/roles.md#editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate cloud in the list on the left.
+   1. In the [management console]({{ link-console-main }}), select the appropriate cloud from the list on the left.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.delete }}**.
    1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `Delete now`. The default cloud deletion delay is 7 days.
    1. Click **{{ ui-key.yacloud.common.delete }}**.

@@ -16,5 +16,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](websocket-app.md)
 * [{#T}](serverless-live-debug.md)
 * [{#T}](jwt-authorizer-firebase.md)
-* [{#T}](ory-kratos-authorization.md)
 * [{#T}](canary-release.md)

@@ -1,5 +1,7 @@
 # Получить идентификаторы ноутбука и ячейки
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 Для работы с проектом через API вам могут понадобиться идентификаторы ноутбуков и их ячеек.
 
 {% note warning %}

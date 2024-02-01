@@ -12,7 +12,7 @@
 Пример:
 `Authorization: AWS YCAJEsU4EP6Dyo6QiHhPHz4dO:/CQuut9oew7fUoKorITnCcg2VlA=`
 
-{%note info %}
+{% note info %}
 
 Подробнее о [подписи запросов](../../../storage/s3/signing-requests.md) пишем в документации.
 

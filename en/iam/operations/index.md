@@ -1,6 +1,6 @@
 ---
-title: "How to manage access rights to {{ yandex-cloud }} resources Step-by-step instructions"
-description: "Step-by-step instructions for managing access rights to {{ yandex-cloud }} resources. In this article, you'll learn how to manage users, service accounts, and identity federations and assign roles to them. We'll get into more detail about IAM tokens, authorized keys, and API keys."
+title: "How to manage access rights to {{ yandex-cloud }} resources. Step-by-step guides"
+description: "Step-by-step guides on how to manage access rights to {{ yandex-cloud }} resources. In this article, you will learn how to manage users, service accounts, and identity federations and assign roles to them. We will get into more detail about IAM tokens, authorized keys, and API keys."
 ---
 
 # Step-by-step guides for {{ iam-name }}
@@ -29,8 +29,6 @@ description: "Step-by-step instructions for managing access rights to {{ yandex-
 - [{#T}](sa/update.md)
 - [{#T}](sa/assign-role-for-sa.md)
 - [{#T}](sa/set-access-bindings.md)
-- [{#T}](sa/create-access-key.md)
-- [{#T}](sa/delete-access-key.md)
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
 
@@ -52,9 +50,17 @@ The guides on managing identity federations are now included in the {{ org-full-
 - [Reissue an IAM token](compromised-credentials.md#iam-reissue)
 
 
-## Keys {#keys}
+## Static access keys {#static-keys}
+
+- [{#T}](sa/create-access-key.md)
+- [{#T}](sa/delete-access-key.md)
+
+## API keys {#api-keys}
 
 - [{#T}](api-key/create.md)
 - [{#T}](api-key/delete.md)
+
+## Authorized keys {#authorized-keys}
+
 - [{#T}](authorized-key/create.md)
 - [{#T}](authorized-key/delete.md)

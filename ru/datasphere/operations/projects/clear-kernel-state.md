@@ -5,6 +5,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Очистить состояние интерпретатора
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 {{ ml-platform-name }} [сохраняет состояние](../../concepts/save-state.md) интерпретатора только в режиме {{ ds }}.
 
 {% note alert %}

@@ -1,6 +1,6 @@
 # Authentication in {{ search-api-full-name }}
 
-To work with {{ search-api-name }}, you need to send API requests on behalf of a service account. {{ search-api-name }} only supports authorization using [API keys](../../iam/concepts/authorization/api-key.md).
+To work with {{ search-api-name }}, you need to send API requests on behalf of a service account. {{ search-api-name }} only supports authentication with [API keys](../../iam/concepts/authorization/api-key.md).
 
 {% note warning %}
 

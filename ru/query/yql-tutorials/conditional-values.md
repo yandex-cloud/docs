@@ -9,11 +9,11 @@
 * Рассчитать сумму сгруппированных поездок.
 
 ```sql
-SELECT 
-    distance_type, 
+SELECT
+    distance_type,
     COUNT(*)
-FROM 
-    bindings.`tutorial-analytics` 
+FROM
+    `tutorial-analytics`
 GROUP BY                                -- CASE проверяет список условий
     CASE                                -- и возвращает одно из нескольких возможных
         WHEN trip_distance > 10         -- выражении или с любым оператором,

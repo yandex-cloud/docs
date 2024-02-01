@@ -9,8 +9,8 @@
 * Сгруппировать по зоне посадки в такси (`PULocationID`).
 
 ```sql
-SELECT 
-    PULocationID, 
+SELECT
+    PULocationID,
     COUNT(*) AS rides_count,    -- Агрегатная функция COUNT возвращает количество строк,
                                 -- полученных в результате выполнения запроса.
                                 -- Звездочка (*) указывает, что функция COUNT
@@ -18,8 +18,8 @@ SELECT
                                 -- Функция считает каждую строку отдельно.
                                 -- В результат также входят строки, содержащие значения null.
     AVG(tip_amount) AS avg_tip_amount
-FROM 
-    bindings.`tutorial-analytics` 
+FROM
+    `tutorial-analytics`
 GROUP BY PULocationID           -- Колонка, по которой выполняется агрегация данных.
 ```
 

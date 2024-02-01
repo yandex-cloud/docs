@@ -71,7 +71,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
          terraform apply
          ```
 
-      1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
+      1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
 
          The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -126,8 +126,8 @@ Create a service account with the following name and description:
 
 {% endlist %}
 
-#### What's next {#what-is-next}
+#### Useful links {#see-also}
 
-* [{#T}](assign-role-for-sa.md)
-* [{#T}](create-access-key.md)
-* [{#T}](set-access-bindings.md)
+* [{#T}](assign-role-for-sa.md).
+* [{#T}](set-access-bindings.md).
+* [{#T}](../../concepts/users/service-accounts.md#sa-key).

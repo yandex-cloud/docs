@@ -14,5 +14,4 @@
 * [Автоматическое копирование объектов из одного бакета {{ objstorage-full-name }} в другой](bucket-to-bucket-copying.md)
 * [Визуализация логов в {{ grafana-name }} с помощью плагина {{ cloud-logging-full-name }}](grafana-logs-plugin.md)
 * [Канареечный релиз функции {{ sf-full-name }}](canary-release.md)
-* [Авторизация с помощью функции {{ sf-name }} в сервисе Ory Kratos](ory-kratos-authorization.md)
 * [Интерактивная отладка функций {{ sf-name }}](serverless-live-debug.md)

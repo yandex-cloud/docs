@@ -5,6 +5,8 @@ description: "Как получить логи моей работы в серв
 
 # Общие вопросы про {{ ml-platform-name }}
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 {% include [logs](../../_qa/logs.md) %}
 
 {% include [personal-data](../../_qa/personal-data.md) %}

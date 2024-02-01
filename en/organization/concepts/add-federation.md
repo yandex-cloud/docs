@@ -22,7 +22,7 @@ You can set up identity federations for different identity providers:
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [Azure Active Directory](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
-* [Other SAML-compatible identity providers](../tutorials/federations/integration-common.md).
+* [Other SAML-compatible identity providers](../operations/setup-federation.md).
 
 ### Mapping user groups {#group-mapping}
 

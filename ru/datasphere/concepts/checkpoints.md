@@ -1,5 +1,7 @@
 # Контрольные точки
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 Контрольная точка в {{ ml-platform-name }} — это [сохраненное состояние](save-state.md) ноутбука. Контрольная точка включает код ячеек, вывод и значения переменных, а также данные хранилища проекта.
 
 {% include [save-state-dedicated](../../_includes/datasphere/save-state-dedicated.md) %}

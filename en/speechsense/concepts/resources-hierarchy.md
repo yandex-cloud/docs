@@ -1,6 +1,8 @@
 # {{ speechsense-name }} resource hierarchy
 
-To manage dialogs in {{ speechsense-name }}, you can use spaces, connections, and projects. 
+To manage dialogs in {{ speechsense-name }}, you can use spaces, connections, and projects. The chart below provides the resource hierarchy overview in {{ speechsense-name }}:
+
+![image](../../_assets/speechsense/hierarchy.svg)
 
 Each project and connection belongs to a single space. There are no projects and connections outside of a space.
 

@@ -104,13 +104,13 @@ To implement an example:
              # Send data for synthesis.
              it = stub.UtteranceSynthesis(request, metadata=(
 
-             # Parameters for authorization with an IAM token
+             # Parameters for authorizing with an IAM token
                  ('authorization', f'Bearer {iam_token}'),
-             # Parameters for authorization as a service account with an API key
+             # Parameters for authorizing as a service account with an API key
              #   ('authorization', f'Api-Key {api_key}'),
              ))
 
-             # Create an audio file out of chunks.
+             # Create an audio file from multiple chunks.
              try:
                  audio = io.BytesIO()
                  for response in it:

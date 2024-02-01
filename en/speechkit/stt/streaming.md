@@ -32,7 +32,7 @@ To use the service, create an application that will send audio fragments and pro
 
 ### Client application interface code {#create-client-app}
 
-{{ speechkit-name }} has two streaming recognition API versions: [API v3](../stt-v3/api-ref/grpc/) and [API v2](api/streaming-api.md). We recommend using API v3 for new projects.
+{{ speechkit-name }} has two streaming recognition API versions: [API v3](../stt-v3/api-ref/grpc/) and [API v2](api/streaming-api.md). We recommend using the API v3 for new projects.
 
 For the application to access the service, clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/) repository and generate the client interface code for the used programming language from the [API v2](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) or [API v3](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v3/stt_service.proto) specification file.
 
@@ -54,11 +54,11 @@ To get the entire response, increase the maximum message size limit:
 * For Go, use the [MaxCallRecvMsgSize](https://pkg.go.dev/google.golang.org/grpc#MaxCallRecvMsgSize) function.
 * For C++, in the [call](https://grpc.github.io/grpc/cpp/classgrpc_1_1internal_1_1_call.html#af04fabbdb53dea98da54c387364faf63) method, set the `max_receive_message_size` value.
 
-### Authorization in the service {#auth}
+### Authentication with the service {#auth}
 
 In each request, the application must pass an IAM token or API key for authentication in the service and the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which the account has the `{{ roles-speechkit-stt }}` role or higher. For more information about permissions, see [Access management](../security/index.md).
 
-It is easier to use a service account to authorize the application. When authorizing with a service account, do not pass the folder ID in requests: {{ speechkit-name }} uses the folder where the service account was created.
+The most straightforward way to authenticate an application is to use a service account. When authenticating as a service account, do not indicate the folder ID in your requests: {{ speechkit-name }} will use the same folder where the service account was created.
 
 [Learn more about authentication in {{ speechkit-name }}](../concepts/auth.md).
 

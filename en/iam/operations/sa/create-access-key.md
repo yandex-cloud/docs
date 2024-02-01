@@ -2,7 +2,7 @@
 
 This guide will instruct you how to create [static access keys](../../concepts/authorization/access-key.md) for a [service account](../../concepts/users/service-accounts.md).
 
-If you do not have a service account yet, [create one](../sa/create.md) and [assign roles to it](../sa/assign-role-for-sa.md).
+If you do not have a service account yet, [create one](create.md) and [assign roles to it](assign-role-for-sa.md).
 
 To create a static access key:
 

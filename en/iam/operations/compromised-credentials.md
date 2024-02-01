@@ -83,7 +83,7 @@ Follow the steps described in the [Authorized key](#key-reissue) section.
 
 1. [Create a new static key](sa/create-access-key.md) for the service account.
 1. Grant the new static key to the services and users using it.
-1. [Delete the old static key](./sa/delete-access-key.md).
+1. [Delete the old static key](sa/delete-access-key.md).
 
 ### API key {#api-key-reissue}
 
@@ -125,7 +125,7 @@ You can configure [exporting audit logs to a SIEM system](../../audit-trails/con
 
 Report the incident to the [support team]({{ link-console-support }}). This will help us enhance secret protection in future {{ yandex-cloud }} releases.
 
-Learn more about [requesting technical support](../../support/overview.md).
+You can learn more about requesting technical support [here](../../support/overview.md).
 
 ## Follow our recommendations on building a secure infrastructure {#recommendations}
 

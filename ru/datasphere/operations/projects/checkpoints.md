@@ -1,5 +1,7 @@
 # Работа с контрольными точками
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 Список контрольных точек проекта доступен на странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** → ![checkpoints-panel](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}**. Контрольные точки доступны, только если в проекте вы уже запускали ячейки с кодом.
 
 {% include [save-state-dedicated](../../../_includes/datasphere/save-state-dedicated.md) %}

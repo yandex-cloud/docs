@@ -51,5 +51,5 @@ The following services support authentication based on static access keys:
 
 #### See also {#see-also}
 
-* [How to create a static access key](../../operations/sa/create-access-key.md)
+* [{#T}](../../operations/sa/create-access-key.md)
 * [{#T}](./index.md)
