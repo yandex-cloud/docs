@@ -9,6 +9,20 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 15/01/2024 {#150124}
+
+1. Added self-service problem-solving tools to the project page.
+1. In [{{ ml-platform-name }} Jobs](concepts/jobs.md), now you can use your project resources: secrets, S3 connectors, environment dockers, datasets, and project disk.
+1. Fixed bugs and added minor improvements in platform performance.
+
+## Release on 20/12/2023 {#201223}
+
+1. Added new [configuration](concepts/configurations.md), gt4.1 (1 GPU NVIDIA T4).
+1. The g2.mig configuration (1 GPU MIG NVIDIA Ampere A100) is obsolete.
+1. A [new node type](concepts/deploy/index.md#models-node) from the model resource is available.
+1. Selecting a configuration in {{ dd }} mode will display its current availability.
+1. Fixed bugs and added minor improvements in platform performance.
+
 ## Release on 10/10/2023 {#101023}
 
 1. You can test retrained {{ yagpt-name }} models right in {{ ml-platform-name }}. {{ yagpt-name }} Playground {{ ml-platform-name }} is available after retraining to those users who have access permissions to [{{ yagpt-name }}](../yandexgpt/).

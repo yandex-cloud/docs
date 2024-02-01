@@ -10,7 +10,7 @@ items:
       - name: Managing organizations
         items:
           - name: Overview
-            href: operations/manage-org.md
+            href: operations/organizations-overview.md
           - name: Creating an organization
             href: operations/enable-org.md
           - name: Editing organization data
@@ -33,6 +33,22 @@ items:
             href: operations/leave-organization.md
       - name: Managing user groups
         href: operations/manage-groups.md
+      - name: Managing identity federations
+        items:
+          - name: Overview
+            href: operations/manage-federations.md
+          - name: Configuring an identity federation
+            href: operations/setup-federation.md
+          - name: Configuring user group mapping for your federation
+            href: operations/federation-group-mapping.md
+      - name: Working with OS Login
+        items:
+          - name: Enabling access via OS Login
+            href: operations/os-login-access.md
+          - name: Creating an OS Login profile
+            href: operations/os-login-profile-create.md
+      - name: Managing user groups
+        href: operations/manage-groups.md
       - name: Access management
         items:
           - name: Overview
@@ -45,12 +61,6 @@ items:
             href: operations/groups-access-binding.md
           - name: Revoking a role from a user
             href: operations/revoke-role.md
-      - name: OS Login
-        items:
-          - name: Enabling access
-            href: operations/os-login-access.md
-          - name: Creating a profile
-            href: operations/os-login-profile-create.md
   - name: Tutorials
     items:
       - name: Managing identity federations
@@ -65,8 +75,6 @@ items:
             href: tutorials/federations/integration-azure.md
           - name: Authentication using Keycloak
             href: tutorials/federations/integration-keycloak.md
-          - name: Authentication using a SAML-compatible identity federation
-            href: tutorials/federations/integration-common.md
           - name: Mapping user groups
             items:
               - name: Mapping user groups in Keycloak

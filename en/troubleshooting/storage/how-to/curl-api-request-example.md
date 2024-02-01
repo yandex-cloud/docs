@@ -12,7 +12,7 @@ The `Authorization` header for the service request has the format: `"Authorizati
 Example:
 `Authorization: AWS YCAJEsU4EP6Dyo6QiHhPHz4dO:/CQuut9oew7fUoKorITnCcg2VlA=`
 
-{%note info %}
+{% note info %}
 
 For more information about [request signatures](../../../storage/s3/signing-requests.md), see the documentation.
 

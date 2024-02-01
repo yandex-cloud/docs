@@ -24,6 +24,6 @@ You can invite other members with Yandex accounts to your organization to grant 
 
 ## Access management {#access}
 
-{{ yandex-cloud }} resource access rights are managed using [roles](../iam/concepts/access-control/roles.md). To enable an account (_subject_) to perform actions on a resource (_object_), assign appropriate roles for the resource either to the account or the group to which it belongs. Basically, each role is a list of permitted object operations. Accesses, accounts, and authorization keys in {{ yandex-cloud }} are managed by [{{ iam-full-name }}](../iam/concepts/index.md).
+{{ yandex-cloud }} resource access rights are managed using [roles](../iam/concepts/access-control/roles.md). To enable an account (_subject_) to perform actions on a resource (_object_), assign appropriate roles for the resource either to the account or the group to which it belongs. Basically, each role is a list of permitted object operations. Permissions to access {{ yandex-cloud }} resources are managed by [{{ iam-full-name }}](../iam/concepts/index.md).
 
 To authenticate users, {{ yandex-cloud }} services request [credentials](../iam/concepts/authorization/index.md). The type of data requested depends on the account type, the service, and request interface. When using the [API](api.md), the [folder ID](../resource-manager/operations/folder/get-id.md) is also required to uniquely identify the resource and verify the permissions. If actions are performed on behalf of a service account, the ID of its folder is used by default.

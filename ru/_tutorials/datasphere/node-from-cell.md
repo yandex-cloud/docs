@@ -1,5 +1,7 @@
 # Развертывание сервиса из контрольной точки
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 В {{ ml-platform-name }} вы можете не только обучить модель, но и [развернуть](../../datasphere/concepts/deploy/index.md) ее в качестве микросервиса, доступного для сторонних ресурсов.
 
 В этом примере вы обучите модель классификации предметов одежды из библиотеки [Keras](https://keras.io/about/), а затем пройдете полный путь публикации сервиса, создав [ноду](../../datasphere/concepts/deploy/index.md#node) и [алиас](../../datasphere/concepts/deploy/index.md#alias). Обучение модели проводится в [режиме {{ ds }}](../../datasphere/concepts/project.md#serverless), нода создается из контрольной точки. Если вы работаете в режиме {{ dd }} и хотите развернуть модель в качестве сервиса, используйте [ноды на основе моделей](../../datasphere/operations/deploy/node-create.md#from-model).

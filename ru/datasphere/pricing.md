@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ ml-platform-name }}
 
+{% include [serverless-deprecation-note](../_includes/datasphere/serverless-deprecation-note.md) %}
+
 
 
 ## Из чего складывается стоимость использования {{ ml-platform-name }} {#rules}

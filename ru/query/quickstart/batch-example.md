@@ -34,19 +34,19 @@
 
    ```sql
    $data =
-   SELECT 
-       * 
-   FROM 
-       bindings.`tutorial-analytics`;
+   SELECT
+       *
+   FROM
+       `tutorial-analytics`;
 
-   $ride_time = 
+   $ride_time =
    SELECT
        DateTime::ToMinutes(tpep_dropoff_datetime-tpep_pickup_datetime) AS ride_time
    FROM
        $data;
 
-   SELECT 
-       Histogram::Print(histogram(ride_time)) 
+   SELECT
+       Histogram::Print(histogram(ride_time))
    FROM
        $ride_time;
    ```

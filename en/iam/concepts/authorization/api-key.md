@@ -35,6 +35,6 @@ The following services support authentication based on API keys:
 
 #### See also {#see-also}
 
-* [How to create an API key](../../operations/api-key/create.md)
+* [{#T}](../../operations/api-key/create.md)
 * [{#T}](iam-token.md)
 * [{#T}](./index.md)

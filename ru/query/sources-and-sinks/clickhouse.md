@@ -7,12 +7,11 @@
 Пример чтения данных из {{ mch-name }}:
 
 ```sql
-SELECT * FROM clickhouse_mdb_connection.`my_db.my_table`
+SELECT * FROM clickhouse_mdb_connection.my_table
 ```
 
 где:
 * `clickhouse_mdb_connection` — название созданного подключения к БД.
-* `my_db` — имя базы данных {{ CH }} в кластере.
 * `my_table` — имя таблицы в базе данных.
 
 
@@ -37,6 +36,7 @@ SELECT * FROM clickhouse_mdb_connection.`my_db.my_table`
    1. В блоке **Параметры типа соединения**:
       * **Кластер** — выберите существующий кластер {{ mch-name }} или создайте новый.
       * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с ролью [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer), от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
+      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
       * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
       * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.
 
@@ -56,12 +56,11 @@ SELECT * FROM clickhouse_mdb_connection.`my_db.my_table`
 Для работы с {{ CH }} используется следующая форма SQL-запроса:
 
 ```sql
-SELECT * FROM clickhouse_mdb_connection.`<db>.<table>`
+SELECT * FROM clickhouse_mdb_connection.<table>
 ```
 
 где:
 * `clickhouse_mdb_connection` — название созданного подключения к БД.
-* `<db>` — имя базы данных {{ CH }} в кластере.
 * `<table>` — имя таблицы в базе данных.
 
 ## Ограничения {#limits}
@@ -79,6 +78,9 @@ SELECT * FROM clickhouse_mdb_connection.`<db>.<table>`
 1. Максимальное поддерживаемое количество строк в таблице - 1000000. При превышении этого значения запрос завершается с ошибкой.
 1. {% include [!](_includes/datetime_limits.md) %}
 
+## Пушдаун фильтров {#predicate_pushdown}
+
+{% include [!](_includes/predicate_pushdown.md) %}
 
 ## Поддерживаемые типы данных {#supported_types}
 

@@ -1,1 +1,1 @@
-`force-authn`: Flag that toggles required user re-authentication after a session expires in {{ yandex-cloud }}.
+`force-authn`: When the session in {{ yandex-cloud }} expires, the identity provider will ask the user to re-authenticate.

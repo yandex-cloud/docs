@@ -15,7 +15,7 @@ To use the API, you need the `grpcio-tools`, `PortAudio`, and `PyAudio` packages
 
 Authentication is performed under a service account using an [API key](../../../iam/concepts/authorization/api-key.md). Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
-## Prepare the necessary data {#preparations}
+## Prepare the required data {#preparations}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-speechkit-stt }}` role.
 1. [Get](../../../iam/operations/api-key/create.md) an API key for the service account and save it.
@@ -149,9 +149,9 @@ Authentication is performed under a service account using an [API key](../../../
 
          # Send data for recognition.
          it = stub.RecognizeStreaming(gen(), metadata=(
-         # Parameters for authorization as a service account with an API key
+         # Parameters for authenticating with an API key as a service account
             ('authorization', f'Api-Key {secret}'),
-         # For authorization with an IAM token, use the string below
+         # To authenticate with an IAM token use the string below
          #   ('authorization', f'Bearer {secret}'),
          ))
 

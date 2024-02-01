@@ -105,8 +105,8 @@ To implement an example from this section:
                      yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                      data = f.read(CHUNK_SIZE)
 
-         # Instead of iam_token, provide api_key for authorization as a service account
-         # with an API key.
+         # When authorizing with an API key
+         # as a service account, provide api_key instead of iam_token.
          # def run(api_key, audio_file_name):
          def run(iam_token, audio_file_name):
              # Establish a server connection.
@@ -116,9 +116,9 @@ To implement an example from this section:
 
              # Send data for recognition.
              it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
-             # Parameters for authorization with an IAM token
+             # Parameters for authenticating with an IAM token
                  ('authorization', f'Bearer {iam_token}'),
-             # Parameters for authorization as a service account with an API key
+             # Parameters for authenticating as a service account with an API key
              #   ('authorization', f'Api-Key {api_key}'),
              ))
 

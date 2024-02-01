@@ -1,5 +1,7 @@
 # Доступные команды
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 Список команд, доступных в ноутбуке, составлен из списка стандартных команд с некоторыми ограничениями и дополнениями. Ознакомьтесь со списком стандартных команд в [документации IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html). Ограничения и дополнения представлены ниже.
 
 ## Заблокированные стандартные команды {#block}

@@ -37,8 +37,3 @@ links:
   - title: Instance Group Scheduled Scaler
     description: Изменяет размер группы ВМ по расписанию
     href: yc-ig-scheduled-scale
-  - title: Identity Server based on Ory Kratos
-    description: >-
-      Приложение для авторизации учетных записей и управления ими на основе Ory
-      Kratos
-    href: kratos

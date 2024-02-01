@@ -1,5 +1,7 @@
 # Задать ограничения для проекта
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 В {{ ml-platform-name }} вы можете настроить ограничения потребления для проекта. Пороги потребления для проекта задаются в [юнитах](../../pricing.md#unit).
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}

@@ -220,12 +220,12 @@ To follow the steps in this section, you will need:​
 
          * `--name`: Federation name. It must be unique within the folder.
 
-         * `--organization-id`: organization ID.
+         * `--organization-id`: Organization ID.
 
          * `--auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
             This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
          * `--encrypted-assertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
@@ -285,7 +285,7 @@ To follow the steps in this section, you will need:​
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-         * `--sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+         * `--sso-binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
 
          * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -402,7 +402,7 @@ To follow the steps in this section, you will need:​
 
          * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
-         * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+         * `ssoBinding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -442,7 +442,7 @@ To follow the steps in this section, you will need:​
             {{ link-keycloak-example-old }}
             ```
 
-      * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+      * `sso_binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication:
 
          - Keycloak 17 or higher
@@ -781,7 +781,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 If you did not enable the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
-To do this, you will need user name IDs. They are returned by the IdP server together with a response confirming successful authentication.
+To do this, you will need user name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
@@ -827,7 +827,7 @@ A user can be added by an organization administrator (the `organization-manager.
       Where:
 
       * `--id`: Federation ID.
-      * `--name-ids`: Users' name IDs.
+      * `--name-ids`: Name ID of users.
 
 - API {#api}
 
@@ -863,7 +863,7 @@ Following user authentication, the IdP server will send the user a SAML message 
 
 * Information about successful authentication.
 
-* User attributes such as a list of roles, the user's first and last names, and email address.
+* User attributes such as a list of roles, the user's full name, and email address.
 
 You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. To do this:
 
@@ -939,6 +939,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 | Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `email` |
 | Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `phone` |
 | Profile image | Displayed in {{ yandex-cloud }} services. The image must be provided in Base64 format.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `thumbnailPhoto` |
+| Group membership | Used for dynamic mapping of group members. | `member` |
 
 {% note warning %}
 

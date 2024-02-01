@@ -1,5 +1,7 @@
 # Сохранение состояния
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 Состояние интерпретатора — это код ячеек, вывод и значения переменных в определенный момент времени. 
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}

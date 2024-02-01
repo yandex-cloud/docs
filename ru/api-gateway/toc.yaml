@@ -62,8 +62,6 @@ items:
           Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
           аутентификацией в Firebase
         href: tutorials/jwt-authorizer-firebase.md
-      - name: Авторизация с помощью функции {{ sf-name }} в сервисе Ory Kratos
-        href: tutorials/ory-kratos-authorization.md
       - name: Канареечный релиз функции {{ sf-name }}
         href: tutorials/canary-release.md
   - name: Концепции

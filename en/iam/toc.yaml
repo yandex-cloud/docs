@@ -23,7 +23,7 @@ items:
             href: operations/users/get.md
           - name: Deleting a user
             href: operations/users/delete.md
-      - name: Groups of users
+      - name: User groups
         items:
           - name: Creating a group
             href: operations/groups/create.md
@@ -41,10 +41,6 @@ items:
             href: operations/sa/assign-role-for-sa.md
           - name: Setting up access rights for service accounts
             href: operations/sa/set-access-bindings.md
-          - name: Creating static access keys
-            href: operations/sa/create-access-key.md
-          - name: Deleting static access keys
-            href: operations/sa/delete-access-key.md
           - name: Getting the service account ID
             href: operations/sa/get-id.md
           - name: Deleting a service account
@@ -67,6 +63,10 @@ items:
             href: operations/iam-token/create-for-federation.md
       - name: Keys
         items:
+          - name: Creating a static access key
+            href: operations/sa/create-access-key.md
+          - name: Deleting a static access key
+            href: operations/sa/delete-access-key.md
           - name: Creating API keys
             href: operations/api-key/create.md
           - name: Deleting API keys
@@ -89,7 +89,7 @@ items:
             href: concepts/access-control/system-group.md
           - name: Resources that roles can be assigned for
             href: concepts/access-control/resources-with-access-control.md
-      - name: Authorization
+      - name: Authorization and authentication
         items:
           - name: Overview
             href: concepts/authorization/index.md
@@ -294,7 +294,7 @@ items:
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
-  - name: Questions and answers
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md

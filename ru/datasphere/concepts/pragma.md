@@ -1,5 +1,7 @@
 # Служебные команды #pragma
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 Вы можете задать параметры запуска ячейки с помощью служебной команды `#pragma`.
 
 | Команда | Описание |

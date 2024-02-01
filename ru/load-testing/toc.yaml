@@ -18,6 +18,8 @@ items:
         href: operations/create-test-bucket.md
       - name: Передать логи теста в {{ cloud-logging-name }}
         href: operations/logging.md
+      - name: Создать и настроить дашборд регрессий
+        href: operations/regressions.md
       - name: Сохранить артефакты теста в {{ objstorage-name }}
         href: operations/save-artifacts.md
   - name: Практические руководства
@@ -32,6 +34,8 @@ items:
         href: tutorials/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
         href: tutorials/loadtesting-https-pandora.md
+      - name: HTTP-тест с нагрузкой по сценарию с помощью Pandora
+        href: tutorials/loadtesting-http-scenario-pandora.md
       - name: Нагрузочный тест с помощью JMeter
         href: tutorials/loadtesting-jmeter.md
       - name: Нагрузочное тестирование с нескольких агентов
@@ -74,6 +78,8 @@ items:
         href: concepts/monitoring.md
       - name: Отчеты
         href: concepts/reports.md
+      - name: Регрессии нагрузочных тестов
+        href: concepts/load-test-regressions.md
       - name: Результаты нагрузочного теста
         href: concepts/load-test-results.md
       - name: Сравнение результатов нагрузочных тестов

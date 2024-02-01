@@ -3,37 +3,30 @@ title: "How to work with {{ org-full-name }}"
 description: "In this article, you will learn how to work with {{ org-full-name }} in {{ yandex-cloud }}."
 ---
 
-# Step-by-step guides for {{ org-full-name }}
+# Guides on using {{ org-full-name }}
 
-## Managing organizations {#orgs}
+## Managing organizations {#manage-orgs}
 
-* [{#T}](manage-org.md)
 * [{#T}](enable-org.md)
 * [{#T}](org-profile.md)
 * [{#T}](manage-organizations.md)
 * [{#T}](delete-org.md)
 
-## Managing users {#users}
+## Managing users {#manage-users}
 
-* [{#T}](manage-users.md)
 * [{#T}](add-account.md)
 * [{#T}](users-get.md)
+* [{#T}](add-role.md)
 * [{#T}](edit-account.md)
 * [{#T}](leave-organization.md)
-
-## Managing user groups {#groups}
-
 * [{#T}](manage-groups.md)
 
-## Access management {#security}
+## Managing federations {#manage-feds}
 
-* [{#T}](security.md)
-* [{#T}](add-org-admin.md)
-* [{#T}](add-role.md)
-* [{#T}](groups-access-binding.md)
-* [{#T}](revoke-role.md)
+* [{#T}](setup-federation.md)
+* [{#T}](federation-group-mapping.md)
 
-## OS Login {#oslogin}
+## Working with OS Login {#os-login}
 
 * [{#T}](os-login-access.md)
 * [{#T}](os-login-profile-create.md)

@@ -8,7 +8,7 @@
 SELECT
     *
 FROM
-    bindings.`logs`
+    `logs`
 WHERE
     version>1
 ```
@@ -48,14 +48,13 @@ WHERE
 SELECT
     <expression>
 FROM
-    bindings.`binding_name`
+    `binding_name`
 WHERE
     <filter>;
 ```
 
 Где:
 
-* `bindings` — ключевое слово, означающую работу с {{ objstorage-short-name }} с помощью привязок к данным.
 * `binding_name` — название ранее созданной привязки к данным.
 
 ## Пример чтения данных c помощью привязок к данным {#binding-example}
@@ -66,7 +65,7 @@ WHERE
 SELECT
     *
 FROM
-    bindings.`binding_name`
+    `binding_name`
 ```
 
 Где `binding_name` — название привязки к данным в {{ objstorage-short-name }}.

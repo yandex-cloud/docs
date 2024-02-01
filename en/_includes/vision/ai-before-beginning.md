@@ -52,6 +52,6 @@ Get the authorization data for your account:
          Authorization: Api-Key <API key>
          ```
 
-   Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder where the service account was created.
+   Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder in which the service account was created.
 
 {% endlist %}

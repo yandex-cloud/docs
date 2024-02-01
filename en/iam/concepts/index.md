@@ -1,6 +1,6 @@
 ---
 title: "{{ iam-full-name }} overview"
-description: "The {{ iam-name }} (IAM) service controls access to resources and lets you configure access rights. You determine who should have rights to a certain resource and what these rights are, while {{ iam-short-name }} grants access according to the assigned rights."
+description: "The {{ iam-name }} (IAM) service controls access to resources and enables you to configure access rights. You determine who should have rights to a certain resource and what these rights are, while {{ iam-short-name }} grants access according to the assigned rights."
 ---
 
 # {{ iam-full-name }} overview
@@ -11,9 +11,8 @@ With {{ iam-short-name }}, you can:
 
 * [Grant access to resources](#access).
 * [Manage accounts in {{ yandex-cloud }}](#accounts).
-* [Manage authorization keys](#keys).
-* [Logging in to {{ yandex-cloud }}](#auth).
-
+* [Manage authentication keys](#keys).
+* [Log in to {{ yandex-cloud }}](#auth).
 
 ## Resource access {#access}
 
@@ -52,7 +51,7 @@ By using service accounts you can flexibly configure access rights to resources 
 
 ### Federated accounts {#saml-federation}
 
-A _federated account_ is a user account from an identity federation, like Active Directory.
+A _federated account_ is a user account from an identity federation, e.g., Active Directory.
 
 {% include [about-saml-federations](../../_includes/iam/about-saml-federations.md) %}
 
@@ -60,7 +59,7 @@ For more information, see [{#T}](../../organization/concepts/add-federation.md).
 
 ## Authorization keys {#keys}
 
-There are three different kinds of authorization keys in {{ yandex-cloud }}:
+There are three types of keys used for authentication in {{ yandex-cloud }}:
 
 * [API keys](authorization/api-key.md): Used instead of IAM tokens for simplified authorization.
 * [Authorized keys](authorization/key.md): Used to obtain IAM tokens for service accounts.
