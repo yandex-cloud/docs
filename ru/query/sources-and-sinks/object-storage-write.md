@@ -5,10 +5,10 @@
 Пример записи данных в формате `JSON` с использованием привязки к данным:
 
 ```sql
-INSERT INTO bindings.`my_binding` 
+INSERT INTO `my_binding`
 SELECT
     "value" AS value, "name" AS name
-FROM 
+FROM
     $data;
 ```
 
@@ -26,8 +26,8 @@ INSERT INTO `<connection_name>`.`<bucket_path>`
         compression='<compression>'
     )
 SELECT
-    <expression> 
-FROM 
+    <expression>
+FROM
     <query>
 ```
 
@@ -42,7 +42,7 @@ FROM
 Пример запроса для записи данных в {{ objstorage-short-name }} с использованием соединения:
 
 ```sql
-INSERT INTO `connection`.`test/` 
+INSERT INTO `connection`.`test/`
     WITH
     (
         format='csv_with_names'
@@ -61,13 +61,13 @@ SELECT
 Если записывать данные нужно регулярно, то удобно делать это с помощью привязок к данным. При этом нет необходимости указывать все детали работы с этими данными в каждом запросе. Для записи данных в бакет создайте [привязку к данным](object-storage-binding.md) в {{ objstorage-short-name }} и используйте SQL-выражение:
 
 ```sql
-INSERT INTO bindings.`<binding_name>`
-SELECT    
-    <expression> 
-FROM 
+INSERT INTO `<binding_name>`
+SELECT
+    <expression>
+FROM
     <query>
 ```
- 
+
 Где:
 
 * `binding_name` — название привязки к данным в {{ objstorage-short-name }}.
@@ -78,14 +78,13 @@ FROM
 Пример запроса для записи данных в {{ objstorage-short-name }} c помощью привязок к данным:
 
 ```sql
-INSERT INTO bindings.`test` 
+INSERT INTO `test`
 SELECT
     "value" AS value, "name" AS name
 ```
 
 Где:
 
-* `bindings` — ключевое слово, означающее, что запись выполняется через привязки к данным.
 * `test` — название привязки к данным в {{ objstorage-short-name }}.
 
 ## Поддерживаемые форматы записи {#write-formats}

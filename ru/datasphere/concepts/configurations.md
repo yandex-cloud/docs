@@ -1,5 +1,7 @@
 # Конфигурации вычислительных ресурсов
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 [В режиме {{ ds }}](project.md#serverless) сразу после создания проект запускается с минимальной конфигурацией вычислительных ресурсов — <q>c1.4</q> (4 vCPU). Вы можете [изменить конфигурацию](../operations/projects/control-compute-resources.md) в процессе работы в ноутбуке. При этом состояние интерпретатора сохранится: все переменные и результаты вычислений не потеряются.
 
 [В режиме {{ dd }}](project.md#dedicated) можно выбрать конфигурацию из списка [разрешенных в сообществе](../operations/community/manage-community-config.md). 

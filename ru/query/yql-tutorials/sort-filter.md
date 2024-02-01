@@ -8,11 +8,11 @@
 * Исключить поездки со стоимостью более 1000000 долларов.
 
 ```sql
-SELECT 
+SELECT
     *
-FROM 
-    bindings.`tutorial-analytics` 
-WHERE 
+FROM
+    `tutorial-analytics`
+WHERE
     tip_amount > 0          -- Список условий для формирования результата.
     AND                     -- Оператор И (AND) для написания сложных условий.
     total_amount < 1000000

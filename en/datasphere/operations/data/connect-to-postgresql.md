@@ -10,9 +10,9 @@ In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/
 
 ## Connecting to a host {#connect-to-host}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    To connect to {{ mpg-short-name }} cluster hosts:
 
@@ -50,7 +50,7 @@ In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/
       ('PostgreSQL 14.6 (Ubuntu 14.6-201-yandex.52665.7e82983c2c) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit',)
       ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. If this is the case, internal cloud network traffic will not be encrypted for connecting to a database.
 

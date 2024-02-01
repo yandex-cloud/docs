@@ -44,13 +44,13 @@ To run this example:
    SELECT
        *
    FROM
-       `bindings`.`tutorial-analytics`;
+       `tutorial-analytics`;
 
    $locations =
    SELECT
        PULocationID
    FROM
-       `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
+       `tutorial-analytics-bucket`.`nyc_taxi_sample/example_locations.csv`
    WITH
    (
        format=csv_with_names,
@@ -64,7 +64,7 @@ To run this example:
    SELECT
        HOP_END() AS time,
        rides.PULocationID AS PULocationID,
-       SUM(total_amount) AS total_amount    
+       SUM(total_amount) AS total_amount
    FROM $data AS rides
    INNER JOIN $locations AS locations
        ON rides.PULocationID=locations.PULocationID
@@ -122,7 +122,7 @@ Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **S
    SELECT
        PULocationID
    FROM
-       `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
+       `tutorial-analytics-bucket`.`nyc_taxi_sample/example_locations.csv`
    WITH
    (
        format=csv_with_names,
@@ -136,7 +136,7 @@ Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **S
    SELECT
        HOP_END() AS time,
        rides.PULocationID AS PULocationID,
-       SUM(total_amount) AS total_amount    
+       SUM(total_amount) AS total_amount
    FROM $data AS rides
    INNER JOIN $locations AS locations
        ON rides.PULocationID=locations.PULocationID

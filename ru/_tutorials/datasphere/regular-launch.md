@@ -1,3 +1,6 @@
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
+
 Организовать сценарии регулярных запусков в [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) можно с помощью API, вызывая исполнение ячеек ноутбука в [{{ sf-full-name }}](../../functions/index.yaml).
 
 В этом практическом руководстве вы соберете информацию о наиболее обсуждаемых на [Reddit](https://tradestie.com/api/v1/apps/reddit) акциях, проанализируете тональность обсуждения и настроите регулярное обновление данных.

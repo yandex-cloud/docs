@@ -9,7 +9,6 @@ description: "Various {{ org-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](integration-gworkspace.md)
 * [{#T}](integration-azure.md)
 * [{#T}](integration-keycloak.md)
-* [{#T}](integration-common.md)
 
 ## Mapping user groups
 

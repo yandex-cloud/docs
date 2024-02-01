@@ -11,7 +11,7 @@ message: ; status: 429; description: ; code: undefined; Request ID: undefined; T
 
 Такая ошибка говорит о слишком большом количестве запросов. При ее возникновении рекомендуем снизить частоту обращений к Object Storage.
 
-{% noteinfo %}
+{% note info %}
 
 Со всеми кодами ошибок и ответов API Object Storage можно ознакомиться в [документации](../../../storage/s3/api-ref/response-codes.md)
 

@@ -79,4 +79,4 @@ To configure your identity federation, follow these steps:
 
    * [Active Directory](tutorials/federations/integration-adfs.md).
    * [Google Workspace](tutorials/federations/integration-gworkspace.md).
-   * [Other SAML-compatible identity providers](tutorials/federations/integration-common.md).
+   * [Other SAML-compatible identity providers](operations/setup-federation.md).

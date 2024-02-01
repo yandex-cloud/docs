@@ -413,8 +413,6 @@ items:
         href: tutorials/regular-launch-datasphere.md
       - name: Интерактивная отладка функций
         href: tutorials/serverless-live-debug.md
-      - name: Авторизация с помощью функции в сервисе Ory Kratos
-        href: tutorials/ory-kratos-authorization.md
       - name: Регулярное распознавание аудиофайлов в бакете {{ objstorage-name }}
         href: tutorials/batch-recognition-stt.md
       - name: Канареечный релиз функции {{ sf-name }}

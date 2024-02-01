@@ -1359,7 +1359,13 @@ default:
     tts_gpu:
       v1|string: "1\_320,0000\_₽"
     tts:
-      dialogue_platform:
+      v3_bvcc_request:
+        v1|string: "0,1600\_₽"
+      v3_bvprem_request:
+        v1|string: "0,1600\_₽"
+      v3_bvss_request:
+        v1|string: "0,1600\_₽"
+      v3_request:
         v1|string: "0,1600\_₽"
   sku|RUB|storage:
     api:
@@ -2218,7 +2224,13 @@ default:
     tts_gpu:
       v1|string: "10,560000\_$"
     tts:
-      dialogue_platform:
+      v3_bvcc_request:
+        v1|string: "0,001280\_$"
+      v3_bvprem_request:
+        v1|string: "0,001280\_$"
+      v3_bvss_request:
+        v1|string: "0,001280\_$"
+      v3_request:
         v1|string: "0,001280\_$"
   sku|USD|storage:
     api:
@@ -5313,10 +5325,14 @@ default:
       load-testing:
         button_add-bucket: Привязать бакет
         button_add-overload-test-id: Добавить ID
+        button_add-tag: Добавить метку
         button_comparison-test-add: Добавить к сравнению
         button_create-agent: Создать агент
+        button_create-chart: Создать график
+        button_create-regression-dashboard: Создать дашборд
         button_create-test: Создать тест
         button_duplicate-configuration: Дублировать конфигурацию
+        field_chart-name: Название графика
         field_config-file: Файл конфигурации
         field_export-bucket: Имя бакета
         field_export-enable: Сохранять артефакты
@@ -5330,11 +5346,14 @@ default:
         field_settings-type: Способ настройки
         field_target-address: Адрес цели
         field_target-port: Порт цели
+        field_test-data-type: Тип данных
         label_agents-list: Агенты
         label_choose-from-bucket: Выбрать из бакета
         label_import-tests-from-overload: Импортировать тесты из Overload
         label_local-source: С компьютера
         label_monitoring-report: Мониторинг
+        label_quantiles: Квантили
+        label_regressions-title: Регрессии
         label_results-comparison-section-title: Сравнение результатов
         label_rps: Ответов в секунду
         label_settings-type-config: Конфигурационный файл
@@ -5343,7 +5362,9 @@ default:
         label_test-config: Конфигурация
         label_test-data_list: Хранилище тестовых данных
         label_test-report: Результаты теста
+        label_test-rules-section: Правила добавления тестов
         label_test-settings: Настройки теста
+        label_test-tags: Метки теста
         label_tests-comparison-section-title: Сравнение
         label_tests-list: Тесты
         meta-section: Информация о тесте
@@ -5351,6 +5372,9 @@ default:
         section_agent: Агент
         section_export: Логи теста
         test-data-section: Прикрепленные файлы
+        value_cumulative-quantiles-chart-type: Кумулятивные квантили ответов
+        value_imbalance_rps-chart-type: RPS разладки
+        value_instances-chart-type: Количество тестирующих потоков
       lockbox:
         button_action-make-version-current: Сделать текущей версией
         button_action-open-version-add-dialog: Создать новую версию на основе этой

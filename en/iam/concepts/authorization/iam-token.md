@@ -1,6 +1,6 @@
 # IAM token
 
-An IAM token is a unique sequence of characters issued to a user after authentication. The user needs this token for authorization in the {{ yandex-cloud }} API and access to resources.
+An IAM token is a unique sequence of characters issued to a user after authentication.
 
 ## Using the token {#use}
 
@@ -10,9 +10,9 @@ In the management console and the command line interface (CLI), the token is obt
 
 ## The lifetime {#lifetime}
 
-IAM tokens are valid for a maximum of {{ iam-token-lifetime }}. A token's lifetime is specified in a response from the service that returns the token. For example, the [VM metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md).
+IAM tokens are valid for a maximum of {{ iam-token-lifetime }}. A token's lifetime is specified in a response from the service that returns the token, e.g., the [VM metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
-To avoid a situation when your token has expired and you don't have a new token yet, request it beforehand.
+To avoid a situation when your token has expired and you do not have a new token yet, request it beforehand.
 
 If you generate a new {{ iam-short-name }} token, the previous one continues to be valid until its lifetime expires.
 
@@ -22,7 +22,7 @@ The {{ iam-short-name }} API may return the same token in response to different 
 
 ## Services that support this authentication method {#supported-services}
 
-This authentication method is supported by all services, except for those with AWS-compatible APIs (they only need an IAM token for managing [access keys](access-key.md) and [service accounts](../users/service-accounts.md)).
+This authentication method is supported by all services, except for those with AWS-compatible APIs. Such services require an IAM token only for managing [access keys](access-key.md) and [service accounts](../users/service-accounts.md).
 
 ## Token representation {#iam-token-format}
 

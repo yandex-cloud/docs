@@ -182,4 +182,4 @@ For more information about the response format and codes, see [{#T}](../../conce
 
 * [{#T}](transcribation-lpcm.md)
 * [{#T}](transcribation-ogg.md)
-* [{#T}](batch-transcribation.md).
+* [{#T}](batch-transcribation.md)

@@ -1,6 +1,6 @@
 ---
 title: "{{ captcha-full-name }} widget installation methods"
-description: "You can use the automatic or advanced method to install the {{ captcha-name }} widget. Depending on the connection method, the method of transmitting parameters for the widget differs."
+description: "You can use the automatic or advanced method to connect the {{ captcha-name }} widget. Depending on the connection method, different widget parameter transmission methods are used."
 ---
 
 # Widget installation methods {{ captcha-full-name }}
@@ -172,7 +172,7 @@ The `getResponse` method returns the current value of the user token.
 
 ### Execute method {#execute}
 
-The `execute` method starts user validation. It is used to start the invisible CAPTCHA test at a certain event, for example, when the user clicks the submit authorization form button.
+The `execute` method starts user validation. It is used to initiate the invisible CAPTCHA test at a certain event, e.g., when the user clicks the **Submit** button of an authentication form.
 
 ```ts
 (widgetId: WidgetId | undefined) => void;

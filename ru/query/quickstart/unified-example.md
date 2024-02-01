@@ -40,41 +40,41 @@
 1. В текстовом поле введите текст запроса:
 
    ```sql
-   $data = 
-   SELECT 
+   $data =
+   SELECT
        *
-   FROM 
-       `bindings`.`tutorial-analytics`;
+   FROM
+       `tutorial-analytics`;
 
-   $locations = 
-   SELECT 
+   $locations =
+   SELECT
        PULocationID
-   FROM 
+   FROM
        `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
-   WITH 
+   WITH
    (
        format=csv_with_names,
-       SCHEMA 
+       SCHEMA
        (
-           PULocationID String 
+           PULocationID String
        )
    );
 
-   $time = 
+   $time =
    SELECT
        HOP_END() AS time,
        rides.PULocationID AS PULocationID,
-       SUM(total_amount) AS total_amount    
+       SUM(total_amount) AS total_amount
    FROM $data AS rides
    INNER JOIN $locations AS locations
        ON rides.PULocationID=locations.PULocationID
-   GROUP BY 
+   GROUP BY
        HOP(CAST(tpep_pickup_datetime AS Timestamp?), "PT1M", "PT1M", "PT1M"),
        rides.PULocationID;
 
-   SELECT 
-       * 
-   FROM 
+   SELECT
+       *
+   FROM
        $time;
    ```
 
@@ -113,40 +113,40 @@
 1. В текстовом поле введите текст запроса:
 
    ```sql
-   $data = 
-   SELECT 
+   $data =
+   SELECT
        *
    FROM bindings.`tutorial-streaming`;
 
-   $locations = 
-   SELECT 
+   $locations =
+   SELECT
        PULocationID
-   FROM 
+   FROM
        `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
-   WITH 
+   WITH
    (
        format=csv_with_names,
-       SCHEMA 
+       SCHEMA
        (
-           PULocationID String 
+           PULocationID String
        )
    );
 
-   $time = 
+   $time =
    SELECT
        HOP_END() AS time,
        rides.PULocationID AS PULocationID,
-       SUM(total_amount) AS total_amount    
+       SUM(total_amount) AS total_amount
    FROM $data AS rides
    INNER JOIN $locations AS locations
        ON rides.PULocationID=locations.PULocationID
-   GROUP BY 
+   GROUP BY
        HOP(cast(tpep_pickup_datetime AS Timestamp?), "PT1M", "PT1M", "PT1M"),
        rides.PULocationID;
 
-   SELECT 
-       * 
-   FROM 
+   SELECT
+       *
+   FROM
        $time;
    ```
 

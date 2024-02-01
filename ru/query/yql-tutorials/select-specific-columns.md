@@ -4,19 +4,19 @@
 
 Например:
 
-* Выбрать данные из колонок `age`, `last_visit_time` и `region`. 
+* Выбрать данные из колонок `age`, `last_visit_time` и `region`.
 * Переименовать `region` в `area`.
 * Сменить тип колонки `release_date` с `Int32` на `DateTime`
 
 ```sql
-SELECT 
+SELECT
     VendorID,                           -- Имена колонок (VendorID, trip_distance)
     trip_distance,                      -- перечисляются через запятую.
     fare_amount AS fare,                -- С помощью AS можно переименовать столбцы
     (total_amount/1000) AS total_amount_thousand_dollars, -- или дать имя произвольному выражению,
     CAST(VendorID as Uint32) AS vendorID -- с помощью CAST можно поменять тип данных.
-FROM 
-    bindings.`tutorial-analytics` 
+FROM
+    `tutorial-analytics`
 LIMIT 10
 ```
 
