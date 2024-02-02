@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/create-issue-field-category.md
 ---
-# Create an issue field category
+# Creating an issue field category
 
 Use this request to create a category for an issue field.
 
@@ -9,7 +9,7 @@ Use this request to create a category for an issue field.
 
 Before making the request, [get permission to access the API](../access.md).
 
-To create an issue field category, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
+To create an issue field category, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/fields/categories
@@ -22,7 +22,7 @@ Authorization: OAuth <OAuth token>
         "en": "Name in English",
         "ru": "Name in Russian"
         },
-        "description": "Text description", 
+        "description": "Text description",
     "order": 400
 }
 ```
@@ -60,7 +60,7 @@ Authorization: OAuth <OAuth token>
     {
         "id" : "604f9920d23cd5e1697ee3",
         "name" : "category_name",
-        "self" : "{{ host }}/v2/fields/categories/604f9920d23cd5e1697ee3",
+        "self" : "https://{{ host }}/v2/fields/categories/604f9920d23cd5e1697ee3",
         "version" : 1
     }
     ```
@@ -95,4 +95,3 @@ Authorization: OAuth <OAuth token>
     {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

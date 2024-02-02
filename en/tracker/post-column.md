@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/post-column.md
 ---
-# Create a column
+# Creating a column
 
 Use this request to create a column on an issue board.
 
@@ -60,7 +60,7 @@ If-Match: "<version number>"
 {% cut "Resource" %}
 
 Parameter | Description | Data type
-----0000- | ----------- | ---------
+----- | ----- | -----
 \<board-id\> | Board ID | Number
 
 {% endcut %}
@@ -80,7 +80,7 @@ statuses | The array contains the keys of possible statuses of issues to be incl
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -88,13 +88,13 @@ statuses | The array contains the keys of possible statuses of issues to be incl
 
     ```json
     {
-        "self": "{{ host }}/v2/boards/73/columns/5",
+        "self": "https://{{ host }}/v2/boards/73/columns/5",
         "id": 5,
         "name": "Approve",
         "statuses":
          [
             {
-               "self": "{{ host }}/v2/statuses/2",
+               "self": "https://{{ host }}/v2/statuses/2",
                "id": "2",
                "key": "needInfo",
                "display": "Need info"
@@ -119,7 +119,7 @@ statuses | The array contains the keys of possible statuses of issues to be incl
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

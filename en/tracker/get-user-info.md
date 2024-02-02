@@ -42,7 +42,7 @@ curl --request GET "{{ host }}/v2/myself" \
    ```json
       [
          {
-         "self": "{{ host }}/v2/users/1234567890",
+         "self": "https://{{ host }}/v2/users/1234567890",
          "uid": 1234567890,
          "login": "<user_login>",
          "trackerUid": 1234567890,
@@ -50,7 +50,7 @@ curl --request GET "{{ host }}/v2/myself" \
          "cloudUid": "bfbdrb1aa248v8n5vkcq",
          "firstName": "<First name>",
          "lastName": "<Last name>",
-         "display": "<First and last name>",
+         "display": "<Full name>",
          "email": "<login@yandex.ru>",
          "external": false,
          "hasLicense": true,
@@ -73,12 +73,12 @@ curl --request GET "{{ host }}/v2/myself" \
    -------- | -------- | ----------
    | self | Address of the API resource with information about the user account | String |
    | uid | Unique ID of the user {{ tracker-name }} account | Number |
-   | login | Username of the user | String |
+   | login | User's login | String |
    | trackerUid | Unique ID of the user {{ tracker-name }} account | Number |
    | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | Number |
    | cloudUid | User unique ID in {{ org-full-name }} | String |
-   | firstName | First name of the user | String |
-   | lastName | Last name of the user | String |
+   | firstName | User's first name | String |
+   | lastName | User's last name | String |
    | display | Displayed user name | String |
    | email | User email address | String |
    |  |
@@ -94,7 +94,7 @@ curl --request GET "{{ host }}/v2/myself" \
 
    {% endcut %}
 
-- The request failed
+- Request failed
 
     {% include [answer-error-401](../_includes/tracker/api/answer-error-401.md) %}
 

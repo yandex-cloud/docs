@@ -2,9 +2,9 @@
 
 Чтобы настроить {{ GL }} и подготовить процесс непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для авторизации в CI:
 
-{% list tabs %}
+{% list tabs group=gl_installation %}
 
-- Инстанс {{ mgl-name }}
+- Инстанс {{ mgl-name }} {#instance-mgl}
 
   1. Авторизуйтесь в веб-интерфейсе [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
   1. Нажмите кнопку **Create a project**.
@@ -16,7 +16,7 @@
      Остальные поля оставьте без изменений.
   1. Нажмите кнопку **Create project**.
 
-- Виртуальная машина с образом {{ GL }}
+- ВМ с образом {{ GL }} {#gl-image-vm}
 
   1. На странице сервиса {{ compute-full-name }} выберите созданную [ВМ](../../compute/concepts/vm.md) и скопируйте ее [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.

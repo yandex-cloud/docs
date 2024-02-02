@@ -235,6 +235,8 @@ items:
         items:
           - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
             href: tutorials/data-from-metrica-yc-visualization.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Обзор
@@ -343,6 +345,8 @@ items:
                 href: api-ref/S3/activate.md
               - name: deactivate
                 href: api-ref/S3/deactivate.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

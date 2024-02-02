@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/post-macros.md
 ---
-# Create a macro
+# Creating a macro
 
 Use this request to create [macros](manager/create-macroses.md).
 
@@ -24,7 +24,7 @@ Authorization: OAuth <token>
     {
       "field": "tags",
       "value": "tag1"
-    }, 
+    },
      ...
   ]
 }
@@ -52,15 +52,15 @@ Authorization: OAuth <token>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| body | Message to be created when executing the macro. Use [special formatting](common-format.md#text-format) to format your message.<br/>To delete a message, use the `"body": {"unset":1}` string. | String |
+| body | Message to be created when executing the macro. Use a [special format](common-format.md#text-format) for the message text.<br/>To delete a message, use `"body": {"unset":1}` | String |
 | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
 
-**Array objects** `fieldChanges` {#fieldChanges}
+`fieldChanges` **array objects** {#fieldChanges}
 
-Parameter | Description | Data type
--------- | -------- | ----------
-field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-value | Issue field value. | String
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String |
+| value | Issue field value. | String |
 
 {% endcut %}
 
@@ -76,31 +76,31 @@ value | Issue field value. | String
 
     ```json
       {
-        "self": "{{ host }}/v2/queues/TEST/macros/3",
-        "id": 3,
-        "queue": {
-          "self": "{{ host }}/v2/queues/TEST", 
-          "id": "1",
-          "key": "TEST",
-          "display": "Test queue"
+         "self": "https://{{ host }}/v2/queues/TEST/macros/3",
+         "id": 3,
+         "queue": {
+           "self": "https://{{ host }}/v2/queues/TEST",
+           "id": "1",
+           "key": "TEST",
+           "display": "Test queue"
+            },
+         "name": "Test macro",
+         "body": "Test comment\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
+         "fieldChanges": [
+           {
+             "field": {
+                "self": "https://{{ host }}/v2/fields/tags",
+                "id": "tags",
+                "display": "Tags"
+               },
+             "value": [
+                     "tag1"
+                      ]
            },
-        "name": "Test macro",
-        "body": "Test comment\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
-        "fieldChanges": [
-          {
-            "field": {
-               "self": "{{ host }}/v2/fields/tags", 
-               "id": "tags",
-               "display": "Tags"
-              },
-            "value": [
-                    "tag1"
-                     ]
-          },
-           ...
-        ]
-      }
-    ```
+            ...
+         ]
+       }
+     ```
 
     {% cut "Response parameters" %}
 
@@ -113,18 +113,18 @@ value | Issue field value. | String
     | body | Message to be created when executing the macro. | String |
     | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
 
-    **Object fields** `queue`{#queue}
+    `queue` **object fields** {#queue}
 
     {% include [queue](../_includes/tracker/api/queue.md) %}
 
-    **Object fields** `fieldChanges` {#fieldChanges}
+    `fieldChanges` **object fields** {#fieldChanges}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | [field](#field) | Object with information about the issue field. | Object |
     | value | Array of issue field values. | Array of objects |
 
-    **Object fields** `field` {#field}
+    `field` **object fields** {#field}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -151,4 +151,3 @@ value | Issue field value. | String
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

@@ -1,7 +1,10 @@
 ---
+title: "How to import links"
+description: "This article describes how to import links."
 sourcePath: en/tracker/api-ref/concepts/import/import-links.md
 ---
-# Import links
+
+# Importing links
 
 {% note warning %}
 
@@ -49,14 +52,14 @@ Authorization: OAuth <token>
 | -------- | -------- | ---------- |
 | relationship | Type of links between issues:<ul><li>`relates`: Simple link.</li><li>`is dependent by`: The current issue blocks the linked one.</li><li>`depends on`: The current issue depends on the linked one.</li><li>`is subtask for`: The current issue is a sub-issue of the linked one.</li><li>`is parent task for`: The current issue is a parent issue of the linked one.</li><li>`duplicates`: The current issue duplicates the linked one.</li><li>`is duplicated by`: The linked issue duplicates the current one.</li><li>`is epic of`: The current issue is an epic of the linked one. You can only set this type of link for Epic-type issues.</li><li>`has epic`: The linked issue is an epic of the current one. You can only set this type of link for Epic-type issues.</li><li>`clone`: The linked issue is a clone of the current one.</li><li>`original`: The current issue is a clone of the linked one.</li></ul> | String |
 | issue | ID or key of the issue being linked. | String |
-| createdAt | Link creation date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify a value in the interval from the time of creation to the time the issue being linked was last updated. | String |
+| createdAt | Link creation date and time. `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify a value in the interval from the time of creation to the time the issue being linked was last updated. | String |
 | createdBy | Username or ID of the user who created the link. | <ul><li>String for the username</li><li> Number for the ID</li></ul> |
 
 **Additional parameters**
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| updatedAt | Date and time of the link's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify a value in the interval from the time of creation to the time the issues being linked were last updated.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String |
+| updatedAt | Date and time when the link was last updated. `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify a value in the interval from the time of creation to the time the issues being linked were last updated.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String |
 | updatedBy | Username or ID of the user who edited the link last.<br/><br/>The parameter is only used together with the `updatedAt` parameter. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
 
 {% endcut %}
@@ -73,40 +76,40 @@ Authorization: OAuth <token>
 
     ```json
     {
-            "self": "{{ host }}/v2/issues/JUNE-2/links/4709605",
+            "self": "https://{{ host }}/v2/issues/JUNE-2/links/4709605",
             "id": 4709605,
             "type": {
-                "self": "{{ host }}/v2/linktypes/subtask",
+                "self": "https://{{ host }}/v2/linktypes/subtask",
                 "id": "subtask",
                 "inward": "Sub-issue",
                 "outward": "Parent issue"
             },
             "direction": "outward",
             "object": {
-                "self": "{{ host }}/v2/issues/TREK-9844",
+                "self": "https://{{ host }}/v2/issues/TREK-9844",
                 "id": "593cd211ef7e8a332414f2a7",
                 "key": "TREK-9844"
                 "display": "subtask"
             },
             "createdBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "display": "<displayed employee name>"
             },
             "updatedBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "display": "<displayed employee name>"
             },
             "createdAt": "2017-06-11T05:16:01.421+0000",
             "updatedAt": "2017-06-11T05:16:01.421+0000",
             "assignee": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "display": "<displayed employee name>"
             },
             "status": {
-                "self": "{{ host }}/v2/statuses/1",
+                "self": "https://{{ host }}/v2/statuses/1",
                 "id": "1",
                 "key": "open",
                 "display": "Open"
@@ -152,25 +155,25 @@ Authorization: OAuth <token>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Link to the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    | self | Link to the user | String |
+    | id | User ID | String |
+    | display | Displayed user name | String |
 
     **Object fields** `updatedBy` {#updatedBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Link to the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    | self | Link to the user | String |
+    | id | User ID | String |
+    | display | Displayed user name | String |
 
     **Object fields** `assignee` {#asignee}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Link to the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    | self | Link to the user | String |
+    | id | User ID | String |
+    | display | Displayed user name | String |
 
     **Object fields** `status` {#status}
 
@@ -185,7 +188,7 @@ Authorization: OAuth <token>
 
 - Request failed
 
-    If a request fails, the response message contains details of the errors encountered:
+    If the request is processed incorrectly, the API returns a message with error details:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

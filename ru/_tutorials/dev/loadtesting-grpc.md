@@ -70,15 +70,15 @@
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к агенту по протоколу [SSH](../../glossary/ssh-keygen.md).
 1. Выполните команду для проверки работы протокола gRPC Server Reflection на gRPC-сервисе:
 
-   {% list tabs %}
+   {% list tabs group=connection %}
 
-   - TLS-соединение
+   - Подключение с TLS {#with-tls}
 
      ```bash
      grpcurl 172.17.0.10:8080 list
      ```
 
-   - Стандартное соединение
+   - Подключение без TLS {#without-tls}
 
      ```bash
      grpcurl --plaintext 172.17.0.10:8080 list

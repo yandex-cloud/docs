@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/add-comment.md
 ---
-# Add comment
+# Adding a comment
 
 Use this request to add a comment to an issue.
 
@@ -9,7 +9,7 @@ Use this request to add a comment to an issue.
 
 Before making the request, [get permission to access the API](../access.md).
 
-To add a comment to an issue, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
+To add a comment to an issue, use an HTTP `POST` request. Provide the request parameter in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/issues/<issue-id>/comments
@@ -32,7 +32,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| isAddToFollowers | Add the user who made the comment to followers (by default, `true`). | Boolean |
+| isAddToFollowers | Add the user who made the comment to followers (by default, `true`). | Logical |
 
 {% endcut %}
 
@@ -65,40 +65,40 @@ Authorization: OAuth <OAuth token>
     The response body contains information about the added comment in JSON format.
 
     ```json
-    [ 
+    [
     {
-      "self" : "{{ host }}/v2/issues/TREK-1/comments/626",
-      "id" : 626,  
-      "longId" : "5fa15a24ac894475dd14ff07",  
-      "text": "<comment text>",
+      "self" : "https://{{ host }}/v2/issues/TREK-1/comments/626",
+      "id" : 626,
+      "longId" : "5fa15a24ac894475dd14ff07",
+      "text" : "<comment text>",
       "createBody" : {
-       "self" : "{{ host }}/v2/users/1120000000016876",
+       "self" : "https://{{ host }}/v2/users/1120000000016876",
        "id" : "<user ID>",
-       "display" : "<user's name displayed"
+       "display" : "<displayed user name>"
       },
       "updateBody" : {
-       "self" : "{{ host }}/v2/users/1120000000016876",
+       "self" : "https://{{ host }}/v2/users/1120000000016876",
        "id" : "<user ID>",
-       "display" : "<user's name displayed"
+       "display" : "<displayed user name>"
       },
-      "createdAt" : "2020-11-03T13:24:52.575+0000",  
-      "updatedAt" : "2020-11-03T13:24:52.575+0000",  
+      "createdAt" : "2020-11-03T13:24:52.575+0000",
+      "updatedAt" : "2020-11-03T13:24:52.575+0000",
       "summonees" : [
-       { 
-        "self" : "{{ host }}/v2/users/1120000000016576",
+       {
+        "self" : "https://{{ host }}/v2/users/1120000000016576",
         "id" : "<user ID>",
-        "display" : "<user's name displayed"
-       } 
+        "display" : "<displayed user name>"
+       }
       ],
      "maillistSummonees" : [
-       { 
-        "self" : "{{ host }}/v2/maillists/usertest@test.ru",
+       {
+        "self" : "https://{{ host }}/v2/maillists/usertest@test.ru",
         "id" : "<mailing list address>",
-        "display" : "<mailing list name displayed>"
-       } 
-      ], 
-      "version" : 1,  
-      "type" : "standard",  
+        "display" : "<displayed mailing list name>"
+       }
+      ],
+      "version" : 1,
+      "type" : "standard",
       "transport" : "internal"
     }
     ]
@@ -118,23 +118,23 @@ Authorization: OAuth <OAuth token>
     | updatedAt | Comment update date and time. | String |
     | [summonees](#object-fields-summonees) | Block with information about users who are invited in comments. | Object |
     | [maillistsummonees](#object-fields-maillistsummonees) | Block with information about mailing lists mentioned in comments. | Object |
-    | version | Comment version. Each change to the comment increases its version number. | Number |
+    | version | Comment version. Each update increases the comment's version number. | Number |
     | type | Comment type:<ul><li>`standard`: Comment sent via the {{ tracker-name }} interface.</li><li>`incoming`: Comment created from an incoming message.</li><li>`outcoming`: Comment created from an outgoing message.</li></ul> | String |
     | transport | Method of adding a comment:<ul><li>`internal`: Via the {{ tracker-name }} interface.</li><li>`email`: Via email.</li></ul> | String |
 
-    **Object fields** `createdBy` {#object-fields-createdBy}
+    `createdBy` **object fields** {#object-fields-createdBy}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `updatedBy` {#object-fields-updatedBy}
+    `updatedBy` **object fields** {#object-fields-updatedBy}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `summonees` {#object-fields-summonees}
+    `summonees` **object fields** {#object-fields-summonees}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `maillistsummonees` {#object-fields-maillistsummonees}
+    `maillistsummonees` **object fields** {#object-fields-maillistsummonees}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |

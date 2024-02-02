@@ -1,14 +1,14 @@
 ```json
 [
     {
-    "self": "{{ host }}/v2/issues/TREK-9844",
+    "self": "https://{{ host }}/v2/issues/TREK-9844",
     "id": "593cd211ef7e8a332414f2a7",
     "key": "TREK-9844",
     "version": 7,
     "lastCommentUpdatedAt": "2017-07-18T13:33:44.291+0000",
     "summary": "subtask",
     "parent": {
-        "self": "{{ host }}/v2/issues/JUNE-2",
+        "self": "https://{{ host }}/v2/issues/JUNE-2",
         "id": "593cd0acef7e8a332414f28e",
         "key": "JUNE-2",
         "display": "Task"
@@ -18,65 +18,65 @@
         ],
 
     "updatedBy": {
-        "self": "{{ host }}/v2/users/1120000000016876",
-        "id": "<employee ID>",
-        "display": "<employee name displayed>"
+        "self": "https://{{ host }}/v2/users/1120000000016876",
+        "id": "<employee id>",
+        "display": "<displayed employee name>"
         },
     "description": "<#<html><head></head><body><div>test</div><div>&nbsp;</div><div>&nbsp;</div> </body></html>#>",
     "sprint": [
             {
-        "self": "{{ host }}/v2/sprints/5317",
+        "self": "https://{{ host }}/v2/sprints/5317",
         "id": "5317",
         "display": "sprint1"
             }
         ],
     "type": {
-        "self": "{{ host }}/v2/issuetypes/2",
+        "self": "https://{{ host }}/v2/issuetypes/2",
         "id": "2",
         "key": "task",
         "display": "Issue"
         },
     "priority": {
-        "self": "{{ host }}/v2/priorities/2",
+        "self": "https://{{ host }}/v2/priorities/2",
         "id": "2",
         "key": "normal",
-        "display": "Medium"
+        "display": "Normal"
         },
 
     "createdAt": "2017-06-11T05:16:01.339+0000",
     "followers": [
         {
-        "self": "{{ host }}/v2/users/1120000000016876",
-        "id": "<employee ID>",
-        "display": "<employee name displayed>"
+        "self": "https://{{ host }}/v2/users/1120000000016876",
+        "id": "<employee id>",
+        "display": "<displayed employee name>"
         }
         ],
     "createdBy": {
-        "self": "{{ host }}/v2/users/1120000000049224",
-        "id": "<employee ID>",
-        "display": "<employee name displayed>"
+        "self": "https://{{ host }}/v2/users/1120000000049224",
+        "id": "<employee id>",
+        "display": "<displayed employee name>"
         },
     "votes": 0,
     "assignee": {
-        "self": "{{ host }}/v2/users/1120000000049224",
-        "id": "<employee ID>",
-        "display": "<employee name displayed>"
+        "self": "https://{{ host }}/v2/users/1120000000049224",
+        "id": "<employee id>",
+        "display": "<displayed employee name>"
         },
     "queue": {
-        "self": "{{ host }}/v2/queues/TREK",
+        "self": "https://{{ host }}/v2/queues/TREK",
         "id": "111",
         "key": "TREK",
-        "display": "Startrack"
+        "display": "Startrek"
         },
     "updatedAt": "2017-07-18T13:33:44.291+0000",
     "status": {
-        "self": "{{ host }}/v2/statuses/1",
+        "self": "https://{{ host }}/v2/statuses/1",
         "id": "1",
         "key": "open",
         "display": "Open"
         },
     "previousStatus": {
-        "self": "{{ host }}/v2/statuses/2",
+        "self": "https://{{ host }}/v2/statuses/2",
         "id": "2",
         "key": "resolved",
         "display": "Resolved"
@@ -113,9 +113,9 @@
    | updatedAt | Date and time when the issue was last updated. | String |
    | [status](#status) | Object with information about the issue status. | Object |
    | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
-   | favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Boolean |
+   | favorite | Favorite issue flag:<ul><li>`true`: Issue added to favorites by the user.</li><li>`false`: Issue not added to favorites.</li></ul> | Logical |
 
-   **Object fields** `parent`{#parent}
+   `parent` **object fields** {#parent}
 
    | Parameter | Description | Data type |
    | ----- | ----- | ----- |
@@ -124,7 +124,7 @@
    | key | Issue key. | String |
    | display | Issue name displayed. | String |
 
-   **Object fields** `updatedBy` {#updated-by}
+   `updatedBy` **object fields** {#updated-by}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
@@ -134,27 +134,27 @@
 
    {% include [priority](../../../_includes/tracker/api/priority.md) %}
 
-   **Array object fields** `followers` {#followers}
+   `followers` **array object fields** {#followers}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-   **Object fields** `createdBy` {#created-by}
+   `createdBy` **object fields** {#created-by}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-   **Object fields** `assignee` {#assignee}
+   `assignee` **object fields** {#assignee}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-   **Object fields** `queue` {#queue}
+   `queue` **object fields** {#queue}
 
    {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-   **Object fields** `status` {#status}
+   `status` **object fields** {#status}
 
    {% include [status](../../../_includes/tracker/api/status.md) %}
 
-   **Object fields** `previousStatus` {#previous-status}
+   `previousStatus` **object fields** {#previous-status}
 
    {% include [status](../../../_includes/tracker/api/status.md) %}
 

@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/get-transitions.md
 ---
-# Get transitions
+# Getting transitions
 
 Use this request to get a list of possible issue transitions. The issue is selected when its ID or key is specified.
 
@@ -36,10 +36,10 @@ Authorization: OAuth <OAuth token>
     [
         {
             "id": "resolve",
-            "self": "{{ host }}/v2/issues/JUNE-2/transitions/resolve",
+            "self": "https://{{ host }}/v2/issues/JUNE-2/transitions/resolve",
             "display": "Resolve",
             "to": {
-                "self": "{{ host }}/v2/statuses/1",
+                "self": "https://{{ host }}/v2/statuses/1",
                 "id": "1",
                 "key": "open",
                 "display": "Open"
@@ -58,7 +58,7 @@ Authorization: OAuth <OAuth token>
     | display | Transition name displayed. Matches the corresponding button name in the {{ tracker-name }} interface. | String |
     | [to](#to) | Object with information about a new issue status. | Object |
 
-    **Object fields** `to` {#to}
+    `to` **object fields** {#to}
 
     {% include [status](../../../_includes/tracker/api/status.md) %}
 
@@ -69,4 +69,3 @@ Authorization: OAuth <OAuth token>
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

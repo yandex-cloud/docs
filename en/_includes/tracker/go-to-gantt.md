@@ -4,4 +4,4 @@ Go to the **Gantt chart** tab.
 
 * The start and end dates for the issues are shown on the chart as bars plotted along the time axis. The beginning of each bar corresponds to the issue's start date, and its end corresponds to the deadline, that is, the date by which the issue should be completed.
 
-* Errors between issues denote links: <q>Dependent issue — Blocker</q>.
+* The arrows between issues indicate "Depends on – Blocks" links.

@@ -14,6 +14,7 @@
 * [{{ alb-name }}](#alb)
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
+* [{{ cloud-apps-name }}](#cloud-apps)
 * [{{ dns-name }}](#dns)
 * [{{ sf-name }}](#functions)
 * [{{ backup-name }}](#backup)
@@ -27,6 +28,7 @@
 * [{{ iam-name }}](#iam)
 * [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
+* [{{ load-testing-name }}](#loadtesting)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mkf-short-name }}](#managed-service-for-kafka)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
@@ -124,6 +126,16 @@
 
 {% include [cm-events](../../_includes/audit-trails/events/cm-events.md) %}
 
+## {{ cloud-apps-name }} {#cloud-apps}
+
+Имя сервиса — `cloudapps`.
+
+Имя события | Описание
+--- | ---
+`CreateCloudApplication` | Создание приложения
+`DeleteCloudApplication` | Удаление приложения
+`UpdateCloudApplication` | Изменение приложения
+
 ## {{ dns-name }} {#dns}
 
 Имя сервиса — `dns`.
@@ -136,11 +148,27 @@
 
 Имя события | Описание
 --- | ---
+`ChangeLogGroupAccessBindings` | Изменение привязок прав доступа для лог-группы
+`CreateExport` | Создание выгрузки логов
 `CreateLogGroup` | Создание лог-группы
+`CreateRoutingRule` | Создание правила маршрутизации
+`CreateSink` | Создание приемника логов
 `UpdateLogGroup` | Изменение лог-группы
+`DeleteExport` | Удаление выгрузки логов
 `DeleteLogGroup` | Удаление лог-группы
+`DeleteRoutingRule` | Удаление правила маршрутизации
+`DeleteSink` | Удаление приемника логов
+`SetExportAccessBindings` | Назначение привязок прав доступа для выгрузки логов
 `SetLogGroupAccessBindings` | Назначение привязок прав доступа для лог-группы
+`SetRoutingRuleAccessBindings` | Назначение привязок прав доступа для правила маршрутизации
+`SetSinkAccessBindings` | Назначение привязок прав доступа для приемника логов
+`UpdateExport` | Изменение выгрузки логов 
+`UpdateExportAccessBindings` | Изменение привязок прав доступа для выгрузки логов
 `UpdateLogGroupAccessBindings` | Изменение привязок прав доступа для лог-группы
+`UpdateRoutingRule` | Изменение правила маршрутизации
+`UpdateRoutingRuleAccessBindings` | Изменение привязок прав доступа для правила маршрутизации
+`UpdateSink` | Изменение приемника логов
+`UpdateSinkAccessBindings` | Изменение привязок прав доступа для приемника логов
 
 ## {{ compute-name }} {#compute}
 
@@ -167,6 +195,7 @@
 `DeleteRepository` | Удаление репозитория
 `DeleteScanPolicy` | Удаление политики сканирования
 `ScanImage` | Сканирование образа
+`SetIpPermission` | Назначение политики доступа с IP-адресов
 `UpdateIpPermission` | Изменение политики доступа с IP-адресов
 `UpdateLifecyclePolicy` | Изменение политики жизненного цикла
 `UpdateRegistry` | Изменение реестра
@@ -205,27 +234,16 @@
 `DeleteTransfer` | Удаление трансфера
 `FreezeTransferVersion` | Фиксация для трансфера определенной версии data plane
 `RestartTransfer` | Перезапуск трансфера
-`UnfreezeTransferVersion` | Разрешение обновления трансфера до последней версии data planе
+`UnfreezeTransferVersion` | Разрешение обновления трансфера до последней версии data plane
 `UpdateEndpoint` | Изменение эндпоинта
 `UpdateTransfer` | Изменение трансфера
-`UpdateTransferVersion` | Обновление версии data planе трансфера
+`UpdateTransferVersion` | Обновление версии data plane трансфера
 
 ## {{ ml-platform-name }} {#datasphere}
 
 Имя сервиса — `datasphere`.
 
-Имя события | Описание
---- | ---
-`CreateCommunity` | Создание сообщества
-`CreateProject` | Создание проекта
-`DeleteCommunity` | Удаление сообщества
-`DeleteProject` | Удаление проекта
-`SetCommunityAccessBindings` | Назначение привязок прав доступа для сообщества
-`SetProjectAccessBindings` | Назначение привязок прав доступа для проекта
-`UpdateCommunity` | Изменение сообщества
-`UpdateCommunityAccessBindings` | Изменение привязок прав доступа для сообщества
-`UpdateProject` | Изменение проекта
-`UpdateProjectAccessBindings` | Изменение привязок прав доступа для проекта
+{% include [ds-events](../../_includes/audit-trails/events/ds-events.md) %}
 
 ## {{ iam-name }} {#iam}
 
@@ -251,6 +269,27 @@
 Имя сервиса — `kms`.
 
 {% include [kms-events](../../_includes/audit-trails/events/kms-events.md) %}
+
+## {{ load-testing-name }} {#loadtesting}
+
+Имя сервиса — `loadtesting`.
+
+Имя события | Описание
+--- | ---
+`CreateAgent` | Создание агента
+`CreateConfig` | Создание конфигурации
+`CreateMigration` | Создание миграции
+`CreateTest` | Создание теста
+`DeleteAgent` | Удаление агента
+`DeleteConfig` | Удаление конфигурации
+`DeleteTest` | Удаление теста
+`RestartAgent` | Перезапуск агента
+`StartAgent` | Запуск агента
+`StopAgent` | Остановка агента
+`StopTest` | Остановка теста
+`UpdateAgent` | Изменение агента
+`UpdateTest` | Изменение теста
+`UpgradeImageAgent` | Обновление образа агента
 
 ## {{ lockbox-name }} {#lockbox}
 
@@ -302,7 +341,7 @@
 `CreateShardGroup` | Создание группы шардов
 `CreateUser` | Создание пользователя базы данных
 `DeleteCluster` | Удаление кластера
-`DeleteClusterExternalDictionary` | Изменение внешнего словаря
+`DeleteClusterExternalDictionary` | Удаление внешнего словаря
 `DeleteClusterHosts` | Удаление хостов из кластера
 `DeleteClusterShard` | Удаление шарда из кластера
 `DeleteDatabase` | Удаление базы данных
@@ -317,6 +356,7 @@
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterExternalDictionary` | Изменение внешнего словаря
 `UpdateClusterShard` | Изменение шарда в кластере
 `UpdateFormatSchema` | Изменение схемы формата данных
 `UpdateMlModel` | Изменение модели машинного обучения
@@ -331,15 +371,19 @@
 Имя события | Описание
 --- | ---
 `BackupInstance` | Создание резервной копии
+`CleanupRegistryInstance` | Очистка Docker Registry
 `CreateInstance` | Создание инстанса
+`CreateInstanceBackup` | Создание резервной копии инстанса
 `DeleteInstance` | Удаление инстанса
+`ReconfigureGitlab` | Изменение конфигурации {{ GL }}
+`RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`ResizeInstance` | Изменение размера инстанса
+`ScheduleUpgrade` | Назначение времени обновления инстанса
 `StartInstance` | Запуск инстанса
 `StopInstance` | Остановка инстанса
 `UpdateInstance` | Изменение инстанса
 `UpdateOmniauthInstance` | Изменение настроек OmniAuth
 `UpgradeInstance` | Обновление версии GitLab
-`CleanupRegistryInstance` | Очистка Docker Registry
-`ResizeInstance` | Изменение размера инстанса
 
 
 ## {{ mgp-short-name }} {#managed-service-for-greenplum}
@@ -349,12 +393,19 @@
 Имя события | Описание
 --- | ---
 `CreateCluster` | Создание кластера
+`CreateHBARule` | Создание правила аутентификации пользователей
+`CreatePXFDatasource` | Создание подключения к внешней таблице
+`DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
+`DeleteHBARule` | Удаление правила аутентификации пользователей
+`DeletePXFDatasource` | Удаление подключения к внешней таблице
 `ExpandCluster` | Расширение кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateHBARule` | Изменение правила аутентификации пользователей
+`UpdatePXFDatasource` | Изменение подключения к внешней таблице
 
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
@@ -369,6 +420,7 @@
 `CreateCluster` | Создание кластера
 `CreateDatabase` | Создание базы данных
 `CreateUser` | Создание пользователя базы данных
+`DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
 `DeleteClusterShard` | Удаление шарда из кластера
@@ -405,6 +457,8 @@
 `CreateCluster` | Создание кластера
 `CreateDatabase` | Создание базы данных
 `CreateUser` | Создание пользователя базы данных
+`DatabaseUserLogin` | Подключение пользователя к базе данных
+`DatabaseUserLogout`| Отключение пользователя от базы данных
 `DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
@@ -433,6 +487,8 @@
 `CreateCluster` | Создание кластера
 `CreateDatabase` | Создание базы данных
 `CreateUser` | Создание пользователя базы данных
+`DatabaseUserLogin` | Подключение пользователя к базе данных
+`DatabaseUserLogout`| Отключение пользователя от базы данных
 `DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
@@ -443,6 +499,7 @@
 `RestoreCluster` | Создание нового кластера из резервной копии
 `RevokeUserPermission` | Отзыв прав у пользователя базы данных
 `StartCluster` | Запуск кластера
+`StartClusterFailover` | Запуск переключения мастера для кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateClusterHosts` | Изменение хостов в кластере
@@ -482,6 +539,7 @@
 `CreateCluster` | Создание кластера
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
+`MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера
@@ -501,11 +559,13 @@
 `DeleteCluster` | Удаление кластера
 `DeleteDashboardsNodeGroup` | Удаление группы хостов типа `Dashboards`
 `DeleteOpenSearchNodeGroup` | Удаление группы хостов типа `OpenSearch`
+`MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateDashboardsNodeGroup` |  Изменение группы хостов типа `Dashboards`
 `UpdateOpenSearchNodeGroup` | Изменение группы хостов типа `OpenSearch`
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
@@ -524,11 +584,7 @@
 
 Имя сервиса — `searchapi`.
 
-Имя события | Описание
---- | ---
-`CreateCustomer` | Создание клиента
-`DeleteCustomer` | Удаление клиента
-`UpdateCustomer` | Изменение клиента
+{% include [searchapi-events](../../_includes/audit-trails/events/searchapi-events.md) %}
 
 ## {{ serverless-containers-name }} {#serverless-containers}
 
@@ -566,11 +622,7 @@
 
 Имя сервиса — `smartwebsecurity`.
 
-Имя события | Описание
---- | ---
-`CreateSecurityProfile` | Создание профиля безопасности
-`DeleteSecurityProfile` | Удаление профиля безопасности
-`UpdateSecurityProfile` | Изменение профиля безопасности
+{% include [sws-events](../../_includes/audit-trails/events/sws-events.md) %}
 
 ## {{ captcha-name }} {#smartcaptcha}
 

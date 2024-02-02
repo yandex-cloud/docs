@@ -22,9 +22,9 @@
 
 ## Создайте приложение для потокового распознавания речи {#create-an-application}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
    1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
 

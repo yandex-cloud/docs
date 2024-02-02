@@ -13,7 +13,7 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 
 * `Authorization: OAuth <your OAuth token>`: If [OAuth 2.0](#section_about_OAuth) is used.
 
-   `Authorization: Bearer <your IAM token>`: If an [IAM token](#iam-token) is used.
+   `Authorization: Bearer <your IAM token>`: If [IAM token](#iam-token) is used.
 
 * `X-Org-ID or X-Cloud-Org-ID: <organization ID>`
 

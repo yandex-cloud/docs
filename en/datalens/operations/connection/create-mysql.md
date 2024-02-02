@@ -30,9 +30,9 @@ To create a {{ MY }} connection:
 
 1. Select the connection type:
 
-   {% list tabs %}
+   {% list tabs group=connection %}
 
-   - Select in a folder
+   - Select in folder {#catalog}
 
       {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 
@@ -48,7 +48,7 @@ To create a {{ MY }} connection:
       * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
       * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
-   - Specify manually
+   - Specify manually {#manual}
 
       {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 

@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/new-transition.md
 ---
-# Make a status transition
+# Making a status transition
 
 Use this request to switch an issue to a new status.
 
@@ -58,18 +58,18 @@ Authorization: OAuth <OAuth token>
     The response body contains a JSON array with a list of transitions available for the issue in the new status.
 
     ```json
-    [ 
+    [
     {
-      "self" : "{{ host }}/v2/issues/DESIGN-1/transitions/close",
+      "self" : "https://{{ host }}/v2/issues/DESIGN-1/transitions/close",
       "id" : "close",
       "to" : {
-      "self" : "{{ host }}/v2/statuses/3",
+      "self" : "https://{{ host }}/v2/statuses/3",
         "id" : "3",
         "key" : "closed",
         "display" : "Closed"
       },
       "screen" : {
-        "self" : "{{ host }}/v2/screens/50c85b17e4b04b38ef31a522",
+        "self" : "https://{{ host }}/v2/screens/50c85b17e4b04b38ef31a522",
         "id" : "50c85b17e4b04b38ef31a522"
       }
      },
@@ -86,11 +86,11 @@ Authorization: OAuth <OAuth token>
   | [to](#to) | Block with information about the status that the issue can transition to. | Object |
   | [screen](#screen) | Block with information about the transition screen. | Object |
 
-  **Object fields** `to` {#to}
+  `to` **object fields** {#to}
 
   {% include [status](../../../_includes/tracker/api/status.md) %}
 
-  **Object fields** `screen` {#screen}
+  `screen` **object fields** {#screen}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
@@ -118,4 +118,3 @@ Authorization: OAuth <OAuth token>
   {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

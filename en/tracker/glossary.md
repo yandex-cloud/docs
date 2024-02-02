@@ -26,7 +26,7 @@ Agile methodologies {#agile}
 ## D {#rus-d}
 
 Dashboard {#dashboard-definition}
-:  Page that helps users monitor the status of important issues and view statistics. You can add issue lists, tables, charts, and notes to the dashboard. [Learn more about dashboards](user/dashboard.md).
+:   Page that helps users monitor the status of important issues and view statistics. You can add issue lists, tables, charts, and notes to the dashboard. [Learn more about dashboards](user/dashboard.md).
 
 Issue board
 :   Boards help users easily monitor and update issue statuses. On the board, issues are shown as cards distributed across columns of the board depending on their status. [Learn more about boards.](user/agile.md)
@@ -53,7 +53,7 @@ Component
 
 
 Organization
-:   Organization refers to the company account. The organization employees get access to the {{ yandex-cloud }} services.
+:   Same as company account. The organization employees get access to the {{ yandex-cloud }} services.
 
 
 Queue
@@ -62,37 +62,37 @@ Queue
 ## P {#rus-p}
 
 Issue fields
-:   Various attributes, such as issue <q>{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}</q>, <q>{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}</q>, or <q>{{ ui-key.startrek-backend.fields.issue.status-key-value }}</q>. You can [edit parameters on the issue page](user/edit-ticket.md#edit-fields).
+:   Various attributes, such as issue "{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}", "{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}", or "{{ ui-key.startrek-backend.fields.issue.status-key-value }}". You can [edit parameters on the issue page](user/edit-ticket.md#edit-fields).
 
 Invite to comment
 :   Inviting a user to comment means entering the user's name when [sending a comment to an issue](user/comments.md#call-comment) in order to draw their attention to that comment. The mentioned user will receive a notification with the text of the comment by email and in {{ tracker-name }} ![](../_assets/tracker/svg/bell_2.svg) **Notifications** (if the user opened the {{ tracker-name }} interface before).
 
 Project
-:   In {{ tracker-name }}, projects are sets of issues that have a shared goal. Every project has a deadline and an employee in charge. Projects can include issues from different queues. That is why you can use projects to group issues from different teams. You can learn more about projects [here](manager/project-new.md).
+:   In {{ tracker-name }}, projects are sets of issues that have a common goal to accomplish within a certain timeline. Every project has a deadline and an employee in charge. Projects can include issues from multiple queues. That is why you can use projects to group issues from different teams. You can learn more about projects [here](manager/project-new.md).
 
 ## R {#rus-r}
 
 Resolution
-:   Issue attribute that specifies why the issue was closed. For example, an issue can be closed because it was completed (the <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}</q> resolution) or because it is a duplicate of another issue (the <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}</q> resolution).
+:   Issue attribute that specifies why the issue was closed. For example, an issue can be closed because it was completed (the "{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}" resolution) or because it is a duplicate of another issue (the "{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}" resolution).
 
 ## L {#rus-s}
 
 Link
-:   Link included in an issue that refers to another issue and shows the hierarchy between the two, e.g., when an issue is a sub-issue of another one, or completing an issue depends on the result of another issue. You can read more about issue linking [here](user/links.md).
+:   Reference in an issue to another one showing the hierarchy between the two. For example, when an issue is a sub-issue of another one, or completing an issue depends on the result of another issue. You can read more about issue linking [here](user/links.md).
 
 Sprint {#sprint-definition}
-:   In [Agile methodologies](#agile), a sprint is an iterative project cycle that usually lasts from one to four weeks. {{ tracker-name }} allows you to [use sprints](manager/create-agile-sprint.md) on <q>Scrum</q> boards.
+:   In [Agile methodologies](#agile), a sprint is an iterative project cycle that usually lasts from one to four weeks. {{ tracker-name }} allows you to [use sprints](manager/create-agile-sprint.md) on "Scrum" boards.
 
 Status
-:   Issue attribute that reflects the current state of the issue completion process, e.g., <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>, <q>{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}</q>, or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>.
+:   Issue attribute that shows the current state of the issue completion progress. For example: "{{ ui-key.startrek-backend.applinks.samsara.status.open }}", "{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}", "{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}", or "{{ ui-key.startrek-backend.applinks.samsara.status.closed }}".
 
 ## T {#rus-t}
 
 Tag
-:   Type of a label one can add to any issue. Tags are useful for grouping issues by any attribute and then searching for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}** parameter](user/edit-ticket.md#edit-fields).
+:   Type of label that can be added manually to any issue. You can use tags to group issues by any attribute and then search for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}** parameter](user/edit-ticket.md#edit-fields).
 
 Issue type
-:   {{ tracker-name }} issues come in various types, e.g., <q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
+:   {{ tracker-name }} issues come in various types, e.g., "New feature", "Bug", or "Improvement". In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
 
 ## F {#rus-f}
 
@@ -102,7 +102,7 @@ Filter
 ## C {#rus-ch}
 
 Checklist
-:   To-do list or a list of planned work steps that you can use to mark the items you have completed. {{ tracker-name }} allows users to [add checklists to issues](user/checklist.md).
+:   To-do list or list of planned issue stages that you can use to mark items you have completed. {{ tracker-name }} allows users to [add checklists to issues](user/checklist.md).
 
 ## E {#rus-ee}
 
@@ -125,7 +125,7 @@ SLA
 :   In {{ tracker-name }}, an SLA is a [set of rules](manager/sla.md) that defines timeframes for processing issues in queues. For example, you can set the time within which the assignee has to respond to the issue, answer the requestor's comment, or complete the issue. [Learn more about SLAs.](sla-head.md)
 
 Story
-:   In [Agile methodologies](#agile), a <q>User Story</q> is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the Story issue type that can be used to [group any issues](user/links.md) by theme.
+:   In [Agile methodologies](#agile), a "User Story" is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the Story issue type that can be used to [group any issues](user/links.md) based on a common topic.
 
 Story Point
 :   Relative rating that describes the effort needed to complete an issue. The Story Point unit is not usually measured in terms of man-hours. [The team rates issues collectively](manager/planning-poker.md) by comparing them to a simple task.

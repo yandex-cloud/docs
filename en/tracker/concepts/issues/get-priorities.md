@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/get-priorities.md
 ---
-# Get priorities
+# Getting priorities
 
 Use this request to get a list of priorities for an issue.
 
@@ -26,20 +26,20 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| localized | Shows if the response contains translations. Possible values: <ul><li>`true`: The response only contains priority descriptions in the user's language. Default value.</li><li>`false`: The response contains priority descriptions in all supported languages.</li></ul> | Boolean |
+| localized | Shows if the response contains translations. Acceptable values include: <ul><li>`true`: The response only contains priority descriptions in the user's language. Default value:</li><li>`false`: The response contains priority descriptions in all supported languages.</li></ul> | Logical |
 
 {% endcut %}
 
-> Example: Request for priorities
+> Request for priorities:
 >
->- Use the HTTP GET method.
+> - An HTTP GET method is used.
 >
->```
->GET /v2/priorities?localized=false HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->```
+> ```
+> GET /v2/priorities?localized=false HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth token>
+> {{ org-id }}
+> ```
 
 ## Response format {#section_xc3_53j_p1b}
 
@@ -54,7 +54,7 @@ Authorization: OAuth <OAuth token>
     ```json
     [
         {
-            "self": "{{ host }}/v2/priorities/5",
+            "self": "https://{{ host }}/v2/priorities/5",
             "id": 5,
             "key": "blocker",
             "version": 1341632717561,
@@ -62,18 +62,18 @@ Authorization: OAuth <OAuth token>
             "order": 5
         },
         ...
-    ]  
+    ]
     ```
 
     {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
+    |----- | ----- | ----- |
     | self | Address of the API resource with information about the priority. | String |
     | id | Priority ID. | Number |
     | key | Priority key. | String |
     | version | Priority version. | Number |
-    | name | Priority name displayed. If `localized=false` is passed in the request, this parameter duplicates the name in other languages. | String |
+    | name | Priority name displayed. If `localized=false` is provided in the request, this parameter duplicates the name in other languages. | String |
     | order | Priority weight. This parameter affects the order of priority display in the interface. | Number |
 
     {% endcut %}
@@ -89,4 +89,3 @@ Authorization: OAuth <OAuth token>
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
 {% endlist %}
-

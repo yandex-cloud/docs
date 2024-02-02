@@ -72,6 +72,8 @@
          network_interface_specs:
            - network_id: c64mknqgnd8a********
              primary_v4_address_spec: {}
+             security_group_ids:
+               - enps0ar5s3ti********
          scheduling_policy:
            preemptible: false
        ```
@@ -90,6 +92,7 @@
        * `size` — размер диска.
        * `network_id` — идентификатор сети `default-net`.
        * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. Вы можете предоставить публичный доступ к ВМ группы, указав версию IP для [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses). Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+       * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
        * `scheduling_policy` — конфигурация политики планирования.
        * `preemptible` — флаг, указывающий создавать [прерываемые ВМ](../../concepts/preemptible-vm.md).
          * `true` — будет создана прерываемая ВМ.
@@ -141,6 +144,8 @@
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+           security_group_ids:
+             - enps0ar5s3ti********
      deploy_policy:
        max_unavailable: 1
        max_expansion: 0
@@ -211,8 +216,9 @@
          }
 
          network_interface {
-           network_id = "${yandex_vpc_network.network-1.id}"
-           subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+           network_id         = "${yandex_vpc_network.network-1.id}"
+           subnet_ids         = ["${yandex_vpc_subnet.subnet-1.id}"]
+           security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
          }
 
          metadata = {
@@ -269,7 +275,7 @@
          * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md).
            * Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
            * Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
-         * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификаторы сети и [подсети](../../../vpc/concepts/network.md#subnet).
+         * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификаторы сети, [подсети](../../../vpc/concepts/network.md#subnet) и [групп безопасности](../../../vpc/concepts/security-groups.md).
          * `metadata` — в [метаданных](../../concepts/vm-metadata.md) необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
        * [Политики](../../concepts/instance-groups/policies/index.md):
          * `deploy_policy` — [политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) ВМ в группе.

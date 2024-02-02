@@ -56,4 +56,6 @@ items:
         href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/desktops/index.md
 base: ru/cloud-desktop

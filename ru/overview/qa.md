@@ -39,6 +39,7 @@ description: "Из статьи вы узнаете, какими материа
 * [{{ data-transfer-full-name }}](../data-transfer/troubleshooting/index.md)
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
+* [{{ yq-full-name }}](../query/qa/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
 * [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
 * [{{ mes-full-name }}](../managed-elasticsearch/qa/index.md)
@@ -80,7 +81,11 @@ description: "Из статьи вы узнаете, какими материа
 * [{{ iam-full-name }}](../iam/qa/index.md)
 * [{{ kms-full-name }}](../kms/qa/index.md)
 * [{{ lockbox-full-name }}](../lockbox/qa/index.md)
+* [{{ certificate-manager-full-name }}](../certificate-manager/qa/index.md)
 
+### Инструменты разработчика {#developer-tools}
+
+* [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 
 ### Ресурсы и управление {#resources-operations}
 
@@ -95,8 +100,10 @@ description: "Из статьи вы узнаете, какими материа
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ speechkit-full-name }}](../{{ speechkit-slug }}/qa/all.md)
+* [{{ speechsense-full-name }}](../speechsense/qa/index.md)
 * [{{ translate-full-name }}](../translate/qa/index.md)
 * [{{ vision-full-name }}](../vision/qa/index.md)
+* [{{ yagpt-full-name }}](../yandexgpt/qa/index.md)
 
 
 

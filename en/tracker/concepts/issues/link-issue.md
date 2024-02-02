@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/link-issue.md
 ---
-# Link issues
+# Linking issues
 
 Use this request to create links between two issues. A link is created between the current issue (specified in the `issue-id` request parameter) and the linked one (specified in the `issue` field of the request body).
 
@@ -18,7 +18,7 @@ Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
-    "relationship": "<link type>",
+    "relationship": "<type of links>",
     "issue": "<issue>"
 }
 ```
@@ -33,26 +33,26 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Format |
 | ----- | ----- | ----- |
-| relationship | Type of links between issues:<ul><li>`relates`: Simple link.</li><li>`is dependent by`: The current issue blocks the linked one.</li><li>`depends on`: The current issue depends on the linked one.</li><li>`is subtask for`: The current issue is a sub-issue of the linked one.</li><li>`is parent task for`: The current issue is a parent issue of the linked one.</li><li>`duplicates`: The current issue duplicates the linked one.</li><li>`is duplicated by`: The linked  issue duplicates the current one.</li><li>`is epic of`: The current issue is an epic of the linked one. You can only set this type of link for Epic-type issues.</li><li>`has epic`: The linked issue is an epic of the current one. You can only set this type of link for Epic-type issues.</li></ul> | String |
+| relationship | Type of links between issues:<ul><li>`relates`: Simple link.</li><li>`is dependent by`: The current issue blocks the linked one.</li><li>`depends on`: The current issue depends on the linked one.</li><li>`is subtask for`: The current issue is a sub-issue of the linked one.</li><li>`is parent task for`: The current issue is a parent issue of the linked one.</li><li>`duplicates`: The current issue duplicates the linked one.</li><li>`is duplicated by`: The linked issue duplicates the current one.</li><li>`is epic of`: The current issue is an epic of the linked one. You can only set this type of link for Epic-type issues.</li><li>`has epic`: The linked issue is an epic of the current one. You can only set this type of link for Epic-type issues.</li></ul> | String |
 | issue {#issue} | ID or key of the issue being linked. | String |
 
 {% endcut %}
 
-> Example: Creating a link
+> Creating a link:
 >
->- An HTTP POST method is used.
+> - An HTTP POST method is used.
 >
->```
->POST /v2/issues/TEST-1/?links HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
+> ```
+> POST /v2/issues/TEST-1/?links HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth token>
+> {{ org-id }}
 >
->{
->    "relationship": "relates",
->    "issue": "TREK-2"
->}
->```
+> {
+>     "relationship": "relates",
+>     "issue": "TREK-2"
+> }
+> ```
 
 ## Response format {#section_xpm_q1y_51b}
 
@@ -64,37 +64,37 @@ Authorization: OAuth <OAuth token>
 
     The response body contains the results in JSON format.
 
-  ```json
+    ```json
     {
-      "self" : "{{ host }}/v2/issues/TEST-1/links/1048570",
+      "self" : "https://{{ host }}/v2/issues/TEST-1/links/1048570",
       "id" : 1048570,
       "type" : {
-        "self" : "{{ host }}/v2/linktypes/relates",
+        "self" : "https://{{ host }}/v2/linktypes/relates",
         "id" : "relates",
         "inward" : "relates",
         "outward" : "relates"
       },
       "direction" : "inward",
       "object" : {
-        "self" : "{{ host }}/v2/issues/STARTREK-2",
+        "self" : "https://{{ host }}/v2/issues/STARTREK-2",
         "id" : "4ff3e8dae4b0e2ac27f6eb43",
         "key" : "TREK-2",
         "display" : "NEW!!!"
       },
       "createdBy" : {
-        "self" : "{{ host }}/v2/users/1120000000004859",
-        "id": "<employee ID>",
-        "display": "<employee name displayed>"
+        "self" : "https://{{ host }}/v2/users/1120000000004859",
+        "id" : "<employee ID>",
+        "display" : "<displayed employee name>"
       },
       "updatedBy" : {
-        "self": "{{ host }}/v2/users/1120000000049224",
-        "id": "<employee ID>",
-        "display": "<employee name displayed>"
+        "self" : "https://{{ host }}/v2/users/1120000000049224",
+        "id" : "<employee ID>",
+        "display" : "<displayed employee name>"
       },
       "createdAt" : "2014-06-18T12:06:02.401+0000",
       "updatedAt" : "2014-06-18T12:06:02.401+0000"
     }
-  ```
+    ```
 
   {% cut "Response parameters" %}
 
@@ -112,7 +112,7 @@ Authorization: OAuth <OAuth token>
   | [assignee](#assignee) | Assignee of the linked issue. | Object |
   | [status](#status) | Status of the linked issue. | Object |
 
-  **Object fields** `type` {#type}
+  `type` **object fields** {#type}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
@@ -121,23 +121,23 @@ Authorization: OAuth <OAuth token>
   | inward | Name of the link type of the issue specified in the [object](#object-param) field in relation to the issue specified in the request. | String |
   | outward | Name of the link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. | String |
 
-  **Object fields** `object` {#object}
+  `object` **object fields** {#object}
 
   {% include [issue](../../../_includes/tracker/api/issue.md) %}
 
-  **Object fields** `createdBy` {#created-by}
+  `createdBy` **object fields** {#created-by}
 
   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-  **Object fields** `updatedBy` {#updated-by}
+  `updatedBy` **object fields** {#updated-by}
 
   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-  **Object fields** `assignee` {#assignee}
+  `assignee` **object fields** {#assignee}
 
   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-  **Object fields** `status` {#status}
+  `status` **object fields** {#status}
 
   {% include [status](../../../_includes/tracker/api/status.md) %}
 
@@ -150,4 +150,3 @@ Authorization: OAuth <OAuth token>
   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

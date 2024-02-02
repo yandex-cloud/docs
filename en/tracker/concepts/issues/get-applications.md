@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/get-applications.md
 ---
-# Get a list of external applications
+# Getting a list of external applications
 
 Use this request to get a list of applications to which you can [create a link](../../external-links.md).
 
@@ -31,7 +31,7 @@ Authorization: OAuth <OAuth token>
     ```json
     [
         {
-            "self": "{{ host }}/{{ ver }}/applications/my-application",
+            "self": "https://{{ host }}/{{ ver }}/applications/my-application",
             "id": "my-application",
             "type": "my-application",
             "name": "Application name"
@@ -62,4 +62,3 @@ Authorization: OAuth <OAuth token>
     {% include [500](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

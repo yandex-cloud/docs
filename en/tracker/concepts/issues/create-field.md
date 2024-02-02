@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/create-field.md
 ---
-# Create an issue field
+# Creating an issue field
 
 Use this request to create an issue [global field](../../user/create-param#section_global_field) of issue.
 
@@ -9,7 +9,7 @@ Use this request to create an issue [global field](../../user/create-param#secti
 
 Before making a request, [get permission to access the API](../access.md).
 
-To create a field, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
+To create a field, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/fields
@@ -46,13 +46,13 @@ type | Field type:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date</
 
 Parameter | Description | Data type
 --------- | ----------- | ---------
-[optionsProvider](#optionsProvider1) | Object with information about the list items | Objects |
+[optionsProvider](#optionsProvider1) | Object with information about the list items | Object
 order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number
 description | Field description | String
 readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable</li><li>`false`: Editable</li></ul> | Logical
 visible | Indicates if the field is visible in the interface:<ul><li>`true`: Always visible</li><li>`false`: Not visible</li></ul> | Logical
 hidden | Indicates if the field should be hidden in the interface:<ul><li>`true`: Hide the field even if it is not empty</li><li>`false`: Do not hide the field</li></ul> | Logical
-container | Indicates if you can specify multiple values in the field (like in the **Tags** field):<ul><li>`true`: You can specify multiple values in the field</li><li>`false`: You can only specify one value in the field</li></ul>This parameter can be used for the following types of fields:<ul><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name</li><li>drop-down list (see the `optionsProvider` description)</li></ul> | Logical
+container | Indicates if you can specify multiple values in the field (like in the **Tags** field):<ul><li>`true`: You can specify multiple values in the field</li><li>`false`: You can only specify one value in the field</li></ul>This parameter can be used for the following types of fields:<ul><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name</li><li>Drop-down list (see the `optionsProvider` description)</li></ul> | Logical
 
 **Object fields** `optionsProvider` {#optionsProvider1}
 
@@ -105,7 +105,7 @@ values | Drop-down list values | Array of strings
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -113,7 +113,7 @@ values | Drop-down list values | Array of strings
 
     ```json
      {
-      "self": "{{ host }}/v2/fields/global_field_key",
+      "self": "https://{{ host }}/v2/fields/global_field_key",
       "id": "global_field_key",
       "name": "Field name in Russian",
       "description": "Field description",
@@ -131,9 +131,9 @@ values | Drop-down list values | Array of strings
           "type": "FixedListOptionsProvider",
           "needValidation": true,
           "values": [
-              "The first list item",
-              "The second list item",
-              "The third list item"
+              "First list item",
+              "Second list item",
+              "Third list item"
           ]
       },
       "queryProvider": {
@@ -141,7 +141,7 @@ values | Drop-down list values | Array of strings
       },
       "order": 5,
       "category": {
-          "self": "{{ host }}/v2/fields/categories/000000000000000000000001",
+          "self": "https://{{ host }}/v2/fields/categories/000000000000000000000001",
           "id": "000000000000000000000001",
           "display": "System"
       },
@@ -160,14 +160,14 @@ values | Drop-down list values | Array of strings
     description | Field description | String
     key | Field key | String
     version | Field version; each change to the field increases the version number | Number
-    [schema](#schema) | Object with information about the field value's data type | Objects
+    [schema](#schema) | Object with information about the field value's data type | Object |
     readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable</li><li>`false`: Editable</li></ul> | Logical
     options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value</li><li>`false`: The list of values is restricted by the organization's settings</li></ul> | Logical
     suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled</li><li>`false`: Disabled</li></ul> | Logical
-    [optionsProvider](#optionsProvider) | Object with information about the drop-down list items | Objects
-    [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You cannot change the class using the API | Objects
+    [optionsProvider](#optionsProvider) | Object with information about the drop-down list items | Object |
+    [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You cannot change the class using the API | Object |
     order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number
-    [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Objects
+    [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Object |
 
 
     **Object fields** `schema` {#schema}
@@ -190,7 +190,7 @@ values | Drop-down list values | Array of strings
 
     Parameter | Description | Data type
     --------- | ----------- | ---------
-    type | Query language type. | String
+    type | Query language type | String
 
     **Object fields** `category` {#category}
 
@@ -202,7 +202,7 @@ values | Drop-down list values | Array of strings
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
