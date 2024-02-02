@@ -168,7 +168,7 @@ Example 4: Moving a trigger in the list and activating it. {#move-before}
 
 {% list tabs %}
 
-- The request is executed successfully
+- Request executed successfully
 
    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -177,9 +177,9 @@ Example 4: Moving a trigger in the list and activating it. {#move-before}
    ```json
    {
       "id": 16,
-      "self": "{{ host }}/{{ ver }}/queues/DESIGN/triggers/16",
+      "self": "https://{{ host }}/{{ ver }}/queues/DESIGN/triggers/16",
       "queue": {
-         "self": "{{ host }}/{{ ver }}/queues/DESIGN",
+         "self": "https://{{ host }}/{{ ver }}/queues/DESIGN",
          "id": "26",
          "key": "DESIGN",
          "display": "Design"
@@ -191,7 +191,7 @@ Example 4: Moving a trigger in the list and activating it. {#move-before}
             "type": "Transition",
             "id": 2,
             "status": {
-               "self": "{{ host }}/{{ ver }}/statuses/2",
+               "self": "https://{{ host }}/{{ ver }}/statuses/2",
                "id": "2",
                "key": "needInfo",
                "display": "Need info"
@@ -231,7 +231,7 @@ Example 4: Moving a trigger in the list and activating it. {#move-before}
    | ----- | ----- | ----- |
    | id | Trigger ID | String |
    | self | Links to trigger | String |
-   | queue | Queue to create the trigger | Objects |
+   | queue | Queue to create the trigger | Object |
    | name | Trigger name | String |
    | order | Trigger weight. This parameter affects the order of trigger display in the interface. | String |
    | [actions](#actions) | Array with trigger actions | Array of objects |
@@ -245,7 +245,7 @@ Example 4: Moving a trigger in the list and activating it. {#move-before}
 
    {% endcut %}
 
-- The request failed
+- Request failed
 
    If the request is processed incorrectly, the API returns a message with error details:
 

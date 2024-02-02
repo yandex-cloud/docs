@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/get-sprint.md
 ---
-# Get a sprint
+# Getting a sprint
 
 Use this request to get sprint parameters.
 
@@ -38,19 +38,19 @@ Authorization: OAuth <token>
 
     ```json
     {
-      "self" : "{{ host }}/v2/sprints/4469",
+      "self" : "https://{{ host }}/v2/sprints/4469",
       "id" : 4469,
       "version" : 1435288720018,
       "name" : "sprint1",
       "board" : {
-        "self" : "{{ host }}/v2/boards/3",
+        "self" : "https://{{ host }}/v2/boards/3",
         "id" : "3",
         "display" : "Testing"
       },
       "status" : "in_progress",
       "archived" : false,
       "createdBy" : {
-        "self" : "{{ host }}/v2/users/1120000000014425",
+        "self" : "https://{{ host }}/v2/users/1120000000014425",
         "id" : "1120000000014425",
         "display" : "Victor Buldakov"
       },
@@ -70,37 +70,37 @@ Authorization: OAuth <token>
     | id | Sprint ID. | Number |
     | version | Sprint version. Each change to the sprint increases its version number. | Number |
     | name | Sprint name. | String |
-    | [board](#ans-board) | Object with information about the board whose issues the sprint refers to. | String |
-    | status | Sprint status. <br/>Possible statuses:<ul><li>`draft`: Open.</li><li>`in_progress`: In progress.</li><li>`released`: Resolved.</li><li>`archived`: Archived.</li></ul> | String |
-    | archived | Shows whether the sprint is archived:<ul><li>`true`: The sprint is archived.</li><li>`false`: The sprint is not archived.</li></ul> | Boolean |
+    | [board](#board) | Object with information about the board whose issues the sprint refers to. | String |
+    | status | Sprint status. <br/>The following statuses are possible:<ul><li>`draft`: Open.</li><li>`in_progress`: In progress.</li><li>`released`: Resolved.</li><li>`archived`: Archived.</li></ul> | String |
+    | archived | Shows whether the sprint is archived:<ul><li>`true`: The sprint is archived.</li><li>`false`: The sprint is not archived.</li></ul> | Logical |
     | [createdBy](#createdBy) | Object with information about the user who created the sprint. | Object |
-    | createdAt | Sprint creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
-    | startDate | Sprint start date in ```YYYY-MM-DD``` format | String |
-    | endDate | Sprint end date in ```YYYY-MM-DD``` format | String |
-    | startDateTime | Date and time of the sprint's actual start in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
-    | endDateTime | Date and time of the sprint's actual end in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
+    | createdAt | Sprint creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format. | String |
+    | startDate | Sprint start date in ```YYYY-MM-DD``` format. | String |
+    | endDate | Sprint end date in ```YYYY-MM-DD``` format. | String |
+    | startDateTime | Date and time of the sprint's actual start in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format. | String |
+    | endDateTime | Date and time of the sprint's actual end in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format. | String |
 
-    **Object fields** `board` {#board}
-
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the board. | String |
-    | id | Board ID. | String |
-    | display | Board name displayed. | String |
-
-    **Object fields** `createdBy` {#createdBy}
+    `board` **object fields** {#board}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    | self | Address of the API resource with information about the board | String |
+    | id | Board ID | String |
+    | display | Displayed board name | String |
+
+    `createdBy` **object fields** {#createdBy}
+
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the user | String |
+    | id | User ID | String |
+    | display | Displayed user name | String |
 
     {% endcut %}
 
 - Request failed
 
-    If a request fails, the response message contains details of the errors encountered:
+    If the request is processed incorrectly, the API returns a message with error details:
 
     {% include [error](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -113,4 +113,3 @@ Authorization: OAuth <token>
     {% include [error](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

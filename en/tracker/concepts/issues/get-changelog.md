@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/get-changelog.md
 ---
-# Get the history of issue changes
+# Getting the history of issue changes
 
 Use this request to get the history of changes to issues. If there are more than 50 records in the response, use the [`perPage` parameter](#params).
 
@@ -58,110 +58,214 @@ Authorization: OAuth <token>
 
   {% endcut %}
 
-    ```json
-    [
-     {
+   ```json
+   [
+    {
+        "id": "6033f986bd6c4a042c688392",
+        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
+        "issue": {
+            "self": "https://{{ host }}/v2/issues/TEST-27",
             "id": "6033f986bd6c4a042c688392",
-            "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
-            "issue": {
-                "self": "{{ host }}/v2/issues/TEST-27",
-                "id": "6033f986bd6c4a042c688392",
-                "key": "TEST-27",
-                "display": "Issue name"
-            },
-         "updatedAt": "2021-02-22T18:35:50.157+0000",
-         "updatedBy": {
-             "self": "{{ host }}/v2/users/1234567890",
-             "id": "1234567890",
-             "display": "First and Last name"
-         },
-         "type": "IssueCreated",
-         "transport": "front",
-         "fields": [
-             {
-                 "field": {
-                     "self": "{{ host }}/v2/fields/status",
-                     "id": "status",
-                     "display": "Status"
-                 },
-                 "from": null,
-                 "to": {
-                     "self": "{{ host }}/v2/statuses/1",
-                     "id": "1",
-                     "key": "open",
-                     "display": "Open"
-                 }
-             }
-         ]
-     },
-     {
-         "id": "6033f98d4417c101b655b93b",
-         "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f98d4417c101b655b93b",
-         "issue": {
-             "self": "{{ host }}/v2/issues/TEST-27",
-             "id": "6033f986bd6c4a042c688391",
-             "key": "TEST-27",
-             "display": "Issue name"
-         },
-         "updatedAt": "2021-02-22T18:35:57.359+0000",
-         "updatedBy": {
-             "self": "{{ host }}/v2/users/1234567890",
-             "id": "1234567890",
-             "display": "First and Last name"
-         },
-         "type": "IssueUpdated",
-         "transport": "front",
-         "fields": [
-             {
-                 "field": {
-                     "self": "{{ host }}/v2/fields/followers",
-                     "id": "followers",
-                     "display": "Followers"
-                 },
-                 "from": null,
-                 "to": [
-                     {
-                         "self": "{{ host }}/v2/users/1234567890",
-                         "id": "1234567890",
-                         "display": "First and Last name"
-                     }
-                 ]
-             }
-         ]
-     },
-     {
-         "id": "6033f9954417c101b655b940",
-         "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f9954417c101b655b940",
-         "issue": {
-             "self": "{{ host }}/v2/issues/TEST-27",
-             "id": "6033f986bd6c4a042c688391",
-             "key": "TEST-27",
-             "display": "Issue name"
-         },
-         "updatedAt": "2021-02-22T18:36:05.553+0000",
-         "updatedBy": {
-             "self": "{{ host }}/v2/users/1234567890",
-             "id": "1234567890",
-             "display": "First and Last name"
-         },
-         "type": "IssueUpdated",
-         "transport": "front",
-         "fields": [
-             {
-                 "field": {
-                     "self": "{{ host }}/v2/fields/tags",
-                     "id": "tags",
-                     "display": "Tags"
-                 },
-                 "from": null,
-                 "to": [
-                     "New tag"
-                 ]
-             }
-         ]
-      }
-    ]
-    ```
+            "key": "TEST-27",
+            "display": "Issue name"
+        },
+        "updatedAt": "2021-02-22T18:35:50.157+0000",
+        "updatedBy": {
+            "self": "https://{{ host }}/v2/users/1234567890",
+            "id": "1234567890",
+            "display": "Full Name"
+        },
+        "type": "IssueCreated",
+        "transport": "front",
+        "fields": [
+            {
+                "field": {
+                    "self": "https://{{ host }}/v2/fields/status",
+                    "id": "status",
+                    "display": "Status"
+                },
+                "from": null,
+                "to": {
+                    "self": "https://{{ host }}/v2/statuses/1",
+                    "id": "1",
+                    "key": "open",
+                    "display": "Open"
+                }
+            }
+        ]
+    },
+    {
+        "id": "6033f98d4417c101b655b93b",
+        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f98d4417c101b655b93b",
+        "issue": {
+            "self": "https://{{ host }}/v2/issues/TEST-27",
+            "id": "6033f986bd6c4a042c688391",
+            "key": "TEST-27",
+            "display": "Issue name"
+        },
+        "updatedAt": "2021-02-22T18:35:57.359+0000",
+        "updatedBy": {
+            "self": "https://{{ host }}/v2/users/1234567890",
+            "id": "1234567890",
+            "display": "Full Name"
+        },
+        "type": "IssueUpdated",
+        "transport": "front",
+        "fields": [
+            {
+                "field": {
+                    "self": "https://{{ host }}/v2/fields/followers",
+                    "id": "followers",
+                    "display": "Followers"
+                },
+                "from": null,
+                "to": [
+                    {
+                        "self": "https://{{ host }}/v2/users/1234567890",
+                        "id": "1234567890",
+                        "display": "Full Name"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "6033f9954417c101b655b940",
+        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f9954417c101b655b940",
+        "issue": {
+            "self": "https://{{ host }}/v2/issues/TEST-27",
+            "id": "6033f986bd6c4a042c688391",
+            "key": "TEST-27",
+            "display": "Issue name"
+        },
+        "updatedAt": "2021-02-22T18:36:05.553+0000",
+        "updatedBy": {
+            "self": "https://{{ host }}/v2/users/1234567890",
+            "id": "1234567890",
+            "display": "Full Name"
+        },
+        "type": "IssueUpdated",
+        "transport": "front",
+        "fields": [
+            {
+                "field": {
+                    "self": "https://{{ host }}/v2/fields/tags",
+                    "id": "tags",
+                    "display": "Tags"
+                },
+                "from": null,
+                "to": [
+                    "New tag"
+                ]
+            }
+        ],
+    },
+    {
+        "id": "62bab52ca16f631eea3816a9",
+        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/62bab52ca16f631eea3816a9",
+        "issue": {
+           "self": "https://{{ host }}/v2/issues/TEST-27",
+           "id": "5fbc929b5b28572f9418327d",
+           "key": "TEST-27",
+           "display": "Issue name"
+        },
+        "updatedAt": "2022-06-28T08:00:44.155+0000",
+        "updatedBy": {
+           "self": "https://{{ host }}/v2/users/1134669289",
+           "id": "1134669289",
+           "display": "Full Name"
+        },
+        "type": "IssueWorkflow",
+        "transport": "front",
+        "fields": [
+           {
+                "field": {
+                    "self": "https://{{ host }}/v2/fields/status",
+                    "id": "status",
+                    "display": "Status"
+                },
+                "from": {
+                    "self": "https://{{ host }}/v2/statuses/3",
+                    "id": "3",
+                    "key": "inProgress",
+                    "display": "In progress"
+                },
+                "to": {
+                    "self": "https://{{ host }}/v2/statuses/2",
+                    "id": "2",
+                    "key": "needInfo",
+                    "display": "Need info"
+                }
+           },
+           {
+                "field": {
+                    "self": "https://{{ host }}/v2/fields/statusStartTime",
+                    "id": "statusStartTime",
+                    "display": "Status changed"
+                },
+                "from": "2022-06-28T07:29:45.753+0000",
+                "to": "2022-06-28T08:00:44.156+0000"
+           },
+           {
+                "field": {
+                    "self": "https://{{ host }}/v2/fields/followers",
+                    "id": "followers",
+                    "display": "Followers"
+                },
+                "from": [
+                   {
+                       "self": "https://{{ host }}/v2/users/780889736",
+                       "id": "780889736",
+                       "display": "Full Name"
+                   },
+                   {
+                       "self": "https://{{ host }}/v2/users/780891246",
+                       "id": "780891246",
+                       "display": "Full Name"
+                   }
+                ],
+                "to": [
+                   {
+                       "self": "https://{{ host }}/v2/users/780889736",
+                       "id": "780889736",
+                       "display": "Full Name"
+                   },
+                   {
+                       "self": "https://{{ host }}/v2/users/780891246",
+                       "id": "780891246",
+                       "display": "Full Name"
+                   },
+                   {
+                       "self": "https://{{ host }}/v2/users/1134669289",
+                       "id": "1134669289",
+                       "display": "Full Name"
+                   }
+                ]
+           }
+        ],
+        "comments": {
+           "added": [
+               {
+                   "self": "https://{{ host }}/v2/issues/TEST-27/comments/10",
+                   "id": "10",
+                   "display": "<comment text>"
+               }
+           ]
+        },
+        "executedTriggers": [
+           {
+                "trigger": {
+                   "self": "https://{{ host }}/v2/queues/TEST/triggers/29",
+                   "id": "29",
+                   "display": "<trigger name>"
+                },
+                "success": true,
+                "message": "<trigger action>"
+           }
+        ]
+     }
+   ]
+   ```
 
   {% cut "Response parameters" %}
 
@@ -172,27 +276,29 @@ Authorization: OAuth <token>
    | [issue](#issue) | Block with information about the issue. | Object |
    | updatedAt | Issue update date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
    | [updatedBy](#updated-by) | Object with information about the user who edited the issue. | Object |
-   | transport | Service parameter. | String |
+   | transport | Service parameter | String |
    | type | [Type of change](#diff-type). | String |
-   | [fields](#fields) | Array of objects with information about updated issue parameters. | Array |
+   | [fields](#fields) | Array of objects with information about updated issue parameters. | Array of objects |
+   | [comments](#comments) | Section with information about the [comment](get-comments.md) to the issue. | Object |
+   | [executedTriggers](#executedTriggers) | Section with information about the [trigger](../queues/get-trigger.md) that ran in the issue. | Object |
 
-   **Object fields** `issue` {#issue}
+   `issue` **object fields** {#issue}
 
    {% include [issue](../../../_includes/tracker/api/issue.md) %}
 
-   **Object fields** `updatedBy` {#updated-by}
+   `updatedBy` **object fields** {#updated-by}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-   **Array object fields** `fields` {#fields}
+   `fields` **array object fields** {#fields}
 
    | Parameter | Description | Data type |
    | ----- | ----- | ----- |
    | [field](#field) | Block with information about the updated issue parameter. | Object |
-   | [from](#from-to) | Block with information about the parameter value before the change. | Object |
-   | [to](#from-to) | Block with information about the parameter value after the change. | Object |
+   | [from](#from-to) | Information about the parameter value before the change. <ul><li>If the field can accept multiple values, an array of objects is provided. For example, the `followers` field.</li><li>If the field can only accept one value, it is provided as a string. For example, the `statusStartTime` field.</li></ul> | String / object |
+   | [to](#from-to) | Information about the parameter value after the change. <ul><li>If the field can accept multiple values, an array of objects is passed. For example, the `followers` field.</li><li>If the field can only accept one value, it is provided as a string. For example, the `statusStartTime` field.</li></ul> | String / object |
 
-   **Object fields** `field` {#field}
+   `field` **object fields** {#field}
 
    | Parameter | Description | Data type |
    | ----- | ----- | ----- |
@@ -200,7 +306,7 @@ Authorization: OAuth <token>
    | id | Issue parameter ID. | String |
    | display | Issue parameter name displayed. | String |
 
-   **Object fields** `from` **and** `to` {#from-to}
+    `from` **and** `to` **object fields** {#from-to}
 
    | Parameter | Description | Data type |
    | ----- | ----- | ----- |
@@ -209,17 +315,47 @@ Authorization: OAuth <token>
    | key | Parameter value key. | String |
    | display | Value parameter name displayed. | String |
 
+   `comments` **object fields** {#comments}
+
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | [added](#added) | Block with information about comment. | Object |
+
+   `added` **object fields** {#added}
+
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Link to the comment object. | String |
+   | id | Comment ID. | Number |
+   | display | Text of the comment. | String |
+
+   `executedTriggers` **object fields** {#executedTriggers}
+
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | [trigger](#trigger) | Block with information about trigger. | Object |
+   | success | Trigger action status. Acceptable values include:<ul><li>`true`: Success.</li><li>`false`: Failure.</li></ul> | Logical |
+   | message | The action that was executed by the trigger. | String |
+
+   `trigger` **object fields** {#trigger}
+
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Link to the trigger object. | String |
+   | id | Trigger ID | Number |
+   | display | Trigger name displayed | String |
+
    **Type of change** `type` {#diff-type}
 
    | Type of change. | Description |
    | ----- | ----- |
    | IssueUpdated | The issue was edited. |
-   | IssueCreated | Issue created. |
+   | IssueCreated | The issue was created. |
    | IssueMoved | The issue was moved to another queue. |
    | IssueCloned | A clone of the issue was created. |
    | IssueCommentAdded | A comment was added to the issue. |
-   | IssueCommentUpdated | An issue comment was edited. |
-   | IssueCommentRemoved | An issue comment was deleted. |
+   | IssueCommentUpdated | An issue comment is edited. |
+   | IssueCommentRemoved | An issue comment is deleted. |
    | IssueWorklogAdded | A record of time spent was added. |
    | IssueWorklogUpdated | A record of time spent was edited. |
    | IssueWorklogRemoved | A record of time spent was deleted. |
@@ -254,4 +390,3 @@ Authorization: OAuth <token>
   {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

@@ -51,26 +51,26 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
 - Request executed successfully
 
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md %}
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
     The response body contains a JSON array with information about comments:
 
     ```json
     [
         {
-            "self": "{{ host }}/v2/issues/JUNE-2/comments/9849018",
+            "self": "https://{{ host }}/v2/issues/JUNE-2/comments/9849018",
             "id": 9849018,
             "longId" : "5fa15a24ac894475dd14ff07",
             "text": "Comment **number one.**",
             "textHtml": "<p>Comment <strong>number one.</strong></p>\n",
             "attachments": [{ "self": "https://{{ host }}/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
             "createdBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<employee ID>",
                 "display": "<displayed employee name>"
             },
             "updatedBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<employee ID>",
                 "display": "<displayed employee name>"
             },
@@ -78,7 +78,7 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
             "updatedAt": "2017-06-11T05:11:12.347+0000",
             "version": 1,
             "type" : "standard",
-            "transport" : "internal" 
+            "transport" : "internal"
         },
         ...
     ]

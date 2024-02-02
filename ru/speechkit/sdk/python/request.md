@@ -20,9 +20,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Создайте приложение для синхронного распознавания речи {#create-an-application}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
    1. Создайте файл `test.py` и добавьте в него код:

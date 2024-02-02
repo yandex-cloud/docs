@@ -75,15 +75,15 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 Создайте инстанс {{ mgl-name }} или [виртуальную машину](../../compute/concepts/vm.md) с [образом](../../compute/concepts/image.md) {{ GL }} в той же [облачной сети](../../vpc/concepts/network.md#network), где расположен кластер {{ managed-k8s-name }}.
 
-{% list tabs %}
+{% list tabs group=gl_installation %}
 
 
-- Инстанс {{ mgl-name }}
+- Инстанс {{ mgl-name }} {#instance-mgl}
 
   Создайте инстанс {{ mgl-name }} [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
 
 
-- ВМ с образом {{ GL }}
+- ВМ с образом {{ GL }} {#gl-image-vm}
 
   Запустите {{ GL }} на ВМ с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses).
 

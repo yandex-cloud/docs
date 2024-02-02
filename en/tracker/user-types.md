@@ -4,13 +4,13 @@
 
 ## Yandex ID accounts {#yandex-id}
 
-Organization's users can get authenticated using [Yandex ID](https://yandex.ru/support/id/index.html). They can register a Yandex ID account in the following ways:
+Organization users can get authenticated using [Yandex ID](https://yandex.ru/support/id/index.html). They can register a Yandex ID account in the following ways:
 
 * [Using an @yandex.ru email address](https://yandex.ru/support/id/authorization/registration.html).
 * [Using a social media account](https://yandex.ru/support/id/social.html).
 * [Using any other email address](https://yandex.ru/support/id/authorization/lite.html).
 
-Things to remember when using Yandex ID accounts:
+Things to remember when using a Yandex ID account:
 
 1. An account is owned by the user.
 1. Any organization service can be used: {{ ya-360 }} and {{ org-full-name }} will do equally well.
@@ -32,7 +32,7 @@ Things to remember when using a Yandex ID account:
 
 ## {{ org-full-name }} accounts {#cloud-org}
 
-If you plan to use a {{ org-full-name }} organization, users can be registered using an [identity federation](../organization/concepts/add-federation.md). To log in, users should specify the federation ID or use a special link.
+If you plan to use a {{ org-full-name }} organization, users can be registered using an [identity federation](../organization/concepts/add-federation.md). To log in, users should specify the federation ID or use a dedicated link.
 
 You can set up multiple federations for your organization. Federated users will not be able to log in to any services other than {{ yandex-cloud }} services.
 

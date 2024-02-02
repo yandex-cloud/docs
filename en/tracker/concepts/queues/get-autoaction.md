@@ -24,8 +24,8 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| \&lt;queue-id\&gt; | Queue ID or key. The queue key is case-sensitive. | String or number |
-| \&lt;autoaction-id\&gt; | Auto action ID | Number |
+| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+| \<autoaction-id\> | Auto action ID | Number |
 
 {% endcut %}
 
@@ -42,9 +42,9 @@ Authorization: OAuth <OAuth_token>
    ```json
    {
      "id": 9,
-     "self": "{{ host }}/v2/queues/DESIGN/autoactions/9",
+     "self": "https://{{ host }}/v2/queues/DESIGN/autoactions/9",
      "queue": {
-         "self": "{{ host }}/v2/queues/DESIGN",
+         "self": "https://{{ host }}/v2/queues/DESIGN",
          "id": "26",
          "key": "DESIGN",
          "display": "Design"
@@ -64,10 +64,10 @@ Authorization: OAuth <OAuth_token>
              "type": "Transition",
              "id": 1,
              "status": {
-                 "self": "{{ host }}/v2/statuses/2",
+                 "self": "https://{{ host }}/v2/statuses/2",
                  "id": "2",
                  "key": "needInfo",
-                 "display": "Needs info"
+                 "display": "Need info"
              }
          }
      ],
@@ -87,32 +87,32 @@ Authorization: OAuth <OAuth_token>
    ----- | ----- | -----
    | id | Auto action ID | String |
    | self | Link to the auto action | String |
-   | [queue](#queue) | Queue where the auto action was created. | Can be set as an object, a string (if the [queue key](../../manager/create-queue.md#key) is passed), or a number (if the queue ID is passed). |
+   | [queue](#queue) | Queue where the auto action was created. | Can be set as an object, a string (if the [queue key](../../manager/create-queue.md#key) is provided), or a number (if the queue ID is provided). |
    | name | Auto action name | String |
    | version | Auto action version. Each change to the auto action increases the version number. | Number |
-   | active | Auto action status. Acceptable values include:<ul><li>`true`: Active</li><li>`false`: Inactive</li></ul> | Boolean |
+   | active | Auto action status. Acceptable values include:<ul><li>`true`: Active</li><li>`false`: Inactive</li></ul> | Logical |
    | created | Auto action creation date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | updated | Date and time of the auto action's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | [filter](#filter) | Array with the issue field filtering conditions that will trigger the auto action | Array of objects |
    | query | Query string for filtering issues | String |
    | [actions](#actions) | Array of actions on issues | Array of objects |
-   | enableNotifications | Notification sending statuses. Acceptable values include:<ul><li>`true`: Send.</li><li>`false`: Do not send.</li></ul> | Boolean |
+   | enableNotifications | Notification sending statuses. Acceptable values include:<ul><li>`true`: Send.</li><li>`false`: Do not send.</li></ul> | Logical |
    | lastLaunch | Date and time when the auto action was last triggered, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | totalIssuesProcessed | Number of issues checked by the auto action when triggered last time | Number |
    | intervalMillis | Auto action start frequency in milliseconds. The default value is `3600000` (once an hour). | Number |
    | calendar | Period for which the auto action is active. It has the `id` parameter specifying the [work schedule](../../manager/schedule.md) ID. | Object |
 
-   **Object fields** `queue` {#queue}
+   `queue` **object fields** {#queue}
 
    {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-    **Array object fields** `filter` {#filter}
+   **Fields array object** `filter` {#filter}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
    | filter | Array with filtering conditions for issue fields.<br/>Use the request to get the ID of the [global](../issues/get-global-fields.md) or [local](../queues/get-local-fields.md) field. | Array of objects |
 
-   **Array object fields** `actions` {#actions}
+   `actions` **array object fields** {#actions}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -120,7 +120,7 @@ Authorization: OAuth <OAuth_token>
    | id | Action ID | String |
    | [status](#status) | Issue status | String |
 
-   **Array object fields** `status` {#status}
+   `status` **array object fields** {#status}
 
    {% include [status](../../../_includes/tracker/api/status.md) %}
 

@@ -61,7 +61,7 @@ The request body contains information required to create a new entity:
 -------- | -------- | ----------
 | fields | Object with entity settings | Object |
 
-**Object fields** `fields`
+`fields` **object fields** 
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
@@ -74,8 +74,8 @@ The request body contains information required to create a new entity:
 > Example: Creating a project
 >
 > - An HTTP POST method is used.
-> - A project named <q>Test Project</q> is created.
-> - A queue with the [TREK](../../manager/create-queue.md#key) <q>key</q> is linked to the project.
+> - A project named "Test Project" is created.
+> - A queue with the [TREK](../../manager/create-queue.md#key) "key" is linked to the project.
 >
 > ```
 > POST /v2/entities/project/ HTTP/1.1
@@ -103,12 +103,12 @@ The request body contains information required to create a new entity:
    The response body contains information about the new entity in JSON format.
    ```json
    {
-      "self": "{{ host }}/{{ ver }}/entities/project/655f3be523db2132********",
+      "self": "https://{{ host }}/{{ ver }}/entities/project/655f3be523db2132********",
       "id": "655f3be523db2132********",
       "version": 1,
       "shortId": 6,
       "entityType": "project",
-      "createdBy": { "self": "{{ host }}/{{ ver }}/users/111111117", "id": "111111117", "display": "First and Last Name", "cloudUid": "ajevuhegoggfk*******", "passportUid": 111111117 },
+      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/111111117", "id": "111111117", "display": "Full name", "cloudUid": "ajevuhegoggfk*******", "passportUid": 111111117 },
       "createdAt": "2023-11-23T11:47:49.743+0000",
       "updatedAt": "2023-11-23T11:47:49.743+0000"
    }
@@ -127,7 +127,7 @@ The request body contains information required to create a new entity:
    | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
 
-   **Object fields** `сreatedBy`
+   `createdBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------

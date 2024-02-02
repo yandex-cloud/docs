@@ -88,7 +88,7 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 ## Какие роли необходимы для создания {{ managed-k8s-name }} {#required-roles}
 
-Для создания кластера {{ managed-k8s-name }} и группы узлов [аккаунт](../../iam/concepts/index.md#accounts), с помощью которого вы собираетесь создавать кластер, должен иметь [роли](../../iam/concepts/access-control/roles.md):
+Для создания кластера {{ managed-k8s-name }} и группы узлов [аккаунт](../../iam/concepts/users/accounts.md), с помощью которого вы собираетесь создавать кластер, должен иметь [роли](../../iam/concepts/access-control/roles.md):
 * [{{ roles.k8s.editor }}](#k8s-editor) или выше.
 * [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user).
 

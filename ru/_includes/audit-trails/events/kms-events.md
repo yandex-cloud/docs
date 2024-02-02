@@ -19,3 +19,5 @@
 `UpdateSymmetricKey` | Изменение симметричного ключа
 `UpdateSymmetricKeyAccessBindings` | Изменение привязок прав доступа для симметричного ключа
 `UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение привязок прав доступа для асимметричной ключевой пары шифрования
+`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
+`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи

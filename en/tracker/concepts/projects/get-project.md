@@ -38,7 +38,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| expand | Additional fields to be included into the response: <ul><li>`queues`: Queues of the project. </li></ul> | String |
+| expand | Additional fields to include in the response:<ul><li> `queues`: Project queues </li></ul> | String |
 
 {% endcut %}
 
@@ -54,16 +54,16 @@ Authorization: OAuth <OAuth token>
 
     ```json
     {
-        "self": "{{ host }}/v2/projects/9",
+        "self": "https://{{ host }}/v2/projects/9",
         "id": "9",
         "version": 1,
         "key": "Project",
         "name": "Project",
         "description": "New project",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
-            "display": "First and Last name"
+            "display": "Full name"
         },
         "status": "launched",
         "startDate": "2020-11-16",

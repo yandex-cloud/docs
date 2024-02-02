@@ -21,8 +21,8 @@ To create a project portfolio:
    * Attachments: Working materials of the portfolio.
    * Checklist: List of milestones or goals of the portfolio.
    * **Status**: Specify the current stage of the portfolio.
-   * **Start date** or **End date**.
-   * **Responsible**, **Clients**, and **Participants**: Start typing the name or username of the employee and select a relevant option from the list.
+   * **Start date** and **End date**.
+   * **Responsible**, **Clients**, and **Participants**: Start typing the name or login of the employee and select a relevant option from the list.
    * **Tags**: Add or select the tags that would make it easier to find the portfolio.
 
 ## Linking portfolios and projects {#add-portfolios-projects}
@@ -47,7 +47,13 @@ To create a project portfolio:
       1. Select **Existing**.
       1. Start typing the project or portfolio name and pick the option you need from the list that appears.
 
-#### Adding a parent portfolio
+#### Adding a parent portfolio {#add-parent}
+
+{% note alert %}
+
+A project or portfolio can have only one parent portfolio.
+
+{% endnote %}
 
 1. Go to the project or portfolio page and click **Included in the portfolio** in the right-hand panel.
 1. Start typing the portfolio name and pick the option you need from the list that appears.

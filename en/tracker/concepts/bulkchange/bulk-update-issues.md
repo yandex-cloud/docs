@@ -1,9 +1,9 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/bulkchange/bulk-update-issues.md
 ---
-# Make bulk changes to issues
+# Bulk changes to issues
 
-Use this request to change parameters for multiple issues at once.
+Use this request to reconfigure multiple issues at the same time.
 
 {% note info %}
 
@@ -58,7 +58,7 @@ Authorization: OAuth <OAuth token>
 > Example 1: Edit issues.
 >
 >- An HTTP POST method is used.
->- The type for issues <q>TEST-1</q>, <q>TEST-2</q>, and <q>TEST-3</q> is changed to <q>Bug</q>.
+>- The type for issues "TEST-1", "TEST-2", and "TEST-3" is changed to "Bug".
 >
 >```json
 >POST /{{ ver }}/bulkchange/_update
@@ -95,7 +95,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- The request is executed successfully
+- Request executed successfully
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
@@ -104,11 +104,11 @@ Authorization: OAuth <OAuth token>
     ```json
     {
         "id": "1ab23cd4e56789012fg345h6",
-        "self": "{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
+        "self": "https://{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
         "createdBy": {
-            "self": "{{ host }}/v2/users/1234567890",
+            "self": "https://{{ host }}/v2/users/1234567890",
             "id": "1234567890",
-            "display": "First and last name"
+            "display": "Full name"
         },
         "createdAt": "2020-12-15T11:52:53.665+0000",
         "status": "CREATED",
@@ -122,12 +122,12 @@ Authorization: OAuth <OAuth token>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | id | Bulk change operation ID | String |
-    | self | Address of the API resource with information about the bulk change | String |
-    | [createdBy](#createdBy) | Object with information about the user who made the bulk change. | Objects |
+    | id | Bulk change operation ID. | String |
+    | self | Address of the API resource with information about the bulk change. | String |
+    | [createdBy](#createdBy) | Object with information about the user who made the bulk change. | Object |
     | createdAt | Date and time when the bulk change operation was created. | String |
-    | status | Bulk change operation status | String |
-    | statusText | Description of the bulk change operation status | String |
+    | status | Bulk change operation status. | String |
+    | statusText | Description of the bulk change operation status. | String |
     | executionChunkPercent | Service parameter | Number |
     | executionIssuePercent | Service parameter | Number |
 
@@ -141,7 +141,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

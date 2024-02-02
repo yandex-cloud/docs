@@ -160,6 +160,8 @@ items:
         href: qa/non-resident.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

@@ -12,7 +12,7 @@
 
 #### См. также {#see-also}
 
-[{#T}](../../iam/concepts/index.md#accounts)
+[{#T}](../../iam/concepts/users/accounts.md)
 
 
 

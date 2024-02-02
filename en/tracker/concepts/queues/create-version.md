@@ -73,18 +73,18 @@ The request body contains the information required to create a new queue version
 
 {% list tabs %}
 
-- The request is executed successfully
+- Request executed successfully
 
    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
    ```json
    [
        {
-           "self": "{{ host }}/v2/versions/1",
+           "self": "https://{{ host }}/v2/versions/1",
            "id": 1,
            "version": 1,
            "queue": {
-               "self": "{{ host }}/v2/queues/TESTQUEUE",
+               "self": "https://{{ host }}/v2/queues/TESTQUEUE",
                "id": "6",
                "key": "TESTQUEUE",
                "display": "Test Queue"
@@ -103,16 +103,16 @@ The request body contains the information required to create a new queue version
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Link to the version object. | String |
-   | id | Version ID | Number. |
-   | version | Version number. | Number |
-   | [queue](#queue) | Object with information about the queue. | Objects |
+   | self | Link to the version object | String |
+   | id | Version ID | Number |
+   | version | Version number | Number |
+   | [queue](#queue) | Object with information about the queue | Object |
    | name | Version name | String |
-   | description | Text description of the version. | String |
-   | startDate | Version start date. | String |
-   | dueDate | Version end date. | String |
-   | released | Flag of the released version. | Logical |
-   | archived | Flag of the archived version. | Logical |
+   | description | Text description of the version | String |
+   | startDate | Version start date | String |
+   | dueDate | Version end date | String |
+   | released | Flag of the released version | Logical |
+   | archived | Flag of the archived version | Logical |
 
    `queue` **object fields** {#queue}
 
@@ -120,7 +120,7 @@ The request body contains the information required to create a new queue version
 
    {% endcut %}
 
-- The request failed
+- Request failed
 
    If the request is processed incorrectly, the API returns a response with an error code:
 

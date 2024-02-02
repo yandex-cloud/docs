@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
        # Или через файл (рекомендуется):
        # bearer_token_file: '<имя файла с api_key>'
        queue_config:
-           max_samples_per_send: 1000
+           max_samples_per_send: 2000 # 10000 в случае использования vmagent
            min_backoff: 100ms
            max_backoff: 15s
            # для Prometheus 2.26 и новее

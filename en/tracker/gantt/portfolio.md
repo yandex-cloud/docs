@@ -10,7 +10,7 @@ To go to the Gantt chart:
 
 1. Select the **{{ ui-key.startrek.ui_components_filter-pane_ViewModeSwitch.mode-gantt }}** tab.
    * The portfolio and project list is displayed to the left of the chart. To open the list of nested items, click ![](../../_assets/tracker/svg/arrow.svg) next to its name. The issues are displayed as a hierarchical list.
-   * The portfolio, project, and issue timeframes are shown on the chart as bars plotted along the time axis. The left edge of each bar indicates the start date of work on the portfolio, project, or issue, while the end of the bar shows the portfolio, project, or issue deadline.
+   * The portfolio, project, and issue timeframes are shown on the chart as bars plotted along the time axis. The left edge of each bar indicates the start date of a portfolio, project, or issue, while the right edge marks its deadline.
 
 1. {% include [gantt-time-scale](../../_includes/tracker/gantt-time-scale.md) %}
 
@@ -22,13 +22,13 @@ To move some portfolios and projects relative to others, click ![](../../_assets
 
 ## Changing timeframes {#timing}
 
-* If the portfolio or project timeframes are not shown on the chart (its start and end dates are not set), hover over the chart next to the portfolio or project name, position the portfolio or project bar along the time axis, and click the left mouse button.
+* If the portfolio or project timeframes are not shown on the chart (its start and end dates are not set), hover over the chart next to the portfolio or project name, position the bar along the time axis, and click the left mouse button.
 
 * To shift the portfolio or project start and end dates by the same value, drag the bar along the time axis.
 
-* To change the portfolio or project duration, drag the left edge of the bar (the start date) or the right edge of the bar (end date).
+* To change the portfolio or project duration, drag the left edge of the bar (the start date) or the right edge of the bar (the end date).
 
-## Assigning an employee in charge {#assigned}
+## Assigning an employee in charge {#assign-responsible}
 
 On a Gantt chart for portfolios, you can assign or change an employee in charge of a portfolio or project:
 
@@ -38,7 +38,7 @@ On a Gantt chart for portfolios, you can assign or change an employee in charge 
 
 {% note info %}
 
-If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the portfolio or project bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select the **Issue bar** item under **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}**.
+If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the portfolio or project bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select the **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}** item in the **Issue bar** section.
 
 {% endnote %}
 
@@ -61,3 +61,15 @@ In a similar way, you can also use the chart to appoint and change assignees for
 ## Chart settings {#settings}
 
 {% include [issue-bar](../../_includes/tracker/issue-bar.md) %}
+
+## Displaying the project and portfolio list section {#tasks-view}
+
+* To filter the project and portfolio list, use the filter builder. On the ![](../../_assets/tracker/svg/filter.svg)&nbsp;**{{ ui-key.startrek.ui_components_page-issues_touch_FilterSettingsMenu.item-filters }}** panel, define the selection parameters and their values. The panel allows you to use filtering on portfolios or projects only.
+
+   {% note info %}
+
+   If a nested portfolio is hidden from the list after filtering, all the portfolios and projects nested in it will not be displayed either.
+
+   {% endnote %}
+
+* To resize a column in a section, click and hold its edge and then change the width.

@@ -79,6 +79,12 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: Аккаунты в {{ yandex-cloud }}
+        items:
+          - name: Обзор
+            href: concepts/users/accounts.md
+          - name: Сервисные аккаунты
+            href: concepts/users/service-accounts.md
       - name: Как устроено управление доступом
         items:
           - name: Обзор
@@ -105,8 +111,6 @@ items:
             href: concepts/authorization/key.md
           - name: AWS-совместимые ключи доступа
             href: concepts/authorization/access-key.md
-      - name: Сервисные аккаунты
-        href: concepts/users/service-accounts.md
       - name: Федерации удостоверений
         href: concepts/federations.md
       - name: Квоты и лимиты

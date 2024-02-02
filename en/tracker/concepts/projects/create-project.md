@@ -61,16 +61,16 @@ The request body contains the information required to create a new project:
     The response body contains information about the created project in JSON format.
     ```json
     {
-        "self": "{{ host }}/v2/projects/9",
+        "self": "https://{{ host }}/v2/projects/9",
         "id": "9",
         "version": 1,
         "key": "Project",
         "name": "Project",
         "description": "New project",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
-            "display": "First and Last Name"
+            "display": "Full name"
         },
         "status": "launched",
         "startDate": "2020-11-16",

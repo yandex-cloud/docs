@@ -2,15 +2,15 @@
 
 Создайте [инстанс {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance) или [виртуальную машину](../../compute/concepts/vm.md) с [образом](../../compute/concepts/image.md) {{ GL }} в той же [облачной сети](../../vpc/concepts/network.md#network), где расположен [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
-{% list tabs %}
+{% list tabs group=gl_installation %}
 
 
-- Инстанс {{ mgl-name }}
+- Инстанс {{ mgl-name }} {#instance-mgl}
 
   Создайте инстанс {{ mgl-name }} [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
 
 
-- ВМ с образом {{ GL }}
+- ВМ с образом {{ GL }} {#gl-image-vm}
 
   Запустите {{ GL }} на ВМ с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses).
 

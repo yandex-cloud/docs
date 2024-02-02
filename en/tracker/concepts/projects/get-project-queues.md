@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/projects/get-project-queues.md
 ---
-# Get a list of project queues
+# Getting a list of project queues
 
 Use this request to get a list of queues whose issues are included in a [project](../../manager/project-new.md).
 
@@ -121,53 +121,53 @@ Authorization: OAuth <OAuth token>
 
    {% cut "Response parameters" %}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the queue. | String |
-    | id | Queue ID. | Number |
-    | key | Queue key. | String |
-    | version | Queue version. Each change to the queue increases its version number. | String |
-    | name | Queue name. | String |
-    | description | Text description of the queue. | String |
-    | lead | Block with information about the queue owner. | Object |
-    | assignAuto | Flag indicating that new issues in the queue are assigned automatically:<ul><li>`true`: Assigned.</li><li>`false`: Not assigned.</li></ul> | Boolean |
-    | defaultType | Block with information about the default issue type. | Object |
-    | defaultPriority | Block with information about the default issue priority. | Object |
-    | allowExternalMailing | Flag that indicates if emails to external addresses are allowed:<ul><li>`true`: Allowed.</li><li>`false`: Not allowed.</li></ul> | Boolean |
-    | addIssueKeyInEmail | Flag that indicates if the issue number is added to the email subject:<ul><li>`true`: Added.</li><li>`false`: Not added.</li></ul> | Boolean |
-    | denyVoting | Flag that indicates if voting for issues is allowed:<ul><li>`true`: Allowed.</li><li>`false`: Not allowed. </li></ul> | Boolean |
-    | denyConductorAutolink | Service parameter. | Boolean |
-    | denyTrackerAutolink | Flag that indicates whether to add an automatic link to issues in other queues:<ul><li>`true`: Add a link.</li><li>`false`: Do not add a link if the key of an issue from another queue is added to the comment or description.</li></ul> | Boolean |
-    | useComponentPermissionsIntersection | The method of getting access rights to issues with multiple components:<ul><li>`true`: As an overlap of component access rights.</li><li>`false`: As a combination of component access rights.</li></ul> | Boolean |
-    | useLastSignature | Service parameter. | Boolean |
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Address of the API resource with information about the queue. | String |
+   | id | Queue ID | Number |
+   | key | Queue key | String |
+   | version | Queue version. Each change to the queue increases its version number. | String |
+   | name | Queue name | String |
+   | description | Text description of the queue | String |
+   | lead | Block with information about the queue owner | Object |
+   | assignAuto | Flag indicating that new issues in the queue are assigned automatically:<ul><li>`true`: Assign.</li><li>`false`: Do not assign.</li></ul> | Logical |
+   | defaultType | Block with information about the default issue type | Object |
+   | defaultPriority | Block with information about the default issue priority | Object |
+   | allowExternalMailing | Flag that indicates if emails to external addresses are allowed:<ul><li>`true`: Enable.</li><li>`false`: Disable.</li></ul> | Logical |
+   | addIssueKeyInEmail | Flag that indicates if the issue number is added to the email subject:<ul><li>`true`: Add.</li><li>`false`: Do not add.</li></ul> | Logical |
+   | denyVoting | Flag that indicates if voting for issues is allowed:<ul><li>`true`: Voting disabled.</li><li>`false`: Voting enabled. </li></ul> | Logical |
+   | denyConductorAutolink | Service parameter | Logical |
+   | denyTrackerAutolink | Flag that indicates whether to add an automatic link to issues in other queues:<ul><li>`true` —add a link;</li><li>`false`: Do not add a link if the key of an issue from another queue is added to the comment or description.</li></ul> | Logical |
+   | useComponentPermissionsIntersection | The method of getting access rights to issues with multiple components:<ul><li>`true`: As an overlap of component access rights.</li><li>`false`: As a combination of component access rights.</li></ul> | Logical |
+   | useLastSignature | Service parameter | Logical |
 
-    **Object fields** `lead`
+   `lead` **object fields**
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | Number |
-    | display | User's name displayed. | String |
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Address of the API resource with information about the user | String |
+   | id | User ID | Number |
+   | display | Displayed user name | String |
 
-    **Object fields** `defaultType`
+   `defaultType` **object fields**
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue type. | String |
-    | id | ID of the issue type. | Number |
-    | key | Key of the issue type. | String |
-    | display | Issue type name displayed. | String |
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Address of the API resource with information about the issue type. | String |
+   | id | Issue type ID. | Number |
+   | key | Issue type key. | String |
+   | display | Issue type name displayed. | String |
 
-    **Object fields** `defaultPriority`
+   `defaultPriority`**object fields**
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue priority. | String |
-    | id | Issue priority ID. | Number |
-    | key | Issue priority key. | String |
-    | display | Issue priority name displayed. | String |
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Address of the API resource with information about the issue priority. | String |
+   | id | Issue priority ID. | Number |
+   | key | Issue priority key. | String |
+   | display | Issue priority name displayed. | String |
 
-    {% endcut %}
+   {% endcut %}
 
 - Request failed
 
@@ -182,4 +182,3 @@ Authorization: OAuth <OAuth token>
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

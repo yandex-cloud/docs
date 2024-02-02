@@ -1,25 +1,24 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/import/import-ticket.md
 ---
-# Import an issue
-
+# Importing an issue
 
 
 {% note warning %}
 
-This request can only be made on behalf of the organization's [administrator](../../role-model.md).
+This request can only be made on behalf of the [administrator](../../role-model.md).
 
 {% endnote %}
-
+
 
 Use it to import to {{ tracker-name }} tasks from other project management systems.
 
 ## Request format {#section_i14_lyb_p1b}
 
-To import an issue, use an HTTP `POST` request. Issue parameters are passed in the request body in JSON format:
+To import an issue, use an HTTP `POST` request. Issue parameters are provided in the request body in JSON format:
 
 ```json
-POST /{{ ver }}/issues/_import 
+POST /{{ ver }}/issues/_import
 Host: {{ host }}
 Authorization: OAuth <token>
 {{ org-id }}
@@ -32,8 +31,7 @@ Authorization: OAuth <token>
 }
 ```
 
-If necessary, you can extend the list of fields available for import. To do this, [create](../../user/create-param.md) additional fields in {{ tracker-name }} and specify them in the request in the following format:
-
+If necessary, you can extend the list of fields available for import. [Create](../../user/create-param.md) additional fields in {{ tracker-name }} and specify them in the request body in the format:
 ```
 "field_name": "field value"
 ```
@@ -56,14 +54,14 @@ If necessary, you can extend the list of fields available for import. To do this
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
 | key | Issue key. The key must belong to the queue that the issue is imported to.<br/><br/>If this parameter is omitted, the issue is assigned a key automatically. | String |
-| updatedAt | Date and time of the issue's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from issue creation to the current time.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String |
+| updatedAt | Date and time of the issue's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue creation to the current time.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String |
 | updatedBy | Username or ID of the user who edited the issue last.<br/><br/>The parameter is only used together with the `updatedAt` parameter. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
 | resolvedAt | Date and time when the resolution is added, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from issue creation to the time it was last updated.<br/>The parameter is only used together with the `resolution` and `resolvedBy` parameters. | String |
 | resolvedBy | Username or ID of the user who set the resolution.<br/><br/>The parameter is only used together with the `resolution` and `resolvedAt` parameters. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
 | status | Issue status ID. The status must be present in the queue workflow for the selected issue type.<br/><br/>If not specified, the initial status of the workflow is used. | Number |
 | deadline | Deadline in `YYYY-MM-DD` format. | String |
 | resolution | Issue resolution ID.<br/><br/>The parameter is only used together with the `resolvedBy` and `resolvedAt` parameters. | Number |
-| type | ID of the issue type. The issue type must be present in the queue.<br/><br/>If not specified, the issue type that is selected as the default for the queue is used. | Number |
+| type | Issue type ID The issue type must be present in the queue.<br/><br/>If not specified, the issue type that is selected as the default for the queue is used. | Number |
 | description | Issue description, no more than 512,000 characters. | String |
 | start | Start date in `YYYY-MM-DD` format. | String |
 | end | End date in `YYYY-MM-DD` format. | String |
@@ -89,11 +87,10 @@ If necessary, you can extend the list of fields available for import. To do this
 
 > Example: Import an issue.
 >
->- An HTTP `POST` method is used.
->- All additional fields are displayed in the response.
->
+> - An HTTP `POST` method is used.
+> - All additional fields are displayed in the response.
 >```json
->POST /{{ ver }}/issues/_import 
+>POST /{{ ver }}/issues/_import
 >Host: {{ host }}
 >Authorization: OAuth <token>
 >{{ org-id }}
@@ -147,7 +144,7 @@ If necessary, you can extend the list of fields available for import. To do this
 
     ```json
     {
-      "self": "{{ host }}/v2/issues/TEST-1",
+      "self": "https://{{ host }}/v2/issues/TEST-1",
       "id": "141b2ef1e4b036e9f8397458",
       "key": "TEST-1",
       "version": 1,
@@ -156,61 +153,61 @@ If necessary, you can extend the list of fields available for import. To do this
       "estimation": "P1H",
       "spent": "P1H",
       "updatedBy": {
-        "self": "{{ host }}/v2/users/1110000000011111",
+        "self": "https://{{ host }}/v2/users/1110000000011111",
         "id": "1110000000011111",
         "display": "Ivan Ivanov"
       },
       "resolvedAt": "2017-09-08T09:33:42.250+0000",
       "start": "2017-09-04",
       "resolvedBy": {
-        "self": "{{ host }}/v2/users/1110000000011111",
+        "self": "https://{{ host }}/v2/users/1110000000011111",
         "id": "1110000000011111",
         "display": "Ivan Ivanov"
       },
       "description": "Test",
       "followingMaillists": [
         {
-          "self": "{{ host }}/v2/maillists/test@test.yaconnect.com",
+          "self": "https://{{ host }}/v2/maillists/test@test.yaconnect.com",
           "id": "test@test.yaconnect.com",
           "display": "test"
         },
         {
-          "self": "{{ host }}/v2/maillists/mail@test.yaconnect.com",
+          "self": "https://{{ host }}/v2/maillists/mail@test.yaconnect.com",
           "id": "mail@test.yaconnect.com",
           "display": "mail"
         }
       ],
       "fixVersions": [
         {
-          "self":"{{ host }}/v2/versions/4",
+          "self":"https://{{ host }}/v2/versions/4",
           "id":"4",
           "display":"Version 4"
         },
         {
-          "self":"{{ host }}/v2/versions/5",
+          "self":"https://{{ host }}/v2/versions/5",
           "id":"5",
           "display":"Version 5"
         },
         {
-          "self":"{{ host }}/v2/versions/6",
+          "self":"https://{{ host }}/v2/versions/6",
           "id":"6",
           "display":"Version 6"
         }
       ],
       "type": {
-        "self": "{{ host }}/v2/issuetypes/2",
+        "self": "https://{{ host }}/v2/issuetypes/2",
         "id": "2",
         "key": "task",
         "display": "Task"
       },
       "priority": {
-        "self":"{{ host }}/v2/priorities/3",
+        "self":"https://{{ host }}/v2/priorities/3",
         "id":"3",
         "key":"normal",
         "display":"Normal"
       },
       "resolution": {
-        "self":"{{ host }}/v2/resolutions/1",
+        "self":"https://{{ host }}/v2/resolutions/1",
         "id":"1",
         "key":"fixed",
         "display":"Fixed"
@@ -218,23 +215,23 @@ If necessary, you can extend the list of fields available for import. To do this
       "createdAt": "2017-08-29T12:34:41.740+0000",
       "followers": [
         {
-          "self": "{{ host }}/v2/users/1110000000011111",
+          "self": "https://{{ host }}/v2/users/1110000000011111",
           "id": "1110000000011111",
           "display": "Ivan Ivanov"
         },
         {
-          "self": "{{ host }}/v2/users/2220000000022222",
+          "self": "https://{{ host }}/v2/users/2220000000022222",
           "id": "2220000000022222",
           "display": "Petr Petrov"
         }
       ],
       "assignee": {
-        "self": "{{ host }}/v2/users/1110000000011111",
+        "self": "https://{{ host }}/v2/users/1110000000011111",
         "id": "1110000000011111",
         "display": "Ivan Ivanov"
       },
       "createdBy": {
-        "self": "{{ host }}/v2/users/1110000000011111",
+        "self": "https://{{ host }}/v2/users/1110000000011111",
         "id": "1110000000011111",
         "display": "Ivan Ivanov"
       },
@@ -242,17 +239,17 @@ If necessary, you can extend the list of fields available for import. To do this
       "votes": 0,
       "affectedVersions": [
         {
-          "self":"{{ host }}/v2/versions/1",
+          "self":"https://{{ host }}/v2/versions/1",
           "id":"1",
           "display":"Version 1"
         },
         {
-          "self":"{{ host }}/v2/versions/2",
+          "self":"https://{{ host }}/v2/versions/2",
           "id":"2",
           "display":"Version 2"
         },
         {
-          "self":"{{ host }}/v2/versions/3",
+          "self":"https://{{ host }}/v2/versions/3",
           "id":"3",
           "display":"Version 3"
         }
@@ -261,7 +258,7 @@ If necessary, you can extend the list of fields available for import. To do this
       "end": "2017-09-07",
       "deadline": "2018-05-28",
       "queue": {
-        "self": "{{ host }}/v2/queues/TEST",
+        "self": "https://{{ host }}/v2/queues/TEST",
         "id": "1",
         "key": "TEST",
         "display": "Test"
@@ -269,36 +266,36 @@ If necessary, you can extend the list of fields available for import. To do this
       "updatedAt": "2017-09-09T11:24:31.140+0000",
       "storyPoints": 1.0,
       "status": {
-        "self": "{{ host }}/v2/statuses/17",
+        "self": "https://{{ host }}/v2/statuses/17",
         "id": "17",
         "key": "closed",
         "display": "Closed"
       },
       "components":[
         {
-          "self":"{{ host }}/v2/components/7",
+          "self":"https://{{ host }}/v2/components/7",
           "id":"7",
           "display":"Component 7"
         },
         {
-          "self":"{{ host }}/v2/components/8",
+          "self":"https://{{ host }}/v2/components/8",
           "id":"8",
           "display":"Component 8"
         },
         {
-          "self":"{{ host }}/v2/components/9",
+          "self":"https://{{ host }}/v2/components/9",
           "id":"9",
           "display":"Component 9"
         }
       ],
       "access": [
         {
-          "self": "{{ host }}/v2/users/1110000000011111",
+          "self": "https://{{ host }}/v2/users/1110000000011111",
           "id": "1110000000011111",
           "display": "Ivan Ivanov"
         },
         {
-          "self": "{{ host }}/v2/users/2220000000022222",
+          "self": "https://{{ host }}/v2/users/2220000000022222",
           "id": "2220000000022222",
           "display": "Petr Petrov"
         }
@@ -322,7 +319,7 @@ If necessary, you can extend the list of fields available for import. To do this
   | spent | Value of the "Time Spent" parameter. | String |
   | [updatedBy](#updatedBy) | Object with information about the user who edited the issue last. | Object |
   | resolvedAt | Date and time of the resolution. | String |
-  | start | Date when progress started on the issue. | String |
+  | start | Date when work on the issue started. | String |
   | [resolvedBy](#resolvedBy) | Object with information about the user who added the resolution. | Object |
   | description | Issue description. | String |
   | [followingMaillists](#followingMaillists) | Array of objects with information about mailing lists (teams and departments subscribed to the issue). | Array of objects |
@@ -347,25 +344,25 @@ If necessary, you can extend the list of fields available for import. To do this
   | updatedAt | Date and time when the issue was last updated. | String |
   | storyPoints | Value of the Story Points parameter. | Floating-point number |
   | unique | Unique ID of the issue that was set when importing it. | String |
-  | favorite | Shows if the user added the issue to favorites<br/><ul><li>true: Yes.</li><li>false: No.</li></ul> | Boolean |
+  | favorite | Shows if the user added the issue to favorites<br/><ul><li>true: Yes.</li><li>false: No.</li></ul> | Logical |
 
-  **Object fields** `updatedBy` {#updatedBy}
-
-  | Parameter | Description | Data type |
-  | -------- | -------- | ---------- |
-  | self | Address of the API resource with information about the user. | String |
-  | id | User ID. | String |
-  | display | User's name displayed. | String |
-
-  **Object fields** `resolvedBy` {#resolvedBy}
+  `updatedBy` **object fields** {#updatedBy}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
   | self | Address of the API resource with information about the user. | String |
   | id | User ID. | String |
-  | display | User's name displayed. | String |
+  | display | Displayed user name. | String |
 
-  **Object fields** `followingMaillists` {#followingMaillists}
+  `resolvedBy` **object fields** {#resolvedBy}
+
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | String |
+  | display | Displayed user name. | String |
+
+  `followingMaillists` **object fields** {#followingMaillists}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
@@ -373,24 +370,24 @@ If necessary, you can extend the list of fields available for import. To do this
   | id | Mailing list ID. | String |
   | display | Mailing list name displayed. | String |
 
-  **Object fields** `fixVersions` {#fixVersions}
+  `fixVersions` **object fields** {#fixVersions}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
   | self | Address of the API resource with information about the version. | String |
-| id | Version ID. | String |
+  | id | Version ID. | String |
   | display | Version name. | String |
 
-  **Object fields** `type` {#type}
+  `type` **object fields** {#type}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
   | self | Address of the API resource with information about the issue type. | String |
-  | id | ID of the issue type. | String |
-  | key | Key of the issue type. | String |
+  | id | Issue type ID. | String |
+  | key | Issue type key. | String |
   | display | Issue type name displayed. | String |
 
-  **Object fields** `priority` {#priority}
+  `priority` **object fields** {#priority}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
@@ -399,7 +396,7 @@ If necessary, you can extend the list of fields available for import. To do this
   | key | Priority key. | String |
   | display | Priority name displayed. | String |
 
-  **Object fields** `resolution` {#resolution}
+  `resolution` **object fields** {#resolution}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
@@ -408,31 +405,32 @@ If necessary, you can extend the list of fields available for import. To do this
   | key | Resolution key. | String |
   | display | Resolution name displayed. | String |
 
-  **Object fields** `followers` {#followers}
+  `followers` **object fields** {#followers}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
   | self | Address of the API resource with information about the user. | String |
   | id | User ID. | String |
-  | display | User's name displayed. | String |
+  | display | Displayed user name. | String |
 
-  **Object fields** `assignee` {#assignee}
-
-  | Parameter | Description | Data type |
-  | -------- | -------- | ---------- |
-  | self | Address of the API resource with information about the user. | String |
-  | id | User ID. | String |
-  | display | User's name displayed. | String |
-
-  **Object fields** `createdBy` {#createdBy}
+  `assignee` **object fields** {#assignee}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
   | self | Address of the API resource with information about the user. | String |
   | id | User ID. | String |
-  | display | User's name displayed. | String |
+  | display | Displayed user name. | String |
 
-  **Object fields** `affectedVersions` {#affectedVersions}
+
+  `createdBy` **object fields** {#createdBy}
+
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | String |
+  | display | Displayed user name. | String |
+
+  `affectedVersions` **object fields** {#affectedVersions}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
@@ -440,7 +438,7 @@ If necessary, you can extend the list of fields available for import. To do this
   | id | Version ID. | String |
   | display | Version name. | String |
 
-  **Object fields** `queue` {#queue}
+  `queue` **object fields** {#queue}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
@@ -449,7 +447,7 @@ If necessary, you can extend the list of fields available for import. To do this
   | key | Queue key. | String |
   | display | Queue name. | String |
 
-  **Object fields** `status` {#status}
+  `status` **object fields** {#status}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
@@ -458,7 +456,7 @@ If necessary, you can extend the list of fields available for import. To do this
   | key | Status key. | String |
   | display | Status name displayed. | String |
 
-  **Object fields** `components` {#components}
+  `components` **object fields** {#components}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
@@ -467,7 +465,7 @@ If necessary, you can extend the list of fields available for import. To do this
   | key | Component key. | String |
   | display | Component name displayed. | String |
 
-  **Object fields** `access` {#access}
+  `access` **object fields** {#access}
 
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
@@ -479,7 +477,7 @@ If necessary, you can extend the list of fields available for import. To do this
 
 - Request failed
 
-  If a request fails, the response message contains details of the errors encountered:
+  If the request is processed incorrectly, the API returns a message with error details:
 
   {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -496,4 +494,3 @@ If necessary, you can extend the list of fields available for import. To do this
   {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

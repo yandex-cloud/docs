@@ -87,4 +87,4 @@
 
 #### См. также {#see-also}
 
-[{#T}](../index.md#accounts)
+[{#T}](../users/accounts.md)
