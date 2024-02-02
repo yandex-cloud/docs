@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/get-boards.md
 ---
-# Get parameters of all boards
+# Getting parameters of all boards
 
 Use this request to get parameters of all issue boards created by the organization's users.
 
@@ -33,15 +33,15 @@ Authorization: OAuth <token>
     ```json
     [
       {
-      "self" : "{{ host }}/v2/boards/1",
-      "id" : 1,
-      "version" : 1412806202302,
-      "name" : "Testing",
-      "columns" :
+      "self": "https://{{ host }}/v2/boards/1",
+      "id": 1,
+      "version": 1412806202302,
+      "name": "Testing",
+      "columns":
       [
        {
-        "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
-        "id" : "1387461731452",
+        "self": "https://{{ host }}/v2/boards/1/columns/1387461731452",
+        "id": "1387461731452",
         "display": "Open"
        },
         ...
@@ -59,7 +59,7 @@ Authorization: OAuth <token>
       "query": "<Parameter 1>: <Value 1> AND <Parameter 2>: <Value 2> OR <Parameter 3>: <Value 3>...",
       "useRanking": false,
       "country": {
-           "self": "{{ host }}/v2/countries/1",
+           "self": "https://{{ host }}/v2/countries/1",
            "id": "1",
            "display": "Russia"
             }
@@ -72,19 +72,19 @@ Authorization: OAuth <token>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with board parameters. | String |
-    | id | Board ID. | Number |
-    | version | Board version. Each change to the board increases its version number. | Number |
+    | self | Address of the API resource with board parameters | String |
+    | id | Board ID | Number |
+    | version | Board version; each change to the board increases its version number | Number |
     | name | Board name. | String |
-    | [columns](#columns) | Object with information about board columns. | Object |
-    | [filter](#filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Object |
-    | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
-    | orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
-    | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md). | String |
-    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
-    | [country](#country) | Object with information about the country. Data of a country's business calendar is used in the Burn down chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Object |
+    | [columns](#columns) | Object with information about board columns | Object |
+    | [filter](#filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values | Object |
+    | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+    | orderAsc | Sort direction:<ul><li>`true`: Ascending</li><li>`false`: Descending</li></ul> | Logical |
+    | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md) | String |
+    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes</li><li>`false`: No</li></ul> | Logical |
+    | [country](#country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request | Object |
 
-    **Object fields** `columns` {#columns}
+    `columns` **object fields** {#columns}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -92,14 +92,14 @@ Authorization: OAuth <token>
     | id | Column ID | String |
     | display | Column name displayed | String |
 
-    **Object fields** `filter` {#filter}
+    `filter` **object fields** {#filter}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
-    | \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
+    | \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+    | \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
 
-    **Object fields** `country` {#country}
+    `country` **object fields** {#country}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |

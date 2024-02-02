@@ -76,6 +76,8 @@
           network_interface_specs:
             - network_id: c64mknqgnd8a********
               primary_v4_address_spec: {}
+              security_group_ids:
+                - enps0ar5s3ti********
           scheduling_policy:
             preemptible: false
           placement_policy:
@@ -97,6 +99,7 @@
         * `size` — размер диска.
         * `network_id` — идентификатор сети `default-net`.
         * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. Вы можете предоставить публичный доступ к ВМ группы, указав версию IP для [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses). Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+        * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
         * `scheduling_policy` — конфигурация политики планирования.
         * `preemptible` — флаг, указывающий создавать [прерываемые ВМ](../../concepts/preemptible-vm.md).
           * `true` — будет создана прерываемая ВМ.
@@ -150,6 +153,8 @@
         network_interface_specs:
           - network_id: c64mknqgnd8a********
             primary_v4_address_spec: {}
+            security_group_ids:
+              - enps0ar5s3ti********
          scheduling_policy:
            preemptible: false
          placement_policy:

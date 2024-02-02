@@ -221,6 +221,8 @@ items:
             href: manager/portfolio.md
           - name: Creating a portfolio
             href: manager/create-portfolio.md
+      - name: Viewing the revision history for a project or portfolio
+        href: manager/history.md
   - name: Issue boards
     items:
       - name: Overview
@@ -341,7 +343,7 @@ items:
         items:
           - name: Overview
             href: user/trigger.md
-          - name: Creating a trigger
+          - name: Creating triggers
             href: user/create-trigger.md
           - name: Setting trigger conditions
             href: user/set-condition.md

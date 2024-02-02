@@ -44,7 +44,7 @@ Authorization: OAuth <token>
 | -------- | -------- | ---------- |
 | name | Object with information about the issue field name. | Objects |
 
-**Object fields** `name`
+`name` **object fields**
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
@@ -57,7 +57,7 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- The request is executed successfully
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -65,7 +65,7 @@ Authorization: OAuth <token>
 
     ```json
     {
-        "self": "{{ host }}/v2/fields/ruName",
+        "self": "https://{{ host }}/v2/fields/ruName",
         "id": "ruName",
         "name": "ru_name",
         "description": "description text",
@@ -93,7 +93,7 @@ Authorization: OAuth <token>
         },
         "order": 14,
         "category": {
-            "self": "{{ host }}/v2/fields/categories/58bc3b921d9c7d68164e",
+            "self": "https://{{ host }}/v2/fields/categories/58bc3b921d9c7d68164e",
             "id": "58bc3b921d9c7d68164e",
             "display": "System"
         }
@@ -109,17 +109,17 @@ Authorization: OAuth <token>
     | name | Field name | String |
     | description | Field description | String |
     | version | Field version; each change to the field increases the version number | Number |
-    | [schema](#schema) | Object with information about the field value's data type | Objects |
+    | [schema](#schema) | Object with information about the field value's data type | Object |
     | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable</li><li>`false`: Editable</li></ul> | Logical |
     | options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value</li><li>`false`: The list of values is restricted by the organization's settings</li></ul> | Logical |
     | suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled</li><li>`false`: Disabled</li></ul> | Logical |
-    | [suggestProvider](#suggestProvider) | Object with information about the search suggestion class.<br/>You cannot change the class using the API. | Objects |
-    | [optionsProvider](#optionsProvider) | Object with information about allowed field values. | Objects |
-    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You cannot change the class using the API | Objects |
+    | [suggestProvider](#suggestProvider) | Object with information about the search suggestion class.<br/>You cannot change the class using the API. | Object |
+    | [optionsProvider](#optionsProvider) | Object with information about allowed field values. | Object |
+    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You cannot change the class using the API | Object |
     | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number |
-    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Objects |
+    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Object |
 
-    **Object fields** `schema` {#schema}
+    `schema` **object fields** {#schema}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -127,26 +127,26 @@ Authorization: OAuth <token>
     | items | Value type; available for fields with multiple values | String |
     | required | Shows if the field is required:<ul><li>`true`: Required</li><li>`false`: Optional</li></ul> | Logical |
 
-    **Object fields** `suggestProvider` {#suggestProvider}
+    `suggestProvider` **object fields** {#suggestProvider}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | type | Search suggestion class. | String |
 
-    **Object fields** `optionsProvider` {#optionsProvider}
+    `optionsProvider` **object fields** {#optionsProvider}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | type | Type of field values. | String |
     | values | Array of field values. | Array |
 
-    **Object fields** `queryProvider` {#queryProvider}
+    `queryProvider` **object fields** {#queryProvider}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | type | Query language type | String |
 
-    **Object fields** `category` {#category}
+    `category` **object fields** {#category}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |

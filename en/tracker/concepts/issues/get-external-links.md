@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/get-external-links.md
 ---
-# Get a list of issue external links
+# Getting a list of issue external links
 
 Use this request to get a list of issue links to [external application objects](../../external-links.md).
 
@@ -33,36 +33,36 @@ Authorization: OAuth <OAuth token>
     The response body contains information about issue external links in JSON format.
 
     ```json
-    [ 
-    
+    [
+
      {
-        "self": "{{ host }}/{{ ver }}/issues/<issue-id>/remotelinks/51299313",
+        "self": "https://{{ host }}/{{ ver }}/issues/<issue-id>/remotelinks/51299313",
         "id": 51299313,
         "type": {
-            "self": "{{ host }}/{{ ver }}/linktypes/relates",
+            "self": "https://{{ host }}/{{ ver }}/linktypes/relates",
             "id": "relates",
             "inward": "Linked",
             "outward": "Linked"
         },
         "direction": "outward",
         "object": {
-            "self": "{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/<object-id>",
+            "self": "https://{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/<object-id>",
             "id": "<object-id>",
             "key": "<object-key>",
             "application": {
-                "self": "{{ host }}/{{ ver }}/applications/<application-id>",
+                "self": "https://{{ host }}/{{ ver }}/applications/<application-id>",
                 "id": "<application-id>",
                 "type": "<application-type>",
                 "name": "<application-name>"
             }
         },
         "createdBy": {
-            "self": "{{ host }}/{{ ver }}/users/1120000000044110",
+            "self": "https://{{ host }}/{{ ver }}/users/1120000000044110",
             "id": "user-name",
             "display": "display-user-name"
         },
         "updatedBy": {
-            "self": "{{ host }}/{{ ver }}/users/1120000000044110",
+            "self": "https://{{ host }}/{{ ver }}/users/1120000000044110",
             "id": "user-name",
             "display": "display-user-name"
         },
@@ -70,7 +70,7 @@ Authorization: OAuth <OAuth token>
         "updatedAt": "2021-07-14T18:59:54.552+0000"
      },
      ...
-    ] 
+    ]
     ```
 
   {% cut "Response parameters" %}
@@ -80,23 +80,23 @@ Authorization: OAuth <OAuth token>
   | self | Address of the API resource with information about the external link. | String |
   | id | Link ID. | String |
   | [type](#type) | Block with information about the link type. | Object |
-  | direction {#direction} | <q>Link</q> direction. The parameter is relevant for non-symmetric link types, such as <q>Parent issue</q> — <q>Sub-issue</q>. Possible values:<ul><li>`outward`: A conditional link direction from an issue to a linked object.</li><li>`inward`: A conditional link direction from a linked object to an issue.</li></ul> | String |
+  | direction {#direction} | "Link" direction. The parameter is relevant for non-symmetric link types, such as "Parent issue" — "Sub-issue". Possible values:<ul><li>`outward`: A conditional link direction from an issue to a linked object.</li><li>`inward`: A conditional link direction from a linked object to an issue.</li></ul> | String |
   | [object](#object){#object-param} | Block with information about an external application object. | Object |
   | [createdBy](#createdBy) | Block with information about the user who created the link. | Object |
   | [updatedBy](#updatedBy) | Block with information about the employee who updated the link last. | Object |
   | createdAt | Link creation date and time. | String |
   | updatedAt | Date and time when the link was last updated. | String |
 
-  **Object fields** `type` {#type}
+  `type` **object fields** {#type}
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | self | Address of the API resource with information about the link type. | String |
-   | id | ID of the link type. | String |
-   | inward | Link type name depending on the [<q>direction</q>](#direction). | String |
-   | outward | Link type name depending on the [<q>direction</q>](#direction). | String |
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the link type. | String |
+  | id | ID of the link type. | String |
+  | inward | Link type name depending on the [<q>direction</q>](#direction). | String |
+  | outward | Link type name depending on the [<q>direction</q>](#direction). | String |
 
-  **Object fields** `object` {#object}
+  `object` **object fields** {#object}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
@@ -105,7 +105,7 @@ Authorization: OAuth <OAuth token>
   | key | Object key. | String |
   | [application](#application) | Block with information about the external application. | Object |
 
-  **Object fields** `application` {#application}
+  `application` **object fields** {#application}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
@@ -114,11 +114,11 @@ Authorization: OAuth <OAuth token>
   | type | Application type. | String |
   | name | Application name displayed. | String |
 
-  **Object fields** `createdBy` {#createdBy}
+  `createdBy` **object fields** {#createdBy}
 
   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-  **Object fields** `updatedBy` {#updatedBy}
+  `updatedBy` **object fields** {#updatedBy}
 
   {% include [user](../../../_includes/tracker/api/user.md) %}
 

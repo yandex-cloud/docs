@@ -1,9 +1,9 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/bulkchange/bulk-move-issues.md
 ---
-# Perform a bulk move of issues to a different queue
+# Bulk moving issues to a different queue
 
-Use this request to move multiple issues to another queue at once.
+Use this request to move multiple issues to another queue at the same time.
 
 Before executing the request, make sure the user has permission to edit the issues to be moved and is allowed to create them in the new queue.
 
@@ -29,7 +29,7 @@ Authorization: OAuth <OAuth token>
 
 {
   "queue": "<queue key>",
-  "issues": ["TEST-1, TEST-2, TEST-3"]
+  "issues": ["TEST-1","TEST-2","TEST-3"]
 }
 ```
 
@@ -41,7 +41,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Boolean |
+| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Logical |
 
 {% endcut %}
 
@@ -51,7 +51,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| queue | [Key of the queue](../../manager/create-queue.md#key) to move the issues to. | String |
+| queue | [Queue key](../../manager/create-queue.md#key) to move the issues to. | String |
 | issues | IDs of the issues to be moved. | String |
 
 **Additional parameters**
@@ -59,16 +59,16 @@ Authorization: OAuth <OAuth token>
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
 | values | Issue parameters that will be updated during the move. Use the parameters that are available when [editing the issue](../issues/patch-issue.md#req-get-params). | String |
-| moveAllFields | Shows whether to move the issue's versions, components, and projects to the new queue:<ul><li>`true`: Move them if the new queue has similar versions, components, and projects.</li><li>`false` (by default): Clear the versions, components, and projects.</li></ul> | Boolean |
-| initialStatus | Resetting the issue status. The status is reset if the issue is moved to another queue with a different [workflow](../../manager/add-workflow.md):<ul><li>`true`: Reset the status.</li><li>`false` (by default): Retain the current status.</li></ul> | Boolean |
+| moveAllFields | Shows whether to move the issue's versions, components, and projects to the new queue:<ul><li>`true`: Move them if the new queue has similar versions, components, and projects.</li><li>`false` (by default): Clear the versions, components, and projects.</li></ul> | Logical |
+| initialStatus | Resetting the issue status. The status is reset if the issue is moved to another queue with a different [workflow](../../manager/add-workflow.md):<ul><li>`true`: Reset the status.</li><li>`false` (by default): Retain the current status.</li></ul> | Logical |
 
 {% endcut %}
 
 > Request example: Move issues.
 >
 >- An HTTP POST method is used.
->- The issues <q>TEST-1</q>, <q>TEST-2</q>, and <q>TEST-3</q> are moved to the <q>CHECK</q> queue.
->- Each issue moved is assigned the <q>moved</q> tag.
+>- The issues "TEST-1", "TEST-2", and "TEST-3" are moved to the "CHECK" queue.
+>- Each issue moved is assigned the "moved" tag.
 >
 >```json
 >POST /{{ ver }}/bulkchange/_move
@@ -101,11 +101,11 @@ Authorization: OAuth <OAuth token>
     ```json
     {
         "id": "1ab23cd4e56789012fg345h6",
-        "self": "{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
+        "self": "https://{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
         "createdBy": {
-            "self": "{{ host }}/v2/users/1234567890",
+            "self": "https://{{ host }}/v2/users/1234567890",
             "id": "1234567890",
-            "display": "First and Last name"
+            "display": "Full name"
         },
         "createdAt": "2020-12-15T11:52:53.665+0000",
         "status": "CREATED",
@@ -118,7 +118,7 @@ Authorization: OAuth <OAuth token>
     {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
+    | -------- | -------- | ----------  |
     | id | Bulk change operation ID. | String |
     | self | Address of the API resource with information about the bulk change. | String |
     | [createdBy](#createdBy) | Object with information about the user who made the bulk change. | Object |
@@ -128,13 +128,13 @@ Authorization: OAuth <OAuth token>
     | executionChunkPercent | Service parameter. | Number |
     | executionIssuePercent | Service parameter. | Number |
 
-    **Object fields** `createdBy` {#createdBy}
+    `createdBy` **object fields** {#createdBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | self | Address of the API resource with information about the user. | String |
     | id | User ID. | Number |
-    | display | User's name displayed. | String |
+    | display | Displayed user name. | String |
 
     {% endcut %}
 
@@ -151,4 +151,3 @@ Authorization: OAuth <OAuth token>
     {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
 
 {% endlist %}
-

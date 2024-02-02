@@ -1,13 +1,13 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/bulkchange/bulk-transition.md
 ---
-# Make bulk changes to issue statuses
+# Bulk changes to issue statuses
 
-Use this request to switch multiple issues to a new status at once.
+Use this request to complete a transition to a new status for multiple issues at the same time.
 
 {% note info %}
 
-To find out what status transitions are available for an issue, make a [request for a list of transitions](../issues/get-transitions.md). For some statuses, such as <q>Closed</q>, the `value` parameter in the request body must be set to [resolution]({{ link-admin-resolutions }}).
+To find out what status transitions are available for an issue, make a [request for a list of transitions](../issues/get-transitions.md). For some statuses, such as "Closed", the `value` parameter in the request body must include the [resolution]({{ link-admin-resolutions }}).
 
 {% endnote %}
 
@@ -15,7 +15,7 @@ To find out what status transitions are available for an issue, make a [request 
 
 Before making the request, [get permission to access the API](../access.md).
 
-To update issue statuses, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
+To update issue statuses, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format.
 
 ```json
 POST /{{ ver }}/bulkchange/_transition
@@ -37,7 +37,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Boolean |
+| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Logical |
 
 {% endcut %}
 
@@ -61,7 +61,7 @@ Authorization: OAuth <OAuth token>
 > Example. Bulk change of multiple issues' statuses.
 >
 >- An HTTP POST method is used.
->- The status of the <q>TEST-1</q>, <q>TEST-2</q>, and <q>TEST-3</q> issues is changed to <q>Closed</q> with the <q>Resolved</q> resolution.
+>- The status of the "TEST-1", "TEST-2", and "TEST-3" issues is changed to "Closed" with the "Resolved" resolution.
 >
 >```json
 >POST /{{ ver }}/bulkchange/_transition
@@ -90,11 +90,11 @@ Authorization: OAuth <OAuth token>
     ```json
     {
         "id": "1ab23cd4e56789012fg345h6",
-        "self": "{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
+        "self": "https://{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
         "createdBy": {
-            "self": "{{ host }}/v2/users/1234567890",
+            "self": "https://{{ host }}/v2/users/1234567890",
             "id": "1234567890",
-            "display": "First and Last name"
+            "display": "Full name"
         },
         "createdAt": "2020-12-15T11:52:53.665+0000",
         "status": "CREATED",
@@ -107,7 +107,7 @@ Authorization: OAuth <OAuth token>
     {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
+    -------- | -------- | ----------
     | id | Bulk change operation ID. | String |
     | self | Address of the API resource with information about the bulk change. | String |
     | [createdBy](#createdBy) | Object with information about the user who made the bulk change. | Object |
@@ -117,13 +117,13 @@ Authorization: OAuth <OAuth token>
     | executionChunkPercent | Service parameter. | Number |
     | executionIssuePercent | Service parameter. | Number |
 
-    **Object fields** `createdBy` {#createdBy}
+    `createdBy` **object fields** {#createdBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | self | Address of the API resource with information about the user. | String |
     | id | User ID. | Number |
-    | display | User's name displayed. | String |
+    | display | Displayed user name. | String |
 
     {% endcut %}
 

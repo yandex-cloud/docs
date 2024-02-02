@@ -60,41 +60,41 @@ Authorization: OAuth <OAuth token>
 
    ```json
    {
-       "self": "{{ host }}/v2/queues/TEST",
+       "self": "https://{{ host }}/v2/queues/TEST",
        "id": "3",
        "key": "TEST",
        "version": 5,
        "name": "Test",
        "description": "Queue created for testing purposes",
        "lead": {
-              "self": "{{ host }}/v2/users/1120000000016876",
+              "self": "https://{{ host }}/v2/users/1120000000016876",
               "id": "<employee ID>",
-              "display": "<employee name displayed>"
+              "display": "<displayed employee name>"
        },
        "assignAuto": false,
        "defaultType": {
-              "self": "{{ host }}/v2/issuetypes/1",
+              "self": "https://{{ host }}/v2/issuetypes/1",
               "id": "1",
               "key": "bug",
               "display": "Error"
        },
        "defaultPriority": {
-              "self": "{{ host }}/v2/priorities/3",
+              "self": "https://{{ host }}/v2/priorities/3",
               "id": "3",
               "key": "normal",
               "display": "Normal"
        },
        "teamUsers": [
               {
-                  "self": "{{ host }}/v2/users/1120000000016876",
+                  "self": "https://{{ host }}/v2/users/1120000000016876",
                   "id": "<employee ID>",
-                  "display": "<employee name displayed>"
+                  "display": "<displayed employee name>"
               },
               ...
        ],
        "issueTypes": [
               {
-                  "self": "{{ host }}/v2/issuetypes/1",
+                  "self": "https://{{ host }}/v2/issuetypes/1",
                   "id": "1",
                   "key": "bug",
                   "display": "Error"
@@ -103,15 +103,15 @@ Authorization: OAuth <OAuth token>
        ],
        "versions": [
               {
-                  "self": "{{ host }}/v2/versions/4",
+                  "self": "https://{{ host }}/v2/versions/4",
                   "id": "4",
-                  "display": "Peak-a-boo"
+                  "display": "Peek-a-boo"
            }
        ],
        "workflows": {
               "dev": [
                   {
-                       "self": "{{ host }}/v2/issuetypes/1",
+                       "self": "https://{{ host }}/v2/issuetypes/1",
                        "id": "1",
                        "key": "bug",
                        "display": "Error"
@@ -123,22 +123,22 @@ Authorization: OAuth <OAuth token>
        "issueTypesConfig": [
               {
                   "issueType": {
-                         "self": "{{ host }}/v2/issuetypes/1",
+                         "self": "https://{{ host }}/v2/issuetypes/1",
                          "id": "1",
                          "key": "bug",
                          "display": "Error"
                },
                "workflow": {
-                         "self": "{{ host }}/v2/workflows/dev",
+                         "self": "https://{{ host }}/v2/workflows/dev",
                          "id": "dev",
                          "display": "dev"
                },
                "resolutions": [
                       {
-                         "self": "{{ host }}/v2/resolutions/2",
+                         "self": "https://{{ host }}/v2/resolutions/2",
                          "id": "2",
                          "key": "wontFix",
-                         "display": "Won't be fixed"
+                         "display": "Won't fix"
                       },
                    ...
                ]
@@ -159,14 +159,14 @@ Authorization: OAuth <OAuth token>
    | name | Queue name | String |
    | description | Text description of the queue | String |
    | [lead](#lead) | Block with information about the queue owner | Object |
-   | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Boolean |
+   | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Logical |
    | [defaultType](#default-type) | Block with information about the default issue type | Object |
    | [defaultPriority](#default-priority) | Block with information about the default issue priority | Object |
    | [teamUsers](#team-users) | Array with information about queue team members | Array of objects |
    | [issueTypes](#issue-types) | Array with information about queue issue types | Array of objects |
    | [versions](#versions) | Array with information about queue versions | Array of objects |
    | [workflows](#workflows) | List of queue workflows and their issue types | Array |
-   | denyVoting | Flag that indicates if voting for issues is enabled | Boolean |
+   | denyVoting | Flag that indicates if voting for issues is enabled | Logical |
    | [issueTypesConfig](#issue-types-config) | Array with queue issue settings | Array of objects |
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
@@ -223,7 +223,7 @@ Authorization: OAuth <OAuth token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Array object fields** `issueTypesConfig` {#issue-types-config}
+   `issueTypesConfig` **array object fields** {#issue-types-config}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----

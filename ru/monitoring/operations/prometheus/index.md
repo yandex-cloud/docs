@@ -56,11 +56,11 @@ description: "{{ managed-prometheus-full-name }} — система монито
 
 Лимиты, указанные ниже, не являются техническими ограничениями системы и могут быть увеличены по запросу в [техническую поддержку]({{ link-console-support }}).
 
-* 350 запросов/с и 5 МБ/с на запись в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).
+* 500 запросов/с и 20 МБ/с на запись в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).
 * 10000 метрик в одном запросе на запись.
 * 100 запросов в секунду на чтение через [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api).
 * 100 запросов в секунду на чтение через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
-* 1 миллион уникальных метрик.
+* 10 миллионов уникальных метрик.
 * 29 уникальных меток для одной метрики.
 * [Устаревшие метрики](../../concepts/ttl.md) удаляются через 60 дней.
 

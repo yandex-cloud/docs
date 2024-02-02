@@ -28,7 +28,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| expand | Additional fields to be included into the response: <ul><li>`queues`: Project queues </li></ul> | String |
+| expand | Additional fields to include in the response: <ul><li>`queues`: Project queues </li></ul> | String |
 
 {% endcut %}
 
@@ -44,32 +44,32 @@ Authorization: OAuth <OAuth token>
 
     ```json
     {
-        "self": "{{ host }}/v2/projects/1",
+        "self": "https://{{ host }}/v2/projects/1",
         "id": "1",
         "version": 1,
         "key": "Project 1",
         "name": "Project 1",
         "description": "First project",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
-            "display": "First and Last name"
+            "display": "Full name"
         },
         "status": "launched",
         "startDate": "2020-11-01",
         "endDate": "2020-12-01"
     },
     {
-        "self": "{{ host }}/v2/projects/2",
+        "self": "https://{{ host }}/v2/projects/2",
         "id": "2",
         "version": 1,
         "key": "Project 2",
         "name": "Project 2",
         "description": "Another project",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
-            "display": "First and Last name"
+            "display": "Full name"
         },
         "status": "launched",
         "startDate": "2020-11-02",

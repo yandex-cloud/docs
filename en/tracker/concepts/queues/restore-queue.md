@@ -47,25 +47,25 @@ Authorization: OAuth <token>
 
    ```json
    {
-       "self": "{{ host }}/v2/queues/TEST",
+       "self": "https://{{ host }}/v2/queues/TEST",
        "id": "3",
        "key": "TEST",
        "version": 5,
        "name": "Test",
        "lead": {
-              "self": "{{ host }}/v2/users/1120000000016876",
+              "self": "https://{{ host }}/v2/users/1120000000016876",
               "id": "<employee ID>",
-              "display": "<employee name displayed>"
+              "display": "<displayed employee name>"
        },
        "assignAuto": false,
        "defaultType": {
-              "self": "{{ host }}/v2/issuetypes/1",
+              "self": "https://{{ host }}/v2/issuetypes/1",
               "id": "1",
               "key": "bug",
               "display": "Error"
        },
        "defaultPriority": {
-              "self": "{{ host }}/v2/priorities/3",
+              "self": "https://{{ host }}/v2/priorities/3",
               "id": "3",
               "key": "normal",
               "display": "Normal"
@@ -84,10 +84,10 @@ Authorization: OAuth <token>
    | version | Queue version. Each change to the queue increases its version number. | Number |
    | name | Queue name | String |
    | [lead](#lead) | Block with information about the queue owner | Object |
-   | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Boolean |
+   | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Logical |
    | [defaultType](#default-type) | Block with information about the default issue type | Object |
    | [defaultPriority](#default-priority) | Block with information about the default issue priority | Object |
-   | denyVoting | Flag that shows whether voting for issues is enabled | Boolean |
+   | denyVoting | Flag that shows whether voting for issues is enabled | Logical |
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 

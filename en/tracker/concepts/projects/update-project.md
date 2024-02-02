@@ -20,7 +20,7 @@ Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
-    "queues": "<queue key>" 
+    "queues": "<queue key>"
 }
 ```
 
@@ -84,16 +84,16 @@ Authorization: OAuth <OAuth token>
 
     ```json
     {
-        "self": "{{ host }}/v2/projects/9",
+        "self": "https://{{ host }}/v2/projects/9",
         "id": "9",
         "version": 5,
         "key": "Project",
         "name": "Project",
         "description": "Project with updates",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
-            "display": "First and Last name"
+            "display": "Full name"
         },
         "status": "launched",
         "startDate": "2020-11-16",

@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/add-checklist-item.md
 ---
-# Create a checklist or add items to it
+# Creating a checklist or adding items to it
 
 Use this request to create a [checklist](../../user/checklist.md) and add new items to it.
 
@@ -9,7 +9,7 @@ Use this request to create a [checklist](../../user/checklist.md) and add new it
 
 Before making the request, [get permission to access the API](../access.md).
 
-To create a new checklist or add items to an existing one, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
+To create a new checklist or add items to an existing one, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format.
 
 ```json
 POST /{{ ver }}/issues/<issue-id>/checklistItems
@@ -44,11 +44,11 @@ The request body contains the information required to create a checklist or add 
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| checked | A mark indicating whether the item is done: <ul><li>`true`: The item is marked as done.</li><li>`false`: The item is not marked as done.</li></ul> | Boolean |
+| checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Logical |
 | assignee | ID or username of the user that the checklist item is assigned to. | String |
 | [deadline](#deadline-checklist) | Deadline for the checklist item. | Object |
 
-**Object fields** `deadline` {#deadline-checklist}
+`deadline` **object fields** {#deadline-checklist}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
@@ -69,60 +69,60 @@ The request body contains the information required to create a checklist or add 
 
     ```json
     {
-        "self": "{{ host }}/v2/issues/ORG-3",
+        "self": "https://{{ host }}/v2/issues/ORG-3",
         "id": "5f981c00b982f0755dbdc13d",
         "key": "ORG-3",
         "version": 133,
         "lastCommentUpdatedAt": "2020-12-13T13:18:22.965+0000",
         "pendingReplyFrom": [
             {
-                "self": "{{ host }}/v2/users/1134669289",
-                "id": "Employee ID",
-                "display": "First and Last name"
+                "self": "https://{{ host }}/v2/users/1134669289",
+                "id": "employee ID",
+                "display": "Full Name"
             }
         ],
         "summary": "Issue name",
         "statusStartTime": "2020-11-03T11:19:24.733+0000",
         "updatedBy": {
-            "self": "{{ host }}/v2/users/19904929",
-            "id": "Employee ID",
-            "display": "First and Last name"
+            "self": "https://{{ host }}/v2/users/19904929",
+            "id": "employee ID",
+            "display": "Full Name"
         },
         "description": "Issue description",
         "type": {
-            "self": "{{ host }}/v2/issuetypes/2",
+            "self": "https://{{ host }}/v2/issuetypes/2",
             "id": "2",
             "key": "task",
             "display": "Issue"
         },
         "priority": {
-            "self": "{{ host }}/v2/priorities/3",
+            "self": "https://{{ host }}/v2/priorities/3",
             "id": "3",
             "key": "normal",
-            "display": "Medium"
+            "display": "Normal"
         },
         "previousStatusLastAssignee": {
-            "self": "{{ host }}/v2/users/1134669289",
-            "id": "Employee ID",
-            "display": "First and Last name"
+            "self": "https://{{ host }}/v2/users/1134669289",
+            "id": "employee ID",
+            "display": "Full Name"
         },
         "createdAt": "2020-10-27T13:09:20.085+0000",
         "followers": [
             {
-                "self": "{{ host }}/v2/users/19904929",
-                "id": "Employee ID",
-                "display": "First and Last name"
+                "self": "https://{{ host }}/v2/users/19904929",
+                "id": "employee ID",
+                "display": "Full Name"
             }
         ],
         "createdBy": {
-            "self": "{{ host }}/v2/users/1134669289",
-            "id": "Employee ID",
-            "display": "First and Last name"
+            "self": "https://{{ host }}/v2/users/1134669289",
+            "id": "employee ID",
+            "display": "Full Name"
         },
         "checklistItems": [
             {
                 "id": "5fde5f0a1aee261dd3b62edb",
-                "text": "Checklist item",
+                "text": "checklist item",
                 "textHtml": "Item text in HTML format",
                 "checked": false,
                 "checklistItemType": "standard"
@@ -130,26 +130,26 @@ The request body contains the information required to create a checklist or add 
         ],
         "votes": 0,
         "assignee": {
-            "self": "{{ host }}/v2/users/1134669289",
-            "id": "Employee ID",
-            "display": "First and Last name"
+            "self": "https://{{ host }}/v2/users/1134669289",
+            "id": "employee ID",
+            "display": "Full Name"
         },
         "deadline": "2020-10-28",
         "queue": {
-            "self": "{{ host }}/v2/queues/ORG",
+            "self": "https://{{ host }}/v2/queues/ORG",
             "id": "1",
             "key": "ORG",
-            "display": "Startrack"
+            "display": "Startrek"
         },
         "updatedAt": "2020-12-19T20:14:02.648+0000",
         "status": {
-            "self": "{{ host }}/v2/statuses/2",
+            "self": "https://{{ host }}/v2/statuses/2",
             "id": "2",
             "key": "needInfo",
             "display": "Need info"
         },
         "previousStatus": {
-            "self": "{{ host }}/v2/statuses/3",
+            "self": "https://{{ host }}/v2/statuses/3",
             "id": "3",
             "key": "inProgress",
             "display": "In progress"
@@ -186,34 +186,34 @@ The request body contains the information required to create a checklist or add 
     | [queue](#queue) | Object with information about the issue queue. | Object |
     | [status](#status) | Object with information about the issue status. | Object |
     | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
-    | favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Number |
+    | favorite | Favorite issue flag:<ul><li>`true`: Issue added to favorites by the user.</li><li>`false`: Issue not added to favorites.</li></ul> | Number |
 
-    **Object fields** `updatedBy` {#updated-by}
-
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | Number |
-    | display | User's name displayed. | String |
-
-    **Object fields** `pendingReplyFrom` {#pending-reply-from}
+    `updatedBy` **object fields** {#updated-by}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
     | self | Address of the API resource with information about the user. | String |
     | id | User ID. | Number |
-    | display | User's name displayed. | String |
+    | display | Displayed user name. | String |
 
-    **Object fields** `type` {#type}
+    `pendingReplyFrom` **object fields** {#pending-reply-from}
+
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | Number |
+    | display | Displayed user name. | String |
+
+    `type` **object fields** {#type}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
     | self | Link to the issue type. | String |
-    | id | ID of the issue type. | String |
-    | key | Key of the issue type. | String |
+    | id | Issue type ID. | String |
+    | key | Issue type key. | String |
     | display | Issue type name displayed. | String |
 
-    **Object fields** `priority` {#priority}
+    `priority` **object fields** {#priority}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
@@ -222,49 +222,49 @@ The request body contains the information required to create a checklist or add 
     | key | Priority key. | String |
     | display | Priority name displayed. | String |
 
-    **Object fields** `previousStatusLastAssignee` {#previous-status-last-assignee}
+    `previousStatusLastAssignee` **object fields** {#previous-status-last-assignee}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
     | self | Address of the API resource with information about the user. | String |
     | id | User ID. | Number |
-    | display | User's name displayed. | String |
+    | display | Displayed user name. | String |
 
-    **Object fields** `followers` {#followers}
-
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | Number |
-    | display | User's name displayed. | String |
-
-    **Object fields** `createdBy` {#created-by}
+    `followers` **object fields** {#followers}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
     | self | Address of the API resource with information about the user. | String |
     | id | User ID. | Number |
-    | display | User's name displayed. | String |
+    | display | Displayed user name. | String |
 
-    **Object fields** `checklistItems` {#checklist-items}
+    `createdBy` **object fields** {#created-by}
+
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | Number |
+    | display | Displayed user name. | String |
+
+    `checklistItems` **object fields** {#checklist-items}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
     | id | ID of the checklist item. | String |
     | text | Text of the checklist item. | String |
     | textHtml | Text of the checklist item in HTML format. | String |
-    | checked | Flag indicating that the checklist item is completed:<ul><li>`true`: The item is marked as completed.</li><li>`false`: The item is not marked as completed.</li></ul> | Boolean |
+    | checked | Checklist item completion flag:<ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Logical |
     | checklistItemType | Type of the checklist item. | String |
 
-    **Object fields** `assignee` {#assignee}
+    `assignee` **object fields** {#assignee}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
     | self | Address of the API resource with information about the user. | String |
     | id | User ID. | Number |
-    | display | User's name displayed. | String |
+    | display | Displayed user name. | String |
 
-    **Object fields** `queue` {#queue}
+    `queue` **object fields** {#queue}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
@@ -273,7 +273,7 @@ The request body contains the information required to create a checklist or add 
     | key | Queue key. | String |
     | display | Queue name displayed. | String |
 
-    **Object fields** `status` {#status}
+    `status` **object fields** {#status}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
@@ -282,7 +282,7 @@ The request body contains the information required to create a checklist or add 
     | key | Status key. | String |
     | display | Status name displayed. | String |
 
-    **Object fields** `previousStatus` {#previous-status}
+    `previousStatus` **object fields** {#previous-status}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
@@ -304,4 +304,3 @@ The request body contains the information required to create a checklist or add 
     {% include [error-422](../../../_includes/tracker/api/answer-error-422.md) %}
 
 {% endlist %}
-

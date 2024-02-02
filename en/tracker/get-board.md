@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/get-board.md
 ---
-# Get board parameters
+# Getting board parameters
 
 Use this request to get the parameters of an issue board.
 
@@ -40,15 +40,15 @@ Authorization: OAuth <token>
 
     ```json
     {
-      "self" : "{{ host }}/v2/boards/1",
-      "id" : 1,
-      "version" : 1412806202302,
-      "name" : "Testing",
-      "columns" :
+      "self": "https://{{ host }}/v2/boards/1",
+      "id": 1,
+      "version": 1412806202302,
+      "name": "Testing",
+      "columns":
       [
        {
-        "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
-        "id" : "1387461731452",
+        "self": "https://{{ host }}/v2/boards/1/columns/1387461731452",
+        "id": "1387461731452",
         "display": "Open"
        },
        ...
@@ -66,20 +66,20 @@ Authorization: OAuth <token>
        "query": "<Parameter 1>: <Value 1> AND <Parameter 2>: <Value 2> OR <Parameter 3>: <Value 3>...",
        "useRanking": false,
        "estimateBy": {
-          "self": "{{ host }}/v2/fields/storyPoints",
+          "self": "https://{{ host }}/v2/fields/storyPoints",
           "id": "storyPoints",
           "display": "Story Points"
-        }, 
+        },
        "country": {
-          "self": "{{ host }}/v2/countries/1",
+          "self": "https://{{ host }}/v2/countries/1",
           "id": "1",
           "display": "Russia"
         },
        "defaultQueue": {
-          "self": "{{ host }}/v2/queues/DOC",
+          "self": "https://{{ host }}/v2/queues/DOC",
           "id": "3",
           "key": "DOC",
-          "display": "Documentation"
+          "display": "Documenting"
         },
         "calendar": {
            "id": 6
@@ -91,22 +91,22 @@ Authorization: OAuth <token>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with board parameters. | String |
-    | id | Board ID. | Number |
-    | version | Board version. Each change to the board increases its version number. | Number |
+    | self | Address of the API resource with board parameters | String |
+    | id | Board ID | Number |
+    | version | Board version; each change to the board increases its version number | Number |
     | name | Board name. | String |
-    | [columns](#columns) | Object with information about board columns. | Object |
-    | [filter](#filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Object |
-    | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
-    | orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
-    | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md). | String |
-    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Object |
+    | [columns](#columns) | Object with information about board columns | Object |
+    | [filter](#filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values | Object |
+    | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+    | orderAsc | Sort direction:<ul><li>`true`: Ascending</li><li>`false`: Descending</li></ul> | Logical |
+    | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md) | String |
+    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes</li><li>`false`: No.</li></ul> | Object |
     | [estimateBy](#estimateBy) | Object with information about the parameter that issues on the board are estimated by. <br/>Defaults to `Story Points`. | Object |
-    | [country](#country) | Object with information about the country. Data of a country's business calendar is used in the [Burndown chart](manager/burndown.md).<br/>To get a list of countries, use an HTTP request: `GET /v2/countries` | Object |
+    | [country](#country) | Object with information about the country. Data of a country's business calendar is used in the [Burn down chart](manager/burndown.md).<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Object |
     | [defaultQueue](#defaultQueue) | Object with information about the default queue for creating issues. | Object |
     | [calendar](#calendar) | Object with information about the business calendar used for the board. The calendar is used to count working and non-working days in the [Burndown chart](manager/burndown.md). | Number |
 
-    **Object fields** `columns` {#columns}
+    `columns` **object fields** {#columns}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -114,22 +114,22 @@ Authorization: OAuth <token>
     | id | Column ID | String |
     | display | Column name displayed | String |
 
-    **Object fields** `filter` {#filter}
+    `filter` **object fields** {#filter}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
     | \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
 
-    **Object fields** `estimateBy` {#estimateBy}
+    `estimateBy` **object fields** {#estimateBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | self | Address of the API resource with information about the issue estimation parameter. | String |
-    | id | ID of the issue estimation parameter | String |
+    | id | ID of the issue estimation parameter. | String |
     | display | Issue estimation parameter name displayed. | String |
 
-    **Object fields** `country` {#country}
+    `country` **object fields** {#country}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -137,7 +137,7 @@ Authorization: OAuth <token>
     | id | Country ID | String |
     | display | Country name displayed | String |
 
-    **Object fields** `defaultQueue` {#defaultQueue}
+    `defaultQueue` **object fields** {#defaultQueue}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -146,7 +146,7 @@ Authorization: OAuth <token>
     | key | Queue key | String |
     | display | Queue name displayed | String |
 
-    **Object fields** `calendar` {#calendar}
+    `calendar` **object fields** {#calendar}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |

@@ -1,15 +1,15 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/queues/create-local-field.md
 ---
-# Create a local queue field
+# Creating a local queue field
 
-Use this request to create an issue [local issue](../../local-fields.md) field linked to a given queue.
+Use this request to create a [local issue field](../../local-fields.md) linked to a given queue.
 
 ## Request format {#query}
 
 Before making the request, [get permission to access the API](../access.md).
 
-To create a local field, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
+To create a local field, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/queues/<queue-id>/localFields
@@ -36,7 +36,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive | String |
+| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String |
 
 {% endcut %}
 
@@ -47,7 +47,7 @@ Authorization: OAuth <OAuth token>
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
 | name | Local field name<ul><li>`en`: In English</li><li>`ru`: In Russian</li></ul> | String |
-| id | Local field ID | String |
+| id | Local field ID. | String |
 | category | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | String |
 | type | Local field type:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType`: Date/time</li><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field</li><li>`ru.yandex.startrek.core.fields.TextFieldType`: Multi-line text field</li><li>`ru.yandex.startrek.core.fields.FloatFieldType`: Fractional number</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType`: Integer</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name</li><li>`ru.yandex.startrek.core.fields.UriFieldType`: Link</li> | String |
 
@@ -55,15 +55,15 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| [optionsProvider](#optionsProvider1) | Object with information about the list items | Objects |
+| [optionsProvider](#optionsProvider1) | Object with information about the list items | Object |
 | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number |
 | description | Local field description | String |
 | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable</li><li>`false`: Editable</li></ul> | Logical |
 | visible | Indicates if the field is visible in the interface:<ul><li>`true`: Always visible</li><li>`false`: Not visible</li></ul> | Logical |
 | hidden | Indicates if the field should be hidden in the interface:<ul><li>`true`: Hide the field even if it is not empty</li><li>`false`: Do not hide the field</li></ul> | Logical |
-| container | Indicates if you can specify multiple values in the field (like in the **Tags** field):<ul><li>`true`: You can specify multiple values in the field</li><li>`false`: You can only specify one value in the field</li></ul>This parameter can be used for the following types of fields:<ul><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name</li><li>drop-down list (see the `optionsProvider` description)</li></ul> | Logical |
+| container | Indicates if you can specify multiple values in the field (like in the **Tags** field):<ul><li>`true`: You can specify multiple values in the field</li><li>`false`: You can only specify one value in the field</li></ul>This parameter can be used for the following types of fields:<ul><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name</li><li>Drop-down list (see the `optionsProvider` description)</li></ul> | Logical |
 
-**Object fields** `optionsProvider` {#optionsProvider1}
+`optionsProvider` **object fields** {#optionsProvider1}
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
@@ -109,7 +109,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -118,7 +118,7 @@ Authorization: OAuth <OAuth token>
     ```json
      {
         "type": "local",
-        "self": "{{ host }}/v2/queues/ORG/localFields/loc_field_key",
+        "self": "https://{{ host }}/v2/queues/ORG/localFields/loc_field_key",
         "id": "6054ae3a2b6b2c7f80bb9a93--loc_field_key",
         "name": "Field name in Russian",
         "description": "Local field description",
@@ -136,10 +136,10 @@ Authorization: OAuth <OAuth token>
         },
         "order": 100,
         "category": {
-            "self": "{{ host }}/v2/fields/categories/000000000000000000000003",
+            "self": "https://{{ host }}/v2/fields/categories/000000000000000000000003",
             "id": "000000000000000000000003",
             "display": "category_name"
-        }    
+        }
      }
     ```
 
@@ -154,17 +154,17 @@ Authorization: OAuth <OAuth token>
     | description | Field description | String |
     | key | Field key | String |
     | version | Field version; each change to the field increases the version number | Number |
-    | [schema](#schema) | Object with information about the field value's data type | Objects |
+    | [schema](#schema) | Object with information about the field value's data type | Object |
     | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable</li><li>`false`: Editable</li></ul> | Logical |
     | options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value</li><li>`false`: The list of values is restricted by the organization's settings</li></ul> | Logical |
     | suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled</li><li>`false`: Disabled</li></ul> | Logical |
-    | [optionsProvider](#optionsProvider) | Object with information about the drop-down list items | Objects |
-    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You cannot change the class using the API | Objects |
+    | [optionsProvider](#optionsProvider) | Object with information about the drop-down list items | Object |
+    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You cannot change the class using the API | Object |
     | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number |
-    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Objects |
+    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Object |
 
 
-    **Object fields** `schema` {#schema}
+    `schema` **object fields** {#schema}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -172,7 +172,7 @@ Authorization: OAuth <OAuth token>
     | items | Value type; available for fields with multiple values | String |
     | required | Shows if the field is required:<ul><li>`true`: Required</li><li>`false`: Optional</li></ul> | Logical |
 
-    **Object fields** `optionsProvider` {#optionsProvider}
+    `optionsProvider` **object fields** {#optionsProvider}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -180,13 +180,13 @@ Authorization: OAuth <OAuth token>
     | needValidation | Indicates if a list value requires validation:<ul><li>`true`: Yes</li><li>`false`: Do not validate the field value</li></ul> | Logical |
     | values | List items | Array of strings |
 
-    **Object fields** `queryProvider` {#queryProvider}
+    `queryProvider` **object fields** {#queryProvider}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | type | Query language type | String |
 
-    **Object fields** `category` {#category}
+    `category` **object fields** {#category}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -196,7 +196,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

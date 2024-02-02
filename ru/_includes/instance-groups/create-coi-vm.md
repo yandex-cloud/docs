@@ -76,6 +76,8 @@
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+           security_group_ids:
+             - enps0ar5s3ti********
        placement_policy:
         placement_group_id: rmppvhrgm77g********
        metadata:
@@ -105,6 +107,7 @@
      * `size` — размер диска. Должен быть не менее 30 ГБ.
      * `network_id` — идентификатор сети `default-net`.
      * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете [предоставить публичный доступ к ВМ группы](../../compute/concepts/instance-groups/instance-template.md#instance-template), указав версию IP для публичного IP-адреса.
+     * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
      * `metadata` — значения, которые будут переданы в метаданные ВМ.
      * `docker-container-declaration` — ключ в метаданных ВМ, при котором используется [COI спецификация Docker-контейнера](../../cos/concepts/coi-specifications.md). Вы можете использовать в метаданных [Docker Compose спецификацию](../../cos/concepts/coi-specifications.md#compose-spec), для этого вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
      * `placement_policy` — (опционально) параметры [группы размещения ВМ](../../compute/concepts/placement-groups.md):
@@ -154,6 +157,8 @@
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+           security_group_ids:
+             - enps0ar5s3ti********
        placement_policy:
          placement_group_id: rmppvhrgm77g********
        metadata:

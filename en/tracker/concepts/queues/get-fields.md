@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/queues/get-fields.md
 ---
-# Get required fields for the queue
+# Getting required queue fields
 
 Use this request to get information about required queue fields. The queue is selected when the ID or key is specified.
 
@@ -30,14 +30,14 @@ Authorization: OAuth <OAuth token>
 
 > Example: Get required `TEST` queue fields.
 >
->- An HTTP `GET` method is used.
+> - An HTTP `GET` method is used.
 >
->```
->GET /v2/queues/TEST/fields HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->```
+> ```
+> GET /v2/queues/TEST/fields HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth token>
+> {{ org-id }}
+> ```
 
 ## Response format {#answer}
 
@@ -50,7 +50,7 @@ Authorization: OAuth <OAuth token>
     ```json
     [
         {
-            "self": "{{ host }}/v2/fields/stand",
+            "self": "https://{{ host }}/v2/fields/stand",
             "id": "stand",
             "name": "Bench",
             "version": 1361890459119,
@@ -67,7 +67,7 @@ Authorization: OAuth <OAuth token>
                     "DIRECT": [
                         "Not specified",
                         "Test",
-                        "Development",
+                        "Developer",
                         "Beta",
                         "Production",
                         "Trunk"
@@ -76,7 +76,7 @@ Authorization: OAuth <OAuth token>
                 "defaults": [
                     "Not specified",
                     "Test",
-                    "Development",
+                    "Developer",
                     "Beta",
                     "Production"
                 ]
@@ -95,25 +95,25 @@ Authorization: OAuth <OAuth token>
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
     | self | Link to the field object. | String |
-    | id | Field ID. | String |
-    | name | Field name. | String |
-    | version | Version number. | Number |
+    | id | Field ID | String |
+    | name | Field name | String |
+    | version | Version number | Number |
     | [schema](#schema) | Object with information about the type of field content. | Object |
-    | readonly | Shows if the field is editable. Possible values:<ul><li>`true`: Editable.</li><li>`false`: Non-editable.</li></ul> | Boolean |
-    | options | Shows if there are options for filling in the field. | Boolean |
-    | suggest | Shows if suggestions are available when filling in the field. | Boolean |
+    | readonly | Shows if the field is editable. The possible values include:<ul><li>`true`: The field is editable.</li><li>`false`: Non-editable.</li></ul> | Logical |
+    | options | Shows if there are options for filling in the field. | Logical |
+    | suggest | Shows if suggestions are available when filling in the field. | Logical |
     | optionsProvider | Block with information about a set of possible field values. | Object |
-    | queryProvider | Information about the type of field for quiery requests. | Object |
+    | queryProvider | Information about the type of field for query requests. | Object |
     | order | Weight of the field when displayed in the interface. Fields with a lower weight are displayed above fields with a higher weight. | Number |
 
-    **Object fields** `schema` {#schema}
+    `schema` **object fields** {#schema}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
-    | type | Type of field content. Possible values:<ul><li>`float`: Numeric field.</li><li>`string`: Text field.</li></ul> | String |
-    | required | Shows if the field is required. | Boolean |
+    | type | Type of field content. The possible values include:<ul><li>`float`: Numeric field.</li><li>`string`: Text field.</li></ul> | String |
+    | required | Shows if the field is required. | Logical |
 
-    **Object fields** `optionsProvider`
+    `optionsProvider` **object fields**
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
@@ -130,4 +130,3 @@ Authorization: OAuth <OAuth token>
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

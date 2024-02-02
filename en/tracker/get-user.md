@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/get-user.md
 ---
-# Get information about the user
+# Getting information about the user
 
 The request enables you to get information about the account of an organization's user.
 
@@ -42,7 +42,7 @@ Authorization: OAuth <OAuth token>
    ```json
       [
          {
-         "self": "{{ host }}/v2/users/1234567890",
+         "self": "https://{{ host }}/v2/users/1234567890",
          "uid": 1234567890,
          "login": "<user_login>",
          "trackerUid": 1234567890,
@@ -50,7 +50,7 @@ Authorization: OAuth <OAuth token>
          "cloudUid": "bfbdrb1aa248v8n5vkcq",
          "firstName": "<First name>",
          "lastName": "<Last name>",
-         "display": "<First and last name>",
+         "display": "<Full name>",
          "email": "<login@yandex.ru>",
          "external": false,
          "hasLicense": true,
@@ -73,12 +73,12 @@ Authorization: OAuth <OAuth token>
    -------- | -------- | ----------
    self | Address of the API resource with information about the user account | String
    uid | Unique ID of the user {{ tracker-name }} account | Number
-   login | Username of the user | String
+   login | User's login | String
    trackerUid | Unique ID of the user {{ tracker-name }} account | Number
    passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | Number
    cloudUid | User unique ID in {{ org-full-name }} | String
-   firstName | First name of the user | String
-   lastName | Last name of the user | String
+   firstName | User's first name | String
+   lastName | User's last name | String
    display | Displayed user name | String
    email | User email address | String
    external | Service parameter | Logical
@@ -88,7 +88,7 @@ Authorization: OAuth <OAuth token>
    disableNotifications | Flag indicating whether user notifications are forced disabled:<ul><li>`true`: Disabled</li><li>`false`: Enabled</li></ul> | Logical
    firstLoginDate | Date and time of the user's first authentication, in the `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String
    lastLoginDate | Date and time of the user's last authentication, in the `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String
-   welcomeMailSent | Method of adding a user: <ul><li>`true`: By sending an invitation by email</li><li>`false`: By other means</li></ul>| Logical
+   welcomeMailSent | Method of adding a user: <ul><li>`true`: By sending an invitation by email</li><li>`false`: By other means</li></ul> | Logical
 
    {% endcut %}
 

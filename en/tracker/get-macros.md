@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/get-macros.md
 ---
-# Get a macro
+# Getting a macro
 
 Use this request to get macro parameters.
 
@@ -41,10 +41,10 @@ Authorization: OAuth <token>
 
     ```json
     {
-        "self": "{{ host }}/v2/queues/TEST/macros/3",
+        "self": "https://{{ host }}/v2/queues/TEST/macros/3",
         "id": 3,
         "queue": {
-          "self": "{{ host }}/v2/queues/TEST", 
+          "self": "https://{{ host }}/v2/queues/TEST",
           "id": "1",
           "key": "TEST",
           "display": "Test queue"
@@ -54,7 +54,7 @@ Authorization: OAuth <token>
         "fieldChanges": [
           {
             "field": {
-               "self": "{{ host }}/v2/fields/tags", 
+               "self": "https://{{ host }}/v2/fields/tags",
                "id": "tags",
                "display": "Tags"
               },
@@ -75,21 +75,21 @@ Authorization: OAuth <token>
     | id | Macro ID. | Number |
     | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Object |
     | name | Macro name. | String |
-    | body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
+    | body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: `<Message text>\n<variable>`<br/>Where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> `\n`: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/>`not_var{{currentDateTime.date}}`: Macro execution date.<br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
     | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
 
-    **Object fields** `queue` {#queue}
+    `queue` **Object fields** {#queue}
 
     {% include [queue](../_includes/tracker/api/queue.md) %}
 
-    **Array objects** `fieldChanges` {#fieldChanges}
+    `fieldChanges` **array objects** {#fieldChanges}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | [field](#field) | Object with information about the issue field. | Object |
     | value | Array of issue field values. | Array of objects |
 
-    **Object fields** `field` {#field}
+    `field` **Object fields** {#field}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -114,4 +114,3 @@ Authorization: OAuth <token>
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

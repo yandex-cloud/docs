@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/patch-board.md
 ---
-# Edit a board
+# Editing a board
 
 Use this request to edit board parameters.
 
@@ -68,15 +68,15 @@ The request body contains the board parameters to be changed.
 Parameter | Description | Data type
 --------- | ----------- | ---------
 name | Board name | String
-[columns](#req-columns) | Object with information about new board columns | Objects
-[filter](#req-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values.<br/>The `filter`, `orderBy`, and `orderAsc` parameter group is incompatible with the `query` parameter that also describes filter conditions | Objects
+[columns](#req-columns) | Object with information about new board columns | Object
+[filter](#req-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values.<br/>The `filter`, `orderBy`, and `orderAsc` parameter group is incompatible with the `query` parameter that also describes filter conditions | Object
 orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String
 orderAsc | Sort direction:<ul><li>`true`: Ascending</li><li>`false`: Descending</li></ul> | Logical |
 query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md).<br/>The `query` parameter is incompatible with the group of parameters that also describe filter conditions, including `filter`, `orderBy`, and `orderAsc` | String
 useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes</li><li>`false`: No</li></ul> | Logical
-[country](#req-country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries request` | Objects
+[country](#req-country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries request` | Object
 
-**Object fields** `columns` {#req-columns}
+`columns` **object fields** {#req-columns}
 
 Parameter | Description | Data type
 --------- | ----------- | ---------
@@ -84,14 +84,14 @@ id | Column ID | String
 name | Column name | String
 statuses | Keys of statuses of issues to be output in the column.<br/>The list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | String
 
-**Object fields** `filter` {#req-filter}
+`filter` **object fields** {#req-filter}
 
 Parameter | Description | Data type
 --------- | ----------- | ---------
 \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String
 \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields:[{{ link-admin-fields }}]({{ link-admin-fields }}) | Array
 
-**Object fields** `country` {#req-country}
+`country` **object fields** {#req-country}
 
 Parameter | Description | Data type
 --------- | ----------- | ---------
@@ -146,7 +146,7 @@ id | Country ID | String
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -154,14 +154,14 @@ id | Country ID | String
 
    ```json
    {
-     "self": "{{ host }}/v2/boards/1",
+     "self": "https://{{ host }}/v2/boards/1",
      "id": 1,
      "version": 1412806202302,
      "name": "Testing",
      "columns":
      [
       {
-        "self": "{{ host }}/v2/boards/1/columns/1387461731452",
+        "self": "https://{{ host }}/v2/boards/1/columns/1387461731452",
         "id": "1387461731452",
         "display": "Open"
       },
@@ -181,7 +181,7 @@ id | Country ID | String
       "useRanking": false,
 
       "country": {
-          "self": "{{ host }}/v2/countries/1",
+          "self": "https://{{ host }}/v2/countries/1",
           "id": "1",
           "display": "Russia"
            }
@@ -196,15 +196,15 @@ id | Country ID | String
    id | Board ID | Number
    version | Board version; each change to the board increases its version number | Number
    name | Board name | String
-   [columns](#ans-columns) | Object with information about board columns | Objects
-   [filter](#ans-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values | Objects
+   [columns](#ans-columns) | Object with information about board columns | Object
+   [filter](#ans-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values | Object
    orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String
    orderAsc | Sort direction:<ul><li>`true`: Ascending</li><li>`false`: Descending</li></ul> | Logical
    query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md) | String
    useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes</li><li>`false`: No</li></ul> | Logical
-   [country](#ans-country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries request` | Objects
+   [country](#ans-country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries request` | Object
 
-   **Object fields** `columns` {#ans-columns}
+   `columns` **object fields** {#ans-columns}
 
    Parameter | Description | Data type
    --------- | ----------- | ---------
@@ -212,24 +212,24 @@ id | Country ID | String
    id | Column ID | String
    display | Column name displayed | String
 
-   **Object fields** `filter` {#ans-filter}
+   `filter` **object fields** {#ans-filter}
 
    Parameter | Description | Data type
    --------- | ----------- | ---------
    \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String
    \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array
 
-   **Object fields** `country` {#ans-country}
+   `country` **object fields** {#ans-country}
 
    Parameter | Description | Data type
    --------- | ----------- | ---------
    self | Address of the API resource with the country name | String
    id | Country ID | String
-   display | Country name displayed | String
+   display | Country name displayed | Strin
 
    {% endcut %}
 
-- The request failed
+- Request failed
 
    If the request is processed incorrectly, the API returns a response with an error code:
 

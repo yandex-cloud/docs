@@ -20,14 +20,14 @@ To create a project:
 
 1. Enter a name for the project. Try to make it short and clear to give a clue to the project.
 
-1. In the **About the project** tab, add the following information:
+1. On the **About the project** tab, add the information:
 
    * Project description: what are you working on and what goals you have.
    * Attachments: working materials of the project.
    * Checklist: a list of milestones or goals of the project.
    * **Status**: Specify the current stage of the project.
-   * **Start date** or **End date**.
-   * **Responsible**, **Clients**, and **Participants**: Start typing the name or username of the employee and select a relevant option from the list.
+   * **Start date** and **End date**.
+   * **Responsible**, **Clients**, and **Participants**: Start typing the name or login of the employee and select a relevant option from the list.
    * **Tags**: Add or select the tags that would make it easier to find the project.
 
 1. [Add](#add-tickets) issues to the project. You can add issues from the project page or from the issue page, as well as by using [bulk editing](bulk-change.md).
@@ -41,12 +41,12 @@ To create a project:
 
    {% endnote %}
 
-1. A new project is available to all the organization's employees by default. To restrict access to the project, in the top-right corner of the page, click the lock icon and select **Members only**. Doing so will make the project only available to the users listed in the **Participants**, **Author**, **Clients**, and **Responsible** fields.
+1. A new project is available to all the organization's employees by default. To restrict access to the project, in the upper-right corner of the page, click the lock icon and select **Members only**. In this case, the project will only be available to the users listed in the fields: **Participants**, **Reporter**, **Clients**, and **Responsible**.
 
 ### Converting an issue to a project {#convert-from-task}
 
 The converted issue will be added to a project and the new project will show its parameters:
-* Name, description, checklist
+* Name, description, checklist.
 * Start date and end date.
 * Reporter, assignee, and followers.
 
@@ -54,7 +54,7 @@ Issue comments are converted to project comments and displayed in the **About th
 
 To create a project based on an issue:
 
-1. Open the issue page. The issue shouldn't belong to another project. To delete an issue from the project, clear the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field in the right-hand panel.
+1. Open the issue page. The issue should not belong to another project. To delete an issue from the project, clear the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field in the right-hand panel.
 
 1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.convert-to-project }}**, then click **Convert**.
 
@@ -62,7 +62,7 @@ To create a project based on an issue:
 
 #### From the project page {#from-project}
 
-1. Go to the **Issue list** tab and click **{{ ui-key.startrek.ui_components_projects_Table.add-issue }}**.
+1. Go to the **Issue list** tab, then click **{{ ui-key.startrek.ui_components_projects_Table.add-issue }}**.
 
 1. To create a new issue:
 
@@ -73,6 +73,12 @@ To create a project based on an issue:
 
    1. Select **Existing issue**.
    1. Start typing the issue's key or name, then pick the option you need from the list.
+
+   {% note alert %}
+
+   An issue may only belong to one project. Adding an issue from another project means it will be moved to the new project.
+
+   {% endnote %}
 
 #### From the issue page {#from-ticket}
 
@@ -116,4 +122,4 @@ To delete a project:
 
 1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** or follow the [direct link]({{ link-tracker }}pages/projects/list) and open the project page.
 
-1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **Delete project**.
+1. In the top-right corner of the page, click ![](../../_assets/horizontal-ellipsis.svg) and select **Delete project**.

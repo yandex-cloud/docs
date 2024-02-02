@@ -9,5 +9,5 @@ description: "Для выполнения операций через API {{ spe
 
 #### См. также {#see-also}
 
-* [{#T}](../../iam/concepts/index.md#accounts)
+* [{#T}](../../iam/concepts/users/accounts.md)
 * [Какие роли необходимы для выполнения операций](../security/index.md)

@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/get-columns.md
 ---
-# Get parameters of all columns
+# Getting parameters of all columns
 
 Use this request to get parameters of all columns of a board.
 
@@ -41,13 +41,13 @@ Authorization: OAuth <token>
     ```json
     [
         {
-          "self": "{{ host }}/v2/boards/73/columns/1",
+          "self": "https://{{ host }}/v2/boards/73/columns/1",
           "id": 1,
           "name": "Open",
           "statuses":
            [
               {
-                  "self": "{{ host }}/v2/statuses/1",
+                  "self": "https://{{ host }}/v2/statuses/1",
                   "id": "1",
                   "key": "open",
                   "display": "Open"
@@ -63,12 +63,12 @@ Authorization: OAuth <token>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the board column. | String |
-    | id | Column ID. | Number |
-    | name | Column name. | String |
-    | [statuses](#statuses) | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Array |
+    | self | Address of the API resource with information about the board column | String |
+    | id | Column ID | Number |
+    | name | Column name | String |
+    | [statuses](#statuses) | The array contains the keys of possible statuses of issues to be included in the column.<br/>The list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Array |
 
-    **Object fields** `statuses` {#statuses}
+    `statuses` **object fields** {#statuses}
 
     {% include [status](../_includes/tracker/api/status.md) %}
 
