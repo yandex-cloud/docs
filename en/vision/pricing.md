@@ -6,8 +6,6 @@ editable: false
 
 # {{ vision-name }} pricing
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 ## What goes into the cost of using {{ vision-short-name }} {#rules}
 
 The {{ vision-short-name }} service provides [a set of features for image analysis](concepts/index.md#features).
