@@ -380,7 +380,7 @@ description: "Из статьи вы узнаете, как изменить н�
       * `pool_discard`  — параметр Odyssey `pool_discard`: `true` или `false`.
       * `pooling_mode` — режим работы: `SESSION`, `TRANSACTION` или `STATEMENT`.
 
-  1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
+  1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
   1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 

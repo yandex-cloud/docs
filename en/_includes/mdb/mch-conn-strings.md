@@ -21,10 +21,10 @@
 
    {% include [ClickHouse client config](mch/client-config.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
@@ -35,7 +35,7 @@
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    {% include [default-connstring](./mch/default-connstring.md) %}
 
@@ -49,10 +49,10 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
 ### cURL {#curl}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    curl --header "X-ClickHouse-User: <DB_username>" \
@@ -61,7 +61,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```bash
    curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
@@ -82,10 +82,10 @@ To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/opera
 sudo apt update && sudo apt install --yes golang git
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.go`
 
@@ -132,7 +132,7 @@ sudo apt update && sudo apt install --yes golang git
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.go`
 
@@ -305,10 +305,10 @@ go run connect.go
    * [clickhouse-jdbc](https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc)
    * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `src/java/com/example/App.java`
 
@@ -341,7 +341,7 @@ go run connect.go
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `src/java/com/example/App.java`
 
@@ -394,10 +394,10 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install querystring
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `app.js`
 
@@ -437,7 +437,7 @@ npm install querystring
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `app.js`
 
@@ -544,10 +544,10 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
 
    {% endcut %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `/etc/odbc.ini`
 
@@ -563,7 +563,7 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `/etc/odbc.ini`
 
@@ -601,9 +601,9 @@ Once connected to the DBMS, run `SELECT @@version;`.
 1. Select the {{ CH }} driver with suitable encoding and click **Done**.
 1. Specify the parameters for connecting to the {{ CH }} cluster:
 
-   {% list tabs %}
+   {% list tabs group=connection %}
 
-   * Connecting without using SSL
+   - Connecting without SSL {#without-ssl}
 
       * **Name**: Name for the connection
       * **Host**: [FQDN of any {{ CH }} host](../../managed-clickhouse/operations/connect.md#fqdn)
@@ -612,7 +612,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
       * **User**: DB user name
       * **Password**: DB user password
 
-   * Connecting via SSL
+   - Connecting via SSL {#with-ssl}
 
       * **Name**: Name for the connection
       * **Host**: [FQDN of any {{ CH }} host](../../managed-clickhouse/operations/connect.md#fqdn)
@@ -650,10 +650,10 @@ Once connected to the DBMS, run `SELECT @@version;`.
    sudo systemctl restart apache2
    ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.php`
 
@@ -684,7 +684,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.php`
 
@@ -732,10 +732,10 @@ php connect.php
 
 ### PowerShell {#powershell}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```powershell
    curl.exe `
@@ -745,7 +745,7 @@ php connect.php
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```powershell
    curl.exe `
@@ -767,10 +767,10 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install clickhouse-driver
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.py`
 
@@ -786,7 +786,7 @@ pip3 install clickhouse-driver
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.py`
 
@@ -823,10 +823,10 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install requests
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.py`
 
@@ -848,7 +848,7 @@ pip3 install requests
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.py`
 
@@ -888,10 +888,10 @@ python3 connect.py
 sudo apt update && sudo apt install --yes ruby
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.rb`
 
@@ -921,7 +921,7 @@ sudo apt update && sudo apt install --yes ruby
    ```
 
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.rb`
 

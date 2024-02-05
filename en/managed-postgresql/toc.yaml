@@ -78,6 +78,10 @@ items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: >-
+          Setting up a connection from a {{ serverless-containers-name }}
+          container
+        href: tutorials/container-connect.md
+      - name: >-
           Delivering data to {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md

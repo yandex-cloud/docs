@@ -2,13 +2,13 @@
 
 If the cluster uses a {{ PG }} version optimized to work with <q>1C:Enterprise</q>, specify in the settings:
 
-* **Secure connection**: Disabled.
-* **DBMS type**: `PostgreSQL`.
-* **Database server**: `c-<cluster_ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
-* **Database name**: `<DB_name>`.
-* **Database user**: `<username>`.
-* **User password**: `<password>`.
-* **Create database if none present**: Disabled.
+* **Secure connection**: Disabled
+* **DBMS type**: `PostgreSQL`
+* **Database server**: `c-<cluster_ID>.rw.{{ dns-zone }} port={{ port-mpg }}`
+* **Database name**: `<DB_name>`
+* **Database user**: `<username>`
+* **User password**: `<password>`
+* **Create database if none present**: Disabled
 
 ### Bash {#bash}
 
@@ -18,9 +18,9 @@ Before connecting, install the dependencies:
 sudo apt update && sudo apt install --yes postgresql-client
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Connect to a database:
 
@@ -41,7 +41,7 @@ sudo apt update && sudo apt install --yes postgresql-client
       SELECT version();
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Connect to a database:
 
@@ -61,9 +61,9 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Npgsql/) package.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```csharp
    using Npgsql;
@@ -108,9 +108,9 @@ sudo apt update && sudo apt install --yes golang git && \
 go mod init example && go get github.com/jackc/pgx/v4
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -173,7 +173,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       go run connect.go
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -354,9 +354,9 @@ Before connecting:
 
    Current dependency version for Maven: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -394,7 +394,7 @@ Before connecting:
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -443,9 +443,9 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install pg
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `app.js`
 
@@ -470,7 +470,7 @@ npm install pg
    });
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `app.js`
 
@@ -524,9 +524,9 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 
 The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -551,7 +551,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
 
       Once connected to the DBMS, run `SELECT @@version;`.
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -587,9 +587,9 @@ Before connecting, install the dependencies:
 sudo apt update && sudo apt install --yes php php-pgsql
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -621,7 +621,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       php connect.php
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -659,9 +659,9 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 Before connecting, install the same version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) that is used in the cluster. Select the *Command Line Tools* install only.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Set the environment variables for the connection:
 
@@ -687,7 +687,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
       SELECT version();
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Set the environment variables for the connection:
 
@@ -724,9 +724,9 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
 pip3 install psycopg2-binary
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -759,7 +759,7 @@ pip3 install psycopg2-binary
       python3 connect.py
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -812,9 +812,9 @@ Before connecting:
    quit()
    ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -844,7 +844,7 @@ Before connecting:
       R connect.r
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -885,9 +885,9 @@ Before connecting, install the dependencies:
 sudo apt update && sudo apt install --yes ruby ruby-pg
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -918,7 +918,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       ruby connect.rb
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 

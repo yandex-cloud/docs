@@ -8,9 +8,9 @@ Before connecting, install the dependencies:
 sudo apt update && sudo apt install -y kafkacat
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Run this command for receiving messages from a topic:
 
@@ -39,7 +39,7 @@ sudo apt update && sudo apt install -y kafkacat
              -X sasl.password="<producer_username>" -Z
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Run this command for receiving messages from a topic:
 
@@ -97,9 +97,9 @@ Before connecting:
    cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
    ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Example code for delivering messages to a topic:
 
@@ -222,7 +222,7 @@ Before connecting:
       dotnet run bin/Debug/netcoreapp5.0/App.dll
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Example code for delivering messages to a topic:
 
@@ -424,9 +424,9 @@ Before connecting:
    cp scram.go producer/scram.go && cp scram.go consumer/scram.go
    ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Example code for delivering a message to a topic:
 
@@ -578,7 +578,7 @@ Before connecting:
       ~/go-project/producer/producer
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Example code for delivering a message to a topic:
 
@@ -883,9 +883,9 @@ Before connecting:
    cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
    ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Example code for delivering messages to a topic:
 
@@ -1007,7 +1007,7 @@ Before connecting:
       java -jar ~/project/consumer/target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Go to the folder where the Java certificate store will be located:
 
@@ -1160,9 +1160,9 @@ sudo apt update && sudo apt install -y nodejs npm && \
 npm install node-rdkafka
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Example code for delivering messages to a topic:
 
@@ -1257,7 +1257,7 @@ npm install node-rdkafka
       node producer.js
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Example code for delivering messages to a topic:
 
@@ -1380,9 +1380,9 @@ Before connecting:
 
    {% endnote %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Run this command for receiving messages from a topic:
 
@@ -1413,7 +1413,7 @@ Before connecting:
           --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer_login>' password='<producer_password>';"
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set the password using the `-storepass` parameter for additional storage protection:
 
@@ -1473,9 +1473,9 @@ sudo apt update && sudo apt install -y python3 python3-pip libsnappy-dev && \
 pip3 install kafka-python lz4 python-snappy crc32c
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Example code for delivering a message to a topic:
 
@@ -1527,7 +1527,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
       python3 consumer.py
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Example code for delivering a message to a topic:
 
@@ -1595,9 +1595,9 @@ Before connecting, install the dependencies:
 pip install confluent_kafka
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Example code for delivering a message to a topic:
 
@@ -1664,7 +1664,7 @@ pip install confluent_kafka
       python3 consumer.py
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Example code for delivering a message to a topic:
 

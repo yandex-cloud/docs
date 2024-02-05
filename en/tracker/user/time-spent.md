@@ -36,15 +36,15 @@ To log time:
 
 1. Open the issue page.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.add-worklog }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-worklog }}**.
 
-1. Fill in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}** field.
+1. Fill in the **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.duration-label }}** field.
 
    Here is an example:
    * 1 week and 3 days: `1w 3d`.
    * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`.
 
-1. Fill in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.date-label }}** field with the date and time in the current time zone.
+1. Fill in the **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.date-label }}** field with the date and time in the current time zone.
 
    {% note info %}
 
@@ -56,7 +56,7 @@ To log time:
 
 1. Leave a comment, if needed. The comment will not be visible in the issue but will be saved in the [Time spent report](../manager/statistics.md#section_uxt_3ft_xz) and the [History of issue changes](#records-history).
 
-1. Click **{{ ui-key.startrek.ui_components_AddWorklogDialog.apply-button }}**.
+1. Click **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.apply-button }}**.
 
 {% note info %}
 

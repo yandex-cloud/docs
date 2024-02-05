@@ -119,14 +119,14 @@
 	1. В открывшейся форме в поле **Название задачи** введите название задачи, например `Parent Task`.
 	1. Нажмите кнопку **Создать**.
 1. Создайте подзадачи:
-	1. На странице задачи `Parent Task` в правом верхнем углу в меню **{{ ui-key.startrek.ui_components_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_components_IssueMenu.create-subissue }}**.
+	1. На странице задачи `Parent Task` в правом верхнем углу в меню **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-subissue }}**.
 	1. В открывшейся форме в поле **Название задачи** введите название подзадачи, например `Subtask-1`.
 	1. Аналогичным образом создайте еще одну или несколько подзадач с названиями `Subtask-2`, `Subtask-3` и т. д.
 
 ### Внесите данные о затраченном времени в подзадачах
 
-1. На странице подзадачи `Subtask-1` в правом верхнем углу в меню **{{ ui-key.startrek.ui_components_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_components_IssueMenu.add-worklog }}**.
-1. В открывшемся диалоге в поле **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}** укажите любое время, например `1h25m`.
+1. На странице подзадачи `Subtask-1` в правом верхнем углу в меню **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-worklog }}**.
+1. В открывшемся диалоге в поле **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.duration-label }}** укажите любое время, например `1h25m`.
 1. Аналогичным образом добавьте затраченное время в других подзадачах.
 
 ### Убедитесь в корректной работе функции 
