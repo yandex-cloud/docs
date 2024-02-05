@@ -8,7 +8,7 @@ To set up reminder:
 
 1. Open the issue page.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.add-notification }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-notification }}**.
 
 1. Specify the date and time of the reminder.
 
@@ -40,6 +40,6 @@ To add an entry about working on the issue or arrange a meeting with issue par
 
 1. Open the issue page.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.create-calendar-event }}** → **{{ ui-key.startrek.ui_components_IssueMenu.calendar-event-me }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-calendar-event }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.calendar-event-me }}**.
 
 1. Enter information about the calendar event. If needed, add the meeting participants, then click **Create**.

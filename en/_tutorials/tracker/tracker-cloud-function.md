@@ -119,14 +119,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. In the form that opens, in the **Issue name** field, enter an issue name, e.g., `Parent Task`.
    1. Click **Create**.
 1. Create sub-issues:
-   1. In the top-right corner of the `Parent Task` issue page, in the **{{ ui-key.startrek.ui_components_IssueMenu.title }}** menu, select **{{ ui-key.startrek.ui_components_IssueMenu.create-subissue }}**.
+   1. In the top-right corner of the `Parent Task` issue page, in the **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** menu, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-subissue }}**.
    1. In the form that opens, in the **Issue name** field, enter a sub-issue name, e.g., `Subtask-1`.
    1. In the same way, create another sub-issue or multiple sub-issues named `Subtask-2`, `Subtask-3`, etc.
 
 ### Enter time spent values for the sub-issues
 
-1. In the top-right corner of the `Subtask-1` sub-issue page, in the **{{ ui-key.startrek.ui_components_IssueMenu.title }}** menu, select **{{ ui-key.startrek.ui_components_IssueMenu.add-worklog }}**.
-1. In the dialog that opens, in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}** field, enter any time value, e.g., `1h25m`.
+1. In the top-right corner of the `Subtask-1` sub-issue page, in the **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** menu, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-worklog }}**.
+1. In the dialog that opens, in the **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.duration-label }}** field, enter any time value, e.g., `1h25m`.
 1. In the same way, add time spent values for the other sub-issues.
 
 ### Check if the function works correctly

@@ -21,7 +21,7 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/kafka.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/kafka.md
           - name: AWS CloudTrail
             items:
@@ -35,19 +35,19 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/clickhouse.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/clickhouse.md
           - name: Elasticsearch
             items:
               - name: Source
                 href: operations/endpoint/source/elasticsearch.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/elasticsearch.md
           - name: Greenplum®
             items:
               - name: Source
                 href: operations/endpoint/source/greenplum.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/greenplum.md
           - name: '{{ metrika-endpoint }}'
             items:
@@ -61,25 +61,25 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/mongodb.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/mongodb.md
           - name: MySQL
             items:
               - name: Source
                 href: operations/endpoint/source/mysql.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/mysql.md
           - name: Object Storage
             items:
               - name: Source
                 href: operations/endpoint/source/object-storage.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/object-storage.md
           - name: OpenSearch
             items:
               - name: Source
                 href: operations/endpoint/source/opensearch.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/opensearch.md
           - name: Oracle
             items:
@@ -89,7 +89,7 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/postgresql.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/postgresql.md
           - name: S3
             items:
@@ -99,13 +99,13 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/data-streams.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/data-streams.md
           - name: '{{ ydb-short-name }}'
             items:
               - name: Source
                 href: operations/endpoint/source/ydb.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/yandex-database.md
       - name: Managing transfer process
         href: operations/transfer.md

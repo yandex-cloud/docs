@@ -2,9 +2,9 @@
 
 Before connecting, install the [MongoDB Shell utility]({{ shell-link }}).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL for {{ MG }} 4.2 and higher
+- Connecting via SSL for {{ MG }} 4.2 and higher {#with-ssl}
 
    ```bash
    mongosh --norc \
@@ -16,7 +16,7 @@ Before connecting, install the [MongoDB Shell utility]({{ shell-link }}).
            <DB_name>
    ```
 
-- Connecting via SSL for {{ MG }} 4.0
+- Connecting via SSL for {{ MG }} 4.0 {#with-ssl-4}
 
    ```bash
    mongosh --norc \
@@ -28,7 +28,7 @@ Before connecting, install the [MongoDB Shell utility]({{ shell-link }}).
            <DB_name>
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    mongosh --norc \
@@ -53,9 +53,9 @@ sudo apt update && sudo apt install --yes golang git && \
 go get go.mongodb.org/mongo-driver/mongo
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.go`
 
@@ -99,7 +99,7 @@ go get go.mongodb.org/mongo-driver/mongo
    }
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.go`
 
@@ -264,12 +264,12 @@ go run connect.go
 
    Up-to-date versions of dependencies for Maven:
 
-   * [mongodb-driver-sync](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync).
-   * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
+   * [mongodb-driver-sync](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync)
+   * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `src/java/com/example/App.java`
 
@@ -311,7 +311,7 @@ go run connect.go
    }
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `src/java/com/example/App.java`
 
@@ -369,9 +369,9 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install mongodb
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `app.js`
 
@@ -407,7 +407,7 @@ npm install mongodb
    })
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `app.js`
 
@@ -458,9 +458,9 @@ node app.js
 sudo apt update && sudo apt install --yes php php-mongodb
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.php`
 
@@ -495,7 +495,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
    ?>
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.php`
 
@@ -543,9 +543,9 @@ php connect.php
 
 Before connecting, install the [MongoDB Shell utility](https://www.mongodb.com/try/download/shell).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL for {{ MG }} 4.2 and higher
+- Connecting via SSL for {{ MG }} 4.2 and higher {#with-ssl}
 
    ```powershell
    mongosh.exe --norc `
@@ -557,7 +557,7 @@ Before connecting, install the [MongoDB Shell utility](https://www.mongodb.com/t
                <DB_name>
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```powershell
    mongosh.exe --norc `
@@ -582,9 +582,9 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.py`
 
@@ -620,7 +620,7 @@ pip3 install pyMongo
    conn.close()
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.py`
 
@@ -639,7 +639,7 @@ pip3 install pyMongo
    DB_PASS = '<DB_user_password>'
 
    url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
-             user = quote(DB_USER),
+             user=quote(DB_USER),
              pw=quote(DB_PASS),
              hosts=DB_HOSTS,
              auth_src=DB_NAME)

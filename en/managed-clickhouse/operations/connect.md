@@ -167,10 +167,10 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 To connect to a {{ mch-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    # Connect the DEB repository.
@@ -189,7 +189,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
    ```
 
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
 
    ```bash

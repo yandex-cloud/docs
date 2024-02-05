@@ -36,15 +36,15 @@
 
 1. Откройте страницу задачи.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.add-worklog }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-worklog }}**.
 
-1. Заполните поле **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}**. 
+1. Заполните поле **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.duration-label }}**. 
    
    Например:
    * 1 неделя и 3 дня — `1н 3д`, `1w 3d`.
    * 3 часа 20 минут 30 секунд — `3ч 20м 30с`, `3h 20m 30s`.
 
-1. Заполните поле **{{ ui-key.startrek.ui_components_AddWorklogDialog.date-label }}**, указав дату и время в текущем часовом поясе.
+1. Заполните поле **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.date-label }}**, указав дату и время в текущем часовом поясе.
    
    {% note info %}
 
@@ -56,7 +56,7 @@
 
 1. При необходимости оставьте комментарий. Комментарий не будет виден в задаче, но сохранится в [Отчете по затратам времени](../manager/statistics.md#section_uxt_3ft_xz) и в [Истории изменений задачи](#records-history).
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_AddWorklogDialog.apply-button }}**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.apply-button }}**.
 
 {% note info %}
 

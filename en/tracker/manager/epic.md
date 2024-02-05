@@ -42,7 +42,7 @@ On the sprint page, drag an issue from the backlog or any sprint to the epic car
 
 You can also add issues to epics using [links](../user/ticket-links.md):
 
-1. Click **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **Add link** on the issue page.
+1. Click **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **Add link** on the issue page.
 
 1. Select the **{{ ui-key.startrek-backend.fields.issue.links.relationship.has.epic }}** link type.
 
