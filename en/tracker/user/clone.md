@@ -12,7 +12,7 @@ To clone an issue:
 
 1. Open the issue page.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.clone-issue-action-title }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.clone-issue-action-title }}**.
 
 1. Select the queue to create your cloned issue in.
 

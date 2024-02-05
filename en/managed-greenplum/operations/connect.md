@@ -91,7 +91,7 @@ psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
       user=<username>"
 ```
 
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
@@ -182,10 +182,10 @@ This error does not occur in other tabs in {{ pgadmin }}.
 
 To connect to a {{ mgp-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    RUN apt-get update && \
@@ -193,7 +193,7 @@ To connect to a {{ mgp-name }} cluster from a Docker container, add the followin
    ```
 
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```bash
    RUN apt-get update && \

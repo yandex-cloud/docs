@@ -152,10 +152,10 @@ When using the {{ OS }} Dashboards API:
 
 To connect to a {{ mos-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    RUN apt-get update && \
@@ -163,7 +163,7 @@ To connect to a {{ mos-name }} cluster from a Docker container, add the followin
    ```
 
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```bash
    RUN apt-get update && \

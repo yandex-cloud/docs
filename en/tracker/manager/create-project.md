@@ -56,7 +56,7 @@ To create a project based on an issue:
 
 1. Open the issue page. The issue should not belong to another project. To delete an issue from the project, clear the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field in the right-hand panel.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.convert-to-project }}**, then click **Convert**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.convert-to-project }}**, then click **Convert**.
 
 ## Adding issues to a project {#add-tickets}
 

@@ -2959,10 +2959,6 @@ default:
     startrek:
       ui_components_actions-panel_ActionsPanel:
         action-menu-title: Действия
-      ui_components_AddWorklogDialog:
-        apply-button: Сохранить
-        date-label: Начало работы
-        duration-label: Затрачено времени
       ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
         server-url-label: Ссылка на репозиторий
       ui_components_admin-repositories_ConnectRepositoryDialog:
@@ -3149,6 +3145,21 @@ default:
         show-issue-title: название
         show-links: Показывать блокирующие связи
         timeline-config: Настройки диаграммы
+      ui_components_issue-actions_IssueMenu:
+        add-notification: Добавить напоминание
+        add-worklog: Указать затраченное время
+        calendar-event-me: Зарезервировать время для работы над задачей
+        clone-issue-action-title: Клонировать задачу
+        convert-to-project: Конвертировать в проект
+        create-calendar-event: Создать событие в календаре
+        create-subissue: Добавить подзадачу
+        move-issue: Изменить очередь
+        title: Действия
+        to-subissue: Сделать подзадачей
+      ui_components_issue-actions_worklog_AddWorklogDialog:
+        apply-button: Сохранить
+        date-label: Начало работы
+        duration-label: Затрачено времени
       ui_components_issue-comments-templates:
         create-template-item: Создать шаблон
       ui_components_issue-links_ExternalLinksCollapse:
@@ -3173,17 +3184,6 @@ default:
         move: Переместить
         remove-from-both-fields: Из обоих полей
         remove-me-from: Удалить меня из поля...
-      ui_components_IssueMenu:
-        add-notification: Добавить напоминание
-        add-worklog: Указать затраченное время
-        calendar-event-me: Зарезервировать время для работы над задачей
-        clone-issue-action-title: Клонировать задачу
-        convert-to-project: Конвертировать в проект
-        create-calendar-event: Создать событие в календаре
-        create-subissue: Добавить подзадачу
-        move-issue: Изменить очередь
-        title: Действия
-        to-subissue: Сделать подзадачей
       ui_components_issues_create-issue-popup_NewIssueForm:
         milestone-type: Веха
       ui_components_issues-import_IssuesImportDialog:

@@ -71,7 +71,7 @@
 
 1. Откройте страницу задачи, к которой вы хотите создать подзадачу.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.create-subissue }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-subissue }}**.
 
 1. Заполните поля так же, как при [создании новой задачи](#create-task).
 

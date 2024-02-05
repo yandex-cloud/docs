@@ -2954,10 +2954,6 @@ default:
     startrek:
       ui_components_actions-panel_ActionsPanel:
         action-menu-title: Actions
-      ui_components_AddWorklogDialog:
-        apply-button: Save
-        date-label: Started
-        duration-label: Time spent
       ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
         server-url-label: Link to repository
       ui_components_admin-repositories_ConnectRepositoryDialog:
@@ -3144,6 +3140,21 @@ default:
         show-issue-title: name
         show-links: Show blocking links
         timeline-config: Chart settings
+      ui_components_issue-actions_IssueMenu:
+        add-notification: Add reminder
+        add-worklog: Add time spent
+        calendar-event-me: Schedule a time to work on this issue
+        clone-issue-action-title: Clone issue
+        convert-to-project: Convert to project
+        create-calendar-event: Create calendar event
+        create-subissue: Add sub-issue
+        move-issue: Change queue
+        title: Actions
+        to-subissue: Convert to sub-issue
+      ui_components_issue-actions_worklog_AddWorklogDialog:
+        apply-button: Save
+        date-label: Started
+        duration-label: Time spent
       ui_components_issue-comments-templates:
         create-template-item: Create template
       ui_components_issue-links_ExternalLinksCollapse:
@@ -3168,17 +3179,6 @@ default:
         move: Move
         remove-from-both-fields: From both fields
         remove-me-from: Remove move from field...
-      ui_components_IssueMenu:
-        add-notification: Add reminder
-        add-worklog: Add time spent
-        calendar-event-me: Schedule a time to work on this issue
-        clone-issue-action-title: Clone issue
-        convert-to-project: Convert to project
-        create-calendar-event: Create calendar event
-        create-subissue: Add sub-issue
-        move-issue: Change queue
-        title: Actions
-        to-subissue: Convert to sub-issue
       ui_components_issues_create-issue-popup_NewIssueForm:
         milestone-type: Milestone
       ui_components_issues-import_IssuesImportDialog:

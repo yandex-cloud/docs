@@ -6,13 +6,13 @@ Before connecting, install the `mysql` utility:
 sudo apt update && sudo apt install --yes mysql-client
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    {% include [default-connstring](default-connstring.md) %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    mysql --host=<FQDN_of_any_{{ MY }}_host> \
@@ -42,9 +42,9 @@ sudo apt update && sudo apt install --yes golang git && \
 go get github.com/go-sql-driver/mysql
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.go`
 
@@ -107,7 +107,7 @@ go get github.com/go-sql-driver/mysql
 
    For this connection method, the code must include the full path to the `root.crt` certificate for {{ MY }} in the `ca` variable.
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.go`
 
@@ -272,9 +272,9 @@ Before connecting:
 
    You can check the current `mysql-connector-java` version on the [project page in the Maven repository](https://mvnrepository.com/artifact/mysql/mysql-connector-java).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `src/java/com/example/App.java`
 
@@ -308,7 +308,7 @@ Before connecting:
 
    This code must specify the full path to the `YATrustStore` certificate store for the {{ MY }} driver in the `javax.net.ssl.trustStore` property.
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `src/java/com/example/App.java`
 
@@ -359,9 +359,9 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install mysql2
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `app.js`
 
@@ -393,7 +393,7 @@ npm install mysql2
 
    For this connection method, the code must include the full path to the `root.crt` certificate for {{ MY }} in the `ca` variable.
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `app.js`
 
@@ -444,9 +444,9 @@ The {{ MY }} Connector/ODBC driver will be registered automatically in `/etc/odb
 
 Set the connection parameters in the `/etc/odbc.ini` file.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `odbc.ini`
 
@@ -464,7 +464,7 @@ Set the connection parameters in the `/etc/odbc.ini` file.
 
    For this connection method, the `/etc/odbc.ini` file must include the full path to the `root.crt` certificate for {{ MY }} in the `SSLCA` parameter.
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `odbc.ini`
 
@@ -500,9 +500,9 @@ Before connecting, install the dependencies:
 sudo apt update && apt install --yes php php-mysql
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.php`
 
@@ -525,7 +525,7 @@ sudo apt update && apt install --yes php php-mysql
 
    For this connection method, the code must include the full path to the `root.crt` certificate for {{ MY }} in the `ssl_set` method.
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.php`
 
@@ -561,9 +561,9 @@ php connect.php
 
 Before connecting, [download](https://dev.mysql.com/downloads/shell/) and install the `MySQL Shell` utility.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```PowerShell
    mysqlsh --host=<FQDN_of_any_{{ MY }}_host> `
@@ -576,7 +576,7 @@ Before connecting, [download](https://dev.mysql.com/downloads/shell/) and instal
            --sql
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```PowerShell
    mysqlsh --host=<FQDN_of_any_{{ MY }}_host> `
@@ -606,9 +606,9 @@ sudo apt update && sudo apt install --yes python3 python3-pip libmysqlclient-dev
 pip3 install mysqlclient
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.py`
 
@@ -631,7 +631,7 @@ pip3 install mysqlclient
    conn.close()
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.py`
 
@@ -673,9 +673,9 @@ Before connecting, install the dependencies:
 sudo apt update && sudo apt install --yes ruby ruby-mysql2
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.rb`
 
@@ -700,7 +700,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
    conn.close()
    ```
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.rb`
 

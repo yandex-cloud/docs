@@ -1,8 +1,8 @@
 ### Bash {#bash}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    {% include [Install requirements](./connect/bash/install-requirements.md) %}
 
@@ -34,7 +34,7 @@
        -a <password>
    ```
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
@@ -52,9 +52,9 @@
 
 {% include [Install requirements](./connect/go/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    **Code example for connecting via Sentinel:**
 
@@ -130,7 +130,7 @@
    }
    ```
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.go`
 
@@ -196,9 +196,9 @@
 
 {% include [Install dependencies](./connect/java/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    **Code example for connecting via Sentinel:**
 
@@ -266,7 +266,7 @@
    }
    ```
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `src/java/com/example/App.java`
 
@@ -317,9 +317,9 @@
 
 {% include [Install dependencies](./connect/nodejs/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    **Code example for connecting via Sentinel:**
 
@@ -390,7 +390,7 @@
    });
    ```
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `app.js`
 
@@ -437,9 +437,9 @@
 
 {% include [Install dependencies](./connect/php/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    **Code example for connecting via Sentinel:**
 
@@ -453,7 +453,7 @@
    $sentinels = [
        "<FQDN_of_{{ RD }}_host_1>:{{ port-mrd-sentinel }}>",
        ...
-       "<{{ RD }}_host_N_FQDN>:{{ port-mrd-sentinel }}>",
+       "<FQDN_of_{{ RD }}_host_N>:{{ port-mrd-sentinel }}>",
    ];
    $options = [
        "replication" => "sentinel",
@@ -497,7 +497,7 @@
    ?>
    ```
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.php`
 
@@ -543,9 +543,9 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
 pip3 install redis
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    **Code example for connecting via Sentinel:**
 
@@ -587,7 +587,7 @@ pip3 install redis
    print(r.get("foo"))
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.py`
 
@@ -616,9 +616,9 @@ pip3 install redis
 
 {% include [Install dependencies](./connect/ruby/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    **Code example for connecting via Sentinel:**
 
@@ -669,7 +669,7 @@ pip3 install redis
    conn.close
    ```
 
-* Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.rb`
 

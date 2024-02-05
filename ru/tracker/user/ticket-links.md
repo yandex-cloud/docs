@@ -34,7 +34,7 @@
 
 1. Откройте страницу задачи, к которой вы хотите создать подзадачу.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.create-subissue }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-subissue }}**.
 
 1. Заполните поля так же, как при [создании новой задачи](./create-ticket.md).
 
@@ -64,7 +64,7 @@
 
 Задачу можно сделать частью более крупной (родительской) задачи:
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.to-subissue }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.to-subissue }}**.
 
 1. Укажите ключ или название родительской задачи, затем выберите ее из списка. Найти ключ можно на странице задачи над ее названием (например, `TEST-1234`).
 
@@ -74,7 +74,7 @@
 
 1. Откройте страницу подзадачи.
 
-1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.to-subissue }}**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.to-subissue }}**.
 
 1. Укажите ключ или название новой родительской задачи, затем выберите ее из списка. Найти ключ можно на странице задачи над ее названием (например, `TEST-1234`).
 

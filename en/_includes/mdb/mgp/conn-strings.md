@@ -8,9 +8,9 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 Connect to a database:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
@@ -21,7 +21,7 @@ Connect to a database:
          target_session_attrs=read-write"
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    {% include [default-connstring](default-connstring.md) %}
 
@@ -29,7 +29,7 @@ Connect to a database:
 
 After running the command, enter the user password to complete the connection process.
 
-To check the connection, run the following query:
+To check the connection, run this query:
 
 ```sql
 SELECT version();
@@ -42,9 +42,9 @@ Required packages:
 * Microsoft.EntityFrameworkCore
 * Npgsql.EntityFrameworkCore.PostgreSQL
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```csharp
    using System;
@@ -101,9 +101,9 @@ sudo apt update && sudo apt install --yes golang git && \
 go mod init example && go get github.com/jackc/pgx/v4
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -166,7 +166,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       go run connect.go
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -347,9 +347,9 @@ Before connecting:
 
    You can check the current `postgresql` version on the [project page in the Maven repository](https://mvnrepository.com/artifact/org.postgresql/postgresql).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -390,7 +390,7 @@ Before connecting:
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -442,9 +442,9 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install pg
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `app.js`
 
@@ -469,7 +469,7 @@ npm install pg
    });
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `app.js`
 
@@ -521,9 +521,9 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 
 The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -548,7 +548,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
 
       Once connected to the DBMS, run `SELECT @@version;`.
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -584,9 +584,9 @@ Before connecting, install the dependencies:
 sudo apt update && sudo apt install --yes php php-pgsql
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -618,7 +618,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       php connect.php
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -658,9 +658,9 @@ Before connecting, install the current version of [{{ PG }} for Windows](https:/
 
 Connect to a database:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```powershell
    & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
@@ -671,7 +671,7 @@ Connect to a database:
        user=<username>"
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```powershell
    & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
@@ -686,7 +686,7 @@ Connect to a database:
 
 After running the command, enter the user password to complete the connection process.
 
-To check the connection, run the following query:
+To check the connection, run this query:
 
 ```sql
 SELECT version();
@@ -701,9 +701,9 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install psycopg2-binary
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -736,7 +736,7 @@ pip3 install psycopg2-binary
       python3 connect.py
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
@@ -779,9 +779,9 @@ Before connecting, install the dependencies:
 sudo apt update && sudo apt install --yes ruby ruby-pg
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    1. Code example:
 
@@ -812,7 +812,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       ruby connect.rb
       ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    1. Code example:
 
