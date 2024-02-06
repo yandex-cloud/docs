@@ -28,7 +28,7 @@
 
 ## Подключение к внешним СУБД {#pxf}
 
-[{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.pivotal }}/6-4/pxf/overview_pxf.html) — программная платформа, которая позволяет получить доступ к данным во внешних СУБД. Доступно подключение таблиц следующих внешних источников:
+[{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) — программная платформа, которая позволяет получить доступ к данным во внешних СУБД. Доступно подключение таблиц следующих внешних источников:
 
 * Apache Hive;
 * {{ CH }};

@@ -5603,6 +5603,7 @@ default:
           config_field_ui_proxy: UI Proxy
           config_field_version: Version
           config_field_zone: Availability zone
+          database_field_admin-password: Admin password
           database_field_name: DB name
           database_field_sql-database-management: Managing databases via SQL
           database_field_sql-user-management: User management via SQL

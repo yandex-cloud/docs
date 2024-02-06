@@ -20,9 +20,9 @@ To set up Auto Unseal:
 
 1. Select one of the methods to authenticate Vault requests to {{ kms-short-name }}. You can authenticate via:
 
-   {% list tabs %}
+   {% list tabs group=authentication %}
 
-   - The service account linked to your VM
+   - Service account linked to your VM {#service-account-vm}
 
       Authentication is performed using an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) that is automatically extracted from the [VM metadata](../../compute/concepts/vm-metadata.md). For more information, see [{#T}](../../compute/operations/vm-connect/auth-inside-vm.md).
 
@@ -32,11 +32,11 @@ To set up Auto Unseal:
 
       {% endnote %}
 
-   - Any service account
+   - Any service account {#service-account}
 
       An authorized key is used for authentication. For more information about how to use authorized keys, see [{#T}](../../iam/operations/iam-token/create-for-sa.md#via-cli).
 
-   - Yandex or federated account
+   - Yandex or federated account {#yandex-account}
 
       Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or [{{ iam-name }} token](../../iam/concepts/authorization/iam-token.md).
 
@@ -74,17 +74,17 @@ If Vault has already been initialized, you have to run a [migration procedure](h
 1. Add the `kms_key_id` parameter with the {{ kms-short-name }} encryption key ID.
 1. Authenticate using one the following methods:
 
-   {% list tabs %}
+   {% list tabs group=authentication %}
 
-   - The service account linked to your VM
+   - Service account linked to your VM {#service-account-vm}
 
       Link a service account to a VM by following the [instructions](../../compute/operations/vm-connect/auth-inside-vm.md).
 
-   - Any service account
+   - Any service account {#service-account}
 
       In the `service_account_key_file` parameter, specify the path to the file with the service account's authorized key.
 
-   - Yandex or federated account
+   - Yandex or federated account {#yandex-account}
 
       If you are using a Yandex account, specify the OAuth token in the `oauth_token` parameter. For a federated account, specify the IAM token.
 
@@ -105,9 +105,9 @@ The environment variable values prevail over those from the configuration file.
 
 ## Sample configurations {#examples}
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- The service account linked to your VM
+- Service account linked to your VM {#service-account-vm}
 
    ```json
    ...
@@ -117,7 +117,7 @@ The environment variable values prevail over those from the configuration file.
    ...
    ```
 
-- Any service account
+- Any service account {#service-account}
 
    ```json
    ...
@@ -130,7 +130,7 @@ The environment variable values prevail over those from the configuration file.
 
    Where `service_account_key_file` is the path to the JSON file with the authorized key.
 
-- Yandex or federated account
+- Yandex or federated account {#yandex-account}
 
    ```json
    ...

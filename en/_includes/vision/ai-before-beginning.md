@@ -1,11 +1,11 @@
-Get the authorization data for your account:
+Get your account data for authentication:
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- User account
+- Yandex or federated account {#yandex-account}
 
    1. Get an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
-   1. [Get the ID of the folder](../../resource-manager/operations/folder/get-id.md) that your account has the `{{ roles-vision-user }}` role or higher for.
+   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
    1. When accessing {{ vision-name }} via the API, provide the received parameters in each request:
 
       * For the [Vision API](../../vision/vision/api-ref/index.md) and [Classifier API](../../vision/classifier/api-ref/grpc/index.md):
@@ -28,7 +28,7 @@ Get the authorization data for your account:
          x-folder-id <folder_ID>
          ```
 
-- Service account
+- Service account {#service-account}
 
    {{ vision-name }} supports two authentication methods based on service accounts:
 

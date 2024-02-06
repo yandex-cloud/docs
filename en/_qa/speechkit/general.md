@@ -4,60 +4,40 @@
 
 #### Where can I view API request statistics? {#api-stat}
 
-You can view the statistics in the [management console]({{ link-console-main }}) under **AI API** → **{{ speechkit-short-name }}** → **Monitoring**.
+You can view the statistics in the [management console]({{ link-console-main }}) under **{{ speechkit-short-name }}** → **Monitoring**.
 
-As you use resources, the balance automatically decreases. Learn more about [paying for resources](../../billing/payment/index.md) in {{ yandex-cloud }}.
+As you use the service, your balance automatically decreases. Learn more about [paying for resources](../../billing/payment/index.md) in {{ yandex-cloud }}.
 
 #### How do I increase quotas? / What should I do if the "429 Too Many Requests" error occurs? {#quotas}
 
-The `429 Too Many Requests` error indicates that the quotas set for your folder have been exceeded. The default quota values are specified in this [table](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-quotas).
+The `429 Too Many Requests` error indicates that the quotas set for your folder have been exceeded. The default quota values are specified in [this table](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-quotas).
 
-To increase the quotas, contact support. In your request, specify the **folder ID** and the desired quotas in "Name — Value" format.
+To increase the quotas, contact support. In your request, specify the **folder ID** and the required quotas in "Name — Value" format.
 
-#### What is folderId used for? {#folderid}
+#### What is the purpose of the folder ID (folderId)? {#folderid}
 
-{{ speechkit-short-name }} uses the `folderId` for authorization (verifying access rights) and payments for resources.
+{{ speechkit-short-name }} uses `folderId` for authorization (verifying access rights) and payments for resources.
 
-When making a request under a service account, you don't need to specify any `folderId`, since, by default, the service uses the `folderId` of the folder that this service account was created in. If you specify a different ID, the service returns an error.
+When making a request under a service account, you do not need to specify `folderId`, as by default the service uses the ID of the folder where this service account was created. If you specify a different folder, the service will return an error.
 
-When logging in as a user account, specifying the `folderId` is required.
+If you log in with a user account, you must specify `folderId`.
 
-Please note that it is only possible to recognize long audio files under a service account.
+Depending on the API used, you should include the folder ID in the request header or body. For more information about authentication in {{ speechkit-name }}, see [{#T}](../../speechkit/concepts/auth.md).
 
-#### How are IAM tokens generated? {#iam-token}
+#### How do I generate an IAM token? {#iam-token}
 
-To generate an [IAM token](../../iam/operations/iam-token/create.md), send a request with your OAuth token in
-`"yandexPassportOauthToken":"<OAuth_token>"` format. If you are using cURL, run this command:
+Among other methods, you can generate an IAM token using the {{ yandex-cloud }} command line interface. You can find all the possible ways of obtaining an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md), and [service account](../../iam/operations/iam-token/create-for-sa.md) in the {{ iam-full-name }} documentation.
 
-```bash
-curl -d "{\"yandexPassportOauthToken\":\"<OAuth_token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
-```
-
-Follow the recommendations and examples given in the **API** tab for [Getting an IAM token](../../iam/operations/iam-token/create.md).
+Even though IAM tokens are only valid for 24 hours, we still recommend them as the most secure method for authentication in {{ speechkit-name }}.
 
 #### What should I do if the "401 Unauthorized" error is returned? {#auth-err}
 
-Assign the `editor` or a higher [role](../../{{ speechkit-slug }}/security/) to the service account for the folder where it was created.
+If the {{ speechkit-name }} server returns a `401 Unauthorized` error in response to a request, check if the account you are using to send requests has the [required roles](../../speechkit/security/index.md). In addition, check your authorization method and the key or token you are using for authorization: you may have obtained it for a different account than the one you are using for your request.
 
 When using service accounts, do not specify the folder ID in your requests: the service uses the folder where the service account was created.
-
-Follow the [Getting started](../../{{ speechkit-slug }}/quickstart/index.md#before-you-begin) guide.
-
-#### What should I do if I get the 426 Upgrade Required HTTP/1.1 response? {#http-err}
-
-Make sure you are using `HTTP 1.1` rather than `HTTP 1.0`.
-
-#### What should I do if I get a TLS Handshake error? {#tls-err}
-
-Make sure the **TLS** version you are using is not lower than `1.2`.
-
-#### What should I do if the "OAuth token is invalid or expired" error occurs? {#oauth-err}
-
-You need to issue a new [OAuth token](../../iam/concepts/authorization/oauth-token.md) because your token has expired.
-To do this, follow the [link]({{ link-cloud-oauth }}). The token is valid for 1 year.
 
 #### Under what conditions can I use {{ speechkit-short-name }} performance results? {#result-restrictions}
 
 1. We do not impose any restrictions on the use of **{{ speechkit-short-name }}** performance results. You can use them at your discretion under the Russian law.
-1. Feel free to use the [demo stand](/services/speechkit#demo). Please note that it has a number of limitations.
-1. {{ speechkit-short-name }} is provided as an API designed for speech generation and recognition systems. No web interface or executable application is currently available.
+1. Feel free to use the [demo stand](/services/speechkit#demo). Please note that certain restrictions apply.
+1. {{ speechkit-short-name }} offers an API designed for speech synthesis and recognition systems. No out-of-the-box web interface or executable application is currently available.

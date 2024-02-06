@@ -109,38 +109,14 @@ Service name: `serverless`.
 
 Service name: `backup`.
 
-| Event name | Description |
---- | ---
-| `ApplyPolicy` | Applying backup policies |
-| `CreateDirectory` | Creating a new directory inside a VM |
-| `CreatePolicy` | Creating backup policies |
-| `DeleteBackup` | Deleting backups |
-| `DeletePolicy` | Deleting backup policies |
-| `DeleteResource` | Deleting a VM from {{ backup-name }} |
-| `ExecutePolicy` | Executing backup policies |
-| `RegisterResource` | Connecting a VM to {{ backup-name }} |
-| `RevokePolicy` | Revoking backup policies |
-| `StartRecoverBackup` | Starting VM recovery |
-| `UpdatePolicy` | Updating backup policies |
+{% include [backup-events](../../_includes/audit-trails/events/backup-events.md) %}
 
 
 ## {{ cdn-name }} {#cdn}
 
 Service name: `cdn`.
 
-| Event name | Description |
---- | ---
-| `gcore.CachePrefetch` | Preloading cache |
-| `gcore.CachePurge` | Purging cache |
-| `gcore.OriginCreate` | Creating an origin |
-| `gcore.OriginDelete` | Deleting an origin |
-| `gcore.OriginGroupCreate` | Creating an origin group |
-| `gcore.OriginGroupDelete` | Deleting an origin group |
-| `gcore.OriginGroupUpdate` | Editing an origin group |
-| `gcore.OriginUpdate` | Changing an origin |
-| `gcore.ProviderActivate` | Activating a provider |
-| `gcore.ResourceCreate` | Creating a resource |
-| `gcore.ResourceUpdate` | Changing a resource |
+{% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
 
 ## {{ certificate-manager-name }} {#certificate-manager}
 
@@ -546,22 +522,7 @@ Service name: `mdb.mongodb`.
 
 Service name: `k8s`.
 
-| Event name | Description |
---- | ---
-| `AutoUpgradeCluster` | Performing cluster auto-updates |
-| `AutoUpgradeNodeGroup` | Performing node group auto-updates |
-| `CreateCluster` | Creating a cluster |
-| `CreateNodeGroup` | Creating a node group |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteNodeGroup` | Deleting a node group |
-| `DeleteStoppedCluster` | Deleting a stopped cluster |
-| `InstallHelmRelease` | Installing a Helm version |
-| `StartCluster` | Starting a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UninstallHelmRelease` | Destroying a Helm version |
-| `UpdateCluster` | Updating a cluster |
-| `UpdateHelmRelease` | Updating a Helm version |
-| `UpdateNodeGroup` | Changing a node group |
+{% include [managed-k8s-events](../../_includes/audit-trails/events/managed-k8s-events.md) %}
 
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 

@@ -6,6 +6,8 @@ We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vp
 
 We are currently developing custom migration tools for {{ mkf-name }} and {{ mgl-name }}. If you have resources of these services deployed in `{{ region-id }}-c`, we will notify you when these tools become available.
 
+If among your services there are {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} and others not listed below, you do not need to migrate their resources.
+
 ## Recommended migration process {#migration-best-practices}
 
 1. For all networks, [create a new subnet](../../vpc/operations/subnet-create.md) in the `{{ region-id }}-d` zone.

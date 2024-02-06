@@ -12,9 +12,9 @@ The [detectLanguage](../api-ref/Translation/detectLanguage) method returns the l
 
 {% include [curl](../../_includes/curl.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
-
 {% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
+
+{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
 ## Detect the language of a phrase {#simple-example}
 
@@ -42,7 +42,7 @@ To detect the language of the text, pass it in the [detectLanguage](../api-ref/T
     * `FOLDER_ID`: Folder ID received [before starting](#before-begin).
     * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
 
-    The service responds with the language code of the source text. The language code is specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format:
+    The service will respond with the language code of the source text. The language code is specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format:
 
     ```json
     {
