@@ -187,6 +187,8 @@ items:
         items:
           - name: Задания
             href: concepts/jobs/index.md
+          - name: Аутентификация
+            href: concepts/jobs/authentication.md
           - name: DataSphere CLI
             href: concepts/jobs/cli.md
       - name: Фундаментальные модели

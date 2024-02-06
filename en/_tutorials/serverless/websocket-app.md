@@ -225,9 +225,9 @@ Register your bot in Telegram and get a token.
 
 ### Get an access token {#create-token}
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Federated account
+- Federated accounts {#federated-account}
 
    Get an IAM token and save it to the `YC_IAM_TOKEN` variable:
 
@@ -236,7 +236,7 @@ Register your bot in Telegram and get a token.
    echo $YC_IAM_TOKEN
    ```
 
-- Yandex account
+- Yandex account {#yandex-account}
 
    Get an OAUTH token and save it to the `OAUTH_TOKEN` variable:
 

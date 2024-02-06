@@ -5,6 +5,12 @@ description: "This page presents questions and answers about {{ yandex-cloud }} 
 
 # Questions and answers about {{ yandex-cloud }} technical support
 
+{% note info %}
+
+This section offers tips and recommendations on contacts with the technical support team. For problems related to {{ yandex-cloud }} services, visit the [Support Center]({{ link-console-support }}).
+
+{% endnote %}
+
 #### How do I contact technical support? {#support-channels}
 
 You can contact technical support under [Support]({{ link-console-support }}) in the management console.
@@ -32,7 +38,7 @@ Regardless of your service plan, you can request the following from technical su
 #### How quickly does technical support respond? {#reaction-time}
 
 
-Technical support responds to requests 24 hours a day, 7 days a week.
+Technical support is there 24/7.
 
 The response time depends on your service plan. For more information about service plans, see [{#T}](overview.md).
 

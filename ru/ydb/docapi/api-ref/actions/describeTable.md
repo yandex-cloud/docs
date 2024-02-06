@@ -43,6 +43,10 @@ sourcePath: overlay/docapi/api-ref/actions/describeTable.md
             "KeyType": "string"
          }
       ],
+      "StreamSpecification": {
+          "StreamEnabled": boolean,
+          "StreamViewType": "string"
+      },
       "TableName": "string",
       "TableSizeBytes": number,
       "TableStatus": "string"

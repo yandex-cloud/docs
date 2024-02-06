@@ -14,9 +14,10 @@ To increase the accuracy of translations:
 
 {% include [curl](../../_includes/curl.md) %}
 
+{% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
+
 {% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
-{% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
 
 ## Specify the source language {#with-source-language}
 

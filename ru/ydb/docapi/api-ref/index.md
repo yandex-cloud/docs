@@ -15,6 +15,7 @@ sourcePath: overlay/docapi/api-ref/index.md
 [CreateTable](actions/createTable.md) | Создает таблицу.
 [DeleteTable](actions/deleteTable.md) | Удаляет таблицу.
 [DescribeTable](actions/describeTable.md) | Возвращает информацию о таблице.
+[UpdateTable](actions/updateTable.md) | Обновляет таблицу.
 [DescribeTimeToLive](actions/describeTimeToLive.md) | Возвращает информацию о состоянии времени жизни (TTL) в указанной таблице.
 [ListTables](actions/listTables.md) | Возвращает список таблиц.
 [UpdateTimeToLive](actions/updateTimeToLive.md) | Включает или отключает время жизни (TTL) для указанной таблицы.

@@ -126,7 +126,7 @@ items:
             items:
               - name: Общие сведения
                 href: payment/documents.md
-              - name: Акт
+              - name: Акты
                 href: concepts/act.md
               - name: Счет-фактура
                 href: concepts/invoice.md

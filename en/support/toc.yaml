@@ -1,14 +1,12 @@
-title: Description of technical support
+title: About technical support
 href: index.yaml
 items:
-  - name: Requesting technical support
+  - name: Procedure for providing technical support
     href: overview.md
   - name: Support center
     href: support-center.md
   - name: '{{ yandex-cloud }} notifications'
     href: notify.md
-  - name: Support Center
-    href: support-center.md
   - name: Data requests
     href: request.md
   - name: Copying errors from the browser console
@@ -23,6 +21,6 @@ items:
         items:
           - name: Before October 1, 2023
             href: pricing-archive/pricing01102023.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa.md
 base: en/support

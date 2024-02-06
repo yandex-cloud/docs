@@ -676,6 +676,7 @@ default:
   tf-provider-mkf: https://terraform-provider.yandexcloud.net/Resources/mdb_kafka_cluster
   tf-provider-mmg: https://terraform-provider.yandexcloud.net/Resources/mdb_mongodb_cluster
   tf-provider-mmy: https://terraform-provider.yandexcloud.net/Resources/mdb_mysql_cluster
+  tf-provider-mos: https://terraform-provider.yandexcloud.net/Resources/mdb_opensearch_cluster
   tf-provider-mpg: https://terraform-provider.yandexcloud.net/Resources/mdb_postgresql_cluster
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
@@ -5612,6 +5613,7 @@ default:
           config_field_ui_proxy: UI Proxy
           config_field_version: Версия
           config_field_zone: Зона доступности
+          database_field_admin-password: Пароль пользователя admin
           database_field_name: Имя БД
           database_field_sql-database-management: Управление базами данных через SQL
           database_field_sql-user-management: Управление пользователями через SQL

@@ -171,6 +171,8 @@ items:
                 href: docapi/api-ref/actions/updateItem.md
               - name: UpdateTimeToLive
                 href: docapi/api-ref/actions/updateTimeToLive.md
+              - name: UpdateTable
+                href: docapi/api-ref/actions/updateTable.md
       - name: Общие ошибки при работе с Document API
         href: docapi/common-errors.md
   - name: Справочник API {{ yandex-cloud }} для {{ ydb-name }}
