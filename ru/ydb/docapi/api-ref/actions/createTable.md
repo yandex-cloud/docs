@@ -42,7 +42,11 @@ sourcePath: overlay/docapi/api-ref/actions/createTable.md
          "KeyType": "string"
       }
    ],
-   "TableName": "string"
+   "StreamSpecification": {
+         "StreamEnabled": boolean,
+         "StreamViewType": "string"
+   },
+    "TableName": "string"
 }
 ```
 
@@ -53,6 +57,7 @@ sourcePath: overlay/docapi/api-ref/actions/createTable.md
 `AttributeDefinitions` | Массив атрибутов, описывающих схему ключей для таблицы и индексов.<br/><br/>**Тип**: массив объектов типа `AttributeDefinition`.<br/>**Обязательно**: Да
 `GlobalSecondaryIndexes` | Массив атрибутов, описывающий один или несколько глобальных вторичных индексов, которые будут созданы в таблице. Каждый элемент состоит из:<ul><li>`IndexName` — имя индекса. Имя должно быть уникально, длина — не менее трех символов. Обязательный параметр.</li><li>`KeySchema` — это атрибуты, составляющие первичный ключ индекса.</li><li>`Projection` — указывает атрибуты, которые копируются из таблицы в индекс. В настоящее время поддерживается только `ProjectionType` — `ALL`.</li><li>`NonKeyAttributes` — список одного или нескольких неключевых имен атрибутов, которые проецируются во вторичный индекс.</li></ul><br/>**Обязательно**: Нет
 `KeySchema` | Атрибуты, составляющие первичный ключ. Эти атрибуты также должны быть указаны в `AttributeDefinitions`.<br/>Каждый элемент состоит из:<ul><li>`AttributeName` - имя атрибута.<li>`KeyType` — роль, которую будет выполнять ключевой атрибут:<ul><li>`HASH` — ключ раздела<li>`RANGE` — ключ сортировки</ul></ul>Для простого первичного ключа (ключ раздела) необходимо указать только один атрибут с ролью `HASH`.<br/>Для составного первичного ключа (ключ раздела + ключ сортировки) необходимо указать два атрибута: первый с ролью HASH, второй с ролью `RANGE`<br/><br/>**Тип**: массив объектов типа  `KeySchemaElement`<br/>**Длина**: 1 - 2 элемента.<br/>**Обязательно**: Да
+`StreamSpecification` | Описание настроек стрима изменений для таблицы:<br/><ul><li>`StreamEnabled` определяет, включен ли стриминг изменений для этой таблицы.</li><li>`StreamViewType` Определяет тип стриминга:<ul><li>`KEYS_ONLY` — будут записаны только компоненты первичного ключа и признак изменения.</li><li>`NEW_IMAGE` — будут записаны значения всех столбцов, получившиеся в результате изменения.</li><li>`OLD_IMAGE` — будут записаны значения всех столбцов, предшествующие изменению.</li><li>`NEW_AND_OLD_IMAGES` — комбинация режимов NEW_IMAGE и OLD_IMAGE. Будут записаны значения всех столбцов до и в результате изменения.</li></ul></li><br/>**Тип**: объект типа  `StreamSpecification`.<br/>**Обязательно**: Нет
 `TableName` | Имя создаваемой таблицы.<br/>Может содержать путь в иерархии каталогов вида path/to/table.<br/><br/>**Тип**: Строка<br/>**Длина**: 3 - 255 символов.<br/>**Шаблон**: [a-zA-Z0-9_.-]+<br/>**Обязательно**: Да
 
 ## Ответ
@@ -109,6 +114,10 @@ sourcePath: overlay/docapi/api-ref/actions/createTable.md
          "KMSMainKeyArn": "string",
          "SSEType": "string",
          "Status": "string"
+      },
+      "StreamSpecification": {
+          "StreamEnabled": boolean,
+          "StreamViewType": "string"
       },
       "TableArn": "string",
       "TableId": "string",

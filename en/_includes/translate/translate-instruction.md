@@ -1,58 +1,14 @@
-## Getting started {#before-begin}
+## Translating a text from any language {#any-language}
 
-{% include [curl](../curl.md) %}
-
-{% include [ai-before-beginning](../translate/ai-before-beginning.md) %}
-
-{% include [bash-windows-note-single](bash-windows-note-single.md) %}
-
-## Translate text from any language {#any-language}
-
-To translate a text, pass it using the [translate](../../translate/api-ref/Translation/translate) method:
+To translate a text from any [supported language](../../translate/concepts/supported-languages.md), submit it using the [translate](../../translate/api-ref/Translation/translate.md) method:
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
-   We will translate two text strings into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
+   {% include [curl](../curl.md) %}
 
-   1. Create a file with the request body, e.g., `body.json`:
-
-      ```json
-      {
-          "folderId": "<Folder_ID>",
-          "texts": ["Hello", "World"],
-          "targetLanguageCode": "ru"
-      }
-      ```
-
-      Where:
-
-      * `folderId`: Folder ID received [before starting](#before-begin).
-      * `texts`: Text to translate as a list of strings.
-      * `targetLanguageCode`: Target language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code with a [list of supported languages](../../translate/operations/list.md).
-
-   1. To upload the file to translate, run the command:
-
-      {% include [translate-file](../translate/translate-file.md) %}
-
-      Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
-
-      The response from the service will contain translated text:
-      ```json
-      {
-          "translations": [
-              {
-              "text": "Привет",
-              "detectedLanguageCode": "en"
-              },
-              {
-              "text": "Мир",
-              "detectedLanguageCode": "en"
-              }
-          ]
-      }
-      ```
+   {% include [bash](translate-bash.md) %}
 
 - Python {#python}
 

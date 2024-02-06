@@ -7,9 +7,9 @@ This section describes how to recognize text in an image or file using the {{ vi
 {% include [curl](../_includes/curl.md) %}
 
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- User's Yandex account
+- Yandex account {#yandex-account}
 
    1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
    1. [Get an IAM token](../iam/operations/iam-token/create.md), which is required for authentication.
@@ -36,7 +36,7 @@ You can use any of the analysis features from the [list](concepts/index.md#featu
 
    {% include [base64-encode-command](../_includes/vision/base64-encode-command.md) %}
 
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`.
 
    **body.json:**
    ```json

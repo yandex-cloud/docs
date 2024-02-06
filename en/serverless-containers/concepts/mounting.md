@@ -7,6 +7,8 @@ Mounting buckets allows you to access them through the file system interface. In
 You can mount the entire bucket or a specific [folder](../../storage/concepts/object.md#folder).
 
 
+{% include [roles-for-bucket-mounting](../../_includes/functions/roles-for-bucket-mounting.md) %}
+
 ## See also {#see-also}
 
 * [Mounting a bucket to a container](../operations/mount-bucket.md)

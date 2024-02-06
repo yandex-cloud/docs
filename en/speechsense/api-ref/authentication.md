@@ -2,9 +2,9 @@
 
 To use the {{ speechsense-name }} API, [create](../../iam/operations/sa/create.md) a service account and use it for authentication.
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Service account
+- Service account {#service-account}
 
    * Using an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
@@ -36,6 +36,6 @@ To use the {{ speechsense-name }} API, [create](../../iam/operations/sa/create.m
           Authorization: Api-Key <API key>
           ```
 
-   Do not specify the folder ID in your requests, as the service uses the folder in which the service account was created.
+   Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder in which the service account was created.
 
 {% endlist %}

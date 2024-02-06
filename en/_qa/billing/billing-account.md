@@ -71,3 +71,14 @@ To create a billing account with a payer being a resident of a different country
 #### How do I change the billing account owner? {#account-owner}
 
 You cannot change the billing account owner. If you still need this, a new owner may [create a billing account](../../billing/operations/create-new-account.md) and [link](../../billing/operations/pin-cloud.md) clouds with all their resources to this billing account.
+
+#### Where can add a bank account? {#checking-account}
+
+To specify a bank account for your billing account:
+1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
+1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
+1. Click **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**.
+   This redirects you to [Yandex Balance](https://balance.yandex.com/).
+1. Select a payer and click **Edit**.
+1. Under **Payment details**, fill in the **Settlement account** field.

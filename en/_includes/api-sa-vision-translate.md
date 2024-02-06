@@ -1,6 +1,6 @@
 # Setting up access with API keys
 
-To securely work with {{ vision-full-name }} and {{ translate-full-name }} services, we recommend using authorization on behalf of a [service account](../iam/concepts/users/service-accounts.md) with an [API key](../iam/concepts/authorization/api-key.md).
+To ensure security and facilitate your work with {{ vision-full-name }} and {{ translate-full-name }}, we recommend using authorization on behalf of a [service account](../iam/concepts/users/service-accounts.md) with an [API key](../iam/concepts/authorization/api-key.md).
 
 To set up authorization on behalf of a service account:
 
@@ -102,9 +102,9 @@ To set up authorization on behalf of a service account:
       --subject serviceAccount:<service_account_ID>
    ```
 
-   Where `--role`: `ai.translate.user` for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
+   Where `--role` is `ai.translate.user` for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
 
-- {#api} API
+- API {#api}
 
    Assign the required role to the service account using the [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource:
 
@@ -213,8 +213,8 @@ To set up authorization on behalf of a service account:
 
 Now you can send requests to {{ vision-full-name }} and {{ translate-full-name }} services on behalf of your service account.
 
-Enter the API key when accessing {{ yandex-cloud }} resources via the API. Pass the API key in the `Authorization` header in the following format:
+Enter the API key when accessing {{ yandex-cloud }} resources via the API. Include the API key in the `Authorization` header in the following format:
 
-```
+```yaml
 Authorization: Api-Key <API key>
 ```

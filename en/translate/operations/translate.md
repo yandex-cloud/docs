@@ -1,8 +1,11 @@
 # How to translate a text using {{ translate-name }}
 
-To translate a text, pass it using the [translate](../api-ref/Translation/translate) method.
+To translate text, use the [translate](../api-ref/Translation/translate.md) method.
 
-The example in this section is the same as in [{#T}](../quickstart.md). For more examples, see [{#T}](better-quality.md).
+## Getting started {#before-begin}
+
+{% include [user-auth](../../_includes/translate/ai-before-beginning.md) %}
+
 
 {% include [translate-instruction](../../_includes/translate/translate-instruction.md) %}
 
