@@ -36,9 +36,9 @@
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
-      | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
-      | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
+      | b0c6n43f9lgh******** | default-{{ region-id }}-c | enpe3m3fa00u******** |                | {{ region-id }}-c | [10.130.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.128.0.0/24] |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
@@ -48,7 +48,7 @@
       yc compute instance create \
         --host-group-id <идентификатор_группы_выделенных_хостов> \
         --zone <зона_доступности> \
-        --platform <ID_платформы> \
+        --platform <идентификатор_платформы> \
         --network-interface subnet-name=<имя_подсети> \
         --attach-local-disk size=<размер_диска>
       ```
@@ -70,8 +70,8 @@
 
       ```bash
       done (20s)
-      id: fhmbdt1jj2k3ls036909
-      folder_id: m4n56op78mev0cljderg
+      id: fhmbdt1jj2k3********
+      folder_id: m4n56op78mev********
       created_at: "2020-10-13T07:41:19Z"
       zone_id: {{ region-id }}-a
       ...
@@ -80,7 +80,7 @@
         - key: yc.hostGroupId
           op: IN
           values:
-          - abcdefg1hi23gkl16dnf
+          - abcdefg1hi23********
       ```
 
 - API {#api}
@@ -134,7 +134,7 @@
     --network-interface subnet-id=<идентификатор_подсети> \
     --attach-local-disk "size=3198924357632" \
     --attach-local-disk "size=3198924357632" \
-    --ssh-key <путь_к_файлу_открытого_ключа_SSH> \
+    --ssh-key <путь_к_файлу_открытого_SSH-ключа> \
     --create-boot-disk name=boot-disk,size=1000,image-folder-id=standard-images,image-family=ubuntu-2204-lts
   ```
 
@@ -159,8 +159,8 @@
 
   ```bash
   done (20s)
-  id: fhmbdt1jj2k3ls036909
-  folder_id: m4n56op78mev0cljderg
+  id: fhmbdt1jj2k3********
+  folder_id: m4n56op78mev********
   created_at: "2023-01-16T12:46:50Z"
   zone_id: {{ region-id }}-a
   ...
@@ -169,7 +169,7 @@
     - key: yc.hostGroupId
       op: IN
       values:
-      - abcdefg1hi23gkl16dnf
+      - abcdefg1hi23********
   ```
 
 {% endlist %}

@@ -18,7 +18,7 @@ The [detectLanguage](../api-ref/Translation/detectLanguage) method returns the l
 
 ## Detect the language of a phrase {#simple-example}
 
-In this example, we will detect the language that the phrase <q>Hello, world</q> is written in.
+In this example, we will detect the language that the phrase _Hello, world_ is written in.
 
 To detect the language of the text, pass it in the [detectLanguage](../api-ref/Translation/detectLanguage) request body:
 
@@ -42,7 +42,7 @@ To detect the language of the text, pass it in the [detectLanguage](../api-ref/T
     * `FOLDER_ID`: Folder ID received [before starting](#before-begin).
     * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
 
-    The service will respond with the language code of the source text. The language code is specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format:
+    The service will respond with the [language](../concepts/supported-languages.md) code of the source text:
 
     ```json
     {

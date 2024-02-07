@@ -38,8 +38,8 @@ description: "Следуя данной инструкции, вы сможет�
       ```
       Результат:
       ```text
-      - id: fc852cvb1ipd55flc7t9
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc852cvb1ipd5********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-28T13:25:02Z"
         name: sched-1
         status: ACTIVE
@@ -47,8 +47,8 @@ description: "Следуя данной инструкции, вы сможет�
           start_at: "2022-10-01T00:00:00Z"
           expression: 59 14 */1 * *
         snapshot_spec: {}
-      - id: fc89n1j15l7frkrne9eo
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc89n1j15l7f********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-27T16:04:13Z"
         name: sched-2
         status: ACTIVE
@@ -57,8 +57,8 @@ description: "Следуя данной инструкции, вы сможет�
           expression: 0 */1 * * *
         retention_period: 3600s
         snapshot_spec: {}
-      - id: fc8bplhqmh2bnjni3lm0
-        folder_id: b8gauskl78li5n96eabk
+      - id: fc8bplhqmh2b********
+        folder_id: b8gauskl78li********
         created_at: "2022-10-03T13:28:01Z"
         name: sched-3
         description: Ежедневное

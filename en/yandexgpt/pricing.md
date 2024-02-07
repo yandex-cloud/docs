@@ -6,13 +6,7 @@ editable: false
 
 {{ yagpt-full-name }} is at the [Preview stage](../overview/concepts/launch-stages.md) and is part of {{ foundation-models-full-name }}. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
 
-{% note warning %}
-
-This pricing will become effective on December 6, 2023.
-
-{% endnote %}
-
-## What is included in the {{ yagpt-full-name }} cost {#rules}
+## What goes into the cost of using {{ yagpt-full-name }} {#rules}
 
 ### Pricing unit {#unit}
 
@@ -28,6 +22,8 @@ Text generation cost is based on the overall number of [prompt](concepts/index.m
 The number of [prompt](concepts/index.md) and response [tokens](concepts/tokens.md) for the same text may vary depending on model.
 
 The number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number after applying the multiplier.
+
+The use of summary models and models tuned in {{ ml-platform-full-name }} is charged according to the {{ yagpt-name }} Lite rules.
 
 ### Text vectorization {#rules-embedding}
 

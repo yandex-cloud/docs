@@ -11,7 +11,7 @@ For more information about working with Docker images, see [{#T}](../operations/
 ## Docker image requirements {#requirements}
 
 For a Docker image to run and work correctly in {{ ml-platform-name }}, it must include:
-* Python 3.7, 3.8, or 3.9 installation
+* Python 3.7, 3.8, 3.9, or 3.10 installation
 * Pip installation
 * {{ jlab }} user
 

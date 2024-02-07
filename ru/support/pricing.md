@@ -56,8 +56,8 @@ editable: false
 
 Стоимость поддержки составит:
 
-* {{ sku|RUB|support.organization.business.fixed_consumption.v1|int|string }} + 50 000 ₽ * 0.05 = 5 500 ₽ — для Aккаунта 1; 
-* 10 000 ₽ * 0.05 = 500 ₽ — для Aккаунта 2;
+* {{ sku|RUB|support.organization.business.fixed_consumption.v1|int|string }} + 50 000 ₽ * 0.05 = 5 500 ₽ — для Аккаунта 1; 
+* 10 000 ₽ * 0.05 = 500 ₽ — для Аккаунта 2;
 
 ### Премиум {#premium}
 

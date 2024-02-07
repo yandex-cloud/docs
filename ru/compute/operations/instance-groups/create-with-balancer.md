@@ -110,7 +110,7 @@
 
        ```yaml
        name: first-fixed-group-with-balancer
-       service_account_id: <ID>
+       service_account_id: <идентификатор_сервисного_аккаунта>
        description: "This instance group was created from YAML config."
        ```
 
@@ -210,7 +210,7 @@
 
      ```yaml
      name: first-fixed-group-with-balancer
-     service_account_id: ajed6ilf11qg********
+     service_account_id: <идентификатор_сервисного_аккаунта>
      description: "This instance group was created from YAML config."
      instance_template:
        platform_id: standard-v3
@@ -287,11 +287,11 @@
        name                = "fixed-ig-with-balancer"
        folder_id           = "<идентификатор_каталога>"
        service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
-       deletion_protection = "<защита_от_удаления:_true_или_false>"
+       deletion_protection = "<защита_от_удаления>"
        instance_template {
          platform_id = "standard-v3"
          resources {
-           memory = <объем_RAM_в_ГБ>
+           memory = <объем_RAM_ГБ>
            cores  = <количество_ядер_vCPU>
          }
 
@@ -381,7 +381,7 @@
          * `name` — имя группы ВМ.
          * `folder_id` — идентификатор каталога.
          * `service_account_id` — идентификатор сервисного аккаунта.
-         * `deletion_protection` — защита группы виртуальных машин от удаления. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
+         * `deletion_protection` — защита группы виртуальных машин от удаления: `true` или `false`. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
        * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md):
          * `platform_id` — [платформа](../../concepts/vm-platforms.md).
          * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).

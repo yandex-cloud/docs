@@ -60,12 +60,12 @@ keywords:
   Чтобы создать новый образ по ссылке, воспользуйтесь флагом `--source-uri`. Для создания [оптимизированного образа](../../concepts/image.md#images-optimized-for-deployment) используйте флаг `--pooled`.
 
   ```bash
-  yc compute image create --name <image-name> --source-uri <image-URL> --pooled
+  yc compute image create --name <имя_образа> --source-uri <URL_образа> --pooled
   ```
 
   Где:
-  * `<image-name>` — имя, которое будет присвоено образу.
-  * `<image-URL>` — ссылка на образ, полученная в {{ objstorage-name }}.
+  * `--name` — имя, которое будет присвоено образу.
+  * `--source-uri` — ссылка на образ, полученная в {{ objstorage-name }}.
 
   Если необходимо, добавьте описание и укажите [семейство](../../concepts/image.md#family), к которому относится этот образ:
 
@@ -88,10 +88,6 @@ keywords:
 
   {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
 
-- API {#api}
-
-  Создайте новый образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите ссылку на образ.
-
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -105,10 +101,12 @@ keywords:
      resource "yandex_compute_image" "image-1" {
        name       = "ubuntu-cosmic"
        os_type    = "LINUX"
-       source_url = "<ссылка на образ в {{ objstorage-name }}>"
+       source_url = "<ссылка_на_образ>"
        pooled     = "false"
      }
      ```
+
+     Где `source_url` — ссылка на образ в {{ objstorage-name }}.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
   1. Проверьте корректность конфигурационных файлов.
@@ -130,6 +128,10 @@ keywords:
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  Создайте новый образ с помощью метода REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите ссылку на образ.
 
 {% endlist %}
 

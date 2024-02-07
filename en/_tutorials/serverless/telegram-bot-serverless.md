@@ -1,6 +1,6 @@
 # How to create a Telegram bot
 
-Using serverless technologies, you can create a Telegram bot that will respond to chat messages.
+Serverless technologies enable you to create a Telegram bot that will respond to chat messages.
 
 
 To create a bot:
@@ -190,7 +190,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
       };
       ```
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file called `package.json` with the code below:
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file named `package.json` with the following code:
 
       ```json
       {
@@ -242,7 +242,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
             operationId: fshtb-function
       ```
 
-      Where `function_id` is the `fshtb-function` ID.
+      Where `function_id` is the `fshtb-function` function ID.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
    1. Run the following request in the terminal:

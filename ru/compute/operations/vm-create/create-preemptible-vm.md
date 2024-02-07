@@ -162,7 +162,7 @@
 
         resources {
           cores  = <количество_ядер_vCPU>
-          memory = <объем_RAM_в_ГБ>
+          memory = <объем_RAM_ГБ>
         }
 
         boot_disk {
@@ -278,7 +278,7 @@
   1. Остановите ВМ:
 
      ```bash
-     yc compute instance stop <идентификатор или имя ВМ>
+     yc compute instance stop <имя_или_идентификатор_ВМ>
      ```
 
      Результат:
@@ -290,7 +290,7 @@
   1. Измените параметры ВМ:
 
      ```bash
-     yc compute instance update <идентификатор или имя ВМ> \
+     yc compute instance update <имя_или_идентификатор_ВМ> \
        --preemptible=false
      ```
 
@@ -298,8 +298,8 @@
 
      ```text
      done (1s)
-     id: fhm0b28lgfp4tkoa3jl6
-     folder_id: b1ghgf288nvg541tgu73
+     id: fhm0b28lgfp4********
+     folder_id: b1ghgf288nvg********
      ...
      network_settings:
        type: STANDARD
@@ -309,15 +309,15 @@
   1. Вновь запустите ВМ:
 
      ```bash
-     yc compute instance start <идентификатор или имя ВМ>
+     yc compute instance start <имя_или_идентификатор_ВМ>
      ```
 
      Результат:
 
      ```text
      done (11s)
-     id: fhm0b28lgfp4tkoa3jl6
-     folder_id: b1ghgf288nvg541tgu73
+     id: fhm0b28lgfp4********
+     folder_id: b1ghgf288nvg********
      ...
      network_settings:
        type: STANDARD

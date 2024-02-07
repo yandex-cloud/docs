@@ -45,9 +45,9 @@ description: "Следуя данной инструкции, вы сможет�
      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
      |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-     | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
-     | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
-     | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
+     | b0c6n43f9lgh******** | default-{{ region-id }}-c     | enpe3m3fa00u******** |                | {{ region-id }}-c     | [10.130.0.0/24] |
+     | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.129.0.0/24] |
+     | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.128.0.0/24] |
      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
      ```
 
@@ -63,15 +63,15 @@ description: "Следуя данной инструкции, вы сможет�
       ```
 
       Где:
-      * `name` — имя ВМ.
+      * `--name` — имя ВМ.
 
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной подсети.
       * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
       * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адрес, исключите параметр.
-      * `ssh-key` — путь до публичного SSH-ключа. Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+      * `--ssh-key` — путь до публичного SSH-ключа. Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
@@ -98,8 +98,8 @@ description: "Следуя данной инструкции, вы сможет�
        zone                      = "<зона_доступности>"
 
        resources {
-         cores  = "<количество ядер vCPU>"
-         memory = "<объем_RAM_в_ГБ>"
+         cores  = "<количество_ядер_vCPU>"
+         memory = "<объем_RAM_ГБ>"
        }
 
        boot_disk {
@@ -195,7 +195,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      ```bash
      export IAM_TOKEN=CggaATEVAgA...
-     export FOLDER_ID=b1gvmob95yysaplct532
+     export FOLDER_ID=b1gvmob95yys********
      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
        "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
      {
@@ -204,12 +204,12 @@ description: "Следуя данной инструкции, вы сможет�
           "v4CidrBlocks": [
             "10.130.0.0/24"
           ],
-          "id": "b0c6n43ftldh30l0vfg2",
-          "folderId": "b1gvmob95yysaplct532",
+          "id": "b0c6n43ftldh********",
+          "folderId": "b1gvmob95yys********",
           "createdAt": "2018-09-23T12:15:00Z",
           "name": "default-{{ region-id }}-a",
           "description": "Auto-created default subnet for zone {{ region-id }}-a",
-          "networkId": "enpe3m3fagludao8aslg",
+          "networkId": "enpe3m3faglu********",
           "zoneId": "{{ region-id }}-a"
         },
         ...
@@ -221,7 +221,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      ```json
      {
-       "folderId": "b1gvmob95yysaplct532",
+       "folderId": "b1gvmob95yys********",
        "name": "instance-demo-no-pwauth",
        "zoneId": "{{ region-id }}-a",
        "platformId": "standard-v3",
@@ -235,12 +235,12 @@ description: "Следуя данной инструкции, вы сможет�
        "bootDiskSpec": {
          "diskSpec": {
            "size": "2621440000",
-           "imageId": "fd8rc75pn12fe3u2dnmb"
+           "imageId": "fd8rc75pn12f********"
          }
        },
        "networkInterfaceSpecs": [
          {
-           "subnetId": "b0c6n43ftldh30l0vfg2",
+           "subnetId": "b0c6n43ftldh********",
            "primaryV4AddressSpec": {
              "oneToOneNatSpec": {
                "ipVersion": "IPV4"
