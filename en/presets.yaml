@@ -123,6 +123,8 @@ default:
   domain-name-example: cdn.example.com
   ds: Serverlesss
   DS: YDS
+  ds-cli: DataSphere CLI
+  ds-jobs: DataSphere Jobs
   dt-copy-regular: Regular
   dt-copy-regular-incremental: Regular incremental
   dt-copy-snapshot: Single
@@ -3409,6 +3411,39 @@ default:
         type-SetActiveSprintFunction: Set active sprint
         type-SetCurrentTimeFunction: Enter current time in field
         type-UnsetResolutionFunction: Unset resolution
+    support-center:
+      billing-account:
+        common:
+          action_edit: Edit
+          title_billing-account: Billing account
+      common:
+        plans: Service plans
+        tickets: Tickets
+      search:
+        common:
+          action_search-in-documentation: Search documentation
+          value_search-input-placeholder: Describe your issue
+      tariff-plans:
+        info:
+          action_go: Go
+          action_leave-request: Send a request
+          title_tariffs: Service plans
+        tariff-card:
+          title_business: Business
+          title_free: Basic
+          title_premium: Premium
+      ticket:
+        create:
+          action_create-ticket: Create ticket
+          title_create-ticket-page: New ticket
+      tickets:
+        common:
+          action_create-ticket: Create ticket
+          label_ticket-type-critical: Critical issue
+        filters:
+          action_reset-filters: Reset filters
+        list:
+          title_ticket_table: Tickets
     yacloud_billing_account:
       cloud-billing-account:
         account_label_new: New payer
@@ -4038,7 +4073,7 @@ default:
           switch_expences: Expense history
           switch_exports: Export details
           switch_history: Payment history
-          switch_offers: Commitments
+          switch_offers: Committed volume of services
           switch_overview: Account info
           switch_users: Access management
           tab_acts-title: Closing documents
@@ -4468,6 +4503,7 @@ default:
           edit:
             label_title: Changing an instance group
           overview:
+            label_instance-address: Public IP address
             section_base: General information
             section_instances-state: VM states
           switch_instances: List of VMs
@@ -4524,6 +4560,7 @@ default:
             field_warmup-duration: Instance warmup period
             field_zone: Availability zone
             label_custom-metrics: Metrics
+            label_instance-net: Network settings
             metric-type-cpu: CPU
             metric-type-custom: Custom
             section_alb: Integration with Application Load Balancer
@@ -4644,6 +4681,7 @@ default:
             image_value_os-products: Operating systems
             label_add-disk: Add disk
             label_add-net: Add network
+            label_add-network-interface: Add network interface
             label_backup: Backups
             label_network: Network
             section_access: Access
@@ -6146,6 +6184,15 @@ default:
           button_save: Save
           label_title: ACL editing
         switch_buckets: Buckets
+      support:
+        ticket:
+          create:
+            field_access-type: Access
+            field_attachments: Attachments
+            field_description: Message
+            field_service: Service
+            field_summary: Subject
+            field_type: Type
       vdi:
         button_acl: Configure ACL
         button_add-image: Add image

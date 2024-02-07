@@ -140,7 +140,7 @@ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendo
 GET http://169.254.169.254/latest/meta-data/<элемент>
 ```
 
-Где: `<элемент>` — путь к элементу, который вы хотите получить. Если элемент не задан, в ответе вернется список доступных элементов.
+Где `<элемент>` — путь к элементу, который вы хотите получить. Если элемент не задан, в ответе вернется список доступных элементов.
 
 #### Список возвращаемых элементов {#list-of-returned-items}
 
@@ -148,7 +148,7 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 
 {% note info %}
 
-В угловых скобках выделены параметры, которые необходимо заменить значениями. Например, вместо `<mac>` следует подставить MAC-адрес сетевого интерфейса.
+В угловых скобках выделены параметры, которые необходимо заменить значениями. Например, вместо `<MAC-адрес>` следует подставить MAC-адрес сетевого интерфейса.
 
 {% endnote %}
 
@@ -157,10 +157,10 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 * `local-ipv4` — [внутренний IPv4-адрес](../../../vpc/concepts/address.md#internal-addresses).
 * `local-hostname` — имя хоста, присвоенное ВМ.
 * `mac` — MAC-адрес сетевого интерфейса ВМ.
-* `network/interfaces/macs/<mac>/ipv6s` — внутренние IPv6-адреса, ассоциированные с сетевым интерфейсом.
-* `network/interfaces/macs/<mac>/local-hostname` — имя хоста, ассоциированное с сетевым интерфейсом.
-* `network/interfaces/macs/<mac>/local-ipv4s` — внутренние IPv4-адреса, ассоциированные с сетевым интерфейсом.
-* `network/interfaces/macs/<mac>/mac` — MAC-адрес сетевого интерфейса ВМ.
+* `network/interfaces/macs/<MAC-адрес>/ipv6s` — внутренние IPv6-адреса, ассоциированные с сетевым интерфейсом.
+* `network/interfaces/macs/<MAC-адрес>/local-hostname` — имя хоста, ассоциированное с сетевым интерфейсом.
+* `network/interfaces/macs/<MAC-адрес>/local-ipv4s` — внутренние IPv4-адреса, ассоциированные с сетевым интерфейсом.
+* `network/interfaces/macs/<MAC-адрес>/mac` — MAC-адрес сетевого интерфейса ВМ.
 * `public-ipv4` — [внешний IPv4-адрес](../../../vpc/concepts/address.md#public-addresses).
 
 #### Примеры запросов {#request-examples}
@@ -222,7 +222,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
   1. Задайте настройки сервиса метаданных с помощью параметра `--metadata-options`:
 
      ```bash
-     yc compute instance update <ID ВМ> \
+     yc compute instance update <идентификатор_ВМ> \
        --metadata-options gce-http-endpoint=enabled
      ```
 

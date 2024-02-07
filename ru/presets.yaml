@@ -3417,6 +3417,39 @@ default:
         type-SetActiveSprintFunction: Установить активный спринт
         type-SetCurrentTimeFunction: Записать текущее время в поле
         type-UnsetResolutionFunction: Снять резолюцию
+    support-center:
+      billing-account:
+        common:
+          action_edit: Изменить
+          title_billing-account: Платёжный аккаунт
+      common:
+        plans: Тарифные планы
+        tickets: Обращения
+      search:
+        common:
+          action_search-in-documentation: Искать в документации
+          value_search-input-placeholder: Опишите вашу проблему
+      tariff-plans:
+        info:
+          action_go: Перейти
+          action_leave-request: Оставить заявку
+          title_tariffs: Тарифы
+        tariff-card:
+          title_business: Бизнес
+          title_free: Базовый
+          title_premium: Премиум
+      ticket:
+        create:
+          action_create-ticket: Создать обращение
+          title_create-ticket-page: Новое обращение
+      tickets:
+        common:
+          action_create-ticket: Создать обращение
+          label_ticket-type-critical: Критичная проблема
+        filters:
+          action_reset-filters: Сбросить фильтры
+        list:
+          title_ticket_table: Обращения
     yacloud_billing_account:
       cloud-billing-account:
         account_label_new: Новый плательщик
@@ -4046,7 +4079,7 @@ default:
           switch_expences: История расходов
           switch_exports: Экспорт детализации
           switch_history: История платежей
-          switch_offers: Резервы
+          switch_offers: Резервируемое потребление
           switch_overview: Данные аккаунта
           switch_users: Управление доступом
           tab_acts-title: Закрывающие документы
@@ -4476,6 +4509,7 @@ default:
           edit:
             label_title: Изменение группы виртуальных машин
           overview:
+            label_instance-address: Публичный IP-адрес
             section_base: Общая информация
             section_instances-state: Состояния виртуальных машин
           switch_instances: Список ВМ
@@ -4532,6 +4566,7 @@ default:
             field_warmup-duration: Время на разогрев ВМ
             field_zone: Зона доступности
             label_custom-metrics: Метрики
+            label_instance-net: Сетевые настройки
             metric-type-cpu: CPU
             metric-type-custom: Пользовательская
             section_alb: Интеграция с Application Load Balancer
@@ -4654,6 +4689,7 @@ default:
             image_value_os-products: Операционные системы
             label_add-disk: Добавить диск
             label_add-net: Добавить сеть
+            label_add-network-interface: Добавить сетевой интерфейс
             label_backup: Резервное копирование
             label_network: Сеть
             section_access: Доступ
@@ -6156,6 +6192,15 @@ default:
           button_save: Сохранить
           label_title: Редактирование ACL
         switch_buckets: Бакеты
+      support:
+        ticket:
+          create:
+            field_access-type: Доступ
+            field_attachments: Вложения
+            field_description: Сообщение
+            field_service: Сервис
+            field_summary: Тема
+            field_type: Тип
       vdi:
         button_acl: Настроить ACL
         button_add-image: Добавить образ

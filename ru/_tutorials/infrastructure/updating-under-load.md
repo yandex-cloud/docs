@@ -50,8 +50,8 @@
         Результат выполнения команды:
 
         ```bash
-        id: ajeab0cnib1pdefe21dm
-        folder_id: b0g12ga82bcv0cdeferg
+        id: ajeab0cnib1p********
+        folder_id: b0g12ga82bcv********
         created_at: "2021-02-09T17:31:32.561702Z"
         name: for-load
         ```
@@ -59,9 +59,9 @@
      1. Назначьте роль сервисному аккаунту:
 
         ```bash
-        yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
+        yc resource-manager folder add-access-binding b0g12ga82bcv******** \
           --role editor \
-          --subject serviceAccount:ajeab0cnib1pdefe21dm
+          --subject serviceAccount:ajeab0cnib1p********
         ```
 
    - API {#api}
@@ -97,8 +97,8 @@
         Результат выполнения команды:
 
         ```bash
-        id: enpabce123hde4ft1r3t
-        folder_id: b0g12ga82bcv0cdeferg
+        id: enpabce123hd********
+        folder_id: b0g12ga82bcv********
         created_at: "2021-02-09T17:33:32.561702Z"
         name: yc-auto-network
         ```
@@ -106,16 +106,16 @@
      1. Создайте подсеть в зоне `{{ region-id }}-a`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
+        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-a
         ```
 
         Результат выполнения команды:
 
         ```bash
-        id: e1lnabc23r1c9d0efoje
-        folder_id: b0g12ga82bcv0cdeferg
+        id: e1lnabc23r1c********
+        folder_id: b0g12ga82bcv********
         created_at: "2021-02-09T17:34:32.561702Z"
-        network_id: enpabce123hde4ft1r3t
+        network_id: enpabce123hd********
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.1.0/24
@@ -124,16 +124,16 @@
      1. Создайте подсеть в зоне `{{ region-id }}-b`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-b
+        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.2.0/24 --zone {{ region-id }}-b
         ```
 
         Результат выполнения команды:
 
         ```bash
-        id: b1csa2b3clideftjb121
-        folder_id: b0g12ga82bcv0cdeferg
+        id: b1csa2b3clid********
+        folder_id: b0g12ga82bcv********
         created_at: "2021-02-09T17:35:32.561702Z"
-        network_id: enpabce123hde4ft1r3t
+        network_id: enpabce123hd********
         zone_id: {{ region-id }}-b
         v4_cidr_blocks:
         - 192.168.2.0/24
@@ -205,7 +205,7 @@
         Результат выполнения команды:
   
         ```bash
-        id: fd8iv792kirahcnqnt0q
+        id: fd8iv792kira********
         folder_id: standard-images
         created_at: "2021-01-29T13:30:22Z"
         ...
@@ -234,10 +234,10 @@
 
          ```bash
          done (2m18s)
-         id: cl0kabcquk1gomdefbkk
-         folder_id: b0g12ga82bcv0cdeferg
+         id: cl0kabcquk1g********
+         folder_id: b0g12ga82bcv********
          ...
-         service_account_id: ajeab0cnib1pdefe21dm
+         service_account_id: ajeab0cnib1p********
          status: ACTIVE
          application_load_balancer_state: {}
          ```
@@ -278,8 +278,8 @@
      |     INSTANCE ID      |           NAME            |   EXTERNAL IP   | INTERNAL IP |        STATUS        | STATUS MESSAGE |
      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
      ...
-     | fhmab0cfsfd125efpvn1 | cl0kabcquk1gomdefbkk-oxig | 178.154.226.108 | 10.130.0.8  | RUNNING_ACTUAL [49m] |                |
-     | epdabchpdef0f1e21j14 | cl0kabcquk1gomdefbkk-aqyg | 130.193.40.55   | 10.129.0.20 | RUNNING_ACTUAL [43m] |                |
+     | fhmab0cfsfd1******** | cl0kabcquk1g********-oxig | 178.154.226.108 | 10.130.0.8  | RUNNING_ACTUAL [49m] |                |
+     | epdabchpdef0******** | cl0kabcquk1g********-aqyg | 130.193.40.55   | 10.129.0.20 | RUNNING_ACTUAL [43m] |                |
      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
      ```
 
@@ -326,7 +326,7 @@
         Результат выполнения команды:
         
         ```bash
-        id: enpsa475ej51enuam897
+        id: enpsa475ej51********
         ```
         
      1. Создайте балансировщик:
@@ -335,15 +335,15 @@
         yc load-balancer network-load-balancer create \
           --name load-generator \
           --listener external-ip-version=ipv4,name=http,port=80,protocol=tcp,target-port=80 \
-          --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<ID целевой группы>
+          --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<идентификатор_целевой_группы>
         ```
 
         Результат выполнения команды:
 
         ```bash
         done (14s)
-        id: b0ruab1ccvpd26efgii4
-        folder_id: b1csa2b3clideftjb121
+        id: b0ruab1ccvpd********
+        folder_id: b1csa2b3clid********
         ...
             healthy_threshold: "2"
             http_options:
@@ -383,7 +383,7 @@
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
-     | b0ruab1ccvpd26efgii4 | load-generator | {{ region-id }} | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
+     | b0ruab1ccvpd******** | load-generator | {{ region-id }}     | EXTERNAL |              1 | b0r1tabcphde********   | ACTIVE |
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      ```
      
@@ -428,7 +428,7 @@
 1. Выполните команду для создания нагрузки:
 
    ```bash
-   wrk -t20 -c20 -d20m --timeout 20s http://<IP-адрес балансировщика>/sleep
+   wrk -t20 -c20 -d20m --timeout 20s http://<IP-адрес_балансировщика>/sleep
    ```
 
    Команда запустит утилиту `wrk`, которая будет отправлять запросы в 20 потоков по 20 подключений к сетевому балансировщику в течение 20 минут. Таймаут запроса 20 секунд. Полученную нагрузку балансировщик распределит между ВМ из группы.
@@ -479,11 +479,11 @@
 
       ```bash
       done (9m24s)
-      id: cl10kktrjcn8polprdav
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: cl10kktrjcn8********
+      folder_id: b1g7gvsi89m3********
       ...
          name: load-generator
-      service_account_id: ajehbk07uus3s73pcq13
+      service_account_id: ajehbk07uus3********
       status: ACTIVE
       ```
       

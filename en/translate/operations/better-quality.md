@@ -8,7 +8,7 @@ description: "In this article, you will learn how to improve translation accurac
 To increase the accuracy of translations:
 
 * [Specify the source language](#with-source-language). Some words are written the same in different languages, but have different meanings. If the model detects the wrong source language, these words are translated differently.
-* [Specify your translation glossary](#with-glossary). A word can be translated different ways. For example, the English word <q>oil</q> can be translated to Russian as <q>масло</q> or <q>нефть</q>. You can use a glossary to indicate the proper translation of a word or phrase. You can learn more about glossaries [here](../concepts/glossary.md).
+* [Specify your translation glossary](#with-glossary). A word can be translated different ways. For example, the English word _oil_ can be translated into Russian as _масло_ or _нефть_. You can use a glossary to indicate the proper translation of a word or phrase. You can learn more about glossaries [here](../concepts/glossary.md).
 
 ## Getting started {#before-you-begin}
 
@@ -42,7 +42,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
     * `folderId`: Folder ID received [before starting](#before-begin).
     * `texts`: Text to translate as a list of strings.
-    * `targetLanguageCode`: Target language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code along with a [list of supported languages](../../translate/operations/list.md).
+    * `targetLanguageCode`: Target [language](../concepts/supported-languages.md). You can get the language code with a [list of supported languages](list.md).
     * `sourceLanguageCode`: Source language.
 
     Save the request body to a file (for example, `body.json`) and submit the file using the [translate](../api-ref/Translation/translate) method:
@@ -67,7 +67,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
 ## Specify your translation glossary {#with-glossary}
 
-A word can be translated different ways. For example, the English word <q>oil</q> can be translated as <q>масло</q> or <q>нефть</q>. To improve the accuracy of translations, use a [glossary](../concepts/glossary.md) of your terms and phrases with a single translation.
+A word can be translated different ways. For example, the English word _oil_ can be translated into Russian as _масло_ or _нефть_. To improve the accuracy of translations, use a [glossary](../concepts/glossary.md) of your terms and phrases with a single translation.
 
 Specify the glossary in the `glossaryConfig` field. Currently, you can only pass a glossary as an array of text pairs.
 
@@ -100,7 +100,7 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
     Where:
 
-    * `sourceLanguageCode`: Source language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code along with a [list of supported languages](../../translate/operations/list.md).
+    * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code with a [list of supported languages](list.md).
     * `targetLanguageCode`: Target language.
     * `texts`: Text to translate as a list of strings.
     * `folderId`: Folder ID received [before starting](#before-begin).
@@ -175,7 +175,7 @@ Misspelled words may be translated incorrectly or transliterated. For example, t
 
     Where:
 
-    * `sourceLanguageCode`: Source language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code along with a [list of supported languages](../../translate/operations/list.md).
+    * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code with a [list of supported languages](list.md).
     * `targetLanguageCode`: Target language.
     * `texts`: Text to translate as a list of strings.
     * `folderId`: Folder ID received [before starting](#before-begin).

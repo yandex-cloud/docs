@@ -48,12 +48,12 @@
       yc compute instance get --full first-instance
       ```
   
-  1. Выберите `disk_id` нужного диска, например `fhm4aq4hvq5g3nepvt9b`.
+  1. Выберите `disk_id` нужного диска, например `fhm4aq4hvq5g********`.
   1. Отключите диск:
   
       ```
       yc compute instance detach-disk first-instance \
-        --disk-id fhm4aq4hvq5g3nepvt9b
+        --disk-id fhm4aq4hvq5g********
       ```
       
       Если возникла ошибка, остановите виртуальную машину:

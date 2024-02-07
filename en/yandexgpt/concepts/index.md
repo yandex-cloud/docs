@@ -15,7 +15,7 @@ The service is dynamically evolving with constant enhancements and refinements t
 
 ## {{ yagpt-full-name }} operating modes {#working-mode}
 
-In {{ yagpt-full-name }}, you can send requests in synchronous and asynchronous modes. In synchronous mode, the service will process your request and respond to it immediately upon receipt. This mode is suitable if you need to maintain a chat bot dialog. In asynchronous mode, the service will receive a request and immediately return its ID you can use to get a response. It will take longer to generate text but responses will be cheaper and of higher quality. Use asynchronous mode if you are not after urgent responses.
+In {{ yagpt-full-name }}, you can send requests in synchronous and asynchronous modes. In synchronous mode, the service will process your request and respond to it immediately upon receipt. You may opt for this mode if you need to maintain a chatbot dialog. In asynchronous mode, the service will receive a request and immediately return its ID you can use to get a response. It will take longer to generate text but responses will be cheaper and of higher quality. Use asynchronous mode if you do not need an urgent response.
 
 Neither mode can currently process unlimited amounts of data. As of now, the maximum total number of [tokens](tokens.md) allowed per user request and model response is {{ yagpt-max-tokens }}. For more information about {{ yagpt-name }} limits, see [{#T}](limits.md).
 

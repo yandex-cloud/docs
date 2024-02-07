@@ -166,24 +166,24 @@ Hystax Acura Backup будет выполнять действия от имен
         --network-interface subnet-id=<идентификатор_подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
         --create-boot-disk name=hystax-acura-disk,size=200,image-id=<идентификатор_образа_Hystax_Acura_Backup> \
         --service-account-id <идентификатор_сервисного_аккаунта> \
-        --ssh-key <путь_к_файлу_открытого_ключа_SSH>
+        --ssh-key <путь_к_файлу_открытого_SSH-ключа>
       ```
 
       Где:
-      * `name` — имя ВМ, например, `hystax-acura-vm`.
-      * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например `{{ region-id }}-a`. Сохраните обозначение зоны доступности, оно потребуется в дальнейшем.
-      * `cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
-      * `memory` — [размер оперативной памяти](../../compute/concepts/vm.md) ВМ.
-      * `network-interface` — описание сетевого интерфейса ВМ:
+      * `--name` — имя ВМ, например, `hystax-acura-vm`.
+      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), например `{{ region-id }}-a`. Сохраните обозначение зоны доступности, оно потребуется в дальнейшем.
+      * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
+      * `--memory` — [размер оперативной памяти](../../compute/concepts/vm.md) ВМ.
+      * `--network-interface` — описание сетевого интерфейса ВМ:
         * `subnet-id` — идентификатор подсети, к которой будет подключена ВМ. Получить список подсетей можно с помощью команды CLI `yc vpc subnet list`. Сохраните идентификатор подсети, он потребуется в дальнейшем.
         * `nat-ip-version=ipv4` — подключить публичный IP-адрес.
         * `security-group-ids` — группа безопасности. Используйте этот параметр, если группа была настроена ранее. Получить список групп можно с помощью команды CLI `yc vpc security-group list`. Если параметр не указывать, будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
-      * `create-boot-disk` — создать для ВМ новый диск:
+      * `--create-boot-disk` — создать для ВМ новый диск:
         * `name` — имя диска, например `hystax-acura-disk`.
         * `size` — размер диска.
         * `image-id` — идентификатор образа диска. Используйте `image_id` из [описания продукта](/marketplace/products/hystax/hystax-acura-backup) в {{ marketplace-name }}.
-      * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa). Получить список аккаунтов можно с помощью команды `yc iam service-account list`.
-      * `ssh-key` — путь к файлу открытого ключа SSH. Имя пользователя по умолчанию для доступа по SSH — `yc-user`.
+      * `--service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa). Получить список аккаунтов можно с помощью команды `yc iam service-account list`.
+      * `--ssh-key` — путь к файлу открытого ключа SSH. Имя пользователя по умолчанию для доступа по SSH — `yc-user`.
 
     - API {#api}
 

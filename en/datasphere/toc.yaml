@@ -161,8 +161,6 @@ items:
             href: concepts/async.md
           - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
-          - name: DataSphere jobs
-            href: concepts/jobs.md
       - name: Resources
         items:
           - name: Overview
@@ -185,6 +183,12 @@ items:
             href: concepts/models/tuned-models.md
       - name: Deploying models
         href: concepts/deploy/index.md
+      - name: DataSphere Jobs
+        items:
+          - name: Jobs
+            href: concepts/jobs/index.md
+          - name: DataSphere CLI
+            href: concepts/jobs/cli.md
       - name: Foundation models
         href: concepts/models/foundation-models.md
       - name: Quotas and limits

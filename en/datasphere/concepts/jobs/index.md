@@ -2,17 +2,17 @@
 
 In {{ ml-platform-name }}, you can run jobs, i.e., computations on {{ ml-platform-name }} VMs outside {{ jlab }}Lab, remotely. These can be Python scripts and projects, Bash scripts, and executable binary files compiled for Linux x86_64.
 
-Jobs are created and run in [projects](project.md). However, they do not depend on project notebooks and running VMs.
+Jobs are created and run in [projects](../project.md). However, they do not depend on project notebooks and running VMs.
 
-To [run a job](../operations/projects/work-with-jobs.md), set up a Python virtual environment, install the `datasphere` library with the `pip install datasphere` command, and prepare a configuration file describing all the job run parameters. You can also [install](../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../cli/) to use it for authentication in {{ yandex-cloud }}.
+To [run a job](../../operations/projects/work-with-jobs.md), set up a Python virtual environment, install [{{ ds-cli }}](cli.md) using the `pip install datasphere` command and prepare a configuration file describing all the parameters for running the job. You can also [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}.
 
-{{ ml-platform-name }} Jobs stores input data cache, environments, logs, and job execution results. You can reuse the data and share it across jobs in a single project. The size of stored data is limited. For more information about {{ ml-platform-name }} limits, see [{#T}](limits.md).
+{{ ml-platform-name }} Jobs stores input data cache, environments, logs, and job execution results. You can reuse the data and share it across jobs in a single project. The size of stored data is limited. For more information about {{ ml-platform-name }} limits, see [{#T}](../limits.md).
 
 You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their progress and results will be available under **Run history**.
 
 ## Job configuration file {#config}
 
-When creating a job, specify its parameters in the `config.yaml` file: a [configuration of computing resources](configurations.md) that will be used for job execution and required files with input data. Depending on the settings specified in the configuration file, {{ ml-platform-name }} analyzes the job, identifies dependencies, deploys the environment on the VM, and runs the job code. Job execution results are saved in the {{ ml-platform-name }} project files listed in the job configuration.
+When creating a job, specify its parameters in the `config.yaml` file: a [configuration of computing resources](../configurations.md) that will be used for job execution and required files with input data. Depending on the settings specified in the configuration file, {{ ml-platform-name }} analyzes the job, identifies dependencies, deploys the environment on the VM, and runs the job code. Job execution results are saved in the {{ ml-platform-name }} project files listed in the job configuration.
 
 ```yaml
 # Job name
@@ -90,7 +90,7 @@ The job `config.yaml` file contains multiple sections.
 
 1. The `output` section specifies files to save the computation results to. Once the job is executed, these files will appear on your PC. The rules for setting file paths are the same as in the `input` section.
 
-1. {{ ml-platform-name }} resources used in jobs are specified in the `s3-mounts` (for [S3 connectors](s3-connector.md)) and `datasets` (for [datasets](dataset.md)) sections. To use an S3 connector or a dataset in a job, specify the ID of an available project resource and, optionally, define a variable for it. If no variable is set, resources in the `cmd` section can be accessed by their ID.
+1. {{ ml-platform-name }} resources used in jobs are specified in the `s3-mounts` (for [S3 connectors](../s3-connector.md)) and `datasets`(for [datasets](../dataset.md)) sections. To use an S3 connector or a dataset in a job, specify the ID of an available project resource and, optionally, define a variable for it. If no variable is set, resources in the `cmd` section can be accessed by their ID.
 
    You can also use project storage in your job. To do this, set the `attach-project-disk` flag in the `flags` section. The project storage will be mounted to the VM the job is running on as an external disk for data reads. The storage path will be available in the `DS_PROJECT_HOME` environment variable.
 
@@ -109,12 +109,12 @@ The job `config.yaml` file contains multiple sections.
 
    The environment variables are specified in the `vars` section under `env`. Project secrets will also be added to the environment variables when running the job.
 
-   {% include [jobs-info](../../_includes/datasphere/jobs-environment.md) %}
+   {% include [jobs-info](../../../_includes/datasphere/jobs-environment.md) %}
 
-1. The `cloud-instance-type` section defines the type of the [computing resource configuration](configurations.md) to run the job on.
+1. The `cloud-instance-type` section defines the type of the [computing resource configuration](../configurations.md) to run the job on.
 
 
 #### See also {#see-also}
 
-* [{#T}](../operations/projects/work-with-jobs.md)
+* [{#T}](../../operations/projects/work-with-jobs.md)
 * [GitHub repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) with job run examples

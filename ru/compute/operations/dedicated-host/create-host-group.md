@@ -28,23 +28,23 @@
 
       ```bash
       yc compute host-group create \
-        --fixed-size <количество выделенных хостов в группе> \
-        --type <тип выделенных хостов> \
-        --zone <зона доступности>
+        --fixed-size <количество_выделенных_хостов_в_группе> \
+        --type <тип_выделенных_хостов> \
+        --zone <зона_доступности>
       ```
 
       Где:
 
-      * `fixed-size` — количество выделенных хостов в группе.
-      * `type` — тип выделенных хостов.
-      * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет размещена группа.
+      * `--fixed-size` — количество выделенных хостов в группе.
+      * `--type` — тип выделенных хостов.
+      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет размещена группа.
 
       Результат:
 
       ```bash
       done (6s)
-      id: abcdefg1hi23gkl16dnf
-      folder_id: m4n56op78mev0cljderg
+      id: abcdefg1hi23********
+      folder_id: m4n56op78mev********
       created_at: "2020-10-13T07:36:49Z"
       zone_id: {{ region-id }}-a
       status: READY

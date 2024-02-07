@@ -5,7 +5,7 @@ description: "Follow this guide to remotely run Python and bash scripts and exec
 
 # Running jobs in {{ ml-platform-name }} Jobs
 
-You can run [jobs](../../concepts/jobs.md) remotely. These are Python and bash scripts and executable binary files to run on a {{ ml-platform-full-name }} VM.
+You can run [jobs](../../concepts/jobs/index.md) remotely. These are Python and bash scripts and executable binary files to run on a {{ ml-platform-full-name }} VM.
 
 Jobs are created and run in [projects](../../concepts/project.md). However, they do not depend on notebooks and VMs running in a project.
 
@@ -182,4 +182,5 @@ The model is saved to the `model.zip` archive in the job directory.
 
 #### See also {#see-also}
 
-* [{#T}](../../concepts/jobs.md)
+* [{#T}](../../concepts/jobs/index.md)
+* [GitHub repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) with job run examples

@@ -8,11 +8,11 @@
 
 1. Откройте консоль PowerShell.
 
-1. Создайте объект `Credentials`, заменив `<password>` паролем пользователя `Administrator`, который вы указали при создании ВМ:
+1. Создайте объект `Credentials`, заменив `<пароль>` паролем пользователя `Administrator`, который вы указали при создании ВМ:
 
     ```powershell
     $myUserName = "Administrator"
-    $myPlainTextPassword = "<password>"
+    $myPlainTextPassword = "<пароль>"
     $myPassword = $MyPlainTextPassword | ConvertTo-SecureString -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential($MyUserName, $myPassword)
     ```
@@ -29,13 +29,13 @@
     ```text
     UserName      Password
     --------      --------
-    Administrator <password>
+    Administrator <пароль>
     ```
 
 1. Создайте переменную для IP-адреса ВМ:
 
     ```powershell
-    $ipAddress = "<ip-address>"
+    $ipAddress = "<IP-адрес>"
     ```
 
 1. Создайте объект `SessionOption`. В объекте укажите проверки, которые нужно пропустить:
@@ -62,7 +62,7 @@
     Результат:
 
     ```text
-    [<ip-address>]: PS C:\Users\$myUserName\Documents>
+    [<IP-адрес>]: PS C:\Users\$myUserName\Documents>
     ```
 
     Завершите сессию:
@@ -88,7 +88,7 @@
     ```text
     Id Name            ComputerName    ComputerType    State         ConfigurationName     Availability
     -- ----            ------------    ------------    -----         -----------------     ------------
-     2 WinRM2          <ip-address>    RemoteMachine   Opened        Microsoft.PowerShell     Available
+     2 WinRM2          <IP-адрес>    RemoteMachine   Opened        Microsoft.PowerShell     Available
     ```
 
     Выполните команду на удаленной машине:
@@ -107,8 +107,8 @@
     ```text
     Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName                    PSComputerName
     -------  ------    -----      -----     ------     --  -- -----------                    --------------
-        249      13     4248      16200       0.11   4176   2 conhost                        <ip-address>
-        283      12     1888       4220       0.20    420   0 csrss                          <ip-address>
+        249      13     4248      16200       0.11   4176   2 conhost                        <IP-адрес>
+        283      12     1888       4220       0.20    420   0 csrss                          <IP-адрес>
     ...
     ```
 

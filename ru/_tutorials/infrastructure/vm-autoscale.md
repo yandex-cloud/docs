@@ -54,8 +54,8 @@
         Результат выполнения команды:
 
         ```bash
-        id: ajelabcde12f33nol1v5
-        folder_id: b0g12ga82bcv0cdeferg
+        id: ajelabcde12f********
+        folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T14:32:18.900092Z"
         name: for-autoscale
         ```
@@ -63,9 +63,9 @@
      1. Назначьте роль сервисному аккаунту:
 
         ```bash
-        yc resource-manager folder add-access-binding b1g23ga82bcv0cdeferg \
+        yc resource-manager folder add-access-binding b1g23ga82bcv******** \
           --role editor \
-          --subject serviceAccount:ajelabcde12f33nol1v5
+          --subject serviceAccount:ajelabcde12f********
         ```
 
     
@@ -104,8 +104,8 @@
         Результат выполнения команды:
 
         ```bash
-        id: enpabce123hde4ft1r3t
-        folder_id: b0g12ga82bcv0cdeferg
+        id: enpabce123hd********
+        folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T14:57:15Z"
         name: yc-auto-network
         ```
@@ -114,7 +114,7 @@
 
         ```bash
         yc vpc subnet create \
-          --network-id enpabce123hde4ft1r3t \
+          --network-id enpabce123hd******** \
           --range 192.168.1.0/24 \
           --zone {{ region-id }}-a
         ```
@@ -122,10 +122,10 @@
         Результат выполнения команды:
 
         ```bash
-        id: e1lnabc23r1c9d0efoje
-        folder_id: b0g12ga82bcv0cdeferg
+        id: e1lnabc23r1c********
+        folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T16:23:12Z"
-        network_id: enpabce123hde4ft1r3t
+        network_id: enpabce123hd********
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.1.0/24
@@ -135,7 +135,7 @@
 
         ```bash
         yc vpc subnet create \
-          --network-id enpabce123hde4ft1r3t \
+          --network-id enpabce123hd******** \
           --range 192.168.2.0/24 \
           --zone {{ region-id }}-b
         ```
@@ -143,10 +143,10 @@
         Результат выполнения команды:
 
         ```bash
-        id: b1csa2b3clideftjb121
-        folder_id: b0g12ga82bcv0cdeferg
+        id: b1csa2b3clid********
+        folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T16:25:02Z"
-        network_id: enpabce123hde4ft1r3t
+        network_id: enpabce123hd********
         zone_id: {{ region-id }}-b
         v4_cidr_blocks:
         - 192.168.2.0/24
@@ -261,7 +261,7 @@
        disk_spec:
          type_id: network-hdd
          size: 30G
-         image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
+         image_id: fd8iv792kira******** # Идентификатор публичного образа Container Optimized Image.
      network_interface_specs:
        - network_id: <идентификатор_облачной_сети>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
@@ -284,13 +284,13 @@
 
      ```bash
      done (2m45s)
-     id: cl0hmabc1nd2hdefgb7k
-     folder_id: b0g12ga82bcv0cdeferg
+     id: cl0hmabc1nd2********
+     folder_id: b0g12ga82bcv********
      ...
-       target_group_id: enpoi5jhfps37opefgus
+       target_group_id: enpoi5jhfps3********
      ...
          name: auto-group-tg
-     service_account_id: ajelabcde12f33nol1v5
+     service_account_id: ajelabcde12f********
      status: ACTIVE
      ```
 
@@ -329,8 +329,8 @@
      +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
      |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP  |         STATUS         | STATUS MESSAGE |
      +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
-     | epdab0c1ji2ad4ef8l1s | cl0habce1nd2hqstgd7e-fned | 84.201.163.202 | 192.168.1.34 | RUNNING_ACTUAL [4m26s] |                |
-     | ef0uabc1s2fbde6f5tlu | cl0habce1nd2hqstga7b-craq | 130.193.56.102 | 192.168.2.19 | RUNNING_ACTUAL [4m14s] |                |
+     | epdab0c1ji2a******** | cl0habce1nd2********-fned | 84.201.163.202 | 192.168.1.34 | RUNNING_ACTUAL [4m26s] |                |
+     | ef0uabc1s2fb******** | cl0habce1nd2********-craq | 130.193.56.102 | 192.168.2.19 | RUNNING_ACTUAL [4m14s] |                |
      +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
      ```
 
@@ -378,15 +378,15 @@
      yc load-balancer network-load-balancer create \
        --listener external-ip-version=ipv4,name=http,port=80,protocol=tcp,target-port=80 \
        --name group-balancer \
-       --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=enpoi5jhfps37opefgus
+       --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=enpoi5jhfps3********
      ```
 
      Результат выполнения команды:
 
      ```bash
      done (16s)
-     id: b0rbabc1m2edfu2ss579
-     folder_id: b0g12ga82bcv0cdeferg
+     id: b0rbabc1m2ed********
+     folder_id: b0g12ga82bcv********
      ...
          healthy_threshold: "2"
          tcp_options:
@@ -431,7 +431,7 @@
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
      |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-     | b0rbabc1m2edfu2ss579 | group-balancer | {{ region-id }} | EXTERNAL |              1 | b0rdabckribed1fbv2l1   | ACTIVE |
+     | b0rbabc1m2ed******** | group-balancer | {{ region-id }} | EXTERNAL |              1 | b0rdabckribe********   | ACTIVE |
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
      ```
      
@@ -474,7 +474,7 @@
      Результат выполнения команды:
 
      ```bash
-     projects/b0g12ga82bcv0cdeferg/zones/{{ region-id }}-b
+     projects/b0g12ga82bcv********/zones/{{ region-id }}-b
      ```
 
    {% endlist %}
@@ -629,17 +629,17 @@
      1. Удалите подсеть в зоне `{{ region-id }}-a`:
 
         ```bash
-        yc vpc subnet delete e1lnabc23r1c9d0efoje
+        yc vpc subnet delete e1lnabc23r1c********
         ```
 
         Результат выполнения команды:
 
         ```bash
         done (1s)
-        id: e1lnabc23r1c9d0efoje
-        folder_id: b0g12ga82bcv0cdeferg
+        id: e1lnabc23r1c********
+        folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T16:23:12Z"
-        network_id: enpabce123hde4ft1r3t
+        network_id: enpabce123hd********
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.1.0/24
@@ -648,17 +648,17 @@
      1. Удалите подсеть в зоне `{{ region-id }}-b`:
 
         ```bash
-        yc vpc subnet delete b1csa2b3clideftjb121
+        yc vpc subnet delete b1csa2b3clid********
         ```
 
         Результат выполнения команды:
 
         ```bash
         done (1s)
-        id: b1csa2b3clideftjb121
-        folder_id: b0g12ga82bcv0cdeferg
+        id: b1csa2b3clid********
+        folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T16:25:02Z"
-        network_id: enpabce123hde4ft1r3t
+        network_id: enpabce123hd********
         zone_id: {{ region-id }}-b
         v4_cidr_blocks:
         - 192.168.2.0/24
@@ -690,8 +690,8 @@
      Результат выполнения команды:
 
      ```bash
-     id: enpabce123hde4ft1r3t
-     folder_id: b0g12ga82bcv0cdeferg
+     id: enpabce123hd********
+     folder_id: b0g12ga82bcv********
      created_at: "2020-11-30T14:57:15Z"
      name: yc-auto-network
      ```

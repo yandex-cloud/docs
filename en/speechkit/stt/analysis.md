@@ -14,36 +14,39 @@ You can apply classifiers both to intermediate and final recognition results. To
 
 {{ speechkit-name }} supports the following classifiers:
 
-| Classifier | Description | Supported event types |
-|---|---|---|
-| `formal_greeting` | Formal greeting like "good afternoon" or "good morning" | `ON_UTTERANCE`, `ON_FINAL` |
-| `informal_greeting` | Informal greeting like "hi" or "hey there" | `ON_UTTERANCE`, `ON_FINAL` |
-| `formal_farewell` | Formal farewell like "goodbye" or "have a nice day" | `ON_UTTERANCE`, `ON_FINAL` |
-| `informal_farewell` | Informal farewell like "bye-bye" or "adios" | `ON_UTTERANCE`, `ON_FINAL` |
-| `insult` | Insults like "idiot" or "jerk" | `ON_UTTERANCE`, `ON_FINAL` |
-| `profanity` | Profanity | `ON_UTTERANCE`, `ON_FINAL` |
+| Classifier | Description | Result | Supported event types | Support in model versions |
+|---|---|---|---|---|
+| `formal_greeting` | Formal greeting like "good afternoon" or "good morning" | When triggered | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
+| `informal_greeting` | Informal greeting like "hi" or "hey there" | When triggered | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
+| `formal_farewell` | Formal farewell like "goodbye" or "have a nice day" | When triggered | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
+| `informal_farewell` | Informal farewell like "bye-bye" or "adios" | When triggered | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
+| `insult` | Insults like "idiot" or "jerk" | When triggered | `ON_UTTERANCE`, `ON_FINAL` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) |
+| `profanity` | Profanity | When triggered | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (in `general:rc`) | `general:rc`, `general` |
+| `gender` | Gender | Probability values for `male` and `female` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
+| `negative` | Negativity | Probability values for `negative` and `not_negative` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
+| `answerphone` | Answerphone | Probability values for `answerphone` and `not_answerphone` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
 
 {% list tabs group=programming_language %}
 
 - Python {#python}
 
    ```python
-   session_options = StreamingRequest(
-     session_options=StreamingOptions(
+   session_options = stt_pb2.StreamingRequest(
+     session_options=stt_pb2.StreamingOptions(
        recognition_model="general",
 
        # Classifier settings
-       recognition_classifier=RecognitionClassifierOptions(
+       recognition_classifier=stt_pb2.RecognitionClassifierOptions(
          classifiers=[
            # Detect insults in utterances
-           RecognitionClassifier(
+           stt_pb2.RecognitionClassifier(
              classifier="insult",
-             triggers=[RecognitionClassifier.ON_UTTERANCE]
+             triggers=[stt_pb2.RecognitionClassifier.ON_UTTERANCE]
            ),
            # Detect profanity in utterances
-           RecognitionClassifier(
+           stt_pb2.RecognitionClassifier(
              classifier="profanity",
-             triggers=[RecognitionClassifier.ON_UTTERANCE]
+             triggers=[stt_pb2.RecognitionClassifier.ON_UTTERANCE]
            ),
          ]
        )
@@ -61,17 +64,17 @@ Let's assume we have three utterances to recognize: "You are working poorly", "C
 After the second utterance, you will receive two messages: one with the utterance recognition result and the other one with the classifier response:
 
 ```python
-StreamingResponse(
+stt_pb2.StreamingResponse(
 ...,
-  classifier_update=RecognitionClassifierUpdate(
+  classifier_update=stt_pb2.RecognitionClassifierUpdate(
     window_type=RecognitionClassifierUpdate.LAST_UTTERANCE,
-    start_time_ms=<start_of_utterance>,
-    end_time_ms=<end_of_utterance>,
-    classifier_result=RecognitionClassifierResult(
+    start_time_ms=<start_of_phrase>,
+    end_time_ms=<end_of_phrase>,
+    classifier_result=stt_pb2.RecognitionClassifierResult(
       classifier="insult",
       highlights=[
-        PhraseHighlight(
-          text="idiots",
+        stt_pb2.PhraseHighlight(
+          text="fools",
           start_time_ms=<word_start_time>,
           end_time_ms=<word_end_time>
         )

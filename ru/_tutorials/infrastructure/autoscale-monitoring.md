@@ -143,7 +143,7 @@
        created_at: "2021-10-04T16:25:19.143847764Z"
        description: {{ message-queue-name }}
        key_id: g3VybpVKdq_Y********
-     secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7VSOeD_mRG
+     secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7V********
      ```
      
   1. Создайте облачную сеть `queue-autoscale-network`:
@@ -279,7 +279,7 @@
      Результат:
      
      ```yaml
-     QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003n58805qi/queue-autoscale-queue
+     QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003********/queue-autoscale-queue
      ```
      
 - API {#api}
@@ -441,7 +441,7 @@
        folder_id: b0g12ga82bcv********
        created_at: "2021-10-04T16:29:12.450858436Z"
        name: queue-autoscale-subnet-a
-       network_id: enpabce123hde4ft1r3t
+       network_id: enpabce123hd********
        zone_id: {{ region-id }}-a
        v4_cidr_blocks:
        - 192.168.1.0/24

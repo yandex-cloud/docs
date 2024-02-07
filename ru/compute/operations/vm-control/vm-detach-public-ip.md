@@ -28,8 +28,8 @@
 
   Где:
 
-  * `id` — идентификатор (ID) ВМ. Получите список идентификаторов ВМ, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
-  * `network-interface-index` — индекс сетевого интерфейса ВМ. По умолчанию — `0`.
+  * `--id` — идентификатор (ID) ВМ. Получите список идентификаторов ВМ, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
+  * `--network-interface-index` — индекс сетевого интерфейса ВМ. По умолчанию — `0`.
 
   Подробнее о команде `yc compute instance remove-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md).
 

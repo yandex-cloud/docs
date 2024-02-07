@@ -52,7 +52,7 @@ scale_policy:
       metric_type: GAUGE
       metric_name: queue.messages.stored_count
       labels:
-        queue: dj600000000220a507nq
+        queue: dj6000000002********
       target: 5
 ```
 
