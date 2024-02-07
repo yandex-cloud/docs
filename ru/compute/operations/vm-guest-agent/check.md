@@ -109,7 +109,7 @@ description: "Из статьи вы узнаете, как проверить �
   Выполните следующую команду:
 
   ```
-  yc compute instance get-serial-port-output <имя ВМ> --port 4 > output.txt
+  yc compute instance get-serial-port-output <имя_ВМ> --port 4 > output.txt
   ```
   
   Логи будут сохранены в файл `output.txt`

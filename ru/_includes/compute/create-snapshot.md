@@ -35,7 +35,7 @@
       yc compute snapshot create \
         --name first-snapshot \
         --description "my first snapshot via CLI" \
-        --disk-id fhm4aq4hvq5g3nepvt9b
+        --disk-id fhm4aq4hvq5g********
       ```
 
       В результате будет создан снимок диска с именем `first-snapshot` и описанием `my first snapshot via CLI`.
@@ -55,7 +55,7 @@
      ```hcl
      resource "yandex_compute_snapshot" "snapshot-1" {
        name           = "disk-snapshot"
-       source_disk_id = "<идентификатор диска>"
+       source_disk_id = "<идентификатор_диска>"
      }
      ```
 

@@ -13,9 +13,6 @@ Below is an overview of the [physical network](#underlay) and [virtual network](
 
 ## Physical network in {{ yandex-cloud }} {#underlay}
 
-The {{ yandex-cloud }} physical network can be presented as follows:
-
-![Net-Infra](../../_assets/overview/netinfra.svg)
 
 One of the main physical network components is the *{{ yandex-cloud }} transport network*.
 
@@ -47,9 +44,6 @@ The {{ yandex-cloud }} virtual network includes a set of [{{ vpc-name }}](../../
 
 The virtual network in {{ yandex-cloud }} is built on selected components of the [Tungsten Fabric](https://github.com/tungstenfabric/opencontrails-docs) project (formerly known as OpenContrail).
 
-The {{ yandex-cloud }} virtual network can be presented as follows:
-
-![VPC-Infra](../../_assets/overview/vpcinfra.svg)
 
 The {{ yandex-cloud }} virtual network architecture has the following key components:
 

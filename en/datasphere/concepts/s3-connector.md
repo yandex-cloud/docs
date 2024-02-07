@@ -28,6 +28,8 @@ You can [create](../operations/data/s3-connectors.md) an S3 connector in the [{{
 
 Once created, your S3 connector becomes available for the project. The community administrator can share an S3 connector with other community projects. For this, they should grant access to it under the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the S3 connector view page. The resource available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
+{% include [s3-connectors-nat-gateway](../../_includes/datasphere/s3-connectors-nat-gateway.md) %}
+
 #### See also {#see-also}
 
 * [Connecting to an S3 storage using an S3 connector](../operations/data/s3-connectors.md)

@@ -25,7 +25,7 @@
   Рекомендуемые параметры запуска:
 
   ```bash
-  ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<имя закрытого SSH-ключа> <ID ВМ>.<имя пользователя>@{{ serial-ssh-host }}
+  ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<имя_закрытого_SSH-ключа> <идентификатор_ВМ>.<имя_пользователя>@{{ serial-ssh-host }}
   ```
 
   Публичный SSH-ключ хоста в будущем может быть изменен.
@@ -45,13 +45,13 @@
 Пример команды подключения:
 
 ```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<имя закрытого SSH-ключа> <ID ВМ>.<имя пользователя>@{{ serial-ssh-host }}
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<имя_закрытого_SSH-ключа> <идентификатор_ВМ>.<имя_пользователя>@{{ serial-ssh-host }}
 ```
 
-Пример для пользователя `yc-user` и ВМ с идентификатором `fhm0b28lgfp4tkoa3jl6`:
+Пример для пользователя `yc-user` и ВМ с идентификатором `fhm0b28lgfp4********`:
 
 ```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.yc-user@{{ serial-ssh-host }}
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4********.yc-user@{{ serial-ssh-host }}
 ```
 
 Пользователь `yc-user` создается автоматически при создании ВМ. Подробнее читайте в разделе [{#T}](../vm-create/create-linux-vm.md).
@@ -62,9 +62,9 @@ ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.y
   * Нажмите на клавиатуре клавишу **Enter**.
   * Перезапустите ВМ (для ВМ, созданных до 22 февраля 2019 года).
 * Если ОС запрашивает данные пользователя для доступа на ВМ, укажите имя пользователя (логин) и пароль.
-  * На ВМ с Linux предварительно создайте пароль для пользователя. Выполните команду `sudo passwd <имя пользователя>`. Подробнее см. в разделе [Начало работы с серийной консолью](./index.md#linux-configuration).
+  * На ВМ с Linux предварительно создайте пароль для пользователя. Выполните команду `sudo passwd <имя_пользователя>`. Подробнее см. в разделе [Начало работы с серийной консолью](./index.md#linux-configuration).
   * На ВМ с Windows потребуется ввести логин, домен (имя ВМ) и пароль. Подробнее см. в разделе [Запустить командную оболочку в Windows SAC](./windows-sac.md).
-* Если при подключении возникает ошибка `Warning: remote host identification has changed!`, выполните команду `ssh-keygen -R <IP ВМ>`.
+* Если при подключении возникает ошибка `Warning: remote host identification has changed!`, выполните команду `ssh-keygen -R <IP-адрес_ВМ>`.
 
 ## Отключиться от серийной консоли {#turn-off-serial-console}
 

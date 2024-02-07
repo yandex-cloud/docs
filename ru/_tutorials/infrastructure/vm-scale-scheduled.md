@@ -63,8 +63,8 @@
      Результат:
 
      ```yaml
-     id: ajeab0cnib1pdefe21dm
-     folder_id: b0g12ga82bcv0cdeferg
+     id: ajeab0cnib1p********
+     folder_id: b0g12ga82bcv********
      created_at: "2022-03-15T09:44:35.989446Z"
      name: vm-scale-scheduled-sa
      ```
@@ -102,6 +102,12 @@
 
      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
+
+- {{ TF }} {#tf}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
 - API {#api}
 
   1. Создайте сервисный аккаунт `vm-scale-scheduled-sa`. Для этого воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
@@ -113,12 +119,6 @@
      * `{{ roles-functions-invoker }}` — для запуска функции {{ sf-name }}.
 
      Для этого воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings).
-
-
-- {{ TF }} {#tf}
-
-  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-
 
 {% endlist %}
 
@@ -149,8 +149,8 @@
      Результат:
  
      ```yaml
-     id: enpabce123hde4ft1r3t
-     folder_id: b0g12ga82bcv0cdeferg
+     id: enpabce123hd********
+     folder_id: b0g12ga82bcv********
      created_at: "2022-03-15T09:55:50.004472Z"
      name: vm-scale-scheduled-network
      ```
@@ -169,11 +169,11 @@
      Результат:
  
      ```yaml
-     id: e1lnabc23r1c9d0efoje
-     folder_id: b0g12ga82bcv0cdeferg
+     id: e1lnabc23r1c********
+     folder_id: b0g12ga82bcv********
      created_at: "2022-03-15T09:56:51.859345Z"
      name: vm-scale-scheduled-subnet-a
-     network_id: enpabce123hde4ft1r3t
+     network_id: enpabce123hd********
      zone_id: {{ region-id }}-a
      v4_cidr_blocks:
      - 192.168.1.0/24
@@ -193,27 +193,27 @@
      Результат:
  
      ```yaml
-     id: b1csa2b3clideftjb121
-     folder_id: b0g12ga82bcv0cdeferg
+     id: b1csa2b3clid********
+     folder_id: b0g12ga82bcv********
      created_at: "2022-03-15T09:57:48.934429Z"
      name: vm-scale-scheduled-subnet-b
-     network_id: enpabce123hde4ft1r3t
+     network_id: enpabce123hd********
      zone_id: {{ region-id }}-b
      v4_cidr_blocks:
      - 192.168.2.0/24
      ```
-
-- API {#api}
-
-  1. Создайте сеть `vm-scale-scheduled-network` с помощью метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
- 
-  1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
 
 - {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
+
+- API {#api}
+
+  1. Создайте сеть `vm-scale-scheduled-network` с помощью метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
+ 
+  1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
 {% endlist %}
 
@@ -286,7 +286,7 @@
        Результат:
    
        ```yaml
-       id: ajeab0cnib1pdefe21dm
+       id: ajeab0cnib1p********
        ```
 
        Подробнее о команде `yc iam service-account get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/get.md).
@@ -301,7 +301,7 @@
        Результат:
        
        ```yaml
-       id: enpabce123hde4ft1r3t
+       id: enpabce123hd********
        ```
 
        Подробнее о команде `yc vpc network get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/get.md).
@@ -316,7 +316,7 @@
        Результат:
 
        ```yaml
-       id: e1lnabc23r1c9d0efoje
+       id: e1lnabc23r1c********
        ```
 
        Подробнее о команде `yc vpc subnet get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/get.md).
@@ -331,7 +331,7 @@
        Результат:
 
        ```yaml
-       id: b1csa2b3clideftjb121
+       id: b1csa2b3clid********
        ```
 
        Подробнее о команде `yc vpc subnet get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/get.md).
@@ -346,7 +346,7 @@
      Результат:
 
      ```yaml
-     id: fd83n3uou8m03iq9gavu
+     id: fd83n3uou8m0********
      ```
      
      Подробнее о команде `yc compute image get-latest-from-family` см. в [справочнике CLI](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md).
@@ -367,12 +367,18 @@
  
       ```bash
       done (2m18s)
-      id: cl0kabcquk1gomdefbkk
-      folder_id: b0g12ga82bcv0cdeferg
+      id: cl0kabcquk1g********
+      folder_id: b0g12ga82bcv********
       ...
-      service_account_id: ajeab0cnib1pdefe21dm
+      service_account_id: ajeab0cnib1p********
       status: ACTIVE
       ```
+
+
+- {{ TF }} {#tf}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
 - API {#api}
 
@@ -389,12 +395,6 @@
      {% include [vm-scale-scheduled-yaml-spec-init](../../_includes/instance-groups/vm-scale-scheduled-yaml-spec-init.md) %}
      
   1. Создайте группу ВМ с именем `vm-scale-scheduled-ig` по спецификации `specification.yaml` с помощью метода REST API [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml).
-
-
-- {{ TF }} {#tf}
-
-  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-
 
 {% endlist %}
 
@@ -450,12 +450,12 @@
  
      ```
      done (1s)
-     id: d4e7d67ikvmqk5uoim47
-     folder_id: b1g9hv2loamqfnbul7d9
+     id: d4e7d67ikvmq********
+     folder_id: b1g9hv2loamq********
      created_at: "2022-04-01T13:48:27.705Z"
      name: vm-scale-scheduled-function
-     log_group_id: ckgij6l0845hsdc9khiq
-     http_invoke_url: https://{{ sf-url }}/d4e7d67ikvmqk5uoim47
+     log_group_id: ckgij6l0845h********
+     http_invoke_url: https://{{ sf-url }}/d4e7d67ikvmq********
      status: ACTIVE
      ```
      
@@ -480,25 +480,31 @@
  
      ```
      done (1s)
-     id: d4efmv9n3qf1ptjtlof3
-     function_id: d4e7d67ikvmqk5uoim47
+     id: d4efmv9n3qf1********
+     function_id: d4e7d67ikvmq********
      created_at: "2022-04-01T14:04:29.523Z"
      runtime: bash
      entrypoint: handler.sh
      resources:
      memory: "134217728"
      execution_timeout: 60s
-     service_account_id: aje9s4pud13hfhk1bfgn
+     service_account_id: aje9s4pud13h********
      image_size: "4096"
      status: ACTIVE
      tags:
      - $latest
-     log_group_id: ckgij6l0845hsdc9khiq
+     log_group_id: ckgij6l0845h********
      environment:
-       FOLDER_ID: b1g9hv2loamqfnbul7d9
+       FOLDER_ID: b1g9hv2loamq********
        IG_BASE_SIZE: "2"
        IG_NAME: vm-scale-scheduled-ig
      ```
+
+
+- {{ TF }} {#tf}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
 - API {#api}
 
@@ -506,12 +512,6 @@
   1. Создайте версию функции с помощью метода REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion). Версия функции должна иметь следующий код:
 
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
-
-
-- {{ TF }} {#tf}
-
-  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-
 
 {% endlist %}
 
@@ -559,29 +559,29 @@
   Результат:
 
   ```
-  id: a1s22pb0v5i4q432hi0p
-  folder_id: b1g9hv2loamqfnbul7d9
+  id: a1s22pb0v5i4********
+  folder_id: b1g9hv2loamq********
   created_at: "2022-04-06T14:56:54.253709098Z"
   name: vm-scale-scheduled-trigger
   rule:
     timer:
       cron_expression: "*/2 * * * ? *"
       invoke_function_with_retry:
-        function_id: d4e7d67ikvmqk5uoim47
+        function_id: d4e7d67ikvmq********
         function_tag: $latest
-        service_account_id: aje9s4pud13hfhk1bfgn
+        service_account_id: aje9s4pud13h********
   status: ACTIVE
   ```
-
-- API {#api}
-
-  Используйте метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create), чтобы создать триггер типа `timer` с cron-выражением `*/2 * * * ? *`, связанный с функцией `vm-scale-scheduled-function` версии `$latest` и сервисным аккаунтом `vm-scale-scheduled-sa`.
 
 
 - {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
+
+- API {#api}
+
+  Используйте метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create), чтобы создать триггер типа `timer` с cron-выражением `*/2 * * * ? *`, связанный с функцией `vm-scale-scheduled-function` версии `$latest` и сервисным аккаунтом `vm-scale-scheduled-sa`.
 
 {% endlist %}
 
@@ -610,8 +610,8 @@
   Результат:
 
   ```
-  id: cl1l0ljqbmkp8k1f902l
-  folder_id: b1g9hv2loamqfnbul7d9
+  id: cl1l0ljqbmkp********
+  folder_id: b1g9hv2loamq********
   created_at: "2022-03-28T13:24:20.693Z"
   name: vm-scale-scheduled-ig
   ...

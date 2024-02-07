@@ -62,8 +62,8 @@
 
       ```text
       done (1s)
-      id: epdb2517b9709hkifodg
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: epdb2517b970********
+      folder_id: b1g7gvsi89m3********
       created_at: "2021-03-10T10:03:31Z"
       name: nr-disk
       type_id: network-ssd-nonreplicated

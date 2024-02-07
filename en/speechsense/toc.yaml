@@ -48,6 +48,8 @@ items:
         href: concepts/dialogs.md
       - name: Reports
         href: concepts/reports.md
+      - name: Supported audio formats
+        href: concepts/formats.md
   - name: API reference
     items:
       - name: Authentication with the API

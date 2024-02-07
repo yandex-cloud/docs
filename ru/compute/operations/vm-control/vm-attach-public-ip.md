@@ -33,15 +33,15 @@
 
     Где:
 
-    * `id` — идентификатор (ID) ВМ. Получите список идентификаторов ВМ, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
-    * `network-interface-index` — индекс сетевого интерфейса ВМ. По умолчанию — `0`.
-    * `nat-address` — публичный IP-адрес, который нужно присвоить ВМ. Получите список зарезервированных публичных IP-адресов, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/vpc/address/list.md) `yc vpc address list`. По умолчанию публичный IP-адрес присваивается автоматически.
+    * `--id` — идентификатор (ID) ВМ. Получите список идентификаторов ВМ, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
+    * `--network-interface-index` — индекс сетевого интерфейса ВМ. По умолчанию — `0`.
+    * `--nat-address` — публичный IP-адрес, который нужно присвоить ВМ. Получите список зарезервированных публичных IP-адресов, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/vpc/address/list.md) `yc vpc address list`. По умолчанию публичный IP-адрес присваивается автоматически.
 
     Пример использования:
 
     ```bash
     yc compute instance add-one-to-one-nat
-      --id=fhmsbag62tafcus1a12c 
+      --id=fhmsbag62taf********
       --network-interface-index=0
       --nat-address=51.250.9.203
     ```    
@@ -49,8 +49,8 @@
     Результат:
 
     ```bash
-    id: fhmsbag62tafcus1a12c
-    folder_id: b1gv87ssvu497lpgjh5o
+    id: fhmsbag62taf********
+    folder_id: b1gv87ssvu49********
     created_at: "2022-05-06T10:41:56Z"
     name: steel-machine
     description: for work
@@ -63,20 +63,20 @@
     status: RUNNING
     boot_disk:
       mode: READ_WRITE
-      device_name: fhmeihe6vgg1smqp763q
+      device_name: fhmeihe6vgg1********
       auto_delete: true
-      disk_id: fhmeihe6vgg1smqp763q
+      disk_id: fhmeihe6vgg1********
     network_interfaces:
     - index: "0"
       mac_address: d0:0d:1c:5a:a0:61
-      subnet_id: e9bn57jvjnbujnmk3mba
+      subnet_id: e9bn57jvjnbu********
       primary_v4_address:
         address: 10.128.0.23
         one_to_one_nat:
           address: 51.250.9.203
           ip_version: IPV4
       security_group_ids:
-      - enpcuhcljhb0jq9s3sb7
+      - enpcuhcljhb0********
     fqdn: steel-machine.{{ region-id }}.internal
     scheduling_policy:
       preemptible: true

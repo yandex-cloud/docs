@@ -194,16 +194,16 @@
      total 0
      drwxr-xr-x 2 root root 140 Jan 16 12:09 .
      drwxr-xr-x 6 root root 120 Jan 13 13:51 ..
-     lrwxrwxrwx 1 root root   9 Jan 16 12:09 virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc
-     lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0 -> ../../vdb
-     lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0-part1 -> ../../vdb1
-     lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0-part2 -> ../../vdb2
+     lrwxrwxrwx 1 root root   9 Jan 16 12:09 virtio-fhm1dn62tm5d******** -> ../../vdc
+     lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-fhm4ev6dodt9******** -> ../../vdb
+     lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9********-part1 -> ../../vdb1
+     lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9********-part2 -> ../../vdb2
      lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-nvme-disk-0 -> ../../vda
      ```
 
      Где:
-     * Сетевым дискам соответствуют ссылки вида `virtio-<ID диска>`. Например, запись `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` означает, что неразмеченный диск с ID `fhm1dn62tm5dnaspeh8n` имеет метку `/dev/vdc`.
-     * Локальным дискам на [выделенных хостах](../../concepts/dedicated-host.md) соответствуют ссылки вида `virtio-nvme-disk-<номер диска>` (если вы подключали диски к ВМ при ее создании). Диски нумеруются с нуля. Например, запись `virtio-nvme-disk-0 -> ../../vda` означает, что первый (нулевой) локальный диск имеет метку `/dev/vda`.
+     * Сетевым дискам соответствуют ссылки вида `virtio-<идентификатор_диска>`. Например, запись `virtio-fhm1dn62tm5d******** -> ../../vdc` означает, что неразмеченный диск с ID `fhm1dn62tm5d********` имеет метку `/dev/vdc`.
+     * Локальным дискам на [выделенных хостах](../../concepts/dedicated-host.md) соответствуют ссылки вида `virtio-nvme-disk-<номер_диска>` (если вы подключали диски к ВМ при ее создании). Диски нумеруются с нуля. Например, запись `virtio-nvme-disk-0 -> ../../vda` означает, что первый (нулевой) локальный диск имеет метку `/dev/vda`.
   1. Разметьте диск. Для этого создайте на нем [разделы](https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux) с помощью [утилиты](https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2) `cfdisk`, [утилиты](https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man) `fdisk` или [утилиты](https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man) `parted`.
 
      Для примера создадим разделы с помощью `fdisk`. Используйте команду `sudo` или выполняйте команды от имени пользователя `root`: для этого выполните команду `sudo su -`.

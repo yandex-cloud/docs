@@ -47,7 +47,7 @@ To translate a text from any [supported language](../../translate/concepts/suppo
 
    * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
    * `folder_id`: Folder ID received [before starting](#before-begin).
-   * `target_language`: Target language in [ISO 639-1](https://ru.wikipedia.org/wiki/ISO_639-1) format. You can get the language code with a [list of supported languages](../../translate/operations/list.md).
+   * `target_language`: Target [language](../../translate/concepts/supported-languages.md). You can get the language code with a [list of supported languages](../../translate/operations/list.md).
    * `texts`: Text to translate as a list of strings.
 
    You can save your IAM token to a file. To do this, specify the file path in the `token_path` variable:
@@ -89,9 +89,9 @@ To translate a text from any [supported language](../../translate/concepts/suppo
 
 - PHP {#php}
 
-   This example shows how to translate the following two lines of text into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
+   This example shows how to translate the following two lines of text into Russian: _Hello_ and _World_. The source language of a text is recognized automatically.
 
-   Create a file with the request body (for example, `body.php`).
+   Create a file with the request body, e.g., `body.php`:
 
    ```php
    <?php
@@ -137,7 +137,7 @@ To translate a text from any [supported language](../../translate/concepts/suppo
 
    * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
    * `folder_id`: Folder ID received [before starting](#before-begin).
-   * `target_language`: Target language in [ISO 639-1](https://ru.wikipedia.org/wiki/ISO_639-1) format. You can get the language code with a [list of supported languages](../../translate/operations/list.md).
+   * `target_language`: Target [language](../../translate/concepts/supported-languages.md). You can get the language code with a [list of supported languages](../../translate/operations/list.md).
    * `texts`: Text to translate as an array of strings.
 
    You can save your IAM token to a file. To do this, specify the file path in the `token_path` variable:

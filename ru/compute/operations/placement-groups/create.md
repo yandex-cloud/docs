@@ -71,9 +71,9 @@
 
      ```hcl
      resource "yandex_compute_placement_group" "group1" {
-       name        = "<имя группы размещения>"
-       folder_id   = "<идентификатор каталога>"
-       description = "<описание группы размещения>"
+       name        = "<имя_группы_размещения>"
+       folder_id   = "<идентификатор_каталога>"
+       description = "<описание_группы_размещения>"
      }
      ```
 

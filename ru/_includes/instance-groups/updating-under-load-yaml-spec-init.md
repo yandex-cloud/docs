@@ -1,12 +1,12 @@
 ```yaml
 name: group-for-load # Имя группы ВМ, уникальное в рамках каталога.
-service_account_id: ajeab0cnib1pdefe21dm # Идентификатор сервисного аккаунта.
+service_account_id: ajeab0cnib1p******** # Идентификатор сервисного аккаунта.
 allocation_policy: # Политика распределения ВМ в группе.
    zones:
      - zone_id: {{ region-id }}-a
      - zone_id: {{ region-id }}-b
 instance_template:
-  service_account_id: ajeab0cnib1pdefe21dm # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
+  service_account_id: ajeab0cnib1p******** # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
   platform_id: standard-v1 # Идентификатор платформы.
   resources_spec:
     memory: 2G # Количество памяти (RAM).
@@ -14,14 +14,14 @@ instance_template:
   boot_disk_spec:
     mode: READ_WRITE # Режим доступа к диску: чтение и запись.
     disk_spec:
-      image_id: <идентификатор последней версии COI>
+      image_id: <идентификатор_последней_версии_COI>
     type_id: network-ssd # Тип диска.
     size: 30G # Размер диска.
   network_interface_specs:
-   - network_id: enplhg4nncc7mctv7kpf # Идентификатор сети.
+   - network_id: enplhg4nncc7******** # Идентификатор сети.
      subnet_ids:
-       - e1lnabc23r1c9d0efoje # Идентификатор подсети.
-       - b1csa2b3clideftjb121
+       - e1lnabc23r1c******** # Идентификатор подсети.
+       - b1csa2b3clid********
      primary_v4_address_spec: {
        one_to_one_nat_spec: {
          ip_version: IPV4 # Спецификация версии интернет-протокола IPv4 для публичного доступа к ВМ.

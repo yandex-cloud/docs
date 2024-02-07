@@ -63,13 +63,13 @@ Install the following items in the local environment:
    {% endnote %}
 
 1. [Create service accounts](../../iam/operations/sa/create.md):
-   * Service account for the resources with the [{{ roles-editor }}](../../resource-manager/security/index.md#roles-list) [role](../../iam/concepts/access-control/roles.md) to the folder where the [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+   * Service account for the resources with the [{{ roles-editor }}](../../resource-manager/security/index.md#roles-list) [role](../../iam/concepts/access-control/roles.md) to the folder where the [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
    * Service account for [nodes](../../managed-kubernetes/concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder with the Docker image registry. Nodes will pull the required Docker images from the registry on behalf of this account.
 
    You can use the same service account for both operations.
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
 1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
-1. [Configure the default security group](../../managed-gitlab/operations/connect.md) required for the [{{ mgl-full-name }} instance](../../managed-gitlab/concepts/index.md#instance) to run.
+1. [Configure a security group](../../managed-gitlab/operations/connect.md) for the [{{ mgl-full-name }} instance](../../managed-gitlab/concepts/index.md#instance).
 
 ## Create a {{ GL }} instance {#create-gitlab}
 
@@ -147,7 +147,7 @@ Install the {{ GLR }} application by following [this guide](../../managed-kubern
 
 ## Create the CI script's configuration file {#add-ci}
 
-1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
+1. In the left-hand panel in {{ GL }}, go to **Repository** and click the **Files** tab.
 1. Click ![image](../../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
 1. Name the file as `.gitlab-ci.yml` and add the following build stages to it:
 
@@ -270,11 +270,11 @@ In the `.gitlab-ci.yml` file, the following steps of the CI script are described
 * **delete-test-env**: Deleting the test app.
 * **release**: Deploying the app in production. This stage also uses [deployment environments](https://docs.gitlab.com/ee/ci/environments/). They are created and saved each time the pipeline is run successfully. Use them to restore and deploy the previous app version.
 
-Once you save the `.gitlab-ci.yml` configuration file, the build script will start.
+After saving the `.gitlab-ci.yml` configuration file, the build script will start.
 
 ## Check the result {#check-result}
 
-To check the build script results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Make sure all five stages complete successfully.
+To check the build script results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Make sure all the five stages complete successfully.
 
 The app will be available at the URL of the {{ api-gw-name }} API gateway's service domain in the `prod` folder. You can find the URL in the [management console]({{ link-console-main }}) or the `domain` field in the `bootstrap.sh` script runtime log.
 

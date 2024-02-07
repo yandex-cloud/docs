@@ -90,7 +90,7 @@ WITH
         month Int
     ), 
     partitioned_by=(year, month),
-    projection=@projection
+    projection=$projection
 )
 ```
 
@@ -123,7 +123,7 @@ WITH
 (
     schema=(<fields>, <field1>, <field2>), 
     partitioned_by=(field1, field2),
-    projection=@projection
+    projection=$projection
 )
 ```
 
@@ -137,7 +137,7 @@ WITH
 
 ### Поле типа integer { #integer_type }
 
-Используется для колонок, чьи значения можно представить в виде целых чисел диапазона 2^-63^ до 2^63^-1.
+Используется для колонок, чьи значения можно представить в виде целых чисел диапазона -2^63^ до 2^63^-1.
 
 |Название поля|Обязательное|Описание поля|Пример значений|
 |----|----|----|----|
@@ -175,4 +175,4 @@ WITH
 
 |Название поля|Описание поля|Пример значений|
 |----|----|----|
-|`storage.location.template`|Шаблон пути имен каталогов. Задается в формате "${<field_name...>}/${<field_name...>}"|root/a/${year}/b/${month}/d<br/>${year}/${month}|
+|`storage.location.template`|Шаблон пути имен каталогов. Задается в формате `${<field_name...>}/${<field_name...>}`|`root/a/${year}/b/${month}/d`<br/>`${year}/${month}`|

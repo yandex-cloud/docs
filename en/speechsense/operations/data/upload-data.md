@@ -2,7 +2,7 @@
 
 Use this guide to upload data for API-based speech analysis to {{ speechsense-name }}. This example uses the following parameters:
 
-* Audio format: WAV.
+* [Audio format](../../concepts/formats.md): WAV.
 * The dialog metadata is stored in `metadata_example.json`.
 
 An [IAM token](../../../iam/concepts/authorization/iam-token.md) or [IAM key](../../../iam/concepts/authorization/api-key.md) is used to [authenticate](../../api-ref/authentication.md) the service account.

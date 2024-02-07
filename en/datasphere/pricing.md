@@ -6,7 +6,7 @@ editable: false
 
 
 
-## What goes into the cost of using {{ ml-platform-name }} {#rules}
+## What adds up to the cost of {{ ml-platform-name }} {#rules}
 
 When using {{ ml-platform-name }}, you pay for the use of computing resources: the compute and instance running time is charged per second.
 
@@ -24,7 +24,7 @@ You are separately charged for [data storage](#storage) in datasets and project 
 
 ### Running jobs in {{ ml-platform-name }} Jobs {#jobs}
 
-When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-jobs) required to run jobs: their cache, logs, input data, and execution results.
+When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-jobs) required to run jobs: their cache, logs, input data, and execution results.
 
 ### Using models {#node}
 

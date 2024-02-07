@@ -36,8 +36,8 @@
       +----------------------+----------------------+
       |          ID          |      SERVER ID       |
       +----------------------+----------------------+
-      | fhm1ab2mhnf3cd1610f5 | fhmlabct12vp3de45728 |
-      | fhmabcun12kbbvhdeug3 | fhm1a2bcsl13ide4cqp2 |
+      | fhm1ab2mhnf3******** | fhmlabct12vp******** |
+      | fhmabcun12kb******** | fhm1a2bcsl13******** |
       +----------------------+----------------------+
       ```
 
@@ -53,9 +53,9 @@
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
-      | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
-      | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
+      | b0c6n43f9lgh******** | default-{{ region-id }}-c | enpe3m3fa00u******** |                | {{ region-id }}-c | [10.130.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.128.0.0/24] |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
@@ -65,7 +65,7 @@
       yc compute instance create \
         --host-id <идентификатор_выделенного_хоста> \
         --zone <зона_доступности> \
-        --platform <ID_платформы> \
+        --platform <идентификатор_платформы> \
         --network-interface subnet-name=<имя_подсети> \
         --attach-local-disk size=<размер_диска>
       ```
@@ -87,8 +87,8 @@
 
       ```bash
       done (41s)
-      id: fhm1abc23407de854r9e
-      folder_id: m4n56op78mev0cljderg
+      id: fhm1abc23407********
+      folder_id: m4n56op78mev********
       created_at: "2020-10-13T08:00:55Z"
       zone_id: {{ region-id }}-a
       ...
@@ -97,7 +97,7 @@
         - key: yc.hostId
           op: IN
           values:
-          - fhm1ab2mhnf3cd1610f5
+          - fhm1ab2mhnf3********
       ```
 
 - API {#api}
@@ -152,7 +152,7 @@
     --host-id <идентификатор_выделенного_хоста> \
     --network-interface subnet-id=<идентификатор_подсети> \
     --attach-local-disk "size=3198924357632" \
-    --ssh-key <путь_к_файлу_открытого_ключа_SSH> \
+    --ssh-key <путь_к_файлу_открытого_SSH-ключа> \
     --create-boot-disk name=boot-disk,size=1000,image-folder-id=standard-images,image-family=ubuntu-2204-lts
   ```
 
@@ -181,8 +181,8 @@
 
   ```bash
   done (20s)
-  id: fhmbdt1jj2k3mri767ll
-  folder_id: m4n56op78mev0cljderg
+  id: fhmbdt1jj2k3********
+  folder_id: m4n56op78mev********
   created_at: "2023-01-27T12:06:52Z"
   zone_id: {{ region-id }}-a
   ...
@@ -191,7 +191,7 @@
     - key: yc.hostId
       op: IN
       values:
-      - fhm1ceqtmivgr0d76fvb
+      - fhm1ceqtmivg********
   ```
 
 {% endlist %}

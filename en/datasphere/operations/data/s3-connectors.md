@@ -37,6 +37,8 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}**: Object storage access mode (**{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** or **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**).
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
+{% include [s3-connectors-nat-gateway](../../../_includes/datasphere/s3-connectors-nat-gateway.md) %}
+
 ## Attaching an S3 storage to a project {#mount}
 
 Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once activated, the bucket is available in the {{ jlab }}Lab interface in the list on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab, and you can view it as a file system.

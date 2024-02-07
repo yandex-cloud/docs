@@ -38,4 +38,5 @@ Cannot validate the transmitted XML file or incorrect request parameters are set
 || 48 | The search type specified during registration is different from the type used to request data. Correct the search type in your request or the management console. ||
 || 55 | The maximum [allowed number of requests per second](../concepts/limits.md) has been exceeded. ||
 || 100 | It is highly likely that a request is made by a bot. If this error occurs, the user should be returned a CAPTCHA. ||
+|| 10002 | The [maximum number of words](../concepts/limits.md#search-api-limits) per search request has been exceeded. ||
 |#

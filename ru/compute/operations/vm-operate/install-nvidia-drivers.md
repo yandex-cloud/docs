@@ -37,7 +37,7 @@
 1. В терминале выполните:
 
    ```bash
-   sudo apt install -y nvidia-driver-<версия драйвера>-server nvidia-utils-<версия драйвера>-server nvidia-fabricmanager-<версия драйвера>
+   sudo apt install -y nvidia-driver-<версия_драйвера>-server nvidia-utils-<версия_драйвера>-server nvidia-fabricmanager-<версия_драйвера>
    sudo systemctl enable nvidia-fabricmanager
    sudo systemctl start nvidia-fabricmanager
    ```
