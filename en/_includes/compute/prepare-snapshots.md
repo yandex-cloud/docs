@@ -21,7 +21,7 @@ To ensure the integrity of the snapshot data:
       ```
       Where `--freeze` is the parameter to freeze the file system. Instead of `<mount_point>`, specify the folder the file system is connected to, e.g., `/mnt/vdc2`.
 
-   1. Create a snapshot following the guide [below](#create).
+   1. Create a snapshot following [the guide below](#create).
 
    1. Unfreeze the file system:
 

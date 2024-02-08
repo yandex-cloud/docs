@@ -170,7 +170,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% endlist %}
 
-### Дополнительные настройки {#additional-settings}
+### Фильтр коллекций {#additional-settings}
 
 {% list tabs group=instructions %}
 

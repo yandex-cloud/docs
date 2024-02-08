@@ -2,6 +2,8 @@
 
 
 * {% include [Field Service Account](../../fields/ydb/ui/service-account.md) %}
+    
+* {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
 
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.cleanup_policy.title }}** — выберите способ очистки данных в базе-приемнике перед переносом:

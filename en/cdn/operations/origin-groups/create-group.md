@@ -32,6 +32,12 @@ To create an [origin group](../../concepts/origins.md):
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
+   1. If you have not created origin groups before, connect to the provider first:
+
+      ```bash
+      yc cdn provider activate --type gcore
+      ```
+
    1. View a description of the CLI origin group create command:
 
       ```
@@ -73,6 +79,19 @@ To create an [origin group](../../concepts/origins.md):
       For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
 
 - {{ TF }} {#tf}
+
+   Make sure to activate the CDN provider before creating an origin group. You can activate it in the [management console]({{ link-console-main }}) or using the [YC CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc cdn provider activate \
+     --folder-id <folder_ID> \
+     --type gcore
+   ```
+
+   Where:
+
+   * `--folder-id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) in which you want to activate the CDN provider.
+   * `--type`: Provider type, the only possible value is `gcore`.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -121,6 +140,8 @@ To create an [origin group](../../concepts/origins.md):
       ```
 
 - API {#api}
+
+   If you have not created any origin groups before, connect to the CDN provider. To do this, use the [activate](../../api-ref/Provider/activate.md) REST API method for the [Provider](../../api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../api-ref/grpc/provider_service.md#Activate) gRPC API call.
 
    Use the [create](../../api-ref/OriginGroup/create.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Create](../../api-ref/grpc/origin_group_service.md#Create) gRPC API call.
 

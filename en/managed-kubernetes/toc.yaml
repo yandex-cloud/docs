@@ -51,7 +51,7 @@ items:
             href: operations/applications/filebeat-oss.md
           - name: Installing Fluent Bit
             href: operations/applications/fluentbit.md
-          - name: Installing the Gateway API
+          - name: Installing Gateway API
             href: operations/applications/gateway-api.md
           - name: Installing {{ GL }} Agent
             href: operations/applications/gitlab-agent.md
@@ -124,7 +124,7 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
         items:
-          - name: Information about available node groups
+          - name: Information about existing node groups
             href: operations/node-group/node-group-list.md
           - name: Creating a node group
             href: operations/node-group/node-group-create.md
@@ -212,7 +212,7 @@ items:
             href: tutorials/filebeat-oss-monitoring.md
       - name: Using {{ marketplace-name }} products
         items:
-          - name: Integrating with Argo CD
+          - name: Integration with Argo CD
             href: tutorials/marketplace/argo-cd.md
           - name: Integration with Crossplane
             href: tutorials/marketplace/crossplane.md
@@ -278,9 +278,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-kubernetes/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -348,6 +352,8 @@ items:
                 href: api-ref/Version/list.md
   - name: Metric reference
     href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     items:
       - name: General questions

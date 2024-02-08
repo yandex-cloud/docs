@@ -6489,6 +6489,8 @@ default:
                         title: Без шардирования
                       sharding_by_column:
                         title: Шардирование по значению колонки
+                      sharding_by_round_robin:
+                        title: Равномерное случайное шардирование
                       sharding_by_transfer_id:
                         title: Шардирование по идентификатору трансфера
                     ClickHouseSource:
@@ -6574,6 +6576,10 @@ default:
                         title: Debezium
                       serializer:
                         title: Настройки сериализации
+                  parsers:
+                    GenericParserCommon:
+                      unescape_string_values:
+                        title: Разэкранировать значения строк
             elasticsearch:
               console:
                 form:
@@ -6605,6 +6611,8 @@ default:
                         title: Узлы с данными
                       ca_certificate:
                         title: Сертификат CA
+                      ssl_enabled:
+                        title: SSL
                       subnet_id:
                         title: Идентификатор подсети
                     OnPremiseElasticSearchHostPort:
@@ -6754,6 +6762,9 @@ default:
               console:
                 form:
                   logbroker:
+                    GenericParser:
+                      null_keys_allowed:
+                        title: Использовать значение NULL в ключевых столбцах
                     ParserConfigCommon:
                       parser_config_audit_trails_v1:
                         title: Парсер AuditTrails.v1
@@ -6761,6 +6772,27 @@ default:
                         title: Парсер CloudLogging
                       parser_config_common_debezium_cdc:
                         title: Парсер Debezium CDC
+                    ParserConfigProto:
+                      included_fields:
+                        title: Включаемые поля
+                      msg_name:
+                        title: Имя protobuf-сообщения
+                      msg_package_type:
+                        title: Тип упаковки protobuf-сообщений
+                      primary_keys:
+                        title: Список первичных ключей
+                      proto_desc:
+                        title: Дескриптор protobuf
+                    ProtoMessagePackageType:
+                      PROTOSEQ:
+                        title: Protoseq
+                      REPEATED:
+                        title: Repeated
+                      SINGLE_MESSAGE:
+                        title: Single message
+                    ProtoParser:
+                      null_keys_allowed:
+                        title: Использовать значение NULL в ключевых столбцах
             metrika:
               console:
                 form:
@@ -6845,10 +6877,14 @@ default:
                       on_premise:
                         title: Пользовательская инсталляция
                     MysqlSource:
+                      advanced_settings:
+                        title: Расширеннные настройки
                       connection:
                         title: Настройки подключения
                       object_transfer_settings:
                         title: Перенос схемы
+                      table_filter:
+                        title: Фильтр таблиц
                     MysqlSourceAdvancedSettings:
                       service_database:
                         title: База данных для служебных таблиц
@@ -6914,6 +6950,9 @@ default:
                         title: Вручную
                       infer:
                         title: Автоматически
+                    ObjectStorageResultTable:
+                      add_system_cols:
+                        title: Добавить системные колонки
                     ObjectStorageSerializationFormatUI:
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV:
                         title: CSV
@@ -6997,6 +7036,8 @@ default:
                         title: Узлы с данными
                       ca_certificate:
                         title: Сертификат CA
+                      ssl_enabled:
+                        title: SSL
                       subnet_id:
                         title: Идентификатор подсети
                     OnPremiseOpenSearchHostPort:
@@ -7180,6 +7221,8 @@ default:
                     YdbConnectionSettings:
                       database:
                         title: База данных
+                      security_groups:
+                        title: Группы безопасности
                       service_account_id:
                         title: Идентификатор сервисного аккаунта
                     YdbPartitionPolicy:
@@ -7192,6 +7235,8 @@ default:
                       time_column:
                         title: Разбивать по столбцу
                     YdbSource:
+                      changefeed_custom_name:
+                        title: Название предсозданного changefeed
                       connection:
                         title: Настройки подключения
                       paths:
@@ -7205,6 +7250,10 @@ default:
                     YdbTargetAdvancedSettings:
                       alt_names:
                         title: Переименование таблиц
+                      default_compression:
+                        title: Сжатие для группы колонок по умолчанию
+                      is_table_column_oriented:
+                        title: Использовать OLAP-таблицы
                       partition_policy:
                         title: Ротация таблиц
                       path:
@@ -7218,6 +7267,8 @@ default:
                     YDSConnection:
                       database:
                         title: База данных
+                      security_groups:
+                        title: Группы безопасности
                       service_account_id:
                         title: Сервисный аккаунт
                       stream:

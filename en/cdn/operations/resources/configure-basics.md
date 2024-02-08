@@ -96,7 +96,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
       ```
 
       If you want to restrict access to the new resource with [secure tokens](../../concepts/secure-tokens.md), use the following parameters:
-      * `--secure-key>`: Secret key that is an arbitrary string of 6 to 32 characters.
+      * `--secure-key`: Secret key that is an arbitrary string of 6 to 32 characters.
       * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP.
 
       See also [{#T}](./enable-secure-token.md).
