@@ -1,5 +1,11 @@
 # Устранение проблем с некорректным MIME-типов объектов при их загрузке в {{ objstorage-short-name }}
 
+{% if audience == "draft" %}
+Использованные YCSUPKNOWS:
+
+* YCSUPKNOW-150
+
+{% endif %}
 
 ## Описание проблемы {#issue-description}
 
@@ -17,27 +23,30 @@
 
 - AWS CLI
     
-    aws s3 cp --endpoint-url=https://storage.yandexcloud.net \
-    s3://<bucket-name>/ \
-    s3://<bucket-name>/ \
-    --exclude '*' \
-    --include '*.js' \
-    --no-guess-mime-type \
-    --content-type="application/javascript" \
-    --metadata-directive="REPLACE" \
-    --recursive
+    ```bash
+  aws s3 cp --endpoint-url=https://storage.yandexcloud.net \
+  s3://<bucket-name>/ \
+  --exclude '*' \
+  --include '*.js' \
+  --no-guess-mime-type \
+  --content-type="application/javascript" \
+  --metadata-directive="REPLACE" \
+  --recursive
+  ```
 
 - s3cmd
     
-    s3cmd put --recursive \
-    --exclude "*" \
-    --include "*.js" \
-    --no-mime-magic \
-    --add-header="Content-Type: application/javascript" \
-    --no-preserve \
-    --acl-public \
-    /path/to/local/directory \
-    s3://<bucket-name>/
+    ```bash
+  s3cmd put --recursive \
+  --exclude "*" \
+  --include "*.js" \
+  --no-mime-magic \
+  --add-header="Content-Type: application/javascript" \
+  --no-preserve \
+  --acl-public \
+  /path/to/local/directory \
+  s3://<bucket-name>/
+  ```
 
 {% endlist %}
 
