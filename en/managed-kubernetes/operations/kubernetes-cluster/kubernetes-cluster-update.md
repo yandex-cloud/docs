@@ -24,7 +24,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
    {% endnote %}
 
-* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet) .
+* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet).
 
    {% note warning %}
 
@@ -170,10 +170,6 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 ### Updating a cloud label {#update-label}
 
 {% list tabs group=instructions %}
-
-- CLI {#cli}
-
-- CLI {#cli}
 
 - CLI {#cli}
 

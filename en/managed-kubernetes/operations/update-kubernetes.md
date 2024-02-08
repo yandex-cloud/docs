@@ -364,7 +364,7 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
       --weekly-maintenance-window 'days=[monday,tuesday],start=22:00,duration=10h'
       ```
 
-      To set multiple maintenance periods, provide the settings of each one in a separate `--weekly-maintenance-window` argument .
+      To set multiple maintenance periods, provide the settings of each one in a separate `--weekly-maintenance-window` argument.
 
       {% note info %}
 

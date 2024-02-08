@@ -6481,6 +6481,8 @@ default:
                         title: No sharding
                       sharding_by_column:
                         title: Sharding by column value
+                      sharding_by_round_robin:
+                        title: Uniform random sharding
                       sharding_by_transfer_id:
                         title: Sharding by transfer ID
                     ClickHouseSource:
@@ -6566,6 +6568,10 @@ default:
                         title: Debezium
                       serializer:
                         title: Serializing settings
+                  parsers:
+                    GenericParserCommon:
+                      unescape_string_values:
+                        title: Unescape string values
             elasticsearch:
               console:
                 form:
@@ -6597,6 +6603,8 @@ default:
                         title: Data nodes
                       ca_certificate:
                         title: CA certificate
+                      ssl_enabled:
+                        title: SSL
                       subnet_id:
                         title: Subnet ID
                     OnPremiseElasticSearchHostPort:
@@ -6746,6 +6754,9 @@ default:
               console:
                 form:
                   logbroker:
+                    GenericParser:
+                      null_keys_allowed:
+                        title: Enable NULL values in keys
                     ParserConfigCommon:
                       parser_config_audit_trails_v1:
                         title: AuditTrails.v1 parser
@@ -6753,6 +6764,27 @@ default:
                         title: CloudLogging parser
                       parser_config_common_debezium_cdc:
                         title: Debezium CDC parser
+                    ParserConfigProto:
+                      included_fields:
+                        title: Included fields
+                      msg_name:
+                        title: Protobuf message name
+                      msg_package_type:
+                        title: Protobuf message packaging type
+                      primary_keys:
+                        title: List of primary keys
+                      proto_desc:
+                        title: Descriptor protobuf
+                    ProtoMessagePackageType:
+                      PROTOSEQ:
+                        title: Protoseq
+                      REPEATED:
+                        title: Repeated
+                      SINGLE_MESSAGE:
+                        title: Single message
+                    ProtoParser:
+                      null_keys_allowed:
+                        title: Use NULL value in key columns
             metrika:
               console:
                 form:
@@ -6837,10 +6869,14 @@ default:
                       on_premise:
                         title: Custom installation
                     MysqlSource:
+                      advanced_settings:
+                        title: Advanced settings
                       connection:
                         title: Connection settings
                       object_transfer_settings:
                         title: Transfer schema
+                      table_filter:
+                        title: Table filter
                     MysqlSourceAdvancedSettings:
                       service_database:
                         title: Database for auxiliary tables
@@ -6906,6 +6942,9 @@ default:
                         title: Manual
                       infer:
                         title: Automatically
+                    ObjectStorageResultTable:
+                      add_system_cols:
+                        title: Add system columns
                     ObjectStorageSerializationFormatUI:
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV:
                         title: CSV
@@ -6989,6 +7028,8 @@ default:
                         title: Data nodes
                       ca_certificate:
                         title: CA certificate
+                      ssl_enabled:
+                        title: SSL
                       subnet_id:
                         title: Subnet ID
                     OnPremiseOpenSearchHostPort:
@@ -7172,6 +7213,8 @@ default:
                     YdbConnectionSettings:
                       database:
                         title: Database
+                      security_groups:
+                        title: Security groups
                       service_account_id:
                         title: Service account ID
                     YdbPartitionPolicy:
@@ -7184,6 +7227,8 @@ default:
                       time_column:
                         title: Partition by column
                     YdbSource:
+                      changefeed_custom_name:
+                        title: Name of pre-created changefeed
                       connection:
                         title: Connection settings
                       paths:
@@ -7197,6 +7242,10 @@ default:
                     YdbTargetAdvancedSettings:
                       alt_names:
                         title: Renaming tables
+                      default_compression:
+                        title: Compression for default column group
+                      is_table_column_oriented:
+                        title: Create OLAP tables
                       partition_policy:
                         title: Table rotation
                       path:
@@ -7210,6 +7259,8 @@ default:
                     YDSConnection:
                       database:
                         title: Database
+                      security_groups:
+                        title: Security groups
                       service_account_id:
                         title: Service account
                       stream:

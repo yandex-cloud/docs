@@ -13,8 +13,12 @@
 Ниже описаны события для сервисов:
 
 * [{{ dns-name }}](#dns)
-* [{{ lockbox-name }}](#lockbox)
+* [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
+* [{{ lockbox-name }}](#lockbox)
+* [{{ mmg-name }}](#mmg)
+* [{{ mmy-name }}](#mmy)
+* [{{ mpg-name }}](#mpg)
 * [{{ objstorage-name }}](#objstorage)
 
 ## {{ dns-name }} {#dns}
@@ -23,17 +27,41 @@
 
 {% include [dns-events-dp](../../_includes/audit-trails/events/dns-events-dp.md) %}
 
-## {{ lockbox-name }} {#lockbox}
+## {{ iam-name }} {#iam}
 
-Имя сервиса — `lockbox`.
+Имя сервиса — `iam`.
 
-{% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
+{% include [iam-events-dp](../../_includes/audit-trails/events/iam-events-dp.md) %}
 
 ## {{ kms-name }} {#kms}
 
 Имя сервиса — `kms`.
 
 {% include [kms-events-dp](../../_includes/audit-trails/events/kms-events-dp.md) %}
+
+## {{ lockbox-name }} {#lockbox}
+
+Имя сервиса — `lockbox`.
+
+{% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
+
+## {{ mmg-name }} {#mmg}
+
+Имя сервиса — `mdb.mongodb`.
+
+{% include [mmg-events-dp](../../_includes/audit-trails/events/mmg-events-dp.md) %}
+
+## {{ mmy-name }} {#mmy}
+
+Имя сервиса — `mdb.mysql`.
+
+{% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
+
+## {{ mpg-name }} {#mpg}
+
+Имя сервиса — `mdb.postgresql`.
+
+{% include [mpg-events-dp](../../_includes/audit-trails/events/mpg-events-dp.md) %}
 
 ## {{ objstorage-name }} {#objstorage}
 

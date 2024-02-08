@@ -137,12 +137,27 @@ To create a [resource](../../concepts/resource.md):
       * Possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
 
       If you want to restrict access to the new resource with [secure tokens](../../concepts/secure-tokens.md), use the following parameters:
-      * `--secure-key>`: Secret key that is an arbitrary string of 6 to 32 characters.
+      * `--secure-key`: Secret key that is an arbitrary string of 6 to 32 characters.
       * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP.
 
       See also [{#T}](./enable-secure-token.md).
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
+
+   1. Get the [CNAME record](../../../dns/concepts/resource-record.md#cname) value for the CDN resource:
+
+      ```bash
+      yc cdn resource get-provider-cname
+      ```
+
+      Result:
+
+      ```text
+      cname: cl-ms6*****90.edgecdn.ru
+      folder_id: b1gt6g8ht345********
+      ```
+
+   1. In {{ dns-full-name }}, [create](../../../dns/operations/resource-record-create.md) a resource record with the obtained value.
 
 - {{ TF }} {#tf}
 
@@ -208,9 +223,32 @@ To create a [resource](../../concepts/resource.md):
       yc cdn resource list
       ```
 
+   1. Get the [CNAME record](../../../dns/concepts/resource-record.md#cname) value for the CDN resource:
+
+      ```bash
+      yc cdn resource get-provider-cname
+      ```
+
+      Result:
+
+      ```text
+      cname: cl-ms6*****90.edgecdn.ru
+      folder_id: b1gt6g8ht345********
+      ```
+
+   1. In {{ dns-full-name }}, [create](../../../dns/operations/resource-record-create.md) a resource record with the obtained value.
+
 - API {#api}
 
-   Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
+   If you have not created any resources before, connect to the CDN provider. To do this, use the [activate](../../api-ref/Provider/activate.md) REST API method for the [Provider](../../api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../api-ref/grpc/provider_service.md#Activate) gRPC API call.
+
+   1. Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
+
+   1. Create a [CNAME record](../../../dns/concepts/resource-record.md#cname) for the CDN resource in {{ dns-full-name }}:
+
+      * To get the CNAME record value for a CDN resource, use the [getProviderCName](../../api-ref/Resource/getProviderCName.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/GetProviderCName](../../api-ref/grpc/resource_service.md#GetProviderCName) gRPC API call.
+
+      * To create a resource record in a DNS zone, use the [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
 
 {% endlist %}
 

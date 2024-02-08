@@ -85,14 +85,16 @@ description: "Из статьи вы узнаете, как задать нас�
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+    
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
+    
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — укажите имя топика, в который будут отправляться сообщения. Выберите **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.save_tx_order.title }}**, чтобы не разбивать поток событий на независимые очереди по таблицам.
 
-    {% include [On premise Kafka UI](../../../../_includes/data-transfer/kafka-topic.md) %}
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс топика, аналог настройки `Debezium database.server.name`. Сообщения будут отправляться в топик с именем `<префикс_топика>.<схема>.<имя_таблицы>`.
 
     {{ data-transfer-full-name }} поддерживает CDC-режим для трансферов из баз данных {{ PG }}, {{ MY }} и {{ ydb-short-name }} в {{ KF }} и {{ yds-full-name }}. При этом данные в приемник попадают в формате Debezium. Подробнее о CDC-режиме см. в разделе [Захват изменения данных](../../../concepts/cdc.md).
 
     {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
-
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.save_tx_order.title }}** — не разбивать поток событий на независимые очереди по таблицам.
 
 {% endlist %}
 
@@ -106,5 +108,10 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% endlist %}
 
+### Дополнительные настройки {#additional-settings}
+
+Вы можете указать [параметры конфигурации топика](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html), которые будут применяться при создании новых топиков. 
+
+Укажите параметр и одно из его допустимых значений: например, `cleanup.policy` и `compact`.
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).

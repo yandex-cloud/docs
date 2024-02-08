@@ -1,12 +1,28 @@
 # Migrating resources to the {{ region-id }}-d availability zone
 
-In 2024, the `{{ region-id }}-c` availability zone will be [deprecated](./ru-central1-c-deprecation.md). The exact timeline for this process will be announced in Q1 2024. You can migrate resources from this availability zone to the new `{{ region-id }}-d` zone.
+The `{{ region-id }}-с` availability zone will be [discontinued](./ru-central1-c-deprecation.md) in the first six months of 2024. You can migrate resources from it to the new `{{ region-id }}-d` zone.
 
 We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. To migrate instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.
 
 We are currently developing custom migration tools for {{ mkf-name }} and {{ mgl-name }}. If you have resources of these services deployed in `{{ region-id }}-c`, we will notify you when these tools become available.
 
 If among your services there are {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} and others not listed below, you do not need to migrate their resources.
+
+## Deadlines of migration from the {{ region-id }}-c zone {#relocation-deadline}
+
+A phased decommissioning of the `{{ region-id }}-c` zone resources is being carried out. In the first quarter of 2024, you will receive a mailing or message from your account manager with a deadline for migrating your resources.
+
+### What happens if I do not make it in time? {#what-if}
+
+We will stop your resources (including virtual machines), move them to the `{{ region-id }}-d` zone, and run them in the new network environment.
+
+Over this forced migration, your resources will change both its public and internal IP addresses. This may lead to losing network access to the resources through the previous IP addresses; you may also have to update your firewall and DNS configuration, as well as other settings that depend on the addresses your resources refer to.
+
+To keep the services available, make sure to migrate your resources from the `{{ region-id }}-c` zone on your own before the deadline.
+
+### How do I get help with migration? {#need-help}
+
+You can contact [our partners](./zone-migration-partners.md) for assistance and advice.
 
 ## Recommended migration process {#migration-best-practices}
 
@@ -77,6 +93,12 @@ If you added a new host in the `{{ region-id }}-d` zone to a cluster that has {{
 
 ### {{ managed-k8s-name }} {#k8s}
 
+{% note warning %}
+
+Zonal master migration is temporarily unavailable.
+
+{% endnote %}
+
 To move a {{ managed-k8s-name }} cluster between availability zones:
 
 * [Migrate a master host](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
@@ -96,6 +118,14 @@ Subnet migration allows you to maintain the original addressing and the IP addre
 
 You can [migrate](../../vpc/operations/subnet-relocate.md) subnets by running the `relocate` command.
 
+#### IP address migration {#ip-addresses}
+
+You cannot migrate public IP addresses between zones. To save the public address for incoming traffic, [reserve](../../vpc/operations/get-static-ip.md) this address and then assign it to the network balancer handler. Next, you can migrate the VM and connect it to a network balancer. If the public IP address of the balancer was in the `{{ region-id }}-c` zone, it will continue working; see the [{#T}](../../network-load-balancer/concepts/specifics.md) of the network balancer for details.
+
+Note: This way you can save the IP address for incoming traffic only. For example, if the IP address of a VM is licensed, you cannot use the public IP address of the balancer to check it.
+
+If you need an IP address with open port `25` in a new zone, order a new one in advance through support.
+
 ### {{ api-gw-name }}, {{ sf-name }}, {{ serverless-containers-name }} {#serverless}
 
 To migrate functions, containers, and API gateways, you need to create a subnet in the new availability zone.
@@ -106,7 +136,7 @@ To migrate functions, containers, and API gateways, you need to create a subnet 
 
 ### {{ mgl-name }} {#gitlab}
 
-A tool that will allow you to migrate {{ mgl-name }} installations hosted in the `{{ region-id }}-c` availability zone on your own is currently under development and is scheduled for release by late January 2024. If you use {{ mgl-name }} in the `{{ region-id }}-c` zone, we will notify you as soon as the option to migrate resources from `{{ region-id }}-c` is available.
+A tool that will allow you to migrate {{ mgl-name }} installations hosted in the `{{ region-id }}-c` availability zone on your own is currently under development and is scheduled for release by late March 2024. If you use {{ mgl-name }} in the `{{ region-id }}-c` zone, we will notify you as soon as the option to migrate resources from `{{ region-id }}-c` is available.
 
 ### {{ cloud-desktop-name }} {#cloud-desktop}
 
