@@ -4,17 +4,13 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
 # Получение информации о ресурсе
 
-Вы можете узнать доменное имя, дату создания и другую информацию о ресурсе.
-
-Чтобы получить информацию о ресурсе:
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится ресурс.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [ресурс](../../concepts/resource.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. Выберите созданный CDN-ресурс.
+  1. Выберите CDN-ресурс.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о ресурсе.
 
 - CLI {#cli}
@@ -23,7 +19,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для получения информации о ресурсе:
+  1. Посмотрите описание команды CLI для получения информации о [ресурсе](../../concepts/resource.md):
 
       ```bash
       yc cdn resource get --help
@@ -71,7 +67,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Чтобы получить информацию о ресурсе с помощью {{ TF }}:
+  Чтобы получить информацию о [ресурсе](../../concepts/resource.md) с помощью {{ TF }}:
 
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
@@ -81,7 +77,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
       }
 
       output "resource_active" {
-        value = "${data.yandex_cdn_resource.my_resource.active}"
+        value = data.yandex_cdn_resource.my_resource.active
       }
       ```
 
@@ -112,7 +108,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
 - API {#api}
 
-  Чтобы получить подробную информацию о ресурсе, воспользуйтесь методом REST API [get](../../api-ref/Resource/get.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Get](../../api-ref/grpc/resource_service.md#Get).
+  Чтобы получить подробную информацию о [ресурсе](../../concepts/resource.md), воспользуйтесь методом REST API [get](../../api-ref/Resource/get.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Get](../../api-ref/grpc/resource_service.md#Get).
 
 {% endlist %}
 
@@ -168,7 +164,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
       }
 
       output "resource_cname" {
-        value = "${data.yandex_cdn_resource.my_resource.cname}"
+        value = data.yandex_cdn_resource.my_resource.cname
       }
       ```
 
@@ -179,7 +175,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
       * `output "resource_cname"` — выходная переменная, которая содержит информацию о доменном имени:
          * `value` — возвращаемое значение.
       
-     Вместо `resource_cname` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cdn_resource).
+     Вместо `resource_cname` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
 
   1. Создайте ресурсы:
 
