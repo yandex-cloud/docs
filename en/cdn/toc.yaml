@@ -107,8 +107,12 @@ items:
         href: concepts/limits.md
   - name: Access management
     href: security/index.md
-  - name: Troubleshooting
-    href: troubleshooting.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/cdn/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -223,8 +227,10 @@ items:
                 href: api-ref/ResourceRules/list.md
               - name: update
                 href: api-ref/ResourceRules/update.md
-  - name: Metric reference
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: Pricing policy
-    href: pricing.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
+  - name: Troubleshooting
+    href: troubleshooting.md
 base: en/cdn

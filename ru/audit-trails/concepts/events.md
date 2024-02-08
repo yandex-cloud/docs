@@ -418,23 +418,16 @@
 `AddClusterShard` | Добавление шарда в кластер
 `BackupCluster` | Создание резервной копии
 `CreateCluster` | Создание кластера
-`CreateDatabase` | Создание базы данных
-`CreateUser` | Создание пользователя базы данных
 `DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
 `DeleteClusterShard` | Удаление шарда из кластера
-`DeleteDatabase` | Удаление базы данных
-`DeleteUser` | Удаление пользователя базы данных
 `EnableClusterSharding` | Включение шардирования для кластера
-`GrantUserPermission` | Назначение прав пользователю базы данных
 `MoveCluster` | Перемещение кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
-`RevokeUserPermission` | Отзыв прав у пользователя базы данных
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
-`UpdateUser` | Изменение пользователя базы данных
 `ResetupHosts` | Ресинхронизация хоста
 `RestartHosts` | Перезагрузка хоста
 `StepdownHosts` | Смена мастера хоста
@@ -455,26 +448,19 @@
 `AddClusterHosts` | Добавление новых хостов в кластер
 `BackupCluster` | Создание резервной копии
 `CreateCluster` | Создание кластера
-`CreateDatabase` | Создание базы данных
-`CreateUser` | Создание пользователя базы данных
 `DatabaseUserLogin` | Подключение пользователя к базе данных
 `DatabaseUserLogout`| Отключение пользователя от базы данных
 `DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
-`DeleteDatabase` | Удаление базы данных
-`DeleteUser` | Удаление пользователя базы данных
-`GrantUserPermission` | Назначение прав пользователю базы данных
 `MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
-`RevokeUserPermission` | Отзыв прав у пользователя базы данных
 `StartCluster` | Запуск кластера
 `StartClusterFailover` | Запуск переключения мастера для кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateClusterHosts` | Изменение хостов в кластере
-`UpdateUser` | Изменение пользователя базы данных
 
 ## {{ mpg-short-name }} {#managed-service-for-postgresql}
 
@@ -485,26 +471,18 @@
 `AddClusterHosts` | Добавление новых хостов в кластер
 `BackupCluster` | Создание резервной копии
 `CreateCluster` | Создание кластера
-`CreateDatabase` | Создание базы данных
-`CreateUser` | Создание пользователя базы данных
 `DatabaseUserLogin` | Подключение пользователя к базе данных
 `DatabaseUserLogout`| Отключение пользователя от базы данных
 `DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
-`DeleteDatabase` | Удаление базы данных
-`DeleteUser` | Удаление пользователя базы данных
-`GrantUserPermission` | Назначение прав пользователю базы данных
 `MoveCluster` | Перемещение кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
-`RevokeUserPermission` | Отзыв прав у пользователя базы данных
 `StartCluster` | Запуск кластера
 `StartClusterFailover` | Запуск переключения мастера для кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateClusterHosts` | Изменение хостов в кластере
-`UpdateDatabase` | Изменение базы данных
-`UpdateUser` | Изменение пользователя базы данных
 
 ## {{ mrd-short-name }} {#managed-service-for-redis}
 

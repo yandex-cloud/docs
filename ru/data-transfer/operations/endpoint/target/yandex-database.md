@@ -81,6 +81,8 @@ description: "Из статьи вы узнаете, как задать нас�
 
         Если настройка задана, в таблицы добавляется колонка `_shard_col`. Значения в ней вычисляются как остаток от деления `H/N`, где `H` — результат хеш-функции от текущего времени, а `N` — указанное настройкой количество шардов.
 
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.default_compression.title }}** — задайте настройку `COMPRESSION` для группы колонок по умолчанию (FAMILY default).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}** — укажите [поддиректорию](https://ydb.tech/ru/docs/concepts/datamodel/dir) для размещения таблиц.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.partition_policy.title }}**:
 
@@ -102,9 +104,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}** — заполните, если необходимо переименовать таблицы базы-источника при переносе в базу-приемник.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}** — укажите [поддиректорию](https://ydb.tech/ru/docs/concepts/datamodel/dir) для размещения таблиц.
-
-        Итоговый путь размещения таблицы: `<путь_в_Yandex_Database>/<поддиректория>/<таблица>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}** — выберите эту опцию, чтобы создавать колоночные таблицы (OLAP). По умолчанию используются строковые таблицы (OLTP). 
 
 {% endlist %}
 

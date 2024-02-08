@@ -69,7 +69,7 @@ _Алерт_ — периодически вычисляемый набор по
 **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.at-all-times }}** | Все значения метрики в запросе превышают заданные пороги в указанном периоде.
 **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.avg }}** | Вычисляет среднее значение в указанном периоде для каждой метрики. Например, если запрос возвращает две метрики, {{ monitoring-short-name }} для каждой из них вычисляет среднее значение в указанном окне.
 **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.count }}** | Вычисляет количество значений метрики в указанном периоде.
-**{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.last-non-nan }}** | Использует последнее значение метрики в указанном периоде. Если значения метрики не удалось получить, {{ monitoring-full-name }} меняет статус алерта на `No Data`.
+**{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.last-non-nan }}** | Использует последнее значение метрики в указанном периоде. Если значения метрики не удалось получить, {{ monitoring-full-name }} меняет статус алерта на `{{ ui-key.yacloud_monitoring.alert.status_no_data }}`.
 **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.max }}** | Использует максимальное значение метрики в указанном периоде.
 **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.min }}** | Использует минимальное значение метрики в указанном периоде.
 **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.sum }}** | Вычисляет сумму значений за указанный период для каждой метрики.

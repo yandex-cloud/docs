@@ -23,6 +23,11 @@ The operation algorithm of the `external` load balancer:
 1. The listener routes traffic to one of the operational resources in the target group based on the result of the hash function calculation.
 1. The resource in the target group processes the received traffic and sends the result back to the network load balancer.
 
+Below is a diagram showing an example of an external client application using a web service in {{ yandex-cloud }}.
+
+
+![NLB](../../_assets/network-load-balancer/nlb-flows.svg)
+
 
 Traffic path from a client application to the web service:
 

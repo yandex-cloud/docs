@@ -84,6 +84,8 @@ items:
         href: concepts/load-test-results.md
       - name: Сравнение результатов нагрузочных тестов
         href: concepts/load-tests-compare.md
+      - name: Артефакты тестирования
+        href: concepts/artifacts.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

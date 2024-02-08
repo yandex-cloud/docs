@@ -16,8 +16,8 @@ keywords:
 Время ВМ синхронизируется, чтобы корректно взаимодействовать с другими серверами и приложениями, обрабатывать данные в реальном времени, хранить точную информацию о времени в системных логах и пр.
 
 Рекомендуемые NTP-серверы для синхронизации:
-* `ntp1.yandex.net`;
-* `ntp2.yandex.net`;
+* `0.ru.pool.ntp.org`;
+* `1.ru.pool.ntp.org`;
 * `ntp0.NL.net`;
 * `ntp2.vniiftri.ru`;
 * `ntp.ix.ru`;
@@ -78,7 +78,7 @@ keywords:
      
       
       ```text
-      FallbackNTP=ntp1.yandex.net ntp2.yandex.net ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
+      FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
       ```
 
 
@@ -129,8 +129,8 @@ keywords:
       # server 1.ubuntu.pool.ntp.org
       # server 2.ubuntu.pool.ntp.org
       # server 3.ubuntu.pool.ntp.org
-      server ntp1.yandex.net
-      server ntp2.yandex.net
+      server 0.ru.pool.ntp.org
+      server 1.ru.pool.ntp.org
       server ntp0.NL.net
       server ntp2.vniiftri.ru
       server ntp.ix.ru
@@ -168,7 +168,7 @@ keywords:
       
 
       ```powershell
-      w32tm /config /syncfromflags:manual /manualpeerlist:"ntp1.yandex.net ntp2.yandex.net ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de"
+      w32tm /config /syncfromflags:manual /manualpeerlist:"0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de"
       ```
 
 
@@ -242,15 +242,15 @@ keywords:
       remote           refid      st t when poll reach   delay   offset  jitter
   ==============================================================================
   ntp.ubuntu.com  .POOL.          16 p    -   64    0    0.000   +0.000   0.000
-  indigoberry.yan .INIT.          16 u    -   64    0    0.000   +0.000   0.000
-  ivoryberry.yand .INIT.          16 u    -   64    0    0.000   +0.000   0.000
-  ntp0.nl.uu.net  .GPS.            1 u    1   64    1   47.692   -8.929   0.000
-  ntp2.vniiftri.r .MRS.            1 u    1   64    1   10.946   -8.960   0.000
-  ntp.ix.ru       .GLN.            1 u    5   64    1    7.266   -8.459   0.000
-  ntps1-1.eecsit. .GPS.            1 u    2   64    1   32.314   -8.960   0.000
-  alphyn.canonica 132.163.96.1     2 u    4   64    1  121.368   -9.121   0.000
-  185.125.190.58  86.23.195.30     2 u    3   64    1   52.084   -8.337   0.000
-  185.125.190.56  194.121.207.249  2 u    1   64    1   53.791   -8.268   0.000
+  time.cloudflare 10.87.12.180     3 u    4   64    1    7.870   -0.924   0.000
+  195.218.227.230 85.21.78.23      3 u    -   64    1   33.619   +1.099   0.000
+  ntp0.nl.uu.net  .GPS.            1 u    4   64    1   46.894   -1.309   0.000
+  ntp2.vniiftri.r .MRS.            1 u    2   64    1   10.392   -1.075   0.000
+  ntp.ix.ru       .GLN.            1 u    2   64    1    6.511   -0.738   0.000
+  ntps1-1.eecsit. .GPS.            1 u    4   64    1   33.026   -0.646   0.000
+  alphyn.canonica 132.163.96.1     2 u    3   64    1  124.037   -1.936   0.000
+  185.125.190.57  201.68.88.106    2 u    1   64    1   50.676   -0.090   0.000
+  185.125.190.58  145.238.203.14   2 u    -   64    1   57.460   -0.464   0.000
   ```
 
 
@@ -270,7 +270,7 @@ keywords:
   ...
   [TimeProviders]
   ...
-  NtpServer: ntp1.yandex.net ntp2.yandex.net ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
+  NtpServer: 0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
   ...
   ```
 

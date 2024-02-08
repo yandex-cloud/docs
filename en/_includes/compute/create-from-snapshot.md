@@ -104,7 +104,7 @@
 
       {% include [compute-snapshot-list](../../compute/_includes_service/compute-snapshot-list.md) %}
 
-   1. Select the identifier (`ID`) or name (`NAME`) of the necessary snapshots.
+   1. Select the `ID`s or `NAME`s of the snapshots you need.
    1. Create a VM in the default folder:
 
       ```
