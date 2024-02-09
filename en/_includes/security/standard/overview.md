@@ -10,7 +10,7 @@ The standard also describes different methods and tools for verifying recommenda
 * Using the {{ yandex-cloud }} CLI
 * Manually
 
-### What's new in version 1.1
+### What is new in version 1.1 {#whats-new-1-1}
 
 List of changes to version 1.1. compared to version 1.0:
 
@@ -33,15 +33,16 @@ List of changes to version 1.1. compared to version 1.0:
    * 4.7 Added a guide on how to encrypt data in {{ mpg-full-name }} and {{ mgp-full-name }} using `pgcrypto` and {{ kms-short-name }}.
    * 4.13 Added recommendations for using {{ lockbox-full-name }} in {{ TF }} without writing the information to `.tfstate`.
 
-* Added [{#T}](../../../security/standard/app-security.md) sections:
+* Added the [{#T}](../../../security/standard/app-security.md) section:
 
    * 9.1 {{ captcha-full-name }} is used.
    * 9.2 Enabled the scan on push policy for the containerized image vulnerability scanner.
-   * 9.4 Containerized images used in production environments have the last scan date a week ago or less.
+   * 9.3 Container images are periodically scanned.
+   * 9.4 Container images used in a production environment have the last scan date a week ago or less.
    * 9.5 Software artifacts are built using attestations.
-   * 9.5 Artifacts within a pipeline can be signed using Cosign, a third-party command line utility.
+   * 9.6 Artifacts within a pipeline can be signed using Cosign, a third-party command line utility.
    * 9.7 Artifacts are checked when deployed in {{ managed-k8s-full-name }}.
-   * 9.7 Ready-made blocks of a secure pipeline are used.
+   * 9.8 Ready-made blocks of a secure pipeline are used.
 
 ### Scope {#application}
 

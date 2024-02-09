@@ -25,6 +25,7 @@ Migration with data storage type changed.
 * [{{ PG }} to {{ ydb-short-name }}](mpg-to-ydb.md)
 * [{{ MY }} to {{ PG }}](mmy-to-mpg.md)
 * [{{ PG }} to {{ MY }}](mpg-to-mmy.md)
+* [{{ MY }} to {{ GP }}](mmy-to-mgp.md)
 * [{{ ES }} to {{ OS }}](mes-to-mos.md)
 
 ## Change data capture {#cdc}
@@ -75,6 +76,7 @@ Uploading data to data marts is a transfer of preset data to storage for its sub
 * [{{ PG }} to {{ CH }}](rdbms-to-clickhouse.md)
 * [{{ GP }} to {{ PG }}](greenplum-to-postgresql.md)
 * [{{ yandex-direct }} to {{ CH }}](direct-to-mch.md)
+* [{{ objstorage-name }} to {{ PG }}](object-storage-to-postgresql.md)
 
 ## Importing data to {{ objstorage-name }} {#upload-to-storage}
 

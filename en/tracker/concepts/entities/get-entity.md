@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/entities/get-entity.md
 
 Use this request to get information about an entity: a [project](../../manager/project-new.md) or [project portfolio](../../manager/portfolio.md).
 
-The request provides a unified method for getting project and portfolio information that extends the features of the [get project information](../projects/get-project.md) API.
+The request is a unified method for getting project and portfolio information, more flexible and functional than the [get project information](../projects/get-project.md) API.
 
 ## Request format {#query}
 
@@ -22,22 +22,7 @@ Authorization: OAuth <OAuth_token>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
-
-**Resource**
-
-| Parameter | Description | Data type |
--------- | -------- | ----------
-| \<entityType> | Entity ID:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
-| \<entityId> | Entity ID | String |
-
-{% note warning %}
-
-The entity ID is not the same as the project or portfolio ID.
-
-{% endnote %}
-
-{% endcut %}
+{% include [resource](../../../_includes/tracker/api/resource-entity.md) %}
 
 {% cut "Request parameters" %}
 
@@ -45,8 +30,8 @@ The entity ID is not the same as the project or portfolio ID.
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
+| [fields](./about-entities.md#query-params) | Additional entity fields to be included into the response. | String |
 | expand | Additional information to include in the response:<ul><li>`attachments`: Attached files</li></ul> | String |
-| fields | Additional entity fields to be included into the response | String |
 
 {% endcut %}
 
@@ -57,7 +42,7 @@ The entity ID is not the same as the project or portfolio ID.
 > - The response will include the `teamAccess` field.
 >
 > ```
-> GET /v2/entities/portfolio/655f328da834c763********?expand=attachments,fields=teamAccess HTTP/1.1
+> GET /v2/entities/portfolio/655f328da834c763********?expand=attachments&fields=teamAccess HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -122,20 +107,20 @@ The entity ID is not the same as the project or portfolio ID.
    | version | Entity version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID | String |
    | entityType | Entity type | String |
-   | createdBy | Block with information about the user who created the entity | Object |
+   | createdBy | Block with information about the entity creator | Object |
    | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | attachments | Array of objects with information about the attachment | Array of objects |
 
-   **Object fields** `createBy`
+   `createBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the user who created the entity | String |
+   | self | Address of the API resource with information about the entity creator | String |
    | id | User ID | Number |
    | display | Displayed user name | String |
-   | cloudUid | User unique ID in {{ org-full-name }} | String |
-   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | String |
+   | cloudUid | Unique user ID in {{ org-full-name }} | String |
+   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID | String |
 
    {% endcut %}
 

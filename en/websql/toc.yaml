@@ -10,7 +10,7 @@ items:
         href: operations/index.md
       - name: Connecting to a database
         href: operations/connect.md
-      - name: Executing queries
+      - name: Making queries
         href: operations/query-executor.md
       - name: Working with saved queries
         href: operations/templates.md
@@ -22,6 +22,12 @@ items:
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Release notes
+    items:
+      - name: All release notes
+        href: release-notes/index.md
+      - name: January 2024
+        href: release-notes/2401.md
   - name: Pricing policy
     href: pricing.md
 base: en/websql

@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/projects/delete-project.md
 
 Use this request to delete a [project](../../manager/project-new.md).
 
-You can also use a new, extended [entity deletion](../entities/delete-entity.md) API that provides a unified method for deleting projects and portfolios.
+You can also use the new, more flexible and functional [delete entity](../entities/delete-entity.md) API that provides a unified method for deleting projects and portfolios.
 
 ## Request format {#query}
 

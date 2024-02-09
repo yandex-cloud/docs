@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/projects/get-project.md
 
 Use this request to get information about a [project](../../manager/project-new.md).
 
-You can also use a new, extended [get entity information](../entities/get-entity.md) API that provides a unified method for getting information about projects and portfolios.
+You can also use the new, more flexible [get entity information](../entities/get-entity.md) API that provides a unified method for getting information about projects and portfolios.
 
 ## Request format {#query}
 

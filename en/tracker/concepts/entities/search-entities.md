@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/entities/search-entities.md
 
 Use this request to get a list of entities that meet specific criteria.
 
-The request provides a unified method for getting a list of projects and portfolios that extends the features of the [get project lists](../projects/get-projects.md) API.
+The request is a unified method for getting a list of projects and portfolios, more flexible and functional than the [get project list](../projects/get-projects.md) API.
 
 ## Request format {#query}
 
@@ -45,7 +45,7 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| fields | Additional fields to include in the response | String |
+| [fields](./about-entities.md#query-params) | Additional fields to include in the response | String |
 | perPage | Number of issues per response page. The default value is 50. | Number |
 | page | Page with search results. The default value is 1. | Number |
 
@@ -86,7 +86,7 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
 > - The `Status`, `Reporter`, and `Followers` field values are displayed in the response.
 >
 > ```
-> POST /v2/entities/project/_search?fields=entityStatus,author,followers HTTP/1.1
+> POST /v2/entities/project/_search?fields=entityStatus&author&followers HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -107,7 +107,7 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
 > - The `Status` and `Reporter` field values are displayed in the response.
 >
 > ```
-> POST /v2/entities/project/_search?fields=entityStatus,author HTTP/1.1
+> POST /v2/entities/project/_search?fields=entityStatus&author HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -183,20 +183,20 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
    | version | Entity version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID | String |
    | entityType | Entity type | String |
-   | createdBy | Block with information about the user who created the entity | Object |
+   | createdBy | Block with information about the entity creator | Object |
    | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | fields | Object with additional fields | Object |
 
-   `createdBy` **object fields** 
+   `сreatedBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the user who created the entity | String |
+   | self | Address of the API resource with information about the entity creator | String |
    | id | User ID | Number |
    | display | Displayed user name | String |
-   | cloudUid | User unique ID in {{ org-full-name }} | String |
-   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | String |
+   | cloudUid | Unique user ID in {{ org-full-name }} | String |
+   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID | String |
 
    {% endcut %}
 

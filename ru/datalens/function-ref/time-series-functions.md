@@ -74,6 +74,7 @@ AGO([Sales], [Date], "month" IGNORE DIMENSIONS [Month])
 Аргумент `unit` принимает следующие значения:
 - `"year"` — год;
 - `"month"` — месяц;
+- `"week"` — неделя;
 - `"day"` — день;
 - `"hour"` — час;
 - `"minute"` — минута;

@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/entities/update-entity.md
 
 Use this request to update information about an entity: a [project](../../manager/project-new.md) or [project portfolio](../../manager/portfolio.md).
 
-The request provides a unified method for updating project and portfolio information that extends the features of the [update project information](../projects/update-project.md) API.
+The request is a unified method for updating project and portfolio information, more flexible and functional than the [update project information](../projects/update-project.md) API.
 
 ## Request format {#query}
 
@@ -13,7 +13,7 @@ Before making a request, [get permission to access the API](../access.md).
 
 To update an entity, use an HTTP `PATCH` request. Request parameters are provided in the request body in JSON format.
 
-```
+```json
 PATCH /{{ ver }}/entities/<entityType>/<entityId>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
@@ -30,7 +30,7 @@ Authorization: OAuth <OAuth_token>
    [
       {
          "relationship": "<link>",
-         "entity": "<ID_of_linked_entity>"
+         "entity": "<linked_entity_ID>"
       }
    ]
 }
@@ -38,20 +38,7 @@ Authorization: OAuth <OAuth_token>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
-
-| Parameter | Description | Data type |
--------- | -------- | ----------
-| \<entityType> | Entity ID:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
-| \<entityId> | Entity ID | String |
-
-{% note warning %}
-
-The entity ID is not the same as the project or portfolio ID.
-
-{% endnote %}
-
-{% endcut %}
+{% include [resource](../../../_includes/tracker/api/resource-entity.md) %}
 
 {% cut "Request parameters" %}
 
@@ -59,8 +46,8 @@ The entity ID is not the same as the project or portfolio ID.
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
+| [fields](./about-entities.md#query-params) | Additional entity fields to be included into the response | String |
 | expand | Additional information to include in the response:<ul><li>`attachments`: Attached files</li></ul> | String |
-| fields | Additional entity fields to be included into the response | String |
 
 {% endcut %}
 
@@ -70,22 +57,34 @@ The entity ID is not the same as the project or portfolio ID.
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| fields | Object with entity settings | Object |
+| [fields](./about-entities.md#query-body-params) | Object with entity settings | Object |
 | comment | Comment | String |
 | links | Array of objects with settings of links to other entities | Array of objects |
 
-**Object fields** `fields`
+`fields` **object fields**
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| summary | New entity name | String |
-| teamAccess | Access | Logical |
+| summary | Name (required field) | String |
+| queues | Queue (required for projects if the `teamAccess` field is not set) | String |
+| teamAccess | Access (required for projects if the `queues` field is not set) | Boolean |
+| description | Description | String |
+| author | Author (user ID) | Number |
+| lead | Responsible person (user ID) | Number |
+| teamUsers | Participants (array of user IDs) | Array of numbers |
+| clients | Customers (array of user IDs) | Array of numbers |
+| followers | Followers (array of user IDs) | Array of numbers |
+| start | Start date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | Date |
+| end | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | Date |
+| tags | Tags. | Array of strings |
+| parentEntity | Parent entity (portfolio) ID | Number |
+| entityStatus | Status:<ul><li>draft: Draft</li><li>in_progress: In progress</li><li>launched: New</li><li>postponed: Postponed</li><li>at_risk: At risk</li><li>blocked: Blocked</li><li>according_to_plan: According to plan</li></ul> | String |
 
 **Array object fields** `links`
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| relationship | Link type. Here is an example:<ul><li>`relates`</li><li>`is dependent by`</li><li>`depends on`</li></ul>. | String |
+| relationship | Link type, e.g.:<ul><li>`relates`</li><li>`is dependent by`</li><li>`depends on`</li></ul>. | String |
 | entity | Linked entity's ID | String |
 
 {% endcut %}
@@ -166,20 +165,20 @@ The entity ID is not the same as the project or portfolio ID.
    | version | Project version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID | String |
    | entityType | Entity type | String |
-   | createdBy | Block with information about the user who created the entity | Object |
+   | createdBy | Block with information about the entity creator | Object |
    | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | attachments | Array of objects with information about the attachment | Array of objects |
 
-   **Object fields** `createdBy`
+   `createdBy` **object fields** 
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the user who created the entity | String |
+   | self | Address of the API resource with information about the entity creator | String |
    | id | User ID | Number |
    | display | Displayed user name | String |
-   | cloudUid | User unique ID in {{ org-full-name }} | String |
-   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | String |
+   | cloudUid | Unique user ID in {{ org-full-name }} | String |
+   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID | String |
 
    {% endcut %}
 

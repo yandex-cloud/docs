@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/projects/get-projects.md
 
 Use this request to get a list of all organization [projects](../../manager/project-new.md).
 
-You can also use a new, extended [get entity lists](../entities/search-entities.md) API that provides a unified method for getting a list of projects and portfolios.
+You can also use the new, more flexible and functional [get entity list](../entities/search-entities.md) API that provides a unified method for getting a list of projects and portfolios.
 
 ## Request format {#query}
 

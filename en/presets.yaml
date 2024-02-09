@@ -3093,10 +3093,10 @@ default:
         header-title: Checklist
       ui_components_entity-page_comments_CommentEditor_mobile:
         write-comment: Write a comment
-      ui_components_entity-page_macros_Dialog:
-        apply-button-label: Run
       ui_components_entity-page_macros_FavoriteButton:
         button-tooltip-add: Add to favorites
+      ui_components_entity-page_macros_MacrosExecutor:
+        apply-button-label: Run
       ui_components_entity-page_sidebar_SidebarFieldsSelect:
         add-sidebar-field: Edit parameters list
       ui_components_FieldEdit:
@@ -3980,6 +3980,7 @@ default:
             button_create: Create budget
             label_budgets: Budgets
             label_limits: Limits
+            label_notify: Notify
             label_type: Budget type
             label_type-balance: Balance
             label_type-cost: Cost
@@ -4002,6 +4003,7 @@ default:
             section_grants: Grants
           dashboard-info:
             company_label_edit_ru: Edit data in Yandex Balance
+            section_account-data: General information
           dashboard-overview:
             button_refill: Top up account
             popup-refill_button_company-action: Issue receipt
@@ -4012,6 +4014,7 @@ default:
             section_resources: Clouds
           dashboard:
             button_refill: Top up account
+            label_rename: Rename account
             popup-grant-activation_button_activate: Activate
           detail:
             button_create-periodic-export: Periodic export
@@ -4029,6 +4032,8 @@ default:
             label_product: Products
             label_service: Services
             label_to: To
+            label_top-cost: Consumption cost
+            label_top-total: Due and payable
             label_total: Total
             tab_product: By product
             value_cost: Consumption

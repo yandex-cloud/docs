@@ -17,7 +17,9 @@ description: "In this tutorial, you will learn how to set up a {{ GP }} target e
 ## Scenarios for transferring data to {{ GP }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
    * [Migrating the {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
+   * [Migration with storage changed from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
    * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).

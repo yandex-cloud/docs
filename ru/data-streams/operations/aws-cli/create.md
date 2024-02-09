@@ -5,6 +5,12 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создание потока данных в AWS CLI
 
+{% note warning %}
+
+В данный момент отсутствует поддержка версий AWS CLI с протоколом JSON. Используйте [AWS CLI](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-json-faqs.html#json-protocol-getting-started) до версии `1.29.81`.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

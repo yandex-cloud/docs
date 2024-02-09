@@ -19,15 +19,13 @@ On this page, you will find events for the following services:
 
 ## {{ dns-name }} {#dns}
 
-Service name: `dns`
+Service name: `dns`.
 
-| Event name | Description |
---- | ---
-| `ProcessDnsQuery` | Execution result of a DNS query from a Cloud DNS client |
+{% include [dns-events-dp](../../_includes/audit-trails/events/dns-events-dp.md) %}
 
 ## {{ lockbox-name }} {#lockbox}
 
-Service name: `lockbox`
+Service name: `lockbox`.
 
 | Event name | Description |
 --- | ---
