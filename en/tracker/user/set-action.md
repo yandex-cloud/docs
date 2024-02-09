@@ -7,13 +7,13 @@ description: "In this tutorial, you will learn how to set up a trigger action."
 
 Configure one or more actions under **Trigger action** by clicking **Add action**:
 
-- [Changing issue status](set-action.md#section_change_status)
-- [Updating fields](set-action.md#section_mod_fields)
-- [Adding a comment](set-action.md#create-comment)
-- [Creating a checklist](set-action.md#create-checklist)
-- [Calculating a value](set-action.md#section_calc_field)
-- [Moving an issue](set-action.md#sec_move)
-- [Creating an issue](set-action.md#sec_create_issue)
+- [Change issue status](set-action.md#section_change_status)
+- [Update fields](set-action.md#section_mod_fields)
+- [Add comment](set-action.md#create-comment)
+- [Create checklist](set-action.md#create-checklist)
+- [Calculate value](set-action.md#section_calc_field)
+- [Move issue](set-action.md#sec_move)
+- [Create issue](set-action.md#sec_create_issue)
 - [HTTP request](set-action.md#create-http)
 
 ## Change issue status {#section_change_status}
@@ -33,10 +33,10 @@ Set up new values for one or more fields.
 
    | Action | Description |
    ----- | -----
-   | Set the value | Assign the value to a field. |
-   | Clear the field | Delete a field value. |
-   | Add to list | Add another value for the field (for multiple-item fields). |
-   | Remove from list | Remove one value from the field (for multiple-item fields). |
+   | Set value | Assign the value to a field |
+   | Clear field | Delete a field value |
+   | Add to list | Add another value for the field (for multiple-item fields) |
+   | Remove from list | Remove one value from the field (for multiple-item fields) |
 
 1. Specify the new value for the field.
 
@@ -173,4 +173,6 @@ Sample HTTP request settings:
 - [Creating and updating a checklist in an issue](../manager/trigger-examples.md#checklist).
 
 - [Creating an issue with field values from its parent issue](../manager/trigger-examples.md#create-ticket-with-params).
+
+- [Updating status, priority and adding a comment in related issues](../manager/trigger-examples.md#update-related-tasks).
 

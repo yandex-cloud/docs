@@ -48,11 +48,14 @@ To view connection settings:
 
 A panel with connection settings will open.
 
+There are groups of tables and views (`VIEW`) within a single connection.
+
 ## Viewing information about a table {#view-table}
 
-There are groups of tables and views (`VIEW`) within a single connection. To view detailed information about a table and its columns:
+To view detailed information about a table and its columns:
 
-1. Select a table in the database you are connected to.
+1. Select the connection and database.
+1. In the **Tables** group, select a table.
 1. To the right of the table name, click ![image](../../_assets/console-icons/sliders-vertical.svg) and select **Table information**.
 
 This opens a panel with information about the table, including its name, size, and an approximate number of table rows. You can also get the following information about table columns:
@@ -61,6 +64,20 @@ This opens a panel with information about the table, including its name, size, a
 * Data type.
 * Whether the column is Nullable.
 * Whether the column is a primary key.
+
+## Viewing information about a view {#view-view}
+
+To see detailed information about a view:
+
+1. Select the connection and database.
+1. In the **Views** group, select the view.
+1. To the right of the view name, click ![image](../../_assets/console-icons/sliders-vertical.svg) and select **View overview**.
+
+A panel will open showing information about the view name and its columns:
+
+* Column name.
+* Data type.
+* Whether the column is Nullable.
 
 ## Reconnecting to databases and clusters {#update-connection}
 

@@ -88,11 +88,11 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Link to the comment object. | String |
-   | id | Comment ID. | Number |
-   | longId | ID of the comment in string format. | String |
-   | text | Text of the comment. | String |
-   | textHtml | Comment HTML markup. | String |
+   | self | Link to the comment object | String |
+   | id | Comment ID | Number |
+   | longId | ID of the comment in string format | String |
+   | text | Text of the comment | String |
+   | textHtml | Comment HTML markup | String |
    | attachments | Attached files. | String |
    | [createdBy](#object-fields-createdBy) | Object with information about the author of the comment. | Object |
    | [updatedBy](#object-fields-updatedBy) | Object with information about the last user to have updated the comment. | Object |

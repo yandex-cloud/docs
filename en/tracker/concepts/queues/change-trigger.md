@@ -9,7 +9,7 @@ Use this request to update a [trigger](../../user/trigger.md).
 
 Before making a request, [get permission to access the API](../access.md).
 
-To update a trigger, use an HTTP `PATCH` request. Request parameters are passed in the request body in JSON format.
+To update a trigger, use an HTTP `PATCH` request. Request parameters are provided in the request body in JSON format.
 
 ```json
 PATCH /{{ ver }}/queues/<queue-id>/triggers/<trigger-id>?version=<trigger-current-version>
@@ -62,8 +62,16 @@ Depending on whether all or at least one condition is to be met, you can set the
 
    | Parameter | Description | Data type |
    | ----- | ----- | ----- |
-   | type | Type for logically combining trigger conditions. Acceptable values include:<ul><li>`Or`: Logical OR (`Any`)</li><li>`And`: Logical AND (`All`)</li></ul> | String |
+   | type | Type of logical combination of trigger conditions. Acceptable values include:<ul><li>`Or`: Logical OR (`Any`)</li><li>`And`: Logical AND (`All`)</li></ul> | String |
    | conditions | Array with elementary [trigger condition objects](change-trigger-conditions.md) | Array of objects |
+
+{% note info %}
+
+Trigger conditions (elementary objects and objects with combination type specified) can be [grouped using an object with combination type specified](#condition-group).
+The default combination type is _logical AND_ (`"type": "And"`). You do not need to specify this type.
+When using the _logical OR_ combination type (`"type": "Or"`), you must specify the combination type.
+
+{% endnote %}
 
 {% endcut %}
 
@@ -71,21 +79,22 @@ Examples:
 
 1. [Updating a trigger that fires if at least one of the conditions is met](#or-condition).
 1. [Updating a trigger that fires if all the conditions are met](#and-condition).
+1. [Updating a trigger that fires when a group of conditions is met](#condition-group).
 1. [Disabling a trigger](#deactivation).
 1. [Moving a trigger in the list and activating it](#move-before).
 
 Example 1: Updating trigger conditions. The trigger must fire if at least one of the conditions is met. {#or-condition}
-> - The HTTP `PATCH` method is used.
-> - The trigger for the DESIGN queue is being updated.
-> - The trigger ID is 16 and its current version is 1.
-> - The trigger condition is being updated: the comment text matches the <q>Need info</q> or <q>Needs info</q> phrase.
-> - Trigger action: the issue changes its status to <q>Need info</q>.
-> ```json
-> PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> {
+>- The HTTP `PATCH` method is used.
+>- The trigger for the DESIGN queue is updated.
+>- The trigger ID is 16 and its current version is 1.
+>- The trigger condition is updated: the comment text matches the _Need info_ or _Needs info_ phrase.
+>- Trigger action: the issue changes its status to _Need info_.
+>```json
+>PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>{
 >   "actions": [
 >       {
 >           "type": "Transition",
@@ -103,21 +112,45 @@ Example 1: Updating trigger conditions. The trigger must fire if at least one of
 >            ]
 >        }
 >    ]
-> }
-> ```
+>}
+>```
 
 Example 2: Updating trigger conditions. The trigger must fire if all the conditions are met. {#and-condition}
-> - The HTTP `PATCH` method is used.
-> - The trigger for the DESIGN queue is being updated.
-> - The trigger ID is 16 and its current version is 2.
-> - The trigger condition is being updated: the comment text matches the <q>Need info</q> phrase and the issue status is `In progress`.
-> - The trigger action remains unchanged: the issue changes its status to <q>Need info</q>.
-> ```json
-> PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=2
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> {
+>- The HTTP `PATCH` method is used.
+>- The trigger for the DESIGN queue is updated.
+>- The trigger ID is 16 and its current version is 2.
+>- The trigger condition is updated: the comment text matches the _Need info_ phrase and the issue status is `In progress`.
+>```json
+>PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=2
+>Host: {{ host }}
+>Authorization: OAuth <OAuth-token>
+>{{ org-id }}
+>{
+>   "actions": [
+>       {
+>           "type": "Transition",
+>           "status": {
+>               "key": "needInfo"
+>               }
+>       }
+>   ],
+>}
+>```
+
+Example 3: Changing trigger conditions and trigger action. The trigger must fire when one of the condition groups is met. {#condition-group}
+>- The HTTP `PATCH` method is used.
+>- The trigger for the DESIGN queue is updated.
+>- The trigger ID is 16 and its current version is 2.
+>- The trigger condition is updated: the trigger fires if one of the condition groups is satisfied:
+>-  - Comment text matches the _Need info_ phrase and the task status is `In progress`.
+>-  - Comment text matches the _No data_ phrase.
+>- Trigger action changes: task status changes to _Need info_.
+>```json
+>PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=2
+>Host: {{ host }}
+>Authorization: OAuth <OAuth-token>
+>{{ org-id }}
+>{
 >   "actions": [
 >       {
 >           "type": "Transition",
@@ -127,42 +160,68 @@ Example 2: Updating trigger conditions. The trigger must fire if all the conditi
 >       }
 >   ],
 >   "conditions": [
->        { "type": "CommentFullyMatchCondition", "word": "Need info"},
->        { "type": "FieldEquals", "field":"status", "value":"inProgress" }
->    ]
-> }
-> ```
+>       {
+>           "conditions": [
+>               {
+>                   "conditions": [
+>                       {
+>                           "ignoreCase": false,
+>                           "noMatchBefore": false,
+>                           "removeMarkup": false,
+>                           "type": "CommentFullyMatchCondition",
+>                           "word": "Need info"
+>                       },
+>                       {     "type": "FieldEquals",
+>                             "field":"status",
+>                             "value":"inProgress"
+>                       }
+>                   ],
+>                   "type": "And"
+>               },
+>               {
+>                   "ignoreCase": false,
+>                   "noMatchBefore": false,
+>                   "removeMarkup": false,
+>                   "type": "CommentFullyMatchCondition",
+>                   "word": "No data"
+>               }
+>           ],
+>           "type": "Or"
+>       }
+>   ]
+>}
+>```
 
-Example 3: Disabling a trigger. {#deactivation}
-> - The HTTP `PATCH` method is used.
-> - The trigger for the DESIGN queue is being updated.
-> - The trigger ID is 16 and its current version is 3.
-> - The trigger is being deactivated.
-> ```json
-> PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=3
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> {
+Example 4: Disabling a trigger. {#deactivation}
+>- The HTTP `PATCH` method is used.
+>- The trigger for the DESIGN queue is updated.
+>- The trigger ID is 16 and its current version is 3.
+>- The trigger is deactivated.
+>```json
+>PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=3
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>{
 >   "active": false,
-> }
-> ```
+>}
+>```
 
-Example 4: Moving a trigger in the list and activating it. {#move-before}
-> - The HTTP `PATCH` method is used.
-> - The trigger for the DESIGN queue is being updated.
-> - The trigger ID is 16 and its current version is 4.
-> - The trigger is being moved and placed before the trigger with the `6` ID and then activated.
-> ```json
-> PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=4
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> {
+Example 5: Moving a trigger in the list and activating it. {#move-before}
+>- The HTTP `PATCH` method is used.
+>- The trigger for the DESIGN queue is updated.
+>- The trigger ID is 16 and its current version is 4.
+>- The trigger is moved and placed before the trigger with the `6` ID and then activated.
+>```json
+>PATCH /{{ ver }}/queues/DESIGN/triggers/16?version=4
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>{
 >   "before": 6,
 >   "active": true,
-> }
-> ```
+>}
+>```
 
 ## Response format {#answer}
 

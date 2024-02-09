@@ -6,6 +6,8 @@ To do this, you need to know the user name IDs returned by the Identity Provider
 
 {% include [auto-create-users](../../_includes/organization/auto-create-users.md) %}
 
+You do not need to invite federated users to the organization; they are added automatically after logging in.
+
 ### Add federated users {#add-user-sso}
 
 {% include notitle [user-sso](add-user-sso.md) %}

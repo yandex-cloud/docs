@@ -28,7 +28,7 @@ Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluste
 ## Connecting to a database {#connect}
 
 To access DB cluster hosts from a function using the created connection:
-* In the function version settings, specify the service account with the `serverless.mdbProxies.user` role. [How to assign a role](./function/role-add.md).
+* In the function version settings, specify the service account to which the `serverless.mdbProxies.user` role is assigned for the directory in which the connection is created. [How to assign a role](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
 * In advanced cluster settings, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** option.
 
 To connect to a DB from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. [Getting IAM token](./function-sa.md).

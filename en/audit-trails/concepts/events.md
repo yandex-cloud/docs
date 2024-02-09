@@ -1,6 +1,6 @@
 # Management event reference
 
-The value of the `event_type` (_event type_) field in a management (control plane) audit log is determined by the event source service.
+The value of the `event_type` field in a management event (control plane) audit log is determined by the event source service.
 
 The general value format is as follows:
 
@@ -138,14 +138,7 @@ Service name: `certificatemanager`.
 
 Service name: `dns`.
 
-| Event name | Description |
---- | ---
-| `CreateDnsZone` | Creating a DNS zone |
-| `DeleteDnsZone` | Deleting a DNS zone |
-| `SetDnsZoneAccessBindings` | Setting access bindings to a DNS zone |
-| `UpdateDnsZone` | Updating a DNS zone |
-| `UpdateDnsZoneAccessBindings` | Updating access bindings to a DNS zone |
-| `UpdateRecordSets` | Updating a record set |
+{% include [dns-events](../../_includes/audit-trails/events/dns-events.md) %}
 
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
@@ -163,60 +156,7 @@ Service name: `logging`.
 
 Service name: `compute`.
 
-| Event name | Description |
---- | ---
-| `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
-| `AttachInstanceDisk` | Connecting a disk to a VM |
-| `AttachInstanceFilesystem` | Connecting a file system to a VM |
-| `ChangeDiskStatus` | Changing a non-replicated disk status |
-| `CrashInstance` | Emergency VM shutdown |
-| `CreateDisk` | Creating a disk |
-| `CreateFilesystem` | Creating a file system |
-| `CreateGpuCluster` | Creating a GPU cluster |
-| `CreateImage` | Creating a disk image |
-| `CreateInstance` | Creating a VM instance |
-| `CreateSnapshot` | Creating a disk snapshot |
-| `CreateSnapshotSchedule` | Creating a disk snapshot schedule |
-| `DeleteDisk` | Deleting a disk |
-| `DeleteFilesystem` | Deleting a file system |
-| `DeleteGpuCluster` | Deleting a GPU cluster |
-| `DeleteImage` | Deleting a disk image |
-| `DeleteInstance` | Deleting a VM |
-| `DeleteSnapshot` | Deleting a disk snapshot |
-| `DeleteSnapshotSchedule` | Deleting a disk snapshot schedule |
-| `DetachInstanceDisk` | Detaching a disk from a VM instance |
-| `DetachInstanceFilesystem` | Detaching a file system from a VM instance |
-| `DisableSnapshotSchedule` | Disabling a disk snapshot schedule |
-| `EnableSnapshotSchedule` | Enabling a disk snapshot schedule |
-| `GuestStopInstance` | Stopping a VM on command from this VM |
-| `PreemptInstance` | Interrupting a VM |
-| `RemoveInstanceOneToOneNat` | Removing a VM's public IP address |
-| `RestartInstance` | Restarting a VM |
-| `StartInstance` | Starting a VM |
-| `StopInstance` | Stopping a VM |
-| `UpdateDisk` | Changing a disk |
-| `UpdateFilesystem` | Modifying a file system |
-| `UpdateGpuCluster` | Editing a GPU cluster |
-| `UpdateImage` | Updating a disk image |
-| `UpdateInstance` | Updating a VM instance |
-| `UpdateInstanceMetadata` | Updating VM instance metadata |
-| `UpdateInstanceNetworkInterface` | Updating VM network settings |
-| `UpdateSnapshot` | Updating a disk snapshot |
-| `UpdateSnapshotSchedule` | Updating disk snapshot schedule parameters |
-| `UpdateSnapshotScheduleDisks` | Updating disk snapshot schedule parameters |
-| `instancegroup` | Managing an instance group |
-| `instancegroup.CreateInstanceGroup` | Creating an instance group |
-| `instancegroup.DeleteInstanceGroup` | Deleting an instance group |
-| `instancegroup.DeleteInstanceGroupInstances` | Removing an instance from a group |
-| `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
-| `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
-| `instancegroup.RollingRestartInstanceGroupInstances` | Restarting instances in a group one by one |
-| `instancegroup.SetInstanceGroupAccessBindings` | Assigning roles to an instance group |
-| `instancegroup.StartInstanceGroup` | Starting an instance group |
-| `instancegroup.StopInstanceGroup` | Stopping an instance group |
-| `instancegroup.StopInstanceGroupInstances` | Stopping an instance from a group |
-| `instancegroup.UpdateInstanceGroup` | Updating an instance group |
-| `instancegroup.UpdateInstanceGroupAccessBindings` | Updating roles for an instance group |
+{% include [compute-events](../../_includes/audit-trails/events/compute-events.md) %}
 
 ## {{ container-registry-name }} {#container-registry}
 
@@ -642,22 +582,7 @@ Service name: `mdb.opensearch`.
 
 Service name: `loadbalancer`.
 
-| Event name | Description |
---- | ---
-| `AddNetworkLoadBalancerListener` | Adding listener to network load balancer |
-| `AddTargetGroupTargets` | Adding a VM to a target group |
-| `AttachNetworkLoadBalancerTargetGroup` | Connecting a target group to a network load balancer |
-| `CreateNetworkLoadBalancer` | Creating a network load balancer |
-| `CreateTargetGroup` | Creating a target group |
-| `DeleteNetworkLoadBalancer` | Deleting a network load balancer |
-| `DeleteTargetGroup` | Deleting a target group |
-| `DetachNetworkLoadBalancerTargetGroup` | Detaching a target group from a network load balancer |
-| `RemoveNetworkLoadBalancerListener` | Removing a listener from a network load balancer |
-| `RemoveTargetGroupTargets` | Removing a VM from a target group |
-| `StartNetworkLoadBalancer` | Starting a network load balancer |
-| `StopNetworkLoadBalancer` | Stopping a network load balancer |
-| `UpdateNetworkLoadBalancer` | Updating a network load balancer |
-| `UpdateTargetGroup` | Editing a target group |
+{% include [network-load-balancer-events](../../_includes/audit-trails/events/network-load-balancer-events.md) %}
 
 ## {{ objstorage-name }} {#objstorage}
 
@@ -762,38 +687,7 @@ Service name: `smartcaptcha`.
 
 Service name: `network`.
 
-| Event name | Description |
---- | ---
-| `AddressAttached` | Linking an address to a cloud resource |
-| `AddressDetached` | Unlinking an address from a cloud resource |
-| `CreateAddress` | Creating a cloud resource address |
-| `CreateGateway` | Creating a gateway |
-| `CreateNetwork` | Creating a cloud network |
-| `CreateRouteTable` | Creating a routing table |
-| `CreateSecurityGroup` | Create security group |
-| `CreateSubnet` | Creating a cloud subnet |
-| `DeleteAddress` | Deleting a cloud resource address |
-| `DeleteGateway` | Deleting a gateway |
-| `DeleteNetwork` | Deleting a cloud network |
-| `DeleteRouteTable` | Deleting a routing table |
-| `DeleteSecurityGroup` | Deleting a security group |
-| `DeleteSubnet` | Deleting a cloud subnet |
-| `GatewayAttached` | Adding a gateway |
-| `GatewayDetached` | Detaching a gateway |
-| `MoveAddress` | Moving an address of cloud resources to another folder |
-| `MoveGateway` | Moving a gateway to another folder |
-| `MoveNetwork` | Moving a cloud network to another folder |
-| `MoveRouteTable` | Moving a routing table to another folder |
-| `MoveSecurityGroup` | Moving a security group to another folder |
-| `MoveSubnet` | Moving a cloud subnet to another folder |
-| `RouteTableAttached` | Adding a routing table to a subnet |
-| `RouteTableDetached` | Detaching a routing table from a subnet |
-| `UpdateAddress` | Updating the address of a cloud resource |
-| `UpdateGateway` | Updating a gateway |
-| `UpdateNetwork` | Updating a cloud network |
-| `UpdateRouteTable` | Updating a routing table |
-| `UpdateSecurityGroup` | Updating a security group |
-| `UpdateSubnet` | Updating a cloud subnet |
+{% include [vpc-events](../../_includes/audit-trails/events/vpc-events.md) %}
 
 ## {{ ydb-short-name }} {#ydb}
 

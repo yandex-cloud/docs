@@ -1,4 +1,4 @@
-# Data visualization {{ monitoring-name }}
+# Visualizing {{ monitoring-name }} data
 
 The scenario will be useful to those users who have already deployed and launched one of the {{ yandex-cloud }} services.
 
@@ -75,12 +75,17 @@ To create a {{ monitoring-name }} connection:
       ![metrica-memory-usage](../../_assets/datalens/monitoring-visualization/metrica-memory-usage.png)
 
    1. At the bottom of the screen, go to the **Queries** tab.
-   1. In the line with the required query, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Copy as text**.
+   1. In the line with the required query, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Copy as text**. In {{ datalens-short-name }}, enter the query without the `folderId` parameter.
 
-      Sample request:
+      Example of a query in {{ monitoring-name }}:
 
       ```sql
-      alias(series_max("systag", trunc("mem.*"{service="managed-clickhouse", host="rc1a-jn5r2zlul3iydlo2.{{ dns-zone }}", resource_id="Test", resource_type="cluster", node="*", systag!="-"})), "not_var{{systag}}")
+      "cpu_usage"{folderId="b1g9r5h41935********", service="compute", resource_id="charts-prod-vla-1"}
+      ```
+      In {{ datalens-short-name }}, enter the query without the `folderId` parameter:
+
+      ```sql
+      "cpu_usage"{service="compute", resource_id="charts-prod-vla-1"}
       ```
 
    {% endcut %}
@@ -132,7 +137,7 @@ Add a [selector](../../datalens/dashboard/selector.md) to select the time interv
 
    ![image](../../_assets/datalens/monitoring-visualization/add-selector.png)
 
-1. Select **Manual input** as source type.
+1. Select **Manual input** as the source type.
 1. Under **Field or parameter name**, enter `interval`. Certain selector values will be passed into this query variable.
 1. Choose **Calendar** as your selector type.
 1. Enable **Range**.

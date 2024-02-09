@@ -106,7 +106,7 @@ To create security groups:
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of [subnets](../../vpc/concepts/network.md#subnet) that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
-            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
          1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
       1. Click **{{ ui-key.yacloud.common.save }}**.
    1. In the same way, create a security group named `mysite-sg-vms` for the VM and a network named `mysite-network` with the following rules:
@@ -388,9 +388,9 @@ To create the infrastructure for terminating TLS connections using {{ TF }}:
 
 1. Prepare files with the infrastructure description:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Ready-made configuration
+   - Ready-to-use configuration {#ready}
 
       1. Clone the repository with configuration files.
 
@@ -403,7 +403,7 @@ To create the infrastructure for terminating TLS connections using {{ TF }}:
          * `tls-termination-config.tf`: Configuration of the infrastructure you create.
          * `tls-terminationg.auto.tfvars`: File with user data.
 
-   - Manually
+   - Manually {#manual}
 
       1. Create a directory for configuration files.
 

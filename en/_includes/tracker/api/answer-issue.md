@@ -19,7 +19,7 @@
 
     "updatedBy": {
         "self": "https://{{ host }}/v2/users/1120000000016876",
-        "id": "<employee id>",
+        "id": "<employee ID>",
         "display": "<displayed employee name>"
         },
     "description": "<#<html><head></head><body><div>test</div><div>&nbsp;</div><div>&nbsp;</div> </body></html>#>",
@@ -47,21 +47,26 @@
     "followers": [
         {
         "self": "https://{{ host }}/v2/users/1120000000016876",
-        "id": "<employee id>",
+        "id": "<employee ID>",
         "display": "<displayed employee name>"
         }
         ],
     "createdBy": {
         "self": "https://{{ host }}/v2/users/1120000000049224",
-        "id": "<employee id>",
+        "id": "<employee ID>",
         "display": "<displayed employee name>"
         },
     "votes": 0,
     "assignee": {
         "self": "https://{{ host }}/v2/users/1120000000049224",
-        "id": "<employee id>",
+        "id": "<employee ID>",
         "display": "<displayed employee name>"
         },
+    "project": {
+        "display": "Startrek project",
+        "id": "1",
+        "self": "https://{{ host }}/v2/projects/1"
+    },
     "queue": {
         "self": "https://{{ host }}/v2/queues/TREK",
         "id": "111",
@@ -113,7 +118,7 @@
    | updatedAt | Date and time when the issue was last updated. | String |
    | [status](#status) | Object with information about the issue status. | Object |
    | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
-   | favorite | Favorite issue flag:<ul><li>`true`: Issue added to favorites by the user.</li><li>`false`: Issue not added to favorites.</li></ul> | Logical |
+   | favorite | Favorite issue flag:<ul><li>`true`: Issue added to favorites by the user.</li><li>`false`: Issue not added to favorites.</li></ul> | Boolean |
 
    `parent` **object fields** {#parent}
 

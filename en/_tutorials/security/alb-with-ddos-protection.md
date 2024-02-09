@@ -118,7 +118,7 @@ To create security groups:
 
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
-            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
          1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
       1. Click **{{ ui-key.yacloud.common.save }}**.
    1. In the same way, create a security group for the VM named `ddos-sg-vms` with the same `ddos-network` network and the following rules:
@@ -178,7 +178,7 @@ To create an instance group:
       * Enter a **{{ ui-key.yacloud.compute.groups.create.field_name }}** for the instance group: `ddos-group`.
       * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
-   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and set up the configuration for a basic instance:
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a **{{ ui-key.yacloud.compute.instances.create.field_description }}** for the template.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify:
@@ -412,17 +412,17 @@ To create a backend group:
       ```
 
       Where:
-      * `--backend-group-name`: Name of the backend group.
+      * `--backend-group-name`: Backend group name.
       * `--name`: Backend name.
       * `--weight`: Backend weight.
       * `--port`: Port.
       * `--target-group-id`: Target group ID.
-      * `--http-healthcheck`: Parameters for checking the resource status:
-         * `port`: Port.
-         * `timeout`: Timeout.
-         * `interval`: Interval.
-         * `host`: Host address.
-         * `path`: Path.
+      * `--http-healthcheck`: Resource health check parameters.
+         * `port`: Port
+         * `timeout`: Timeout
+         * `interval`: Interval
+         * `host`: Host address
+         * `path`: Path
 
       Result:
 
@@ -656,15 +656,15 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare a file with the infrastructure description:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Ready-made archive
+   - Ready-made archive {#ready}
 
       1. Create a directory for the file with the infrastructure description.
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/alb-with-ddos-protection.zip) (3 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `alb-with-ddos-protection.tf` configuration file and the `alb-with-ddos-protection.auto.tfvars` file with user data.
 
-   - Manually
+   - Manually {#manual}
 
       1. Create a directory for the file with the infrastructure description.
       1. In the directory, create a configuration file named `alb-with-ddos-protection.tf`:

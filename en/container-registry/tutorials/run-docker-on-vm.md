@@ -311,7 +311,7 @@ The infrastructure support costs include:
          * `platformId`: [Platform](../../compute/concepts/vm-platforms.md).
          * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
          * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
-         * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size. The disk size must be not less than the minimum value specified in the image details.
+         * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size. The disk size must not be less than the minimum value specified in the image details.
          * `networkInterfaceSpecs`: Network setting:
             * `subnetId`: ID of the selected subnet.
             * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP](../../vpc/concepts/address.md#public-addresses) to your VM, specify:
@@ -549,15 +549,15 @@ To create an infrastructure for running a Docker image on a VM using the registr
 1. [Install](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare a file with the infrastructure description:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Ready-made archive
+   - Ready-made archive {#ready}
 
       1. Create a directory for the file with the infrastructure description.
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/run-docker-on-vm-terraform.zip) (1.5 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `run-docker-on-vm.tf` configuration file.
 
-   - Creating files manually
+   - Manually {#manual}
 
       1. Create a directory for the file with the infrastructure description.
       1. In the directory, create a configuration file named `run-docker-on-vm.tf`:

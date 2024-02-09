@@ -1,6 +1,6 @@
 ---
 title: "Serverless and Dedicated operation modes in {{ ydb-short-name }}"
-description: "You can create {{ ydb-short-name }} databases in two modes: dedicated and serverless. Dedicated mode assumes that the resources for tablet instances and for running YQL queries are selected from the compute resources explicitly allocated to the database. In Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate to the user database."
+description: "You can create {{ ydb-short-name }} databases in two modes: dedicated and serverless. Dedicated mode assumes that the resources for tablet instances and YQL queries are selected from the resources explicitly allocated to the compute database. In Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate to the user database."
 keywords:
   - ydb
   - serverless
@@ -57,7 +57,7 @@ The quota for the number of serverless queries is also a tool to protect from pa
 
 When using a serverless DB, the amount you pay depends on the amount of data stored.
 
-Since the storage size in a serverless DB is indefinitely large, the maximum amount of data that can be stored can also reach any value, leading to excessive charges. For example, this can happen as the result of an error in the code causing an infinite loop of data being added or if you accidentally import a wrong backup.
+Since the storage size in a serverless DB is indefinitely large, the maximum amount of data that can be stored can also reach any value, leading to excessive charges. For example, this can happen as a result of an error in the code causing data to be inserted in an infinite loop, or accidentally importing the wrong backup.
 
 
 The **Maximum amount of data** limit for a serverless DB enables you to restrict the amount of data in this DB allowed by {{ ydb-short-name }}. By default, a limit of 50 GB is set for new DBs, which limits your monthly charges for the amount of stored data to approximately ₽650 according to the pricing at the time of this writing (₽13.41 per GB, 1 GB for free).

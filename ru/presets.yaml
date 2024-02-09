@@ -3097,10 +3097,10 @@ default:
         header-title: Чеклист
       ui_components_entity-page_comments_CommentEditor_mobile:
         write-comment: Написать комментарий
-      ui_components_entity-page_macros_Dialog:
-        apply-button-label: Выполнить
       ui_components_entity-page_macros_FavoriteButton:
         button-tooltip-add: Добавить в избранное
+      ui_components_entity-page_macros_MacrosExecutor:
+        apply-button-label: Выполнить
       ui_components_entity-page_sidebar_SidebarFieldsSelect:
         add-sidebar-field: Изменить список параметров
       ui_components_FieldEdit:
@@ -3986,6 +3986,7 @@ default:
             button_create: Создать бюджет
             label_budgets: Бюджеты
             label_limits: Пороги
+            label_notify: Уведомить
             label_type: Тип бюджета
             label_type-balance: Остаток средств
             label_type-cost: Стоимость потребления
@@ -4008,6 +4009,7 @@ default:
             section_grants: Гранты
           dashboard-info:
             company_label_edit_ru: Редактировать данные в Яндекс Балансе
+            section_account-data: Общие сведения
           dashboard-overview:
             button_refill: Пополнить баланс
             popup-refill_button_company-action: Выписать счет
@@ -4018,6 +4020,7 @@ default:
             section_resources: Облака
           dashboard:
             button_refill: Пополнить счет
+            label_rename: Переименовать аккаунт
             popup-grant-activation_button_activate: Активировать
           detail:
             button_create-periodic-export: Регулярный экспорт
@@ -4035,6 +4038,8 @@ default:
             label_product: Продукты
             label_service: Сервисы
             label_to: До
+            label_top-cost: Стоимость потребления
+            label_top-total: К оплате
             label_total: Итого
             tab_product: По продуктам
             value_cost: Потребление

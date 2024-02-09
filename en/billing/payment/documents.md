@@ -19,7 +19,7 @@ Soft and hard copies of a document are identical. To prepare your financial repo
    1. If you use the bank transfer payment method, you can [download a payment invoice](../operations/pay-the-bill.md) in the management console. It is also sent to your [contact email address]({{ link-console-main }}/settings). If you pay for resources with a bank card, you will receive a Payment Receipt to your [contact email address]({{ link-console-main }}/settings).
 
    To generate a **reconciliation report**
-   reconciliation report, [submit a request](../operations/download-reporting-docs) in the {{ yandex-cloud}} management console. Once your request is handled, the document will become available for download.
+   reconciliation report, [submit a request](../operations/download-reporting-docs) in the {{ yandex-cloud}} management console. After your request is processed, the document will become available for download.
 
    You can download copies of documents or request original documents and a reconciliation report in your [Yandex Balance](https://balance.yandex.ru) account.
 
@@ -35,7 +35,7 @@ Soft and hard copies of a document are identical. To prepare your financial repo
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
    1. If your account has arrears, {{ yandex-cloud }} sends payment details with the total amount due and service usage details for the reporting period to your [contact email address]({{ link-console-main }}/settings) on the first day of each month.
-   1. Within seven (7) business days after the end of the reporting period, {{ yandex-cloud }} sends an invoice and an electronic report for the amount of monthly consumption to the email address specified in [Yandex Balance](https://balance.yandex.com).
+   1. Within seven (7) business days after the end of the reporting period, {{ yandex-cloud }} sends an invoice for the amount of monthly consumption to the email address specified in [Yandex Balance](https://balance.yandex.com).
 
    **Reconciliation reports**
    Reports are generated upon [request to the technical support]({{ link-console-support }}/create-ticket).

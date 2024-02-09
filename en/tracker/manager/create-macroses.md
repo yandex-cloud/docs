@@ -59,7 +59,7 @@ To execute the macro:
    You can select multiple macros at the same time. If the macros affect the same parameter, the last selected macro will be applied to the parameter.
 
 
-1. To execute the macro, click **{{ ui-key.startrek.ui_components_entity-page_macros_Dialog.apply-button-label }}**.
+1. To execute the macro, click **{{ ui-key.startrek.ui_components_entity-page_macros_MacrosExecutor.apply-button-label }}**.
 
 
 ## Example of a macro {#macro_example}
@@ -94,4 +94,4 @@ To execute the created macro:
 
 1. Click ![](../../_assets/tracker/svg/macros.svg) **Macros** and select a macro from the drop-down list.
 
-1. Click **{{ ui-key.startrek.ui_components_entity-page_macros_Dialog.apply-button-label }}**. The issue will be forwarded to Tier 2 support.
+1. Click **{{ ui-key.startrek.ui_components_entity-page_macros_MacrosExecutor.apply-button-label }}**. The issue will be forwarded to Tier 2 support.
