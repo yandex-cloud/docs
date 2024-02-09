@@ -29,6 +29,7 @@ description: "In this tutorial, you will learn how to set up a {{ PG }} target e
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
    * [Loading data from {{ GP }} to {{ PG }}](../../../tutorials/greenplum-to-postgresql.md).
+   * [Loading data from {{ objstorage-name }} to {{ PG }}](../../../tutorials/object-storage-to-postgresql.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -199,7 +200,7 @@ For OnPremise, all fields are filled in manually.
       
       {% note warning %}
 
-      This feature is at the [Preview stage](../../../../overview/concepts/launch-stages.md).
+      This feature is at the [Preview](../../../../overview/concepts/launch-stages.md) stage.
 
       {% endnote %}
 

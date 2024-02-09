@@ -21,6 +21,7 @@ description: "In this tutorial, you will learn how to set up a {{ MY }} source e
    * [Migrating the {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
    * [Migration with storage changed from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
    * [Migration with storage changed from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
+   * [Migration with storage changed from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 

@@ -71,6 +71,7 @@ The `number` argument is an integer. It can be negative.
 The `unit` argument takes the following values:
 - `"year"`;
 - `"month"`;
+- `"week"`;
 - `"day"`;
 - `"hour"`;
 - `"minute"`;

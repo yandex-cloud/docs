@@ -669,7 +669,7 @@ items:
         items:
           - name: Adding parameters in dashboard chart settings
             href: operations/chart/add-parameters.md
-          - name: Adding ID as a parameter
+          - name: Adding an ID as a parameter
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
@@ -774,7 +774,7 @@ items:
         href: concepts/optimization_recommendations.md
       - name: '{{ datalens-name }} errors'
         href: troubleshooting/errors/all.md
-      - name: Q&A
+      - name: FAQ
         items:
           - name: All questions
             href: qa/index.md

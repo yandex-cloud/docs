@@ -41,15 +41,15 @@ Let's set up a trigger to automatically assign the issue:
 1. Make sure every employee you might want to assign has [full access to {{ tracker-name }}](../access.md).
 
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Enter a name for the trigger.
 
-1. Set the trigger to fire when the issue <q>Status</q> or <q>Components</q> change:
+1. Set the trigger to fire when the issue's _Status_ or _Components_ change:
 
    1. Select **Conditions to be met** → **All**.
 
-   1. Add the condition **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.update }}**.
+   1. Add the condition: **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.update }}**.
 
    1. If you want a new assignee to be picked after a status update, add the **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** condition and specify the status. The available statuses depend on the [workflow](workflow.md) set up for the queue.
 
@@ -80,15 +80,15 @@ Let's set up a trigger to automatically assign the issue:
 
 Having completed the issue, the employee might forget to specify some important information, for example, the time spent. In this case, you can set up a trigger that will automatically summon the user if the issue was closed, but the time spent was not specified.
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Enter a name for the trigger.
 
-1. Set the trigger to fire when the issue is closed if the <q>Time spent</q> field is left empty.
+1. Set up the conditions for the trigger to fire on closing the issue in the case when the **Time spent** field is empty:
 
    1. Select **Conditions to be met** → **All**.
 
-   1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
+   1. Add the condition: **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
 
    1. Add the condition: **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** → **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldIsEmpty }}**.
 
@@ -96,7 +96,7 @@ Having completed the issue, the employee might forget to specify some important
 
    1. Add the **Add comment** action.
 
-   1. Click ![](../../_assets/tracker/summon.png) and enter <q>Assignee</q> in the **Invite users from a field** line.
+   1. Click ![](../../_assets/tracker/summon.png) and in the **Invite users from a field** line, enter _Assignee_.
 
    1. Enter the comment to be displayed to the issue assignee and choose **Send as robot**.
 
@@ -112,7 +112,7 @@ In many projects, issues depend on each other even if different people are worki
 
 Let's set up a trigger that will change an issue status and add a comment for its reporter when the **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}** link is added:
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Enter a name for the trigger.
 
@@ -132,7 +132,7 @@ Let's set up a trigger that will change an issue status and add a comment for it
 
    1. Add the **Add comment** action.
 
-   1. Click ![](../../_assets/tracker/summon.png) and in the **Invite users from a field** line, enter <q>Reporter</q>.
+   1. Click ![](../../_assets/tracker/summon.png) and in the **Invite users from a field** line, enter _Reporter_.
 
    1. Enter the comment to be displayed to the issue reporter and choose **Send as robot**. Otherwise, the comment is sent on behalf of the user who initiates the trigger action by adding the link.
 
@@ -170,7 +170,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 Set up a trigger that, whenever an issue created based on an email, will notify the user via email:
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Enter a name for the trigger.
 
@@ -178,7 +178,7 @@ Set up a trigger that, whenever an issue created based on an email, will notify 
 
    1. Select **Conditions to be met** → **All**.
 
-   1. Add the condition **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
+   1. Add the condition: **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
 
    1. Add the **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailCreatedBy }}** → **{{ ui-key.startrek-backend.fields.trigger.condition.type.text.field.equals.string }}** condition and enter the email address to your queue.
 
@@ -244,7 +244,6 @@ To create issues based on requests submitted from a form:
 
    1. Save your integration settings.
 
-
    ![image](../../_assets/tracker/trigger-example-form-integration.png)
 
 1. [Publish](../../forms/publish.md#section_link) the form.
@@ -253,7 +252,7 @@ To create issues based on requests submitted from a form:
 
 Set up a trigger that, whenever an issue created from a form, will notify the user via email:
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Enter a name for the trigger.
 
@@ -261,7 +260,7 @@ Set up a trigger that, whenever an issue created from a form, will notify the us
 
    1. Select **Conditions to be met** → **All**.
 
-   1. Add the condition **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
+   1. Add the condition: **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
 
    1. Add the condition: **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameNotEmpty }}**.
 
@@ -297,13 +296,13 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
 #### Step 2. Creating a trigger for adding a form
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Set the conditions so that the trigger fires when the issue is closed:
 
    1. Select **Conditions to be met** → **All**.
 
-   1. Add the condition **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+   1. Add the condition: **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
    ![](../../_assets/tracker/trigger-example-add-form-1.png)
 
@@ -324,7 +323,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
    - `<value>`: Value to use in the form field.
 
-      To transfer issue parameters to the form, use [variables](../user/vars.md) as values: click **Add variable** at the bottom of the window and choose the issue parameter. Next, replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
+      To transfer issue parameters to the form, use [variables](../user/vars.md) as values: at the bottom of the window, click **Add variable** and choose the issue parameter. Then replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
 
       For example, to provide the issue key, use the `<%issue.key%>` value. To provide the assignee login, use `<%issue.assignee.login%>`.
 
@@ -337,7 +336,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
 
 
-1. Click ![](../../_assets/tracker/summon.png) and enter <q>Assignee</q> in the **Invite users from a field** line.
+1. Click ![](../../_assets/tracker/summon.png) and in the **Invite users from a field** line, enter _Assignee_.
 
 1. Enable **Send as robot**.
 
@@ -366,7 +365,7 @@ Triggers and auto actions only work for issues from the queue where they have be
 
 Here is an example of a trigger that will add an issue to the board when it is assigned to a certain user:
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Enter a name for the trigger.
 
@@ -400,13 +399,13 @@ To view examples for setting up triggers that send notifications to Slack and Te
 
 Let's set up a trigger to automatically calculate the difference between dates in {{ tracker-name }}:
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Enter a name for the trigger.
 
 1. Select **Conditions to be met** → **All**.
 
-1. Add the condition **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.calculate.formula.watch }}**.
+1. Add the condition: **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.calculate.formula.watch }}**.
 
    ![](../../_assets/tracker/create_trigger.png)
 
@@ -420,7 +419,7 @@ Let's set up a trigger to automatically calculate the difference between dates i
       (not_var{{issue.end.unixEpoch}}-not_var{{issue.start.unixEpoch}})/86400000
       ```
 
-   1. Choose **Field for calculation** from the [list]({{ link-admin-fields}}).
+   1. Select **Field for calculation** from the [list]({{ link-admin-fields}}).
 
       You can select one of the standard fields or [create a new](../user/create-param.md) one, such as **Duration**:
 
@@ -435,7 +434,7 @@ To test the trigger, change the values in the **{{ ui-key.startrek-backend.field
 
 As an example, let's assume we need a trigger that creates a sub-issue and fills out its fields with values from the original issue. You can set up auto creation of issues like this using a trigger and [{{ api-name }}](../about-api.md):
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Select [trigger conditions](../user/set-condition.md).
 
@@ -479,6 +478,64 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
    |#
 
    {% note info %}
+
+   Make sure the parameters you pass in the request body using variables are set in the original issue; otherwise, the trigger will not fire.
+
+   {% endnote %}
+
+1. Click **Create**.
+
+## Updating status, priority and adding a comment in related issues {#update-related-tasks}
+
+For example, we have a trigger that updates the status, priority, and adds a comment in related issues. Using a trigger and [{{ api-name }}](../about-api.md), you can configure automatic update of related issues:
+
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+
+1. Select [trigger conditions](../user/set-condition.md).
+
+   {% note warning %}
+
+   When creating a trigger condition, pay attention to the possibility of a cascading call in related issues.
+
+   {% endnote %}
+
+1. Select [**HTTP request**](../user/set-action.md#create-http) as a target action.
+
+1. Specify the request parameters. In the **Request body** field, specify the update parameters in related issues. To substitute the values from the original issue, use [variables](../user/vars.md):
+
+   #|
+   || **Field** | **Content** ||
+   || Method | POST ||
+   || Address | `{{ host }}/{{ ver }}/bulkchange/_transition` ||
+   || Authorization method | OAuth 2.0 ||
+   || Token | [How to get a token](../concepts/access.md#section_about_OAuth) ||
+   || Authorization header | Authorization ||
+   || Token type | OAuth ||
+   || Content type | application/json ||
+   || Request body |
+
+   >Example: Updating status, priority and adding a comment in related issues.
+   >
+   >```
+   >{
+   >    "transition": "need_info",
+   >    "issues": "Relates: not_var{{issue.key}}",
+   >    "values": {
+   >        "comment": "<Comment for related issues>",
+   >        "priority": {
+   >            "key": "critical"
+   >        }
+   >    }
+   >}
+   >```
+   For more information about the request, see [{#T}](../concepts/bulkchange/bulk-transition.md). ||
+   || Headers | Header: `X-Org-ID` or `X-Cloud-Org-ID`.
+   Value: Organization ID. If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`. The ID is shown in the **Organization ID for API** field on the [{{ tracker-name }} settings]({{ link-settings }}) page. ||
+   |#
+
+   {% note info %}
+
+   If you need to change only field values in the related issues without changing the status, use the request: [{#T}](../concepts/bulkchange/bulk-update-issues.md).
 
    Make sure the parameters you pass in the request body using variables are set in the original issue; otherwise, the trigger will not fire.
 

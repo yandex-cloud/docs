@@ -1,5 +1,11 @@
 # Managing users
 
+{% note warning %}
+
+You need the [administrator](role-model.md#admin) privileges to manage users in your organization.
+
+{% endnote %}
+
 {{ tracker-name }} supports organizations from {{ ya-360 }} and [{{ yandex-cloud }}]({{ link-org-main }}). You can [enable](https://tracker.yandex.ru/admin/orgs) an additional organization on the {{ tracker-name }} administration page. When enabling the second organization, users and groups are synced in {{ tracker-name }} automatically.
 
 To collaborate on issues with your colleagues, add them to {{ tracker-name }}. There are several ways to do this:
@@ -25,7 +31,7 @@ To invite a user to an organization:
 
   1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-  1. In the left-hand panel, click ![](../_assets/tracker/svg/add-user.svg) **Add user**.
+  1. In the left-hand panel, click ![](../_assets/tracker/svg/add-user.svg) **Add user** (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
 
   1. In the window that opens, specify employees' email addresses (such as `{{ example-account }}`) separated by commas and click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. Each user will receive an email prompting to join your organization.
 
@@ -39,7 +45,7 @@ To invite a user to an organization:
 
   1. [Send an invitation](../_includes/organization/add-user.md#useraccount) to {{ org-full-name }}.
 
-  1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../_assets/console-icons/persons.svg) and click the line with the group name.
+  1. In the left-hand panel, select the **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../_assets/console-icons/persons.svg) section and click the line with the group name (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
 
   1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
 
@@ -67,9 +73,9 @@ To create an identity federation for an organization:
 
   1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-  1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
+  1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}** (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
 
-  1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. The {{ org-full-name }} page opens.
+  1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. The {{ org-full-name }} page will open.
 
   1. Specify the federation settings and click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
@@ -89,7 +95,7 @@ To create user accounts, connect your company's email domain in [{{ ya-360 }}]({
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
+1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}** (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
 
 1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_components_page-admin_OrganizationSmallPane.add-org-button }}**. A window with your organizations will open. You can create a new organization or go to an existing one.
 

@@ -22,7 +22,7 @@ To use the AWS tools, follow these steps:
 
    - Management console {#console}
 
-      {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
+      {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console-without-role.md) %}
 
    - CLI {#cli}
 
@@ -70,7 +70,7 @@ To use the AWS tools, follow these steps:
 
          {% note alert %}
 
-         Once you close the dialog, the private key value will be unavailable.
+         After you close the dialog, the private key value will become unavailable.
 
          {% endnote %}
 
@@ -84,7 +84,7 @@ To use the AWS tools, follow these steps:
          yc iam access-key create --help
          ```
 
-      1. Select a service account (for example, `my-robot`):
+      1. Select a service account, e.g., `my-robot`:
 
          ```bash
          yc iam service-account list
@@ -108,7 +108,7 @@ To use the AWS tools, follow these steps:
          secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
          ```
 
-      1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
+      1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
    - API {#api}
 
@@ -117,7 +117,7 @@ To use the AWS tools, follow these steps:
    {% endlist %}
 
 1. Install the [AWS CLI](https://aws.amazon.com/cli/).
-1. Configure the AWS CLI environment: Run the `aws configure` command and enter the previously saved key ID and secret access key one-by-one. Use `{{ region-id }}` as the region:
+1. Configure the AWS CLI environment: run the `aws configure` command and enter the previously saved key ID and secret access key one by one. Use `{{ region-id }}` as the region:
 
    ```bash
    aws configure
@@ -127,7 +127,7 @@ To use the AWS tools, follow these steps:
    Default output format [None]:
    ```
 
-   As a result, the files `~/.aws/credentials` and `~/.aws/config` will be created (`C:\Users\USERNAME\.aws\credentials` and `C:\Users\USERNAME\.aws\config` on Windows).
+   As a result, the `~/.aws/credentials` and `~/.aws/config` files (`C:\Users\USERNAME\.aws\credentials` and `C:\Users\USERNAME\.aws\config` on Windows) will be created.
 1. Check that the settings are correct by running the table listing command against the [created](../../operations/manage-databases.md) DB. As the `--endpoint` value, specify the Document API endpoint available in the **{{ ui-key.yacloud.ydb.database.switch_overview }}** tab of your database in the [management console]({{ link-console-main }}).
 
    ```bash

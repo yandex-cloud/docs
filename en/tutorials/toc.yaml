@@ -229,7 +229,7 @@ items:
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
+          "Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
           data-transfer-name }}"
         href: dataplatform/data-transfer-mmy.md
       - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
@@ -390,6 +390,10 @@ items:
           Migrating data from AWS RDS for {{ PG }} to {{ mpg-full-name }} using
           {{ data-transfer-full-name }}
         href: dataplatform/rds-to-mpg.md
+      - name: >-
+          Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/mmy-to-mgp.md
       - name: Migrating data from {{ ES }} to {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
@@ -422,6 +426,10 @@ items:
         href: dataplatform/mpg-ydb-replication.md
       - name: Migrating databases from {{ mpg-name }} to {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
+      - name: >-
+          Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }}
+          using {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-postgresql.md
       - name: '{{ PG }} change data capture and delivery to {{ DS }}'
         href: dataplatform/mpg-to-yds.md
       - name: >-

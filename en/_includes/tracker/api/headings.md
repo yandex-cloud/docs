@@ -9,7 +9,7 @@
 
 - **Authorization**
 
-   OAuth token in `OAuth <token value>` format, for example:
+   OAuth token in `OAuth <token_value>` format, for example:
    ```
    OAuth 0c4181a7c2cf4521964a72ff57a34a07
    ```

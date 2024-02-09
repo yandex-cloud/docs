@@ -34,13 +34,17 @@
    1. Введите имя бюджета.
    1. Выберите **{{ ui-key.yacloud.billing.account.budgets.label_type }}**.
    1. Задайте **Сумму бюджета**: 
-            * для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** или **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** — сумму расходов на потребление;
+      
+      * для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** или **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** — сумму расходов на потребление;
       * для типа **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** — остаток на лицевом счете.
+
    1. Для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** и **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** выберите период расчета бюджета:
-      * Укажите дату начала действия бюджета, если выбрали **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** период. Дата начала — первое число месяца.
+
+      * Если вы выбрали **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** период, задайте дату начала действия бюджета. Дата начала — первое число заданного месяца.
       * Задайте дату окончания действия бюджета. Дата окончания устанавливает, когда бюджет перестанет считать потребление или остаток средств и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
-   1. Выберите пользователей, которые получат уведомление.
-   1. Для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** и **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** определите область действия бюджета. Вы можете выбрать отдельные облака, каталоги и сервисы, которые будут входить в установленный бюджет. По умолчанию данные собираются со всех облаков, каталогов и сервисов, доступных выбранному платежному аккаунту. 
+
+   1. В поле **{{ ui-key.yacloud.billing.account.budgets.label_notify }}** выберите пользователей, которые получат уведомление.
+   1. Для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** и **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** определите **{{ ui-key.yacloud.billing.account.budgets.section_scope }}** бюджета. Вы можете выбрать отдельные облака, каталоги и сервисы, которые будут входить в установленный бюджет. По умолчанию данные собираются со всех облаков, каталогов и сервисов, доступных выбранному платежному аккаунту. 
    1. Установите хотя бы один порог потребления, при котором будут отправлены уведомления. Вы можете указать пороговое значение в процентах или валюте и выбрать пользователей, которые получат уведомления. Бюджет может иметь несколько пороговых значений.
    
    {% note info %}

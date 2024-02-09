@@ -166,16 +166,16 @@ sourcePath: ru/_api-ref/datalens/function-ref/MAVG.md
 
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MAVG(SUM([Orders]), 1 TOTAL ORDER BY [City])**   | **MAVG(SUM([Orders]), 1 WITHIN [City] ORDER BY [City])**   | **MAVG(SUM([Orders]), 1 AMONG [City] ORDER BY [City])**   |
-|:------------------|:--------------------|:--------------------|:---------------------------------------------------|:-----------------------------------------------------------|:----------------------------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `7.00`                                             | `7.00`                                                     | `7.00`                                                    |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `16.00`                                            | `16.00`                                                    | `25.00`                                                   |
-| `'London'`        | `'Furniture'`       | `1`                 | `13.00`                                            | `1.00`                                                     | `4.00`                                                    |
-| `'London'`        | `'Office Supplies'` | `10`                | `5.50`                                             | `5.50`                                                     | `17.50`                                                   |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `6.00`                                             | `2.00`                                                     | `1.50`                                                    |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `3.00`                                             | `3.00`                                                     | `7.00`                                                    |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `4.50`                                             | `5.00`                                                     | `3.50`                                                    |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `14.00`                                            | `14.00`                                                    | `13.50`                                                   |
+| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MAVG(SUM([Orders]), 1 TOTAL ORDER BY [City], [Category])**   | **MAVG(SUM([Orders]), 1 WITHIN [City] ORDER BY [Category])**   | **MAVG(SUM([Orders]), 1 AMONG [City] ORDER BY [City])**   |
+|:------------------|:--------------------|:--------------------|:---------------------------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`                 | `7.00`                                                         | `7.00`                                                         | `7.00`                                                    |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `16.00`                                                        | `16.00`                                                        | `25.00`                                                   |
+| `'London'`        | `'Furniture'`       | `1`                 | `13.00`                                                        | `1.00`                                                         | `4.00`                                                    |
+| `'London'`        | `'Office Supplies'` | `10`                | `5.50`                                                         | `5.50`                                                         | `17.50`                                                   |
+| `'Moscow'`        | `'Furniture'`       | `2`                 | `6.00`                                                         | `2.00`                                                         | `1.50`                                                    |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `3.00`                                                         | `3.00`                                                         | `7.00`                                                    |
+| `'San Francisco'` | `'Furniture'`       | `5`                 | `4.50`                                                         | `5.00`                                                         | `3.50`                                                    |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `14.00`                                                        | `14.00`                                                        | `13.50`                                                   |
 
 {% endcut %}
 

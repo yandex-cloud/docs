@@ -5,11 +5,11 @@ You can use [identity federation](../concepts/add-federation.md) to set up user 
 To set up federated authentication, follow these steps:
 
 1. [Create an identity federation](#create-federation).
-1. [Add certificates to a federation](#add-certificate).
-1. [Configure authentication on your server](#configure-sso).
+1. [Add the IdP server certificate to the federation](#add-certificate-fed).
+1. [Add the federation certificate to the IdP server](#add-certificate-idp).
+1. [Set up a SAML application in your IdP](#configure-sso).
 1. [Configure user attribute mapping](#claims-mapping).
-1. [Add users to your organization](#add-users).
-1. [Test the authentication process](#test-auth).
+1. [Check the authentication operation](#test-auth).
 
 For IdP-specific examples, see our tutorials:
 
@@ -42,7 +42,7 @@ For IdP-specific examples, see our tutorials:
 
    1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** field, select the redirect binding method. Most IdPs support the **POST** binding method.
 
-   1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, specify the address of the page that the browser redirects the user to for authentication.
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, specify the address of the page to which the browser redirects the user for authentication.
 
       To learn how to get the redirect page URL, consult your identity provider's documentation or contact their support.
 
@@ -233,14 +233,6 @@ For IdP-specific examples, see our tutorials:
    1. {% include [include](../../_includes/iam/create-federation-curl.md) %}
 
 {% endlist %}
-
-To enable users to authenticate in the cloud through the new federation, complete these steps:
-
-* [Add the IdP server certificate to the federation](#add-certificate-fed).
-* [Add the federation certificate to the IdP server](#add-certificate-idp).
-* [Configure SAML for your IdP](#configure-sso).
-* [Configure user attribute mapping](#claims-mapping).
-* [Add users to your organization](./add-account.md#user-sso).
 
 ## Adding an IdP server certificate to a federation {#add-certificate-fed}
 
@@ -439,7 +431,7 @@ For more information on how to set up a SAML application, consult you IdP's docu
 * [Azure Active Directory](../tutorials/federations/integration-azure.md)
 * [Keycloak](../tutorials/federations/integration-keycloak.md)
 
-## Configure user attribute mapping {#claims-mapping}
+## Setting up user attribute mapping {#claims-mapping}
 
 After a user gets authenticated, the IdP server will send a SAML message to {{ yandex-cloud }} confirming successful authentication. The message contains various user attributes, such as the ID, name, email address, etc.
 
@@ -462,9 +454,11 @@ The `thumbnailPhoto` attribute value exceeding the length limit is ignored. Othe
 
 {% endnote %}
 
-## Test the authentication process {#test-auth}
+## Testing federated authentication {#test-auth}
 
 Test that federated authentication works properly:
+
+1. If you disabled the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option in your federation, [add](add-account.md#add-user-sso) the users manually.
 
 1. Open the browser in guest or incognito mode for a clean new user simulation.
 

@@ -4,5 +4,5 @@ We recommend placing objects in different [workbooks](../../datalens/workbooks-c
 
 To get a separate workbook for each dashboard, use one of the following methods:
 
-* First, migrate all object to one large workbook. Then, [create copies of the workbook](../../datalens/workbooks-collections/migrations.md#copy-workbook) and clear each copy of unwanted objects, only leaving the objects required for the corresponding dashboard.
-* First, create copies and object replacements in the folder structure. Then, migrate everything to workbooks. For more information, see [{#T}](../../datalens/workbooks-collections/migrations.md#partial-migration).
+* First, [copy](../../datalens/workbooks-collections/migrations.md#migration-copy) all the dashboards from different workbooks. Then, clear the original objects from the folder structure.
+* First, migrate all object to one large workbook. Then, [create copies of the workbook](../../datalens/workbooks-collections/migrations.md#copy-workbook) and clear each copy of unwanted objects, only leaving the ones required for the corresponding dashboard.

@@ -1,4 +1,4 @@
-# Transferring data to a {{ objstorage-name }} target endpoint
+# Transferring data to an {{ objstorage-name }} target endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data to the {{ objstorage-name }} storage and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
 
@@ -58,5 +58,9 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_size.title }}**: Size of files the data will be split into.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_interval.title }}**: Time after which the file will be written, regardless of its size.
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_timezone.title }}**: Time zone according to which time the files are distributed. Only affects the distribution of files to folders in the bucket, but does not affect the data within the files.
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_column.title }}**: Column name to specify logical time for the data. The default value is the system recording time. When recording data to the target, the time is converted to UTC. This behavior cannot be changed.
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

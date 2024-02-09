@@ -165,16 +165,16 @@ Sorted by `[City]`, `[Category]`.
 
 Result
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MCOUNT(SUM([Orders]), 1 TOTAL ORDER BY [City])**   | **MCOUNT(SUM([Orders]), 1 WITHIN [City] ORDER BY [City])**   | **MCOUNT(SUM([Orders]), 1 AMONG [City] ORDER BY [City])**   |
-|:------------------|:--------------------|:--------------------|:-----------------------------------------------------|:-------------------------------------------------------------|:------------------------------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `1`                                                  | `1`                                                          | `1`                                                         |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `2`                                                  | `2`                                                          | `1`                                                         |
-| `'London'`        | `'Furniture'`       | `1`                 | `2`                                                  | `1`                                                          | `2`                                                         |
-| `'London'`        | `'Office Supplies'` | `10`                | `2`                                                  | `2`                                                          | `2`                                                         |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `2`                                                  | `1`                                                          | `2`                                                         |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `2`                                                  | `2`                                                          | `2`                                                         |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `2`                                                  | `1`                                                          | `2`                                                         |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `2`                                                  | `2`                                                          | `2`                                                         |
+| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MCOUNT(SUM([Orders]), 1 TOTAL ORDER BY [City], [Category])**   | **MCOUNT(SUM([Orders]), 1 WITHIN [City] ORDER BY [Category])**   | **MCOUNT(SUM([Orders]), 1 AMONG [City] ORDER BY [City])**   |
+|:------------------|:--------------------|:--------------------|:-----------------------------------------------------------------|:-----------------------------------------------------------------|:------------------------------------------------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`                 | `1`                                                              | `1`                                                              | `1`                                                         |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `2`                                                              | `2`                                                              | `1`                                                         |
+| `'London'`        | `'Furniture'`       | `1`                 | `2`                                                              | `1`                                                              | `2`                                                         |
+| `'London'`        | `'Office Supplies'` | `10`                | `2`                                                              | `2`                                                              | `2`                                                         |
+| `'Moscow'`        | `'Furniture'`       | `2`                 | `2`                                                              | `1`                                                              | `2`                                                         |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `2`                                                              | `2`                                                              | `2`                                                         |
+| `'San Francisco'` | `'Furniture'`       | `5`                 | `2`                                                              | `1`                                                              | `2`                                                         |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `2`                                                              | `2`                                                              | `2`                                                         |
 
 {% endcut %}
 

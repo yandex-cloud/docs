@@ -6,7 +6,7 @@ The {{ tracker-full-name }} API is designed for web services and apps that work 
 
 Use the {{ tracker-name }} API to:
 
-- Integrate {{ tracker-name }} with other services. For example, use a chatbot to manage issues or link {{ tracker-name }} to your CRM system.
+- Integrate {{ tracker-name }} with other services. For example, use a chatbot to manage issues or link {{ tracker-name }} to a CRM system.
 - Automate processes, such as creating, bulk changing, and finding issues by parameter.
 - Set specific rules for processing certain actions. For example, you can set a timer for updating an issue's status.
 - Create web browser extensions for managing {{ tracker-name }}.

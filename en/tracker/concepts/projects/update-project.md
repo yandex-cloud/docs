@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/projects/update-project.md
 
 Use this request to update information about a [project](../../manager/project-new.md).
 
-You can also use a new, extended [update entity information](../entities/update-entity.md) API that provides a unified method for updating information about projects and portfolios.
+You can also use the new, more flexible and functional [update entity information](../entities/update-entity.md) API that provides a unified method for updating information about projects and portfolios.
 
 ## Request format {#query}
 

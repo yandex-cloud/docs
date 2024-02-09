@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/projects/create-project.md
 
 Use this request to create [project](../../manager/project-new.md).
 
-You can also use a new, extended [entity creation](../entities/create-entity.md) API that provides a unified method for creating projects and portfolios.
+You can also use the new, more flexible and functional [create entity](../entities/create-entity.md) API that provides a unified method for creating projects and portfolios.
 
 ## Request format {#query}
 

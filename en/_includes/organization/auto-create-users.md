@@ -1,1 +1,1 @@
-If the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option is enabled, a federation will only add users logging in to a cloud for the first time. If a federated user has been deleted, they can only be added again manually.
+If the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option is enabled, a federation will only add users logging in to a cloud for the first time. If a federated user has been removed, they can only be added again manually.

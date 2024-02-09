@@ -103,7 +103,7 @@ items:
         href: cluster-overview.md
       - name: Viewing a list of your pages
         href: my-pages.md
-      - name: Viewing pages edited by me
+      - name: Viewing the pages you edited
         href: edited-pages-list.md
       - name: Viewing all links to a page
         href: all-links.md

@@ -5,8 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/entities/create-entity.md
 
 Use this request to create a new entity: a [project](../../manager/project-new.md) or [project portfolio](../../manager/portfolio.md).
 
-The request provides a unified method for creating projects and portfolios that extends the features of the [project creation](../projects/create-project.md) API.
-
+The request is a unified method for creating projects and portfolios – more flexible and functional than the [project creation](../projects/create-project.md) API.
 
 ## Request format {#query}
 
@@ -47,7 +46,7 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| fields | Additional entity fields to be included into the response | String |
+| [fields](./about-entities.md#query-params) | Additional entity fields to include into the response | String |
 
 {% endcut %}
 
@@ -61,13 +60,24 @@ The request body contains information required to create a new entity:
 -------- | -------- | ----------
 | fields | Object with entity settings | Object |
 
-`fields` **object fields** 
+`fields` **object fields**
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| summary | Project name (required field) | String |
+| summary | Name (required field) | String |
 | queues | Queue (required for projects if the `teamAccess` field is not set) | String |
-| teamAccess | Access (required for projects if the `queues` field is not set) | Logical |
+| teamAccess | Access (required for projects if the `queues` field is not set) | Boolean |
+| description | Description | String |
+| author | Author (user ID) | Number |
+| lead | Responsible person (user ID) | Number |
+| teamUsers | Participants (array of user IDs) | Array of numbers |
+| clients | Customers (array of user IDs) | Array of numbers |
+| followers | Followers (array of user IDs) | Array of numbers |
+| start | Start date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | Date |
+| end | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | Date |
+| tags | Tags. | Array of strings |
+| parentEntity | Parent entity (portfolio) ID | Number |
+| entityStatus | Status:<ul><li>draft: Draft</li><li>in_progress: In progress</li><li>launched: New</li><li>postponed: Postponed</li><li>at_risk: At risk</li><li>blocked: Blocked</li><li>according_to_plan: According to plan</li></ul> | String |
 
 {% endcut %}
 
@@ -123,7 +133,7 @@ The request body contains information required to create a new entity:
    | version | Entity version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID | String |
    | entityType | Entity type | String |
-   | createdBy | Block with information about the user who created the entity | Object |
+   | createdBy | Block with information about the entity creator | Object |
    | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
 
@@ -131,11 +141,11 @@ The request body contains information required to create a new entity:
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the user who created the entity | String |
+   | self | Address of the API resource with information about the entity creator | String |
    | id | User ID | Number |
    | display | Displayed user name | String |
-   | cloudUid | User unique ID in {{ org-full-name }} | String |
-   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | String |
+   | cloudUid | Unique user ID in {{ org-full-name }} | String |
+   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID | String |
 
    {% endcut %}
 
