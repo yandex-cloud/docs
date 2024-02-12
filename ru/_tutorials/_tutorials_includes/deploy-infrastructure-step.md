@@ -66,7 +66,9 @@
      }
 
      boot_disk {
-       image_id = yandex_compute_disk.boot-disk-vm1.id
+       initialize_params {
+         image_id = yandex_compute_disk.boot-disk-vm1.id
+       }
      }
 
      network_interface {
@@ -88,7 +90,9 @@
      }
 
      boot_disk {
-       image_id = yandex_compute_disk.boot-disk-vm2.id
+       initialize_params {
+         image_id = yandex_compute_disk.boot-disk-vm2.id
+       }
      }
 
      network_interface {
