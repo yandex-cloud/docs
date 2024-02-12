@@ -64,9 +64,9 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 * [{{ DS }} to {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ DS }} to {{ OS }}](trails-to-os.md)
 
-## Uploading data to data marts {#upload-to-data-mart}
+## Loading data to data marts {#upload-to-data-mart}
 
-Uploading data to data marts is a transfer of preset data to storage for its subsequent visualization. Sources are data stores used for massively parallel processing of data. Targets are data stores that can quickly deliver data.
+Loading data to data marts is a process of transferring prepared data to storage for subsequent visualization. Sources are data stores used for massively parallel processing of data. Targets are data stores that can quickly deliver data.
 
 ![data mart](../../_assets/data-transfer/tutorials/data-mart.svg)
 
@@ -77,6 +77,7 @@ Uploading data to data marts is a transfer of preset data to storage for its sub
 * [{{ GP }} to {{ PG }}](greenplum-to-postgresql.md)
 * [{{ yandex-direct }} to {{ CH }}](direct-to-mch.md)
 * [{{ objstorage-name }} to {{ PG }}](object-storage-to-postgresql.md)
+* [{{ objstorage-name }} to {{ CH }}](object-storage-to-clickhouse.md)
 
 ## Importing data to {{ objstorage-name }} {#upload-to-storage}
 

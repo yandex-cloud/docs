@@ -1,1 +1,1 @@
-Для создания кластеров дополнительно необходима роль [`vpc.user`](../../../iam/concepts/access-control/roles.md#vpc-user).
+Для создания кластеров дополнительно необходима роль [`vpc.user`](../../../vpc/security/index.md#vpc-user).

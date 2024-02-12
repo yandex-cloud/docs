@@ -67,12 +67,12 @@
 
 Для работы кластера {{ managed-k8s-name }} и [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) нужны [сервисные аккаунты](../../iam/concepts/users/service-accounts.md):
 * Сервисный аккаунт с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От имени этого сервисного аккаунта будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-* Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От имени этого сервисного аккаунта [узлы](../../managed-kubernetes/concepts/index.md#node-group) будут скачивать из реестра необходимые Docker-образы.
+* Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От имени этого сервисного аккаунта [узлы](../../managed-kubernetes/concepts/index.md#node-group) будут скачивать из реестра необходимые Docker-образы.
 * Для работы Ingress-контроллера {{ alb-name }}, с ролями:
-  * [alb.editor](../../iam/concepts/access-control/roles.md#alb-editor) — для создания необходимых ресурсов.
-  * [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
-  * [certificate-manager.certificates.downloader](../../iam/concepts/access-control/roles.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-name }}](../../certificate-manager/).
-  * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика нагрузки.
+  * [alb.editor](../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов.
+  * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
+  * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-name }}](../../certificate-manager/).
+  * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика нагрузки.
 
 ### Сервисный аккаунт для ресурсов {#res-sa}
 
@@ -131,7 +131,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту роль [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на каталог:
+1. Назначьте сервисному аккаунту роль [{{ roles-editor }}](../../iam/roles-reference.md#editor) на каталог:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -197,7 +197,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту роль [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог:
+1. Назначьте сервисному аккаунту роль [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) на каталог:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -263,10 +263,10 @@
    {% endlist %}
 
 1. Назначьте сервисному аккаунту роли на каталог:
-   * [{{ roles-alb-editor }}](../../iam/concepts/access-control/roles.md#alb-editor).
-   * [{{ roles-vpc-public-admin }}](../../iam/concepts/access-control/roles.md#vpc-public-admin).
-   * [certificate-manager.certificates.downloader](../../iam/concepts/access-control/roles.md#certificate-manager-certificates-downloader).
-   * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer).
+   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor).
+   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
+   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader).
+   * [compute.viewer](../../compute/security/index.md#compute-viewer).
 
    ```bash
    yc resource-manager folder add-access-binding \

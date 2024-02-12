@@ -18,6 +18,8 @@ items:
         href: operations/create-test-bucket.md
       - name: Transferring test logs to {{ cloud-logging-name }}
         href: operations/logging.md
+      - name: Saving test artifacts to {{ objstorage-name }}
+        href: operations/save-artifacts.md
   - name: Tutorials
     items:
       - name: Load testing a gRPC service
@@ -36,6 +38,8 @@ items:
         href: tutorials/loadtesting-overload-migration.md
       - name: Running external agents for load testing
         href: tutorials/loadtesting-external-agent.md
+      - name: Comparing load test results
+        href: tutorials/loadtesting-results-compare.md
   - name: Concepts
     items:
       - name: Overview
@@ -70,15 +74,21 @@ items:
         href: concepts/reports.md
       - name: Load test results
         href: concepts/load-test-results.md
+      - name: Comparing load test results
+        href: concepts/load-tests-compare.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/loadtesting/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

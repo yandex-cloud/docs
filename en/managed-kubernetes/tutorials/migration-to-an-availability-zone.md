@@ -35,6 +35,7 @@ To migrate a zonal master host to a different availability zone:
 
       ```bash
       yc vpc subnet create \
+         --folder-id <directory_ID> \
          --name <subnet_name> \
          --zone {{ region-id }}-d \
          --network-id <network_ID> \
@@ -43,6 +44,7 @@ To migrate a zonal master host to a different availability zone:
 
       In the command, specify the following subnet parameters:
 
+      * `--folder-id`: [Directory ID](../../resource-manager/operations/folder/get-id.md).
       * `--name`: Subnet name.
       * `--zone`: Availability zone.
       * `--network-id`: ID of the network the new subnet belongs to.
@@ -52,10 +54,18 @@ To migrate a zonal master host to a different availability zone:
 
       ```bash
       {{ yc-k8s }} cluster update \
-         --name <cluster_name> \
-         --zone {{ region-id }}-d \
-         --subnet-id <new_subnet_ID>
+         --folder-id <directory_ID> \
+         --id <cluster_ID> \
+         --master-location subnet-id=<new_subnet_ID>,zone=ru-central1-d
       ```
+
+      Where:
+
+      * `--folder-id`: Folder ID.
+      * `--id`: [Cluster ID](../operations/kubernetes-cluster/kubernetes-cluster-list.md).
+      * `--master-location`: Master hosting parameters:
+         * `subnet-id`: New subnet ID.
+         * `zone`: Availability zone.
 
 - {{ TF }} {#tf}
 
@@ -159,6 +169,7 @@ To migrate a regional master host to a different set of availability zones:
 
       ```bash
       yc vpc subnet create \
+         --folder-id <directory_ID> \
          --name <subnet_name> \
          --zone {{ region-id }}-d \
          --network-id <network_ID> \
@@ -167,6 +178,7 @@ To migrate a regional master host to a different set of availability zones:
 
       In the command, specify the following subnet parameters:
 
+      * `--folder-id`: [Directory ID](../../resource-manager/operations/folder/get-id.md).
       * `--name`: Subnet name.
       * `--zone`: Availability zone.
       * `--network-id`: ID of the network the new subnet belongs to.
@@ -176,11 +188,20 @@ To migrate a regional master host to a different set of availability zones:
 
       ```bash
       {{ yc-k8s }} cluster update \
-         --name <cluster_name> \
-         --master-location zone={{ region-id }}-a,subnet-id=<subnet_ID> \
-         --master-location zone={{ region-id }}-b,subnet-id=<subnet_ID> \
-         --master-location zone={{ region-id }}-d,subnet-id=<subnet_ID>
+         --folder-id <directory_ID> \
+         --id <cluster_ID> \
+         --master-location subnet-id=<subnet_ID>,zone={{ region-id }}-a \
+         --master-location subnet-id=<subnet_ID>,zone={{ region-id }}-b \
+         --master-location subnet-id=<new_subnet_ID>,zone={{ region-id }}-d
       ```
+
+      Where:
+
+      * `--folder-id`: Folder ID.
+      * `--id`: [Cluster ID](../operations/kubernetes-cluster/kubernetes-cluster-list.md).
+      * `--master-location`: Master hosting parameters:
+         * `subnet-id`: Subnet ID.
+         * `zone`: Availability zone.
 
       Specify the appropriate subnet for each availability zone.
 
@@ -304,7 +325,7 @@ To migrate a regional master host to a different set of availability zones:
 
 Node group migration works differently depending on the type of workload in the pods:
 
-* [Stateless workload](#stateless): Operation of applications in pods during migration depends on the load distribution among cluster nodes. If the pods are deployed both in a node group being migrated and groups where the availability zone stays the same, the applications continue to run. If the pods are only deployed in the migrating group, both the pods and the applications within them will have to be stopped for a short period of time.
+* [Stateless workload](#stateless):  The functioning of applications in the pods during migration depends on how the workload is distributed among the cluster nodes. If the pods reside both in the node group you are migrating and the groups for which the availability zone remains the same, the applications will continue to run. If the pods only reside in the group you are migrating, both the pods and the applications in them will have to be stopped for a short while.
 
    Examples of stateless workloads include the web server, {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), and REST API applications.
 

@@ -123,6 +123,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/container/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -255,6 +259,8 @@ items:
                 href: api-ref/Scanner/listVulnerabilities.md
               - name: scan
                 href: api-ref/Scanner/scan.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Решение проблем
     href: error/index.md
   - name: Вопросы и ответы

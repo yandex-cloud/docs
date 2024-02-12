@@ -33,6 +33,8 @@ items:
         href: stt/normalization.md
       - name: Analyzing recognition results
         href: stt/analysis.md
+      - name: Speaker labeling
+        href: stt/speaker-labeling.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
       - name: Detecting the end of utterance
@@ -75,7 +77,7 @@ items:
     items:
       - name: Overview
         href: concepts/api.md
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: concepts/auth.md
       - name: Speech recognition
         items:
@@ -125,34 +127,38 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Audio file streaming recognition, API v3
-        href: stt/api/streaming-examples-v3.md
-      - name: Microphone speech streaming recognition, API v3
-        href: stt/api/microphone-streaming.md
-      - name: Automatic language detection, API v3
-        href: stt/api/stt-language-labels-example.md
-      - name: Streaming recognition, API v2
-        href: stt/api/streaming-examples.md
-      - name: Synchronous recognition, API v1
-        href: stt/api/request-examples.md
-      - name: Asynchronous recognition of LPCM format, API v2
-        href: stt/api/transcribation-lpcm.md
-      - name: Asynchronous recognition of OggOpus format, API v2
-        href: stt/api/transcribation-ogg.md
-      - name: Regular asynchronous recognition of audio files, API v2
-        href: stt/api/batch-transcribation.md
-      - name: Speech synthesis in the API v3
-        href: tts/api/tts-examples-v3.md
-      - name: Pattern-based speech synthesis
-        href: tts/api/tts-templates.md
-      - name: Brand Voice Call Center pattern-based speech synthesis
-        href: tts/api/tts-templates-bvcc.md
-      - name: "Speech synthesis in WAV format, API\_v1"
-        href: tts/api/tts-wav.md
-      - name: "Speech synthesis in OggOpus format, API\_v1"
-        href: tts/api/tts-ogg.md
-      - name: "Speech synthesis from SSML text, API\_v1"
-        href: tts/api/tts-ssml.md
+      - name: Speech recognition
+        items:
+          - name: Audio file streaming recognition, API v3
+            href: stt/api/streaming-examples-v3.md
+          - name: Microphone speech streaming recognition, API v3
+            href: stt/api/microphone-streaming.md
+          - name: Automatic language detection, API v3
+            href: stt/api/stt-language-labels-example.md
+          - name: Streaming recognition, API v2
+            href: stt/api/streaming-examples.md
+          - name: Synchronous recognition, API v1
+            href: stt/api/request-examples.md
+          - name: Asynchronous recognition of LPCM format, API v2
+            href: stt/api/transcribation-lpcm.md
+          - name: Asynchronous recognition of OggOpus format, API v2
+            href: stt/api/transcribation-ogg.md
+          - name: Regular asynchronous recognition of audio files, API v2
+            href: stt/api/batch-transcribation.md
+      - name: Speech synthesis
+        items:
+          - name: Speech synthesis in the API v3
+            href: tts/api/tts-examples-v3.md
+          - name: Pattern-based speech synthesis
+            href: tts/api/tts-templates.md
+          - name: Brand Voice Call Center pattern-based speech synthesis
+            href: tts/api/tts-templates-bvcc.md
+          - name: "Speech synthesis in WAV format, API\_v1"
+            href: tts/api/tts-wav.md
+          - name: "Speech synthesis in OggOpus format, API\_v1"
+            href: tts/api/tts-ogg.md
+          - name: "Speech synthesis from SSML text, API\_v1"
+            href: tts/api/tts-ssml.md
   - name: Supported audio formats
     href: formats.md
   - name: IVR integration

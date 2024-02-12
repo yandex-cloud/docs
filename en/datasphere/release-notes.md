@@ -9,6 +9,13 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 29/01/2024 {#290124}
+
+1. Updated the NVIDIA driver to version 535.
+1. Added support for multi-login to multiple organizations in various federations.
+1. Added the option to pause and resume a running node.
+1. Fixed bugs and added minor improvements in platform performance.
+
 ## Release on 15/01/2024 {#150124}
 
 1. Added self-service problem-solving tools to the project page.

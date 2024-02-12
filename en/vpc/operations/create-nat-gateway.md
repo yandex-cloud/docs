@@ -5,6 +5,8 @@ description: "Follow this guide to create and set up a NAT gateway."
 
 # Setting up a NAT gateway
 
+The minimum required [roles](../security/#roles-list) to create and configure a NAT gateway are `vpc.admin` and `vpc.gateways.user`.
+
 To create and set up a NAT gateway:
 
 {% list tabs group=instructions %}
@@ -78,8 +80,7 @@ To create and set up a NAT gateway:
       yc vpc route-table create \
         --name=test-route-table \
         --network-name=<network_name> \
-        --route destination=0.0.0.0/0,`
-                gateway-id=enpkq1v2e7p0********
+        --route destination=0.0.0.0/0,gateway-id=enpkq1v2e7p0********
       ```
 
       Where `--network-name` is the name of the network in which you are creating the table.
@@ -108,18 +109,20 @@ To create and set up a NAT gateway:
    resource "yandex_vpc_subnet" "subnet" {
      folder_id      = "<folder_ID>"
      name           = "<subnet_name>"
-     v4_cidr_blocks = "10.20.30.0/24"
+     v4_cidr_blocks = ["10.20.30.0/24"]
      zone           = {{ region-id }}-a
      network_id     = data.yandex_vpc_network.net.id
      route_table_id = yandex_vpc_route_table.rt.id
    }
 
    resource "yandex_vpc_gateway" "nat_gateway" {
+     folder_id      = "<folder_ID>"
      name = "test-gateway"
      shared_egress_gateway {}
    }
 
    resource "yandex_vpc_route_table" "rt" {
+     folder_id      = "<folder_ID>"
      name       = "test-route-table"
      network_id = "<network_ID>"
 

@@ -8,17 +8,23 @@ We are currently developing custom migration tools for {{ mkf-name }} and {{ mgl
 
 If among your services there are {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} and others not listed below, you do not need to migrate their resources.
 
-## Deadlines of migration from the {{ region-id }}-c zone {#relocation-deadline}
+## Deadlines for migration from the {{ region-id }}-c zone {#relocation-deadline}
 
-A phased decommissioning of the `{{ region-id }}-c` zone resources is being carried out. In the first quarter of 2024, you will receive a mailing or message from your account manager with a deadline for migrating your resources.
+We will be discontinuing the `{{ region-id }}-c` zone in multiple steps. In Q1 2024, you will receive a newsletter or message from your account manager with a deadline for migrating your resources.
 
 ### What happens if I do not make it in time? {#what-if}
 
-We will stop your resources (including virtual machines), move them to the `{{ region-id }}-d` zone, and run them in the new network environment.
+Once the migration timeline expires, we will forcibly migrate your resources from the `{{ region-id }}-c` zone. This will include:
+
+* Creating backups on your network disks located in the `{{ region-id }}-c` zone and migrating your disks to the `{{ region-id }}-d` zone.
+* Migrating your VMs to the `{{ region-id }}-d` availability zone. When being migrated, your resources will be stopped, and their network settings, subnets, IP addresses, and FQDNs will change. Then, they will be launched in the new availability zones.
+* When it comes to managed database resources and {{ managed-k8s-name }}: backing up your data and migrating your resources to `{{ region-id }}-d`; this will also trigger changing network settings, subnets, IP addresses, and FQDNs.
 
 Over this forced migration, your resources will change both its public and internal IP addresses. This may lead to losing network access to the resources through the previous IP addresses; you may also have to update your firewall and DNS configuration, as well as other settings that depend on the addresses your resources refer to.
 
-To keep the services available, make sure to migrate your resources from the `{{ region-id }}-c` zone on your own before the deadline.
+During the forced migration, your services may also become unavailable.
+
+To keep your services available and minimize your risks, make sure to migrate your resources from the `{{ region-id }}-c` zone on your own before the deadline.
 
 ### How do I get help with migration? {#need-help}
 
@@ -93,12 +99,6 @@ If you added a new host in the `{{ region-id }}-d` zone to a cluster that has {{
 
 ### {{ managed-k8s-name }} {#k8s}
 
-{% note warning %}
-
-Zonal master migration is temporarily unavailable.
-
-{% endnote %}
-
 To move a {{ managed-k8s-name }} cluster between availability zones:
 
 * [Migrate a master host](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
@@ -122,9 +122,9 @@ You can [migrate](../../vpc/operations/subnet-relocate.md) subnets by running th
 
 You cannot migrate public IP addresses between zones. To save the public address for incoming traffic, [reserve](../../vpc/operations/get-static-ip.md) this address and then assign it to the network balancer handler. Next, you can migrate the VM and connect it to a network balancer. If the public IP address of the balancer was in the `{{ region-id }}-c` zone, it will continue working; see the [{#T}](../../network-load-balancer/concepts/specifics.md) of the network balancer for details.
 
-Note: This way you can save the IP address for incoming traffic only. For example, if the IP address of a VM is licensed, you cannot use the public IP address of the balancer to check it.
+Note: This way, you can save the IP address for incoming traffic only. For example, if the IP address of a VM is licensed, you cannot use the public IP address of the balancer to check it.
 
-If you need an IP address with open port `25` in a new zone, order a new one in advance through support.
+If you need an IP address with open port `25` in a new zone, order a new one in advance by contacting support.
 
 ### {{ api-gw-name }}, {{ sf-name }}, {{ serverless-containers-name }} {#serverless}
 

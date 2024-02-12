@@ -19,7 +19,7 @@ In {{ yagpt-full-name }}, you can send requests in synchronous and asynchronous 
 
 Neither mode can currently process unlimited amounts of data. As of now, the maximum total number of [tokens](tokens.md) allowed per user request and model response is {{ yagpt-max-tokens }}. For more information about {{ yagpt-name }} limits, see [{#T}](limits.md).
 
-From the [management console]({{ link-console-main }}), you can access {{ yagpt-name }} Playground. You can use it to test the {{ yagpt-name }} Lite model by submitting to it synchronous requests of these two types:
+From the [management console]({{ link-console-main }}), you can access {{ yagpt-name }} Playground. You can use it to test the {{ yagpt-name }} model by sending two types of synchronous requests to it:
 
 * **Prompt mode**, where you send a prepared _prompt_ (i.e., an instruction and a request) to the model and receive a response. The model treats each new question as a stand-alone task without saving the context of previous requests.
 

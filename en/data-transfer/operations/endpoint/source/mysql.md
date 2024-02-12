@@ -248,7 +248,7 @@ During a transfer, the database schema is transferred from the source to the tar
 
    This step is performed at the end of the transfer operation when it is deactivated. If the transfer keeps running in replication mode, the final stage of the transfer will be performed only when replication stops. At this stage, you can enable the migration of views and stored procedures, stored functions, and triggers.
 
-   At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to "read-only" mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
+   At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to read-only mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
 
 ### Known limitations {#known-limitations}
 

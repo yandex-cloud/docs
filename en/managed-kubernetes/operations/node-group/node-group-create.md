@@ -51,7 +51,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
       Where:
       * `--allowed-unsafe-sysctls`: Permission for {{ managed-k8s-name }} group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), comma-separated.
-      * `--cluster-name`: Name of the[ {{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) where the node group is created.
+      * `--cluster-name`: Name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) where the node group is created.
       * `--cores`: Number of vCPUs for {{ managed-k8s-name }} nodes.
       * `--core-fraction`: [Guaranteed share of vCPUs](../../../compute/concepts/performance-levels.md) for {{ managed-k8s-name }} nodes.
       * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.

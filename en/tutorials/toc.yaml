@@ -158,7 +158,7 @@ items:
         items:
           - name: Configuring a local caching DNS resolver
             href: infrastructure-management/local-dns-cache.md
-          - name: "Migrating DNS zones from Yandex\_360 to {{ dns-name }}"
+          - name: Migrating DNS zones from Yandex 360 to {{ dns-name }}
             href: infrastructure-management/connect-migration.md
           - name: >-
               Configuring {{ dns-name }} for access to managed database clusters
@@ -323,6 +323,10 @@ items:
           data-transfer-full-name }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
+          Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-clickhouse.md
+      - name: >-
           Configuring {{ dns-name }} for accessing {{ mch-name }} clusters from
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
@@ -484,6 +488,10 @@ items:
           Implementing a secure high-availability network infrastructure with a
           dedicated DMZ based on the Next-Generation Firewall
         href: routing/high-accessible-dmz.md
+      - name: >-
+          Cloud infrastructure segmentation with Check Point Next-Generation
+          Firewall
+        href: routing/network-segmentation-checkpoint.md
       - name: Configuring a secure GRE tunnel over IPsec
         href: routing/gre-over-ipsec.md
       - name: Configuring networks for {{ dataproc-name }}

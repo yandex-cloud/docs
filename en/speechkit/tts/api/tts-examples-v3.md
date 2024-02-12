@@ -88,7 +88,6 @@ To implement an example:
                  # Synthesis parameters
                  hints=[
                    tts_pb2.Hints(voice= 'alexander'), # (Optional) Specify the voice. The default value is marina
-                   // If the voice role is not specified, do not change the default settings
                    tts_pb2.Hints(role = 'good') # (Optional) Specify the role only if applicable for this voice
                    tts_pb2.Hints(speed=1.1), # (Optional) Specify synthesis speed
                  ],
@@ -137,17 +136,17 @@ To implement an example:
       1. Execute the file from the previous step:
 
          ```bash
-         export API_KEY=<service_account_API_key>
+         export IAM_TOKEN=<service_account_IAM_token>
          export TEXT='I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
          python output/test.py \
-           --key ${API_KEY} \
+           --token ${IAM_TOKEN} \
            --output speech.wav \
            --text ${TEXT}
          ```
 
          Where:
 
-         * `API_KEY`: [API key of the service account](../../../iam/concepts/authorization/api-key.md).
+         * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account. If you use an API key for authentication under a service account, change the Python script and the program call.
          * `TEXT`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
          * `--output`: Name of the file for audio recording.
 

@@ -115,6 +115,10 @@ items:
         href: tutorials/s3-to-datasphere.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: tutorials/storage-vpc-access.md
+      - name: >-
+          Transferring data to {{ mpg-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-postgresql.md
   - name: Concepts
     items:
       - name: Overview

@@ -181,9 +181,13 @@ items:
             href: concepts/models/index.md
           - name: Дообученные фундаментальные модели
             href: concepts/models/tuned-models.md
-      - name: Эксплуатация моделей
-        href: concepts/deploy/index.md
-      - name: DataSphere Jobs
+      - name: '{{ ds-inf }}'
+        items:
+          - name: Ноды и алиасы
+            href: concepts/deploy/index.md
+          - name: Проверки состояния и мониторинг
+            href: concepts/deploy/monitoring.md
+      - name: '{{ ds-jobs }}'
         items:
           - name: Задания
             href: concepts/jobs/index.md
