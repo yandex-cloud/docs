@@ -16,6 +16,16 @@ Each pair is provided with the `exact` parameter (bool), which allows you to add
 
 If a neuroglossary does not support a particular language, there is no point using this parameter. It may not always work correctly or may produce inaccurate results, so we recommend [escaping](../operations/better-quality.md#screen) it.
 
+## Multiglossaries {#multi}
+
+When translating, the service considers different forms of words, e.g., how the word morphs based on the case and gender.
+
+In contrast to neuroglossaries, in a mutliglossary, you manually specify translation suggestions for one and the same word. The neural network will select the appropriate suggestion depending on the context. For example, _cat_ means _кошка_ and _кот_.
+
+The service works the most effectively with close or synonymic translation meanings. If you specify totally different meanings, this might cause confusion. For example, _letter_ means both _письмо_ and _буква_.
+
+The multiglossary works with all languages for which glossaries are available.
+
 ## Capitalizing a translation using a glossary {#capitalization}
 
 Translation of glossary terms takes the capitalization of the provided translation into account. Capitalization is determined using the following rules:
@@ -49,7 +59,7 @@ Translation of glossary terms takes the capitalization of the provided translati
 ## Limitations in the current version {#restrictions-in-the-current-version}
 
 * You can only provide a glossary as an array of text pairs. Going forward, we will add a feature that will allow you to provide a glossary as a file.
-* Glossaries are only supported for specific language pairs. If you enter _масло_ as the source glossary term and translate it as _oil_, this will apply to the texts translated from Russian to English.
+* Glossaries are only supported for specific language pairs. If you enter _масло_ as the source glossary term and translate it as _oil_, this will apply to texts translated from Russian to English.
 * Only certain language pairs support glossaries. See the list of supported language pairs [here](glossary-supported-pairs.md).
 
 #### See also {#see-also}

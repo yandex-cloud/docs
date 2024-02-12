@@ -2,7 +2,7 @@
 
 Сервис {{ iam-short-name }} позволяет вам создавать [_сервисные аккаунты_](concepts/users/service-accounts.md) — дополнительные аккаунты, с помощью которых программы могут выполнять операции в {{ yandex-cloud }}. Сервисные аккаунты бесплатны и позволяют гибко управлять доступами ваших программ. Подробнее в разделе [{#T}](concepts/users/service-accounts.md).
 
-Эта инструкция для [владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner) и пользователей с ролью [администратора](concepts/access-control/roles.md#admin) на облако или каталог. Пользователи с ролью [`editor`](concepts/access-control/roles.md#editor) тоже могут создавать сервисные аккаунты, но не могут назначать роли, поэтому не смогут разрешить сервисному аккаунту выполнение операций в {{ yandex-cloud }}.
+Эта инструкция для [владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner) и пользователей с ролью [администратора](./roles-reference.md#admin) на облако или каталог. Пользователи с ролью [`editor`](./roles-reference.md#editor) тоже могут создавать сервисные аккаунты, но не могут назначать роли, поэтому не смогут разрешить сервисному аккаунту выполнение операций в {{ yandex-cloud }}.
 
 Проверка наличия необходимых ролей описана в разделе [{#T}](#before-you-begin).
 
@@ -40,7 +40,7 @@
 
 {% note info %}
 
-Использовать созданный вами сервисный аккаунт могут и другие пользователи. Для этого [назначьте](operations/sa/set-access-bindings.md#assign-role-to-sa) им необходимые [роли](concepts/access-control/roles.md#iam-roles) на этот аккаунт.
+Использовать созданный вами сервисный аккаунт могут и другие пользователи. Для этого [назначьте](operations/sa/set-access-bindings.md#assign-role-to-sa) им необходимые [роли](./security/index.md#service-roles) на этот аккаунт.
 
 {% endnote %}
 

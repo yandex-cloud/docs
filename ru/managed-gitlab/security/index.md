@@ -45,7 +45,7 @@ description: "Управление доступом в веб-инструмен
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.gitlab.admin }}` вместо `{{ roles.gitlab.editor }}`.
 
-Для создания инстанса {{ GL }} дополнительно необходима роль [`{{ roles-vpc-user }}`](../../iam/concepts/access-control/roles.md#vpc-user).
+Для создания инстанса {{ GL }} дополнительно необходима роль [`{{ roles-vpc-user }}`](../../vpc/security/index.md#vpc-user).
 
 
 ## Что дальше {#whats-next}

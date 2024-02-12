@@ -209,6 +209,8 @@ items:
             href: tutorials/object-storage-to-postgresql.md
           - name: '{{ yandex-direct }} to {{ CH }}'
             href: tutorials/direct-to-mch.md
+          - name: '{{ objstorage-name }} to {{ CH }}'
+            href: tutorials/object-storage-to-clickhouse.md
       - name: Uploading data to {{ objstorage-name }}
         items:
           - name: '{{ MY }} to {{ objstorage-name }}'
@@ -257,16 +259,20 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
-      - name: December 2023
-        href: release-notes/2312.md
-      - name: November 2023
-        href: release-notes/2311.md
-      - name: October 2023
-        href: release-notes/2310.md
-      - name: September 2023
-        href: release-notes/2309.md
-      - name: August 2023
-        href: release-notes/2308.md
+      - name: January 2024
+        href: release-notes/2401.md
+      - name: '2023'
+        items:
+          - name: December 2023
+            href: release-notes/2312.md
+          - name: November 2023
+            href: release-notes/2311.md
+          - name: October 2023
+            href: release-notes/2310.md
+          - name: September 2023
+            href: release-notes/2309.md
+          - name: August 2023
+            href: release-notes/2308.md
   - name: API reference
     items:
       - name: Authentication with the API

@@ -92,14 +92,10 @@ For a full list of available formats and their characteristics, see [{#T}](../fo
 
 #### See also {#see-also}
 
-
 * Try speech synthesis using our demo on the [service page](/services/speechkit#demo).
 * Review the parameters of the [API v1](request.md) method and [API v3](../tts-v3/api-ref/grpc/) requests.
 * See examples of using the {{ speechkit-name }} API:
    * [{#T}](api/tts-ogg.md)
    * [{#T}](api/tts-wav.md)
    * [{#T}](api/tts-ssml.md)
-* Python SDK use cases:
-   * [{#T}](../sdk/python/request.md)
-   * [{#T}](../sdk/python/synthesis.md)
 

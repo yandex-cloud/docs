@@ -13,10 +13,10 @@ Permission denied
 Ошибка возникает из-за отсутствия у [сервисного аккаунта для ресурсов](../../managed-kubernetes/security/index.md#sa-annotation) необходимых [ролей](../../iam/concepts/access-control/roles.md) в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), [облачная сеть](../../vpc/concepts/network.md#network) которого выбирается при создании.
 
 Чтобы создать [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) в облачной сети другого каталога, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) для ресурсов следующие роли в этом каталоге:
-* [{{ roles-vpc-private-admin }}](../../iam/concepts/access-control/roles.md#vpc-private-admin)
-* [{{ roles-vpc-user }}](../../iam/concepts/access-control/roles.md#vpc-user)
+* [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user)
 
-Для использования [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) дополнительно [назначьте](../../iam/operations/sa/assign-role-for-sa.md) роль [{{ roles-vpc-public-admin }}](../../iam/concepts/access-control/roles.md#vpc-public-admin).
+Для использования [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) дополнительно [назначьте](../../iam/operations/sa/assign-role-for-sa.md) роль [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
 
 #### Пространство имен удалено, но все еще находится в статусе Terminating и не удаляется {#namespace-terminating}
 

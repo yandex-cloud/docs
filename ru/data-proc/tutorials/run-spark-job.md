@@ -64,8 +64,8 @@ keywords:
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `data-proc-sa` с ролями:
 
-        * [dataproc.agent](../../iam/concepts/access-control/roles.md#mdb-dataproc-agent);
-        * [storage.admin](../../iam/concepts/access-control/roles.md#storage-admin).
+        * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent);
+        * [storage.admin](../../storage/security/index.md#storage-admin).
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) `data-proc-bucket` с ограниченным доступом.
     1. [Предоставьте сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) `data-proc-sa` разрешение `READ и WRITE` на бакет `data-proc-bucket`.

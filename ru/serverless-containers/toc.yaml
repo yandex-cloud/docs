@@ -199,6 +199,12 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI Containers
+    href: ../cli/cli-ref/managed-services/serverless/container/index.md
+  - name: Справочник CLI Triggers
+    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API Containers
     items:
       - name: Аутентификация в API
@@ -281,6 +287,8 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/serverless-containers

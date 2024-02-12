@@ -135,6 +135,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/iot/index.md
+  - name: Справочник Terraform
+    href: tf-ref.md
   - name: Справочник API Devices
     items:
       - name: Аутентификация в API
@@ -283,6 +287,8 @@ items:
                 href: broker/api-ref/Broker/listPasswords.md
               - name: update
                 href: broker/api-ref/Broker/update.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/iot-core

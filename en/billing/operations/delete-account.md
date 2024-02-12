@@ -7,10 +7,13 @@ description: "Follow this guide to delete a billing account."
 
 To delete a {{ yandex-cloud }} billing account you no longer need:
 
-1. [Delete all resource folders](../../resource-manager/operations/folder/delete.md) from all clouds linked to the billing account.
-1. [Pay any outstanding charges](../concepts/billing-threshold.md#arrears).
-1. [Contact support]({{ link-console-support }}) and provide them the billing account ID (you can find it on the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) tab).
+{% include [delete-account](../../_includes/billing/delete-account.md) %}
 
-Please note that this operation cannot be undone.
+#### See also {#see-also}
 
-For more information, refer to [how to link a cloud to a different billing account](pin-cloud.md).
+* [Linking the cloud to another billing account](pin-cloud.md).
+* [Deleting a folder](../../resource-manager/operations/folder/delete.md).
+* [Deleting a cloud](../../resource-manager/operations/cloud/delete.md).
+* [Deleting an organization](../../organization/operations/delete-org.md).
+* [Deleting a {{ ml-platform-name }} community](../../datasphere/operations/community/delete.md).
+* [Deleting a {{ speechsense-name }} space](../../speechsense/operations/space/delete.md).

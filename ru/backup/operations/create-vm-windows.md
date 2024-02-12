@@ -6,7 +6,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md#backup-editor) `backup.editor`.
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../security/index.md#backup-editor) `backup.editor`.
 1. [Настройте](../concepts/vm-connection.md#vm-network-access) сетевой доступ для ВМ.
 
 ## Создание ВМ {#creating-vm}

@@ -90,9 +90,9 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 Для создания кластера {{ managed-k8s-name }} и группы узлов [аккаунт](../../iam/concepts/users/accounts.md), с помощью которого вы собираетесь создавать кластер, должен иметь [роли](../../iam/concepts/access-control/roles.md):
 * [{{ roles.k8s.editor }}](#k8s-editor) или выше.
-* [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user).
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user).
 
-Чтобы создать кластер {{ managed-k8s-name }} и группу узлов с публичным доступом, дополнительно нужна роль [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin).
+Чтобы создать кластер {{ managed-k8s-name }} и группу узлов с публичным доступом, дополнительно нужна роль [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin).
 
 ## Сервисные аккаунты кластера {{ managed-k8s-name }} {#sa-annotation}
 

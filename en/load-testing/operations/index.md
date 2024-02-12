@@ -10,3 +10,4 @@ description: "In this article, you will learn how to work with {{ load-testing-f
 * [{#T}](security-groups-target.md)
 * [{#T}](create-test-bucket.md)
 * [{#T}](logging.md)
+* [{#T}](save-artifacts.md)

@@ -643,6 +643,7 @@ default:
   subjects-allUsers: allUsers
   subnet-id: b0rcctk2rvtr8efcch64
   subnet-name: default-ru-central1-c
+  support-center-name: Support Center
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4

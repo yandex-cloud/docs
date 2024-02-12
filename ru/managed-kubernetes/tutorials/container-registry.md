@@ -93,7 +93,7 @@
      --subject serviceAccount:$RES_SA_ID
    ```
 
-1. Назначьте сервисному аккаунту роль [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin) на каталог:
+1. Назначьте сервисному аккаунту роль [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) на каталог:
 
    ```bash
    yc resource-manager folder add-access-binding \

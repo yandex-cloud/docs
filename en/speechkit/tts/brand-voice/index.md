@@ -71,7 +71,7 @@ The sampling frequency in the synthesized audio recording is {{ tts-cc-quality }
 
 {% note info %}
 
-It can be useful to log data if synthesis errors occur. If you do not want to log all data, only include the logging header in requests with issues after clearing the variable part of personal data as much as possible.
+It may be useful to log data if synthesis errors occur. If you do not want to log all data, only include the logging header in requests with issues after clearing the variable part of personal data as much as possible.
 
 {% endnote %}
 

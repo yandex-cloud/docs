@@ -57,11 +57,7 @@
 
 Имя сервиса — `serverless.apigateway`.
 
-Имя события | Описание
---- | ---
-`CreateApiGateway` | Создание шлюза
-`DeleteApiGateway` | Удаление шлюза
-`UpdateApiGateway` | Изменение шлюза
+{% include [api-gw-events](../../_includes/audit-trails/events/api-gw-events.md) %}
 
 
 ## {{ alb-name }} {#alb}
@@ -86,25 +82,7 @@
 
 Имя сервиса — `serverless`.
 
-Имя события | Описание
---- | ---
-`functions.CreateFunction` | Создание функции
-`functions.CreateFunctionVersion` | Создание версии функции
-`functions.DeleteFunction` | Удаление функции
-`functions.DeleteFunctionVersion` | Удаление версии функции
-`functions.RemoveFunctionTag` | Удаление тега функции
-`functions.RemoveScalingPolicy` | Удаление политики масштабирования функции
-`functions.SetFunctionTag` | Назначение тега функции
-`functions.SetFunctionAccessBindings` | Назначение привязок прав доступа для функции
-`functions.SetScalingPolicy` | Назначение политики масштабирования функции
-`functions.UpdateFunction` | Изменение функции
-`functions.UpdateFunctionAccessBindings` | Изменение привязок прав доступа для функции
-`mdbproxy.CreateProxy` | Создание прокси
-`mdbproxy.DeleteProxy` | Удаление прокси
-`mdbproxy.UpdateProxy` | Изменение прокси
-`triggers.CreateTrigger` | Создание триггера
-`triggers.DeleteTrigger` | Удаление триггера
-`triggers.UpdateTrigger` | Изменение триггера
+{% include [functions-events](../../_includes/audit-trails/events/functions-events.md) %}
 
 
 ## {{ backup-name }} {#backup}
@@ -180,30 +158,7 @@
 
 Имя сервиса — `containerregistry`.
 
-Имя события | Описание
---- | ---
-`CreateImage` | Создание образа
-`CreateImageTag` | Создание тега образа
-`CreateLifecyclePolicy` | Создание политики жизненного цикла
-`CreateRegistry` | Создание реестра
-`CreateRepository` | Создание репозитория
-`CreateScanPolicy` | Создание политики сканирования
-`DeleteImage` | Удаление образа
-`DeleteImageTag` | Удаление тега образа
-`DeleteLifecyclePolicy` | Удаление политики жизненного цикла
-`DeleteRegistry` | Удаление реестра
-`DeleteRepository` | Удаление репозитория
-`DeleteScanPolicy` | Удаление политики сканирования
-`ScanImage` | Сканирование образа
-`SetIpPermission` | Назначение политики доступа с IP-адресов
-`UpdateIpPermission` | Изменение политики доступа с IP-адресов
-`UpdateLifecyclePolicy` | Изменение политики жизненного цикла
-`UpdateRegistry` | Изменение реестра
-`UpdateScanPolicy` | Изменение политики сканирования
-`UpdateRegistryAccessBindings` | Изменение привязок прав доступа на реестр  
-`UpdateRepositoryAccessBindings` | Изменение привязок прав доступа на репозиторий
-`SetRegistryAccessBindings`  | Назначение привязок прав доступа на реестр
-`SetRepositoryAccessBindings` | Назначение привязок прав доступа на репозиторий
+{% include [container-registry-events](../../_includes/audit-trails/events/container-registry-events.md) %}
 
 ## {{ dataproc-name }} {#dataproc}
 
@@ -255,14 +210,7 @@
 
 Имя сервиса — `iot`.
 
-Имя события | Описание
---- | ---
-`devices.CreateDevice` | Создание устройства
-`devices.CreateRegistry` | Создание реестра
-`devices.DeleteDevice` | Удаление устройства
-`devices.DeleteRegistry` | Удаление реестра
-`devices.UpdateDevice` | Изменение устройства
-`devices.UpdateRegistry` | Изменение реестра
+{% include [iot-events](../../_includes/audit-trails/events/iot-events.md) %}
 
 ## {{ kms-name }} {#kms}
 
@@ -568,21 +516,7 @@
 
 Имя сервиса — `serverless.containers`.
 
-Имя события | Описание
---- | ---
-`CreateContainer` | Создание контейнера
-`DeleteContainer` | Удаление контейнера
-`DeployContainerRevision` | Создание ревизии контейнера
-`RollbackContainer` | Откат контейнера к целевой ревизии
-`SetContainerAccessBindings` | Назначение привязок прав доступа к контейнеру 
-`UpdateContainer` | Изменение контейнера
-`UpdateContainerAccessBindings` | Изменение привязок прав доступа к контейнеру
-`mdbproxy.CreateProxy` | Создание прокси
-`mdbproxy.DeleteProxy` | Удаление прокси
-`mdbproxy.UpdateProxy` | Изменение прокси
-`triggers.CreateTrigger` | Создание триггера
-`triggers.DeleteTrigger` | Удаление триггера
-`triggers.UpdateTrigger` | Изменение триггера
+{% include [serverless-containers-events](../../_includes/audit-trails/events/serverless-containers-events.md) %}
 
 ## {{ org-name }} {#organization}
 

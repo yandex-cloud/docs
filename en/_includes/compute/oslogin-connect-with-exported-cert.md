@@ -84,9 +84,10 @@ You can use a standard SSH client to connect to VMs with OS Login access enabled
       ```
 
       Where:
+
       * `<certificate_file_path>`: Path to the previously saved `Identity` certificate file, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
       * `<username>`: Organization user name. You can see the username at the end of the exported OS Login certificate. In the example above, it is `orgusername`.
-      * `<VM_public_IP_address>`: The VM's public IP address you got earlier.
+      * `<VM_public_IP_address>`: VM's public IP address you got earlier.
 
       If this is your first time connecting to the VM, you will see an unknown host warning:
 

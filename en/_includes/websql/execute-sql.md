@@ -1,5 +1,5 @@
 To build a query:
-1. In the **Connection manager**, select the database and table.
+1. In the **Connection manager**, select a database, table, or image.
 1. In the data panel, you will see a form with the default query:
 
    ```sql
