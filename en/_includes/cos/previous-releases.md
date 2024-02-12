@@ -1,3 +1,8 @@
+### Version 2.3.0 {#version2.3.0}
+
+* Fixed the `gpu-standard-v3` platform issues.
+* Updated system components and packages.
+
 ### Version 2.1.1 {#version2.1.1}
 
 * Added a rotation of Docker container logs using the `local` logging driver.

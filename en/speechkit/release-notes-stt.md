@@ -8,9 +8,13 @@ For more information about speech recognition methods, see [About technology](st
 
 ### Release on January 12, 2024 {#120124}
 
-Improved recognition quality for Uzbek in `general:rc`.
+Added support for [speaker labeling](stt/speaker-labeling.md) in recognition results in `general:rc`.
 
 ## Previous versions {#previous}
+
+### Release on January 12, 2024 {#120124}
+
+Improved recognition quality for Uzbek in `general:rc`.
 
 ### Release on December 29, 2023 {#291223}
 
@@ -98,7 +102,7 @@ Improved recognition quality for abbreviations in Russian on client scenarios fo
 
 Upgrades to the [release on March 7, 2023](#070323) are now available in the `general` model.
 
-### Release on 07/03/23 {#070323}
+### Release on March 7, 2023 {#070323}
 
 For the `general:rc` model:
 

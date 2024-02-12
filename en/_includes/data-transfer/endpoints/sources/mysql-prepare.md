@@ -16,7 +16,7 @@
 
       {% note info %}
 
-      If the creation of a primary key returns an error saying _Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again_, [increase](../../../../managed-mysql/operations/update.md#change-mysql-config) the [`Innodb log file size` parameter value](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) in the DBMS settings.
+      If, when creating a primary key, you get an error saying _`Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again`_, [increase](../../../../managed-mysql/operations/update.md#change-mysql-config) the [`Innodb log file size` parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) value in the DBMS settings.
 
       {% endnote %}
 
@@ -52,7 +52,7 @@
 
       {% note info %}
 
-      If the creation of a primary key returns an error saying _Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again_, increase the [`inno_db_log_file_size`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) parameter value in the DBMS settings.
+      If, when creating a primary key, you get an error saying _`Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again`_, increase the [`inno_db_log_file_size`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) parameter value in the DBMS settings.
 
       {% endnote %}
 

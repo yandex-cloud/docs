@@ -1,10 +1,10 @@
 # Migrating a {{ dataproc-name }} cluster to a different availability zone
 
-Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud network](../../vpc/concepts/network.md#network) and [availability zone](../../overview/concepts/geo-scope.md). You can move subclusters from one availability zone to another. This process is known as cluster migration.
+Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud network](../../vpc/concepts/network.md#network) and [availability zone](../../overview/concepts/geo-scope.md). To migrate a cluster to another availability zone, create a new cluster in the zone you need, and then another one in the initial zone.
 
 {% note info %}
 
-Only [lightweight clusters](../concepts/index.md#light-weight-clusters) can be migrated to a different availability zone. Migration of HDFS and {{ metastore-full-name }} clusters is currently not supported. The support team will notify cluster owners before manually migrating any HDFS and {{ metastore-name }} clusters deployed in the `{{ region-id }}-c` availability zone.
+Currently, you can only migrate [lightweight clusters](../concepts/index.md#light-weight-clusters) to another availability zone. You cannot migrate HDFS and {{ metastore-full-name }} clusters. If you use such clusters located in the `{{ region-id }}-c` availability zone, the {{ yandex-cloud }} tech support will notify you once the relevant migration guide is available.
 
 {% endnote %}
 

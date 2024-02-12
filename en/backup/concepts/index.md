@@ -2,9 +2,9 @@
 
 {{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. Backup and recovery is available for [{{ compute-name }} VMs](../../compute/concepts/vm.md) with [supported operating systems](vm-connection.md#os).
 
-Created VM backups are application-consistent: both data already stored on disks and data that is still being written to disks are saved. This approach allows you to resume applications that were running at the time of backup creation directly after restoring a VM. This is important for VMs that are part of data storage systems, e.g., when a DBMS is running on the VM.
+VM backups are application-consistent: they save not only the data stored on disks but also the data already submitted but not yet fully written. This allows you to resume applications that were running at the time of creating a backup directly after recovering a VM. This is important for VMs forming a part of data storage systems, e.g., those hosting a DBMS.
 
-{{ backup-name }} can create [full and incremental backups](backup.md#types). A full backup stores complete data of a VM: VMs recover faster from full backups than from incremental backups; however, such backups take up more storage space and it takes longer to create them. An incremental backup only stores data that differs from a previous backup, they are created faster and take up less space; however, restoring a VM from incremental backups takes longer than from full backups. If you see that a VM has changed a lot since the previous backup, it is better to make a full backup.
+{{ backup-name }} can create [full and incremental backups](backup.md#types). A full backup stores the whole VM data: recovery takes place faster than from an incremental backup, yet such backups take up more storage space and take longer to be created. An incremental backup only stores data that is different from the previous backup, it is created faster and takes up less space. However, recovery from an incremental backup takes longer than from a full one. If you know your VM to have changed a lot since the previous backup, it is better to make a full backup.
 
 With {{ backup-name }}, you can also restore individual files and directories from a backup to any VM connected to the service. For more information, see [File-by-file recovery](backup.md#file-by-file).
 

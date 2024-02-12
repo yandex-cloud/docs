@@ -33,7 +33,7 @@
 
 ## Настройте окружение {#prepare-environment}
 
-1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт, например `logs-sa`, c [ролью](../iam/concepts/access-control/roles.md#editor) `editor` на каталог.
+1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт, например `logs-sa`, c [ролью](../iam/roles-reference.md#editor) `editor` на каталог.
 1. [Настройте](../logging/tutorials/) передачу логов в лог-группу. Например, вы можете [передавать](../logging/tutorials/vm-fluent-bit-logging.md) логи с ВМ или [добавить](../logging/operations/write-logs.md) в лог-группу тестовые записи.
 
 {% include [create-bucket](_tutorials_includes/create-bucket.md) %}

@@ -77,7 +77,7 @@
    * `alb.editor` — для создания необходимых ресурсов.
    * `certificate-manager.admin` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../../certificate-manager/).
    * `compute.viewer` — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../../application-load-balancer/concepts/target-group.md) [балансировщика нагрузки](../../../application-load-balancer/concepts/application-load-balancer.md).
-   * `vpc.publicAdmin` — для управления [внешней связностью](../../../iam/concepts/access-control/roles.md#vpc-public-admin).
+   * `vpc.publicAdmin` — для управления [внешней связностью](../../../vpc/security/index.md#vpc-public-admin).
 1. Создайте для него [статический ключ](../../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
 
    ```bash

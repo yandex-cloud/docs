@@ -8,9 +8,9 @@
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
-To learn how to download and install S3cmd, see the [Download](https://s3tools.org/download) section on the official website of the project.
+To install S3cmd, check out the [installation section](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md) in the S3cmd repository on GitHub.
 
 ## Setup {#setup}
 
@@ -20,11 +20,8 @@ To configure S3cmd, use the `s3cmd --configure` command. For a query, specify va
 1. `Secret Key`: Enter the secret key that you received when generating the [static key](../../iam/concepts/authorization/access-key.md).
 1. `Default Region`: Enter `{{ region-id }}`.
 
-   {% note info %}
-
    To work with {{ objstorage-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
 
-   {% endnote %}
 1. `S3 Endpoint`: Enter `{{ s3-storage-host }}`.
 1. `DNS-style bucket+hostname:port template for accessing a bucket`: Enter `%(bucket)s.{{ s3-storage-host }}`.
 1. Leave the other parameter values unchanged.
@@ -70,17 +67,15 @@ To enable debug output in the console, use the `--debug` key.
 s3cmd ls
 ```
 
+S3cmd is configured using a service account. It can only view the list of buckets in the directory in which it was created. Do not use the command to get information about a public bucket located outside the service account directory.
+
 ### Create a bucket {#creating-bucket}
 
 ```bash
 s3cmd mb s3://bucket
 ```
 
-{% note info %}
-
 When creating a bucket, follow the [naming conventions](../concepts/bucket.md#naming).
-
-{% endnote %}
 
 ### Uploading an object to cold storage {#uploading-object}
 

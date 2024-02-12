@@ -141,7 +141,7 @@
 
      Сохраните идентификатор сервисного аккаунта — параметр `id`, он понадобится для дальнейшей настройки.
      
-  1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md#editor) `editor`:
+  1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`:
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \

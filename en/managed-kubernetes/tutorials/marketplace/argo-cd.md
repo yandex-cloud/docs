@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
    1. [Create service accounts](../../../iam/operations/sa/create.md):
       * Service account for {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) that you build in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md), as well as pull them to run [pods](../../concepts/index.md#pod).
+      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) assembled in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md) and pull them to run [pods](../../concepts/index.md#pod).
 
       {% note tip %}
 
@@ -34,8 +34,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
-   1. [Configure the default security group](../../../managed-gitlab/operations/connect.md) required for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance) to run.
+   1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
+   1. [Configure a security group](../../../managed-gitlab/operations/connect.md) for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance).
    1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
    1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
 
@@ -49,7 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. Download the [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
       * [Network](../../../vpc/concepts/network.md#network).
       * [Subnet](../../../vpc/concepts/network.md#subnet).
-      * [Security group](../../../vpc/concepts/security-groups.md) and [rules](../../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, {{ mgl-name }} instance, and [{{ container-registry-name }} register](../../../container-registry/concepts/registry.md) to run:
+      * [Security group](../../../vpc/concepts/security-groups.md) and the [rules](../../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, {{ mgl-name }} instance, and [{{ container-registry-name }} registry](../../../container-registry/concepts/registry.md):
          * Rules for service traffic.
          * Rules for accessing the {{ k8s }} API and managing a {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
          * Rules for connecting to a Git repository over SSH on port 22.
@@ -60,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ container-registry-name }} registry.
    1. Specify the following in the configuration file:
       * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.
+      * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
       * {{ managed-k8s-name }} cluster CIDR.
       * Name of the service account for {{ managed-k8s-name }} resources and nodes.
       * Name of the {{ container-registry-name }} registry.
@@ -188,7 +188,7 @@ Install the following items in the local environment:
    * **Select a role**: `Maintainer`.
    * **Select scopes**: `read_repository`.
 1. Click **Create project access token**.
-1. Copy the value of the created token.
+1. Copy the value of the token you created.
 1. In the Argo CD console, go to **Settings** → **Repositories**.
 1. Click **Connect Repo Using HTTPS**.
 1. In the resulting form, enter the settings:

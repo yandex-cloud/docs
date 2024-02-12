@@ -5,7 +5,7 @@ description: "The main entity in this managed service is a {{ k8s }} cluster. A 
 
 # Resource relationships in {{ managed-k8s-name }}
 
-[{{ k8s }}](https://kubernetes.io/) is an environment for managing containerized applications. {{ k8s }} provides tools for working with clusters that can automate such tasks as deploying, scaling, and managing applications in containers.
+[{{ k8s }}](https://kubernetes.io/) is an environment for managing containerized applications. {{ k8s }} provides tools for working with clusters to automate deployment, scaling, and management of applications in containers.
 
 The main entity in the service is the _{{ k8s }} cluster_.
 
@@ -74,29 +74,29 @@ You can connect to nodes in a group via SSH. Learn more in [Connecting to a node
 
 ### Taints and tolerations policies {#taints-tolerations}
 
-_Taints_ are special policies applied to nodes in the group. Using taint policies, you can prohibit some pods from running on certain nodes. For example, you can specify that rendering pods can only be run on [nodes with GPUs](node-group/node-group-gpu.md).
+_Taints_ are special policies applied to nodes in the group. Using taints, you can ensure that certain pods are not scheduled onto inappropriate nodes. For example, you can specify that rendering pods can only be run on [nodes with GPUs](node-group/node-group-gpu.md).
 
-Advantages of taint policies:
-* The policies are preserved when a node is restarted or replaced.
-* The policies are applied automatically to nodes added to the group.
+Benefits of taints include:
+* The policies persist when a node is restarted or replaced with a new one.
+* When adding nodes to a group, the policies are assigned to the node automatically.
 * The policies are automatically applied to new nodes [during node group scaling](autoscale.md).
 
-You can only apply a taint policy to a node group when [creating](../operations/node-group/node-group-create.md) it.
+You can only place a taint on a node group when [creating](../operations/node-group/node-group-create.md) it.
 
-Every taint policy consists of three parts:
+Each taint has three parts:
 
 ```text
 <key> = <value>:<effect>
 ```
 
-A list of available taint effects:
+List of available taint effects:
 * `NO_SCHEDULE`: Prohibit running new pods on group nodes (it does not affect running pods).
 * `PREFER_NO_SCHEDULE`: Avoid running pods on group nodes if there are available resources for this in other groups.
 * `NO_EXECUTE`: Evict pods from nodes in this group to other groups, and prohibit running new pods.
 
-_Tolerations_ are exceptions from taint policies. Tolerations allow you to permit certain pods to run on nodes even if a taint policy prevents it.
+_Tolerations_ are exceptions from taint policies. Using tolerations, you can allow certain pods to run on nodes, even if the taint of the node group prohibits this.
 
-For example, if the `key1=value1:NoSchedule` taint policy is set for group nodes, you can place pods on this node using tolerations:
+For example, if the `key1=value1:NoSchedule` taint is set for group nodes, you can place pods on this node using tolerations:
 
 ```yaml
 apiVersion: v1
@@ -113,7 +113,7 @@ spec:
 
 {% note info %}
 
-For system pods, tolerations permitting them to run on all available nodes are automatically set.
+System pods are automatically assigned tolerations so they can run on any available node.
 
 {% endnote %}
 

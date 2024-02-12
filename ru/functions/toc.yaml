@@ -423,6 +423,12 @@ items:
     href: pricing.md
   - name: Управление доступом
     href: security/index.md
+  - name: Справочник CLI Functions
+    href: ../cli/cli-ref/managed-services/serverless/function/index.md
+  - name: Справочник CLI Triggers
+    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API Functions
     items:
       - name: Аутентификация в API
@@ -535,6 +541,8 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы

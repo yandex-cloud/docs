@@ -80,12 +80,12 @@ items:
         href: concepts/export-siem.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Метрики
-        href: concepts/user-metrics.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Метрики {{ monitoring-name }}
+    href: concepts/user-metrics.md
   - name: Справочник событий уровня конфигурации
     href: concepts/events.md
   - name: Справочник событий уровня сервисов

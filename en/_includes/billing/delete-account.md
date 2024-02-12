@@ -1,0 +1,5 @@
+1. Delete all the {{ yandex-cloud }} [resources](../../resource-manager/concepts/resources-hierarchy.md#rm-resources), [clouds](../../organization/concepts/manage-services.md#cloud), [organizations](../../organization/concepts/membership.md), {{ ml-platform-name }} [communities](../../datasphere/concepts/community.md), and {{ speechsense-name }} [spaces](../../speechsense/concepts/resources-hierarchy.md#space) if you created them.
+1. [Pay existing outstanding charges](../../billing/concepts/billing-threshold.md#arrears) for the {{ yandex-cloud }} resources.
+1. Send a request to [technical support]({{ link-console-support }}) to delete the [billing account](../../billing/concepts/billing-account.md), indicating its ID (you can find it on the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) tab).
+
+Please note that this operation cannot be undone.

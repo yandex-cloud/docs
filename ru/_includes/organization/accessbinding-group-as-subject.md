@@ -20,7 +20,7 @@
 
   {% include [cli-install](../cli-install.md) %}
 
-  1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
+  1. Выберите роль из [справочника ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
 
   1. Назначьте роль с помощью команды:
 
@@ -100,7 +100,7 @@
 
   Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
 
-  1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
+  1. Выберите роль из [справочника ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
 
   1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `group` и идентификатор группы:
 

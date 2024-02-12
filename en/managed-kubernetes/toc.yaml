@@ -132,7 +132,7 @@ items:
             href: operations/node-connect-ssh.md
           - name: Configuring autoscaling
             href: operations/autoscale.md
-          - name: Updating a node group
+          - name: Changing a node group
             href: operations/node-group/node-group-update.md
           - name: Managing {{ k8s }} node labels
             href: operations/node-group/node-label-management.md
@@ -250,7 +250,7 @@ items:
             href: concepts/volume.md
           - name: Service
             href: concepts/service.md
-      - name: Node group
+      - name: Node groups
         items:
           - name: Cluster autoscaler
             href: concepts/node-group/cluster-autoscaler.md
@@ -350,7 +350,7 @@ items:
                 href: api-ref/Version/index.md
               - name: list
                 href: api-ref/Version/list.md
-  - name: Metric reference
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} audit logs'
     href: at-ref.md

@@ -42,6 +42,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
 * [{#T}](data-transfer-direct-to-mch.md)
+* [{#T}](object-storage-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
 

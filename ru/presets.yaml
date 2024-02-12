@@ -124,6 +124,7 @@ default:
   ds: Serverless
   DS: YDS
   ds-cli: DataSphere CLI
+  ds-inf: DataSphere Inference
   ds-jobs: DataSphere Jobs
   dt-copy-regular: Периодическое
   dt-copy-regular-incremental: Периодическое инкрементальное

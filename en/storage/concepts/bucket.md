@@ -1,6 +1,6 @@
 ---
 title: "Bucket"
-description: "A bucket is a logical entity for storing objects. A bucket name is used as part of a URL to access data. Bucket names are unique throughout Object Storage; this means you cannot create two buckets with the same name (even in two different folders residing in different clouds). You should keep this in mind if you are going to create buckets automatically through the API."
+description: "A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Bucket names are unique across {{ yandex-cloud }}, i.e., you cannot create buckets with identical names even if the folders they reside in belong to different clouds. You should keep this in mind if you are going to create buckets automatically through the API."
 keywords:
   - what is a bucket
   - bucket
@@ -10,11 +10,19 @@ keywords:
 
 # Bucket in {{ objstorage-name }}
 
-A bucket is a logical entity for storing objects.
+A _bucket_ is an {{ objstorage-name }} storage unit allocated for user data. Each {{ yandex-cloud }} bucket has a [unique name](#naming) used in requests to {{ objstorage-name }}.
+
+Buckets store data as [objects](./object.md). To organize data, you can create multiple buckets or use [folders](./object.md#folder) and prefixes within a single bucket.
+
+You can also use buckets to [host static websites](./hosting.md).
+
+For more information on getting started with buckets, see [{#T}](../quickstart.md).
+
+You can [create a bucket](../operations/buckets/create.md) via the [management console]({{ link-console-main }}), [YC CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), [API](../../api-design-guide/concepts/general.md), or use some popular [tools](../tools/index.md) designed to work with the Amazon S3 HTTP API.
 
 ## Naming buckets {#naming}
 
-A bucket name is used as part of the data access URL and is visible to your users. For example, it may look like `https://{{ s3-storage-host }}/bucket-name`.
+A bucket name is used as part of the data access URL and is visible to your users, e.g., `https://{{ s3-storage-host }}/bucket-name`.
 
 The naming requirements are as follows:
 

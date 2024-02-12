@@ -1,28 +1,8 @@
-# Пользовательские метрики {{ at-name }}
+# Справочник метрик {{ monitoring-full-name }}
 
+В этом разделе описаны метрики сервиса {{ at-name }}, поставляемые в [{{ monitoring-name }}](../../monitoring/).
 
-Вы можете отслеживать состояние [трейлов](trail.md) с помощью [{{ monitoring-full-name }}](../../monitoring/concepts/index.md) — сервиса сбора и хранения метрик ресурсов {{ yandex-cloud }}.
-
-## Метрики {{ at-name }} {#metrics}
-
-Имя метрики | Описание | Метки
---- | --- | ---
-`trail.status` | текущий [статус](trail.md#status) трейла; метрика может использоваться для создания алерта перехода трейла в нерабочее состояние | trail, status
-`trail.processed_events_count` | частота принятых в обработку событий с [области сбора](trail.md#collecting-area) аудитных логов | trail, event_type, event_source
-`trail.unauthorized_events_count` | частота появления событий с неудачно прошедшей проверкой прав доступа; метрика может использоваться для создания алерта, предупреждающего о попытках неавторизованного доступа к ресурсам | trail, event_type, event_source
-`trail.delivered_events_count` | частота событий, доставленных в [объект назначения](trail.md#target); метрика может использоваться для создания алерта, предупреждающего о временном прекращении загрузки аудитных логов в объект назначения, например по причине нехватки свободного места в бакете или отзыва у сервисного аккаунта необходимой роли | trail, event_type, event_source, destination_type
-`quota.trails_count.limit` | текущая [квота](limits.md) трейлов на облако | —
-`quota.trails_count.usage` | текущее потребление квоты трейлов на облако; метрика может использоваться для создания [алерта](../../monitoring/concepts/alerting.md), предупреждающего о приближении к квоте | —
-
-## Метки {#label}
-
-Имя метки | Описание
---- | ---
-`trail` | Идентификатор трейла.
-`status` | Статус трейла.
-`event_type` | Тип события.
-`event_source` | Сервис-источник события.
-`destination_type` | Объект назначения.
+{% include [audit-trails](../../_includes/monitoring/metrics-ref/audit-trails.md) %}
 
 ## Что дальше {#whats-next}
 

@@ -21,7 +21,7 @@
 
 {% note warning  %}
 
-Если администрированием {{ tracker-name }} и платежного аккаунта занимаются разные пользователи, то администратор {{ tracker-name }} сможет привязать платежный аккаунт только при наличии роли `billing.accounts.admin` или `billing.accounts.editor` в [облаке](../organization/concepts/manage-services.md#cloud) организации {{ org-full-name }}. [Подробнее про роли {{ billing-name }}](../iam/concepts/access-control/roles.md#billing-roles).
+Если администрированием {{ tracker-name }} и платежного аккаунта занимаются разные пользователи, то администратор {{ tracker-name }} сможет привязать платежный аккаунт только при наличии роли `billing.accounts.admin` или `billing.accounts.editor` в [облаке](../organization/concepts/manage-services.md#cloud) организации {{ org-full-name }}. [Подробнее про роли {{ billing-name }}](../billing/security/index.md#roles-list).
 
 {% endnote %}
 

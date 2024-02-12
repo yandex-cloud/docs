@@ -46,9 +46,9 @@
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `data-proc-sa` с ролями:
 
-        * [dataproc.agent](../../iam/concepts/access-control/roles.md#mdb-dataproc-agent);
-        * [storage.uploader](../../iam/concepts/access-control/roles.md#storage-uploader);
-        * [storage.viewer](../../iam/concepts/access-control/roles.md#storage-viewer).
+        * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent);
+        * [storage.uploader](../../storage/security/index.md#storage-uploader);
+        * [storage.viewer](../../storage/security/index.md#storage-viewer).
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом.
 

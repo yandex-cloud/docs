@@ -32,13 +32,13 @@
     1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md) для кластера {{ managed-k8s-name }}:
 
         * Сервисный аккаунт для ресурсов с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster).
-        * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+        * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
         * Сервисный аккаунт для работы Ingress-контроллера {{ alb-name }} с ролями:
 
-            * [{{ roles-alb-editor }}](../../iam/concepts/access-control/roles.md#alb-editor) — для создания необходимых ресурсов.
-            * [{{ roles-vpc-public-admin }}](../../iam/concepts/access-control/roles.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
-            * [certificate-manager.certificates.downloader](../../iam/concepts/access-control/roles.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
-            * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
+            * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов.
+            * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
+            * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
+            * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
 
         Вы можете использовать один и тот же сервисный аккаунт для всех операций.
 

@@ -81,9 +81,9 @@ items:
             href: operations/vm-control/vm-change-folder.md
           - name: Moving a VM to another cloud
             href: operations/vm-control/vm-change-cloud.md
-          - name: Attaching a public IP address to a VM
+          - name: Assigning a public IP address to a VM
             href: operations/vm-control/vm-attach-public-ip.md
-          - name: Detaching a public IP address from a VM
+          - name: Removing a public IP address from a VM
             href: operations/vm-control/vm-detach-public-ip.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
@@ -457,6 +457,10 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: From March 1 to May 1, 2019
             href: pricing-archive/pricing-30042019.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/compute/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -849,7 +853,11 @@ items:
                 href: api-ref/InstanceGroup/updateAccessBindings.md
               - name: updateFromYaml
                 href: api-ref/InstanceGroup/updateFromYaml.md
-  - name: Questions and answers
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md

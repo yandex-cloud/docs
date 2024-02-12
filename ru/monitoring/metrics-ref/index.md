@@ -14,6 +14,12 @@ editable: false
 
 Подробнее о сервисе в документации [{{ alb-name }}](../../application-load-balancer/).
 
+## Сервис {{ at-full-name }} {#audit-trails}
+
+{% include [audit-trails](../../_includes/monitoring/metrics-ref/audit-trails.md) %}
+
+Подробнее о сервисе в документации [{{ at-name }}](../../audit-trails/).
+
 ## Сервис {{ cdn-full-name }} {#cdn}
 
 {% include [cdn.md](../../_includes/monitoring/metrics-ref/cdn.md) %}

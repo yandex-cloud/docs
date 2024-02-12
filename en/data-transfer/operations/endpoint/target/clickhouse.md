@@ -31,6 +31,7 @@ description: "In this tutorial, you will learn how to set up a {{ CH }} target e
    * [Loading {{ yandex-direct }} data to {{ CH }}](../../../tutorials/direct-to-mch.md).
 
 * [Loading {{ PG }} data to {{ CH }}](../../../tutorials/rdbms-to-clickhouse.md).
+* [Loading data from {{ objstorage-name }} to {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -269,7 +270,7 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [New tables are not added](#no-new-tables).
+* [New tables are not added](#no-new-tables)
 * [Data is not transferred](#no-transfer)
 
 See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.

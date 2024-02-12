@@ -5,6 +5,12 @@ description: "Follow this guide to run pattern-based speech synthesis in {{ bran
 
 # Pattern-based speech synthesis in {{ brand-voice-cc-name }}
 
+{% note warning %}
+
+Access to the {{ brand-voice-cc-name }} service is available on request. To get access to the technology, [fill out this form](#contact-form).
+
+{% endnote %}
+
 To synthesize a phrase based on a template:
 
 1. [{#T}](#prepare-template)
@@ -25,13 +31,6 @@ Template parameter restrictions are as follows:
 {% include [prepare-template-synthesis](../../../_includes/speechkit/prepare-template-synthesis.md) %}
 
 ## Send data to the {#send-to-api} API
-
-
-{% note warning %}
-
-Access to the {{ brand-voice-cc-name }} service is available on request. To get access to the technology, [fill out this form](#contact-form).
-
-{% endnote %}
 
 
 Create and run a client app to send your data to the API:
