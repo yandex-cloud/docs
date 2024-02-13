@@ -26,13 +26,25 @@ description: "Управление доступом в сервисе для х�
 
 ### Сервисные роли {#service-roles}
 
-Роли, действующие в сервисе:
+#### lockbox.auditor {#lockbox-auditor}
 
-* {% include [lockbox-admin](../../_includes/iam/roles/short-descriptions/lockbox-admin.md) %}
-* {% include [lockbox-editor](../../_includes/iam/roles/short-descriptions/lockbox-editor.md) %}
-* {% include [lockbox-viewer](../../_includes/iam/roles/short-descriptions/lockbox-viewer.md) %}
-* {% include [lockbox-auditor](../../_includes/iam/roles/short-descriptions/lockbox-auditor.md) %}
-* {% include [lockbox-payloadviewer](../../_includes/iam/roles/short-descriptions/lockbox-payloadViewer.md) %}
+{% include [lockbox.auditor](../../_roles/lockbox/auditor.md) %}
+
+#### lockbox.viewer {#lockbox-viewer}
+
+{% include [lockbox.viewer](../../_roles/lockbox/viewer.md) %}
+
+#### lockbox.editor {#lockbox-editor}
+
+{% include [lockbox.editor](../../_roles/lockbox/editor.md) %}
+
+#### lockbox.admin {#lockbox-admin}
+
+{% include [lockbox.admin](../../_roles/lockbox/admin.md) %}
+
+#### lockbox.payloadViewer {#lockbox-payloadViewer}
+
+{% include [lockbox.payloadViewer](../../_roles/lockbox/payloadViewer.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

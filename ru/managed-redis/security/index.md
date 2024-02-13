@@ -28,21 +28,37 @@ description: "Управление доступом в сервисе по со�
 
 ### Сервисные роли {#service-roles}
 
-{% include [mrd-auditor](../../_includes/iam/roles/mrd-auditor.md) %}
+#### managed-redis.auditor {#managed-redis-auditor}
 
-{% include [mrd-viewer](../../_includes/iam/roles/mrd-viewer.md) %}
+{% include [managed-redis.auditor](../../_roles/managed-redis/auditor.md) %}
 
-{% include [mrd-editor](../../_includes/iam/roles/mrd-editor.md) %}
+#### managed-redis.viewer {#managed-redis-viewer}
 
-{% include [mrd-admin](../../_includes/iam/roles/mrd-admin.md) %}
+{% include [managed-redis.viewer](../../_roles/managed-redis/viewer.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+#### managed-redis.editor {#managed-redis-editor}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+{% include [managed-redis.editor](../../_roles/managed-redis/editor.md) %}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+#### managed-redis.admin {#managed-redis-admin}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+{% include [managed-redis.admin](../../_roles/managed-redis/admin.md) %}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

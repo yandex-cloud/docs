@@ -1,6 +1,6 @@
 # Creating a {{ MG }} cluster
 
-A {{ MG }} cluster consists of one or more database hosts you can configure replication between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
+A {{ MG }} cluster is one or more database hosts between which you can configure a replication. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
 
 {% note info %}
@@ -55,7 +55,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
          {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-      * Username
+      * User name
       * User password; minimum 8 characters long
 
    
@@ -364,7 +364,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
 
 
-   * SSD network storage: `{{ disk-type-example }}`
+   * Network SSD storage: `{{ disk-type-example }}`
    * Storage size: 20 GB
    * User: `user1`
    * Password: `user1user1`

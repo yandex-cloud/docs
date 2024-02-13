@@ -21,25 +21,35 @@ description: "Управление доступом в сервисе созда
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+### Сервисные роли {#service-roles}
+
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе.
 
-{% include [maf-viewer](../../_includes/iam/roles/maf-viewer.md) %}
+#### managed-airflow.viewer {#managed-airflow-viewer}
 
-{% include [maf-editor](../../_includes/iam/roles/maf-editor.md) %}
+{% include [managed-airflow.viewer](../../_roles/managed-airflow/viewer.md) %}
 
-{% include [maf-admin](../../_includes/iam/roles/maf-admin.md) %}
+#### managed-airflow.editor {#managed-airflow-editor}
 
-### {{ roles-viewer }} {#viewer}
+{% include [managed-airflow.editor](../../_roles/managed-airflow/editor.md) %}
+
+#### managed-airflow.admin {#managed-airflow-admin}
+
+{% include [managed-airflow.admin](../../_roles/managed-airflow/admin.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+#### {{ roles-viewer }} {#viewer}
 
 Роль `{{ roles-viewer }}` позволяет просматривать информацию о кластерах {{ maf-name }} и логах их работы.
 
-### {{ roles-editor }} {#editor}
+#### {{ roles-editor }} {#editor}
 
 Пользователь с ролью `{{ roles-editor }}` может управлять любыми ресурсами, например создать кластер, создать или удалить подкластер в кластере.
 
 Включает в себя роль `{{ roles-viewer }}`.
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям создавать кластеры {{ maf-name }} или просматривать информацию о правах пользователей.
 

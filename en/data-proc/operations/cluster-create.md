@@ -225,7 +225,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% note info %}
 
-      It must be unique within the folder. May contain Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
+      It must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
 
       {% endnote %}
 

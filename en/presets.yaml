@@ -604,6 +604,8 @@ default:
   s3-c2-m8: s3-c2-m8 (2 vCPU, 8 GB)
   s3-dotnet-sdk-host: s3.yandexcloud.net
   s3-storage-host: storage.yandexcloud.net
+  s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
+  s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
   s3-web-host: website.yandexcloud.net
   search-api: Search API
   search-api-full-name: Yandex Search API
@@ -692,8 +694,8 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
-  vision-full-name: Yandex Vision
-  vision-name: Vision
+  vision-full-name: Yandex Vision OCR
+  vision-name: Vision OCR
   vision-short-name: Vision
   vpc-full-name: Yandex Virtual Private Cloud
   vpc-name: Virtual Private Cloud
@@ -724,6 +726,7 @@ default:
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-my: yc managed-mysql
+  yc-mdb-os: yc managed-opensearch
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-serverless: yc serverless
@@ -4957,6 +4960,7 @@ default:
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts
         field_hosts-count: Host count
+        field_restore-only: Databases and tables for recovery
         field_segments-in-host: Segments per host
         label_user-auth: User authentication
         label-analyze-timeout: ANALYZE timeout
@@ -5133,6 +5137,7 @@ default:
           overview:
             label_health: State
             label_id: ID
+            label_master-title: Master
             label_status: Status
           switch_custom-resources: Custom resources
           switch_events: Events

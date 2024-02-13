@@ -359,7 +359,7 @@ To upload data to {{ CH }} and test the model:
 
    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}**: `ML_MODEL_TYPE_CATBOOST`
    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: `ml_test`
-   * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`
+   * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: `https://{{ s3-storage-host-mch }}/catboost_model.bin`
 
 1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and configure your cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
 

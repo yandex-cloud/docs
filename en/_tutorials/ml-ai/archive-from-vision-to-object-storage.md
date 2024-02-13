@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure costs for image recognition and data storage include:
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for data storage in a [bucket](../../storage/concepts/bucket.md) and [operations](../../storage/operations/index.md) with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for using a dynamic or a static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md))
+* Fee for using a dynamic or a static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using {{ vision-name }} (see [{{ vision-name }} pricing](../../vision/pricing.md)).
 
 
@@ -62,13 +62,13 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select:
-      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: SSD
-      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: 19 GB
+      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: SSD.
+      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: 19 GB.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select:
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Cascade Lake
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 20%
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: 2
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: 2 GB
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Cascade Lake.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 20%.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: 2.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: 2 GB.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [network](../../vpc/concepts/network.md#network) and [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. If there is are no networks available, [create one](../../vpc/operations/network-create.md).
    1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random public IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you [reserved](../../vpc/operations/get-static-ip.md) one in advance.
    1. Specify the VM access details:
@@ -127,7 +127,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
       Where:
       * `--name`: Service account name, e.g., `vision-sa`.
-      * `--description`: service account description, e.g., `this is a vision service account`.
+      * `--description`: Service account description, e.g., `This is a vision service account`.
 
       Result:
 
@@ -162,7 +162,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
       Where:
       * `--service-account-id`: Service account ID.
-      * `--description`: Key description, e.g., `this key is for vision`.
+      * `--description`: Key description, e.g., `This key is for vision`.
 
       Result:
 
@@ -269,11 +269,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 1. [Upload](../../storage/operations/objects/upload.md) your images that include recognizable text to the bucket.
 
-   {% note tip %}
-
-   Use the [sample image](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) of the penguin crossing road sign.
-
-   {% endnote %}
+   {% include [example-image](../../_includes/vision/example-image.md) %}
 
 1. To make sure that the images were uploaded, use the request with the bucket name:
 
@@ -405,7 +401,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
         https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText \
         -o output.json
 
-      # Get the name of the image file for later use.
+      # Get the name of the image file to use it later.
       IMAGE_BASE_NAME=$(basename -- "$f")
       IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
 

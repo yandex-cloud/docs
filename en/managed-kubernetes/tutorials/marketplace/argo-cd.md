@@ -34,8 +34,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
-   1. [Configure a security group](../../../managed-gitlab/operations/connect.md) for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance).
+   1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
+   1. [Configure the default security group](../../../managed-gitlab/operations/configure-security-group.md) required for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance) to run.
    1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
    1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
 

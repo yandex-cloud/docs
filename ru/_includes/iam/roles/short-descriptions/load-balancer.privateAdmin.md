@@ -1,1 +1,0 @@
-[`load-balancer.privateAdmin`](../../../../iam/concepts/access-control/roles.md#lb-private-admin) — позволяет создавать, изменять и удалять балансировщики нагрузки и целевые группы, не открывая к ним доступ из интернета.

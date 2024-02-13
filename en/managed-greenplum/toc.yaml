@@ -87,6 +87,8 @@ items:
         href: tutorials/greenplum-to-postgresql.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
+      - name: Migrating a database from {{ MY }} to {{ GP }}
+        href: tutorials/mmy-to-mgp.md
       - name: Exporting {{ GP }} data to cold storage in {{ objstorage-full-name }}
         href: tutorials/yezzey.md
   - name: Concepts
@@ -127,7 +129,7 @@ items:
     href: pricing/index.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

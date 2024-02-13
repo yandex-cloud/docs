@@ -28,17 +28,17 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
 ### Create the required resources {#create-resources}
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-- Manually
+- Manually {#manual}
 
-   1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
+   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
    1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to it. A service account is required to access the bucket from the source and target clusters.
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 
       {% note warning %}
 
-      Save the **key ID** and **secret key**. You will need them at the next steps.
+      Save the **key ID** and **secret key**. You will need them in the next steps.
 
       {% endnote %}
 
@@ -51,7 +51,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
    1. [Install the `repository-s3` plugin](../operations/cluster-plugins.md#update) on the target cluster.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -208,17 +208,17 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
    * Existing system indices are not migrated. Only indices created on the source cluster by the user are involved in the import process.
 
-   * [Delete and restore](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html#delete-restore): Existing indices are closed and deleted with new empty indices created with the same names and then populated with data from a snapshot.
+   * [Delete and restore](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html#delete-restore): Existing indexes are closed and deleted with new empty indexes created with the same names and then populated with data from a snapshot.
 
-   * [Rename on restore](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html#rename-on-restore): Existing indices are not affected, new indices are created with other names. Snapshot data is restored to the new indices.
+   * [Rename on restore](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html#rename-on-restore): Existing indexes are not affected, new indexes are created with other names. Snapshot data is restored to the new indexes.
 
    {% note warning %}
 
-   Closing all indices will make Kibana temporarily unavailable. Once the system indices are opened, Kibana will be available again.
+   Closing all indexes will make Kibana temporarily unavailable. Once the system indexes are opened, Kibana will be available again.
 
    {% endnote %}
 
-   For example, the following command closes all indices in the target cluster:
+   For example, the following command closes all indexes in the target cluster:
 
    ```bash
    curl -X POST \
@@ -232,9 +232,9 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
         "https://admin:<admin_user_password>@<target_cluster_FQDN>:9200/_snapshot/<repository name>/snapshot_1/_restore"
    ```
 
-1. Start restoring data from the snapshot on the target cluster. You can restore the entire snapshot or individual indices. For more information, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html).
+1. Start restoring data from the snapshot on the target cluster. You can restore the entire snapshot or individual indexes. For more information, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html).
 
-   Example of restoring a snapshot with indication of the user indices, which need to be restored on the target cluster:
+   Example of restoring a snapshot with indication of the custom indexes to be restored on the target cluster:
 
    ```bash
    curl -X POST \
@@ -244,7 +244,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
         }'
    ```
 
-   Where a `list of indices` is a list of comma-separated indices to be restored, for example, `my_index*, my_index_2.*`. Transferring only the user indices will enable you to avoid errors when restoring the snapshot. System indices are not affected.
+   Where a `list of indices` is a list of comma-separated indexes to be restored, for example, `my_index*, my_index_2.*`. Transferring only the user indexes will enable you to avoid errors when restoring the snapshot. System indexes are not affected.
 
    Restoring a snapshot may take a long time. Track the progress of the operation [using {{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
 
@@ -253,9 +253,9 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
         "https://admin:<admin_user_password>@<target_cluster_FQDN>:9200/_snapshot/<repository name>/snapshot_1/_status?pretty"
    ```
 
-1. If necessary, after the restore operation is completed, [open all closed indices](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html).
+1. If necessary, after the restore operation is completed, [open all closed indexes](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html).
 
-   For example, the following command opens all indices in the target cluster:
+   For example, the following command opens all indexes in the target cluster:
 
    ```bash
    curl -X POST \
@@ -274,19 +274,19 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-- Manually
+- Manually {#manual}
 
    * [Delete the service account](../../iam/operations/sa/delete.md)
    * [Delete snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
    * [Delete the {{ mes-name }} cluster](../operations/cluster-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure created with {{ TF }}:
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `mes-migration.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

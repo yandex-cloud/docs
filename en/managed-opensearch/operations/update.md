@@ -9,7 +9,8 @@ keywords:
 
 # Changing {{ OS }} cluster settings
 
-After creating a cluster, you can edit its service settings. You can also change the [host group configuration](host-groups.md#update-host-group) and [host group availability zone](host-migration.md) and change the [{{ OS }} version](cluster-version-update.md).
+After creating a cluster, you can edit its service settings. You can also change the [host group configuration](host-groups.md#update-host-group) and [host group availability zone](host-migration.md) and update the [{{ OS }} version](cluster-version-update.md).
+
 
 ## Updating service settings {#change-service-settings}
 
@@ -27,6 +28,44 @@ After creating a cluster, you can edit its service settings. You can also change
          {% include [extra-settings](../../_includes/mdb/mos/extra-settings.md) %}
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To update service settings:
+
+   1. Get the name and ID of the cluster you need with the list of all {{ OS }} clusters:
+
+      ```bash
+      {{ yc-mdb-os }} cluster list
+      ```
+
+   1. Update the settings using the command:
+
+      ```bash
+      {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
+         --maintenance schedule=<maintenance_type>,`
+                      `weekday=<day_of_week>,`
+                      `hour=<hour_of_day> \
+         --service-account-name <service_account_name> \
+         --delete-protection <deletion_protection:_true_or_false>
+      ```
+
+      Where:
+
+      * `--maintenance`: Maintenance time settings:
+
+         * To allow maintenance at any time, specify `--maintenance schedule=anytime`.
+         * To specify the preferred start time for maintenance, specify the `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>` parameter in the command. In this case, maintenance will take place every week on a specified day at a specified time. For example, if you specify `--maintenance schedule=weekly,weekday=mon,hour=14`, maintenance of the cluster will take place every Monday from 13:00 till 14:00.
+
+         Both enabled and disabled clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
+
+      * `--service-account-name`: Name of the service account.
+
+      * `--delete-protection`: Cluster protection against accidental deletion by a user, `true` or `false`. Cluster deletion protection will not prevent a manual connection to a cluster to delete data.
 
 - API {#api}
 

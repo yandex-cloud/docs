@@ -10,8 +10,5 @@ description: "Пошаговые инструкции по работе с се�
 * [{#T}](ocr/text-detection-single-line.md)
 * [{#T}](ocr/text-detection-handwritten.md)
 * [{#T}](ocr/text-detection-table.md)
-* [{#T}](classification/quality.md)
-* [{#T}](classification/moderation.md)
-* [{#T}](face-detection/index.md)
 * [{#T}](base64-encode.md)
 * [{#T}](sa-api-key.md)

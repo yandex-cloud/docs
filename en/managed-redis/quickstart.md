@@ -17,8 +17,8 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. If no public access is set up for a cluster, it can only be connected to from inside {{ yandex-cloud }}. To connect to a cluster, create a VM in the same cloud network as the {{ RD }} cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. If no public access is set up for a cluster, you can only connect to it from inside {{ yandex-cloud }}. To connect to a cluster, create a VM in the same cloud network as the {{ RD }} cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Install the [redis-cli](https://redis.io/topics/rediscli) utility on the VM. For example (for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)):
 
    ```bash

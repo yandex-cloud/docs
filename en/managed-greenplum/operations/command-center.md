@@ -1,11 +1,15 @@
 # Monitoring and managing sessions and queries in the Command Center
 
-In the [{{ GP }} Command Center](../concepts/command-center.md), you can:
+{{ GP }} Command Center provides the following functionality:
 
-* [{#T}](#list).
-* [{#T}](#consumption-history).
-* [{#T}](#terminate-session).
-* [{#T}](#terminate-query).
+* [{#T}](#list)
+* [{#T}](#consumption-history)
+* [{#T}](#terminate-session)
+* [{#T}](#terminate-query)
+
+Check how you can utilize the Command Center in these [use cases](#examples).
+
+For more information about the statistics available to you from the Command Center, see [{#T}](../concepts/command-center.md).
 
 {% note info %}
 
@@ -84,9 +88,9 @@ To free up resources for sessions, you can abort a session, for example, an `Idl
 
 {% endlist %}
 
-## Aborting the current query {#terminate-query}
+## Terminating the current query {#terminate-query}
 
-To free up resources for queries, you can abort a query, for example, an `Idle` query within an idle session. To do this:
+To free up resources for queries, you can terminate a query, for example, an `Idle` query within an idle session. To do this:
 
 {% list tabs group=instructions %}
 
@@ -95,6 +99,45 @@ To free up resources for queries, you can abort a query, for example, an `Idle` 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Click the cluster name and go to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
    1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the appropriate line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
-   1. Confirm stopping the session.
+   1. Confirm terminating the query.
 
 {% endlist %}
+
+## Examples {#examples}
+
+### Identifying a current session that is consuming excessive resources {#current-session}
+
+There might be cases when a user is no longer working with the database, but failed to terminate their session. In such cases, a session remains idle tying up cluster resources and degrading its performance. To identify and terminate such a session, do the following:
+
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Click the cluster name and go to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** tab.
+1. Filter the sessions by their **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
+1. Find the session in the `Idle` status with the earliest start time.
+1. Click the session number. You will see a page with the detailed information about this session.
+1. In the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-started }}** field of **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_section_session-info }}**, check the time of the latest query. If you see that no queries were run for a long time, this probably means the user is no longer working with the database, but did not close their session. You can terminate the session.
+1. In the top-right corner, click **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
+1. Confirm stopping the session.
+
+### Identifying CPU-intensive queries {#past-statements}
+
+At times you might observe unusual spikes in the CPU consumption. To determine which queries caused the spikes, do the following:
+
+1. Find out when the spike occurred:
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and go to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
+   1. Set the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-cpu-usage }}** filter.
+   1. Use the graph to find out the peak CPU consumption time.
+
+      Hover over the highest point on the graph curve. You will see a pop-up displaying the cluster state information for the selected time. The time of the spike is indicated in that window.
+
+1. Identify the CPU-intensive queries:
+
+   1. Go to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}** tab.
+   1. Set the time range based on the state history data.
+   1. Group the queries by user, database, and query ID. This will group similar queries together.
+   1. Filter the groups of queries by **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**.
+   1. Open the group with the highest **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}** value.
+   1. Check the details of each query and adjust them if needed. You can also [terminate a query](#terminate-query) that is still running.
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

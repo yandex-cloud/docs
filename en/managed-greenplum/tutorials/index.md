@@ -9,6 +9,7 @@ description: "Various {{ mgp-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](./config-server-for-s3.md)
 * [{#T}](./greenplum-to-postgresql.md)
 * [{#T}](./greenplum-to-clickhouse.md)
+* [{#T}](mmy-to-mgp.md)
 * [{#T}](yezzey.md)
 
 To migrate cluster hosts to a different availability zone, [restore a cluster from a backup](../operations/cluster-backups.md#restore). When restoring the cluster, specify the appropriate availability zone.

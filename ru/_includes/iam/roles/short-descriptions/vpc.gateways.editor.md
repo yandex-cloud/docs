@@ -1,1 +1,0 @@
-[`vpc.gateways.editor`](../../../../iam/concepts/access-control/roles.md#vpc-gw-editor) — позволяет управлять NAT-шлюзами.
