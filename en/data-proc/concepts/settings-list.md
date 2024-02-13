@@ -114,7 +114,7 @@ To install additional Python packages, you can use the conda or pip package mana
 | Package manager | Key | Value | Example |
 |:------------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
 | conda | `conda:<package_name>` | Number of the package version according to the [conda specification](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
-| pip | `pip:<package_name>` | Number of the package version according to the [pip specification](https://www.python.org/dev/peps/pep-0440/#version-specifiers) | `pip:psycopg2 : 2.7.0` |
+| pip | `pip:<package_name>` | Number of the package version according to the [pip specification](https://www.python.org/dev/peps/pep-0440/#version-specifiers) | `pip:requests : 2.31.0` |
 
 ## Using Apache Spark Thrift Server {#spark-thrift-server}
 

@@ -31,7 +31,7 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 
-| Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB | Disk <br>size, GB |
+| Host class name | Number of vCPUs | Guaranteed vCPU share | RAM, GB | Disk <br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|
 | **Intel Broadwell** |
 | b1.medium | 2 | 50% | 4 | 10 - 512 |

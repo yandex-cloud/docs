@@ -32,7 +32,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 1. Install the `kafkacat` utility, an open source application that can function as a universal data producer or consumer:
 

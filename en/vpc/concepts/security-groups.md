@@ -52,7 +52,7 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 | [{{ dataproc-name }}](../../data-proc/) | [Cluster](../../data-proc/concepts/network.md#security-groups) |
 | [{{ data-transfer-name }}](../../data-transfer/) | [Endpoint](../../data-transfer/concepts/network.md#security-groups) |
 | [{{ load-testing-name }}](../../load-testing/) | [Test agent](../../load-testing/concepts/agent.md) |
-| [{{ mgl-name }}](../../managed-gitlab/) | [Instance](../../managed-gitlab/operations/connect.md) |
+| [{{ mgl-name }}](../../managed-gitlab/) | [Instance](../../managed-gitlab/operations/configure-security-group.md) |
 
 {% note info %}
 

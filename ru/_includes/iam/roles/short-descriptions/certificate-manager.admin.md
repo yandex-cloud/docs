@@ -1,1 +1,0 @@
-[`certificate-manager.admin`](../../../../iam/concepts/access-control/roles.md#certificate-manager-admin) — позволяет управлять сертификатами и доступом к ним.

@@ -1,6 +1,6 @@
 ---
 title: "How to view detailed information about the {{ mes-name }} cluster state"
-description: "This guide describes how you can view detailed information about the state of a {{ mes-name }} cluster."
+description: "Follow this guide to view detailed information about the state of a {{ mes-name }} cluster."
 ---
 
 # Monitoring the state of {{ ES }} clusters and hosts

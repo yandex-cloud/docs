@@ -1,6 +1,6 @@
 # Text recognition from PDF files
 
-You can [recognize text](../../concepts/ocr/index.md) from a PDF file using the [OCR API](../../ocr/api-ref/index.md) or [Vision API](../../vision/api-ref/index.md). The OCR API is an updated and revised interface with enhanced [features](../../concepts/limits.md#vision-limits), including multi-column text recognition.
+You can [recognize text](../../concepts/ocr/index.md) from a PDF file using the [OCR API](../../ocr/api-ref/index.md). The OCR API is an updated and revised interface with enhanced [features](../../concepts/limits.md#vision-limits), including multi-column text recognition.
 
 ## Getting started {#before-you-begin}
 
@@ -978,85 +978,3 @@ Text recognition from a PDF file is implemented through OCR API methods, such as
 
 {% include [coordinate-definition-issue-note](../../../_includes/vision/coordinate-definition-issue-note.md) %}
 
-
-## Recognizing text from a PDF file through the Vision API {#vision-api-recognition}
-
-Text recognition from a PDF file is implemented in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) Vision API method.
-
-1. The PDF file must contain up to 8 pages. If there are more pages, split it into files with 8 pages or less.
-1. Encode the PDF file as Base64:
-
-   {% include [base64-encode-command](../../../_includes/vision/base64-encode-command-pdf.md) %}
-
-1. Create a file with the request body, e.g., `body.json`.
-
-   **body.json:**
-   ```json
-   {
-       "folderId": "<folder_ID>",
-       "analyze_specs": [{
-           "content": "<base64-encoded_PDF_file>",
-           "mime_type": "application/pdf",
-           "features": [{
-               "type": "TEXT_DETECTION",
-               "text_detection_config": {
-                   "language_codes": ["*"]
-               }
-           }]
-       }]
-   }
-   ```
-
-   Where:
-   * `folderId`: [ID of any folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
-   * `content`: PDF file contents [encoded](../base64-encode.md) as Base64.
-
-1. {% include [send-request](../../../_includes/vision/send-request.md) %}
-
-1. To get all the recognized words from the image, find all the lines with the `text` property, e.g., using the [grep](https://www.gnu.org/software/grep/) utility:
-
-   {% list tabs group=programming_language %}
-
-   - Bash {#bash}
-
-      ```bash
-      grep -o "\"text\":\s\".*\"" output.json
-      ```
-
-      Result:
-
-      ```text
-      "text": "PENGUINS"
-      "text": "CROSSING"
-      "text": "SLOW"
-      ```
-
-   - CMD
-
-      ```bash
-      findstr text output.json
-      ```
-
-      Result:
-
-      ```text
-      "text": "PENGUINS"
-      "text": "CROSSING"
-      "text": "SLOW"
-      ```
-
-   - PowerShell {#powershell}
-
-      ```powershell
-      Select-String -Pattern '\"text\":\s\".*\"' -Path .\output.json
-      ```
-
-      Result:
-
-      ```text
-      output.json:1:      "text": "PENGUINS"
-      output.json:2:      "text": "CROSSING"
-      output.json:3:      "text": "SLOW"
-      ```
-
-   {% endlist %}

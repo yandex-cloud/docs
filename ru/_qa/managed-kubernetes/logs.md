@@ -1,4 +1,8 @@
-# Логи
+# Мониторинг и логи
+
+#### Как я могу отслеживать состояние кластера {{ managed-k8s-name }}? {#monitoring}
+
+[Получите статистику кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-stats.md). Описание доступных метрик кластера приводится в [справочнике](../../managed-kubernetes/metrics.md).
 
 {% include [logs](../logs.md) %}
 

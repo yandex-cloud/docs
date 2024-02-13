@@ -26,5 +26,7 @@ description: "Сервис {{ monitoring-full-name }} позволяет соб�
 
 Сервис {{ monitoring-name }} позволяет выгружать метрики объектов [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Провайдер преобразует запрос на получение внешних метрик от объекта в кластере {{ managed-k8s-name }} в нужный {{ monitoring-name }} формат, а также выполняет обратное преобразование — от {{ monitoring-name }} до объекта кластера.
 
-Для выгрузки метрик используется приложение [Metrics Provider](/marketplace/products/yc/metric-provider). Чтобы установить его, [воспользуйтесь инструкцией](../../managed-kubernetes/operations/applications/metrics-provider.md).
+{% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
+
+Описание метрик приводится в [Справочнике](../metrics-ref/index.md#managed-kubernetes).
 

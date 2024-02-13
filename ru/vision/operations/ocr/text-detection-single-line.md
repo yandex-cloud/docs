@@ -16,6 +16,8 @@ OCR API позволяет распознать отдельную строку 
 
 ## Распознать строку текста с помощью Vision API {#vision-line-recognition}
 
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
+
 Vision API позволяет распознать отдельную строку с помощью метода [recognize](../../ocr/api-ref/TextRecognition/recognize.md).
 
 В конфигурации укажите модель `line`, которая лучше подходит для распознавания отдельных строк.

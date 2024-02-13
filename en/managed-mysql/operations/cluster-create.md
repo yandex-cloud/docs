@@ -433,7 +433,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
    * Protection against accidental {{ mmy-name }} cluster deletion: Enabled
 
-   The configuration file for the {{ mmy-name }} cluster is as follows:
+   The configuration file for this {{ mmy-name }} cluster is as follows:
 
    
    
@@ -598,7 +598,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * User: `user1`, with the `user1user1` password
    * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
 
-   The configuration file for the {{ mmy-name }} cluster is as follows:
+   The configuration file for this {{ mmy-name }} cluster is as follows:
 
    
    

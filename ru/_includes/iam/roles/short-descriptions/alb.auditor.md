@@ -1,1 +1,0 @@
-[`alb.auditor`](../../../../iam/concepts/access-control/roles.md#alb-auditor) — позволяет просматривать список ресурсов {{ alb-name }} и их метаданные.

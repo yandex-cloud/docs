@@ -1,6 +1,6 @@
 # Поддерживаемые модели
 
-_Классификация изображений сейчас находится на [стадии Preview](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 Для классификации изображений в сервисе используется модель, обученная на определенном наборе изображений. Модель указывается в запросе в конфигурации `classificationConfig`.
 

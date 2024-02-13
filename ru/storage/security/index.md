@@ -26,17 +26,29 @@ description: "Управление доступом в сервисе, пред�
 
 ### Сервисные роли {#service-roles}
 
-{% include [storage-viewer](../../_includes/iam/roles/storage-viewer.md) %}
+#### storage.viewer {#storage-viewer}
 
-{% include [storage-config-viewer](../../_includes/iam/roles/storage-config-viewer.md) %}
+{% include [storage-viewer](../../_roles/storage/viewer.md) %}
 
-{% include [storage-configurer](../../_includes/iam/roles/storage-configurer.md) %}
+#### storage.configViewer {#storage-config-viewer}
 
-{% include [storage-uploader](../../_includes/iam/roles/storage-uploader.md) %}
+{% include [storage-configviewer](../../_roles/storage/configViewer.md) %}
 
-{% include [storage-editor](../../_includes/iam/roles/storage-editor.md) %}
+#### storage.configurer {#storage-configurer}
 
-{% include [storage-admin](../../_includes/iam/roles/storage-admin.md) %}
+{% include [storage-configurer](../../_roles/storage/configurer.md) %}
+
+#### storage.uploader {#storage-uploader}
+
+{% include [storage-uploader](../../_roles/storage/uploader.md) %}
+
+#### storage.editor {#storage-editor}
+
+{% include [storage-editor](../../_roles/storage/editor.md) %}
+
+#### storage.admin {#storage-admin}
+
+{% include [storage-admin](../../_roles/storage/admin.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

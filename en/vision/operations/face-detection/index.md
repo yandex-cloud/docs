@@ -1,6 +1,6 @@
 # Detecting faces in images
 
-_Face detection is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md).
 

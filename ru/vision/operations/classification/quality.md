@@ -8,7 +8,7 @@ keywords:
 
 # Определение качества изображения
 
-_Классификация изображений сейчас находится на [стадии Preview](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 Чтобы оценить качество изображения, воспользуйтесь возможностью [Классификация изображений](../../concepts/classification/index.md).
 

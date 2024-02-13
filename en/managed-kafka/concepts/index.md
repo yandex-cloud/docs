@@ -5,7 +5,7 @@ description: "{{ KF }} is a distributed publish-subscribe messaging system for s
 
 # Resource relationships in {{ mkf-name }}
 
-With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} {{ versions.console.str }} server clusters in the {{ yandex-cloud }} infrastructure.
+{{ mkf-full-name }} helps you deploy and maintain clusters of {{ versions.console.str }} {{ KF }} servers in the {{ yandex-cloud }} infrastructure.
 
 {{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle.
 
@@ -44,7 +44,7 @@ VMs for cluster hosts can be hosted on:
 
 * *Dedicated {{ yandex-cloud }} hosts*:
 
-   These are physical servers that only host your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. Such hosts are selected from *dedicated host groups* specified when creating a cluster.
+   These are physical servers that only host your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from *dedicated host groups* specified when creating a cluster.
 
    A cluster with multiple broker hosts needs at least three groups of dedicated hosts for its operation. This is required for deploying {{ ZK }} hosts.
 

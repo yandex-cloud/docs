@@ -71,7 +71,7 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
          {% endnote %}
 
-      * (Optional) Triggerer services.
+      * (Optional) Triggerer services
 
    1. (Optional) Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, specify the names of pip packages to install additional libraries and applications for running DAG files in the cluster.
 

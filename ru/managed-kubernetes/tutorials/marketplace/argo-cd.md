@@ -131,7 +131,7 @@
 1. Клонируйте репозиторий [yc-webinar-gitops-argo-crossplane](https://github.com/yandex-cloud-examples/yc-webinar-gitops-argo-crossplane) на рабочую машину:
 
    ```bash
-   git clone git@github.com:yandex-cloud-examples/yc-webinar-gitops-argo-crossplane.git
+   git clone https://github.com/yandex-cloud-examples/yc-webinar-gitops-argo-crossplane.git
    ```
 
 1. Скопируйте в директорию `gitlab-test` все файлы из директории `yc-webinar-gitops-argo-crossplane/02-argocd/app`, включая скрытые:

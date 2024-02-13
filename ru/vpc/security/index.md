@@ -27,18 +27,53 @@ description: "Управление доступом в сервисе облач
 
 ### Сервисные роли {#service-roles}
 
-* {% include [vpc.auditor](../../_includes/iam/roles/short-descriptions/vpc.auditor.md) %}
-* {% include [vpc.viewer](../../_includes/iam/roles/short-descriptions/vpc.viewer.md) %}
-* {% include [vpc.user](../../_includes/iam/roles/short-descriptions/vpc.user.md) %}
-* {% include [vpc.bridgeAdmin](../../_includes/iam/roles/short-descriptions/vpc.bridgeAdmin.md) %}
-* {% include [vpc.privateAdmin](../../_includes/iam/roles/short-descriptions/vpc.privateAdmin.md) %}
-* {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
-* {% include [vpc.gateways.viewer](../../_includes/iam/roles/short-descriptions/vpc.gateways.viewer.md) %}
-* {% include [vpc.gateways.editor](../../_includes/iam/roles/short-descriptions/vpc.gateways.editor.md) %}
-* {% include [vpc.gateways.user](../../_includes/iam/roles/short-descriptions/vpc.gateways.user.md) %}
-* {% include [vpc.securityGroups.user](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.user.md) %}
-* {% include [vpc.securityGroups.admin](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.admin.md) %}
-* {% include [vpc.admin](../../_includes/iam/roles/short-descriptions/vpc.admin.md) %}
+#### vpc.auditor {#vpc-auditor}
+
+{% include [vpc.auditor](../../_roles/vpc/auditor.md) %}
+
+#### vpc.viewer {#vpc-viewer}
+
+{% include [vpc-viewer](../../_roles/vpc/viewer.md) %}
+
+#### vpc.user {#vpc-user}
+
+{% include [vpc-user](../../_roles/vpc/user.md) %}
+
+#### vpc.admin {#vpc-admin}
+
+{% include [vpc-admin](../../_roles/vpc/admin.md) %}
+
+#### vpc.bridgeAdmin {#vpc-bridge-admin}
+
+{% include [vpc.bridgeAdmin](../../_roles/vpc/bridgeAdmin.md) %}
+
+#### vpc.privateAdmin {#vpc-private-admin}
+
+{% include [vpc-privateadmin](../../_roles/vpc/privateAdmin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
+
+#### vpc.gateways.viewer {#vpc-gw-viewer}
+
+{% include [vpc.gateways.viewer](../../_roles/vpc/gateways/viewer.md) %}
+
+#### vpc.gateways.user {#vpc-gw-user}
+
+{% include [vpc-gateways-user](../../_roles/vpc/gateways/user.md) %}
+
+#### vpc.gateways.editor {#vpc-gw-editor}
+
+{% include [vpc-gateways-editor](../../_roles/vpc/gateways/editor.md) %}
+
+#### vpc.securityGroups.user {#vpc-sg-user}
+
+{% include [vpc.securityGroups.user](../../_roles/vpc/securityGroups/user.md) %}
+
+#### vpc.securityGroups.admin {#vpc-sg-admin}
+
+{% include [vpc-securitygroups-admin](../../_roles/vpc/securityGroups/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

@@ -1,1 +1,0 @@
-[`vpc.admin`](../../../../iam/concepts/access-control/roles.md#vpc-admin) — роль сетевого администратора, объединяющая `{{ roles-vpc-private-admin }}`, `{{ roles-vpc-public-admin}}` и `{{ roles-vpc-sg-admin }}`.

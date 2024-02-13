@@ -28,7 +28,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    {{ yc-mdb-gp }} cluster list-backups <cluster_name_or_ID>
    ```
 
-   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    Result:
 
@@ -72,6 +72,22 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    To find out the ID, [retrieve a list of backups](#list-backups).
 
 {% endlist %}
+
+## Creating a backup {#create-backup}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
+
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
+{% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 ## Restoring clusters from backups {#restore}
 
@@ -173,7 +189,7 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--environment`: Environment:
 
          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
-         * `PRODUCTION`: For stable versions of your apps.
+         * `PRODUCTION`: For stable versions of your applications.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
       * `--master-resource-preset`: [Master host class](../concepts/instance-types.md#available-flavors).

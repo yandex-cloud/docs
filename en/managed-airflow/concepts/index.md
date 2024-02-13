@@ -5,7 +5,7 @@ description: "{{ AF }} is an open-source platform that enables you to create, sc
 
 # Resource relationships in {{ maf-name }}
 
-{{ maf-name }} helps you deploy and maintain [{{ AF }}](https://airflow.apache.org/) server clusters in the {{ yandex-cloud }} infrastructure.
+{{ maf-name }} helps you deploy and maintain clusters of [{{ AF }}](https://airflow.apache.org/) servers in the {{ yandex-cloud }} infrastructure.
 
 
 The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
@@ -13,13 +13,13 @@ The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 ## About {{ AF }} {#about-the-service}
 
-{{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented _workflows_. A workflow defines job relationships and their execution sequence. It is presented as a directed acyclic graph (DAG). DAGs in {{ AF }} can be used for automation and scheduled runs of any processes, such as [data processing in {{ SPRK }}](../../data-proc/tutorials/spark-job-basics.md).
+{{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented _workflows_. A workflow defines job relationships and their execution sequence. It is presented as a directed acyclic graph (DAG). DAGs in {{ AF }} can be used for automation and scheduled runs of any processes, e.g., [data processing in {{ SPRK }}](../tutorials/data-proc-automation.md).
 
-{{ AF }} uses the <q>Workflows as code</q> approach. It implies that each workflow is implemented using a Python script. Each file with this script is called a _DAG file_. It describes jobs, their run schedule, and dependencies between them. This approach allows storing workflows in a version control system, running tests, and enabling technology required for workflows.
+{{ AF }} uses the _Workflows as code_ approach. It implies that each workflow is implemented using a Python script. Each file with this script is called a _DAG file_. It describes jobs, their run schedule, and dependencies between them. This approach allows storing workflows in a version control system, running tests, and enabling technology required for workflows.
 
 {{ AF }} is not used for streaming and continuous data processing. If such processing is required, you can develop a solution based on [{{ mkf-full-name }}](../../managed-kafka/index.yaml).
 
-For more information, see the [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/#) documentation.
+For more information, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/#).
 
 ## {{ maf-name }} architecture {#architecture}
 
@@ -45,7 +45,7 @@ To ensure isolated data storage, the service limits the use of the {{ PG }} clus
 
 The main entity operated by {{ maf-name }} is a _cluster_. Inside a cluster, [{{ AF }} components](#components) are deployed. Cluster resources may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
 
-A workflow running in a cluster may access any {{ yandex-cloud }} resource within the cloud network where the cluster is located. For example, a workflow can send requests to {{ yandex-cloud }} VMs or managed DB clusters. You can build a workflow using multiple resources. For example, a workflow that collects data from one DB and sends it to another DB or [{{ dataproc-full-name }}](../../data-proc/index.yaml).
+A workflow running in a cluster may access any {{ yandex-cloud }} resource within the cloud network where the cluster is located. For example, a workflow can send requests to {{ yandex-cloud }} VMs or managed DB clusters. You can build a workflow using multiple resources, e.g., a workflow that collects data from one DB and sends it to another DB or [{{ dataproc-full-name }}](../../data-proc/index.yaml).
 
 ## {{ AF }} main components {#components}
 

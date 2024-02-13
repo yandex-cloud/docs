@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-A [{{ mes-name }} cluster](../concepts/index.md)is a group of multiple linked {{ ES }} hosts. A {{ mes-name }} cluster provides high search performance by distributing search and indexing tasks across all hosts with the _Data node_ [role](../concepts/hosts-roles.md) in the cluster. To learn more about roles in the {{ mes-name }} cluster, see [{#T}](../concepts/hosts-roles.md).
+A [{{ mes-name }} cluster](../concepts/index.md) is a group of multiple linked {{ ES }} hosts. A {{ mes-name }} cluster provides high search performance by distributing search and indexing tasks across all hosts with the _Data node_ [role](../concepts/hosts-roles.md). To learn more about roles in the {{ mes-name }} cluster, see [{#T}](../concepts/hosts-roles.md).
 
 {% note info %}
 

@@ -24,29 +24,51 @@ description: "Управление доступом в сервисе идент
 
 ### Сервисные роли {#service-roles}
 
-{% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
+#### iam.serviceAccounts.user {#iam-serviceAccounts-user}
 
-{% include [roles-sa-admin](../../_includes/roles-sa-admin.md) %}
+{% include [iam.serviceAccounts.user](../../_roles/iam/serviceAccounts/user.md) %}
+
+#### iam.serviceAccounts.admin {#iam-serviceAccounts-admin}
+
+{% include [iam.serviceAccounts.admin](../../_roles/iam/serviceAccounts/admin.md) %}
 
 В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) или [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
 
-{% include [roles-sa-accessKeyAdmin](../../_includes/roles-sa-accessKeyAdmin.md) %}
+#### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
-{% include [roles-sa-apiKeyAdmin](../../_includes/roles-sa-apiKeyAdmin.md) %}
+{% include [iam.serviceAccounts.accessKeyAdmin](../../_roles/iam/serviceAccounts/accessKeyAdmin.md) %}
 
-{% include [roles-sa-authorizedKeyAdmin](../../_includes/roles-sa-authorizedKeyAdmin.md) %}
+#### iam.serviceAccounts.apiKeyAdmin {#iam-serviceAccounts-apiKeyAdmin}
 
-{% include [roles-sa-keyAdmin](../../_includes/roles-sa-keyAdmin.md) %}
+{% include [iam.serviceAccounts.apiKeyAdmin](../../_roles/iam/serviceAccounts/apiKeyAdmin.md) %}
 
-{% include [roles-sa-tokenCreator](../../_includes/roles-sa-tokenCreator.md) %}
+#### iam.serviceAccounts.authorizedKeyAdmin {#iam-serviceAccounts-authorizedKeyAdmin}
 
-{% include [roles-iam-auditor](../../_includes/roles-iam-auditor.md) %}
+{% include [iam.serviceAccounts.authorizedKeyAdmin](../../_roles/iam/serviceAccounts/authorizedKeyAdmin.md) %}
 
-{% include [roles-iam-viewer](../../_includes/roles-iam-viewer.md) %}
+#### iam.serviceAccounts.keyAdmin {#iam-serviceAccounts-keyAdmin}
 
-{% include [roles-iam-editor](../../_includes/roles-iam-editor.md) %}
+{% include [iam.serviceAccounts.keyAdmin](../../_roles/iam/serviceAccounts/keyAdmin.md) %}
 
-{% include [roles-iam-admin](../../_includes/roles-iam-admin.md) %}
+#### iam.serviceAccounts.tokenCreator {#iam-serviceAccounts-tokenCreator}
+
+{% include [iam.serviceAccounts.tokenCreator](../../_roles/iam/serviceAccounts/tokenCreator.md) %}
+
+#### iam.auditor {#iam-auditor}
+
+{% include [iam.auditor](../../_roles/iam/auditor.md) %}
+
+#### iam.viewer {#iam-viewer}
+
+{% include [iam.viewer](../../_roles/iam/viewer.md) %}
+
+#### iam.editor {#iam-editor}
+
+{% include [iam.editor](../../_roles/iam/editor.md) %}
+
+#### iam.admin {#iam-admin}
+
+{% include [iam.admin](../../_roles/iam/admin.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

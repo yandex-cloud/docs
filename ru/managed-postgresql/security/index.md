@@ -28,21 +28,37 @@ description: "Управление доступом в сервисе по со�
 
 ### Сервисные роли {#service-roles}
 
-{% include [mpg-auditor](../../_includes/iam/roles/mpg-auditor.md) %}
+#### managed-postgresql.auditor {#managed-postgresql-auditor}
 
-{% include [mpg-viewer](../../_includes/iam/roles/mpg-viewer.md) %}
+{% include [managed-postgresql.auditor](../../_roles/managed-postgresql/auditor.md) %}
 
-{% include [mpg-editor](../../_includes/iam/roles/mpg-editor.md) %}
+#### managed-postgresql.viewer {#managed-postgresql-viewer}
 
-{% include [mpg-admin](../../_includes/iam/roles/mpg-admin.md) %}
+{% include [managed-postgresql.viewer](../../_roles/managed-postgresql/viewer.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+#### managed-postgresql.editor {#managed-postgresql-editor}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+{% include [managed-postgresql.editor](../../_roles/managed-postgresql/editor.md) %}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+#### managed-postgresql.admin {#managed-postgresql-admin}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+{% include [managed-postgresql.admin](../../_roles/managed-postgresql/admin.md) %}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

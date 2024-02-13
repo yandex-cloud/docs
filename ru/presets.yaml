@@ -695,8 +695,8 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
-  vision-full-name: Yandex Vision
-  vision-name: Vision
+  vision-full-name: Yandex Vision OCR
+  vision-name: Vision OCR
   vision-short-name: Vision
   vpc-full-name: Yandex Virtual Private Cloud
   vpc-name: Virtual Private Cloud
@@ -4965,6 +4965,7 @@ default:
         field_expand-duration: Таймаут редистрибуции
         field_expand-segment-host-count: Количество новых хостов-сегментов
         field_hosts-count: Количество хостов
+        field_restore-only: БД и таблицы для восстановления
         field_segments-in-host: Сегментов на хост
         label_user-auth: Аутентификация пользователей
         label-analyze-timeout: Таймаут ANALYZE
@@ -5141,6 +5142,7 @@ default:
           overview:
             label_health: Состояние
             label_id: Идентификатор
+            label_master-title: Мастер
             label_status: Статус
           switch_custom-resources: Пользовательские ресурсы
           switch_events: События

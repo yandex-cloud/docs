@@ -105,6 +105,10 @@ items:
           Migrating data from {{ yandex-direct }} using {{ sf-full-name }}, {{
           objstorage-full-name }}, and {{ data-transfer-full-name }}
         href: tutorials/transfer-from-direct.md
+      - name: >-
+          Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
+          {{ data-transfer-full-name }}
+        href: tutorials/object-storage-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -135,6 +139,8 @@ items:
         href: concepts/dictionaries.md
       - name: Sharding
         href: concepts/sharding.md
+      - name: Service users
+        href: concepts/service-users.md
       - name: Maintenance
         href: concepts/maintenance.md
       - name: Supported clients
@@ -161,7 +167,7 @@ items:
             href: pricing-archive/pricing-01022020.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

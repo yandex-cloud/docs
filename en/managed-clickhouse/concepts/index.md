@@ -5,7 +5,7 @@ description: "The main entity used in {{ mch-name }} is a database cluster. Each
 
 # Resource relationships in {{ mch-name }}
 
-The main entity used in {{ mch-name }} is a _database cluster_.
+The main entity used in the {{ mch-name }} service is a _database cluster_.
 
 Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
 

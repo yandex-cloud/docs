@@ -8,7 +8,7 @@
 ## Вызов блока {#iframe-call}
 
 ```
-{{iframe src="http://адресСтраницы" width=700px height=600px frameborder=0 scrolling=no}}
+{{iframe src="http://<адрес_страницы>" width=700px height=600px frameborder=0 scrolling=no}}
 ```
 
 ## Параметры блока {#iframe-params}

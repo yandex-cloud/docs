@@ -20,7 +20,7 @@ description: "Следуя данной инструкции, вы сможет�
 ### Вызов блока {#tree-call}
 
 ```
-{{tree for="адресСтраницы" nomark="0" depth="3" show_redirects="False" show_grids="True" show_files="False" show_owners="False" show_titles="True" show_created_at="False" show_modified_at="False" sort_by="title" sort="asc"}}
+{{tree for="<адрес_страницы>" nomark="0" depth="3" show_redirects="False" show_grids="True" show_files="False" show_owners="False" show_titles="True" show_created_at="False" show_modified_at="False" sort_by="title" sort="asc"}}
 ```
 
 Все параметры блока `not_var{{tree}}` необязательные, в примере приведены значения параметров по умолчанию.
@@ -48,7 +48,7 @@ description: "Следуя данной инструкции, вы сможет�
 ### Вызов блока {#backlink-call}
 
 ```
-{{backLinks for="адресСтраницы"}}
+{{backLinks for="<адрес_страницы>"}}
 ```
 
 ### Параметры блока (необязательные) {#baclink-params}

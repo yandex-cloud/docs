@@ -16,5 +16,6 @@ description: "Various {{ mmy-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mmy-to-mpg.md)
 * [{#T}](mpg-to-mmy.md)
+* [{#T}](mmy-to-mgp.md)
 
 To learn how to migrate {{ mmy-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).

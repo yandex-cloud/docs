@@ -19,15 +19,25 @@
 
 ### Сервисные роли {#service-roles}
 
-{% include [logging-roles-viewer](../../_includes/roles-logging-viewer.md) %}
+#### logging.viewer {#logging-viewer}
 
-{% include [logging-roles-editor](../../_includes/roles-logging-editor.md) %}
+{% include [logging.viewer](../../_roles/logging/viewer.md) %}
 
-{% include [logging-roles-reader](../../_includes/roles-logging-reader.md) %}
+#### logging.editor {#logging-editor}
 
-{% include [logging-roles-writer](../../_includes/roles-logging-writer.md) %}
+{% include [logging.editor](../../_roles/logging/editor.md) %}
 
-{% include [logging-roles-admin](../../_includes/roles-logging-admin.md) %}
+#### logging.reader {#logging-reader}
+
+{% include [logging.reader](../../_roles/logging/reader.md) %}
+
+#### logging.writer {#logging-writer}
+
+{% include [logging.writer](../../_roles/logging/writer.md) %}
+
+#### logging.admin {#logging-admin}
+
+{% include [logging.admin](../../_roles/logging/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 
