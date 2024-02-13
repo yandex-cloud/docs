@@ -22,9 +22,17 @@
 
 ### Сервисные роли {#service-roles}
 
-* {% include [cdn.viewer](../../_includes/iam/roles/short-descriptions/cdn.viewer.md) %}
-* {% include [cdn.editor](../../_includes/iam/roles/short-descriptions/cdn.editor.md) %}
-* {% include [cdn.admin](../../_includes/iam/roles/short-descriptions/cdn.admin.md) %}
+#### cdn.viewer {#cdn-viewer}
+
+{% include [cdn-viewer](../../_roles/cdn/viewer.md) %}
+
+#### cdn.editor {#cdn-editor}
+
+{% include [cdn-editor](../../_roles/cdn/editor.md) %}
+
+#### cdn.admin {#cdn-admin}
+
+{% include [cdn-admin](../../_roles/cdn/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

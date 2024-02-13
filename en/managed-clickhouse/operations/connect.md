@@ -184,7 +184,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
        apt-get install wget clickhouse-client --yes && \
        # Upload a configuration file for clickhouse-client.
        mkdir --parents ~/.clickhouse-client && \
-       wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+       wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml
    ```
 
@@ -204,7 +204,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
        apt-get install wget clickhouse-client --yes && \
        # Upload a configuration file for clickhouse-client.
        mkdir --parents ~/.clickhouse-client && \
-       wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+       wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml && \
        # Get SSL certificates.
        mkdir --parents {{ crt-local-dir }} && \

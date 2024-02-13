@@ -192,7 +192,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - API {#api}
 
-   To rename a database in a cluster, use the [update](../api-ref/User/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and provide the following in the request:
+   To rename a database in a cluster, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and provide the following in the request:
 
    * ID of the cluster where the database is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Database name in the `databaseName` parameter. To find out the database name, [retrieve a list of databases in the cluster](#list-db).

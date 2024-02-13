@@ -8,7 +8,7 @@ User authentication in {{ mgp-name }} is set up under **{{ ui-key.yacloud.greenp
 
 For more information about these limitations, see [{#T}](#auth-settings).
 
-Each authentication rule determines the connection type, DB name, username, host FQDN or IP range to connect from, and authentication method. Rules are read from top to bottom and the first suitable rule is applied for authentication. If authentication based on the first suitable rule fails, other rules are not applied.
+Each authentication rule determines the connection type, DB name, user name or user group name, host FQDN or IP range to connect from, and authentication method. Rules are read from top to bottom and the first suitable rule is applied for authentication. If authentication based on the first suitable rule fails, other rules are not applied.
 
 If no authentication rules are set, the default rule is used; it allows authentication for all users in any database and from any host using the `md5` method (password-based authentication). If the authentication rules are set, the default rule is read last.
 
@@ -27,8 +27,9 @@ The following is not available to databases and users:
 * System databases, e.g., `postgres`
 * System users, e.g., `mdb_admin`
 * Special values, e.g., `all` or `sameuser`
-* User groups (starting with the "+" sign), e.g, `+dbwriters`
 * [Regular expressions]({{ pg-docs }}/functions-matching.html#POSIX-SYNTAX-DETAILS)
+
+A DB user group name should begin with the `+` sign, e.g, `+dbwriters`.
 
 As an address, you can use a host's FQDN or IP range and the `all` special value that allows connections from any host:
 

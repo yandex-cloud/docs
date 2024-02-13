@@ -1,6 +1,6 @@
 # Resource relationships in {{ mos-name }}
 
-With {{ mos-full-name }}, you can deploy and maintain {{ OS }} server clusters in the {{ yandex-cloud }} infrastructure.
+{{ mos-full-name }} helps you deploy and maintain clusters of {{ OS }} servers in the {{ yandex-cloud }} infrastructure.
 
 {{ OS }} is a set of search and analytical resources for real-time application monitoring, log analysis, and search across websites. {{ OS }} clusters consist of one or more host groups with various resources that handle a variety of tasks.
 
@@ -17,7 +17,7 @@ When [creating a cluster](../operations/cluster-create.md), specify the followin
 - _Environment_ where the cluster will be deployed:
 
    - `PRODUCTION`: For stable versions of your apps.
-   - `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+   - `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
 - `admin` _user password_.
 

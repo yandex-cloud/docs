@@ -97,6 +97,10 @@ items:
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-to-mpg.md
+      - name: >-
+          Transferring data from {{ objstorage-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-postgresql.md
       - name: Replication and migration
         items:
           - name: Logical {{ PG }} replication
@@ -179,7 +183,7 @@ items:
             href: pricing-archive/pricing-01022020.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

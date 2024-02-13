@@ -19,6 +19,7 @@ description: "Various {{ mch-full-name }} use cases in {{ yandex-cloud }}."
 * [Migrating databases from Google BigQuery](bigquery-to-clickhouse.md)
 * [Delivering data from {{ mkf-name }} using {{ data-transfer-full-name }}](mkf-to-mch-migration.md)
 * [Migrating data from {{ yandex-direct }} using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}](transfer-from-direct.md)
+* [{#T}](object-storage-to-clickhouse.md)
 
 To learn how to migrate {{ mch-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).
 

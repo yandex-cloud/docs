@@ -16,6 +16,12 @@ In a {{ mch-name }} cluster, you can only use one user management method at a ti
 
 {% endnote %}
 
+{% note info %}
+
+Creating a new {{ CH }} cluster automatically creates [service users](../concepts/service-users.md) to administer and monitor the service.
+
+{% endnote %}
+
 ## Managing users via SQL {#sql-user-management}
 
 

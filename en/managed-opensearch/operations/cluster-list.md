@@ -19,7 +19,28 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
    In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 
-- API {#api}
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To request a list of {{ OS }} clusters in the folder, run the command:
+
+   ```bash
+   {{ yc-mdb-os }} cluster list
+   ```
+
+   ```text
+   +----------------------+------+-----------------------------+--------+---------+
+   |          ID          | NAME |         CREATED AT          | HEALTH | STATUS  |
+   +----------------------+------+-----------------------------+--------+---------+
+   | c9wlk4v14uq7******** | myos | 2023-12-19T10:04:14.645214Z | ALIVE  | RUNNING |
+   | ...                                                                          |
+   +----------------------+------+-----------------------------+--------+---------+
+   ```
+
+-  API {#api}
 
    To get a list of clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
@@ -36,7 +57,21 @@ You can request detailed information about each {{ mos-name }} cluster you creat
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the cluster name.
 
-- API {#api}
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get information about an {{ OS }} cluster, run the command:
+
+   ```bash
+   {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
+   ```
+
+   You can request the cluster name and ID with a [list of clusters in the folder](#list-clusters).
+
+-  API {#api}
 
    To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

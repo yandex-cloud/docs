@@ -1,6 +1,6 @@
 # Распознавание текста из PDF-файла
 
-Чтобы [распознать текст](../../concepts/ocr/index.md) из PDF-файла, вы можете использовать [OCR API](../../ocr/api-ref/index.md) или [Vision API](../../vision/api-ref/index.md). OCR API — это обновленный и переработанный интерфейс, который предоставляет больше [возможностей](../../concepts/limits.md#vision-limits), в т.ч. распознавание многоколоночного текста.
+Чтобы [распознать текст](../../concepts/ocr/index.md) из PDF-файла, вы можете использовать [OCR API](../../ocr/api-ref/index.md). OCR API — это обновленный и переработанный интерфейс, который предоставляет больше [возможностей](../../concepts/limits.md#vision-limits), в т.ч. распознавание многоколоночного текста.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -978,85 +978,3 @@
 
 {% include [coordinate-definition-issue-note](../../../_includes/vision/coordinate-definition-issue-note.md) %}
 
-
-## Распознать текст из PDF-файла с помощью Vision API {#vision-api-recognition}
-
-Распознавание текста из PDF-файла реализовано в методе [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) Vision API.
-
-1. В PDF-файле должно быть не больше 8 страниц. Если страниц больше, разбейте его на файлы по 8 страниц.
-1. Кодируйте PDF-файл в формат Base64.
-
-    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command-pdf.md) %}
-
-1. Создайте файл с телом запроса, например `body.json`.
-
-    **body.json:**
-    ```json
-    {
-        "folderId": "<идентификатор_каталога>",
-        "analyze_specs": [{
-            "content": "<PDF-файл_в_кодировке_base64>",
-            "mime_type": "application/pdf",
-            "features": [{
-                "type": "TEXT_DETECTION",
-                "text_detection_config": {
-                    "language_codes": ["*"]
-                }
-            }]
-        }]
-    }
-    ```
-
-    Где:
-    * `folderId` – [идентификатор любого каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
-    * `content` – содержимое файла, полученное при [переводе](../base64-encode.md) PDF-файла в формат Base64.
-
-1. {% include [send-request](../../../_includes/vision/send-request.md) %}
-
-1. Чтобы получить все распознанные на изображении слова, найдите все строки со свойством `text`, например с помощью [grep](https://www.gnu.org/software/grep/):
-
-    {% list tabs group=programming_language %}
-
-    - Bash {#bash}
-
-      ```bash
-      grep -o "\"text\":\s\".*\"" output.json
-      ```
-
-      Результат:
-
-      ```text
-      "text": "PENGUINS"
-      "text": "CROSSING"
-      "text": "SLOW"
-      ```
-
-    - CMD
-
-      ```bash
-      findstr text output.json
-      ```
-
-      Результат:
-
-      ```text
-      "text": "PENGUINS"
-      "text": "CROSSING"
-      "text": "SLOW"
-      ```
-
-    - PowerShell {#powershell}
-
-      ```powershell
-      Select-String -Pattern '\"text\":\s\".*\"' -Path .\output.json
-      ```
-
-      Результат:
-
-      ```text
-      output.json:1:      "text": "PENGUINS"
-      output.json:2:      "text": "CROSSING"
-      output.json:3:      "text": "SLOW"
-      ```
-
-    {% endlist %}

@@ -7,7 +7,7 @@ keywords:
 
 # Assessing image quality
 
-_Image classification is currently in the [Preview stage](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md).
 

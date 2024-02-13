@@ -1,6 +1,6 @@
 # Creating a {{ GP }} cluster
 
-A {{ mgp-name }} cluster consists of master hosts that accept client requests and segment hosts that provide data processing and storage.
+A {{ mgp-name }} cluster consists of master hosts that accept client queries and segment hosts that provide data processing and storage capability.
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
@@ -204,7 +204,7 @@ For more information, see [{#T}](../concepts/index.md).
       ```
 
    
-   1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
+   1. To create a cluster hosted on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify their IDs separated by commas in the `--host-group-ids` parameter:
 
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
@@ -351,7 +351,11 @@ For more information, see [{#T}](../concepts/index.md).
    * Username in the `userName` parameter.
    * User password in the `userPassword` parameter.
    * Network ID in the `networkId` parameter.
-      * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
+
+   
+   * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
+
+
    * Configuration of master hosts in the `masterConfig` parameter.
    * Configuration of segment hosts in the `segmentConfig` parameter.
 

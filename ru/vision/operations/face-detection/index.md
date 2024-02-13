@@ -1,6 +1,6 @@
 # Обнаружение лиц на изображении
 
-_Обнаружение лиц сейчас находится на [стадии Preview](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 Чтобы обнаружить лица на фото, воспользуйтесь возможностью [Обнаружение лиц](../../concepts/face-detection/index.md).
 

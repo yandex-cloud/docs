@@ -24,10 +24,21 @@ description: "Управление доступом в сервисе сетев
 
 ### Сервисные роли {#service-roles}
 
-* {% include [load-balancer.auditor](../../_includes/iam/roles/short-descriptions/load-balancer.auditor.md) %}
-* {% include [load-balancer.viewer](../../_includes/iam/roles/short-descriptions/load-balancer.viewer.md) %}
-* {% include [load-balancer.privateAdmin](../../_includes/iam/roles/short-descriptions/load-balancer.privateAdmin.md) %}
-* {% include [load-balancer.admin](../../_includes/iam/roles/short-descriptions/load-balancer.admin.md) %}
+#### load-balancer.auditor {#load-balancer-auditor}
+
+{% include [load-balancer.auditor](../../_roles/load-balancer/auditor.md) %}
+
+#### load-balancer.viewer {#load-balancer-viewer}
+
+{% include [loadbalancer-viewer](../../_roles/load-balancer/viewer.md) %}
+
+#### load-balancer.privateAdmin {#load-balancer-private-admin}
+
+{% include [loadbalancer-privateadmin](../../_roles/load-balancer/privateAdmin.md) %}
+
+#### load-balancer.admin {#load-balancer-admin}
+
+{% include [loadbalancer-admin](../../_roles/load-balancer/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

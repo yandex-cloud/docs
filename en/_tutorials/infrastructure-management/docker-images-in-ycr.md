@@ -45,7 +45,7 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating an 
 
 Infrastructure support costs include fees for the following resources:
 
-* Disks and continuously running VMs (see [{{ compute-full-name }} pricing)](../../compute/pricing.md).
+* Disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Storing created Docker images and a vulnerability scanner, if you choose to [enable](#vulnerability-scanner) it (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
@@ -66,7 +66,7 @@ Infrastructure support costs include fees for the following resources:
       * `{{ roles-cr-puller }}`
 
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with a zonal master, as well as a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the service account you created previously.
-   1. Configure a security group for the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/security-groups.md) and [{{ mgl-name }} instance](../../managed-gitlab/operations/connect.md).
+   1. Configure a security group for the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/security-groups.md) and [{{ mgl-name }} instance](../../managed-gitlab/operations/configure-security-group.md).
 
    1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
 
@@ -241,7 +241,7 @@ To detect vulnerabilities in your Docker images, you can additionally activate 
 To enable scanning, expand your {{ GL }} project's CI script:
 
 1. Open the project.
-1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
+1. In the left-hand panel in {{ GL }}, go to **Repository** and click the **Files** tab.
 1. Open the `.gitlab-ci.yml` file.
 1. Add to it the steps for vulnerability scanning of your Docker image:
 
@@ -265,8 +265,8 @@ To enable scanning, expand your {{ GL }} project's CI script:
          paths:
             - gl-container-scanning-report-yc.json
       variables:
-         # Specify the ID of the registry that you created previously.
-         CI_REGISTRY_ID: "< registry_ID>"
+         # Specify the ID of the registry you created earlier.
+         CI_REGISTRY_ID: "<registry_ID>"
       script:
          - export CI_COMMIT_SHORT_SHA=${CI_COMMIT_SHORT_SHA}
          # Install Yandex Cloud CLI.
@@ -310,7 +310,7 @@ If you no longer need the resources you created, delete them:
 1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [created VM with the {{ GL }} image](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
 {% list tabs group=instructions %}
 
@@ -326,7 +326,7 @@ Delete the other resources, depending on the method used to create them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, navigate to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `container-registry-and-gitlab.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

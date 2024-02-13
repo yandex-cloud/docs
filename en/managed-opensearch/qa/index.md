@@ -1,6 +1,6 @@
 ---
 title: "{{ mos-name }}. Questions and answers"
-description: "How do I get the logs of my activity in {{ OS }}? Find the answer to this and other questions in this article."
+description: "How do I get the logs of my activity in Yandex Managed Service for {{ OS }}? Find the answer to this and other questions in this article."
 ---
 
 # Questions and answers about {{ mos-name }}
@@ -19,9 +19,9 @@ For more information, see [Maintenance](../concepts/maintenance.md).
 
 #### Is cluster backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ mos-name }} clusters, a complete backup is performed once a day, and all the indexes are saved. This helps restore a cluster's state from any available backup.
+Yes, automatic [backup](../concepts/backup.md) is enabled by default and takes place every hour. All backups are incremental and store only the data that has changed since the previous backup to save storage space.
 
-Backups are kept for 7 days.
+Automatic backups are stored for two weeks.
 
 #### Which version of {{ OS }} does {{ mos-short-name }} use? {#dbms-version}
 
@@ -41,15 +41,15 @@ The owner of the affected clusters will receive a notice of expected work times 
 
 [Create an alert](../../managed-opensearch/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mos-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space.
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space
 
-The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
 
 #### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
 

@@ -8,13 +8,13 @@ Clusters remain fully accessible during backups.
 
 #### Is DB host backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ GP }}, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backup is enabled by default. For {{ GP }}, a full backup is performed every day, saving all DB cluster transaction logs. The first and every second automatic backups are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
 
-Automatically created backups of an existing cluster are kept for seven days, whereas those created manually are stored indefinitely. After you delete a cluster, all its backups are kept for seven days.
+Automatically created backups of an existing cluster are kept for seven days, whereas those created manually are stored indefinitely. Once the cluster is deleted, all its backups are kept for seven days.
 
 #### Can I run {{ mgp-name }} cluster backups manually? {#manual-backup}
 
-No, {{ mgp-name }} does not support manual cluster backups.
+Yes, {{ mgp-name }} supports [manually running](../../managed-greenplum/operations/cluster-backups.md#create-backup) a cluster backup.
 
 #### Can I select other resources when restoring a cluster from a backup? {#resource-restore}
 

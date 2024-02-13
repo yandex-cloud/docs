@@ -34,19 +34,33 @@ description: "В этом разделе вы узнаете, на какие р
 
 ### Сервисные роли {#service-roles}
 
-{% include [mes-viewer](../../_includes/iam/roles/mes-viewer.md) %}
+#### managed-elasticsearch.viewer {#managed-elasticsearch-viewer}
 
-{% include [mes-editor](../../_includes/iam/roles/mes-editor.md) %}
+{% include [managed-elasticsearch.viewer](../../_roles/managed-elasticsearch/viewer.md) %}
 
-{% include [mes-admin](../../_includes/iam/roles/mes-admin.md) %}
+#### managed-elasticsearch.editor {#managed-elasticsearch-editor}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+{% include [managed-elasticsearch.editor](../../_roles/managed-elasticsearch/editor.md) %}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+#### managed-elasticsearch.admin {#managed-elasticsearch-admin}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+{% include [managed-elasticsearch.admin](../../_roles/managed-elasticsearch/admin.md) %}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

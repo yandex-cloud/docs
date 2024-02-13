@@ -28,21 +28,37 @@ description: "Управление доступом в сервисе созда
 
 ### Сервисные роли {#service-roles}
 
-{% include [mkf-auditor](../../_includes/iam/roles/mkf-auditor.md) %}
+#### managed-kafka.auditor {#managed-kafka-auditor}
 
-{% include [mkf-viewer](../../_includes/iam/roles/mkf-viewer.md) %}
+{% include [managed-kafka.auditor](../../_roles/managed-kafka/auditor.md) %}
 
-{% include [mkf-editor](../../_includes/iam/roles/mkf-editor.md) %}
+#### managed-kafka.viewer {#managed-kafka-viewer}
 
-{% include [mkf-admin](../../_includes/iam/roles/mkf-admin.md) %}
+{% include [managed-kafka.viewer](../../_roles/managed-kafka/viewer.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+#### managed-kafka.editor {#managed-kafka-editor}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+{% include [managed-kafka.editor](../../_roles/managed-kafka/editor.md) %}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+#### managed-kafka.admin {#managed-kafka-admin}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+{% include [managed-kafka.admin](../../_roles/managed-kafka/admin.md) %}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

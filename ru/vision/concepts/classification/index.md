@@ -7,7 +7,7 @@ keywords:
 
 # Классификация изображений
 
-_Классификация изображений сейчас находится на [стадии Preview](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 В этом разделе описано, как работает возможность _классификация изображений_ в сервисе.
 

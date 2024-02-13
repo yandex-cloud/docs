@@ -29,6 +29,20 @@ You can delete an {{ OS }} cluster if you no longer need it. All data in the clu
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster you need and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
    1. Confirm cluster deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To delete a cluster, run the command:
+
+   ```bash
+   {{ yc-mdb-os }} cluster delete <cluster_name_or_ID>
+   ```
+
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API {#api}
 
    To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the ID of the cluster to be deleted in the `clusterId` request parameter.

@@ -20,6 +20,8 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ### Getting a list of backups {#list-backups}
 
+You can get a list of backups created for the past 14 days.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -34,7 +36,32 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
-- API {#api}
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get a list of all backups in the folder, run this command:
+
+   ```bash
+   {{ yc-mdb-os }} backup list
+   ```
+
+   Result:
+
+   ```text
+   +----------------------+---------------------+-------------------+---------------------+
+   |          ID          |      CREATED AT     | SOURCE CLUSTER ID |      STARTED AT     |
+   +----------------------+---------------------+-------------------+---------------------+
+   | c9qlk4v13uq7******** | 2024-01-09 14:38:34 | c9qpm4i********   | 2024-01-09 14:38:28 |
+   | c9qpm90p3pcg******** | 2024-01-09 13:38:31 | c9qpm4i********   | 2024-01-09 13:38:28 |
+   +----------------------+---------------------+-------------------+---------------------+
+   ```
+
+   If you want to limit the backup list displayed after running the command, include the `--limit <number_of_records>` flag in the command. For example, if the output of the `{{ yc-mdb-os }} backup list` command takes up several screens, run the `{{ yc-mdb-os }} backup list --limit 5` command. In this case, the output will contain the list of five most recent backups.
+
+-  API {#api}
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -60,7 +87,48 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
-- API {#api}
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get information about the backup of a cluster:
+
+   1. Retrieve the backup ID with a list of all backups in the folder:
+
+      ```bash
+      {{ yc-mdb-os }} backup list
+      ```
+
+      You will see the ID in the `ID` column of the command output.
+
+   1. Get information about the backup you need:
+
+      ```bash
+      {{ yc-mdb-os }} backup get <backup_ID>
+      ```
+
+      Command output example:
+
+      ```text
+      id: c9qlk4v13uq7********
+      folder_id: {{ folder-id-example }}
+      source_cluster_id: c9qpm4i********
+      started_at: "2024-01-09T10:38:28.683Z"
+      created_at: "2024-01-09T10:38:31.685Z"
+      indices:
+        - .mdb-sli
+        - .opendistro_security
+        - .kibana_1
+        - .opendistro-job-scheduler-lock
+        - .opensearch-observability
+        - .opendistro-ism-config
+      opensearch_version: 2.8.0
+      indices_total: "6"
+      ```
+
+-  API {#api}
 
    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
@@ -80,7 +148,21 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- API {#api}
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a backup of cluster data, run this command:
+
+   ```bash
+   {{ yc-mdb-os }} cluster backup <cluster_name_or_ID>
+   ```
+
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+-  API {#api}
 
    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -119,7 +201,42 @@ When creating a new cluster, set all required parameters.
 
    {{ mos-name }} will launch the operation to create a cluster from the backup.
 
-- API {#api}
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To restore a cluster from a backup:
+
+   1. Retrieve the backup ID with a list of all backups in the folder:
+
+      ```bash
+      {{ yc-mdb-os }} backup list
+      ```
+
+      Result:
+
+      ```text
+      +----------------------+---------------------+-------------------+---------------------+
+      |          ID          |      CREATED AT     | SOURCE CLUSTER ID |      STARTED AT     |
+      +----------------------+---------------------+-------------------+---------------------+
+      | c9qlk4v13uq7******** | 2024-01-09 14:38:34 | c9qpm4i********   | 2024-01-09 14:38:28 |
+      | ...                                                                                  |
+      +----------------------+---------------------+-------------------+---------------------+
+      ```
+
+      You will see the backup ID in the `ID` column. The `CREATED AT` column shows the time when the backup was completed in `yyyy-mm-dd hh:mm:ss` format.
+
+   1. Request the creation of a cluster from a backup:
+
+      ```bash
+      {{ yc-mdb-os }} cluster restore --backup-id <backup_ID>
+      ```
+
+      You can also run the command with the parameters you use when creating a cluster. For the description of such parameters, see [{#T}](cluster-create.md).
+
+-  API {#api}
 
    To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 

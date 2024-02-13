@@ -226,14 +226,14 @@ When creating a new cluster, set all required parameters.
          --environment=<environment> \
          --network-name=<network_name> \
          --host zone-id=<availability_zone>,`
-               `subnet-id=<subnet_name>,`
+               `subnet-id=<subnet_ID>,`
                `assign-public-ip=<public_access>,`
-               `type=<host_type> \
+               `type=<host_role> \
          --datanode-resource-preset=<Data_node_host_class> \
-         --datanode-disk-size=<Data_node_storage_size_GB> \
+         --datanode-disk-size=<Data_node_storage_size_in_GB> \
          --datanode-disk-type=<Data_node_disk_type> \
          --masternode-resource-preset=<Master_node_host_class> \
-         --masternode-disk-size=<Master_node_storage_size_GB> \
+         --masternode-disk-size=<Master_node_storage_size_in_GB> \
          --masternode-disk-type=<Master_node_disk_type> \
          --admin-password=<admin_password>
       ```

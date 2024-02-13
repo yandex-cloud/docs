@@ -4,7 +4,7 @@
 
 ## Resources {#resources}
 
-The main entity used in {{ dataproc-name }} is a _cluster_. It groups together all resources available in Hadoop, including storage and computing capacity.
+The main entity of the service is a _cluster_. It groups together all resources available in Hadoop, including storage and computing capacity.
 
 Each cluster consists of _subclusters_. They integrate _hosts_ that perform identical functions:
 

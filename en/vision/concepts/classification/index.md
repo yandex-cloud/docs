@@ -7,7 +7,7 @@ keywords:
 
 # Image classification
 
-_Image classification is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 This section describes how the _image classification_ feature works.
 

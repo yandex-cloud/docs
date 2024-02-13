@@ -1,6 +1,6 @@
-# Resource relationships in {{ mgp-name }}
+# Resource relationships
 
-The main entity used in {{ mgp-name }} is a _database cluster_.
+The main entity used in the {{ mgp-name }} service is a _database cluster_.
 
 Each cluster consists of database hosts, which are virtual machines with DBMS servers deployed on them. A {{ mgp-name }} cluster contains:
 

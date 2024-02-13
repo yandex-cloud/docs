@@ -38,7 +38,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       The host class defines the technical specifications of the [VMs](../../compute/concepts/vm.md) that {{ KF }} brokers will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
 
-      When [changing the host class](cluster-update.md#change-brokers) for the {{ mkf-name }} cluster, the configuration of all existing instances changes as well.
+      [Changing the host class](cluster-update.md#change-brokers) for a {{ mkf-name }} cluster changes the characteristics of all instances already created.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
       * Select the disk type.
 

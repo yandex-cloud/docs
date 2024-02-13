@@ -24,17 +24,31 @@ description: "Управление доступом в сервисе для р�
 
 ### Сервисные роли {#service-roles}
 
-* {% include [alb.auditor](../../_includes/iam/roles/short-descriptions/alb.auditor.md) %}
-* {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
-* {% include [alb.user](../../_includes/iam/roles/short-descriptions/alb.user.md) %}
-* {% include [alb.editor](../../_includes/iam/roles/short-descriptions/alb.editor.md) %}
-* {% include [alb.admin](../../_includes/iam/roles/short-descriptions/alb.admin.md) %}
+#### alb.auditor {#alb-auditor}
 
-  {% note info %}
+{% include [alb.auditor](../../_roles/alb/auditor.md) %}
 
-  Чтобы к новому или существующему L7-балансировщику можно было подключить публичный IP-адрес, помимо роли `alb.editor` или `alb.admin` также требуется роль `vpc.publicAdmin` на сеть, в которой находится балансировщик.
+#### alb.viewer {#alb-viewer}
 
-  {% endnote %}
+{% include [alb.viewer](../../_roles/alb/viewer.md) %}
+
+#### alb.user {#alb-user}
+
+{% include [alb.user](../../_roles/alb/user.md) %}
+
+#### alb.editor {#alb-editor}
+
+{% include [alb.editor](../../_roles/alb/editor.md) %}
+
+#### alb.admin {#alb-admin}
+
+{% include [alb.admin](../../_roles/alb/admin.md) %}
+
+{% note info %}
+
+Чтобы к новому или существующему L7-балансировщику можно было подключить публичный IP-адрес, помимо роли `alb.editor` или `alb.admin` также требуется роль `vpc.publicAdmin` на сеть, в которой находится балансировщик.
+
+{% endnote %}
 
 ### Примитивные роли {#primitive-roles}
 

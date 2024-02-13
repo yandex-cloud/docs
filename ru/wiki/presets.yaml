@@ -26,9 +26,9 @@ default:
   yfm-link: https://diplodoc.com/docs/ru/index-yfm
   yandex-logo-link: http://img.yandex.net/i/logo95x37x8.png
   wiki-host-name: wiki.yandex.ru
-  wiki-username: wiki.yandex.ru/users/имяПользователя
-  wiki-notes: wiki.yandex.ru/users/имяПользователя/notes
-  wiki-pagename: /users/имяПользователя/адресСтраницы
+  wiki-username: wiki.yandex.ru/users/<имя_пользователя>
+  wiki-notes: wiki.yandex.ru/users/<имя_пользователя>/notes
+  wiki-pagename: /users/<имя_пользователя>/<адрес_страницы>
   username-oleg: oleg
   oleg-notes-title: Заметки Олега
   example-link-mail: '[Почта Олега](mailto:oleg@yandex.ru)'

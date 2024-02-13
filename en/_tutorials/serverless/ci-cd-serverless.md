@@ -69,7 +69,7 @@ Install the following items in the local environment:
    You can use the same service account for both operations.
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
 1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
-1. [Configure a security group](../../managed-gitlab/operations/connect.md) for the [{{ mgl-full-name }} instance](../../managed-gitlab/concepts/index.md#instance).
+1. [Configure a security group](../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-full-name }} instance](../../managed-gitlab/concepts/index.md#instance).
 
 ## Create a {{ GL }} instance {#create-gitlab}
 

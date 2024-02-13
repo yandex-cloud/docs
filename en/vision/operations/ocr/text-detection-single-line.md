@@ -16,6 +16,8 @@ To recognize a single line of text in an image, follow the [Text recognition in 
 
 ## Recognizing a text line using the Vision API {#vision-line-recognition}
 
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
+
 The Vision API allows you to recognize a separate line using the [recognize](../../ocr/api-ref/TextRecognition/recognize.md) method.
 
 In the configuration, specify the `line` model to recognize text lines more accurately.

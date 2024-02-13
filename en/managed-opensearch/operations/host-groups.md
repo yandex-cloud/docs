@@ -29,6 +29,22 @@ To learn how to migrate {{ mos-name }} cluster host groups to a different availa
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get a list of host groups in a cluster, request information about the {{ OS }} cluster:
+
+   ```bash
+   {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
+   ```
+
+   You can find the list of host groups in the `config.opensearch.node_groups` and `config.dashboards.node_groups` parameters.
+
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API {#api}
 
    To get a list of host groups in a cluster, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
@@ -38,6 +54,13 @@ To learn how to migrate {{ mos-name }} cluster host groups to a different availa
 {% endlist %}
 
 ## Adding a host group to a cluster {#add-host-group}
+
+The following restrictions apply when adding host groups:
+
+* A {{ mos-name }} cluster may contain only one `Dashboards` host group.
+* If you are adding a group of `{{ OS }}` hosts and assign the `MANAGER` role to the hosts, the minimum number of hosts with such a role will be three.
+
+To add a host group to a cluster:
 
 {% list tabs group=instructions %}
 
@@ -49,7 +72,7 @@ To learn how to migrate {{ mos-name }} cluster host groups to a different availa
    1. Specify the group parameters:
 
       * [Group type](../concepts/host-groups.md): `{{ OS }}` or `Dashboards`.
-      * Name, which must be unique within the cluster.
+      * Name which must be unique within the cluster.
       * For the `{{ OS }}` host group, select a [host role](../concepts/host-roles.md).
       * Platform, host type, and host class.
 
@@ -74,6 +97,39 @@ To learn how to migrate {{ mos-name }} cluster host groups to a different availa
    Once you have added a host group, you will not be able to change the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option. You can only [change](#update-host-group) other configuration settings using the API. However, you can also create a new host group with a different configuration, if required.
 
    {% endnote %}
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To add a host group to a cluster, run the command:
+
+   ```bash
+   {{ yc-mdb-os }} node-group add --cluster-name <cluster_name> \
+      --opensearch-node-group name=<name_of_{{ OS }}_host_group>,`
+                             `resource-preset-id=<host_class>,`
+                             `disk-size=<disk_size_in_bytes>,`
+                             `disk-type-id=<disk_type>,`
+                             `hosts-count=<number_of_hosts_per_group>,`
+                             `zone-ids=<availability_zones>,`
+                             `subnet-names=<subnet_names>,`
+                             `assign-public-ip=<assign_public_IP:_true_or_false>,`
+                             `roles=<host_roles> \
+      --dashboards-node-group name=<name_of_Dashboards_host_group>,`
+                             `resource-preset-id=<host_class>,`
+                             `disk-size=<disk_size_in_bytes>,`
+                             `disk-type-id=<disk_type>,`
+                             `hosts-count=<number_of_hosts_per_group>,`
+                             `zone-ids=<availability_zones>,`
+                             `subnet-names=<subnet_names>,`
+                             `assign-public-ip=<assign-public-ip=<assign_public_IP:_true_or_false>
+   ```
+
+   Specify the required parameters in the command depending on what type of host group you want to add:
+
+   {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
 - API {#api}
 
@@ -102,6 +158,35 @@ To learn how to migrate {{ mos-name }} cluster host groups to a different availa
 ## Updating a host group configuration {#update-host-group}
 
 {% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change the configuration of a host group, run the command:
+
+   ```bash
+   {{ yc-mdb-os }} node-group update --cluster-name <cluster_name> \
+      --node-group-name <host_group_name> \
+      --resource-preset-id <host_class> \
+      --disk-size <disk_size_in_bytes> \
+      --hosts-count <number_of_hosts_per_group> \
+      --roles <host_roles>
+   ```
+
+   Specify the required parameters in the command depending on what type of host group configuration you need:
+
+   * `--node-group-name`: Name of the host group you want to update.
+   * `--resource-preset-id`: New host class that defines the configuration of virtual machines the {{ OS }} nodes will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
+   * `--disk-size`: New disk size in bytes. Minimum and maximum values depend on the selected host class.
+   * `--hosts-count`: New number of hosts in the group.
+   * `--roles`: New [host roles](../../managed-opensearch/concepts/host-roles.md). The possible values include:
+
+      * `data`: Assigns the `DATA` role only.
+      * `manager`: Assigns the `MANAGER` role only.
+      * `data+manager` or `manager+data`: Assigns both roles.
 
 - API {#api}
 
@@ -132,6 +217,21 @@ When deleting a host group, the following limitation applies: you cannot delete 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the appropriate group and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To delete a host group, run the command:
+
+   ```bash
+   {{ yc-mdb-os }} node-group delete --cluster-name <cluster_name> \
+      --node-group-name <host_group_name>
+   ```
+
+   In the command, specify the host group you want to delete.
 
 - API {#api}
 

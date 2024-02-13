@@ -120,6 +120,8 @@ items:
           - name: Создание пространства имен в кластере {{ k8s }}
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
+          - name: Мониторинг состояния кластера {{ k8s }}
+            href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Удаление кластера {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Управление группой узлов
@@ -370,7 +372,7 @@ items:
         href: qa/cluster-autoscaler.md
       - name: Ресурсы
         href: qa/resources.md
-      - name: Логи
+      - name: Мониторинг и логи
         href: qa/logs.md
       - name: Решение проблем
         href: qa/troubleshooting.md

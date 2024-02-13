@@ -25,7 +25,8 @@ To link {{ GL }} Merge Requests to {{ tracker-name }} issues, create a hook:
 
         * `<organization_ID>`: ID of the organization from the [{{ tracker-name }} organizations page]({{ link-tracker }}admin/orgs).
 
-    * **Secret token**: OAuth token in `OAuth <token>` format. This is the OAuth token of the bot the links will be added under.
+    * **Secret token**: OAuth token of the bot that will be used to add the links, in `OAuth <token_contents>` format.
+      For example: `OAuth y1_AQAD-qJScAAAEKEQbBNnChvfBIqR_yEQl_HMO0********`.
     * In the **Trigger** section, disable all options except **Merge request events**.
     * In the **SSL verification** section, select **Enable SSL verification**.
 
