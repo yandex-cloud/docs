@@ -2,9 +2,8 @@
 
 | Type of limit | Value |
 ----- | -----
-Number of requests per second, [synchronous mode](../vision/ocr/api-ref/TextRecognition/index.md) | 1 RPS
-Number of requests per second, [asynchronous mode](../vision/ocr/api-ref/TextRecognitionAsync/index.md) | 10 RPS
-[Text recognition attempts per second](../vision/concepts/ocr/index.md) | 5
+Number of requests per second, [synchronous mode](../vision/ocr/api-ref/TextRecognition/index.md) | 1 
+Number of requests per second, [asynchronous mode](../vision/ocr/api-ref/TextRecognitionAsync/index.md) | 10 
 
 | Number of requests per second | 10 |
 | [Text recognition attempts per second](../vision/concepts/ocr/index.md) | 5 |

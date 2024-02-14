@@ -119,6 +119,10 @@ items:
           Transferring data to {{ mpg-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
+      - name: >-
+          Loading data to {{ mch-full-name }} using {{ data-transfer-full-name
+          }}
+        href: tutorials/object-storage-to-clickhouse.md
   - name: Concepts
     items:
       - name: Overview

@@ -25,7 +25,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
    1. In the [management console]({{ link-console-main }}), change to the folder where you need to reserve an address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. Select the availability zone where you want to reserve the address.
    1. Select **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.

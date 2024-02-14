@@ -7,9 +7,9 @@ A [pod](../concepts/index.md#pod) on the Metrics Server has two containers, `met
 In some cases, the `metrics-server-nanny` component may run incorrectly. For instance, if many pods are created while there are few nodes in the {{ managed-k8s-name }} cluster. If so, the Metrics Server pod will exceed its limits, which may degrade the server performance.
 
 To avoid this, change the parameters of the Metrics Server manually:
-1. [{#T}](#get-resources)
-1. [{#T}](#update-parameters)
-1. [{#T}](#check-result)
+1. [{#T}](#get-resources).
+1. [{#T}](#update-parameters).
+1. [{#T}](#check-result).
 
 To restore the default values of the Metrics Server parameters, [reset them](#reset).
 
@@ -84,7 +84,7 @@ Where:
      name: metrics-server-config
      namespace: kube-system
      resourceVersion: "303569"
-     uid: 931b88ca-21da-4d04-a3c1-da7e8c95cc47
+     uid: 931b88ca-21da-4d04-a3c1-da7e********
    ```
 
    {% endcut %}

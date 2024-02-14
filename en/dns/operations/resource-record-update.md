@@ -14,7 +14,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
    1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
    1. Select the zone from the list.
-   1. Click ![image](../../_assets/options.svg) next to the record you need and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select **{{ ui-key.yacloud.common.edit }}**.
    1. Change the record TTL or value.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

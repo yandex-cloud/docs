@@ -31,9 +31,6 @@
    }
 
    provider "yandex" {
-     token     = "<OAuth-токен_или_IAM-токен>"
-     cloud_id  = "<идентификатор_облака>"
-     folder_id = "<идентификатор_каталога>"
      zone      = "{{ region-id }}-a"
    }
 
@@ -66,7 +63,7 @@
      }
 
      boot_disk {
-       image_id = yandex_compute_disk.boot-disk-vm1.id
+       disk_id = yandex_compute_disk.boot-disk-vm1.id
      }
 
      network_interface {
@@ -88,7 +85,7 @@
      }
 
      boot_disk {
-       image_id = yandex_compute_disk.boot-disk-vm2.id
+       disk_id = yandex_compute_disk.boot-disk-vm2.id
      }
 
      network_interface {
@@ -137,7 +134,6 @@
 
    Где:
 
-   * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
    * `bucket` — имя бакета.
    * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
    * `ssh-keys` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).

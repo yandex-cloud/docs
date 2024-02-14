@@ -156,7 +156,7 @@
           ```bash
           yc config set service-account-key key.json
           yc config set cloud-id <идентификатор_облака>
-          yc config set folder-id <идентификатор_каталога>  
+          yc config set folder-id <идентификатор_каталога>
           ```
 
           Где:

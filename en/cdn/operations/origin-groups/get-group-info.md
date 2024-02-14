@@ -12,6 +12,14 @@ To get the URL and other details of an origin:
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder containing your origin.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
+   1. Select the origin group containing your origin.
+   1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin details.
+
 - CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -32,7 +40,7 @@ To get the URL and other details of an origin:
 
       Result:
 
-      ```bash
+      ```text
       id: "152152********"
       origin_group_id: "2128********"
       source: test-cdn-1.storage.yandexcloud.net
@@ -42,6 +50,10 @@ To get the URL and other details of an origin:
           name: test-cdn-1
       ```
 
+- API {#api}
+
+   To get detailed information about an origin, use the [get](../../api-ref/Origin/get.md) REST API method for the [Origin](../../api-ref/Origin/index.md) resource or the [OriginService/Get](../../api-ref/grpc/origin_service.md#Get) gRPC API call.
+
 {% endlist %}
 
 ## Getting information about an origin group {#get-origin-group}
@@ -49,6 +61,14 @@ To get the URL and other details of an origin:
 To get the name, set of origins, and other details of an origin group:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder containing your origin group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
+   1. Select an origin group.
+   1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin group details.
 
 - CLI {#cli}
 
@@ -92,5 +112,65 @@ To get the name, set of origins, and other details of an origin group:
           bucket:
             name: test-cdn-1-1
       ```
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+
+      ```hcl
+      data "yandex_cdn_origin_group" "my_group" {
+        origin_group_id = "<group_ID>"
+      }
+
+      output "my_group_origin" {
+        value = "${data.yandex_cdn_origin_group.my_group.origin}"
+      }
+      ```
+
+      Where:
+
+      * `data "yandex_cdn_origin_group"`: Description of the origin group as a data source:
+         * `origin_group_id`: ID of the origin group.
+      * `output "my_group_origin"`: Output variable that contains information about the origin group:
+         * `value`: Returned value.
+
+      You can replace `origin` with any other parameter to get the required information. For more information about the `yandex_cdn_origin_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_origin_group).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+
+      ```bash
+      terraform output
+      ```
+
+      Result:
+
+      ```text
+      my_group_origin = toset([
+        {
+          "backup" = false
+          "enabled" = true
+          "origin_group_id" = 2149********
+          "source" = "test-cdn-1-2"
+        },
+        {
+          "backup" = true
+          "enabled" = true
+          "origin_group_id" = 2149********
+          "source" = "test-cdn-1-1"
+        },
+      ])
+      ```
+
+- API {#api}
+
+   To get detailed information about an origin group, use the [get](../../api-ref/OriginGroup/get.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Get](../../api-ref/grpc/origin_group_service.md#Get) gRPC API call.
 
 {% endlist %}

@@ -16,10 +16,10 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно добавить диск в группу размещения.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
   1. Выберите группу размещения, из которую нужно добавить диск.
-  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** и нажмите кнопку ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.disks.button_add-disk }}**.
+  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** и нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.placement-group.disks.button_add-disk }}**.
   1. В открывшемся окне выберите диск, который хотите добавить.
         
       Для групп со стратегией [размещения разделами](../../concepts/disk-placement-group.md#partition) (partition) задайте номер раздела.

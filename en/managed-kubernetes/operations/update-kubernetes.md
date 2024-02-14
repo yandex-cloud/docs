@@ -71,9 +71,9 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
   Set automatic update parameters when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) the {{ managed-k8s-name }} cluster:
 
   ```bash
-  {{ yc-k8s }} cluster <create_or_update> <cluster_ID_or_name> \
+  {{ yc-k8s }} cluster <create_or_update> <cluster_name_or_ID> \
   ...
-    --auto-upgrade <true_or_false> \
+    --auto-upgrade <automatic_update_mode> \
     --anytime-maintenance-window \
     --daily-maintenance-window <value> \
     --weekly-maintenance-window <value>
@@ -130,12 +130,14 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             start_time = "<update_start_time,_UTC>"
+             start_time = "<update_start_time>"
              duration   = "<update_duration>"
            }
          }
        }
        ```
+
+         Where `start_time` is the update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
      * To enable updates on selected days (multiple periods are possible):
 
@@ -202,14 +204,20 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
     ```json
     "dailyMaintenanceWindow": {
       "startTime": {
-        "hours": "<hour_of_update_start,_UTC>",
+        "hours": "<hour_of_update_start>",
         "minutes": "<minute_of_update_start>",
         "seconds": "<second_of_update_start>",
-        "nanos": "<nanosecond_of_update_start>"
+        "nanos": "<fraction_of_a_second_of_update_start>"
       },
-      "duration": "<update_duration,_hours>"
+      "duration": "<update_duration>"
     }
     ```
+
+    Where:
+
+    * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wikiCoordinated_Universal_Time).
+    * `nanos`: Fraction of a second of update start, in nanoseconds.
+    * `duration`: Duration of update period, hours.
 
   * To set up the update on selected days, add the `weeklyMaintenanceWindow` section:
 
@@ -218,19 +226,26 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
       "daysOfWeek": [
         {
           "days": [
-            "<list_of_days,_e.g.,_monday,_tuesday>"
+            "<list_of_days>"
           ],
           "startTime": {
-            "hours": "<hour_of_update_start,_UTC>",
+            "hours": "<hour_of_update_start>",
             "minutes": "<minute_of_update_start>",
             "seconds": "<second_of_update_start>",
-            "nanos": "<nanosecond_of_update_start>"
+            "nanos": "<fraction_of_a_second_of_update_start>"
           },
-          "duration": "<update_duration,_hours>"
+          "duration": "<update_duration>"
         }
       ]
     }
     ```
+
+      Where:
+
+      * `days`: List of days, e.g., `monday`, `tuesday`.
+      * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+      * `nanos`: Fraction of a second of update start, in nanoseconds.
+      * `duration`: Duration of update period, hours.
 
 {% endlist %}
 
@@ -253,7 +268,7 @@ If necessary, update the {{ managed-k8s-name }} cluster version manually. You ca
   Specify the new version of {{ k8s }} in the value of the `--version` argument:
 
   ```bash
-  {{ yc-k8s }} cluster update <cluster_ID_or_name> \
+  {{ yc-k8s }} cluster update <cluster_name_or_ID> \
     --version <new_version>
   ```
 
@@ -322,18 +337,19 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
   Set automatic update parameters when [creating](../../managed-kubernetes/operations/node-group/node-group-create.md) or [updating](../../managed-kubernetes/operations/node-group/node-group-update.md) a {{ managed-k8s-name }} node group.
 
   ```bash
-  {{ yc-k8s }} node-group <create_or_update> <node_group_ID_or_name> \
+  {{ yc-k8s }} node-group <create_or_update> <node_group_name_or_ID> \
   ...
-    --max-expansion <value> \
-    --max-unavailable <value> \
-    --auto-upgrade <true_or_false> \
-    --auto-repair <true_or_false> \
+    --max-expansion <number_of_instances> \
+    --max-unavailable <number_of_instances> \
+    --auto-upgrade <automatic_update_mode> \
+    --auto-repair <recreation_mode> \
     --anytime-maintenance-window \
     --daily-maintenance-window <value> \
     --weekly-maintenance-window <value>
   ```
 
    Where:
+
    * `--max-expansion`: Maximum number of instances by which you can exceed the size of the {{ managed-k8s-name }} node group when updating it.
    * `--max-unavailable`: Maximum number of instances by which you can reduce the size of the {{ managed-k8s-name }} node group when updating it.
 
@@ -343,8 +359,8 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
       {% endnote %}
 
-   * `--auto-upgrade`: Automatic update mode for the {{ managed-k8s-name }} node group. The default value is `true` (automatic updates are enabled).
-   * `--auto-repair`: Mode for re-creating failed nodes.
+   * `--auto-upgrade`: Automatic update mode for the {{ managed-k8s-name }} node group. The default value is `true` (automatic updates are enabled). Valid values: `true` or `false`.
+   * `--auto-repair`: Mode for re-creating failed nodes. Valid values: `true` or `false`.
 
       The `--auto-repair` mode is at the [Preview](../../overview/concepts/launch-stages.md).
    * `--anytime-maintenance-window`: Random update time for the {{ managed-k8s-name }} node group.
@@ -398,12 +414,14 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
            maintenance_policy {
              auto_upgrade = true
              maintenance_window {
-               start_time = "<update_start_time,_UTC>"
+               start_time = "<update_start_time>"
                duration   = "<update_duration>"
              }
            }
          }
          ```
+
+         Where `start_time` is the update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
       * To enable updates on selected days (multiple periods are possible):
 
@@ -489,14 +507,20 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
       ```json
       "dailyMaintenanceWindow": {
         "startTime": {
-          "hours": "<hour_of_update_start,_UTC>",
+          "hours": "<hour_of_update_start>",
           "minutes": "<minute_of_update_start>",
           "seconds": "<second_of_update_start>",
-          "nanos": "<nanosecond_of_update_start>"
+          "nanos": "<fraction_of_a_second_of_update_start>"
         },
-        "duration": "<update_duration,_hours>"
+        "duration": "<update_duration>"
       }
       ```
+
+      Where:
+
+      * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+      * `nanos`: Fraction of a second of update start, in nanoseconds.
+      * `duration`: Duration of update period, hours.
 
    * To set up the update on selected days, add the `weeklyMaintenanceWindow` section:
 
@@ -505,28 +529,40 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
         "daysOfWeek": [
           {
             "days": [
-              "<list_of_days,_e.g.,_monday,_tuesday>"
+              "<list_of_days>"
             ],
             "startTime": {
-              "hours": "<hour_of_update_start,_UTC>",
+              "hours": "<hour_of_update_start>",
               "minutes": "<minute_of_update_start>",
               "seconds": "<second_of_update_start>",
-              "nanos": "<nanosecond_of_update_start>"
+              "nanos": "<fraction_of_a_second_of_update_start>"
             },
-            "duration": "<update_duration,_hours>"
+            "duration": "<update_duration>"
           }
         ]
       }
       ```
 
+      Where:
+
+      * `days`: List of days, e.g., `monday`, `tuesday`.
+      * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+      * `nanos`: Fraction of a second of update start, in nanoseconds.
+      * `duration`: Duration of update period, hours.
+
    To set the scaling of a {{ managed-k8s-name }} node group, add the `deployPolicy` section:
 
    ```json
-   deploy_policy {
-       "maxUnavailable"   = <maximum_number_of_instances_that_node_group_size_can_shrink_by>
-       "maxExpansion" = <maximum_number_of_instances_that_node_group_size_can_expand_by>
-     }}
+   "deployPolicy": {
+     "maxUnavailable": "<maximum_number_of_instances>",
+     "maxExpansion": "<maximum_number_of_instances>"
+   }
    ```
+
+   Where:
+
+   * `maxUnavailable`: Maximum number of instances by which you can reduce the size of the node group.
+   * `maxExpansion`: Maximum number of instances by which you can expand the size of the node group.
 
 {% endlist %}
 
@@ -628,7 +664,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
    Run {{ managed-k8s-name }} cluster update:
 
    ```bash
-   {{ yc-k8s }} cluster update <cluster_ID_or_name> \
+   {{ yc-k8s }} cluster update <cluster_name_or_ID> \
      --latest-revision
    ```
 
@@ -638,7 +674,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
   Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
-  * `True` value in the `masterSpec.version.version` parameter.
+  * Value `true` in the `masterSpec.version.version` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

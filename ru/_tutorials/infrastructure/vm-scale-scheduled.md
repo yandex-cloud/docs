@@ -43,7 +43,7 @@
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `vm-scale-scheduled-sa`.
-  1. Нажмите ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md):
+  1. Нажмите ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md):
  
      * `compute.admin` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
@@ -227,7 +227,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
      
@@ -525,7 +525,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
      
@@ -593,9 +593,9 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Выберите группу `vm-scale-scheduled-ig`.
-  1. Убедитесь, что в блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.compute.group.switch_operations }}**.
+  1. Убедитесь, что в блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.compute.group.switch_operations }}**.
   
 
 - CLI {#cli}

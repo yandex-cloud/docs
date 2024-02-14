@@ -16,7 +16,7 @@ To create an instance group with an L7 load balancer:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your instance group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
       * Enter a name and description of the instance group. The naming requirements are as follows:

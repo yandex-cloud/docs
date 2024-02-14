@@ -15,7 +15,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
    1. In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, click **{{ ui-key.yacloud.common.create }}**.
    1. Configure schedule parameters:
       * Enter a name for the schedule in the following format:

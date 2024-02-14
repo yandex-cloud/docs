@@ -44,13 +44,13 @@ The cost of the infrastructure includes:
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `queue-autoscale-sa`.
-      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
+      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    1. Create a [static access key](../../iam/concepts/authorization/access-key.md) to enable the service account to work with {{ message-queue-name }} and save the key to the `access_key` file:
 
       1. In the list of service accounts, select `queue-autoscale-sa`.
-      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-description }}** field, select `Message Queue`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
       1. Insert the key ID and secret key into `access_key` in the following format:
@@ -73,7 +73,7 @@ The cost of the infrastructure includes:
    1. Create a subnet named `queue-autoscale-subnet-a` in the `{{ region-id }}-a` zone:
 
       1. In the list of networks, select `queue-autoscale-network`.
-      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
       1. Specify the subnet parameters:
 
          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `queue-autoscale-subnet-a`.
@@ -423,7 +423,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
          1. In the [management console]({{ link-console-main }}), select `example-folder`.
          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-         1. Go to ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+         1. Go to ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
          1. In the list of subnets, find `queue-autoscale-subnet-a` and copy its **{{ ui-key.yacloud.vpc.network.overview.column_subnetwork_id }}**.
 
       - CLI {#cli}
@@ -516,7 +516,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 

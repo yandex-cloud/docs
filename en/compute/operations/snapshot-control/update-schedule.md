@@ -15,9 +15,9 @@ To change basic settings of a snapshot schedule:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
    1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-   1. Next to the schedule you want to change, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Next to the schedule you want to change, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Configure snapshot schedule parameters:
       * **{{ ui-key.yacloud.common.name }}**. The naming requirements are as follows:
 
@@ -192,14 +192,14 @@ To change a list of disks for which snapshots are scheduled:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
    1. On the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, choose a schedule for which you want to change a disk list.
    1. Change a disk list:
-      * To add a new disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. In the window that opens, choose a disk to add to the schedule and click **{{ ui-key.yacloud.common.save }}**.
+      * To add a new disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. In the window that opens, choose a disk to add to the schedule and click **{{ ui-key.yacloud.common.save }}**.
 
          {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-      * To delete a disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, next to the disk you want to delete from the schedule, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
+      * To delete a disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, next to the disk you want to delete from the schedule, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
 
 - CLI {#cli}
 

@@ -31,7 +31,7 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
    }
 
    provider "yandex" {
-     token     = "<OAuth_or_IAM_token>"
+     token     = "<OAuth_token_or_IAM_token>"
      cloud_id  = "<cloud_ID>"
      folder_id = "<folder_ID>"
      zone      = "{{ region-id }}-a"
@@ -39,6 +39,22 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
 
    resource "yandex_compute_image" "ubuntu_2004" {
      source_family = "ubuntu-2004-lts"
+   }
+
+   resource "yandex_compute_disk" "boot-disk-vm1" {
+     name     = "boot-disk-1"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = yandex_compute_image.ubuntu_2004.id
+   }
+
+   resource "yandex_compute_disk" "boot-disk-vm2" {
+     name     = "boot-disk-2"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = yandex_compute_image.ubuntu_2004.id
    }
 
    resource "yandex_compute_instance" "vm-1" {
@@ -50,9 +66,7 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
      }
 
      boot_disk {
-       initialize_params {
-         image_id = yandex_compute_image.ubuntu_2004.id
-       }
+       disk_id = yandex_compute_disk.boot-disk-vm1.id
      }
 
      network_interface {
@@ -74,9 +88,7 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
      }
 
      boot_disk {
-       initialize_params {
-         image_id = yandex_compute_image.ubuntu_2004.id
-       }
+       disk_id = yandex_compute_disk.boot-disk-vm2.id
      }
 
      network_interface {
@@ -127,7 +139,7 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
 
    * `token`: OAuth token for a Yandex account or an IAM token for a federated account.
    * `bucket`: Bucket name.
-   * `key`: Bucket object key (path and name to the {{ TF }} state file in the bucket).
+   * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
    * `ssh-keys`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Check the configuration using the `terraform plan` command.

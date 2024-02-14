@@ -53,6 +53,51 @@
      yc compute instance get --full first-instance
      ```
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  Чтобы получить информацию о ВМ с помощью {{ TF }}:
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+      ```
+      data "yandex_compute_instance" "my_instance" {
+        instance_id = "<идентификатор_ВМ>"
+      }
+
+      output "instance_external_ip" {
+        value = "${data.yandex_compute_instance.my_instance.network_interface.0.nat_ip_address}"
+      }
+      ```
+
+      Где:
+
+      * `data "yandex_compute_instance"` — описание источника данных для получения информации о ВМ:
+         * `instance_id` — идентификатор ВМ.
+      * `output "instance_external_ip"` — внешний IP-адрес ВМ, который будет выводиться в результате:
+         * `value` — возвращаемое значение.
+      
+     Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_instance).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
+
+      ```bash
+      terraform output instance_external_ip
+      ```
+
+      Результат:
+
+      ```bash
+      instance_external_ip = "158.160.50.228"
+      ```
+
 - API {#api}
 
   Чтобы получить основную информацию о ВМ, воспользуйтесь методом REST API [get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get).

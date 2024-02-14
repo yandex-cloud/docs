@@ -4,7 +4,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сетевой балансировщик.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
   1. Выберите нужную целевую группу.
   1. В блоке **{{ ui-key.yacloud.load-balancer.target-group.label_targets-section-title }}** удалите старые ВМ и добавьте новые.
 

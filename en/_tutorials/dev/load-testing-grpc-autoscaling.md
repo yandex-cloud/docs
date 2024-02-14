@@ -300,19 +300,14 @@ This instruction will use a gRPC service as a test target.
      api_address: loadtesting.{{ api-host }}:443
    ```
 
-   Where:
-
-   * `target` is the name of your website and port (for HTTPS: 443).
-
+   Where `target` is the name of your website and port (for HTTPS: 443).
 1. [Run a test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and select the `ammo.json` file you saved earlier.
    * Under **{{ ui-key.yacloud.load-testing.label_test-settings }}** settings:
       * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select `{{ ui-key.yacloud.load-testing.label_settings-type-config }}`.
       * In the **{{ ui-key.yacloud.load-testing.field_config-file }}** field, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and upload the prepared `load.yaml` file.
-
 1. Monitor the test:
-
    1. In the [management console]({{ link-console-main }}), select {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
    1. Select your {{ managed-k8s-name }} test cluster.
    1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.

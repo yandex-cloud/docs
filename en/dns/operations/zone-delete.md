@@ -13,7 +13,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete a DNS zone from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-   1. Click ![image](../../_assets/options.svg) in the row of the zone to delete.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the zone to delete.
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

@@ -160,6 +160,8 @@ items:
                 href: user/api-ref/Test/list.md
               - name: stop
                 href: user/api-ref/Test/stop.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Обучающие курсы
     href: training.md
 base: ru/load-testing

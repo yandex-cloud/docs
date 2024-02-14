@@ -1,1 +1,1 @@
-The `alb.auditor` role.
+The `alb.auditor` role enables you to view a list of Application Load Balancer resources and their metadata.

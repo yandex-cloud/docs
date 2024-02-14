@@ -1,1 +1,1 @@
-The `certificate-manager.editor` role.
+The `certificate-manager.editor` role enables you to add, modify, update, reissue, delete, and revoke certificates, link them to domains, as well as create, update, and delete domains. The role also allows users to get information about valid and revoked certificates, a list of certificates, their versions, and permissions to certificates, information about domains, a list of domains, and permissions to domains, as well as information about quotas.

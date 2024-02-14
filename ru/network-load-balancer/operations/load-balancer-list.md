@@ -80,7 +80,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. Нажмите на имя нужного сетевого балансировщика и перейдите на вкладку ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+    1. Нажмите на имя нужного сетевого балансировщика и перейдите на вкладку ![operations.svg](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI {#cli}
 

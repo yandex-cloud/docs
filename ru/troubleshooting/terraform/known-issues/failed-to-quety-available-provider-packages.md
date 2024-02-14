@@ -24,6 +24,6 @@
 Если вышеописанные действия не помогли решить проблему, [создайте запрос в техническую поддержку]({{ link-console-support }}).
 В запросе укажите следующую информацию:
 
-1. Содержимое файла `~/.terraformrc` (на компьютерах с Linux или MacOS) или `%APPDATA%/terraform.rc` (на компьютерах с Windows).
+1. Содержимое файла `~/.terraformrc` (на компьютерах с Linux или MacOS) или `%APPDATA%/terraform.rc` (на компьютерах с Windows). В Linux и MacOS символ `~` используется для сокращенного обозначения домашней директории пользователя.
 2. Вывод ошибки при попытке примененить код манифеста командой `terraform plan` или `terraform apply`.
 3. Вывод команд `curl -vk registry.terraform.io` и `curl -vk https://terraform-mirror.yandexcloud.net`

@@ -21,8 +21,8 @@ To delete an image:
 
    1. In the management console, select the folder the image belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
-   1. In the line of the appropriate image, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.images.button_action-delete }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+   1. In the line of the appropriate image, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.images.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.images.popup-confirm_button_delete }}**.
 
 - CLI {#cli}

@@ -396,7 +396,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
          {% note info %}
 
-         These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the [official recommendations](https://www.usergate.com/products/usergate-vm) from UserGate.
+         These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the [UserGate official recommendations](https://www.usergate.com/products/usergate-vm).
 
          {% endnote %}
 
@@ -411,7 +411,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+         You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -482,6 +482,14 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    1. In the configuration file, describe the parameters of the `usergate-proxy` VM:
 
       ```
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "boot-disk"
+        type     = "network-hdd"
+        zone     = "{{ region-id }}-a"
+        size     = "110"
+        image_id = "<UserGate_NGFW_image_ID>"
+      }
+
       resource "yandex_compute_instance" "usergate-proxy" {
         name        = "usergate-proxy"
         platform_id = "standard-v3"
@@ -494,10 +502,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         }
 
         boot_disk {
-          initialize_params {
-            image_id = "<UserGate_NGFW_image_ID>"
-            size     = 110
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
 
         network_interface {

@@ -61,7 +61,7 @@ Thumbor features:
      helm install \
        --namespace <Thumbor_namespace> \
        --create-namespace \
-       --set bucket_name='<Object_Storage_bucket_name>' \
+       --set bucket_name='<bucket_name>' \
        --set allow_unsafe_url='true' \
        --set root_path='<bucket_subfolder_name>' \
        --set-file saAccessKeyFile='sa-key.json' \
@@ -78,7 +78,7 @@ Thumbor features:
      helm install \
        --namespace <Thumbor_namespace> \
        --create-namespace \
-       --set bucket_name='<Object_Storage_bucket_name>' \
+       --set bucket_name='<bucket_name>' \
        --set allow_unsafe_url='false' \
        --set security_key='<security_key_for_URL_signing>' \
        --set root_path='<bucket_subfolder_name>' \

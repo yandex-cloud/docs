@@ -26,7 +26,7 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
       * Make your VM [preemptible](../concepts/preemptible-vm.md), if required.
       * (Optional) Enable a [software-accelerated network](../concepts/software-accelerated-network.md).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you do not have a network, click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+      * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you do not have a network, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
          * In the window that opens, enter the folder to host the new network, as well as the network name.
          * In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** (each network must have at least one [subnet](../../vpc/concepts/network.md#subnet)).
          * Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.

@@ -21,42 +21,51 @@
 
 Чтобы создать бюджет:
 
-1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
+{% list tabs group=instructions %}
 
-1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+- Консоль управления {#console}
 
-1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
 
-1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
+  1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 
-1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.budgets.label_budgets }}** и нажмите **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
+  1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
-   1. Введите имя бюджета.
-   1. Выберите **{{ ui-key.yacloud.billing.account.budgets.label_type }}**.
-   1. Задайте **Сумму бюджета**: 
-      
-      * для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** или **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** — сумму расходов на потребление;
-      * для типа **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** — остаток на лицевом счете.
+  1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
 
-   1. Для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** и **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** выберите период расчета бюджета:
+  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.budgets.label_budgets }}** и нажмите **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
 
-      * Если вы выбрали **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** период, задайте дату начала действия бюджета. Дата начала — первое число заданного месяца.
-      * Задайте дату окончания действия бюджета. Дата окончания устанавливает, когда бюджет перестанет считать потребление или остаток средств и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
+     1. Введите имя бюджета.
+     1. Выберите **{{ ui-key.yacloud.billing.account.budgets.label_type }}**.
+     1. Задайте **Сумму бюджета**: 
+        
+        * для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** или **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** — сумму расходов на потребление;
+        * для типа **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** — остаток на лицевом счете.
 
-   1. В поле **{{ ui-key.yacloud.billing.account.budgets.label_notify }}** выберите пользователей, которые получат уведомление.
-   1. Для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** и **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** определите **{{ ui-key.yacloud.billing.account.budgets.section_scope }}** бюджета. Вы можете выбрать отдельные облака, каталоги и сервисы, которые будут входить в установленный бюджет. По умолчанию данные собираются со всех облаков, каталогов и сервисов, доступных выбранному платежному аккаунту. 
-   1. Установите хотя бы один порог потребления, при котором будут отправлены уведомления. Вы можете указать пороговое значение в процентах или валюте и выбрать пользователей, которые получат уведомления. Бюджет может иметь несколько пороговых значений.
+     1. Для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** и **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** выберите период расчета бюджета:
+
+        * Если вы выбрали **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** период, задайте дату начала действия бюджета. Дата начала — первое число заданного месяца.
+        * Задайте дату окончания действия бюджета. Дата окончания устанавливает, когда бюджет перестанет считать потребление или остаток средств и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
+
+     1. В поле **{{ ui-key.yacloud.billing.account.budgets.label_notify }}** выберите пользователей, которые получат уведомление.
+     1. Для типов **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** и **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** определите **{{ ui-key.yacloud.billing.account.budgets.section_scope }}** бюджета. Вы можете выбрать отдельные облака, каталоги и сервисы, которые будут входить в установленный бюджет. По умолчанию данные собираются со всех облаков, каталогов и сервисов, доступных выбранному платежному аккаунту. 
+     1. Установите хотя бы один порог потребления, при котором будут отправлены уведомления. Вы можете указать пороговое значение в процентах или валюте и выбрать пользователей, которые получат уведомления. Бюджет может иметь несколько пороговых значений.
    
-   {% note info %}
+     {% note info %}
    
-   Пользователи, указанные в блоке **{{ ui-key.yacloud.common.section-base }}**, будут получать уведомления при достижении каждого заданного порога. Пользователи, указанные при задании порога, получат уведомление только при достижении этого порога.
+     Пользователи, указанные в блоке **{{ ui-key.yacloud.common.section-base }}**, будут получать уведомления при достижении каждого заданного порога. Пользователи, указанные при задании порога, получат уведомление только при достижении этого порога.
    
-   Если при подсчете бюджета были достигнуты одновременно несколько порогов, пользователи получат только одно уведомление.
+     Если при подсчете бюджета были достигнуты одновременно несколько порогов, пользователи получат только одно уведомление.
    
-   {% endnote %}
+     {% endnote %}
 
-1. После заполнения всех полей нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**. Бюджет будет создан.
+  1. После заполнения всех полей нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**. Бюджет будет создан.
 
+- API {#api}
+
+  Чтобы создать бюджет, воспользуйтесь методом REST API [create](../api-ref/Budget/create.md) для ресурса [Budget](../api-ref/Budget/index.md) или вызовом gRPC API [BudgetService/Create](../api-ref/grpc/budget_service.md#Create).
+  
+{% endlist %}
 
 
 ## См. также

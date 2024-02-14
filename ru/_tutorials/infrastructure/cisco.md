@@ -62,12 +62,12 @@
         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если сети нет, создайте ее:
-      1. Выберите пункт ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**.
+      1. Выберите пункт ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**.
       1. В открывшемся окне укажите имя сети и каталог, в котором будет находиться ВМ.
       1. (Опционально) Для автоматического создания подсетей выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
-          У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав пункт ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав пункт ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение ̀`{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
@@ -88,7 +88,7 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с созданной ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. В списке ВМ выберите `cisco-router`.
-  1. Перейдите на вкладку ![image](../../_assets/compute/serial-console.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
   1. Дождитесь полной загрузки операционной системы.
   1. Чтобы перейти в привилегированный режим, выполните в серийной консоли команду `enable`:
 

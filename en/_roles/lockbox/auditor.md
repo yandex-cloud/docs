@@ -1,1 +1,1 @@
-The `lockbox.auditor` role.
+The `lockbox.auditor` role allows you to get information about secrets and permissions to them, folder data, and information about Yandex Lockbox quotas.

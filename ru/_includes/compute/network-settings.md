@@ -4,7 +4,7 @@
     * В открывшемся окне укажите имя сети и каталог, в котором она будет создана.
     * (Опционально) Для автоматического создания подсетей выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     * Нажмите **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
-    У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+    У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
 
 * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
 

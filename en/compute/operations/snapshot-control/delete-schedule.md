@@ -13,9 +13,9 @@ To delete a disk snapshot schedule:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
    1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-   1. Next to the schedule to delete, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Next to the schedule to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the schedule deletion.
 
 - CLI {#cli}

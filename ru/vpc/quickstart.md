@@ -29,7 +29,7 @@
 Создайте подсеть, в которой облачные ресурсы будут получать [внутренние IP-адреса](concepts/address.md#internal-addresses):
 
 1. Нажмите на имя созданной облачной сети.
-1. Нажмите кнопку ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
 1. Задайте имя подсети, например, `test-subnet-1`.
 1. Выберите зону доступности из выпадающего списка. Для первой подсети подойдет любая зона из списка.
 1. Введите CIDR подсети: IP-адрес и маску подсети, например, `10.10.0.0/24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](concepts/network.md).

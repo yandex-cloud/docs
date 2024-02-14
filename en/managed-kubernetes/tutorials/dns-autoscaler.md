@@ -12,8 +12,8 @@ description: "Follow this guide to set up automatic DNS scaling by cluster size 
 The number of replicas is calculated [by the formulas](#parameters).
 
 To automate DNS scaling:
-1. [{#T}](#configure-autoscaler)
-1. [{#T}](#test-autoscaler)
+1. [{#T}](#configure-autoscaler).
+1. [{#T}](#test-autoscaler).
 
 If you no longer need automatic scaling, [disable it](#disable-autoscaler).
 
@@ -244,7 +244,7 @@ By default, {{ k8s-ca }} does not reduce the number of nodes in a {{ managed-k8s
 To allow the number of {{ managed-k8s-name }} nodes to decrease, configure the [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) object for them, which enables you to stop two CoreDNS pods at a time:
 
 ```bash
-kubectl create poddisruptionbudget <pdb name> \
+kubectl create poddisruptionbudget <pdb_name> \
   --namespace=kube-system \
   --selector k8s-app=kube-dns \
   --min-available=2
@@ -256,7 +256,7 @@ Result:
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: <pdb name>
+  name: <pdb_name>
 spec:
   minAvailable: 2
   selector:
@@ -305,7 +305,7 @@ Delete the resources you no longer need to avoid paying for them:
 - {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `k8s-cluster.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

@@ -11,7 +11,7 @@ keywords:
 
 # Загрузить свой образ диска в {{ yandex-cloud }}
 
-Эта инструкция описывает, как загрузить в [{{ objstorage-full-name }}](../../../storage/) файл образа с операционной системой Linux, а также создать из него [образ](../../concepts/image.md) и [виртуальную машину](../../concepts/vm.md) в сервисе {{ compute-name }}.
+Эта инструкция описывает, как загрузить в [{{ objstorage-full-name }}](../../../storage/) файл образа с операционной системой Linux, а также создать из него [образ](../../concepts/image.md) и [виртуальную машину](../../concepts/vm.md) в сервисе {{ compute-name }}. О том, как создать образ с операционной системой Windows, читайте в разделе [{#T}](../../../microsoft/prepare-image.md).
 
 Поддерживаются известные системы [виртуализации](../../../glossary/virtualization.md).
 
@@ -44,7 +44,7 @@ keywords:
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать образ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.button_upload }}**.
   1. Введите имя образа. Требования к имени:
 

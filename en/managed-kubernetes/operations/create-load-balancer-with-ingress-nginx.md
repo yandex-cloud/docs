@@ -101,9 +101,11 @@ Although NGINX Ingress controllers officially support external HTTP and HTTPS tr
 1. Create a `values.yaml` file:
 
    ```yaml
-   <protocol:_TCP_or_UDP>: {<external_port>: "<service_namespace>/<service_name>:<internal_port>"}
+   <protocol>: {<external_port>: "<service_namespace>/<service_name>:<internal_port>"}
    portNamePrefix: "<prefix>"
    ```
+
+   Where `<protocol>` is the `tcp` or `udp` protocol.
 
 1. Install the NGINX Ingress controller using the `values.yaml` configuration file:
 

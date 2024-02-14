@@ -11,7 +11,7 @@ You cannot move a VM to another cloud; however, you can create an image from its
 
       1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+      1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
       1. Copy the value from the **{{ ui-key.yacloud.compute.images.column_id }}** column of a relevant image.
 
    - CLI {#cli}

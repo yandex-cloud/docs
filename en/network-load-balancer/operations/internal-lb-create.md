@@ -51,7 +51,7 @@ The internal load balancer's listener is assigned a random IP address from the r
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** add a [target group](../concepts/target-resources.md):
       1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
       1. Select a target group or [create a new one](target-group-create.md):
-         * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
+         * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
          * In the resulting window, enter a target group name.
          * Add VMs to the target group.
          * Click **{{ ui-key.yacloud.common.create }}**.

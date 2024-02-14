@@ -29,6 +29,8 @@
 
 ## {{ iam-name }} {#iam}
 
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
 Имя сервиса — `iam`.
 
 {% include [iam-events-dp](../../_includes/audit-trails/events/iam-events-dp.md) %}
@@ -47,17 +49,23 @@
 
 ## {{ mmg-name }} {#mmg}
 
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
 Имя сервиса — `mdb.mongodb`.
 
 {% include [mmg-events-dp](../../_includes/audit-trails/events/mmg-events-dp.md) %}
 
 ## {{ mmy-name }} {#mmy}
 
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
 Имя сервиса — `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
 
 ## {{ mpg-name }} {#mpg}
+
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
 
 Имя сервиса — `mdb.postgresql`.
 

@@ -3,11 +3,11 @@
 This article describes how to run a new {{ k8s }} project in {{ yandex-cloud }}. An application from [{{ container-registry-full-name }}](../../container-registry/) is deployed in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and published on the internet via the [{{ alb-full-name }}](../../application-load-balancer/) Ingress controller.
 
 To launch an app:
-1. [{#T}](#create-sa)
-1. [{#T}](#create-k8s-res)
-1. [{#T}](#create-cr-res)
-1. [{#T}](#setup-alb)
-1. [{#T}](#create-ingress)
+1. [{#T}](#create-sa).
+1. [{#T}](#create-k8s-res).
+1. [{#T}](#create-cr-res).
+1. [{#T}](#setup-alb).
+1. [{#T}](#create-ingress).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create service accounts {#create-sa}
 
 For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) to run, the following [service accounts](../../iam/concepts/users/service-accounts.md) are required:
-* Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster needs.
+* Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
 * Service account with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). [Nodes](../../managed-kubernetes/concepts/index.md#node-group) will pull the required Docker images from the registry on behalf of this service account.
 * For the {{ alb-name }} Ingress controller to run, you need service accounts with the following roles:
   * [alb.editor](../../iam/concepts/access-control/roles.md#alb-editor): To create the required resources.
@@ -427,7 +427,7 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
         annotations:
           ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
           ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
-          ingress.alb.yc.io/external-ipv4-address: <auto_or_static_IP_address>
+          ingress.alb.yc.io/external-ipv4-address: <IP_address_assignment_method>
           ingress.alb.yc.io/group-name: <Ingress_group_name>
       spec:
         tls:

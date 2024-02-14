@@ -48,7 +48,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** добавьте [целевую группу](../concepts/target-resources.md):
       1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
       1. Выберите целевую группу или [создайте новую](target-group-create.md):
-          * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** выберите ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
+          * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** выберите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
           * В открывшемся окне введите имя целевой группы.
           * Добавьте в целевую группу виртуальные машины.
           * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

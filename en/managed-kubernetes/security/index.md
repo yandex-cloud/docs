@@ -6,7 +6,7 @@ description: "Access management in {{ managed-k8s-name }}, a service for running
 # Access management in {{ managed-k8s-name }}
 
 In this section, you will learn:
-* [Which resources can be assigned a role](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required for managing {{ managed-k8s-name }}](#required-roles).
 * [What roles are required for {{ managed-k8s-name }} cluster service accounts](#sa-annotation).
@@ -14,7 +14,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources can be assigned a role {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -37,7 +37,7 @@ The following [roles](../../iam/concepts/access-control/roles.md) give the right
 To view the rights to the {{ managed-k8s-name }} cluster resources available for a specific role, run this command:
 
 ```bash
-kubectl describe clusterrole <role in {{ k8s }} RBAC>
+kubectl describe clusterrole <role_in_{{ k8s }}_RBAC>
 ```
 
 ### {{ managed-k8s-name }} roles {#yc-api}
@@ -98,7 +98,7 @@ To create a {{ managed-k8s-name }} cluster and node group with public access, yo
 
 When creating a cluster in {{ managed-k8s-name }}, specify two [service accounts](../../iam/concepts/users/service-accounts.md):
 * **Cluster service account**: On behalf of this service account, {{ managed-k8s-name }} manages cluster nodes, [subnets](../../vpc/concepts/network.md#subnet) for [pods](../concepts/index.md#pod) and [services](../concepts/index.md#service), [disks](../../compute/concepts/disk.md), [load balancers](../../network-load-balancer/concepts/index.md), encrypts and decrypts [secrets](../../lockbox/concepts/secret.md). The minimum recommended role for this account is `k8s.clusters.agent`.
-* **Node group service account**: On behalf of this service account, {{ managed-k8s-name }} cluster nodes are authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). To deploy applications in a {{ managed-k8s-name }} cluster using [Docker images](../../container-registry/concepts/docker-image.md) from {{ container-registry-name }}, grant to this account some [service role](../../container-registry/security/index.md#service-roles). If you use a different container registry, you can skip assigning roles to this service account.
+* **Node group service account**: On behalf of this service account, {{ managed-k8s-name }} cluster nodes are authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). To deploy applications in a {{ managed-k8s-name }} cluster using [Docker images](../../container-registry/concepts/docker-image.md) from {{ container-registry-name }}, grant to this account any [service role](../../container-registry/security/index.md#service-roles). If you use a different container registry, you can skip assigning roles to this service account.
 
 To manage a {{ managed-k8s-name }} cluster and node groups with public access, you will also need the `vpc.publicAdmin` role.
 

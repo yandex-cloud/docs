@@ -47,3 +47,5 @@ description: "Следуя данной инструкции, вы сможет�
 #### Добавить федеративного пользователя {#federated-user}
 
 Если у вас настроена [федерация удостоверений](../../organization/concepts/add-federation.md), добавьте федеративного пользователя по [инструкции](../../organization/operations/add-account.md#add-user-sso). После добавления [назначьте](../../organization/security/index.md#add-role) ему роль `{{ roles-datalens-creator }}`.
+
+{% include [datalens-federation-user-link](../../_includes/datalens/datalens-federation-user-link.md) %}

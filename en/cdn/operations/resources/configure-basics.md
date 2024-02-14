@@ -95,11 +95,9 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
         <flag> <new_value>
       ```
 
-      If you want to restrict access to the new resource with [secure tokens](../../concepts/secure-tokens.md), use the following parameters:
-      * `--secure-key`: Secret key that is an arbitrary string of 6 to 32 characters.
-      * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP.
+      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
-      See also [{#T}](./enable-secure-token.md).
+      To disable the IP-based access policy, use the `--clear-ip-address-acl` parameter.
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
@@ -109,29 +107,9 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
    To update the parameters of a CDN resource created using {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and edit the fragment with the resource description.
+   1. Open the {{ TF }} configuration file and edit the fragment with the resource description:
 
-      {% cut "An example of describing a CDN resource in the {{ TF }} configuration" %}
-
-      ```hcl
-      resource "yandex_cdn_resource" "my_resource" {
-          cname               = "cdn1.yandex-example.ru"
-          active              = false
-          origin_protocol     = "https"
-          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = "<origin_group_ID>"
-          ...
-          options {
-            edge_cache_settings = "345600"
-            ignore_cookie       = true
-            ...
-          }
-      }
-      ```
-
-      {% endcut %}
-
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -169,6 +147,8 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 - API {#api}
 
    Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
+
+   You can restrict access to the resource with [secure tokens](../../concepts/secure-tokens.md) and an [IP-based access policy](../../concepts/ip-address-acl.md).
 
 {% endlist %}
 

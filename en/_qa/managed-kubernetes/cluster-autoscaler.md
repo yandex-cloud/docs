@@ -17,7 +17,7 @@
 `Kube-system` pods, pods with `local-storage`, and pods without a replication controller can be evicted. To do this, set the `"safe-to-evict": "true"` annotation:
 
 ```bash
-kubectl annotate pod <pod name> cluster-autoscaler.kubernetes.io/safe-to-evict=true
+kubectl annotate pod <pod_name> cluster-autoscaler.kubernetes.io/safe-to-evict=true
 ```
 
 {% endnote %}
@@ -33,7 +33,7 @@ Other possible causes include:
    Check for annotation on the node:
 
    ```bash
-   kubectl describe node <node name> | grep scale-down-disabled
+   kubectl describe node <node_name> | grep scale-down-disabled
    ```
 
    Result:
@@ -45,13 +45,13 @@ Other possible causes include:
    Set the annotation:
 
    ```bash
-   kubectl annotate node <node name> cluster-autoscaler.kubernetes.io/scale-down-disabled=true
+   kubectl annotate node <node_name> cluster-autoscaler.kubernetes.io/scale-down-disabled=true
    ```
 
    Remove the annotation by running the `kubectl` command with `-`:
 
    ```bash
-   kubectl annotate node <node name> cluster-autoscaler.kubernetes.io/scale-down-disabled-
+   kubectl annotate node <node_name> cluster-autoscaler.kubernetes.io/scale-down-disabled-
    ```
 
 #### Why does the node group fail to scale down after the pod deletion? {#not-scaling-pod}

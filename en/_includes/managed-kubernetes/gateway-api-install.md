@@ -58,7 +58,7 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
       --set folderId='<folder_ID>' \
       --set networkId='<cloud_network_ID>' \
       --set subnetId='<subnet_ID>' \
-      --set-file saKeySecretKey='<path_to_generated_sa-key.json>' \
+      --set-file saKeySecretKey='<sa-key.json_file_path>' \
       gateway-api ./gateway-api/
    ```
 

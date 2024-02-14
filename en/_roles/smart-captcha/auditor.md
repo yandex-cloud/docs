@@ -1,1 +1,1 @@
-The `smart-captcha.auditor` role.
+The `smart-captcha.auditor` role enables you to view CAPTCHA information and permissions.

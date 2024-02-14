@@ -17,7 +17,7 @@ You can create an automatically scaled group or a group with a fixed number of i
 To create an instance group:
 1. In the [management console]({{ link-console-main }}), select the folder to create your instance group in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
 1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
    * Enter a name and description of the instance group. The naming requirements are as follows:
@@ -51,7 +51,7 @@ To create an instance group:
          * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
          * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`: Do not assign a public IP address.
       * (Optional) Select a [security group](../../vpc/concepts/security-groups.md). If there is no security group, create one:
-         * Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
+         * Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
          * Enter a name and description for the security group. You will be able to add rules to the security group at a later stage using **{{ vpc-name }}**.
          * Click **{{ ui-key.yacloud.common.create }}**.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:

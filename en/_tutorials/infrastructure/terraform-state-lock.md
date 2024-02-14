@@ -193,6 +193,14 @@ The VM will have 2 vCPUs and 4 GB RAM. It will be automatically assigned a [publ
      source_family = "ubuntu-2004-lts"
    }
 
+   resource "yandex_compute_disk" "boot-disk" {
+     name     = "boot-disk"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = yandex_compute_image.ubuntu_2004.id
+   }
+
    resource "yandex_compute_instance" "vm-1" {
      name = "terraform-vm"
 
@@ -202,9 +210,7 @@ The VM will have 2 vCPUs and 4 GB RAM. It will be automatically assigned a [publ
      }
 
      boot_disk {
-       initialize_params {
-         image_id = yandex_compute_image.ubuntu_2004.id
-       }
+       disk_id = yandex_compute_disk.boot-disk.id
      }
 
      network_interface {

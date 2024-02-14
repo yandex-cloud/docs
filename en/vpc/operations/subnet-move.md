@@ -8,8 +8,8 @@ You can move [subnets](../concepts/network.md) between folders within a single [
 
    1. In the [management console]({{ link-console-main }}), go to the folder with the subnet.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. Click ![image](../../_assets/options.svg) next to the subnet you need and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the subnet you need and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
    1. In the window that opens, select the destination folder.
    1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 

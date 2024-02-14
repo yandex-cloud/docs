@@ -4,7 +4,7 @@
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the line with the appropriate VM, click ![image](../../_assets/options.svg), and then click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the line with the appropriate VM, click ![image](../../_assets/console-icons/ellipsis.svg), and then click **{{ ui-key.yacloud.common.delete }}**.
 
       To delete multiple VMs, select the VMs you need to delete in the list and click **{{ ui-key.yacloud.compute.instances.button_gr-action-delete }}** at the bottom of the screen.
 

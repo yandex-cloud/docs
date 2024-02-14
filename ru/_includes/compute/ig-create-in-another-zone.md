@@ -4,9 +4,9 @@
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Выберите группу, которую хотите изменить.
-  1. В правом верхнем углу нажмите ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+  1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** добавьте зону доступности, в которую вы хотите перенести группу. 
   1. Если у вас группа ВМ с [ручным масштабированием](../../compute/concepts/instance-groups/scale.md#fixed-scale), в блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите размер группы, достаточный для размещения во всех выбранных зонах доступности.
 
