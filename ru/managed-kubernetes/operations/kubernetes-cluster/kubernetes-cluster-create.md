@@ -191,7 +191,7 @@
      >  # Сервисному аккаунту назначается роль "editor".
      >  folder_id = "<идентификатор_каталога>"
      >  role      = "editor"
-     >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта> id}"
+     >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта>.id}"
      >}
      >
      >resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
