@@ -26,19 +26,19 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
       ```bash
       {{ yc-k8s }} node-group create \
-        --allowed-unsafe-sysctls=<names_of_unsafe_kernel_parameters,_comma-separated> \
+        --allowed-unsafe-sysctls=<names_of_unsafe_kernel_parameters> \
         --cluster-name <cluster_name> \
         --cores <number_of_vCPUs> \
         --core-fraction <guaranteed_vCPU_share> \
         --daily-maintenance-window <maintenance_window_settings> \
         --disk-size <storage_size_in_GB> \
-        --disk-type <storage_type:_network-nvme_or_network-hdd> \
+        --disk-type <storage_type> \
         --fixed-size <fixed_number_of_nodes_per_group> \
         --location <location_settings_for_cluster_hosts> \
         --memory <amount_of_RAM_in_GB> \
         --name <node_group_name> \
-        --network-acceleration-type <standard_or_software-accelerated> \
-        --network-interface security-group-ids=[<security_group_IDs>],subnets=[<subnet_names>],ipv4-address=<nat_or_auto> \
+        --network-acceleration-type <network_acceleration_type> \
+        --network-interface security-group-ids=[<security_group_IDs>],subnets=[<subnet_names>],ipv4-address=<IP_address_assignment_method> \
         --platform-id <platform_ID> \
         --container-runtime <container_runtime_environment> \
         --preemptible \
@@ -46,7 +46,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
         --template-labels <node_group_cloud_labels> \
         --version <{{ k8s }}_version_on_group_nodes> \
         --node-name <node_name_template> \
-        --node-taints <taint_policies>
+        --node-taints <taints>
       ```
 
       Where:
@@ -56,7 +56,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
       * `--core-fraction`: [Guaranteed share of vCPUs](../../../compute/concepts/performance-levels.md) for {{ managed-k8s-name }} nodes.
       * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
       * `--disk-size`: [Disk size](../../../compute/concepts/disk.md#maximum-disk-size) of the {{ managed-k8s-name }} node.
-      * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks_types) of the {{ managed-k8s-name }} node.
+      * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks_types) of the {{ managed-k8s-name }} node, `network-nvme` or `network-hdd`.
       * `--fixed-size`: Number of nodes in the {{ managed-k8s-name }} node group.
       * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md), [network](../../../vpc/concepts/network.md#network), and [subnet](../../../vpc/concepts/network.md#subnet) to host {{ managed-k8s-name }} nodes. You can specify several options.
 
@@ -115,13 +115,13 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 - {{ TF }} {#tf}
 
    To create a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
-   1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file with the parameters of a new {{ managed-k8s-name }} node group:
+   1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file with the new {{ managed-k8s-name }} node group's parameters:
       * {{ managed-k8s-name }} node group name.
-      * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID as `cluster_id`.
+      * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `cluster_id` parameter.
       * {{ managed-k8s-name }} node [platform](../../../compute/concepts/vm-platforms.md).
       * [Container runtime environment](../../concepts/index.md#config) setting in the `container_runtime` parameter.
       * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` section.
-      * Scaling settings under `scale_policy`.
+      * Scaling settings in the `scale_policy` parameter.
 
       Here is an example of the configuration file structure:
 
@@ -228,7 +228,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
    * [Container runtime environment](../../concepts/index.md#config) in the `nodeTemplate.containerRuntimeSettings.type` parameter.
    * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` parameter.
-   * [Scaling settings](../../concepts/autoscale.md#ca) as `scalePolicy`.
+   * [Scaling settings](../../concepts/autoscale.md#ca) in the `scalePolicy` parameter.
    * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
    * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
    * List of settings to be changed in the `updateMask` parameter.

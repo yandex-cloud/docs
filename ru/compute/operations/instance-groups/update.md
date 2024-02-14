@@ -21,7 +21,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Выберите группу, которую хотите изменить.
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
   1. Заполните поля **{{ ui-key.yacloud.compute.groups.create.field_name }}** и **{{ ui-key.yacloud.compute.groups.create.field_description }}**.
@@ -78,11 +78,11 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Выберите группу, которую хотите изменить.
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}**:
-     * В правом верхнем углу нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**, чтобы удалить текущий шаблон ВМ.
+     * В правом верхнем углу нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**, чтобы удалить текущий шаблон ВМ.
      * Нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы создать новый шаблон с нужными параметрами ВМ.
      * Нажмите **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}** на странице **{{ ui-key.yacloud.compute.group.edit.label_title }}**.
@@ -133,10 +133,10 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Выберите группу, которую хотите изменить.
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
-  1. В правом верхнем углу блока **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу блока **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите нужный размер диска.
   1. Нажмите **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}** на странице **{{ ui-key.yacloud.compute.group.edit.label_title }}**.

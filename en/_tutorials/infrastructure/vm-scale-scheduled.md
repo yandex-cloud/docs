@@ -43,7 +43,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. At the top right, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `vm-scale-scheduled-sa`.
-   1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following [roles](../../iam/concepts/access-control/roles.md):
+   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following [roles](../../iam/concepts/access-control/roles.md):
 
       * `compute.admin` to manage the instance group.
       * `iam.serviceAccounts.user` to link the service account to instances in the group.
@@ -227,7 +227,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. At the top right, click **{{ ui-key.yacloud.compute.groups.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
@@ -525,7 +525,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. At the top right, click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
@@ -593,9 +593,9 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the `vm-scale-scheduled-ig` group.
-   1. Under **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}**, make sure the number of instances changes every two minutes: increases from 2 to 3, then decreases from 3 to 2, and so on. To check if the instance group has been updated, open ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.compute.group.switch_operations }}**.
+   1. Under **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}**, make sure the number of instances changes every two minutes: increases from 2 to 3, then decreases from 3 to 2, and so on. To check if the instance group has been updated, open ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.compute.group.switch_operations }}**.
 
 
 - CLI {#cli}

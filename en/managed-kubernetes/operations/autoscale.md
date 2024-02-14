@@ -148,7 +148,8 @@ For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hp
        updateMode: "<VPA_runtime_mode:_Auto_or_Off>"
      ```
 
-     Set the {{ k8s-vpa }} runtime mode in the `updateMode` parameter: `Auto` or `Off`.
+     Where `updateMode` is the {{ k8s-vpa }} runtime mode, `Auto` or `Off`.
+
   1. Create a {{ k8s-vpa }} for your application:
 
      ```bash

@@ -15,9 +15,9 @@ description: "Из статьи вы узнаете, как изменить р�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
-  1. Напротив расписания, которое нужно изменить, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Напротив расписания, которое нужно изменить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры расписания снимков:
       * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
 
@@ -192,14 +192,14 @@ description: "Из статьи вы узнаете, как изменить р�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** выберите расписание, в котором нужно изменить список дисков.
   1. Измените список дисков:
-      * Чтобы добавить новый диск, в блоке **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}** нажмите кнопку ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. В открывшемся окне выберите диск, который нужно добавить к расписанию, и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      * Чтобы добавить новый диск, в блоке **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. В открывшемся окне выберите диск, который нужно добавить к расписанию, и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
       
         {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
       
-      * Чтобы удалить диск, в блоке **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}** напротив диска, который нужно удалить из расписания, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
+      * Чтобы удалить диск, в блоке **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}** напротив диска, который нужно удалить из расписания, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
 
 - CLI {#cli}
 

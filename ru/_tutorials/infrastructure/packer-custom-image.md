@@ -306,6 +306,8 @@
    
 
 
+{% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
+
 ## Соберите образ {#create-image}
 
 1. В командной строке перейдите в папку с конфигурационным файлом образа:

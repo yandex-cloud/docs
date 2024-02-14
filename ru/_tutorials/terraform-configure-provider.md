@@ -35,6 +35,8 @@
      nano ~/.terraformrc
      ```
 
+     {% include [terraform-configure-provider-directory](terraform-configure-provider-directory.md) %}
+
    - Windows {#windows}
 
      Откройте файл конфигурации {{ TF }} CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
@@ -93,7 +95,17 @@
 Если вы использовали файл `.terraform.lock.hcl`, то перед инициализацией выполните команду `terraform providers lock`, указав адрес зеркала, откуда будет загружаться провайдер, и платформы, на которых будет использоваться конфигурация:
 
 ```bash
-terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=linux_amd64 -platform=darwin_arm64 yandex-cloud/yandex
+terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=<название_платформы_1> -platform=<название_платформы_2> yandex-cloud/yandex
 ```
 
-Если вы использовали модули, то сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
+Где:
+
+* `-net-mirror` — адрес зеркала, откуда будет загружаться провайдер.
+* `-platform` — платформы, на которых будет использоваться конфигурация. Возможные значения:
+  * `windows_amd64` — 64-bit Windows.
+  * `linux_amd64` — 64-bit Linux.
+  * `darwin_arm64` — 64-bit macOS.
+
+Если вы использовали [модули {{ TF }}](../tutorials/infrastructure-management/terraform-modules.md), то сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
+
+Более подробную информацию о команде `terraform providers lock` см. в [документации {{ TF }}](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).

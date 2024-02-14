@@ -118,6 +118,14 @@ data "yandex_compute_image" "ubuntu-image" {
   family = "ubuntu-2204-lts"
 }
 
+resource "yandex_compute_disk" "boot-disk" {
+  name     = "bootdisk"
+  type     = "network-ssd"
+  zone     = "{{ region-id }}-a"
+  size     = "24
+  image_id = yandex_compute_image.ubuntu-image.id
+}
+
 resource "yandex_compute_instance" "vm-bitrix" {
   name        = "bitrixwebsite"
   platform_id = "standard-v3"
@@ -130,11 +138,7 @@ resource "yandex_compute_instance" "vm-bitrix" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = data.yandex_compute_image.ubuntu-image.id
-      type     = "network-ssd"
-      size     = "24"
-    }
+    disk_id = yandex_compute_disk.boot-disk.id
   }
 
   network_interface {

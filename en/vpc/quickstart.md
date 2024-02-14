@@ -29,7 +29,7 @@ To create a cloud network:
 Create a subnet where cloud resources will be assigned [internal IP addresses](concepts/address.md#internal-addresses):
 
 1. Click the name of the created cloud network.
-1. Click ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+1. Click ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
 1. Enter a subnet name, like `test-subnet-1`.
 1. Select an availability zone from the drop-down list. Any zone from the list will be fine for the first subnet.
 1. Enter the subnet CIDR: its IP address and mask (for example, `10.10.0.0/24`). For more information about subnet IP address ranges, see [Cloud networks and subnets](concepts/network.md).

@@ -1,1 +1,0 @@
-Эти разрешения также входят в роли `editor`, `admin`, `resource-manager.clouds.owner` и `kms.keys.encrypterDecrypter`.

@@ -61,7 +61,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
         * `KUBE_URL`: [{{ managed-k8s-name }} master](../managed-kubernetes/concepts/index.md#master) address. You can retrieve it using the following command:
 
           ```bash
-          yc managed-kubernetes cluster get <cluster_ID_or_name> --format=json \
+          yc managed-kubernetes cluster get <cluster_name_or_ID> --format=json \
              | jq -r .master.endpoints.external_v4_endpoint
           ```
 
@@ -79,7 +79,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
       * In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
       * Click **Add variable**.
 1. Create the CI script's configuration file:
-   1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
+   1. In the left-hand panel in {{ GL }}, go to **Repository** and click the **Files** tab.
    1. Click ![image](../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
    1. Name the file as `.gitlab-ci.yml`. Add the steps to build and push a Docker image, scan it for vulnerabilities, and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
 
@@ -229,6 +229,6 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Check the result {#check-result}
 
-Once you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Vulnerability scanning is performed at the second stage (`test`).
+After saving the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Vulnerability scanning is performed at the second stage (`test`).
 
 {% include [clear-out](../_includes/managed-gitlab/clear-out.md) %}

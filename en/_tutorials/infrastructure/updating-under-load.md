@@ -452,8 +452,8 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click the `group-for-load` instance group name.
-   1. Click ![edit](../../_assets/edit.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
-   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, enter the new disk size of `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -529,25 +529,25 @@ To delete the created resources:
    1. Delete the load balancer:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-      1. To the right of the `load-generator` load balancer line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.remove }}**.
+      1. To the right of the `load-generator` load balancer line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.remove }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.remove }}**.
    1. Delete the instance group:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-      1. To the right of the `load-generator` group line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. To the right of the `load-generator` group line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Delete the service account:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
       1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-      1. To the right of the `yc-auto-sa` account line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+      1. To the right of the `yc-auto-sa` account line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
    1. Delete the network and subnets:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the network and subnets.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Select the network `yc-auto-network`.
       1. Under **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**:
-         1. To the right of the `yc-auto-subnet-1` line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+         1. To the right of the `yc-auto-subnet-1` line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
          1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
          1. Also delete the subnet `yc-auto-subnet-2`.
       1. In the top-right corner, click **{{ ui-key.yacloud.common.delete }}**.

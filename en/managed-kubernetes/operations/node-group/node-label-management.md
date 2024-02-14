@@ -133,8 +133,8 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
            cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
            ...
            node_labels = {
-             "<label1>" = "<value1>"
-             "<label2>" = "<value2>"
+             "<label_1>" = "<value_1>"
+             "<label_2>" = "<value_2>"
              ...
            }
          }

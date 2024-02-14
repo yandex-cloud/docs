@@ -5,8 +5,6 @@ description: "This guide describes how you can specify a cloud network where the
 
 # Specifying a cloud network where the function will be executed
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 You can specify a [cloud network](../../../vpc/concepts/network.md#network) where the function will be executed.
 
 {% include [network](../../../_includes/functions/network.md) %}

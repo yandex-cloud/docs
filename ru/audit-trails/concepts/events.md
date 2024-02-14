@@ -179,20 +179,7 @@
 
 Имя сервиса — `datatransfer`.
 
-Имя события | Описание
---- | ---
-`ActivateTransfer` | Активация трансфера
-`CreateEndpoint` | Создание эндпоинта
-`CreateTransfer` | Создание трансфера
-`DeactivateTransfer` | Деактивация трансфера
-`DeleteEndpoint` | Удаление эндпоинта
-`DeleteTransfer` | Удаление трансфера
-`FreezeTransferVersion` | Фиксация для трансфера определенной версии data plane
-`RestartTransfer` | Перезапуск трансфера
-`UnfreezeTransferVersion` | Разрешение обновления трансфера до последней версии data plane
-`UpdateEndpoint` | Изменение эндпоинта
-`UpdateTransfer` | Изменение трансфера
-`UpdateTransferVersion` | Обновление версии data plane трансфера
+{% include [datatransfer-events](../../_includes/audit-trails/events/datatransfer-events.md) %}
 
 ## {{ ml-platform-name }} {#datasphere}
 
@@ -222,22 +209,7 @@
 
 Имя сервиса — `loadtesting`.
 
-Имя события | Описание
---- | ---
-`CreateAgent` | Создание агента
-`CreateConfig` | Создание конфигурации
-`CreateMigration` | Создание миграции
-`CreateTest` | Создание теста
-`DeleteAgent` | Удаление агента
-`DeleteConfig` | Удаление конфигурации
-`DeleteTest` | Удаление теста
-`RestartAgent` | Перезапуск агента
-`StartAgent` | Запуск агента
-`StopAgent` | Остановка агента
-`StopTest` | Остановка теста
-`UpdateAgent` | Изменение агента
-`UpdateTest` | Изменение теста
-`UpgradeImageAgent` | Обновление образа агента
+{% include [load-testing-events](../../_includes/audit-trails/events/load-testing-events.md) %}
 
 ## {{ lockbox-name }} {#lockbox}
 

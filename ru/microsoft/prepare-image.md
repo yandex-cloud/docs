@@ -28,7 +28,38 @@
       
    1. Узнайте контрольную сумму вашего дистрибутива (например, выполните `openssl dgst -sha256 <путь к дистрибутиву>`). Вставьте полученное значение в параметр `iso_checksum` после `sha256:`.
    1. (Опционально) Если вы работаете на MacOS, вам потребуется заменить значение `accelerator  = "kvm"` на `accelerator  = "hvf"`.
+1. Задайте пароль пользователя `Administrator`. Для этого в файле `Autounattend.xml` в секцию `oobeSystem` добавьте раздел `UserAccounts`, указав пароль внутри тега `Value`:
+
+   ```xml
+   <settings pass="oobeSystem">
+       <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+           <OOBE>
+               <HideEULAPage>true</HideEULAPage>
+               <HideLocalAccountScreen>true</HideLocalAccountScreen>
+               <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+               <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+               <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+               <ProtectYourPC>1</ProtectYourPC>
+           </OOBE>
+           <RegisteredOwner />
+           <TimeZone>UTC</TimeZone>
+           <UserAccounts>
+               <AdministratorPassword>
+                   <Value><пароль_администратора></Value>
+                   <PlainText>true</PlainText>
+               </AdministratorPassword>
+           </UserAccounts>
+       </component>
+   </settings>
+   ```
+
 1. Перейдите в каталог с нужной конфигурацией образа (например, `external-windows-packer/ws22gui-qemu`) и выполните команду `packer build .`. 
+
+{% note info %}
+
+Чтобы отслеживать сборку образа и видеть ошибки, вы можете подключиться к ВМ по VNC. Например, с помощью VNC-клиента от [RealVNC](https://www.realvnc.com/en/connect/download/viewer/).
+
+{% endnote %}
 
 После выполнения команды будет создан дисковый образ в формате `.qcow2`.
 

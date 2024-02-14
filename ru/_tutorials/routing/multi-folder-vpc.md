@@ -345,7 +345,7 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
   1. В списке сервисов выберите **{{ vpc-name }}**.
   1. Нажмите на имя облачной сети `shared-net`.
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке подсети `subnet-b`, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-b`, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. В выпадающем списке выберите каталог `dev-folder`.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
@@ -552,7 +552,7 @@
        }
 
        boot_disk {
-         image_id = yandex_compute_disk.boot-disk-1.id
+         disk_id = yandex_compute_disk.boot-disk-1.id
        }
 
        network_interface {
@@ -580,7 +580,7 @@
        }
 
        boot_disk {
-         image_id = yandex_compute_disk.boot-disk-2.id
+         disk_id = yandex_compute_disk.boot-disk-2.id
        }
 
        network_interface {
@@ -608,7 +608,7 @@
        }
 
        boot_disk {
-         image_id = yandex_compute_disk.boot-disk-3.id
+         disk_id = yandex_compute_disk.boot-disk-3.id
        }
 
        network_interface {

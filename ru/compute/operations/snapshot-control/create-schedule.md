@@ -15,7 +15,7 @@ description: "Из статьи вы узнаете, как создать ра�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте параметры расписания снимков:
       * Введите имя расписания в формате:

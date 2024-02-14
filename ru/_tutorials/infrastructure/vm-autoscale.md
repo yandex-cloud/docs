@@ -38,7 +38,7 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. В открывшемся окне:
          * В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-autoscale`.
-         * Чтобы назначить сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) на текущий каталог, нажмите ![image](../../_assets/plus-sign.svg)  **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
+         * Чтобы назначить сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) на текущий каталог, нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
          * Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -314,7 +314,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. На панели слева нажмите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Выберите группу ВМ `auto-group`.
 
    - CLI {#cli}
@@ -487,7 +487,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. На панели слева нажмите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Выберите группу ВМ `auto-group`.
      1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_monitoring }}**.
         Балансировщик направил запрос на одну из ВМ группы. В зоне доступности этой ВМ среднее потребление CPU (график **Average CPU utilization in zone**) выше, чем в других.
@@ -539,7 +539,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ `auto-group`.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. На панели слева нажмите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Выберите группу ВМ `auto-group`.
      1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_monitoring }}**.
         На графике **Number of instance in zone** отображены изменения количества ВМ в каждой зоне доступности. На графике **Average CPU utilization in zone** — средняя CPU-нагрузка в каждой зоне доступности.
@@ -560,7 +560,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик `group-balancer`.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-     1. В строке балансировщика `group-balancer` нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. В строке балансировщика `group-balancer` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI {#cli}
@@ -589,8 +589,8 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ `auto-group`.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-     1. В строке группы ВМ `auto-group` нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+     1. На панели слева нажмите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. В строке группы ВМ `auto-group` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
    - CLI {#cli}
@@ -620,7 +620,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали подсети.
      1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Выберите сеть, в которой находятся нужные подсети.
-     1. В строке нужной подсети нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. В строке нужной подсети нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
      1. Повторите три предыдущих шага, чтобы удалить остальные подсети.
 
@@ -678,7 +678,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сеть.
      1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-     1. В строке нужной сети нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. В строке нужной сети нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI {#cli}
@@ -710,7 +710,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-     1. В строке нужного сервисного аккаунта нажмите значок ![image](../../_assets/options.svg)  и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+     1. В строке нужного сервисного аккаунта нажмите значок ![image](../../_assets/console-icons/ellipsis.svg)  и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
      1. Подтвердите удаление.
 
    - CLI {#cli}

@@ -21,8 +21,8 @@ To delete a disk:
 
    1. In the management console, select the folder the disk belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-   1. In the line of the appropriate disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. In the line of the appropriate disk, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
 
 - CLI {#cli}

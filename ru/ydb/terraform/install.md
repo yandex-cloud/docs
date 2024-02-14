@@ -23,12 +23,16 @@ Terraform можно скачать с официального сайта [Hash
 
 ## Установка провайдера для работы с YDB {#provider-install}
 
-Terraform самостоятельно скачает и устанавит провайдер с заданного пользователем url в блоке `provider_installation`, который должен быть расположен в файле `~/.terraformrc`.
+Terraform самостоятельно скачает и устанавит провайдер с заданного пользователем url в блоке `provider_installation`, который должен быть расположен в файле `.terraformrc`.
 
 {% list tabs group=operating_system %}
 - Linux/macOS {#linux}
     1. Откройте файл конфигурации Terraform CLI `~/.terraformrc` в любом удобном для вас текстовом редакторе.
+
+        {% include [terraform-configure-provider-directory](../../_tutorials/terraform-configure-provider-directory.md) %}
+
     1. Добавьте в него следующий блок:
+
         ```tf
         provider_installation {
             network_mirror {

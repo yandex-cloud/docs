@@ -38,7 +38,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the window that opens:
          * In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-autoscale`.
-         * To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
+         * To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
          * Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -314,7 +314,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
 
    - CLI {#cli}
@@ -487,7 +487,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
       1. Go to the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
          The load balancer sent the request to an instance in the group. In the availability zone this instance belongs to, the average CPU utilization is higher than in other zones (see the **Average CPU utilization in zone** chart).
@@ -539,7 +539,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `auto-group` instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
       1. Go to the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
          The chart **Number of instances in zone** shows how the number of instances changed in each availability zone. The chart **Average CPU utilization in zone** shows average CPU utilization in each availability zone.
@@ -560,7 +560,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `group-balancer` load balancer.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-      1. In the `group-balancer` line, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the `group-balancer` line, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI {#cli}
@@ -589,8 +589,8 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `auto-group` instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-      1. In the `auto-group` instance group line, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the `auto-group` instance group line, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
    - CLI {#cli}
@@ -620,7 +620,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       1. In the [management console]({{ link-console-main }}), select the folder where you created the subnets.
       1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section.
       1. Select the network with the appropriate subnets.
-      1. In the line of the subnet you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the line of the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
       1. Repeat the previous three steps to delete the remaining subnets.
 
@@ -678,7 +678,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the network.
       1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section.
-      1. In the line of the network you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the line of the network you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI {#cli}
@@ -710,7 +710,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-      1. In the line of the service account you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+      1. In the line of the service account you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
       1. Confirm the deletion.
 
    - CLI {#cli}

@@ -4,17 +4,13 @@
 
 Состояние {{ TF }} описывает текущую развернутую инфраструктуру и хранится в файлах с расширением `.tfstate`. Файл состояния создается после развертывания инфраструктуры и может быть сразу загружен в {{ objstorage-name }}. Загруженный файл состояния будет обновляться после изменений созданной инфраструктуры.
  
-В этом примере сохраненное состояние позволит другим пользователям получить идентификатор одной из созданных [подсетей](../../vpc/concepts/network.md#subnet), чтобы подключить к ней новую [виртуальную машину](../../compute/concepts/vm.md). 
+В этом примере сохраненное состояние позволит другим пользователям получить идентификатор одной из созданных [подсетей](../../vpc/concepts/network.md#subnet), чтобы подключить к ней новую [виртуальную машину](../../compute/concepts/vm.md).
 
 Чтобы настроить хранение состояний {{ TF }} в {{ objstorage-name }} и использовать его для создания новых ресурсов:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Необходимые платные ресурсы](#paid-resources).
-1. [Установите {{ TF }}](#install-terraform).
-1. [Создайте файл конфигурации {{ TF }}](#configure-terraform).
-1. [Настройте провайдер](#configure-provider).
-1. [Создайте сервисный аккаунт и статический ключ доступа](#create-service-account).
-1. [Создайте бакет](#create-service-account).
+1. [Установите и настройте {{ TF }}](#install-terraform).
 1. [Настройте бэкенд](#set-up-backend).
 1. [Разверните конфигурацию](#deploy).
 1. [Проверьте сохраненное состояние](#check-condition).
@@ -45,26 +41,145 @@
 * Плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-## Установите {{ TF }} {#install-terraform}
-
-{% include [terraform-install](../../_tutorials/terraform-install.md) %}
-
-## Создайте файл конфигурации {{ TF }} {#configure-terraform}
-
-{% include [configure-terraform](../_tutorials_includes/configure-terraform.md) %}
-
-## Настройте провайдер {#configure-provider}
-
-{% include [terraform-configure-provider](../../_tutorials/terraform-configure-provider.md) %}
-
-## Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
+### Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) [editor](../../iam/roles-reference.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), указанный в настройках провайдера.
 1. [Получите статический ключ доступа](../../iam/operations/sa/create-access-key.md). Сохраните идентификатор ключа и секретный ключ — они понадобятся в следующих разделах инструкции.
 
-## Создайте бакет {#create-service-account}
+### Создайте бакет {#create-service-account}
 
 [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом. В нем будет храниться файл состояния {{ TF }}.
+
+## Установите и настройте {{ TF }} {#prepare-terraform}
+
+### Установите {{ TF }} {#install-terraform}
+
+
+#### Из зеркала {#from-yc-mirror}
+
+Вы можете скачать дистрибутив {{ TF }} для вашей платформы из [зеркала]({{ terraform-mirror }}). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`:
+
+```bash
+export PATH=$PATH:/path/to/terraform
+```
+
+#### С сайта Hashicorp {#from-hashicorp-site}
+
+
+{% list tabs group=operating_system %}
+
+- Windows {#windows}
+
+  Используйте один из способов:
+
+  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите {{ TF }} с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
+
+     ```
+     choco install terraform
+     ```
+
+- Linux {#linux}
+
+  [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+
+- macOS {#macos}
+
+  Используйте один из способов:
+
+    * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+    * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
+
+      ```
+      brew install terraform
+      ```
+
+{% endlist %}
+
+### Получите данные для аутентификации {#get-credentials}
+
+Чтобы управлять инфраструктурой {{ yandex-cloud }} с помощью {{ TF }}, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
+
+Также вы можете использовать {{ TF }} от имени [аккаунта на Яндексе](../../iam/concepts/index.md#passport) или [федеративного аккаунта](../../iam/concepts/index.md#saml-federation), однако этот способ является менее безопасным. Подробности см. в конце раздела.
+
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md#install) его.
+
+1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
+
+    {% list tabs group=instructions %}
+
+    - CLI {#cli}
+
+      1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его файл:
+
+          ```bash
+          yc iam key create \
+            --service-account-id <идентификатор_сервисного_аккаунта> \
+            --folder-name <имя_каталога_с_сервисным_аккаунтом> \
+            --output key.json
+          ```
+
+          Где:
+          * `service-account-id` — идентификатор сервисного аккаунта.
+          * `folder-name` — имя каталога, в котором создан сервисный аккаунт.
+          * `output` — имя файла с авторизованным ключом.
+
+          Результат:
+
+          ```yaml
+          id: aje8nn871qo4********
+          service_account_id: ajehr0to1g8b********
+          created_at: "2022-09-14T09:11:43.479156798Z"
+          key_algorithm: RSA_2048
+          ```
+
+      1. Создайте профиль CLI для выполнения операций от имени сервисного аккаунта. Укажите имя профиля:
+
+          ```bash
+          yc config profile create <имя_профиля>
+          ```
+
+          Результат:
+
+          ```text
+          Profile 'sa-terraform' created and activated
+          ```
+
+      1. Задайте конфигурацию профиля:
+
+          ```bash
+          yc config set service-account-key key.json
+          yc config set cloud-id <идентификатор_облака>
+          yc config set folder-id <идентификатор_каталога>
+          ```
+
+          Где:
+          * `service-account-key` — файл с авторизованным ключом сервисного аккаунта.
+          * `cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md).
+          * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+
+    {% endlist %}
+
+1. Добавьте аутентификационные данные в переменные окружения:
+
+    {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
+
+
+{% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
+
+{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+
+{% endcut %}
+
+
+
+### Создайте файл конфигурации {{ TF }} {#configure-terraform}
+
+{% include [configure-terraform](../_tutorials_includes/configure-terraform.md) %}
+
+### Настройте провайдер {#configure-provider}
+
+{% include [terraform-configure-provider](../../_tutorials/terraform-configure-provider.md) %}
 
 ## Настройте бэкенд {#set-up-backend}
 
@@ -121,9 +236,6 @@
     }
 
     provider "yandex" {
-      token     = "<OAuth-токен_или_IAM-токен>"
-      cloud_id  = "<идентификатор_облака>"
-      folder_id = "<идентификатор_каталога>"
       zone      = "<зона_доступности_по_умолчанию>"
     }
     ```
@@ -158,9 +270,6 @@
    }
 
    provider "yandex" {
-     token     = "<OAuth-токен_или_IAM-токен>"
-     cloud_id  = "<идентификатор_облака>"
-     folder_id = "<идентификатор_каталога>"
      zone      = "{{ region-id }}-a"
    }
 
@@ -205,7 +314,7 @@
      }
 
      boot_disk {
-      image_id = yandex_compute_disk.boot-disk-vm3.id
+       disk_id = yandex_compute_disk.boot-disk-vm3.id
      }
 
      network_interface {
@@ -221,10 +330,9 @@
 
    Где:
 
-   * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
    * `bucket` — имя бакета.
    * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
-   * `access_key` — [идентификатор ключа](#create-service-account) сервисного аккаунта.
+   * `access_key` — [идентификатор секретного ключа](#create-service-account) сервисного аккаунта, для доступа к бакету.
    * `secret_key` — значение секретного ключа сервисного аккаунта.
 
 1. Выполните команду `terraform init`.
@@ -238,4 +346,5 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../tutorials/infrastructure-management/terraform-state-lock.md).
+* [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).

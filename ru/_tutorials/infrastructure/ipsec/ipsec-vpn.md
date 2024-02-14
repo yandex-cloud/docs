@@ -93,7 +93,7 @@
 1. Привяжите таблицу маршрутизации `cloud-net-rt` к подсетям `subnet-a` и `subnet-b`:
 
     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_overview }}**.
-    1. В строке подсети `subnet-a` нажмите значок ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+    1. В строке подсети `subnet-a` нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
     1. В открывшемся окне выберите таблицу маршрутизации `cloud-net-rt` и нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
     1. Повторите два предыдущих шага для подсети `subnet-b`, чтобы привязать к ней таблицу маршрутизации `cloud-net-rt`.
 
@@ -102,7 +102,7 @@
 #### Создайте ВМ с основным IPsec-шлюзом на облачной площадке {#create-cloud-gw}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать основной IPsec-шлюз.
-1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/create-resource-vm.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** укажите `cloud-gw`.
 1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b` — зону доступности, где находится подсеть, к которой будет подключен основной IPsec-шлюз.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}** и выберите образ [IPSec-инстанс](/marketplace/products/yc/ipsec-instance-ubuntu).
@@ -330,7 +330,7 @@
 1. Привяжите таблицу маршрутизации `remote-net-rt` к подсети `subnet-1`:
 
     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_overview }}**.
-    1. В строке подсети `subnet-1` нажмите значок ![image](../../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+    1. В строке подсети `subnet-1` нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
     1. В открывшемся окне выберите таблицу `remote-net-rt` и нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 ### Создайте и настройте виртуальные машины на удаленной площадке {#setup-remote-vms}
@@ -340,7 +340,7 @@
 Создайте ВМ, которая будет выступать в роли удаленного IPsec-шлюза. 
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать удаленный IPsec-шлюз.
-1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/create-resource-vm.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** укажите `remote-gw`.
 1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b` — зону доступности, где находится подсеть, к которой будет подключен удаленный IPsec-шлюз.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}** и выберите образ `IPSec-инстанс`.

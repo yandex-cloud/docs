@@ -32,7 +32,7 @@ The provider transforms the request to collect external metrics from a {{ manage
    * (Optional) **Disable decimation**: Select this option not to apply a data [decimation function](../../../monitoring/concepts/decimation.md).
    * (Optional) **Aggregation function**: Select a data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The default value is `AVG`.
    * (Optional) **Data filling**: Configure filling in missing data:
-     * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value. This is a default value.
+     * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value. Default value.
      * `NONE`: Returns no values.
      * `PREVIOUS`: Returns the value from the previous data point.
    * (Optional) **Maximum number of points**: Specify the maximum number of points that will be returned in response to a request. Use a value greater than `10`.
@@ -72,17 +72,17 @@ The provider transforms the request to collect external metrics from a {{ manage
      --create-namespace \
      --set yandexMetrics.folderId=<folder_ID> \
      --set window=<time_window> \
-     --set-file yandexMetrics.token.serviceAccountJson=<service_account_static_key_file_path> \
+     --set-file yandexMetrics.token.serviceAccountJson=<path_to_service_account_static_key_file> \
      --set yandexMetrics.downsampling.gridAggregation=<aggregation_function> \
      --set yandexMetrics.downsampling.gapFilling=<data_filling> \
      --set yandexMetrics.downsampling.maxPoints=<maximum_number_of_points> \
      --set yandexMetrics.downsampling.gridInterval=<decimation_time_window> \
-     --set yandexMetrics.downsampling.disabled=<true_or_false> \
+     --set yandexMetrics.downsampling.disabled=<data_decimation_mode> \
      metric-provider ./chart/
    ```
 
    Required parameters:
-   * `namespace`: [Namespace](../../concepts/index.md#namespace) where the provider will be deployed.
+   * `--namespace`: [Namespace](../../concepts/index.md#namespace) where the provider will be deployed.
    * `yandexMetrics.folderId`: [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the provider will run.
    * `window`: Time window for which metrics will be collected (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
    * `yandexMetrics.token.serviceAccountJson`: Path to the static access key of the service account with the `monitoring.viewer` role.
@@ -95,7 +95,7 @@ The provider transforms the request to collect external metrics from a {{ manage
      * `PREVIOUS`: Returns the value from the previous data point.
    * `yandexMetrics.downsampling.maxPoints`: Maximum number of points to be received in response to a request. Use a value greater than `10`.
    * `yandexMetrics.downsampling.gridInterval`: Time window (grid) in milliseconds. It is used for decimation: points inside the window are combined into a single one using the aggregation function. Use a value greater than `0`.
-   * `yandexMetrics.downsampling.disabled`: Disable data decimation.
+   * `yandexMetrics.downsampling.disabled`: Disable data decimation. Valid values: `true` or `false`.
 
      {% note info %}
 

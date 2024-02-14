@@ -10,8 +10,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится таблица маршрутизации.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке таблицы, которую требуется переместить, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке таблицы, которую требуется переместить, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. В выпадающем списке выберите каталог назначения.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 

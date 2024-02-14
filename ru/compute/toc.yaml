@@ -47,6 +47,8 @@ items:
             href: operations/placement-groups/add-vm.md
           - name: Исключить ВМ из группы размещения
             href: operations/placement-groups/delete-vm.md
+          - name: Получить информацию о группе размещения
+            href: operations/placement-groups/placement-groups-get-info.md
           - name: Исключить группу виртуальных машин из группы размещения
             href: operations/placement-groups/delete-ig-from-pg.md
       - name: Образы с предустановленным ПО
@@ -165,10 +167,16 @@ items:
         items:
           - name: Создать снимок
             href: operations/disk-control/create-snapshot.md
+          - name: Получить информацию о снимке диска
+            href: operations/snapshot-control/get-snapshot.md
           - name: Удалить снимок
             href: operations/snapshot-control/delete.md
           - name: Создать расписание снимков
             href: operations/snapshot-control/create-schedule.md
+          - name: >-
+              Получить информацию о расписании, по которому создаются снимки
+              дисков
+            href: operations/snapshot-control/get-snapshot-schedule.md
           - name: Изменить расписание снимков
             href: operations/snapshot-control/update-schedule.md
           - name: Остановить и запустить расписание снимков
@@ -203,6 +211,8 @@ items:
         items:
           - name: Получить список образов
             href: operations/image-control/get-list.md
+          - name: Получить информацию об образе
+            href: operations/image-control/image-control-get-info.md
           - name: Удалить образ
             href: operations/image-control/delete.md
           - name: Импортировать образ из другого облака или каталога
@@ -313,6 +323,8 @@ items:
             href: operations/gpu-cluster/gpu-cluster-update.md
           - name: Удалить кластер GPU
             href: operations/gpu-cluster/gpu-cluster-delete.md
+          - name: Получить информацию о кластере GPU
+            href: operations/gpu-cluster/gpu-cluster-get-info.md
       - name: Получить список операций с ресурсами сервиса
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'

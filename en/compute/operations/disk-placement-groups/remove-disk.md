@@ -8,11 +8,11 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to remove the disk from the placement group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
    1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
    1. Select the placement group to remove a disk from.
    1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** panel.
-   1. To the right of the name of the disk to remove, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
+   1. To the right of the name of the disk to remove, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.disks.popup-confirm_button_delete }}**.
 
 - {{ TF }} {#tf}

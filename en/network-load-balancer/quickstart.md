@@ -19,7 +19,7 @@ To create a target group:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a target group.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-1. In the left-hand panel, select ![image](../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+1. In the left-hand panel, select ![image](../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 1. Click **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
 1. Enter a name for the target group: `test-target-group`.
 1. Select the VMs to add to the target group.

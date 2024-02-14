@@ -65,6 +65,10 @@ description: "Следуя данной инструкции, вы сможет�
 
   После этого облако будет привязано к платежному аккаунту. Проверить привязку облака к аккаунту можно на странице платежного аккаунта в [сервисе {{ billing-name }}]({{ link-console-billing }}).
 
+- API {#api}
+
+  Чтобы привязать облако, воспользуйтесь методом REST API [bindBillableObject](../api-ref/BillingAccount/bindBillableObject.md) для ресурса [BillingAccount](../api-ref/BillingAccount/index.md) или вызовом gRPC API [BillingAccountService/BindBillableObject](../api-ref/grpc/billing_account_service.md#BindBillableObject).
+  
 {% endlist %}
 
 

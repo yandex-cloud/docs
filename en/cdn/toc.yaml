@@ -101,7 +101,9 @@ items:
         href: concepts/caching.md
       - name: Secure tokens
         href: concepts/secure-tokens.md
-      - name: Exporting logs
+      - name: IP-based access policy
+        href: concepts/ip-address-acl.md
+      - name: Log export
         href: concepts/logs.md
       - name: Quotas and limits
         href: concepts/limits.md

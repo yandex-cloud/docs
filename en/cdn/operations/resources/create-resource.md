@@ -136,11 +136,7 @@ To create a [resource](../../concepts/resource.md):
       * Instead of `--origin-group-id`, you can specify the origin domain name using the `--origin-custom-source` flag.
       * Possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
 
-      If you want to restrict access to the new resource with [secure tokens](../../concepts/secure-tokens.md), use the following parameters:
-      * `--secure-key`: Secret key that is an arbitrary string of 6 to 32 characters.
-      * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP.
-
-      See also [{#T}](./enable-secure-token.md).
+      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
@@ -179,39 +175,7 @@ To create a [resource](../../concepts/resource.md):
 
    1. In the configuration file, describe the parameters of the CDN resource to create:
 
-      ```hcl
-      resource "yandex_cdn_resource" "my_resource" {
-          cname               = "<domain_name>"
-          active              = true
-          origin_protocol     = "https"
-          origin_group_id     = <origin_group_ID>
-          secondary_hostnames = ["<additional_domain_name_1>", "additional_domain_name_2"]
-          ssl_certificate {
-            type = "certificate_manager"
-            certificate_manager_id = "<certificate_ID>"
-          }
-          options {
-            redirect_http_to_https = true
-          }
-      }
-      ```
-
-      Where:
-
-      * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: (Optional) Flag for content availability to end users (`true`: CDN content is available to clients; `false`: content not available). The default value is `true`.
-      * `origin_protocol`: (Optional) Origin protocol. The default value is `HTTP`.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
-      * `secondary_hostnames`: (Optional) Additional domain names.
-      * `ssl_certificate`: (Optional) SSL certificate parameters:
-         * `type`: Certificate type, possible values are:
-            * `not_used`: No certificate is used. Default value:
-            * `certificate_manager`: Custom [{{ certificate-manager-full-name }}](../../../certificate-manager/concepts/imported-certificate.md) certificate. Specify the certificate ID in the `certificate_manager_id` parameter.
-         * `certificate_manager_id`: User certificate ID in {{ certificate-manager-name }}.
-      * `options`: (Optional) Additional parameters of the CDN resource:
-         * `redirect_http_to_https`: Parameter for client redirects from HTTP to HTTPS, `true` or `false`. Available if an SSL certificate is used.
-
-         For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
    1. Create resources:
 
@@ -243,6 +207,8 @@ To create a [resource](../../concepts/resource.md):
    If you have not created any resources before, connect to the CDN provider. To do this, use the [activate](../../api-ref/Provider/activate.md) REST API method for the [Provider](../../api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../api-ref/grpc/provider_service.md#Activate) gRPC API call.
 
    1. Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
+
+      You can restrict access to the resource with [secure tokens](../../concepts/secure-tokens.md) and an [IP-based access policy](../../concepts/ip-address-acl.md).
 
    1. Create a [CNAME record](../../../dns/concepts/resource-record.md#cname) for the CDN resource in {{ dns-full-name }}:
 

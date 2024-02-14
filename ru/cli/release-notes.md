@@ -7,6 +7,40 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.118.0 (14.02.24) {#version0.118.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ mgp-name }}
+
+* Добавлено дерево команд `yc managed-greenplum backups` с командами `get`, `list`, `delete` для управления резервными копиями.
+* Добавлена команда `yc managed-greenplum cluster backup` для создания резервной копии.
+
+#### {{compute-name}}
+* В команду `yc compute ssh` добавлен флаг `--identity-file` для подключения к ВМ по SSH с указанием пользовательского ключа.
+
+#### {{ data-transfer-name }}
+
+- Для следующих команд добавлен  флаг `--file` для указания YAML-файла для конфигурации запроса:
+  * `yc datatransfer transfer create`
+  * `yc datatransfer transfer update`
+  * `yc datatransfer endpoint create`
+  * `yc datatransfer endpoint update`
+
+#### {{ org-name }} {#organization}
+
+* Добавлена команда `yc organization-manager federation saml delete-user-accounts` для удаления федеративных пользователей.
+
+#### {{load-testing-name}}
+
+Добавлена команда `yc loadtesting test get-report-table` для получения табличного отчета по прошедшему нагрузочному тесту.
+
+#### {{ dns-name }} {#dns}
+
+* В команду `yc dns zone list-records` добавлен параметр `--page-token` для включения разбиения на страницы по page-токену.
+
+## Предыдущие релизы {#previous-releases}
+
 ## Версия 0.117.0 (30.01.24) {#version0.117.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -29,8 +63,6 @@ description: "На странице представлены релизы YC CLI
 #### {{ managed-k8s-name }} {#k8s}
 
 В команде `k8s cluster update` исправлена ошибка, возникающая, когда в качестве позиционного аргумента передается `cluster-id`.
-
-## Предыдущие релизы {#previous-releases}
 
 ## Версия 0.116.0 (15.01.24) {#version0.116.0}
 

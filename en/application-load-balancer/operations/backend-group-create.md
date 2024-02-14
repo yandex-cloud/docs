@@ -69,7 +69,11 @@ To create a [backend group](../concepts/backend-group.md):
       created_at: "2021-02-11T20:46:21.688940670Z"
       ```
 
-   1. Add a backend and health check to the group. All backends within the group must have the same [type](../concepts/backend-group.md#group-types): `HTTP`, `gRPC`, or `Stream`.
+   1. Add a backend and health check to the group.
+
+      {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
+
+      All backends within the group must have the same [type](../concepts/backend-group.md#group-types): `HTTP`, `gRPC`, or `Stream`.
 
       {% cut "HTTP backend" %}
 
@@ -90,7 +94,7 @@ To create a [backend group](../concepts/backend-group.md):
       Where:
 
       * `--panic-threshold`: Threshold for panic mode.
-      * `--http-healthcheck`: Parameters for checking the resource status:
+      * `--http-healthcheck`: Resource health check parameters:
          * `port`: Port.
          * `healthy-threshold`: Healthy threshold.
          * `unhealthy-threshold`: Unhealthy threshold.
@@ -146,7 +150,7 @@ To create a [backend group](../concepts/backend-group.md):
       Where:
 
       * `--panic-threshold`: Threshold for panic mode.
-      * `--grpc-healthcheck`: Parameters for checking the resource status:
+      * `--grpc-healthcheck`: Resource health check parameters:
          * `port`: Port.
          * `healthy-threshold`: Healthy threshold.
          * `unhealthy-threshold`: Unhealthy threshold.
@@ -202,7 +206,7 @@ To create a [backend group](../concepts/backend-group.md):
       Where:
 
       * `--panic-threshold`: Threshold for panic mode.
-      * `--stream-healthcheck`: Parameters for checking the resource status:
+      * `--stream-healthcheck`: Resource health check parameters:
          * `port`: Port.
          * `healthy-threshold`: Healthy threshold.
          * `unhealthy-threshold`: Unhealthy threshold.
@@ -305,6 +309,8 @@ To create a [backend group](../concepts/backend-group.md):
          * `unhealthy_threshold`: Unhealthy threshold.
          * `http_healthcheck`: Parameters for `HTTP` health checks:
             * `path`: Path.
+
+         {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Create resources:
