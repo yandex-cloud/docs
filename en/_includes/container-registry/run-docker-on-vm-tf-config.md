@@ -2,8 +2,8 @@
 locals {
   zone             = "<default_availability_zone>"
   username         = "<VM_username>"
-  ssh_key_path     = "<path_to_public_SSH_key>"
-  target_folder_id = "<VM_target_folder>"
+  ssh_key_path     = "<public_SSH-key_path>"
+  target_folder_id = "<directory_ID_for_VM_placement>"
   registry_name    = "<registry_name>"
   sa_name          = "<service_account_name>"
   network_name     = "<cloud_network_name>"
@@ -55,6 +55,15 @@ resource "yandex_vpc_subnet" "docker-vm-network-subnet-a" {
   network_id     = yandex_vpc_network.docker-vm-network.id
 }
 
+resource "yandex_compute_disk" "boot-disk" {
+  name     = "bootvmdisk"
+  type     = "network-hdd"
+  zone     = "local.zone"
+  size     = "5"
+  image_id = local.image_id
+}
+
+
 resource "yandex_compute_instance" "docker-vm" {
   name               = local.vm_name
   platform_id        = "standard-v3"
@@ -67,10 +76,7 @@ resource "yandex_compute_instance" "docker-vm" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = local.image_id
-      size     = 5
-    }
+    disk_id = yandex_compute_disk.boot-disk.id
   }
 
   network_interface {

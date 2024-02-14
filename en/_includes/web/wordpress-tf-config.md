@@ -13,6 +13,18 @@ provider "yandex" {
   zone = "{{ region-id }}-a"
 }
 
+resource "yandex_compute_image" "wordpress" {
+  source_family = "wordpress"
+}
+
+resource "yandex_compute_disk" "boot-disk" {
+  name     = "bootvmdisk"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.wordpress.id
+}
+
 resource "yandex_compute_instance" "vm-wordpress" {
   name        = "wordpress"
   platform_id = "standard-v3"
@@ -24,9 +36,7 @@ resource "yandex_compute_instance" "vm-wordpress" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = "fd8er6stcpm84o8rkpa8"
-    }
+    disk_id = yandex_compute_disk.boot-disk.id
   }
 
   network_interface {

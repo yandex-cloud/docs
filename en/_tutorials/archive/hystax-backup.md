@@ -122,7 +122,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![img](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+      1. In the left-hand panel, select ![img](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
          * Enter `hystax-acura-vm` as your VM name and add a description.
@@ -140,7 +140,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
          * Select a cloud [network](../../vpc/concepts/network.md#network) from the list. If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Set the network parameters and click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
-         * Select a [subnet](../../vpc/concepts/network.md#subnet). If you do not have a subnet, click ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Save the subnet ID. You will need it later.
+         * Select a [subnet](../../vpc/concepts/network.md#subnet). If you do not have a subnet, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Save the subnet ID. You will need it later.
          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
@@ -202,7 +202,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
    1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Go to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
-   1. Click ![image](../../_assets/options.svg) in the row next to the address of your Hystax Acura Backup VM.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row next to the address of your Hystax Acura Backup VM.
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
    1. Save the IP. You will need it later.
@@ -368,7 +368,7 @@ Once the agent is installed on the VMs to protect, they will show up in the list
 To enable VM protection:
 1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
 1. Under **Machines Groups**, deploy an instance group, such as `Default`.
-1. Click ![image](../../_assets/options.svg) in the VM list on the right.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the VM list on the right.
 1. In the **Edit replication settings** menu, set up a replication schedule for the instance group by hour, day, or week, or select continuous protection. In the **Volume type** section, specify the type of drive for VM recovery: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`.
 1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax documentation](https://hystax.com/documentation/dr/dr_overview.html#edit-replication-settings-schedule).
 1. Select **Start Protection**.
@@ -384,7 +384,7 @@ The DR plan includes a VM description and the network settings. The plan determi
 - Automatically {#auto}
 
    1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
-   1. Check the VMs you need on the list, click **Bulk actions**, and select **Generate DR plan**. You can also generate a plan for a group of VMs by clicking ![image](../../_assets/options.svg) in the group header.
+   1. Check the VMs you need on the list, click **Bulk actions**, and select **Generate DR plan**. You can also generate a plan for a group of VMs by clicking ![image](../../_assets/console-icons/ellipsis.svg) in the group header.
    1. In the **Name** field, enter `Plan-1` as the name.
    1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:
       * In the **Subnet ID** field, enter the subnet ID.
@@ -404,7 +404,7 @@ The DR plan includes a VM description and the network settings. The plan determi
    1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
    1. Click **Add DR Plan**.
    1. In the **Name** field, enter `Plan-1` as the name.
-   1. Under **Devices & Ranks**, click ![image](../../_assets/options.svg). In the menu that opens, click **Add machine**. Select an instance group, such as `Default`. Select the VM to be added to the DR plan. Repeat the steps for all VMs to recover.
+   1. Under **Devices & Ranks**, click ![image](../../_assets/console-icons/ellipsis.svg). In the menu that opens, click **Add machine**. Select an instance group, such as `Default`. Select the VM to be added to the DR plan. Repeat the steps for all VMs to recover.
    1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:
       * In the **Subnet ID** field, enter the subnet ID.
       * In the **CIDR** field, specify the subnet's [CIDR](../../vpc/concepts/network.md#subnet).

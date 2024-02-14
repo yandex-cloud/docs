@@ -144,7 +144,7 @@ resource "yandex_compute_instance" "test-vm" {
   }
 
   boot_disk {
-    image_id = yandex_compute_disk.boot-disk-ubuntu.id
+    disk_id = yandex_compute_disk.boot-disk-ubuntu.id
   }
 
   network_interface {
@@ -171,7 +171,7 @@ resource "yandex_compute_instance" "nat-instance" {
   }
 
   boot_disk {
-    image_id = yandex_compute_disk.boot-disk-nat.id
+    disk_id = yandex_compute_disk.boot-disk-nat.id
   }
 
   network_interface {

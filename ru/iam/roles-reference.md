@@ -6,6 +6,29 @@ description: "В статье приведен полный справочник
 # Справочник ролей {{ yandex-cloud }}
 
 
+## Примитивные роли {#primitive-roles}
+
+На диаграмме показано, какие примитивные роли есть в {{ yandex-cloud }} и как они наследуют разрешения друг друга. Например, в роль `{{ roles-editor }}` входят все разрешения роли `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
+
+![image](../_assets/iam/security/primitive-roles-hierarchy.svg)
+
+#### {{ roles-auditor }} {#auditor}
+
+{% include [auditor](../_roles/primitive-roles/auditor.md) %}
+
+#### {{ roles-viewer }} {#viewer}
+
+{% include [viewer](../_roles/primitive-roles/viewer.md) %}
+
+#### {{ roles-editor }} {#editor}
+
+{% include [editor](../_roles/primitive-roles/editor.md) %}
+
+#### {{ roles-admin }} {#admin}
+
+{% include [admin](../_roles/primitive-roles/admin.md) %}
+
+
 ## Служебные роли {#auxiliary-roles}
 
 #### marketplace.meteringAgent {#marketplace-meteringagent}
@@ -163,6 +186,10 @@ description: "В статье приведен полный справочник
 
 {% include [billing.accounts.viewer](../_roles/billing/accounts/viewer.md) %}
 
+#### billing.accounts.accountant {#billing-accounts-accountant}
+
+{% include [billing.accounts.accountant](../_roles/billing/accounts/accountant.md) %}
+
 #### billing.accounts.editor {#billing-accounts-editor}
 
 {% include [billing.accounts.editor](../_roles/billing/accounts/editor.md) %}
@@ -309,6 +336,31 @@ description: "В статье приведен полный справочник
 {% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
 
 Подробнее см. [{#T}](../organization/security/index.md).
+
+
+## {{ postbox-full-name }} {#postbox-roles}
+
+#### postbox.sender {#postbox-sender}
+
+{% include [postbox.sender](../_roles/postbox/sender.md) %}
+
+#### postbox.auditor {#postbox-auditor}
+
+{% include [postbox.auditor](../_roles/postbox/auditor.md) %}
+
+#### postbox.viewer {#postbox-viewer}
+
+{% include [postbox.viewer](../_roles/postbox/viewer.md) %}
+
+#### postbox.editor {#postbox-editor}
+
+{% include [postbox.editor](../_roles/postbox/editor.md) %}
+
+#### postbox.admin {#postbox-admin}
+
+{% include [postbox.admin](../_roles/postbox/admin.md) %}
+
+Подробнее см. [{#T}](../postbox/security/index.md).
 
 
 ## {{ compute-full-name }} {#compute-roles}

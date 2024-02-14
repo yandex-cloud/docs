@@ -1,1 +1,1 @@
-The `vpc.gateways.viewer` role.
+The `vpc.gateways.viewer` role grants access to information about network gateways.

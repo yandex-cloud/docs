@@ -13,8 +13,8 @@ description: "Follow this guide to move a security group to a different folder."
 
    1. In the [management console]({{ link-console-main }}), go to the folder where the security group is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
-   1. Click ![image](../../_assets/options.svg) in the row of the security group to be moved and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group to be moved and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
    1. Select the destination folder from the drop-down list.
    1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 

@@ -1,1 +1,1 @@
-The `vpc.securityGroups.user` role.
+The `vpc.securityGroups.user` role allows you to assign security groups to network interfaces and grants access to information about all VPC resources.

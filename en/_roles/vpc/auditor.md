@@ -1,1 +1,1 @@
-The `vpc.auditor` role.
+The `vpc.auditor` role enables you to view configurations of networks, subnets, route tables, and security groups, as well as IP addresses used.

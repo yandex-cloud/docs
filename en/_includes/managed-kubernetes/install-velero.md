@@ -24,7 +24,7 @@ Install the Velero application as follows:
 
       ```bash
       yc iam access-key create \
-         --service-account-name=<service account name> \
+         --service-account-name=<service_account_name> \
          --format=json > sa-key.json
       ```
 
@@ -32,8 +32,8 @@ Install the Velero application as follows:
 
       ```ini
       [default]
-        aws_access_key_id=<key ID>
-        aws_secret_access_key=<key's secret part>
+        aws_access_key_id=<key_ID>
+        aws_secret_access_key=<secret_part_of_key>
       ```
 
    1. Install the Velero server in the {{ managed-k8s-name }} cluster:
@@ -43,7 +43,7 @@ Install the Velero application as follows:
       velero.io/csi-volumesnapshot-class="true" && \
       velero install \
         --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
-        --bucket <{{ objstorage-name }} bucket name> \
+        --bucket <bucket_name> \
         --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
         --provider aws \
         --secret-file ./credentials \
@@ -55,7 +55,7 @@ Install the Velero application as follows:
 
       Where:
       * `--backup-location-config`: Backup storage parameters, i.e., the URL of {{ objstorage-name }} storage and region.
-      * `--bucket`: Name of the backup storage bucket you [created earlier](#before-you-begin).
+      * `--bucket`: Name of the {{ objstorage-name }} backup storage bucket you [previously created](#before-you-begin).
       * `--plugins`: Plugin images for AWS API compatibility.
       * `--provider`: Name of the object storage provider.
       * `--secret-file`: Full path to static access key data.

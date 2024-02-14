@@ -15,6 +15,8 @@ items:
             href: operations/zone-create-public.md
           - name: Изменить зону DNS
             href: operations/zone-update.md
+          - name: Получить информацию о зоне DNS
+            href: operations/zone-get-info.md
           - name: Удалить зону DNS
             href: operations/zone-delete.md
       - name: Записи

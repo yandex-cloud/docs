@@ -83,6 +83,22 @@
    {% cut "vms.tf" %}
 
    ```hcl
+   resource "yandex_compute_disk" "boot-disk-1" {
+     name     = "boot-disk"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = {{ compute-ubuntu-lts-image-id }}
+   }
+
+   resource "yandex_compute_disk" "boot-disk-2" {
+     name     = "boot-disk"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = {{ compute-ubuntu-lts-image-id }}
+   }
+
    resource "yandex_compute_instance" "cluster-vm" {
      name        = "cluster-vm"
      platform_id = "standard-v3"
@@ -94,9 +110,7 @@
      }
 
      boot_disk {
-       initialize_params {
-         image_id = "{{ compute-ubuntu-lts-image-id }}"
-       }
+       disk_id = yandex_compute_disk.boot-disk-1.id
      }
 
      network_interface {
@@ -121,9 +135,7 @@
      }
 
      boot_disk {
-       initialize_params {
-         image_id = "{{ compute-ubuntu-lts-image-id }}"
-       }
+       disk_id = yandex_compute_disk.boot-disk-2.id
      }
 
      network_interface {

@@ -110,7 +110,7 @@
       }
     
       boot_disk {
-        image_id = yandex_compute_disk.boot-disk-1.id
+        disk_id = yandex_compute_disk.boot-disk-1.id
       }
     
       network_interface {
@@ -135,7 +135,7 @@
       }
     
       boot_disk {
-        image_id = yandex_compute_disk.boot-disk-2.id
+        disk_id = yandex_compute_disk.boot-disk-2.id
       }
     
       network_interface {

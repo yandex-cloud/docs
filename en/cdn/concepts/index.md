@@ -1,6 +1,6 @@
 # {{ cdn-full-name }} overview
 
-{{ cdn-full-name }} provides web service developers with a _Content Delivery Network_ (CDN) functionality. The _CDN servers_ located all over the world get content from your _origins_, cache the content, and deliver it to end clients on their request. Thus you can decrease the load on origins and shorten content waiting time for the end user.
+{{ cdn-full-name }} provides web service developers with a _Content Delivery Network_ (CDN) functionality. The _CDN servers_ located all over the world get content from your _origins_, cache the content, and deliver it to end clients on request. Thus you decrease the load on origins and reduce content waiting time for the end user.
 
 ### How CDN works
 
@@ -34,6 +34,7 @@
 | [Origin shielding](./origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. |
 | [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. |
 | [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. |
+| [IP-based access policy](./ip-address-acl.md) | Setting up access to CDN resources using IP blacklists and whitelists. |
 | [Log export](./logs.md) | Exporting CDN and shielding server request logs to object storage. |
 | [Quotas and limits](./limits.md) | Service use restrictions. |
 

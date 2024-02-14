@@ -172,14 +172,14 @@ There may be no name resolution for internal and external DNS queries in a {{ ma
 1. Find out the {{ managed-k8s-name }} cluster version:
 
    ```bash
-   yc managed-kubernetes cluster get <cluster_id_or_name> | grep version:
+   yc managed-kubernetes cluster get <cluster_name_or_ID> | grep version:
    ```
 
    You can get the {{ managed-k8s-name }} cluster ID and name with a [list of clusters in the folder](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#list).
 1. Find out the {{ managed-k8s-name }} node group version:
 
    ```bash
-   yc managed-kubernetes node-group get <node_group_id_or_name> | grep version:
+   yc managed-kubernetes node-group get <node_group_name_or_ID> | grep version:
    ```
 
    You can get the ID and name of the {{ managed-k8s-name }} node group with a [list of node groups in your cluster](../../managed-kubernetes/operations/node-group/node-group-list.md#list).

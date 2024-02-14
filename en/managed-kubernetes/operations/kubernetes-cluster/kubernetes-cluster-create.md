@@ -20,7 +20,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
    1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
    1. Create the following [service accounts](../../../iam/operations/sa/create.md):
-      * Service account with the [k8s.clusters.agent](../../security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+      * Service account with the [k8s.clusters.agent](../../security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
       * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
       You can use the same service account for both operations.
@@ -69,8 +69,9 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
       ```
 
       Where:
+
       * `--name`: {{ managed-k8s-name }} cluster name.
-      * `--network-name`: Name of the [network](../../../vpc/concepts/network.md#network).
+      * `--network-name`: [Network](../../../vpc/concepts/network.md#network) name.
 
          {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
@@ -128,10 +129,10 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
         --master-logging enabled=<log_sending>,`
           `log-group-id=<log_group_ID>,`
           `folder-id=<folder_ID>,`
-          `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
-          `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
-          `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
-          `audit-enabled=<audit_event_sending:_true_or_false>
+          `kube-apiserver-enabled=<kube-apiserver_log_sending>,`
+          `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending>,`
+          `events-enabled=<{{ k8s }}_event_sending>`
+          `audit-enabled=<audit_event_sending>
       ```
 
       Where:
@@ -157,7 +158,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
       > Here is an example of the configuration file structure:
       >
       > ```hcl
-      > resource "yandex_kubernetes_cluster" "<{{ managed-k8s-name }}_cluster_name>" {
+      > resource "yandex_kubernetes_cluster" "<Managed_Service_for_Kubernetes_cluster_name>" {
       >  network_id = yandex_vpc_network.<network_name>.id
       >  master {
       >    zonal {
@@ -241,8 +242,8 @@ Create a {{ managed-k8s-name }} cluster and a network for it with the following 
 * Network: `mynet`.
 * Subnet: `mysubnet`. Its network settings are as follows:
 
-   * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-   * Range: `10.1.0.0/16`.
+   * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
+   * Range: `10.1.0.0/16`
 
 * Service account: `myaccount`.
 * Service account [roles](../../../iam/concepts/access-control/roles.md): `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.keys.encrypterDecrypter`.

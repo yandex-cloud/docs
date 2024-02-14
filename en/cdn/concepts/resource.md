@@ -15,6 +15,8 @@ After creating a resource, you can also configure for it:
 * Processing of [cross-domain queries (CORS)](cors.md).
 * [Compression](compression.md) and [segmentation](slicing.md) of content.
 
+You can restrict access to the resource with [secure tokens](./secure-tokens.md) and an [IP-based access policy](./ip-address-acl.md).
+
 {% include [edge-center-features-note](../../_includes/cdn/edge-center-features-note.md) %}
 
 Resource settings [apply a short while after](#delay) you create or update the resource.

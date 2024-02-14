@@ -209,7 +209,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       yc cdn resource list
       ```
 
-- {#api} API
+- API {#api}
 
    Use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
 

@@ -8,8 +8,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится подсеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Нажмите ![image](../../_assets/options.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. В открывшемся окне выберите каталог назначения.
   1. Нажмите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 

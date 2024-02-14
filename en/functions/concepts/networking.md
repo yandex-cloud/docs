@@ -4,8 +4,6 @@ By default, the function is launched in the isolated IPv4 network with the enabl
 
 ## User network {#user-network}
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 If necessary, you can specify a [cloud network](../../vpc/concepts/network.md#network) in function settings. In this case, the function will have access to the internet and user resources in the specified network, such as databases and VMs.
 
 {% include [network](../../_includes/functions/network.md) %}

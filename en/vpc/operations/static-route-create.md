@@ -18,7 +18,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
    To create a route table and add [static routes](../concepts/static-routes.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a static route.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Enter a name for the route table. The naming requirements are as follows:
 
@@ -34,8 +34,8 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
    To use static routes, link the route table to a subnet:
 
-   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. In the required subnet row, click ![image](../../_assets/options.svg).
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. In the required subnet row, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.

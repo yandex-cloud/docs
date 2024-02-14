@@ -36,6 +36,7 @@ description: "Ресурсная запись — это главная един
 
 Типы ресурсных записей, поддерживаемых {{ dns-name }}, указаны ниже.
 
+
 ## A {#a}
 
 `A` — сопоставление доменного имени и IPv4-адреса. Например, запрос A-записи `www.example.com` должен вернуть IPv4-адрес вида `xxx.xxx.xxx.xxx`.
@@ -271,3 +272,14 @@ description: "Ресурсная запись — это главная един
 | example.com.                     | TXT | 6000 | "v=spf1 ip4=192.0.2.0 ip4=192.0.2.1 include:examplesender.email -all"              |
 
 Подробнее о TXT-записях см. в [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.14) и [RFC-1464](https://tools.ietf.org/html/rfc1464).
+
+
+## Сервисные записи {#service-records}
+
+Некоторые сервисы {{ yandex-cloud }} используют в своей работе ресурсные записи {{ dns-name }} и позволяют создавать их. В списке ресурсных записей {{ dns-name }} такие записи помечены значками сервисов, в которых они были созданы:
+
+* {{ api-gw-full-name }} — [запись ANAME](#aname) необходима для [привязки](../../api-gateway/operations/api-gw-domains.md) домена к API-шлюзу и помечена значком ![logo](../../_assets/api-gateway/api-gateway-logo.svg)
+* {{ certificate-manager-full-name }} — [запись CNAME](#cname) необходима для прохождения [проверки прав на домен](../../certificate-manager/concepts/challenges.md) и помечена значком ![logo](../../_assets/certificate-manager/certificate-manager-logo.svg)
+* {{ objstorage-full-name }} — [запись ANAME](#aname) необходима для [привязки](../../storage/operations/hosting/own-domain) домена к бакету и помечена значком ![logo](../../_assets/storage/storage-logo.svg)
+
+Сервисные записи нельзя изменять, а удалять можно только по одной. После удаления ресурса, для которого создавалась сервисная ресурсная запись, эту ресурсную запись необходимо [удалить](../operations/resource-record-delete.md) вручную.

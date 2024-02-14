@@ -67,7 +67,7 @@ resource "yandex_compute_image" "ubuntu-1804-lts" {
   source_family = "ubuntu-1804-lts"
 }
 
-resource "yandex_compute_disk" "boot-disk" {
+resource "yandex_compute_disk" "boot-disk-ubuntu" {
   name     = "fileserver-tutorial-disk"
   type     = "network-ssd"
   zone     = "{{ region-id }}-a"
@@ -87,7 +87,7 @@ resource "yandex_compute_instance" "fileserver-tutorial" {
   }
 
   boot_disk {
-    disk_id = yandex_compute_disk.boot-disk.id
+    disk_id = yandex_compute_disk.boot-disk-ubuntu.id
   }
 
   network_interface {

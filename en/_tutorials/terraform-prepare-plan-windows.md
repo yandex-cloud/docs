@@ -5,9 +5,9 @@ According to the plan, the following resources are created:
 
 Create the following files:
 
-1. `main.tf`: The main file with the infrastructure description.
+1. `main.tf`: The main infrastructure description file.
 
-    {% cut "Content of file main.tf " %}
+    {% cut "Contents of the main.tf file" %}
 
         
     ```hcl
@@ -20,10 +20,7 @@ Create the following files:
     }
     
     provider "yandex" {
-      cloud_id  = var.cloud_id
-      folder_id = var.folder_id
       zone      = var.zone
-      token     = var.token
     }
     
     resource "yandex_vpc_network" "default" {
@@ -40,7 +37,15 @@ Create the following files:
     data "yandex_compute_image" "default" {
       family = var.image_family
     }
-    
+
+    resource "yandex_compute_disk" "boot-disk" {
+      name     = "boot-disk"
+      type     = var.disk_type
+      zone     = "{{ region-id }}-a"
+      size     = var.disk_size
+      image_id = yandex_compute_image.default.id
+    }
+
     data "template_file" "default" {
       template = file("${path.module}/init.ps1")
       vars = {
@@ -61,11 +66,7 @@ Create the following files:
       }
     
       boot_disk {
-        initialize_params {
-          image_id = data.yandex_compute_image.default.id
-          size     = var.disk_size
-          type     = var.disk_type
-        }
+        disk_id = yandex_compute_disk.boot-disk.id
       }
     
       network_interface {
@@ -96,28 +97,17 @@ Create the following files:
 
     {% endcut %}
 
-1. `variables.tf`: A file that describes variables for the resources being created.
 
-    {% cut "File variables.tf " %}
+1. `variables.tf`: File describing the variables for the new resources.
+
+    {% cut "variables.tf" %}
 
     ```hcl
-    variable "cloud_id" {
-    type    = string
-    }
-    
-    variable "folder_id" {
-    type    = string
-    }
-    
     variable "zone" {
     type    = string
     default = "{{ region-id }}-a"
     }
-    
-    variable "token" {
-    type    = string
-    }
-    
+
     variable "network" {
     type    = string
     default = "ya-network"
@@ -193,15 +183,11 @@ Create the following files:
 
     {% endcut %}
 
-1. `terraform.tfvars`: A file that stores the values of variables for accounts created inside the VM and access tokens.
+1. `terraform.tfvars`: File storing the values of variables for accounts created inside the VM and access tokens.
 
-    {% cut "File terraform.tfvars " %}
+    {% cut "terraform.tfvars" %}
 
     ```
-    token      = "<token>"
-    cloud_id   = "<cloud_id>"
-    folder_id  = "<folder_id>"
-    
     name       = "<my_server_name>"
     user_name  = "<my_user>"
     user_pass  = "<my_password>"

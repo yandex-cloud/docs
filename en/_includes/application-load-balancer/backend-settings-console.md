@@ -60,7 +60,7 @@
          * **{{ ui-key.yacloud.alb.label_send }}**: Data to be sent to the endpoint for a health check.
          * **{{ ui-key.yacloud.alb.label_receive }}**: Data to be received from the endpoint for it to pass the health check.
 
-   For more information, see [{#T}](../../application-load-balancer/concepts/backend-group.md#health-checks).
+   {% include [backend-healthcheck](backend-healthcheck.md) %}
 
    To add a health check, click **{{ ui-key.yacloud.alb.button_add-healthcheck }}** at the bottom of the backend section and specify the check settings.
 

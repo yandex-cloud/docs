@@ -6,9 +6,17 @@ title: "How to get information about an HTTP router in {{ alb-full-name }}"
 
 You can view a router's ID, its hosts, and routes in the hosts.
 
+To get information about an HTTP router:
+
 {% list tabs group=instructions %}
 
-To get information about an HTTP router:
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder containing your router.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. Select the HTTP router.
+   1. The **{{ ui-key.yacloud.common.overview }}** page will show the HTTP router details.
 
 - CLI {#cli}
 
@@ -46,5 +54,54 @@ To get information about an HTTP router:
                   backend_group_id: ds7maho6c4or********
       created_at: "2023-10-24T12:20:44.091821711Z"
       ```
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To get information about an HTTP router using {{ TF }}:
+
+   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+
+      ```hcl
+      data "yandex_alb_http_router" "tf-router" {
+        http_router_id = "<HTTP_router_ID>"
+      }
+
+      output "tf-router-name" {
+        value = data.yandex_alb_http_router.tf-router.name
+      }
+      ```
+
+      Where:
+
+      * `data "yandex_alb_http_router"`: Description of the HTTP router as a data source:
+         * `http_router_id`: HTTP router ID.
+      * `output "tf-router-name"`: Output variable that contains the HTTP router name:
+         * `value`: Returned value.
+
+      You can replace `name` with any other parameter to get the required information. For more information about `yandex_alb_http_router` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_alb_http_router).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create an HTTP router and display the output variable values in the terminal. To check the results, run:
+
+      ```bash
+      terraform output
+      ```
+
+      Result:
+
+      ```bash
+      tf-router-name = "myrouter"
+      ```
+
+- API {#api}
+
+   To get detailed information about an HTTP router, use the [get](../api-ref/HttpRouter/get.md) REST API method for the [Origin](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Get](../api-ref/grpc/http_router_service.md#Get) gRPC API call.
 
 {% endlist %}

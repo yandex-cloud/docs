@@ -1,1 +1,1 @@
-The `organization-manager.federations.admin` role.
+The `organization-manager.federations.admin` role allows you to create, update, and delete federations, certificates, and their users, view organization settings, and get organization and federation lists and group mapping lists.

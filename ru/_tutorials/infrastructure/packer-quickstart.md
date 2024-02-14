@@ -25,7 +25,9 @@ Packer создаст и запустит виртуальную машину с
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-Оплачивается хранение созданных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing#prices-storage)).
+В стоимость создания образа диска с помощью Packer входит:
+* плата за хранение созданных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources)).
 
 
 ## Установите Packer {#install-packer}
@@ -120,6 +122,8 @@ export PATH=$PATH:/path/to/packer
   * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
   * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id), в котором будет создана ВМ и ее образ.
   * `subnet_id` — идентификатор подсети, в которой будет создана ВМ и ее образ.
+
+{% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
 
 Подробнее о параметрах конфигурации образа см. в [документации Yandex Compute Builder](https://www.packer.io/docs/builders/yandex).
 

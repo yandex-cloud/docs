@@ -696,7 +696,7 @@ default:
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
-  vision-short-name: Vision
+  vision-short-name: Vision OCR
   vpc-full-name: Yandex Virtual Private Cloud
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC

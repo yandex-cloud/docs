@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for custom parameters
+# Declaring variables for user parameters
 
 variable "folder_id" {
   type = string
@@ -30,7 +30,7 @@ locals {
   route_table_name = "nat-instance-route"
 }
 
-# Setting up the provider
+# Provider setup
 
 terraform {
   required_providers {
@@ -112,6 +112,24 @@ resource "yandex_compute_image" "nat-instance-ubuntu" {
   source_family = "nat-instance-ubuntu"
 }
 
+# Creating boot disks
+
+resource "yandex_compute_disk" "boot-disk-ubuntu" {
+  name     = "boot-disk-ubuntu"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.ubuntu-1804-lts.id
+}
+
+resource "yandex_compute_disk" "boot-disk-nat" {
+  name     = "boot-disk-nat"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.nat-instance-ubuntu.id
+}
+
 # Creating a VM
 
 resource "yandex_compute_instance" "test-vm" {
@@ -126,9 +144,7 @@ resource "yandex_compute_instance" "test-vm" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.ubuntu-1804-lts.id
-    }
+    disk_id = yandex_compute_disk.boot-disk-ubuntu.id
   }
 
   network_interface {
@@ -141,7 +157,7 @@ resource "yandex_compute_instance" "test-vm" {
   }
 }
 
-# Creating a NAT instance
+# Creating a NAT VM
 
 resource "yandex_compute_instance" "nat-instance" {
   name        = local.vm_nat_name
@@ -155,9 +171,7 @@ resource "yandex_compute_instance" "nat-instance" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.nat-instance-ubuntu.id
-    }
+    disk_id = yandex_compute_disk.boot-disk-nat.id
   }
 
   network_interface {

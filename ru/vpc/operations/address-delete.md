@@ -18,8 +18,8 @@ description: "Следуя данной инструкции, вы сможет�
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить статический адрес.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-   1. Нажмите ![image](../../_assets/options.svg) в строке нужного адреса и выберите **{{ ui-key.yacloud.common.delete }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного адреса и выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
   
 - CLI {#cli}

@@ -8,7 +8,7 @@ You can create and set up a service account by following this guide:
 1. In the **Service accounts** tab, click `Create service account`.
 
 1. Enter a name for the service account.
-    * 3 to 63 characters long.
+    * The name must be 3 to 63 characters long.
     * The name may contain lowercase Latin letters, numbers, and hyphens.
     * The first character of the name must be a letter, the last one cannot be a hyphen.
 1. Assign the service account the roles required to manage YDB resources: `admin`, `ydb.admin`.
@@ -38,7 +38,7 @@ Where:
 * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
 * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-Add authentication data to environment variables:
+Add the credentials to the environment variables:
 
 {% list tabs group=programming_language %}
 

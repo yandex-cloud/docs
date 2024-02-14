@@ -1,1 +1,1 @@
-The `vpc.bridgeAdmin` role.
+The `vpc.bridgeAdmin` role grants administrator privileges for multi-interface VMs that provide connectivity between multiple networks.

@@ -13,12 +13,12 @@ description: "В данной статье описаны особенности
 
 ## Формат запроса {#get-request-format}
 
-```xml
+```httpget
 https://yandex.<домен>/search/xml
   ? [folderid=<идентификатор_каталога>]
   & [apikey=<API-ключ>]
   & [query=<текст_поискового_запроса>]
-  & [lr=<идентификатор_страны/региона_поиска>]
+  & [lr=<идентификатор_региона_поиска>]
   & [l10n=<язык_уведомлений>]
   & [sortby=<тип_сортировки>]
   & [filter=<тип_фильтрации>]
@@ -51,7 +51,7 @@ https://yandex.<домен>/search/xml
 
 Параметры задаются через точку в формате:
 
-```xml
+```httpget
 attr%3D<служебный_атрибут>.mode%3D<тип_группировки>.groups-on-page%3D<количество_групп_на_одной_странице>.docs-in-group%3D<количество_документов_в_каждой_группе>
 ```
 
@@ -62,9 +62,9 @@ attr%3D<служебный_атрибут>.mode%3D<тип_группировки
 {% include [page](../../_includes/search-api/page.md) %}
 
 ## Пример GET-запроса {#example-get-request}
- 
-Следующий запрос возвращает вторую страницу результатов поиска по запросу `<table>` для пользователя `xml-search-user`. Тип поиска — `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Результаты группируются по домену. Каждая группа содержит три документа, а количество групп, возвращаемых на одной странице, равно пяти. Защиты от роботов нет.
- 
- ```xml
- https://yandex.ru/search/xml?user=xml-search-user`&`key=03.44583456:c876e1b098gh65khg834ggg1jk4ll9j8`&`query=%3Ctable%3E`&`groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3`&`maxpassages=3`&`page=1
- ```
+
+Следующий запрос возвращает пятую страницу результатов поиска по запросу `<table>`. Тип поиска — `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Регион поиска — Новосибирская область. Язык уведомлений — русский. К результатам поиска применен семейный фильтр. Количество пассажей — три. Результаты группируются по домену и сортируются по релевантности. Каждая группа содержит три документа, а количество групп, возвращаемых на одной странице, равно пяти.
+
+```httpget
+https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=5
+```

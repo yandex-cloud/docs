@@ -1,0 +1,1 @@
+The `billing.accounts.accountant` role is assigned for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, export reconciliation reports and reporting documents, create new reconciliation reports, and top up your personal account using a bank account.

@@ -13,7 +13,7 @@
   1. В открывшемся списке выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-os-products }}**. Отобразится список всех доступных публичных образов.
 
-  Чтобы посмотреть информацию о конкретном образе, нажмите ![image](../../../_assets/compute/info.svg).
+  Чтобы посмотреть информацию о конкретном образе, нажмите ![image](../../../_assets/console-icons/circle-info.svg).
 
 - CLI {#cli}
 

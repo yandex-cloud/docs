@@ -92,7 +92,7 @@ To get information about a resource:
       * `output "resource_active"`: Output variable that contains information about the activity status of the CDN resource:
          * `value`: Returned value.
 
-      You can replace `active` with any other parameter to get the required information. For more information about `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/cdn_resource).
+      You can replace `active` with any other parameter to get the required information. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
 
    1. Create resources:
 
@@ -160,7 +160,7 @@ To get information about a resource:
 
    To get information about a resource using {{ TF }}:
 
-   1. Add the {{ TF }} `data` and `output` sections to the configuration file:
+   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_cdn_resource" "my_resource" {
@@ -179,7 +179,7 @@ To get information about a resource:
       * `output "resource_cname"`: Output variable that contains information about the domain name:
          * `value`: Returned value.
 
-      You can replace `resource_cname` with any other parameter to get the required information. For more information about `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/cdn_resource).
+      You can replace `resource_cname` with any other parameter to get the required information. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/cdn_resource).
 
    1. Create resources:
 

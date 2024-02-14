@@ -134,23 +134,6 @@
      * `--metadata` — для изменения значения из одной строки.
      * `--metadata-from-file` — для изменения значения из нескольких строк.
 
-     Пример изменения пароля администратора на ВМ, на базе ОС Windows:
-     1. Создайте YAML-файл (например, `metadata.yaml`) и укажите следующие данные:
-
-        ```yaml
-        #ps1
-        net user administrator '<пароль>'
-        ```
-
-     1. Выполните команду:
-
-        ```bash
-        yc compute instance update first-instance \
-          --metadata-from-file user-data=metadata.yaml
-        ```
-
-        Имеющийся набор метаданных будет полностью перезаписан.
-
 {% endlist %}
 
 ### Удалить SSH-ключи из метаданных {#delete-keys-from-metadata}

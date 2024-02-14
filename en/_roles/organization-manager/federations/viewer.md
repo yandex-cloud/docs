@@ -1,1 +1,1 @@
-The `organization-manager.federations.viewer` role.
+The `organization-manager.federations.viewer` role enables you to view organization settings and get organization and federation lists and group mapping lists.

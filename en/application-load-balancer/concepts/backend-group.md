@@ -8,6 +8,8 @@ A backend group defines the settings based on which the L7 load balancer sends t
 
 The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. Protocols, health checks, and traffic distribution are configured separately for each backend. By using a group of multiple backends, you can split traffic between different application versions when running updates or experiments.
 
+{% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
+
 {% include [backend-group-deletion-restriction](../../_includes/application-load-balancer/backend-group-deletion-restriction.md) %}
 
 ## Backend group types {#group-types}
@@ -71,8 +73,8 @@ If the type of a backend group is **{{ ui-key.yacloud.alb.label_proto-http }}**,
 
 In the backend settings, you can specify the mode for distributing traffic between backend endpoints (target group VMs):
 
-* `ROUND_ROBIN`: All endpoints will receive requests in turn. After all the endpoints receive one request each, it's the turn of the first endpoint again, and so on.
-* `RANDOM`: A random endpoint is selected to process a request. If no health checks are configured for the backend, random distribution helps avoid increased workloads on the endpoint, which, under round-robin distribution, would be in the queue after a non-working endpoint.
+* `ROUND_ROBIN`: All endpoints will be receiving requests one after another. After all the endpoints get one request each, it is the first one's turn again, and so on.
+* `RANDOM`: A random endpoint is selected for each request. If no health checks are configured for the backend, random distribution helps avoid increased workload on the endpoint next in line from the non-working one under round-robin distribution.
 * `LEAST_REQUEST`: Requests are distributed based on endpoint load using the power of two random choices algorithm. Two backend endpoints are randomly selected and the request is received by the one with fewer connections. The algorithm reduces the load on the most loaded backend endpoint. For more information about the performance and efficiency of the algorithm, see [The Power of Two Random Choices: A Survey of Techniques and Results](https://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf) (Mitzenmacher et al.).
 * `MAGLEV_HASH`: Requests are distributed using the Maglev hashing algorithm.
 
@@ -91,10 +93,9 @@ In the backend settings, you can specify the mode for distributing traffic betwe
 ### Panic mode {#panic-mode}
 
 Panic mode safeguards you against failure of all app instances in case the data load increases drastically.
-
 In this mode, the load balancer will distribute requests across all endpoints, ignoring health check results. You can set the percentage of healthy endpoints that triggers panic mode.
 
-If you don't use panic mode, failure of some backends will further increase the load on backends that are still running. If an application is running at its maximum capacity, all backends will fail, making your service completely unavailable. If you enable panic mode, traffic is again distributed across all your endpoints. Although some requests might fail, the service stays operable. This provides time to increase the application's computing resources [automatically](../../compute/concepts/instance-groups/scale.md#auto-scale) or manually.
+If you do not use the panic mode, failure of some backends will further increase the load on backends that are still running. If an application is running at its maximum capacity, all backends will fail, which will render your service completely unavailable. If you enable the panic mode, traffic is again distributed across all your endpoints. Although some requests might fail, the service stays operable. This provides time to increase the application's computing resources [automatically](../../compute/concepts/instance-groups/scale.md#auto-scale) or manually.
 
 ### Locality aware routing {#locality}
 
@@ -112,7 +113,7 @@ The following health check settings are supported:
 
 * Timeout: Response waiting time.
 * Interval: Amount of time between health check requests.
-* Resource health indicators: The threshold amount of successful or failed results. If a threshold is exceeded, it indicates that the check passed or failed, respectively.
+* Resource health indicators: Threshold amount of successful or failed results. If a threshold is exceeded, it indicates that the check passed or failed, respectively.
 * HTTP health check settings:
 
    * Domain name for the `Host` header (HTTP/1.1) or the `:authority` pseudo-header (HTTP/2).

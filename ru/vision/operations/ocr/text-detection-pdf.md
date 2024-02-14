@@ -365,7 +365,7 @@
       * Отправьте запрос на получение результата распознавания с помощью метода [getRecognition](../../ocr/api-ref/TextRecognitionAsync/getRecognition.md):
 
           ```bash
-          export IAM_TOKEN=<IAM_токен>
+          export IAM_TOKEN=<IAM-токен>
           curl -X GET \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -376,7 +376,7 @@
           ```
 
           Где:
-          * `<IAM_токен>` — полученный ранее IAM-токен.
+          * `<IAM-токен>` — полученный ранее IAM-токен.
           * `<идентификатор_каталога>` — полученный ранее идентификатор каталога.
           * `<идентификатор_операции>` — полученный ранее идентификатор операции распознавания.
 

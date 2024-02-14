@@ -230,7 +230,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
       * Enter the username in the **Login** field.
       * In the **SSH key** field, paste the contents of the public key file.
 
-         You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+         You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
 
    1. Click **Create VM**.
 
@@ -294,6 +294,14 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    1. In the configuration file, describe the parameters of the `usergate-firewall` VM:
 
       ```
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "boot-disk"
+        type     = "network-hdd"
+        zone     = "{{ region-id }}-a"
+        size     = "110"
+        image_id = "<UserGate_NGFW_image_ID>"
+      }
+
       resource "yandex_compute_instance" "usergate-firewall" {
         name        = "usergate-firewall"
         platform_id = "standard-v3"
@@ -306,16 +314,13 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         }
 
         boot_disk {
-          initialize_params {
-            image_id = "<UserGate_NGFW_image_ID>"
-            size     = 110
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
 
         network_interface {
           subnet_id          = "${yandex_vpc_subnet.usergate-subnet.id}"
           nat                = true
-          nat_ip_address     = <reserved_IP_address>
+          nat_ip_address     = <reserved_ID_address>
         }
       ```
 
@@ -547,7 +552,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
 - {{ TF }} {#tf}
 
-   To create a route table and add [static routes](../../vpc/concepts/static-routes.md):
+   To create a routing table and add [static routes](../../vpc/concepts/static-routes.md):
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 

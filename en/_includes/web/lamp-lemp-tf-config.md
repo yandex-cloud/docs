@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for user-defined parameters
+# Declaring variables for user parameters
 
 variable "zone" {
   type = string
@@ -36,7 +36,7 @@ locals {
   dns_zone_name      = "example-zone"
 }
 
-# Setting up a provider
+# Provider setup
 
 terraform {
   required_providers {
@@ -96,7 +96,15 @@ resource "yandex_compute_image" "lamp-vm-image" {
   source_family = var.vm_image_family
 }
 
-# Creating a VM instance
+resource "yandex_compute_disk" "boot-disk" {
+  name     = "bootvmdisk"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.lamp-vm-image.id
+}
+
+# Creating a VM
 
 resource "yandex_compute_instance" "vm-lamp" {
   name        = local.vm_name
@@ -108,9 +116,7 @@ resource "yandex_compute_instance" "vm-lamp" {
     memory        = 1
   }
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.lamp-vm-image.id
-    }
+    disk_id = yandex_compute_disk.boot-disk.id
   }
   network_interface {
     subnet_id          = yandex_vpc_subnet.subnet-1.id
@@ -130,7 +136,7 @@ resource "yandex_dns_zone" "zone1" {
   public  = true
 }
 
-# Creating an A resource record
+# Creating a type A resource record
 
 resource "yandex_dns_recordset" "rs-a" {
   zone_id = yandex_dns_zone.zone1.id
@@ -140,7 +146,7 @@ resource "yandex_dns_recordset" "rs-a" {
   data    = [ yandex_compute_instance.vm-lamp.network_interface.0.nat_ip_address ]
 }
 
-# Creating a CNAME record
+# Creating a CNAME resource record
 
 resource "yandex_dns_recordset" "rs-cname" {
   zone_id = yandex_dns_zone.zone1.id

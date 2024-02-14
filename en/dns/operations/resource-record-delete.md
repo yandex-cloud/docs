@@ -14,7 +14,7 @@ To delete a [resource record](../concepts/resource-record.md):
    1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone to delete a record from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
    1. Select the zone from the list.
-   1. Click ![image](../../_assets/options.svg) in the row next to the record to delete.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row next to the record to delete.
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

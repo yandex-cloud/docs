@@ -26,7 +26,7 @@
       * При необходимости сделайте виртуальную машину [прерываемой](../concepts/preemptible-vm.md).
       * (Опционально) Включите [программно-ускоренную сеть](../concepts/software-accelerated-network.md).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Можно выбрать зону поиска: в текущем каталоге или во всех каталогах. Если сети нет, нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+      * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Можно выбрать зону поиска: в текущем каталоге или во всех каталогах. Если сети нет, нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
           * В открывшемся окне укажите каталог, в котором будет располагаться новая сеть, и имя сети.
           * В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** — у каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet).
           * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
