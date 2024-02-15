@@ -6,6 +6,12 @@ description: "Follow this guide to move a subnet to a different availability zon
 
 # Moving a subnet to a different availability zone
 
+{% note alert %}
+
+Subnet migration is currently unavalable.
+
+{% endnote %}
+
 [Subnets](../concepts/network.md) can be moved to a different [availability zone](../../overview/concepts/geo-scope.md). You can only migrate empty subnets not hosting any VM instances.
 
 To move a subnet to a different availability zone:

@@ -65,7 +65,7 @@ def handler(event, context):
 Пример вызова функции:
 
 ```
-curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ sf-url }}/d4eo2faf62**********?param=one
+curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ sf-url }}/<идентификатор_функции>?param=one
 ```
 
 Результат:
@@ -73,7 +73,7 @@ curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ 
 ```bash
 {
     "context": {
-        "aws_request_id": "6e8356f9-489b-4c7b-8ba6-c8cd74f25455",
+        "aws_request_id": "6e8356f9-489b-4c7b-8ba6-c8cd********",
         "deadline_ms": 1657713543198,
         "function_name": "d4eo2faf62**********",
         "function_version": "d4e3vrugh3**********",
@@ -81,7 +81,7 @@ curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ 
         "log_group_name": "ckgjmanjlh**********",
         "log_stream_name": "d4e3vrugh3**********",
         "memory_limit_in_mb": 128,
-        "request_id": "6e8356f9-489b-4c7b-8ba6-c8cd74f25455",
+        "request_id": "6e8356f9-489b-4c7b-8ba6-c8cd********",
         "token": {
             "access_token": "<IAM-токен>",
             "expires_in": 42299,
@@ -98,8 +98,8 @@ curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ 
             "User-Agent": "curl/7.64.1",
             "X-Forwarded-For": "109.252.148.209",
             "X-Real-Remote-Address": "[109.252.148.209]:2816",
-            "X-Request-Id": "6e8356f9-489b-4c7b-8ba6-c8cd74f25455",
-            "X-Trace-Id": "e9fe9b05-c1aa-4fb8-94d8-a514fd6f3ff7"
+            "X-Request-Id": "6e8356f9-489b-4c7b-8ba6-c8cd********",
+            "X-Trace-Id": "e9fe9b05-c1aa-4fb8-94d8-a514********"
         },
         "httpMethod": "POST",
         "isBase64Encoded": false,
@@ -126,10 +126,10 @@ curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ 
                 "[109.252.148.209]:2816"
             ],
             "X-Request-Id": [
-                "6e8356f9-489b-4c7b-8ba6-c8cd74f25455"
+                "6e8356f9-489b-4c7b-8ba6-c8cd********"
             ],
             "X-Trace-Id": [
-                "e9fe9b05-c1aa-4fb8-94d8-a514fd6f3ff7"
+                "e9fe9b05-c1aa-4fb8-94d8-a514********"
             ]
         },
         "multiValueParams": {},
@@ -149,7 +149,7 @@ curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ 
                 "sourceIp": "109.252.148.209",
                 "userAgent": "curl/7.64.1"
             },
-            "requestId": "6e8356f9-489b-4c7b-8ba6-c8cd74f25455",
+            "requestId": "6e8356f9-489b-4c7b-8ba6-c8cd********",
             "requestTime": "13/Jul/2022:11:58:59 +0000",
             "requestTimeEpoch": 1657713539
         },

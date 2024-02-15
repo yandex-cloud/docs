@@ -7,6 +7,8 @@ description: "В этой инструкции вы создадите клас�
 
 Создайте [кластер {{ managed-k8s-name }}](concepts/index.md#kubernetes-cluster) и [группу узлов](concepts/index.md#node-group) и управляйте ими с помощью kubectl — командной оболочки {{ k8s }}.
 
+{% include [unable-in-relocated-subnet](../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 Чтобы начать работать с сервисом {{ managed-k8s-name }}:

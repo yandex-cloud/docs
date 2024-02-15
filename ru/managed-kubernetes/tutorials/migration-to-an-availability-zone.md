@@ -11,6 +11,8 @@
 1. [Перенесите мастер](#transfer-a-master).
 1. [Перенесите группу узлов и рабочую нагрузку в подах](#transfer-a-node-group).
 
+{% include [unable-migration-in-relocated-subnet](../../_includes/managed-kubernetes/unable-migration-in-relocated-subnet.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [cli-install](../../_includes/cli-install.md) %}

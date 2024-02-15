@@ -4283,10 +4283,6 @@ default:
         switch_list: Clusters
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
-      cloud-apps:
-        button_install: Install
-        label_marketplace: Marketplace
-        section_resources: Application resources
       common:
         add: Add
         all: All
@@ -5020,7 +5016,6 @@ default:
             label_backup: Cloud Backup
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
-            label_cloud-apps: Cloud Apps
             label_cloud-desktop: Cloud Desktop
             label_compute: Compute Cloud
             label_container-registry: Container Registry
@@ -5363,7 +5358,6 @@ default:
           label_list: Target groups
           label_targets-section-title: Targets
       load-testing:
-        button_add-bucket: Link bucket
         button_add-overload-test-id: Add ID
         button_add-tag: Add label
         button_comparison-test-add: Add to the comparison
@@ -5400,7 +5394,6 @@ default:
         label_settings-type-form: Form
         label_tables: Tables
         label_test-config: Config
-        label_test-data_list: Test data storage
         label_test-report: Test results
         label_test-rules-section: Rules for tests
         label_test-settings: Test settings

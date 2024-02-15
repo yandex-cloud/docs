@@ -58,8 +58,6 @@ items:
           Deploying a web app with JWT authorization in {{ api-gw-name }} and
           authentication in Firebase
         href: tutorials/jwt-authorizer-firebase.md
-      - name: Authorization using {{ sf-name }} functions in Ory Kratos
-        href: tutorials/ory-kratos-authorization.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
   - name: Concepts
@@ -186,6 +184,6 @@ items:
                 href: apigateway/websocket/api-ref/Connection/get.md
               - name: send
                 href: apigateway/websocket/api-ref/Connection/send.md
-  - name: Q&A
+  - name: FAQ
     href: qa/index.md
 base: en/api-gateway

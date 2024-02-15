@@ -111,12 +111,12 @@
     Результат:
 
     ```text
-    2023-03-03 12:44:12  INFO START RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35ca126ac9d Version: d4efs25vm37e********
-    2023-03-03 12:44:12  INFO END RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35ca126ac9d
-    2023-03-03 12:44:12  INFO REPORT RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35ca126ac9d Duration: 8.951 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 48 MB Queuing Duration: 0.066 ms Function Init Duration: 5.892 ms
-    2023-03-03 12:45:12  INFO START RequestID: e806a5c4-e06a-4a6f-b468-386d91189bc5 Version: d4efs25vm37e********
-    2023-03-03 12:45:12  INFO END RequestID: e806a5c4-e06a-4a6f-b468-386d91189bc5
-    2023-03-03 12:45:12  INFO REPORT RequestID: e806a5c4-e06a-4a6f-b468-386d91189bc5 Duration: 10.266 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 48 MB Queuing Duration: 0.054 ms Function Init Duration: 7.023 ms
+    2023-03-03 12:44:12  INFO START RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35c******** Version: d4efs25vm37e********
+    2023-03-03 12:44:12  INFO END RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35c********
+    2023-03-03 12:44:12  INFO REPORT RequestID: 5906fbf3-7ff5-4fe4-a0b2-b35c******** Duration: 8.951 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 48 MB Queuing Duration: 0.066 ms Function Init Duration: 5.892 ms
+    2023-03-03 12:45:12  INFO START RequestID: e806a5c4-e06a-4a6f-b468-386d******** Version: d4efs25vm37e********
+    2023-03-03 12:45:12  INFO END RequestID: e806a5c4-e06a-4a6f-b468-386d********
+    2023-03-03 12:45:12  INFO REPORT RequestID: e806a5c4-e06a-4a6f-b468-386d******** Duration: 10.266 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 48 MB Queuing Duration: 0.054 ms Function Init Duration: 7.023 ms
     ```
 
 {% endlist %}

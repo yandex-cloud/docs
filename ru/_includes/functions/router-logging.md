@@ -3,9 +3,9 @@
 В рамках обработки каждого вызова в журнал также записываются системные сообщения `START`, `END` и `REPORT`:
 
 ```
-START RequestID: <идентификатор запроса> Version: <идентификатор версии функции>
-END RequestID: <идентификатор запроса>
-REPORT RequestID: <идентификатор запроса>
+START RequestID: <идентификатор_запроса> Version: <идентификатор_версии_функции>
+END RequestID: <идентификатор_запроса>
+REPORT RequestID: <идентификатор_запроса>
     Duration: 236.606 ms
     Billed Duration: 300 ms
     Memory Size: 128 MB

@@ -364,7 +364,7 @@ Flags:
     yc serverless function invoke <ID функции> --data-file <путь к файлу>
     ```
 
-    Аналогично команде с аргументом `-d`, имеющим значение `@<имя файла>`: `yc serverless function invoke b09bhaokchn9pnbrlseb -d @<путь к файлу>`
+    Аналогично команде с аргументом `-d`, имеющим значение `@<имя файла>`: `yc serverless function invoke <идентификатор_функции> -d @<путь к файлу>`
 
 - `--data-stdin` — данные читаются из потока ввода. 
 

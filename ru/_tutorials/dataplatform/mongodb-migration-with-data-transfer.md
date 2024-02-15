@@ -8,7 +8,7 @@
 
 ## Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MMG collections migration with Data Transfer](../datatransfer/managed-mongodb.md) %}
+{% include notitle [MMG collections migration with Data Transfer](datatransfer/managed-mongodb.md) %}
 
 ## Пример переноса коллекции {#example}
 

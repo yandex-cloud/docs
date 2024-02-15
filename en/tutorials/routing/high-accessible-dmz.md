@@ -57,7 +57,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 | Resource | Amount |
 | ----------- | ----------- |
-| Folders | 8 |
+| Folders | 7 |
 | Instance groups | 1 |
 | Virtual machines | 6 |
 | VM instance vCPUs | 18 |
@@ -65,10 +65,10 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 | Disks | 6 |
 | SSD size | 360 GB |
 | HDD size | 30 GB |
-| Cloud networks  | 8 |
-| Subnets | 16 |
+| Cloud networks | 7 |
+| Subnets | 14 |
 | Route tables | 4 |
-| Security groups | 11 |
+| Security groups | 10 |
 | Static public IP addresses | 2 |
 | Public IP addresses | 2 |
 | Static routes | 17 |
@@ -97,7 +97,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
    wsl -l
    ```
 
-   If WSL is installed, the terminal displays a list of available distributions, for example:
+   If WSL is installed, the terminal will display a list of available distributions, for example:
 
    ```bash
    Windows Subsystem for Linux Distributions:
@@ -302,7 +302,7 @@ All the steps described below are completed in the Linux terminal.
          Where:
 
          * `service-account-id`: ID of your service account.
-         * `folder-id`: ID of the folder the service account was created in.
+         * `folder-id`: ID of the folder in which the service account was created.
          * `output`: Name of the file with the authorized key.
 
          Result:
@@ -338,7 +338,7 @@ All the steps described below are completed in the Linux terminal.
 
          * `service-account-key`: File with the authorized key of the service account.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
-         * `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+         * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
       1. Add the credentials to the environment variables:
 

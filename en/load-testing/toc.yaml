@@ -18,6 +18,8 @@ items:
         href: operations/create-test-bucket.md
       - name: Transferring test logs to {{ cloud-logging-name }}
         href: operations/logging.md
+      - name: Creating and configuring a regression dashboard
+        href: operations/regressions.md
       - name: Saving test artifacts to {{ objstorage-name }}
         href: operations/save-artifacts.md
   - name: Tutorials
@@ -30,6 +32,8 @@ items:
         href: tutorials/loadtesting-https-phantom.md
       - name: Using Pandora to run a step-load HTTPS test
         href: tutorials/loadtesting-https-pandora.md
+      - name: Scripted HTTP load testing with Pandora
+        href: tutorials/loadtesting-http-scenario-pandora.md
       - name: JMeter load testing
         href: tutorials/loadtesting-jmeter.md
       - name: Load testing using multiple agents
@@ -72,6 +76,8 @@ items:
         href: concepts/monitoring.md
       - name: Reports
         href: concepts/reports.md
+      - name: Load test regressions
+        href: concepts/load-test-regressions.md
       - name: Load test results
         href: concepts/load-test-results.md
       - name: Comparing load test results

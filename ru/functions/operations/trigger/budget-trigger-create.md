@@ -55,15 +55,15 @@
     
     ```bash
     yc serverless trigger create billing-budget \
-      --name <имя триггера> \
-      --billing-account-id <идентификатор платежного аккаунта> \
-      --budget-id <идентификатор бюджета> \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --name <имя_триггера> \
+      --billing-account-id <идентификатор_платежного_аккаунта> \
+      --budget-id <идентификатор_бюджета> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
   
 

@@ -76,6 +76,8 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
            network_interface_specs:
              - network_id: c64mknqgnd8a********
                primary_v4_address_spec: {}
+               security_group_ids:
+                 - enps0ar5s3ti********
            scheduling_policy:
              preemptible: false
            placement_policy:
@@ -97,8 +99,9 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
          * `size`: Disk size.
          * `network_id`: ID of the `default-net` network.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+         * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
          * `scheduling_policy`: Scheduling policy configuration.
-         * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
+         * `preemptible`: Flag for creating [preemptible VMs](../../concepts/preemptible-vm.md).
             * `true`: Create a preemptible VM.
             * `false` (default): Create a regular VM.
 
@@ -150,6 +153,8 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
         network_interface_specs:
           - network_id: c64mknqgnd8a********
             primary_v4_address_spec: {}
+            security_group_ids:
+              - enps0ar5s3ti********
          scheduling_policy:
            preemptible: false
          placement_policy:
@@ -176,13 +181,13 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
       ```
 
       This command creates a group of three similar instances with the following configuration:
-      * Name: `first-fixed-group`.
-      * OS: CentOS 7.
-      * Network: `default-net`.
-      * Placement group: `my-group`.
-      * Availability zone: `{{ region-id }}-a`.
-      * vCPUs: 2; RAM: 2 GB.
-      * Network HDD: 32 GB.
+      * Name: `first-fixed-group`
+      * OS: CentOS 7
+      * Network: `default-net`
+      * Placement group: `my-group`
+      * Availability zone: `{{ region-id }}-a`
+      * vCPUs: 2; RAM: 2 GB
+      * Network HDD: 32 GB
 
 - API {#api}
 

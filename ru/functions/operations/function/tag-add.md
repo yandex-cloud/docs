@@ -13,7 +13,7 @@
     Чтобы добавить тег версии, выполните команду:
 
     ```
-    yc serverless function version set-tag --id <идентификатор версии> --tag <тег>
+    yc serverless function version set-tag --id <идентификатор_версии> --tag <тег>
     ```
 
     Результат:
@@ -56,10 +56,10 @@
             entrypoint         = "main"
             memory             = "128"
             execution_timeout  = "10"
-            service_account_id = "<идентификатор сервисного аккаунта>"
+            service_account_id = "<идентификатор_сервисного_аккаунта>"
             tags               = ["my_tag"]
             content {
-                zip_filename = "<путь к ZIP-архиву>"
+                zip_filename = "<путь_к_ZIP-архиву>"
             }
         }
         ``` 
@@ -96,7 +96,7 @@
     Проверить появление тегов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
     ```
-    yc serverless function version list --function-name <имя функции>
+    yc serverless function version list --function-name <имя_функции>
     ```
 
 - API {#api}

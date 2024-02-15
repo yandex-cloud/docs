@@ -43,7 +43,7 @@
     Чтобы вызвать функцию, выполните команду:
 
     ```
-    yc serverless function invoke <идентификатор функции> -d '{"queryStringParameters": {"name": "Username"}}'
+    yc serverless function invoke <идентификатор_функции> -d '{"queryStringParameters": {"name": "Username"}}'
     ```
 
     Результат:
@@ -61,7 +61,7 @@
 	Для обеспечения безопасности функцию можно вызвать только по протоколу HTTPS. Вызовите ее как обычный HTTPS-запрос, вставив ссылку в адресную строку браузера и добавив в URL параметр `name`:
 
 	```
-	https://{{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
+	https://{{ sf-url }}/<идентификатор_функции>?name=Username
 	```
 
 	На странице появится ответ:

@@ -20,7 +20,7 @@
     Чтобы сделать функцию публичной, выполните команду:
     
     ```
-    yc serverless function allow-unauthenticated-invoke <имя функции>
+    yc serverless function allow-unauthenticated-invoke <имя_функции>
     ```
 
     Результат:

@@ -10,7 +10,7 @@
          "details":{
             "broker_id":"arenou2oj4ct********",
             "mqtt_topic":"broker/topic",
-            "payload":"VGVzdCA0"
+            "payload":"VGVz****"
          }
       },
       {
@@ -22,7 +22,7 @@
          "details":{
             "broker_id":"arenou2oj4ct********",
             "mqtt_topic":"broker/topic",
-            "payload":"VGVzdCA0"
+            "payload":"VGVz****"
          }
       }
    ]
