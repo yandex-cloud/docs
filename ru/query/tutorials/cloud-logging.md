@@ -57,13 +57,13 @@ done
 
 ## Подключите {{ yq-name }} к потоку данных {#connect-query}
 
-1. [Создайте соединение](../operations/connection.md#create) с именем `cloud-logging-connection` и типом `Data Streams`.
+1. [Создайте соединение](../operations/connection.md#create) с именем `cloud-logging-connection` и типом `{{ ui-key.yql.yq-connection.datastreams.select-item }}`.
 1. На странице создания привязки:
-    * Выберите **Автоматически заполнить колонки для Cloud Logging**.
+    * Выберите **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }} {{ cloud-logging-short-name }}**.
     * Введите имя привязки `cloud-logging-binding`.
     * Укажите поток данных `cloud-logging-stream`.
     * Задайте формат `json-list`.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 ## Выполните запрос к данным {#query}
 

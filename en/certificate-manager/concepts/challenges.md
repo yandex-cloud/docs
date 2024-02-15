@@ -36,12 +36,12 @@ To check the rights for the `example.com` domain:
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the name of the certificate you need.
 1. Prepare a file that will allow the Let's Encrypt certificate authority (CA) to verify your ownership of the domain specified in the certificate:
 
-   1. Use your hosting control panel to create a file on the server with the name and path matching the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field under **HTTP record**. For example:
+   1. Use your hosting control panel to create a file on the server with the name and path matching the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field under **HTTP record**, e.g.:
 
       * `/.well-known/acme-challenge/`: File path.
       * `di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1B********`: File name.
 
-   1. Insert into the file you created the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field from **HTTP record**. For example:
+   1. Insert into the file you created the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field from **HTTP record**, e.g.:
 
       > di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1BLW0QUDbE._TYLpfPMbwHQZ1aEmsdpidY5bPUnVyDvqSO********
 
@@ -131,7 +131,7 @@ A check is performed automatically if the following conditions are met:
 * For each certificate domain, the following is configured:
    * An [alias](../../storage/operations/hosting/own-domain.md) for the static website bucket where the certificate is used.
    * Or a [redirect](../../storage/operations/hosting/multiple-domains.md) to the domain with the alias for the bucket.
-* The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it doesn't contain masks for subdomains.
+* The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it does not contain masks for subdomains.
 
 ### Redirecting to a validation server on a web server {#auto-vs}
 
@@ -146,6 +146,7 @@ A check is performed automatically if the following conditions are met:
    ```
    https://{{ api-host-certmanager-validation }}/<certificate_ID>/*
    ```
+   This endpoint is only available over IPv6.
 
 Example of setting up a redirect in the nginx configuration:
 ```

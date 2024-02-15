@@ -12,6 +12,8 @@ The private part of the key is confidential information that allows you to perfo
 
 {% endnote %}
 
+The private part of an authorized {{ yandex-cloud }} key starts with `PLEASE DO NOT REMOVE THIS LINE! Yandex.Cloud SA Key ID…` according to the [RFC 7468](https://datatracker.ietf.org/doc/html/rfc7468#section-2) standard. This string helps one easily [locate secrets](../../../security/operations/search-secrets.md) in case of a leak.
+
 ## Services that support this authentication method {#supported-services}
 
 The following services support authentication based on authorized keys:

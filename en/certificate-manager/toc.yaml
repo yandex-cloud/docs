@@ -21,7 +21,7 @@ items:
             href: operations/managed/cert-modify.md
           - name: Deleting a certificate
             href: operations/managed/cert-delete.md
-      - name: User certificate
+      - name: Custom certificate
         items:
           - name: Adding a certificate
             href: operations/import/cert-create.md
@@ -57,9 +57,9 @@ items:
         href: concepts/index.md
       - name: Certificate from Let's Encrypt
         href: concepts/managed-certificate.md
-      - name: User certificate
+      - name: Custom certificate
         href: concepts/imported-certificate.md
-      - name: Checking rights for domain
+      - name: Checking rights for a domain
         href: concepts/challenges.md
       - name: Integration with {{ yandex-cloud }} services
         href: concepts/services.md
@@ -75,9 +75,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/certificate-manager/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -125,6 +129,8 @@ items:
                 href: api-ref/Certificate/update.md
               - name: updateAccessBindings
                 href: api-ref/Certificate/updateAccessBindings.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/certificate-manager

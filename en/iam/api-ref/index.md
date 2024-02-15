@@ -13,6 +13,7 @@ Resource | Description
 [Key](Key/index.md) | A set of methods for managing Key resources.
 [Role](Role/index.md) | A set of methods for managing Role resources.
 [ServiceAccount](ServiceAccount/index.md) | A set of methods for managing ServiceAccount resources.
+[ServiceControl](ServiceControl/index.md) | A set of methods for managing Service resources.
 [UserAccount](UserAccount/index.md) | A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/#passport).
 [YandexPassportUserAccount](YandexPassportUserAccount/index.md) | A set of methods for managing YandexPassportUserAccount resources.
 [AccessKey](AccessKey/index.md) | A set of methods for managing access keys.

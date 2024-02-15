@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/s3_service.md
 
 # DataSphere API v2, gRPC: S3Service
 
-
+A set of methods for managing S3 configurations.
 
 | Call | Description |
 | --- | --- |

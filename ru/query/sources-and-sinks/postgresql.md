@@ -24,27 +24,27 @@ SELECT * FROM postgresql_mdb_connection.my_table
 
 Чтобы создать соединение с {{ mpg-name }}:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. В списке сервисов выберите **{{ yq-full-name }}**.
-1. На панели слева перейдите на вкладку **Соединения**.
-1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Укажите параметры соединения:
 
-   1. В блоке **Общие параметры**:
+   1. В блоке **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
-      * **Имя** — название соединения с {{ mpg-name }}.
-      * **Тип** — `{{ mpg-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** — название соединения с {{ mpg-name }}.
+      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.postgersql.select-item }}`.
 
-   1. В блоке **Параметры типа соединения**:
+   1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
-      * **Кластер** — выберите существующий кластер {{ mpg-name }} или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mpg-name }} или создайте новый с ролью [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer), от имени которого будет выполняться подключение к кластерам `{{ mpg-name }}`.
-      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером {{ PG }}.
-      * **Схема**  — укажите [пространство имен](https://www.postgresql.org/docs/current/catalog-pg-namespace.html), которое будет использоваться при работе с базой данных {{ PG }}.
-      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ PG }}.
-      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ PG }}.
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mpg-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mpg-name }} или создайте новый с ролью [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer), от имени которого будет выполняться подключение к кластерам `{{ mpg-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ PG }}.
+      * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**  — укажите [пространство имен](https://www.postgresql.org/docs/current/catalog-pg-namespace.html), которое будет использоваться при работе с базой данных {{ PG }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ PG }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ PG }}.
 
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 Сервисный аккаунт необходим для обнаружения точек подключения к кластерам {{ mpg-name }} внутри {{ yandex-cloud }}, для работы с данными логин и пароль пользователя задаются отдельно.
 

@@ -257,6 +257,8 @@ items:
                 href: api-ref/Federation/create.md
               - name: delete
                 href: api-ref/Federation/delete.md
+              - name: deleteUserAccounts
+                href: api-ref/Federation/deleteUserAccounts.md
               - name: get
                 href: api-ref/Federation/get.md
               - name: list

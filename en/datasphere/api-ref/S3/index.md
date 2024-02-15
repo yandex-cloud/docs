@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/datasphere/v2/api-ref/S3/index.md
 ---
 
 # DataSphere API v2, REST: S3 methods
-
+A set of methods for managing S3 configurations.
 
 ## Methods {#methods}
 Method | Description

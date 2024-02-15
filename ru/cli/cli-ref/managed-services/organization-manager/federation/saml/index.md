@@ -21,6 +21,7 @@ Syntax:
 - [yc organization-manager federation saml update](update.md) — Update the specified federation
 - [yc organization-manager federation saml delete](delete.md) — Delete the specified federation
 - [yc organization-manager federation saml add-user-accounts](add-user-accounts.md) — Add user accounts to the specified federation
+- [yc organization-manager federation saml delete-user-accounts](delete-user-accounts.md) — Delete user accounts from the specified federation
 - [yc organization-manager federation saml list-user-accounts](list-user-accounts.md) — List user accounts of the specified federation
 - [yc organization-manager federation saml list-operations](list-operations.md) — List operations for the specified federation
 - [yc organization-manager federation saml certificate](certificate/index.md) — Manage certificates for the SAML-compatible identity federation

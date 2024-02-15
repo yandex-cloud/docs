@@ -51,6 +51,7 @@ Method | Description
 [addUserAccounts](addUserAccounts.md) | Adds users to the specified federation.
 [create](create.md) | Creates a federation in the specified organization.
 [delete](delete.md) | Deletes the specified federation.
+[deleteUserAccounts](deleteUserAccounts.md) | Deletes users from the specified federation.
 [get](get.md) | Returns the specified federation.
 [list](list.md) | Retrieves the list of federations in the specified organization.
 [listOperations](listOperations.md) | Lists operations for the specified federation.

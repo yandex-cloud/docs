@@ -1,8 +1,6 @@
 # System groups
 
-A _system group_ is an ID for a group of users (subjects) that roles can be assigned to.
-
-There are two types of system groups in {{ yandex-cloud }}: `allAuthenticatedUsers` and `allUsers`. These groups let you grant public access to your resources, but only for operations that are allowed by the given role.
+A _system group_ is a group of users (subjects) to which you can assign roles. There are two types of system groups in {{ yandex-cloud }}: `allAuthenticatedUsers` and `allUsers`. These groups allow you to grant public access to your resources, but only for operations that are allowed by the given role.
 
 {% include [roles-for-system](../../../_includes/iam/roles-for-system.md) %}
 

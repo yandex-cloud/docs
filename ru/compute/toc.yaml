@@ -325,7 +325,7 @@ items:
             href: operations/gpu-cluster/gpu-cluster-delete.md
           - name: Получить информацию о кластере GPU
             href: operations/gpu-cluster/gpu-cluster-get-info.md
-      - name: Получить список операций с ресурсами сервиса
+      - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
     href: ../cos/

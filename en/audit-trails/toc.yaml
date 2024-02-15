@@ -72,18 +72,10 @@ items:
         href: concepts/diagnostics.md
       - name: Comparing management and data event logs
         href: concepts/control-plane-vs-data-plane.md
-      - name: Management event logs
-        items:
-          - name: Audit event log
-            href: concepts/format.md
-          - name: Event reference
-            href: concepts/events.md
-      - name: Data event logs
-        items:
-          - name: Audit event log
-            href: concepts/format-data-plane.md
-          - name: Event reference
-            href: concepts/events-data-plane.md
+      - name: Management event audit log
+        href: concepts/format.md
+      - name: Data event audit log
+        href: concepts/format-data-plane.md
       - name: Exporting to SIEM systems
         href: concepts/export-siem.md
       - name: Quotas and limits
@@ -94,4 +86,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Management event reference
+    href: concepts/events.md
+  - name: Data event reference
+    href: concepts/events-data-plane.md
 base: en/audit-trails

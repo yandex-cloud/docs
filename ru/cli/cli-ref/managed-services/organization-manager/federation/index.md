@@ -26,6 +26,7 @@ Aliases:
 	- [yc organization-manager federation saml update](saml/update.md) — Update the specified federation
 	- [yc organization-manager federation saml delete](saml/delete.md) — Delete the specified federation
 	- [yc organization-manager federation saml add-user-accounts](saml/add-user-accounts.md) — Add user accounts to the specified federation
+	- [yc organization-manager federation saml delete-user-accounts](saml/delete-user-accounts.md) — Delete user accounts from the specified federation
 	- [yc organization-manager federation saml list-user-accounts](saml/list-user-accounts.md) — List user accounts of the specified federation
 	- [yc organization-manager federation saml list-operations](saml/list-operations.md) — List operations for the specified federation
 - [yc organization-manager federation group-mapping](group-mapping/index.md) — Manage group mappings for federation

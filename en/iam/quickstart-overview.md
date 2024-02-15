@@ -1,6 +1,6 @@
 # Getting started with {{ iam-name }}
 
-{{ iam-name }} (IAM) allows you to manage access to {{ yandex-cloud }} resources. With IAM, only users with the relevant access rights can perform operations on resources.
+{{ iam-name }} (IAM) allows you to manage access to {{ yandex-cloud }} resources. With IAM, only users with relevant access permissions can perform operations on resources.
 
 You can get started with your Yandex accounts or service accounts:
 
@@ -8,10 +8,10 @@ You can get started with your Yandex accounts or service accounts:
 
    The following users can [get started using their Yandex accounts](quickstart.md):
 
-   * Organization owners (`organization-manager.organizations.owner`).
-   * Organization administrators (`organization-manager.admin`).
-   * Cloud owners (`resource-manager.clouds.owner`).
-   * Cloud administrators (`admin`).
+   * Organization owners (`organization-manager.organizations.owner`)
+   * Organization administrators (`organization-manager.admin`)
+   * Cloud owners (`resource-manager.clouds.owner`)
+   * Cloud administrators (`admin`)
 
    Read [this guide](quickstart.md#before-you-begin) to find out about the roles of your account.
 

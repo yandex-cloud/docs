@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-- Cloud Organization {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
     1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
     1. Go to [{{ org-full-name }}]({{ link-org-main }}).

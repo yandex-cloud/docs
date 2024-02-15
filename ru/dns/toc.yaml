@@ -19,6 +19,8 @@ items:
             href: operations/zone-get-info.md
           - name: Удалить зону DNS
             href: operations/zone-delete.md
+          - name: Посмотреть операции с зонами DNS
+            href: operations/operation-logs.md
       - name: Записи
         items:
           - name: Создать запись

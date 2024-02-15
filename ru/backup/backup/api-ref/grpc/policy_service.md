@@ -136,7 +136,6 @@ minute | **int64**<br>Minutes.
 Field | Description
 --- | ---
 rules[] | **[RetentionRule](#RetentionRule)**<br>A list of retention rules. 
-after_backup | **bool**<br>If true, retention rules will be applied after backup is finished. 
 before_backup | **bool**<br>If true, retention rules will be applied before backup is finished. 
 
 
@@ -293,7 +292,6 @@ minute | **int64**<br>Minutes.
 Field | Description
 --- | ---
 rules[] | **[RetentionRule](#RetentionRule1)**<br>A list of retention rules. 
-after_backup | **bool**<br>If true, retention rules will be applied after backup is finished. 
 before_backup | **bool**<br>If true, retention rules will be applied before backup is finished. 
 
 
@@ -493,7 +491,6 @@ minute | **int64**<br>Minutes.
 Field | Description
 --- | ---
 rules[] | **[RetentionRule](#RetentionRule2)**<br>A list of retention rules. 
-after_backup | **bool**<br>If true, retention rules will be applied after backup is finished. 
 before_backup | **bool**<br>If true, retention rules will be applied before backup is finished. 
 
 
@@ -649,7 +646,6 @@ minute | **int64**<br>Minutes.
 Field | Description
 --- | ---
 rules[] | **[RetentionRule](#RetentionRule3)**<br>A list of retention rules. 
-after_backup | **bool**<br>If true, retention rules will be applied after backup is finished. 
 before_backup | **bool**<br>If true, retention rules will be applied before backup is finished. 
 
 

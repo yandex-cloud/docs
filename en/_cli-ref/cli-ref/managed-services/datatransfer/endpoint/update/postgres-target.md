@@ -16,6 +16,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--file`|<b>`string`</b><br/>Path to a file with grpc request, see proto files in the protobuf API specification: https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/datatransfer/v1|
 |`--name`|<b>`string`</b><br/>Endpoint name|
 |`--description`|<b>`string`</b><br/>Endpoint description|
 |`--cluster-id`|<b>`string`</b><br/>Yandex Managed PostgreSQL cluster ID|

@@ -84,6 +84,8 @@ items:
             href: operations/adjust-mtu-ddos-protection.md
       - name: График сетевых соединений
         href: operations/connections-view.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Все руководства

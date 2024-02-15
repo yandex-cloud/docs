@@ -5058,6 +5058,7 @@ default:
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
+            label_yq_ru: Yandex Query
             value_audit-trails: Audit trail
             value_compute: Virtual machine instance
             value_data-proc: Data Proc cluster
@@ -5317,6 +5318,7 @@ default:
           button_empty-create: Create key
       load-balancer:
         network-load-balancer:
+          button_add-listener: Add listener
           button_attach-tg: Attach target group
           button_create: Create a network load balancer
           button_start: Start
@@ -7639,6 +7641,179 @@ default:
           title: Request
         temperature:
           title: Temperature
+    yql:
+      yq-audit-trails:
+        audit-trails-type-toggle:
+          option-analytical: Analytical
+          option-streaming: Streaming
+        audit-trails:
+          title: Audit trails
+      yq-billing:
+        billing:
+          title: Billing
+      yq-binding-actions:
+        delete-binding:
+          menu-item-text: Delete
+        edit-binding:
+          menu-item-text: Edit
+      yq-binding-add:
+        create-binding:
+          button-text: Create
+      yq-binding-form:
+        action_upload-schema-file: Upload from file
+        binding-create:
+          button-text: Create
+        binding-fields-templates:
+          button:
+            label: Automatically fill columns for
+        binding-fields:
+          title: Columns
+        binding-modify:
+          button-text: Modify
+        binding-name:
+          title: Name
+        binding-parameters:
+          title: Binding parameters
+        binding-path-pattern:
+          title: Path
+        binding-preview:
+          button-text: Preview
+        binding-stream:
+          title: Stream
+        connection-parameters:
+          title: Connection parameters
+        connection-type:
+          title: Type
+        connection:
+          title: Connection
+        field-type-required:
+          title: Required
+        projection-radio:
+          enabled:
+            label: Extended
+      yq-binding-info:
+        compression:
+          label-text: Compression
+        connection-parameters:
+          section-header: Connection parameters
+        format:
+          label-text: Format
+        general:
+          section-header: General
+      yq-common-meta-section:
+        meta:
+          section-header: Meta
+      yq-connection-actions:
+        delete-connection:
+          menu-item-text: Delete
+        edit-connection:
+          menu-item-text: Edit
+      yq-connection-form:
+        action_create-new: Create new
+        bucket-auth:
+          input-label: Bucket auth
+        bucket:
+          input-label: Bucket
+        cloud:
+          input-label: Cloud and Folder
+        cluster:
+          input-label: Cluster
+        connection-name:
+          input-label: Name
+        connection-type-parameters:
+          section-title: Connection type parameters
+        connection-type:
+          input-label: Type
+        create:
+          button-text: Create
+        database:
+          input-label: Database
+        general-parameters:
+          section-title: General parameters
+        login:
+          input-label: Login
+        modify:
+          button-text: Modify
+        password:
+          input-label: Password
+        private:
+          button-text: Private
+        public:
+          button-text: Public
+        schema:
+          input-label: Schema
+        service-account:
+          input-label: Service account
+      yq-connection-info:
+        database:
+          label: Database
+        general:
+          section-header: General
+      yq-connection:
+        click-house:
+          select-item: Managed Service for ClickHouse
+        datastreams:
+          select-item: Data Streams
+        monitoring:
+          select-item: Monitoring
+        object-storage:
+          select-item: Object Storage
+        postgersql:
+          select-item: Managed Service for PostgreSQL
+      yq-ide-aside:
+        bindings:
+          tab-text: Bindings
+        connections:
+          tab-text: Connections
+        queries:
+          tab-text: Queries
+      yq-ide-header:
+        new-analytics-query:
+          button-text: New analytics query
+        new-streaming-query:
+          button-text: New streaming query
+      yq-job-query-actions:
+        force-stop-query:
+          button-text: Force stop
+        stop-query:
+          button-text: Stop
+      yq-navigation:
+        tutorial:
+          menu-text: Tutorial
+      yq-query-actions:
+        clone:
+          link-text: Clone
+        continue-force-query:
+          button-text: Continue (force)
+        continue-query:
+          button-text: Continue
+        run-query:
+          button-text: Run
+      yq-query-results:
+        issues:
+          tab-text: Issues
+        meta:
+          tab-text: Meta
+        plan:
+          tab-text: Plan
+        result:
+          tab-text: Result
+        statistics:
+          tab-text: Statistics
+      yq-show-query-launches:
+        show-launches:
+          button-text: Show launches
+      yq-tutorial:
+        create-connection:
+          button-label: Create connection
+        create-tutorial-infrastructure:
+          label: Create infrastructure for tutorial
+        run-stream:
+          button-label: Start
+        stop-stream:
+          button-label: Stop
+        tutorial-type-toggle:
+          option-streaming: Streaming
   mkt-k8s-key:
     yc_alb-ingress-controller:
       helmChart:

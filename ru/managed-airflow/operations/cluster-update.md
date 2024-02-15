@@ -34,7 +34,7 @@ keywords:
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** установите или снимите защиту от удаления.
 
-    1. В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** измените, удалите или добавьте [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) в формате `ключ:значение`, например `api.maximum_page_limit` **:** `150`.
+    1. В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** измените, удалите или добавьте [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), например: ключ — `api.maximum_page_limit`, значение — `150`. Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 

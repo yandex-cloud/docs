@@ -338,6 +338,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disk
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
@@ -435,6 +436,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings}

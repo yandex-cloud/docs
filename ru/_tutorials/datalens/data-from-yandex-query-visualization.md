@@ -37,13 +37,13 @@
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. В списке сервисов выберите **{{ yq-full-name }}**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
-1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
-1. Нажмите кнопку **Создать соединение**. В блоке создания соединения все поля ввода параметров уже заполнены — введите описание (опционально) и нажмите кнопку **Создать**. Вы перейдете на экран создания [привязки](../../query/concepts/glossary.md#binding) к данным.
-1. Введите описание привязки к данным (опционально) и нажмите кнопку **Создать**. Будут созданы нужные для обучения ресурсы.
+1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. В блоке создания соединения все поля ввода параметров уже заполнены — введите описание (опционально) и нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**. Вы перейдете на экран создания [привязки](../../query/concepts/glossary.md#binding) к данным.
+1. Введите описание привязки к данным (опционально) и нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. Будут созданы нужные для обучения ресурсы.
 
 ## Создайте подключение в {{ datalens-full-name }} {#create_connection_lens}
 

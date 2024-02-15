@@ -20,6 +20,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>DNS zone id.|
 |`--name`|<b>`string`</b><br/>DNS zone name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--page-token`|<b>`string`</b><br/>Page token pagination simplifies navigating large datasets by using a token to represent the current page.|
 |`--record-type`|<b>`string`</b><br/>Filter by record type.|
 |`--record-name`|<b>`string`</b><br/>Filter by record name.|
 

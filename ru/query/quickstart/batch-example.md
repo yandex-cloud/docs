@@ -20,7 +20,7 @@
 ## Подготовьтесь к работе {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Подключитесь к данным {#create-binding}
@@ -29,7 +29,7 @@
 
 ## Выполните запрос {#run-query}
 
-1. В редакторе запросов в интерфейсе {{ yq-name }} нажмите кнопку **Новый аналитический запрос**.
+1. В редакторе запросов в интерфейсе {{ yq-name }} нажмите кнопку **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
 1. В текстовом поле введите текст запроса:
 
    ```sql
@@ -51,7 +51,7 @@
        $ride_time;
    ```
 
-1. Нажмите кнопку **Выполнить**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 ## Исследуйте результат {#check-result}
 

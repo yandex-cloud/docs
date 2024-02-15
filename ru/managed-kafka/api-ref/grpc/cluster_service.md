@@ -713,6 +713,7 @@ name | **string**<br>New name for the Apache Kafka® cluster. The maximum string
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
+subnet_ids[] | **string**<br>IDs of subnets where the hosts are located or a new host is being created 
 
 
 ### ConfigSpec {#ConfigSpec3}

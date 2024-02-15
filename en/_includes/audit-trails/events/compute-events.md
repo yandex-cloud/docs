@@ -8,6 +8,7 @@
 | `CreateDisk` | Creating a disk |
 | `CreateFilesystem` | Creating a file system |
 | `CreateGpuCluster` | Creating a GPU cluster |
+| `CreateHostGroup` | Creating a group of dedicated hosts |
 | `CreateImage` | Creating a disk image |
 | `CreateInstance` | Creating a VM instance |
 | `CreateSnapshot` | Creating a disk snapshot |
@@ -15,6 +16,7 @@
 | `DeleteDisk` | Deleting a disk |
 | `DeleteFilesystem` | Deleting a file system |
 | `DeleteGpuCluster` | Deleting a GPU cluster |
+| `DeleteHostGroup` | Deleting a group of dedicated hosts |
 | `DeleteImage` | Deleting a disk image |
 | `DeleteInstance` | Deleting a VM |
 | `DeleteSnapshot` | Deleting a disk snapshot |
@@ -32,6 +34,7 @@
 | `UpdateDisk` | Changing a disk |
 | `UpdateFilesystem` | Modifying a file system |
 | `UpdateGpuCluster` | Updating a GPU cluster |
+| `UpdateHostGroup` | Updating a group of dedicated hosts |
 | `UpdateImage` | Updating a disk image |
 | `UpdateInstance` | Updating a VM instance |
 | `UpdateInstanceMetadata` | Updating VM instance metadata |
@@ -41,7 +44,7 @@
 | `UpdateSnapshotScheduleDisks` | Updating disk snapshot schedule parameters |
 | `instancegroup` | Managing an instance group |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
-| `instancegroup.DeleteInstanceGroup` | Deleting an instance group. |
+| `instancegroup.DeleteInstanceGroup` | Deleting an instance group |
 | `instancegroup.DeleteInstanceGroupInstances` | Removing an instance from a group |
 | `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
 | `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
@@ -52,3 +55,4 @@
 | `instancegroup.StopInstanceGroupInstances` | Stopping an instance from a group |
 | `instancegroup.UpdateInstanceGroup` | Updating an instance group |
 | `instancegroup.UpdateInstanceGroupAccessBindings` | Updating roles for an instance group |
+| `serialssh.ConnectSerialPort` | Connecting to an instance serial port |

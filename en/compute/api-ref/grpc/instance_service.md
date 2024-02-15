@@ -71,6 +71,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disk
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
@@ -170,6 +171,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### SerialPortSettings {#SerialPortSettings}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
+
+
 ### GpuSettings {#GpuSettings}
 
 Field | Description
@@ -255,6 +263,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk1)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk1)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem1)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface1)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings1)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings1)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling policy configuration. 
@@ -354,6 +363,13 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
+### SerialPortSettings {#SerialPortSettings1}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
+
+
 ### GpuSettings {#GpuSettings1}
 
 Field | Description
@@ -429,6 +445,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br>Placement policy 
 gpu_settings | **[GpuSettings](#GpuSettings2)**<br>GPU settings. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance Acceptable values are 1s to 24h, inclusive.
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings2)**<br>Serial port settings 
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -579,6 +596,13 @@ Field | Description
 gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
 
 
+### SerialPortSettings {#SerialPortSettings2}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -623,6 +647,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk2)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk2)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem2)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface2)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings3)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings3)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
@@ -741,6 +766,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement policy 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance Acceptable values are 1s to 24h, inclusive.
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings3)**<br>Serial port settings 
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -795,6 +821,13 @@ Field | Description
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
+### SerialPortSettings {#SerialPortSettings3}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -839,6 +872,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk3)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk3)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem3)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface3)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings4)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings3)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
@@ -1038,6 +1072,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk4)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk4)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem4)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface4)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings4)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings4)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
@@ -1135,6 +1170,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings4}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings4}
@@ -1298,6 +1340,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk5)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk5)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem5)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface5)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings5)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings5)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
@@ -1395,6 +1438,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings5}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings5}
@@ -1574,6 +1624,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk6)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk6)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem6)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface6)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings6)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings6)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling policy configuration. 
@@ -1671,6 +1722,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings6}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings6}
@@ -1777,6 +1835,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk7)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk7)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem7)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface7)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings7)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings7)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling policy configuration. 
@@ -1874,6 +1933,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings7}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings7}
@@ -1987,6 +2053,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk8)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk8)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem8)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface8)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings8)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings8)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling policy configuration. 
@@ -2084,6 +2151,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings8}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings8}
@@ -2190,6 +2264,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk9)**<br>Array of secondary dis
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk9)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem9)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface9)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings9)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings9)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling policy configuration. 
@@ -2287,6 +2362,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings9}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings9}
@@ -2411,6 +2493,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk10)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk10)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem10)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface10)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings10)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings10)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling policy configuration. 
@@ -2508,6 +2591,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings10}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings10}
@@ -2612,6 +2702,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk11)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk11)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem11)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface11)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings11)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings11)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling policy configuration. 
@@ -2709,6 +2800,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings11}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings11}
@@ -2846,6 +2944,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk12)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk12)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem12)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface12)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings12)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings12)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling policy configuration. 
@@ -2943,6 +3042,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings12}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings12}
@@ -3087,6 +3193,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk13)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk13)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem13)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface13)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings13)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings13)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling policy configuration. 
@@ -3184,6 +3291,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings13}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings13}
@@ -3346,6 +3460,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk14)**<br>Array of secondary di
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk14)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem14)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface14)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings14)**<br>Serial port settings 
 gpu_settings | **[GpuSettings](#GpuSettings14)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy14)**<br>Scheduling policy configuration. 
@@ -3443,6 +3558,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings14}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
 
 
 ### GpuSettings {#GpuSettings14}

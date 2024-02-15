@@ -15,6 +15,7 @@ A set of methods for managing federations.
 | [Update](#Update) | Updates the specified federation. |
 | [Delete](#Delete) | Deletes the specified federation. |
 | [AddUserAccounts](#AddUserAccounts) | Adds users to the specified federation. |
+| [DeleteUserAccounts](#DeleteUserAccounts) | Deletes users from the specified federation. |
 | [ListUserAccounts](#ListUserAccounts) | Lists users for the specified federation. |
 | [ListOperations](#ListOperations) | Lists operations for the specified federation. |
 
@@ -388,6 +389,55 @@ Field | Description
 value[] | **string**<br> 
 
 
+## DeleteUserAccounts {#DeleteUserAccounts}
+
+Deletes users from the specified federation.
+
+**rpc DeleteUserAccounts ([DeleteFederatedUserAccountsRequest](#DeleteFederatedUserAccountsRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteFederatedUserAccountsMetadata](#DeleteFederatedUserAccountsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DeleteFederatedUserAccountsResponse](#DeleteFederatedUserAccountsResponse)<br>
+
+### DeleteFederatedUserAccountsRequest {#DeleteFederatedUserAccountsRequest}
+
+Field | Description
+--- | ---
+federation_id | **string**<br>Required. ID of the federation to delete users from. The maximum string length in characters is 50.
+subject_ids[] | **string**<br>List of subjects to delete. The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50.
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteFederatedUserAccountsMetadata](#DeleteFederatedUserAccountsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteFederatedUserAccountsResponse](#DeleteFederatedUserAccountsResponse)>**<br>if operation finished successfully. 
+
+
+### DeleteFederatedUserAccountsMetadata {#DeleteFederatedUserAccountsMetadata}
+
+Field | Description
+--- | ---
+federation_id | **string**<br>ID of the federation that is being altered. 
+
+
+### DeleteFederatedUserAccountsResponse {#DeleteFederatedUserAccountsResponse}
+
+Field | Description
+--- | ---
+deleted_subjects[] | **string**<br>List of subjects deleted by [FederationService.DeleteUserAccounts](#DeleteUserAccounts) request. 
+non_existing_subjects[] | **string**<br>List of subjects found in [FederationService.DeleteUserAccounts](#DeleteUserAccounts) request that do not exist. 
+
+
 ## ListUserAccounts {#ListUserAccounts}
 
 Lists users for the specified federation.
@@ -465,11 +515,11 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation4)**<br>List of operations for the specified federation. 
+operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified federation. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListFederationOperationsRequest.page_size](#ListFederationOperationsRequest), use the `next_page_token` as the value for the [ListFederationOperationsRequest.page_token](#ListFederationOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation4}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
