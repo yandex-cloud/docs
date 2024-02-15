@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/dataset_service.md
 
 # DataSphere API v2, gRPC: DatasetService
 
-
+A set of methods for managing Datasets.
 
 | Call | Description |
 | --- | --- |

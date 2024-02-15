@@ -65,7 +65,6 @@ A set of methods for managing [policies](/docs/backup/concepts/policy).
 
         }
       ],
-      "afterBackup": true,
       "beforeBackup": true
     },
     "scheduling": {
@@ -172,7 +171,6 @@ settings.<br>retention.<br>rules[].<br>maxAge | **object** <br>`settings.retenti
 settings.<br>retention.<br>rules[].<br>maxAge.<br>type | **string**<br><p>Required. A type of the interval.</p> 
 settings.<br>retention.<br>rules[].<br>maxAge.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
 settings.<br>retention.<br>rules[].<br>maxCount | **string** (int64) <br>`settings.retention.rules[]` includes only one of the fields `maxAge`, `maxCount`<br>
-settings.<br>retention.<br>afterBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied after backup is finished.</p> 
 settings.<br>retention.<br>beforeBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied before backup is finished.</p> 
 settings.<br>scheduling | **object**<br><p>Required. Configuration of the backup schedule.</p> 
 settings.<br>scheduling.<br>backupSets[] | **object**<br><p>Required. A list of schedules with backup sets that compose the whole scheme.</p> <p>Must contain at least one element.</p> 

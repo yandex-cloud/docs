@@ -81,22 +81,23 @@
       1. Назначьте сервисному аккаунту роль на ресурс:
 
           ```bash
-          yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-            --role <role-id> \
-            --subject serviceAccount:<service-account-id>
+          yc <название_сервиса> <тип_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
+            --role <роль> \
+            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
           ```
 
           Где:
-          * `<service-name>` — название [сервиса](../cli/cli-ref/index.md#service-manage), на чей ресурс назначается роль, например `resource-manager`.
-          * `<resource>` — категория ресурса, например `cloud` — для назначения роли на все облако или `folder` — для назначения роли на каталог.
-          * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору (имя облака или каталога).
-          * `<resource-id>` — идентификатор ресурса (id облака или каталога).
-          * `<role-id>` — назначаемая [роль](../iam/concepts/access-control/roles.md), например `{{ roles-cloud-owner }}`.
-          * `<service-account-id>` — идентификатор сервисного аккаунта, которому назначается роль.
+          * `<название_сервиса>` — название [сервиса](../cli/cli-ref/index.md#service-manage), на чей ресурс назначается роль, например `resource-manager`.
+          * `<тип_ресурса>` — категория ресурса. Например, для сервиса `resource-manager`: `cloud` — для назначения роли на все облако или `folder` — для назначения роли на каталог.
+          * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса (облака или каталога).
+          * `<роль>` — назначаемая [роль](../iam/concepts/access-control/roles.md), например `resource-manager.editor`.
+          * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта, которому назначается роль.
      
           Пример:
-         ```sh
-         yc resource-manager folder add-access-binding **********9n9hi2qu --role editor --subject serviceAccount:**********qhi2qu
+         ```bash
+         yc resource-manager folder add-access-binding b1gv87ssvu49******** \
+           --role resource-manager.editor \
+           --subject serviceAccount:aje6ij7qvdhb********
          ```
           Результат:
 

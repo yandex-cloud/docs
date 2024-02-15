@@ -72,34 +72,3 @@
     Идентификатор сетевого балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
 
 {% endlist %}
-
-## Посмотреть список операций в сетевом балансировщике {#list-operations}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. Нажмите на имя нужного сетевого балансировщика и перейдите на вкладку ![operations.svg](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
-
-- CLI {#cli}
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Чтобы получить список операций, выполните команду:
-
-    ```bash
-    yc load-balancer network-load-balancer list-operations <имя_или_идентификатор_балансировщика>
-    ```
-
-    Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
-
-- API {#api}
-
-    Воспользуйтесь методом API [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) и передайте идентификатор сетевого балансировщика в параметре `networkLoadBalancerId` запроса.
-
-    Идентификатор сетевого балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
-
-{% endlist %}

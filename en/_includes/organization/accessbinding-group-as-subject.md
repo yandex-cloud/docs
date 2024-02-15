@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
 
@@ -48,7 +48,7 @@
 
 - {{ TF }} {#tf}
 
-   If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Add the resource parameters to the configuration file and specify the required role and group:
 
@@ -74,7 +74,11 @@
 
    All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+           ```
+           terraform plan
+           ```
+
+        If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform will point them out.
 
    1. Deploy cloud resources.
 
@@ -98,7 +102,7 @@
 
    1. Select a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
 
-   1. Create a request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `group` type and group ID in the `subject` property:
+   1. Create the request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `group` type and group ID in the `subject` property:
 
       **body.json:**
       ```json

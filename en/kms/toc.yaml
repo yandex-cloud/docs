@@ -50,7 +50,7 @@ items:
             href: concepts/version.md
           - name: Symmetric encryption
             href: concepts/symmetric-encryption.md
-          - name: Hardware Security Module (HSM)
+          - name: Hardware security module (HSM)
             href: concepts/hsm.md
       - name: Asymmetric encryption
         items:
@@ -81,7 +81,7 @@ items:
         items:
           - name: Which encryption method should I choose?
             href: tutorials/encrypt/index.md
-          - name: Encrypting data using the CLI and API {{ yandex-cloud }}
+          - name: Encrypting data using the {{ yandex-cloud }} CLI and API
             href: tutorials/encrypt/cli-api.md
           - name: Encrypting data using the Yandex Cloud SDK
             href: tutorials/encrypt/sdk.md
@@ -103,9 +103,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/kms/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -173,6 +177,8 @@ items:
                 href: api-ref/SymmetricKey/update.md
               - name: updateAccessBindings
                 href: api-ref/SymmetricKey/updateAccessBindings.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/kms

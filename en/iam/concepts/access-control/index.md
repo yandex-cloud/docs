@@ -19,7 +19,7 @@ All operations in {{ yandex-cloud }} are first sent for verification to {{ iam-s
 
 Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant users access to a resource, you specify which [roles](roles.md) are assigned to them for that resource.
 
-To assign a role, [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) assigned the role. This lets you [bind access rights](#access-bindings) to the resource.
+To assign a role, [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) assigned the role. This allows you to [bind access rights](#access-bindings) to the resource.
 
 You can also assign a role to a parent resource that [access rights are inherited](#inheritance) from, such as a folder or cloud.
 
@@ -33,9 +33,7 @@ For example, you were given the right to create folders in the cloud and you wer
 
 ### Resources that roles can be assigned for {#resource}
 
-You can currently assign roles for a [cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), a [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md).
-
-If you need to grant access to a resource that is not on the list (such as a VM), assign a role for the parent resource it [inherits](#inheritance) permissions from. VM permissions are inherited from their folder.
+You can assign roles for a [cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md). If you need to grant access to a resource that is not on the list, e.g., a [{{ mpg-full-name }} cluster](../../../managed-postgresql/concepts/index.md), assign the role to the parent resource it [inherits](#inheritance) permissions from. {{ mpg-name }} clusters inherit access permissions from their folder.
 
 ### Role {#role}
 

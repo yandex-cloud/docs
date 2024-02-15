@@ -84,7 +84,6 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
 
             }
           ],
-          "afterBackup": true,
           "beforeBackup": true
         },
         "scheduling": {
@@ -195,7 +194,6 @@ policies[].<br>settings.<br>retention.<br>rules[].<br>maxAge | **object** <br>`p
 policies[].<br>settings.<br>retention.<br>rules[].<br>maxAge.<br>type | **string**<br><p>Required. A type of the interval.</p> 
 policies[].<br>settings.<br>retention.<br>rules[].<br>maxAge.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
 policies[].<br>settings.<br>retention.<br>rules[].<br>maxCount | **string** (int64) <br>`policies[].settings.retention.rules[]` includes only one of the fields `maxAge`, `maxCount`<br>
-policies[].<br>settings.<br>retention.<br>afterBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied after backup is finished.</p> 
 policies[].<br>settings.<br>retention.<br>beforeBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied before backup is finished.</p> 
 policies[].<br>settings.<br>scheduling | **object**<br><p>Required. Configuration of the backup schedule.</p> 
 policies[].<br>settings.<br>scheduling.<br>backupSets[] | **object**<br><p>Required. A list of schedules with backup sets that compose the whole scheme.</p> <p>Must contain at least one element.</p> 

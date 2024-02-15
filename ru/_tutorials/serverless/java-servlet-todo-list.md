@@ -141,7 +141,7 @@
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** установите значение `10`.
   1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** укажите аккаунт, созданный при [подготовке окружения](#prepare).
   1. Добавьте переменные окружения:
-     * `ENDPOINT` — введите первую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `ydb.serverless.yandexcloud.net:2135`.
+     * `ENDPOINT` — введите первую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть между вхождениями `grpcs://` и `/?database=`). Например, `ydb.serverless.yandexcloud.net:2135`.
      * `DATABASE` — введите вторую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
   1. На странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** включите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.

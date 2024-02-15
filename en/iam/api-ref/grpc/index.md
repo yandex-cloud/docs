@@ -13,6 +13,7 @@ Service | Description
 [KeyService](./key_service.md) | A set of methods for managing Key resources.
 [RoleService](./role_service.md) | A set of methods for managing Role resources.
 [ServiceAccountService](./service_account_service.md) | A set of methods for managing ServiceAccount resources.
+[ServiceControlService](./service_control_service.md) | A set of methods for managing Service resources.
 [UserAccountService](./user_account_service.md) | A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/#passport).
 [YandexPassportUserAccountService](./yandex_passport_user_account_service.md) | A set of methods for managing YandexPassportUserAccount resources.
 [AccessKeyService](./access_key_service.md) | A set of methods for managing access keys.

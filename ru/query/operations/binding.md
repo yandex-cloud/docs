@@ -7,13 +7,13 @@
 Чтобы создать привязку:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать привязку.
-1. В списке сервисов выберите **{{ yq-full-name }}**.
-1. На панели слева выберите **Привязки**.
-1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
-1. В блоке **Параметры соединения**:
-   1. Выберите тип соединения, для которого нужно создать привязку: `{{ yds-short-name }}` или `{{ objstorage-short-name }}`.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
+1. В блоке **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
+   1. Выберите тип соединения, для которого нужно создать привязку: `{{ ui-key.yql.yq-connection.datastreams.select-item }}` или `{{ ui-key.yql.yq-connection.object-storage.select-item }}`.
    1. Выберите или создайте новое соединение.
-1. В блоке **Параметры привязки к данным**:
+1. В блоке **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
    1. Введите имя и описание привязки. Требования к имени:
 
       {% include [name-format](../_includes/connection-name-format.md) %}
@@ -25,31 +25,31 @@
    1. Добавьте колонки:
       * Введите имя колонки.
       * Выберите тип колонки.
-      * При необходимости включите опцию **Обязательно**.
-1. Нажмите кнопку **Создать**.
+      * При необходимости включите опцию **{{ ui-key.yql.yq-binding-form.field-type-required.title }}**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 ## Получить информацию о привязке {#get-info}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана привязка.
-1. В списке сервисов выберите **{{ yq-full-name }}**.
-1. На панели слева выберите **Привязки**.
-1. Напротив имени нужной привязки нажмите кнопку ![info](../../_assets/console-icons/circle-info.svg).
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. В строке с именем нужной привязки нажмите кнопку ![info](../../_assets/console-icons/circle-info.svg).
    Под списком привязок появится информация о нужной привязке:
-   **Общее**:
+   **{{ ui-key.yql.yq-binding-info.general.section-header }}**:
 
      * Пути к данным.
      * Формат данных.
      * Сжатие.
 
-   **Схема**: список колонок привязки к данным и их типы.
+   **{{ ui-key.yql.yq-binding-form.binding-fields.title }}**: список колонок привязки к данным и их типы.
 
-   **Параметры соединения**:
+   **{{ ui-key.yql.yq-binding-info.connection-parameters.section-header }}**:
 
       * Тип.
       * Информация об источнике.
       * Аутентификация.
 
-   **Мета**:
+   **{{ ui-key.yql.yq-common-meta-section.meta.section-header }}**:
 
       * Идентификатор.
       * Время создания.
@@ -58,16 +58,16 @@
 ## Изменить привязку {#update}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить привязку.
-1. В списке сервисов выберите **{{ yq-full-name }}**.
-1. На панели слева выберите **Привязки**.
-1. Напротив имени нужной привязки нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg).
-1. Укажите новые параметры привязки к данным. Информацию в блоке **Параметры соединения** изменить нельзя.
-1. Нажмите кнопку **Изменить**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. В строке с именем нужной привязки нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
+1. Укажите новые параметры привязки к данным. Информацию в блоке **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}** изменить нельзя.
+1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-modify.button-text }}**.
 
 ## Удалить привязку {#delete}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить привязку.
-1. В списке сервисов выберите **{{ yq-full-name }}**.
-1. На панели слева выберите **Привязки**.
-1. Напротив имени нужной привязки нажмите кнопку ![delete](../../_assets/console-icons/trash-bin.svg).
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. В строке с именем нужной привязки нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-binding-actions.delete-binding.menu-item-text }}**.
 1. Подтвердите удаление.

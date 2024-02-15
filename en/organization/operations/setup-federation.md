@@ -20,9 +20,9 @@ For IdP-specific examples, see our tutorials:
 
 ## Creating an identity federation {#create-federation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -60,7 +60,7 @@ For IdP-specific examples, see our tutorials:
 
    1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -114,7 +114,7 @@ For IdP-specific examples, see our tutorials:
       * (Optional) `--case-insensitive-name-ids`: If enabled, federated user name IDs will be case-insensitive.
       * (Optional) {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
       {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -183,7 +183,7 @@ For IdP-specific examples, see our tutorials:
 
    {% endnote %}
 
-- API
+- API {#api}
 
    1. Create a file with the request body, e.g., `body.json`:
 
@@ -254,9 +254,9 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 
 1. Add the certificate to the federation:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -275,7 +275,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 
    1. Click **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -295,7 +295,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
         --certificate-file <certificate_file_path>
       ```
 
-- API
+- API {#api}
 
    1. Create the `body.json` request body file and specify the contents of the certificate in the `data` property:
 
