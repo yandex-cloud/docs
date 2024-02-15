@@ -27,6 +27,7 @@ Aliases:
 - [yc managed-greenplum cluster create](create.md) — Create Greenplum cluster
 - [yc managed-greenplum cluster restore](restore.md) — Restore Greenplum cluster
 - [yc managed-greenplum cluster delete](delete.md) — Delete the specified Greenplum cluster
+- [yc managed-greenplum cluster backup](backup.md) — Create a backup for the specified Greenplum cluster
 - [yc managed-greenplum cluster list-backups](list-backups.md) — List available backups for the specified Greenplum cluster
 - [yc managed-greenplum cluster expand](expand.md) — Expands the specified Greenplum cluster
 - [yc managed-greenplum cluster list-logs](list-logs.md) — Retrieves logs for the specified Greenplum cluster

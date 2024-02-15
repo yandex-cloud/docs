@@ -29,7 +29,7 @@ POST https://ocr.{{ api-host }}/ocr/v1/recognizeText
  
 Field | Description
 --- | ---
-mimeType | **string**<br><p>Specifications of the (<a href="https://en.wikipedia.org/wiki/Media_type">MIME type</a>). Each specification contains the file to analyze and features to use for analysis. Restrictions:</p> <ul> <li>Supported file formats: ``JPEG``, ``PNG``, ``WEBP``, ``PDF``.</li> <li>Maximum file size: 20 MB.</li> <li>Image size should not exceed 20M pixels (length x width).</li> <li>The number of pages in a PDF file should not exceed 200 (each page counts as 1 request).</li> </ul> 
+mimeType | **string**<br><p>Specifications of the (<a href="https://en.wikipedia.org/wiki/Media_type">MIME type</a>). Each specification contains the file to analyze and features to use for analysis. Restrictions:</p> <ul> <li>Supported file formats: ``JPEG``, ``PNG``, ``PDF``.</li> <li>Maximum file size: 20 MB.</li> <li>Image size should not exceed 20M pixels (length x width).</li> <li>The number of pages in a PDF file should not exceed 200 (each page counts as 1 request).</li> </ul> 
 languageCodes[] | **string**<br><p>List of the languages to recognize text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``ru``).</p> 
 model | **string**<br><p>Model to use for text detection.</p> <p>The maximum string length in characters is 50.</p> 
 content | **string** (byte)<br><p>Bytes with data</p> 
@@ -88,7 +88,8 @@ content | **string** (byte)<br><p>Bytes with data</p>
                 "startIndex": "string",
                 "length": "string"
               }
-            ]
+            ],
+            "orientation": "string"
           }
         ],
         "languages": [
@@ -147,7 +148,8 @@ content | **string** (byte)<br><p>Bytes with data</p>
         ]
       }
     ],
-    "fullText": "string"
+    "fullText": "string",
+    "rotate": "string"
   },
   "page": "string"
 }
@@ -183,6 +185,7 @@ textAnnotation.<br>blocks[].<br>lines[].<br>words[].<br>textSegments[].<br>lengt
 textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[] | **object**<br><p>Line position from full_text string.</p> 
 textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
 textAnnotation.<br>blocks[].<br>lines[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
+textAnnotation.<br>blocks[].<br>lines[].<br>orientation | **string**<br><p>Angle of rotate line</p> 
 textAnnotation.<br>blocks[].<br>languages[] | **object**<br><p>A list of detected languages</p> 
 textAnnotation.<br>blocks[].<br>languages[].<br>languageCode | **string**<br><p>Detected language code.</p> 
 textAnnotation.<br>blocks[].<br>textSegments[] | **object**<br><p>Block position from full_text string.</p> 
@@ -212,4 +215,5 @@ textAnnotation.<br>tables[].<br>cells[].<br>textSegments[] | **object**<br><p>Ta
 textAnnotation.<br>tables[].<br>cells[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
 textAnnotation.<br>tables[].<br>cells[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
 textAnnotation.<br>fullText | **string**<br><p>Full text recognized from image.</p> 
+textAnnotation.<br>rotate | **string**<br><p>Angle of rotate image</p> 
 page | **string** (int64)<br><p>Page number in PDF file.</p> 

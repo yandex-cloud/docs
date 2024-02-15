@@ -184,7 +184,10 @@ POST https://compute.{{ api-host }}/compute/v1/instances
     "gpuClusterId": "string"
   },
   "maintenancePolicy": "string",
-  "maintenanceGracePeriod": "string"
+  "maintenanceGracePeriod": "string",
+  "serialPortSettings": {
+    "sshAuthorization": "string"
+  }
 }
 ```
 
@@ -296,6 +299,8 @@ gpuSettings | **object**<br><p>GPU settings.</p>
 gpuSettings.<br>gpuClusterId | **string**<br><p>Attach instance to specified GPU cluster.</p> 
 maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
 maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> <p>Acceptable values are 1 seconds to 86400 seconds, inclusive.</p> 
+serialPortSettings | **object**<br><p>Serial port settings</p> 
+serialPortSettings.<br>sshAuthorization | **string**<br><p>Authentication and authorization in serial console when using SSH protocol</p> <ul> <li>INSTANCE_METADATA: Authentication and authorization using SSH keys in instance metadata</li> <li>OS_LOGIN: Authentication and authorization using Oslogin service</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

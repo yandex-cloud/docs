@@ -7,7 +7,7 @@ description: "By following this guide, you can assign a user as an organization 
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
   1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 

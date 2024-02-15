@@ -6,7 +6,7 @@ The role can be revoked by a [user with the organization administrator role](add
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
@@ -79,7 +79,7 @@ The role can be revoked by a [user with the organization administrator role](add
 
 - API {#api}
 
-   1. View the roles and assignees for a resource using the `listAccessBindings` method. For example, to view an organization's roles with the `bpf3crucp1v2********` ID:
+   1. View the roles and assignees for a resource using the `listAccessBindings` method. For example, to view the roles in the organization with the `bpf3crucp1v2********` ID:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********

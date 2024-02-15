@@ -19,7 +19,7 @@ An ID or email can be received by users with the `organization-manager.admin` or
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    {% include [users-info](../../_includes/users-info.md) %}
 

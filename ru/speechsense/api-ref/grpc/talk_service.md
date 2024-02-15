@@ -96,7 +96,9 @@ rpc for uploading talk document as single message
 Field | Description
 --- | ---
 metadata | **[TalkMetadata](#TalkMetadata)**<br> 
-audio | **[AudioRequest](#AudioRequest)**<br>audio meta + bytes 
+payload | **oneof:** `audio` or `text`<br>audio or text payload
+&nbsp;&nbsp;audio | **[AudioRequest](#AudioRequest)**<br>audio or text payload 
+&nbsp;&nbsp;text | **[TextRequest](#TextRequest)**<br>audio or text payload 
 
 
 ### TalkMetadata {#TalkMetadata1}
@@ -145,6 +147,22 @@ container_audio_type | enum **ContainerAudioType**<br>Type of audio container. <
 Field | Description
 --- | ---
 data | **bytes**<br>Bytes with audio data. 
+
+
+### TextRequest {#TextRequest}
+
+Field | Description
+--- | ---
+entries[] | **[TextEntry](#TextEntry)**<br> 
+
+
+### TextEntry {#TextEntry}
+
+Field | Description
+--- | ---
+channel_number | **int64**<br> 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+text | **string**<br> 
 
 
 ### UploadTalkResponse {#UploadTalkResponse1}

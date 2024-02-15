@@ -18,46 +18,13 @@ With {{ iam-short-name }}, you can:
 
 To grant a user access to a resource, you assign them [roles](access-control/roles.md) for the resource. Each role consists of a set of permissions that describe operations that can be performed with the resource.
 
-Before performing an operation with a certain resource (such as creating a VM), {{ yandex-cloud }} sends a request to the IAM service to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions to the list of permissions granted to the user who is performing this operation. If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error. For more information, see [{#T}](access-control/index.md).
-
+Before performing an operation with a resource, such as creating a VM, {{ yandex-cloud }} sends a request to the IAM service to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions to the list of permissions granted to the user who is performing this operation. If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error. For more information, see [{#T}](access-control/index.md).
 
 ## Accounts in {{ yandex-cloud }} {#accounts}
 
-To identify users performing operations with resources, use [Yandex accounts](#passport), [service accounts](#sa), or [federated accounts](#saml-federation).
+To identify users performing operations with resources, {{ yandex-cloud }} allows using various account types. For more information, see [{#T}](users/accounts.md).
 
-
-{% note info %}
-
-Billing accounts aren't used for managing resources in {{ yandex-cloud }} and aren't part of {{ iam-short-name }}. For more information, see [{#T}](../../billing/concepts/billing-account.md) in the {{ billing-name }} documentation.
-
-{% endnote %}
-
-
-### Yandex account {#passport}
-
-_Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) or [{{ yandex-360 }}](https://360.yandex.ru/) account.
-
-{% note info %}
-
-{% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
-
-{% endnote %}
-
-### Service accounts {#sa}
-
-{% include [sa-def](../_includes_service/sa-def.md) %}
-
-By using service accounts you can flexibly configure access rights to resources for programs you wrote. For more information, see [{#T}](users/service-accounts.md).
-
-### Federated accounts {#saml-federation}
-
-A _federated account_ is a user account from an identity federation, e.g., Active Directory.
-
-{% include [about-saml-federations](../../_includes/iam/about-saml-federations.md) %}
-
-For more information, see [{#T}](../../organization/concepts/add-federation.md).
-
-## Authorization keys {#keys}
+## Authentication keys {#keys}
 
 There are three types of keys used for authentication in {{ yandex-cloud }}:
 

@@ -47,13 +47,13 @@ To grant a user organization management access, [assign](#add-role) the user one
 
 ### Assigning a role to a user {#add-role}
 
-An organization's administrators and owners can assign roles in {{ org-full-name }}. You can assign users both roles for managing an organization and roles for your organization's connected cloud resources.
+Organization administrators and owners can assign roles in {{ org-full-name }}. You can assign users both roles for managing an organization and roles for your organization's connected cloud resources.
 
 For information about roles available in {{ yandex-cloud }} and their associated permissions, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
@@ -115,10 +115,10 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
       ```
       resource "yandex_organizationmanager_organization_iam_binding" "editor" {
-        organization_id = "<organization ID>"
+        organization_id = "<organization_ID>"
         role = "editor"
         members = [
-         "federatedUser:<user ID>",
+         "federatedUser:<user_ID>",
         ]
       }
       ```
@@ -134,7 +134,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal displays a list of the roles assigned. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Assign roles.
 
@@ -194,13 +194,13 @@ In a similar way, you can [assign roles](../../iam/operations/sa/assign-role-for
 
 ### Revoking a user's role {#revoke}
 
-If you wish to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access control in {{ yandex-cloud }}, please see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
+If you want to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access control in {{ yandex-cloud }}, please see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
 
 The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant roles to a user, see [Roles](#admin).
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
@@ -296,7 +296,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       }
       ```
 
-   1. Create the request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
+   1. Create a request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
 
       Example of `body.json` file:
 

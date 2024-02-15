@@ -173,6 +173,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/dataproc/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -255,6 +259,10 @@ items:
                 href: api-ref/Subcluster/list.md
               - name: update
                 href: api-ref/Subcluster/update.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Публичные материалы
     href: public-talks.md
   - name: История изменений

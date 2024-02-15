@@ -135,6 +135,9 @@ orderBy | <p>By which column the listing should be ordered and in which directio
           ]
         }
       ],
+      "serialPortSettings": {
+        "sshAuthorization": "string"
+      },
       "gpuSettings": {
         "gpuClusterId": "string"
       },
@@ -245,6 +248,8 @@ instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>dn
 instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if not set, a reasonable default is used.)</p> 
 instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
 instances[].<br>networkInterfaces[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
+instances[].<br>serialPortSettings | **object**<br><p>Serial port settings</p> 
+instances[].<br>serialPortSettings.<br>sshAuthorization | **string**<br><p>Authentication and authorization in serial console when using SSH protocol</p> <ul> <li>INSTANCE_METADATA: Authentication and authorization using SSH keys in instance metadata</li> <li>OS_LOGIN: Authentication and authorization using Oslogin service</li> </ul> 
 instances[].<br>gpuSettings | **object**<br><p>GPU settings</p> 
 instances[].<br>gpuSettings.<br>gpuClusterId | **string**<br><p>Attach instance to specified GPU cluster.</p> 
 instances[].<br>fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format ``<hostname>.<region_id>.internal`` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be ``<id>.auto.internal``.</p> 

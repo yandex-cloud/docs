@@ -1,6 +1,6 @@
 # Updating a folder
 
-To update a folder name or description, use the management console, CLI, API, or {{ TF }}.
+To update a [folder](../../concepts/resources-hierarchy.md#folder) name or description, use the management console, CLI, API, or {{ TF }}.
 
 {% list tabs group=instructions %}
 

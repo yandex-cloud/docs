@@ -74,35 +74,3 @@
     Идентификатор целевой группы можно получить со [списком целевых групп в каталоге](#list).
 
 {% endlist %}
-
-## Посмотреть список операций в целевой группе {#list-operations}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. На панели слева выберите ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
-    1. Нажмите на имя нужной целевой группы и перейдите на вкладку ![operations.svg](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
-
-- CLI {#cli}
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Чтобы получить список операций, выполните команду:
-
-    ```bash
-    yc load-balancer target-group list-operations <имя_или_идентификатор_целевой_группы>
-    ```
-
-    Идентификатор и имя целевой группы можно получить со [списком целевых групп в каталоге](#list).
-
-- API {#api}
-
-    Воспользуйтесь методом API [listOperations](../api-ref/TargetGroup/listOperations.md) и передайте идентификатор целевой группы в параметре `networkLoadBalancerId` запроса.
-
-    Идентификатор целевой группы можно получить со [списком целевых групп в каталоге](#list).
-
-{% endlist %}

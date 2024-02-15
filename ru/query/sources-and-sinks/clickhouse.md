@@ -24,30 +24,30 @@ SELECT * FROM clickhouse_mdb_connection.my_table
 Чтобы создать соединение с {{ mch-name }}:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. В списке сервисов выберите **{{ yq-full-name }}**.
-1. На панели слева перейдите на вкладку **Соединения**.
-1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Укажите параметры соединения:
 
-   1. В блоке **Общие параметры**:
+   1. В блоке **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
-      * **Имя** — название соединения с {{ mch-name }}.
-      * **Тип** — `{{ mch-name }}`.
-   1. В блоке **Параметры типа соединения**:
-      * **Кластер** — выберите существующий кластер {{ mch-name }} или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с ролью [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer), от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
-      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
-      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
-      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.
+      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** — название соединения с {{ mch-name }}.
+      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.click-house.select-item }}`.
+   1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mch-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с ролью [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer), от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
+      *  **{{ ui-key.yql.yq-connection-info.database.label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.
 
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 Сервисный аккаунт необходим для обнаружения точек подключения к кластерам {{ mch-name }} внутри {{ yandex-cloud }}, для работы с данными логин и пароль пользователя задаются отдельно.
 
 {% note warning %}
 
-Необходимо предварительно разрешить сетевой доступ от {{ yq-full-name }} до кластеров {{ mch-name }}. Для этого в настройках базы данных, к которой осуществляется подключение, установите пункт «**Доступ из Yandex Query**».
+Необходимо предварительно разрешить сетевой доступ от {{ yq-full-name }} до кластеров {{ mch-name }}. Для этого в настройках базы данных, к которой осуществляется подключение, установите пункт **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**.
 
 {% endnote %}
 

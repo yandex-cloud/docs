@@ -143,16 +143,7 @@
 
 Имя сервиса — `dataproc`.
 
-Имя события | Описание
---- | ---
-`CreateCluster` | Создание кластера
-`CreateSubcluster` | Создание подкластера
-`DeleteCluster` | Удаление кластера
-`DeleteSubcluster` | Удаление подкластера
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`UpdateSubcluster` | Изменение подкластера
+{% include [dataproc-events](../../_includes/audit-trails/events/dataproc-events.md) %}
 
 ## {{ data-transfer-name }} {#datatransfer}
 
@@ -200,136 +191,34 @@
 
 Имя сервиса — `mdb.kafka`
 
-Имя события | Описание
---- | ---
-`CreateCluster` | Создание кластера
-`DeleteCluster` | Удаление кластера
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`CreateConnector` | Создание коннектора
-`CreateTopic` | Создание топика
-`CreateUser` | Создание пользователя кластера
-`DeleteConnector` | Удаление коннектора
-`DeleteTopic` | Удаление топика
-`DeleteUser` | Удаление пользователя кластера
-`GrantUserPermission` | Назначение прав пользователю кластера
-`MoveCluster` | Перемещение кластера
-`PauseConnector` | Приостановка коннектора
-`ResumeConnector` | Возобновление работы коннектора
-`RevokeUserPermission` | Отзыв прав у пользователя кластера
-`UpdateConnector` | Изменение коннектора
-`UpdateTopic` | Изменение топика
-`UpdateUser` | Изменение пользователя кластера
+{% include [managed-kafka-events](../../_includes/audit-trails/events/managed-kafka-events.md) %}
 
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
 Имя сервиса — `mdb.clickhouse`.
 
-Имя события | Описание
---- | ---
-`AddClusterHosts` | Добавление новых хостов в кластер
-`AddClusterShard` | Добавление шарда в кластер
-`AddClusterZookeeper` | Добавление подкластера ZooKeeper в кластер
-`BackupCluster` | Создание резервной копии
-`CreateCluster` | Создание кластера
-`CreateClusterExternalDictionary` | Создание внешнего словаря
-`CreateDatabase` | Создание базы данных
-`CreateFormatSchema` | Создание схемы формата данных
-`CreateMlModel` | Создание модели машинного обучения
-`CreateShardGroup` | Создание группы шардов
-`CreateUser` | Создание пользователя базы данных
-`DeleteCluster` | Удаление кластера
-`DeleteClusterExternalDictionary` | Удаление внешнего словаря
-`DeleteClusterHosts` | Удаление хостов из кластера
-`DeleteClusterShard` | Удаление шарда из кластера
-`DeleteDatabase` | Удаление базы данных
-`DeleteFormatSchema` | Удаление схемы формата данных
-`DeleteMlModel` | Удаление модели машинного обучения
-`DeleteShardGroup` | Удаление группы шардов
-`DeleteUser` | Удаление пользователя базы данных
-`GrantUserPermission` | Назначение прав пользователю базы данных
-`MoveCluster` | Перемещение кластера
-`RestoreCluster` | Создание нового кластера из резервной копии
-`RevokeUserPermission` | Отзыв прав у пользователя базы данных
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`UpdateClusterExternalDictionary` | Изменение внешнего словаря
-`UpdateClusterShard` | Изменение шарда в кластере
-`UpdateFormatSchema` | Изменение схемы формата данных
-`UpdateMlModel` | Изменение модели машинного обучения
-`UpdateShardGroup` | Изменение группы шардов
-`UpdateUser` | Изменение пользователя базы данных
+{% include [mch-events](../../_includes/audit-trails/events/mch-events.md) %}
 
 
 ## {{ mgl-name }} {#managed-service-for-gitlab}
 
 Имя сервиса — `gitlab`.
 
-Имя события | Описание
---- | ---
-`BackupInstance` | Создание резервной копии
-`CleanupRegistryInstance` | Очистка Docker Registry
-`CreateInstance` | Создание инстанса
-`CreateInstanceBackup` | Создание резервной копии инстанса
-`DeleteInstance` | Удаление инстанса
-`ReconfigureGitlab` | Изменение конфигурации {{ GL }}
-`RescheduleMaintenance` | Перенос запланированного технического обслуживания
-`ResizeInstance` | Изменение размера инстанса
-`ScheduleUpgrade` | Назначение времени обновления инстанса
-`StartInstance` | Запуск инстанса
-`StopInstance` | Остановка инстанса
-`UpdateInstance` | Изменение инстанса
-`UpdateOmniauthInstance` | Изменение настроек OmniAuth
-`UpgradeInstance` | Обновление версии GitLab
+{% include [mgl-events](../../_includes/audit-trails/events/mgl-events.md) %}
 
 
 ## {{ mgp-short-name }} {#managed-service-for-greenplum}
 
 Имя сервиса — `mdb.greenplum`.
 
-Имя события | Описание
---- | ---
-`CreateCluster` | Создание кластера
-`CreateHBARule` | Создание правила аутентификации пользователей
-`CreatePXFDatasource` | Создание подключения к внешней таблице
-`DeleteBackup` | Удаление резервной копии
-`DeleteCluster` | Удаление кластера
-`DeleteHBARule` | Удаление правила аутентификации пользователей
-`DeletePXFDatasource` | Удаление подключения к внешней таблице
-`ExpandCluster` | Расширение кластера
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`UpdateHBARule` | Изменение правила аутентификации пользователей
-`UpdatePXFDatasource` | Изменение подключения к внешней таблице
+{% include [mgp-events](../../_includes/audit-trails/events/managed-greenplum-events.md) %}
 
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
 Имя сервиса — `mdb.mongodb`.
 
-Имя события | Описание
---- | ---
-`AddClusterHosts` | Добавление новых хостов в кластер
-`AddClusterShard` | Добавление шарда в кластер
-`BackupCluster` | Создание резервной копии
-`CreateCluster` | Создание кластера
-`DeleteBackup` | Удаление резервной копии
-`DeleteCluster` | Удаление кластера
-`DeleteClusterHosts` | Удаление хостов из кластера
-`DeleteClusterShard` | Удаление шарда из кластера
-`EnableClusterSharding` | Включение шардирования для кластера
-`MoveCluster` | Перемещение кластера
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`ResetupHosts` | Ресинхронизация хоста
-`RestartHosts` | Перезагрузка хоста
-`StepdownHosts` | Смена мастера хоста
+{% include [mongodb-events](../../_includes/audit-trails/events/mongodb-events.md) %}
 
 
 ## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
@@ -342,108 +231,31 @@
 
 Имя сервиса — `mdb.mysql`.
 
-Имя события | Описание
---- | ---
-`AddClusterHosts` | Добавление новых хостов в кластер
-`BackupCluster` | Создание резервной копии
-`CreateCluster` | Создание кластера
-`DatabaseUserLogin` | Подключение пользователя к базе данных
-`DatabaseUserLogout`| Отключение пользователя от базы данных
-`DeleteBackup` | Удаление резервной копии
-`DeleteCluster` | Удаление кластера
-`DeleteClusterHosts` | Удаление хостов из кластера
-`MoveCluster` | Перемещение кластера
-`RescheduleMaintenance` | Перенос запланированного технического обслуживания
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StartClusterFailover` | Запуск переключения мастера для кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`UpdateClusterHosts` | Изменение хостов в кластере
+{% include [mysql-events](../../_includes/audit-trails/events/mysql-events.md) %}
 
 ## {{ mpg-short-name }} {#managed-service-for-postgresql}
 
 Имя сервиса — `mdb.postgresql`.
 
-Имя события | Описание
---- | ---
-`AddClusterHosts` | Добавление новых хостов в кластер
-`BackupCluster` | Создание резервной копии
-`CreateCluster` | Создание кластера
-`DatabaseUserLogin` | Подключение пользователя к базе данных
-`DatabaseUserLogout`| Отключение пользователя от базы данных
-`DeleteBackup` | Удаление резервной копии
-`DeleteCluster` | Удаление кластера
-`DeleteClusterHosts` | Удаление хостов из кластера
-`MoveCluster` | Перемещение кластера
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StartClusterFailover` | Запуск переключения мастера для кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`UpdateClusterHosts` | Изменение хостов в кластере
+{% include [mpg-events](../../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
 ## {{ mrd-short-name }} {#managed-service-for-redis}
 
 Имя сервиса — `mdb.redis`.
 
-Имя события | Описание
---- | ---
-`AddClusterHosts` | Добавление новых хостов в кластер
-`AddClusterShard` | Добавление шарда в кластер
-`BackupCluster` | Создание резервной копии
-`CreateCluster` | Создание кластера
-`DeleteCluster` | Удаление кластера
-`DeleteClusterHosts` | Удаление хостов из кластера
-`DeleteClusterShard` | Удаление шарда из кластера
-`MoveCluster` | Перемещение кластера
-`RebalanceCluster` | Перебалансировка кластера
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StartClusterFailover` | Запуск переключения мастера для кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`UpdateClusterHosts` | Изменение хостов кластера
+{% include [mrd-events](../../_includes/audit-trails/events/mrd-events.md) %}
 
 ## {{ mes-short-name }} {#managed-service-for-elasticsearch}
 
 Имя сервиса — `mdb.elasticsearch`.
 
-Имя события | Описание
---- | ---
-`AddClusterHosts` | Добавление новых хостов в кластер
-`BackupCluster` | Создание резервной копии
-`CreateCluster` | Создание кластера
-`DeleteCluster` | Удаление кластера
-`DeleteClusterHosts` | Удаление хостов из кластера
-`MoveCluster` | Перемещение кластера
-`RescheduleMaintenance` | Перенос запланированного технического обслуживания
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
+{% include [mes-events](../../_includes/audit-trails/events/mes-events.md) %}
 
 ## {{ mos-short-name }} {#managed-service-for-opensearch}
 
 Имя сервиса — `mdb.opensearch`.
 
-Имя события | Описание
---- | ---
-`AddDashboardsNodeGroup` | Добавление группы хостов типа `Dashboards`
-`AddOpenSearchNodeGroup` | Добавление группы хостов типа `OpenSearch`
-`BackupCluster` | Создание резервной копии
-`CreateCluster` | Создание кластера
-`DeleteCluster` | Удаление кластера
-`DeleteDashboardsNodeGroup` | Удаление группы хостов типа `Dashboards`
-`DeleteOpenSearchNodeGroup` | Удаление группы хостов типа `OpenSearch`
-`MoveCluster` | Перемещение кластера
-`RescheduleMaintenance` | Перенос запланированного технического обслуживания
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
-`UpdateDashboardsNodeGroup` |  Изменение группы хостов типа `Dashboards`
-`UpdateOpenSearchNodeGroup` | Изменение группы хостов типа `OpenSearch`
+{% include [mos-events](../../_includes/audit-trails/events/mos-events.md) %}
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 

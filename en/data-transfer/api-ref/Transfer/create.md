@@ -19,11 +19,155 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
 {
   "sourceId": "string",
   "targetId": "string",
-  "name": "string",
   "description": "string",
-  "labels": "object",
   "folderId": "string",
-  "type": "string"
+  "runtime": {
+    "ycRuntime": {
+      "jobCount": "string",
+      "uploadShardParams": {
+        "jobCount": "string",
+        "processCount": "string"
+      }
+    }
+  },
+  "type": "string",
+  "name": "string",
+  "labels": "object",
+  "transformation": {
+    "transformers": [
+      {
+
+        // `transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`
+        "maskField": {
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
+          "columns": [
+            "string"
+          ],
+          "function": {
+            "maskFunctionHash": {
+              "userDefinedSalt": "string"
+            }
+          }
+        },
+        "filterColumns": {
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
+          "columns": {
+            "includeColumns": [
+              "string"
+            ],
+            "excludeColumns": [
+              "string"
+            ]
+          }
+        },
+        "renameTables": {
+          "renameTables": [
+            {
+              "originalName": {
+                "nameSpace": "string",
+                "name": "string"
+              },
+              "newName": {
+                "nameSpace": "string",
+                "name": "string"
+              }
+            }
+          ]
+        },
+        "replacePrimaryKey": {
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
+          "keys": [
+            "string"
+          ]
+        },
+        "convertToString": {
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
+          "columns": {
+            "includeColumns": [
+              "string"
+            ],
+            "excludeColumns": [
+              "string"
+            ]
+          }
+        },
+        "sharderTransformer": {
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
+          "columns": {
+            "includeColumns": [
+              "string"
+            ],
+            "excludeColumns": [
+              "string"
+            ]
+          },
+          "shardsCount": "string"
+        },
+        "tableSplitterTransformer": {
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
+          "columns": [
+            "string"
+          ],
+          "splitter": "string"
+        },
+        "filterRows": {
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
+          "filter": "string"
+        },
+        // end of the list of possible fields`transformation.transformers[]`
+
+      }
+    ]
+  }
 }
 ```
 
@@ -32,11 +176,73 @@ Field | Description
 --- | ---
 sourceId | **string**
 targetId | **string**
-name | **string**
 description | **string**
-labels | **object**
 folderId | **string**
+runtime | **object**
+runtime.<br>ycRuntime | **object**
+runtime.<br>ycRuntime.<br>jobCount | **string** (int64)
+runtime.<br>ycRuntime.<br>uploadShardParams | **object**
+runtime.<br>ycRuntime.<br>uploadShardParams.<br>jobCount | **string** (int64)
+runtime.<br>ycRuntime.<br>uploadShardParams.<br>processCount | **string** (int64)
 type | **string**<br><ul> <li>SNAPSHOT_AND_INCREMENT: Snapshot and increment</li> <li>SNAPSHOT_ONLY: Snapshot</li> <li>INCREMENT_ONLY: Increment</li> </ul> 
+name | **string**
+labels | **object**
+transformation | **object**<br><p>Transformation is converting data using special transformer functions. These functions are executed on a data stream, applied to each data change item, and transform them. A transformer can be run at both the metadata and data levels. Data can only be transformed if the source and target are of different types.</p> 
+transformation.<br>transformers[] | **object**<br><p>Transformers are set as a list. When activating a transfer, a transformation plan is made for the tables that match the specified criteria. Transformers are applied to the tables in the sequence specified in the list.</p> 
+transformation.<br>transformers[].<br>maskField | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Mask field transformer allows you to hash data</p> 
+transformation.<br>transformers[].<br>maskField.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transformation.<br>transformers[].<br>maskField.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
+transformation.<br>transformers[].<br>maskField.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>maskField.<br>columns[] | **string**<br><p>Specify the name of the column for data masking (a regular expression).</p> 
+transformation.<br>transformers[].<br>maskField.<br>function | **object**<br><p>Mask function</p> <p>Mask function</p> 
+transformation.<br>transformers[].<br>maskField.<br>function.<br>maskFunctionHash | **object**<br>Hash mask function
+transformation.<br>transformers[].<br>maskField.<br>function.<br>maskFunctionHash.<br>userDefinedSalt | **string**<br><p>This string will be used in the HMAC(sha256, salt) function applied to the column data.</p> 
+transformation.<br>transformers[].<br>filterColumns | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Set up a list of table columns to transfer</p> 
+transformation.<br>transformers[].<br>filterColumns.<br>tables | **object**<br><p>List of the tables to filter using lists of included and excluded tables.</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transformation.<br>transformers[].<br>filterColumns.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
+transformation.<br>transformers[].<br>filterColumns.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>filterColumns.<br>columns | **object**<br><p>List of the columns to transfer to the target tables using lists of included and excluded columns.</p> <p>Filter columns using lists of included and excluded columns.</p> 
+transformation.<br>transformers[].<br>filterColumns.<br>columns.<br>includeColumns[] | **string**<br><p>List of columns that will be included to transfer</p> 
+transformation.<br>transformers[].<br>filterColumns.<br>columns.<br>excludeColumns[] | **string**<br><p>List of columns that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>renameTables | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Set rules for renaming tables by specifying the current names of the tables in the source and new names for these tables in the target.</p> 
+transformation.<br>transformers[].<br>renameTables.<br>renameTables[] | **object**<br><p>List of renaming rules</p> 
+transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>originalName | **object**<br><p>Specify the current names of the table in the source</p> 
+transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>originalName.<br>nameSpace | **string**
+transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>originalName.<br>name | **string**
+transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>newName | **object**<br><p>Specify the new names for this table in the target</p> 
+transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>newName.<br>nameSpace | **string**
+transformation.<br>transformers[].<br>renameTables.<br>renameTables[].<br>newName.<br>name | **string**
+transformation.<br>transformers[].<br>replacePrimaryKey | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Override primary keys</p> 
+transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
+transformation.<br>transformers[].<br>replacePrimaryKey.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>replacePrimaryKey.<br>keys[] | **string**<br><p>List of columns to be used as primary keys</p> 
+transformation.<br>transformers[].<br>convertToString | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Convert column values to strings The values will be converted depending on the source type Conversion rules are described here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#convert-to-string</p> 
+transformation.<br>transformers[].<br>convertToString.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transformation.<br>transformers[].<br>convertToString.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
+transformation.<br>transformers[].<br>convertToString.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>convertToString.<br>columns | **object**<br><p>List of included and excluded columns</p> <p>Filter columns using lists of included and excluded columns.</p> 
+transformation.<br>transformers[].<br>convertToString.<br>columns.<br>includeColumns[] | **string**<br><p>List of columns that will be included to transfer</p> 
+transformation.<br>transformers[].<br>convertToString.<br>columns.<br>excludeColumns[] | **string**<br><p>List of columns that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>sharderTransformer | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>Set the number of shards for particular tables and a list of columns whose values will be used for calculating a hash to determine a shard.</p> 
+transformation.<br>transformers[].<br>sharderTransformer.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transformation.<br>transformers[].<br>sharderTransformer.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
+transformation.<br>transformers[].<br>sharderTransformer.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>sharderTransformer.<br>columns | **object**<br><p>List of included and excluded columns</p> <p>Filter columns using lists of included and excluded columns.</p> 
+transformation.<br>transformers[].<br>sharderTransformer.<br>columns.<br>includeColumns[] | **string**<br><p>List of columns that will be included to transfer</p> 
+transformation.<br>transformers[].<br>sharderTransformer.<br>columns.<br>excludeColumns[] | **string**<br><p>List of columns that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>sharderTransformer.<br>shardsCount | **string** (int64)<br><p>Number of shards</p> 
+transformation.<br>transformers[].<br>tableSplitterTransformer | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>A transfer splits the X table into multiple tables (X_1, X_2, ..., X_n) based on data. If a row was located in the X table before it was split, it is now in the X_i table, where i is determined by the column list and split string parameters. Example: If the column list has two columns, month of birth and gender, specified and the split string states @, information about an employee whose name is John and who was born on February 11, 1984, from the Employees table will get to a new table named Employees@February@male.</p> 
+transformation.<br>transformers[].<br>tableSplitterTransformer.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transformation.<br>transformers[].<br>tableSplitterTransformer.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
+transformation.<br>transformers[].<br>tableSplitterTransformer.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>tableSplitterTransformer.<br>columns[] | **string**<br><p>Specify the columns in the tables to be partitioned.</p> 
+transformation.<br>transformers[].<br>tableSplitterTransformer.<br>splitter | **string**<br><p>Specify the split string to be used for merging components in a new table name.</p> 
+transformation.<br>transformers[].<br>filterRows | **object** <br>`transformation.transformers[]` includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`<br><br><p>This filter only applies to transfers with queues (Logbroker or Apache Kafka®) as a data source. When running a transfer, only the strings meeting the specified criteria remain in a changefeed.</p> 
+transformation.<br>transformers[].<br>filterRows.<br>tables | **object**<br><p>List of included and excluded tables</p> <p>Filter tables using lists of included and excluded tables.</p> 
+transformation.<br>transformers[].<br>filterRows.<br>tables.<br>includeTables[] | **string**<br><p>List of tables that will be included to transfer</p> 
+transformation.<br>transformers[].<br>filterRows.<br>tables.<br>excludeTables[] | **string**<br><p>List of tables that will be excluded to transfer</p> 
+transformation.<br>transformers[].<br>filterRows.<br>filter | **string**<br><p>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

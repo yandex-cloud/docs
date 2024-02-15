@@ -31,11 +31,172 @@ Field | Description
 --- | ---
 source_id | **string**<br> 
 target_id | **string**<br> 
-name | **string**<br> 
 description | **string**<br> 
-labels | **map<string,string>**<br> 
 folder_id | **string**<br> 
+runtime | **[Runtime](#Runtime)**<br> 
 type | enum **TransferType**<br> <ul><li>`SNAPSHOT_AND_INCREMENT`: Snapshot and increment</li><li>`SNAPSHOT_ONLY`: Snapshot</li><li>`INCREMENT_ONLY`: Increment</li></ul>
+name | **string**<br> 
+labels | **map<string,string>**<br> 
+transformation | **[Transformation](#Transformation)**<br> 
+
+
+### Runtime {#Runtime}
+
+Field | Description
+--- | ---
+runtime | **oneof:** `yc_runtime`<br>
+&nbsp;&nbsp;yc_runtime | **[YcRuntime](#YcRuntime)**<br> 
+
+
+### YcRuntime {#YcRuntime}
+
+Field | Description
+--- | ---
+job_count | **int64**<br> 
+upload_shard_params | **[ShardingUploadParams](#ShardingUploadParams)**<br> 
+
+
+### ShardingUploadParams {#ShardingUploadParams}
+
+Field | Description
+--- | ---
+job_count | **int64**<br> 
+process_count | **int64**<br> 
+
+
+### Transformation {#Transformation}
+
+Field | Description
+--- | ---
+transformers[] | **[Transformer](#Transformer)**<br>Transformers are set as a list. When activating a transfer, a transformation plan is made for the tables that match the specified criteria. Transformers are applied to the tables in the sequence specified in the list. 
+
+
+### Transformer {#Transformer}
+
+Field | Description
+--- | ---
+transformer | **oneof:** `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer` or `filter_rows`<br>
+&nbsp;&nbsp;mask_field | **[MaskFieldTransformer](#MaskFieldTransformer)**<br> 
+&nbsp;&nbsp;filter_columns | **[FilterColumnsTransformer](#FilterColumnsTransformer)**<br> 
+&nbsp;&nbsp;rename_tables | **[RenameTablesTransformer](#RenameTablesTransformer)**<br> 
+&nbsp;&nbsp;replace_primary_key | **[ReplacePrimaryKeyTransformer](#ReplacePrimaryKeyTransformer)**<br> 
+&nbsp;&nbsp;convert_to_string | **[ToStringTransformer](#ToStringTransformer)**<br> 
+&nbsp;&nbsp;sharder_transformer | **[SharderTransformer](#SharderTransformer)**<br> 
+&nbsp;&nbsp;table_splitter_transformer | **[TableSplitterTransformer](#TableSplitterTransformer)**<br> 
+&nbsp;&nbsp;filter_rows | **[FilterRowsTransformer](#FilterRowsTransformer)**<br> 
+
+
+### MaskFieldTransformer {#MaskFieldTransformer}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter)**<br>List of included and excluded tables 
+columns[] | **string**<br>Specify the name of the column for data masking (a regular expression). 
+function | **[MaskFunction](#MaskFunction)**<br>Mask function 
+
+
+### TablesFilter {#TablesFilter}
+
+Field | Description
+--- | ---
+include_tables[] | **string**<br>List of tables that will be included to transfer 
+exclude_tables[] | **string**<br>List of tables that will be excluded to transfer 
+
+
+### MaskFunction {#MaskFunction}
+
+Field | Description
+--- | ---
+mask_function | **oneof:** `mask_function_hash`<br>
+&nbsp;&nbsp;mask_function_hash | **[MaskFunctionHash](#MaskFunctionHash)**<br>Hash mask function 
+
+
+### MaskFunctionHash {#MaskFunctionHash}
+
+Field | Description
+--- | ---
+user_defined_salt | **string**<br>This string will be used in the HMAC(sha256, salt) function applied to the column data. 
+
+
+### FilterColumnsTransformer {#FilterColumnsTransformer}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter1)**<br>List of the tables to filter using lists of included and excluded tables. 
+columns | **[ColumnsFilter](#ColumnsFilter)**<br>List of the columns to transfer to the target tables using lists of included and excluded columns. 
+
+
+### ColumnsFilter {#ColumnsFilter}
+
+Field | Description
+--- | ---
+include_columns[] | **string**<br>List of columns that will be included to transfer 
+exclude_columns[] | **string**<br>List of columns that will be excluded to transfer 
+
+
+### RenameTablesTransformer {#RenameTablesTransformer}
+
+Field | Description
+--- | ---
+rename_tables[] | **[RenameTable](#RenameTable)**<br>List of renaming rules 
+
+
+### RenameTable {#RenameTable}
+
+Field | Description
+--- | ---
+original_name | **[Table](#Table)**<br>Specify the current names of the table in the source 
+new_name | **[Table](#Table)**<br>Specify the new names for this table in the target 
+
+
+### Table {#Table}
+
+Field | Description
+--- | ---
+name_space | **string**<br> 
+name | **string**<br> 
+
+
+### ReplacePrimaryKeyTransformer {#ReplacePrimaryKeyTransformer}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables 
+keys[] | **string**<br>List of columns to be used as primary keys 
+
+
+### ToStringTransformer {#ToStringTransformer}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables 
+columns | **[ColumnsFilter](#ColumnsFilter1)**<br>List of included and excluded columns 
+
+
+### SharderTransformer {#SharderTransformer}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables 
+columns | **[ColumnsFilter](#ColumnsFilter1)**<br>List of included and excluded columns 
+shards_count | **int64**<br>Number of shards 
+
+
+### TableSplitterTransformer {#TableSplitterTransformer}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables 
+columns[] | **string**<br>Specify the columns in the tables to be partitioned. 
+splitter | **string**<br>Specify the split string to be used for merging components in a new table name. 
+
+
+### FilterRowsTransformer {#FilterRowsTransformer}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources 
 
 
 ### Operation {#Operation}
@@ -66,9 +227,170 @@ Field | Description
 --- | ---
 transfer_id | **string**<br>Identifier of the transfer to be updated. 
 description | **string**<br>The new description for the transfer. 
-labels | **map<string,string>**<br> 
+runtime | **[Runtime](#Runtime1)**<br> 
 name | **string**<br>The new transfer name. Must be unique within the folder. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask specifying transfer fields to be updated. Semantics for this field is described here: <https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask> The only exception: if the repeated field is specified in the mask, then the new value replaces the old one instead of being appended to the old one. 
+labels | **map<string,string>**<br> 
+transformation | **[Transformation](#Transformation1)**<br> 
+
+
+### Runtime {#Runtime1}
+
+Field | Description
+--- | ---
+runtime | **oneof:** `yc_runtime`<br>
+&nbsp;&nbsp;yc_runtime | **[YcRuntime](#YcRuntime1)**<br> 
+
+
+### YcRuntime {#YcRuntime1}
+
+Field | Description
+--- | ---
+job_count | **int64**<br> 
+upload_shard_params | **[ShardingUploadParams](#ShardingUploadParams1)**<br> 
+
+
+### ShardingUploadParams {#ShardingUploadParams1}
+
+Field | Description
+--- | ---
+job_count | **int64**<br> 
+process_count | **int64**<br> 
+
+
+### Transformation {#Transformation1}
+
+Field | Description
+--- | ---
+transformers[] | **[Transformer](#Transformer1)**<br>Transformers are set as a list. When activating a transfer, a transformation plan is made for the tables that match the specified criteria. Transformers are applied to the tables in the sequence specified in the list. 
+
+
+### Transformer {#Transformer1}
+
+Field | Description
+--- | ---
+transformer | **oneof:** `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer` or `filter_rows`<br>
+&nbsp;&nbsp;mask_field | **[MaskFieldTransformer](#MaskFieldTransformer1)**<br> 
+&nbsp;&nbsp;filter_columns | **[FilterColumnsTransformer](#FilterColumnsTransformer1)**<br> 
+&nbsp;&nbsp;rename_tables | **[RenameTablesTransformer](#RenameTablesTransformer1)**<br> 
+&nbsp;&nbsp;replace_primary_key | **[ReplacePrimaryKeyTransformer](#ReplacePrimaryKeyTransformer1)**<br> 
+&nbsp;&nbsp;convert_to_string | **[ToStringTransformer](#ToStringTransformer1)**<br> 
+&nbsp;&nbsp;sharder_transformer | **[SharderTransformer](#SharderTransformer1)**<br> 
+&nbsp;&nbsp;table_splitter_transformer | **[TableSplitterTransformer](#TableSplitterTransformer1)**<br> 
+&nbsp;&nbsp;filter_rows | **[FilterRowsTransformer](#FilterRowsTransformer1)**<br> 
+
+
+### MaskFieldTransformer {#MaskFieldTransformer1}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables 
+columns[] | **string**<br>Specify the name of the column for data masking (a regular expression). 
+function | **[MaskFunction](#MaskFunction1)**<br>Mask function 
+
+
+### TablesFilter {#TablesFilter1}
+
+Field | Description
+--- | ---
+include_tables[] | **string**<br>List of tables that will be included to transfer 
+exclude_tables[] | **string**<br>List of tables that will be excluded to transfer 
+
+
+### MaskFunction {#MaskFunction1}
+
+Field | Description
+--- | ---
+mask_function | **oneof:** `mask_function_hash`<br>
+&nbsp;&nbsp;mask_function_hash | **[MaskFunctionHash](#MaskFunctionHash1)**<br>Hash mask function 
+
+
+### MaskFunctionHash {#MaskFunctionHash1}
+
+Field | Description
+--- | ---
+user_defined_salt | **string**<br>This string will be used in the HMAC(sha256, salt) function applied to the column data. 
+
+
+### FilterColumnsTransformer {#FilterColumnsTransformer1}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter2)**<br>List of the tables to filter using lists of included and excluded tables. 
+columns | **[ColumnsFilter](#ColumnsFilter1)**<br>List of the columns to transfer to the target tables using lists of included and excluded columns. 
+
+
+### ColumnsFilter {#ColumnsFilter1}
+
+Field | Description
+--- | ---
+include_columns[] | **string**<br>List of columns that will be included to transfer 
+exclude_columns[] | **string**<br>List of columns that will be excluded to transfer 
+
+
+### RenameTablesTransformer {#RenameTablesTransformer1}
+
+Field | Description
+--- | ---
+rename_tables[] | **[RenameTable](#RenameTable1)**<br>List of renaming rules 
+
+
+### RenameTable {#RenameTable1}
+
+Field | Description
+--- | ---
+original_name | **[Table](#Table1)**<br>Specify the current names of the table in the source 
+new_name | **[Table](#Table1)**<br>Specify the new names for this table in the target 
+
+
+### Table {#Table1}
+
+Field | Description
+--- | ---
+name_space | **string**<br> 
+name | **string**<br> 
+
+
+### ReplacePrimaryKeyTransformer {#ReplacePrimaryKeyTransformer1}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables 
+keys[] | **string**<br>List of columns to be used as primary keys 
+
+
+### ToStringTransformer {#ToStringTransformer1}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables 
+columns | **[ColumnsFilter](#ColumnsFilter2)**<br>List of included and excluded columns 
+
+
+### SharderTransformer {#SharderTransformer1}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables 
+columns | **[ColumnsFilter](#ColumnsFilter2)**<br>List of included and excluded columns 
+shards_count | **int64**<br>Number of shards 
+
+
+### TableSplitterTransformer {#TableSplitterTransformer1}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables 
+columns[] | **string**<br>Specify the columns in the tables to be partitioned. 
+splitter | **string**<br>Specify the split string to be used for merging components in a new table name. 
+
+
+### FilterRowsTransformer {#FilterRowsTransformer1}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources 
 
 
 ### Operation {#Operation1}
@@ -150,9 +472,11 @@ description | **string**<br>
 labels | **map<string,string>**<br> 
 source | **[Endpoint](#Endpoint)**<br> 
 target | **[Endpoint](#Endpoint)**<br> 
+runtime | **[Runtime](#Runtime2)**<br> 
 status | enum **TransferStatus**<br> <ul><li>`CREATING`: Transfer does some work before running</li><li>`CREATED`: Transfer created but not started by user</li><li>`RUNNING`: Transfer currently doing replication work</li><li>`STOPPING`: Transfer shutdown</li><li>`STOPPED`: Transfer stopped by user</li><li>`ERROR`: Transfer stopped by system</li><li>`SNAPSHOTTING`: Transfer copy snapshot</li><li>`DONE`: Transfer reach terminal phase</li></ul>
 type | enum **TransferType**<br> <ul><li>`SNAPSHOT_AND_INCREMENT`: Snapshot and increment</li><li>`SNAPSHOT_ONLY`: Snapshot</li><li>`INCREMENT_ONLY`: Increment</li></ul>
 warning | **string**<br> 
+transformation | **[Transformation](#Transformation2)**<br> 
 
 
 ### Endpoint {#Endpoint}
@@ -171,10 +495,11 @@ settings | **[EndpointSettings](#EndpointSettings)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target` or `yds_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource)**<br> 
 &nbsp;&nbsp;ydb_source | **[endpoint.YdbSource](#YdbSource)**<br> 
+&nbsp;&nbsp;yds_source | **[endpoint.YDSSource](#YDSSource)**<br> 
 &nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource)**<br> 
@@ -184,6 +509,7 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_so
 &nbsp;&nbsp;ydb_target | **[endpoint.YdbTarget](#YdbTarget)**<br> 
 &nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget)**<br> 
+&nbsp;&nbsp;yds_target | **[endpoint.YDSTarget](#YDSTarget)**<br> 
 
 
 ### MysqlSource {#MysqlSource}
@@ -191,15 +517,15 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_so
 Field | Description
 --- | ---
 connection | **[MysqlConnection](#MysqlConnection)**<br>Database connection settings 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source. 
-service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 user | **string**<br>User for database access. 
 password | **[Secret](#Secret)**<br>Password for database access. 
-include_tables_regex[] | **string**<br> 
-exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
 object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferSettings)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
+include_tables_regex[] | **string**<br> 
+exclude_tables_regex[] | **string**<br> 
+security_groups[] | **string**<br>Security groups 
+service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
 ### MysqlConnection {#MysqlConnection}
@@ -215,10 +541,10 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 
 Field | Description
 --- | ---
-hosts[] | **string**<br> 
 port | **int64**<br>Database port 
-tls_mode | **[TLSMode](#TLSMode)**<br>TLS settings for server connection. Disabled by default. 
 subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+hosts[] | **string**<br> 
+tls_mode | **[TLSMode](#TLSMode)**<br>TLS settings for server connection. Disabled by default. 
 
 
 ### TLSMode {#TLSMode}
@@ -260,7 +586,6 @@ tables | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data tra
 Field | Description
 --- | ---
 connection | **[PostgresConnection](#PostgresConnection)**<br>Database connection settings 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 user | **string**<br>User for database access. 
 password | **[Secret](#Secret1)**<br>Password for database access. 
@@ -269,6 +594,7 @@ exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is pr
 slot_byte_lag_limit | **int64**<br>Maximum lag of replication slot (in bytes); after exceeding this limit replication will be aborted. 
 service_schema | **string**<br>Database schema for service tables (__consumer_keeper, __data_transfer_mole_finder). Default is public 
 object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings)**<br>Select database objects to be transferred during activation or deactivation. 
+security_groups[] | **string**<br>Security groups 
 
 
 ### PostgresConnection {#PostgresConnection}
@@ -284,10 +610,10 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 
 Field | Description
 --- | ---
-hosts[] | **string**<br> 
 port | **int64**<br>Will be used if the cluster ID is not specified. 
-tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for server connection. Disabled by default. 
 subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+hosts[] | **string**<br> 
+tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for server connection. Disabled by default. 
 
 
 ### PostgresObjectTransferSettings {#PostgresObjectTransferSettings}
@@ -296,7 +622,6 @@ Field | Description
 --- | ---
 sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
-sequence_set | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
@@ -304,7 +629,6 @@ default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE 
 constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
-materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
@@ -312,6 +636,8 @@ rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... <ul><li>`BEFORE
 collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_set | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 
 
 ### YdbSource {#YdbSource}
@@ -320,76 +646,28 @@ Field | Description
 --- | ---
 database | **string**<br>Path in YDB where to store tables 
 instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
-service_account_id | **string**<br> 
 paths[] | **string**<br> 
+service_account_id | **string**<br> 
 subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
-security_groups[] | **string**<br>Security groups 
 sa_key_content | **string**<br>Authorization Key 
-
-
-### KafkaSource {#KafkaSource}
-
-Field | Description
---- | ---
-connection | **[KafkaConnectionOptions](#KafkaConnectionOptions)**<br>Connection settings 
-auth | **[KafkaAuth](#KafkaAuth)**<br>Authentication settings 
 security_groups[] | **string**<br>Security groups 
-topic_name | **string**<br>Full source topic name Deprecated in favor of topic names 
-transformer | **[DataTransformationOptions](#DataTransformationOptions)**<br>Data transformation rules 
+changefeed_custom_name | **string**<br>Pre-created change feed 
+
+
+### YDSSource {#YDSSource}
+
+Field | Description
+--- | ---
+database | **string**<br>Database 
+stream | **string**<br>Stream 
+service_account_id | **string**<br>SA which has read access to the stream. 
+supported_codecs[] | enum **YdsCompressionCodec**<br>Compression codec 
 parser | **[Parser](#Parser)**<br>Data parsing rules 
-topic_names[] | **string**<br>List of topic names to read 
-
-
-### KafkaConnectionOptions {#KafkaConnectionOptions}
-
-Field | Description
---- | ---
-connection | **oneof:** `cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;cluster_id | **string**<br>Managed Service for Kafka cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseKafka](#OnPremiseKafka)**<br>Connection options for on-premise Kafka 
-
-
-### OnPremiseKafka {#OnPremiseKafka}
-
-Field | Description
---- | ---
-broker_urls[] | **string**<br>Kafka broker URLs 
-tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for broker connection. Disabled by default. 
+allow_ttl_rewind | **bool**<br>Should continue working, if consumer read lag exceed TTL of topic False: stop the transfer in error state, if detected lost data. True: continue working with losing part of data 
+endpoint | **string**<br>for dedicated db 
 subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
-
-
-### KafkaAuth {#KafkaAuth}
-
-Field | Description
---- | ---
-security | **oneof:** `sasl` or `no_auth`<br>
-&nbsp;&nbsp;sasl | **[KafkaSaslSecurity](#KafkaSaslSecurity)**<br>Authentication with SASL 
-&nbsp;&nbsp;no_auth | **[NoAuth](#NoAuth)**<br>No authentication 
-
-
-### KafkaSaslSecurity {#KafkaSaslSecurity}
-
-Field | Description
---- | ---
-user | **string**<br>User name 
-password | **[Secret](#Secret1)**<br>Password for user 
-mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication 
-
-
-### NoAuth {#NoAuth}
-
-Empty.
-
-### DataTransformationOptions {#DataTransformationOptions}
-
-Field | Description
---- | ---
-cloud_function | **string**<br>Cloud function 
-service_account_id | **string**<br>Service account 
-number_of_retries | **int64**<br>Number of retries 
-buffer_size | **string**<br>Buffer size for function 
-buffer_flush_interval | **string**<br>Flush interval 
-invocation_timeout | **string**<br>Invocation timeout 
+security_groups[] | **string**<br>Security groups 
+consumer | **string**<br>for important streams 
 
 
 ### Parser {#Parser}
@@ -410,6 +688,7 @@ Field | Description
 data_schema | **[DataSchema](#DataSchema)**<br> 
 null_keys_allowed | **bool**<br>Allow null keys, if no - null keys will be putted to unparsed data 
 add_rest_column | **bool**<br>Will add _rest column for all unknown fields 
+unescape_string_values | **bool**<br>Unescape string values 
 
 
 ### DataSchema {#DataSchema}
@@ -447,16 +726,81 @@ Empty.
 
 Empty.
 
+### KafkaSource {#KafkaSource}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_name | **string**<br>Full source topic name Deprecated in favor of topic names 
+transformer | **[DataTransformationOptions](#DataTransformationOptions)**<br>Data transformation rules 
+parser | **[Parser](#Parser1)**<br>Data parsing rules 
+topic_names[] | **string**<br>List of topic names to read 
+
+
+### KafkaConnectionOptions {#KafkaConnectionOptions}
+
+Field | Description
+--- | ---
+connection | **oneof:** `cluster_id` or `on_premise`<br>
+&nbsp;&nbsp;cluster_id | **string**<br>Managed Service for Kafka cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseKafka](#OnPremiseKafka)**<br>Connection options for on-premise Kafka 
+
+
+### OnPremiseKafka {#OnPremiseKafka}
+
+Field | Description
+--- | ---
+broker_urls[] | **string**<br>Kafka broker URLs 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for broker connection. Disabled by default. 
+
+
+### KafkaAuth {#KafkaAuth}
+
+Field | Description
+--- | ---
+security | **oneof:** `sasl` or `no_auth`<br>
+&nbsp;&nbsp;sasl | **[KafkaSaslSecurity](#KafkaSaslSecurity)**<br>Authentication with SASL 
+&nbsp;&nbsp;no_auth | **[NoAuth](#NoAuth)**<br>No authentication 
+
+
+### KafkaSaslSecurity {#KafkaSaslSecurity}
+
+Field | Description
+--- | ---
+user | **string**<br>User name 
+mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication 
+password | **[Secret](#Secret1)**<br>Password for user 
+
+
+### NoAuth {#NoAuth}
+
+Empty.
+
+### DataTransformationOptions {#DataTransformationOptions}
+
+Field | Description
+--- | ---
+cloud_function | **string**<br>Cloud function 
+number_of_retries | **int64**<br>Number of retries 
+buffer_size | **string**<br>Buffer size for function 
+buffer_flush_interval | **string**<br>Flush interval 
+invocation_timeout | **string**<br>Invocation timeout 
+service_account_id | **string**<br>Service account 
+
+
 ### MongoSource {#MongoSource}
 
 Field | Description
 --- | ---
 connection | **[MongoConnection](#MongoConnection)**<br> 
 subnet_id | **string**<br> 
-security_groups[] | **string**<br>Security groups 
 collections[] | **[MongoCollection](#MongoCollection)**<br>List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name. 
 excluded_collections[] | **[MongoCollection](#MongoCollection)**<br>List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema. 
 secondary_preferred_mode | **bool**<br>Read mode for mongo client 
+security_groups[] | **string**<br>Security groups 
 
 
 ### MongoConnection {#MongoConnection}
@@ -485,8 +829,8 @@ Field | Description
 --- | ---
 hosts[] | **string**<br> 
 port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode1)**<br> 
 replica_set | **string**<br> 
+tls_mode | **[TLSMode](#TLSMode1)**<br> 
 
 
 ### MongoCollection {#MongoCollection}
@@ -502,10 +846,10 @@ collection_name | **string**<br>
 Field | Description
 --- | ---
 connection | **[ClickhouseConnection](#ClickhouseConnection)**<br> 
-subnet_id | **string**<br> 
-security_groups[] | **string**<br> 
 include_tables[] | **string**<br>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
+subnet_id | **string**<br> 
+security_groups[] | **string**<br> 
 
 
 ### ClickhouseConnection {#ClickhouseConnection}
@@ -523,9 +867,9 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse)**<br> 
-database | **string**<br>Database 
 user | **string**<br> 
 password | **[Secret](#Secret1)**<br> 
+database | **string**<br>Database 
 
 
 ### OnPremiseClickhouse {#OnPremiseClickhouse}
@@ -551,7 +895,6 @@ hosts[] | **string**<br>
 Field | Description
 --- | ---
 connection | **[MysqlConnection](#MysqlConnection1)**<br>Database connection settings 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table. 
 user | **string**<br>User for database access. 
 password | **[Secret](#Secret1)**<br>Password for database access. 
@@ -560,6 +903,7 @@ skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
 cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
+security_groups[] | **string**<br>Security groups 
 
 
 ### PostgresTarget {#PostgresTarget}
@@ -567,11 +911,11 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 Field | Description
 --- | ---
 connection | **[PostgresConnection](#PostgresConnection1)**<br>Database connection settings 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 user | **string**<br>User for database access. 
 password | **[Secret](#Secret1)**<br>Password for database access. 
 cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy for activate, reactivate and reupload processes. Default is truncate. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
+security_groups[] | **string**<br>Security groups 
 
 
 ### ClickhouseTarget {#ClickhouseTarget}
@@ -580,11 +924,11 @@ Field | Description
 --- | ---
 connection | **[ClickhouseConnection](#ClickhouseConnection1)**<br> 
 subnet_id | **string**<br> 
-security_groups[] | **string**<br> 
-clickhouse_cluster_name | **string**<br> 
 alt_names[] | **[AltName](#AltName)**<br>Alternative table names in target 
-sharding | **[ClickhouseSharding](#ClickhouseSharding)**<br> 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
+sharding | **[ClickhouseSharding](#ClickhouseSharding)**<br> 
+clickhouse_cluster_name | **string**<br> 
+security_groups[] | **string**<br> 
 
 
 ### AltName {#AltName}
@@ -643,13 +987,14 @@ Field | Description
 --- | ---
 database | **string**<br>Path in YDB where to store tables 
 instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
-service_account_id | **string**<br> 
 path | **string**<br>Path extension for database, each table will be layouted into this path 
-subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
-security_groups[] | **string**<br>Security groups 
-sa_key_content | **string**<br>SA content 
+service_account_id | **string**<br> 
 cleanup_policy | enum **YdbCleanupPolicy**<br>Cleanup policy 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+sa_key_content | **string**<br>SA content 
+security_groups[] | **string**<br>Security groups 
 is_table_column_oriented | **bool**<br>Should create column-oriented table (OLAP). By default it creates row-oriented (OLTP) 
+default_compression | enum **YdbDefaultCompression**<br>Compression that will be used for default columns family on YDB table creation 
 
 
 ### KafkaTarget {#KafkaTarget}
@@ -718,10 +1063,183 @@ value | **string**<br>Value of the serializer parameter
 Field | Description
 --- | ---
 connection | **[MongoConnection](#MongoConnection1)**<br> 
-subnet_id | **string**<br> 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 cleanup_policy | enum **CleanupPolicy**<br> <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
+subnet_id | **string**<br> 
+security_groups[] | **string**<br>Security groups 
+
+
+### YDSTarget {#YDSTarget}
+
+Field | Description
+--- | ---
+database | **string**<br>Database 
+stream | **string**<br>Stream 
+service_account_id | **string**<br>SA which has read access to the stream. 
+save_tx_order | **bool**<br>Save transaction order Not to split events queue into separate per-table queues. Incompatible with setting Topic prefix, only with Topic full name. 
+serializer | **[Serializer](#Serializer1)**<br>Data serialization format 
+endpoint | **string**<br>for dedicated db 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+
+
+### Runtime {#Runtime2}
+
+Field | Description
+--- | ---
+runtime | **oneof:** `yc_runtime`<br>
+&nbsp;&nbsp;yc_runtime | **[YcRuntime](#YcRuntime2)**<br> 
+
+
+### YcRuntime {#YcRuntime2}
+
+Field | Description
+--- | ---
+job_count | **int64**<br> 
+upload_shard_params | **[ShardingUploadParams](#ShardingUploadParams2)**<br> 
+
+
+### ShardingUploadParams {#ShardingUploadParams2}
+
+Field | Description
+--- | ---
+job_count | **int64**<br> 
+process_count | **int64**<br> 
+
+
+### Transformation {#Transformation2}
+
+Field | Description
+--- | ---
+transformers[] | **[Transformer](#Transformer2)**<br>Transformers are set as a list. When activating a transfer, a transformation plan is made for the tables that match the specified criteria. Transformers are applied to the tables in the sequence specified in the list. 
+
+
+### Transformer {#Transformer2}
+
+Field | Description
+--- | ---
+transformer | **oneof:** `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer` or `filter_rows`<br>
+&nbsp;&nbsp;mask_field | **[MaskFieldTransformer](#MaskFieldTransformer2)**<br> 
+&nbsp;&nbsp;filter_columns | **[FilterColumnsTransformer](#FilterColumnsTransformer2)**<br> 
+&nbsp;&nbsp;rename_tables | **[RenameTablesTransformer](#RenameTablesTransformer2)**<br> 
+&nbsp;&nbsp;replace_primary_key | **[ReplacePrimaryKeyTransformer](#ReplacePrimaryKeyTransformer2)**<br> 
+&nbsp;&nbsp;convert_to_string | **[ToStringTransformer](#ToStringTransformer2)**<br> 
+&nbsp;&nbsp;sharder_transformer | **[SharderTransformer](#SharderTransformer2)**<br> 
+&nbsp;&nbsp;table_splitter_transformer | **[TableSplitterTransformer](#TableSplitterTransformer2)**<br> 
+&nbsp;&nbsp;filter_rows | **[FilterRowsTransformer](#FilterRowsTransformer2)**<br> 
+
+
+### MaskFieldTransformer {#MaskFieldTransformer2}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables 
+columns[] | **string**<br>Specify the name of the column for data masking (a regular expression). 
+function | **[MaskFunction](#MaskFunction2)**<br>Mask function 
+
+
+### TablesFilter {#TablesFilter2}
+
+Field | Description
+--- | ---
+include_tables[] | **string**<br>List of tables that will be included to transfer 
+exclude_tables[] | **string**<br>List of tables that will be excluded to transfer 
+
+
+### MaskFunction {#MaskFunction2}
+
+Field | Description
+--- | ---
+mask_function | **oneof:** `mask_function_hash`<br>
+&nbsp;&nbsp;mask_function_hash | **[MaskFunctionHash](#MaskFunctionHash2)**<br>Hash mask function 
+
+
+### MaskFunctionHash {#MaskFunctionHash2}
+
+Field | Description
+--- | ---
+user_defined_salt | **string**<br>This string will be used in the HMAC(sha256, salt) function applied to the column data. 
+
+
+### FilterColumnsTransformer {#FilterColumnsTransformer2}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter3)**<br>List of the tables to filter using lists of included and excluded tables. 
+columns | **[ColumnsFilter](#ColumnsFilter2)**<br>List of the columns to transfer to the target tables using lists of included and excluded columns. 
+
+
+### ColumnsFilter {#ColumnsFilter2}
+
+Field | Description
+--- | ---
+include_columns[] | **string**<br>List of columns that will be included to transfer 
+exclude_columns[] | **string**<br>List of columns that will be excluded to transfer 
+
+
+### RenameTablesTransformer {#RenameTablesTransformer2}
+
+Field | Description
+--- | ---
+rename_tables[] | **[RenameTable](#RenameTable2)**<br>List of renaming rules 
+
+
+### RenameTable {#RenameTable2}
+
+Field | Description
+--- | ---
+original_name | **[Table](#Table2)**<br>Specify the current names of the table in the source 
+new_name | **[Table](#Table2)**<br>Specify the new names for this table in the target 
+
+
+### Table {#Table2}
+
+Field | Description
+--- | ---
+name_space | **string**<br> 
+name | **string**<br> 
+
+
+### ReplacePrimaryKeyTransformer {#ReplacePrimaryKeyTransformer2}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables 
+keys[] | **string**<br>List of columns to be used as primary keys 
+
+
+### ToStringTransformer {#ToStringTransformer2}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables 
+columns | **[ColumnsFilter](#ColumnsFilter3)**<br>List of included and excluded columns 
+
+
+### SharderTransformer {#SharderTransformer2}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables 
+columns | **[ColumnsFilter](#ColumnsFilter3)**<br>List of included and excluded columns 
+shards_count | **int64**<br>Number of shards 
+
+
+### TableSplitterTransformer {#TableSplitterTransformer2}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables 
+columns[] | **string**<br>Specify the columns in the tables to be partitioned. 
+splitter | **string**<br>Specify the split string to be used for merging components in a new table name. 
+
+
+### FilterRowsTransformer {#FilterRowsTransformer2}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources 
 
 
 ## Get {#Get}
@@ -748,9 +1266,11 @@ description | **string**<br>
 labels | **map<string,string>**<br> 
 source | **[Endpoint](#Endpoint1)**<br> 
 target | **[Endpoint](#Endpoint1)**<br> 
+runtime | **[Runtime](#Runtime3)**<br> 
 status | enum **TransferStatus**<br> <ul><li>`CREATING`: Transfer does some work before running</li><li>`CREATED`: Transfer created but not started by user</li><li>`RUNNING`: Transfer currently doing replication work</li><li>`STOPPING`: Transfer shutdown</li><li>`STOPPED`: Transfer stopped by user</li><li>`ERROR`: Transfer stopped by system</li><li>`SNAPSHOTTING`: Transfer copy snapshot</li><li>`DONE`: Transfer reach terminal phase</li></ul>
 type | enum **TransferType**<br> <ul><li>`SNAPSHOT_AND_INCREMENT`: Snapshot and increment</li><li>`SNAPSHOT_ONLY`: Snapshot</li><li>`INCREMENT_ONLY`: Increment</li></ul>
 warning | **string**<br> 
+transformation | **[Transformation](#Transformation3)**<br> 
 
 
 ### Endpoint {#Endpoint1}
@@ -769,10 +1289,11 @@ settings | **[EndpointSettings](#EndpointSettings1)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target` or `yds_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource1)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource1)**<br> 
 &nbsp;&nbsp;ydb_source | **[endpoint.YdbSource](#YdbSource1)**<br> 
+&nbsp;&nbsp;yds_source | **[endpoint.YDSSource](#YDSSource1)**<br> 
 &nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource1)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource1)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource1)**<br> 
@@ -782,6 +1303,7 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_so
 &nbsp;&nbsp;ydb_target | **[endpoint.YdbTarget](#YdbTarget1)**<br> 
 &nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget1)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget1)**<br> 
+&nbsp;&nbsp;yds_target | **[endpoint.YDSTarget](#YDSTarget1)**<br> 
 
 
 ### MysqlSource {#MysqlSource1}
@@ -789,15 +1311,15 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_so
 Field | Description
 --- | ---
 connection | **[MysqlConnection](#MysqlConnection1)**<br>Database connection settings 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source. 
-service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 user | **string**<br>User for database access. 
 password | **[Secret](#Secret1)**<br>Password for database access. 
-include_tables_regex[] | **string**<br> 
-exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
 object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferSettings1)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
+include_tables_regex[] | **string**<br> 
+exclude_tables_regex[] | **string**<br> 
+security_groups[] | **string**<br>Security groups 
+service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
 ### MysqlConnection {#MysqlConnection1}
@@ -813,10 +1335,10 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 
 Field | Description
 --- | ---
-hosts[] | **string**<br> 
 port | **int64**<br>Database port 
-tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for server connection. Disabled by default. 
 subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+hosts[] | **string**<br> 
+tls_mode | **[TLSMode](#TLSMode1)**<br>TLS settings for server connection. Disabled by default. 
 
 
 ### TLSMode {#TLSMode1}
@@ -858,7 +1380,6 @@ tables | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data tra
 Field | Description
 --- | ---
 connection | **[PostgresConnection](#PostgresConnection1)**<br>Database connection settings 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 user | **string**<br>User for database access. 
 password | **[Secret](#Secret2)**<br>Password for database access. 
@@ -867,6 +1388,7 @@ exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is pr
 slot_byte_lag_limit | **int64**<br>Maximum lag of replication slot (in bytes); after exceeding this limit replication will be aborted. 
 service_schema | **string**<br>Database schema for service tables (__consumer_keeper, __data_transfer_mole_finder). Default is public 
 object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings1)**<br>Select database objects to be transferred during activation or deactivation. 
+security_groups[] | **string**<br>Security groups 
 
 
 ### PostgresConnection {#PostgresConnection1}
@@ -882,10 +1404,10 @@ connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 
 Field | Description
 --- | ---
-hosts[] | **string**<br> 
 port | **int64**<br>Will be used if the cluster ID is not specified. 
-tls_mode | **[TLSMode](#TLSMode2)**<br>TLS settings for server connection. Disabled by default. 
 subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+hosts[] | **string**<br> 
+tls_mode | **[TLSMode](#TLSMode2)**<br>TLS settings for server connection. Disabled by default. 
 
 
 ### PostgresObjectTransferSettings {#PostgresObjectTransferSettings1}
@@ -894,7 +1416,6 @@ Field | Description
 --- | ---
 sequence | enum **ObjectTransferStage**<br>Sequences <br>CREATE SEQUENCE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 sequence_owned_by | enum **ObjectTransferStage**<br>Owned sequences <br>CREATE SEQUENCE ... OWNED BY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
-sequence_set | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 table | enum **ObjectTransferStage**<br>Tables <br>CREATE TABLE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 primary_key | enum **ObjectTransferStage**<br>Primary keys <br>ALTER TABLE ... ADD PRIMARY KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 fk_constraint | enum **ObjectTransferStage**<br>Foreign keys <br>ALTER TABLE ... ADD FOREIGN KEY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
@@ -902,7 +1423,6 @@ default_values | enum **ObjectTransferStage**<br>Default values <br>ALTER TABLE 
 constraint | enum **ObjectTransferStage**<br>Constraints <br>ALTER TABLE ... ADD CONSTRAINT ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 index | enum **ObjectTransferStage**<br>Indexes <br>CREATE INDEX ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 view | enum **ObjectTransferStage**<br>Views <br>CREATE VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
-materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 function | enum **ObjectTransferStage**<br>Functions <br>CREATE FUNCTION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 type | enum **ObjectTransferStage**<br>Types <br>CREATE TYPE ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
@@ -910,6 +1430,8 @@ rule | enum **ObjectTransferStage**<br>Rules <br>CREATE RULE ... <ul><li>`BEFORE
 collation | enum **ObjectTransferStage**<br>Collations <br>CREATE COLLATION ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREATE MATERIALIZED VIEW ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
+sequence_set | enum **ObjectTransferStage**<br> <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 
 
 ### YdbSource {#YdbSource1}
@@ -918,76 +1440,28 @@ Field | Description
 --- | ---
 database | **string**<br>Path in YDB where to store tables 
 instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
-service_account_id | **string**<br> 
 paths[] | **string**<br> 
+service_account_id | **string**<br> 
 subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
-security_groups[] | **string**<br>Security groups 
 sa_key_content | **string**<br>Authorization Key 
-
-
-### KafkaSource {#KafkaSource1}
-
-Field | Description
---- | ---
-connection | **[KafkaConnectionOptions](#KafkaConnectionOptions1)**<br>Connection settings 
-auth | **[KafkaAuth](#KafkaAuth1)**<br>Authentication settings 
 security_groups[] | **string**<br>Security groups 
-topic_name | **string**<br>Full source topic name Deprecated in favor of topic names 
-transformer | **[DataTransformationOptions](#DataTransformationOptions1)**<br>Data transformation rules 
+changefeed_custom_name | **string**<br>Pre-created change feed 
+
+
+### YDSSource {#YDSSource1}
+
+Field | Description
+--- | ---
+database | **string**<br>Database 
+stream | **string**<br>Stream 
+service_account_id | **string**<br>SA which has read access to the stream. 
+supported_codecs[] | enum **YdsCompressionCodec**<br>Compression codec 
 parser | **[Parser](#Parser1)**<br>Data parsing rules 
-topic_names[] | **string**<br>List of topic names to read 
-
-
-### KafkaConnectionOptions {#KafkaConnectionOptions1}
-
-Field | Description
---- | ---
-connection | **oneof:** `cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;cluster_id | **string**<br>Managed Service for Kafka cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseKafka](#OnPremiseKafka1)**<br>Connection options for on-premise Kafka 
-
-
-### OnPremiseKafka {#OnPremiseKafka1}
-
-Field | Description
---- | ---
-broker_urls[] | **string**<br>Kafka broker URLs 
-tls_mode | **[TLSMode](#TLSMode2)**<br>TLS settings for broker connection. Disabled by default. 
+allow_ttl_rewind | **bool**<br>Should continue working, if consumer read lag exceed TTL of topic False: stop the transfer in error state, if detected lost data. True: continue working with losing part of data 
+endpoint | **string**<br>for dedicated db 
 subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
-
-
-### KafkaAuth {#KafkaAuth1}
-
-Field | Description
---- | ---
-security | **oneof:** `sasl` or `no_auth`<br>
-&nbsp;&nbsp;sasl | **[KafkaSaslSecurity](#KafkaSaslSecurity1)**<br>Authentication with SASL 
-&nbsp;&nbsp;no_auth | **[NoAuth](#NoAuth1)**<br>No authentication 
-
-
-### KafkaSaslSecurity {#KafkaSaslSecurity1}
-
-Field | Description
---- | ---
-user | **string**<br>User name 
-password | **[Secret](#Secret2)**<br>Password for user 
-mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication 
-
-
-### NoAuth {#NoAuth1}
-
-Empty.
-
-### DataTransformationOptions {#DataTransformationOptions1}
-
-Field | Description
---- | ---
-cloud_function | **string**<br>Cloud function 
-service_account_id | **string**<br>Service account 
-number_of_retries | **int64**<br>Number of retries 
-buffer_size | **string**<br>Buffer size for function 
-buffer_flush_interval | **string**<br>Flush interval 
-invocation_timeout | **string**<br>Invocation timeout 
+security_groups[] | **string**<br>Security groups 
+consumer | **string**<br>for important streams 
 
 
 ### Parser {#Parser1}
@@ -1008,6 +1482,7 @@ Field | Description
 data_schema | **[DataSchema](#DataSchema1)**<br> 
 null_keys_allowed | **bool**<br>Allow null keys, if no - null keys will be putted to unparsed data 
 add_rest_column | **bool**<br>Will add _rest column for all unknown fields 
+unescape_string_values | **bool**<br>Unescape string values 
 
 
 ### DataSchema {#DataSchema1}
@@ -1045,16 +1520,81 @@ Empty.
 
 Empty.
 
+### KafkaSource {#KafkaSource1}
+
+Field | Description
+--- | ---
+connection | **[KafkaConnectionOptions](#KafkaConnectionOptions1)**<br>Connection settings 
+auth | **[KafkaAuth](#KafkaAuth1)**<br>Authentication settings 
+security_groups[] | **string**<br>Security groups 
+topic_name | **string**<br>Full source topic name Deprecated in favor of topic names 
+transformer | **[DataTransformationOptions](#DataTransformationOptions1)**<br>Data transformation rules 
+parser | **[Parser](#Parser2)**<br>Data parsing rules 
+topic_names[] | **string**<br>List of topic names to read 
+
+
+### KafkaConnectionOptions {#KafkaConnectionOptions1}
+
+Field | Description
+--- | ---
+connection | **oneof:** `cluster_id` or `on_premise`<br>
+&nbsp;&nbsp;cluster_id | **string**<br>Managed Service for Kafka cluster ID 
+&nbsp;&nbsp;on_premise | **[OnPremiseKafka](#OnPremiseKafka1)**<br>Connection options for on-premise Kafka 
+
+
+### OnPremiseKafka {#OnPremiseKafka1}
+
+Field | Description
+--- | ---
+broker_urls[] | **string**<br>Kafka broker URLs 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+tls_mode | **[TLSMode](#TLSMode2)**<br>TLS settings for broker connection. Disabled by default. 
+
+
+### KafkaAuth {#KafkaAuth1}
+
+Field | Description
+--- | ---
+security | **oneof:** `sasl` or `no_auth`<br>
+&nbsp;&nbsp;sasl | **[KafkaSaslSecurity](#KafkaSaslSecurity1)**<br>Authentication with SASL 
+&nbsp;&nbsp;no_auth | **[NoAuth](#NoAuth1)**<br>No authentication 
+
+
+### KafkaSaslSecurity {#KafkaSaslSecurity1}
+
+Field | Description
+--- | ---
+user | **string**<br>User name 
+mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication 
+password | **[Secret](#Secret2)**<br>Password for user 
+
+
+### NoAuth {#NoAuth1}
+
+Empty.
+
+### DataTransformationOptions {#DataTransformationOptions1}
+
+Field | Description
+--- | ---
+cloud_function | **string**<br>Cloud function 
+number_of_retries | **int64**<br>Number of retries 
+buffer_size | **string**<br>Buffer size for function 
+buffer_flush_interval | **string**<br>Flush interval 
+invocation_timeout | **string**<br>Invocation timeout 
+service_account_id | **string**<br>Service account 
+
+
 ### MongoSource {#MongoSource1}
 
 Field | Description
 --- | ---
 connection | **[MongoConnection](#MongoConnection1)**<br> 
 subnet_id | **string**<br> 
-security_groups[] | **string**<br>Security groups 
 collections[] | **[MongoCollection](#MongoCollection1)**<br>List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name. 
 excluded_collections[] | **[MongoCollection](#MongoCollection1)**<br>List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema. 
 secondary_preferred_mode | **bool**<br>Read mode for mongo client 
+security_groups[] | **string**<br>Security groups 
 
 
 ### MongoConnection {#MongoConnection1}
@@ -1083,8 +1623,8 @@ Field | Description
 --- | ---
 hosts[] | **string**<br> 
 port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode2)**<br> 
 replica_set | **string**<br> 
+tls_mode | **[TLSMode](#TLSMode2)**<br> 
 
 
 ### MongoCollection {#MongoCollection1}
@@ -1100,10 +1640,10 @@ collection_name | **string**<br>
 Field | Description
 --- | ---
 connection | **[ClickhouseConnection](#ClickhouseConnection1)**<br> 
-subnet_id | **string**<br> 
-security_groups[] | **string**<br> 
 include_tables[] | **string**<br>While list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
 exclude_tables[] | **string**<br>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns. 
+subnet_id | **string**<br> 
+security_groups[] | **string**<br> 
 
 
 ### ClickhouseConnection {#ClickhouseConnection1}
@@ -1121,9 +1661,9 @@ Field | Description
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse1)**<br> 
-database | **string**<br>Database 
 user | **string**<br> 
 password | **[Secret](#Secret2)**<br> 
+database | **string**<br>Database 
 
 
 ### OnPremiseClickhouse {#OnPremiseClickhouse1}
@@ -1149,7 +1689,6 @@ hosts[] | **string**<br>
 Field | Description
 --- | ---
 connection | **[MysqlConnection](#MysqlConnection2)**<br>Database connection settings 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table. 
 user | **string**<br>User for database access. 
 password | **[Secret](#Secret2)**<br>Password for database access. 
@@ -1158,6 +1697,7 @@ skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
 cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
+security_groups[] | **string**<br>Security groups 
 
 
 ### PostgresTarget {#PostgresTarget1}
@@ -1165,11 +1705,11 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 Field | Description
 --- | ---
 connection | **[PostgresConnection](#PostgresConnection2)**<br>Database connection settings 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 user | **string**<br>User for database access. 
 password | **[Secret](#Secret2)**<br>Password for database access. 
 cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy for activate, reactivate and reupload processes. Default is truncate. <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
+security_groups[] | **string**<br>Security groups 
 
 
 ### ClickhouseTarget {#ClickhouseTarget1}
@@ -1178,11 +1718,11 @@ Field | Description
 --- | ---
 connection | **[ClickhouseConnection](#ClickhouseConnection2)**<br> 
 subnet_id | **string**<br> 
-security_groups[] | **string**<br> 
-clickhouse_cluster_name | **string**<br> 
 alt_names[] | **[AltName](#AltName1)**<br>Alternative table names in target 
-sharding | **[ClickhouseSharding](#ClickhouseSharding1)**<br> 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
+sharding | **[ClickhouseSharding](#ClickhouseSharding1)**<br> 
+clickhouse_cluster_name | **string**<br> 
+security_groups[] | **string**<br> 
 
 
 ### AltName {#AltName1}
@@ -1241,13 +1781,14 @@ Field | Description
 --- | ---
 database | **string**<br>Path in YDB where to store tables 
 instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
-service_account_id | **string**<br> 
 path | **string**<br>Path extension for database, each table will be layouted into this path 
-subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
-security_groups[] | **string**<br>Security groups 
-sa_key_content | **string**<br>SA content 
+service_account_id | **string**<br> 
 cleanup_policy | enum **YdbCleanupPolicy**<br>Cleanup policy 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+sa_key_content | **string**<br>SA content 
+security_groups[] | **string**<br>Security groups 
 is_table_column_oriented | **bool**<br>Should create column-oriented table (OLAP). By default it creates row-oriented (OLTP) 
+default_compression | enum **YdbDefaultCompression**<br>Compression that will be used for default columns family on YDB table creation 
 
 
 ### KafkaTarget {#KafkaTarget1}
@@ -1316,10 +1857,183 @@ value | **string**<br>Value of the serializer parameter
 Field | Description
 --- | ---
 connection | **[MongoConnection](#MongoConnection2)**<br> 
-subnet_id | **string**<br> 
-security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 cleanup_policy | enum **CleanupPolicy**<br> <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
+subnet_id | **string**<br> 
+security_groups[] | **string**<br>Security groups 
+
+
+### YDSTarget {#YDSTarget1}
+
+Field | Description
+--- | ---
+database | **string**<br>Database 
+stream | **string**<br>Stream 
+service_account_id | **string**<br>SA which has read access to the stream. 
+save_tx_order | **bool**<br>Save transaction order Not to split events queue into separate per-table queues. Incompatible with setting Topic prefix, only with Topic full name. 
+serializer | **[Serializer](#Serializer2)**<br>Data serialization format 
+endpoint | **string**<br>for dedicated db 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+
+
+### Runtime {#Runtime3}
+
+Field | Description
+--- | ---
+runtime | **oneof:** `yc_runtime`<br>
+&nbsp;&nbsp;yc_runtime | **[YcRuntime](#YcRuntime3)**<br> 
+
+
+### YcRuntime {#YcRuntime3}
+
+Field | Description
+--- | ---
+job_count | **int64**<br> 
+upload_shard_params | **[ShardingUploadParams](#ShardingUploadParams3)**<br> 
+
+
+### ShardingUploadParams {#ShardingUploadParams3}
+
+Field | Description
+--- | ---
+job_count | **int64**<br> 
+process_count | **int64**<br> 
+
+
+### Transformation {#Transformation3}
+
+Field | Description
+--- | ---
+transformers[] | **[Transformer](#Transformer3)**<br>Transformers are set as a list. When activating a transfer, a transformation plan is made for the tables that match the specified criteria. Transformers are applied to the tables in the sequence specified in the list. 
+
+
+### Transformer {#Transformer3}
+
+Field | Description
+--- | ---
+transformer | **oneof:** `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer` or `filter_rows`<br>
+&nbsp;&nbsp;mask_field | **[MaskFieldTransformer](#MaskFieldTransformer3)**<br> 
+&nbsp;&nbsp;filter_columns | **[FilterColumnsTransformer](#FilterColumnsTransformer3)**<br> 
+&nbsp;&nbsp;rename_tables | **[RenameTablesTransformer](#RenameTablesTransformer3)**<br> 
+&nbsp;&nbsp;replace_primary_key | **[ReplacePrimaryKeyTransformer](#ReplacePrimaryKeyTransformer3)**<br> 
+&nbsp;&nbsp;convert_to_string | **[ToStringTransformer](#ToStringTransformer3)**<br> 
+&nbsp;&nbsp;sharder_transformer | **[SharderTransformer](#SharderTransformer3)**<br> 
+&nbsp;&nbsp;table_splitter_transformer | **[TableSplitterTransformer](#TableSplitterTransformer3)**<br> 
+&nbsp;&nbsp;filter_rows | **[FilterRowsTransformer](#FilterRowsTransformer3)**<br> 
+
+
+### MaskFieldTransformer {#MaskFieldTransformer3}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables 
+columns[] | **string**<br>Specify the name of the column for data masking (a regular expression). 
+function | **[MaskFunction](#MaskFunction3)**<br>Mask function 
+
+
+### TablesFilter {#TablesFilter3}
+
+Field | Description
+--- | ---
+include_tables[] | **string**<br>List of tables that will be included to transfer 
+exclude_tables[] | **string**<br>List of tables that will be excluded to transfer 
+
+
+### MaskFunction {#MaskFunction3}
+
+Field | Description
+--- | ---
+mask_function | **oneof:** `mask_function_hash`<br>
+&nbsp;&nbsp;mask_function_hash | **[MaskFunctionHash](#MaskFunctionHash3)**<br>Hash mask function 
+
+
+### MaskFunctionHash {#MaskFunctionHash3}
+
+Field | Description
+--- | ---
+user_defined_salt | **string**<br>This string will be used in the HMAC(sha256, salt) function applied to the column data. 
+
+
+### FilterColumnsTransformer {#FilterColumnsTransformer3}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter4)**<br>List of the tables to filter using lists of included and excluded tables. 
+columns | **[ColumnsFilter](#ColumnsFilter3)**<br>List of the columns to transfer to the target tables using lists of included and excluded columns. 
+
+
+### ColumnsFilter {#ColumnsFilter3}
+
+Field | Description
+--- | ---
+include_columns[] | **string**<br>List of columns that will be included to transfer 
+exclude_columns[] | **string**<br>List of columns that will be excluded to transfer 
+
+
+### RenameTablesTransformer {#RenameTablesTransformer3}
+
+Field | Description
+--- | ---
+rename_tables[] | **[RenameTable](#RenameTable3)**<br>List of renaming rules 
+
+
+### RenameTable {#RenameTable3}
+
+Field | Description
+--- | ---
+original_name | **[Table](#Table3)**<br>Specify the current names of the table in the source 
+new_name | **[Table](#Table3)**<br>Specify the new names for this table in the target 
+
+
+### Table {#Table3}
+
+Field | Description
+--- | ---
+name_space | **string**<br> 
+name | **string**<br> 
+
+
+### ReplacePrimaryKeyTransformer {#ReplacePrimaryKeyTransformer3}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter4)**<br>List of included and excluded tables 
+keys[] | **string**<br>List of columns to be used as primary keys 
+
+
+### ToStringTransformer {#ToStringTransformer3}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter4)**<br>List of included and excluded tables 
+columns | **[ColumnsFilter](#ColumnsFilter4)**<br>List of included and excluded columns 
+
+
+### SharderTransformer {#SharderTransformer3}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter4)**<br>List of included and excluded tables 
+columns | **[ColumnsFilter](#ColumnsFilter4)**<br>List of included and excluded columns 
+shards_count | **int64**<br>Number of shards 
+
+
+### TableSplitterTransformer {#TableSplitterTransformer3}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter4)**<br>List of included and excluded tables 
+columns[] | **string**<br>Specify the columns in the tables to be partitioned. 
+splitter | **string**<br>Specify the split string to be used for merging components in a new table name. 
+
+
+### FilterRowsTransformer {#FilterRowsTransformer3}
+
+Field | Description
+--- | ---
+tables | **[TablesFilter](#TablesFilter4)**<br>List of included and excluded tables 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources 
 
 
 ## Deactivate {#Deactivate}

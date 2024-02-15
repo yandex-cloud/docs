@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/docker_image_service.md
 
 # DataSphere API v2, gRPC: DockerImageService
 
-
+A set of methods for managing Docker Images.
 
 | Call | Description |
 | --- | --- |

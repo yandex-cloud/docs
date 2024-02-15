@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. Go to [{{ org-full-name }}]({{link-org-main}}).
 

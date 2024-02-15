@@ -22,8 +22,9 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Instance ID.|
 |`--name`|<b>`string`</b><br/>Instance name.|
-|`--login`|<b>`string`</b><br/>Certificate owner login.|
+|`--login`|<b>`string`</b><br/>Specifies the user to log in as on the remote machine. If not specified the certificate is issued to a default OS Login profile.|
 |`--internal-address`|Connect to instance via internal address.|
+|`-i`,`--identity-file`|<b>`string`</b><br/>Selects a file from which the identity (private key) for public key authentication is read. If not specified a new ssh certificate is issued.|
 |`--profile`|<b>`string`</b><br/>Set the custom configuration file.|
 |`--debug`|Debug logging.|
 |`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|

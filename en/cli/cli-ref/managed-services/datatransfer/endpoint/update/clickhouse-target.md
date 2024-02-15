@@ -17,6 +17,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--file`|<b>`string`</b><br/>Path to a file with grpc request, see proto files in the protobuf API specification: https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/datatransfer/v1|
 |`--name`|<b>`string`</b><br/>Endpoint name|
 |`--description`|<b>`string`</b><br/>Endpoint description|
 |`--host`|<b>`value[,value]`</b><br/>Clickhouse server host name or IP address. The format is {shard_name}:{hostname_or_ip_address}, where {shard_name} is an arbitrary shard name this host belongs to. The colon itself is specified as \:, and the backslash is specified as \\.|

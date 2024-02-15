@@ -30,6 +30,7 @@ Aliases:
 	- [yc managed-greenplum cluster create](cluster/create.md) — Create Greenplum cluster
 	- [yc managed-greenplum cluster restore](cluster/restore.md) — Restore Greenplum cluster
 	- [yc managed-greenplum cluster delete](cluster/delete.md) — Delete the specified Greenplum cluster
+	- [yc managed-greenplum cluster backup](cluster/backup.md) — Create a backup for the specified Greenplum cluster
 	- [yc managed-greenplum cluster list-backups](cluster/list-backups.md) — List available backups for the specified Greenplum cluster
 	- [yc managed-greenplum cluster expand](cluster/expand.md) — Expands the specified Greenplum cluster
 	- [yc managed-greenplum cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified Greenplum cluster
@@ -37,6 +38,10 @@ Aliases:
 	- [yc managed-greenplum cluster start](cluster/start.md) — Start the specified Greenplum cluster
 	- [yc managed-greenplum cluster stop](cluster/stop.md) — Stop the specified Greenplum cluster
 - [yc managed-greenplum hosts](hosts/index.md) — Manage Greenplum cluster hosts.
+- [yc managed-greenplum backup](backup/index.md) — Manage Greenplum cluster backups
+	- [yc managed-greenplum backup get](backup/get.md) — Show information about the specified Greenplum backup
+	- [yc managed-greenplum backup list](backup/list.md) — List available backups
+	- [yc managed-greenplum backup delete](backup/delete.md) — Delete the specified Greenplum backup
 - [yc managed-greenplum resource-preset](resource-preset/index.md) — Manage Greenplum resource presets
 
 #### Global Flags

@@ -22,11 +22,11 @@ FROM $query;
 ## Настройка соединения
 
 Для отправки метрик в {{ monitoring-name }} необходимо:
-1. Перейти в интерфейс {{ yq-full-name }} в раздел **Connections** и нажать кнопку **Create**.
-1. В открывшемся окне в поле **Name** указать название соединения с {{ monitoring-name }}.
-1. В выпадающем поле **Type** выбрать **Monitoring**.
-1. В поле **Service account** выбрать сервисный аккаунт, который будет использоваться для записи метрик, или создать новый, выдав ему права [`monitoring.editor`](../../monitoring/security/index.md).
-1. Создать соединение, нажав кнопку **Create**.
+1. Перейти в интерфейс {{ yq-full-name }} в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ monitoring-name }}.
+1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.monitoring.select-item }}`.
+1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для записи метрик, или создать новый, выдав ему права [`monitoring.editor`](../../monitoring/security/index.md).
+1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 ## Модель данных
 

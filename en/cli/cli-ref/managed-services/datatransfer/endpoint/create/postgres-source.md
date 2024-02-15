@@ -17,6 +17,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--file`|<b>`string`</b><br/>Path to a file with grpc request, see proto files in the protobuf API specification: https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/datatransfer/v1|
 |`--name`|<b>`string`</b><br/>Endpoint name|
 |`--description`|<b>`string`</b><br/>Endpoint description|
 |`--cluster-id`|<b>`string`</b><br/>Yandex Managed Service for PostgreSQL cluster ID|
@@ -32,8 +33,8 @@ Syntax:
 |`-p`,`--exclude-table`|<b>`value[,value]`</b><br/>Do not transfer these tables|
 |`--slot-lag-limit`|<b>`int`</b><br/>Terminate replication once the WAL lag on the slot exceeds the specified limit, in bytes. Unlimited by default|
 |`--service-schema`|<b>`string`</b><br/>Schema to create auxiliary tables in|
-|`-b`,`--transfer-before-data`|<b>`value[,value]`</b><br/>Schema objects to transfer before transferring data, one of [sequence, sequence_owned_by, sequence_set, table, primary_key, fk_constraint, default_values, constraint, index, view, materialized_view, function, trigger, type, rule, collation, policy, cast]|
-|`-a`,`--transfer-after-data`|<b>`value[,value]`</b><br/>Schema objects to transfer after transferring data, one of [sequence, sequence_owned_by, sequence_set, table, primary_key, fk_constraint, default_values, constraint, index, view, materialized_view, function, trigger, type, rule, collation, policy, cast]|
+|`-b`,`--transfer-before-data`|<b>`value[,value]`</b><br/>Schema objects to transfer before transferring data, one of [sequence, sequence_owned_by, table, primary_key, fk_constraint, default_values, constraint, index, view, function, trigger, type, rule, collation, policy, cast, materialized_view, sequence_set]|
+|`-a`,`--transfer-after-data`|<b>`value[,value]`</b><br/>Schema objects to transfer after transferring data, one of [sequence, sequence_owned_by, table, primary_key, fk_constraint, default_values, constraint, index, view, function, trigger, type, rule, collation, policy, cast, materialized_view, sequence_set]|
 
 #### Global Flags
 

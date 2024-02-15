@@ -1,6 +1,6 @@
 # Management event reference
 
-The value of the `event_type` field in a management event (control plane) audit log is determined by the event source service.
+The value of the `event_type` field in a management (control plane) event audit log is determined by the event source service.
 
 The general value format is as follows:
 
@@ -14,6 +14,7 @@ On this page, you will find events for the following services:
 * [{{ alb-name }}](#alb)
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
+* [{{ cloud-apps-name }}](#cloud-apps)
 * [{{ dns-name }}](#dns)
 * [{{ sf-name }}](#functions)
 * [{{ backup-name }}](#backup)
@@ -27,6 +28,7 @@ On this page, you will find events for the following services:
 * [{{ iam-name }}](#iam)
 * [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
+* [{{ load-testing-name }}](#loadtesting)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mkf-short-name }}](#managed-service-for-kafka)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
@@ -122,17 +124,17 @@ Service name: `cdn`.
 
 Service name: `certificatemanager`.
 
+{% include [cm-events](../../_includes/audit-trails/events/cm-events.md) %}
+
+## {{ cloud-apps-name }} {#cloud-apps}
+
+Service name: `cloudapps`.
+
 | Event name | Description |
 --- | ---
-| `CreateCertificate` | Adding a certificate |
-| `CreateDomain` | Adding a domain |
-| `UpdateCertificate` | Editing a certificate |
-| `UpdateDomain` | Updating a domain |
-| `DeleteCertificate` | Deleting a certificate |
-| `DeleteDomain` | Deleting a domain |
-| `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
-| `SetCertificateAccessBindings` | Setting access bindings for a certificate |
-| `SetDomainPrimaryCertificate` | Assigning a primary certificate to a domain |
+| `CreateCloudApplication` | Creating an application |
+| `DeleteCloudApplication` | Deleting an application |
+| `UpdateCloudApplication` | Updating an application |
 
 ## {{ dns-name }} {#dns}
 
@@ -146,11 +148,27 @@ Service name: `logging`.
 
 | Event name | Description |
 --- | ---
+| `ChangeLogGroupAccessBindings` | Updating access bindings for a log group |
+| `CreateExport` | Creating a log export |
 | `CreateLogGroup` | Creating a log group |
+| `CreateRoutingRule` | Creating a routing rule |
+| `CreateSink` | Creating a log sink |
 | `UpdateLogGroup` | Updating a log group |
+| `DeleteExport` | Deleting a log export |
 | `DeleteLogGroup` | Deleting a log group |
+| `DeleteRoutingRule` | Deleting a routing rule |
+| `DeleteSink` | Deleting a log sink |
+| `SetExportAccessBindings` | Setting access bindings for a log export |
 | `SetLogGroupAccessBindings` | Setting access bindings for a log group |
+| `SetRoutingRuleAccessBindings` | Setting access bindings for a routing rule |
+| `SetSinkAccessBindings` | Setting access bindings for a log sink |
+| `UpdateExport` | Updating a log export |
+| `UpdateExportAccessBindings` | Updating access bindings for a log export |
 | `UpdateLogGroupAccessBindings` | Updating access bindings for a log group |
+| `UpdateRoutingRule` | Updating a routing rule |
+| `UpdateRoutingRuleAccessBindings` | Updating access bindings for a routing rule |
+| `UpdateSink` | Updating a log sink |
+| `UpdateSinkAccessBindings` | Updating access bindings for a log sink |
 
 ## {{ compute-name }} {#compute}
 
@@ -177,6 +195,7 @@ Service name: `containerregistry`.
 | `DeleteRepository` | Deleting a repository |
 | `DeleteScanPolicy` | Deleting a scan policy |
 | `ScanImage` | Scanning an image |
+| `SetIpPermission` | Assigning an IP access policy |
 | `UpdateIpPermission` | Updating policies for accessing a registry from IP addresses |
 | `UpdateLifecyclePolicy` | Updating a lifecycle policy |
 | `UpdateRegistry` | Updating a registry |
@@ -215,8 +234,8 @@ Service name: `datatransfer`.
 | `DeleteTransfer` | Deleting a transfer |
 | `FreezeTransferVersion` | Committing a certain data plane version for a transfer |
 | `RestartTransfer` | Restarting a transfer |
-| `UnfreezeTransferVersion` | Allowing a transfer update to the latest data plane version |
-| `UpdateEndpoint` | Editing an endpoint |
+| `UnfreezeTransferVersion` | Enabling transfer upgrades to the latest data plane version |
+| `UpdateEndpoint` | Updating an endpoint |
 | `UpdateTransfer` | Updating a transfer |
 | `UpdateTransferVersion` | Updating the version of a data plane transfer |
 
@@ -224,50 +243,13 @@ Service name: `datatransfer`.
 
 Service name: `datasphere`.
 
-| Event name | Description |
---- | ---
-| `CreateCommunity` | Creating a community |
-| `CreateProject` | Creating a project |
-| `DeleteCommunity` | Deleting a community |
-| `DeleteProject` | Deleting a project |
-| `SetCommunityAccessBindings` | Setting access bindings for a community |
-| `SetProjectAccessBindings` | Setting access bindings for a project |
-| `UpdateCommunity` | Updating a community |
-| `UpdateCommunityAccessBindings` | Updating access bindings for a community |
-| `UpdateProject` | Updating a project |
-| `UpdateProjectAccessBindings` | Updating access bindings for a project |
+{% include [ds-events](../../_includes/audit-trails/events/ds-events.md) %}
 
 ## {{ iam-name }} {#iam}
 
 Service name: `iam`.
 
-| Event name | Description |
---- | ---
-| `AddFederatedUserAccounts` | Adding a user to a federation |
-| `CreateAccessKey` | Creating a static key |
-| `CreateApiKey` | Creating API keys |
-| `CreateCertificate` | Adding a certificate for a federation |
-| `CreateFederation` | Creating a federation |
-| `CreateIamCookieForSubject` | Federated user login ^*^ |
-| `CreateKey` | Creating a key pair for a service account |
-| `CreateServiceAccount` | Creating a service account |
-| `DeleteAccessKey` | Deleting a static key |
-| `DeleteApiKey` | Deleting API keys |
-| `DeleteCertificate` | Deleting a certificate for a federation |
-| `DeleteFederation` | Deleting a federation |
-| `DeleteKey` | Deleting a key pair for a service account |
-| `DeleteServiceAccount` | Deleting a service account |
-| `DetectLeakedCredential` | Detecting a secret in a public source |
-| `UpdateAccessKey` | Updating a static key |
-| `UpdateApiKey` | Updating an API key |
-| `UpdateCertificate` | Renewing a certificate |
-| `UpdateFederation` | Updating a federation |
-| `UpdateKey` | Updating a key pair |
-| `UpdateServiceAccount` | Updating a service account |
-| `UpdateServiceAccountAccessBindings` | Updating access bindings for a service account |
-| `SetServiceAccountAccessBindings` | Setting access bindings for a service account |
-
-\* The event is not logged in the audit log unless a trail's [audit logs](./trail.md#collecting-area) have `Enterprise` scope.
+{% include [iam-events](../../_includes/audit-trails/events/iam-events.md) %}
 
 ## {{ iot-name }} {#iot}
 
@@ -286,47 +268,34 @@ Service name: `iot`.
 
 Service name: `kms`.
 
+{% include [kms-events](../../_includes/audit-trails/events/kms-events.md) %}
+
+## {{ load-testing-name }} {#loadtesting}
+
+Service name: `loadtesting`.
+
 | Event name | Description |
 --- | ---
-| `CancelDeleteSymmetricKey` | Canceling a previously scheduled key destruction |
-| `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of a symmetric key version |
-| `CreateAsymmetricEncryptionKey` | Creating an asymmetric encryption key pair |
-| `CreateAsymmetricSignatureKey` | Creating a digital signature key pair |
-| `CreateSymmetricKey` | Creating a symmetric key |
-| `DeleteAsymmetricEncryptionKey` | Updating an asymmetric encryption key pair |
-| `DeleteAsymmetricSignatureKey` | Updating a digital signature key pair |
-| `DeleteSymmetricKey` | Deleting a symmetric key |
-| `RotateSymmetricKey` | Rotating a symmetric key |
-| `ScheduleSymmetricKeyVersionDestruction` | Scheduling the destruction of a symmetric key version |
-| `SetAsymmetricEncryptionKeyAccessBindings` | Selecting access bindings for an asymmetric encryption key pair |
-| `SetAsymmetricSignatureKeyAccessBindings` | Selecting access bindings for a digital signature key pair |
-| `SetPrimarySymmetricKeyVersion` | Selecting the primary version of a symmetric key |
-| `SetSymmetricKeyAccessBindings` | Selecting access bindings for a symmetric key |
-| `UpdateAsymmetricEncryptionKey` | Updating an asymmetric encryption key pair |
-| `UpdateAsymmetricSignatureKey` | Updating a digital signature key pair |
-| `UpdateSymmetricKey` | Changing a symmetric key |
-| `UpdateSymmetricKeyAccessBindings` | Updating access bindings for a symmetric key |
-| `UpdateAsymmetricEncryptionKeyAccessBindings` | Updating access bindings for an asymmetric encryption key pair |
+| `CreateAgent` | Creating an agent |
+| `CreateConfig` | Creating a configuration |
+| `CreateMigration` | Creating a migration |
+| `CreateTest` | Creating a test |
+| `DeleteAgent` | Deleting an agent |
+| `DeleteConfig` | Deleting a configuration |
+| `DeleteTest` | Deleting a test |
+| `RestartAgent` | Restarting an agent |
+| `StartAgent` | Running an agent |
+| `StopAgent` | Stopping an agent |
+| `StopTest` | Stopping a test |
+| `UpdateAgent` | Updating an agent |
+| `UpdateTest` | Updating a test |
+| `UpgradeImageAgent` | Updating an agent image |
 
 ## {{ lockbox-name }} {#lockbox}
 
 Service name: `lockbox`.
 
-| Event name | Description |
---- | ---
-| `AddVersion` | Adding a version of a secret |
-| `ActivateSecret` | Activating a secret |
-| `CancelVersionDestruction` | Canceling a previously scheduled destruction of a secret version |
-| `CreateSecret` | Creating a secret |
-| `DeactivateSecret` | Deactivating a secret |
-| `DeleteSecret` | Destroying a secret |
-| `GetPayload` | Accessing the contents of a secret ^*^ |
-| `ScheduleVersionDestruction` | Scheduling the destruction of a secret version |
-| `SetSecretAccessBindings` | Selecting access bindings for a secret |
-| `UpdateSecret` | Updating a secret |
-| `UpdateSecretAccessBindings` | Updating access bindings for a secret |
-
-\* By default, this event is not included in the audit log. To find out whether this event can be added to the audit log, contact [support]({{ link-console-support }}).
+{% include [lockbox-events](../../_includes/audit-trails/events/lockbox-events.md) %}
 
 ## {{ mkf-short-name }} {#managed-service-for-kafka}
 
@@ -372,7 +341,7 @@ Service name: `mdb.clickhouse`.
 | `CreateShardGroup` | Creating a shard group |
 | `CreateUser` | Creating a database user |
 | `DeleteCluster` | Deleting a cluster |
-| `DeleteClusterExternalDictionary` | Editing an external dictionary |
+| `DeleteClusterExternalDictionary` | Deleting an external dictionary |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteClusterShard` | Deleting a shard from a cluster |
 | `DeleteDatabase` | Deleting a database |
@@ -387,6 +356,7 @@ Service name: `mdb.clickhouse`.
 | `StartCluster` | Starting a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
+| `UpdateClusterExternalDictionary` | Editing an external dictionary |
 | `UpdateClusterShard` | Editing a cluster shard |
 | `UpdateFormatSchema` | Editing a data schema format |
 | `UpdateMlModel` | Editing a machine learning model |
@@ -401,15 +371,19 @@ Service name: `gitlab`.
 | Event name | Description |
 --- | ---
 | `BackupInstance` | Creating backups |
+| `CleanupRegistryInstance` | Docker Registry cleanup |
 | `CreateInstance` | Creating an instance |
+| `CreateInstanceBackup` | Creating an instance backup |
 | `DeleteInstance` | Deleting an instance |
+| `ReconfigureGitlab` | Editing the {{ GL }} configuration |
+| `RescheduleMaintenance` | Changing scheduled maintenance date and time |
+| `ResizeInstance` | Resizing an instance |
+| `ScheduleUpgrade` | Setting the instance upgrade time |
 | `StartInstance` | Launching an instance |
 | `StopInstance` | Stopping an instance |
 | `UpdateInstance` | Updating an instance |
 | `UpdateOmniauthInstance` | Updating OmniAuth settings |
 | `UpgradeInstance` | Updating the GitLab version |
-| `CleanupRegistryInstance` | Docker Registry cleanup |
-| `ResizeInstance` | Resizing an instance |
 
 
 ## {{ mgp-short-name }} {#managed-service-for-greenplum}
@@ -419,12 +393,19 @@ Service name: `mdb.greenplum`.
 | Event name | Description |
 --- | ---
 | `CreateCluster` | Creating a cluster |
+| `CreateHBARule` | Creating a user authentication rule |
+| `CreatePXFDatasource` | Creating a connection to an external table |
+| `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting a cluster |
+| `DeleteHBARule` | Deleting a user authentication rule |
+| `DeletePXFDatasource` | Deleting an external table connection |
 | `ExpandCluster` | Expanding a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `StartCluster` | Starting a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
+| `UpdateHBARule` | Updating a user authentication rule |
+| `UpdatePXFDatasource` | Updating an external table connection |
 
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
@@ -439,6 +420,7 @@ Service name: `mdb.mongodb`.
 | `CreateCluster` | Creating a cluster |
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
+| `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteClusterShard` | Deleting a shard from a cluster |
@@ -475,6 +457,8 @@ Service name: `mdb.mysql`.
 | `CreateCluster` | Creating a cluster |
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
+| `DatabaseUserLogin` | Connecting a user to the database |
+| `DatabaseUserLogout` | Disconnecting a user from the database |
 | `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
@@ -503,6 +487,8 @@ Service name: `mdb.postgresql`.
 | `CreateCluster` | Creating a cluster |
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
+| `DatabaseUserLogin` | Connecting a user to the database |
+| `DatabaseUserLogout` | Disconnecting a user from the database |
 | `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
@@ -513,6 +499,7 @@ Service name: `mdb.postgresql`.
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
 | `StartCluster` | Starting a cluster |
+| `StartClusterFailover` | Launching master switching for a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
@@ -552,6 +539,7 @@ Service name: `mdb.elasticsearch`.
 | `CreateCluster` | Creating a cluster |
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
+| `MoveCluster` | Moving a cluster |
 | `RescheduleMaintenance` | Changing scheduled maintenance date and time |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `StartCluster` | Starting a cluster |
@@ -571,11 +559,13 @@ Service name: `mdb.opensearch`.
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteDashboardsNodeGroup` | Deleting a `Dashboards` host group |
 | `DeleteOpenSearchNodeGroup` | Deleting an `OpenSearch` host group |
+| `MoveCluster` | Moving a cluster |
 | `RescheduleMaintenance` | Changing scheduled maintenance date and time |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `StartCluster` | Starting a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
+| `UpdateDashboardsNodeGroup` | Updating a `Dashboards` host group |
 | `UpdateOpenSearchNodeGroup` | Updating an `OpenSearch` host group |
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
@@ -594,11 +584,7 @@ Service name: `storage`.
 
 Service name: `searchapi`.
 
-| Event name | Description |
---- | ---
-| `CreateCustomer` | Creating a client |
-| `DeleteCustomer` | Deleting a client |
-| `UpdateCustomer` | Updating a client |
+{% include [searchapi-events](../../_includes/audit-trails/events/searchapi-events.md) %}
 
 ## {{ serverless-containers-name }} {#serverless-containers}
 
@@ -624,64 +610,25 @@ Service name: `serverless.containers`.
 
 The name of the service is `organizationmanager`.
 
-| Event name | Description |
---- | ---
-| `AcceptInvitation` | Accepting an invitation |
-| `CreateInvitations` | Creating an invitation |
-| `CreateGroup` | Creating a user group |
-| `CreateMembership` | Adding a user to an organization |
-| `CreateOrganization` | Creating an organization |
-| `DeleteInvitation` | Deleting an invitation |
-| `DeleteGroup` | Deleting a user group |
-| `DeleteMembership` | Deleting a user from an organization |
-| `DeleteOrganization` | Deleting an organization |
-| `RejectInvitation` | Rejecting an invitation |
-| `ResendInvitation` | Resending an invitation |
-| `SetGroupAccessBindings` | Setting access bindings to a user group |
-| `SetOrganizationAccessBindings` | Setting access bindings to an organization |
-| `UpdateGroup` | Updating a user group |
-| `UpdateGroupAccessBindings` | Updating access bindings to a user group |
-| `UpdateGroupMembers` | Changing user group members |
-| `UpdateOrganization` | Changing an organization |
-| `UpdateOrganizationAccessBindings` | Updating access bindings to an organization |
+{% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
 
 ## {{ resmgr-name }} {#resmgr}
 
 Service name: `resourcemanager`.
 
-| Event name | Description |
---- | ---
-| `AddCloudToOrganization` | Adding a cloud to an organization |
-| `CreateCloud` | Creating a cloud |
-| `CreateFolder` | Creating a folder |
-| `DeleteCloud` | Deleting a cloud |
-| `DeleteFolder` | Deleting a folder |
-| `UpdateCloud` | Updating a cloud |
-| `UpdateCloudAccessBindings` | Updating access bindings for a cloud |
-| `UpdateFolder` | Updating a folder |
-| `UpdateFolderAccessBindings` | Updating access bindings for a folder |
-| `SetCloudAccessBindings` | Setting access bindings for a cloud |
-| `SetFolderAccessBindings` | Setting access bindings for a folder |
+{% include [resmgr-events](../../_includes/audit-trails/events/resmgr-events.md) %}
 
 ## {{ sws-name }} {#smartwebsecurity}
 
 Service name: `smartwebsecurity`.
 
-| Event name | Description |
---- | ---
-| `CreateSecurityProfile` | Creating a security profile |
-| `DeleteSecurityProfile` | Deleting a security profile |
-| `UpdateSecurityProfile` | Updating a security profile |
+{% include [sws-events](../../_includes/audit-trails/events/sws-events.md) %}
 
 ## {{ captcha-name }} {#smartcaptcha}
 
 Service name: `smartcaptcha`.
 
-| Event name | Description |
---- | ---
-| `CreateCaptcha` | Creating a CAPTCHA |
-| `DeleteCaptcha` | Deleting a CAPTCHA |
-| `UpdateCaptcha` | Updating a CAPTCHA |
+{% include [captcha-events](../../_includes/audit-trails/events/captcha-events.md) %}
 
 ## {{ vpc-name }} {#vpc}
 

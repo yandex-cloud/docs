@@ -41,6 +41,8 @@ items:
             href: operations/target-group-detach.md
           - name: Удалить целевую группу
             href: operations/target-group-delete.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Обзор
