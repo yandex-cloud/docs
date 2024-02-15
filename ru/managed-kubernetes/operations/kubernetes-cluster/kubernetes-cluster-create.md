@@ -2,6 +2,8 @@
 
 Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), а затем [создайте группу узлов](../node-group/node-group-create.md).
 
+{% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 {% list tabs group=instructions %}

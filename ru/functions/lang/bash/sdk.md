@@ -10,7 +10,7 @@
 #!/bin/bash
 set -e
 
-HOME=/tmp yc --format json resource-manager folder list --cloud-id bqg1a8m7acm******** | jq -c  '{body:. | tostring}'
+HOME=/tmp yc --format json resource-manager folder list --cloud-id <идентификатор_облака> | jq -c  '{body:. | tostring}'
 ```
 
 Чтобы команды YC CLI выполнялись успешно, указывайте в них идентификатор нужного [каталога](../../../resource-manager/operations/folder/get-id.md) или [облака](../../../resource-manager/operations/cloud/get-id.md) с помощью флагов `--folder-id` или `--cloud-id`.

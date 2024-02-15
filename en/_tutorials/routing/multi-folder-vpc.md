@@ -3,13 +3,14 @@
 In {{ yandex-cloud }}, network resources, such as cloud network and subnets, are usually created in a single resource cloud folder that is not linked to resources in other cloud folders. When deploying resources in {{ yandex-cloud }}, it is often necessary to ensure networking between resources residing in different folders. One of the ways to do that is to use the `Multi-folder VPC` method that extends the scope of an individual {{ vpc-short-name }} network to multiple rather than one folder.
 
 Depending on the selected {{ yandex-cloud }} management interface, a network's scope is extended to other folders by:
-* Moving subnets to different cloud folders (`management console (UI)`)
-* Creating subnets in target folders (`YC CLI`)
-* Creating subnets in target folders (`Terraform`)
+
+* Moving subnets to other cloud folders using the `management console (UI)` or `YC CLI`.
+* Creating subnets in target folders using the `YC CLI`.
+* Creating subnets in target folders using `Terraform`.
 
 After that, you can connect different resources to the subnets hosted in target folders, such as VMs, {{ managed-k8s-name }} clusters, database hosts, load balancers, load testing agents, and other resources residing in these folders. As a result, your network will ensure connectivity between resources in different folders.
 
-This guide provides an example of how to create an infrastructure consisting of three VM instances, each residing in a different folder. These instances are connected via a shared internal network. Network connectivity between cloud resources hosted in different folders is established by creating a cloud network in one of these folders and then extending its scope to other folders. This way, a single-folder network is sort of extended to multiple folders, which allows connecting required resources to `extended subnets` residing in these folders.
+This guide provides an example of how to create an infrastructure consisting of three VM instances, each residing in a different folder. These instances are connected via a shared internal network. Network connectivity between cloud resources hosted in different folders is established by creating a cloud network in one of these folders and then extending its scope to other folders. This way, a single-folder network is extended to multiple folders, which allows connecting required resources to `extended subnets` residing in these folders.
 
 {% note warning %}
 
@@ -34,7 +35,7 @@ To create a test infrastructure and enable networking between resources:
 1. [Prepare your cloud](#prepare-cloud).
 1. [Create folders without a {{ vpc-short-name }} network](#create-folders).
 1. [Create a {{ vpc-short-name }} cloud network with subnets](#create-vpc).
-1. [Move the subnets](#move-subnets). For the management console only.
+1. [Move the subnets](#move-subnets).
 1. [Create VM instances](#create-vms).
 1. [Check the networking](#check-connectivity).
 
@@ -64,15 +65,14 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
 
 ## Create folders without a {{ vpc-short-name }} network {#create-folders}
 
-1. Create a folder named `net-folder`:
+1. Create the `net-folder`, `dev-folder`, and `prod-folder` folders:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![Create icon](../../_assets/create.png) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+      1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![Create icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
       1. Enter the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) name: `net-folder`.
-      1. Enter a description of the folder if needed.
       1. Disable **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** to create your network and subnets manually.
       1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -106,10 +106,9 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
 
       1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-
       1. Specify the {{ yandex-cloud }} Terraform provider configuration:
 
-         ```
+         ```hcl
          # ==================================
          # Terraform & Provider Configuration
          # ==================================
@@ -125,7 +124,7 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
 
       1. Describe the input variables:
 
-         ```
+         ```hcl
          variable "cloud_id" {
            description = "YC cloud-id. Taken from environment variable."
          }
@@ -133,7 +132,7 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
 
       1. Describe the targets (cloud folders):
 
-         ```
+         ```hcl
          # ========
          # Folders
          # ========
@@ -167,51 +166,44 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
 
    - API {#api}
 
-      To create a folder, use:
-      * [Сreate](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/create) (`REST API`) method for the [Folder](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/) resource.
-      * [FolderService/Create](https://cloud.yandex.ru/docs/resource-manager/api-ref/grpc/folder_service#Create) (`gRPC API`) call.
+      Use the [create](../../resource-manager/api-ref/Folder/create.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/) resource or the [FolderService/Create](../../resource-manager/api-ref/grpc/folder_service.md#Create) gRPC API call.
 
    {% endlist %}
 
-
 ## Create a {{ vpc-short-name }} cloud network with subnets {#create-vpc}
 
-In `net-folder`, create a network named `shared-net`, with three subnets that have the following parameters:
+In `net-folder`, create a network named `shared-net` with three subnets that have the following parameters:
 
 | Subnet name | Prefix | Availability zone | Target folder |
 | --- | --- | --- | --- |
-| subnet-a | 10.1.11.0/24 | {{ region-id }}-a | net-folder |
-| subnet-b | 10.1.12.0/24 | {{ region-id }}-b | dev-folder |
-| subnet-c | 10.1.13.0/24 | {{ region-id }}-c | prod-folder |
+| `subnet-a` | `10.1.11.0/24` | `{{ region-id }}-a` | `net-folder` |
+| `subnet-b` | `10.1.12.0/24` | `{{ region-id }}-b` | `dev-folder` |
+| `subnet-c` | `10.1.13.0/24` | `{{ region-id }}-c` | `prod-folder` |
 
-
-1. Create a network:
+1. Create a [cloud network](../../vpc/concepts/network.md):
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      To create a [cloud network](../../vpc/concepts/network.md):
       1. In the [management console]({{ link-console-main }}), go to `net-folder`.
       1. In the list of services, select **{{ vpc-name }}**.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. Enter the network name: `shared-net`.
-      1. Add a network description if needed.
       1. Disable [Create subnets](../../vpc/operations/subnet-create.md) to create subnets manually.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
    - CLI {#cli}
 
-      To create a [cloud network](../../vpc/concepts/network.md):
       1. See the description of the CLI command for creating a cloud network:
 
-         ```
+         ```bash
          yc vpc network create --help
          ```
 
       1. Create a cloud network named `shared-net` in `net-folder`:
 
-         ```
+         ```bash
          yc vpc network create --folder-name net-folder --name shared-net
          ```
 
@@ -219,7 +211,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
       1. Describe the target (cloud network):
 
-         ```
+         ```hcl
          # =============
          # VPC Resources
          # =============
@@ -243,45 +235,38 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
    - API {#api}
 
-      To create a cloud network, use:
-      * [Сreate](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) (`REST API`) method for the [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) resource.
-      * [NetworkService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/network_service#Create) (`gRPC API`) call.
+      Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
 
    {% endlist %}
 
-1. Create the `subnet-a` network in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md):
+1. Create the `subnet-a` [subnet](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md):
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      To create a [subnet](../../vpc/concepts/network.md#subnet):
       1. In the [management console]({{ link-console-main }}), go to `net-folder`.
       1. In the list of services, select **{{ vpc-name }}**.
       1. Click the name of the `shared-net` cloud network.
       1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
       1. Enter the subnet name: `subnet-a`.
-      1. Add a network description if needed.
       1. Select the `{{ region-id }}-a` availability zone from the drop-down list.
-      1. Enter the subnet CIDR: the IP address `10.1.11.0` and mask `24`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
-      1. Click **Create subnet**.
+      1. Enter the subnet CIDR: `10.1.11.0` for the IP address and `24` for the mask. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+      1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-      Similarly, create `subnet-b` and `subnet-c` in **net-folder**.
-
+      Similarly, create `subnet-b` and `subnet-с` in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones in **net-folder**.
 
    - CLI {#cli}
 
-      To create a [subnet](../../vpc/concepts/network.md#subnet):
-
       1. See the description of the CLI command for creating a subnet:
 
-         ```
+         ```bash
          yc vpc subnet create --help
          ```
 
       1. Create subnets in the target folders:
 
-         ```
+         ```bash
          yc vpc subnet create --folder-name net-folder --name subnet-a \
            --network-name shared-net --zone {{ region-id }}-a --range 10.1.11.0/24
 
@@ -294,7 +279,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
       1. Check the state of the created subnets:
 
-         ```
+         ```bash
          yc vpc subnet list --folder-name net-folder
          yc vpc subnet list --folder-name dev-folder
          yc vpc subnet list --folder-name prod-folder
@@ -304,7 +289,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
       1. Describe the targets (cloud subnets):
 
-         ```
+         ```hcl
          resource "yandex_vpc_subnet" "subnet_a" {
            folder_id      = yandex_resourcemanager_folder.net_folder.id
            name           = "subnet-a"
@@ -333,7 +318,6 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
          }
          ```
 
-
       1. Run the following commands:
 
          ```bash
@@ -346,44 +330,57 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
    - API {#api}
 
-      To create a subnet, use:
-      * [Сreate](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/create) (`REST API`) method for the [Subnet](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/) resource.
-      * [SubnetService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/subnet_service#Create) (`gRPC API`) call.
+      Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
    {% endlist %}
 
+## Move the subnets {#move-subnets}
 
-## Move the subnets. For the management console only. {#move-subnets}
-
-Move `subnet-b` to `dev-folder`.
+[Move](../../vpc/operations/subnet-move.md) `subnet-b` to `dev-folder`:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
-   To move a subnet to another folder:
 
    1. In the [management console]({{ link-console-main }}), go to `net-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
    1. Click the name of the `shared-net` cloud network.
    1. Click ![image](../../_assets/options.svg) in the line of `subnet-b` and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
    1. Select `dev-folder` in the drop-down list.
-   1. Click **Move**.
+   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-   Move `subnet-b` to `prod-folder` in the same way.
+- CLI {#cli}
+
+   1. View a description of the CLI move subnet command:
+
+      ```bash
+      yc vpc subnet move --help
+      ```
+
+   1. Move the subnet:
+
+      ```bash
+      yc vpc subnet move subnet-b \
+        --destination-folder-name dev-folder
+      ```
+
+- API {#api}
+
+   Use the [move](../../vpc/api-ref/Subnet/move.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/) resource or the [SubnetService/Move](../../vpc/api-ref/grpc/subnet_service.md#Move) gRPC API call.
 
 {% endlist %}
 
+Move `subnet-b` to `prod-folder` in the same way.
 
 ## Create VMs {#create-vms}
 
-Create VMs with the following parameters:
+Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 
 | VM name | Folder | Availability zone | Subnet |
 | --- | --- | --- | --- |
-| net-vm | net-folder | {{ region-id }}-a | subnet-a |
-| dev-vm | dev-folder | {{ region-id }}-b | subnet-b |
-| prod-vm | prod-folder | {{ region-id }}-c | subnet-c |
+| `net-vm` | `net-folder` | `{{ region-id }}-a` | `subnet-a` |
+| `dev-vm` | `dev-folder` | `{{ region-id }}-b` | `subnet-b` |
+| `prod-vm` | `prod-folder` | `{{ region-id }}-c` | `subnet-c` |
 
 {% list tabs group=instructions %}
 
@@ -408,7 +405,7 @@ Create VMs with the following parameters:
 
    {% note info %}
 
-   A public and a private IP addresses are assigned to the VM at creation. Write them down, as you will need them to access the VM and check networking with other VMs.
+   A public and a private IP addresses are assigned to the VM when you create it. Write them down, as you will need them to access the VM and test networking with other VMs.
 
    {% endnote %}
 
@@ -480,7 +477,7 @@ Create VMs with the following parameters:
 
    1. Describe the input variables:
 
-      ```
+      ```hcl
       variable "user_name" {
         description = "VM User Name"
         default     = "ycuser"
@@ -494,7 +491,7 @@ Create VMs with the following parameters:
 
    1. Describe a template for VM metadata in a separate `vm-init.tpl` file:
 
-      ```
+      ```hcl
       #cloud-config
 
       datasource:
@@ -511,7 +508,7 @@ Create VMs with the following parameters:
 
    1. Describe the targets (VMs):
 
-      ```
+      ```hcl
       # =================
       # Compute Resources
       # =================
@@ -655,9 +652,7 @@ Create VMs with the following parameters:
 
 - API {#api}
 
-   To create a VM, use:
-   * [Сreate](https://cloud.yandex.ru/docs/compute/api-ref/Instance/create) (`REST API`) method for the [Compute Instance](https://cloud.yandex.ru/docs/compute/api-ref/Instance/) resource.
-   * [InstanceService/Create](https://cloud.yandex.ru/docs/compute/api-ref/grpc/instance_service#Create) (`gRPC API`) call.
+   To create a VM, use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Compute Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -677,7 +672,7 @@ Create VMs with the following parameters:
 
    Result:
 
-   ```
+   ```text
    PING 10.127.20.4 (10.127.20.4) 56(84) bytes of data.
    64 bytes from 10.127.20.4: icmp_seq=1 ttl=61 time=7.45 ms
    64 bytes from 10.127.20.4: icmp_seq=2 ttl=61 time=5.61 ms
@@ -692,7 +687,6 @@ Create VMs with the following parameters:
 1. Connect to `dev-vm` over SSH and check IP connectivity to `net-vm` and `prod-vm` via a **ping**.
 
 1. Connect to `prod-vm` over SSH and check IP connectivity to `net-vm` and `dev-vm` via a **ping**.
-
 
 ## How to delete the resources you created {#clear-out}
 

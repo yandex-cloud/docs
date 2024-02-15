@@ -124,29 +124,8 @@
 
 Имя сервиса — `logging`.
 
-Имя события | Описание
---- | ---
-`ChangeLogGroupAccessBindings` | Изменение привязок прав доступа для лог-группы
-`CreateExport` | Создание выгрузки логов
-`CreateLogGroup` | Создание лог-группы
-`CreateRoutingRule` | Создание правила маршрутизации
-`CreateSink` | Создание приемника логов
-`UpdateLogGroup` | Изменение лог-группы
-`DeleteExport` | Удаление выгрузки логов
-`DeleteLogGroup` | Удаление лог-группы
-`DeleteRoutingRule` | Удаление правила маршрутизации
-`DeleteSink` | Удаление приемника логов
-`SetExportAccessBindings` | Назначение привязок прав доступа для выгрузки логов
-`SetLogGroupAccessBindings` | Назначение привязок прав доступа для лог-группы
-`SetRoutingRuleAccessBindings` | Назначение привязок прав доступа для правила маршрутизации
-`SetSinkAccessBindings` | Назначение привязок прав доступа для приемника логов
-`UpdateExport` | Изменение выгрузки логов 
-`UpdateExportAccessBindings` | Изменение привязок прав доступа для выгрузки логов
-`UpdateLogGroupAccessBindings` | Изменение привязок прав доступа для лог-группы
-`UpdateRoutingRule` | Изменение правила маршрутизации
-`UpdateRoutingRuleAccessBindings` | Изменение привязок прав доступа для правила маршрутизации
-`UpdateSink` | Изменение приемника логов
-`UpdateSinkAccessBindings` | Изменение привязок прав доступа для приемника логов
+{% include [logging-events](../../_includes/audit-trails/events/logging-events.md) %}
+
 
 ## {{ compute-name }} {#compute}
 

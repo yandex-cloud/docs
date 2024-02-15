@@ -27,7 +27,7 @@ description: "Из статьи вы узнаете, как выполнить �
 
 ## Перенос данных {#data-transfer}
 
-{% include notitle [MySQL migration with Data Transfer](../../_tutorials/datatransfer/managed-mysql-to-mysql.md) %}
+{% include notitle [MySQL migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql-to-mysql.md) %}
 
 ## См. также {#see-also}
 

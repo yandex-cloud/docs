@@ -28,7 +28,7 @@
 
 ## Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MongoDB migration with Data Transfer](../datatransfer/managed-mongodb.md) %}
+{% include notitle [MongoDB migration with Data Transfer](datatransfer/managed-mongodb.md) %}
 
 ## Миграция при помощи дампа базы {#dump-and-restore}
 

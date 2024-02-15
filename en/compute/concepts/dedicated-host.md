@@ -14,10 +14,8 @@ Dedicated hosts provide the following advantages:
 * Security and compliance:
   You can use a dedicated host to physically isolate your VM in the public cloud if this is required by your company's information security service or industry standards, such as medical or financial ones.
 * Using your own licenses:
-
   If your company has Microsoft licenses or those from other vendors that require linking to physical resources, you can use them in {{ yandex-cloud }} based on the <q>Bring your own license</q> (BYOL) model.
 * Managing your VM allocation:
-
   You can choose which dedicated host to run your VM on or allow {{ compute-name }} to do it automatically.
 
 {% include [dedicated](../../_includes/compute/dedicated-quota.md) %}
@@ -39,7 +37,7 @@ Current type: Intel<sup>®</sup> Ice Lake platform
 
 | Type and processor<br>(Ice Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
   --- | --- | --- | --- | --- | --- | ---
-| `intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/ru/ru/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632 B <br>(~2.91 TB) |
+| `intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632 B <br>(~2.91 TB) |
 
 
 You can only create hosts of this type in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
@@ -55,10 +53,10 @@ Do not use archived types to create dedicated hosts. Select a current type inste
 
 | Type and processor<br>(Cascade Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
 --- | --- | --- | --- | --- | --- | ---
-| `intel-6230-c66-m454`<br>[Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 1600 × 10^9^ B <br>(~ 1.46 TB) |
-| `intel-6230-c66-m704-n1600x4`<br>Intel Xeon Gold 6230 | 2 | 40 | 66 | 704 | 4 | 1600 × 10^9^ B <br>(~ 1.46 TB) |
-| `intel-6230r-c84-m328-n3200x4`<br>[Intel Xeon Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3198924357632 B <br>(~2.91 TB) |
-| `intel-6230r-c84-m454-n3200x4`<br>Intel Xeon Gold 6230R | 2 | 52 | 84 | 454 | 4 | 3198924357632 B <br>(~2.91 TB) |
+| `intel-6230-c66-m454`<br>[Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 1600 × 10^9^ B <br>(~ 1.46 TB) |
+| `intel-6230-c66-m704-n1600x4`<br>Intel® Xeon® Gold 6230 | 2 | 40 | 66 | 704 | 4 | 1600 × 10^9^ B <br>(~ 1.46 TB) |
+| `intel-6230r-c84-m328-n3200x4`<br>[Intel® Xeon® Gold 6230R](https://ark.intel.com/content/www/us/en/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3198924357632 B <br>(~2.91 TB) |
+| `intel-6230r-c84-m454-n3200x4`<br>Intel® Xeon® Gold 6230R | 2 | 52 | 84 | 454 | 4 | 3198924357632 B <br>(~2.91 TB) |
 
 {% endcut %}
 
@@ -73,7 +71,7 @@ The above lists of the current and archived types are provided for indicative pu
 
     For more information, see the [guide on creating host groups](../operations/dedicated-host/create-host-group.md).
 
-^1^ This specifies the number of vCPUs where you can run VMs. Other vCPUs of the host are allocated for system usage (for more information, see [below](#resource-fragmentation)): on the Intel Xeon Gold 6230 processors, there are 14 vCPUs, while on Intel Xeon Gold 6230R and Intel Xeon Gold 6338 processors, there are 20 vCPUs.
+^1^ This specifies the number of vCPUs where you can run VMs. Other vCPUs of the host are allocated for system usage (see [below](#resource-fragmentation) for details): 14 vCPUs running on the Intel® Xeon® Gold 6230 processors, and 20 vCPUs, on Intel® Xeon® Gold 6230R and Intel® Xeon® Gold 6338.
 
 ## Using physical resources of a host {#resource}
 
@@ -81,7 +79,7 @@ The above lists of the current and archived types are provided for indicative pu
 
 There are two processors installed on a physical server. However, not all their cores are available for running VMs. Some cores are allocated for system usage.
 
-For example, a dedicated host with two Intel Xeon Gold 6230 processors can use 66 vCPUs to run VMs (34 on the first processor and 32 on the second one). The remaining 14 vCPUs (6 + 8) are used by the system.
+For example, a dedicated host with two Intel® Xeon® Gold 6230 processors can use 66 vCPUs to run VMs (34 on the first processor and 32 on the second one). The remaining 14 vCPUs (6 + 8) are used by the system.
 
 When creating a VM on a dedicated host, you may encounter resource fragmentation, when the number of free vCPUs is sufficient, but you are unable to run your VM. For example, you can only run 10 VMs with 6 vCPUs each on a dedicated host with 66 vCPUs.
 
@@ -214,8 +212,7 @@ To uniquely map a VM and a physical server, you can create a VM that is linked:
 * To a group of dedicated hosts:
   When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host of the group.
 * To the selected host of a group of hosts:
-
-   When the VM is stopped, it will not be available on the host, and when it is restarted, it will be linked to the same host from the group.
+  When the VM is stopped, it will not be available on the host, and when it is restarted, it will be linked to the same host from the group.
 
 Linking a VM ensures that it will run on the same physical server or group of servers even after scheduled maintenance.
 
@@ -251,7 +248,7 @@ host_id: <host_ID>              # VM's actual location
 ...
 ```
 
-Rules in `host_affinity_rules` are combined via `OR`. For example, the following rules allow running VMs on any host of the `host_group_id` group or the `host_id` host:
+Rules in `host_affinity_rules` are combined via `OR`. For example, the following rules allow running VMs on any host of the `<host_group_ID>` group or the `<host_ID>` host:
 
 ```
 placement_policy:

@@ -41,8 +41,6 @@
     1. [Мастера и группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 1. Если вы использовали [сетевые](../../network-load-balancer/operations/load-balancer-change-zone.md) и [L7-балансировщики](../../application-load-balancer/operations/application-load-balancer-relocate.md), добавьте перемещенные ресурсы в их целевые группы. Включите прием трафика в новой зоне у L7-балансировщиков.
 1. Убедитесь, что в подсетях в зоне `{{ region-id }}-с` не осталось ресурсов. Удалите оставшиеся ресурсы.
-1. Мигрируйте в новую зону [пустые подсети](../../vpc/operations/subnet-relocate.md).
-1. (опционально) Если вы использовали внутренние балансировщики, их обработчики трафика будут перенесены вместе с подсетью. После этого новая зона доступности будет включена в маршрутизацию трафика через внутренний балансировщик.
 
 ## Инструменты миграции {#migration-tools}
 
@@ -99,6 +97,8 @@
 
 ### {{ managed-k8s-name }} {#k8s}
 
+{% include [unable-migration-in-relocated-subnet](../../_includes/managed-kubernetes/unable-migration-in-relocated-subnet.md) %}
+
 Чтобы мигрировать кластер {{ managed-k8s-name }} из одной зоны доступности в другую:
 
 * [Перенесите мастер](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
@@ -115,6 +115,14 @@
 ### {{ vpc-name }} {#vpc}
 
 Миграция подсетей позволяет сохранить адресацию и настроенные IP-адреса обработчиков внутренних балансировщиков. Обратите внимание, что переместить можно только пустые подсети, к которым не подключены никакие ресурсы: ВМ, хосты БД, узлы {{ managed-k8s-name }} и другие.
+
+{% note alert %}
+
+Возможность миграции подсетей сейчас недоступна.
+
+Создание и миграция кластеров и групп узлов {{ managed-k8s-name }} временно недоступны в подсетях, перенесенных из зоны доступности `{{ region-id }}-c`.
+
+{% endnote %}
 
 Подсети можно [мигрировать](../../vpc/operations/subnet-relocate.md) с помощью команды `relocate`.
 

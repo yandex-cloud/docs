@@ -31,7 +31,7 @@ To create an instance group with an L7 load balancer:
 
       * Enable the **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** option, if needed. You cannot delete a group with this option enabled.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances of a group may reside in [different availability zones and regions](../../../overview/concepts/geo-scope.md).
-   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to set up the configuration for a basic instance:
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
@@ -137,6 +137,8 @@ To create an instance group with an L7 load balancer:
            network_interface_specs:
              - network_id: c64mknqgnd8a********
                primary_v4_address_spec: {}
+               security_group_ids:
+                 - enps0ar5s3ti********
            placement_policy:
              placement_group_id: rmppvhrgm77g********
            scheduling_policy:
@@ -157,8 +159,9 @@ To create an instance group with an L7 load balancer:
          * `size`: Disk size.
          * `network_id`: ID of the `default-net` network.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+         * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
          * `scheduling_policy`: Scheduling policy configuration.
-         * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
+         * `preemptible`: Flag for creating [preemptible VMs](../../concepts/preemptible-vm.md).
             * `true`: Create a preemptible VM.
             * `false` (default): Create a regular VM.
 
@@ -205,7 +208,7 @@ To create an instance group with an L7 load balancer:
 
      ```yaml
      name: first-fixed-group-with-l7-balancer
-     service_account_id: <ID>
+     service_account_id: ajed6ilf11qg********
      description: "This instance group was created from YAML config."
      instance_template:
        platform_id: standard-v3
@@ -221,6 +224,8 @@ To create an instance group with an L7 load balancer:
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+           security_group_ids:
+             - enps0ar5s3ti********
        placement_policy:
           placement_group_id: rmppvhrgm77g********
      deploy_policy:
@@ -254,9 +259,9 @@ To create an instance group with an L7 load balancer:
       * Availability zone: `{{ region-id }}-a`
       * vCPUs: 2; RAM: 2 GB
       * Network HDD: 32 GB
-      * With a target group named `first-target-group`
+      * Target group: `first-target-group`
 
-   After that, you can add the `first-target-group` target group to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-update.md).
+   After that, you can add `first-target-group` to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-update.md).
 
 - {{ TF }} {#tf}
 
@@ -284,8 +289,8 @@ To create an instance group with an L7 load balancer:
         instance_template {
           platform_id = "standard-v3"
           resources {
-            memory = <amount_of_RAM_in_GB>
-            cores  = <number_of_vCPU_cores>
+            memory = <RAM_amount_in_GB>
+            cores  = <number_of_vCPUs>
           }
 
           boot_disk {
@@ -298,6 +303,7 @@ To create an instance group with an L7 load balancer:
           network_interface {
             network_id = "${yandex_vpc_network.network-1.id}"
             subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+            security_group_ids = ["<list_of_seciruty_group_IDs>"]
           }
 
           metadata = {
@@ -307,7 +313,7 @@ To create an instance group with an L7 load balancer:
 
         scale_policy {
           fixed_scale {
-            size = <number_of_instances_in_the_group>
+            size = <number_of_VM_instances_in_the_group>
           }
         }
 
@@ -356,7 +362,7 @@ To create an instance group with an L7 load balancer:
             * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
                * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
                * Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write).
-            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the network ID and [subnet](../../../vpc/concepts/network.md#subnet) ID.
+            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
             * `metadata`: In the [metadata](../../concepts/vm-metadata.md), provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * [Policies](../../concepts/instance-groups/policies/index.md):
             * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.

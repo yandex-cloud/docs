@@ -4,7 +4,7 @@ When creating each instance group, you will need to choose its scaling type, whi
 
 {% note info %}
 
-If for an instance group, [processes are paused](stopping-pausing.md) ([status](statuses.md#group-statuses) is `PAUSED`), it does not scale up.
+If you [pause processes](stopping-pausing.md) (switch them to the `PAUSED` [status](statuses.md#group-statuses)) in an instance group, it will not scale up.
 
 {% endnote %}
 
@@ -41,7 +41,7 @@ To reduce adjustment sensitivity, with {{ ig-name }}, you can configure:
 * *Stabilization period*: After the number of VMs increases, the group size will not decrease until the end of a stabilization period, even if the average value of the metric has become sufficiently low.
 * *Warm-up period*: Period during which the VM, upon its start, will not use:
 
-  * [CPU load capacity](#cpu-utilization).
+  * [CPU utilization](#cpu-utilization).
   * [Monitoring metric](#monitoring-metrics) values that are applied according to the `UTILIZATION` rule.
 
   Average metric values for the group will be used instead.
@@ -64,13 +64,13 @@ You can use the following metrics for automatic scaling:
 
 {{ ig-name }} can control the group size to maintain average CPU utilization within the target level. The average CPU utilization is calculated for an instance separately from each availability zone or from the entire group (for the [zonal or regional scaling type](#auto-scale-type), respectively).
 
-Let's look at the algorithm of service actions outside the stabilization period:
-1. Calculate the average CPU utilization during the specified measurement period for each instance, except those in the warm-up period. The load is measured several times per minute on every instance.
+Here is what {{ ig-name }} will do outside the stabilization period:
+1. Calculate the average CPU utilization during the specified measurement period for each instance, except those that are still warming up. The load is measured several times per minute on every instance.
 1. Use the obtained values to calculate the average load for each availability zone or across the entire group.
 
    > For example, let's assume there is a group of four instances located in one availability zone. One of the instances starts, while the others are under 90%, 75%, and 85% workload on average during the measurement period. The average load across the zone is: (90+75+85) / 3 = 83.4%
 
-1. Obtain the total load: multiply the resulting average load by the total number of instances.
+1. Obtain the total load, i.e., multiply the resulting average load by the total number of instances.
 
    > In our example, it is 83.4 × 4 = 333.6%
 
@@ -82,7 +82,7 @@ Once the number of instances is calculated and changed (if required), {{ ig-name
 
 #### Monitoring metrics {#monitoring-metrics}
 
-You can use up to any three {{ monitoring-name }} metrics for automatic scaling in {{ ig-name }}.
+You can use up to three {{ monitoring-name }} metrics for automatic scaling in {{ ig-name }}. To read the metrics, the [service account](../../../iam/concepts/users/service-accounts.md) linked to the instance group needs at least the `monitoring.viewer` [role](../../../monitoring/security/index.md#monitoring-viewer).
 
 When using monitoring metrics, specify the following in {{ ig-name }}:
 * _Metric name_ you specified in {{ monitoring-name }}.

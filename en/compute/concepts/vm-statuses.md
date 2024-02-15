@@ -24,15 +24,15 @@ A VM can have one of the following statuses:
 
 The diagram below shows only switching statuses under normal operation during the following actions:
 
-- VM [creation](#create).
-- VM [stop and start](#stop-and-start).
-- VM [restart](#restart).
+- VM [creation](#create)
+- VM [stop and start](#stop-and-start)
+- VM [restart](#restart)
 
 The diagram does not show the following intermediate statuses:
 
-- `UPDATING` ([update](#update)).
-- `DELETING` ([deletion](#delete)).
-- `CRASHED` and `ERROR` ([errors](#error)).
+- `UPDATING` ([update](#update))
+- `DELETING` ([deletion](#delete))
+- `CRASHED` and `ERROR` ([errors](#error))
 
 ![image](../../_assets/compute/create-and-run.svg)
 

@@ -41,8 +41,6 @@ You can contact [our partners](./zone-migration-partners.md) for assistance and 
    1. [{{ managed-k8s-name }} master hosts and node groups](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 1. If you were using [network](../../network-load-balancer/operations/load-balancer-change-zone.md) or [L7 load balancers](../../application-load-balancer/operations/application-load-balancer-relocate.md), add the resources you want to migrate to their target groups. Enable ingress traffic in the new availability zone for the L7 load balancers.
 1. Make sure the subnets in `{{ region-id }}-c` have no resources left. Delete any remaining resources.
-1. Migrate the [empty subnets](../../vpc/operations/subnet-relocate.md) to the new zone.
-1. (Optional) If you were using internal load balancers, their traffic listeners will be migrated along with the subnet. After this, the internal load balancer will start routing traffic through the new availability zone.
 
 ## Migration tools {#migration-tools}
 
@@ -115,6 +113,12 @@ To migrate a VM that is connected to an L7 load balancer, you need to enable tra
 ### {{ vpc-name }} {#vpc}
 
 Subnet migration allows you to maintain the original addressing and the IP addresses configured for the listeners of the internal load balancers. Note that you can only migrate empty subnets that do not have any connected resources, such as VM instances, database hosts, and {{ managed-k8s-name }} nodes.
+
+{% note alert %}
+
+Subnet migration is currently unavalable.
+
+{% endnote %}
 
 You can [migrate](../../vpc/operations/subnet-relocate.md) subnets by running the `relocate` command.
 

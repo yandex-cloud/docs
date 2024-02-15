@@ -28,7 +28,7 @@
 
 ## Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [PostgreSQL migration with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
+{% include notitle [PostgreSQL migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-postgresql.md) %}
 
 ## Перенос данных с помощью логической репликации {#logical-replication}
 

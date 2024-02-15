@@ -85,9 +85,9 @@ public class Handler : YcFunction<int, bool> {
 В журнале будет напечатано:
 
 ```
-Function name: <название вашей функции>
-Function version: <id данной версии вашей функции>
-Service account token: <token для вашего сервисного аккаунта>
+Function name: <название_функции>
+Function version: <идентификатор_версии_функции>
+Service account token: <токен_сервисного_аккаунта>
 ```
 
 Возвращаемая строка:

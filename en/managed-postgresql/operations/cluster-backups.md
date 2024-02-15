@@ -22,11 +22,11 @@ When restored to the current state, the new cluster will match the state of:
 * Existing cluster at the time of recovery.
 * Deleted cluster at the time of archiving the most recent WAL.
 
+{% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
-   {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
 
    **To restore an existing cluster from a backup:**
 

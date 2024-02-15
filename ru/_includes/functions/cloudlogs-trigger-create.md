@@ -77,16 +77,16 @@
 
     ```
     yc serverless trigger create cloud-logs \
-      --name <имя триггера> \
-      --log-groups <идентификаторы лог-групп через запятую> \
+      --name <имя_триггера> \
+      --log-groups <идентификаторы_лог-групп_через_запятую> \
       --batch-size 10 \
       --batch-cutoff 10s \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
 
     где:

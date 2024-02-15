@@ -59,6 +59,7 @@ warp get \
 * When deploying your NAT instances in multiple availability zones, set an even number of VMs to evenly distribute them across the availability zones.
 * When selecting the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 * Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter in the pre-scheduled period of time only. When the changes are being applied, traffic handling may be interrupted.
+* If you see a high `CPU steal time` metric value inside a NAT instance as the {{ objstorage-name }} load grows, we recommend enabling a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for that NAT instance.
 * By default, buckets in {{ objstorage-name }} can be accessed via the {{ yandex-cloud }} [management console]({{ link-console-main }}). You can revoke this permission using the `bucket_console_access = false` parameter.
 * If you omit the `mgmt_ip` parameter when `bucket_private_access = true`, solution deployment using {{ TF }} on a workstation will fail with a bucket access error.
 * If you are using your own DNS server, create `A` resource records in its settings in the following format:
@@ -103,7 +104,7 @@ The infrastructure support costs include:
 1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in as a user.
 1. Check if there is an account in the {{ yandex-cloud }} cloud with `admin` rights to the folder the solution is being deployed in.
 1. [Install Git](https://github.com/git-guides/install-git).
-1. Check out the cloud quotas to be able to deploy your resources in this use case:
+1. Check the cloud quotas to be able to deploy your resources in this use case:
 
    {% cut "Information about resources to be created" %}
 
@@ -160,8 +161,8 @@ The infrastructure support costs include:
    | `bucket_console_access` | N/A | Allow bucket access via the {{ yandex-cloud }} management console. If `true`, access is allowed. To disable it, set `false`. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `bool` | `true` |
    | `mgmt_ip` | Yes | Public IP of your workstation where you are deploying the infrastructure using {{ TF }}. It is used to allow your workstation to perform actions with the bucket when deploying {{ TF }}. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `string` | `"A.A.A.A"` |
    | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ objstorage-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances. | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
-   | `vm_username` | N/A | NAT instance and test VM usernames. | `string` | `"admin"` |
-   | `s3_ip` | No | {{ objstorage-name }} public IP address. | `string` | `213.180.193.243` |
+   | `vm_username` | N/A | NAT instance and test VM usernames | `string` | `"admin"` |
+   | `s3_ip` | No | {{ objstorage-name }} public IP address | `string` | `213.180.193.243` |
    | `s3_fqdn` | No | {{ objstorage-name }} domain name | `string` | `{{ s3-storage-host }}` |
 
    {% endcut %}
