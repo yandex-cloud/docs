@@ -4286,10 +4286,6 @@ default:
         switch_list: Кластеры
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
-      cloud-apps:
-        button_install: Установить
-        label_marketplace: Магазин приложений
-        section_resources: Ресурсы приложения
       common:
         add: Добавить
         all: Все
@@ -5025,7 +5021,6 @@ default:
             label_backup: Cloud Backup
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
-            label_cloud-apps: Cloud Apps
             label_cloud-desktop: Cloud Desktop
             label_compute: Compute Cloud
             label_container-registry: Container Registry
@@ -5368,7 +5363,6 @@ default:
           label_list: Целевые группы
           label_targets-section-title: Целевые ресурсы
       load-testing:
-        button_add-bucket: Привязать бакет
         button_add-overload-test-id: Добавить ID
         button_add-tag: Добавить метку
         button_comparison-test-add: Добавить к сравнению
@@ -5405,7 +5399,6 @@ default:
         label_settings-type-form: Форма
         label_tables: Таблицы
         label_test-config: Конфигурация
-        label_test-data_list: Хранилище тестовых данных
         label_test-report: Результаты теста
         label_test-rules-section: Правила добавления тестов
         label_test-settings: Настройки теста

@@ -7,6 +7,31 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+## Version 0.117.0 (30/01/24) {#version0.117.0}
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### Managed database services {#managed-db}
+
+**{{ mgp-name }}**
+
+Added the `restore-only` flag for the `yc managed-greenplum cluster restore` command to restore only the specified objects.
+
+#### {{ iot-name }} {#iot}
+
+Added the following parameters to the `yc iot registry create`, `yc iot registry update`, `yc iot broker create`, and `yc iot broker update` commands:
+
+* `--no-logging`: Disables logging from a registry or a broker.
+* `--log-group-id`, `--log-group-name`: ID or name of the log group to deliver the logs to.
+* `--log-folder-id`, `--log-folder-name`: ID or name of the folder with a default log group to deliver the logs to.
+* `--min-log-level`: Minimum record logging level.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+Fixed the error in the `k8s cluster update` command occurring when `cluster-id` is transferred as a positional argument.
+
+## Previous releases {#previous-releases}
+
 ## Version 0.116.0 (15/01/24) {#version0.116.0}
 
 ### Changes to {{ yandex-cloud }} services {#services}
@@ -49,8 +74,6 @@ Added the `yc loadtesting` command tree to manage the load testing service:
 * `yc loadtesting agent`: Load testing agent management.
 * `yc loadtesting test-config`: Management of load test configuration templates.
 * `yc loadtesting test`: Launching load tests and managing the performed load tests.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.115.0 (18/12/23) {#version0.115.0}
 
@@ -615,7 +638,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 * Added the `sasl-enabled-mechanisms` parameter for setting and changing the configuration settings of Kafka brokers to the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands.
 
-* Fixed the bug with the connectors' `properties` field being changed.
+* Fixed the bug with altering of the connectors' `properties` field.
 
 **{{ mpg-name }}**
 
@@ -1711,7 +1734,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 #### {{ container-registry-name }} {#container-registry}
 
-Added commands for managing the allowed IP addresses for pushing and pulling the Docker images:
+Added commands for managing the allowed IP addresses for pushing and pulling Docker images:
 * `yc container registry add-ip-permissions` adds IP addresses.
 * `yc container registry list-ip-permissions` allows you to view IP addresses.
 * `yc container registry set-ip-permissions` sets IP addresses.

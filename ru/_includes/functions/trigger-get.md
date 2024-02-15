@@ -18,7 +18,7 @@
     Получите подробную информацию о триггере:
 
     ```bash
-    yc serverless trigger get <имя триггера>
+    yc serverless trigger get <имя_триггера>
     ```
 
     Результат:

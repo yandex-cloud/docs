@@ -64,20 +64,20 @@
     
     ```bash
     yc serverless trigger create logging \
-      --name <имя триггера> \
-      --log-group-name <имя лог-группы> \
+      --name <имя_триггера> \
+      --log-group-name <имя_лог-группы> \
       --batch-size 1 \
       --batch-cutoff 1s \
       --resource-ids <идентификатор_ресурса> \
       --resource-types <тип_ресурса> \
       --stream-names <поток_логирования> \
       --log-levels <уровень_логирования> \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
   
 
@@ -142,20 +142,20 @@
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
-       name        = "<имя триггера>"
-       description = "<описание триггера>"
+       name        = "<имя_триггера>"
+       description = "<описание_триггера>"
        logging {
-          group_id       = "<идентификатор лог-группы>"
-          resource_types = [ "<тип ресурса>" ]
-          resource_ids   = [ "<идентификатор ресурса>" ]
+          group_id       = "<идентификатор_лог-группы>"
+          resource_types = [ "<тип_ресурса>" ]
+          resource_ids   = [ "<идентификатор_ресурса>" ]
           levels         = [ "INFO", "ERROR" ]
-          stream_names   = [ "<поток логирования>" ]
+          stream_names   = [ "<поток_логирования>" ]
           batch_cutoff   = 1
           batch_size     = 1
        }
        function {
-          id                 = "<идентификатор функции>"
-          service_account_id = "<идентификатор сервисного аккаунта>"
+          id                 = "<идентификатор_функции>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
      ```
@@ -170,7 +170,7 @@
      * `logging` — параметры записей, при добавлении в лог-группу которых будет срабатывать триггер, и настройки группирования сообщений:
         * `group_id` — идентификатор лог-группы.
         * `resource_types` — типы ресурсов, например функции {{ sf-name }} `resource_types = [ "serverless.function" ]`. Можно указать сразу несколько типов. 
-        * `resource_ids` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций `resource_ids = [ "<идентификатор функции>" ]`. Вы можете указать несколько идентификаторов. 
+        * `resource_ids` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций `resource_ids = [ "<идентификатор_функции>" ]`. Вы можете указать несколько идентификаторов. 
         * `levels` — уровни логирования. Например, `levels = [ "INFO", "ERROR"]`.
         * `stream_names` — потоки логирования.
           Триггер срабатывает, когда в указанную лог-группу добавляют записи, которые соответствуют всем следующим параметрам: `resource-ids`, `resource-types`, `stream-names` и `levels`. Если параметр не задан, триггер срабатывает при любом его значении.
@@ -206,7 +206,7 @@
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../../cli/quickstart.md):
 
         ```
-        yc serverless trigger get <идентификатор триггера>
+        yc serverless trigger get <идентификатор_триггера>
         ```
 
 - API {#api}

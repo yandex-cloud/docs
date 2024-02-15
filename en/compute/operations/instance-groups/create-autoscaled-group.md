@@ -1,12 +1,12 @@
-# Creating an automatically scaled instance group
+# Creating an autoscaling instance group
 
-You can create an automatically scaled [group of identical instances](../../concepts/instance-groups/index.md). The size of this instance group will be managed automatically. For more information, see [{#T}](../../concepts/instance-groups/scale.md#auto-scale).
+You can create an autoscaling [group of identical instances](../../concepts/instance-groups/index.md). This instance group will scale up or down automatically. For more information, see [{#T}](../../concepts/instance-groups/scale.md#auto-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
-To create an automatically scaled instance group:
+To create an autoscaling instance group:
 
 {% list tabs group=instructions %}
 
@@ -72,6 +72,8 @@ To create an automatically scaled instance group:
            network_interface_specs:
              - network_id: c64mknqgnd8a********
                primary_v4_address_spec: {}
+               security_group_ids:
+                 - enps0ar5s3ti********
            scheduling_policy:
              preemptible: false
          ```
@@ -90,6 +92,7 @@ To create an automatically scaled instance group:
          * `size`: Disk size.
          * `network_id`: ID of the `default-net` network.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+         * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
          * `scheduling_policy`: Scheduling policy configuration.
          * `preemptible`: Flag for creating [preemptible VMs](../../concepts/preemptible-vm.md).
             * `true`: Create a preemptible VM.
@@ -141,6 +144,8 @@ To create an automatically scaled instance group:
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+           security_group_ids:
+             - enps0ar5s3ti********
      deploy_policy:
        max_unavailable: 1
        max_expansion: 0
@@ -165,7 +170,7 @@ To create an automatically scaled instance group:
      {{ yc-compute-ig }} create --file specification.yaml
      ```
 
-     This command creates an automatically scaled instance group with the following characteristics:
+     This command creates an autoscaling instance group with the following characteristics:
      * Name: `first-autoscaled-group`
      * OS: CentOS 7
      * Network: `default-net`
@@ -199,8 +204,8 @@ To create an automatically scaled instance group:
         instance_template {
           platform_id = "standard-v3"
           resources {
-            memory = <amount_of_RAM_in_GB>
-            cores  = <number_of_vCPU_cores>
+            memory = <RAM_amount_in_GB>
+            cores  = <number_of_vCPUs>
           }
 
           boot_disk {
@@ -213,6 +218,7 @@ To create an automatically scaled instance group:
           network_interface {
             network_id = "${yandex_vpc_network.network-1.id}"
             subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+            security_group_ids = ["<list_of_security_group_IDs>"]
           }
 
           metadata = {
@@ -269,7 +275,7 @@ To create an automatically scaled instance group:
             * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
                * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
                * Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write).
-            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the network ID and [subnet](../../../vpc/concepts/network.md#subnet) ID.
+            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
             * `metadata`: In the [metadata](../../concepts/vm-metadata.md), provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * [Policies](../../concepts/instance-groups/policies/index.md):
             * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.

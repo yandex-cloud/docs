@@ -10,15 +10,10 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
 * Store payloads and reuse them easily.
 * Ensure maximum security (payloads remain in the user's cloud and associated networks).
 
-## Preparing an infrastructure {#infrastructure-prepare}
+## Preparing the infrastructure {#infrastructure-prepare}
 
 1. [Create](create-agent.md) a test agent.
-1. Link a bucket to {{ load-testing-name }}:
-   1. In the [management console]({{ link-console-main }}), select the folder for testing.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-   1. In the ![image](../../_assets/load-testing/storage.svg) **{{ ui-key.yacloud.load-testing.label_test-data_list }}** tab, click **{{ ui-key.yacloud.load-testing.button_add-bucket }}**.
-   1. Select the bucket.
-1. [Upload](../../storage/operations/objects/upload.md) a payload file to the bucket.
+1. [Create](../../storage/operations/buckets/create.md) a bucket and [upload](../../storage/operations/objects/upload.md) the test data file into it.
 1. Grant the service account linked to the [agent](../concepts/agent.md) read permission in the bucket. To do this, edit the bucket's [ACL](../../storage/concepts/acl.md):
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.

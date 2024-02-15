@@ -2,9 +2,9 @@
 
 To configure {{ GL }} and enable Continuous Integration (CI), create a new project and enter the CI authorization parameters:
 
-{% list tabs %}
+{% list tabs group=gl_installation %}
 
-- {{ mgl-name }} instance
+- {{ mgl-name }} instance {#instance-mgl}
 
   1. Log in to the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) web interface.
   1. Click **Create a project**.
@@ -16,7 +16,7 @@ To configure {{ GL }} and enable Continuous Integration (CI), create a new proje
      Leave the other fields unchanged.
   1. Click **Create project**.
 
-- VM instance with a {{ GL }} image
+- VM running a {{ GL }} image {#gl-image-vm}
 
   1. On the {{ compute-full-name }} page, select the created [VM](../../compute/concepts/vm.md) and copy its [public IP](../../vpc/concepts/address.md#public-addresses).
   1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.

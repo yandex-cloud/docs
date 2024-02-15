@@ -76,18 +76,18 @@
 
     ```bash
     yc serverless trigger create yds \
-      --name <имя триггера> \
+      --name <имя_триггера> \
       --database <размещение_базы_данных> \
-      --stream <имя потока данных> \
+      --stream <имя_потока_данных> \
       --batch-size 1b \
       --batch-cutoff 1s \
-      --stream-service-account-id <идентификатор сервисного аккаунта> \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --stream-service-account-id <идентификатор_сервисного_аккаунта> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
 
     Где:

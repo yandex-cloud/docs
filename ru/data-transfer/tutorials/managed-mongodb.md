@@ -20,7 +20,7 @@
 
 ## Перенос данных {#data-transfer}
 
-{% include notitle [Data migration MMG](../../_tutorials/datatransfer/managed-mongodb.md) %}
+{% include notitle [Data migration MMG](../../_tutorials/dataplatform/datatransfer/managed-mongodb.md) %}
 
 ## См. также {#see-also}
 

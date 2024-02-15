@@ -16,5 +16,4 @@ description: "Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}"
 * [{#T}](websocket-app.md)
 * [{#T}](serverless-live-debug.md)
 * [{#T}](jwt-authorizer-firebase.md)
-* [{#T}](ory-kratos-authorization.md)
 * [{#T}](canary-release.md)

@@ -4,7 +4,7 @@
 
 Этот способ позволяет перенести базу целиком без остановки обслуживания пользователей. Для его использования необходимо разрешить подключение к кластеру-источнику из интернета.
 
-{% include notitle [MySQL migration with Data Transfer](../../_tutorials/datatransfer/managed-mysql.md) %}
+{% include notitle [MySQL migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql.md) %}
 
 ## См. также {#see-also}
 

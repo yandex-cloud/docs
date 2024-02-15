@@ -73,6 +73,8 @@ To create a fixed-size instance group:
            network_interface_specs:
              - network_id: c64mknqgnd8a********
                primary_v4_address_spec: {}
+               security_group_ids:
+                 - enps0ar5s3ti********
            scheduling_policy:
              preemptible: false
            placement_policy:
@@ -93,8 +95,9 @@ To create a fixed-size instance group:
          * `size`: Disk size.
          * `network_id`: ID of the `default-net` network.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+         * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
          * `scheduling_policy`: Scheduling policy configuration.
-         * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
+         * `preemptible`: Flag for creating [preemptible VMs](../../concepts/preemptible-vm.md).
            * `true`: Create a preemptible VM.
            * `false` (default): Create a regular VM.
 
@@ -144,6 +147,8 @@ To create a fixed-size instance group:
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+           security_group_ids:
+             - enps0ar5s3ti********
         placement_policy:
           placement_group_id: rmppvhrgm77g********
      deploy_policy:
@@ -205,8 +210,8 @@ To create a fixed-size instance group:
         instance_template {
           platform_id = "standard-v3"
           resources {
-            memory = <amount_of_RAM_in_GB>
-            cores  = <number_of_vCPU_cores>
+            memory = <RAM_amount_in_GB>
+            cores  = <number_of_vCPUs>
           }
 
           boot_disk {
@@ -219,6 +224,7 @@ To create a fixed-size instance group:
           network_interface {
             network_id = "${yandex_vpc_network.network-1.id}"
             subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+            security_group_ids = ["<list_of_security_group_IDs>"]
           }
 
           metadata = {
@@ -228,7 +234,7 @@ To create a fixed-size instance group:
 
         scale_policy {
           fixed_scale {
-            size = <number_of_instances_in_the_group>
+            size = <number_of_VM_instances_in_group>
           }
         }
 
@@ -272,7 +278,7 @@ To create a fixed-size instance group:
             * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
                * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
                * Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write).
-            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the network ID and [subnet](../../../vpc/concepts/network.md#subnet) ID.
+            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
             * `metadata`: In the [metadata](../../concepts/vm-metadata.md), provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * [Policies](../../concepts/instance-groups/policies/index.md):
             * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.
