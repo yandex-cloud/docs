@@ -151,18 +151,6 @@ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
    ],
    ```
 
-1. Добавьте в зависимости проекта пакет `aws/aws-sdk-php`:
-   
-   ```
-   composer require aws/aws-sdk-php
-   ```
-
-1. Обновите конфигурацию Composer:
-
-   ```
-   composer update
-   ```
-
 1. Выполните команду:
 
    ```
