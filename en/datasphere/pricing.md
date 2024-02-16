@@ -4,9 +4,11 @@ editable: false
 
 # {{ ml-platform-name }} pricing
 
+{% include [serverless-deprecation-note](../_includes/datasphere/serverless-deprecation-note.md) %}
 
 
-## What adds up to the cost of {{ ml-platform-name }} {#rules}
+
+## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
 When using {{ ml-platform-name }}, you pay for the use of computing resources: the compute and instance running time is charged per second.
 

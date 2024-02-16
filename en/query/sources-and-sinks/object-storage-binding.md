@@ -8,7 +8,7 @@ Sample data read query using bindings:
 SELECT
     *
 FROM
-    bindings.`logs`
+    `logs`
 WHERE
     version>1
 ```
@@ -48,14 +48,13 @@ To create a binding to read data from {{ objstorage-short-name }}:
 SELECT
     <expression>
 FROM
-    bindings.`binding_name`
+    `binding_name`
 WHERE
     <filter>;
 ```
 
 Where:
 
-* `bindings`: Keyword that indicates operations with {{ objstorage-short-name }} using data bindings.
 * `binding_name`: Name of the previously created data binding.
 
 ## Example of reading data using bindings {#binding-example}
@@ -66,7 +65,7 @@ Sample query to read data from {{ objstorage-short-name }} using bindings:
 SELECT
     *
 FROM
-    bindings.`binding_name`
+    `binding_name`
 ```
 
 Where `binding_name` is the name of binding to {{ objstorage-short-name }} data.

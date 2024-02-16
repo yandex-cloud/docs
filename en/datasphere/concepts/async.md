@@ -1,5 +1,7 @@
 # Background operations
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 In [{{ ds }} mode](project.md#serverless) in {{ ml-platform-name }}, you can run such time-consuming operations as model training, in the background. To do this, use special cells where your code is executed asynchronously. In this case, you can continue working with a notebook.
 
 If another part of a notebook uses the same variable as an asynchronous operation, a notification appears in the notebook, and you will need to specify the variable value explicitly when the asynchronous operation is complete.

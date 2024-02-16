@@ -11,7 +11,7 @@ items:
         href: operations/workaround.md
       - name: Query testing
         href: operations/test-request.md
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: operations/auth.md
       - name: Requesting limits
         href: operations/request-limits.md
@@ -33,6 +33,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Applications
     items:
       - name: Error codes

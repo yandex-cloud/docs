@@ -20,6 +20,8 @@ Projects are created with a preset development environment and pre-installed pac
 
 ## Project modes {#mode}
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 {{ ml-platform-name }} provides two modes for running projects: {{ ds }} and {{ dd }}. You can select a mode when starting a project or [set the default mode](../operations/projects/update.md) in the project settings.
 
 {% note warning %}
@@ -40,9 +42,9 @@ In the {{ dd }} mode, you can use {{ ml-platform-name }} as in a local {{ jlab }
 
 The {{ dd }} mode does not support automatic [interpreter state saves](save-state.md) and [checkpoints](checkpoints.md). However, cell code changes will be saved automatically. You can disable notebook autosaves in the {{ jlab }}Lab settings by selecting **Settings ⟶ Autosave Documents** in the top menu. If you want to save an interpreter state or output, you will need to do that yourself.
 
-For the same reason, you will not be able to change a configuration for multiple cells without restarting the entire notebook.
+For the same reason, you will not be able to change a configuration for multiple cells.
 
-You can have multiple configurations of the VMs assigned to a single project. When running computations in your notebook for the first time, select a configuration to use for them.
+You can link multiple VM configurations to a single project. When running computations in your notebook for the first time, select a configuration to use for them.
 
 VM billing in the {{ dd }} mode will start once the first computations are run in a notebook and will continue as long as the VM is assigned to the respective project. You can learn more about {{ ml-platform-name }} usage cost [here](../pricing.md).
 

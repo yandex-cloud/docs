@@ -9,3 +9,5 @@ To create a space:
 1. Enter a name for the space.
 1. (Optional) Add a space description.
 1. Click **Create**.
+
+Once the space is created, [link a billing account to it](link-ba.md). It is required to [pay for resources](../../pricing.md) in the space.

@@ -9,5 +9,5 @@ description: "To perform operations using the {{ speechkit-full-name }} API, you
 
 #### See also {#see-also}
 
-* [{#T}](../../iam/concepts/index.md#accounts)
+* [{#T}](../../iam/concepts/users/accounts.md)
 * [What roles are required for performing operations](../security/index.md)

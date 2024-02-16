@@ -1,4 +1,4 @@
-* **Organization users**. Every {{ yandex-cloud }} user belongs at least to one organization. Organization users may have any types of [{{ yandex-cloud }} accounts](../../iam/concepts/index.md#accounts):
+* **Organization users**. Every {{ yandex-cloud }} user belongs at least to one organization. Organization users may have any types of [{{ yandex-cloud }} accounts](../../iam/concepts/users/accounts.md):
 
    * Yandex account
    * Federated account

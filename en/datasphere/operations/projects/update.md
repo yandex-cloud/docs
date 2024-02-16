@@ -5,6 +5,8 @@ description: "Follow this guide to update your project settings."
 
 # Changing project settings
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 On the project editing page, you can change the project name and description, set consumption limits, and configure integration with other {{ yandex-cloud }} services:
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}

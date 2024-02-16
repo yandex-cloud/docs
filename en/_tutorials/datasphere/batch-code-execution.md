@@ -1,3 +1,5 @@
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can run code using the API without opening your project. This might be handy when you need to automate routine operations, additionally train a neural network, or deploy a service that does not require quick responses via the API.
 
 Based on a use case of a simple convolutional neural network ([CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network)), this tutorial will show you how to deploy a model trained in {{ ml-platform-name }} using [{{ sf-full-name }}](../../functions/index.yaml). The result of running the model will be saved to {{ ml-platform-name }} project storage.
@@ -348,4 +350,4 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will t
 
 To stop paying for the resources you created:
 * [Delete](../../functions/operations/function/function-delete.md) the function.
-* [Delete](../../datasphere/operations/projects/delete.md) your project.
+* [Delete](../../datasphere/operations/projects/delete.md) the project.

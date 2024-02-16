@@ -1,5 +1,7 @@
 # About {{ ml-platform-name }}
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 {{ ml-platform-full-name }} is a full-cycle ML development environment. {{ ml-platform-full-name }} is part of the data platform and offers powerful features to easily work with {{ yandex-cloud }} services.
 
 {{ ml-platform-name }} helps significantly reduce the cost of ML as compared to computing on your own hardware or other cloud platforms thanks to automatic maintenance of the computing resources.
@@ -40,7 +42,7 @@ Resource access permissions and scope are managed using new roles. For more info
 
 You no longer have to re-enter data every time you need to connect to any object storage. To store all details, we introduced **{{ ui-key.yc-ui-datasphere.resources.s3 }}** that allow you [to connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
 
-There are also [Checkpoints](secrets.md) that store the interpreter state and variable values. You can use them to create [nodes](deploy/index.md#node) and [share them](../operations/projects/checkpoints.md#share) across communities through a direct link.
+There are also [checkpoints](checkpoints.md) that store the interpreter state and variable values. You can use them to create [nodes](deploy/index.md#node) and [share them](../operations/projects/checkpoints.md#share) across communities through a direct link.
 
 ### Seamless use of running services {#deployment}
 

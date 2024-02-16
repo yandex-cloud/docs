@@ -16,7 +16,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 ## Configure the environment {#set-space}
 
 1. Create a [space](concepts/resources-hierarchy.md#space) where all your [projects](concepts/resources-hierarchy.md#project) will be stored: select **Create space**, enter a name, add a description (optional), and click **Create**.
-1. Link a billing account to the space. This account will be debited for your use of {{ speechsense-name }}.
+1. [Link a billing account](operations/space/link-ba.md) to the space. This account will be debited for the use of {{ speechsense-name }}.
 
   {% note tip %}
 
@@ -29,7 +29,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
     1. Enter the **Connection name**.
     1. Select **Two-channel audio** under **Data type**.
     1. Set connection parameters using the metadata of your audio recordings:
-        * Under **Agent**, specify the number of the track that contains the agent's voice in your audio recordings and specify their displayed name (`Agent` by default).
+        * Under **Agent**, specify the number of the track that contains the agent's voice in your audio recordings and define their displayed name (`Agent` by default).
         * Under **Customer**, specify the number of the track that contains the customer's voice in your audio recordings and define their displayed name (`Customer` by default).
         * Under **Shared metadata**, change the parameter names used in the system, if necessary.
         * If your metadata includes additional information you want to save and analyze, add it to the appropriate section. Provide the parameter key (must match the key in the metadata file), specify a type, and enter a display name to use in the system. The supported additional parameters are `Date`, `String`, `Number`, `Logical`, and `JSON`.

@@ -1,6 +1,6 @@
 # Migrating resources to the {{ region-id }}-d availability zone
 
-The `{{ region-id }}-с` availability zone will be [discontinued](./ru-central1-c-deprecation.md) in the first six months of 2024. You can migrate resources from it to the new `{{ region-id }}-d` zone.
+The `{{ region-id }}-с` zone will be [discontinued](./ru-central1-c-deprecation.md) during 2024. You can migrate resources from this availability zone to the new `{{ region-id }}-d` zone.
 
 We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. To migrate instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.
 

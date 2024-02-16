@@ -1,5 +1,7 @@
 # Saving a state
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 The interpreter state is the cell code, output, and variable values at a specific point in time.
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}

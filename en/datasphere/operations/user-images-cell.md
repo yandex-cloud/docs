@@ -1,5 +1,7 @@
 # Running a Docker container in a separate cell
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 When using {{ ds }} mode, you can set up a separate environment in any notebook cell by running a Docker container in it. You can utilize this method if you need to use a utility distributed as a Docker image or a programming language other than Python. The launchable image can be located in any open Docker image registry.
 
 {% note info %}

@@ -14,6 +14,7 @@ description: "The page contains all guides for {{ speechsense-name }} in {{ yand
 ## Space management {#space}
 
 * [{#T}](space/create.md)
+* [{#T}](space/link-ba.md)
 * [{#T}](space/add-user-to-space.md)
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)

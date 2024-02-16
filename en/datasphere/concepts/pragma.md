@@ -1,5 +1,7 @@
 # #pragma service commands
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 You can set cell running parameters using the `#pragma` service command.
 
 | Command | Description |
