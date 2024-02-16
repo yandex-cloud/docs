@@ -8,14 +8,14 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}). If not registered yet, navigate to the management console and follow the guide.
+   1. Log in to the [management console]({{ link-console-main }}). If not registered yet, navigate to the management console and follow the guide.
 
    
    1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
 
 
    1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
-   1. Make sure that the [account](../../../iam/concepts/index.md#accounts) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
+   1. Make sure that the [account](../../../iam/concepts/users/accounts.md) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
    1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
    1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
@@ -27,7 +27,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
       {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
 
-  1. [Create and configure the security groups](../connect/security-groups.md).
+   1. [Create and configure the security groups](../connect/security-groups.md).
 
    1. Review the [recommendations for using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
@@ -132,7 +132,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
           `kube-apiserver-enabled=<kube-apiserver_log_sending>,`
           `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending>,`
           `events-enabled=<{{ k8s }}_event_sending>`
-          `audit-enabled=<audit_event_sending>
+          `audit-enabled=<audit_event_sending>`
       ```
 
       Where:
