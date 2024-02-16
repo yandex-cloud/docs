@@ -5,6 +5,8 @@ description: "Follow this guide to reset the interpreter state."
 
 # Resetting the interpreter state
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 {{ ml-platform-name }} only [saves the interpreter state](../../concepts/save-state.md) in {{ ds }} mode.
 
 {% note alert %}

@@ -9,15 +9,19 @@ description: "Videos of conferences and webinars on {{ ml-platform-name }}."
 
 ### 2024: Announcement {#announcement-2024}
 
-* New features for working with models.
+* New possibilities of working with models.
 
-   * [Click here to view the video](https://www.youtube.com/watch?v=3W5ePOLQg64)
+   * [Click here to view the video](https://www.youtube.com/watch?v=3W5ePOLQg64).
 
 ### 2024: Webinar {#webinar-2024}
 
 * {{ yagpt-name }} model tuning in {{ ml-platform-full-name }}.
 
-   * [Click here to view the video](https://www.youtube.com/watch?v=hGrH0Shovtk)
+   * [Click here to view the video](https://www.youtube.com/watch?v=hGrH0Shovtk).
+
+* {{ ml-platform-full-name}} Jobs: Running local code in the cloud.
+
+   * [Click here to view the video](https://www.youtube.com/watch?v=As9b73RORTk).
 
 ### 2024: Practical ML Conf {#ml-conf-2024}
 

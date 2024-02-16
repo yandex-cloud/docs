@@ -13,21 +13,21 @@ The structure of the transmitted data is as follows:
 The body of the SQL query to {{ yql-short-name }} looks like this:
 
 ```sql
-SELECT * FROM input_stream MATCH_RECOGNIZE ( -- Execute pattern matching from the input_stream
-    ORDER BY ts -- Review events in ascending order of the ts column value (Timestamp data type)
+SELECT * FROM bindings.input_stream MATCH_RECOGNIZE ( -- Performing pattern matching from input_stream
+    ORDER BY ts -- Viewing events in ascending order of the ts column value (Timestamp data type)
     MEASURES
-      LAST(B1.ts) AS b1, -- Receive the last instance of pressing button 1 in the query results
-      LAST(B3.ts) AS b3  -- Receive the last instance of pressing button 3 in the query results
+      LAST(B1.ts) AS b1, -- In the query results, we will get the last moment of clicking button 1
+      LAST(B3.ts) AS b3  -- In the query results, we will get the last moment of clicking button 3
 
-    ONE ROW PER MATCH    -- Receive one row of results for each found match
-    AFTER MATCH SKIP TO NEXT ROW -- After detecting a pattern, move on to the next row
+    ONE ROW PER MATCH    -- We will get one row of results per found match
+    AFTER MATCH SKIP TO NEXT ROW -- After the pattern is detected, we move to the next row
     PATTERN (
-      B1 B2+ B3 -- Search for a pattern in the data, consisting of one press of button 1, one or several presses of button 2, and one press of button 3
+      B1 B2+ B3 -- We look for a pattern in the data consisting of one click on button 1, one or more clicks on button 2, and one click on button 3
     )
     DEFINE
-        B1 AS B1.button = 1, -- Define the B1 condition as pressing of button 1 (the button field value equals 1)
-        B2 AS B2.button = 2, -- Define the B2 condition as pressing of button 2 (the button field value equals 2)
-        B3 AS B3.button = 3  -- Define the B3 condition as the pressing of button 3 (the button field value equals 3)
+        B1 AS B1.button = 1, -- We define the B1 condition as clicking button 1 (button field value is 1)
+        B2 AS B2.button = 2, -- We define the B2 condition as clicking button 2 (button field value is 2)
+        B3 AS B3.button = 3  -- We define the B3 condition as clicking button 3 (button field value is 3)
 ) AS MATCHED;
 ```
 

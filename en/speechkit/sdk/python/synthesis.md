@@ -7,8 +7,8 @@ description: "Follow this guide to test speech synthesis using the Python SDK in
 
 Below is an example of speech synthesis from text in [TTS markup](../../tts/markup/tts-markup.md) into a [WAV](https://en.wikipedia.org/wiki/WAV) file using the [{{ speechkit-name }} Python SDK](index.md). This example uses the following parameters:
 
-* [Voice](../../tts/voices.md#premium): `jane`.
-* [Role](../../tts/voices.md#premium): `good`.
+* [Voice](../../tts/voices.md#premium): `jane`
+* [Role](../../tts/voices.md#premium): `good`
 
 [Other speech synthesis settings](https://pypi.org/project/yandex-speechkit/#%D0%A1%D0%B8%D0%BD%D1%82%D0%B5%D0%B7%20%D1%80%D0%B5%D1%87%D0%B8:~:text=(utterance)-,%D0%A1%D0%B8%D0%BD%D1%82%D0%B5%D0%B7%20%D1%80%D0%B5%D1%87%D0%B8,-%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B9%D1%82%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D0%B4%D1%91%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B8%D0%B6%D0%B5) are at defaults.
 
@@ -21,9 +21,9 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 
 ## Create an application for speech synthesis {#create-an-application}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
    1. Create a file named `test.py` and add the following code to it:
@@ -63,11 +63,11 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 
       Where:
 
-      * `api_key`: API key for the service account
-      * `voice`: Voice for speech synthesis
-      * `role`: Role for the specified voice
-      * `text`: Text for synthesis in TTS markup
-      * `export_path`: Path to the file to save the audio to
+      * `api_key`: API key for the service account.
+      * `voice`: Voice for speech synthesis.
+      * `role`: Role for the specified voice.
+      * `text`: Text for synthesis in TTS markup.
+      * `export_path`: Path to the file you want to save the audio to.
 
    1. Enter text to be converted into speech:
 
@@ -83,8 +83,8 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 
       Where:
 
-      * `--text`: Text for synthesis in TTS markup
-      * `--export`: Path to the file to save the audio to
+      * `--text`: Text in TTS markup for synthesis.
+      * `--export`: Path to the file you want to save the audio to.
 
       As a result, the `speech.wav` file with synthesized speech will be created.
 
