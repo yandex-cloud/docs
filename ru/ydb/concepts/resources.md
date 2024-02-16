@@ -21,7 +21,7 @@ sourcePath: overlay/public_talks.md
 
 ### База данных на выделенных ресурсах (Dedicated) {#resource-presets}
 
-БД {{ ydb-name }} предоставляется на виртуальных машинах на платформах, которые поддерживает {{ compute-full-name }}. Подробное смотрите в разделе [{#T}](../../compute/concepts/vm-platforms.md).
+БД {{ ydb-name }} предоставляется на виртуальных машинах на платформах, которые поддерживает {{ compute-full-name }}. Подробнее смотрите в разделе [{#T}](../../compute/concepts/vm-platforms.md).
 
 {% note warning %}
 
