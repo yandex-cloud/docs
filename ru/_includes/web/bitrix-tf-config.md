@@ -122,7 +122,7 @@ resource "yandex_compute_disk" "boot-disk" {
   name     = "bootdisk"
   type     = "network-ssd"
   zone     = "{{ region-id }}-a"
-  size     = "24
+  size     = "24"
   image_id = yandex_compute_image.ubuntu-image.id
 }
 

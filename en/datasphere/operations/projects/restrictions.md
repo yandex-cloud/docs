@@ -1,4 +1,6 @@
-# Set project limits
+# Setting project limits
+
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
 
 In {{ ml-platform-name }}, you can set up consumption limits for a project. Project consumption thresholds are set in [units](../../pricing.md#unit).
 
@@ -18,5 +20,5 @@ Under [{{ ui-key.yc-ui-datasphere.common.general }}](update.md), you can specify
 
 #### See also {#see-also}
 
-* [{#T}](install-dependencies.md).
-* [{#T}](control-compute-resources.md).
+* [{#T}](install-dependencies.md)
+* [{#T}](control-compute-resources.md)

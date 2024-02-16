@@ -30,14 +30,14 @@ Template parameter restrictions are as follows:
 
 {% include [prepare-template-synthesis](../../../_includes/speechkit/prepare-template-synthesis.md) %}
 
-## Send data to the {#send-to-api} API
+## Send data to the API {#send-to-api}
 
 
 Create and run a client app to send your data to the API:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
    1. Install dependencies using the [PIP package manager](https://pip.pypa.io/en/stable/):
 

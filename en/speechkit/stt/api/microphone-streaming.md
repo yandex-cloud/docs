@@ -1,4 +1,4 @@
-# Microphone speech streaming recognition using API v3
+# Microphone speech streaming recognition using the API v3
 
 Below, we provide an example of streaming recognition of microphone-recorded speech. Speech is recognized in real time using the {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/).
 
@@ -22,9 +22,9 @@ Authentication is performed under a service account using an [API key](../../../
 
 ## Create an application for streaming speech recognition {#create-an-application}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
    1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
 

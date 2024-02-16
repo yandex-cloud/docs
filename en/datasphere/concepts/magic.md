@@ -1,5 +1,7 @@
 # Available commands
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 The list of commands available in a notebook consists of regular commands with some restrictions and additions. You can view the list of regular commands in the [IPython documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html). For the restrictions and additions, see below.
 
 ## Disabled regular commands {#block}

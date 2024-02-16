@@ -1,5 +1,7 @@
 # Working with checkpoints
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 You can find a list of checkpoints on your project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** → ![checkpoints-panel](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}**. Checkpoints are only available if you have already run code cells in your project.
 
 {% include [save-state-dedicated](../../../_includes/datasphere/save-state-dedicated.md) %}

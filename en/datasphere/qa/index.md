@@ -5,6 +5,8 @@ description: "How do I get {{ ml-platform-full-name }} activity logs? Find the a
 
 # General questions about {{ ml-platform-name }}
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 {% include [logs](../../_qa/logs.md) %}
 
 {% include [personal-data](../../_qa/personal-data.md) %}

@@ -3,7 +3,7 @@
 
    {% note warning %}
 
-   Please note that you can only recognize audio files asynchronously under a service account. Do not use any [other accounts in {{ yandex-cloud }}](../../iam/concepts/index.md#accounts) for that.
+   Please note that you can only recognize audio files asynchronously under a service account. Do not use any [other accounts in {{ yandex-cloud }}](../../iam/concepts/users/accounts.md) for that.
 
    {% endnote %}
 

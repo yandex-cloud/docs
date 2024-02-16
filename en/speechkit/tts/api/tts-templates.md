@@ -46,9 +46,9 @@ Examples of fixed phrases:
 
 Create and run a client app to send your data to the API:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
    1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
 

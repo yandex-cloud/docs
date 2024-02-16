@@ -1,5 +1,7 @@
 # Deploying a service from a checkpoint
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 In {{ ml-platform-name }}, you can both train a model and [deploy](../../datasphere/concepts/deploy/index.md) it as a microservice that can be accessed from external resources.
 
 In this example, you will train a model for classifying clothing items from the [Keras](https://keras.io/about/) library and then complete all steps required to publish a service by creating a [node](../../datasphere/concepts/deploy/index.md#node) and an [alias](../../datasphere/concepts/deploy/index.md#alias). You will train your model in [{{ ds }} mode](../../datasphere/concepts/project.md#serverless) and create a node from a checkpoint. If you work in {{ dd }} mode and want to deploy a model as a service, use [model-based nodes](../../datasphere/operations/deploy/node-create.md#from-model).
@@ -250,7 +252,7 @@ In this example, you will use an image classification model based on [fully conn
    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
    1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the node parameters:
-      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**.
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name, e.g., `classifier-node`.
       * In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** field, select the checkpoint named `checkpoint-for-node`.
       * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:

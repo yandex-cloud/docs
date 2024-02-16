@@ -1,3 +1,6 @@
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
+
 You can set up regular run scenarios in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) using the API by triggering notebook cell execution in [{{ sf-full-name }}](../../functions/index.yaml).
 
 In this tutorial, you will collect information about the most discussed stocks on [Reddit](https://tradestie.com/api/v1/apps/reddit), analyze the sentiment of the discussion, and set up regular data updates.
@@ -256,4 +259,4 @@ From now on, the `stock_sentiments_data.csv` file will be updated every 15 minut
 To stop paying for the resources you created:
 * [Delete](../../functions/operations/function/function-delete) the function.
 * [Delete](../../functions/operations/trigger/trigger-delete) the trigger.
-* [Delete](../../datasphere/operations/projects/delete) your project.
+* [Delete](../../datasphere/operations/projects/delete) the project.

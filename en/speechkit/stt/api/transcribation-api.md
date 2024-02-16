@@ -9,13 +9,13 @@ You will need the following to use the API:
 
 * [{{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md) to which you will upload your audio file for recognition.
 * [Service account](../../../iam/operations/sa/create.md) with the `{{ roles-speechkit-stt }}` and `storage.uploader` roles needed for accessing {{ speechkit-name }} and {{ objstorage-name }}.
-* [IAM token](../../../iam/operations/iam-token/create-for-sa.md) or [API key](../../../iam/operations/api-key/create.md) for authorization.
+* [IAM token](../../../iam/operations/iam-token/create-for-sa.md) or [API key](../../../iam/operations/api-key/create.md) for authentication.
 
 For more information on getting started, see [{#T}](../transcribation.md#async-recognition).
 
 {% note warning %}
 
-Please note that you can only recognize audio files asynchronously under a service account. Do not use any [other accounts in {{ yandex-cloud }}](../../../iam/concepts/index.md#accounts) for that.
+Please note that you can only recognize audio files asynchronously under a service account. Do not use any [other accounts in {{ yandex-cloud }}](../../../iam/concepts/users/accounts.md) for that.
 
 {% endnote %}
 
@@ -33,7 +33,7 @@ The request body structure is as follows:
   "specification": {
    "languageCode": "string",
    "model": "string",
-   "profanityFilter": "string",
+   "profanityFilter": boolean,
    "literature_text": boolean,
    "audioEncoding": "string",
    "sampleRateHertz": integer,

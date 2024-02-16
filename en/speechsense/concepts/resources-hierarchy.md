@@ -16,7 +16,7 @@ You can [set up access](#access-rights-inheritance) in {{ speechsense-name }} at
 
 A _space_ is an isolated {{ speechsense-name }} entity within which you can create connections and projects. In the {{ yandex-cloud }} [resource hierarchy](../../overview/roles-and-resources.md), {{ speechsense-name }} spaces are at the same level with [{{ ml-platform-name }} communities](../../datasphere/concepts/community.md) and [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 
-Each space has a billing account linked to it. You can use one account to [pay for resources](../pricing.md) in multiple spaces or link a separate account to each space.
+A [billing account is linked](../operations/space/link-ba.md) to each space. You can use one account to [pay for resources](../pricing.md) in multiple spaces or link a separate account to each space.
 
 ### Connection {#connection}
 

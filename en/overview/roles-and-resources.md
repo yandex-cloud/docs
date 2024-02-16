@@ -1,6 +1,6 @@
 # User interaction with resources {{ yandex-cloud }}
 
-All {{ yandex-cloud }} services interact based on the common _resource and role model_. Its underlying entity is _organization_ that combines different types of resources and users in a single workspace.
+All {{ yandex-cloud }} services work based on the common _resource and role model_. Its underlying entity is _organization_ that combines different types of resources and users in a single workspace.
 
 ![users-and-resources](../_assets/overview/users-resources.svg "Users and resources hierarchy")
 
@@ -16,7 +16,7 @@ In the [{{ org-full-name }} interface]({{ link-org-main }}), you can [view](../o
 
 ## Users {#users}
 
-Each {{ yandex-cloud }} user has their own _account_ that is used for identification when performing operations with resources. This can be a [Yandex ID](https://yandex.ru/id/about) account or a federated account of an [identity federation](../organization/concepts/add-federation.md). In addition, there are service accounts: a special type of account your software can use to perform operations with {{ yandex-cloud }} resources. [Learn more about accounts](../iam/concepts/index.md#accounts).
+Each {{ yandex-cloud }} user has their own _account_ that is used for identification when performing operations with resources. This can be a [Yandex ID](https://yandex.ru/id/about) account or a federated account of an [identity federation](../organization/concepts/add-federation.md). In addition, there are service accounts: a special type of account your software can use to perform operations with {{ yandex-cloud }} resources. [Learn more about accounts](../iam/concepts/users/accounts.md).
 
 Each user belongs to at least one organization. When logging in to {{ yandex-cloud }} with your Yandex ID for the first time, you will be prompted to register your own organization. After creating an organization, you can enable and disable {{ yandex-cloud }} services, create clouds, folders, and other resources.
 

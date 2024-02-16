@@ -39,6 +39,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ data-transfer-full-name }}](../data-transfer/troubleshooting/index.md)
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
+* [{{ yq-full-name }}](../query/qa/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
 * [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
 * [{{ mes-full-name }}](../managed-elasticsearch/qa/index.md)
@@ -80,7 +81,11 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ iam-full-name }}](../iam/qa/index.md)
 * [{{ kms-full-name }}](../kms/qa/index.md)
 * [{{ lockbox-full-name }}](../lockbox/qa/index.md)
+* [{{ certificate-manager-full-name }}](../certificate-manager/qa/index.md)
 
+### Developer tools {#developer-tools}
+
+* [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 
 ### Resources and management {#resources-operations}
 
@@ -95,8 +100,10 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ speechkit-full-name }}](../{{ speechkit-slug }}/qa/all.md)
+* [{{ speechsense-full-name }}](../speechsense/qa/index.md)
 * [{{ translate-full-name }}](../translate/qa/index.md)
 * [{{ vision-full-name }}](../vision/qa/index.md)
+* [{{ yagpt-full-name }}](../yandexgpt/qa/index.md)
 
 
 

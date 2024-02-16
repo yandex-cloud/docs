@@ -13,11 +13,11 @@ SELECT
     distance_type,
     COUNT(*)
 FROM
-    bindings.`tutorial-analytics`
-GROUP BY                                -- CASE checks a list of conditions
-    CASE                                -- and returns one of several possible
-        WHEN trip_distance > 10         -- expression or with any other operator,
-        THEN "long"                     -- supporting this expression. For example, you can use
+    `tutorial-analytics`
+GROUP BY                                -- CASE checks the list of conditions
+    CASE                                -- and returns one of multiple possible
+        WHEN trip_distance > 10         -- expressions or with any operator
+        THEN "long"                     -- that supports this expression. For example, you can use
         ELSE "short"                    -- in a SELECT
     END AS distance_type                -- and with the IN, WHERE, and ORDER BY operators.
                                         -- You can run GROUP BY
