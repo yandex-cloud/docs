@@ -56,4 +56,6 @@ items:
         href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/desktops/index.md
 base: en/cloud-desktop
