@@ -34,7 +34,7 @@ The following [roles](../../iam/concepts/access-control/roles.md) give the right
 
 {% include [k8s-cluster-api-cluster-admin](../../_includes/iam/roles/k8s-cluster-api-cluster-admin.md) %}
 
-To view the rights to the {{ managed-k8s-name }} cluster resources available for a specific role, run this command:
+To view permissions to the {{ managed-k8s-name }} cluster resources available for a specific role, run this command:
 
 ```bash
 kubectl describe clusterrole <role_in_{{ k8s }}_RBAC>
@@ -88,7 +88,7 @@ To create a {{ managed-k8s-name }} cluster with [tunnel mode](../concepts/networ
 
 ## Roles required for creating a {{ managed-k8s-name }} {#required-roles}
 
-When creating a {{ managed-k8s-name }} cluster and a node group, make sure that the [account](../../iam/concepts/index.md#accounts) used for creating the cluster has these [roles](../../iam/concepts/access-control/roles.md):
+When creating a {{ managed-k8s-name }} cluster and a node group, make sure that the [account](../../iam/concepts/users/accounts.md) used for creating the cluster has these [roles](../../iam/concepts/access-control/roles.md):
 * [{{ roles.k8s.editor }}](#k8s-editor) or higher
 * [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user)
 
@@ -111,18 +111,18 @@ To get detailed information about a {{ managed-k8s-name }} cluster and node grou
 Users with the `k8s.cluster-api.cluster-admin` role have full access to the {{ managed-k8s-name }} cluster's {{ k8s }} API and can use all the management console features.
 
 To provide more granular access to the necessary resources, you can:
-* Configure additional rights in {{ k8s }} RBAC for the appropriate users.
+* Configure additional permissions in {{ k8s }} RBAC for the appropriate users.
 * Expand the `view` and `edit` role in {{ k8s }} RBAC using [role aggregation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles). For example, you can allow all users with the `view` role in the {{ k8s }} API (including users with the `k8s.cluster-api.viewer` cloud role) to view information about nodes by adding the following role to the {{ managed-k8s-name }} cluster:
 
-  ```yaml
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRole
-  metadata:
-    name: view-extensions
-    labels:
-      rbac.authorization.k8s.io/aggregate-to-view: "true"
-  rules:
-  - apiGroups: [""]
-    resources: ["nodes"]
-    verbs: ["get", "list", "watch"]
-  ```
+   ```yaml
+   apiVersion: rbac.authorization.k8s.io/v1
+   kind: ClusterRole
+   metadata:
+     name: view-extensions
+     labels:
+       rbac.authorization.k8s.io/aggregate-to-view: "true"
+   rules:
+   - apiGroups: [""]
+     resources: ["nodes"]
+     verbs: ["get", "list", "watch"]
+   ```
