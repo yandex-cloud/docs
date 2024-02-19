@@ -120,7 +120,11 @@ items:
       - name: Примеры
         href: kinesisapi/examples.md
   - name: Kafka API
-    href: kafkaapi/index.md
+    items:
+    - name: Обзор
+      href: kafkaapi/index.md
+    - name: Аутентификация и соединение
+      href: kafkaapi/auth.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/data-streams
