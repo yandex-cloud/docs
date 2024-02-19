@@ -11,7 +11,7 @@
 В Kafka API аутентификация выполняется через механизм `SASL_SSL/PLAIN`.
 
 Для аутентификации необходимы:
-* `<database>` [путь базы данных](../../concepts/connect#database).
+* `<database>` [путь базы данных](../../concepts/connect#database). Путь базы данных отображается на вкладке Обзор на странице потока данных в [консоли управления]({{ link-console-main }}).
 * `<api-key>` [API-ключ](../../iam/concepts/authorization/api-key).
 
 Из этих параметров формируются:
