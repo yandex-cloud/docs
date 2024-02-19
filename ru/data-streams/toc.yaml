@@ -123,7 +123,7 @@ items:
     items:
     - name: Обзор
       href: kafkaapi/index.md
-    - name: Аутентификация и соединение
+    - name: Аутентификация и соединение с БД
       href: kafkaapi/auth.md
   - name: Вопросы и ответы
     href: qa/index.md
