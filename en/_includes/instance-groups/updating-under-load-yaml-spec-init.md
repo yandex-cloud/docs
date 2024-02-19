@@ -1,12 +1,12 @@
 ```yaml
 name: group-for-load # The instance group name that must be unique within the folder.
-service_account_id: ajeab0cnib1pdefe21dm # Service account ID.
+service_account_id: ajeab0cnib1p******** # Service account ID.
 allocation_policy: # VM allocation policy in the group.
    zones:
      - zone_id: {{ region-id }}-a
      - zone_id: {{ region-id }}-b
 instance_template:
-  service_account_id: ajeab0cnib1pdefe21dm # ID of the service account to access private Docker images.
+  service_account_id: ajeab0cnib1p******** # ID of the service account for access to private Docker images.
   platform_id: standard-v1 # Platform ID.
   resources_spec:
     memory: 2G # Amount of memory (RAM).
@@ -14,20 +14,20 @@ instance_template:
   boot_disk_spec:
     mode: READ_WRITE # Disk access mode (read and write).
     disk_spec:
-      image_id: <ID of latest COI version>
+      image_id: <ID_of_the_latest_COI_version>
     type_id: network-ssd # Disk type.
     size: 30G # Disk size.
   network_interface_specs:
-   - network_id: enplhg4nncc7mctv7kpf # Network ID.
+   - network_id: enplhg4nncc7******** # Network ID.
      subnet_ids:
-       - e1lnabc23r1c9d0efoje # Subnet ID.
-       - b1csa2b3clideftjb121
+       - e1lnabc23r1c******** # Subnet ID.
+       - b1csa2b3clid********
      primary_v4_address_spec: {
        one_to_one_nat_spec: {
-         ip_version: IPV4 # specification for public access to the VM.
+         ip_version: IPV4 # IPv4 specification for public access to the VM.
        }
-     }         
-  metadata: # Values to pass to the VM metadata.
+     }
+  metadata: # Values to be delivered to the VM metadata.
     docker-container-declaration: |- # Key in the VM metadata that is used with the Docker Container specification.
       spec:
         containers:

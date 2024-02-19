@@ -46,10 +46,10 @@ QA engineer | User assigned to test the issue.
 {{ ui-key.startrek-backend.fields.issue.resolution-key-value }} | Reason for closing the issue.
 {{ ui-key.startrek-backend.fields.issue.resolver }} | User who marked the issue as resolved.
 {{ ui-key.startrek-backend.fields.issue.created-key-value }} | Date and time the issue was created.
-{{ ui-key.startrek-backend.fields.issue.status-key-value }} | Current progress on the issue. For example: <q>Open</q>, <q>In progress</q>, <q>Testing</q>. For more information, see [Setting up statuses](../manager/workflow-status-edit.md).
+{{ ui-key.startrek-backend.fields.issue.status-key-value }} | Current progress on the issue. For example: **Open**, **In progress**, **Testing**. For more information, see [Setting up statuses](../manager/workflow-status-edit.md).
 {{ ui-key.startrek-backend.fields.issue.statusStartTime }} | Date and time the issue status was last changed.
 {{ ui-key.startrek-backend.fields.issue.tags-key-value }} | Text labels that make sorting and searching for issues easier. For more information, see [Structuring issues](../structure.md).
-{{ ui-key.startrek-backend.fields.issue.type-key-value }} | Type of the issue, e.g., <q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>. For more information, see [{#T}](../manager/add-ticket-type.md).
+{{ ui-key.startrek-backend.fields.issue.type-key-value }} | Type of the issue, e.g., **New feature**, **Bug**, or **Improvement**. For more information, see [{#T}](../manager/add-ticket-type.md).
 **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** |
 {{ ui-key.startrek-backend.fields.issue.spent-key-value }} | Time the assignee [spent resolving the issue](time-spent.md).
 {{ ui-key.startrek-backend.fields.issue.estimation-key-value }} | Time the user plans to spend on the issue. The field value decreases when the [time spent](time-spent.md#show-time-spent) is specified.
@@ -59,7 +59,7 @@ QA engineer | User assigned to test the issue.
 {{ ui-key.startrek-backend.fields.issue.sprint }} | Name of the [sprint](../manager/create-agile-sprint.md) the issue belongs to.
 **{{ ui-key.startrek-backend.fields.issue.fields.email }}** |
 {{ ui-key.startrek-backend.fields.issue.emailTo }} | Full list of recipients the user specified in the **To** field when sending the email.
-{{ ui-key.startrek-backend.fields.issue.emailCc }} | Email address the user specified in the **Cc** field when sending the email.
+{{ ui-key.startrek-backend.fields.issue.emailCc }} | Email address the user specified in the **CC** field when sending the email.
 {{ ui-key.startrek-backend.fields.issue.emailFrom }} | Email address of the sender.
 {{ ui-key.startrek-backend.fields.issue.emailCreatedBy }} | Email address that received the email from which the issue was generated.
 **{{ ui-key.startrek-backend.fields.issue.fields.sla }}** |
@@ -94,9 +94,9 @@ To add a new issue field (parameter):
 
 1. Make sure you are authorized as an [administrator](../role-model.md).
 
-1. On the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Admin settings** → **{{ tracker-name }} setting**.
+1. On the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Administration** → **{{ tracker-name }} setting** .
 
-1. Click the **Fields** tab.
+1. Go to the **Fields** tab.
 
 1. Click **Create field**.
 
@@ -109,13 +109,13 @@ To add a new issue field (parameter):
 
    * **Name in English**: This name is shown in the English interface of {{ tracker-name }}.
 
-   * **Type of number** (only for the <q>Number</q> fields).
+   * **Type of number** (only for fields with the **Number** type).
 
-   * **List items** (only for the <q>Drop-down list</q> fields): Enter the possible values and their order.
+   * **List items** (only for the **Drop-down list** fields): Enter the possible values and their order.
 
-   * **Item selection** (only for the <q>Drop-down list</q> fields).
+   * **Item selection** (only for the **Drop-down list** fields).
 
-   * **Number of employees** (only for the <q>User list</q> fields).
+   * **Number of employees** (only for the **User list** fields).
 
 1. Click **Create**.
 

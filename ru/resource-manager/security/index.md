@@ -26,27 +26,27 @@ description: "Управление доступом в сервисе, позв�
 
 #### resource-manager.auditor {#resource-manager-auditor}
 
-{% include [resource-manager.auditor](../../_roles/resource-manager/auditor.md) %}
+{% include [resourcemanager-auditor](../../_roles/resource-manager/auditor.md) %}
 
 #### resource-manager.viewer {#resource-manager-viewer}
 
-{% include [resource-manager.viewer](../../_roles/resource-manager/viewer.md) %}
+{% include [resourcemanager-viewer](../../_roles/resource-manager/viewer.md) %}
 
 #### resource-manager.editor {#resource-manager-editor}
 
-{% include [resource-manager.editor](../../_roles/resource-manager/editor.md) %}
+{% include [resourcemanager-editor](../../_roles/resource-manager/editor.md) %}
 
 #### resource-manager.admin {#resource-manager-admin}
 
-{% include [resource-manager.admin](../../_roles/resource-manager/admin.md) %}
+{% include [resourcemanager-admin](../../_roles/resource-manager/admin.md) %}
 
 #### resource-manager.clouds.member {#resource-manager-clouds-member}
 
-{% include [resource-manager.clouds.member](../../_includes/roles-cloud-member.md) %}
+{% include [resourcemanager-clouds-member](../../_roles/resource-manager/clouds/member.md) %}
 
 #### resource-manager.clouds.owner {#resource-manager-clouds-owner}
 
-{% include [resource-manager.clouds.owner](../../_includes/roles-cloud-owner.md) %}
+{% include [resourcemanager-clouds-owner](../../_roles/resource-manager/clouds/owner.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

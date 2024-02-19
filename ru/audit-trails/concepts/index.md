@@ -61,8 +61,6 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 
 ## Аудитные логи уровня сервисов {#data-plane-logs}
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 {{ at-name }} собирает аудитные логи [уровня сервисов (Data Plane)](./control-plane-vs-data-plane.md#data-plane-events) для следующих сервисов {{ yandex-cloud }}:
 
 * {{ dns-full-name }}

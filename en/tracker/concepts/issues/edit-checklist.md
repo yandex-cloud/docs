@@ -10,7 +10,7 @@ Use this request to edit the items of a [checklist](../../user/checklist.md) in 
 To edit checklist items, use an HTTP `PATCH` request:
 
 ```json
-PATCH /{{ ver }}/issues/<issue-id>/checklistItems/<checklistItem-id>
+PATCH /{{ ver }}/issues/<issue_id_or_key>/checklistItems/<checklist_item_id>
 Host: {{ host }}
 Authorization: OAuth <token>
 {{ org-id }}
@@ -19,7 +19,7 @@ Authorization: OAuth <token>
  {
   "text": "Item text",
   "checked": true,
-  "assignee": "1134669209",
+  "assignee": "11********",
   "deadline": {
         "date": "2021-05-25T00:00:00.000+0000",
         "deadlineType": "date"
@@ -35,8 +35,8 @@ Authorization: OAuth <token>
 
 | Parameter | Description | Data type |
 --- | --- | ---
-| \<issue-id\> | Issue ID or key. | String |
-| \<checklistItem-id> | ID of the checklist item. To get the ID, run a [request](get-checklist.md#answer). | String |
+| \<issue_ID_or_key\> | Issue ID or key. | String |
+| \<checklist_item_id> | Сhecklist item ID. To get the ID, run a [request](get-checklist.md#answer). | String |
 
 {% endcut %}
 
@@ -55,7 +55,7 @@ The request body contains the checklist item parameters. It must list all the it
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| checked | Flag indicating that the checklist item is completed:<ul><li>`true`: The item is marked as completed.</li><li>`false`: The item is not marked as completed.</li></ul> | Logical |
+| checked | Checklist item completion flag:<ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Logical |
 | assignee | ID or username of the user that the checklist item is assigned to. | String |
 | [deadline](#deadline-checklist) | Deadline for the checklist item. | Object |
 
@@ -81,22 +81,22 @@ The request body contains the checklist item parameters. It must list all the it
    ```json
    {
        "self": "https://{{ host }}/v2/issues/ORG-3",
-       "id": "5f981c00b982f0755dbdc13d",
+       "id": "5f981c00b982f075********",
        "key": "ORG-3",
        "version": 184,
        "lastCommentUpdatedAt": "2021-02-06T17:14:22.965+0000",
        "pendingReplyFrom": [
            {
-               "self": "https://{{ host }}/v2/users/1134669289",
-               "id": "employee ID",
+               "self": "https://{{ host }}/v2/users/12********",
+               "id": "12********",
                "display": "Full Name"
            }
        ],
        "summary": "Issue name",
        "statusStartTime": "2020-11-03T11:19:24.733+0000",
        "updatedBy": {
-           "self": "https://{{ host }}/v2/users/19904929",
-           "id": "employee ID",
+           "self": "https://{{ host }}/v2/users/19********",
+           "id": "19********",
            "display": "Full Name"
        },
        "checklistDone": "2",
@@ -114,38 +114,38 @@ The request body contains the checklist item parameters. It must list all the it
            "display": "Normal"
        },
        "previousStatusLastAssignee": {
-           "self": "https://{{ host }}/v2/users/1134669289",
-           "id": "employee ID",
+           "self": "https://{{ host }}/v2/users/12********",
+           "id": "12********",
            "display": "Full Name"
        },
        "createdAt": "2020-10-27T13:09:20.085+0000",
        "followers": [
            {
-               "self": "https://{{ host }}/v2/users/19904929",
-               "id": "employee ID",
+               "self": "https://{{ host }}/v2/users/19********",
+               "id": "19********",
                "display": "Full Name"
            }
        ],
        "createdBy": {
-           "self": "https://{{ host }}/v2/users/1134669289",
-           "id": "employee ID",
+           "self": "https://{{ host }}/v2/users/12********",
+           "id": "12********",
            "display": "Full Name"
        },
        "checklistItems": [
          {
-               "id": "5fde5f0a1aee261dd3b62edb",
+               "id": "5fde5f0a1aee261d********",
                "text": "checklist item",
                "textHtml": "item text in HTML format",
                "checked": false,
                "assignee": {
-                  "id": 1134669209,
+                  "id": 11********,
                   "display": "Full Name",
-                  "passportUid": 1134669209,
+                  "passportUid": 11********,
                   "login": "user_login",
                   "firstName": "First name",
                   "lastName": "Last name",
                   "email": "user_login@example.com",
-                  "trackerUid": 1134669209
+                  "trackerUid": 11********
                   },
                "deadline": {
                   "date": "2021-05-09T00:00:00.000+0000",
@@ -218,17 +218,17 @@ The request body contains the checklist item parameters. It must list all the it
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Address of the API resource with information about the user | String |
-   | id | User ID | Number |
-   | display | Displayed user name | String |
+   | self | Address of the API resource with information about the user. | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
 
    `pendingReplyFrom` **object fields** {#pending-reply-from}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Address of the API resource with information about the user | String |
-   | id | User ID | Number |
-   | display | Displayed user name | String |
+   | self | Address of the API resource with information about the user. | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
 
    `type` **object fields** {#type}
 
@@ -236,7 +236,7 @@ The request body contains the checklist item parameters. It must list all the it
    ----- | ----- | -----
    | self | Link to the issue type. | String |
    | id | Issue type ID | String |
-   | key | Issue type key | String |
+   | key | Issue type key. | String |
    | display | Issue type name displayed. | String |
 
    `priority` **object fields** {#priority}
@@ -245,38 +245,38 @@ The request body contains the checklist item parameters. It must list all the it
    ----- | ----- | -----
    | self | Link to the priority type. | String |
    | id | Priority ID | String |
-   | key | Priority key | String |
+   | key | Priority key. | String |
    | display | Priority name displayed. | String |
 
    `previousStatusLastAssignee` **object fields** {#previous-status-last-assignee}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Address of the API resource with information about the user | String |
-   | id | User ID | Number |
-   | display | Displayed user name | String |
+   | self | Address of the API resource with information about the user. | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
 
    `followers` **object fields** {#followers}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Address of the API resource with information about the user | String |
-   | id | User ID | Number |
-   | display | Displayed user name | String |
+   | self | Address of the API resource with information about the user. | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
 
    `createdBy` **object fields** {#created-by}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Address of the API resource with information about the user | String |
-   | id | User ID | Number |
-   | display | Displayed user name | String |
+   | self | Address of the API resource with information about the user. | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
 
    `checklistItems` **object fields** {#checklist-items}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | id | ID of the checklist item. | String |
+   | id | Сhecklist item ID. | String |
    | text | Text of the checklist item. | String |
    | textHtml | Text of the checklist item in HTML format. | String |
    | checked | Checklist item completion flag:<ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Logical |
@@ -288,14 +288,14 @@ The request body contains the checklist item parameters. It must list all the it
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | id | User ID | Number |
-   | display | Displayed user name | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
    | passportUid | Unique ID of the user's Yandex account. | Number |
    | login | User's login. | String |
-   | firstName | User's first name. | String |
+   | firstName | Username. | String |
    | lastName | User's last name. | String |
    | email | User's email address. | String |
-   | trackerUid | Unique ID of the user {{ tracker-name }} account | Number |
+   | trackerUid | Unique ID of the user {{ tracker-name }} account. | Number |
 
    `deadline` **object fields** {#deadline-checklist}
 
@@ -310,9 +310,9 @@ The request body contains the checklist item parameters. It must list all the it
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Queue link | String |
-   | id | Queue ID | Number |
-   | key | Queue key | String |
+   | self | Queue link. | String |
+   | id | Queue ID. | Number |
+   | key | Queue key. | String |
    | display | Queue name displayed. | String |
 
    `status` **object fields** {#status}

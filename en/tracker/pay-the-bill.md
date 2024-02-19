@@ -39,7 +39,7 @@ Arrears appear on the billing account if the balance was negative at the end of 
 
 * To keep access to {{ tracker-name }}, pay off the arrears by the 15th of the current month.
 
-* If the arrears are not paid in time, {{ tracker-name }} will switch to [<q>Read only</q>](access.md#readonly) mode. In this case, to regain full access to the service, top up your balance to a positive value within 45 days. This requires paying off the previous period's arrears and pre-paying for the current month.
+* If the arrears are unpaid when due, {{ tracker-name }} will switch to [read only](access.md#readonly) mode. In this case, to regain full access to the service, top up your balance to a positive value within 45 days. This requires paying off the previous period's arrears and pre-paying for the current month.
 
 * If the arrears are not paid within two months, the billing account will be permanently suspended. In this case, to continue using {{ tracker-name }}, contact technical support to link a new billing account to {{ tracker-name }}.
 

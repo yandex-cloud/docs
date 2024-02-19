@@ -11,6 +11,8 @@ To migrate {{ managed-k8s-name }} resources from one availability zone to anothe
 1. [Migrate a master host](#transfer-a-master).
 1. [Migrate the node group and the pod workloads](#transfer-a-node-group).
 
+{% include [unable-migration-in-relocated-subnet](../../_includes/managed-kubernetes/unable-migration-in-relocated-subnet.md) %}
+
 ## Getting started {#before-you-begin}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
@@ -35,7 +37,7 @@ To migrate a zonal master host to a different availability zone:
 
       ```bash
       yc vpc subnet create \
-         --folder-id <directory_ID> \
+         --folder-id <folder_ID> \
          --name <subnet_name> \
          --zone {{ region-id }}-d \
          --network-id <network_ID> \
@@ -44,7 +46,7 @@ To migrate a zonal master host to a different availability zone:
 
       In the command, specify the following subnet parameters:
 
-      * `--folder-id`: [Directory ID](../../resource-manager/operations/folder/get-id.md).
+      * `--folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * `--name`: Subnet name.
       * `--zone`: Availability zone.
       * `--network-id`: ID of the network the new subnet belongs to.
@@ -54,7 +56,7 @@ To migrate a zonal master host to a different availability zone:
 
       ```bash
       {{ yc-k8s }} cluster update \
-         --folder-id <directory_ID> \
+         --folder-id <folder_ID> \
          --id <cluster_ID> \
          --master-location subnet-id=<new_subnet_ID>,zone=ru-central1-d
       ```
@@ -169,7 +171,7 @@ To migrate a regional master host to a different set of availability zones:
 
       ```bash
       yc vpc subnet create \
-         --folder-id <directory_ID> \
+         --folder-id <folder_ID> \
          --name <subnet_name> \
          --zone {{ region-id }}-d \
          --network-id <network_ID> \
@@ -178,7 +180,7 @@ To migrate a regional master host to a different set of availability zones:
 
       In the command, specify the following subnet parameters:
 
-      * `--folder-id`: [Directory ID](../../resource-manager/operations/folder/get-id.md).
+      * `--folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * `--name`: Subnet name.
       * `--zone`: Availability zone.
       * `--network-id`: ID of the network the new subnet belongs to.
@@ -188,7 +190,7 @@ To migrate a regional master host to a different set of availability zones:
 
       ```bash
       {{ yc-k8s }} cluster update \
-         --folder-id <directory_ID> \
+         --folder-id <folder_ID> \
          --id <cluster_ID> \
          --master-location subnet-id=<subnet_ID>,zone={{ region-id }}-a \
          --master-location subnet-id=<subnet_ID>,zone={{ region-id }}-b \
@@ -203,7 +205,7 @@ To migrate a regional master host to a different set of availability zones:
          * `subnet-id`: Subnet ID.
          * `zone`: Availability zone.
 
-      Specify the appropriate subnet for each availability zone.
+         Specify the appropriate subnet for each availability zone.
 
 - {{ TF }} {#tf}
 

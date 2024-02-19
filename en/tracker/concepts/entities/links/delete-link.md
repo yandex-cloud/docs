@@ -9,10 +9,10 @@ The request allows you to delete a link between two [entities](../about-entities
 
 Before making a request, [get permission to access the API](../../access.md).
 
-To delete a link, use an HTTP `DELETE` request. The link will be deleted between the current entity (ID specified in the request `<id>`) and the entity whose ID is specified in the `right` parameter of the request.
+To delete a link, use an HTTP `DELETE` request. The link will be deleted between the current entity (ID specified in the request `<entity_ID>`) and the entity whose ID is specified in the `right` parameter of the request.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/links
+DELETE /{{ ver }}/entities/<entity_type>/<entity_ID>/links
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -28,16 +28,16 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| right | ID of the entity whose link is deleted | String |
+| right | ID of the entity whose link is deleted. | String |
 
 {% endcut %}
 
-> Example: Delete a link between entities
+> Example: Deleting a link between entities
 >
 > - An HTTP DELETE method is used.
 >
 > ```
-> DELETE /v2/entities/project/65a26adc46b9746d********/links?right=6582874de6db7f5f********
+> DELETE /v2/entities/project/<project_ID>/links?right=<entity_ID>
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}

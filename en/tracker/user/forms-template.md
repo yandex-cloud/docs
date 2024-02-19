@@ -22,7 +22,7 @@ The embedded form builder supports only the main types of questions and integra
 
 To create a form for your issues:
 
-1. In the left-hand panel, click ![](../../_assets/tracker/svg/create-task.svg) **New issue**.
+1. In the panel on the left, click ![](../../_assets/tracker/svg/create-task.svg) **Create issue**.
 
 1. Select a queue in the field located at the top of the page.
 
@@ -47,7 +47,7 @@ To create a form for your issues:
    1. Under **Perform actions**, specify **always**.
       If you need to set up the conditions on which the issue will be created, select **on condition**. Then select a question and specify the answer on which an issue will be created in {{ tracker-name }}.
 
-   1. Select the **Queue** to create your issue in. To set up a <q>Parent issue — Sub-issue</q> [link](links.md) for the created issue, select the option **Convert to sub-issue** and enter the key of the parent issue.
+   1. Select the **Queue** to create your issue in. To set up the **Parent issue – Sub-issue** [link](links.md) for the issue being created, select the **Convert to sub-issue** option and enter the key of the parent issue.
 
    1. Select the **Issue type** and **Priority**. Available issue types depend on the [issue settings](../manager/add-ticket-type.md).
 
@@ -63,7 +63,7 @@ To create a form for your issues:
 
       {% endnote %}
 
-   1. To pass attachments from a form to the issue, in the field **Attach files from responses to questions**, select a question of the <q>File</q> type.
+   1. To transfer attachments from a form to the issue, select a question of the **File** type in the **Attach files from responses to prompts** field.
 
    1. To show a link to the created issue, enable the option **Show message with action result to the user**.
 
@@ -81,7 +81,7 @@ To create a form for your issues:
 
 Form management is available to the [{{ tracker-name }} administrator](../role-model.md#admin), queue owner, and users who have [access](../manager/queue-access.md) to editing the queue settings.
 
-To go to the queue forms, click ![](../../_assets/tracker/svg/create-task.svg) **New issue** in the panel on the left.
+To go to the queue forms, in the left panel, click ![](../../_assets/tracker/svg/create-task.svg) **Create issue**.
 
 ### Set up the issue creation page {#new-task-page}
 

@@ -19,29 +19,29 @@ description: "Управление доступом в сервисе речев
 
 ### Сервисные роли {#service-roles}
 
-#### {{ roles-speechkit-stt }} {#ai-speechkit-stt-user}
+#### ai.speechkit-stt.user {#ai-speechkit-stt-user}
 
-{% include notitle [roles-speechkit-stt-user](../../_includes/roles-speechkit-stt-user.md) %}
+{% include [speechkit-stt-user](../../_roles/ai/speechkit-stt/user.md) %}
 
-#### {{ roles-speechkit-tts }} {#ai-speechkit-tts-user}
+#### ai.speechkit-tts.user {#ai-speechkit-tts-user}
 
-{% include notitle [roles-speechkit-tts-user](../../_includes/roles-speechkit-tts-user.md) %}
+{% include [speechkit-tts-user](../../_roles/ai/speechkit-tts/user.md) %}
 
 #### ai.auditor {#ai-auditor}
 
-{% include notitle [roles-ai-auditor](../../_includes/roles-ai-auditor.md) %}
+{% include [ai-auditor](../../_roles/ai/auditor.md) %}
 
 #### ai.viewer {#ai-viewer}
 
-{% include notitle [roles-ai-viewer](../../_includes/roles-ai-viewer.md) %}
+{% include [ai-viewer](../../_roles/ai/viewer.md) %}
 
 #### ai.editor {#ai-editor}
 
-{% include notitle [roles-ai-editor](../../_includes/roles-ai-editor.md) %}
+{% include [ai-editor](../../_roles/ai/editor.md) %}
 
 #### ai.admin {#ai-admin}
 
-{% include notitle [roles-ai-admin](../../_includes/roles-ai-admin.md) %}
+{% include [ai-admin](../../_roles/ai/admin.md) %}
 
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 
@@ -50,7 +50,17 @@ description: "Управление доступом в сервисе речев
 
 При работе с {{ speechkit-name }} вам могут понадобиться роли других сервисов, например, чтобы загружать результаты и исходные материалы в бакет облачного хранилища {{ objstorage-name }}.
 
-{% include [roles-integration](../../_includes/roles-integration-roles-speechkit.md) %}
+#### resource-manager.clouds.owner {#resource-manager-clouds-owner}
+
+{% include [resourcemanager-clouds-owner](../../_roles/resource-manager/clouds/owner.md) %}
+
+#### storage.uploader {#storage-uploader}
+
+{% include [storage-uploader](../../_roles/storage/uploader.md) %}
+
+#### kms.keys.encrypterDecrypter {#kms-keys-encrypterDecrypter}
+
+{% include [kms.keys.encrypterDecrypter](../../_roles/kms/keys/encrypterDecrypter.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

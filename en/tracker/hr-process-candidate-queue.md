@@ -4,7 +4,7 @@ To allow candidates to submit a request on their own, create a queue and a reque
 
 ## Create a queue for candidates
 
-1. [Create a queue](manager/create-queue.md) using the <q>Recruitment</q> template.
+1. [Create a queue](manager/create-queue.md) using the *Recruitment* template.
 1. Give it a name, e.g., `Candidates Queue`.
 1. Set up a [workflow](manager/workflows.md#section_hire) or create a [new](manager/add-workflow.md) one.
 1. Add the **Hired** and **Not hired** completion statuses to the workflow.
@@ -14,7 +14,7 @@ To allow candidates to submit a request on their own, create a queue and a reque
 
 ### Create a form
 
-1. In the left-hand panel, click ![](../_assets/tracker/svg/icon-add.svg) **New issue**.
+1. In the panel on the left, click ![](../_assets/tracker/svg/icon-add.svg) **Create issue**.
 1. Under **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
 1. Create a new form:
    * Name it `Candidate`.

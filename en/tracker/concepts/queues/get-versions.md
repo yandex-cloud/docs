@@ -12,9 +12,9 @@ Before making the request, [get permission to access the API](../access.md).
 To get queue versions, use an HTTP `GET` request.
 
 ```
-GET /v2/queues/<queue-id>/versions
+GET /v2/queues/<queue_ID_or_key>/versions
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -23,8 +23,8 @@ Authorization: OAuth <OAuth token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+----- | ----- | -----
+| \<queue_ID_or_key\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
@@ -45,56 +45,56 @@ Authorization: OAuth <OAuth token>
 
 - Request executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    ```json
-    [
-        {
-            "self": "https://{{ host }}/v2/versions/49650",
-            "id": 49650,
-            "version": 1,
-            "queue": {
-                "self": "https://{{ host }}/v2/queues/JUNE",
-                "id": "1928",
-                "key": "JUNE",
-                "display": "june"
-            },
-            "name": "version1",
-            "description": "iohb ±!@#$%^&*()_+=-/\\?<>.,/§:»'|;",
-            "startDate": "2017-06-09",
-            "dueDate": "20227-06-09",
-            "released": false,
-            "archived": false
-        },
-        ...
-    ]
-    ```
+   ```json
+   [
+       {
+           "self": "https://{{ host }}/v2/versions/49***",
+           "id": 49***,
+           "version": 1,
+           "queue": {
+               "self": "https://{{ host }}/v2/queues/JUNE",
+               "id": "1928",
+               "key": "JUNE",
+               "display": "june"
+           },
+           "name": "version1",
+           "description": "iohb ±!@#$%^&*()_+=-/\\?<>.,/§:»'|;",
+           "startDate": "2017-06-09",
+           "dueDate": "20227-06-09",
+           "released": false,
+           "archived": false
+       },
+       ...
+   ]
+   ```
 
-    {% cut "Response parameters" %}
+   {% cut "Response parameters" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Link to the version object | String |
-    | id | Version ID | Number |
-    | version | Version number | Number |
-    | [queue](#queue) | Object with information about the queue | Object |
-    | name | Version name | String |
-    | description | Text description of the version | String |
-    | startDate | Start date of the queue | String |
-    | dueDate | End date of the queue | String |
-    | released | Flag of the released version | Logical |
-    | archived | Flag of the archived version | Logical |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Link to the version object | String |
+   | id | Version ID | Number |
+   | version | Version number | Number |
+   | [queue](#queue) | Object with information about the queue | Object |
+   | name | Version name | String |
+   | description | Text description of the version | String |
+   | startDate | Start date of the queue | String |
+   | dueDate | End date of the queue | String |
+   | released | Flag of the released version | Logical |
+   | archived | Flag of the archived version | Logical |
 
-    `queue` **object fields** {#queue}
+   `queue` **object fields** {#queue}
 
-    {% include [queue](../../../_includes/tracker/api/queue.md) %}
+   {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-    {% endcut %}
+   {% endcut %}
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}

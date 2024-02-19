@@ -39,7 +39,7 @@ Every team usually has its own workflow, so we recommend creating separate queue
 
 A workflow for an issue usually involves multiple stages. For example, creating an issue, resolving it, approving its results, and completing the work.
 
-In {{ tracker-name }}, each issue stage corresponds to a certain _status_. E.g.: {{ ui-key.startrek-backend.applinks.samsara.status.open }}, {{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}, {{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}, or {{ ui-key.startrek-backend.applinks.samsara.status.closed }}. To set your pipeline up around {{ tracker-name }}, you need to configure your _workflow_, which is a set of statuses an issue goes through from creation to completion as well as specific rules of transitioning between those statuses.
+In {{ tracker-name }}, each issue stage refers to a certain _status_, e.g., **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**, **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**, **{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}**, or **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. To set your pipeline up around {{ tracker-name }}, you need to configure your _workflow_, which is a set of statuses an issue goes through from creation to completion as well as specific rules of transitioning between those statuses.
 
 Your workflow is linked to your issue queue. If you need to set up multiple workflows for different teams, you can [create individual queues for them](manager/create-queue.md). You can also add multiple [issue types](manager/add-ticket-type.md) to a single queue and set up an exclusive workflow for each type.
 
@@ -69,7 +69,7 @@ You can use {{ tracker-name }} to group issues by the following criteria:
    For example, using components, you can [classify requests to technical support](support-process-group.md).
 - [Versions](manager/versions.md) help you group issues within the same queue based on the product version they belong to.
    For example, to schedule a bug fix for a specific product release, you can specify the product version in the **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field.
-- A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
+- A tag is a type of label that can be added manually to any issue. You can use tags to group issues by any attribute and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
 
 
 ## Planning your workload {#in-order}
@@ -90,14 +90,14 @@ A project is any activity with fixed objectives and timeframes.
 
 To estimate the amount of work to be done to implement a project or create a new product version, decompose issues.
 
-Decomposition is breaking larger project chunks into standalone issues and sub-issues. When the workload is broken down into smaller issues, it's much easier to evaluate their complexity and required resources, distribute the issues across assignees, and schedule deadlines. In {{ tracker-name }}, you can decompose your issues using [links](user/links.md). For example, you need to implement a new feature in your product, which implies resolving multiple smaller issues. For such cases, you can create a parent issue of the <q>New feature</q> type and link sub-issues to it.
+Decomposition is breaking larger project chunks into standalone issues and sub-issues. When the workload is broken down into smaller issues, it's much easier to evaluate their complexity and required resources, distribute the issues across assignees, and schedule deadlines. In {{ tracker-name }}, you can decompose your issues using [links](user/links.md). For example, you need to implement a new feature in your product, which implies resolving multiple smaller issues. For such cases, you can create a **New feature** parent issue and link sub-issues to it.
 
 #### Dividing your workload into sprints {#in-order-divide-work}
-If you're dealing with long-term development of a product or project and have no fixed workload and deadline, you can plan your work using sprints.
+If your product or project development is long-term and you have no fixed workload and deadline, you can plan your work using sprints.
 
 In [Scrum]({{ link-wiki-scrum }}), sprints are small iterative cycles of development that last 1 to 4 weeks. When a sprint starts, your team assesses the complexity of issues stored in the [backlog](glossary.md#rus-b) and selects the issues to be completed within the current sprint. Short iterations let you estimate deadlines for your work more accurately and, if necessary, change your priorities on the fly.
 
-To use this planning strategy, first [create a <q>Scrum</q> issue board](manager/create-agile-board.md). Using the board, you can [manage sprints](manager/create-agile-sprint.md), [estimate issues with planning poker](manager/planning-poker.md), and use [burn down charts](manager/burndown.md).
+To use this planning strategy, [create a **Scrum** issue board](manager/create-agile-board.md). Using the board, you can [manage sprints](manager/create-agile-sprint.md), [estimate issues with planning poker](manager/planning-poker.md), and use [burn down charts](manager/burndown.md).
 
 #### Planning deadlines using a Gantt chart {#in-order-gantt}
 

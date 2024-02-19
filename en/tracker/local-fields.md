@@ -42,13 +42,13 @@ By default, [only the queue owner](manager/queue-access.md) can configure a queu
 
    * **Name in English**: This name is shown in the English interface of {{ tracker-name }}.
 
-   * **Type of number** (only for fields with the <q>Number</q> type).
+   * **Type of number** (only for fields with the **Number** type).
 
-   * **List items** (only for the <q>Drop-down list</q> fields): Enter the possible values and their order.
+   * **List items** (only for the **Drop-down list** fields): Enter the possible values and their order.
 
-   * **Item selection** (only for the <q>Drop-down list</q> fields).
+   * **Item selection** (only for the **Drop-down list** fields).
 
-   * **Number of employees** (only for fields with the <q>user list</q> type).
+   * **Number of employees** (only for fields with the **User list** type).
 
 1. Click **Create**.
 
@@ -93,7 +93,7 @@ The following two types of actions are supported when working with local fields 
 
 * Assign a value to a local field.
 
-   To get or change the value for an issue's local field via the API, specify the field ID in the [request body](concepts/issues/patch-issue.md), for example `603fb94c38bbe658d04da2e6--<field key>: "<new local field value>"`.
+   To get or change the value for a local field of an issue via the API, specify the field ID in the [request body](concepts/issues/patch-issue.md), in the following format: `603fb94c38bbe658********--<field_key>: "<new_value_of_local_field>"`.
 
    To find out the ID of a local field, run a query that allows you to [get a list of local fields in a certain queue](concepts/queues/get-local-fields.md).
 

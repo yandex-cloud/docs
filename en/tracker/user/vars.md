@@ -25,17 +25,17 @@ The variable names assigned to issue fields, have the format: `{{issue.<field_ke
 You can use default variables to get the user's first and last name. To obtain specific user attributes, use a variable in the format `{{issue.<role>.<attribute>}}`, where `<role>` is the role and name of the field in which the user is specified, and `<attribute>` is the attribute.
 
 User roles:
-* `assignee`: Issue essignee
+* `assignee`: Issue assignee
 * `author`: Author
 * `followers`: Followers
 * `access`: Users from the **{{ ui-key.startrek-backend.fields.issue.access }}** field
 
 User attributes:
-* `login`: Login
+* `Login`: Login
 * `firstName`: First name
 * `lastname`: Last name
 * `uid`: ID
-* `email`: Email address.
+* `email`: Email address
 
 For example, by using the `not_var{{issue.followers.email}}` variable, you can get email addresses for all the issue's followers.
 
@@ -47,7 +47,7 @@ Usernames that only contain numbers may be interpreted incorrectly when executin
 
 ### Additional issue parameters {#extra-data}
 
-Some issue parameters aren't displayed in fields, but you can get their values using variables as well:
+Some issue parameters are not displayed in fields, but you can get their values using variables as well:
 
 | Variable | Value |
 ----- | -----
@@ -63,7 +63,7 @@ The variable names assigned to local issue fields, have the format: `{{issue.loc
 
 ### Date and time modifiers {#date-time}
 
-By default, the date and time is transmitted in the format: `DD month YYYY`, for example: `07 december 2021`. To express other formats of date and time, use modifiers:
+By default, the date and time is transmitted as `DD month YYYY`, e.g., `07 december 2021`. For other formats of date and time, use modifiers:
 * `iso8601`: ISO 8601 format.
 * `unixEpoch`: Unix Time format.
 * `date`: Writing only date for the fields transmitting date and time.
@@ -72,7 +72,7 @@ Here are the examples of variables with date and time modifiers:
 
 | Variable | Value | Notation format |
 ----- | ----- | -----
-| `not_var{{currentDateTime.iso8601}}` | Current date and time in the ISO 8601 format | `YYYY-MM-DDThh:mm:ss.sssZ` |
+| `not_var{{currentDateTime.iso8601}}` | Current date and time in ISO 8601 format | `YYYY-MM-DDThh:mm:ss.sssZ` |
 | `not_var{{currentDateTime.unixEpoch}}` | Current time in Unix Time format | `1638735223` |
 | `not_var{{currentDateTime.date}}` | Current date | `06 december 2021` |
 | `not_var{{issue.start.iso8601}}` | Issue start date in ISO 8601 format | `YYYY-MM-DD` |
@@ -89,23 +89,23 @@ Examples of variables in JSON format:
 | `not_var{{issue.summary.json}}` | Issue name | `"Issue name"` |
 | `not_var{{issue.description.json}}` | Problem description | `"Description"` |
 | `not_var{{issue.tags.json}}` | Tags | `["tag1","tag2"]` |
-| `{{issue.<role>.login.json}}` | User's login (for the `author` and `assignee` fields). | `"ivan-ivanov"` |
-| `{{issue.<role>.uid.json}}` | User ID (for the `author` and `assignee` fields). | `1120000000211495` |
-| `{{issue.<role>.login.json}}` | Logins of users (for the `followers` and `access` fields). | `["ivan-ivanov", "user3993"]` |
-| `{{issue.<role>.uid.json}}` | User IDs (for the `followers` and `access` fields). | `[1120000000211495, 1120000000011060]` |
+| `{{issue.<role>.login.json}}` | User login (for the `author` and `assignee` fields) | `"ivan-ivanov"` |
+| `{{issue.<role>.uid.json}}` | User ID (for the `author` and `assignee` fields) | `88********` |
+| `{{issue.<role>.login.json}}` | Logins of users (for the `followers` and `access` fields) | `["ivan-ivanov", "user3993"]` |
+| `{{issue.<role>.uid.json}}` | User IDs (for the `followers` and `access` fields) | `[88********, 55********]` |
 | `not_var{{issue.components.display.json}}` | Components | `["component1","component2"]` |
 
 {% note warning %}
 
-{{ tracker-name }} supports transmitting values in JSON format for simple field types that have such formats as string, number, and arrays of strings or numbers. The "Object" field type is not supported: for example, the `not_var{{issue.author.json}}` variable will not work. Instead of it, you can use a variable to get a simple field attribute: `not_var{{issue.author.login.json}}`.
+{{ tracker-name }} supports transmitting values in JSON format for simple field types that have such formats as string, number, and arrays of strings or numbers. The **Object** field type is not supported, e.g., the `not_var{{issue.author.json}}` variable will not work. Instead, you can use a variable to get a simple field attribute: `not_var{{issue.author.login.json}}`.
 
 {% endnote %}
 
 ## Comments {#comment-variables}
 
-Using variables, you can get some attributes of issue comments. These variables have the `{{<comment type>.<attribute>}}` format, where `<comment type>` is selected depending on the author (user or robot), and `<attribute>` is the comment's parameter.
+Using variables, you can get some attributes of issue comments. These variables have the `{{<comment_type>.<attribute>}}` format, where `<comment type>` is selected depending on the author (user or robot), and `<attribute>` is the comment's parameter.
 
-The possible <comment type> values include:
+The possible values for `<comment_type>` are:
 * `userComment`: Comment from the current edit operation. If a user has made more than one comment, the first one will be considered.
 * `generatedComment`: Comment generated automatically as a result of a fired trigger or auto action.
 
@@ -113,6 +113,6 @@ Use the parameters below to get comment details:
 
 | Variable | Value |
 ----- | -----
-| `not_var{{<comment type>.id}}` | Comment ID |
-| `not_var{{<comment type>.text}}` | Text of the comment |
-| `not_var{{<comment type>.author}}` | Comment author |
+| `{{<comment_type>.id}}` | Comment ID |
+| `{{<comment_type>.text}}` | Text of the comment |
+| `{{<comment_type>.author}}` | Comment author |

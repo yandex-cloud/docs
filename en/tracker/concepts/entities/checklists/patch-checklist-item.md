@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To edit a checklist item, use an HTTP `PATCH` request. Request parameters are provided in the request body in JSON format.
 
 ```json
-PATCH /{{ ver }}/entities/<entityType>/<id>/checklistItems/<checklistItemId>
+PATCH /{{ ver }}/entities/<entity_type>/<entity_ID>/checklistItems/<checklist_item_ID>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -36,23 +36,23 @@ Authorization: OAuth <OAuth_token>
 
 {% cut "Request body parameters" %}
 
-The request body contains the information required to make changes to the checklist item:
+Request body contains the information required to make changes to the checklist item:
 
 **Additional parameters**
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
 | text | Text of the checklist item. | String |
-| checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Boolean |
+| checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Logical |
 | assignee | ID or username of the user that the checklist item is assigned to. | Number or string. |
 | deadline | Deadline for the checklist item. | Object |
 
-**deadline** `object fields` {#deadline-checklist}
+`deadline` **object fields** {#deadline-checklist}
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
 | date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
-| deadlineType | `deadline` parameter data type. | String |
+| deadlineType | The `deadline` parameter data type. | String |
 
 {% endcut %}
 
@@ -63,13 +63,13 @@ The request body contains the information required to make changes to the checkl
 > - The response displays information about all the checklist items (`fields=checklistItems`).
 >
 > ```
-> PATCH /v2/entities/project/6586d6fee2b9ef74********/checklistItems/658a41cba977626a********?fields=checklistItems
+> PATCH /v2/entities/project/<project_ID>/checklistItems/<checklist_item_ID>?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
 >
 > {
->    "text":"Edited checklist item.",
+>    "text":"<updated_checklist_item>",
 >    "checked": true
 > }
 > ```
@@ -92,9 +92,9 @@ The request body contains the information required to make changes to the checkl
        "shortId": 0,
        "entityType": "project",
        "createdBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_ID",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full Name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
@@ -104,13 +104,13 @@ The request body contains the information required to make changes to the checkl
            "checklistItems": [
               {
                   "id": "6586d91f99a40477********",
-                  "text": "Edited checklist item.",
+                  "text": "Updated checklist item.",
                   "checked": true,
                   "checklistItemType": "standard"
               },
               {
                   "id": "6586d91f99a40472********",
-                  "text": "Checklist item 2.",
+                  "text": "Сhecklist item 2.",
                   "checked": true,
                   "checklistItemType": "standard"
               }
@@ -140,10 +140,10 @@ The request body contains the information required to make changes to the checkl
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
-   `fields` **object fields** {#fields}
+   `Fields` **object fields** {#fields}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -153,9 +153,9 @@ The request body contains the information required to make changes to the checkl
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | id | Checklist item ID. | Number |
+   | id | Сhecklist item ID. | Number |
    | text | Text of the checklist item. | String |
-   | checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Boolean |
+   | checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Logical |
    | assignee | Checklist item assignee | Object |
    | checklistItemType | Checklist item type:<ul><li>Standard</li><li>Metric</li><li>Criterion</li><li>Filter</li></ul> | String |
 

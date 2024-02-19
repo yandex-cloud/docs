@@ -25,13 +25,25 @@ description: "Управление доступом в сервисе для у�
 
 ### Сервисные роли {#service-roles}
 
-Роль | Разрешения
------ | -----
-`audit-trails.auditor` | Позволяет просматривать информацию о трейлах
-`audit-trails.viewer` | Дает доступ к аудитным логам трейлов. Включает все права роли `audit-trails.auditor`
-`audit-trails.editor` | Позволяет управлять трейлами (создавать, изменять и удалять). Включает все права роли `audit-trails.viewer`
-`audit-trails.admin` | Позволяет управлять трейлами и доступом к ним. Включает все права роли `audit-trails.editor`
-`audit-trails.configViewer` (deprecated) | Позволяет просматривать информацию о трейлах. Используйте роль `audit-trails.auditor` вместо этой роли.
+#### audit-trails.auditor {#at-auditor}
+
+{% include [audit-trails.auditor](../../_roles/audit-trails/auditor.md) %}
+
+#### audit-trails.viewer {#at-viewer}
+
+{% include [audit-trails.viewer](../../_roles/audit-trails/viewer.md) %}
+
+#### audit-trails.editor {#at-editor}
+
+{% include [audit-trails.editor](../../_roles/audit-trails/editor.md) %}
+
+#### audit-trails.admin {#at-admin}
+
+{% include [audit-trails.admin](../../_roles/audit-trails/admin.md) %}
+
+#### audit-trails.configViewer {#at-configviewer}
+
+{% include [audit-trails.configviewer](../../_roles/audit-trails/configViewer.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

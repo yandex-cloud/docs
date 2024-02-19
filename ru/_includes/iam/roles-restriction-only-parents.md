@@ -1,1 +1,0 @@
-Сейчас эту роль можно назначить только на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).

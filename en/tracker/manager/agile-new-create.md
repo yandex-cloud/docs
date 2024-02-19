@@ -1,5 +1,5 @@
 ---
-title: "How to create a board in {{ tracker-full-name }}"
+title: "How to create boards in {{ tracker-full-name }}"
 description: "In this tutorial, you will learn how to create a board in {{ tracker-name }}."
 ---
 
@@ -13,7 +13,7 @@ To create a basic board:
 
 1. In the left-hand panel, click **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **Create board**.
 
-1. Select the **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** board type and click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. As a result, a new board named <q>New board</q> is created. This board field is editable, so you can change its value and rename the board.
+1. Select the **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** board type and click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. This will create a new board named **New board**. This board field is editable, so you can change its value and rename the board.
 
 It already has some columns with **Open**, **In progress**, and **Closed** statuses. You can delete the columns, add other ones, or create custom columns not associated with issue statuses.
 
@@ -27,7 +27,7 @@ To create a board with a backlog and sprints:
 
 1. In the left-hand panel, click **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **Create board**.
 
-1. Select the **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** board type and click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. As a result, a new board named <q>New board</q> is created. This board field is editable, so you can change its value and rename the board.
+1. Select the **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** board type and click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. This will create a new board named **New board**. This board field is editable, so you can change its value and rename the board.
 
 It consists of three tabs:
 * Backlog: Use it to create an issue backlog and sprints.

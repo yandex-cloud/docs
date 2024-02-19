@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/delete-worklog.md
 ---
-# Delete a record of time spent
+# Deleting a record of time spent
 
 Use this request to delete a record of the time spent on an issue.
 
@@ -10,9 +10,9 @@ Use this request to delete a record of the time spent on an issue.
 To delete records of time spent on issues, use an HTTP `DELETE` request:
 
 ```json
-DELETE /{{ ver }}/issues/<issue-id>/worklog/<worklog-id>
+DELETE /{{ ver }}/issues/<issue_ID_or_key>/worklog/<record_ID>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -21,9 +21,9 @@ Authorization: OAuth <token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| --- | --- | --- |
-| \<issues-id\> | Issue ID or key. | String |
-| \<worklog-id\> | ID of the record of time spent. | String |
+--- | --- | ---
+| \<issue_ID_or_key\> | Issue ID or key. | String |
+| \<worklog_ID\> | ID of the record of time spent. | String |
 
 {% endcut %}
 
@@ -33,21 +33,20 @@ Authorization: OAuth <token>
 
 - Request executed successfully
 
-    {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
+   {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-    The response body is missing.
+   The response body is missing.
 
 - Request failed
 
-    If a request fails, the response message contains details of the errors encountered:
+   If the request is processed incorrectly, the API returns a message with error details:
 
-    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

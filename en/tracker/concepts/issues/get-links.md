@@ -12,9 +12,9 @@ Before making the request, [get permission to access the API](../access.md).
 To get a list of issue links, use an HTTP `GET` request:
 
 ```json
-GET /{{ ver }}/issues/<issue-id>/links
+GET /{{ ver }}/issues/<issue_ID_or_key>/links
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -46,37 +46,37 @@ Authorization: OAuth <OAuth token>
    ```json
    [
        {
-           "self": "https://{{ host }}/v2/issues/JUNE-2/links/4709605",
-           "id": 4709605,
+           "self": "https://{{ host }}/v2/issues/JUNE-2/links/47*****",
+           "id": 47*****,
            "type": {
                "self": "https://{{ host }}/v2/linktypes/subtask",
                "id": "subtask",
-               "inward": "Sub-issue",
+               "inward": "Subissue",
                "outward": "Parent issue"
            },
            "direction": "outward",
            "object": {
                "self": "https://{{ host }}/v2/issues/TREK-9844",
-               "id": "593cd211ef7e8a332414f2a7",
+               "id": "593cd211ef7e8a33********",
                "key": "TREK-9844",
                "display": "subtask"
            },
            "createdBy": {
-               "self": "https://{{ host }}/v2/users/1120000000049224",
-               "id": "<employee ID>",
-               "display": "<displayed employee name>"
+               "self": "https://{{ host }}/v2/users/11********",
+               "id": "11********",
+               "display": "Ivan Ivanov"
            },
            "updatedBy": {
-               "self": "https://{{ host }}/v2/users/1120000000049224",
-               "id": "<employee ID>",
-               "display": "<displayed employee name>"
+               "self": "https://{{ host }}/v2/users/11********",
+               "id": "11********",
+               "display": "Ivan Ivanov"
            },
            "createdAt": "2017-06-11T05:16:01.421+0000",
            "updatedAt": "2017-06-11T05:16:01.421+0000",
            "assignee": {
-               "self": "https://{{ host }}/v2/users/1120000000049224",
-               "id": "<employee ID>",
-               "display": "<displayed employee name>"
+               "self": "https://{{ host }}/v2/users/11********",
+               "id": "11********",
+               "display": "Ivan Ivanov"
            },
            "status": {
                "self": "https://{{ host }}/v2/statuses/1",
@@ -114,7 +114,7 @@ Authorization: OAuth <OAuth token>
    | inward | Name of the link type of the issue specified in the [object](#object-param) field in relation to the issue specified in the request. | String |
    | outward | Name of the link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. | String |
 
-   **Object fields** `object` {#object-block}
+   `object` **object fields** {#object-block}
 
    {% include [issue](../../../_includes/tracker/api/issue.md) %}
 

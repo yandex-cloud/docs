@@ -12,9 +12,9 @@ Before making the request, [get permission to access the API](../access.md).
 To get queue information, use an HTTP `GET` request.
 
 ```
-GET /v2/queues/<queue-id>
+GET /v2/queues/<queue_id_or_key>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -23,8 +23,8 @@ Authorization: OAuth <OAuth token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+----- | ----- | -----
+| \<queue_ID_or_key\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
@@ -67,9 +67,9 @@ Authorization: OAuth <OAuth token>
        "name": "Test",
        "description": "Queue created for testing purposes",
        "lead": {
-              "self": "https://{{ host }}/v2/users/1120000000016876",
-              "id": "<employee ID>",
-              "display": "<displayed employee name>"
+              "self": "https://{{ host }}/v2/users/11********",
+              "id": "11********",
+              "display": "Ivan Ivanov"
        },
        "assignAuto": false,
        "defaultType": {
@@ -86,9 +86,9 @@ Authorization: OAuth <OAuth token>
        },
        "teamUsers": [
               {
-                  "self": "https://{{ host }}/v2/users/1120000000016876",
-                  "id": "<employee ID>",
-                  "display": "<displayed employee name>"
+                  "self": "https://{{ host }}/v2/users/11********",
+                  "id": "11********",
+                  "display": "Ivan Ivanov"
               },
               ...
        ],
@@ -171,7 +171,7 @@ Authorization: OAuth <OAuth token>
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `defaultType` {#default-type}
+   `defaultType` ** object fields** {#default-type}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -180,7 +180,7 @@ Authorization: OAuth <OAuth token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Object fields** `defaultPriority` {#default-priority}
+   `defaultPriority` **object fields** {#default-priority}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -189,7 +189,7 @@ Authorization: OAuth <OAuth token>
    | key | Priority key | String |
    | display | Priority name displayed | String |
 
-    **Array object fields** `teamUsers` {#team-users}
+   **teamUsers** `array object fields` {#team-users}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -197,7 +197,7 @@ Authorization: OAuth <OAuth token>
    | id | User ID | String |
    | display | User name displayed | String |
 
-    **Array object fields** `issueTypes` {#issue-types}
+   **issueTypes** `array object fields` {#issue-types}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -206,7 +206,7 @@ Authorization: OAuth <OAuth token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Array object fields** `versions` {#versions}
+   **versions** `array object fields` {#versions}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -214,7 +214,7 @@ Authorization: OAuth <OAuth token>
    | id | Version ID | String |
    | display | Version name displayed | String |
 
-    **Array object fields** `workflows` {#workflows}
+   **workflows** `array object fields` {#workflows}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -231,7 +231,7 @@ Authorization: OAuth <OAuth token>
    | [workflow](#workflow) | Block with information about the issue type workflow | Object |
    | [resolutions](#resolutions) | Array with possible issue type resolutions | Array of objects |
 
-    **Object fields** `issueType` {#issue-type}
+   `issueType` **object fields** {#issue-type}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -240,7 +240,7 @@ Authorization: OAuth <OAuth token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Object fields** `workflow` {#workflow}
+   `workflow` **object fields** {#workflow}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -248,7 +248,7 @@ Authorization: OAuth <OAuth token>
    | id | Workflow ID | String |
    | display | Workflow name displayed | String |
 
-    **Array object fields** `resolutions` {#resolutions}
+   `resolutions` `array object fields` {#resolutions}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----

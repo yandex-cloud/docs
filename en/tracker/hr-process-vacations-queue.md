@@ -4,7 +4,7 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 
 ## Create a queue
 
-1. [Create a queue](manager/create-queue.md) using the <q>Personnel management</q> template.
+1. [Create a queue](manager/create-queue.md) using the *Staff management* template.
 1. Give it a name, e.g., `Vacations Queue`.
 1. Set up a workflow for the `Vacation` issue type.
 1. Create additional issue types and workflows if needed.
@@ -13,7 +13,7 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 
 ### Create a form
 
-1. In the left-hand panel, click ![](../_assets/tracker/svg/icon-add.svg) **New issue**.
+1. In the panel on the left, click ![](../_assets/tracker/svg/icon-add.svg) **Create issue**.
 1. Under **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
 1. Create a new form:
    * Name it `Vacation request`.
@@ -21,8 +21,8 @@ For your employees to be able to easily submit a vacation or sick leave in advan
    * Click **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
 1. Wait for the page to load and click **{{ forms-full-name }} full version**.
 1. Create a request form, e.g., with the following fields:
-   * `Full name` (short text, required field)
-   * `Department` (short text, required field)
+   * `Full name` (short text, required field).
+   * `Department` (short text, required field).
    * `Vacation type` (drop-down list, required field). Add options to the list, such as:
       - `Paid vacation`
       - `Unpaid leave`
@@ -44,7 +44,7 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 1. Return to the form builder by clicking **To builder** at the top of the page.
 1. Click **Publish** and copy the link to the form in the dialog box that opens.
 1. Return to the `Vacations Queue` settings and click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-forms }}**.
-1. Click **Add form** and fill out the form that opens pasting the link you copied earlier into the **Link to the form** field.
+1. Click **Add form** and fill out the form that opens pasting the link you copied earlier into the **Link to form** field.
 1. Click **Save** to save the form integration.
 
 ## Set up an auto action
@@ -61,9 +61,9 @@ For your employees to be able to easily submit a vacation or sick leave in advan
    Deadline: <= today() +14D Status: New
    ```
 
-   The condition will trigger for an issue with a vacation start date within the next two weeks which is still in the <q>New</q> status.
+   The condition will trigger for an issue with a vacation start date occurring within the next two weeks and which is still in the *New* status.
 1. Under **Issue actions**, click **Add new action** and select **Add comment**.
-1. Click the ![](../_assets/tracker/summon.png) button to invite to comment and, in the **Invite to comment** line, add employees responsible for vacation registration.
+1. Click the ![](../_assets/tracker/summon.png) invite to comment button and, in the **Invite to comment** line, add employees responsible for vacation registration.
 1. In the comment field, add the following text:
    ```
    Vacation is not registered! Deadline: "not_var{{issue.dueDate}}".

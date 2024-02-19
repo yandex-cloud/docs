@@ -4,7 +4,7 @@ To enable the employees of other departments in your company to submit requests 
 
 ## Create a queue
 
-1. [Create a queue](manager/create-queue.md) using the <q>Recruitment</q> template.
+1. [Create a queue](manager/create-queue.md) using the *Recruitment* template.
 1. Give it a name, e.g., `Vacancy Queue`.
 
 ## Set up workflows
@@ -19,17 +19,17 @@ You can set up multiple workflows for different types of issues in a single queu
 1. Select the built-in **Recruiting** workflow.
 1. On the workflow page, rename the workflow to **Qualified personnel**.
 1. Specify the type of issues this workflow applies to. To do this, click ![](../_assets/tracker/svg/icon-add.svg) to the right of the workflow name and enter a name for a new issue type, such as `Experts`.
-1. Click the ![](../_assets/tracker/svg/icon-add.svg)**Create <q>Experts</q>** option that appears below and then click **Create** in the dialog box that opens.
+1. Click the ![](../_assets/tracker/svg/icon-add.svg)**Create Experts** option that appears below and then click **Create** in the dialog box that opens.
 1. Save the workflow:
-   1. Click **Save** at the top right.
+   1. At the top right, click **Save**.
    1. In the next dialog box, click **Apply**.
 
-### Copy and set up the new workflow
+### Copy and set up the new workflow.
 
 1. Return to the workflows page.
-1. In the <q>Qualified personnel</q> workflow card, click ![](../_assets/tracker/button-copy.png).
-1. Wait until the <q>Qualified personnel (1)</q> workflow card appears and click the ![](../_assets/tracker/button-edit.png) edit button.
-1. On the <q>Qualified personnel (1)</q> workflow page, rename the workflow to **Unqualified personnel**.
+1. In the *Qualified personnel* workflow card, click the ![](../_assets/tracker/button-copy.png) button.
+1. Wait until the workflow card called *Qualified personnel (1)* appears and click the ![](../_assets/tracker/button-edit.png) edit button.
+1. On the workflow page called *Qualified personnel (1)*, rename the workflow to **Unqualified personnel**.
 1. Specify the type of issues this workflow applies to by creating a type named `Nonexperts` as described above.
 1. Remove the approval stage from the workflow. To do this, click the **Awaiting approval** status in the workflow diagram and then click ![](../_assets/tracker/svg/actions.svg) in the status settings panel at the top right. Select **Remove from workflow**.
 1. Save the workflow as described above.
@@ -40,7 +40,7 @@ You can use {{ forms-full-name }} to create standard issues in a queue more easi
 
 ### Create a form for the first workflow
 
-1. In the left-hand panel, click ![](../_assets/tracker/svg/icon-add.svg) **New issue**.
+1. In the panel on the left, click ![](../_assets/tracker/svg/icon-add.svg) **Create issue**.
 1. Under **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}**, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
 1. Create a new form:
    * Name it `Expert`.

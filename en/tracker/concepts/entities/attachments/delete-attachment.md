@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/entities/attachments/delete-attachment.md
 ---
-# Delete a file
+# Deleting a file
 
 Use this request to delete attached files.
 
@@ -12,7 +12,7 @@ Before making the request, [get permission to access the API](../../access.md).
 To delete a file, use an HTTP `DELETE` request.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/attachments/<attachmentId>
+DELETE /{{ ver }}/entities/<entity_type>/<entity_ID>/attachments/<file_ID>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -27,7 +27,7 @@ Authorization: OAuth <OAuth_token>
 > - An HTTP DELETE method is used.
 >
 > ```
-> DELETE /v2/entities/project/6586d6fee2b9ef74********/attachments/123
+> DELETE /v2/entities/project/<project_ID>/attachments/123
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}

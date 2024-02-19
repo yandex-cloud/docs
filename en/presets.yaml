@@ -910,6 +910,7 @@ default:
         encryptdecrypt|string: ₽2.8800
     storage:
       v1:
+        hsm|month|string: ₽360.0000
         software|month|string: ₽2.8800
   sku|RUB|lockbox:
     api:
@@ -1800,6 +1801,14 @@ default:
       cpu|string: $0.013440
       disk|month|string: $0.104080
       ram|string: $0.003600
+  sku|USD|kms:
+    api:
+      v1:
+        encryptdecrypt|string: $0.023040
+    storage:
+      v1:
+        hsm|month|string: $2.880000
+        software|month|string: $0.023040
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -5161,7 +5170,11 @@ default:
             field_service-cidr: CIDR services
             field_subnetwork: Subnet
             field_tunnel-mode: Enable tunnel mode
+            label_logging-enabled: Write logs
             label_maintenance-weekly: Weekly schedule
+            label_stream-cluster-autoscaler: Cluster Autoscaler logs
+            label_stream-events: Event logs
+            label_stream-kube-apiserver: Kubernetes API server logs
             section_allocation: Cluster network settings
             section_main-cluster: Master configuration
             section_maintenance: Maintenance window settings
@@ -7870,7 +7883,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.27
+        tag: 0.4.28
     yc_gitlab-agent:
       helmChart:
         name: >-

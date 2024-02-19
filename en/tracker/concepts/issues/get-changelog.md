@@ -10,11 +10,10 @@ Use this request to get the history of changes to issues. If there are more than
 Before making the request, [get permission to access the API](../access.md).
 
 To get a list of issue changes, use an HTTP `GET` request.
-
 ```json
-GET /{{ ver }}/issues/<issue-id>/changelog
+GET /{{ ver }}/issues/<issue_id_or_key>/changelog
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -27,7 +26,7 @@ Authorization: OAuth <token>
 #### Additional parameters {#params}
 
 | Parameter | Description | Data type |
-| -------- | -------- | ---------- |
+-------- | -------- | ----------
 | id | ID of the change followed by the requested changes. | String |
 | perPage | Number of changes per page. If this parameter is omitted, each page will display 50 changes by default. | Number |
 | field | ID of the [change parameter](#field). For example, `checklistItems` for viewing changes to the checklist or `status` for viewing all issue status updates. | String |
@@ -41,38 +40,37 @@ Authorization: OAuth <token>
 
 - Request executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains a JSON array with the history of issue changes.
+   The response body contains a JSON array with the history of issue changes.
 
-  {% cut "Response headers" %}
+   {% cut "Response headers" %}
 
-    The `Link` headers contain links to the first (`rel="first"`) and subsequent (`rel="next"`) pages of the response. By default, each page contains 50 changes.
+   The `Link` headers contain links to the first (`rel="first"`) and subsequent (`rel="next"`) pages of the response. By default, each page contains 50 changes.
 
-    ```
-    ...
-    Link: <{{ host }}/v2/issues/SCR-8/changelog?perPage=50>; rel="first"
-    Link: <{{ host }}/v2/issues/SCR-8/changelog?id=5b9a1a88f7c605001c0e14a5&perPage=50>; rel="next"
-    ...
-    ```
-
-  {% endcut %}
+   ```
+   ...
+   Link: <{{ host }}/v2/issues/SCR-8/changelog?perPage=50>; rel="first"
+   Link: <{{ host }}/v2/issues/SCR-8/changelog?id=5b9a1a88f7c60500********&perPage=50>; rel="next"
+   ...
+   ```
+   {% endcut %}
 
    ```json
    [
     {
-        "id": "6033f986bd6c4a042c688392",
-        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
+        "id": "6033f986bd6c4a04********",
+        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a04********",
         "issue": {
             "self": "https://{{ host }}/v2/issues/TEST-27",
-            "id": "6033f986bd6c4a042c688392",
+            "id": "6033f986bd6c4a04********",
             "key": "TEST-27",
             "display": "Issue name"
         },
         "updatedAt": "2021-02-22T18:35:50.157+0000",
         "updatedBy": {
-            "self": "https://{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
+            "self": "https://{{ host }}/v2/users/71********",
+            "id": "71********",
             "display": "Full Name"
         },
         "type": "IssueCreated",
@@ -95,18 +93,18 @@ Authorization: OAuth <token>
         ]
     },
     {
-        "id": "6033f98d4417c101b655b93b",
-        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f98d4417c101b655b93b",
+        "id": "6033f98d4417c101********",
+        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f98d4417c101********",
         "issue": {
             "self": "https://{{ host }}/v2/issues/TEST-27",
-            "id": "6033f986bd6c4a042c688391",
+            "id": "6033f986bd6c4a04********",
             "key": "TEST-27",
             "display": "Issue name"
         },
         "updatedAt": "2021-02-22T18:35:57.359+0000",
         "updatedBy": {
-            "self": "https://{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
+            "self": "https://{{ host }}/v2/users/71********",
+            "id": "71********",
             "display": "Full Name"
         },
         "type": "IssueUpdated",
@@ -121,8 +119,8 @@ Authorization: OAuth <token>
                 "from": null,
                 "to": [
                     {
-                        "self": "https://{{ host }}/v2/users/1234567890",
-                        "id": "1234567890",
+                        "self": "https://{{ host }}/v2/users/71********",
+                        "id": "71********",
                         "display": "Full Name"
                     }
                 ]
@@ -130,18 +128,18 @@ Authorization: OAuth <token>
         ]
     },
     {
-        "id": "6033f9954417c101b655b940",
-        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f9954417c101b655b940",
+        "id": "6033f9954417c101********",
+        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f9954417c101********",
         "issue": {
             "self": "https://{{ host }}/v2/issues/TEST-27",
-            "id": "6033f986bd6c4a042c688391",
+            "id": "6033f986bd6c4a04********",
             "key": "TEST-27",
             "display": "Issue name"
         },
         "updatedAt": "2021-02-22T18:36:05.553+0000",
         "updatedBy": {
-            "self": "https://{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
+            "self": "https://{{ host }}/v2/users/71********",
+            "id": "71********",
             "display": "Full Name"
         },
         "type": "IssueUpdated",
@@ -161,116 +159,116 @@ Authorization: OAuth <token>
         ],
     },
     {
-        "id": "62bab52ca16f631eea3816a9",
-        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/62bab52ca16f631eea3816a9",
-        "issue": {
+       "id": "62bab52ca16f631e********",
+       "self": "https://{{ host }}/v2/issues/TEST-27/changelog/62bab52ca16f631e********",
+       "issue": {
            "self": "https://{{ host }}/v2/issues/TEST-27",
-           "id": "5fbc929b5b28572f9418327d",
+           "id": "5fbc929b5b28572f********",
            "key": "TEST-27",
            "display": "Issue name"
-        },
-        "updatedAt": "2022-06-28T08:00:44.155+0000",
-        "updatedBy": {
-           "self": "https://{{ host }}/v2/users/1134669289",
-           "id": "1134669289",
+       },
+       "updatedAt": "2022-06-28T08:00:44.155+0000",
+       "updatedBy": {
+           "self": "https://{{ host }}/v2/users/71********",
+           "id": "71********",
            "display": "Full Name"
-        },
-        "type": "IssueWorkflow",
-        "transport": "front",
-        "fields": [
+       },
+       "type": "IssueWorkflow",
+       "transport": "front",
+       "fields": [
            {
-                "field": {
-                    "self": "https://{{ host }}/v2/fields/status",
-                    "id": "status",
-                    "display": "Status"
-                },
-                "from": {
-                    "self": "https://{{ host }}/v2/statuses/3",
-                    "id": "3",
-                    "key": "inProgress",
-                    "display": "In progress"
-                },
-                "to": {
-                    "self": "https://{{ host }}/v2/statuses/2",
-                    "id": "2",
-                    "key": "needInfo",
-                    "display": "Need info"
-                }
+               "field": {
+                   "self": "https://{{ host }}/v2/fields/status",
+                   "id": "status",
+                   "display": "Status"
+               },
+               "from": {
+                   "self": "https://{{ host }}/v2/statuses/3",
+                   "id": "3",
+                   "key": "inProgress",
+                   "display": "In progress"
+               },
+               "to": {
+                   "self": "https://{{ host }}/v2/statuses/2",
+                   "id": "2",
+                   "key": "needInfo",
+                   "display": "Need info"
+               }
            },
            {
-                "field": {
-                    "self": "https://{{ host }}/v2/fields/statusStartTime",
-                    "id": "statusStartTime",
-                    "display": "Status changed"
-                },
-                "from": "2022-06-28T07:29:45.753+0000",
-                "to": "2022-06-28T08:00:44.156+0000"
+               "field": {
+                   "self": "https://{{ host }}/v2/fields/statusStartTime",
+                   "id": "statusStartTime",
+                   "display": "Status updated"
+               },
+               "from": "2022-06-28T07:29:45.753+0000",
+               "to": "2022-06-28T08:00:44.156+0000"
            },
            {
-                "field": {
-                    "self": "https://{{ host }}/v2/fields/followers",
-                    "id": "followers",
-                    "display": "Followers"
-                },
-                "from": [
+               "field": {
+                   "self": "https://{{ host }}/v2/fields/followers",
+                   "id": "followers",
+                   "display": "Followers"
+               },
+               "from": [
                    {
-                       "self": "https://{{ host }}/v2/users/780889736",
-                       "id": "780889736",
+                       "self": "https://{{ host }}/v2/users/71********",
+                       "id": "71********",
                        "display": "Full Name"
                    },
                    {
-                       "self": "https://{{ host }}/v2/users/780891246",
-                       "id": "780891246",
+                       "self": "https://{{ host }}/v2/users/71********",
+                       "id": "71********",
                        "display": "Full Name"
                    }
-                ],
-                "to": [
+               ],
+               "to": [
                    {
-                       "self": "https://{{ host }}/v2/users/780889736",
-                       "id": "780889736",
+                       "self": "https://{{ host }}/v2/users/71********",
+                       "id": "71********",
                        "display": "Full Name"
                    },
                    {
-                       "self": "https://{{ host }}/v2/users/780891246",
-                       "id": "780891246",
+                       "self": "https://{{ host }}/v2/users/71********",
+                       "id": "71********",
                        "display": "Full Name"
                    },
                    {
-                       "self": "https://{{ host }}/v2/users/1134669289",
-                       "id": "1134669289",
+                       "self": "https://{{ host }}/v2/users/71********",
+                       "id": "71********",
                        "display": "Full Name"
                    }
-                ]
+               ]
            }
-        ],
-        "comments": {
+       ],
+       "comments": {
            "added": [
                {
                    "self": "https://{{ host }}/v2/issues/TEST-27/comments/10",
                    "id": "10",
-                   "display": "<comment text>"
+                   "display": "Comment text"
                }
            ]
-        },
-        "executedTriggers": [
+       },
+       "executedTriggers": [
            {
-                "trigger": {
+               "trigger": {
                    "self": "https://{{ host }}/v2/queues/TEST/triggers/29",
                    "id": "29",
-                   "display": "<trigger name>"
-                },
-                "success": true,
-                "message": "<trigger action>"
+                   "display": "Trigger-42"
+               },
+               "success": true,
+               "message": "Success"
            }
         ]
      }
    ]
    ```
 
-  {% cut "Response parameters" %}
+   {% cut "Response parameters" %}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----
    | id | Change ID. | String |
    | self | Address of the API resource with information about the change. | String |
    | [issue](#issue) | Block with information about the issue. | Object |
@@ -290,26 +288,26 @@ Authorization: OAuth <token>
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-   `fields` **array object fields** {#fields}
+   **fields** `array object fields` {#fields}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----
    | [field](#field) | Block with information about the updated issue parameter. | Object |
    | [from](#from-to) | Information about the parameter value before the change. <ul><li>If the field can accept multiple values, an array of objects is provided. For example, the `followers` field.</li><li>If the field can only accept one value, it is provided as a string. For example, the `statusStartTime` field.</li></ul> | String / object |
-   | [to](#from-to) | Information about the parameter value after the change. <ul><li>If the field can accept multiple values, an array of objects is passed. For example, the `followers` field.</li><li>If the field can only accept one value, it is provided as a string. For example, the `statusStartTime` field.</li></ul> | String / object |
+   | [to](#from-to) | Information about the parameter value after the change. <ul><li>If the field can accept multiple values, an array of objects is provided. For example, the `followers` field.</li><li>If the field can only accept one value, it is provided as a string. For example, the `statusStartTime` field.</li></ul> | String / object |
 
    `field` **object fields** {#field}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----
    | self | Link to the updated issue parameter. | String |
    | id | Issue parameter ID. | String |
    | display | Issue parameter name displayed. | String |
 
-    `from` **and** `to` **object fields** {#from-to}
+   **Fields of the ** `from` **and** `to` objects {#from-to}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----
    | self | Link to the issue parameter value. | String |
    | id | Issue parameter value ID. | String |
    | key | Parameter value key. | String |
@@ -334,7 +332,7 @@ Authorization: OAuth <token>
    | Parameter | Description | Data type |
    ----- | ----- | -----
    | [trigger](#trigger) | Block with information about trigger. | Object |
-   | success | Trigger action status. Acceptable values include:<ul><li>`true`: Success.</li><li>`false`: Failure.</li></ul> | Logical |
+   | success | Trigger action status. Acceptable values include:<ul><li>`true`— Success.</li><li>`false`: Failure.</li></ul> | Logical |
    | message | The action that was executed by the trigger. | String |
 
    `trigger` **object fields** {#trigger}
@@ -345,10 +343,10 @@ Authorization: OAuth <token>
    | id | Trigger ID | Number |
    | display | Trigger name displayed | String |
 
-   **Type of change** `type` {#diff-type}
+   **type** `Type of change` {#diff-type}
 
    | Type of change. | Description |
-   | ----- | ----- |
+   ----- | -----
    | IssueUpdated | The issue was edited. |
    | IssueCreated | The issue was created. |
    | IssueMoved | The issue was moved to another queue. |
@@ -371,22 +369,22 @@ Authorization: OAuth <token>
    | IssueAttachmentRemoved | A file attached to the issue was removed. |
    | IssueWorkflow | The issue status changed. |
 
-  {% endcut %}
+   {% endcut %}
 
 - Request failed
 
-  If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-  {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
+   {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-  {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-  {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
-  {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
+   {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
 
-  {% include [answer-error-500](../../../_includes/tracker/api/answer-error-500.md) %}
+   {% include [answer-error-500](../../../_includes/tracker/api/answer-error-500.md) %}
 
-  {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
+   {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}

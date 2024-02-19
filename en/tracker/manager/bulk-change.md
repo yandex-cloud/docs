@@ -18,7 +18,7 @@ To change the issue status:
 
 1. After the operation is complete, in the bottom-right corner, you will see a notification with the number of issues with changed status.
 
-   To see a list of issues that cannot be changed to the selected status, click **More** in the notification.
+   To see a list of issues that cannot be changed to the selected status, click **Learn more** in the notification.
 
 ## Move an issues to another queue {#change-queue}
 
@@ -54,7 +54,7 @@ To add a link to multiple issues at once:
 
    * To create an issue, click the **New issue** tab. Give your issue a name and press **Enter**.
 
-   * If the issue already exists, click **Existing issue**, specify the issue key or name, and select the issue from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
+   * If the issue already exists, click **Existing issue** and specify the issue's key or name, then select the issue from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
 
 ## Adding issues to a board or project {#add-project-board}
 
@@ -70,7 +70,7 @@ To add issues to a board or project:
 
    * To add issues to the board, click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-board }}**. Select one or more boards, then click **{{ ui-key.startrek.ui_components_bulk_BulkChangeParametersDialog.button-submit-text }}**.
 
-   * To add the issue to a project, select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-projects }}**. All the subissues will also be added to the project.
+   * To add the issue to a project, select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-projects }}**. All the subissues will also be added to the project
 
 ## Changing field settings {#change-parameters}
 
@@ -84,11 +84,11 @@ To edit issue parameters:
 
 1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list and select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.edit-parameters }}**.
 
-1. Select relevant parameters. If the fields you need are not in the list, click **Edit parameter list** to add them.
+1. Select relevant parameters. If the fields you need are not in the list, use the **Edit parameter list** button to add them.
 
 1. Set the values.
 
-   Some fields, such as <q>Followers</q>, <q>{{ ui-key.startrek-backend.messages.workflow.field.maillists }}</q>, or <q>Tags</q>, may contain a list of values. New values are added to the end of the list by default. To overwrite a field, select **Delete values**.
+   Some fields, such as **Followers**, **{{ ui-key.startrek-backend.messages.workflow.field.maillists }}**, or **Tags**, may contain a list of values. New values are added to the end of the list by default. To overwrite a field, select **Delete values**.
 
 1. Click **{{ ui-key.startrek.ui_components_BulkSuggestPopup.apply }}**.
 

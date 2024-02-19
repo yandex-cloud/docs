@@ -17,7 +17,7 @@ User rights in {{ tracker-name }} are classified into two types:
 * Global level of access to {{ tracker-name }}:
    * [Administrator](#admin).
    * [Employee with full access](access.md#set).
-   * [Employee with the <q>Read</q> permission](access.md#readonly).
+   * [Employee with the read access](access.md#readonly).
 
 * Rights of access to individual elements of the {{ tracker-name }} structure:
    * [Queue issues](manager/queue-access.md). The rights to create, view, and edit issues can be set up by the queue owner or another user permitted by the owner to edit the [queue settings](manager/edit-queue-general.md).
@@ -88,13 +88,13 @@ Actions available to employees:
 * Using [issue boards](user/agile.md) and [dashboards](user/dashboard.md).
 * Setting up the [interface](user/personal.md) and [notifications](user/notifications.md).
 
-#### Employees with the <q>Read</q> permission {#read-only}
+#### Employees with the read access {#read-only}
 
-Employees working in <q>Read</q> mode can use the features related to viewing issues in {{ tracker-name }}. You do not pay for the use of the service by such users.
+Employees working in the read mode can use the {{ tracker-name }} features related to viewing issues. You do not pay for the service use by such users.
 
-If the [administrator](#admin) has the <q>Read</q> permission to {{ tracker-name }}, they can edit access rights for their account themselves.
+If the [administrator](#admin) has the read access to {{ tracker-name }}, they can also edit access settings for their account.
 
-Actions available in <q>Read only</q> mode:
+Actions available in the read only mode:
 
 * View issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
 * Search for issues using the [filter builder](user/create-filter.md) and [query language](user/query-filter.md).

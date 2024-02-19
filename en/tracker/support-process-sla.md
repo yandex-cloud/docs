@@ -22,7 +22,7 @@ To measure the support's initial response time, set up a timer that will be sta
 
    {% note info %}
 
-   If you want different issue groups to have different time limits, click **Create a new filter** and set grouping parameters for these issues.
+   If you want different issue groups to have different time limits, click **Create new filter** and set parameters for grouping these issues.
 
    {% endnote %}
 
@@ -30,9 +30,9 @@ To measure the support's initial response time, set up a timer that will be sta
 
 1. Set up the criteria for starting and stopping the timer:
 
-   1. Under **Start**, add the condition **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}**.
+   1. Under **Start**, add the **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}** condition.
 
-   1. Under **Stop**, add the condition **{{ ui-key.startrek-backend.messages.sla.team.commented.timer.trigger.condition.type }}**.
+   1. Under **Stop**, add the **{{ ui-key.startrek-backend.messages.sla.team.commented.timer.trigger.condition.type }}** condition.
 
    ![](../_assets/tracker/support-sla-timer.png)
 
@@ -44,7 +44,7 @@ Now, when an issue has been created in the support queue, a timer will get start
 
 ### Total request processing time
 
-If you want to measure the total request processing time, set up a timer that triggers during issue creation and stops once the issue status is updated to <q>{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}</q> or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>. You can pause the timer while the issue is in the <q>{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}</q> status to prevent the waiting time from counting towards the total processing time.
+If you want to measure the total request processing time, set up a timer that triggers when an issue is created and stops once the issue status is updated to **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}** or **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. You can pause the timer while the issue is in the **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}** status to prevent the waiting time from counting towards the total processing time.
 
 1. Go to **SLA** in the queue settings and click [**Create rule**](manager/sla.md).
 
@@ -58,19 +58,19 @@ If you want to measure the total request processing time, set up a timer that tr
 
    {% note info %}
 
-   If you want different issue groups to have different time limits, click **Create a new filter** and set grouping parameters for these issues.
+   If you want different issue groups to have different time limits, click **Create new filter** and set parameters for grouping these issues.
 
    {% endnote %}
 
    ![](../_assets/tracker/support-sla-time-total.png)
 
-1. Set up the criteria for starting and stopping the timer:
+1. Set up the criteria for starting and stopping the timer.
 
-   1. Under **Start**, add the condition **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}**.
+   1. Under **Start**, add the **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}** condition.
 
-   1. Under **Pause**, add the condition **{{ ui-key.startrek-backend.messages.sla.issue.on.status.timer.trigger.condition.type }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
+   1. Under **Pause**, add the **{{ ui-key.startrek-backend.messages.sla.issue.on.status.timer.trigger.condition.type }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}** condition.
 
-   1. Under **Stop**, add the condition **{{ ui-key.startrek-backend.messages.sla.status.changed.timer.trigger.condition.type }}** and select the **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}** and **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** statuses.
+   1. Under **Stop**, add the **{{ ui-key.startrek-backend.messages.sla.status.changed.timer.trigger.condition.type }}** condition and select the **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}** and **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** statuses.
 
    ![](../_assets/tracker/support-sla-timer-total.png)
 
@@ -82,4 +82,4 @@ If you want to measure the total request processing time, set up a timer that tr
 
 1. Save the rule.
 
-Now, when an issue has been created in the support queue, a timer will get started. The timer will be active until the issue status changes to <q>{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}</q> or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>. If a support specialist asks the requester for additional information and updates the issue status to <q>{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}</q>, the timer will be paused and can only be unpaused after another status change.
+Now, when an issue has been created in the support queue, a timer will get started. The timer will be active until the issue status changes to **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}** or **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. If a support specialist asks the user to provide additional information and updates the issue status to **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**, the timer will pause and can only resume after the issue status changes.

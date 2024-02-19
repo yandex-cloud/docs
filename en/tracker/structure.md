@@ -2,9 +2,9 @@
 
 Any project or process is easier to manage if your work is structured. Breaking down and grouping your issues are among key methods to put your things in order.
 
-Decomposition is breaking larger project chunks into standalone issues and sub-issues. When the workload is broken down into smaller issues, it's much easier to evaluate their complexity and required resources, distribute the issues across assignees, and schedule deadlines. In {{ tracker-name }}, you can decompose your issues using [links](user/links.md). For example, you need to implement a new feature in your product, which implies resolving multiple smaller issues. For such cases, you can create a parent issue of the <q>New feature</q> type and link sub-issues to it.
+Decomposition is breaking larger project chunks into standalone issues and sub-issues. When the workload is broken down into smaller issues, it's much easier to evaluate their complexity and required resources, distribute the issues across assignees, and schedule deadlines. In {{ tracker-name }}, you can decompose your issues using [links](user/links.md). For example, you need to implement a new feature in your product, which implies resolving multiple smaller issues. For such cases, you can create a *New feature* parent issue and link child issues to it.
 
-It's helpful to group issues, for example, to estimate the workload at different project stages or specify the scope of responsibility for teams and individual employees.
+Grouping issues is useful, for example, to estimate the workload at different project stages or specify the scope of responsibility for teams and individual employees.
 
 There are several ways to structure issues in {{ tracker-name }}. You can use them individually or combine them.
 
@@ -27,8 +27,8 @@ Components
 Versions
 :   [Versions](manager/versions.md) help you group issues within the same queue based on the product version they belong to.
 
-Tags
-:  A tag is a type of label that can be added manually to any issue. It is convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}** parameter](user/edit-ticket.md#edit-fields).
+Tag
+:   Type of label one can manually add to any issue. You can use tags to group issues by any attribute and then search for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}** parameter](user/edit-ticket.md#edit-fields).
 
     {% note info %}
 

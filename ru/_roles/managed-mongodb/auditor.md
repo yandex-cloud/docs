@@ -1,1 +1,1 @@
-Роль `managed-mongodb.auditor` позволяет просматривать информацию о хостах и кластерах MongoDB, а также о квотах и операциях с ресурсами сервиса Managed Service for MongoDB.
+Роль `managed-mongodb.auditor` позволяет просматривать информацию о [хостах и кластерах MongoDB](../../managed-mongodb/concepts/index.md), а также о [квотах](../../managed-mongodb/concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса Managed Service for MongoDB.

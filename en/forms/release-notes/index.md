@@ -1,17 +1,17 @@
 ---
-title: "{{ forms-full-name }} release notes for December 2023"
-description: "Check out {{ forms-full-name }} release notes for December 2023."
+title: "{{ forms-full-name }} release notes for January 2024"
+description: "Check out {{ forms-full-name }} release notes for January 2024."
 ---
 
-# {{ forms-full-name }} release notes: December 2023
+# {{ forms-full-name }} release notes: January 2024
 
-* [Renamed a button](#button-name).
-* [Increased the limit on the number of attached files](#upgrade-limit).
+* [Updated the response page](#answers-update).
+* [Updated the **File** prompt](#file-question-update).
 
-## Renamed a button {#button-name}
+## Updated the response page {#answers-update}
 
-Previously, when survey respondents encountered a [**Series of questions**](../blocks-ref/series.md), they needed to click **Add a series of questions** to provide more answers to the questions in the series. User feedback showed us that respondents found this button name confusing. Based on this feedback, we decided to rename the button to **One more**.
+Updated the interface on the [response page](../answers.md) to include new features. You can now select the response display format: statistics or timeline. You can pick the responses you need by using the filters by date and question.
 
-## Increased the limit on the number of attached files {#upgrade-limit}
+## Updated the **File** prompt {#file-question-update}
 
-With {{ forms-name }}, you can [attach](../blocks-ref/file.md#alow-multi) up to 20 files to a single form. Now this limit can be increased even further if you enable [saving files from responses to an external storage](../storage-for-attached-files.md). In this case, you can attach up to 50 files to a single form.
+Added the dragging and dropping option to upload files for the [**File**](../blocks-ref/file.md) prompt.

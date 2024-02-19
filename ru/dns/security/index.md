@@ -24,10 +24,21 @@ description: "Управление доступом в сервисе для у�
 
 ### Сервисные роли {#service-roles}
 
-* {% include [dns.auditor](../../_includes/iam/roles/dns-auditor-short.md) %}
-* {% include [dns.viewer](../../_includes/iam/roles/dns-viewer-short.md) %}
-* {% include [dns.editor](../../_includes/iam/roles/dns-editor-short.md) %}
-* {% include [dns.admin](../../_includes/iam/roles/dns-admin-short.md) %}
+#### dns.auditor {#dns-auditor}
+
+{% include [roles-dns-auditor](../../_roles/dns/auditor.md) %}
+
+#### dns.viewer {#dns-viewer}
+
+{% include [roles-dns-viewer](../../_roles/dns/viewer.md) %}
+
+#### dns.editor {#dns-editor}
+
+{% include [roles-dns-editor](../../_roles/dns/editor.md) %}
+
+#### dns.admin {#dns-admin}
+
+{% include [roles-dns-admin](../../_roles/dns/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

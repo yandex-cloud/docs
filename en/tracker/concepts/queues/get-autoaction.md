@@ -12,7 +12,7 @@ Before making the request, [get permission to access the API](../access.md).
 To get auto action parameters, use an HTTP `GET` request:
 
 ```json
-GET /{{ ver }}/queues/<queue-id>/autoactions/<autoaction-id>
+GET /{{ ver }}/queues/<queue_ID_or_key>/autoactions/<autoaction_ID>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -24,8 +24,8 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
-| \<autoaction-id\> | Auto action ID | Number |
+| \<queue_ID_or_key\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+| \<autoaction_ID\> | Auto action ID | Number |
 
 {% endcut %}
 
@@ -106,7 +106,7 @@ Authorization: OAuth <OAuth_token>
 
    {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-   **Fields array object** `filter` {#filter}
+   `filter` **array object fields** {#filter}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----

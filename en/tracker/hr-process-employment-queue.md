@@ -4,7 +4,7 @@ To manage the workflows for official employment and onboarding of new employees,
 
 ## Create a queue for new employees
 
-1. [Create a queue](manager/create-queue.md) using the <q>HR processes</q> template.
+1. [Create a queue](manager/create-queue.md) using the *HR workflow* template.
 1. Give it a name, e.g., `Employment Queue`.
 1. Set up a [workflow](manager/workflows.md#section_hr) or create a [new](manager/add-workflow.md) one if needed.
 1. Specify an issue type, e.g., `New employees`, for the workflow. Save the issue type key. You will need it when creating triggers.
@@ -12,13 +12,13 @@ To manage the workflows for official employment and onboarding of new employees,
 
 ## Add issue types
 
-Create separate issue types for various procedures related to employment and onboarding of new employees. For example, to grant access permissions and provide equipment, create an issue type named <q>Access permissions and equipment</q>:
+Create separate issue types for various procedures related to employment and onboarding of new employees. For example, to grant access permissions and provide equipment, create an issue type named *Access permissions and equipment*:
 
 1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 1. In the left-hand panel, select **Issue types**.
 1. Wait for the page to load and click **Add issue type**.
 1. In the form that appears:
-   * Enter a name for the new type, such as `Access permissions and equipment`, in the **Issue type** field and click **Add issue type**. In the issue type creation form that opens, copy and save the issue key.
+   * Enter a name for the new type, e.g., **Access permissions and equipment**, in the `Issue type` field and click **Add issue type**. In the issue type creation form that opens, copy and save the issue key.
    * In the **Workflow** field, select a suitable workflow, e.g., `Quick Start`.
    * In the **Resolutions** field, select the appropriate resolutions, e.g., `{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}`.
 
@@ -51,20 +51,20 @@ To automate replication of issues from the `Candidates Queue` to the `Employment
    || Method | POST ||
    || Address | `{{ host }}/{{ ver }}/issues` ||
    || Authorization method | OAuth 2.0 ||
-   || Token | <OAuth_token> (see [How to get a token](concepts/access.md#section_about_OAuth)) ||
+   || Token | `<OAuth_token>` (see [How to get a token](concepts/access.md#section_about_OAuth)) ||
    || Authorization header | Authorization ||
    || Token type | OAuth ||
    || Content type | application/json ||
    || Request body |
-   >```
-   >{
-   >   "queue":"<Employment_Queue_key>",
-   >   "summary":"not_var{{issue.summary.json}}",
-   >   "description":"not_var{{issue.description.json}}",
-   >   "type":"<New_Employees_issue_key>",
-   >   "parent":"not_var{{issue.key}}"
-   >}
-   >```
+   > ```
+   > {
+   >    "queue":"<Employment_Queue_key>",
+   >    "summary":"not_var{{issue.summary.json}}",
+   >    "description":"not_var{{issue.description.json}}",
+   >    "type":"<New_Employees_issue_key>",
+   >    "parent":"not_var{{issue.key}}"
+   > }
+   > ```
    ||
    || Headers | Header: `X-Org-ID` or `X-Cloud-Org-ID`.
    Value: Organization ID. If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`. You can find the ID on the [**Administration** → **Organizations**]({{ link-admin-settings }}) page. ||

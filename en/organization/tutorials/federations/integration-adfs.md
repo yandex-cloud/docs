@@ -110,54 +110,9 @@ To follow the steps in this section, you will need:​
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `--sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+      * `--sso-binding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
-
-- API {#api}
-
-   1. Create a file with the request body, e.g., `body.json`:
-
-      ```json
-      {
-        "name": "my-federation",
-        "organizationId": "<organization_ID>",
-        "autoCreateAccountOnLogin": true,
-        "cookieMaxAge":"43200s",
-        "issuer": "http://example.com/adfs/services/trust",
-        "ssoUrl": "https://example.com/adfs/ls/",
-        "ssoBinding": "POST",
-        "securitySettings": {
-          "forceAuthn": true
-        }
-      }
-      ```
-
-      Where:
-
-      * `name`: Federation name. It must be unique within the folder.
-      * `organizationId`: Organization ID.
-      * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
-
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
-
-      * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
-      * `issuer`: IdP server ID to be used for authentication.
-
-         Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
-
-      * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
-
-         Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your AD FS server.
-
-         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
-
-      * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
-
-      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
-
-   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
 - {{ TF }} {#tf}
 
@@ -169,11 +124,11 @@ To follow the steps in this section, you will need:​
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
-      * `issuer`: IdP server ID to be used for authentication.
+      * `issuer`: ID of the IdP server to be used for authentication.
 
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
 
-      * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+      * `sso_binding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your AD FS server.
@@ -230,7 +185,62 @@ To follow the steps in this section, you will need:​
 
       This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
 
+- API {#api}
+
+   1. Create a file with the request body, e.g., `body.json`:
+
+      ```json
+      {
+        "name": "my-federation",
+        "organizationId": "<organization_ID>",
+        "autoCreateAccountOnLogin": true,
+        "cookieMaxAge":"43200s",
+        "issuer": "http://example.com/adfs/services/trust",
+        "ssoUrl": "https://example.com/adfs/ls/",
+        "ssoBinding": "POST",
+        "securitySettings": {
+          "forceAuthn": true
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Federation name. It must be unique within the folder.
+      * `organizationId`: Organization ID.
+      * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+
+      * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
+      * `issuer`: ID of the IdP server to be used for authentication.
+
+         Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
+
+      * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
+
+         Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your AD FS server.
+
+         {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
+      * `ssoBinding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
+
+      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
+
+   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
+
 {% endlist %}
+
+{% note info %}
+
+To ensure correct ForceAuthn in IdP, change the IdP settings. To do this, open the `PowerShell` console on your ADFS server and run the following command:
+
+```powershell
+Get-AdfsRelyingPartyTrust -Name YC | Set-AdfsRelyingPartyTrust -AlwaysRequireAuthentication $true
+```
+
+{% endnote %}
 
 ## Specify certificates for the federation {#add-certificate}
 
@@ -401,7 +411,7 @@ When AD FS authenticates a user, it sends a SAML message to {{ yandex-cloud }} t
 
 | User data | Comment | Outgoing Claim Type |
 ------------------- | ----------- | -------------------
-| Unique user ID | Required attribute. We recommend using the **User-Principal-Name** or email address. | Name ID |
+| Unique user ID | Required attribute. We recommend using one of the unique and fixed Active Directory user attributes: **User-Principal-Name**, **Object-Sid**, **Object-Guid**, or email address. | Name ID |
 | Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute.<br> Value length limit: {{ saml-limit-last-name }}. | Surname |
 | Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute.<br> Value length limit: {{ saml-limit-first-name }}. | Given Name |
 | Full name | Displayed in {{ yandex-cloud }} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute.<br> Value length limit: {{ saml-limit-display-name }}. | Name |
@@ -411,9 +421,9 @@ When AD FS authenticates a user, it sends a SAML message to {{ yandex-cloud }} t
 
 {% note warning %}
 
-The name ID must be unique for every federation user. We recommend specifying the User Principal Name (UPN) or email address as the ID.
+For `Name ID`, use only the Active Directory user attributes that are unique and unlikely to change. If a federation user's `Name ID` changes, this user will have to get a new federation account created and will lose access to previous settings and data in {{ yandex-cloud }}.
 
-The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If the value of a different attribute exceeds the limit, the value part that goes beyond the limit is truncated.
+The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If the value of another attribute exceeds the limit, the part in excess of the limit will be truncated.
 
 {% endnote %}
 
@@ -433,7 +443,7 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
    1. Specify what the server will return as the name ID to uniquely identify the user. To do this, add a line to the **Mapping of LDAP attributes** list:
 
-      In the **LDAP Attribute** column, select **User-Principal-Name** or **E-Mail Addresses**.
+      In the **LDAP Attribute** column, select an attribute for a unique and fixed user ID: **User-Principal-Name**, **Object-Sid**, **Object-Guid**, or **E-Mail-Addresses**.
 
       In the **Outgoing Claim Type** column, select **Name ID**.
 

@@ -4,11 +4,14 @@ title: "How to get information about an L7 load balancer in {{ alb-full-name }}"
 
 # Getting information about an L7 load balancer
 
-You can view a load balancer's ID, listeners, location, security groups, and logging settings.
-
 {% list tabs group=instructions %}
 
-To get information about an L7 load balancer:
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), navigate to the folder containing your [L7 load balancer](../concepts/application-load-balancer.md).
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Select your L7 load balancer.
+   1. The **{{ ui-key.yacloud.common.overview }}** page will present details about the load balancer.
 
 - CLI {#cli}
 
@@ -16,13 +19,13 @@ To get information about an L7 load balancer:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI command to get information about the L7 load balancer:
+   1. View the description of the CLI command to get information about a [L7 load balancer](../concepts/application-load-balancer.md):
 
       ```bash
       yc alb load-balancer get --help
       ```
 
-   1. Get information about a load balancer by specifying its name or ID:
+   1. Get information about your load balancer by specifying its name or ID:
 
       ```bash
       yc alb load-balancer get <load_balancer_name>
@@ -50,5 +53,67 @@ To get information about an L7 load balancer:
       log_options:
         log_group_id: e23ujjda632o********
       ```
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To get information about an [L7 load balancer](../concepts/application-load-balancer.md) using {{ TF }}:
+
+   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+
+      ```hcl
+      data "yandex_alb_load_balancer" "tf-alb" {
+        load_balancer_id = "<load_balancer_ID>"
+      }
+
+      output "tf-alb-listener" {
+        value = data.yandex_alb_load_balancer.tf-alb.allocation_policy
+      }
+      ```
+
+      Where:
+
+      * `data "yandex_alb_load_balancer"`: Description of the L7 balancer as a data source:
+         * `load_balancer`: L7 load balancer ID.
+      * `output "allocation_policy"`: Output variable that contains information about the L7 load balancer placement policy:
+         * `value`: Returned value.
+
+      Instead of `allocation_policy`, you can choose any other parameter to get the information you need. For more information about the `yandex_alb_load_balancer` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_alb_load_balancer).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+
+      ```bash
+      terraform output
+      ```
+
+      Result:
+
+      ```bash
+      tf-alb-listener = tolist([
+        {
+          "location" = toset([
+            {
+              "disable_traffic" = false
+              "subnet_id" = "buc4gsmpj8hv********"
+              "zone_id" = "ru-central1-a"
+            },
+            {
+              "disable_traffic" = false
+              "subnet_id" = "blt6pcatjje6********"
+              "zone_id" = "ru-central1-b"
+            },
+            ...
+      ```
+
+- API {#api}
+
+   To get detailed information about an [L7 load balancer](../concepts/application-load-balancer.md), use the [get](../api-ref/LoadBalancer/get.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) gRPC API call.
 
 {% endlist %}

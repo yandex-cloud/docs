@@ -7,8 +7,9 @@ You can insert _magic links_ on Wiki pages to individual issues and issue lists.
 To insert a link to an issue, copy its key and paste it in the text of the page:
 
 | Example | Result |
-| ----- | ----- |
+----- | -----
 | ``` TEST-123 ``` | ![](../../_assets/tracker/magic-link.png) |
+
 
 Magic links to issues aren't just for {{ wiki-full-name }} pages. They also work in other internet services that support Wiki markup.
 
@@ -35,7 +36,7 @@ To place a filtered issue list in {{ wiki-full-name }}:
 1. Add a link in ``` {{tasks url="link-from-browser"}} ``` format to a Wiki page.
 
 | Example | Result |
-| ----- | ----- |
+----- | -----
 | ``` {{tasks url="{{ link-tracker }}filters/<filter>"}} ``` | ![](../../_assets/tracker/magic-tickets-list.png) |
 
 {% note info %}

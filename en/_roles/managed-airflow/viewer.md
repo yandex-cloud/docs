@@ -1,1 +1,1 @@
-The `managed-airflow.viewer` role enables you to view information about clusters, runtime logs, and quotas.
+The `managed-airflow.viewer` role allows you to view information about the [Apache Airflow™ clusters](../../managed-airflow/concepts/index.md#cluster).

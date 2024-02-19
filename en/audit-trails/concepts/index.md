@@ -61,8 +61,6 @@ The following [management events](./events.md) are logged:
 
 ## Data audit logs {#data-plane-logs}
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 {{ at-name }} collects [data (data plane)](./control-plane-vs-data-plane.md#data-plane-events) audit logs for the following {{ yandex-cloud }} services:
 
 * {{ dns-full-name }}

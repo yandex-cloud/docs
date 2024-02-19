@@ -4,7 +4,7 @@ There are several ways to structure issues in {{ tracker-name }}. You can use th
 
 ### Issue types
 
-Your queue may include multiple [issue types](manager/add-ticket-type.md) with different pipelines. For instance, the <q>Basic development model</q> queue template includes the following issue types by default: <q>Issue</q>, <q>Improvement</q>, <q>Error</q>, <q>Release</q>, and [<q>Milestone</q>](manager/milestones.md).
+Your queue may include multiple [issue types](manager/add-ticket-type.md) with different pipelines. For example, the queue template called *Basic development model* includes the following issue types by default: *Task**, *Improvement*, *Bug*, *Release*, and [*Milestone*](manager/milestones.md).
 
 You can also add new issue types and [set up a dedicated workflow](manager/add-workflow.md) for them if needed, such as setting up their possible statuses and status transition rules.
 
@@ -14,7 +14,7 @@ In {{ tracker-name }}, you can [link issues to each other](user/ticket-links.md)
 
 - To decompose your issues: Break larger project chunks into standalone issues and sub-issues.
 
-   For example, you need to implement a new feature in your product, which implies resolving multiple smaller issues. For such cases, you can create a parent issue of the <q>New feature</q> type and link sub-issues to it.
+   For example, you need to implement a new feature in your product, which implies resolving multiple smaller issues. For such cases, you can create a *New feature* parent issue and link child issues to it.
 
 - To show dependencies between issues (if an issue can only be completed after its blocker is completed).
 

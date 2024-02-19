@@ -9,12 +9,12 @@ This request allows you to set up [queue access permissions](../../manager/queue
 
 Before making a request, [get permission to access the API](../access.md).
 
-To set up queue access permissions, use an HTTP `PATCH` request. Request parameters are passed in the request body in JSON format.
+To set up queue access permissions, use an HTTP `PATCH` request. Request parameters are provided in the request body in JSON format.
 
 ```json
-PATCH /{{ ver }}/queues/<queue-id>/permissions
+PATCH /{{ ver }}/queues/<queue_ID_or_key>/permissions
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
@@ -42,7 +42,7 @@ Authorization: OAuth <OAuth token>
    },
    "grant": {
       "users": {
-         "remove": ["<user_account_4_ID>",  "<user_2_ID>"]
+         "remove": ["<user_4_account_ID>",  "<user_2_ID>"]
       },
    },
 
@@ -53,9 +53,9 @@ Authorization: OAuth <OAuth token>
 
 {% cut "Resource" %}
 
-Parameter | Description | Data type
+| Parameter | Description | Data type |
 -------- | -------- | ----------
-\<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String
+| \<queue_ID_or_key\> | Queue ID or key. The queue key is case-sensitive. | String |
 
 {% endcut %}
 
@@ -67,23 +67,23 @@ The request body contains information required for access management.
 
 Specify at least one of the following fields in your request:
 
-Parameter | Description | Data type
+| Parameter | Description | Data type |
 -------- | -------- | ----------
-create | Permissions to create issues in a queue | Objects
-write | Permissions to edit issues in a queue | Objects
-read | Permissions to read issues in a queue | Objects
-grant | Permissions to update queue settings | Objects
+| create | Permissions to create issues in a queue | Object |
+| write | Permissions to edit issues in a queue | Object |
+| read | Permissions to read issues in a queue | Object |
+| grant | Permissions to update queue settings | Object |
 
 
 **Acceptable object fields that permissions apply to**
 
 Each of the request body fields contains a list of users, groups, and roles that the respective permission action applies to. Specify at least one of the following fields in the list:
 
-Parameter | Description | Data type
+| Parameter | Description | Data type |
 -------- | -------- | ----------
-users | User list | Object or array of elements
-groups | Group list | Object or array of elements
-roles | Role list | Object or array of elements
+| users | User list | Object or array of elements |
+| groups | Group list | Object or array of elements |
+| roles | Role list | Object or array of elements |
 
 **Acceptable object field values that permissions apply to**
 
@@ -92,22 +92,22 @@ In each field, you can specify either an array of IDs or an object:
 - If an array of IDs is set, permissions for the specified resources will be created or overridden as requested.
 - If an object is set, permissions will be added or revoked based on the specified key:
 
-Key | Description | Data type
+| Key | Description | Data type |
 -------- | -------- | ----------
-add | Add a permission | Array of elements
-remove | Revoke a permission | Array of elements
+| add | Add a permission | Array of elements |
+| remove | Revoke a permission | Array of elements |
 
 **Acceptable IDs**
 
-Resource type | ID | Description | Data type
+| Resource type | ID | Description | Data type |
 -------- | -------- | ---------- | ----------
-**users** | uid | Unique ID of the user {{ tracker-name }} account | Number
-&nbsp; | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | Number
-&nbsp; | login | Username of the user | String
-&nbsp; | cloudUid | User unique ID in {{ org-full-name }} | String
-&nbsp; | trackerUid | Unique ID of the user {{ tracker-name }} account | Number
-**groups** | id | Group ID | Number
-**roles** | role_id | Role ID | String
+| **users** | uid | Unique ID of the user {{ tracker-name }} account. | Number |
+| &nbsp; | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | Number |
+| &nbsp; | login | User's login. | String |
+| &nbsp; | cloudUid | User unique ID in {{ org-full-name }}. | String |
+| &nbsp; | trackerUid | Unique ID of the user {{ tracker-name }} account. | Number |
+| **groups** | id | Group ID | Number |
+| **roles** | role_id | Role ID | String |
 
 {% note info %}
 
@@ -145,22 +145,22 @@ You can get group IDs using the `{{ host }}/{{ ver }}/groups` request.
 > }
 > ```
 
-> Example 2: Grant permission to set up a queue with the `TESTQUEUE` key to `user1` and revoke the same permission from the user whose unique ID is `1234567890`.
+> Example 2: Grant permission to set up a queue with the `TESTQUEUE` key to `user1` and revoke the same permission from the user whose unique ID is `12********`.
 >
 > - The HTTP `PATCH` method is used.
 > - The `TESTQUEUE` setup permission is granted to `user1`.
-> - The `TESTQUEUE` setup permission is revoked from the user with the `1234567890` ID.
+> - The `TESTQUEUE` setup permission is revoked from the user with the `12********` ID.
 > ```
 > PATCH /{{ ver }}/queues/TESTQUEUE/permissions HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth token>
+> Authorization: OAuth <OAuth_token>
 > {{ org-id }}
 >
 > {
 >     "grant": {
 >        "users": {
 >           "add":["user1"],
->           "remove":['1234567890']
+>           "remove":['12********']
 >        }
 >     }
 > }
@@ -170,7 +170,7 @@ You can get group IDs using the `{{ host }}/{{ ver }}/groups` request.
 ## Response format {#answer}
 
 {% list tabs %}
-- The request is executed successfully
+- Request executed successfully
    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
    ```json
    {
@@ -179,7 +179,7 @@ You can get group IDs using the `{{ host }}/{{ ver }}/groups` request.
        "create": {
            "self": "https://{{ host }}/v2/queues/TESTQUEUE/permissions/create",
            "users": [
-                { "self": "https://{{ host }}/v2/users/9876543210", "id": "9876543210", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://{{ host }}/v2/users/98********", "id": "98********", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 98******** }
            ],
            "roles": [
                { "self": "https://{{ host }}/v2/roles/author", "id": "author", "display": "Author" },
@@ -190,7 +190,7 @@ You can get group IDs using the `{{ host }}/{{ ver }}/groups` request.
        "write": {
            "self": "https://{{ host }}/v2/queues/TESTQUEUE/permissions/write",
            "users": [
-                { "self": "https://{{ host }}/v2/users/9876543210", "id": "9876543210", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://{{ host }}/v2/users/98********", "id": "98********", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 98******** }
            ],
            "roles": [
                { "self": "https://{{ host }}/v2/roles/author", "id": "author", "display": "Author" },
@@ -201,7 +201,7 @@ You can get group IDs using the `{{ host }}/{{ ver }}/groups` request.
        "grant": {
            "self": "https://{{ host }}/v2/queues/TESTQUEUE/permissions/grant",
            "users": [
-                { "self": "https://{{ host }}/v2/users/9876543210", "id": "9876543210", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://{{ host }}/v2/users/98********", "id": "98********", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 98******** }
            ],
            "roles": [
                { "self": "https://{{ host }}/v2/roles/author", "id": "author", "display": "Author" },

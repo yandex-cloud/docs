@@ -22,15 +22,25 @@ description: "Управление доступом облачного MQTT-се
 
 ### Сервисные роли {#service-roles}
 
-{% include [iot-editor](../../_includes/roles-iot-editor.md) %}
+#### iot.devices.writer {#iot-devices-writer}
 
-{% include [iot-viewer](../../_includes/roles-iot-viewer.md) %}
+{% include [iot-devices-writer](../../_roles/iot/devices/writer.md) %}
 
-{% include [iot-auditor](../../_includes/roles-iot-auditor.md) %}
+#### iot.registries.writer {#iot-registries-writer}
 
-{% include [iot-devices-writer](../../_includes/roles-iot-devices-writer.md) %}
+{% include [iot-registries-writer](../../_roles/iot/registries/writer.md) %}
 
-{% include [iot-registries-writer](../../_includes/roles-iot-registries-writer.md) %}
+#### iot.auditor {#iot-auditor}
+
+{% include [iot-auditor](../../_roles/iot/auditor.md) %}
+
+#### iot.viewer {#iot-viewer}
+
+{% include [iot-viewer](../../_roles/iot/viewer.md) %}
+
+#### iot.editor {#iot-editor}
+
+{% include [iot-editor](../../_roles/iot/editor.md) %}
 
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 

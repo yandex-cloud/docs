@@ -13,9 +13,9 @@ Open the list of all portfolios and projects available to you:
 
    * **My projects** for all portfolios and projects where you are the author, user responsible for the portfolio or project, participant, or customer.
 
-   * **I'm author**, **I'm responsible**, **I'm a participant**, or **I'm a client** for the portfolios and projects where you have the respective role.
+   * **I'm author**, **I'm responsible**, **I'm a participant**, or **I'm the customer** for the portfolios and projects where you have the respective role.
 
-   * **Favorites** for the portfolios and projects you added to your <q>Favorite</q>.
+   * **Favorites** for the portfolios and projects you added to your **Favorites**.
 
    * **Viewed recently** for the portfolios and projects you opened most recently.
 

@@ -12,7 +12,7 @@ Before making the request, [get permission to access the API](../../access.md).
 To create a new checklist or add items to an existing one, use an HTTP `POST` request. Information about new items is transmitted in its body in JSON format.
 
 ```json
-POST /{{ ver }}/entities/<entityType>/<id>/checklistItems
+POST /{{ ver }}/entities/<entity_type>/<entity_ID>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -64,19 +64,19 @@ The request body contains the information required to add items to the checklist
 > Example: Adding two items to a checklist
 >
 > - An HTTP POST method is used.
-> - Item added to the checklist: <q>Checklist item 1</q>.
-> - Item added to the checklist: <q>Checklist item 2</q> marked as completed.
+> - Item added to the checklist: Сhecklist item 1.
+> - Item added to the checklist: Checklist item 2 marked as completed.
 > - The response displays information about all the checklist items (`fields=checklistItems`).
 >
 > ```
-> POST /v2/entities/project/6586d6fee2b9ef74********/checklistItems?fields=checklistItems
+> POST /v2/entities/project/<project_ID>/checklistItems?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
 >
 > [
 >   {
->      "text":"Checklist item 1."
+>      "text":"Сhecklist item 1."
 >   },
 >   {
 >      "text":"Checklist item 2.",
@@ -103,9 +103,9 @@ The request body contains the information required to add items to the checklist
        "shortId": 0,
        "entityType": "project",
        "createdBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_ID",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
@@ -115,13 +115,13 @@ The request body contains the information required to add items to the checklist
            "checklistItems": [
               {
                   "id": "6586d91f99a40477********",
-                  "text": "Checklist item 1.",
+                  "text": "Сhecklist item 1.",
                   "checked": false,
                   "checklistItemType": "standard"
               },
               {
                   "id": "6586d91f99a40477********",
-                  "text": "Checklist item 2.",
+                  "text": "Сhecklist item 2.",
                   "checked": true,
                   "checklistItemType": "standard"
               }
@@ -152,7 +152,7 @@ The request body contains the information required to add items to the checklist
    | id | User ID. | Number |
    | display | Displayed user name. | String |
    | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `fields` **object fields** {#fields}
 
@@ -164,7 +164,7 @@ The request body contains the information required to add items to the checklist
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | id | Checklist item ID. | Number |
+   | id | Сhecklist item ID. | Number |
    | text | Text of the checklist item. | String |
    | checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Boolean |
    | checklistItemType | Checklist item type:<ul><li>Standard</li><li>Metric</li><li>Criterion</li><li>Filter</li></ul> | String |

@@ -12,13 +12,13 @@ Before making the request, [get permission to access the API](../access.md).
 To edit a comment previously [added to an issue](add-comment.md), use an HTTP `PATCH` request. Provide the request parameter in the request body in JSON format:
 
 ```json
-PATCH /{{ ver }}/issues/<issue-id>/comments/<comment-id>
+PATCH /{{ ver }}/issues/<issue_ID_or_key>/comments/<comment_ID>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
-   "text": "<new comment text>"
+   "text": "<new_comment_text>"
 }
 ```
 
@@ -27,24 +27,25 @@ Authorization: OAuth <OAuth token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<issue-id> | ID or key of the current issue. | String |
-| \<comment-id> | [Unique ID of the comment](get-comments.md#section_xc3_53j_p1b) in numeric (id) or string format (longId). | String or number |
+-------- | -------- | ----------
+| \<issue_key_or_ID\> | ID or key of the current issue. | String |
+| \<comment_ID> | [Unique ID of the comment](get-comments.md#section_xc3_53j_p1b) in numeric (id) or string format (longId). | String or number |
 
 {% endcut %}
+
 
 {% cut "Request body parameters" %}
 
 **Required parameters**
 
 | Parameter | Value | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | text | Edited issue comment. | String |
 
 **Additional parameters**
 
 | Parameter | Value | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | attachmentIds | List of [attachment IDs](temp-attachment.md). | Array of strings |
 
 {% endcut %}
@@ -55,97 +56,97 @@ Authorization: OAuth <OAuth token>
 
 - Request executed successfully
 
-  {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-  The response body contains information about the added comment in JSON format.
+   The response body contains information about the added comment in JSON format.
 
-  ```json
-  [
-  {
-    "self" : "https://{{ host }}/v2/issues/TREK-1/comments/684",
-    "id" : "684",
-    "longId" : "5fc4bc634e121b12f44a0488",
-    "text" : "<comment text>",
-    "createBody" : {
-     "self" : "https://{{ host }}/v2/users/1120000000016876",
-     "id" : "<user ID>",
-     "display" : "<displayed user name>"
-    },
-    "updateBody" : {
-     "self" : "https://{{ host }}/v2/users/1120000000016876",
-     "id" : "<user ID>",
-     "display" : "<displayed user name>"
-    },
-    "createdAt" : "2020-11-30T09:33:23.638+0000",
-    "updatedAt" : "2020-11-30T09:39:07.631+0000",
-    "summonees" : [
-    {
-     "self" : "https://{{ host }}/v2/users/1120000000016576",
-     "id" : "<user ID>",
-     "display" : "<displayed user name>"
-    }
-    ],
+   ```json
+   [
+   {
+     "self" : "https://{{ host }}/v2/issues/TREK-1/comments/684",
+     "id" : "684",  
+     "longId" : "5fc4bc634e121b12********",  
+     "text" : "Comment text",
+     "createBody" : {
+      "self" : "https://{{ host }}/v2/users/11********",
+      "id" : "11********",
+      "display" : "Ivan Ivanov"
+     },
+     "updateBody" : {
+      "self" : "https://{{ host }}/v2/users/11********",
+      "id" : "11********",
+      "display" : "Ivan Ivanov"
+     },
+     "createdAt" : "2020-11-30T09:33:23.638+0000",  
+     "updatedAt" : "2020-11-30T09:39:07.631+0000",  
+     "summonees" : [
+      {
+       "self" : "https://{{ host }}/v2/users/11********",
+       "id" : "11********",
+       "display" : "Ivan Ivanov"
+      }
+     ],
     "maillistSummonees" : [
-    {
-     "self" : "https://{{ host }}/v2/maillists/usertest@test.ru",
-     "id" : "<mailing list address>",
-     "display" : "<displayed mailing list name>"
-    }
-    ],
-    "version" : 2,
-    "type" : "standard",
-    "transport" : "internal"
-  }
-  ]
-  ```
+      {
+       "self" : "https://{{ host }}/v2/maillists/usertest@test.ru",
+       "id" : "usertest@test.ru",
+       "display" : "Ivan's mailing list"
+      }
+     ],
+     "version" : 2,  
+     "type" : "standard",  
+     "transport" : "internal"
+   }
+   ]
+   ```
 
-  {% cut "Response parameters" %}
+   {% cut "Response parameters" %}
 
-  | Parameter | Description | Data type |
-  | ----- | ----- | ----- |
-  | self | Link to the comment. | String |
-  | id | Comment ID. | String |
-  | longId | ID of the comment in string format. | String |
-  | text | Comment on the issue. | String |
-  | [createdBy](#object-fields-createdBy) | Block with information about the user who added the comment. | Object |
-  | [updatedBy](#object-fields-updatedBy) | Block with information about the user who edited the comment last. | Object |
-  | createdAt | Comment creation date and time. | String |
-  | updatedAt | Comment update date and time. | String |
-  | [summonees](#object-fields-summonees) | Block with information about users who are invited in comments. | Object |
-  | [maillistsummonees](#object-fields-maillistsummonees) | Block with information about mailing lists mentioned in comments. | Object |
-  | version | Comment version. Each update increases the comment's version number. | Number |
-  | type | Comment type:<ul><li>`standard`: Comment sent via the {{ tracker-name }} interface.</li><li>`incoming`: Comment created from an incoming message.</li><li>`outcoming`: Comment created from an outgoing message.</li></ul> | String |
-  | transport | Method of adding a comment:<ul><li>`internal`: Via the {{ tracker-name }} interface.</li><li>`email`: Via email.</li></ul> | String |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Link to the comment. | String |
+   | id | Comment ID. | String |
+   | longId | ID of the comment in string format. | String |
+   | text | Comment on the issue. | String |
+   | [createdBy](#object-fields-createdBy) | Block with information about the user who added the comment. | Object |
+   | [updatedBy](#object-fields-updatedBy) | Block with information about the user who edited the comment last. | Object |
+   | createdAt | Comment creation date and time. | String |
+   | updatedAt | Comment update date and time. | String |
+   | [summonees](#object-fields-summonees) | Block with information about users who are invited in comments. | Object |
+   | [maillistsummonees](#object-fields-maillistsummonees) | Block with information about mailing lists mentioned in comments. | Object |
+   | version | Comment version. Each update increases the comment's version number. | Number |
+   | type | Comment type:<ul><li>`standard`: Comment sent via the {{ tracker-name }} interface.</li><li>`incoming`: Comment created from an incoming message.</li><li>`outcoming`: Comment created from an outgoing message.</li></ul> | String |
+   | transport | Method of adding a comment:<ul><li>`internal`: Via the {{ tracker-name }} interface.</li><li>`email`: Via email.</li></ul> | String |
 
-  `createdBy` **object fields** {#object-fields-createdBy}
+   `createdBy` **object fields** {#object-fields-createdBy}
 
-  {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-  `updatedBy` **object fields** {#object-fields-updatedBy}
+   `updatedBy` **object fields** {#object-fields-updatedBy}
 
-  {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-  `summonees` **object fields** {#object-fields-summonees}
+   `summonees` **object fields** {#object-fields-summonees}
 
-  {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-  `maillistsummonees` **object fields** {#object-fields-maillistsummonees}
+   `maillistsummonees` **object fields** {#object-fields-maillistsummonees}
 
-  | Parameter | Description | Data type |
-  | ----- | ----- | ----- |
-  | self | Link to the mailing list. | String |
-  | id | Mailing list address. | String |
-  | display | Mailing list name displayed. | String |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Link to the mailing list. | String |
+   | id | Mailing list address. | String |
+   | display | Mailing list name displayed. | String |
 
-  {% endcut %}
+   {% endcut %}
 
 - Request failed
 
-  If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-  {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
+   {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-  {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 

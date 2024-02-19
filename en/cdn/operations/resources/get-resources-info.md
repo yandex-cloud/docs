@@ -4,17 +4,13 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
 # Getting information about a resource
 
-You can get the domain name, creation date, and other resource information.
-
-To get information about a resource:
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your resource.
+   1. In the [management console]({{ link-console-main }}), select the folder containing your [resource](../../concepts/resource.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. Select the created CDN resource.
+   1. Select a CDN resource.
    1. The **{{ ui-key.yacloud.common.overview }}** page will show the resource details.
 
 - CLI {#cli}
@@ -23,7 +19,7 @@ To get information about a resource:
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to get information about a resource:
+   1. View the description of the CLI command to get information about a [resource](../../concepts/resource.md):
 
       ```bash
       yc cdn resource get --help
@@ -71,7 +67,7 @@ To get information about a resource:
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To get information about a resource using {{ TF }}:
+   To get information about a [resource](../../concepts/resource.md) using {{ TF }}:
 
    1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
@@ -81,7 +77,7 @@ To get information about a resource:
       }
 
       output "resource_active" {
-        value = "${data.yandex_cdn_resource.my_resource.active}"
+        value = data.yandex_cdn_resource.my_resource.active
       }
       ```
 
@@ -92,7 +88,7 @@ To get information about a resource:
       * `output "resource_active"`: Output variable that contains information about the activity status of the CDN resource:
          * `value`: Returned value.
 
-      You can replace `active` with any other parameter to get the required information. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
+      You can replace `active` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
 
    1. Create resources:
 
@@ -112,7 +108,7 @@ To get information about a resource:
 
 - API {#api}
 
-   To get detailed information about a resource, use the [get](../../api-ref/Resource/get.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Get](../../api-ref/grpc/resource_service.md#Get) gRPC API call.
+   To get detailed information about a [resource](../../concepts/resource.md), use the [get](../../api-ref/Resource/get.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Get](../../api-ref/grpc/resource_service.md#Get) gRPC API call.
 
 {% endlist %}
 
@@ -168,7 +164,7 @@ To get information about a resource:
       }
 
       output "resource_cname" {
-        value = "${data.yandex_cdn_resource.my_resource.cname}"
+        value = data.yandex_cdn_resource.my_resource.cname
       }
       ```
 
@@ -179,7 +175,7 @@ To get information about a resource:
       * `output "resource_cname"`: Output variable that contains information about the domain name:
          * `value`: Returned value.
 
-      You can replace `resource_cname` with any other parameter to get the required information. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/cdn_resource).
+      You can replace `resource_cname` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
 
    1. Create resources:
 

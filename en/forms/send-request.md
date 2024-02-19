@@ -1,9 +1,9 @@
-# Sending HTTP requests
+# Sending an HTTP request
 
 
 {% note warning %}
 
-For HTTP requests to work correctly, you need to allow your service to accept packets from the {{ forms-full-name }} `2a02:6b8:c00::/40` network over the `ipv6` protocol. Otherwise, your service firewall may block data that's sent by the form.
+For HTTP requests to work correctly, you need to allow your service to accept packets from the {{ forms-full-name }} `2a02:6b8:c00::/40` network over the `ipv6` protocol. Otherwise, your service firewall may block data sent by the form.
 
 {% endnote %}
 
@@ -56,23 +56,23 @@ To send data from your form to a web service via the API, use HTTP requests:
 >
 > Create a request to the [{{ tracker-name }} API](../tracker/about-api.md) by filling out the form as follows:
 >
->* **URL**: `https://api.tracker.yandex.net/v2/projects`.
->* **Request method**: `POST`.
->* **Request body** is project parameters in JSON format:
+> * **URL**: `https://api.tracker.yandex.net/v2/projects`.
+> * **Request method**: `POST`.
+> * **Request body**: Project parameters in JSON format:
 >
->   ```json
->
->       {
->          "name": "Project name",
->          "queues": "<queue key>"
->       }
+>    ```json
+>    
+>        {
+>           "name": "Project name",
+>           "queues": "<queue_key>"
+>        }
 >    ```
 >
->* **Headers**:
->  `Authorization` — `OAuth <your OAuth token>`;
->  >  `X-Org-ID: <organization ID>` or `X-Cloud-Org-ID: <organization ID>`
->  If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`.
->  
+> * **Headers**:
+>    `Authorization` — `OAuth <OAuth_token>`;
+>    >    `X-Org-ID: <organization_ID>` or `X-Cloud-Org-ID: <organization_ID>`
+>    If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`.
+>    
 >
 > ![](../_assets/forms/request-example-new.png)
 

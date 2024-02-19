@@ -18,7 +18,7 @@ By default, the issue card displays the values of such fields as the key, name, 
 
 1. To highlight certain tags or issue components with colors:
 
-   1. Set up the card to show the **Tags** or the **Components** field.
+   1. Set up the card to show the fields **Tags** or **Components**.
 
    2. On the issue card, click the name of the tag or component and select its color.
 
@@ -100,7 +100,7 @@ You can set the maximum number of issues per group:
 
 1. Click **Save**.
 
-You can also add issues with preset parameters to a group. To do this, click **Add issue** under the list of issues in the group. A field value for the grouping by will be set in the new or existing issue. For example, <q>Assignee</q> or <q>Deadline</q>.
+You can also add issues with preset parameters to a group. To do this, click **Add issue** under the list of issues in the group. A field value for grouping will be set in the new or existing issue, e.g., **Assignee** or **Deadline**.
 
 Limitations:
 * When grouping issues by queue, you can only create a new issue.
@@ -112,7 +112,7 @@ You can move issues across groups on a [board](agile-new.md) or in a [backlog](b
 
 You can sort issues on a board manually or based on preset parameters, such as priority, deadline, or assignee. To sort issues, click ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**{{ ui-key.startrek.ui_components_dashboard_IssuesStatEditor.editor-sort-by-field-label }}** at the top of the board and select the appropriate parameter from the list. Next to the sorting button, there is a button that allows you to manage the sorting direction.
 
-## Mass editing of issues {#bulk}
+## Bulk changes to issues {#bulk}
 
 You can make bulk changes to issues on a board. Open an issue card on the board, click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_common_IssueActionsMenu.select-issue }}** and then click other issues to perform the same action on. Once you select all issues, choose the appropriate action in the board's bottom panel:
 

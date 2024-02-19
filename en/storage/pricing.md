@@ -104,10 +104,20 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 {% include [usd.md](../_pricing/storage/usd-operations.md) %}
 
-
-
-
 {% note info %}
+
+From March 5, 2024, the billing of LIST operations will be introduced:
+* Standard storage:
+  * The first 10,000 operations per month are not charged.
+  * The following 1000 operations: $0.003840, without VAT.
+* Cold storage: 1000 operations: $0.009440, without VAT.
+* Ice storage: 1000 operations: $0.018880, without VAT.
+
+{% endnote %}
+
+
+
+
 
 Data operations that result in an error are charged only in the following cases:
 
@@ -115,8 +125,6 @@ Data operations that result in an error are charged only in the following cases:
 * Error code 404 for PUT, POST, GET, HEAD, OPTIONS, and PATCH operations.
 
 Prices for standard storage are applied when calculating costs.
-
-{% endnote %}
 
 The first 10,000 PUT, POST, and PATCH operations and the first 100,000 GET, HEAD, and OPTIONS operations in standard storage per month are free of charge.
 

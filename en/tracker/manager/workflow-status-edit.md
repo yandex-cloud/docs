@@ -1,6 +1,6 @@
 # Issue statuses
 
-A status is an issue attribute that reflects the current state of the issue completion process, e.g., <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>, <q>{{ ui-key.startrek-backend.presets.developmentPreset.board.column.testing }}</q>, or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>.
+A status is an issue attribute that reflects the current state of the issue completion process, e.g., **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**, **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**, **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.testing }}**, or **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
 For each [issue type](./add-workflow.md) in a queue [workflow](./add-ticket-type.md), you can define their own set of statuses and [transitions](./workflow-action-edit.md) between them. The queue owner and users granted [permission to access the queue settings](queue-access.md) can edit statuses in queue workflows.
 
@@ -39,7 +39,7 @@ You can define a status type within a workflow. All statuses of the same type ar
 * ![](../../_assets/tracker/svg/end.svg): Issue has been completed and closed.
 * ![](../../_assets/tracker/svg/cancel.svg): Issue has not been not completed and is closed.
 
-Issues with the <q>Completed</q> and <q>Canceled</q> statuses are considered closed: they are displayed with a crossed out key in the queue.
+Issues with the **Completed** and **Canceled** status are considered closed: they appear with a crossed out key in the queue.
 
 ### Status update after adding a comment {#change-with-comment}
 
@@ -49,11 +49,11 @@ The **Changing the status when commenting** setting allows updating the status a
 
 1. Select the target status from the list that the issue should change to after adding a comment. The list contains transitions for the status you are setting up, which have been added to the workflow diagram. Sample transitions in the list include:
    * To the previous status: Issue will switch back to its previous status.
-   * <q>Close</q> transition: Issue will be switched to the <q>Completed</q> status.
-   * <q>Need information</q> transition: Issue will be switched to the <q>Paused</q> status.
-   * <q>Reopen</q> transition: Issue will be switched to the <q>Initial</q> status.
+   * **Close** transition: Issue will switch to the **Completed** status.
+   * **Need info** transition: Issue will switch to the **Paused** status.
+   * **Reopen** transition: Issue will switch to the **Initial** status.
 
-1. If necessary, enable the **Set assignee from previous status** and **Only if comment was left by assignee** options.
+1. If necessary, enable the options **Set assignee from previous status** and **Only if comment was left by assignee**.
 
 1. Click **Save**.
 
@@ -79,7 +79,7 @@ To set up a status transition:
    * [Transition conditions](./workflow-action-edit.md#conditions): Conditions under which a transition will be available.
    * [Transition screen](./workflow-action-edit.md#screen): Pop-up window where the user must fill in the respective fields to update the issue parameters.
 
-For convenience, there is a special transition type named **Allow transitions from any status**. For example, if you need to add a status to a workflow, which is achievable from any other status, you will not need to manually set up these transitions for each status in the diagram. Just enable **Allow transitions from any status** and the diagram will show a meta transition for this status.
+For convenience, there is a special transition type named **Allow transitions from any status**. For example, if you need to add a status to a workflow, which is achievable from any other status, you will not need to manually set up these transitions for each status in the diagram. Just enable **Allow transitions from any status** and the diagram will show a meta transition for this status.
 
 ### Copying transitions {#copy-transitions}
 
@@ -101,14 +101,14 @@ To create a new status:
 
 1. Make sure you are authorized in {{ tracker-full-name }} as an [administrator](../role-model.md).
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Admin settings** → **Issue statuses**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Administration** → **Issue statuses**.
 
-1. Click **Create a status**.
+1. Click **Create status**.
 
 1. Fill out the fields below:
    * **Name**: Enter a status name in Russian.
-   * **Name in English**: Will be generated automatically based on the Russian name.
-   * **Key**: Will be generated automatically based on the Russian name.
+   * **Name in English**: It will be generated automatically based on the Russian name.
+   * **Key**: It will be generated automatically based on the Russian name.
 
 1. Click **Create**.
 
@@ -124,8 +124,8 @@ You can also create a status on the workflows page. The created status will be i
 
 1. Fill out the fields below:
    * **Name**: Enter a status name in Russian.
-   * **Name in English**: Will be generated automatically based on the Russian name.
-   * **Key**: Will be generated automatically based on the Russian name.
+   * **Name in English**: It will be generated automatically based on the Russian name.
+   * **Key**: It will be generated automatically based on the Russian name.
 
 1. Select the appropriate status type from the list.
 

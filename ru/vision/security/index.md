@@ -19,7 +19,25 @@ description: "Управление доступом в сервисе компь
 
 ### Сервисные роли {#service-roles}
 
-{% include [service-roles](../../_includes/roles-service-roles-vision.md) %}
+#### ai.vision.user {#vision-user}
+
+{% include [vision-user](../../_roles/ai/vision/user.md) %}
+
+#### ai.auditor {#ai-auditor}
+
+{% include [ai-auditor](../../_roles/ai/auditor.md) %}
+
+#### ai.viewer {#ai-viewer}
+
+{% include [ai-viewer](../../_roles/ai/viewer.md) %}
+
+#### ai.editor {#ai-editor}
+
+{% include [ai-editor](../../_roles/ai/editor.md) %}
+
+#### ai.admin {#ai-admin}
+
+{% include [ai-admin](../../_roles/ai/admin.md) %}
 
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 

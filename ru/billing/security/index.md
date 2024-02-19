@@ -24,16 +24,37 @@ description: "Доступ к платежному аккаунту предос
 
 ### Сервисные роли {#service-roles}
 
-Сервисные роли — роли, предоставляющие доступ к сервису {{ billing-name }}: 
+#### billing.accounts.member {#billing-accounts-member}
 
-* `billing.accounts.member` — автоматически выдается при добавлении пользователя в сервисе {{ billing-name }}. Она необходима для показа выбранного платежного аккаунта в списке всех аккаунтов пользователя.
-* `billing.accounts.owner` — автоматически выдается при создании платежного аккаунта. Роль, выданную при создании, нельзя отозвать, но можно выдать такую же роль другим пользователям и отозвать ее у них.
-* `billing.accounts.viewer` — назначается на платежный аккаунт. Дает право просматривать данные платежного аккаунта, получать информацию о потреблении ресурсов, проверять расходы, выгружать акты сверки и отчетные документы.
-* `billing.accounts.accountant` — назначается на платежный аккаунт. Дает право просматривать данные платежного аккаунта, получать информацию о потреблении ресурсов, проверять расходы, выгружать акты сверки и отчетные документы, создавать новый акт сверки, пополнять лицевой счет с помощью расчетного счета.
-* `billing.accounts.editor` — назначается на платежный аккаунт. Дает право получать счет на оплату, активировать промокоды, привязывать облака и сервисы к платежному аккаунту, создавать экспорт детализации, создавать бюджеты, создавать акты сверки и резервировать ресурсы. Включает в себя роль `billing.accounts.viewer`.
-* `billing.accounts.admin` — назначается на платежный аккаунт. Позволяет управлять доступами к платежному аккаунту (кроме роли `billing.accounts.owner`). Включает в себя роль `billing.accounts.editor`.
-* `billing.accounts.varWithoutDiscounts` — назначается на платежный аккаунт. Предоставляет партнерским аккаунтам все права администратора, кроме возможности получать информацию о скидках. Включает в себя роль `billing.partners.editor`.
-* `billing.partners.editor` — назначается на платежный аккаунт. Дает право редактировать информацию о партнере и его продуктах в партнерском каталоге.
+{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
+
+#### billing.accounts.owner {#billing-accounts-owner}
+
+{% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
+
+#### billing.accounts.viewer {#billing-accounts-viewer}
+
+{% include [billing.accounts.viewer](../../_roles/billing/accounts/viewer.md) %}
+
+#### billing.accounts.accountant {#billing-accounts-accountant}
+
+{% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
+
+#### billing.accounts.editor {#billing-accounts-editor}
+
+{% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
+
+#### billing.accounts.admin {#billing-accounts-admin}
+
+{% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
+
+{% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
+
+#### billing.partners.editor {#billing-partners-editor}
+
+{% include [billing.partners.editor](../../_roles/billing/partners/editor.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

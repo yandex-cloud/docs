@@ -31,11 +31,17 @@ description: "Управление доступом в сервисе для о�
 
 ### Сервисные роли {#service-roles}
 
-{% include [roles-ymq-reader](../../_includes/roles-ymq-reader.md) %}
+#### ymq.reader {#ymq-reader}
 
-{% include [roles-ymq-writer](../../_includes/roles-ymq-writer.md) %}
+{% include [ymq.reader](../../_roles/ymq/reader.md) %}
 
-{% include [roles-ymq-admin](../../_includes/roles-ymq-admin.md) %}
+#### ymq.writer {#ymq-writer}
+
+{% include [ymq.writer](../../_roles/ymq/writer.md) %}
+
+#### ymq.admin {#ymq-admin}
+
+{% include [ymq.admin](../../_roles/ymq/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

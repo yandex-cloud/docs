@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/get-issue.md
 ---
-# Get issue parameters
+# Getting issue parameters
 
 Use this request to get information about an issue.
 
@@ -12,9 +12,9 @@ Before making the request, [get permission to access the API](../access.md).
 To get issues, use an HTTP `GET` request:
 
 ```json
-GET /v2/issues/<issue-id>
+GET /v2/issues/<issue_ID_or_key>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -27,22 +27,22 @@ Authorization: OAuth <OAuth token>
 **Additional parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| expand | Additional fields to be included in the response: <ul><li>`transitions`: Workflow transitions between statuses.</li><li>`attachments`: Attachments.</li></ul> | String |
+----- | ----- | -----
+| expand | Additional fields to include in the response: <ul><li>`transitions`: Workflow transitions between statuses</li><li>`attachments`: Attached files</li></ul> | String |
 
 {% endcut %}
 
-> Example: Request for a single issue with the required fields specified
+> Request for a single issue with the required fields specified:
 >
->- Use the HTTP GET method.
->- The response will display attachments.
+> - An HTTP GET method is used.
+> - The response will display attachments.
 >
->```
->GET /v2/issues/JUNE-3?expand=attachments HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->```
+> ```
+> GET /v2/issues/JUNE-3?expand=attachments HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth token>
+> {{ org-id }}
+> ```
 
 ## Response format {#answer}
 
@@ -50,21 +50,20 @@ Authorization: OAuth <OAuth token>
 
 - Request executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains the results in JSON format.
+   The response body contains the results in JSON format.
 
-    {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
+   {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
+   {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

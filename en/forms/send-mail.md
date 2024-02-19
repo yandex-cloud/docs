@@ -1,4 +1,4 @@
-# Send an email
+# Sending an email
 
 You can integrate your form with Yandex Mail so that a notification is sent automatically when the user fills out the form.
 
@@ -10,7 +10,7 @@ You can integrate your form with Yandex Mail so that a notification is sent auto
 
 1. Under action settings, fill in the following fields:
 
-   - **To**: The email address the notification is sent to. You can list multiple addresses separated by commas, or set a variable.
+   - **To**: Email address to send the notification to. You can list multiple addresses separated by commas, or set a variable.
 
       - To send a notification to the form creator's email,  select the **Form creator's email** variable.
 
@@ -20,9 +20,9 @@ You can integrate your form with Yandex Mail so that a notification is sent auto
 
 
 
-   - **Sender**: The sender name you want the recipient to see.
+   - **Sender**: Sender name you want the recipient to see.
 
-   - **Send response to**: The email address the recipient can send responses to. If not specified, your respondents won't be able to reach you by email.
+   - **Send response to**: Email address the recipient can send responses to. If not specified, your respondents will not be able to reach you by email.
 
    - **Subject**: Email subject.
 
@@ -64,12 +64,12 @@ If you want notifications to only be sent to users who gave certain responses, [
 
 ## Troubleshooting {#troubleshooting}
 
-If you set up email notifications but aren't getting emails when your form is filled out, check your spam folder and see if there are errors when sending emails.
+If you set up email notifications but are not getting emails after filling out the form, check your **Spam** folder and see if there are errors when sending emails.
 
-### Check your spam folder
-If you aren't receiving email notifications, check your <q>Spam</q> folder. If emails from {{ forms-full-name }} were sent to the Spam folder, mark them as <q>Not spam</q>.
+### Check your **Spam** folder
+If you are not receiving email notifications, check your **Spam** folder. If emails from {{ forms-full-name }} were sent to the **Spam** folder, mark them as **Not spam**.
 
- If you use your own mail server, <q>whitelist</q> the sender addresses: `form_id@forms-mailer.yaconnect.com` and `sndr.bnc@yandex.ru`.
+ If you use your own mail server, <q>whitelist</q> the sender addresses: `<form_ID>@forms-mailer.yaconnect.com` and `sndr.bnc@yandex.ru`.
 
 ### Check the email text
 

@@ -8,7 +8,7 @@ A queue template with an easy-to-use workflow and a great choice for new {{ trac
 
 A [simple issue board](agile.md#sec_boards) is created when you select this template.
 
-The workflow includes one issue type: **Issue**.
+The workflow includes one issue type: **Task**.
 
 Issues can have the following statuses:
 
@@ -93,8 +93,8 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
 - **Can't reproduce**
 - **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
@@ -102,7 +102,7 @@ When an issue is **{{ ui-key.startrek-backend.presets.devPreset.board.column.clo
 
 This queue template fits the [Scrum]({{ link-wiki-scrum }}) methodology.
 
-A [<q>Scrum</q> issue board](agile.md#sec_boards) is automatically created when you select this template. It allows you to plan [sprints](create-agile-sprint.md), [estimate issues](planning-poker.md), and view [burn down charts](burndown.md).
+Selecting this template will automatically create a [Scrum issue board](agile.md#sec_boards). It allows you to plan [sprints](create-agile-sprint.md), [estimate issues](planning-poker.md), and view [burndown charts](burndown.md).
 
 The workflow includes issue types:
 
@@ -138,7 +138,7 @@ When an issue is **{{ ui-key.startrek-backend.presets.devPreset.board.column.clo
 
 This queue template fits the [Kanban]({{ link-wiki-kanban }}) methodology.
 
-A [<q>Kanban</q> issue board](agile.md#sec_boards) is created when you select this template.
+Selecting this template will automatically create a [Kanban issue board](agile.md#sec_boards).
 
 The workflow includes issue types:
 
@@ -262,7 +262,7 @@ When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}*
 
 This queue template is designed for the document approval process.
 
-The workflow includes one issue type: **Issue**.
+The workflow includes one issue type: **Task**.
 
 Issues can have the following statuses:
 

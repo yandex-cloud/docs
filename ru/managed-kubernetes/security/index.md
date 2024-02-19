@@ -54,7 +54,12 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 Для управления кластером {{ managed-k8s-name }} и группой с публичным доступом необходимы роли:
 * `k8s.clusters.agent`.
-* `vpc.publicAdmin`.
+* `{{ roles-vpc-public-admin }}`.
+
+Для управления кластером {{ managed-k8s-name }} с облачной сетью из другого каталога дополнительно необходимы роли в этом каталоге:
+* [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user)
+* [vpc.bridgeAdmin](../../vpc/security/index.md#vpc-bridge-admin)
 
 Для управления кластером {{ managed-k8s-name }} с [туннельным режимом](../concepts/network-policy.md#cilium) достаточно роли `k8s.tunnelClusters.agent`.
 
@@ -98,7 +103,7 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 * [{{ roles.k8s.editor }}](#k8s-editor) или выше.
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user).
 
-Чтобы создать кластер {{ managed-k8s-name }} и группу узлов с публичным доступом, дополнительно нужна роль [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin).
+Чтобы создать кластер {{ managed-k8s-name }} и группу узлов с публичным доступом, дополнительно нужна роль [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
 
 ## Сервисные аккаунты кластера {{ managed-k8s-name }} {#sa-annotation}
 
@@ -106,11 +111,16 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 * **Сервисный аккаунт кластера** — от имени этого сервисного аккаунта сервис {{ managed-k8s-name }} управляет узлами кластера, [подсетями](../../vpc/concepts/network.md#subnet) для [подов](../concepts/index.md#pod) и [сервисов](../concepts/index.md#service), [дисками](../../compute/concepts/disk.md), [балансировками нагрузки](../../network-load-balancer/concepts/index.md), а также шифрует и дешифрует [секреты](../../lockbox/concepts/secret.md). Минимально рекомендуемая роль для такого аккаунта — `k8s.clusters.agent`.
 * **Сервисный аккаунт группы узлов** — от имени этого сервисного аккаунта узлы кластера {{ managed-k8s-name }} аутентифицируются в [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). Для развертывания в кластере {{ managed-k8s-name }} приложений с использованием [Docker-образов](../../container-registry/concepts/docker-image.md) из {{ container-registry-name }} этому аккаунту нужно назначить какую-либо [сервисную роль](../../container-registry/security/index.md#service-roles). Если используется другой container registry, то роли этому сервисному аккаунту можно не назначать.
 
-Для управления кластером {{ managed-k8s-name }} и группами узлов с публичным доступом дополнительно необходима роль `vpc.publicAdmin`.
+Для управления кластером {{ managed-k8s-name }} и группами узлов с публичным доступом дополнительно необходима роль `{{ roles-vpc-public-admin }}`.
+
+При использовании в кластере {{ managed-k8s-name }} облачной сети из другого каталога сервисному аккаунту кластера дополнительно необходимы роли в этом каталоге:
+* [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user)
+* [vpc.bridgeAdmin](../../vpc/security/index.md#vpc-bridge-admin)
 
 ## Доступ к консоли управления {{ managed-k8s-name }} {#ui-annotation}
 
-Для доступа к {{ managed-k8s-name }} через [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} минимально необходимая роль `k8s.viewer.`
+Для доступа к {{ managed-k8s-name }} через [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} минимально необходимая роль `k8s.viewer`.
 
 Чтобы получить подробную информацию о кластере {{ managed-k8s-name }} и группе узлов необходима дополнительная роль `k8s.cluster-api.viewer`. Эта роль соответствует роли `viewer` в {{ k8s }} RBAC и предоставляет права доступа к ограниченному набору ресурсов в {{ k8s }} API, поэтому возможности консоли будут ограничены.
 

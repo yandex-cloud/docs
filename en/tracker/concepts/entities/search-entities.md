@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/entities/search-entities.md
 
 Use this request to get a list of entities that meet specific criteria.
 
-The request is a unified method for getting a list of projects and portfolios, more flexible and functional than the [get project list](../projects/get-projects.md) API.
+The request is a unified method for getting a list of projects and portfolios – more flexible and functional than the [getting the list of projects](../projects/get-projects.md) API.
 
 ## Request format {#query}
 
@@ -35,7 +35,7 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| \<entityType> | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
+| \<entity_type> | Entity type:<ul><li>project for a project</li><li>portfolio for a portfolio</li></ul> | String |
 
 {% endcut %}
 
@@ -88,7 +88,7 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
 > ```
 > POST /v2/entities/project/_search?fields=entityStatus&author&followers HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth_token>
+> Authorization: OAuth <OAuth-token>
 > {{ org-id }}
 >
 > {
@@ -109,7 +109,7 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
 > ```
 > POST /v2/entities/project/_search?fields=entityStatus&author HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth_token>
+> Authorization: OAuth <OAuth-token>
 > {{ org-id }}
 >
 > {
@@ -139,12 +139,12 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
             "version": 7,
             "shortId": 8,
             "entityType": "project",
-            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Full Name", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Full Name", "cloudUid": "ajevuhegoggf********", "passportUid": 11******** },
             "createdAt": "2023-11-23T17:33:25.427+0000",
             "updatedAt": "2023-11-24T12:21:43.838+0000",
             "fields": {
                 "entityStatus": "in_progress",
-                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/2222222290", "id": "2222222290", "display": "Follower name", "cloudUid": "ajeprm0fjnql********", "passportUid": 2222222290 }]
+                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/22********", "id": "22********", "display": "Follower name", "cloudUid": "ajeprm0fjnql********", "passportUid": 22******** }]
             }
         },
         {
@@ -153,12 +153,12 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
             "version": 4,
             "shortId": 3,
             "entityType": "project",
-            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Full Name", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Full Name", "cloudUid": "ajevuhegoggf********", "passportUid": 11******** },
             "createdAt": "2023-11-23T11:31:33.874+0000",
             "updatedAt": "2023-11-23T21:52:10.863+0000",
             "fields": {
                 "entityStatus": "draft",
-                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/2222222290", "id": "2222222290", "display": "Follower name", "cloudUid": "ajeprm0fjnql********", "passportUid": 2222222290 }]
+                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/22********", "id": "22********", "display": "Follower name", "cloudUid": "ajeprm0fjnql********", "passportUid": 22******** }]
             }
         }
       ],
@@ -178,25 +178,25 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the project | String |
-   | id | Entity ID | String |
+   | self | Address of the API resource with information about the project. | String |
+   | id | Entity ID. | String |
    | version | Entity version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID | String |
-   | entityType | Entity type | String |
-   | createdBy | Block with information about the entity creator | Object |
-   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
-   | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
+   | entityType | Entity type. | String |
+   | createdBy | Block with information about the user who created the entity. | Object |
+   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
+   | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
    | fields | Object with additional fields | Object |
 
-   `сreatedBy` **object fields**
+   `createdBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the entity creator | String |
-   | id | User ID | Number |
-   | display | Displayed user name | String |
-   | cloudUid | Unique user ID in {{ org-full-name }} | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID | String |
+   | self | Address of the API resource with information about the user who created the entity. | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    {% endcut %}
 
