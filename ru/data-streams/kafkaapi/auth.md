@@ -1,5 +1,8 @@
-# Аутентификация Kafka API
+# Аутентификация и соединение с БД по Kafka API
+## Эндпоинт
 Эндпоинт для доступа по Kafka API отображаются на вкладке Обзор на странице потока данных в [консоли управления]({{ link-console-main }}).
+
+## Предварительные требования
 
 Для аутентификации требуется предварительно: 
 1. [Создать сервисный аккаунт](../../iam/operations/sa/create).
@@ -10,9 +13,10 @@
 1. [Создать API-ключ](../../iam/operations/api-key/create).
 
 
+## Аутентификация
 В Kafka API аутентификация выполняется через механизм `SASL_SSL/PLAIN`.
 
-Для аутентификации необходимы:
+Для этого необходимы:
 * `<database>` [путь базы данных](../../concepts/connect#database). Путь базы данных отображается на вкладке Обзор на странице потока данных в [консоли управления]({{ link-console-main }}).
 * `<api-key>` [API-ключ](../../iam/concepts/authorization/api-key).
 
@@ -20,21 +24,22 @@
 * `<sasl.username>` = `@<database>`
 * `<sasl.password>` = `<api-key>`
 
-Которое потом используются при аутентификации:
+Которые позже используются для аутентификации.
+
+## Пример записи в топик
 
 {% list tabs %}
 
 - kcat
-  ```bash
-  kcat -C \
-      -b <ydb-endpoint> \
-      -k key \
-      -X security.protocol=SASL_SSL \
-      -X sasl.mechanism=PLAIN \
-      -X sasl.username="<sasl.username>" \
-      -X sasl.password="<sasl.password>" \
-      -X partition.assignment.strategy=roundrobin \
-      -G <consumer-name> <topic-name>
+  ```ini
+  echo "test message" | kcat -P \
+    -b <ydb-endpoint> \
+    -t <topic-name> \
+    -k key \
+    -X security.protocol=SASL_SSL \
+    -X sasl.mechanism=PLAIN \
+    -X sasl.username="<sasl.username>" \
+    -X sasl.password="<sasl.password>" \
   ```
 {% endlist %}
 
