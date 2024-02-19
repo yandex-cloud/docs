@@ -7,9 +7,8 @@
 Для аутентификации требуется предварительно: 
 1. [Создать сервисный аккаунт](../../iam/operations/sa/create).
 1. [Назначить сервисному акканту роли](../../iam/operations/sa/assign-role-for-sa):
-   - `ydb.kafkaApi.client` для доступа по протоколу Kafka.
-   - `ydb.editor` для записи в топик.
-   - `ydb.viewer` для чтения из топика.
+   - для чтения из топика `ydb.kafkaApi.client` и `ydb.viewer`.
+   - для записи в топик `ydb.kafkaApi.client` и `ydb.editor`.
 1. [Создать API-ключ](../../iam/operations/api-key/create).
 
 
