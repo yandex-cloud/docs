@@ -12,9 +12,6 @@
 
 {% include [mpg-events](../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
-
 ## Справочник событий уровня сервисов {#data-plane-events}
-
-{% include notitle [preview](../_includes/note-preview-by-request.md) %}
 
 {% include [mpg-events-dp](../_includes/audit-trails/events/mpg-events-dp.md) %}

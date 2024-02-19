@@ -36,7 +36,7 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| \<entityType> | New entity's type:<ul><li>Project if creating a project</li><li>Portfolio if creating a portfolio</li></ul> | String |
+| \<entity_type> | New entity's type:<ul><li>project if creating a project</li><li>portfolio if creating a portfolio</li></ul> | String |
 
 {% endcut %}
 
@@ -46,7 +46,7 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| [fields](./about-entities.md#query-params) | Additional entity fields to include into the response | String |
+| [fields](./about-entities.md#query-params) | Additional entity fields to be included into the response. | String |
 
 {% endcut %}
 
@@ -58,25 +58,25 @@ The request body contains information required to create a new entity:
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| fields | Object with entity settings | Object |
+| fields | Object with entity settings. | Object |
 
-`fields` **object fields**
+`Fields` **object fields**
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| summary | Name (required field) | String |
-| queues | Queue (required for projects if the `teamAccess` field is not set) | String |
-| teamAccess | Access (required for projects if the `queues` field is not set) | Boolean |
-| description | Description | String |
-| author | Author (user ID) | Number |
-| lead | Responsible person (user ID) | Number |
-| teamUsers | Participants (array of user IDs) | Array of numbers |
-| clients | Customers (array of user IDs) | Array of numbers |
-| followers | Followers (array of user IDs) | Array of numbers |
-| start | Start date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | Date |
-| end | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | Date |
+| summary | Name (required field). | String |
+| queues | Queue (required for projects if the `teamAccess` field is not set). | String |
+| teamAccess | Access (required for projects if the `queues` field is not set). | Logical |
+| description | Description. | String |
+| author | Author (user ID). | Number |
+| lead | Responsible person (user ID). | Number |
+| teamUsers | Members (array of user IDs). | Array of numbers |
+| clients | Clients (array of user IDs). | Array of numbers |
+| followers | Followers (array of user IDs). | Array of numbers |
+| start | Start date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
+| end | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
 | tags | Tags. | Array of strings |
-| parentEntity | Parent entity (portfolio) ID | Number |
+| parentEntity | Parent entity (portfolio) ID. | Number |
 | entityStatus | Status:<ul><li>draft: Draft</li><li>in_progress: In progress</li><li>launched: New</li><li>postponed: Postponed</li><li>at_risk: At risk</li><li>blocked: Blocked</li><li>according_to_plan: According to plan</li></ul> | String |
 
 {% endcut %}
@@ -84,8 +84,8 @@ The request body contains information required to create a new entity:
 > Example: Creating a project
 >
 > - An HTTP POST method is used.
-> - A project named "Test Project" is created.
-> - A queue with the [TREK](../../manager/create-queue.md#key) "key" is linked to the project.
+> - A project named **Test Project** is created.
+> - A queue with the TREK [key](../../manager/create-queue.md#key) is linked to the project.
 >
 > ```
 > POST /v2/entities/project/ HTTP/1.1
@@ -118,7 +118,7 @@ The request body contains information required to create a new entity:
       "version": 1,
       "shortId": 6,
       "entityType": "project",
-      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/111111117", "id": "111111117", "display": "Full name", "cloudUid": "ajevuhegoggfk*******", "passportUid": 111111117 },
+      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Full Name", "cloudUid": "ajevuhegoggfk*******", "passportUid": 11******** },
       "createdAt": "2023-11-23T11:47:49.743+0000",
       "updatedAt": "2023-11-23T11:47:49.743+0000"
    }
@@ -128,24 +128,24 @@ The request body contains information required to create a new entity:
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the entity | String |
-   | id | Entity ID | String |
+   | self | Address of the API resource with information about the entity. | String |
+   | id | Entity ID. | String |
    | version | Entity version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID | String |
-   | entityType | Entity type | String |
-   | createdBy | Block with information about the entity creator | Object |
-   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
-   | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
+   | entityType | Entity type. | String |
+   | createdBy | Block with information about the user who created the entity. | Object |
+   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
+   | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
 
    `createdBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the entity creator | String |
-   | id | User ID | Number |
-   | display | Displayed user name | String |
-   | cloudUid | Unique user ID in {{ org-full-name }} | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID | String |
+   | self | Address of the API resource with information about the user who created the entity. | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    {% endcut %}
 

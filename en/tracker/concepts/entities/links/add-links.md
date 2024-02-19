@@ -9,10 +9,10 @@ The request allows you to create links between multiple [entities](../about-enti
 
 Before making a request, [get permission to access the API](../../access.md).
 
-To create links, use an HTTP `POST` request. Information about the links is transmitted in its body in JSON format. The link is created between the current entity (specified in the request `<id>`) and the entities whose IDs are specified in the `entity` fields of the request body.
+To create links, use an HTTP `POST` request. Information about the links is transmitted in its body in JSON format. The link is created between the current entity (specified in the request `<entity_ID>`) and the entities whose IDs are specified in the `entity` fields of the request body.
 
 ```json
-POST /{{ ver }}/entities/<entityType>/<id>/links
+POST /{{ ver }}/entities/<entity_type>/<entity_ID>/links
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -34,7 +34,7 @@ Authorization: OAuth <OAuth_token>
 | Parameter | Description | Data type |
 ----- | ----- | -----
 | relationship | Link type: <ul><li>`is dependent by`: Current entity is a blocker.</li><li>`depends on`: Current entity depends on the linked one.</li><li>`relates`: Simple link.</li></ul> | String |
-| entity | ID of the entity you are establishing a link with | String |
+| entity | ID of the entity you are establishing a link with. | String |
 
 {% endcut %}
 
@@ -43,7 +43,7 @@ Authorization: OAuth <OAuth_token>
 > - An HTTP POST method is used.
 >
 > ```
-> POST /v2/entities/project/65a26adc46b9746d********/links
+> POST /v2/entities/project/<project_ID>/links
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}

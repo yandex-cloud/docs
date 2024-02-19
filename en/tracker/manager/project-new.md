@@ -28,7 +28,7 @@ The project page shows the details of the team, goals, and issues of the project
 
    {% note info %}
 
-   The project board is also shown under ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel. By default, this dashboard is named <q>`<Project name>` project dashboard</q>.
+   The project board is also shown under ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel. By default, this board is named **`<project_name>` project board**.
 
    {% endnote %}
 

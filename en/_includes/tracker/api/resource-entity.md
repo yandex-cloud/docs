@@ -2,8 +2,8 @@
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| \<entityType> | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
-| \<id> | Entity ID. To get the ID, see the [entity list](../../../tracker/concepts/entities/search-entities.md). | String |
+| \<entity_type> | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
+| \<entity_ID> | Entity ID. To get the ID, see the [entity list](../../../tracker/concepts/entities/search-entities.md). | String |
 
 {% note warning %}
 

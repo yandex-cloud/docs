@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To get entity links, use an HTTP `GET` request.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/links
+GET /{{ ver }}/entities/<entity_type>/<entity_ID>/links
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -28,16 +28,16 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| [fields](../about-entities.md#query-params) | Additional entity fields to be included into the response | String |
+| [fields](../about-entities.md#query-params) | Additional entity fields to be included into the response. | String |
 
 {% endcut %}
 
-> Example: Get links between entities
+> Example: Getting links between entities
 >
 > - An HTTP GET method is used.
 >
 > ```
-> GET /v2/entities/project/65a26adc46b9746d********/links?fields=id,summary
+> GET /v2/entities/project/<project_ID>/links?fields=id,summary
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -58,14 +58,14 @@ Authorization: OAuth <OAuth_token>
        {
            "type": "is dependent by",
            "linkFieldValues": {
-               "summary": "Project 1",
+               "summary": "First project",
                "id": "6582874de6db7f5f********"
            }
        },
        {
            "type": "relates",
            "linkFieldValues": {
-               "summary": "Project 2",
+               "summary": "Second project",
                "id": "65868f3fe2b9ef74********"
            }
        }

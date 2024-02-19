@@ -22,19 +22,31 @@ description: "Управление доступом сервиса для зап
 
 ### Сервисные роли {#service-roles}
 
-{% include [functions-roles-viewer](../../_includes/roles-functions-viewer.md) %}
+#### functions.auditor {#functions-auditor}
 
-{% include [functions-roles-auditor](../../_includes/roles-functions-auditor.md) %}
+{% include [functions.auditor](../../_roles/functions/auditor.md) %}
 
-{% include [functions-roles-invoker](../../_includes/roles-functions-invoker.md) %}
+#### functions.viewer {#functions-viewer}
 
-{% include [functions-roles-editor](../../_includes/roles-functions-editor.md) %}
+{% include [functions.viewer](../../_roles/functions/viewer.md) %}
+
+#### functions.functionInvoker {#functions-functionInvoker}
+
+{% include [functions.functionInvoker](../../_roles/functions/functionInvoker.md) %}
+
+#### functions.editor {#functions-editor}
+
+{% include [functions.editor](../../_roles/functions/editor.md) %}
 
 
-{% include [functions-roles-mdbproxy](../../_includes/roles-functions-mdbproxy.md) %}
+#### functions.mdbProxiesUser {#functions-mdbProxiesUser}
+
+{% include [functions.mdbProxiesUser](../../_roles/functions/mdbProxiesUser.md) %}
 
 
-{% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
+#### functions.admin {#functions-admin}
+
+{% include [functions.admin](../../_roles/functions/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

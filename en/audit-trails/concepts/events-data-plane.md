@@ -2,8 +2,6 @@
 
 The value of the `event_type` (_event type_) field in a data (data plane) audit log is determined by the event source service.
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 The general value format is as follows:
 
 ```text

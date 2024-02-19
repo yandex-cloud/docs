@@ -12,15 +12,15 @@ Before making the request, [get permission to access the API](concepts/access.md
 To edit macro parameters, use an HTTP `PATCH` request:
 
 ```json
-PATCH /{{ ver }}/queues/<queue-id>/macros/<macros-id>
+PATCH /{{ ver }}/queues/<queue_key_or_ID>/macros/<macro_ID>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
-  "name": "Test macro 1",
-  "body": "Test comment\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
-  "fieldChanges": <Object or array>
+  "name": "<macro_name>",
+  "body": "<comment_text>\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
+  "fieldChanges": <object_or_array>
 }
 ```
 
@@ -29,9 +29,9 @@ Authorization: OAuth <token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<queue-id> | Queue ID or key. The queue key is case-sensitive. | String |
-| \<macros-id> | Macro ID. | String |
+-------- | -------- | ----------
+| \<queue_ID_or_key> | Queue ID or key. The queue key is case-sensitive. | String |
+| \<macro_ID> | Macro ID. | String |
 
 {% endcut %}
 
@@ -40,14 +40,14 @@ Authorization: OAuth <token>
 **Required parameters**
 
 | Parameter | Value | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | name | Macro name. | String |
 
 **Additional parameters**
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: `<Message text>\n<variable>`<br/>Where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li>`\n`: Line break symbol.</li><li>Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/>`not_var{{currentDateTime.date}}`: Macro execution date.<br/> `not_var{{currentDateTime}}`: Macro execution date and time.<br/> `{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
+| body | [Message](manager/create-macroses.md) to be created when executing the macro in ```<message_text>\n<variable>``` format.<br/>Where:<ul><li> `<message_text>`: Text to be created in the **Comment** field when executing the macro.</li><li>``\n``: Line break symbol.</li><li>Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/>`not_var{{currentDateTime.date}}`: Macro execution date.<br/> `not_var{{currentDateTime}}`: Macro execution date and time.<br/> `{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
 | fieldChanges | Object or array with new settings for macro actions. The object structure may vary depending on the type of [changes](#dl_qnp_vhm_5fb). | Object or array |
 
 **Object structure** `fieldChanges` {#fieldChanges}
@@ -56,146 +56,132 @@ Authorization: OAuth <token>
 
 - Add an action
 
-  Add a macro action. Use the `add` parameter to add a field and its value to the list of available fields.
-
+   Add a macro action. Use the `add` parameter to add a field and its value to the list of available fields.
    ```json
    "fieldChanges": {
          "add": [
-            {
+                  {
              "field": "tags",
              "value": "tag2"
-            },
-            ...
-        ]
+                  },
+                   ...
+                 ]
    ```
+   **Request body**
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   [fieldChanges](#fieldChanges) | Object describing new settings of macro actions. | Object
 
-  **Request body**
+   **Array object** `fieldChanges` {#fieldChanges}
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   [add](#add) | Array describing the parameters of a new macro action. | Array
 
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  [fieldChanges](#fieldChanges) | Object describing new settings of macro actions. | Object
-
-  **Array object** `fieldChanges` {#fieldChanges}
-
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  [add](#add) | Array describing the parameters of a new macro action. | Array
-
-  **Array objects** `add` {#add}
-
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-  value | Value of the issue field. | String
+   **Array objects** `add` {#add}
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
+   value | Value of the issue field. | String
 
 - Replace an action
 
   Replace a macro action with a new one. Use the `replace` parameter to replace a field and its value, which are set using the `target` parameter, with new ones using the `replacement` parameter.
 
-    ```json
-    "fieldChanges": {
-             "replace": [
-                   {
-                    "target": {
-                        "field": "tags",
-                        "value": "tag2"
-                        },
-                    "replacement": {
-                        "field": "originalEstimation",
-                        "value": "PT2H"
-                       }
-                   }
-             ]
-    }
-    ```
+   ```json
+   "fieldChanges": {
+            "replace": [
+                         {
+                   "target": {
+                       "field": "tags",
+                       "value": "tag2"
+                             },
+                   "replacement": {
+                       "field": "originalEstimation",
+                       "value": "PT2H"
+                                   }
+                           }
+                         ]
+   }
+   ```
 
-  **Request body**
+   **Request body**
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   [fieldChanges](#fieldChanges) | Object describing new settings of macro actions. | Object
 
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  [fieldChanges](#fieldChanges) | Object with new settings for macro actions. | Object
+   **Object parameters** `fieldChanges` {#fieldChanges}
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   [replace](#replace) | Array with action parameters to be replaced with new ones. | Array
 
-  **Object parameters** `fieldChanges` {#fieldChanges}
+   **Object array** `replace` {#replace}
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   [target](#target-replacement) | Object with action parameters to be replaced. | Object
+   [replacement](#target-replacement) | Object with new action parameters. | Object
 
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  [replace](#replace) | Array with action parameters to be replaced with new ones. | Array
-
-  **Object array** `replace` {#replace}
-
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  [target](#target-replacement) | Object with action parameters to be replaced. | Object
-  [replacement](#target-replacement) | Object with new action parameters. | Object
-
-  **Object parameters** `target` and `replacement` {#target-replacement}
-
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-  value | Value of the issue field. | String
+   **Object parameters** `target` and `replacement` {#target-replacement}
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
+   value | Value of the issue field. | String
 
 - Replace all actions
 
-  Replace all macro actions with new ones. Only the fields and values specified in the array are retained.
+   Replace all macro actions with new ones. Only the fields and values specified in the array are retained.
 
-    ```json
-    "fieldChanges": [
-                 {
-                 "field": "tags", 
-                 "value": "tag2"
-                 },
-                              ...
-    ]
-    ```
+   ```json
+   "fieldChanges": [
+                             {
+                "field": "tags",
+                "value": "tag2"
+                             },
+                             ...
+   ]
+   ```
 
-  **Request body**
+   **Request body**
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   [fieldChanges](#fieldChanges) | Object describing new settings of macro actions. | Object or array
 
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  [fieldChanges](#fieldChanges) | Object or array with new settings for macro actions. | Object or array
-
-  **Array parameters** `fieldChanges`{#fieldChanges}
-
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-  value | Value of the issue field. | String
+   **Array parameters** `fieldChanges`{#fieldChanges}
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
+   value | Value of the issue field. | String
 
 - Remove an action
 
-  Remove a macro action. You can use the `replace` parameter to remove a field and its value.
+   Remove a macro action. You can use the `replace` parameter to remove a field and its value.
 
-    ```json
-    "fieldChanges": {
-             "remove": [
-                     {
-                      "field": "tags",
-                      "value": "tag2"
-                     },
-                     ...
-              ]
-    }
-    ```
+   ```json
+   "fieldChanges": {
+            "remove": [
+                       {
+                     "field": "tags",
+                     "value": "tag2"
+                        },
+                         ...
+                       ]
+   }
+   ```
 
-  **Request body**
+   **Request body**
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   [fieldChanges](#fieldChanges) | Object describing new settings of macro actions. | Object
 
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  [fieldChanges](#fieldChanges) | Object with new settings for macro actions. | Object
+   **Object field** `fieldChanges`
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   [remove](#remove) | Array with information about the fields and values of the macro action to be removed. | Array
 
-  `fieldChanges` **object field** 
-
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  [remove](#remove) | Array with information about the fields and values of the macro action to be removed. | Array
-
-  `remove` **array parameters** {#remove}
-
-  Parameter | Description | Data type
-  ----- | ----- | -----
-  field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-  value | Value of the issue field. | String
+   **Array parameters** `remove` {#remove}
+   Parameter | Description | Data type
+   ----- | ----- | -----
+   field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
+   value | Value of the issue field. | String
 
 {% endlist %}
 
@@ -242,29 +228,29 @@ Authorization: OAuth <token>
    {% cut "Response parameters" %}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----
    | self | Address of the API resource with macro parameters. | String |
    | id | Macro ID. | Number |
    | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Object |
    | name | Macro name. | String |
-   | body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: `<Message text>\n<variable>`<br/>where:<ul><li>`<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li>`\n`: Line break symbol.</li><li>Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date.<br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
+   | body | [Message](manager/create-macroses.md) to be created when executing the macro in ```<message_text>\n<variable>``` format.<br/>Where:<ul><li> `<message_text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.:<br/>`not_var{{issue.field_key}}` Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
    | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
 
    `queue` **object fields** {#queue}
 
    {% include [queue](../_includes/tracker/api/queue.md) %}
 
-   `fieldChanges` **array objects** {#fieldChanges}
+   **fieldChanges** `array objects` {#fieldChanges}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----    
    | [field](#field) | Object with information about the issue field. | Object |
    | value | Array of issue field values. | Array of objects |
 
    `field` **object fields** {#field}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----
    | self | Address of the API resource with information about the issue field. | String |
    | id | Issue field ID. | String |
    | display | Issue field name displayed. | String |
@@ -273,18 +259,18 @@ Authorization: OAuth <token>
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
+   {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
-    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
 
-    {% include [answer-error-422](../_includes/tracker/api/answer-error-422.md) %}
+   {% include [answer-error-422](../_includes/tracker/api/answer-error-422.md) %}
 
-    {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
+   {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
 
-    {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
+   {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}

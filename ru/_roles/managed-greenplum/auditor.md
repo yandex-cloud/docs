@@ -1,1 +1,1 @@
-Роль `managed-greenplum.auditor` позволяет просматривать информацию о кластерах и хостах Greenplum®, а также о квотах и операциях с ресурсами сервиса Managed Service for Greenplum®.
+Роль `managed-greenplum.auditor` позволяет просматривать информацию о [кластерах и хостах Greenplum®](../../managed-greenplum/concepts/index.md), а также о [квотах](../../managed-greenplum/concepts/limits.md#quotas) и операциях с ресурсами сервиса Managed Service for Greenplum®.

@@ -2,9 +2,9 @@
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| \<entityType> | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
-| \<id> | Entity ID. To get the ID, see the [entity list](../../../tracker/concepts/entities/search-entities.md). | String |
-| \<checklistItemId> | Checklist item ID. To get the ID, see the [entity parameters](../../../tracker/concepts/entities/get-entity.md). | String |
+| \<entity_type> | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
+| \<entity_ID> | Entity ID. To get the ID, see the [entity list](../../../tracker/concepts/entities/search-entities.md). | String |
+| \<checklist_item_id> | Сhecklist item ID. To get the ID, see the [entity parameters](../../../tracker/concepts/entities/get-entity.md). | String |
 
 {% note warning %}
 

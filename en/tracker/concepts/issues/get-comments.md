@@ -14,9 +14,9 @@ Before making a request, [get permission to access the API](../access.md).
 To get a list of comments, use an HTTP `GET` request:
 
 ```json
-GET /{{ ver }}/issues/<issue-id>/comments
+GET /{{ ver }}/issues/<issue_ID_or_key>/comments
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -38,9 +38,9 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
 > An HTTP GET method is used.
 >
 > ```
-> GET /v2/issues/JUNE-3/comments?expand=all HTTP/1.1
+> GET /v2/issues/<issue_key>/comments?expand=all HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth token>
+> Authorization: OAuth <OAuth_token>
 > {{ org-id }}
 > ```
 
@@ -51,48 +51,48 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
 - Request executed successfully
 
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains a JSON array with information about comments:
+   The response body contains a JSON array with information about comments:
 
-    ```json
-    [
-        {
-            "self": "https://{{ host }}/v2/issues/JUNE-2/comments/9849018",
-            "id": 9849018,
-            "longId" : "5fa15a24ac894475dd14ff07",
-            "text": "Comment **number one.**",
-            "textHtml": "<p>Comment <strong>number one.</strong></p>\n",
-            "attachments": [{ "self": "https://{{ host }}/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
-            "createdBy": {
-                "self": "https://{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<displayed employee name>"
-            },
-            "updatedBy": {
-                "self": "https://{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<displayed employee name>"
-            },
-            "createdAt": "2017-06-11T05:11:12.347+0000",
-            "updatedAt": "2017-06-11T05:11:12.347+0000",
-            "version": 1,
-            "type" : "standard",
-            "transport" : "internal"
-        },
-        ...
-    ]
-    ```
+   ```json
+   [
+       {
+           "self": "https://{{ host }}/v2/issues/JUNE-2/comments/98******",
+           "id": 98******,
+           "longId" : "5fa15a24ac894475********",
+           "text": "Comment **number one.**",
+           "textHtml": "<p>Comment <strong>number one.</strong></p>\n",
+           "attachments": [{ "self": "https://{{ host }}/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
+           "createdBy": {
+               "self": "https://{{ host }}/v2/users/11********",
+               "id": "11********",
+               "display": "Ivan Ivanov"
+           },
+           "updatedBy": {
+               "self": "https://{{ host }}/v2/users/11********",
+               "id": "11********",
+               "display": "Ivan Ivanov"
+           },
+           "createdAt": "2017-06-11T05:11:12.347+0000",
+           "updatedAt": "2017-06-11T05:11:12.347+0000",
+           "version": 1,
+           "type" : "standard",
+           "transport" : "internal"   
+       },
+       ...
+   ]
+   ```
 
    {% cut "Response parameters" %}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Link to the comment object | String |
+   | self | Link to the comment object. | String |
    | id | Comment ID | Number |
-   | longId | ID of the comment in string format | String |
-   | text | Text of the comment | String |
-   | textHtml | Comment HTML markup | String |
+   | longId | ID of the comment in string format. | String |
+   | text | Text of the comment. | String |
+   | textHtml | Comment HTML markup. | String |
    | attachments | Attached files. | String |
    | [createdBy](#object-fields-createdBy) | Object with information about the author of the comment. | Object |
    | [updatedBy](#object-fields-updatedBy) | Object with information about the last user to have updated the comment. | Object |
@@ -102,11 +102,11 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
    | type | Comment type:<ul><li>`standard`: Comment sent via the {{ tracker-name }} interface.</li><li>`incoming`: Comment created from an incoming message.</li><li>`outcoming`: Comment created from an outgoing message.</li></ul> | String |
    | transport | Method of adding a comment:<ul><li>`internal`: Via the {{ tracker-name }} interface.</li><li>`email`: Via email.</li></ul> | String |
 
-    **Object fields** `createdBy` {#object-fields-createdBy}
+   `createdBy` **object fields** {#object-fields-createdBy}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `updatedBy` {#object-fields-updatedBy}
+   `updatedBy` **object fields** {#object-fields-updatedBy}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
@@ -114,9 +114,9 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 
@@ -125,7 +125,7 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
 For paginated results, use additional parameters in the request string:
 
 ```json
-GET /{{ ver }}/issues/<issue-id>/comments?perPage=20&id=123
+GET /{{ ver }}/issues/<issue_ID_or_key>/comments?perPage=<number_of_comments>&id=<comment_ID>
 ```
 
 Where:

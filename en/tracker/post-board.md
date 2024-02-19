@@ -9,12 +9,12 @@ Use this request to create boards.
 
 Before making a request, [get permission to access the API](concepts/access.md).
 
-To create a board, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
+To create a board, use an HTTP `POST` request: Request parameters are provided in the request body in JSON format.
 
 ```
 POST /{{ ver }}/boards/
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
@@ -34,42 +34,42 @@ The request body contains the parameters of a new board.
 
 **Required parameters**
 
-Parameter | Description | Data type
---------- | ----------- | ---------
-name | Board name | String
-[defaultQueue](#req-defaultQueue) | Queue | Can be set as an object, a string (if the queue key is passed), or a number (if the queue ID is passed)
+| Parameter | Description | Data type |
+-------- | -------- | ----------
+| name | Board name | String |
+| [defaultQueue](#req-defaultQueue) | Queue | Can be set as an object, a string (if the queue key is provided), or a number (if the queue ID is provided) |
 
 **Additional parameters**
 
-Parameter | Description | Data type
---------- | ----------- | ---------
-boardType | Board type.<br/>Possible board types:<ul><li>`default`: Basic</li><li>`scrum`: Scrum</li><li>`kanban`: Kanban</li></ul> | String
-[filter](#req-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values.<br/>The `filter`, `orderBy`, and `orderAsc` parameter group is incompatible with the `query` parameter that also describes filter conditions | Object
-orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String
-orderAsc | Sort direction:<ul><li>`true`: Ascending</li><li>`false`: Descending</li></ul> | Logical
-query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md).<br/>The `query` parameter is incompatible with the group of parameters that also describe filter conditions, including `filter`, `orderBy`, and `orderAsc` | String
-useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes</li><li>`false`: No</li></ul> | Logical
-[country](#req-country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request | Object
+| Parameter | Description | Data type |
+-------- | -------- | ----------
+| boardType | Board type.<br/>Possible board types:<ul><li>`default`: Basic</li><li>`scrum`: Scrum</li><li>`kanban`: Kanban</li></ul> | String |
+| [filter](#req-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values.<br/>The `filter`, `orderBy`, and `orderAsc` parameter group is incompatible with the `query` parameter that also describes filter conditions | Object |
+| orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+| orderAsc | Sort direction:<ul><li>`true`: Ascending</li><li>`false`: Descending</li></ul> | Logical |
+| query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md).<br/>The `query` parameter is incompatible with the group of parameters that also describe filter conditions, including `filter`, `orderBy`, and `orderAsc` | String |
+| useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes</li><li>`false`: No</li></ul> | Logical |
+| [country](#req-country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries request` | Object |
 
 `defaultQueue` **object fields** {#req-defaultQueue}
 
-Parameter | Description | Data type
---------- | ----------- | ---------
-id | Queue ID | String
-key | Queue key | String
+| Parameter | Description | Data type |
+-------- | -------- | ----------
+| id | Queue ID | String |
+| key | Queue key | String |
 
 `filter` **object fields** {#req-filter}
 
-Parameter | Description | Data type
---------- | ----------- | ---------
-\<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String
-\<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array
+| Parameter | Description | Data type |
+-------- | -------- | ----------
+| \<parameter_1_key\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+| \<parameter_2_key\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields:[{{ link-admin-fields }}] ({{ link-admin-fields }}) | Array |
 
 `country` **object fields** {#req-country}
 
-Parameter | Description | Data type
---------- | ----------- | ---------
-id | Country ID | String |
+| Parameter | Description | Data type |
+-------- | -------- | ----------
+| id | Country ID | String |
 
 {% endcut %}
 
@@ -80,8 +80,8 @@ id | Country ID | String |
 > ```
 > POST /v2/boards/
 > Host: {{ host }}
-> Authorization: OAuth <token>
-> X-Org-ID or X-Cloud-Org-ID: <organization ID>
+> Authorization: OAuth <OAuth_token>
+> X-Org-ID or X-Cloud-Org-ID: <organization_ID>
 >
 > {
 >  "name": "Testing",
@@ -118,8 +118,8 @@ id | Country ID | String |
 > ```
 > POST /v2/boards/
 > Host: {{ host }}
-> Authorization: OAuth <token>
-> X-Org-ID or X-Cloud-Org-ID: <organization ID>
+> Authorization: OAuth <OAuth_token>
+> X-Org-ID or X-Cloud-Org-ID: <organization_ID>
 >
 > {
 >  "name": "Testing",
@@ -155,23 +155,23 @@ id | Country ID | String |
      "columns":
      [
       {
-       "self": "https://{{ host }}/v2/boards/1/columns/1387461731452",
-       "id": "1387461731452",
+       "self": "https://{{ host }}/v2/boards/1/columns/13874********",
+       "id": "13874********",
        "display": "Open"
       },
        ...
      ],
      "filter": {
-        "<key of parameter 1>": "<value 1>",
-        "<key of parameter 2>": [
-             "<value 2>",
+        "<parameter_1_key>": "<value_1>",
+        "<parameter_2_key>": [
+             "<value_2>",
                             ...
            ],
             ...
         },
      "orderBy": "updated",
      "orderAsc": false,
-     "query": "<Parameter 1>: <Value 1> AND <Parameter 2>: <Value 2> OR <Parameter 3>: <Value 3>...",
+     "query": "<parameter_1>: <value_1> AND <parameter_2>: <value_2> OR <parameter_3>: <value_3>...",
      "useRanking": false,
 
      "country": {
@@ -184,42 +184,42 @@ id | Country ID | String |
 
    {% cut "Response parameters" %}
 
-   Parameter | Description | Data type
-   --------- | ----------- | ---------
-   self | Address of the API resource with board parameters | String
-   id | Board ID | Number
-   version | Board version; each change to the board increases its version number | Number
-   name | Board name | String
-   [columns](#ans-columns) | Object with information about board columns | Object
-   [filter](#ans-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values | Object
-   orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String
-   orderAsc | Sort direction:<ul><li>`true`: Ascending</li><li>`false`: Descending</li></ul> | Logical
-   query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md) | String
-   useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes</li><li>`false`: No</li></ul> | Logical
-   [country](#ans-country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request | Object
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Address of the API resource with board parameters | String |
+   | id | Board ID | Number |
+   | version | Board version; each change to the board increases its version number | Number |
+   | name | Board name. | String |
+   | [columns](#ans-columns) | Object with information about board columns | Object |
+   | [filter](#ans-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values | Object |
+   | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+   | orderAsc | Sort direction:<ul><li>`true`: Ascending</li><li>`false`: Descending</li></ul> | Logical |
+   | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md) | String |
+   | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes</li><li>`false`: No</li></ul> | Logical |
+   | [country](#ans-country) | Object with information about the country. Data of a country-specific business calendar is used in the burndown chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request | Object |
 
    `columns` **object fields** {#ans-columns}
 
-   Parameter | Description | Data type
-   -------0- | ----------- | ---------
-   self | Address of the API resource with information about the board column | String
-   id | Column ID | String
-   display | Column name displayed | String
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Address of the API resource with information about the board column | String |
+   | id | Column ID | String |
+   | display | Column name displayed | String |
 
    `filter` **object fields** {#ans-filter}
 
-   Parameter | Description | Data type
-   --------- | ----------- | ---------
-   \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String
-   \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields:[{{ link-admin-fields }}]({{ link-admin-fields }}) | Array
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | \<parameter_1_key\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+   | \<parameter_2_key\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields:[{{ link-admin-fields }}] ({{ link-admin-fields }}) | Array |
 
    `country` **object fields** {#ans-country}
 
-   Parameter | Description | Data type
-   --------- | ----------- | ---------
-   self | Address of the API resource with the country name | String
-   id | Country ID | String
-   display | Country name displayed | Strin
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Address of the API resource with the country name | String |
+   | id | Country ID | String |
+   | display | Country name displayed | String |
 
    {% endcut %}
 

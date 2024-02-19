@@ -39,6 +39,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             {% endnote %}
 
          * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
+
+
          * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
          * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
          * **Default value**: Displayed when you first open the dashboard.
@@ -71,6 +73,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             {% endnote %}
 
          * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
+
+
          * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
          * **Possible values**: List of values to select. Only available for the **List** selector type.
          * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.

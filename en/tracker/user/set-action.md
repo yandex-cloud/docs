@@ -16,7 +16,7 @@ Configure one or more actions under **Trigger action** by clicking **Add action*
 - [Create issue](set-action.md#sec_create_issue)
 - [HTTP request](set-action.md#create-http)
 
-## Change issue status {#section_change_status}
+## Changing issue status {#section_change_status}
 
 Set a new issue status. The available statuses depend on the [workflow](../manager/workflow-status-edit.md) settings.
 
@@ -33,10 +33,10 @@ Set up new values for one or more fields.
 
    | Action | Description |
    ----- | -----
-   | Set value | Assign the value to a field |
-   | Clear field | Delete a field value |
-   | Add to list | Add another value for the field (for multiple-item fields) |
-   | Remove from list | Remove one value from the field (for multiple-item fields) |
+   | Set the value | Assign the value to a field. |
+   | Clear the field | Delete a field value. |
+   | Add to list | Add another value for the field (for multiple-item fields). |
+   | Remove from list | Remove one value from the field (for multiple-item fields). |
 
 1. Specify the new value for the field.
 
@@ -48,7 +48,7 @@ Write the comment text that will be added to an issue.
 You can insert [values of issue fields](vars.md) into the comment text. To do this, click **Add variable** and select one or more values. The **{{ ui-key.startrek-backend.fields.issue.meta.comment }}** field will show a sequence like `not_var{{issue.<field_ID>}}`.
 
 
-## Creating a checklist {#create-checklist}
+## Create checklist {#create-checklist}
 
 Create a [checklist](checklist.md) that will be added to an issue.
 
@@ -92,7 +92,7 @@ To calculate the field value automatically:
 1. Set a condition that will trigger the calculation of the field value in the [**Trigger conditions**](set-condition.md#section_set_condition) section. We recommend choosing the **{{ ui-key.startrek-backend.messages.trigger.condition.type.calculate.formula.watch }}** event. You can also set any conditions you need for your issue workflow.
 
 
-## Moving an issue {#sec_move}
+## Move issue {#sec_move}
 
 1. Add the **Move issue** trigger action.
 
@@ -100,9 +100,9 @@ To calculate the field value automatically:
 
 The issue will be moved only if the user who ran the trigger has rights for creating issues in the selected queue.
 
-## Creating an issue {#sec_create_issue}
+## Create an issue {#sec_create_issue}
 
-You can set up a trigger that will automatically create an issue when certain conditions are met. For example, you can create a trigger that creates an issue for beta testing when a programmer implements a new feature and updates the issue status to <q>{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}</q>.
+You can set up a trigger that will automatically create an issue when certain conditions are met. For example, you can create a trigger that creates an issue for testing when a programmer implements a new feature and updates the issue status to **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**.
 
 To set up creation of an issue:
 

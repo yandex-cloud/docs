@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To get information about an attached file, use an HTTP `GET` request.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/attachments/<attachmentId>
+GET /{{ ver }}/entities/<entity_type>/<entity_ID>/attachments/<file_ID>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -28,7 +28,7 @@ Authorization: OAuth <OAuth_token>
 > - The response displays information about the attached entity file.
 >
 > ```
-> GET /v2/entities/project/6586d6fee2b9ef74********/attachments/5
+> GET /v2/entities/project/<project_ID>/attachments/5
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -51,9 +51,9 @@ Authorization: OAuth <OAuth_token>
        "name": "flowers.jpg",
        "content": "{{ host }}/v2/attachments/5/flowers.jpg",
        "createdBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_ID",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
@@ -89,7 +89,7 @@ Authorization: OAuth <OAuth_token>
    | id | User ID. | Number |
    | display | Displayed user name. | String |
    | cloudUid | User unique ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `metadata` **object fields** {#metadata}
 

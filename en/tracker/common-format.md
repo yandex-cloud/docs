@@ -9,9 +9,9 @@ sourcePath: en/tracker/api-ref/common-format.md
 General {{ api-name }} request format:
 
 ```
-<method> /{{ ver }}/<resources>/<resource_id>/?<param>=<value>
+<method> /{{ ver }}/<resource_type>/<resource_ID>/?<parameter>=<value>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 {
    Request body in JSON format
@@ -25,12 +25,12 @@ import requests;
 
 def my_function():
     session = requests.Session()
-    url = "https://{{ host }}/{{ ver }}/<resources>/<resource_id>/?<param>=<value>"
+    url = "https://{{ host }}/{{ ver }}/<resources>/<resource_ID>/?<param>=<value>"
     json = {
         # Request body in JSON format
     }
     head =  {
-        "Authorization": "OAuth <token>",
+        "Authorization": "OAuth <OAuth_token>",
         "X-Org-ID" or "X-Cloud-Org-ID": <organization_ID>
     }
     session.headers.update(head)
@@ -68,13 +68,13 @@ In {{ api-short-name }} requests, specify the following headers:
 
 - `Host: {{ host }}`
 
-- `Authorization: OAuth <your OAuth token>`: If [OAuth 2.0](concepts/access.md#section_about_OAuth) is used.
+- `Authorization: OAuth <OAuth_token>`: If [OAuth 2.0](concepts/access.md#section_about_OAuth) is used.
 
-   `Authorization: Bearer <your IAM token>`: If an [IAM token](concepts/access.md#iam-token) is used.
+   `Authorization: Bearer <IAM token>`: If an [IAM token](concepts/access.md#iam-token) is used.
 
-- `X-Org-ID: <organization ID>` or `X-Cloud-Org-ID: <organization ID>`
+- `X-Org-ID: <organization_ID>` or `X-Cloud-Org-ID: <organization_ID>`.
 
-   If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+   If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`. To find out the organization ID, go to the [{{ tracker-name }} settings page]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
 
 - `Accept-Language: <language tag>`: Localization language.
@@ -88,44 +88,44 @@ The request body includes a JSON object with the IDs of updated fields and their
 - To add or remove an array value, use the `add` or `remove` command:
 
    - ```json
+          {
+              "followers": { "add": ["<employee_1_ID>", "<employee_2_ID>"] }
+          }
+      ```
+
+   The `add` command adds new values to the array. To overwrite the array (delete the old values and add new ones), use the `set` command.
+
+- To reset the field value, set it to `null`. To reset the array, use an empty array, `[]`. You can change individual values in the array using the `target` and `replacement` commands:
+
+   - `{"followers": null}`
+   - ```json
         {
-            "followers": { "add": ["<employee1 ID>", "<employee2 ID>"] }
+          "followers": {
+            "replace": [
+                {"target": "<ID_1>", "replacement": "<ID_2>"},
+                {"target": "<ID_3>", "replacement": "<ID_4>"}]
+          }
         }
-    ```
-
-  The `add` command adds new values to the array. To overwrite the array (delete the old values and add new ones), use the `set` command.
-
-- To reset the field value, set it to `null`. To reset the array, use an empty array `[]`. You can change individual values in the array using the `target` and `replacement` commands:
-
-  - `{"followers": null}`
-  - ```json
-    {
-      "followers": {
-        "replace": [
-            {"target": "<ID1>", "replacement": "<ID2>"},
-            {"target": "<ID3>", "replacement": "<ID4>"}]
-      }
-    }
-    ```
-
-- For example, to change the issue type to <q>Error</q>, use one of these methods:
-
-  - `{"type": 1}`
-  - `{"type": "bug"}`
-  - ```json
-      {
-        "type": { "id": "1" }
-      }
       ```
-    ```json
-      {
-        "type": { "name": "Error" }
-      }
+
+- For example, to change the issue type to **Error**, use one of these methods:
+
+   - `{"type": 1}`
+   - `{"type": "bug"}`
+   -  ```json
+        {
+            "type": { "id": "1" }
+        }
       ```
-  - ```json
-      {
-        "type": {"set": "bug"}
-      }
+   - ```json
+        {
+            "type": { "name": "Error" }
+        }
+      ```
+   - ```json
+        {
+            "type": {"set": "bug"}
+        }
       ```
 
 ## Text formats and variables {#text-format}
@@ -169,31 +169,31 @@ The response will contain the following headers:
 
 - An HTTP PATCH method is used.
 - We are editing the TEST-1 issue.
-- New issue type: <q>Error</q>.
-- New issue priority: <q>Low</q>.
+- New issue type: **Error**.
+- New issue priority: **Low**.
 
 {% list tabs %}
 
 - Request format
 
-```
-PATCH /v2/issues/TEST-1
-Host: {{ host }}
-Authorization: OAuth <OAuth token>
-{{ org-id }}
-{
-  "summary": "New issue name",
-  "description": "New issue description",
-  "type": {
-      "id": "1",
-      "key": "bug"
-      },
-  "priority": {
-      "id": "2",
-      "key": "minor"
-      }
-}
-```
+   ```
+   PATCH /v2/issues/TEST-1
+   Host: {{ host }}
+   Authorization: OAuth <OAuth_token>
+   {{ org-id }}
+   {
+     "summary": "<new_issue_name>",
+     "description": "<new_issue_description>",
+     "type": {
+         "id": "1",
+         "key": "bug"
+         },
+     "priority": {
+         "id": "2",
+         "key": "minor"
+         }
+   }
+   ```
 
 - Python
 
@@ -204,8 +204,8 @@ Authorization: OAuth <OAuth token>
        session = requests.Session()
        url = "https://{{ host }}/{{ ver }}/issues/TEST-1"
        json = {
-           "summary": "New issue name",
-           "description": "New issue description",
+           "summary": "<new_issue_name>",
+           "description": "<new_issue_description>",
            "type": {
                "id": "1",
                "key": "bug"
@@ -216,7 +216,7 @@ Authorization: OAuth <OAuth token>
                }
            }
        head =  {
-           "Authorization": "OAuth <token>",
+           "Authorization": "OAuth <OAuth_token>",
            "X-Org-ID" or "X-Cloud-Org-ID": <organization_ID>
        }
        session.headers.update(head)
@@ -241,12 +241,12 @@ Authorization: OAuth <OAuth token>
 
 - Request format
 
-```
-GET /v2/issues/JUNE-3?expand=attachments
-Host: {{ host }}
-Authorization: OAuth <OAuth token>
-{{ org-id }}
-```
+   ```
+   GET /v2/issues/JUNE-3?expand=attachments
+   Host: {{ host }}
+   Authorization: OAuth <OAuth token>
+   {{ org-id }}
+   ```
 
 - Python
 
@@ -276,29 +276,29 @@ Authorization: OAuth <OAuth token>
 {% cut "Example 3: Create an issue." %}
 
 - An HTTP POST method is used.
-- We are creating an issue named _Test Issue_ in the queue with the _TREK_ [key](manager/create-queue.md#key).
-- The new issue is a sub-issue of <q>JUNE-2</q>.
-- New issue type: <q>Error</q>.
+- We are creating an issue named **Test Issue** in the queue with the **TREK** [key](manager/create-queue.md#key).
+- The new issue is a sub-issue of **JUNE-2**.
+- New issue type: **Error**.
 - Assignee: <user_login>.
 
 {% list tabs %}
 
 - Request format
 
-```
-POST /v2/issues/ HTTP/1.1
-Host: {{ host }}
-Authorization: OAuth <OAuth token>
-{{ org-id }}
-{
-  "queue": "TREK",
-  "summary": "Test Issue",
-  "parent":"JUNE-2",
-  "type": "bug",
-  "assignee": "<user_login>",
-  "attachmentIds": [55, 56]
-}
-```
+   ```
+   POST /v2/issues/ HTTP/1.1
+   Host: {{ host }}
+   Authorization: OAuth <OAuth_token>
+   {{ org-id }}
+   {
+     "queue": "TREK",
+     "summary": "Test Issue",
+     "parent":"JUNE-2",
+     "type": "bug",
+     "assignee": "<user_login>",
+     "attachmentIds": [55, 56]
+   }
+   ```
 
 - Python
 
@@ -336,25 +336,25 @@ Authorization: OAuth <OAuth token>
 {% cut "Example 4: Find the issues in the queue that were assigned to a given employee. Paginate the results." %}
 
 - An HTTP POST method is used.
-- Key of the queue: <q>TREK</q>.
+- Queue key: **TREK**.
 - Assignee: <user_login>.
 
 {% list tabs %}
 
 - Request format
 
-```
-POST /v2/issues/_search?perPage=15
-Host: {{ host }}
-Authorization: OAuth <OAuth token>
-{{ org-id }}
-{
-  "filter": {
-    "queue": "TREK",
-    "assignee": "<user_login>"
-  }
-}
-```
+   ```
+   POST /v2/issues/_search?perPage=15
+   Host: {{ host }}
+   Authorization: OAuth <OAuth_token>
+   {{ org-id }}
+   {
+     "filter": {
+       "queue": "TREK",
+       "assignee": "<user_login>"
+     }
+   }
+   ```
 
 - Python
 

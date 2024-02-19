@@ -14,6 +14,4 @@
 
 ## Справочник событий уровня сервисов {#data-plane-events}
 
-{% include notitle [preview](../_includes/note-preview-by-request.md) %}
-
 {% include [storage-events-dp](../_includes/audit-trails/events/storage-events-dp.md) %}

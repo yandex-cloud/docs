@@ -396,6 +396,7 @@ default:
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
+  oslogin: OS Login
   packer-source-link: github.com/hashicorp/yandex
   permission-admin: Администрирование
   permission-execute: Исполнение
@@ -911,6 +912,7 @@ default:
         encryptdecrypt|string: "2,8800\_₽"
     storage:
       v1:
+        hsm|month|string: "360,0000\_₽"
         software|month|string: "2,8800\_₽"
   sku|RUB|lockbox:
     api:
@@ -1801,6 +1803,14 @@ default:
       cpu|string: "0,013440\_$"
       disk|month|string: "0,104080\_$"
       ram|string: "0,003600\_$"
+  sku|USD|kms:
+    api:
+      v1:
+        encryptdecrypt|string: "0,023040\_$"
+    storage:
+      v1:
+        hsm|month|string: "2,880000\_$"
+        software|month|string: "0,023040\_$"
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -5166,7 +5176,11 @@ default:
             field_service-cidr: CIDR сервисов
             field_subnetwork: Подсеть
             field_tunnel-mode: Включить туннельный режим
+            label_logging-enabled: Запись логов
             label_maintenance-weekly: Расписание по дням
+            label_stream-cluster-autoscaler: Логи Cluster Autoscaler
+            label_stream-events: Логи событий
+            label_stream-kube-apiserver: Логи API-сервера Kubernetes
             section_allocation: Сетевые настройки кластера
             section_main-cluster: Конфигурация мастера
             section_maintenance: Настройки окна обновлений
@@ -7873,7 +7887,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.27
+        tag: 0.4.28
     yc_gitlab-agent:
       helmChart:
         name: >-

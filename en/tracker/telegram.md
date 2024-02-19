@@ -34,7 +34,7 @@ To learn more about setting up a Telegram bot, please visit [https://core.telegr
 
 1. On the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
 
-1. Name the trigger, for example, <q>Telegram notifications</q>.
+1. Name the trigger, e.g., **Telegram notifications**.
 
 1. Configure trigger conditions so that the trigger is fired when the status of an issue of the **Issue** type changes to **Need info**:
 
@@ -75,4 +75,4 @@ To learn more about setting up a Telegram bot, please visit [https://core.telegr
 
 1. Save your trigger.
 
-To test the trigger in action, change the status of an issue of the **Issue** type to **Need info**. The trigger will send a message to your Telegram chat saying: <q>Need info for issue [TEST-123: Configure triggers]({{ link-tracker-example-1 }})</q>.
+To test the trigger in action, change the status of an issue of the **Issue** type to **Need info**. The trigger will send a message to your Telegram chat saying: _Need info for issue [TEST-123: Configure triggers]({{ link-tracker-example-1 }})_.

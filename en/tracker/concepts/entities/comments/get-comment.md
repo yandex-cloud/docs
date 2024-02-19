@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To get a comment, use an HTTP `GET` request.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/comments/<commentId>
+GET /{{ ver }}/entities/<entity_type>/<entity_ID>/comments/<comment_ID>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -38,7 +38,7 @@ Authorization: OAuth <OAuth_token>
 > - The response displays information about the comment.
 >
 > ```
-> GET /v2/entities/project/6586d6fee2b9ef74********/comments/15?expand=all
+> GET /v2/entities/project/<project_ID>/comments/15?expand=all
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -69,16 +69,16 @@ Authorization: OAuth <OAuth_token>
            }
        ],
        "createdBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_ID",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full Name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
        "updatedBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_ID",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full Name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
@@ -87,9 +87,9 @@ Authorization: OAuth <OAuth_token>
        "usersReacted": {
            "like": [
                {
-                   "self": "{{ host }}/v2/users/1993********",
-                   "id": "employee_ID",
-                   "display": "Full_name",
+                   "self": "{{ host }}/v2/users/19********",
+                   "id": "19********",
+                   "display": "Full Name",
                    "cloudUid": "ajeppa7dgp71********",
                    "passportUid": "16********"
                }
@@ -98,9 +98,9 @@ Authorization: OAuth <OAuth_token>
        "ownReactions": ["like"],
        "summonees": [
            {
-               "self": "{{ host }}/v2/users/1972********",
-               "id": "employee_ID",
-               "display": "Full_name",
+               "self": "{{ host }}/v2/users/19********",
+               "id": "19********",
+               "display": "Full Name",
                "cloudUid": "ajeppa7dgp32********",
                "passportUid": "12********"
            }
@@ -140,8 +140,8 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `updatedBy` **object fields** {#updated-by}
 
@@ -150,8 +150,8 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `usersReacted` **object fields** {#users-reacted}
 
@@ -160,8 +160,8 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    {% endcut %}
 

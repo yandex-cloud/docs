@@ -12,14 +12,14 @@ Before making the request, [get permission to access the API](../access.md).
 To create a trigger, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format.
 
 ```json
-POST /{{ ver }}/queues/<queue-id>/triggers
+POST /{{ ver }}/queues/<queue_ID_or_key>/triggers
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
-    "name": "<trigger name>",
-    "actions": [<trigger action parameters>]
+    "name": "<trigger_name>",
+    "actions": [<trigger_action_parameters>]
 }
 ```
 
@@ -28,8 +28,8 @@ Authorization: OAuth <OAuth token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+----- | ----- | -----
+| \<queue_ID_or_key\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
@@ -38,47 +38,47 @@ Authorization: OAuth <OAuth token>
 **Required parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | name | Trigger name | String |
 | [actions](#actions) | Array with [trigger actions](../../user/set-action.md). | Array of objects |
 
 **Additional parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | [conditions](#conditions) | Array with [trigger conditions](../../user/set-condition.md). | Array of objects |
 | active | Trigger status Acceptable values include:<ul><li>`true`: Active</li><li>`false`: Inactive</li></ul> | Logical |
 
 {% endcut %}
 
->Example: Create a trigger that fires at a specified condition and changes the issue status.
->- An HTTP POST method is used.
->- Create a trigger for the DESIGN queue.
->- Trigger condition: the comment text matches <q>Open</q>.
->- Trigger action: the issue changes its status to <q>Open</q>.
->```json
->POST /v2/queues/DESIGN/triggers
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->{
->  "name": "TriggerName",
->  "actions": [
->      {
->          "type": "Transition",
->          "status": {
->              "key": "open"
->              }
->      }
->  ],
->  "conditions": [
+> Example: Create a trigger that fires at a specified condition and changes the issue status.
+> - An HTTP POST method is used.
+> - Create a trigger for the DESIGN queue.
+> - Trigger condition: the comment text matches **Open**.
+> - Trigger action: issue status changes to **Open**.
+> ```json
+> POST /v2/queues/DESIGN/triggers
+> Host: {{ host }}
+> Authorization: OAuth <OAuth token>
+> {{ org-id }}
+> {
+>   "name": "TriggerName",
+>   "actions": [
 >       {
->          "type": "CommentFullyMatchCondition",
->          "word": "Open"
+>           "type": "Transition",
+>           "status": {
+>               "key": "open"
+>               }
 >       }
->   ]
->}
->```
+>   ],
+>   "conditions": [
+>        {
+>           "type": "CommentFullyMatchCondition",
+>           "word": "Open"
+>        }
+>    ]
+> }
+> ```
 
 ## Response format {#answer}
 
@@ -86,53 +86,53 @@ Authorization: OAuth <OAuth token>
 
 - Request executed successfully
 
-  {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-  The request body contains information about the created trigger in JSON format.
+   The request body contains information about the created trigger in JSON format.
 
-    ```json
-    {
-    "id": 16,
-    "self": "{{ host }}/v2/queues/DESIGN/triggers/16",
-    "queue": {
-        "self": "{{ host }}/v2/queues/DESIGN",
-        "id": "26",
-        "key": "DESIGN",
-        "display": "Design"
-    },
-    "name": "trigger_name",
-    "order": "0.0002",
-    "actions": [
-        {
-            "type": "Transition",
-            "id": 1,
-            "status": {
-                "self": "{{ host }}/v2/statuses/2",
-                "id": "2",
-                "key": "needInfo",
-                "display": "Need info"
-            }
-        }
-    ],
-    "conditions": [
-        {
-            "type": "Or",
-            "conditions": [
-                {
-                    "type": "Event.comment-create"
-                }
-            ]
-        }
-    ],
-    "version": 1,
-    "active": true
-    }
-    ```
+   ```json
+   {
+   "id": 16,
+   "self": "https://{{ host }}/v2/queues/DESIGN/triggers/16",
+   "queue": {
+       "self": "https://{{ host }}/v2/queues/DESIGN",
+       "id": "26",
+       "key": "DESIGN",
+       "display": "Desing"
+   },
+   "name": "trigger_name",
+   "order": "0.0002",
+   "actions": [
+       {
+           "type": "Transition",
+           "id": 1,
+           "status": {
+               "self": "https://{{ host }}/v2/statuses/2",
+               "id": "2",
+               "key": "needInfo",
+               "display": "Need info"
+           }
+       }
+   ],
+   "conditions": [
+       {
+           "type": "Or",
+           "conditions": [
+               {
+                   "type": "Event.comment-create"
+               }
+           ]
+       }
+   ],
+   "version": 1,
+   "active": true
+   }
+   ```
 
    {% cut "Response parameters" %}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----
    | id | Trigger ID | String |
    | self | Links to trigger | String |
    | [queue](#queue) | Queue to create the trigger | Can be set as an object, a string (if the [queue key](../../manager/create-queue.md#key) is provided), or a number (if the queue ID is provided). |
@@ -150,7 +150,7 @@ Authorization: OAuth <OAuth token>
    `actions` **array object fields** {#actions}
 
    | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
+   ----- | ----- | -----
    | type | Action type. Acceptable values include:<ul><li>`Transition`: Change the issue status.</li><li>`Update`: Change a field value.</li><li>`Move`: Move issue.</li><li>`Event.comment-create`: Add a comment.</li><li>`CreateChecklist`: Create a checklist.</li><li>`Webhook`: Send an HTTP request.</li><li>`CalculateFormula`: Calculate a value.</li><li>`Event.create`: Create an issue.</li></ul> | String |
    | id | Action ID | String |
    | [status](#status) | Issue status | String |
@@ -170,20 +170,20 @@ Authorization: OAuth <OAuth token>
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a message with error details:
+   If the request is processed incorrectly, the API returns a message with error details:
 
-    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
+   {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
-    {% include [answer-error-409](../../../_includes/tracker/api/answer-error-409.md) %}
+   {% include [answer-error-409](../../../_includes/tracker/api/answer-error-409.md) %}
 
-    {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
+   {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
 
-    {% include [answer-error-500](../../../_includes/tracker/api/answer-error-500.md) %}
+   {% include [answer-error-500](../../../_includes/tracker/api/answer-error-500.md) %}
 
-    {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
+   {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}

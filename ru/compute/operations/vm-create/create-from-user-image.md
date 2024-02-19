@@ -258,3 +258,7 @@ description: "Следуя данной инструкции, вы сможет�
 ## Отключите проверку метаданных {#disable-metadata-check}
 
 {% include [disable-metadata-check](../../../_includes/compute/disable-metadata-check.md) %}
+
+#### См. также {#see-also}
+
+* [{#T}](../vm-connect/ssh.md)

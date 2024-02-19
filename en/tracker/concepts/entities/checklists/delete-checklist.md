@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To delete all checklist items, use an HTTP `DELETE` request.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/checklistItems
+DELETE /{{ ver }}/entities/<entity_type>/<entity_ID>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -31,7 +31,7 @@ Authorization: OAuth <OAuth_token>
 > - The response displays information about the checklist (`fields=checklistItems`).
 >
 > ```
-> DELETE /v2/entities/project/6586d6fee2b9ef74********/checklistItems?fields=checklistItems
+> DELETE /v2/entities/project/<project_ID>/checklistItems?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -55,9 +55,9 @@ Authorization: OAuth <OAuth_token>
        "shortId": 0,
        "entityType": "project",
        "createdBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_ID",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
@@ -76,7 +76,7 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the entity. | String |
    | id | Entity ID. | String |
    | version | Entity version. Each change of the parameters increases the version number. | Number |
-   | shortId | Project or portfolio ID. | Number |
+   | shortId | Project or portfolio ID | Number |
    | entityType | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
    | createdBy | Object with information about the entity creator. | Object |
    | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
@@ -90,10 +90,10 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
-   `fields` **object fields** {#fields}
+   `Fields` **object fields** {#fields}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -103,9 +103,9 @@ Authorization: OAuth <OAuth_token>
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | id | Checklist item ID. | Number |
+   | id | Сhecklist item ID. | Number |
    | text | Text of the checklist item. | String |
-   | checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Boolean |
+   | checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Logical |
    | checklistItemType | Checklist item type:<ul><li>Standard</li><li>Metric</li><li>Criterion</li><li>Filter</li></ul> | String |
 
    {% endcut %}

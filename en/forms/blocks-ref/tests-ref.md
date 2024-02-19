@@ -15,5 +15,5 @@ For more information, see:
 - [How to conduct a test](../tests.md)
 - [How to score tests](../tests.md#test-result)
 - [How to show test results](../success-page.md#test)
-- [How to view correct and incorrect responses](../answers.md#answer-in-detail)
+- [How to view responses](../answers.md)
 

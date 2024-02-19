@@ -34,7 +34,7 @@ To schedule creation of issues:
 
    1. Specify the period of creating issues in the selected units. To do this, enter a number between 1 and 1000 in the **Every** field.
 
-      For example, if you specify <q>Every 4 days</q>, a new issue is created every 4 days.
+      For example, if you specify **Every 4 days**, a new issue will be created every 4 days.
 
       ![](../../_assets/tracker/schedule-setup.png)
 

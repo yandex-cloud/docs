@@ -12,7 +12,7 @@ Before making the request, [get permission to access the API](../../access.md).
 To get a list of attachments, use an HTTP `GET` request.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/attachments
+GET /{{ ver }}/entities/<entity_type>/<entity_ID>/attachments
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -28,7 +28,7 @@ Authorization: OAuth <OAuth_token>
 > - The response displays information about all the files attached to the entity.
 >
 > ```
-> GET /v2/entities/project/6586d6fee2b9ef74********/attachments
+> GET /v2/entities/project/<project_ID>/attachments
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -52,9 +52,9 @@ Authorization: OAuth <OAuth_token>
            "name": "Shops.csv",
            "content": "{{ host }}/v2/attachments/3/Shops.csv",
            "createdBy": {
-               "self": "{{ host }}/v2/users/1990********",
-               "id": "employee_ID",
-               "display": "Full_name",
+               "self": "{{ host }}/v2/users/19********",
+               "id": "19********",
+               "display": "Full name",
                "cloudUid": "ajeppa7dgp53********",
                "passportUid": "15********"
            },
@@ -68,9 +68,9 @@ Authorization: OAuth <OAuth_token>
            "name": "flowers.jpg",
            "content": "{{ host }}/v2/attachments/5/flowers.jpg",
            "createdBy": {
-               "self": "{{ host }}/v2/users/1990********",
-               "id": "employee_ID",
-               "display": "Full_name",
+               "self": "{{ host }}/v2/users/19********",
+               "id": "19********",
+               "display": "Full name",
                "cloudUid": "ajeppa7dgp53********",
                "passportUid": "15********"
            },
@@ -107,7 +107,7 @@ Authorization: OAuth <OAuth_token>
    | id | User ID. | Number |
    | display | Displayed user name. | String |
    | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `metadata` **object fields** {#metadata}
 

@@ -12,15 +12,15 @@ Before making the request, [get permission to access the API](../access.md).
 To create an external link, use an HTTP `POST` request.
 
 ```
-POST /{{ ver }}/issues/<issue-id>/remotelinks?backlink=true
+POST /{{ ver }}/issues/<issue_ID_or_key>/remotelinks?backlink=true
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
     "relationship": "RELATES",
-    "key": "<object key>",
-    "origin": "<application ID>"
+    "key": "<object_key>",
+    "origin": "<application_ID>"
 }
 ```
 
@@ -33,7 +33,7 @@ Authorization: OAuth <OAuth token>
 **Additional parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | backlink | Set `true` to execute a [request from {{ tracker-name }}, when adding a link, to create a duplicate link in an external application](../../ext-app-setup.md#create). | Logical |
 
 {% endcut %}
@@ -43,7 +43,7 @@ Authorization: OAuth <OAuth token>
 **Required parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | relationship | Link type. We recommend using the value `RELATES`. | String |
 | key | Key of the external application object. | String |
 | origin | ID of the application whose object you need to create a link to. | String |
@@ -56,14 +56,14 @@ Authorization: OAuth <OAuth token>
 
 - Request executed successfully
 
-  {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
+   {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
-  The request body contains information about the created link in JSON format.
+   The request body contains information about the created link in JSON format.
 
    ```json
     {
-        "self": "https://{{ host }}/{{ ver }}/issues/<issue-id>/remotelinks/51455195",
-        "id": 51455195,
+        "self": "https://{{ host }}/{{ ver }}/issues/<issue_ID_or_key>/remotelinks/51******",
+        "id": 51******,
         "type": {
             "self": "https://{{ host }}/{{ ver }}/linktypes/relates",
             "id": "relates",
@@ -72,24 +72,24 @@ Authorization: OAuth <OAuth token>
         },
         "direction": "outward",
         "object": {
-            "self": "https://{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/<object-id>",
-            "id": "<object-id>",
-            "key": "<object-key>",
+            "self": "https://{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/13570010********",
+            "id": "13570010********",
+            "key": "TEST-17",
             "application": {
-                "self": "https://{{ host }}/{{ ver }}/applications/<application-id>",
-                "id": "<application-id>",
-                "type": "<application-type>",
-                "name": "<application-name>"
+                "self": "https://{{ host }}/{{ ver }}/applications/25811000********",
+                "id": "25811000********",
+                "type": "app",
+                "name": "test-app"
             }
         },
         "createdBy": {
-            "self": "https://{{ host }}/{{ ver }}/users/1120000000232694",
-            "id": "user-name",
+            "self": "https://{{ host }}/{{ ver }}/users/11********",
+            "id": "11********",
             "display": "display-user-name"
         },
         "updatedBy": {
-            "self": "https://{{ host }}/{{ ver }}/users/1120000000232694",
-            "id": "user-name",
+            "self": "https://{{ host }}/{{ ver }}/users/11********",
+            "id": "11********",
             "display": "display-user-name"
         },
         "createdAt": "2021-07-19T06:18:09.327+0000",
@@ -98,69 +98,71 @@ Authorization: OAuth <OAuth token>
 
    ```
 
-    {% cut "Response parameters" %}
+   {% cut "Response parameters" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the external link. | String |
-    | id | Link ID. | String |
-    | [type](#type) | Block with information about the link type. | Object |
-    | direction {#direction} | Link "direction". The parameter is relevant for non-symmetric link types, such as "Parent issue" — "Sub-issue". Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the object.</li><li>`inward`: The object is the main one for the issue specified in the request.</li></ul> | String |
-    | [object](#object){#object-param} | Block with information about an external application object. | Object |
-    | [createdBy](#createdBy) | Block with information about the user who created the link. | Object |
-    | [updatedBy](#updatedBy) | Block with information about the employee who updated the link last. | Object |
-    | createdAt | Link creation date and time. | String |
-    | updatedAt | Date and time when the link was last updated. | String |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Address of the API resource with information about the external link. | String |
+   | id | Link ID. | String |
+   | [type](#type) | Block with information about the link type. | Object |
+   | direction {#direction} | Link direction. This parameter is relevant for non-symmetric link types, e.g., _Parent issue: Sub-issue_. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the object.</li><li>`inward`: The object is the main one for the issue specified in the request.</li></ul> | String |
+   | [object](#object){#object-param} | Block with information about an external application object. | Object |
+   | [createdBy](#createdBy) | Block with information about the user who created the link. | Object |
+   | [updatedBy](#updatedBy) | Block with information about the employee who updated the link last. | Object |
+   | createdAt | Link creation date and time. | String |
+   | updatedAt | Date and time when the link was last updated. | String |
 
-    `type` **object fields** {#type}
+   `type` **object fields**
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the link type. | String |
-    | id | ID of the link type. | String |
-    | inward | Link type name depending on the ["direction"](#direction). | String |
-    | outward | Link type name depending on the ["direction"](#direction). | String |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Address of the API resource with information about the link type. | String |
+   | id | ID of the link type. | String |
+   | inward | Link type name depending on the [direction](#direction). | String |
+   | outward | Link type name depending on the [direction](#direction). | String |
 
 
-    `object` **object fields** {#object}
+   `object` **object fields** {#object}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the external application object. | String |
-    | id | Object ID. | String |
-    | key | Object key. | String |
-    | [application](#application) | Block with information about the external application. | Object |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Address of the API resource with information about the external application object. | String |
+   | id | Object ID. | String |
+   | key | Object key. | String |
+   | [application](#application) | Block with information about the external application. | Object |
 
-    `application` **object fields** {#application}
+   `application` **object fields** {#application}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the external application. | String |
-    | id | Application ID. | String |
-    | type | Application type. | String |
-    | name | Application name displayed. | String |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Address of the API resource with information about the external application. | String |
+   | id | Application ID. | String |
+   | type | Application type. | String |
+   | name | Application name displayed. | String |
 
-    `createdBy` **object fields** {#createdBy}
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   `createdBy` **object fields** {#createdBy}
 
-    `updatedBy` **object fields** {#updatedBy}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    {% endcut %}
+   `updatedBy` **object fields** {#updatedBy}
+
+   {% include [user](../../../_includes/tracker/api/user.md) %}
+
+   {% endcut %}
 
 - Request failed
 
-  If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
+   {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
+   {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 

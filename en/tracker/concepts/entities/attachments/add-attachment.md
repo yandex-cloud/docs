@@ -12,7 +12,7 @@ Before making the request, [get permission to access the API](../../access.md).
 To attach a file, use an HTTP `POST` request:
 
 ```json
-POST /{{ ver }}/entities/<entityType>/<id>/attachments/<attachmentId>
+POST /{{ ver }}/entities/<entity_type>/<entity_ID>/attachments/<file_ID>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -24,9 +24,9 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| \<entityType> | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
-| \<id> | Entity ID. To get the ID, see the [entity list](../search-entities.md). | String |
-| \<attachmentId> | ID of a temporary file [preloaded](../../issues/temp-attachment.md) into {{ tracker-name }} | String |
+| \<entity_type> | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
+| \<entity_ID> | Entity ID. To get the ID, see the [entity list](../search-entities.md). | String |
+| \<file_ID> | ID of temporary file [preloaded](../../issues/temp-attachment.md) into {{ tracker-name }} | String |
 
 {% note warning %}
 
@@ -45,7 +45,7 @@ Entity ID is not the same as project or portfolio ID.
 | notify | Notify the users specified in the **Author**, **Responsible**, **Participants**, **Customers**, and **Followers** fields. The default value is `true`. | Boolean |
 | notifyAuthor | Notify the author of the changes. The default value is `false`. | Boolean |
 | [fields](../about-entities.md#query-params) | Additional entity fields to be included into the response. | String |
-| expand | Additional information to be included into the response: <ul><li>`all`: All</li><li>`attachments`: Attached files</li></ul> | String |
+| expand | Additional information to be included into the response: <ul><li>`all`: All</li><li>`attachments`: Attached files.</li></ul> | String |
 | filename | New name of the file with which it will be attached to the entity. | String |
 
 {% endcut %}
@@ -57,7 +57,7 @@ Entity ID is not the same as project or portfolio ID.
 > - The response displays information about all the attached files.
 >
 > ```
-> POST /v2/entities/project/6586d6fee2b9ef74********/attachments/30?expand=attachments&filename=newimage.jpg
+> POST /v2/entities/project/<project_ID>/attachments/30?expand=attachments&filename=newimage.jpg
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -75,15 +75,15 @@ Entity ID is not the same as project or portfolio ID.
 
    ```json
    {
-       "self": "{{ host }}/v2/entities/project/6586d6fee2b9ef74e69df1ef",
-       "id": "6586d6fee2b9ef74e69df1ef",
+       "self": "{{ host }}/v2/entities/project/6586d6fee2b9ef74********",
+       "id": "6586d6fee2b9ef74********",
        "version": 78,
        "shortId": 4,
        "entityType": "project",
        "createdBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_id",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
@@ -96,9 +96,9 @@ Entity ID is not the same as project or portfolio ID.
                "name": "newimage.jpg",
                "content": "{{ host }}/v2/attachments/4/newimage.jpg",
                "createdBy": {
-                   "self": "{{ host }}/v2/users/1990********",
-                   "id": "employee_id",
-                   "display": "Full_name",
+                   "self": "{{ host }}/v2/users/19********",
+                   "id": "19********",
+                   "display": "Full name",
                    "cloudUid": "ajeppa7dgp53********",
                    "passportUid": "15********"
                },
@@ -119,7 +119,7 @@ Entity ID is not the same as project or portfolio ID.
    | version | Entity version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID. | String |
    | entityType | Entity type. | String |
-   | [createdBy](#created-by) | Block with information about the entity creator. | Object |
+   | [createdBy](#created-by) | Block with information about the user who created the entity. | Object |
    | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
    | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
    | [attachments](#attachments) | Array of objects with information about the attachment. | Array of objects |
@@ -147,7 +147,7 @@ Entity ID is not the same as project or portfolio ID.
    | id | User ID. | Number |
    | display | Displayed user name. | String |
    | cloudUid | User unique ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `metadata` **object fields** {#metadata}
 
