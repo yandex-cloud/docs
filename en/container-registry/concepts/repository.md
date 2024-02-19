@@ -13,7 +13,7 @@ A repository is defined by the `<registry_ID>/<Docker_image_name>` combination.
 * In {{ yandex-cloud }} CLI commands, use the repository name without the {{ container-registry-name }} address:
 
    ```bash
-   yc container image list --repository-name=<registry_ID>/<<Docker_image_name>
+   yc container image list --repository-name=<registry_ID>/<Docker_image_name>
    ```
 
 For a repository, you can set a [policy for automatically deleting Docker images](lifecycle-policy.md). Based on these rules, Docker images will be deleted automatically.
