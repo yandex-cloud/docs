@@ -21,12 +21,29 @@
 
 ### Сервисные роли {#service-roles}
 
-* `loadtesting.viewer` — разрешает просмотр отчетов и созданных агентов.
-* `loadtesting.editor` — разрешает просмотр и удаление отчетов, создание, удаление или редактирование [ВМ](../../glossary/vm.md) с агентами, разрешает запуск нагрузочных тестов, остановку теста, загрузку тестовых данных и результатов в хранилище.
-* `loadtesting.admin` — на данный момент в сервисе не предусмотрено администрирование, поэтому разрешения роли совпадают с разрешениями `loadtesting.editor`.
-* `loadtesting.loadTester` — разрешает просмотр и удаление отчетов, создание, удаление или редактирование ВМ с агентами, разрешает запуск нагрузочных тестов, остановку теста, загрузку тестовых данных.
-* `loadtesting.generatorClient` — разрешает запуск ВМ, запуск теста на агенте и загрузку результатов в хранилище (назначается на сервисный аккаунт, от которого создается ВМ с агентом).
-* `loadtesting.externalAgent` — разрешает регистрировать агентов, созданных вне сервиса {{ load-testing-name }}, а также создавать, изменять и запускать тесты и передавать их результаты в {{ load-testing-name }}.
+#### loadtesting.viewer {#loadtesting-viewer}
+
+{% include [loadtesting.viewer](../../_roles/loadtesting/viewer.md) %}
+
+#### loadtesting.editor {#loadtesting-editor}
+
+{% include [loadtesting.editor](../../_roles/loadtesting/editor.md) %}
+
+#### loadtesting.admin {#loadtesting-admin}
+
+{% include [loadtesting.admin](../../_roles/loadtesting/admin.md) %}
+
+#### loadtesting.loadTester {#loadtesting-loadtester}
+
+{% include [loadtesting.loadtester](../../_roles/loadtesting/loadTester.md) %}
+
+#### loadtesting.generatorClient {#loadtesting-generatorclient}
+
+{% include [loadtesting.generatorclient](../../_roles/loadtesting/generatorClient.md) %}
+
+#### loadtesting.externalAgent {#loadtesting-externalagent}
+
+{% include [loadtesting.externalagent](../../_roles/loadtesting/externalAgent.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

@@ -1,6 +1,6 @@
 # Slack
 
-Let's assume that you need to automatically send notifications to the messenger whenever an issue changes its status. You may need it to see when your releases are ready for testing. To do this, [create a trigger](user/trigger.md) that keeps track of <q>Release</q> issue statuses and sends an HTTP request when the issue status changes to <q>{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}</q>.
+Let's assume that you need to automatically send notifications to the messenger whenever an issue changes its status. You may need it to see when your releases are ready for testing. To do this, [create a trigger](user/trigger.md) that will keep track of issue statuses such as **Release** and send an HTTP request when the issue status changes to **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}**.
 
 If you want to send {{ tracker-name }} notifications to team chats, set up an external app in Slack and create a trigger that will send messages to Slack via HTTP requests.
 
@@ -10,9 +10,9 @@ If you want to send {{ tracker-name }} notifications to team chats, set up an ex
 
 1. Connect {{ tracker-name }} to Slack as an external app (Slack App):
 
-   1. Follow the link [Create your Slack app](https://api.slack.com/apps/new).
+   1. Follow the [Create your Slack app](https://api.slack.com/apps/new) link.
 
-   1. Give your app a name, e.g., <q>Tracker</q>.
+   1. Name your app, e.g., _Tracker_.
 
    1. Select the workspace to connect {{ tracker-name }} to.
 
@@ -38,7 +38,7 @@ If you want to send {{ tracker-name }} notifications to team chats, set up an ex
 
 1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](user/create-trigger.md).
 
-1. Name the trigger, e.g., <q>Slack notifications</q>.
+1. Name the trigger, e.g., _Slack notifications_.
 
 1. Configure trigger conditions so that the trigger is fired when the status of a **Release** issue changes to **{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.ready.for.test }}**:
 
@@ -71,6 +71,6 @@ If you want to send {{ tracker-name }} notifications to team chats, set up an ex
 
 1. Save your trigger.
 
-To test the trigger in action, change the issue status from **Release** to **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}**. The trigger sends a message to the group chat with the link to the issue and the following text: <q>Time to test the issue TEST-123: Configure triggers</q>.
+To test the trigger in action, change the issue status from **Release** to **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}**. The trigger will send a message to the team chat with the link to the issue and the following text: _Time to test the TEST-123 issue: Configure triggers_.
 
 

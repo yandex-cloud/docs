@@ -1,5 +1,10 @@
-The `managed-airflow.admin` role enables you to edit and delete clusters, view information about clusters, runtime logs, and quotas, as well as manage cluster access.
+The `managed-airflow.admin` role allows you to manage the Apache Airflow™ clusters and get information about quotas and service resource operations.
 
-To create clusters, you also need the `vpc.user` role.
+Users with this role can:
+* Manage access to the [Apache Airflow™ clusters](../../managed-airflow/concepts/index.md#cluster).
+* View information about the Apache Airflow™ clusters, as well as create, modify, and delete them.
+* Use the web interface to access the [Apache Airflow™ components](../../managed-airflow/concepts/index.md#components).
 
-It includes the `managed-airflow.editor` role.
+It includes the permissions of the `managed-airflow.editor` role.
+
+To create Apache Airflow™ clusters, you also need the `vpc.user` role.

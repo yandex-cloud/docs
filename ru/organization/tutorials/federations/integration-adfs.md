@@ -488,17 +488,17 @@ AD FS требует создавать _отношение доверия с п
    
       Пример CSV-файла:
 	  
-	  ```csv
-	  AD_username, Photo
+      ```csv
+      AD_username, Photo
       smith, C:\Photo\smith.jpg
       jones, C:\Photo\jones.jpg
-	  ```
+      ```
 	  
    1. Выполните команду:
    
-    ```
-	  Import-Csv <путь_к_CSV-файлу> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
-	  ```
+      ```
+      Import-Csv <путь_к_CSV-файлу> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
+      ```
    
 ## Добавьте пользователей в организацию {#add-users}
 

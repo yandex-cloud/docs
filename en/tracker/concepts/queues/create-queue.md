@@ -9,7 +9,7 @@ Use this request to create queues.
 
 Before making the request, [get permission to access the API](../access.md).
 
-To create a queue, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
+To create a queue, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format.
 
 ```
 POST /{{ ver }}/queues/
@@ -75,7 +75,7 @@ Authorization: OAuth <OAuth token>
           "version": 1400150916068,
           "name": "Design",
           "lead": {
-             "self": "https://{{ host }}/v2/users/1120000000004859",
+             "self": "https://{{ host }}/v2/users/44********",
              "id": "artemredkin",
              "display": "Artem Redkin"
        },
@@ -100,9 +100,9 @@ Authorization: OAuth <OAuth token>
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Queue link | String |
-   | id | Queue ID | Number in string format |
-   | key | Queue key | String |
+   | self | Queue link. | String |
+   | id | Queue ID. | Number in string format |
+   | key | Queue key. | String |
    | version | Queue version. Each change to the queue increases its version number. | Number |
    | name | Queue name | String |
    | [lead](#lead) | Block with information about the queue owner | Object |

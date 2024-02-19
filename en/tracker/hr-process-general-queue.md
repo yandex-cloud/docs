@@ -4,7 +4,7 @@ To resolve current issues received by the HR department from company employees, 
 
 ## Create a queue
 
-1. [Create a queue](manager/create-queue.md) using the <q>Start now</q> template.
+1. [Create a queue](manager/create-queue.md) using the *Start now* template.
 1. Give it a name, e.g., `General Questions`.
 1. Create additional issue types and workflows if needed.
 
@@ -27,10 +27,10 @@ To resolve current issues received by the HR department from company employees, 
 1. Use the following code as the comment's text:
 
    ```
-   {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/cloud/<form_id>/?iframe=1" frameborder=0 width=100% height=660px scrolling=no)
+   {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/cloud/<form_ID>/?iframe=1" frameborder=0 width=100% height=660px scrolling=no)
    ```
-   Where `<form_id>` is the ID of the form to add.
-1. Click ![](../_assets/tracker/summon.png) and in the **Invite users from field** line, enter <q>Assignee</q>.
+   Where `<form_ID>` is the ID of the form to add.
+1. Click ![](../_assets/tracker/summon.png) and enter *Assignee* in the **Invite users from field** line.
 1. Enable **Send as robot**.
 1. Click **Create** to save the trigger.
 

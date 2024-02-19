@@ -26,7 +26,7 @@ To send emails from the issue page:
 
    If the issue was [generated from a user email](#mail), the requester's email address will be automatically added to the **{{ ui-key.startrek-backend.fields.issue.emailTo }}** field.
 
-   If you are [using forms to process user requests](#form), ask users to provide their email address in the form and save their responses in the issue's <q>{{ ui-key.startrek-backend.fields.issue.emailFrom }}</q> field. In this case, the **{{ ui-key.startrek-backend.fields.issue.emailTo }}** field will still be automatically filled in with the requester's email address.
+   If you [use forms to process user requests](#form), ask users to provide their email address in the form and save their responses in the **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** field of the issue. In this case, the **{{ ui-key.startrek-backend.fields.issue.emailTo }}** field will still be automatically filled in with the requester's email address.
 
 1. Click **Send**.
 

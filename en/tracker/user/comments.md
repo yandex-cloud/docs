@@ -41,7 +41,7 @@ To invite other users to discuss an issue:
 
 1. Enter the text of your comment.
 
-1. Click **Submit**.
+1. Click **Send**.
 
 Users invited to a discussion will be notified of the invitation:
 * By [email](notification-settings.md).
@@ -97,13 +97,13 @@ To send an email from the issue page:
 
    * Queue address
 
-      The <q>From</q> field will display the queue address. A response to such a message will become a comment to the issue.
+      The **From** field will display the queue address. A response to such a message will become a comment to the issue.
 
       You can [set up](../manager/queue-mail.md) multiple email addresses for the queue in the organization domain or on any other email server.
 
    * User's personal email address {{ tracker-name }}
 
-      The <q>From</q> field will display your name and personal email address linked to the account in {{ tracker-name }}. Response emails will be sent to your personal email address.
+      The **From** field will display your name and personal email address linked to the account in {{ tracker-name }}. Response emails will be sent to your personal email address.
 
 1. You can choose a **Nickname** for the queue address. Nicknames are used when emails need to be sent from the entire organization or service rather than from a single user.
 
@@ -111,8 +111,8 @@ To send an email from the issue page:
 
 1. Specify the recipient and enter the email text
 
-   To send a copy of an email to a different recipient, click ![](../../_assets/tracker/svg/icon-add.svg) **CC** and select their email address.
+   To send a copy of an email to a different recipient, click ![](../../_assets/tracker/svg/icon-add.svg) **Copy** and select their email address.
 
-1. Click **Submit**.
+1. Click **Send**.
 
 The user's response will automatically be added as an issue comment.

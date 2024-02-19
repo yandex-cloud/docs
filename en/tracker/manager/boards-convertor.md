@@ -9,7 +9,7 @@ Switching boards to [our new technologies](agile-new.md) allows you to add new f
 
 * Speed. You will no longer need to reload the page after each change: everything will display on the board immediately.
 * Sorting issues by any parameter.
-* Mass editing of issues.
+* Bulk changes to issues.
 * Updated backlog and poker planning.
 * Creating any columns with no link to the issue status.
 * Flexible configuration of issue cards on the board.
@@ -28,10 +28,10 @@ When migrating the board, the following is retained:
 * Name
 * Issues added
 * Status distribution by column
-* <q>{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_author }}</q> and <q>{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_assignee }}</q> filters
+* {{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_author }} and {{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_assignee }} filters
 * Filter for adding issues
 
-The board type is also retained during migration: **Basic** and **Kanban** (both have the same functionality) boards are converted into basic boards, while **Scrum** boards become boards with a backlog and sprints.
+The board type is also retained during migration: **Basic** and **Kanban** (have the same functionality) boards are converted into basic boards, while **Scrum** boards become boards with a backlog and sprints.
 
 When migrating the board, the following is not retained:
 
@@ -51,13 +51,13 @@ The **Update your board** button is available to all board users. Any user can p
 
 {% note info %}
 
-If you cannot see the **Update your board** button in your board's top panel, it means that your board has already switched to these technologies.
+If you cannot see the **Update your board** button in the top panel, it means that your board has already switched to these technologies.
 
 {% endnote %}
 
 To perform migration:
 
-1. In the top panel, click **Update your board**. Your board is verified for whether it can be migrated and the migration window opens.
+1. In the top panel, click **Update your board**. Your board will be checked for whether it can be migrated and the migration window will open.
 
 1. Review the migration window:
    * If there are errors, follow the recommendations on how to fix them and try again.

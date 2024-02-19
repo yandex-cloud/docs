@@ -32,21 +32,17 @@ description: "Управление доступом в сервисе монит
 
 ### Сервисные роли {#service-roles}
 
-#### {{ roles-monitoring-viewer }} {#monitoring-viewer}
+#### monitoring.viewer {#monitoring-viewer}
 
-Пользователь с ролью `{{ roles-monitoring-viewer }}` может просматривать созданные дашборды и виджеты, а также загруженные метрики.
+{% include [monitoring.viewer](../../_roles/monitoring/viewer.md) %}
 
-#### {{ roles-monitoring-editor }} {#monitoring-editor}
+#### monitoring.editor {#monitoring-editor}
 
-Пользователь с ролью `{{ roles-monitoring-editor }}` может создавать дашборды и виджеты, загружать метрики и управлять алертами.
+{% include [monitoring.editor](../../_roles/monitoring/editor.md) %}
 
-Помимо этого роль `{{ roles-monitoring-editor }}` включает в себя все разрешения роли `{{ roles-monitoring-viewer }}`.
+#### monitoring.admin {#monitoring-admin}
 
-#### {{ roles-monitoring-admin }} {#monitoring-admin}
-
-Пользователь с ролью `{{ roles-monitoring-admin }}` может создавать дашборды и виджеты, загружать метрики и управлять алертами.
-
-Помимо этого роль `{{ roles-monitoring-admin }}` включает в себя все разрешения роли `{{ roles-monitoring-editor }}`.
+{% include [monitoring.admin](../../_roles/monitoring/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

@@ -110,9 +110,9 @@ The spreadsheet must include columns with issue parameters. The same column name
 
       ```
       from yandex_tracker_client import TrackerClient
-      client = TrackerClient(token='<token>', org_id='<org_id>')
+      client = TrackerClient(token='<OAuth_token>', org_id='<organization_ID>')
       ```
-      Here, `<token>` is your OAuth token and `<org_id>` is your organization ID. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is specified in the **Organization ID for API** field.
+      Here, `<OAuth_token>` is your OAuth token and `<organization_ID>` is your organization ID. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
    1. Attach libraries.
 
@@ -128,12 +128,12 @@ The spreadsheet must include columns with issue parameters. The same column name
 
    Let's look at an example of how the script will import the spreadsheet with the column names **Issue**, **Description**, **End date**, **Assignee**. You can add other fields to the spreadsheet and the script.
 
-   {% cut "How to execute the script?" %}
+   {% cut "How to execute the script" %}
 
-   1. Upload the data file.
+   1. Upload your file with data.
 
       ```
-      df = pd.read_excel(r'C:\<file path>\<file name>.xls')
+      df = pd.read_excel(r'C:\<file_path>\<file_name>.xls')
       ```
 
    1. Check that the names of the spreadsheet columns have been added to the script.
@@ -158,7 +158,7 @@ The spreadsheet must include columns with issue parameters. The same column name
                 end=""
 
             issue=client.issues.create(
-                queue='TEST',
+                queue='<queue_name>',
                 summary=row['Issue'],
                 type={'name': 'Issue'},
                 description=row['Description']+"\n\nAdditional description :\n\nhttps://tracker.yandex.ru/",
@@ -166,7 +166,7 @@ The spreadsheet must include columns with issue parameters. The same column name
                 end=end
        )
             issue.update(author='<login>')
-            issue.update(<Field key>='<value>')
+            issue.update(<field_key>='<value>')
 
       ```
    {% endcut %}

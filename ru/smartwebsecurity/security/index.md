@@ -24,15 +24,25 @@ description: "В разделе описано, на какие ресурсы �
 
 ### Сервисные роли {#service-roles}
 
-{% include [sws-auditor](../../_includes/iam/roles/sws-auditor.md) %}
+#### smart-web-security.auditor {#smart-web-security-auditor}
 
-{% include [sws-viewer](../../_includes/iam/roles/sws-viewer.md) %}
+{% include [sws-auditor](../../_roles/smart-web-security/auditor.md) %}
 
-{% include [sws-user](../../_includes/iam/roles/sws-user.md) %}
+#### smart-web-security.viewer {#smart-web-security-viewer}
 
-{% include [sws-editor](../../_includes/iam/roles/sws-editor.md) %}
+{% include [sws-viewer](../../_roles/smart-web-security/viewer.md) %}
 
-{% include [sws-admin](../../_includes/iam/roles/sws-admin.md) %}
+#### smart-web-security.user {#smart-web-security-user}
+
+{% include [sws-user](../../_roles/smart-web-security/user.md) %}
+
+#### smart-web-security.editor {#smart-web-security-editor}
+
+{% include [sws-editor](../../_roles/smart-web-security/editor.md) %}
+
+#### smart-web-security.admin {#smart-web-security-admin}
+
+{% include [sws-admin](../../_roles/smart-web-security/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

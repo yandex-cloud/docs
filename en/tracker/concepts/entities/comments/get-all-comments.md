@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To get comments, use an HTTP `GET` request.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/comments
+GET /{{ ver }}/entities/<entity_type>/<entity_ID>/comments
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -38,7 +38,7 @@ Authorization: OAuth <OAuth_token>
 > - The response displays information about all comments.
 >
 > ```
-> GET /v2/entities/project/6586d6fee2b9ef74********/comments?expand=all
+> GET /v2/entities/project/<project_ID>/comments?expand=all
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -70,16 +70,16 @@ Authorization: OAuth <OAuth_token>
                }
            ],
            "createdBy": {
-               "self": "{{ host }}/v2/users/1990********",
-               "id": "employee_ID",
-               "display": "Full_name",
+               "self": "{{ host }}/v2/users/19********",
+               "id": "19********",
+               "display": "Full Name",
                "cloudUid": "ajeppa7dgp53********",
                "passportUid": "15********"
            },
            "updatedBy": {
-               "self": "{{ host }}/v2/users/1990********",
-               "id": "employee_ID",
-               "display": "Full_name",
+               "self": "{{ host }}/v2/users/19********",
+               "id": "19********",
+               "display": "Full Name",
                "cloudUid": "ajeppa7dgp53********",
                "passportUid": "15********"
            },
@@ -88,9 +88,9 @@ Authorization: OAuth <OAuth_token>
            "usersReacted": {
                "like": [
                    {
-                       "self": "{{ host }}/v2/users/1993********",
-                       "id": "employee_ID",
-                       "display": "Full_name",
+                       "self": "{{ host }}/v2/users/19********",
+                       "id": "19********",
+                       "display": "Full Name",
                        "cloudUid": "ajeppa7dgp71********",
                        "passportUid": "16********"
                    }
@@ -99,9 +99,9 @@ Authorization: OAuth <OAuth_token>
            "ownReactions": ["like"],
            "summonees": [
                {
-                   "self": "{{ host }}/v2/users/1972********",
-                   "id": "employee_ID",
-                   "display": "Full_name",
+                   "self": "{{ host }}/v2/users/19********",
+                   "id": "19********",
+                   "display": "Full Name",
                    "cloudUid": "ajeppa7dgp32********",
                    "passportUid": "12********"
                }
@@ -144,8 +144,8 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `updatedBy` **object fields** {#updated-by}
 
@@ -154,8 +154,8 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `usersReacted` **object fields** {#users-reacted}
 
@@ -164,8 +164,8 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    {% endcut %}
 
@@ -186,7 +186,7 @@ Authorization: OAuth <OAuth_token>
 For paginated display of results, use an HTTP `GET` request.
 
 ```json
-GET /{{ ver }}/entities/<entityType>/<id>/comments/_relative
+GET /{{ ver }}/entities/<entity_type>/<entity_ID>/comments/_relative
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -196,15 +196,15 @@ Specify additional parameters in the query string:
 
 #|
 || **Parameter** | **Description** | **Data type** ||
-|| perPage | Defines the maximum number of comments in a response. The default value is 50. | Number ||
+|| perPage | Defines the maximum number of comments in a response. Default value is 50 | Number ||
 || from | ID of the comment after which the list starts to be generated. The comment itself is not included in the list. Not used together with the `selected` parameter. | String ||
-|| selected | ID of the comment around which the list is generated. Not specified together with the `from` parameter. The list is generated in the following order (for `perPage=5`):
+|| selected | ID of the comment around which the list is generated. Not specified with the `from` parameter. The list is generated in the following order (for `perPage=5`):
 1. Comment with the specified ID.
-1. Comment preceding the first comment.
-1. Comment following the first comment.
-1. Comment preceding the second comment.
-1. Comment following the third comment. | String ||
-|| newCommentsOnTop | Reverses the order of comments in the list. The default value is `false`. | Boolean ||
+2. Comment preceding the first comment.
+3. Comment following the first comment.
+4. Comment preceding the second comment.
+5. Сomment following the third comment. | String ||
+|| newCommentsOnTop | Reverses the order of comments in the list. The default value is `false`. | Logical ||
 || direction | Determines the order of comments in the list:
 * `forward` (default)
 * `backward`: Inverts the `newCommentsOnTop` parameter value. | String ||
@@ -218,7 +218,7 @@ If no parameters are specified, the full list of entities is displayed.
 > - The response displays information about three comments starting with `65a1bdbdb02b780b31********`.
 >
 > ```
-> GET /v2/entities/project/6586d6fee2b9ef74********/comments/_relative?perPage=3&from=65a1bdb02b780b31********
+> GET /v2/entities/project/<project_ID>/comments/_relative?perPage=3&from=65a1bdb02b780b31********
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -270,8 +270,8 @@ If no parameters are specified, the full list of entities is displayed.
    | Parameter | Description | Data type |
    ----- | ----- | -----
    | comments | List of comments. | List of objects |
-   | hasNext | Indicates the presence of subsequent entries in the list. | Boolean |
-   | hasPrev | Indicates the presence of previous entries in the list. | Boolean |
+   | hasNext | Indicates the presence of subsequent entries in the list. | Logical |
+   | hasPrev | Indicates the presence of previous entries in the list. | Logical |
 
    {% endcut %}
 

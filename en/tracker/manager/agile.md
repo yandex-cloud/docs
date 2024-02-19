@@ -50,26 +50,26 @@ Backlog {#dlen_backlog}
 :   List of issues or product requirements that must be completed in the project. Backlog issues are usually sorted by priority.
 
 Sprint{#dlen_sprint}
-:  Project cycle, usually lasting from one to four weeks. It is assumed that, under each sprint, a team should develop a set of new features (also known as increment) and make it release-ready.
+:   Project cycle, usually lasting from one to four weeks. It is assumed that, under each sprint, a team should develop a set of new features (also known as increment) and make it release-ready.
 
 Planning poker
-:   A method for [collaboratively estimating issue complexity](planning-poker.md) using cards, where team members each rate complexity in [Story Points](#dlen_sp).
+:   Method for [collaboratively estimating issue complexity](planning-poker.md) using cards, where team members each rate complexity in [story points](#dlen_sp).
 
 Issue board {#dlen_board}
-:   A board for tracking the status of issues in the current sprint. Columns on the board correspond to issue statuses. Cards with issue descriptions are pinned to the board and [moved between columns as the issue status updates](../user/agile.md).
+:   Board for tracking the status of issues in the current sprint. Columns on the board correspond to issue statuses. Cards with issue descriptions are pinned to the board and [moved between columns as the issue status updates](../user/agile.md).
 
-Burn down chart {#dlen_burndown}
-:  Chart that [shows how fast planned issues are completed](burndown.md) during a sprint and the amount of work remaining.
+Burndown chart {#dlen_burndown}
+:   Chart that [shows how fast planned issues are completed](burndown.md) during a sprint and the amount of work remaining.
 
-User Story
-:   Description of a feature that needs to be implemented in a product as a result of previous experiences or issues faced by users. User Story is broken down into individual issues. You can use Story issues to [group any issues](../user/links.md) based on a common topic in {{ tracker-name }}.
+User story
+:   Description of a feature to implement in a product based on the previous experiences or problems faced by users. A user story is broken down into individual issues. You can use **Story** issues to [group any issues](../user/links.md) based on a common topic in {{ tracker-name }}.
 
-Story Point {#dlen_sp}
-:   Relative rating that describes the effort needed to complete an issue. The Story Point unit is not usually measured in terms of man-hours. [The team rates issues collectively](planning-poker.md) by comparing them to a simple task.
+Story point {#dlen_sp}
+:   Relative rating that describes the effort needed to complete an issue. A story point unit is not usually measured in terms of man-hours. [The team rates issues collectively](planning-poker.md) by comparing them to a simple task.
 
 Epic
-:   Large feature or requirement that cannot be implemented within a single sprint. It is usually broken down into several User Stories or issues. You can use Epics to [group any issues](../user/links.md) based on a common topic in {{ tracker-name }}.
+:  Large feature or requirement that cannot be implemented within a single sprint. It is usually broken down into several user stories or issues. You can use epics to [group any issues](../user/links.md) based on a common topic in {{ tracker-name }}.
 
 Sub-epic
-:   Issue that is included in an epic.
+:  Issue that is included in an epic.
 

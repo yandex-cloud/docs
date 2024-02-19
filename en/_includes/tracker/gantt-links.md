@@ -1,13 +1,13 @@
 Links between issues are shown as arrows from the dependent to the blocking issue if all of the following conditions are met:
 
-   1. There is a start date and deadline for both tasks.
-   1. There is a "Depends on – Blocks" connection configured.
+1. There is a start date and deadline for both tasks.
+1. There is a _Depends on – Blocks_ link configured.
 
-* To add a "Depends on – Blocks" [connection](../../tracker/user/links.md), hover the mouse pointer over the blocking task bar: dots will appear to the right and left of the bar.
+* To add a _Depends on – Blocks_ [link](../../tracker/user/links.md), hover over the blocking issue bar so that the dots appear to the right and left of the bar.
 
-   * To make the selected issue dependent, click the point on the left and drag it to the blocking issue.
+   * To make the selected issue dependent, click the dot on the left and drag it to the blocking issue.
 
-   * To make the selected issue blocking, click the point on the right and drag it to the dependent issue.
+   * To make the selected issue blocking, click the dot on the right and drag it to the dependent issue.
 
    {% note info %}
 

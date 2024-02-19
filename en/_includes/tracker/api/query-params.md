@@ -22,7 +22,7 @@ In the query `fields` parameter, specify one or more values:
 > For example, you can configure the response to include a project description and checklist items information:
 >
 > ```
-> POST /{{ ver }}/entities/<entityType>/<id>/checklistItems?fields=description&fields=checklistItems
+> POST /{{ ver }}/entities/<entity_type>/<entity_ID>/checklistItems?fields=description&fields=checklistItems
 > ```
 
 The response body will include the requested information in JSON format.

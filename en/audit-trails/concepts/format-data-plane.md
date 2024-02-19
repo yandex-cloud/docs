@@ -4,8 +4,6 @@ You can track [data (data plane) events](events-data-plane.md) to make sure only
 
 You can analyze data event logs to optimize the use of resources in your infrastructure. Thus, you can determine what resources are used most often and enhance their performance, or identify rarely used resources that can be grouped or removed to cut costs.
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 {% note warning %}
 
 When setting up collection of data events for an {{ objstorage-name }} bucket, we do not recommend using the same bucket as a [destination object](./trail.md#target) for uploading logs. This may cause automatic recursive generation of audit logs and, consequently, an increase in the size of generated logs (by about 16 MB per month for all events per trail saved to the bucket).

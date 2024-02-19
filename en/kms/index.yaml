@@ -4,6 +4,12 @@ description:
     Yandex Key Management Service helps you create and manage encryption keys to
     protect your data in the Yandex Cloud infrastructure and encrypt or decrypt
     any data.
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the
+     <a href="https://yandex.com/legal/cloud_sla_kms">Service Level
+     for Yandex Key Management Service</a>.
 meta:
   title: Yandex Key Management Service
   description: >-

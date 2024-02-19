@@ -5,12 +5,6 @@ description: "В данной статье описаны особенности
 
 # Асимметричная ключевая пара подписи в {{ kms-short-name }}
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 Асимметричная ключевая пара электронной подписи состоит из двух частей: открытого ключа подписи (Public key) и закрытого ключа подписи (Private key). Закрытый ключ используется для создания электронной подписи, открытый — для ее проверки.
 
 {% include [asymmetric-keys-quota](../../_includes/kms/asymmetric-keys-quota.md) %}

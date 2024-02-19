@@ -1,7 +1,11 @@
-The `managed-clickhouse.editor` role grants read and write access to ClickHouse clusters.
+The `managed-clickhouse.editor` role allows you to manage ClickHouse® clusters and view their logs, as well as get information about quotas and service resource operations.
 
-Users with this role can create, edit, delete, run, and stop ClickHouse clusters, read and write to databases, and view information about clusters, runtime logs, and quotas.
+Users with this role can:
+* View information about [ClickHouse® clusters](../../managed-clickhouse/concepts/index.md), as well as create, modify, delete, run, and stop them.
+* View ClickHouse® cluster logs.
+* View information about [quotas](../../managed-clickhouse/concepts/limits.md#mch-quotas) of Managed Service for ClickHouse®.
+* View information about operations with resources of Managed Service for ClickHouse®.
 
 It includes the permissions of the `managed-clickhouse.viewer` role.
 
-To create ClickHouse clusters, you also need the `vpc.user` role.
+To create ClickHouse® clusters, you also need the `vpc.user` role.

@@ -20,29 +20,41 @@
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Роли {#roles}
+## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ yds-name }}.
 
-{% include [yds-viewer](../../_includes/iam/roles/yds-viewer.md) %}
+### Сервисные роли {#service-roles}
 
-{% include [yds-writer](../../_includes/iam/roles/yds-writer.md) %}
+#### yds.viewer {#yds-viewer}
 
-{% include [yds-editor](../../_includes/iam/roles/yds-editor.md) %}
+{% include [yds.viewer](../../_roles/yds/viewer.md) %}
 
-{% include [yds-admin](../../_includes/iam/roles/yds-admin.md) %}
+#### yds.writer {#yds-writer}
 
-### {{ roles-viewer }} {#viewer}
+{% include [yds.writer](../../_roles/yds/writer.md) %}
+
+#### yds.editor {#yds-editor}
+
+{% include [yds.editor](../../_roles/yds/editor.md) %}
+
+#### yds.admin {#yds-admin}
+
+{% include [yds.admin](../../_roles/yds/admin.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+#### {{ roles-viewer }} {#viewer}
 
 Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например посмотреть список потоков данных, баз данных, где созданы потоки, и их свойств.
 
-### {{ roles-editor }} {#editor}
+#### {{ roles-editor }} {#editor}
 
 Пользователь с ролью `{{ roles-editor }}` может управлять любыми ресурсами, например создать поток данных или его удалить. Кроме этого, данная роль позволяет записывать данные из приложений в потоки данных.
 
 Помимо этого роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям создавать потоки данных или просматривать информацию о них.
 

@@ -28,37 +28,45 @@ description: "Управление доступом в сервисе, пред�
 
 ### Сервисные роли {#service-roles}
 
-{% include [projects-viewer](../../_includes/roles-datasphere-project-viewer.md) %}
+#### datasphere.community-projects.viewer {#datasphere-communityprojects-viewer}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-viewer }}` имеют роль `Viewer` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
+{% include [datasphere.community-projects.viewer](../../_roles/datasphere/community-projects/viewer.md) %}
 
-{% include [projects-developer](../../_includes/roles-datasphere-projects-developer.md) %}
+#### datasphere.community-projects.developer {#datasphere-communityprojects-developer}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-developer }}` имеют роль `Developer` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
+{% include [datasphere.community-projects.developer](../../_roles/datasphere/community-projects/developer.md) %}
 
-{% include [projects-editor](../../_includes/roles-datasphere-projects-editor.md) %}
+#### datasphere.community-projects.editor {#datasphere-communityprojects-editor}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-editor }}` имеют роль `Editor` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
+{% include [datasphere.community-projects.editor](../../_roles/datasphere/community-projects/editor.md) %}
 
-{% include [projects-admin](../../_includes/roles-datasphere-projects-admin.md) %}
+#### datasphere.community-projects.admin {#datasphere-communityprojects-admin}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-admin }}` имеют роль `Admin` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
+{% include [datasphere.community-projects.admin](../../_roles/datasphere/community-projects/admin.md) %}
 
-{% include [communities-viewer](../../_includes/roles-datasphere-communities-viewer.md) %}
+#### datasphere.communities.viewer {#datasphere-communities-viewer}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-viewer }}` имеют роль `Viewer` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
+{% include [datasphere.communities.viewer](../../_roles/datasphere/communities/viewer.md) %}
 
-{% include [communities-developer](../../_includes/roles-datasphere-communities-developer.md) %}
+#### datasphere.communities.developer {#datasphere-communities-developer}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-developer }}` имеют роль `Developer` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
+{% include [datasphere.communities.developer](../../_roles/datasphere/communities/developer.md) %}
 
-{% include [communities-editor](../../_includes/roles-datasphere-communities-editor.md) %}
+#### datasphere.communities.editor {#datasphere-communities-editor}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-editor }}` имеют роль `Editor` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
+{% include [datasphere.communities.editor](../../_roles/datasphere/communities/editor.md) %}
 
-{% include [communities-admin](../../_includes/roles-datasphere-communities-admin.md) %}
+#### datasphere.communities.admin {#datasphere-communities-admin}
 
-В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-admin }}` имеют роль `Admin` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
+{% include [datasphere.communities.admin](../../_roles/datasphere/communities/admin.md) %}
+
+#### datasphere.user {#datasphere-user}
+
+{% include [datasphere.user](../../_roles/datasphere/user.md) %}
+
+#### datasphere.admin {#datasphere-admin}
+
+{% include [datasphere.admin](../../_roles/datasphere/admin.md) %}
 
 > {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
 

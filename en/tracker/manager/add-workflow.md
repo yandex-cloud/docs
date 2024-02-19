@@ -18,7 +18,7 @@ How to manage workflows:
 
 1. One of the statuses should be the [workflow start](./workflow-status-edit.md#initial-status).  Statuses of any type can act as the workflow start.
 
-1. At least one status must be of the <q>Completed</q> or <q>Canceled</q> [type](./workflow-status-edit.md#status-types): you will not be able to close issues in your queue without it.
+1. At least one status must be of the **Completed** or **Canceled** [type](./workflow-status-edit.md#status-types): you will not be able to close issues in your queue without it.
 
 ## Creating a workflow {#create}
 
@@ -40,9 +40,9 @@ To copy a workflow from a different queue:
 1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 1. In the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab, click ![](../../_assets/tracker/svg/copy-process.svg).
 1. In the window that opens, fill in the fields:
-   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-queue }}**
-   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-workflow }}**
-   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-name }}**
+   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-queue }}**.
+   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-workflow }}**.
+   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-name }}**.
 1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.action-copy }}**.
 
 ## Deleting a workflow {#section_s35_xz5_vbb}

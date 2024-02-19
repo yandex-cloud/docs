@@ -38,7 +38,7 @@ Private repositories can only be accessed by users logged in to GitLab (**Intern
 
 1. Get an OAuth token for your repository on GitLab. For details on how to get a token, see the [GitLab documentation](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token). For the proper operation of {{ tracker-name }}, enable the **read_repository** and **read_api** options when setting up permissions.
 
-1. Enter the repository address in the `https://gitlab.com/<repository owner login>/<repository name>` format and specify the access token.
+1. Enter the repository address as `https://github.com/<repository_owner_login>/<repository_name>` and specify the access token.
 
 1. Click **Connect**.
 

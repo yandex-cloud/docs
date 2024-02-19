@@ -1,14 +1,15 @@
 ---
 title: "How to create a {{ monitoring-name }} connection"
-description: "This guide describes how you can create a {{ monitoring-name }} connection."
+description: "Follow this guide to create a {{ monitoring-name }} connection."
 ---
 
 # Creating a {{ monitoring-name }} connection
 
 {% note info %}
 
-To create a connection, you need a [service account](../../../iam/concepts/users/service-accounts.md) with the `{{ roles-monitoring-viewer }}` (or `{{ roles-viewer }}`) [role](../../../iam/operations/sa/assign-role-for-sa.md).
-Use the [Yandex Monitoring query language](../../../monitoring/concepts/querying.md) to write queries in QL charts.
+* To create a connection, you need a [service account](../../../iam/concepts/users/service-accounts.md) with the `{{ roles-monitoring-viewer }}` or `{{ roles-viewer }}` [role](../../../iam/operations/sa/assign-role-for-sa.md).
+* Use the [Yandex Monitoring query language](../../../monitoring/concepts/querying.md) to write queries in QL charts.
+* When writing queries, do not use the `folderId` [label](../../../monitoring/concepts/data-model.md#label).
 
 {% endnote %}
 

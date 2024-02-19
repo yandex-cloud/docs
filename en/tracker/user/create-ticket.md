@@ -21,9 +21,9 @@ To create an issue:
 
 1. In the right panel, specify:
 
-   * Key issue parameters: <q>Type</q>, <q>Priority</q>, <q>Deadline</q>, <q>Project</q>, and <q>Tags</q>.
+   * Key issue parameters: **Type**, **Priority**, **Deadline**, **Project**, and **Tags**.
 
-   * List of the users relevant to the issue: Enter names or usernames in the <q>Assignee</q> and <q>Followers</q> fields or click **Me** to add yourself.
+   * List of the users relevant to the issue: Enter names or usernames in the **Assignee** and **Followers** fields or click **Me** to add yourself.
 
       You can also leave the values at defaults to come back to them later.
 

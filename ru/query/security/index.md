@@ -30,26 +30,36 @@
 
 </center>
 
-## Роли {#roles}
-
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ yq-name }}.
 
-{% include [yq-invoker](../../_includes/iam/roles/yq-invoker.md) %}
+### Сервисные роли {#service-roles}
 
-{% include [yq-viewer](../../_includes/iam/roles/yq-viewer.md) %}
+#### yq.viewer {#query-viewer}
 
-{% include [yq-editor](../../_includes/iam/roles/yq-editor.md) %}
+{% include [query.viewer](../../_roles/yq/viewer.md) %}
 
-{% include [yq-admin](../../_includes/iam/roles/yq-admin.md) %}
+#### yq.editor {#query-editor}
 
-### {{ roles-viewer }}
+{% include [query.editor](../../_roles/yq/editor.md) %}
+
+#### yq.admin {#query-admin}
+
+{% include [query.admin](../../_roles/yq/admin.md) %}
+
+#### yq.invoker {#query-invoker}
+
+{% include [query.invoker](../../_roles/yq/invoker.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+#### {{ roles-viewer }}
 
 Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например, о запусках запроса.
 
-### {{ roles-editor }}
+#### {{ roles-editor }}
 
 Пользователь с ролью `{{ roles-editor }}` может управлять любыми ресурсами, например, создать или удалить запрос. Роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
 
-### {{ roles-admin }}
+#### {{ roles-admin }}
 
 Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например, разрешить другим пользователям создавать запросы. Роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.

@@ -1,5 +1,11 @@
 # Migrating objects to workbooks
 
+{% note info %}
+
+To migrate objects, a user must have the `{{ roles-datalens-admin }}` role.
+
+{% endnote %}
+
 You can select any object ([connection](../concepts/connection.md), [dataset](../concepts/dataset/index.md), [chart](../concepts/chart/index.md), [dashboard](../concepts/dashboard.md)) for migration and perform it by [transferring](#migration-transfer) or [copying](#migration-copy).
 
 ## Migration by transfer {#migration-transfer}
@@ -60,13 +66,13 @@ If after migration you want your workbook to include only certain transferred ob
 Let's create a workbook with a dataset. For source objects, we will use a [ready-made dataset]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco) of a fictional company from the {{ datalens-short-name }} {{ marketplace-short-name }}.
 
 1. On the [navigation page](https://datalens.yandex.ru/navigation), find **Sample Superstore Dataset**.
-1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dataset and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Migrate to workbook**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dataset and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Transfer to workbook**.
 1. In the window that opens, you will see a list of linked objects that will be transferred.
 
    ![image](../../_assets/datalens/migration/store-migrate.png =750x422)
 
-1. Click **Migrate**.
-1. In the window that opens, click **Create workbook**. Enter a name, such as **Sample Superstore All**, then click **Create**. Select the new workbook in the **Collections and workbooks** list and click **Move**.
+1. Click **Transfer**.
+1. In the window that opens, click **Create a workbook**. Enter a name, such as **Sample Superstore All**, then click **Create**. Select the new workbook in the **Collections and workbooks** list and click **Move**.
 1. In the **Manage access** window, configure [workbook permissions](./security.md) and click **Close**.
 
    After the migration, the **Sample Superstore All** workbook with the transferred dataset and linked objects will open.

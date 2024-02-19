@@ -10,36 +10,36 @@ A widget enables you to view a list of issues that match a certain filter. With 
 
 To configure a widget, set the following:
 
-- **Widget name**: Name displayed in the widget header.
-- **Number of issues per page**: Number of issues displayed on a single widget page. If there are more issues, you can use page navigation at the bottom of the widget.
-- **Filter**: Filter used to generate the issue list. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
-- **Columns**: Issue fields shown in the list. You can add multiple fields. To delete a field, click **x**.
+- **Widget name**: Name to display in the widget header.
+- **Number of issues per page**: Number of issues that are shown per widget page. If there are more issues, you can use page navigation at the bottom of the widget.
+- **Issue source**: Filter on the basis of which the list of issues is formed. You can select a [system](default-filters.md) filter or a [previously created](create-filter.md) filter from the list or specify a filter using the [query language](query-filter.md) or parameters.
+- **Columns**: Issue fields to show in the list. You can add multiple fields. To delete a field, click **x**.
 
-## Note Widget {#note}
+## Note {#note}
 
 ![](../../_assets/tracker/widgets/note.png)
 
 Put down your ideas and take notes directly on the dashboard. You can enter notes in plain text or use [markup](markup.md).
 
-## Summary table {#summary-table}
+## Pivot table {#summary-table}
 
 ![](../../_assets/tracker/widgets/table.png)
 
-A simple summary table that enables you to view issue statistics by any pair of parameters. At the table intersections, you can see the number of issues that match the parameters. You can use this type of table, for instance, to track the quantity and status of issues for a specific group of assignees.
+A simple pivot table that enables you to view issue statistics by any pair of parameters. At the table intersections, you can see the number of issues that match the parameters. You can use this type of table, for instance, to track the quantity and status of issues for a specific group of assignees.
 
 To configure a widget, set the following:
 
-- **Widget name**: Name displayed in the widget header.
+- **Widget name**: Name to display in the widget header.
 
-- **Filter**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **Issue source**: Filter on the basis of which the list of issues is formed. You can select a [system](default-filters.md) filter or a [previously created](create-filter.md) filter from the list or specify a filter using the [query language](query-filter.md) or parameters.
 
-- **Columns**: Parameter used for table columns.
+- **Columns**: Parameter to use for table columns.
 
-- **Rows**: Parameter used for table rows.
+- **Rows**: Parameter to use for table rows.
 
 - **Number of rows on page**: Maximum number of table rows to display in the widget. If there are more rows than the maximum, you can see them by clicking **{{ ui-key.startrek.ui_components_dashboard_TableWidget.show-all }}** at the bottom of the widget.
 
-- **Sort by**: Sorting order for table rows.
+- **Sort by**: Order for sorting table rows.
 
 - **Show total**: If this option is enabled, the table includes the total of all rows and columns.
 
@@ -52,13 +52,13 @@ Special pivot table with two parameters. In contrast to a simple pivot table, th
 
 To configure a widget, set the following:
 
-- **Widget name**: Name displayed in the widget header.
+- **Widget name**: Name to display in the widget header.
 
-- **Filter**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **Issue source**: Filter on the basis of which the list of issues is formed. You can select a [system](default-filters.md) filter or a [previously created](create-filter.md) filter from the list or specify a filter using the [query language](query-filter.md) or parameters.
 
-- **Columns**: Parameter used for table columns.
+- **Columns**: Parameter to use for table columns.
 
-- **Rows**: Parameter used for table rows.
+- **Rows**: Parameter to use for table rows.
 
 - **Cells**: Parameter whose totals are displayed at intersections.
 
@@ -66,7 +66,7 @@ To configure a widget, set the following:
 
 - **Sort rows**: Sorting order for table rows.
 
-- **Sort columns**: Sorting order for table columns.
+- **Sort columns**: Sorting order for table rows.
 
 - **Show total**: If this option is enabled, the table includes the total of all rows and columns.
 
@@ -91,18 +91,17 @@ The chart displays _statistics for events_ in issues over a certain period of ti
 
 To configure a widget, set the following:
 
-- **Widget name**: Name displayed in the widget header.
+- **Widget name**: Name to display in the widget header.
 
-- **Filter**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **Issue source**: Filter on the basis of which the list of issues is formed. You can select a [system](default-filters.md) filter or a [previously created](create-filter.md) filter from the list or specify a filter using the [query language](query-filter.md) or parameters.
+- **Key parameter**: Select the event to track in the statistics.
 
-- **Key parameter**: Select an event to track in the statistics.
-
-- **Group**: Select a step and set the period for collecting statistics.
+- **Group**: Select the step and specify the period for collecting statistics.
 
 - **Show cumulative total**: If this option is enabled, data collected from previous steps is included in each subsequent step.
 
 
-## Issue Statistics {#issues-stat}
+## Issue statistics {#issues-stat}
 
 ![](../../_assets/tracker/widgets/stat.png)
 
@@ -110,24 +109,24 @@ The widget displays issue distribution by values of a certain parameter.
 
 To configure a widget, set the following:
 
-- **Widget name**: Name displayed in the widget header.
+- **Widget name**: Name to display in the widget header.
 
-- **Filter**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **Issue source**: Filter on the basis of which the list of issues is formed. You can select a [system](default-filters.md) filter or a [previously created](create-filter.md) filter from the list or specify a filter using the [query language](query-filter.md) or parameters.
 
-- **Number of rows on page**: Maximum number of chart rows to display in the widget. If there are more rows than the maximum, you can see them by clicking **{{ ui-key.startrek.ui_components_dashboard_TableWidget.show-all }}** at the bottom of the widget.
+- **Number of rows on page**: The maximum number of chart rows to display in the widget. If there are more rows than the maximum, you can see them by clicking **{{ ui-key.startrek.ui_components_dashboard_TableWidget.show-all }}** at the bottom of the widget.
 
-- **Key parameter**: Issue field to gather statistics for.
+- **Key parameter**: The issue field to gather statistics for.
 
-- **Sort by**: Sorting order for chart columns.
+- **Sort by**: The sort order in chart columns.
 
 
 {% note info %}
 
-We do not recommend using the **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}** value in the **Key parameter** field because the widgets with this setting will soon be disabled. [Read more](../faq.md#section_del_widget).
+In the **Key parameter** field, we do not recommend using the **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}** value because the widgets with such settings will soon be disabled. [Read more](../faq.md#section_del_widget).
 
 {% endnote %}
 
-## Created vs. Resolved Graph {#created-and-resolved}
+## Created/Resolved chart {#created-and-resolved}
 
 ![](../../_assets/tracker/widgets/create-resolve.png)
 
@@ -135,9 +134,9 @@ The chart enables you to compare the number of created and closed issues. You c
 
 To configure a widget, set the following:
 
-- **Widget name**: Name displayed in the widget header.
+- **Widget name**: Name to display in the widget header.
 
-- **Filter**: Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **Issue source**: Filter on the basis of which the list of issues is formed. You can select a [system](default-filters.md) filter or a [previously created](create-filter.md) filter from the list or specify a filter using the [query language](query-filter.md) or parameters.
 
 - **Group**: Select the step and specify the period for collecting statistics.
 
@@ -148,3 +147,35 @@ To configure a widget, set the following:
 - **Show versions**: If this option is enabled, the chart shows the versions that issues belong to.
 
 
+
+## Cycle time {#cycle-time}
+
+{% include [cycle-time](../../_includes/tracker/cycle-time.md) %}
+
+In {{ tracker-full-name }}, a cycle is a sequence from the initial stage to the completion of an issue.
+
+The cycle time is a chart that allows you to analyze the time spent on a workflow. The chart shows the total time spent on all issue stages from first switching from the initial status to the last switching to the final status.
+
+The control chart is an analytical tool that can be used to track deviations from a moving average cycle time calculated from a sample of issues within the specified period.
+
+The widget combines both charts and allows you to estimate:
+* Average time to complete the work within the organized workflow.
+* Dynamics of changes for the selected period.
+* Percentiles: what percentage of issues are closed and in what time frame.
+* How long it takes on average to resolve an issue, from idea to completion.
+* How much time will be required for testing and acceptance of the issue after the development is completed.
+* Nature of deviations from the moving average cycle time.
+* How many issues or defects of similar size can be completed in a certain period of time.
+
+To configure a widget, set the following:
+
+* **Name**: Name to display in the widget header.
+* **Issue source**: Filter on the basis of which the list of issues is formed. You can select a [system](default-filters.md) filter or a [previously created](create-filter.md) filter from the list or specify a filter using the [query language](query-filter.md) or parameters.
+* **Initial statuses**: Statuses in which work on the issue has started.
+* **Final statuses**: Statuses in which the issue is considered resolved.
+* **Period**: Period for generating the diagram.
+* **Step**: Step value on the axis with period. The number of steps on the chart should be between 5 and 100, inclusive; otherwise, the chart analysis will be inefficient. If this condition is not met, you can reduce the step or increase the chart generation period. The step itself can take a value from 1 to 99.
+* **Working hours**: Period of working time during the day.
+* **Percentile**: Percentage of values in the data sample against which the percentile is calculated.
+* **Moving average**: Option that adds an averaged time value line to the chart.
+* **Standard deviation**: Option that adds a mean square deviation line to the chart. It can help you estimate how widely the values are scattered from the average.

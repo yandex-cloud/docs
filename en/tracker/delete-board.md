@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/delete-board.md
 ---
-# Delete a board
+# Deleting a board
 
 Use this request to delete an issue board.
 
@@ -12,9 +12,9 @@ Before making the request, [get permission to access the API](concepts/access.md
 To delete a board, use an HTTP `DELETE` request.
 
 ```
-DELETE /{{ ver }}/boards/<board-id>
+DELETE /{{ ver }}/boards/<board_ID>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -23,8 +23,8 @@ Authorization: OAuth <token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<board-id\> | Board ID | Number |
+----- | ----- | -----
+| \<board_ID\> | Board ID | Number |
 
 {% endcut %}
 
@@ -34,21 +34,21 @@ Authorization: OAuth <token>
 
 - Request executed successfully
 
-    {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
+   {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
 
-    The response body is missing.
+   The response body is missing.
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
 
-    {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
+   {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
 
-    {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
+   {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

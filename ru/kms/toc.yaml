@@ -18,25 +18,18 @@ items:
           - name: Права доступа на ключ шифрования
             href: operations/key-access.md
       - name: Асимметричное шифрование
-        stage: preview
         items:
           - name: Ключевая пара шифрования
-            stage: preview
             href: operations/asymmetric-encryption-key.md
           - name: Шифрование данных
-            stage: preview
             href: operations/asymmetric-encryption.md
       - name: Электронная подпись
-        stage: preview
         items:
           - name: Ключевая пара электронной подписи
-            stage: preview
             href: operations/asymmetric-signature-key.md
           - name: Электронная подпись и проверка подписи
-            stage: preview
             href: operations/signature-verification.md
           - name: Электронная подпись файлов и артефактов с помощью Cosign
-            stage: preview
             href: operations/signature-verification-cosign.md
   - name: Концепции
     items:
@@ -59,13 +52,10 @@ items:
           - name: Асимметричное шифрование
             href: concepts/asymmetric-encryption.md
       - name: Электронная подпись
-        stage: preview
         items:
           - name: Ключевая пара электронной подписи
-            stage: preview
             href: concepts/asymmetric-signature-key.md
           - name: Электронная подпись
-            stage: preview
             href: concepts/digital-signature.md
       - name: Шифрование по схеме envelope encryption
         href: concepts/envelope.md

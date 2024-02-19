@@ -1,6 +1,6 @@
 # Resolutions
 
-A resolution is an issue attribute that specifies why the issue was closed. For example, an issue can be closed because it was completed (the <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}</q> resolution) or because it is a duplicate of another issue (the <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}</q> resolution).
+A resolution is an issue attribute that specifies why the issue was closed. For example, one can close an issue because it was completed (*{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}*) or because it is a duplicate of another issue (*{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}*).
 
 For each [issue type](./add-ticket-type.md) in a queue, you can define their own set of resolutions within a [workflow](./add-workflow.md). The queue owner and users granted [permission to access the queue settings](queue-access.md) can edit resolutions in queue workflows.
 
@@ -30,14 +30,14 @@ To create a resolution:
 
 1. Make sure you are authorized in {{ tracker-full-name }} as an [administrator](../role-model.md).
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Configure** → **Resolutions**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Administration** → **Resolutions**.
 
 1. Click **Create resolution**.
 
 1. Fill out the fields below:
    * **Name**: Enter a name for a new resolution in Russian.
-   * **Name in English**: Will be generated automatically from the Russian name.
-   * **Key**: Will be generated automatically based on the Russian name.
+   * **Name in English**: It will be generated automatically based on the Russian name.
+   * **Key**: It will be generated automatically based on the Russian name.
 
 1. Click **Create**.
 
@@ -53,8 +53,8 @@ You can also create a resolution on the workflows page. The new resolution will 
 
 1. Fill out the fields below:
    * **Name**: Enter a name for a new resolution in Russian.
-   * **Name in English**: Will be generated automatically from the Russian name.
-   * **Key**: Will be generated automatically based on the Russian name.
+   * **Name in English**: It will be generated automatically based on the Russian name.
+   * **Key**: It will be generated automatically based on the Russian name.
 
 1. Click **Create**.
 

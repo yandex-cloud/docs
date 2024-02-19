@@ -10,7 +10,7 @@ To format text and lists, embed tables and images, use the following toolbar but
 
 1. To format text using {{ yfm }} markup, click ![](../../_assets/tracker/text-edit/set.svg) and select **Markup** mode.
 
-1. To disable the toolbar, click ![](../../_assets/tracker/text-edit/set.svg) and turn off the **Toolbar** option. If the toolbar is disabled, you can run commands using the `/` character in **Editor** mode.
+1. To disable the toolbar, click ![](../../_assets/tracker/text-edit/set.svg) and turn off the **Toolbar** option. If the toolbar is disabled, you can run commands using the `/`character in **Editor** mode.
 
 ## Formatting text {#format-wysiwyg}
 
@@ -43,12 +43,12 @@ To add a mathematical formula, quote, note, or cut, select one or more paragraph
 
 | Block | Toolbar button | Windows shortcuts | Mac OS shortcuts |
 --- | --- | --- | ---
-| Comment | ![](../../_assets/tracker/text-edit/note.svg) | **Ctrl** + **Alt** + **8** | **⌘** + **⌥** + **8** |
-| Cut | ![](../../_assets/tracker/text-edit/cut.svg) | **Ctrl** + **Alt** + **7** | **⌘** + **⌥** + **7** |
-| Quote | ![](../../_assets/tracker/text-edit/quote.svg) | **Ctrl** + **>** | **⌘** + **>** |
-| Formula | ![](../../_assets/tracker/text-edit/formula.svg) | — | — |
+| Comment | ![](../../_assets/tracker/text-edit/note.svg) | **Ctrl** + **Alt** + **8** | **⌘** + **⌥** + **8** |
+| Cut | ![](../../_assets/tracker/text-edit/cut.svg) | **Ctrl** + **Alt** + **7** | **⌘** + **⌥** + **7** |
+| Quote | ![](../../_assets/tracker/text-edit/quote.svg) | **Ctrl** + **>** | **⌘** + **>** |
+| Formula | ![](../../_assets/tracker/text-edit/formula.svg) | N/A | — |
 
-For the **Note** block, you can choose its type: <q>Note</q>, <q>Advice</q>, <q>Important</q>, or <q>Attention</q>.
+For the **Note** section, you can choose its type: **Note**, **Advice**, **Important**, or **Attention**.
 
 ## Code formatting {#src-wysiwyg}
 

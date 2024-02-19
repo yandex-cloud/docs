@@ -14,6 +14,4 @@
 
 ## Справочник событий уровня сервисов {#data-plane-events}
 
-{% include notitle [preview](../_includes/note-preview-by-request.md) %}
-
 {% include [mmg-events-dp](../_includes/audit-trails/events/mmg-events-dp.md) %}

@@ -32,7 +32,7 @@ You can choose how to display usernames and event types in notification messages
 
 1. Click the link [{{ link-tracker }} settings]({{ link-settings }}).
 
-1. Choose the option you need under **Sender's name in emails**.
+1. Choose the option you need in the **Email sender name** section.
 
 1. Enable or disable **Show event type in notifications**.
 

@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To delete a checklist item, use an HTTP `DELETE` request. Request parameters are provided in the request body in JSON format.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/checklistItems/<checklistItemId>
+DELETE /{{ ver }}/entities/<entity_type>/<entity_ID>/checklistItems/<checklist_item_ID>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -24,14 +24,14 @@ Authorization: OAuth <OAuth_token>
 
 {% include [query-params](../../../../_includes/tracker/api/query-params-checklist.md) %}
 
-> Example: Delete a checklist item
+> Example: Deleting a checklist item
 >
 > - An HTTP DELETE method is used.
-> - The item with the `6586d6fee2b9ef72********` ID is deleted from the checklist (<q>Second checklist item</q>).
+> - The item with the `6586d6fee2b9ef72********` ID is deleted from the checklist (Сhecklist item 2).
 > - The response displays information about all the checklist items (`fields=checklistItems`).
 >
 > ```
-> DELETE /v2/entities/project/6586d6fee2b9ef74********/checklistItems/6586d6fee2b9ef72********?fields=checklistItems
+> DELETE /v2/entities/project/<project_ID>/checklistItems/<checklist_item_ID>?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -55,9 +55,9 @@ Authorization: OAuth <OAuth_token>
        "shortId": 0,
        "entityType": "project",
        "createdBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_ID",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
@@ -67,13 +67,13 @@ Authorization: OAuth <OAuth_token>
            "checklistItems": [
               {
                   "id": "6586d6fee2b9ef71********",
-                  "text": "Checklist item 1.",
+                  "text": "Сhecklist item 1.",
                   "checked": false,
                   "checklistItemType": "standard"
               },
               {
                   "id": "6586d6fee2b9ef73********",
-                  "text": "Checklist item 3.",
+                  "text": "Сhecklist item 3.",
                   "checked": true,
                   "checklistItemType": "standard"
               }
@@ -89,7 +89,7 @@ Authorization: OAuth <OAuth_token>
    | self | Address of the API resource with information about the entity. | String |
    | id | Entity ID. | String |
    | version | Entity version. Each change of the parameters increases the version number. | Number |
-   | shortId | Project or portfolio ID. | Number |
+   | shortId | Project or portfolio ID | Number |
    | entityType | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
    | createdBy | Object with information about the entity creator. | Object |
    | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
@@ -104,7 +104,7 @@ Authorization: OAuth <OAuth_token>
    | id | User ID. | Number |
    | display | Displayed user name. | String |
    | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    `fields` **object fields** {#fields}
 
@@ -116,9 +116,9 @@ Authorization: OAuth <OAuth_token>
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | id | Checklist item ID. | Number |
+   | id | Сhecklist item ID. | Number |
    | text | Text of the checklist item. | String |
-   | checked | Item completion flag:<ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Boolean |
+   | checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Boolean |
    | checklistItemType | Checklist item type:<ul><li>Standard</li><li>Metric</li><li>Criterion</li><li>Filter</li></ul> | String |
 
    {% endcut %}

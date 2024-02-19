@@ -5,6 +5,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 ## Создание и настройка проекта {#creating-project}
 
 * [{#T}](new-kubernetes-project.md)
+* [{#T}](k8s-cluster-with-no-internet.md)
 * [{#T}](running-pod-gpu.md)
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)

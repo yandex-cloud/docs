@@ -22,12 +22,21 @@ description: "В разделе описано, на какие ресурсы �
 
 ### Сервисные роли {#service-roles}
 
-Роль | Разрешения
------ | -----
-`smart-captcha.auditor` | Позволяет просматривать информацию о капче и правах доступа к ней.
-`smart-captcha.viewer` | Позволяет просматривать информацию о капче и правах доступа к ней. Включает все права роли `smart-captcha.auditor`.
-`smart-captcha.editor` | Позволяет управлять капчами (создавать, изменять и удалять). Включает все права роли `smart-captcha.viewer`.
-`smart-captcha.admin` | Позволяет управлять капчами и доступом к ним. Включает все права роли `smart-captcha.editor`.
+#### smart-captcha.auditor {#smart-captcha-auditor}
+
+{% include [smart-captcha.auditor](../../_roles/smart-captcha/auditor.md) %}
+
+#### smart-captcha.viewer {#smart-captcha-viewer}
+
+{% include [smartcaptcha-viewer](../../_roles/smart-captcha/viewer.md) %}
+
+#### smart-captcha.editor {#smart-captcha-editor}
+
+{% include [smartcaptcha-editor](../../_roles/smart-captcha/editor.md) %}
+
+#### smart-captcha.admin {#smart-captcha-admin}
+
+{% include [smartcaptcha-admin](../../_roles/smart-captcha/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

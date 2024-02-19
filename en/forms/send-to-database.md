@@ -24,13 +24,13 @@ You can deliver form responses to a PostgreSQL database created in {{ yandex-clo
 1. Select the appropriate username and database, enter the password, and click **Connect**.
 1. Select the **public** schema.
 1. Run the following query in the SQL editor:
-    ```sql
-    create table answers(
-        id serial primary key,
-        answer jsonb,
-        created timestamp with time zone default now()
-    );
-    ```
+   ```sql
+   	create table answers(
+   		id serial primary key,
+   		answer jsonb,
+   		created timestamp with time zone default now()
+   	);
+   ```
 
 ## Step 3. Create a connection to the database
 
@@ -82,9 +82,9 @@ You can deliver form responses to a PostgreSQL database created in {{ yandex-clo
 1. Select the Python programming language.
 
 1. Create a file named `requirements.txt` and add the following line to it:
-    ```
-    psycopg2
-    ```
+   ```
+   	psycopg2
+   ```
 
 1. Create or edit a file named `index.py`:
 
@@ -107,7 +107,7 @@ You can deliver form responses to a PostgreSQL database created in {{ yandex-clo
 
    	def get_connection(context):
    		return psycopg2.connect(
-   			database="<connection_id>",
+   			database="<connection_ID>",
    			user="<username>",
    			password=context.token["access_token"],
    			host="<entry_point>",
@@ -137,9 +137,9 @@ You can deliver form responses to a PostgreSQL database created in {{ yandex-clo
    ```
 
    Substitute the following values in this function:
-   * `<connection_ID>`: Value of the **ID** field of the DB connection you created in step 3. You can copy it on the connection page.
-   * `<username>`: DB username that you specified in the cluster settings in step 1. You can find it in the **Users** tab on the cluster page.
-   * `<entry_point>`: Value of the **Entry point** field of the DB connection you created in step 3. You can copy it on the connection page.
+   * `<connection_ID>`: Value of the **ID** field of the database connection you created in step 3. You can copy it on the connection page.
+   * `<username>`: Database user name that you specified in the cluster settings in step 1. You can find it in the **Users** tab on the cluster page.
+   * `<entry_point>`: Value of the **Entry point** field of the database connection you created in step 3. You can copy it on the connection page.
 
 1. Click **Save changes**.
 

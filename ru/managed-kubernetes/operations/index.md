@@ -6,6 +6,7 @@ description: "Из статьи вы узнаете, как работать с 
 # Пошаговые инструкции для {{ managed-k8s-name }}
 
 * [{#T}](node-connect-ssh.md)
+* [{#T}](node-connect-oslogin.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
 

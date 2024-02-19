@@ -1,6 +1,6 @@
 # Issue types
 
-A queue may include different types of issues, e.g., <q>New feature</q>, <q>Improvement</q>, or <q>Error</q>. Issue types are helpful when distributing work in a team by activity area (<q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>) or decomposing issues (<q>[Epic](epic-new.md)</q>, <q>Story</q>, or <q>Issue</q>).
+A queue may include different types of issues, e.g., **New feature**, **Improvement**, or **Bug**. Issue types help you distribute work among team members by activity (**New feature**, **Bug**, or **Improvement**) or decompose issues ([Epic](epic-new.md), **Story**, or **Issue**).
 
 The queue owner and users granted [permission to access the queue settings](queue-access.md) specify:
 
@@ -36,14 +36,14 @@ To create a new issue type:
 
 1. Make sure you are authorized in {{ tracker-full-name }} as an [administrator](../role-model.md).
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Configure** → **Issue types**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Administration** → **Issue types**.
 
-1. Click **Create an issue type**.
+1. Click **Add issue type**.
 
 1. Fill out the fields below:
    * **Name**: Enter a name for your new issue type in Russian.
-   * **Name in English**: Will be generated automatically based on the Russian name.
-   * **Key**: Will be generated automatically based on the Russian name.
+   * **Name in English**: It will be generated automatically based on the Russian name.
+   * **Key**: It will be generated automatically based on the Russian name.
 
 1. Click **Create**.
 
@@ -59,8 +59,8 @@ You can also create a new issue type on the workflows page. The created issue ty
 
 1. Fill out the fields below:
    * **Name**: Enter a name for your new issue type in Russian.
-   * **Name in English**: Will be generated automatically based on the Russian name.
-   * **Key**: Will be generated automatically based on the Russian name.
+   * **Name in English**: It will be generated automatically based on the Russian name.
+   * **Key**: It will be generated automatically based on the Russian name.
 
 1. Click **Create**.
 

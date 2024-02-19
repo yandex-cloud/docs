@@ -12,27 +12,37 @@
 
 ### Сервисные роли {#service-roles}
 
-* `organization-manager.admin` — роль администратора организации.
-  
-  Роль дает возможность редактировать настройки организации, создавать федерации удостоверений, добавлять и удалять пользователей, назначать других администраторов.
+#### organization-manager.viewer {#organization-manager-viewer}
 
-* `organization-manager.organizations.owner` — роль владельца организации.
-  
-  Роль дает возможность назначать владельцев организации, а также пользоваться всеми полномочиями администратора.
-  
-  По умолчанию владелец организации — это пользователь, который ее создал.
+{% include [organizationmanager-viewer](../../_roles/organization-manager/viewer.md) %}
 
-* `organization-manager.viewer` — роль дает возможность просматривать настройки организации, но не редактировать их.
+#### organization-manager.admin {#organization-manager-admin}
 
-* `organization-manager.groups.memberAdmin` — роль дает возможность просматривать информацию о группе, добавлять и удалять участников.
+{% include [organizationmanager-admin](../../_roles/organization-manager/admin.md) %}
 
-* `organization-manager.federations.admin` — роль дает возможность создавать, изменять и удалять федерации, сертификаты и пользователей в них, просматривать настройки организации, получать список организаций и федераций, а также список сопоставлений групп.
+#### organization-manager.organizations.owner {#organization-manager-organizations-owner}
 
-* `organization-manager.federations.viewer` — роль дает возможность просматривать настройки организации, получать список организаций и федераций, а также список сопоставлений групп.
+{% include [organizationmanager-organizations-owner](../../_roles/organization-manager/organizations/owner.md) %}
 
-* `organization-manager.osLogins.admin` — роль позволяет редактировать профили OS Login и SSH-ключи, а также создавать сертификаты для пользователей организации.
+#### organization-manager.federations.viewer {#organization-manager-federations-viewer}
 
-* `organization-manager.osLogins.viewer` — роль позволяет просматривать профили OS Login и SSH-ключи пользователей организации.
+{% include [organization-manager.federations.viewer](../../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.admin {#organization-manager-federations-admin}
+
+{% include [organization-manager.federations.admin](../../_roles/organization-manager/federations/admin.md) %}
+
+#### organization-manager.osLogins.viewer {#organization-manager-osLogins-viewer}
+
+{% include [organizationmanager-oslogins-viewer](../../_roles/organization-manager/osLogins/viewer.md) %}
+
+#### organization-manager.osLogins.admin {#organization-manager-osLogins-admin}
+
+{% include [organizationmanager-oslogins-admin](../../_roles/organization-manager/osLogins/admin.md) %}
+
+#### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
+
+{% include [organizationmanager-groups-memberAdmin](../../_roles/organization-manager/groups/memberAdmin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

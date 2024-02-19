@@ -21,9 +21,9 @@ Before making the request, [get permission to access the API](../access.md).
 To restore a deleted queue, use an HTTP `POST` request.
 
 ```
-POST /v2/queues/<queue-id>/_restore
+POST /v2/queues/<queue_ID_or_key>/_restore
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -32,8 +32,8 @@ Authorization: OAuth <token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+----- | ----- | -----
+| \<queue_ID_or_key\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
@@ -53,9 +53,9 @@ Authorization: OAuth <token>
        "version": 5,
        "name": "Test",
        "lead": {
-              "self": "https://{{ host }}/v2/users/1120000000016876",
-              "id": "<employee ID>",
-              "display": "<displayed employee name>"
+              "self": "https://{{ host }}/v2/users/11********",
+              "id": "11********",
+              "display": "Ivan Ivanov"
        },
        "assignAuto": false,
        "defaultType": {
@@ -78,9 +78,9 @@ Authorization: OAuth <token>
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | self | Queue link | String |
-   | id | Queue ID | Number in string format |
-   | key | Queue key | String |
+   | self | Queue link. | String |
+   | id | Queue ID. | Number in string format |
+   | key | Queue key. | String |
    | version | Queue version. Each change to the queue increases its version number. | Number |
    | name | Queue name | String |
    | [lead](#lead) | Block with information about the queue owner | Object |
@@ -91,7 +91,7 @@ Authorization: OAuth <token>
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `defaultType` {#default-type}
+   `defaultType` **object fields** {#default-type}
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
@@ -100,7 +100,7 @@ Authorization: OAuth <token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Object fields** `defaultPriority` {#default-priority}
+   `defaultPriority` **object fields** {#default-priority}
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------

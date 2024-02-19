@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/entities/delete-entity.md
 
 Use this request to delete an entity: a [project](../../manager/project-new.md) or [project portfolio](../../manager/portfolio.md).
 
-The request is a unified method for deleting projects and portfolios, more flexible and functional than the [delete project](../projects/delete-project.md) API.
+The request is a unified method for deleting projects and portfolios – more flexible and functional than the [project deletion](../projects/delete-project.md) API.
 
 ## Request format {#query}
 
@@ -14,7 +14,7 @@ Before making a request, [get permission to access the API](../access.md).
 To delete an entity, use an HTTP `DELETE` request.
 
 ```
-DELETE /{{ ver }}//entities/<entityType>/<entityId>?withBoard=true
+DELETE /{{ ver }}//entities/<entity_type>/<entity_ID>?withBoard=true
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -43,7 +43,7 @@ Authorization: OAuth <OAuth_token>
 > ```
 > DELETE /v2/entities/project/655f328da834c763********?withBoard=true HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth_token>
+> Authorization: OAuth <OAuth-token>
 > {{ org-id }}
 >
 > ```

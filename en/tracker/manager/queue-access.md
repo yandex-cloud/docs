@@ -26,8 +26,8 @@ Configure queue access rights cautiously to avoid unintentionally locking yourse
 Some users always have access to the queue, and you cannot restrict their access. These users are:
 
 
-* [Organization administrators](../role-model.md#admin).
-* {{ tracker-name }} robot.
+* [Organization administrators](../role-model.md#admin)
+* {{ tracker-name }} robot
 
 
 
@@ -35,7 +35,7 @@ Some users always have access to the queue, and you cannot restrict their access
 
 Queue access is configured using the following rights:
 
-* `Queue settings`: View and edit queue settings. This right does not include access to queue issues and, therefore, does not overlap with other rights.
+* `Queue settings`: View and edit queue settings. This right does not include access to queue tasks and, therefore, does not overlap with other rights.
 * `Edit issues`: View all issues in the queue, leave comments, and edit the issue description and any issue fields.
 * `Create issues`: Create issues in the queue. When creating a new issue, the user is assigned the Author role, granting them the right to view and edit the issue.
 * `View issues`: View queue issues and leave comments.

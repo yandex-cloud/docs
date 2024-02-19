@@ -19,7 +19,9 @@ description: "Управление доступом в сервисе для п�
 
 ### Сервисные роли {#service-roles}
 
-{% include [roles-search-api](../../_includes/roles-search-api-executor.md) %}
+#### search-api.executor {#search-api-executor}
+
+{% include [searchapi-executor](../../_roles/search-api/executor.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

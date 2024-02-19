@@ -27,5 +27,5 @@ To create an issue via email, send a message with the issue description to the [
 
 1. Send the email to the address specified in the [queue settings](../manager/queue-mail.md).
 
-You'll receive a reply notifying you that a new issue was created.
+You will receive a reply notifying you that a new issue was created.
 

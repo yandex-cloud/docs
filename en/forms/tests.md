@@ -49,7 +49,7 @@ To set up rules for scoring:
 
 1. Select a form and go to **Settings** → **Tests and quizzes**.
 
-1. Turn on **Show test results**.
+1. Enable **Show test results**.
 
    {% note warning %}
 
@@ -85,7 +85,7 @@ After the user completes the test, you can let them know which of their response
 
 1. Select a form and go to **Settings** → **Tests and quizzes**.
 
-1. Turn on **Show test results**.
+1. Enable **Show test results**.
 
 1. Turn on **Show correct and incorrect answers in test results**.
 
@@ -96,4 +96,4 @@ After completing the test, users can click **{{ ui-key.forms.common.blocks_quiz-
 
 ## View user responses {#right-answ-separately}
 
-When the test is submitted, you can see which responses are correct or incorrect by viewing [individual responses](answers.md#answer-in-detail). Correct and incorrect responses are highlighted in different colors.
+When the test is submitted, you can see which responses are correct or incorrect by going to the [**Responses**](answers.md) tab.

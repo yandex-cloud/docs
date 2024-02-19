@@ -13,6 +13,4 @@
 
 ## Справочник событий уровня сервисов {#data-plane-events}
 
-{% include notitle [preview](../_includes/note-preview-by-request.md) %}
-
 {% include [iam-events-dp](../_includes/audit-trails/events/iam-events-dp.md) %}

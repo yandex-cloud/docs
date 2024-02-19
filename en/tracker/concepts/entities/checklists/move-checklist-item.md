@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To move a checklist item, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format.
 
 ```json
-POST /{{ ver }}/entities/<entityType>/<id>/checklistItems/<checklistItemId>/_move
+POST /{{ ver }}/entities/<entity_type>/<entity_ID>/checklistItems/<checklist_item_ID>/_move
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -30,7 +30,7 @@ Authorization: OAuth <OAuth_token>
 
 {% cut "Request body parameters" %}
 
-The request body contains the information required to move a checklist item:
+Request body contains the information required to move a checklist item:
 
 **Required parameters**
 
@@ -43,11 +43,11 @@ The request body contains the information required to move a checklist item:
 > Example: Moving a checklist item
 >
 > - An HTTP POST method is used.
-> - In the checklist, move the **Checklist item 3** and insert it before the **Checklist item 2**.
+> - In the checklist, move **Сhecklist item 3** and insert it before the **Сhecklist item 2**.
 > - The response displays information about all the checklist items (`fields=checklistItems`).
 >
 > ```
-> POST /v2/entities/project/6586d6fee2b9ef74********/checklistItems/6586d6fee2b9ef72********/_move?fields=checklistItems
+> POST /v2/entities/project/<project_ID>/checklistItems/<checklist_item_ID>/_move?fields=checklistItems
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}
@@ -75,9 +75,9 @@ The request body contains the information required to move a checklist item:
        "shortId": 0,
        "entityType": "project",
        "createdBy": {
-           "self": "{{ host }}/v2/users/1990********",
-           "id": "employee_ID",
-           "display": "Full_name",
+           "self": "{{ host }}/v2/users/19********",
+           "id": "19********",
+           "display": "Full Name",
            "cloudUid": "ajeppa7dgp53********",
            "passportUid": "15********"
        },
@@ -87,19 +87,19 @@ The request body contains the information required to move a checklist item:
            "checklistItems": [
               {
                   "id": "6586d6fee2b9ef71********",
-                  "text": "Checklist item 1.",
+                  "text": "Сhecklist item 1.",
                   "checked": false,
                   "checklistItemType": "standard"
               },
               {
                   "id": "6586d6fee2b9ef73********",
-                  "text": "Checklist item 3.",
+                  "text": "Сhecklist item 3.",
                   "checked": true,
                   "checklistItemType": "standard"
               },
               {
                   "id": "6586d6fee2b9ef72********",
-                  "text": "Checklist item 2.",
+                  "text": "Сhecklist item 2.",
                   "checked": true,
                   "checklistItemType": "standard"
               }
@@ -129,10 +129,10 @@ The request body contains the information required to move a checklist item:
    | self | Address of the API resource with information about the user. | String |
    | id | User ID. | Number |
    | display | Displayed user name. | String |
-   | cloudUid | Unique user ID in {{ org-full-name }}. | String |
-   | passportUid | Unique {{ ya-360 }} organization user account ID and Yandex ID. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
-   `fields` **object fields** {#fields}
+   `Fields` **object fields** {#fields}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -142,9 +142,9 @@ The request body contains the information required to move a checklist item:
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
-   | id | Checklist item ID. | Number |
+   | id | Сhecklist item ID. | Number |
    | text | Text of the checklist item. | String |
-   | checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Boolean |
+   | checked | Item completion flag: <ul><li>`true`: Item marked as completed.</li><li>`false`: Item not marked as completed.</li></ul> | Logical |
    | checklistItemType | Checklist item type:<ul><li>Standard</li><li>Metric</li><li>Criterion</li><li>Filter</li></ul> | String |
 
    {% endcut %}

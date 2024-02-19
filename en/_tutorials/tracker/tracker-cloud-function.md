@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Wait for the page to load. Then, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, copy and save the function invocation link.
    Here is an example of such a link:
    ```
-   	https://functions.yandexcloud.net/d4e94uav31086c******
+   	https://functions.yandexcloud.net/d4e94uav3108********
    ```
 1. Enable the **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** option.
 
@@ -106,7 +106,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    Where `https://functions.yandexcloud.net/<function_ID>` is the function invocation link you saved when creating the function.
    For example:
    ```
-   	https://functions.yandexcloud.net/d4e94uav31086c******?id=not_var{{issue.key}}
+   	https://functions.yandexcloud.net/d4e94uav3108********?id=not_var{{issue.key}}
    ```
 1. Click **Create**.
 

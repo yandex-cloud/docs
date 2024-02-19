@@ -26,7 +26,7 @@ If no billing account is linked to your {{ yandex-cloud }} account, a window for
 1. In the left-hand panel of the [management console]({{ link-console-main }}), select the folder where the appropriate service account is located.
 1. Go to the **Service accounts** tab.
 1. Select the account you need.
-1. In the top panel on the account page, click **Create new key**→ **Create API key**.
+1. In the top panel on the account page, click **Create new key** → **Create API key**.
 1. Provide a brief description for the key.
 1. Click **Create**.
 1. This will open a window with the key ID and the secret key. Store them in a secure place. You will not be able to access them after you close the window.
@@ -69,28 +69,28 @@ Responses to the form will be delivered in JSON format. See its structure below:
 
 ```json
 {
-    "id":<form response ID>,
-    "uid":"<user ID>",
-    "data":{
-        "<prompt ID with its type specified>":{
-            "value":<response to prompt>,
-            "question":{
-                "id":<prompt ID>,
-                "slug":"<prompt ID with its type specified>",
-                "options":{
-                    <prompt parameters>
-                },
-                "answer_type":{
-                    "id":<ID of prompt type>,"slug":"<prompt type>"
-                }
-            }		
-        }
-    },
+	"id":<form_response_ID>,
+	"uid":"<user_ID>",
+	"data":{
+		"<question_ID_with_its_type_specified>":{
+			"value":<response_to_question>,
+			"question":{
+				"id":<question_ID>,
+				"slug":"<question_ID_with_its_type_specified>",
+				"options":{
+					<question_parameters>
+				},
+				"answer_type":{
+					"id":<question_type_ID>,"slug":"<question_type>"
+				}
+			}		
+		}
+	},
 "survey":{
-    "id":"<form ID>"
-    },
-"created":"<form response date>",
-"cloud_uid":"<user ID>"
+	"id":"<form_ID>"
+	},
+"created":"<response_date>",
+"cloud_uid":"<user_ID>"
 }
 ```
 

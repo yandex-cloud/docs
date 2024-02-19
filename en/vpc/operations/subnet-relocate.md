@@ -8,11 +8,13 @@ description: "Follow this guide to move a subnet to a different availability zon
 
 {% note alert %}
 
-Subnet migration is currently unavalable.
+Currently, you cannot migrate subnets.
+
+Additionally, you cannot currently create or migrate {{ managed-k8s-name }} clusters and node groups within the subnets migrated from the `{{ region-id }}-c` availability zone.
 
 {% endnote %}
 
-[Subnets](../concepts/network.md) can be moved to a different [availability zone](../../overview/concepts/geo-scope.md). You can only migrate empty subnets not hosting any VM instances.
+[Subnets](../concepts/network.md) can be moved to a different [availability zone](../../overview/concepts/geo-scope.md). You can only migrate empty subnets not hosting any VM instances or other resources.
 
 To move a subnet to a different availability zone:
 

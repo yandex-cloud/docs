@@ -33,7 +33,7 @@ To make sure that the added users can create and edit issues, you need to [set u
 
 ## How to grant or revoke full access in {{ tracker-name }} {#full-access}
 
-You can [manage user access](access.md#set) in the {{ tracker-name }} interface under <q>Manage users</q>.
+You can [manage user access](access.md#set) in the {{ tracker-name }} interface under **Manage users**.
 
 Note that the total cost of using the service depends on the maximum number of users that had full access to {{ tracker-name }} during a given month. That is why we recommend first to [revoke access](disable-tracker.md) from the users that no longer need it and then to grant access to [new users](add-users.md).
 
@@ -44,7 +44,7 @@ We will help you select a proper partner for {{ tracker-name }} implementation. 
 
 ## How to delete an issue {#section_z1d_r1l_nbb}
 
-You cannot delete an issue, but you can close it with an appropriate resolution. For example, duplicate issues can be closed with the <q>Duplicates</q> resolution, while issues created by mistake can be closed with the <q>Canceled</q> resolution. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
+You cannot delete an issue, but you can close it with an appropriate resolution. For example, you can close duplicate issues with the *Duplicate* resolution or use the *Canceled* resolution to close issues created by mistake. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
 
 
 {% note tip %}
@@ -61,7 +61,7 @@ To delete a queue:
 
 1. Open the [queue page](user/queue.md).
 
-1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **Admin settings**.
+1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **Administration**.
 
 1. Go to the **Basic settings** tab.
 
@@ -93,7 +93,7 @@ If you can access the queue page but some of the issues remain inaccessible, the
 
 The owner is specified on the **{{ ui-key.startrek.ui_components_IssueTabs.description-tab }}** tab on the queue page. For more information, see [List of queue issues](user/queue.md).
 
-## Why can't I use widgets grouped by the <q>{{ ui-key.startrek-backend.fields.issue.summary-key-value }}</q> field? {#section_del_widget}
+## Why cannot I use widgets grouped by the field {{ ui-key.startrek-backend.fields.issue.summary-key-value }}? {#section_del_widget}
 
 The **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field includes the issue name: this is an arbitrary value the user comes up with. The names are almost always unique. If you try to build a table where rows or columns are grouped by a set of unique values (the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field), the result would be cumbersome and uninformative.
 
@@ -107,9 +107,9 @@ If you have any widgets with grouping by the **{{ ui-key.startrek-backend.fields
 
 If you need a simple issue list, replace your widget with an [issue list widget](user/widgets#section_ll1_zdp_pz). To do this:
 
-1. Create a new [<q>Issues</q> widget](user/widgets#section_ll1_zdp_pz).
+1. Create a new [Issues widget](user/widgets#section_ll1_zdp_pz).
 
-1. Fill in the **Filter** field in the same manner as in your previous widget.
+1. Fill out the **Filter** field in the same manner as in your previous widget.
 
 1. In the **Columns** field, select the issue parameters to be shown in the table.
 
@@ -131,7 +131,7 @@ If you add keywords to issue names to use them for grouping issues in widgets, w
 
    1. Under **Filter settings**, click **Add condition**, select **Issue**, and specify the issue name (the keyword used for grouping in the widget).
 
-   1. Click **Add new action** and select **Update fields**. Then select the previously created field and copy the issue name to it.
+   1. Click **Add new action** and select **Update fields**. Then select the previously created field and paste the issue name to it.
 
    1. Create similar automatic actions for every possible keyword.
 

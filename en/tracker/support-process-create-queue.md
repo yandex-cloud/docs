@@ -1,14 +1,14 @@
 # Creating a queue for the support team
 
 
-1. If your organization doesn't work in {{ tracker-name }}, [connect the service](enable-tracker.md).
+1. If {{ tracker-name }} is not enabled for your organization yet, [connect the service](enable-tracker.md).
 
 1. [Add users to {{ tracker-name }}](add-users.md).
 
 
-1. [Create a queue](manager/create-queue.md) using the <q>Basic support</q> or the <q>Multi-tiered support</q> template.
+1. [Create a queue](manager/create-queue.md) using the **Basic support** or **Multi-tiered support** template.
 
-   These [templates](manager/workflows.md) already include preset issue types and statuses that can be helpful for managing user requests. The <q>Multi-tiered support</q> template includes issue statuses like <q>Support line 1</q> and <q>Support line 2</q>.
+   These [templates](manager/workflows.md) already include preset issue types and statuses that can be helpful for managing user requests. The **Multi-tiered support** template includes the **Support line 1** and **Support line 2** issue statuses.
 
 1. Add your support staff to the [queue team](manager/queue-team.md).
 

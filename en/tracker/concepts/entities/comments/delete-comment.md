@@ -12,7 +12,7 @@ Before making a request, [get permission to access the API](../../access.md).
 To delete a comment, use an HTTP `DELETE` request.
 
 ```json
-DELETE /{{ ver }}/entities/<entityType>/<id>/comments/<commentId>
+DELETE /{{ ver }}/entities/<entity_type>/<entity_ID>/comments/<comment_ID>
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
@@ -28,17 +28,17 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| notify | Notify the users specified in the **Author**, **Responsible**, **Participants**, **Customers**, and **Followers** fields. The default value is `true`. | Boolean |
-| notifyAuthor | Notify the author of the changes. The default value is `false`. | Boolean |
+| notify | Notify the users specified in the **Author**, **Responsible**, **Members**, **Clients**, and **Followers** fields. The default value is `true`. | Logical |
+| notifyAuthor | Notify the author of the changes. The default value is `false`. | Logical |
 
 {% endcut %}
 
-> Example: Delete a comment
+> Example: Delete comment
 >
 > - An HTTP DELETE method is used.
 >
 > ```
-> DELETE /v2/entities/project/6586d6fee2b9ef74********/comments/16
+> DELETE /v2/entities/project/<project_ID>/comments/16
 > Host: {{ host }}
 > Authorization: OAuth <OAuth_token>
 > {{ org-id }}

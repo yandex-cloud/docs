@@ -8,7 +8,7 @@ A workflow in a queue is a set of statuses that change at different stages of is
 
 A workflow is characterized by the following {{ tracker-name }} entities:
 
-* [Issue types](add-ticket-type.md): A queue may contain multiple issue types, such as <q>New feature</q>, <q>Improvement</q>, or <q>Bug</q>. Workflows are set up for specific issue types in the queue. This allows considering the specifics of issue types and creating a convenient workflow for each type.
+* [Issue types](add-ticket-type.md): Queue may contain multiple issue types, such as **New feature**, **Improvement**, or **Bug**. Workflows are set up for specific issue types in the queue. This allows considering the specifics of issue types and creating a convenient workflow for each type.
 * Issue [statuses](workflow-status-edit.md) and [resolutions](create-resolution.md): A workflow defines the statuses for the selected type of issues and the resolutions to close them with.
 * [Transitions](workflow-action-edit.md) between statuses: Using transitions, you can set up both elementary rules for issue status updates and auto actions to be performed at status update, as well as transition screens for users to fill in some issue fields.
 
