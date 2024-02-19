@@ -106,12 +106,16 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 {% note info %}
 
-From March 5, 2024, the billing of LIST operations will be introduced:
+From March 5, 2024, the billing of LIST and TRANSITION operations will be introduced:
 * Standard storage:
-  * The first 10,000 operations per month are not charged.
-  * The following 1000 operations: $0.003840, without VAT.
-* Cold storage: 1000 operations: $0.009440, without VAT.
-* Ice storage: 1000 operations: $0.018880, without VAT.
+  * The first 10,000 LIST operations per month are not charged.
+  * The following 1000 LIST operations: $0.003840, without VAT.
+* Cold storage:
+  * 1000 LIST operations: $0.009440, without VAT.
+  * 1000 TRANSITION operations: $0.009440, without VAT.
+* Ice storage:
+  * 1000 LIST operations: $0.018880, without VAT.
+  * 1000 TRANSITION operations: $0.018880, without VAT.
 
 {% endnote %}
 
