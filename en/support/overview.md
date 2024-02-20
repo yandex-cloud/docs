@@ -3,7 +3,7 @@
 
 
 
-{{ yandex-cloud }} provides technical support under different service plans. You can choose the plan that best suits you. The cost of paid technical support plans includes two components: fixed and supplemental. The supplemental part is calculated as a percentage of the cost of resources consumed during the month. For more information about plans, see the [Pricing policy](pricing.md).
+{{ yandex-cloud }} provides technical support under different service plans. You can choose the one that best suits you. The cost of paid technical support plans includes two components: fixed and supplemental. The supplemental part is calculated as a percentage of the cost of resources consumed during the month. For more information about the plans, see the [Pricing policy](pricing.md).
 
 
 ## Contacting support {#response-time}
@@ -22,7 +22,7 @@ The expected support specialist response time is shown in the table below. A das
 | Request to Support Center | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
 | Chat | - | 5 minutes | 5 minutes, a messenger of your choice |
 
-Only {{ yandex-cloud }} [organization members](../organization/concepts/membership.md) can send requests to support. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the right organization. If there is a problem with your infrastructure's production environment, specify _Critical issue_ as your request type.
+Only {{ yandex-cloud }} [organization members](../organization/concepts/membership.md) can send requests to support. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the right organization. If you have an issue with your infrastructure's production environment, specify _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_ for request type.
 
 Regardless of your service plan, you can request the following from technical support:
 
@@ -38,7 +38,7 @@ The types of requests available depend on the selected plan and are shown in the
 
 {% note info %}
 
-The list of services offered under the "Premium" plan is not exhaustive and may be updated on a case-by-case basis.
+The list of services offered under the Premium plan is not exhaustive and may be updated on a case-by-case basis.
 
 {% endnote %}
 
@@ -64,10 +64,11 @@ The list of services offered under the "Premium" plan is not exhaustive and may 
 * Develop software code.
 * Debug your own software.
 
-Technical support includes diagnosing issues in third-party software is used in conjunction with the cloud infrastructure and limited assistance in solving the identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
+Technical support includes diagnosing issues in third-party software used in conjunction with the cloud infrastructure and limited assistance in solving the identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
 
 - [Operating systems](https://cloud.yandex.ru/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
 - Databases and cluster management systems created in:
+   - [{{ maf-full-name }}](../managed-airflow)
    - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
    - [{{ mes-full-name }}](../managed-elasticsearch/index.yaml)

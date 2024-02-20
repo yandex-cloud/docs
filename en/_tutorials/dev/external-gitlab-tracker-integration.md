@@ -27,15 +27,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Create a [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) or a [VM](../../compute/concepts/vm.md) with the [{{ GL }} image](../../compute/concepts/image.md).
 
-{% list tabs %}
+{% list tabs group=gl_installation %}
 
 
-- {{ mgl-name }} instance
+- {{ mgl-name }} instance {#instance-mgl}
 
    Create a {{ mgl-name }} instance by following [this guide](../../managed-gitlab/quickstart.md#instance-create).
 
 
-- VM running a {{ GL }} image
+- VM running a {{ GL }} image {#gl-image-vm}
 
    Launch {{ GL }} on a VM with a [public IP](../../vpc/concepts/address.md#public-addresses).
 
@@ -47,9 +47,9 @@ Create a [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instan
 
 To set up integration for an individual {{ GL }} project, create one.
 
-{% list tabs %}
+{% list tabs group=gl_installation %}
 
-- {{ mgl-name }} instance
+- {{ mgl-name }} instance {#instance-mgl}
 
    1. Log in to the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) web interface.
    1. Click **Create a project**.
@@ -61,7 +61,7 @@ To set up integration for an individual {{ GL }} project, create one.
       Leave the other fields unchanged.
    1. Click **Create project**.
 
-- VM running a {{ GL }} image
+- VM running a {{ GL }} image {#gl-image-vm}
 
    1. On the {{ compute-full-name }} page, select the created [VM](../../compute/concepts/vm.md) and copy its [public IP](../../vpc/concepts/address.md#public-addresses).
    1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
@@ -72,7 +72,7 @@ To set up integration for an individual {{ GL }} project, create one.
       ```
 
    1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-   1. Open `http://<VM_public_IP_address>` in your browser. The {{ GL }} web interface will open.
+   1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
    1. Log in using the administrator account:
       * **Username or email**: `root`
       * **Password**: Password you copied earlier

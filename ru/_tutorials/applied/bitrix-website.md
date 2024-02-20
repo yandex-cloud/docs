@@ -371,7 +371,7 @@ description: "В этом практическом руководстве мы �
      1. Склонируйте репозиторий с конфигурационными файлами.
 
          ```bash
-         git clone https://github.com/yandex-cloud-examples/yc-terraform-bitrix-website.git
+         git clone https://github.com/yandex-cloud-examples/yc-bitrix-website.git
          ```
 
      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
