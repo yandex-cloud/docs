@@ -200,8 +200,7 @@ default:
   iot-short-name: Yandex IoT Core
   jlab: Jupyter
   k8s: Kubernetes
-  k8s-api-link: >-
-    https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
+  k8s-api-link: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/
   k8s-ca: Cluster Autoscaler
   k8s-decomission-timeout: 7 минут
   k8s-docs: https://kubernetes.io/ru/docs

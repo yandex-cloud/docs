@@ -11,21 +11,18 @@ description: "На странице представлен справочник 
 
 
 
-
 ## Ресурсы Ingress-контроллера {#ingress}
 
 * [Ingress](ingress.md) — правила распределения трафика между бэкендами.
 * [HttpBackendGroup](http-backend-group.md) — объединение бэкендов в группы.
-  
 
 ## Ресурсы Gateway API {#gateway-api}
 
 * [Gateway](gateway.md) — правила приема входящего трафика и выбора маршрутов (`HTTPRoute`) для этого трафика.
 * [HTTPRoute](http-route.md) — правила маршрутизации трафика по бэкендам или его перенаправления.
 
-
 ## Общие ресурсы {#common}
 
-* [Service](service.md) — описание сервисов {{ k8s }}, используемых в качестве бэкендов.
+* [Service](service.md) — описание [сервисов {{ k8s }}](../../managed-kubernetes/concepts/index.md#service), используемых в качестве бэкендов.
 
 

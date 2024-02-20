@@ -122,7 +122,7 @@ items:
             items:
               - name: General information
                 href: payment/documents.md
-              - name: Report
+              - name: Reports
                 href: concepts/act.md
               - name: Invoice
                 href: concepts/invoice.md
@@ -140,7 +140,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Questions and answers
+  - name: FAQ
     items:
       - name: General questions
         href: qa/common.md
@@ -156,9 +156,11 @@ items:
         href: qa/non-resident.md
       - name: All questions on one page
         href: qa/all.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

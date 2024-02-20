@@ -195,6 +195,10 @@ items:
             href: concepts/jobs/authentication.md
           - name: DataSphere CLI
             href: concepts/jobs/cli.md
+          - name: Docker-образы в заданиях
+            href: concepts/jobs/docker.md
+          - name: Среда исполнения заданий
+            href: concepts/jobs/environment.md
       - name: Фундаментальные модели
         href: concepts/models/foundation-models.md
       - name: Квоты и лимиты

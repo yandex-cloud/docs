@@ -1,4 +1,4 @@
-# Load testing of the gRPC service
+# Load testing a gRPC service
 
 You can use {{ load-testing-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md).
 
@@ -70,15 +70,15 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the agent via SSH.
 1. Run the following command to test gRPC Server Reflection on the gRPC service:
 
-   {% list tabs %}
+   {% list tabs group=connection %}
 
-   - TLS connection
+   - Connecting via TLS {#with-tls}
 
      ```bash
      grpcurl 172.17.0.10:8080 list
      ```
 
-   - Standard connection
+   - Connecting without TLS {#without-tls}
 
      ```bash
      grpcurl --plaintext 172.17.0.10:8080 list
@@ -125,7 +125,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
       1. Under **Attached files**, click **Select files** and select the `data.json` file you saved earlier.
       1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
          * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
-         * In the configuration input field, specify the testing thread settings in `yaml` format:
+         * In the configuration input field, specify the test thread settings in `yaml` format:
 
             ```yaml
             pandora:

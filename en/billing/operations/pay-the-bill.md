@@ -22,7 +22,7 @@ A billing cycle runs automatically for [individuals](../payment/billing-cycle-in
 To top up your personal account:
 1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select a billing account.
-1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
+1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**. This button appears after the billing account gets the [paid](../../getting-started/free-trial/concepts/upgrade-to-paid.md) status.
 1. Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Enter your card details and click **Pay**.
 

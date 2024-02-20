@@ -8,6 +8,12 @@
 
 1. Откройте страницу задачи.
 
+   {% note info %}
+
+   Чтобы открыть список ваших задач, в меню слева выберите ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** → **Все мои задачи** или перейдите по [ссылке]({{ link-tracker }}issues/my-issues). Чтобы начать работать с задачей, перейдите на ее страницу.
+
+  {% endnote %}
+
 1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-notification }}**.
 
 1. Укажите дату и время напоминания.
@@ -20,7 +26,7 @@
   
    У напоминания может быть только один получатель. Ели вы хотите напомнить о задаче нескольким пользователям, создайте напоминание для каждого.
 
-1. Нажмите кнопку **Сохранить**. На странице задачи появится иконка ![](../../_assets/tracker/svg/reminder.svg) со счетчиком уведомлений.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**. На странице задачи появится иконка ![](../../_assets/tracker/svg/reminder.svg) со счетчиком уведомлений.
 
 В указанное время {{ tracker-name }} отправит пользователю письмо, а на странице задачи появится всплывающее окно с напоминанием.
 
