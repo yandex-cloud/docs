@@ -212,7 +212,7 @@
       1. Клонируйте репозиторий с конфигурационными файлами:
 
           ```bash
-          git clone https://github.com/yandex-cloud-examples/yc-terraform-open-cart.git
+          git clone https://github.com/yandex-cloud-examples/yc-opencart-store.git
           ```
 
       1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:

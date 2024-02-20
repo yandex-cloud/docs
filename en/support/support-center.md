@@ -20,31 +20,31 @@ If you are using the support center from your own organization, open the [**{{ u
 To find answers to questions about {{ yandex-cloud }}, do the following in {{ support-center-name }}:
 
 1. Open the {{ support-center-name }} [home page]({{ link-console-support }}).
-1. Go to **Requests**.
+1. Go to **{{ ui-key.support-center.common.tickets }}**.
 1. Check out the answers to FAQs using quick search buttons.
 1. If you did not find your question in the FAQ list:
-   1. In the **Describe your issue** window, provide a brief description of your issue, e.g., `How to restore access to a billing account`. The {{ yandex-cloud }} {{ support-center-name }} will search information for your query in the support knowledge base and show all relevant articles.
-   1. If no suitable article is found, a window with a corresponding message will appear under the search bar. In this window, click **Search in documentation** to find the answer to your question in the {{ yandex-cloud }} documentation.
+   1. In the **{{ ui-key.support-center.search.common.value_search-input-placeholder }}** window, provide a brief description of your issue, e.g., `How to restore access to a billing account`. {{ yandex-cloud }} {{ support-center-name }} will take your query to the technical support knowledge base and return all relevant articles.
+   1. If no suitable article is found, a notification window will appear under the search bar. In this window, click **{{ ui-key.support-center.search.common.action_search-in-documentation }}** to find the answer to your question in the {{ yandex-cloud }} documentation.
 
 ## Creating a request {#create-request}
 
-If a [search for a way to resolve your issue](#finding-solution) in the support knowledge base and the {{ yandex-cloud }} documentation produced no results, create a support request:
+If a [search for a way to resolve your issue](#finding-solution) in the support knowledge base and the {{ yandex-cloud }} documentation produced no results, create a request for support:
 
 1. Open the {{ support-center-name }} [home page]({{ link-console-support }}).
-1. Go to **Requests**.
-1. Click **Create request**.
-1. Fill out the following fields in the **New request** form that opens:
-   * **Type**: Select the request type that is most appropriate for troubleshooting your issue.
-   * **Service**: Select the service you encountered the issue in.
-   * **Subject**: Enter a subject for your request.
-   * **Message**: Provide a detailed description of the issue. It is advisable to specify the resource ID and the event date and time.
-   * **Attachments**: Optionally attach any screenshots or other files that will help describe your request in more detail.
-   * **Access**: Choose who will be able to see your request.
-1. Click **Create request**.
+1. Go to **{{ ui-key.support-center.common.tickets }}**.
+1. Click **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
+1. Fill out the following fields in the **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}** form that opens:
+   * **{{ ui-key.yacloud.support.ticket.create.field_type }}**: Select the request type that describes your issue best.
+   * **{{ ui-key.yacloud.support.ticket.create.field_service }}**: Specify the service you have an issue with.
+   * **{{ ui-key.yacloud.support.ticket.create.field_summary }}**: Enter the subject of your request.
+   * **{{ ui-key.yacloud.support.ticket.create.field_description }}**: Provide a detailed description of the issue. For best results, specify the resource ID and the event date and time.
+   * **{{ ui-key.yacloud.support.ticket.create.field_attachments }}**: Optionally attach screenshots or other evidence that may help describe your request in better detail.
+   * **{{ ui-key.yacloud.support.ticket.create.field_access-type }}**: Select who will be able to see your request.
+1. Click **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
 ## Viewing requests {#view-requests}
 
-You can see all submitted requests you have access to on the {{ support-center-name }} [home page]({{ link-console-support }}) under **Requests**.
+You can view all submitted requests you have access to on the {{ support-center-name }} [home page]({{ link-console-support }}) under **{{ ui-key.support-center.tickets.list.title_ticket_table }}**.
 
 To quickly find the request you need, use filters and sorting by:
 * Request author
@@ -53,7 +53,7 @@ To quickly find the request you need, use filters and sorting by:
 * Response status
 * Request type
 
-If you want to reset the request filtering settings, click **Reset filters**.
+To reset the request filters, click **{{ ui-key.support-center.tickets.filters.action_reset-filters }}**.
 
 ## Changing your service plan {#change-pricing}
 
