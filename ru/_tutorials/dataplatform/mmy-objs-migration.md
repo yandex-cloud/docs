@@ -1,6 +1,6 @@
-# Загрузка данных из {{ MY }} в {{ objstorage-name }} с помощью {{ data-transfer-full-name }}
+# Загрузка данных из {{ MY }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
 
-С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в объектное хранилище {{ objstorage-name }}.
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в объектное хранилище {{ objstorage-full-name }}.
 
 Чтобы перенести данные:
 
@@ -19,7 +19,7 @@
 - Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
-    1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет в {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
 - {{ TF }} {#tf}
 

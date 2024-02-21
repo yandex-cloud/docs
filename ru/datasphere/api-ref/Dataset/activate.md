@@ -1,65 +1,32 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/v1/api-ref/Address/create.md
+sourcePath: en/_api-ref/datasphere/v2/api-ref/Dataset/activate.md
 ---
 
-# Virtual Private Cloud API, REST: Address.create
-Creates an address in the specified folder and network.
+# DataSphere API v2, REST: Dataset.activate
+Activates shared dataset for project
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://vpc.{{ api-host }}/vpc/v1/addresses
+POST https://datasphere.{{ api-host }}/datasphere/v2/dataset/activate
 ```
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "folderId": "string",
-  "name": "string",
-  "description": "string",
-  "labels": "object",
-  "deletionProtection": true,
-  "dnsRecordSpecs": [
-    {
-      "fqdn": "string",
-      "dnsZoneId": "string",
-      "ttl": "string",
-      "ptr": true
-    }
-  ],
-  "externalIpv4AddressSpec": {
-    "address": "string",
-    "zoneId": "string",
-    "requirements": {
-      "ddosProtectionProvider": "string",
-      "outgoingSmtpCapability": "string"
-    }
-  }
+  "datasetId": "string",
+  "projectId": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. ID of the folder to create a address in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the address. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
-description | **string**<br><p>Description of the address.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Address labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
-dnsRecordSpecs[] | **object**<br><p>Optional DNS record specifications</p> 
-dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required.</p> 
-dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>The string length in characters must be equal to 20.</p> 
-dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>Acceptable values are 0 to 86400, inclusive.</p> 
-dnsRecordSpecs[].<br>ptr | **boolean** (boolean)
-externalIpv4AddressSpec | **object**
-externalIpv4AddressSpec.<br>address | **string**<br><p>Value of address.</p> 
-externalIpv4AddressSpec.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 
-externalIpv4AddressSpec.<br>requirements | **object**<br><p>Parameters of the allocated address, for example DDoS Protection.</p> 
-externalIpv4AddressSpec.<br>requirements.<br>ddosProtectionProvider | **string**<br><p>DDoS protection provider ID.</p> 
-externalIpv4AddressSpec.<br>requirements.<br>outgoingSmtpCapability | **string**<br><p>Capability to send SMTP traffic.</p> 
+datasetId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
+projectId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -20,6 +20,7 @@ Activates shared dataset for project
 
 **rpc Activate ([ActivateDatasetRequest](#ActivateDatasetRequest)) returns ([operation.Operation](#Operation))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### ActivateDatasetRequest {#ActivateDatasetRequest}
@@ -52,6 +53,7 @@ Deactivates shared dataset for project
 
 **rpc Deactivate ([DeactivateDatasetRequest](#DeactivateDatasetRequest)) returns ([operation.Operation](#Operation1))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeactivateDatasetRequest {#DeactivateDatasetRequest}

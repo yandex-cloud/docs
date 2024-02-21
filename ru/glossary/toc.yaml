@@ -27,6 +27,8 @@ items:
     items:
       - name: Чат-бот
         href: chat-bot.md
+      - name: Модели машинного обучения
+        href: ml-models.md
   - name: Облачные вычисления и сервера
     items:
       - name: Виртуальная машина
@@ -73,6 +75,8 @@ items:
         href: kanban.md
       - name: Бэклог
         href: backlog.md
+      - name: Система контроля версий
+        href: vcs.md
   - name: Сети и доставка контента
     items:
       - name: Виртуальная частная сеть (VPN)
