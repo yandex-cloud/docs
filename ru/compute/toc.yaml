@@ -97,7 +97,7 @@ items:
             href: operations/vm-control/vm-change-security-groups-set.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
-          - name: Изменить политики обслуживания ВМ
+          - name: Управление политикой обслуживания ВМ
             href: operations/vm-control/vm-update-policies.md
       - name: Работа на виртуальной машине
         items:

@@ -50,4 +50,59 @@ description: "Следуя данной инструкции, вы сможет�
 
   Чтобы получить подробную информацию о лог-группе, воспользуйтесь методом REST API [get](../api-ref/LogGroup/get.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Get](../api-ref/grpc/log_group_service.md#Get).
 
+  Чтобы получить статистику лог-группы, воспользуйтесь методом REST API [stats](../api-ref/LogGroup/stats.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Stats](../api-ref/grpc/log_group_service.md#Stats).
+
+  **Примеры запросов**
+
+  Примеры использования написаны с помощью утилиты `grpcurl`. Чтобы воспользоваться ими, [аутентифицируйтесь](../../logging/api-ref/authentication.md) в API и клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi).
+
+  Чтобы получить подробную информацию о лог-группе, выполните запрос:
+
+  ```bash
+  grpcurl \
+    -rpc-header "Authorization: Bearer $(yc iam create-token)" \
+    -d '{"log_group_id": "<идентификатор_лог-группы>"}' \
+    -import-path ~/cloudapi/ \
+    -import-path ~/cloudapi/third_party/googleapis/ \
+    -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
+  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Get
+  ```
+
+  Результат:
+
+  ```bash
+  {
+    "id": "e23u2vn449av********",
+    "folderId": "b1g3f9i71bpm********",
+    "cloudId": "b1gvlrnlei4l********",
+    "createdAt": "2023-11-15T12:48:46.321Z",
+    "name": "default",
+    "description": "Auto-created default group",
+    "status": "ACTIVE",
+    "retentionPeriod": "259200s"
+  }
+  ```
+
+  Чтобы получить статистику лог-группы, выполните запрос:
+
+  ```bash
+  grpcurl \
+    -rpc-header "Authorization: Bearer $(yc iam create-token)" \
+    -d '{"log_group_id": "<идентификатор_лог-группы>"}' \
+    -import-path ~/cloudapi/ \
+    -import-path ~/cloudapi/third_party/googleapis/ \
+    -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
+  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Stats
+  ```
+
+  Результат:
+
+  ```bash
+  {
+    "logGroupId": "e23u2vn449av********",
+    "bytes": "73510",
+    "records": "158"
+  }
+  ```
+
 {% endlist %}

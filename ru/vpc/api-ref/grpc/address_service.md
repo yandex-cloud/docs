@@ -48,8 +48,9 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
+dns_records[] | **[DnsRecord](#DnsRecord)**<br>Optional dns record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address}
@@ -67,6 +68,16 @@ Field | Description
 --- | ---
 ddos_protection_provider | **string**<br>DDoS protection provider ID. 
 outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
+
+
+### DnsRecord {#DnsRecord}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
+dns_zone_id | **string**<br> 
+ttl | **int64**<br> 
+ptr | **bool**<br> 
 
 
 ## GetByValue {#GetByValue}
@@ -98,8 +109,9 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
+dns_records[] | **[DnsRecord](#DnsRecord1)**<br>Optional dns record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address1}
@@ -117,6 +129,16 @@ Field | Description
 --- | ---
 ddos_protection_provider | **string**<br>DDoS protection provider ID. 
 outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
+
+
+### DnsRecord {#DnsRecord1}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
+dns_zone_id | **string**<br> 
+ttl | **int64**<br> 
+ptr | **bool**<br> 
 
 
 ## List {#List}
@@ -158,8 +180,9 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
+dns_records[] | **[DnsRecord](#DnsRecord2)**<br>Optional dns record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address2}
@@ -177,6 +200,16 @@ Field | Description
 --- | ---
 ddos_protection_provider | **string**<br>DDoS protection provider ID. 
 outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
+
+
+### DnsRecord {#DnsRecord2}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
+dns_zone_id | **string**<br> 
+ttl | **int64**<br> 
+ptr | **bool**<br> 
 
 
 ## Create {#Create}
@@ -200,6 +233,7 @@ labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more 
 address_spec | **oneof:** `external_ipv4_address_spec`<br>External ipv4 address specification.
 &nbsp;&nbsp;external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#ExternalIpv4AddressSpec)**<br>External ipv4 address specification. 
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Optional DNS record specifications 
 
 
 ### ExternalIpv4AddressSpec {#ExternalIpv4AddressSpec}
@@ -217,6 +251,16 @@ Field | Description
 --- | ---
 ddos_protection_provider | **string**<br>DDoS protection provider ID. 
 outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
+
+
+### DnsRecordSpec {#DnsRecordSpec}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required.  
+dns_zone_id | **string**<br> The string length in characters must be equal to 20.
+ttl | **int64**<br> Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br> 
 
 
 ### Operation {#Operation}
@@ -257,8 +301,9 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
+dns_records[] | **[DnsRecord](#DnsRecord3)**<br>Optional dns record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address3}
@@ -268,6 +313,16 @@ Field | Description
 address | **string**<br>Value of address. 
 zone_id | **string**<br>Availability zone from which the address will be allocated. 
 requirements | **[AddressRequirements](#AddressRequirements4)**<br>Parameters of the allocated address, for example DDoS Protection. 
+
+
+### DnsRecord {#DnsRecord3}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
+dns_zone_id | **string**<br> 
+ttl | **int64**<br> 
+ptr | **bool**<br> 
 
 
 ## Update {#Update}
@@ -291,6 +346,17 @@ description | **string**<br>New description of the address. The maximum string l
 labels | **map<string,string>**<br>Address labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [AddressService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 reserved | **bool**<br>Specifies if address is reserved or not. 
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Optional DNS record specifications 
+
+
+### DnsRecordSpec {#DnsRecordSpec1}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required.  
+dns_zone_id | **string**<br> The string length in characters must be equal to 20.
+ttl | **int64**<br> Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br> 
 
 
 ### Operation {#Operation1}
@@ -331,8 +397,9 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
+dns_records[] | **[DnsRecord](#DnsRecord4)**<br>Optional dns record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address4}
@@ -350,6 +417,16 @@ Field | Description
 --- | ---
 ddos_protection_provider | **string**<br>DDoS protection provider ID. 
 outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
+
+
+### DnsRecord {#DnsRecord4}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
+dns_zone_id | **string**<br> 
+ttl | **int64**<br> 
+ptr | **bool**<br> 
 
 
 ## Delete {#Delete}
@@ -487,8 +564,9 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
+dns_records[] | **[DnsRecord](#DnsRecord5)**<br>Optional dns record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address5}
@@ -506,5 +584,15 @@ Field | Description
 --- | ---
 ddos_protection_provider | **string**<br>DDoS protection provider ID. 
 outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
+
+
+### DnsRecord {#DnsRecord5}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
+dns_zone_id | **string**<br> 
+ttl | **int64**<br> 
+ptr | **bool**<br> 
 
 

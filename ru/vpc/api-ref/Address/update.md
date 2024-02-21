@@ -28,7 +28,15 @@ addressId | <p>Required. ID of the address to update.</p> <p>To get the address 
   "description": "string",
   "labels": "object",
   "reserved": true,
-  "deletionProtection": true
+  "deletionProtection": true,
+  "dnsRecordSpecs": [
+    {
+      "fqdn": "string",
+      "dnsZoneId": "string",
+      "ttl": "string",
+      "ptr": true
+    }
+  ]
 }
 ```
 
@@ -41,6 +49,11 @@ description | **string**<br><p>New description of the address.</p> <p>The maximu
 labels | **object**<br><p>Address labels as ``key:value`` pairs.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label:</p> <ol> <li>Get the current set of labels with a <a href="/docs/vpc/api-ref/Address/get">get</a> request.</li> <li>Add or remove a label in this set.</li> <li>Send the new set in this field.</li> </ol> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
+dnsRecordSpecs[] | **object**<br><p>Optional DNS record specifications</p> 
+dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required.</p> 
+dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>The string length in characters must be equal to 20.</p> 
+dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>Acceptable values are 0 to 86400, inclusive.</p> 
+dnsRecordSpecs[].<br>ptr | **boolean** (boolean)
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

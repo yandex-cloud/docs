@@ -70,6 +70,7 @@ A set of methods for managing [policies](/docs/backup/concepts/policy).
     "scheduling": {
       "backupSets": [
         {
+          "type": "string",
 
           // `settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`
           "time": {
@@ -174,6 +175,7 @@ settings.<br>retention.<br>rules[].<br>maxCount | **string** (int64) <br>`settin
 settings.<br>retention.<br>beforeBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied before backup is finished.</p> 
 settings.<br>scheduling | **object**<br><p>Required. Configuration of the backup schedule.</p> 
 settings.<br>scheduling.<br>backupSets[] | **object**<br><p>Required. A list of schedules with backup sets that compose the whole scheme.</p> <p>Must contain at least one element.</p> 
+settings.<br>scheduling.<br>backupSets[].<br>type | **string**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified
 settings.<br>scheduling.<br>backupSets[].<br>time | **object** <br>`settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`<br>
 settings.<br>scheduling.<br>backupSets[].<br>time.<br>weekdays[] | **string**<br><p>Days in a week to perform a backup.</p> 
 settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatAt[] | **object**<br><p>Time to repeat the backup.</p> 

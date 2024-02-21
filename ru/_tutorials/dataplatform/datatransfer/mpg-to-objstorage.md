@@ -23,7 +23,7 @@
     1. Если вы используете [группы безопасности](../../../managed-postgresql/operations/connect.md#configuring-security-groups) в кластере, убедитесь, что они настроены правильно и допускают подключение к нему.
 
 
-    1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
+    1. [Создайте бакет {{ objstorage-full-name }}](../../../storage/operations/buckets/create.md).
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с именем `storage-sa` и ролью `storage.uploader`. Трансфер будет использовать его для доступа к бакету.
 

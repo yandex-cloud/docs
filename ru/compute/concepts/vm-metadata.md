@@ -12,18 +12,31 @@
 
 ## Как передать метаданные {#how-to-send-metadata}
 
-Вы можете передать метаданные при создании и [изменении](../operations/vm-control/vm-update.md#change-metadata) ВМ. Данные для подключения к ВМ нельзя изменить и необходимо передать при создании:
-* [Для ВМ Linux](../operations/vm-create/create-linux-vm.md) необходимо передать открытый ключ [SSH](../../glossary/ssh-keygen.md) для подключения к ней.
-
-
+Вы можете передать метаданные при создании и [изменении](../operations/vm-control/vm-update.md#change-metadata) ВМ. Данные для подключения к ВМ можно передать только при создании, причем в [ВМ с ОС Linux](../operations/vm-create/create-linux-vm.md) для каждого пользователя необходимо также передавать открытый [SSH-ключ](../../glossary/ssh-keygen.md).
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  Метаданные передаются в блоке **{{ ui-key.yacloud.common.metadata }}** в формате `Ключ:Значение`.
+  
+  Например, чтобы создать в ОС виртуальной машины нескольких пользователей, добавьте ключ `user-data` и в его значении укажите конфигурацию:
+
+  {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
+
+  При создании пользователей через метаданные указывайте в ключе `user-data` данные всех пользователей, в том числе и данные пользователя, заданного в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
+
 - CLI {#cli}
 
-  В [CLI](../../glossary/cli.md) метаданные можно указать в любом из трех параметров:
-  * `--metadata-from-file` в виде файла, например `--metadata-from-file key=path/to/file`. Таким образом удобно передать значение из нескольких строк.
-  * `--metadata` — список пар `ключ=значение`, разделенных запятой, например `--metadata foo1=bar,foo2=baz`.
+  В [CLI](../../glossary/cli.md) метаданные можно передать в любом из трех параметров:
+
+  * `--metadata-from-file` — в виде файла конфигурации в формате `--metadata-from-file key=<путь_к_файлу>`. Этим способом удобно передавать значение, состоящее одновременно из нескольких строк.
+
+      Например, чтобы добавить на ВМ одновременно нескольких пользователей, опишите конфигурацию в файле в формате `YAML`:
+
+      {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
+
+  * `--metadata` — в виде списка пар `ключ=значение`, разделенных запятой, например `--metadata foo1=bar,foo2=baz`.
 
       Если в значении несколько строк, используйте `\n` в качестве разделителя: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
   * `--ssh-key` — SSH-ключ. Только для ВМ Linux.
@@ -55,16 +68,7 @@
 
     {% cut "Пример содержимого файла `cloud-init.yaml`" %}
 
-    ```hcl
-    #cloud-config
-    users:
-      - name: <имя_пользователя>
-        groups: sudo
-        shell: /bin/bash
-        sudo: 'ALL=(ALL) NOPASSWD:ALL'
-        ssh-authorized-keys:
-          - <содержимое_SSH-ключа>
-    ```
+    {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
 
     {% endcut %}
 
