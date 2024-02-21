@@ -22,6 +22,14 @@ POST https://vpc.{{ api-host }}/vpc/v1/addresses
   "description": "string",
   "labels": "object",
   "deletionProtection": true,
+  "dnsRecordSpecs": [
+    {
+      "fqdn": "string",
+      "dnsZoneId": "string",
+      "ttl": "string",
+      "ptr": true
+    }
+  ],
   "externalIpv4AddressSpec": {
     "address": "string",
     "zoneId": "string",
@@ -41,6 +49,11 @@ name | **string**<br><p>Name of the address. The name must be unique within the 
 description | **string**<br><p>Description of the address.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Address labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
+dnsRecordSpecs[] | **object**<br><p>Optional DNS record specifications</p> 
+dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required.</p> 
+dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>The string length in characters must be equal to 20.</p> 
+dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>Acceptable values are 0 to 86400, inclusive.</p> 
+dnsRecordSpecs[].<br>ptr | **boolean** (boolean)
 externalIpv4AddressSpec | **object**
 externalIpv4AddressSpec.<br>address | **string**<br><p>Value of address.</p> 
 externalIpv4AddressSpec.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

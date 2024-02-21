@@ -51,6 +51,10 @@ description: "Вы можете вызвать контейнер с помощ�
         - "Connection"
         - "Max-Forwards"
         - "Cookie"
+        - "X-Request-Id"
+        - "X-Function-Id"
+        - "X-Function-Version-Id"
+        - "X-Content-Type-Options"
     
     - Вызывают ошибку, если присутствуют в ответе:
     

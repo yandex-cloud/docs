@@ -40,6 +40,14 @@ filter | <p>A filter expression that filters Address listed in the response.</p>
       "type": "string",
       "ipVersion": "string",
       "deletionProtection": true,
+      "dnsRecords": [
+        {
+          "fqdn": "string",
+          "dnsZoneId": "string",
+          "ttl": "string",
+          "ptr": true
+        }
+      ],
       "externalIpv4Address": {
         "address": "string",
         "zoneId": "string",
@@ -67,8 +75,13 @@ addresses[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs
 addresses[].<br>reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
 addresses[].<br>used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
 addresses[].<br>type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
-addresses[].<br>ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
+addresses[].<br>ipVersion | **string**<br>Version of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
 addresses[].<br>deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
+addresses[].<br>dnsRecords[] | **object**<br><p>Optional dns record specifications</p> 
+addresses[].<br>dnsRecords[].<br>fqdn | **string**
+addresses[].<br>dnsRecords[].<br>dnsZoneId | **string**
+addresses[].<br>dnsRecords[].<br>ttl | **string** (int64)
+addresses[].<br>dnsRecords[].<br>ptr | **boolean** (boolean)
 addresses[].<br>externalIpv4Address | **object**
 addresses[].<br>externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 addresses[].<br>externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

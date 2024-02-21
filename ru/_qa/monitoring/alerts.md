@@ -12,10 +12,9 @@
 
 #### Как задать получателя алерта? {#alert-recipient}
 
-В [канале уведомлений](../../monitoring/concepts/alerting.md#channel-parameters) поддерживаются следующие методы:
-* email;
-* SMS;
-* push-уведомления в [мобильном приложении](../../overview/mobile-app/index.md) {{ yandex-cloud }}.
+В [канале уведомлений](../../monitoring/concepts/alerting/notification-channel.md) поддерживаются следующие методы:
+
+{% include [channels](../../_includes/monitoring/channels.md) %}
 
 {% include [account-info](../../_includes/monitoring/account-info.md) %}
 

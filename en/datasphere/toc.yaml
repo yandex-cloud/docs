@@ -295,6 +295,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Dataset/index.md
+              - name: activate
+                href: api-ref/Dataset/activate.md
               - name: deactivate
                 href: api-ref/Dataset/deactivate.md
           - name: DockerImage

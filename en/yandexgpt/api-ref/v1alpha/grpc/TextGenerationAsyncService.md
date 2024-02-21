@@ -19,6 +19,7 @@ RPC method for instructing the model to generate text.
 
 **rpc Instruct ([InstructRequest](#InstructRequest)) returns ([operation.Operation](#Operation))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[InstructResponse](#InstructResponse)<br>
 
 ### InstructRequest {#InstructRequest}

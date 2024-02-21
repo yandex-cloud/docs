@@ -89,6 +89,7 @@ computeInstanceId | <p>Compute Cloud instance ID. Either Folder ID or Compute Cl
         "scheduling": {
           "backupSets": [
             {
+              "type": "string",
 
               // `policies[].settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`
               "time": {
@@ -197,6 +198,7 @@ policies[].<br>settings.<br>retention.<br>rules[].<br>maxCount | **string** (int
 policies[].<br>settings.<br>retention.<br>beforeBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied before backup is finished.</p> 
 policies[].<br>settings.<br>scheduling | **object**<br><p>Required. Configuration of the backup schedule.</p> 
 policies[].<br>settings.<br>scheduling.<br>backupSets[] | **object**<br><p>Required. A list of schedules with backup sets that compose the whole scheme.</p> <p>Must contain at least one element.</p> 
+policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>type | **string**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified
 policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time | **object** <br>`policies[].settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`<br>
 policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>weekdays[] | **string**<br><p>Days in a week to perform a backup.</p> 
 policies[].<br>settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatAt[] | **object**<br><p>Time to repeat the backup.</p> 

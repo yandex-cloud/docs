@@ -9,4 +9,5 @@ A set of methods for managing Datasets.
 ## Methods {#methods}
 Method | Description
 --- | ---
+[activate](activate.md) | Activates shared dataset for project
 [deactivate](deactivate.md) | Deactivates shared dataset for project

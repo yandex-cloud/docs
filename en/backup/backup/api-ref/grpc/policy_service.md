@@ -168,6 +168,7 @@ Field | Description
 setting | **oneof:** `time` or `since_last_exec_time`<br>
 &nbsp;&nbsp;time | **[Time](#Time)**<br> 
 &nbsp;&nbsp;since_last_exec_time | **[SinceLastExecTime](#SinceLastExecTime)**<br> 
+type | enum **Type**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified 
 
 
 ### Time {#Time}
@@ -324,6 +325,7 @@ Field | Description
 setting | **oneof:** `time` or `since_last_exec_time`<br>
 &nbsp;&nbsp;time | **[Time](#Time1)**<br> 
 &nbsp;&nbsp;since_last_exec_time | **[SinceLastExecTime](#SinceLastExecTime1)**<br> 
+type | enum **Type**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified 
 
 
 ### Time {#Time1}
@@ -523,6 +525,7 @@ Field | Description
 setting | **oneof:** `time` or `since_last_exec_time`<br>
 &nbsp;&nbsp;time | **[Time](#Time2)**<br> 
 &nbsp;&nbsp;since_last_exec_time | **[SinceLastExecTime](#SinceLastExecTime2)**<br> 
+type | enum **Type**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified 
 
 
 ### Time {#Time2}
@@ -678,6 +681,7 @@ Field | Description
 setting | **oneof:** `time` or `since_last_exec_time`<br>
 &nbsp;&nbsp;time | **[Time](#Time3)**<br> 
 &nbsp;&nbsp;since_last_exec_time | **[SinceLastExecTime](#SinceLastExecTime3)**<br> 
+type | enum **Type**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified 
 
 
 ### Time {#Time3}

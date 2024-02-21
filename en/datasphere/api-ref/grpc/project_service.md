@@ -741,6 +741,7 @@ Adds shared resource to project
 
 **rpc AddResource ([AddResourceToProjectRequest](#AddResourceToProjectRequest)) returns ([operation.Operation](#Operation8))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### AddResourceToProjectRequest {#AddResourceToProjectRequest}
@@ -774,6 +775,7 @@ Removes shared resource from project
 
 **rpc RemoveResource ([RemoveResourceFromProjectRequest](#RemoveResourceFromProjectRequest)) returns ([operation.Operation](#Operation9))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### RemoveResourceFromProjectRequest {#RemoveResourceFromProjectRequest}

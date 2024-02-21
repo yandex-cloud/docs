@@ -307,6 +307,10 @@ module.exports.handler = async (event, context) => {
         - "Connection"
         - "Max-Forwards"
         - "Cookie"
+        - "X-Request-Id"
+        - "X-Function-Id"
+        - "X-Function-Version-Id"
+        - "X-Content-Type-Options"
     
     - Вызывают ошибку, если присутствуют в ответе:
     

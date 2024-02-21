@@ -1,4 +1,4 @@
-С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в бакет {{ objstorage-name }}:
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в бакет {{ objstorage-full-name }}:
 
 1. [Подготовьте поток данных {{ yds-name }}](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -16,7 +16,7 @@
 
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
-    1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет в {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
 - {{ TF }} {#tf}
 

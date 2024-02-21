@@ -67,6 +67,7 @@
 
    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
    * Если требуется, разрешите доступ к [серийной консоли](../operations/serial-console/index.md).
+   * Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей в блоке **{{ ui-key.yacloud.common.metadata }}**.
 
    {% include [vm-connect-linux](../../_includes/vm-connect-linux.md) %}
 

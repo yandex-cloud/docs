@@ -20,6 +20,7 @@ To send the image for asynchronous text recognition.
 
 **rpc Recognize ([RecognizeTextRequest](#RecognizeTextRequest)) returns ([operation.Operation](#Operation))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### RecognizeTextRequest {#RecognizeTextRequest}

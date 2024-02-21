@@ -3484,9 +3484,12 @@ default:
         product-pricing-type_free: Free
         product-pricing-type_payg: PAYG
       settings:
+        button_add-empty-telegram: Настроить
+        button_submit: Подтвердить
         field_theme: Тема интерфейса
         field_theme-contrast: Контрастность
         label_monitoring-name: Мониторинг
+        label_telegram: Telegram
       usermenu:
         label_login: Войти
     yacloud_monitoring:
