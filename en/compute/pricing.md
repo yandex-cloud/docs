@@ -213,17 +213,6 @@ GPU clusters will be [publicly available](../overview/concepts/launch-stages.md)
 
 
 
-### Operating systems {#prices-os}
-
-
-
-
-
-{% include [usd-os.md](../_pricing/compute/usd-os.md) %}
-
-
-
-
 ### Disks, snapshots, and images {#prices-storage}
 
 

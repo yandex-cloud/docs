@@ -418,23 +418,16 @@ Service name: `mdb.mongodb`.
 | `AddClusterShard` | Adding a shard to a cluster |
 | `BackupCluster` | Creating backups |
 | `CreateCluster` | Creating a cluster |
-| `CreateDatabase` | Creating a database |
-| `CreateUser` | Creating a database user |
 | `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteClusterShard` | Deleting a shard from a cluster |
-| `DeleteDatabase` | Deleting a database |
-| `DeleteUser` | Deleting a database user |
 | `EnableClusterSharding` | Enabling sharding for a cluster |
-| `GrantUserPermission` | Assigning privileges to a database user |
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
-| `RevokeUserPermission` | Revoking a database user's privileges |
 | `StartCluster` | Starting a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
-| `UpdateUser` | Editing a database user |
 | `ResetupHosts` | Resyncing a host |
 | `RestartHosts` | Restarting a host |
 | `StepdownHosts` | Changing the master host |
@@ -455,26 +448,19 @@ Service name: `mdb.mysql`.
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `BackupCluster` | Creating backups |
 | `CreateCluster` | Creating a cluster |
-| `CreateDatabase` | Creating a database |
-| `CreateUser` | Creating a database user |
 | `DatabaseUserLogin` | Connecting a user to the database |
 | `DatabaseUserLogout` | Disconnecting a user from the database |
 | `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
-| `DeleteDatabase` | Deleting a database |
-| `DeleteUser` | Deleting a database user |
-| `GrantUserPermission` | Assigning privileges to a database user |
 | `MoveCluster` | Moving a cluster |
 | `RescheduleMaintenance` | Changing scheduled maintenance date and time |
 | `RestoreCluster` | Creating a new cluster from a backup |
-| `RevokeUserPermission` | Revoking a database user's privileges |
 | `StartCluster` | Starting a cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
-| `UpdateUser` | Editing a database user |
 
 ## {{ mpg-short-name }} {#managed-service-for-postgresql}
 
@@ -485,26 +471,18 @@ Service name: `mdb.postgresql`.
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `BackupCluster` | Creating backups |
 | `CreateCluster` | Creating a cluster |
-| `CreateDatabase` | Creating a database |
-| `CreateUser` | Creating a database user |
 | `DatabaseUserLogin` | Connecting a user to the database |
 | `DatabaseUserLogout` | Disconnecting a user from the database |
 | `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
-| `DeleteDatabase` | Deleting a database |
-| `DeleteUser` | Deleting a database user |
-| `GrantUserPermission` | Assigning privileges to a database user |
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
-| `RevokeUserPermission` | Revoking a database user's privileges |
 | `StartCluster` | Starting a cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
-| `UpdateDatabase` | Updating a database |
-| `UpdateUser` | Editing a database user |
 
 ## {{ mrd-short-name }} {#managed-service-for-redis}
 

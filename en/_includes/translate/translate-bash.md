@@ -1,6 +1,6 @@
 {% include [bash-windows-note-single](bash-windows-note-single.md) %}
 
-This example shows how to translate into Russian the two strings with the text _Hello_ and _World_. The source language of a text is recognized automatically.
+This example shows how to translate two strings containing *Hello* and *World* into Russian. The text source language is recognized automatically.
 
 1. Create a file with the request body, e.g., `body.json`:
 
@@ -29,11 +29,11 @@ This example shows how to translate into Russian the two strings with the text _
    {
        "translations": [
            {
-           "text": "Привет",
+           "text": "Hello",
            "detectedLanguageCode": "en"
            },
            {
-           "text": "Мир",
+           "text": "World",
            "detectedLanguageCode": "en"
            }
        ]

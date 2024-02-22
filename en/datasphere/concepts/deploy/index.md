@@ -24,14 +24,6 @@ The maximum size of a request to and a response from the node API is 16 MB.
 
 To create a node, specify your organization's cloud [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the node will deploy its instances and store its logs. In the folder, [set up a subnet](../../../vpc/operations/subnet-create.md) with internet access via a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) and create a [service account](../../../iam/operations/sa/create.md) with the `vpc.user` [role](../../../iam/concepts/access-control/roles.md#vpc-user). Specify this service account in the [{{ ml-platform-name }} project settings](../../operations/projects/update.md).
 
-### Node from a checkpoint {#checkpoint-node}
-
-{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
-
-Nodes from a [checkpoint](../checkpoints.md) are good for testing and checking hypotheses. To [create](../../operations/deploy/node-create.md#from-cell) a node, [pin](../../operations/projects/checkpoints.md) the checkpoint of the cell where the input and output parameters of your future microservice are defined. {{ ml-platform-name }} will use this information to automatically generate [gRPC and REST API](../../../datasphere/operations/deploy/node-api.md).
-
-By default, node instances use standard system Docker images and do not copy the libraries set by the user. If your microservice requires packages that are not included in the [pre-installed software](../../../datasphere/concepts/preinstalled-packages.md), configure the Docker image for [deployment of the node environment](../../../datasphere/operations/deploy/node-customization.md).
-
 ### Node from models {#models-node}
 
 With nodes from [models](../models/index.md), you can [deploy](../../operations/deploy/node-create.md#from-model) your models saved in {{ ml-platform-name }} as a service and access them via the API. {{ ml-platform-name }} will all by itself deploy the [Triton Inference Server](https://developer.nvidia.com/triton-inference-server), define the model's API, and provide monitoring for the node and the Triton server.
@@ -46,7 +38,15 @@ To use {{ container-registry-full-name }}, the project service account needs the
 
 {% endnote %}
 
-When [creating a node from a Docker image](../../operations/deploy/node-create.md#from-docker), you yourself set the node's API, port you want your service to use, connection time, collectible metrics format, and other parameters. Once the node is created, {{ ml-platform-name }} will monitor its state, maintain the operation of the instances, and scale the node within the specified instance range as needed.
+When [creating a node from a Docker image](../../operations/deploy/node-create.md#from-docker), you set the node's API, port you want your service to use, connection time, format of metrics you will collect, and other parameters. Once the node is created, {{ ml-platform-name }} will monitor its state, maintain the operation of the instances, and scale the node within the specified instance range as needed.
+
+### Node from a checkpoint {#checkpoint-node}
+
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
+Nodes from a [checkpoint](../checkpoints.md) are good for testing and checking hypotheses. To [create](../../operations/deploy/node-create.md#from-cell) a node, [pin](../../operations/projects/checkpoints.md) the checkpoint of the cell where the input and output parameters of your future microservice are defined. {{ ml-platform-name }} will use this information to automatically generate [gRPC and REST API](../../../datasphere/operations/deploy/node-api.md).
+
+By default, node instances use standard system Docker images and do not copy the libraries set by the user. If your microservice requires packages that are not included in the [pre-installed software](../../../datasphere/concepts/preinstalled-packages.md), configure the Docker image for [deployment of the node environment](../../../datasphere/operations/deploy/node-customization.md).
 
 ### Node statuses {#statuses}
 

@@ -7,12 +7,12 @@ The sequence of user actions depends on the type of update.
 ## Renaming a billing account {#change-name}
 
 You can rename your billing account both on the management console home page and in the {{ billing-name }} service:
-1. Open the [management console]({{ link-console-main }}){{ yandex-cloud }}.
+1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
-1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}** at the top next to the account name.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.dashboard.label_rename }}** at the top next to the account name.
 1. Enter a new name.
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
 

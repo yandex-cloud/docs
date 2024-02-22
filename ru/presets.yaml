@@ -3505,7 +3505,8 @@ default:
           save: Сохранить
       alert-template:
         field:
-          evaluation-window: Окно вычисления
+          evaluation-window:
+            hint: Значение должно быть больше 0.
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -3800,9 +3801,6 @@ default:
         products: Продукты
         publisher-users: Управление доступом
         support: Поддержка
-      subAccount:
-        detail:
-          column_cost: Общая стоимость
     yacloud:
       airflow:
         button_create-cluster: Создать кластер
@@ -4053,7 +4051,6 @@ default:
             label_to: До
             label_top-cost: Стоимость потребления
             label_top-total: К оплате
-            label_total: Итого
             tab_product: По продуктам
             value_cost: Потребление
             value_folders: Каталогам
@@ -5428,9 +5425,9 @@ default:
         section_agent: Агент
         section_export: Логи теста
         test-data-section: Прикрепленные файлы
-        value_cumulative-quantiles-chart-type: Кумулятивные квантили ответов
-        value_imbalance_rps-chart-type: RPS разладки
-        value_instances-chart-type: Количество тестирующих потоков
+        value_cumulative-quantiles-chart-type: 'Время ответа: кумулятивные квантили'
+        value_imbalance_rps-chart-type: 'Точка разладки: RPS'
+        value_instances-chart-type: 'Тестирующие потоки: количество'
       lockbox:
         button_action-make-version-current: Сделать текущей версией
         button_action-open-version-add-dialog: Создать новую версию на основе этой
@@ -5914,7 +5911,7 @@ default:
             label_title: Редактор
             label_title-params: Параметры
             label_title-source: Код функции
-            label_tries-count: Количество попыток
+            label_tries-count: Количество повторных попыток
             label_turn-on-button: Включить
             label_with-template: Добавить файлы с примерами кода
             option_queues-mq: Message Queue
@@ -6560,8 +6557,6 @@ default:
                         title: Схема данных
                       format:
                         title: Формат данных
-                      null_keys_allowed:
-                        title: Разрешить NULL в ключевых колонках
                     DataSchema:
                       fields:
                         title: Список полей

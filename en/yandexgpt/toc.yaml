@@ -30,6 +30,8 @@ items:
         href: concepts/models.md
       - name: Tokens
         href: concepts/tokens.md
+      - name: Embeddings
+        href: concepts/embeddings.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: API reference

@@ -170,7 +170,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 {% endlist %}
 
-### Additional settings {#additional-settings}
+### Collection filter {#additional-settings}
 
 {% list tabs group=instructions %}
 

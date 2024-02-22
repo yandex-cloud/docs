@@ -14,17 +14,11 @@ We will be discontinuing the `{{ region-id }}-c` zone in multiple steps. In Q1 2
 
 ### What happens if I do not make it in time? {#what-if}
 
-Once the migration timeline expires, we will forcibly migrate your resources from the `{{ region-id }}-c` zone. This will include:
-
-* Creating backups on your network disks located in the `{{ region-id }}-c` zone and migrating your disks to the `{{ region-id }}-d` zone.
-* Migrating your VMs to the `{{ region-id }}-d` availability zone. When being migrated, your resources will be stopped, and their network settings, subnets, IP addresses, and FQDNs will change. Then, they will be launched in the new availability zones.
-* When it comes to managed database resources and {{ managed-k8s-name }}: backing up your data and migrating your resources to `{{ region-id }}-d`; this will also trigger changing network settings, subnets, IP addresses, and FQDNs.
+We will stop your resources (including virtual machines), move them to the `{{ region-id }}-d` zone, and run them in the new network environment.
 
 Over this forced migration, your resources will change both its public and internal IP addresses. This may lead to losing network access to the resources through the previous IP addresses; you may also have to update your firewall and DNS configuration, as well as other settings that depend on the addresses your resources refer to.
 
-During the forced migration, your services may also become unavailable.
-
-To keep your services available and minimize your risks, make sure to migrate your resources from the `{{ region-id }}-c` zone on your own before the deadline.
+To keep the services available, make sure to migrate your resources from the `{{ region-id }}-c` zone on your own before the deadline.
 
 ### How do I get help with migration? {#need-help}
 
@@ -41,6 +35,8 @@ You can contact [our partners](./zone-migration-partners.md) for assistance and 
    1. [{{ managed-k8s-name }} master hosts and node groups](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 1. If you were using [network](../../network-load-balancer/operations/load-balancer-change-zone.md) or [L7 load balancers](../../application-load-balancer/operations/application-load-balancer-relocate.md), add the resources you want to migrate to their target groups. Enable ingress traffic in the new availability zone for the L7 load balancers.
 1. Make sure the subnets in `{{ region-id }}-c` have no resources left. Delete any remaining resources.
+1. Migrate the [empty subnets](../../vpc/operations/subnet-relocate.md) to the new zone.
+1. (Optional) If you were using internal load balancers, their traffic listeners will be migrated along with the subnet. After this, the internal load balancer will start routing traffic through the new availability zone.
 
 ## Migration tools {#migration-tools}
 
@@ -128,7 +124,7 @@ You can [migrate](../../vpc/operations/subnet-relocate.md) subnets by running th
 
 #### IP address migration {#ip-addresses}
 
-You cannot migrate public IP addresses between zones. To save the public address for incoming traffic, [reserve](../../vpc/operations/get-static-ip.md) this address and then assign it to the network balancer handler. Next, you can migrate the VM and connect it to a network balancer. If the public IP address of the balancer was in the `{{ region-id }}-c` zone, it will continue working; see the [{#T}](../../network-load-balancer/concepts/specifics.md) of the network balancer for details.
+You cannot migrate public IP addresses between zones. To save the public address for incoming traffic, [reserve](../../vpc/operations/get-static-ip.md) this address and then assign it to the network balancer handler. Next, you can migrate the VM and connect it to a network balancer. If the public IP address of the balancer was in the `{{ region-id }}-c` zone, it will continue working; see [{#T}](../../network-load-balancer/concepts/specifics.md) of the network balancer for details.
 
 Note: This way, you can save the IP address for incoming traffic only. For example, if the IP address of a VM is licensed, you cannot use the public IP address of the balancer to check it.
 

@@ -10,148 +10,166 @@
 
 
 
-## Пример: простое приложение с эндпоинтом
+## Пример: простое приложение с эндпоинтом {#simple-example}
 
 Следующее приложение имеет один эндпоинт: `GET: /get/{name}`. По `GET` запросу по адресу `/get` с указанным параметром пути функция вернет строку `Hello, $name`, где `$name` — переданный параметр пути. В примере используется [публичная](../../../operations/function/function-public.md) функция. Если ваша функция [приватная](../../../operations/function/function-private.md), укажите в спецификации API-шлюза сервисный аккаунт с ролью `functions.functionInvoker`.
 
-Параметры версии функции:
+1. [Создайте](../../../operations/function/function-create.md) функцию.
 
-* **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `java17`.
-* **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10`.
-* **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-* **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `app.Application`.
+1. Создайте ZIP-архив со следующей структурой:
 
-Структура проекта:
+    ```text
+    src
+    |__main
+        |__java
+            |__util
+                |__Application.java
+                |__controller
+                    |__TestController.java
+    pom.xml
+    ```
 
-```text
-src
- |__main
-      |__ java
-            |__ app
-                 |__Application.java
-                 |__TestController.java
-pom.xml
-```
+    * Файл `Application.java`:
 
-Файл `Application.java`:
+      ```java
+      package util;
 
-```java
-package app;
+      import org.springframework.boot.SpringApplication;
+      import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+      @SpringBootApplication
+      public class Application {
+          public static void main(String[] args) {
+              SpringApplication.run(Application.class, args);
+          }
+      }
+      ```
 
-@SpringBootApplication
-public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-}
-```
+    * Файл `TestController.java`:
 
-Файл `TestController.java`:
+      ```java
+      package util.controller;
 
-```java
-package app;
+      import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.*;
+      @RestController
+      public class TestController {
+          @GetMapping("/get/{name}")
+          public String get(@PathVariable String name) {
+              return String.format("Hello, %s!", name);
+          }
+      }
+      ```
 
-@RestController
-public class TestController {
-    @GetMapping("/get/{name}")
-    public String get(@PathVariable String name) {
-        return String.format("Hello, %s!", name);
-    }
-}
-```
+    * Файл `pom.xml`:
 
-Файл `pom.xml`:
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+          <modelVersion>4.0.0</modelVersion>
+          <parent>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-parent</artifactId>
+              <version>2.4.7</version>
+              <relativePath/> <!-- lookup parent from repository -->
+          </parent>
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.14</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+          <groupId>util</groupId>
+          <artifactId>util</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
 
-    <groupId>app</groupId>
-    <artifactId>app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+          <properties>
+              <java.version>11</java.version>
+              <spring.version>5.2.9.RELEASE</spring.version>
+              <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
+              <start-class>util.Application</start-class>
+          </properties>
 
-    <properties>
-        <java.version>17</java.version>
-        <spring.version>5.3.24</spring.version>
-        <spring.boot.version>2.5.14</spring.boot.version>
-        <start-class>util.Application</start-class>
-    </properties>
+          <dependencies>
+              <dependency>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-starter</artifactId>
+                  <version>${spring.boot.version}</version>
+              </dependency>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
+              <dependency>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-starter-web</artifactId>
+                  <version>${spring.boot.version}</version>
+              </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-    </dependencies>
+              <dependency>
+                  <groupId>javax.servlet</groupId>
+                  <artifactId>javax.servlet-api</artifactId>
+                  <version>4.0.1</version>
+              </dependency>
+          </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+          <build>
+              <plugins>
+                  <plugin>
+                      <groupId>org.springframework.boot</groupId>
+                      <artifactId>spring-boot-maven-plugin</artifactId>
+                  </plugin>
+              </plugins>
+          </build>
 
-</project>
-```
+      </project>
+      ```
 
-Интеграция с {{ api-gw-name }}:
+1. [Создайте](../../../operations/function/version-manage.md) версию функции и укажите:
 
-```yaml
-openapi: 3.0.0
-info:
-  title: Test API
-  version: 1.0.0
-paths:
-  /get/{name}:
-    get:
-      x-yc-apigateway-integration:
-        type: cloud-functions
-        function_id: <идентификатор_функции>
-        service_account_id: <идентификатор_сервисного_аккаунта>
-      operationId: get
-      parameters:
-      - description: my param
-        explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-```
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `java17`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — загрузите архив, созданный ранее.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `30`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `util.Application`.
 
-Пример запроса:
+1. [Создайте](../../../../api-gateway/operations/api-gw-create.md) API-шлюз {{ api-gw-name }} и добавьте в него спецификацию:
 
-```
-https://your-apigw-id.apigw.yandexcloud.net/get/Anonymous
-```
+    ```yaml
+    openapi: 3.0.0
+    info:
+      title: Test API
+      version: 1.0.0
+    paths:
+      /get/{name}:
+        get:
+          x-yc-apigateway-integration:
+            type: cloud-functions
+            function_id: <идентификатор_функции>
+            service_account_id: <идентификатор_сервисного_аккаунта>
+          operationId: get
+          parameters:
+          - description: my param
+            explode: false
+            in: path
+            name: name
+            required: true
+            schema:
+              type: string
+            style: simple
+    ```
 
-Возвращаемая строка:
-```
-Hello, Anonymous
-```
+    Где:
+
+    * `function_id` — идентификатор функции.
+    * `service_account_id` — сервисный аккаунт с ролью `functions.functionInvoker`.
+
+1. Сделайте запрос к эндпоинту:
+
+    ```
+    curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
+    https://<идентификатор_шлюза>.apigw.yandexcloud.net/get/Anonymous
+    ```
+
+    Результат:
+
+    ```
+    Hello, Anonymous
+    ```
 
 Пример прямого запроса, где для вызова функции не используется {{ api-gw-name }}:
 
