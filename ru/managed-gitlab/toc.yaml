@@ -55,12 +55,14 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Преимущества сервиса перед пользовательской инсталляцией {{ GL }}
+        href: concepts/managed-gitlab-vs-custom-installation.md
+      - name: Порядок миграции из пользовательской инсталляции {{ GL }}
+        href: concepts/migration.md
       - name: Правила ревью кода
         href: concepts/approval-rules.md
       - name: Резервные копии
         href: concepts/backup.md
-      - name: Порядок миграции из пользовательской инсталляции {{ GL }}
-        href: concepts/migration.md
       - name: Безопасность в {{ GL }}
         href: concepts/security.md
       - name: Квоты и лимиты

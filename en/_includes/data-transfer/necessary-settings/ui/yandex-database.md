@@ -3,6 +3,8 @@
 
 * {% include [Field Service Account](../../fields/ydb/ui/service-account.md) %}
 
+* {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
+
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 

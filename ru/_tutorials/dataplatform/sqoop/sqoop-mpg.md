@@ -126,9 +126,9 @@
 {% include [Shared settings](./shared-properties.md) %}
 * Идентификатор кластера {{ mpg-name }}: `c9qgcd6lplrs********`.
 
-{% list tabs %}
+{% list tabs group=storage_system %}
 
-* {{ objstorage-name }}
+- {{ objstorage-name }} {#storage}
 
     1. [Выполните все необходимые подготовительные шаги](../../../data-proc/operations/sqoop-usage.md#object-storage).
     1. Выполните команду:
@@ -143,7 +143,7 @@
             --split-by "age"
         ```
 
-* Директория HDFS
+- Директория HDFS {#hdfs}
 
     1. [Выполните все необходимые подготовительные шаги](../../../data-proc/operations/sqoop-usage.md#hdfs).
     1. Выполните команду:
@@ -158,7 +158,7 @@
             --split-by "age"
         ```
 
-* Apache Hive
+- Apache Hive {#hive}
 
     1. [Выполните все необходимые подготовительные шаги](../../../data-proc/operations/sqoop-usage.md#apache-hive).
     1. Выполните команду:
@@ -176,7 +176,7 @@
             --split-by "age"
         ```
 
-* Apache HBase
+- Apache HBase {#hbase}
 
     1. [Выполните все необходимые подготовительные шаги](../../../data-proc/operations/sqoop-usage.md#apache-hbase).
     1. Выполните команду:

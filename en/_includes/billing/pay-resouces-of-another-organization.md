@@ -1,0 +1,1 @@
+One billing account can only be added to a single organization, but you can use it to pay for other organizations' resources.

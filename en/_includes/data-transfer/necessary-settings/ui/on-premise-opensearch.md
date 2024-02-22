@@ -3,6 +3,8 @@
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearchHostPort.host.title }}**: IP address or FQDN of the host with the `DATA` role you want to connect to.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearchHostPort.port.title }}**: Port number {{ data-transfer-name }} will use for connections to the `DATA` host.
 
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearch.ssl_enabled.title }}**: Select this option if a secure SSL connection is used.
+
 * {% include [Field CA certificate](../../fields/opensearch/ui/ca-certificate.md) %}
 * 
    **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearch.subnet_id.title }}**: Select or [create](../../../../vpc/operations/subnet-create.md) a subnet in the desired [availability zone](../../../../overview/concepts/geo-scope.md).

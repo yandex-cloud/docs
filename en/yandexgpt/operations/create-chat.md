@@ -72,7 +72,7 @@ To generate text in [chat mode](../concepts/index.md#working-mode), deliver a li
       * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
       * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
 
-   - Python {#python}
+   - Python 3 {#python}
 
       1. Create an `index.py` file and add the following code to it:
 

@@ -12,6 +12,7 @@ description: "The {{ yandex-cloud }} billing uses the following key terms: a gra
 * [{#T}](personal-account.md)
 * [{#T}](bonus-account.md)
 * [{#T}](trial-period.md)
+* [{#T}](organization.md)
 * [{#T}](reporting-period.md)
 * [{#T}](cvos.md)
 * [{#T}](serverless-free-tier.md)

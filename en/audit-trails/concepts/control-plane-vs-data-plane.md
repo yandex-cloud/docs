@@ -14,7 +14,11 @@ Data (data plane) events include updates and actions related to data and resourc
 
 Data plane events can be logged for the following services:
 
-* {{ dns-full-name }}
-* {{ lockbox-full-name }}
-* {{ kms-full-name }}
-* {{ objstorage-full-name }}
+* [{{ dns-full-name }}](../../dns/)
+* [{{ iam-full-name }}](../../iam/)
+* [{{ kms-full-name }}](../../kms/)
+* [{{ lockbox-full-name }}](../../lockbox/)
+* [{{ mmg-full-name }}](../../managed-mongodb/)
+* [{{ mmy-full-name }}](../../managed-mysql/)
+* [{{ mpg-full-name }}](../../managed-postgresql/)
+* [{{ objstorage-full-name }}](../../storage/)
