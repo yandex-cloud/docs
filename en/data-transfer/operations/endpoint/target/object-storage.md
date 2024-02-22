@@ -1,6 +1,6 @@
 # Transferring data to an {{ objstorage-name }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to the {{ objstorage-name }} storage and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to the {{ objstorage-full-name }} storage and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
@@ -42,6 +42,8 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}**: Name of the [bucket](../../../../storage/concepts/bucket.md) to upload source data to.
 
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}**: Object folder name. It supports the data layout pattern by date, e.g., `2006/01/02/<folder_name>`.
+
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: [Service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../../../data-streams/).
 
 
@@ -50,8 +52,6 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}**: Conversion of complex values to strings for `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}` output format.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: Compression of output data (`{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.GZIP.title }}` or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`).
-
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}**: Name of the folder to store files in. It supports the data layout pattern by date, e.g., `2006/01/02/<folder_name>`.
 
 ### Advanced settings {#additional-settings}
 

@@ -80,6 +80,8 @@ items:
         href: concepts/bonus-account.md
       - name: Trial period
         href: concepts/trial-period.md
+      - name: Organization
+        href: concepts/organization.md
       - name: Reporting period
         href: concepts/reporting-period.md
       - name: Committed volume of services (CVoS)
@@ -142,6 +144,8 @@ items:
     href: pricing.md
   - name: FAQ
     items:
+      - name: All questions on one page
+        href: qa/all.md
       - name: General questions
         href: qa/common.md
       - name: Questions about an agreement
@@ -154,8 +158,6 @@ items:
         href: qa/trial-commercial.md
       - name: Questions about working with non-residents of Russia or Kazakhstan
         href: qa/non-resident.md
-      - name: All questions on one page
-        href: qa/all.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

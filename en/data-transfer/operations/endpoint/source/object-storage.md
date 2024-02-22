@@ -4,7 +4,7 @@ description: "Follow this guide to configure an {{ objstorage-name }} source end
 ---
 # Transferring data from an {{ objstorage-name }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from storage to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from {{ objstorage-full-name }} storage to {{ yandex-cloud }} managed databases and implement various scenarios of data processing and transformation. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
@@ -20,6 +20,7 @@ You can implement scenarios for data migration and delivery from the {{ objstora
 {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
 * [Loading data from {{ objstorage-name }} to {{ PG }}](../../../tutorials/object-storage-to-postgresql.md).
+* [Loading data from {{ objstorage-name }} to {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -78,14 +79,35 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.unexpected_field_behavior.title }}**: Method for handling JSON fields outside the `explicit_schema` (if specified). See [the PyArrow documentation](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.block_size.title }}**: Size of file segments in bytes for concurrent processing in each file memory. When handling large amounts of data where the schema cannot be inferred, increasing this value should solve the problem. Setting the value too high may lead to OOM errors.
 
+- **proto**
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.proto_desc.title }}**: Upload a descriptor file.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_package_type.title }}**: Specify the message packaging method:
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.PROTOSEQ.title }}`: Delimited sequence of target messages.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.REPEATED.title }}`: Target message is specified in the `repeated` field of a single wrapper.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.SINGLE_MESSAGE.title }}`: Single target message.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_name.title }}**: If the packaging type is `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.REPEATED.title }}`, specify the name of the message whose single `repeated` field contains the target message. Otherwise, specify the target message name.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.primary_keys.title }}**: List the fields to add to the result as primary keys.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.included_fields.title }}**: List the message fields to transfer. If not specified, the output will include all the message fields.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoParser.null_keys_allowed.title }}**: Select this option to allow the `null` value in key columns.
+
 {% endlist %}
 
 #### Dataset {#dataset}
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.schema.title }}**: Specify the schema of an auxiliary table that will be used for the connection.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.table.title }}**: Specify the name of an auxiliary table that will be used for the connection.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageResultTable.add_system_cols.title }}**: Adds the `__file_name` and `__row_index` system columns to the result table schema. `__file_name` matches the name of the source S3 object. `__row_index` matches the count of rows populated with data in the S3 object.
+
+   {% note warning %}
+
+   Disabling this option may negatively affect data targets that require a primary key, provided that the result schema may become mandatory in such cases.
+
+   {% endnote %}
 
 **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Specify a JSON schema in `{"<column>": "<data_type>"}` format or list the fields for the schema of the resulting table. If you select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.infer.title }}`, the schema will be inferred automatically.
+
+Additionally, you can specify how to process rows that did not pass a type check: continue the transfer, repeat the attempt to define the type, abort the transfer.
 
 ## Configuring the data target {#supported-targets}
 

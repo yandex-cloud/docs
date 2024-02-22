@@ -3502,7 +3502,8 @@ default:
           save: Save
       alert-template:
         field:
-          evaluation-window: Evaluation window
+          evaluation-window:
+            hint: The value must be more than 0.
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -3797,9 +3798,6 @@ default:
         products: Products
         publisher-users: Access management
         support: Support
-      subAccount:
-        detail:
-          column_cost: Cost
     yacloud:
       airflow:
         button_create-cluster: Create a cluster
@@ -4050,7 +4048,6 @@ default:
             label_to: To
             label_top-cost: Consumption cost
             label_top-total: Due and payable
-            label_total: Total
             tab_product: By product
             value_cost: Consumption
             value_folders: Folders
@@ -5423,9 +5420,9 @@ default:
         section_agent: Agent
         section_export: Test logs
         test-data-section: Attached files
-        value_cumulative-quantiles-chart-type: Cumulative quantiles of responses
-        value_imbalance_rps-chart-type: RPS of failure point
-        value_instances-chart-type: Number of testing threads
+        value_cumulative-quantiles-chart-type: 'Response time: cumulative quantiles'
+        value_imbalance_rps-chart-type: 'Fault point: RPS'
+        value_instances-chart-type: 'Testing threads: quantity'
       lockbox:
         button_action-make-version-current: Set as current version
         button_action-open-version-add-dialog: Create a new version from this one
@@ -5909,7 +5906,7 @@ default:
             label_title: Editor
             label_title-params: Parameters
             label_title-source: Function code
-            label_tries-count: Number of attempts
+            label_tries-count: Number of retries
             label_turn-on-button: Enable
             label_with-template: Add files with code examples
             option_queues-mq: Message queue
@@ -6555,8 +6552,6 @@ default:
                         title: Data scheme
                       format:
                         title: Data format
-                      null_keys_allowed:
-                        title: Enable NULL values in keys columns
                     DataSchema:
                       fields:
                         title: Field list

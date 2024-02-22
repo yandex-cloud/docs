@@ -168,7 +168,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-### Additional settings {#additional-settings}
+### Table filter {#additional-settings}
 
 {% list tabs group=instructions %}
 

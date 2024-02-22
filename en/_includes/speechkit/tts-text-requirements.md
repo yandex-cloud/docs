@@ -2,7 +2,9 @@
    > _The +import of goods from foreign countries._: Stress falls on the first syllable.
    > _Goods they im+port from China._: Stress falls on the second syllable.
 
-* The lines of text for synthesis cannot include numbers or abbreviations, such as _15 Smith st., bl. 3_ or _USD 13.10_. Make sure to spell out all numbers, abbreviations, and acronyms.
+* The lines of text for synthesis cannot include numbers or abbreviations, such as _15 Smith st., bl. 3_ or _USD 13.10_. Make sure to spell out all numbers and abbreviations.
+   > Fifteen Smith street, block three.
+   > Thirteen dollars and ten cents.
 
 * In questions, specify which word should be \*\*logically stressed\*\* to indicate the intonation of an interrogative sentence.
 

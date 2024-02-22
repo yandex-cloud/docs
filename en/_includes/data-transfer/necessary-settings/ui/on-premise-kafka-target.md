@@ -8,3 +8,6 @@
    If the value in this field is specified for both endpoints, both subnets must be hosted in the same availability zone.
 
 * {% include [Field Authentication](../../fields/kafka/ui/authentication-on-premise.md) %}
+
+
+{% include [Security groups](../../fields/kafka/ui/security-groups.md) %}

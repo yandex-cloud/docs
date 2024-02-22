@@ -206,7 +206,7 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
 In case you get a null, an empty file, or the `Invalid audio received` error, check the codec your file is encrypted with. To recognize a file correctly, changing its extension is not enough.
 
-To convert an `OGG` file into the supported `OggOpus` format, use [FFmpeg](https://ffmpeg.org/):
+Use [FFmpeg](https://ffmpeg.org/) to convert an OGG file into the supported OggOpus format:
 
 ```bash
 ffmpeg -i audio.ogg -c:a libopus -b:a 65536 audio_new.ogg

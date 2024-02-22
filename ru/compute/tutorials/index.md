@@ -13,3 +13,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](vm-fluent-bit-logging.md)
 * [{#T}](packer-custom-image.md)
 * [{#T}](hystax-backup.md)
+* [{#T}](nodejs-cron-restart-vm.md)

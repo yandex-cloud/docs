@@ -400,9 +400,9 @@ Spark Submit позволяет запускать заранее написан
 
     Команда для запуска зависит от того, где нужно сохранить результаты задания: в {{ objstorage-name }} или HDFS.
 
-    {% list tabs %}
+    {% list tabs group=storage_system %}
 
-    - {{ objstorage-name }}
+    - {{ objstorage-name }} {#storage}
 
       ```bash
       {{ yc-dp }} job create-pyspark \
@@ -420,7 +420,7 @@ Spark Submit позволяет запускать заранее написан
 
       CSV-файл с результатом сохранится в бакете `data-proc-bucket`.
 
-    - HDFS
+    - Директория HDFS {#hdfs}
 
       ```bash
       {{ yc-dp }} job create-pyspark \
@@ -582,9 +582,9 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
     Команда для запуска зависит от того, где нужно сохранить результаты задания: в {{ objstorage-name }} или HDFS.
 
-    {% list tabs %}
+    {% list tabs group=storage_system %}
 
-    - {{ objstorage-name }}
+    - {{ objstorage-name }} {#storage}
 
       ```bash
       {{ yc-dp }} job create-spark \
@@ -603,7 +603,7 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
       CSV-файл с результатом сохранится в бакете `data-proc-bucket`.
 
-    - HDFS
+    - Директория HDFS {#hdfs}
 
       ```bash
       {{ yc-dp }} job create-spark \

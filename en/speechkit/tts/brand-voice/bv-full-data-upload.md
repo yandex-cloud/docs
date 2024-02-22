@@ -1,12 +1,6 @@
 # Preparing and uploading data for {{ brand-voice-core }}
 
-With [{{ brand-voice-core }}](index.md#ss), you can create a unique voice based on recorded audio. This voice is used for speech synthesis based on arbitrary text or [pattern-based text](../templates.md).
-
-To create a custom {{ brand-voice-core }} voice:
-
-1. [Prepare text data](#prepare-dataset).
-1. [Record audio files](#record-audio).
-1. [Upload your data](#upload).
+With [{{ brand-voice-core }}](index.md#ss), you can create a unique voice based on recorded audio. You can use this voice for speech synthesis based on plain text or [pattern-based text with replaceable variables](../templates.md). {{ speechkit-name }} supports voices for Russian and Kazakh. If you want to create a voice for a different language, [contact us](#contact-form) for details.
 
 {% note info %}
 
@@ -14,73 +8,123 @@ It takes up to one month to prepare a {{ brand-voice-core }} model using the upl
 
 {% endnote %}
 
-## Prepare text data {#prepare-dataset}
+## What data is required for training {#results}
 
-To create a {{ brand-voice-core }} voice, 5 hours of audio data with text transcripts are required. Find the volume of texts you need from your speaker's speech rate (words per minute).
+To create your own {{ brand-voice-core }} voice, you need to prepare and upload the training data: audio recordings and the texts they are based on. The amount of data needed to train the model depends on how you intend to use the voice and the speaker's manner of speech. For example, a voice used to narrate literary fiction would require more data than a voice for a virtual assistant. Send us voice audio samples without music or post-processing to receive specific recording recommendations and data volume requirements.
 
-> Example:
->
-> The speaker's speech rate is 120 words per minute. The required volume of texts to build a model is `120 x 60 x 5 = 36,000` words.
+The training data is uploaded in two files:
 
-If you plan to use pattern-based synthesis, distribute the volume of texts as follows:
+1. ZIP archive of audio recordings in WAV format.
+1. Table with the recording transcripts as a UTF-8 encoded [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) file. The table should have two columns:
+  * Name of the audio file with the speaker's text.
+  * Line with a verbatim transcript of the recording. If the text is based on a template with a variable, the variable part must be in `{variable_name = variable_value}` format.
 
-* Three hours of speech for full-text synthesis.
-* Two hours of speech for pattern-based synthesis.
+We recommend uploading data in batches after each studio recording. If for any reason that is not possible, you can upload all your recordings in one archive along with the corresponding table of transcripts. The format of the provided data remains unchanged.
 
-Prepare audio transcripts as a [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) table in UTF-8 encoding. The table must be without a header and consist of two columns:
+{% note warning %}
 
-1. `recording`: Name of the audio file with the speaker's text.
-1. `text`: Line with a transcript of the audio recording.
-
->Example:
->
->The table header is given as an example, it must be excluded from the uploaded file.
->
->| recording | text |
->|---|---|
->| 0.wav | Did \*\*the cat\*\* go {place=to school}? |
->| 1.wav | Did \*\*the cat\*\* go {place=to the butcher's}? |
->| 2.wav | To stay tuned with our store's new arrivals, subscribe to our newsletter. |
->| 3.wav | We are offering the wonderful book {book_name=Alice's Adventures in Wonderland} for just \{price=two dollars and ninety-nine cents}. |
->| 4.wav | We are offering the wonderful book {book_name=Eugene Onegin} for just \{price=five hundred rubles forty-eight kopecks}. |
->| 5.wav | You are scheduled for {date=tomorrow} at \{time=fifteen oh clock}. |
->| 6.wav | You are scheduled for {date=October the fourth} at \{time=nine in the morning}. |
-
-### Text requirements {#text-technical-requirements}
-
-{% note info %}
-
-The result of {{ brand-voice-core }} voice model training directly depends on training data. Be sure to meet the specified text requirements and recommendations to get a high-quality {{ brand-voice-core }} voice.
+Each recording should contain a full phrase of one or several sentences. A recording cannot be longer than 15 seconds. The transcripts in the table must exactly match the text in the audio.
 
 {% endnote %}
 
-* The number of subject area terms in texts should amount to 20–30% without compromising linguistic diversity.
-* The number of texts in the interrogative form should be at least 30%.
-* The recommended length of a phrase is no more than {{ tts-v3-count }}.
+Each audio recording should start and end with silence, and any clipped sounds or words are not acceptable. You must not use a podcast recording cut into 15-second segments; doing so will split words and phrases, and the recordings will not match phrase boundaries. It is not possible to train a quality model on such data.
+
+
+> A correct audio recording should be as follows: there are a few milliseconds of silence at the beginning and end of the audio, and the phrase is complete.
+
+![good-audio](../../../_assets/speechkit/good-audio.png)
+
+> A poor audio recording would be as follows: there are no silence intervals at the beginning and end of the audio, and the start and end of the phrase are cut off.
+
+![bad-audio](../../../_assets/speechkit/bad-audio.png)
+
+Such audio recordings will have distortions and are not suitable for model training.
+
+### Example of prepared data {#example}
+
+1. _Recordings.zip_ archive containing the 1.wav, 2.wav, 3.wav. files.
+1. _Table in TSV format_, matching the audio files with their transcripts:
+
+   The table header is given as an example, it must be excluded from the uploaded file.
+
+   | recordings | text |
+   |---|---|
+   | 1.wav | Books are a uniquely portable magic. |
+   | 2.wav | We have an amazing book for you! |
+   | 3.wav | This book is suitable for children from the age of five. |
+
+## Prepare data {#prepare-dataset}
+
+{{ brand-voice-core }} allows you to synthesize an arbitrary text (_full-text synthesis_) as well as a phrase based on a pre-recorded pattern (_pattern-based synthesis_). In pattern-based synthesis, apart from the text itself, you need to provide an audio file that {{ speechkit-name }} will use to copy speech intonations from.
+
+For your voice to work for both synthesis modes, we recommend that you do the following:
+
+* First, record the audio and their transcripts for full-text synthesis: *1.wav We are checking your order.*
+* To enable pattern-based synthesis, you will also need to make **additional** recordings and provide texts with the markup of variable parts: *1.wav Hi, {agent_name = Anastasia}! We have a special offer just for you. Would you like to hear more?*
+
+### Patterns for speech synthesis in {{ brand-voice-core }} {#templates}
+
+We recommend using patters if you want to achieve more expressive and natural intonation in synthesized speech.
+
+> For example, a speaker records an audio of this phrase:
+> *Hi, this is Jane. I work at Thunderclouds. Is it a good time to talk?*
+>
+> You like how this particular phrase sounds when uttered by a speaker. However, you will not be able to use this very audio as certain words are to be replaced depending on the context. Then, you need to mark up the transcript with variables:
+> *Hi, this is Jane. I work at **{company_name=Thunderclouds}**. Is it a good time to talk?*
+>
+> Use the original audio with the required intonations and the original text as a pattern for synthesis to preserve the speaker's intonation, while replacing the variable parts. For example:
+> *Hi, this is Jane. I work at New Doors. Is it a good time to talk?*
+
+Try to provide pattern audio recordings that closely resemble the phrases you will use for synthesis. If that is not possible during the data preparation stage, you can send them later on, or train the model without them altogether. You will be able to use pattern-based synthesis in any case. However, the sooner you provide the pattern recordings, the better the results you will get.
+
+{% note info %}
+
+The pattern phrase for {{ brand-voice-core }} voice synthesis should be recorded by the same speaker whose voice you used to create your voice.
+
+{% endnote %}
+
+### Texts for model training {#texts}
+
+If you do not plan to use the created voice to narrate books, cite long lists, or synthesize texts rich in specialized terminology, the {{ speechkit-name }} team can help you prepare the texts for model training. However, you will still need to add 500-1000 phrases that are specific to your particular use case. Before recording, you can send us the texts you prepared to check that the training data is diverse enough from the linguistic standpoint.
+
+You will need to prepare the source data for the patterns yourself, as only you know how and to what end the synthesized voice will be used.
+
+At least 30% of the training data should contain questions so that the trained voice could reproduce the interrogative tone in texts.
+
+
+#### Requirements for all texts {#text-technical-requirements}
+
+{% note tip %}
+
+The result of {{ brand-voice-core }} voice model training directly depends on training data. Make sure to meet the specified text requirements and recommendations to get a high-quality {{ brand-voice-core }} voice.
+
+{% endnote %}
+
+* Each audio recording must have an absolutely accurate text transcript.
+* The recommended phrase length is no more than {{ tts-v3-count }}.
+* Audio recordings should not include incomplete phrases.
+   > _ing time! He won't be happy about that. If you hadn't had that argument, you could have asked for anything you wa._
+
 * Texts must be free of grammatical errors.
-* The text must match the one recorded in the audio file.
-* If texts contain similar phrases, group them into patterns.
 
 {% include [text requirements](../../../_includes/speechkit/tts-text-requirements.md) %}
 
-### Pattern requirements {#pattern-requirements}
+#### Pattern requirements {#pattern-requirements}
 
-* The length of a phrase together with a variable part must not exceed {{ tts-v3-count }}.
+* The phrase for synthesis must not be longer than {{ tts-v3-count }}, including the variable part.
+* The variable part should not exceed 25% of the total phrase.
 * A pattern must contain one phrase and one or more variables for replacement.
 * Variables must be marked up.
 
-   > Pattern phrase: `Your flight is on September eight at eleven twenty, from London to Madrid`.
-   > List of variables: `variable_name = '{date}', variable_value = 'September eighth at eleven twenty'`, `variable_name = '{route}', variable_value = 'London to Madrid'`.
-   > The marked-up pattern text must be as follows: `Your flight is on {date = 'September eight at eleven twenty'}, from {route = 'London to Madrid'}.`
-* For each pattern, at least 10 variable values must be provided of different duration of pronunciation.
-   > Example:
-   >
-   > Hello, I'm **Anastasia** from **Yandex Cloud**.
-   >
-   > Hello, I'm **Anna** from **Yandex**.
+   > Phrase for a pattern recording: `Your flight is on September the eighth, from London to Madrid.`
+   > List of variables: `variable_name = '{date}', variable_value = 'september the eighth'`.
+   > Marked-up pattern text: `Your flight is on {date = 'september the eight'}, from London to Madrid.`
 * The names of variables must be constant within the same template.
 
 ## Record audio files {#record-audio}
+
+
+### General recommendations for audio recording {#audiotips}
 
 {% include notitle [tips](../../../_includes/speechkit/audio-tips.md) %}
 
@@ -92,14 +136,14 @@ The result of {{ brand-voice-core }} voice model training directly depends on tr
 | Audio bit depth | 16 bit PCM |
 | Number of channels | 1 (mono) |
 | Format | [WAV](https://en.wikipedia.org/wiki/WAV) |
-
-The silence at the beginning and end of a pattern audio recording must not be longer than one second.
+| Length | max. 15 seconds |
+| Silence intervals at the beginning and end | 100–200 ms |
 
 Save all the audio recordings as a ZIP archive for uploading.
 
 ## Upload your data {#upload}
 
-Use the [{{ ml-platform-full-name }}](../../../datasphere/index.yaml) interface to upload text data and audio files. For detailed guidelines on how to upload them, [fill out this form](#contact-form).
+Use the [{{ ml-platform-full-name }}](../../../datasphere/index.yaml) interface to upload text data and audio files. For detailed guidelines on how to upload them, [fill out this form](#contact-form), contact your manager or [our support]({{ link-console-support }}).
 
 ## Frequently asked questions {#faq}
 
@@ -110,11 +154,3 @@ You cannot upload audio data that does not meet the [requirements](#requirements
 #### Where will the voice I create be available? {#where-to-get-voice}
 
 In {{ yandex-cloud }} by `voice_id` provided in advance. Voices can be provided in {{ sk-hybrid-name }} format.
-
-#### Can I upload a larger number of hours? {#more-hours}
-
-Yes, you can. Potentially, this may even enhance the quality.
-
-#### Can I upload less than 5 hours of audio? {#less-hours}
-
-We do not recommend doing that, otherwise your {{ brand-voice-core }} voice training will be incomplete for inferior speech synthesis results.

@@ -1,14 +1,14 @@
 Укажите настройки, соответствующие хранилищу, в которое будут импортированы данные:
 
-{% list tabs %}
+{% list tabs group=storage_system %}
 
-* Бакет {{ objstorage-name }}
+- {{ objstorage-name }} {#storage}
 
     * **{{ ui-key.yacloud.mdb.cluster.overview.label_service-account }}** — имя созданного ранее сервисного аккаунта.
     * **{{ ui-key.yacloud.mdb.cluster.overview.label_bucket }}** — имя созданного ранее бакета.
     * **{{ ui-key.yacloud.mdb.cluster.overview.label_services }}** — `Sqoop`.
 
-* Директория HDFS
+- Директория HDFS {#hdfs}
 
     **Сервисы**:
 
@@ -18,7 +18,7 @@
     * `Yarn`,
     * `Zookeeper`.
 
-* Apache Hive
+- Apache Hive {#hive}
 
     * **Сервисы**:
 
@@ -30,7 +30,7 @@
 
     * **Свойства** — ключ `hive:hive.execution.engine` со значением `mr`.
 
-* Apache HBase
+- Apache HBase {#hbase}
 
     **Сервисы**:
 

@@ -48,7 +48,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - For labels {#labels}
 
-   You can view usage details for [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to a resource and then specify the label name in the **Label key** list. If there are details for the selected label in the cloud, you will see information in the chart and the table below it with all the values corresponding to the selected label.
+   You can view usage details for [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to a resource and then specify the label name in the **Label key** list. Any details available for the selected label in the cloud will be displayed in the chart, and the table below it will specify all the values corresponding to the selected label.
    You can also view details by a specific value of the label you select for one or more products in different folders of the selected cloud:
    1. Click **{{ ui-key.yacloud.billing.account.detail.filter_label_all-filters }}** (by default, all products in all clouds and available folders are selected). The selected elements have a mark next to their name.
    1. Specify the criteria for details:
@@ -72,18 +72,18 @@ You can configure the charts to display the following:
 
 The chart shows how data changed over time.
 The number of details and their values depend on the selected detail depth, chart type, and filters:
-- **{{ ui-key.yacloud_portal.subAccount.detail.column_cost }}**: Shows the cost of services consumed before discount.
-- **{{ ui-key.yacloud.billing.account.detail.label_total }}**: Shows the cost of services consumed after discount.
+- **{{ ui-key.yacloud.billing.account.detail.label_top-cost }}**: Shows the cost of services consumed before discount.
+- **{{ ui-key.yacloud.billing.account.detail.label_top-total }}**: Shows the cost of services consumed after discount.
 
 Point the cursor to a line on the chart to see a popup. Each cloud, service, and product has its own color. See a description of measures below.
 
 | Chart | Measures |
 :-----: | -----
-| ![image](../../_assets/billing/graph-icon.svg) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, service, or product. <br/>- The name of the cloud, service, or product. |
-| ![image](../../_assets/billing/gistogram-icon.svg) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, service, or product.<br/>- The name of the cloud, service, or product.<br/>-The total cost of consumption. |
-| ![image](../../_assets/billing/norm-gistogram-icon.svg) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, service, or product relative to the total consumption.<br/>- The cost of services consumed within the cloud, service, or product. <br/>- The name of the cloud, service, or product.<br/>- The total cost of consumption.<br/>- Form of representation: Chart. |
-| ![image](../../_assets/billing/diagram-icon.svg) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, service, or product.<br/>- The name of the cloud, service, or product.<br/>-The total cost of consumption. |
-| ![image](../../_assets/billing/norm-diagram-icon.svg) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, service, or product relative to the total consumption.<br/>- The cost of services consumed within the cloud, service, or product.<br/>- The name of the cloud, service, or product.<br/>- The total cost of consumption.<br/>- Form of representation: Diagram. |
+| ![image](../../_assets/billing/graph-icon.svg) | - Date that the value at the current point is valid for<br/>- Cost of services consumed within the cloud, service, or product <br/>- Cloud, service, or product name<br/>- Total cost of consumed services |
+| ![image](../../_assets/billing/gistogram-icon.svg) | - Date that the value at the current point is valid for<br/>- Cost of services consumed within the cloud, service, or product<br/>- Cloud, service, or product name<br/>- Total cost of consumed services |
+| ![image](../../_assets/billing/norm-gistogram-icon.svg) | - Date that the value at the current point is valid for<br/>- Percentage (%) of consumption within the cloud, service, or product relative to the total consumption<br/>- Cost of services consumed within the cloud, service, or product <br/>- Cloud, service, or product name<br/>- Total cost of consumed services<br/>- Visualization type: Chart |
+| ![image](../../_assets/billing/diagram-icon.svg) | - Date that the value at the current point is valid for<br/>- Cost of services consumed within the cloud, service, or product<br/>- Cloud, service, or product name<br/>- Total cost of consumed services |
+| ![image](../../_assets/billing/norm-diagram-icon.svg) | - Date that the value at the current point is valid for<br/>- Percentage (%) of consumption within the cloud, service, or product relative to the total consumption<br/>- Cost of services consumed within the cloud, service, or product<br/>- Cloud, service, or product name<br/>- Total cost of consumed services<br/>- Visualization type: Diagram |
 
 
 ## Interpret the table {#tab}

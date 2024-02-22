@@ -1,11 +1,11 @@
 ---
 title: "How to recognize a table in {{ vision-full-name }}. Step-by-step guide"
-description: "In this guide, you will learn how to recognize text in Russian and English tables in {{ vision-full-name }}."
+description: "In this guide, you will learn how to recognize text in Russian and English tables with {{ vision-full-name }}."
 ---
 
 # Table recognition
 
-You can [recognize text](../../concepts/ocr/index.md) in a table using the [OCR API](../../ocr/api-ref/index.md) with the `table` recognition model. With this model, you can recognize Russian and English text in tables.
+You can [recognize text](../../concepts/ocr/index.md) in a table using the [OCR API](../../ocr/api-ref/index.md) with the `table` recognition model. With this model, you can recognize tables in Russian, English, and Turkish.
 
 ## Getting started {#before-you-begin}
 

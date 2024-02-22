@@ -231,6 +231,8 @@ Connecting to the database with explicitly specified network addresses and ports
 
          {% endnote %}
 
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_round_robin.title }}**: Data will be randomly distributed across shards. Each shard will contain approximately the same amount of data.
+
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}**: Specify the settings for renaming tables during a transfer, if required.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.flush_interval.title }}**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if {{ CH }} fails to merge data parts.

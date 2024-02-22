@@ -20,7 +20,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
   {% note tip %}
 
-  Billing account management can only be performed by users with a [Yandex account](../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} via an [identity federation](../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
+  You can only manage a billing account if you have a [Yandex account](../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} through an [identity federation](../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
 
   {% endnote %}
 
@@ -61,6 +61,6 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 1. [Create a service account](../iam/operations/sa/create.md).
 1. [Add the service account to the space](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).
 1. [Create an API key](../iam/operations/api-key/create.md) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
-1. [Upload your data](operations/data/upload-data.md) using a Python data transfer script. You can send your entire audio recording as one message or in snippets.
+1. [Upload your data](operations/data/upload-data.md) using a Python data transfer script. You must provide your entire audio recording as one message.
 
 {% include [supported-formats](../_includes/speechsense/formats.md) %}

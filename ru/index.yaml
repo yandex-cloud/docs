@@ -40,6 +40,9 @@ links:
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/
+  - title: Cloud Notification Service
+    description: Сервис для рассылки уведомлений
+    href: notifications/
   - title: Cloud Video
     description: Видеохостинг и проведение онлайн-трансляций
     href: video/
