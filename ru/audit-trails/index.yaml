@@ -1,14 +1,12 @@
 title: Yandex Audit Trails
 description:
   - >-
+    <em>Сервис Audit Trails находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
     Yandex Audit Trails — сервис сбора и выгрузки аудитных логов ресурсов Yandex
     Cloud. Позволяет применять инструменты анализа и оперативного реагирования
     на события уровня ресурсов Yandex Cloud.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_audittrails/">Уровень
-    обслуживания Yandex Audit Trails</a>.
 meta:
   title: Yandex Audit Trails
   description: >-

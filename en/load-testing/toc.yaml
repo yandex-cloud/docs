@@ -82,6 +82,8 @@ items:
         href: concepts/load-test-results.md
       - name: Comparing load test results
         href: concepts/load-tests-compare.md
+      - name: Test artifacts
+        href: concepts/artifacts.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

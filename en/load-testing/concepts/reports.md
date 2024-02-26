@@ -1,5 +1,21 @@
 # Reports
 
-A report on the results of load testing contain information about any issues encountered during testing. {{ load-testing-name }} provides a centralized test repository linked to the {{ yandex-cloud }} role model. When performing load testing, the load generator collects statistics, then aggregates and transmits them to storage.
+A report is aggregate data that was collected during load testing.
 
-If you don't need to save reports, you can disable this feature when configuring a test.
+## To view a report:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder for testing.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+   1. Select the test to view the report for.
+   1. Go to one of these tabs:
+      * Overview: Basic information about the test run.
+      * [Test results](load-test-results.md): Visualization of various dependencies.
+      * [Monitoring](monitoring.md): Collected metrics on the test agent status.
+      * Tables: Indicators of aggregated test results.
+
+{% endlist %}

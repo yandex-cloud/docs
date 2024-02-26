@@ -114,20 +114,20 @@ description: "Следуя данной инструкции, вы сможет�
          port           = 8080
        }
      
-        ingress {
-          protocol          = "ANY"
-          description       = "Разрешает взаимодействие между ресурсами текущей группы безопасности"
-          predefined_target = "self_security_group"
-          from_port         = 0
-          to_port           = 65535
-        }
+       ingress {
+         protocol          = "ANY"
+         description       = "Разрешает взаимодействие между ресурсами текущей группы безопасности"
+         predefined_target = "self_security_group"
+         from_port         = 0
+         to_port           = 65535
+       }
 
-        ingress {
-          protocol           = "TCP"
-          description        = "Разрешает подключение по порту 27017 со стороны ресурсов с группой безопасности sg-frontend"
-          security_group_id  = yandex_vpc_security_group.sg-frontend.id
-          port               = 27017
-        }
+       ingress {
+         protocol           = "TCP"
+         description        = "Разрешает подключение по порту 27017 со стороны ресурсов с группой безопасности sg-frontend"
+         security_group_id  = yandex_vpc_security_group.sg-frontend.id
+         port               = 27017
+       }
 
        egress {
          protocol       = "ANY"

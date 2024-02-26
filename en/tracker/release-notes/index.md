@@ -1,41 +1,55 @@
 ---
-title: "{{ tracker-full-name }} release notes for December 2023"
-description: "Check out {{ tracker-full-name }} release notes for December 2023."
+title: "{{ tracker-full-name }} release notes for January 2024"
+description: "Check out {{ tracker-full-name }} release notes for January 2024."
 ---
 
-# {{ tracker-full-name }} release notes: December 2023
+# {{ tracker-full-name }} release notes: January 2024
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
-### "Status" button in project and portfolio comments {#set-status-via-comment}
+### Filters and sorting in portfolios {#project-filters}
 
-We have added the ![](../../_assets/console-icons/heart-pulse.svg) **Status** button you can use to change a status when publishing comments to projects and portfolios.
+On the [portfolio]({{ link-tracker }}pages/projects/list) page, you can now configure filters and sort results by portfolio and project in the **Projects** and **Gantt chart** tabs.
 
-### Employee's position in queue access rights settings {#show-position}
+### Copying widgets on dashboards {#clone-widget}
 
-When setting up [queue access rights](../manager/queue-access.md) on the selected employee page and in the **Issues with component** section, you can now see employee positions. Positions are based on data from {{ ya-360 }}. Positions not specified in the {{ ya-360 }} admin panel will not be shown in {{ tracker-name }}.
+The new interface allows [copying widgets](../user/copy-widget.md) both within the current dashboard and between dashboards.
 
-### Copying and deleting transition settings in the workflow editor {#settings-workflow-editor}
+### API update for projects and portfolios {#portfolio-projects-api}
 
-The workflow editor now allows you to copy and delete individual transition settings. Open the transition and go to **Automations**, **Transition conditions**, or **Transition screens**. In these settings, click ![](../../_assets/console-icons/ellipsis.svg) to access the following actions:
+You can now use the new, more flexible and functional API to work with checklists, comments, attachments, history, and links in projects and portfolios:
 
-* Copy the setting to another transition
-* Paste the setting from another transition
-* Clear the setting contents
+* [Add](../concepts/entities/checklists/add-checklist.md), [edit](../concepts/entities/checklists/patch-checklist.md), and [delete](../concepts/entities/checklists/delete-checklist.md) checklists and their individual items.
+* [Add](../concepts/entities/comments/add-comment.md), [edit](../concepts/entities/comments/patch-comment.md), and [delete](../concepts/entities/comments/delete-comment.md) comments and [get a list](../concepts/entities/comments/get-all-comments.md) of comments.
+* [Add](../concepts/entities/attachments/add-attachment.md) and [delete](../concepts/entities/attachments/delete-attachment.md) attached files. You can also [get information](../concepts/entities/attachments/get-attachment.md) about a specific attachment or [a list](../concepts/entities/attachments/get-all-attachments.md) of all files attached to an entity.
+* [Add](../concepts/entities/links/add-links.md) and [delete](../concepts/entities/links/delete-link.md) links between entities.
 
-Changes will only affect the transition in which the relevant action is selected.
+### Local fields in queue settings {#queue-settings-local-fields}
 
-### Integrations in queue settings are out of beta {#queue-integration}
-
-Earlier, we [announced](2308.md#queue-integrations) a beta version of the integrations page in queue settings. Now, the new integrations page is out of beta and available to all {{ tracker-name }} users. It covers all integration settings: with email, {{ forms-full-name }}, and other services.
+The new interface now has a [local field](../local-fields.md) management page in the queue settings. There, you can view a list of local fields, create new fields, and edit the categories of the existing ones.
 
 ## Fixes and improvements {#fixes}
 
-### New interface for the organization fields list page {#new-fields-page}
 
-The [**Administration** → **Issue fields**]({{ link-admin-fields }}) page is now available in the new interface. The page consolidates all [issue fields](../user/create-param.md) of your organization, along with their types, keys, and descriptions. Fields are grouped by categories. In addition to viewing existing fields, the page supports search by field name or key, as well as the creation of new fields.
+### Configuring access to creating issues without a form {#task-creating-access}
 
-Non-administrative organization users can view the issue field list via a direct [{{ link-admin-fields }}]({{ link-admin-fields }}) link.
+In the new interface, you can now select access rules for creating issues without a form under **Integration** in the queue settings:
+
+* Allowed for all
+* Allowed for the queue team
+* Prohibited
+
+### Managing queue access privileges in components {#queue-access-management}
+
+On the settings page for queue access privileges, you can now quickly disable a component's influence on access privileges. To do so, go to **Access rights** in the queue settings, open the component you need, and click ![](../../_assets/console-icons/ellipsis.svg) → **Clear component access rights**. This will delete from the component all previously configured access privileges, i.e., members, issue roles, denied access. The component will no longer affect access to issues.
+
+### Templates for project and portfolio comments {#templates}
+
+You can now use [comment templates](../user/ticket-template.md) in portfolios and projects.
+
+### Warning when adding an issue into a project {#add-task-warning}
+
+When you add existing issues and projects into projects and portfolios, the service checks whether they belong to another project or portfolio. If that is the case, you will see a warning on transferring them to a new entity and deleting them from the old one.

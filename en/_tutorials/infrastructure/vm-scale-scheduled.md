@@ -63,8 +63,8 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
       Result:
 
       ```yaml
-      id: ajeab0cnib1pdefe21dm
-      folder_id: b0g12ga82bcv0cdeferg
+      id: ajeab0cnib1p********
+      folder_id: b0g12ga82bcv********
       created_at: "2022-03-15T09:44:35.989446Z"
       name: vm-scale-scheduled-sa
       ```
@@ -102,6 +102,12 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
+
+- {{ TF }} {#tf}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
+
 - API {#api}
 
    1. Create a service account named `vm-scale-scheduled-sa`. To do this, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
@@ -113,12 +119,6 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
       * `{{ roles-functions-invoker }}` to invoke the {{ sf-name }} function.
 
       To do this, use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
-
-
-- {{ TF }} {#tf}
-
-   See [How to create an infrastructure using {{ TF }}](#terraform).
-
 
 {% endlist %}
 
@@ -149,8 +149,8 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
       Result:
 
       ```yaml
-      id: enpabce123hde4ft1r3t
-      folder_id: b0g12ga82bcv0cdeferg
+      id: enpabce123hd********
+      folder_id: b0g12ga82bcv********
       created_at: "2022-03-15T09:55:50.004472Z"
       name: vm-scale-scheduled-network
       ```
@@ -169,11 +169,11 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
       Result:
 
       ```yaml
-      id: e1lnabc23r1c9d0efoje
-      folder_id: b0g12ga82bcv0cdeferg
+      id: e1lnabc23r1c********
+      folder_id: b0g12ga82bcv********
       created_at: "2022-03-15T09:56:51.859345Z"
       name: vm-scale-scheduled-subnet-a
-      network_id: enpabce123hde4ft1r3t
+      network_id: enpabce123hd********
       zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 192.168.1.0/24
@@ -193,27 +193,27 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
       Result:
 
       ```yaml
-      id: b1csa2b3clideftjb121
-      folder_id: b0g12ga82bcv0cdeferg
+      id: b1csa2b3clid********
+      folder_id: b0g12ga82bcv********
       created_at: "2022-03-15T09:57:48.934429Z"
       name: vm-scale-scheduled-subnet-b
-      network_id: enpabce123hde4ft1r3t
+      network_id: enpabce123hd********
       zone_id: {{ region-id }}-b
       v4_cidr_blocks:
       - 192.168.2.0/24
       ```
-
-- API {#api}
-
-   1. Create a `vm-scale-scheduled-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
-
-   1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
 
 - {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
+
+- API {#api}
+
+   1. Create a network named `vm-scale-scheduled-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
+
+   1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -286,7 +286,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          Result:
 
          ```yaml
-         id: ajeab0cnib1pdefe21dm
+         id: ajeab0cnib1p********
          ```
 
          For more information about the `yc iam service-account get` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/get.md).
@@ -301,7 +301,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          Result:
 
          ```yaml
-         id: enpabce123hde4ft1r3t
+         id: enpabce123hd********
          ```
 
          For more information about the `yc vpc network get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/get.md).
@@ -316,7 +316,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          Result:
 
          ```yaml
-         id: e1lnabc23r1c9d0efoje
+         id: e1lnabc23r1c********
          ```
 
          For more information about the `yc vpc subnet get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/get.md).
@@ -331,7 +331,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          Result:
 
          ```yaml
-         id: b1csa2b3clideftjb121
+         id: b1csa2b3clid********
          ```
 
          For more information about the `yc vpc subnet get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/get.md).
@@ -346,7 +346,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
       Result:
 
       ```yaml
-      id: fd83n3uou8m03iq9gavu
+      id: fd83n3uou8m0********
       ```
 
       For more information about the `yc compute image get-latest-from-family` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md).
@@ -367,12 +367,18 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
 
       ```bash
       done (2m18s)
-      id: cl0kabcquk1gomdefbkk
-      folder_id: b0g12ga82bcv0cdeferg
+      id: cl0kabcquk1g********
+      folder_id: b0g12ga82bcv********
       ...
-      service_account_id: ajeab0cnib1pdefe21dm
+      service_account_id: ajeab0cnib1p********
       status: ACTIVE
       ```
+
+
+- {{ TF }} {#tf}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
 
 - API {#api}
 
@@ -389,12 +395,6 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
       {% include [vm-scale-scheduled-yaml-spec-init](../../_includes/instance-groups/vm-scale-scheduled-yaml-spec-init.md) %}
 
    1. Create an instance group named `vm-scale-scheduled-ig` based on the specification provided in `specification.yaml`. To do this, use the [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call.
-
-
-- {{ TF }} {#tf}
-
-   See [How to create an infrastructure using {{ TF }}](#terraform).
-
 
 {% endlist %}
 
@@ -450,12 +450,12 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
 
       ```
       done (1s)
-      id: d4e7d67ikvmqk5uoim47
-      folder_id: b1g9hv2loamqfnbul7d9
+      id: d4e7d67ikvmq********
+      folder_id: b1g9hv2loamq********
       created_at: "2022-04-01T13:48:27.705Z"
       name: vm-scale-scheduled-function
-      log_group_id: ckgij6l0845hsdc9khiq
-      http_invoke_url: https://{{ sf-url }}/d4e7d67ikvmqk5uoim47
+      log_group_id: ckgij6l0845h********
+      http_invoke_url: https://{{ sf-url }}/d4e7d67ikvmq********
       status: ACTIVE
       ```
 
@@ -480,38 +480,38 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
 
       ```
       done (1s)
-      id: d4efmv9n3qf1ptjtlof3
-      function_id: d4e7d67ikvmqk5uoim47
+      id: d4efmv9n3qf1********
+      function_id: d4e7d67ikvmq********
       created_at: "2022-04-01T14:04:29.523Z"
       runtime: bash
       entrypoint: handler.sh
       resources:
       memory: "134217728"
       execution_timeout: 60s
-      service_account_id: aje9s4pud13hfhk1bfgn
+      service_account_id: aje9s4pud13h********
       image_size: "4096"
       status: ACTIVE
       tags:
       - $latest
-      log_group_id: ckgij6l0845hsdc9khiq
+      log_group_id: ckgij6l0845h********
       environment:
-        FOLDER_ID: b1g9hv2loamqfnbul7d9
+        FOLDER_ID: b1g9hv2loamq********
         IG_BASE_SIZE: "2"
         IG_NAME: vm-scale-scheduled-ig
       ```
-
-- API {#api}
-
-   1. Create a `vm-scale-scheduled-function` using the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create) gRPC API call. You can find the ID of the created function in the output.
-   1. Create a function version using the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call. The function version should have the following code:
-
-      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
 
 - {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
+
+- API {#api}
+
+   1. Create a function named `vm-scale-scheduled-function` using the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create) gRPC API call. You can find the ID of the created function in the output.
+   1. Create a function version using the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call. The function version should have the following code:
+
+      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
 {% endlist %}
 
@@ -559,29 +559,29 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
    Result:
 
    ```
-   id: a1s22pb0v5i4q432hi0p
-   folder_id: b1g9hv2loamqfnbul7d9
+   id: a1s22pb0v5i4********
+   folder_id: b1g9hv2loamq********
    created_at: "2022-04-06T14:56:54.253709098Z"
    name: vm-scale-scheduled-trigger
    rule:
      timer:
        cron_expression: "*/2 * * * ? *"
        invoke_function_with_retry:
-         function_id: d4e7d67ikvmqk5uoim47
+         function_id: d4e7d67ikvmq********
          function_tag: $latest
-         service_account_id: aje9s4pud13hfhk1bfgn
+         service_account_id: aje9s4pud13h********
    status: ACTIVE
    ```
-
-- API {#api}
-
-   Use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call to create a trigger of the `timer` type with the `*/2 * * * ? *` cron expression linked to the function `vm-scale-scheduled-function` of the `$latest` version and the `vm-scale-scheduled-sa` service account.
 
 
 - {{ TF }} {#tf}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
 
+
+- API {#api}
+
+   Use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call to create a trigger of the `timer` type with the `*/2 * * * ? *` cron expression linked to `vm-scale-scheduled-function` of the `$latest` version and the `vm-scale-scheduled-sa` service account.
 
 {% endlist %}
 
@@ -610,8 +610,8 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
    Result:
 
    ```
-   id: cl1l0ljqbmkp8k1f902l
-   folder_id: b1g9hv2loamqfnbul7d9
+   id: cl1l0ljqbmkp********
+   folder_id: b1g9hv2loamq********
    created_at: "2022-03-28T13:24:20.693Z"
    name: vm-scale-scheduled-ig
    ...
@@ -648,17 +648,17 @@ To set up scaling for your instance group using {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare files with the infrastructure description:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Ready-made archive
+   - Ready-made archive {#ready}
 
-      1. Create a directory for files:
+      1. Create a directory for files.
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/vm-scale-scheduled-terraform.zip) (2 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `vm-scale-scheduled.tf` configuration file and the `vm-scale-scheduled-function.zip` archive with the {{ sf-name }} function code.
 
-   - Manually
+   - Manually {#manual}
 
-      1. Create a directory for files:
+      1. Create a directory for files.
       1. In the directory, create:
 
          * A configuration file named `vm-scale-scheduled.tf`:

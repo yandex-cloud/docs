@@ -2,9 +2,9 @@
 
 This use case describes integration within {{ compute-full-name }}, [{{ message-queue-full-name }}](/services/message-queue), and [{{ monitoring-full-name }}](/services/monitoring).
 
-In this use case, an [instance group](../../compute/concepts/instance-groups/index.md) is created. All instances in the group handle messages from the same {{ message-queue-name }} queue (for example, they receive messages and delete them after a while). The number of enqueued messages is registered in a {{ monitoring-name }} metric, and the instance group is [automatically scaled](../../compute/concepts/instance-groups/scale.md#auto-scale) based on this metric.
+In this use case, an [instance group](../../compute/concepts/instance-groups/index.md) is created. All instances in the group handle messages from the same {{ message-queue-name }} queue (for example, they receive messages and delete them after a while). The number of enqueued messages is registered in a {{ monitoring-name }} metric, and the instance group is [autoscaled](../../compute/concepts/instance-groups/scale.md#auto-scale) based on this metric.
 
-An [opportunistic VM shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy) is chosen for scaling the instance group: the instances stop on their own once they handle all the messages and only then are deleted from the group when reducing its size. This ensures that the instances won't be forcibly deleted and will handle the last messages even if the queue empties before message handling is completed.
+An [opportunistic VM shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy) is chosen for scaling the instance group: the instances stop on their own once they handle all the messages and only then are deleted from the group when reducing its size. This ensures that the instances will not be forcibly deleted and will handle the last messages even if the queue empties before message handling is completed.
 
 To perform this use case:
 
@@ -143,7 +143,7 @@ The cost of the infrastructure includes:
         created_at: "2021-10-04T16:25:19.143847764Z"
         description: {{ message-queue-name }}
         key_id: g3VybpVKdq_Y********
-      secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7VSOeD_mRG
+      secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7V********
       ```
 
    1. Create a cloud network named `queue-autoscale-network`:
@@ -279,7 +279,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       Result:
 
       ```yaml
-      QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003n58805qi/queue-autoscale-queue
+      QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003********/queue-autoscale-queue
       ```
 
 - API {#api}
@@ -441,7 +441,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          folder_id: b0g12ga82bcv********
          created_at: "2021-10-04T16:29:12.450858436Z"
          name: queue-autoscale-subnet-a
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24
@@ -563,12 +563,12 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    1. Under **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**, specify the following values:
 
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric }}**: `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}**: `message-queue`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}**: `queue.messages.stored_count`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}**: The `queue` key and the `queue-autoscale-queue` value
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}**: `GAUGE`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}**: `WORKLOAD`.
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric }}**: `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`
+      * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}**: `message-queue`
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}**: `queue.messages.stored_count`
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}**: `queue` key and `queue-autoscale-queue` value
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}**: `GAUGE`
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}**: `WORKLOAD`
       * **{{ ui-key.yacloud.compute.groups.create.field_metric-target }}**: `5`
 
    1. Click **{{ ui-key.yacloud.common.create }}**.

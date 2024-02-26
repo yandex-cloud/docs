@@ -62,8 +62,8 @@ The size of a disk must be a multiple of 93 GB.
 
       ```text
       done (1s)
-      id: epdb2517b9709hkifodg
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: epdb2517b970********
+      folder_id: b1g7gvsi89m3********
       created_at: "2021-03-10T10:03:31Z"
       name: nr-disk
       type_id: network-ssd-nonreplicated
@@ -99,7 +99,7 @@ The size of a disk must be a multiple of 93 GB.
 
       * `size`: A non-replicated disk's size must be a multiple of 93 GB.
       * `block_size`: Block size in bytes (the minimum storage size for information on the disk). The maximum disk size depends on the specified block size. By default, the block size of all created disks is 4 KB; however, this is not enough for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
-      * `type`: Type of the disk being created. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
+      * `type`: Disk type. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
 
           {% include [nrd-az](../../../_includes/compute/nrd-az.md) %} 

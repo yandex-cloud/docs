@@ -34,7 +34,7 @@ Traffic path from a client application to the web service:
 1. Traffic from the `1.2.3.4:30325` client application (any socket/port number can be used) is sent as a sequence of IP packets to the load balancer, and the `158.160.0.x:443` traffic listener receives it.
 1. The listener calculates the hash function with `5-tuple` addressing from the parameters of the received IP packet and directs the traffic to the `vm-a1` VM in the target group. At the same time, the virtual network retains the information that traffic bound for the `158.160.0.x:443` listener was sent to the `10.0.1.1:8443` resource.
 1. The `vm-a1` VM processes the received request and sends the response back to the client application using its IP `10.0.1.1`.
-1. Traffic exits the VM via the default gateway to the virtual network, where the sender's IP address and port are transformed (if [Source NAT](#source-nat) is configured) for all packets routed from `10.0.1.1:8443` to `158.160.0.x:443`.
+1. The virtual network is aware that the traffic from the client application was previously received by the load balancer's listener and sent for processing to the `vm-a1` VM (see 2). This information enables a virtual network to change the sender's address and port (perform [Source NAT](https://en.wikipedia.org/wiki/Network_address_translation) for all outgoing packets from `10.0.1.1:8443` to `158.160.0.x:443`. The traffic is then sent to the destination address according to routing policies and reaches the client application.
 1. Traffic goes to the destination address according to routing policies and reaches the client application.
 
 {% note info %}
@@ -43,9 +43,7 @@ The dashed line in the diagram above shows the backup path to the `vm-b1` VM, wh
 
 {% endnote %}
 
-## UDP traffic processing {#nlb-udp}
-
-By default, UDP traffic processing is disabled for the network load balancer.
+## Processing UDP traffic {#nlb-udp}
 
 Processing of UDP traffic for the network load balancer is disabled by default because it is impossible to ensure consistent distribution of UDP packets with the same `5-tuple` hash function to the same resource in the target group. However, the network load balancer can be used, for example, for processing DNS traffic that does not require maintaining the connection state.
 
@@ -79,7 +77,8 @@ If the traffic to the load balancer did not pass through a network VM, it may di
 
 * [Route tables contain static routes with identical prefixes](#same-prefixes).
 * [Source NAT configured on network VMs](#source-nat).
-* [Route tables contain static routes with identical prefixes and different next hop IPs of network VMs](#divergent-next-hop).
+
+The scenario where [routing tables have static routes with identical prefixes and different next hop addresses of network VMs](#divergent-next-hop) is not supported.
 
 #### Route tables contain static routes with identical prefixes {#same-prefixes}
 

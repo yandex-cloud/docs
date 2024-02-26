@@ -71,8 +71,8 @@ To create an image from another user image:
 
       ```
       resource "yandex_compute_image" "image-1" {
-        name         = "<image name>"
-        source_image = "<source image ID>"
+        name         = "<image_name>"
+        source_image = "<source_image_ID>"
       }
       ```
 

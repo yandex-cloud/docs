@@ -109,7 +109,7 @@ items:
             href: concepts/alerting/notification-channel.md
       - name: Data decimation
         href: concepts/decimation.md
-      - name: Deleting expired metrics (TTL)
+      - name: Deleting obsolete metrics (TTL)
         href: concepts/ttl.md
       - name: Quotas and limits
         href: concepts/limits.md

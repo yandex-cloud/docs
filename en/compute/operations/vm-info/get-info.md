@@ -142,7 +142,7 @@ The {{ yandex-cloud }} metadata service allows you to return metadata in Amazon 
 GET http://169.254.169.254/latest/meta-data/<element>
 ```
 
-Where `<element>` stands for the path to the element you want to get. If the element is omitted, the response returns a list of available elements.
+Where `<element>` is the path to the element you want to get. If the element is omitted, the response returns a list of available elements.
 
 #### List of returned elements {#list-of-returned-items}
 
@@ -150,7 +150,7 @@ List of elements that are available for this request.
 
 {% note info %}
 
-The angle brackets contain parameters that need to be replaced with values. For example, instead of `<mac>`, you should insert the MAC address of the network interface.
+The angle brackets contain parameters to replace with values. For example, instead of `<MAC_address>`, you should specify the MAC address of the network interface.
 
 {% endnote %}
 
@@ -159,10 +159,10 @@ The angle brackets contain parameters that need to be replaced with values. For 
 * `local-ipv4`: [Internal IPv4 address](../../../vpc/concepts/address.md#internal-addresses).
 * `local-hostname`: VM's hostname.
 * `mac`: MAC address of the VM's network interface.
-* `network/interfaces/macs/<mac>/ipv6s`: Internal IPv6 addresses associated with the network interface.
-* `network/interfaces/macs/<mac>/local-hostname`: Hostname associated with the network interface.
-* `network/interfaces/macs/<mac>/local-ipv4s`: Internal IPv4 addresses associated with the network interface.
-* `network/interfaces/macs/<mac>/mac`: MAC address of the VM's network interface.
+* `network/interfaces/macs/<MAC_address>/ipv6s`: Internal IPv6 addresses associated with the network interface.
+* `network/interfaces/macs/<MAC_address>/local-hostname`: Hostname associated with the network interface.
+* `network/interfaces/macs/<MAC_address>/local-ipv4s`: Internal IPv4 addresses associated with the network interface.
+* `network/interfaces/macs/<MAC_address>/mac`: MAC address of the VM network interface.
 * `public-ipv4`: [External IPv4 address](../../../vpc/concepts/address.md#public-addresses).
 
 #### Request examples {#request-examples}
@@ -224,7 +224,7 @@ To set up metadata service parameters for a VM instance:
    1. Set the metadata service settings using the `--metadata-options` parameter:
 
       ```bash
-      yc compute instance update <VM instance ID> \
+      yc compute instance update <VM_ID> \
         --metadata-options gce-http-endpoint=enabled
       ```
 

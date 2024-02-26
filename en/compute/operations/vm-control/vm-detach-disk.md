@@ -48,12 +48,12 @@ To detach a disk from a VM:
       yc compute instance get --full first-instance
       ```
 
-   1. Choose the `disk_id` of the disk you need (for example, `fhm4aq4hvq5g3nepvt9b`).
+   1. Select the right `disk_id`, e.g., `fhm4aq4hvq5g********`.
    1. Detach the disk:
 
       ```
       yc compute instance detach-disk first-instance \
-        --disk-id fhm4aq4hvq5g3nepvt9b
+        --disk-id fhm4aq4hvq5g********
       ```
 
       If an error occurs, stop the virtual machine:

@@ -147,7 +147,7 @@ Where:
 
 The host that enters maintenance is not billed, not counted in the host group size, nor used to host newly activated VMs.
 
-The auto release date and time are scheduled for the 7th day after dedicating the replacement host. {{ compute-name }} will start automatically releasing the host in the period from `<REPLACEMENT DEADLINE>` to `<REPLACEMENT DEADLINE> + 1 hour`. Depending on the type of your VMs:
+The auto release date and time are scheduled for the 7th day after dedicating the replacement host. {{ compute-name }} will start automatically releasing the host during the period from `<REPLACEMENT DEADLINE>` to `<REPLACEMENT DEADLINE> + 1 hour`. Depending on the type of your VMs:
 
 * VMs with no local disks, GPU, or [affinity](#bind-vm) to the `host-id` will be transferred using [live migration](live-migration.md).
 * VMs with affinity to the `host-id` will be stopped. You should either remove host affinity or update it to a new `host-id` and then restart the VM.

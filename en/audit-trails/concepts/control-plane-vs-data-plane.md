@@ -10,6 +10,8 @@ Events related to actions such as creating, updating, or deleting infrastructure
 
 ## Data events {#data-plane-events}
 
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+
 Data (data plane) events include updates and actions related to data and resources inside {{ yandex-cloud }} services. By default, {{ at-name }} does not log data plane events. You need to enable data event audit log collection individually for each supported service.
 
 Data plane events can be logged for the following services:

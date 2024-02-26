@@ -39,11 +39,10 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             {% endnote %}
 
          * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
-
-
+         * **Required field**: Allows setting the selector value as a required parameter. If enabled, `*` will be appended to the selector name. This is not available for the **Checkbox** selector type.
          * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
          * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
-         * **Default value**: Displayed when you first open the dashboard.
+         * **Default value**: Displayed when you first open the dashboard. This is a required field if the **Required field** option is enabled.
 
       * Under **Appearance**:
 
@@ -73,13 +72,12 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             {% endnote %}
 
          * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
-
-
+         * **Required field**: Allows setting the selector value as a required parameter. If enabled, `*` will be appended to the selector name. This is not available for the **Checkbox** selector type.
          * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
          * **Possible values**: List of values to select. Only available for the **List** selector type.
          * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
          * **Time**: Allows specifying time. Only available for the **Calendar** selector type.
-         * **Default value**: Displayed when you first open the dashboard. This field must be set for the **List** type; otherwise, no value will be available in the selector.
+         * **Default value**: Displayed when you first open the dashboard. This field must be set for the **List** type; otherwise, no value will be available in the selector. This is a required field if the **Required field** option is enabled.
 
       * Under **Appearance**:
 
