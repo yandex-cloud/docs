@@ -52,16 +52,27 @@ The system functionality will be enhanced in upcoming releases.
 * No support for `recording rules` and `alerting rules`.
 * No support for `staleness markers`, `exemplars`, and `native histograms`.
 
-## Limits per endpoint {#limits-per-endpoint}
+## Quotas and limits {#limits}
 
-The limits specified below are not technical system restrictions and can be increased by sending a request to the [support team]({{ link-console-support }}).
+{{ managed-prometheus-full-name }} has the following limits:
 
-* 500 requests per second and 20 MB/s write in [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) format.
-* 10000 metrics per request per write.
-* 100 requests per second per read via the [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api).
-* 100 requests per second per read via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
-* 10 million unique metrics.
-* 29 unique labels per metric.
-* [Expired metrics](../../concepts/ttl.md) are deleted in 60 days.
+{% include [quotes-limits-def.md](../../../_includes/quotes-limits-def.md) %}
+
+### Quotas per endpoint {#quotas-per-endpoint}
+
+| Type of limit | Value |
+----- | -----
+| Maximum data write speed in [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) format | 500 requests/s and 20 MB/s |
+| Number of metrics per write request | 10,000 |
+| Number of [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) read requests per second | 100 |
+| Number of [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) read requests per second | 100 |
+| Number of unique metrics | 10,000,000 |
+| Maximum retention period for [obsolete metrics](../../concepts/ttl.md) | 60 days |
+
+### Limits per endpoint {#limits-per-endpoint}
+
+| Type of limit | Value |
+----- | -----
+| Number of unique labels per metric | 29 |
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

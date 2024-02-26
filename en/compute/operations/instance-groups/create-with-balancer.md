@@ -74,8 +74,8 @@ To create an instance group with a network load balancer:
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** field, select the protocol for the health checks: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field (for the HTTP type), specify the URL path for the HTTP check requests sent from {{ ig-name }}.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** field, specify the port number from 1 to 32767 for {{ ig-name }} to send the health check requests to.
-      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** field, specify the response wait time from 1 to 60 seconds.
-      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** field, specify the interval between the repeat checks from 1 to 60 seconds. The interval must be at least 1 second longer than the timeout.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** field, specify the response waiting time from 1 to 60 seconds.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** field, specify the interval between the repeat checks from 1 to 60 seconds. The interval must be at least 1 second longer than the waiting time.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** field, specify the number of successful health checks required for the instance to be considered healthy.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** field, specify the number of failed health checks for the instance to be considered unhealthy.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_variables }}**, enter the `{{ ui-key.yacloud.common.label_key }}`-`{{ ui-key.yacloud.common.label_value }}` pairs, if needed.
@@ -110,7 +110,7 @@ To create an instance group with a network load balancer:
 
          ```yaml
          name: first-fixed-group-with-balancer
-         service_account_id: <ID>
+         service_account_id: <service_account_ID>
          description: "This instance group was created from YAML config."
          ```
 
@@ -210,7 +210,7 @@ To create an instance group with a network load balancer:
 
      ```yaml
      name: first-fixed-group-with-balancer
-     service_account_id: ajed6ilf11qg********
+     service_account_id: <service_account_ID>
      description: "This instance group was created from YAML config."
      instance_template:
        platform_id: standard-v3
@@ -287,7 +287,7 @@ To create an instance group with a network load balancer:
         name                = "fixed-ig-with-balancer"
         folder_id           = "<folder_ID>"
         service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        deletion_protection = "<deletion_protection>"
         instance_template {
           platform_id = "standard-v3"
           resources {
@@ -381,7 +381,7 @@ To create an instance group with a network load balancer:
             * `name`: Name of the instance group.
             * `folder_id`: Folder ID.
             * `service_account_id`: Service account ID.
-            * `deletion_protection`: Instance group deletion protection. You cannot delete an instance group with this option enabled. The default value is `false`.
+            * `deletion_protection`: Instance group deletion protection, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
             * `platform_id`: [Platform](../../concepts/vm-platforms.md).
             * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).

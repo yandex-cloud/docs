@@ -43,7 +43,7 @@ To create an autoscaling instance group:
 
          ```yaml
          name: first-autoscaled-group
-         service_account_id: <ID>
+         service_account_id: <service_account_ID>
          description: "This instance group was created from YAML config."
          ```
 
@@ -200,7 +200,7 @@ To create an autoscaling instance group:
         name                = "autoscaled-ig"
         folder_id           = "<folder_ID>"
         service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        deletion_protection = "<deletion_protection>"
         instance_template {
           platform_id = "standard-v3"
           resources {
@@ -268,7 +268,7 @@ To create an autoscaling instance group:
             * `name`: Name of the instance group.
             * `folder_id`: Folder ID.
             * `service_account_id`: Service account ID.
-            * `deletion_protection`: Instance group deletion protection. You cannot delete an instance group with this option enabled. The default value is `false`.
+            * `deletion_protection`: Instance group deletion protection, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
             * `platform_id`: [Platform](../../concepts/vm-platforms.md).
             * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).

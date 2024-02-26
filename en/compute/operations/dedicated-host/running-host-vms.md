@@ -36,8 +36,8 @@ To create a VM:
       +----------------------+----------------------+
       |          ID          |      SERVER ID       |
       +----------------------+----------------------+
-      | fhm1ab2mhnf3cd1610f5 | fhmlabct12vp3de45728 |
-      | fhmabcun12kbbvhdeug3 | fhm1a2bcsl13ide4cqp2 |
+      | fhm1ab2mhnf3******** | fhmlabct12vp******** |
+      | fhmabcun12kb******** | fhm1a2bcsl13******** |
       +----------------------+----------------------+
       ```
 
@@ -53,9 +53,9 @@ To create a VM:
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
-      | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
-      | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
+      | b0c6n43f9lgh******** | default-{{ region-id }}-c | enpe3m3fa00u******** |                | {{ region-id }}-c | [10.130.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.128.0.0/24] |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
@@ -87,8 +87,8 @@ To create a VM:
 
       ```bash
       done (41s)
-      id: fhm1abc23407de854r9e
-      folder_id: m4n56op78mev0cljderg
+      id: fhm1abc23407********
+      folder_id: m4n56op78mev********
       created_at: "2020-10-13T08:00:55Z"
       zone_id: {{ region-id }}-a
       ...
@@ -97,7 +97,7 @@ To create a VM:
         - key: yc.hostId
           op: IN
           values:
-          - fhm1ab2mhnf3cd1610f5
+          - fhm1ab2mhnf3********
       ```
 
 - API {#api}
@@ -125,8 +125,8 @@ Create a VM with the following characteristics:
 * VCPU cores: 64
 * RAM: 704 GB
 * Number of local disks: 1
-* Local disk size: 3198924357632 B (~ 2.91 TB).
-* Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+* Local disk size: 3198924357632 B (~ 2.91 TB)
+* Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
 
 To do this, follow these steps:
 
@@ -159,7 +159,7 @@ To do this, follow these steps:
    Where:
 
    * `--cloud-id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md).
-   * `--folder-id`: ID of the folder.
+   * `--folder-id`: Folder ID.
    * `--zone`: Availability zone where the group of dedicated hosts resides.
    * `--name`: VM name.
    * `--platform`: VM platform.
@@ -181,8 +181,8 @@ To do this, follow these steps:
 
    ```bash
    done (20s)
-   id: fhmbdt1jj2k3mri767ll
-   folder_id: m4n56op78mev0cljderg
+   id: fhmbdt1jj2k3********
+   folder_id: m4n56op78mev********
    created_at: "2023-01-27T12:06:52Z"
    zone_id: {{ region-id }}-a
    ...
@@ -191,7 +191,7 @@ To do this, follow these steps:
      - key: yc.hostId
        op: IN
        values:
-       - fhm1ceqtmivgr0d76fvb
+       - fhm1ceqtmivg********
    ```
 
 {% endlist %}

@@ -29,7 +29,7 @@ links:
     description: >-
       В Wiki можно форматировать текст страницы без использования разметки, как
       в привычных приложениях
-    href: new-editor
+    href: wysiwyg/text-format
   - title: Настройте доступ
     description: >-
       По умолчанию все пользователи, у которых есть доступ к странице, могут ее
@@ -39,9 +39,9 @@ links:
     description: >-
       На страницах Wiki можно форматировать текст с помощью Markdown, добавлять
       динамические блоки и таблицы
-    href: basic-markup
+    href: static-markup
   - title: Справочник разметки
     description: >-
       Wiki поддерживает разметку Markdown с дополнительными элементами
       форматирования, которых нет в стандартном синтаксисе Markdown
-    href: static-markup
+    href: formatter

@@ -73,19 +73,19 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
    Where:
 
-   * `filename=/dev/vdb`: Name of the disk being tested. To view the disks attached, run the `lsblk` command.
-   * `direct`: Flag that toggles buffering (`0` means buffering is used, `1` means it is not used).
-   * `rw`: Load template. The possible values include:
+   * `--filename=/dev/vdb`: Name of the disk you are testing. To view the disks attached, run the `lsblk` command.
+   * `--direct`: Flag that toggles buffering; `0` means buffering is used, `1` means it is not used.
+   * `--rw`: Load template. The possible values include:
       * `read`: Sequential reads.
       * `write`: Sequential writes.
       * `rw`: Sequential reads/writes.
       * `randrw`: Random reads/writes.
       * `randwrite`: Random writes.
       * `randread`: Random reads.
-   * `bs`: Read/write block size. To get better results, specify a value that is less than or equal to the disk block size.
-   * `iodepth`: I/O block depth per `job`.
-   * `runtime`: Test duration in seconds.
-   * `numjobs`: Number of read/write jobs.
+   * `--bs`: Read/write block size. To get better results, specify a value that is less than or equal to the disk block size.
+   * `--iodepth`: I/O block depth per `job`.
+   * `--runtime`: Test duration in seconds.
+   * `--numjobs`: Number of read/write jobs.
 
 ### Test examples {#test-examples}
 

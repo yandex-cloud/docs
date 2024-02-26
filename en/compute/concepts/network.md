@@ -44,20 +44,20 @@ The assigned FQDN depends on the specified host name `(CreateInstanceSpec.hostna
 
 1. You cannot specify the `hostname` parameter in the management console for a new VM. Instead, the user-defined VM name is used:
 
-   * If you leave the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field blank when creating a VM, it will be assigned an internal FQDN in the `<VM ID>.auto.internal` format.
-   * If you provide a VM name in the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, it will be assigned an internal FQDN in the `<VM name>.<region>.internal` format.
+   * If you leave the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field empty when creating a VM, the `<VM_ID>.auto.internal` internal FQDN will be assigned.
+   * If you enter a VM name in the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, the `<VM_name>.<region>.internal` internal FQDN will be assigned.
 
 1. When using the CLI, API, and {{ TF }}, FQDNs are created as follows:
 
-   * If you do not specify any `hostname`, the VM will be assigned a unique FQDN in the `<VM ID>.auto.internal` format.
-   * If the `hostname` is specified and contains no periods (`.`), it is treated as an FQDN prefix. The VM will be assigned an internal FQDN in the `<hostname>.<region>.internal` format.
-   * If the `hostname` is specified and contains a period (`.`) in the middle or at the end, it is treated as an FQDN. The internal FQDN assigned to the VM is the same as the `hostname`. FQDNs cannot start with a period (`.`) or only contain periods (`.`).
+   * If you do not specify a `hostname`, the VM will get a unique FQDN in the `<VM_ID>.auto.internal` format.
+   * If a `hostname` is specified and contains no periods (`.`), it is treated as an FQDN prefix. The VM will get an internal FQDN in the `<hostname>.<region>.internal` format.
+   * If a `hostname` is specified and contains a period (`.`) in the middle or at the end, it is treated as an FQDN. The internal FQDN assigned to the VM is the same as the `hostname`. FQDNs cannot start with a period (`.`) or only contain periods (`.`).
 
 ### Examples {#examples}
 
 | Specified host name | VM FQDN |
 :--- | :---
-| `<not specified>` | `<VM ID>.auto.internal` |
+| `<not_specified>` | `<VM_ID>.auto.internal` |
 | `breathtaking` | `breathtaking.{{ region-id }}.internal` |
 | `this-is-sparta` | `this-is-sparta.{{ region-id }}.internal` |
 | `hello.world` or `hello.world.` | `hello.world` |

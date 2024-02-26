@@ -414,15 +414,15 @@ The cost of building a VM image and creating a VM from it includes:
 
       Where:
 
-      * `name`: Name of the new VM.
-      * `hostname`: VM host name.
-      * `zone`: Availability zone.
-      * `create-boot-disk`: Boot disk parameters: `size` is the disk size and `image-id` is the ID of the image used.
-      * `cores`: Number of vCPUs.
-      * `memory`: Amount of RAM.
-      * `core-fraction`: vCPU basic performance in %.
-      * `network-interface`: Network interface parameters: `subnet-id` is the subnet ID, `ipv4-address` is the internal IPv4 address, and `nat-ip-version` is the IP specification for egress NAT.
-      * `ssh-key`: Public part of the SSH key.
+      * `--name`: Name of the new VM.
+      * `--hostname`: VM host's name.
+      * `--zone`: Availability zone.
+      * `--create-boot-disk`: Boot disk parameters: `size` is the disk size and `image-id` the ID of the image you are using.
+      * `--cores`: Number of vCPUs.
+      * `--memory`: Amount of RAM.
+      * `--core-fraction`: Basic vCPU performance in %.
+      * `--network-interface`: Network interface parameters: `subnet-id` is the subnet ID, `ipv4-address` is the internal IPv4 address, and `nat-ip-version` is the IP specification for the egress NAT.
+      * `--ssh-key`: Public part of the SSH key.
 
       The command outputs information about the VM created. Save the VM's public IP address:
 

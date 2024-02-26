@@ -1,4 +1,4 @@
-# Binding a public IP to a virtual machine
+# Assigning a public IP to a virtual machine
 
 If you created a virtual machine without a public IP, you can bind it to an IP [you reserved](../../../vpc/operations/get-static-ip.md) in {{ vpc-name }} or to one automatically selected by {{ compute-name }} from among available IPs.
 
@@ -33,15 +33,15 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
 
    Where:
 
-   * `id`: VM ID. You can get a list of instance IDs in a folder using the [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
-   * `network-interface-index`: VM's network interface index. By default: `0`.
-   * `nat-address`: Public IP address to assign to the VM. You can get a list of reserved public IP addresses in a folder using the [CLI command](../../../cli/cli-ref/managed-services/vpc/address/list.md) `yc vpc address list`. By default, a public IP address is assigned automatically.
+   * `--id`: VM ID. You can get a list of instance IDs in a folder using the `yc compute instance list` [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md).
+   * `--network-interface-index`: VM network interface index. The default value is `0`.
+   * `--nat-address`: Public IP address to assign to the VM. You can get a list of reserved public IP addresses in a folder using the `yc vpc address list` [CLI command](../../../cli/cli-ref/managed-services/vpc/address/list.md). By default, a public IP address is assigned automatically.
 
    Usage example:
 
    ```bash
    yc compute instance add-one-to-one-nat
-     --id=fhmsbag62tafcus1a12c
+     --id=fhmsbag62taf********
      --network-interface-index=0
      --nat-address=51.250.9.203
    ```
@@ -49,8 +49,8 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
    Result:
 
    ```bash
-   id: fhmsbag62tafcus1a12c
-   folder_id: b1gv87ssvu497lpgjh5o
+   id: fhmsbag62taf********
+   folder_id: b1gv87ssvu49********
    created_at: "2022-05-06T10:41:56Z"
    name: steel-machine
    description: for work
@@ -63,20 +63,20 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
    status: RUNNING
    boot_disk:
      mode: READ_WRITE
-     device_name: fhmeihe6vgg1smqp763q
+     device_name: fhmeihe6vgg1********
      auto_delete: true
-     disk_id: fhmeihe6vgg1smqp763q
+     disk_id: fhmeihe6vgg1********
    network_interfaces:
    - index: "0"
      mac_address: d0:0d:1c:5a:a0:61
-     subnet_id: e9bn57jvjnbujnmk3mba
+     subnet_id: e9bn57jvjnbu********
      primary_v4_address:
        address: 10.128.0.23
        one_to_one_nat:
          address: 51.250.9.203
          ip_version: IPV4
      security_group_ids:
-     - enpcuhcljhb0jq9s3sb7
+     - enpcuhcljhb0********
    fqdn: steel-machine.{{ region-id }}.internal
    scheduling_policy:
      preemptible: true

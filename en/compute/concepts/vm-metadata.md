@@ -24,7 +24,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
   * `--metadata-from-file`: Provide metadata as a file, e.g., `--metadata-from-file key=path/to/file`. This is convenient when providing values consisting of multiple strings.
   * `--metadata`: Provide a list of `key-value` pairs separated by commas, e.g., `--metadata foo1=bar, foo2=baz`.
 
-      If the value is multiline, use `\n` to split lines, e.g.: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
+      If the value is multiline, use `\n` to split lines, e.g., `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
   * `--ssh-key`: Provide an SSH key. This is only available for Linux-based virtual machines.
 
     {{ compute-name }} creates the `yc-user` user and adds the specified SSH key to the list of authorized keys. After the VM is created, you can use this key to connect to it over SSH.
@@ -134,7 +134,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
     ```json
     "metadata": {
-      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop"
+      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza...Pu00jRN user@desktop"
     }
     ```
 

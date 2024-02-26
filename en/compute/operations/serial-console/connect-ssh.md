@@ -25,7 +25,7 @@ To set up a secure connection:
    Recommended startup options:
 
    ```bash
-   ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<name of private SSH key> <VM ID>.<username>@{{ serial-ssh-host }}
+   ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<private_SSH_key_name> <VM_ID>.<username>@{{ serial-ssh-host }}
    ```
 
    The host's public SSH key may be changed in the future.
@@ -45,16 +45,16 @@ To connect to the VM, you need its ID. For information about how to get the ID o
 Connection command example:
 
 ```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<name of private SSH key> <VM ID>.<username>@{{ serial-ssh-host }}
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<private_SSH_key_name> <VM_ID>.<username>@{{ serial-ssh-host }}
 ```
 
-Example with `yc-user` and the VM with the ID `fhm0b28lgfp4tkoa3jl6`:
+Example for `yc-user` and a VM with the `fhm0b28lgfp4********` ID:
 
 ```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.yc-user@{{ serial-ssh-host }}
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4********.yc-user@{{ serial-ssh-host }}
 ```
 
-The `yc-user` user is generated automatically when creating the VM. For more information, see [{#T}](../vm-create/create-linux-vm.md).
+The `yc-user` user is created automatically when creating the VM. For more information, see [{#T}](../vm-create/create-linux-vm.md).
 
 ### Troubleshooting {#troubleshooting}
 
@@ -62,9 +62,9 @@ The `yc-user` user is generated automatically when creating the VM. For more inf
    * Press **Enter**.
    * Restart the VM (for VMs created before February 22, 2019).
 * If the OS requests user credentials to provide access to the VM, enter the login and password.
-   * On a Linux VM, set a user password first. Run `sudo passwd <username>`. For more information, see [Getting started with the serial console](./index.md#linux-configuration).
+   * On a Linux VM, set a user password first. Run the `sudo passwd <username>` command. For more information, see [Getting started with the serial console](./index.md#linux-configuration).
    * On a Windows VM, enter your username, domain (VM name), and password. For more information, see [Starting your terminal in the Windows serial console (SAC)](./windows-sac.md).
-* If you see the `Warning: remote host identification has changed!` error when trying to connect to the VM, run `ssh-keygen -R <VM's IP>`.
+* If you see the `Warning: remote host identification has changed!` error when connecting, run the `ssh-keygen -R <VM_IP_address>` command.
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 

@@ -60,15 +60,15 @@ description: "Use this tutorial to create a Linux VM."
       ```
 
       Where:
-      * `name`: VM name.
+      * `--name`: VM name.
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
       * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
       * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, disable this parameter.
-      * `ssh-key`: Path to the public SSH key. The VM will automatically create a user named `yc-user` for this key.
+      * `--ssh-key`: Path to the public SSH key. The VM will automatically create a user named `yc-user` for this key.
 
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
@@ -129,7 +129,7 @@ description: "Use this tutorial to create a Linux VM."
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
          * `name`: Disk name.
-         * `type`: Type of the disk being created.
+         * `type`: Disk type.
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
          * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
@@ -192,7 +192,7 @@ description: "Use this tutorial to create a Linux VM."
 
       ```bash
       export IAM_TOKEN=CggaATEVAgA...
-      export FOLDER_ID=b1gvmob95yysaplct532
+      export FOLDER_ID=b1gvmob95yys********
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
       {
@@ -201,12 +201,12 @@ description: "Use this tutorial to create a Linux VM."
            "v4CidrBlocks": [
              "10.130.0.0/24"
            ],
-           "id": "b0c6n43ftldh30l0vfg2",
-           "folderId": "b1gvmob95yysaplct532",
+           "id": "b0c6n43ftldh********",
+           "folderId": "b1gvmob95yys********",
            "createdAt": "2018-09-23T12:15:00Z",
            "name": "default-{{ region-id }}-a",
            "description": "Auto-created default subnet for zone {{ region-id }}-a",
-           "networkId": "enpe3m3fagludao8aslg",
+           "networkId": "enpe3m3faglu********",
            "zoneId": "{{ region-id }}-a"
          },
          ...
@@ -218,7 +218,7 @@ description: "Use this tutorial to create a Linux VM."
 
       ```json
       {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "name": "instance-demo-no-pwauth",
         "zoneId": "{{ region-id }}-a",
         "platformId": "standard-v3",
@@ -232,12 +232,12 @@ description: "Use this tutorial to create a Linux VM."
         "bootDiskSpec": {
           "diskSpec": {
             "size": "2621440000",
-            "imageId": "fd8rc75pn12fe3u2dnmb"
+            "imageId": "fd8rc75pn12f********"
           }
         },
         "networkInterfaceSpecs": [
           {
-            "subnetId": "b0c6n43ftldh30l0vfg2",
+            "subnetId": "b0c6n43ftldh********",
             "primaryV4AddressSpec": {
               "oneToOneNatSpec": {
                 "ipVersion": "IPV4"
@@ -259,7 +259,7 @@ description: "Use this tutorial to create a Linux VM."
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-         Disk size must not be less than the minimum value specified in the image details.
+         The disk size must not be less than the minimum value specified in the image details.
       * `networkInterfaceSpecs`: [Network](../../../vpc/concepts/network.md#network) settings.
          * `subnetId`: ID of the selected subnet.
          * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, specify:

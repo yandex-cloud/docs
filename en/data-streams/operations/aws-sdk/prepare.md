@@ -5,6 +5,12 @@ description: "Follow this guide to configure the environment for your programmin
 
 # Preparing the environment in the AWS SDK
 
+{% note warning %}
+
+Currently, there is no support for the latest AWS SDK versions. Use earlier versions of the [AWS SDK](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-json-faqs.html#json-protocol-getting-started) that do not provide JSON support.
+
+{% endnote %}
+
 Configure the environment for your programming language:
 
 {% list tabs group=programming_language %}

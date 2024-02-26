@@ -127,15 +127,15 @@ To create a [VM](../../concepts/vm.md):
       ```
 
       Where:
-      * `name`: VM name.
+      * `--name`: VM name.
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
       * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the operating system from the specified family.
       * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
-      * `ssh-key`: Path to the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
+      * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The VM will automatically create a user named `yc-user` for this key.
 
 
 

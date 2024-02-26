@@ -5,13 +5,13 @@ description: "Follow this guide to detach file storage from a VM."
 
 # Detaching file storage from a VM
 
-1. Dismount your [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
+1. Unmount the [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
    1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
    1. If you added a line to the `/etc/fstab` file for automatically mounting file storage to the VM at startup (for example, when [attaching storage to a VM](attach-to-vm.md)), delete the line.
    1. Run this command:
 
       ```bash
-      sudo umount <mount path>
+      sudo umount <mounting_path>
       ```
 
    1. To check that your file storage has been dismounted, run the command:
@@ -67,7 +67,7 @@ description: "Follow this guide to detach file storage from a VM."
             zone        = "{{ region-id }}-a"
 
             filesystem {
-               filesystem_id = "fhmaikp755grp4mlvvem"
+               filesystem_id = "fhmaikp755gr********"
             }
          ...
          ```

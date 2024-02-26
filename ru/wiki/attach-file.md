@@ -52,10 +52,11 @@
 
 #### См. также
 
-- [{#T}](add-image.md)
+- [{#T}](wysiwyg/embed-content.md)
 
-- [{#T}](add-grid.md)
+- [{#T}](wysiwyg/tables-format.md)
 
 - [{#T}](actions/iframe.md)
 
 - [{#T}](actions/iframe.md#add-video-audio)
+

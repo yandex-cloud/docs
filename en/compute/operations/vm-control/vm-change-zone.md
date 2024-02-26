@@ -143,7 +143,7 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
 
    For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
 
-   Please note that a VM's relocation to a new subnet changes its IP addressing. If you need to specify a VM's internal IP address, use the `ipv4-address=<internal_IP>` property of the `network-interface` parameter; for its public IP address, use the `nat-address=<public_IP>` property of the same parameter. In other respects, setting the network interface parameters of a VM you are migrating is similar to creating an instance.
+   Please note that a VM's relocation to a new subnet changes its IP addressing. If you need to specify an internal IP address for your VM, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for a public IP address, use the `nat-address=<public_IP_address>` property. In other respects, setting the network interface parameters of a VM you are migrating is similar to creating an instance.
 
    For example:
 

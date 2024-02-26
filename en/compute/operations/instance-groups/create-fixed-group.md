@@ -1,4 +1,4 @@
-# Create a fixed-size instance group
+# Creating a fixed-size instance group
 
 You can create a group with a fixed number of instances. The size of this [instance group](../../concepts/instance-groups/index.md) is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
 
@@ -45,7 +45,7 @@ To create a fixed-size instance group:
 
          ```yaml
          name: first-fixed-group
-         service_account_id: <ID>
+         service_account_id: <service_account_ID>
          description: "This instance group was created from YAML config."
          ```
 
@@ -205,7 +205,7 @@ To create a fixed-size instance group:
         name                = "fixed-ig"
         folder_id           = "<folder_ID>"
         service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        deletion_protection = "<deletion_protection>"
         depends_on          = [yandex_resourcemanager_folder_iam_member.editor]
         instance_template {
           platform_id = "standard-v3"
@@ -271,7 +271,7 @@ To create a fixed-size instance group:
             * `name`: Name of the instance group.
             * `folder_id`: Folder ID.
             * `service_account_id`: Service account ID.
-            * `deletion_protection`: Instance group deletion protection. You cannot delete an instance group with this option enabled. The default value is `false`.
+            * `deletion_protection`: Instance group deletion protection, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
             * `platform_id`: [Platform](../../concepts/vm-platforms.md).
             * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).

@@ -15,10 +15,10 @@ The {{ ydb-name }} HTTP API provides the following methods:
 | [CreateTable](actions/createTable.md) | Creates a table. |
 | [DeleteTable](actions/deleteTable.md) | Deletes a table. |
 | [DescribeTable](actions/describeTable.md) | Returns information about a table. |
+| [UpdateTable](actions/updateTable.md) | Updates a table. |
 | [DescribeTimeToLive](actions/describeTimeToLive.md) | Returns information about the time-to-live (TTL) status in the specified table. |
-| [ListTables](actions/listTables.md) | Returns a list of tables.
- |
-| [UpdateTimeToLive](actions/updateTimeToLive.md) | Enables or disables TTL for the specified table. |
+| [ListTables](actions/listTables.md) | Returns a list of tables. |
+| [UpdateTimeToLive](actions/updateTimeToLive.md) | Enables or disables TTL for a specific table. |
 
 ## Working with items {#data}
 

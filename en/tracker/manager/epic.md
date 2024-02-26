@@ -12,7 +12,7 @@ An issue can belong to only one epic.
 
 #### Filtering issues by epic
 
-1. In the {{ tracker-name }} top panel, click **Boards** and select your board.
+1. On the {{ tracker-name }} top panel, click **Boards** and select your board.
 
 1. Click **Sprints** in the top-right corner of the page.
 

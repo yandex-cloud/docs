@@ -297,7 +297,7 @@ Hystax Acura Backup будет выполнять действия от имен
 
     * **Default folder ID** — [идентификатор](../../resource-manager/operations/folder/get-id.md) вашего каталога.
     * **Availability zone** — зона доступности, в которой находится ВМ с Hystax Acura Backup (получена на шаге [Создайте ВМ с Hystax Acura Backup](#create-acura-vm)).
-    * **Hystax Service Subnet** — идентификатор подсети, к которой подключена ВМ с Hystax Acura Backup (получен на шаге [Создайте ВМ с Hystax Acura Backup](#create-acura-vm).
+    * **Hystax Service Subnet** — идентификатор подсети, к которой подключена ВМ с Hystax Acura Backup (получен на шаге [Создайте ВМ с Hystax Acura Backup](#create-acura-vm)).
     * **S3 Host** — `{{ s3-storage-host }}`.
     * **S3 Port** — `443`.
     * **Enable HTTPS** — включите опцию HTTPS-соединения.

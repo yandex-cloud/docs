@@ -101,7 +101,7 @@ description: "Из статьи вы узнаете, как редактиров
 
 Укажите тип данных для ячеек в столбце таблицы:
 
-* ![](../_assets/wiki/svg/type-text.svg) **Текст с форматированием**. Любой текст, оформленный с помощью [разметки Markdown](basic-markup.md).
+* ![](../_assets/wiki/svg/type-text.svg) **Текст с форматированием**. Любой текст, оформленный с помощью [разметки Markdown](wysiwyg/text-format.md).
 
 * ![](../_assets/wiki/svg/type-number.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.number }}**. 
 
@@ -163,7 +163,7 @@ description: "Из статьи вы узнаете, как редактиров
 
 ## Фильтровать таблицу {#filter}
 
-Если динамическая таблица встроена на страницу в [старом редакторе](old-editor.md), вы можете задать условия отображения строк или столбцов при помощи [динамического блока `grid`](actions/grid-reference.md).
+Если динамическая таблица встроена на страницу в [старом редакторе](pages-types.md#old-editor), вы можете задать условия отображения строк или столбцов при помощи [динамического блока `grid`](actions/grid-reference.md).
 
 Чтобы отфильтровать таблицу:
 
@@ -182,7 +182,7 @@ description: "Из статьи вы узнаете, как редактиров
 
 1. Укажите условия фильтрации:
 
-    * Чтобы настроить отображение строк, используйте [параметр `filter`](actions/grid-reference.md#row-filter).
+    * Чтобы настроить отображение строк, используйте [параметр `filters`](actions/grid-reference.md#row-filter).
     
     * Чтобы настроить отображение столбцов, используйте [параметр `column`](actions/grid-reference.md#col-filter).
 
@@ -190,6 +190,6 @@ description: "Из статьи вы узнаете, как редактиров
 
 * [{#T}](create-grid.md)
 
-* [{#T}](add-grid.md)
+* [{#T}](wysiwyg/tables-format.md)
 
 * [{#T}](import-page.md)

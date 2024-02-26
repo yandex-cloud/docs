@@ -71,8 +71,8 @@ To create an image from a disk snapshot:
 
       ```
       resource "yandex_compute_image" "image-1" {
-        name            = "<image name>"
-        source_snapshot = "<snapshot ID>"
+        name            = "<image_name>"
+        source_snapshot = "<snapshot_ID>"
       }
       ```
 

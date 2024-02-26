@@ -89,6 +89,8 @@ items:
         href: tutorials/audit-trails.md
       - name: Обработка файлов детализации биллинга
         href: tutorials/billing.md
+      - name: Анализ данных с помощью Jupyter
+        href: tutorials/jupyter.md
   - name: Работа с YQL
     items:
       - name: Обзор

@@ -121,9 +121,9 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Availability zone: `{{ region-id }}-a`.
-      * Subnet: `default-a`.
-      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses) and two disks.
+      * Availability zone: `{{ region-id }}-a`
+      * Subnet: `default-a`
+      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses) and two disks
 
 
       To specify whether to delete the disk when deleting the VM, set the `--auto-delete` flag:

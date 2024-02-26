@@ -4,7 +4,7 @@ When a disk is being created, it's placed in the current folder.
 
 In {{ yandex-cloud }}, you can move a disk to another folder within one cloud.
 
-[Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
+You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ## Limitations {#limits}
 
@@ -37,8 +37,8 @@ To change a disk's folder:
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
-      | a7lqgbt0bb9s40tifuhc | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbhnkcteb5n |                         |
-      | a7lv5j5hm1p1hppprga7 | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbh******** |                         |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```
 
@@ -54,8 +54,8 @@ To change a disk's folder:
       +----------------------+--------------------+------------------+--------+
       |          ID          |        NAME        |      LABELS      | STATUS |
       +----------------------+--------------------+------------------+--------+
-      | b1gd129pp9ha0vnvf5g7 | my-folder          |                  | ACTIVE |
-      | b1g66mft1vopnevbn57j | default            |                  | ACTIVE |
+      | b1gd129pp9ha******** | my-folder          |                  | ACTIVE |
+      | b1g66mft1vop******** | default            |                  | ACTIVE |
       +----------------------+--------------------+------------------+--------+
       ```
 
@@ -69,14 +69,14 @@ To change a disk's folder:
 
       ```bash
       yc compute disk move \
-        --id a7lqgbt0bb9s40tifuhc \
-        --destination-folder-id b1gd129pp9ha0vnvf5g7
+        --id a7lqgbt0bb9s******** \
+        --destination-folder-id b1gd129pp9ha********
       ```
 
       Where:
 
-      * `id`: ID of the disk, for example, `a7lqgbt0bb9s40tifuhc`.
-      * `destination-folder-id`: the ID of the destination folder, for example, `b1gd129pp9ha0vnvf5g7`.
+      * `--id`: Disk ID, e.g., `a7lqgbt0bb9s********`.
+      * `--destination-folder-id`: Destination folder ID, e.g., `b1gd129pp9ha********`.
 
       For more information about the `yc compute disk move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/move.md).
 

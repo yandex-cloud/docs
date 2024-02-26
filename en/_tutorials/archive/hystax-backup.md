@@ -2,7 +2,7 @@
 
 You can create VM backups automatically and recover them in your cloud infrastructure using [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup).
 
-A VM with Hystax Acura Backup manages backup and recovery processes. VM backups are saved to a {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md). Recovery is performed using an auxiliary Hystax Cloud Agent VM. It creates a new VM with a certain RPO (Recovery Point Objective) as of an arbitrary point of time in the past. A VM backup's RTO (Recovery Time Objective) depends on the amount of source data.
+A VM with Hystax Acura Backup manages backup and recovery processes. VM backups are saved to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md). Recovery is performed using an auxiliary Hystax Cloud Agent VM. It creates a new VM with a certain RPO (Recovery Point Objective) as of an arbitrary point of time in the past. A VM backup's RTO (Recovery Time Objective) depends on the amount of source data.
 
 To back up and recover a VM using Hystax Acura Backup:
 
@@ -164,26 +164,26 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
         --cores 8 \
         --memory 16 \
         --network-interface subnet-id=<subnet_ID>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \
-        --create-boot-disk name=hystax-acura-disk,size=200,image-id=<Hystax_Acura_Backup_image_ID> \
+        --create-boot-disk name=hystax-acura-disk,size=200,image-id=<ID_of_the_Hystax_Acura_Backup_image> \
         --service-account-id <service_account_ID> \
         --ssh-key <public_SSH_key_file_path>
       ```
 
       Where:
-      * `name`: VM name, such as `hystax-acura-vm`.
-      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), such as `{{ region-id }}-a`. Save the availability zone ID. You will need it later.
-      * `cores`: [Number of vCPUs](../../compute/concepts/vm.md) in your VM.
-      * `memory`: [Amount of RAM](../../compute/concepts/vm.md) in your VM.
-      * `network-interface`: VM network interface description:
+      * `--name`: VM name, e.g., `hystax-acura-vm`.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`. Save the availability zone ID. You will need it later.
+      * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
+      * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
+      * `--network-interface`: VM network interface description:
          * `subnet-id`: ID of the subnet to connect your VM to. You can get a list of subnets using the `yc vpc subnet list` CLI command. Save the subnet ID. You will need it later.
          * `nat-ip-version=ipv4`: Connect a public IP.
          * `security-group-ids`: Security group. Use this parameter if the group is previously configured. You can get a list of groups using the `yc vpc security-group list` CLI command. If you skip this parameter, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
-      * `create-boot-disk`: Create a new disk for the VM:
-         * `name`: Disk name, such as `hystax-acura-disk`.
+      * `--create-boot-disk`: Create a new disk for the VM:
+         * `name`: Disk name, e.g., `hystax-acura-disk`.
          * `size`: Disk size.
          * `image-id`: Disk image ID. Use the `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}.
-      * `service-account-id`: ID of the [previously created](#create-sa) service account. You can get a list of accounts using the `yc iam service-account list` command.
-      * `ssh-key`: Path to the public SSH key file. The default username for access via SSH is `yc-user`.
+      * `--service-account-id`: ID of the [previously created](#create-sa) service account. You can get a list of accounts using the `yc iam service-account list` command.
+      * `--ssh-key`: Path to the public SSH key file. The default username for access via SSH is `yc-user`.
 
    - API {#api}
 
@@ -297,7 +297,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 
    * **Default folder ID**: [ID](../../resource-manager/operations/folder/get-id.md) of your folder.
    * **Availability zone**: ID of the availability zone hosting the Hystax Acura Backup VM (obtained when [Creating a VM with Hystax Acura Backup](#create-acura-vm)).
-   * **Hystax Service Subnet**: ID of the subnet that the Hystax Acura Backup VM is connected to (obtained when [Creating a VM with Hystax Acura Backup](#create-acura-vm).
+   * **Hystax Service Subnet**: ID of the subnet that the Hystax Acura Backup VM is connected to (obtained when [Creating a VM with Hystax Acura Backup](#create-acura-vm)).
    * **S3 Host**: `{{ s3-storage-host }}`.
    * **S3 Port**: `443`.
    * **Enable HTTPS**: Select the option to enable HTTPS connections.

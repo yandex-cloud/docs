@@ -36,7 +36,7 @@ To reset a password:
    1. Run this command:
 
       ```powershell
-      Reset-YCUserPassword -InstanceName <VM name> -Username <VM username>
+      Reset-YCUserPassword -InstanceName <VM_name> -Username <VM_user_name>
       ```
 
       {% note info %}

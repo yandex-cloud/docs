@@ -1,11 +1,11 @@
 ---
 title: "How to connect to a Linux VM via SSH"
-description: "Using this guide, you can connect to a VM with an SSH key pair: the public key is placed on the VM and the private key is stored on the user device."
+description: "Using this guide, you can connect to a VM with an SSH key pair: the public key resides on the VM, and the private one is kept by the user."
 ---
 
 # Connecting to a Linux VM via SSH
 
-The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH uses a key pair: the public key is placed on the VM and the private key is stored on the user device. To enable another user to connect to your VM, add an SSH key for them by following this [guide](#vm-authorized-keys). Connecting with a key pair is more secure than doing so with a username and password.
+The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH uses a key pair: the public key resides on the VM, and the private one is kept by the user. To enable another user to connect to your VM, add an SSH key for them by following [this guide](#vm-authorized-keys). Connecting with a key pair is more secure than with login and password.
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
@@ -41,7 +41,7 @@ You can also copy the key using the command line:
 
       Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
 
-      The command will output the public key. Select and copy its text to the clipboard. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz user@Desktop`.
+      The public key will be shown on the screen. Select and copy its text to the clipboard. For example: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz user@Desktop`.
    1. You can copy the file contents right to the clipboard:
 
       ```bash
@@ -61,7 +61,7 @@ You can also copy the key using the command line:
 
       Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
 
-      The command will output the public key. Select and copy its text to the clipboard. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz user@Desktop`.
+      The public key will be shown on the screen. Select and copy its text to the clipboard. For example: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz user@Desktop`.
    1. You can copy the file contents right to the clipboard:
 
       ```bash
@@ -83,7 +83,7 @@ You can also copy the key using the command line:
       * `<username>`: Your Windows account name, such as `User`.
       * `<key_name>`: Key name, such as `id_ed25519` or `id_rsa`.
 
-      The command will output the public key. To copy the key, select and right-click it. For example, it could be `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK7roNnfzL+gRPCz`.
+      The public key will be shown on the screen. To copy the key, select and right-click it. For example: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz`.
    1. You can copy the file contents right to the clipboard:
 
       ```bash
@@ -128,7 +128,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
    ```text
    The authenticity of host '130.193.40.101 (130.193.40.101)' cannot be established.
-   ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
+   ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHk********.
    Are you sure you want to continue connecting (yes/no)?
    ```
 
@@ -156,7 +156,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
    ```text
    The authenticity of host '130.193.40.101 (130.193.40.101)' cannot be established.
-   ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
+   ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHk********.
    Are you sure you want to continue connecting (yes/no)?
    ```
 

@@ -71,8 +71,8 @@ To create an image from a disk:
 
       ```
       resource "yandex_compute_image" "image-1" {
-        name        = "<image name>"
-        source_disk = "<disk ID>"
+        name        = "<image_name>"
+        source_disk = "<disk_ID>"
       }
       ```
 
