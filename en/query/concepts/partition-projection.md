@@ -175,4 +175,4 @@ Used for columns whose values can be represented as a date.
 
 | Field name | Field description | Sample value |
 |----|----|----|
-| `storage.location.template` | Folder name path template. Set in `${<field_name...>}/${<field_name...>}` format. | `root/a/${year}/b/${month}/d`<br/>`${year}/${month}` |
+| `storage.location.template` | Folder name path template. Use the `${<field_name...>}/${<field_name...>}` format | `root/a/${year}/b/${month}/d`<br/>`${year}/${month}` |

@@ -125,11 +125,11 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
 
       This command creates a preemptible VM with the following characteristics:
-      * Named `first-preemptible-instance`.
-      * OS: CentOS 7.
-      * In the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
-      * In the `default-a` [subnet](../../../vpc/concepts/network.md#subnet).
-      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses).
+      * Name: `first-preemptible-instance`
+      * OS: CentOS 7
+      * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
+      * [Subnet](../../../vpc/concepts/network.md#subnet): `default-a`
+      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses)
 
       To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
 
@@ -198,7 +198,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
          * `name`: Disk name.
-         * `type`: Type of the disk being created.
+         * `type`: Disk type.
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
          * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
@@ -278,7 +278,7 @@ To change the type of a VM, for example, make it preemptible:
    1. Stop the VM:
 
       ```bash
-      yc compute instance stop <VM ID or name>
+      yc compute instance stop <VM_name_or_ID>
       ```
 
       Result:
@@ -290,7 +290,7 @@ To change the type of a VM, for example, make it preemptible:
    1. Edit the VM parameters:
 
       ```bash
-      yc compute instance update <VM ID or name> \
+      yc compute instance update <VM_name_or_ID> \
         --preemptible=false
       ```
 
@@ -298,8 +298,8 @@ To change the type of a VM, for example, make it preemptible:
 
       ```text
       done (1s)
-      id: fhm0b28lgfp4tkoa3jl6
-      folder_id: b1ghgf288nvg541tgu73
+      id: fhm0b28lgfp4********
+      folder_id: b1ghgf288nvg********
       ...
       network_settings:
         type: STANDARD
@@ -309,15 +309,15 @@ To change the type of a VM, for example, make it preemptible:
    1. Start the VM again:
 
       ```bash
-      yc compute instance start <VM ID or name>
+      yc compute instance start <VM_name_or_ID>
       ```
 
       Result:
 
       ```text
       done (11s)
-      id: fhm0b28lgfp4tkoa3jl6
-      folder_id: b1ghgf288nvg541tgu73
+      id: fhm0b28lgfp4********
+      folder_id: b1ghgf288nvg********
       ...
       network_settings:
         type: STANDARD

@@ -48,7 +48,7 @@ To change the name and description of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
+      {{ yc-compute-ig }} update --id <instance_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.
@@ -108,7 +108,7 @@ To change the computing resources of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
+      {{ yc-compute-ig }} update --id <instance_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.
@@ -162,7 +162,7 @@ To increase the disk size of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
+      {{ yc-compute-ig }} update --id <instance_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.

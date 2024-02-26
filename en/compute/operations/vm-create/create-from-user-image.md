@@ -136,7 +136,7 @@ Make sure the uploaded image is in the `READY` status.
       |          ID          |      NAME       | FAMILY | PRODUCT IDS | STATUS |
       +----------------------+-----------------+--------+-------------+--------+
       |         ...          |        ...      |        |             |  ...   |
-      | fd8gkcd3l6ov84aon8s1 | your-test-image |        |             | READY  |
+      | fd8gkcd3l6ov******** | your-test-image |        |             | READY  |
       |         ...          |        ...      |        |             |  ...   |
       +----------------------+-----------------+--------+-------------+--------+
       ```
@@ -148,7 +148,7 @@ Make sure the uploaded image is in the `READY` status.
       yc compute instance create \
         --name test-vm-from-image \
         --zone {{ region-id }}-a \
-        --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov84aon8s1 \
+        --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov******** \
         --public-ip \
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
@@ -216,7 +216,7 @@ Make sure the uploaded image is in the `READY` status.
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
          * `name`: Disk name.
-         * `type`: Type of the disk being created.
+         * `type`: Disk type.
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
          * `image_id`: ID of the image to create the VM from. Specify the identifier of the [uploaded](../image-create/upload.md) image.

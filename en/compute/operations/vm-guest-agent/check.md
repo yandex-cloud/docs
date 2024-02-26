@@ -109,10 +109,10 @@ To get logs:
    Run the following command:
 
    ```
-   yc compute instance get-serial-port-output <VM name> --port 4 > output.txt
+   yc compute instance get-serial-port-output <VM_name> --port 4 > output.txt
    ```
 
-   The logs will be saved to a file named `output.txt`
+   The logs will be saved to a file named `output.txt`.
 
 - PowerShell {#powershell}
 
@@ -122,7 +122,7 @@ To get logs:
       Stop-Service "yc-guest-agent"
       ```
 
-   1. Restart the agent with the required logging level as specified in the `--log-level` parameter. Here is an example:
+   1. Restart the agent with the required logging level as specified in the `--log-level` parameter. For example:
 
       ```powershell
       & "C:\Program Files\Yandex.Cloud\Guest Agent\guest-agent.exe" start --log-level debug

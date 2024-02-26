@@ -95,6 +95,8 @@ items:
             href: operations/vm-control/vm-change-security-groups-set.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
+          - name: Changing VM maintenance policies
+            href: operations/vm-control/vm-update-policies.md
       - name: Working on VMs
         items:
           - name: Connecting to a VM via SSH
@@ -365,6 +367,8 @@ items:
             href: concepts/vm-statuses.md
           - name: Metadata
             href: concepts/vm-metadata.md
+          - name: VM maintenance policies
+            href: concepts/vm-policies.md
           - name: Resetting a Windows VM password
             href: concepts/guest-agent.md
       - name: Graphics accelerators

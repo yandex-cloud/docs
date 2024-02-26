@@ -727,6 +727,8 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Dashboard auto-update
             href: operations/dashboard/auto-update.md
+          - name: Changing dashboard settings
+            href: operations/dashboard/dash-settings.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
   - name: Access settings
@@ -767,6 +769,10 @@ items:
         href: operations/marketplace/create-connector-for-partners.md
   - name: Pricing policy
     href: pricing.md
+  - name: Release notes
+    items:
+      - name: January 2024
+        href: release-notes/index.md
   - name: Troubleshooting
     expanded: true
     items:

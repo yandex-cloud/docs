@@ -7,7 +7,7 @@ description: "Follow this guide to delete a disk snapshot."
 
 {% note warning %}
 
-Deleting a snapshot is an operation that cannot be canceled or reversed. You cannot restore a deleted snapshot.
+Deleting a [snapshot](../../concepts/snapshot.md) is an operation that you cannot cancel or reverse. You cannot restore a deleted snapshot. When you delete a snapshot, all the information in it is deleted. The data on the main disk will remain unchanged.
 
 {% endnote %}
 

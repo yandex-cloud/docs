@@ -15,7 +15,7 @@ Before you enable serial console access on a VM:
 1. Create a text file (for example, `sshkeys.txt`) and specify the following:
 
    ```txt
-   <username>:<user's public SSH key>
+   <username>:<user_public_SSH_key>
    ```
 
    Example of a text file for `yc-user`:
@@ -24,7 +24,7 @@ Before you enable serial console access on a VM:
    yc-user:ssh-ed25519 AAAAB3Nza......OjbSMRX yc-user@example.com
    ```
 
-   By default, a user's SSH keys are stored in the `~/.ssh` directory of this user. You can get a public key by running `cat ~/.ssh/<public key name>.pub`.
+   By default, a user's SSH keys are stored in the `~/.ssh` directory of this user. You can get a public key by running the `cat ~/.ssh/<public_key_name>.pub` command.
 
 ## Enabling the console when creating a VM from a public image {#turn-on-for-new-instance}
 
@@ -61,10 +61,10 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       ```
 
       This command will create a VM:
-      * With [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
-      * Named `first-instance`.
-      * In the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
-      * With the serial console active.
+      * OS: [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os)
+      * Name: `first-instance`
+      * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
+      * Serial console: Active
 
       A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
 
@@ -139,7 +139,7 @@ To create a local password, use the CLI.
    ```bash
    ...
    one_to_one_nat:
-     address: <public IP address>
+     address: <public_IP_address>
      ip_version: IPV4
    ...
    ```

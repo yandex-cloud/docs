@@ -194,16 +194,16 @@ To partition and mount an empty disk yourself:
       total 0
       drwxr-xr-x 2 root root 140 Jan 16 12:09 .
       drwxr-xr-x 6 root root 120 Jan 13 13:51 ..
-      lrwxrwxrwx 1 root root   9 Jan 16 12:09 virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc
-      lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0 -> ../../vdb
-      lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0-part1 -> ../../vdb1
-      lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9ing7vgq0-part2 -> ../../vdb2
+      lrwxrwxrwx 1 root root   9 Jan 16 12:09 virtio-fhm1dn62tm5d******** -> ../../vdc
+      lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-fhm4ev6dodt9******** -> ../../vdb
+      lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9********-part1 -> ../../vdb1
+      lrwxrwxrwx 1 root root  10 Jan 13 13:51 virtio-fhm4ev6dodt9********-part2 -> ../../vdb2
       lrwxrwxrwx 1 root root   9 Jan 13 13:51 virtio-nvme-disk-0 -> ../../vda
       ```
 
       Where:
-      * Network disk links have the format `virtio-<disk ID>`. For example, `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` means that an unpartitioned disk with the `fhm1dn62tm5dnaspeh8n` ID is labeled `/dev/vdc`.
-      * The links of local disks on [dedicated hosts](../../concepts/dedicated-host.md) have the format `virtio-nvme-disk-<disk_number>` (if you connected the disks to your VM when creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled `/dev/vda`.
+      * Network disk links have the `virtio-<disk_ID>` format. For example, `virtio-fhm1dn62tm5d******** -> ../../vdc` means that an unpartitioned disk with the `fhm1dn62tm5d********` ID is labeled `/dev/vdc`.
+      * Local disks on [dedicated hosts](../../concepts/dedicated-host.md) have links, such as `virtio-nvme-disk-<disk_number>` (if you attached the disks to your VM when creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled `/dev/vda`.
    1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
       For example, here is how to create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.

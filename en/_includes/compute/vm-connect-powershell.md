@@ -8,7 +8,7 @@ To connect to the VM:
 
 1. Open the PowerShell console.
 
-1. Create an object named `Credentials` and replace the `<password>` password with that of the `Administrator` user, which you specified when creating the VM:
+1. Create an object named `Credentials` replacing the `<password>` with the one of the `Administrator` user you specified when creating the VM:
 
     ```powershell
     $myUserName = "Administrator"
@@ -35,7 +35,7 @@ To connect to the VM:
 1. Create a variable for the VM's IP address:
 
     ```powershell
-    $ipAddress = "<ip-address>"
+    $ipAddress = "<IP_address>"
     ```
 
 1. Create an object named `SessionOption`. In the object, specify the checks to skip:
@@ -62,7 +62,7 @@ To connect to the VM:
     Result:
 
     ```text
-    [<ip-address>]: PS C:\Users\$myUserName\Documents>
+    [<IP_address>]: PS C:\Users\$myUserName\Documents>
     ```
 
     Terminate the session:
@@ -88,7 +88,7 @@ To connect to the VM:
     ```text
     Id Name            ComputerName    ComputerType    State         ConfigurationName     Availability
     -- ----            ------------    ------------    -----         -----------------     ------------
-     2 WinRM2          <ip-address>    RemoteMachine   Opened        Microsoft.PowerShell     Available
+     2 WinRM2          <IP_address>    RemoteMachine   Opened        Microsoft.PowerShell     Available
     ```
 
     Run the command on a remote VM:
@@ -107,8 +107,8 @@ To connect to the VM:
     ```text
     Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName                    PSComputerName
     -------  ------    -----      -----     ------     --  -- -----------                    --------------
-        249      13     4248      16200       0.11   4176   2 conhost                        <ip-address>
-        283      12     1888       4220       0.20    420   0 csrss                          <ip-address>
+        249      13     4248      16200       0.11   4176   2 conhost                        <IP_address>
+        283      12     1888       4220       0.20    420   0 csrss                          <IP_address>
     ...
     ```
 

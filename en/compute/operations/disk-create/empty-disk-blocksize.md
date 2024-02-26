@@ -51,8 +51,8 @@ description: "Use this guide to create an empty disk with a large block."
 
       Result:
       ```yaml
-      - id: fhmm0br99mig46rc0em0
-         folder_id: b1gb9jeqoiordtmv1lbo
+      - id: fhmm0br99mig********
+         folder_id: b1gb9jeqoior********
          created_at: "2021-01-11T09:35:05Z"
          name: big-disk
          description: 8k blocksize disk

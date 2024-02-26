@@ -347,7 +347,7 @@ items:
         items:
           - name: Overview
             href: user/trigger.md
-          - name: Creating triggers
+          - name: Creating a trigger
             href: user/create-trigger.md
           - name: Setting trigger conditions
             href: user/set-condition.md
@@ -808,18 +808,20 @@ items:
         href: organizations.md
   - name: Release notes
     items:
-      - name: December 2023
+      - name: January 2024
         href: release-notes/index.md
+      - name: December 2023
+        href: release-notes/2312.md
       - name: November 2023
         href: release-notes/2311.md
       - name: October 2023
         href: release-notes/2310.md
       - name: September 2023
         href: release-notes/2309.md
-      - name: August 2023
-        href: release-notes/2308.md
       - name: Archive
         items:
+          - name: August 2023
+            href: release-notes/2308.md
           - name: July 2023
             href: release-notes/2307.md
           - name: June 2023

@@ -32,8 +32,4 @@
 
 * [{#T}](access-setup.md)
 
-* [{#T}](../new-editor.md)
-
-* [{#T}](../old-editor.md)
-
 * [{#T}](../delete-page.md)

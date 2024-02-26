@@ -58,7 +58,7 @@ To remove an issue's link:
 
 1. In the **Related** list under the issue description, select the link you want to remove.
 
-1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete link**.
+1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Remove link**.
 
 ## Creating a sub-issue from an issue {#make-subtask}
 
@@ -88,7 +88,7 @@ To remove the link to a parent issue:
 
 1. In the **Related** list under the issue description, select the sub-issue the link to which you want to remove.
 
-1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete link**.
+1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Remove link**.
 
 ## Linking a commit to an issue {#section_commit}
 

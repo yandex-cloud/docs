@@ -36,9 +36,9 @@ To create a VM:
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
-      | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
-      | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
+      | b0c6n43f9lgh******** | default-{{ region-id }}-c | enpe3m3fa00u******** |                | {{ region-id }}-c | [10.130.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.128.0.0/24] |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
@@ -70,8 +70,8 @@ To create a VM:
 
       ```bash
       done (20s)
-      id: fhmbdt1jj2k3ls036909
-      folder_id: m4n56op78mev0cljderg
+      id: fhmbdt1jj2k3********
+      folder_id: m4n56op78mev********
       created_at: "2020-10-13T07:41:19Z"
       zone_id: {{ region-id }}-a
       ...
@@ -80,7 +80,7 @@ To create a VM:
         - key: yc.hostGroupId
           op: IN
           values:
-          - abcdefg1hi23gkl16dnf
+          - abcdefg1hi23********
       ```
 
 - API {#api}
@@ -101,13 +101,13 @@ Before creating a VM:
 1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to the VM via SSH.
 
 Create a VM with the following characteristics:
-* Location: Dedicated host group.
-* Platform: Intel Ice Lake.
-* VCPU cores: 64.
+* Location: Dedicated host group
+* Platform: Intel Ice Lake
+* VCPU cores: 64
 * RAM: 704 GB
-* Number of local disks: 2.
-* Size of a single local disk: 3198924357632 B (~ 2.91 TB).
-* Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+* Number of local disks: 2
+* Size of a single local disk: 3198924357632 B (~ 2.91 TB)
+* Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
 
 To do this, follow these steps:
 
@@ -152,15 +152,15 @@ To do this, follow these steps:
       * `subnet-id`: ID of the subnet in the availability zone hosting the VM.
    * `--attach-local-disk`: Description of the local disk being attached:
       * `size`: Disk size.
-   * `--ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key.
+   * `--ssh-key`: Path to the public SSH key. The `yc-user` user will be automatically created on the VM for this key.
    * `--create-boot-disk`: Boot disk parameters.
 
    Result:
 
    ```bash
    done (20s)
-   id: fhmbdt1jj2k3ls036909
-   folder_id: m4n56op78mev0cljderg
+   id: fhmbdt1jj2k3********
+   folder_id: m4n56op78mev********
    created_at: "2023-01-16T12:46:50Z"
    zone_id: {{ region-id }}-a
    ...
@@ -169,7 +169,7 @@ To do this, follow these steps:
      - key: yc.hostGroupId
        op: IN
        values:
-       - abcdefg1hi23gkl16dnf
+       - abcdefg1hi23********
    ```
 
 {% endlist %}

@@ -23,60 +23,20 @@ items:
         href: structure.md
       - name: Типы страниц
         href: pages-types.md
-  - name: Создание страниц
-    items:
-      - name: Новый редактор
-        href: wysiwyg-create.md
-      - name: Старый редактор
-        href: create-page.md
-      - name: Динамическая таблица
-        href: create-grid.md
-      - name: Импорт из файла
-        href: import-page.md
-      - name: Копия страницы
-        href: create-copy.md
-  - name: Новый редактор
-    items:
-      - name: Обзор
-        href: new-editor.md
-      - name: Визуальный редактор
-        items:
-          - name: Форматирование текста
-            href: wysiwyg/text-format.md
-          - name: Блочное форматирование
-            href: wysiwyg/block-format.md
-          - name: Вставка таблиц и оглавлений
-            href: wysiwyg/tables-format.md
-          - name: Вставка стороннего контента
-            href: wysiwyg/embed-content.md
-  - name: Старый редактор
-    items:
-      - name: Обзор
-        href: old-editor.md
-      - name: Форматирование текста
-        href: basic-markup.md
-      - name: Вставка изображения
-        href: add-image.md
-      - name: Вставка таблицы
-        href: add-grid.md
-      - name: Структурирование контента
-        items:
-          - name: Оглавление страницы
-            href: actions/toc.md
-          - name: Закладка на странице
-            href: actions/anchor.md
-          - name: Списки страниц
-            href: actions/page-lists.md
-  - name: Динамические таблицы
-    href: edit-grid-wysiwyg.md
   - name: Управление страницами
     items:
       - name: Обзор
         href: page-management/page-settings.md
+      - name: Создать страницу
+        href: create-page.md
       - name: Посмотреть историю изменений страницы
         href: history.md
       - name: Прикрепить файлы
         href: attach-file.md
+      - name: Импорт из файла
+        href: import-page.md
+      - name: Копия страницы
+        href: create-copy.md
       - name: Переместить страницу
         href: page-management/move-page.md
       - name: Найти на странице
@@ -115,6 +75,16 @@ items:
         href: actions/tracker.md
       - name: Счетчик Яндекс Метрики
         href: add-metrika.md
+  - name: Визуальный редактор
+    items:
+      - name: Форматирование текста
+        href: wysiwyg/text-format.md
+      - name: Блочное форматирование
+        href: wysiwyg/block-format.md
+      - name: Вставка таблиц и оглавлений
+        href: wysiwyg/tables-format.md
+      - name: Вставка стороннего контента
+        href: wysiwyg/embed-content.md
   - name: Справочник разметки
     items:
       - name: Разметка Markdown
@@ -151,6 +121,14 @@ items:
             href: actions/iframe.md
           - name: Формулы, диаграммы и блок-схемы
             href: add-diagram-formula.md
+          - name: Структурирование контента
+            items:
+              - name: Оглавление страницы
+                href: actions/toc.md
+              - name: Закладка на странице
+                href: actions/anchor.md
+              - name: Списки страниц
+                href: actions/page-lists.md
       - name: Блоки со специальным форматированием
         items:
           - name: Обзор
@@ -165,6 +143,12 @@ items:
             href: static-markup/diagram.md
           - name: Границы, ширина и выравнивание блоков
             href: static-markup/wrappers.md
+  - name: Динамические таблицы
+    items:
+      - name: Создание динамической таблицы
+        href: create-grid.md
+      - name: Редактирование динамической таблицы
+        href: edit-grid-wysiwyg.md
   - name: '{{ ya-360 }} становится платным'
     href: organization-changes.md
   - name: Правила тарификации

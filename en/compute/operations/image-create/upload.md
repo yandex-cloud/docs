@@ -57,15 +57,15 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - CLI {#cli}
 
-   To create a new image via the link, use the flag `--source-uri`. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), use the `--pooled` flag.
+   To create a new image via the link, use the `--source-uri` flag. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), use the `--pooled` flag.
 
    ```bash
-   yc compute image create --name <image-name> --source-uri <image-URL> --pooled
+   yc compute image create --name <image_name> --source-uri <image_URL> --pooled
    ```
 
    Where:
-   * `<image-name>` is the name to assign to the image.
-   * `<image-URL>` is the link to the image obtained in {{ objstorage-name }}.
+   * `--name`: Name to assign to the image.
+   * `--source-uri`: Image link you got in {{ objstorage-name }}.
 
    Add a description as required and specify the [family](../../concepts/image.md#family) the image belongs to:
 
@@ -88,10 +88,6 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
    {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
 
-- API {#api}
-
-   Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. In the request, specify the link to the image.
-
 - {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -105,10 +101,12 @@ Create a new image from the link obtained in {{ objstorage-name }}:
       resource "yandex_compute_image" "image-1" {
         name       = "ubuntu-cosmic"
         os_type    = "LINUX"
-        source_url = "<link to image in {{ objstorage-name }}>"
+        source_url = "<image_link>"
         pooled     = "false"
       }
       ```
+
+      Where `source_url` is the link to the image in {{ objstorage-name }}.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Make sure the configuration files are valid.
@@ -131,9 +129,13 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
+- API {#api}
+
+   Create a new image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. In the request, specify the link to the image.
+
 {% endlist %}
 
-After creation, the image will have the `CREATING` status. Wait until the image status changes to `READY` before using it.
+Once created, the image will have the `CREATING` status. Wait until the image status changes to `READY` before using it.
 
 ## Delete the image from {{ objstorage-name }} {#delete-image}
 

@@ -23,7 +23,7 @@ description: "В этом разделе описан язык запросов 
 
 Чтобы задать фильтр с помощью языка запросов:
 
-1. Откройте [страницу **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**]({{ link-tracker }}issues).
+1. Откройте страницу [**{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**]({{ link-tracker }}issues).
 
 1. В правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}**.
 

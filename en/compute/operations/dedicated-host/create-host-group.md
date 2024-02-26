@@ -28,23 +28,23 @@ To create a group of dedicated hosts:
 
       ```bash
       yc compute host-group create \
-        --fixed-size <number of dedicated hosts in the group> \
-        --type <type of dedicated hosts> \
-        --zone <availability zone>
+        --fixed-size <number_of_dedicated_hosts_in_group> \
+        --type <dedicated_host_type> \
+        --zone <availability_zone>
       ```
 
       Where:
 
-      * `fixed-size`: Number of dedicated hosts in the group.
-      * `type`: Type of dedicated hosts.
-      * `zone`: [Availability](../../../overview/concepts/geo-scope.md) zone to place the group in.
+      * `--fixed-size`: Number of dedicated hosts in the group.
+      * `--type`: Type of dedicated hosts.
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to place the group in.
 
       Result:
 
       ```bash
       done (6s)
-      id: abcdefg1hi23gkl16dnf
-      folder_id: m4n56op78mev0cljderg
+      id: abcdefg1hi23********
+      folder_id: m4n56op78mev********
       created_at: "2020-10-13T07:36:49Z"
       zone_id: {{ region-id }}-a
       status: READY

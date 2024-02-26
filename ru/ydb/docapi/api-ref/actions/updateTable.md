@@ -84,7 +84,7 @@ sourcePath: overlay/docapi/api-ref/actions/updateTable.md
          "BillingMode": "string",
          "LastUpdateToPayPerRequestDateTime": number
       },
-      "CreationDateTime": number,      
+      "CreationDateTime": number,
       "GlobalTableVersion": "string",
       "ItemCount": number,
       "KeySchema": [ 
@@ -94,10 +94,10 @@ sourcePath: overlay/docapi/api-ref/actions/updateTable.md
          }
       ],
       "LatestStreamArn": "string",
-      "LatestStreamLabel": "string",     
+      "LatestStreamLabel": "string", 
       "Replicas": [ 
          {             
-            "KMSMainKeyId": "string",            
+            "KMSMainKeyId": "string",
             "RegionName": "string",
             "ReplicaStatus": "string",
             "ReplicaStatusDescription": "string",

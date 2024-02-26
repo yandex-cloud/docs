@@ -37,7 +37,7 @@ To install and configure Fabric Manager:
 1. In the terminal, run:
 
    ```bash
-   sudo apt install -y nvidia-driver-<driver version>-server nvidia-utils-<driver version>-server nvidia-fabricmanager-<driver version>
+   sudo apt install -y nvidia-driver-<driver_version>-server nvidia-utils-<driver_version>-server nvidia-fabricmanager-<driver_version>
    sudo systemctl enable nvidia-fabricmanager
    sudo systemctl start nvidia-fabricmanager
    ```
