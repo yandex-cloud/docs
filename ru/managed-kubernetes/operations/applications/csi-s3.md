@@ -4,10 +4,6 @@
 
 ## Создание сервисного аккаунта {#create-sa-key}
 
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../../../storage/security/index.md#storage-editor) `storage.editor`.
 1. [Создайте](../../../iam/operations/sa/create-access-key.md) статический ключ доступа для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке приложения.
 1. (Опционально) Чтобы новые тома помещались в один бакет с разными префиксами, [создайте](../../../storage/operations/buckets/create.md) бакет {{ objstorage-full-name }}. Сохраните имя бакета — оно понадобится при установке приложения. Пропустите этот шаг, если для каждого тома требуется создавать отдельный бакет.
@@ -48,8 +44,7 @@
      --version {{ mkt-k8s-key.yc_csi-s3.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство_имен> \
-     --create-namespace \
+     --namespace kube-system \
      --set secret.accessKey=<идентификатор_ключа> \
      --set secret.secretKey=<секретный_ключ> \
      csi-s3 .

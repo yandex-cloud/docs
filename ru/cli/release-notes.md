@@ -7,19 +7,33 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.118.0 (14.02.24) {#version0.118.0}
+## Версия 0.119.0 (27.02.24) {#version0.119.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ mgp-name }}
+#### {{ iam-name }} {#iam}
+
+* Добавлено дерево команд `yc iam service-control`с командами `get`, `list`, `enable`, `pause`, `resume`, `disable` для управления доступом сервисов к ресурсам в облаке.
+
+#### {{compute-name}}
+
+* В командах `yc compute instance create` и `yc compute instance update` добавлена поддержка настроек серийного порта.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.118.0 (14.02.24) {#version0.118.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ mgp-name }}
 
 * Добавлено дерево команд `yc managed-greenplum backups` с командами `get`, `list`, `delete` для управления резервными копиями.
 * Добавлена команда `yc managed-greenplum cluster backup` для создания резервной копии.
 
-#### {{compute-name}}
+##### {{compute-name}}
 * В команду `yc compute ssh` добавлен флаг `--identity-file` для подключения к ВМ по SSH с указанием пользовательского ключа.
 
-#### {{ data-transfer-name }}
+##### {{ data-transfer-name }}
 
 - Для следующих команд добавлен  флаг `--file` для указания YAML-файла для конфигурации запроса:
   * `yc datatransfer transfer create`
@@ -27,31 +41,29 @@ description: "На странице представлены релизы YC CLI
   * `yc datatransfer endpoint create`
   * `yc datatransfer endpoint update`
 
-#### {{ org-name }} {#organization}
+##### {{ org-name }} {#organization}
 
 * Добавлена команда `yc organization-manager federation saml delete-user-accounts` для удаления федеративных пользователей.
 
-#### {{load-testing-name}}
+##### {{load-testing-name}}
 
 Добавлена команда `yc loadtesting test get-report-table` для получения табличного отчета по прошедшему нагрузочному тесту.
 
-#### {{ dns-name }} {#dns}
+##### {{ dns-name }} {#dns}
 
 * В команду `yc dns zone list-records` добавлен параметр `--page-token` для включения разбиения на страницы по page-токену.
 
-## Предыдущие релизы {#previous-releases}
+### Версия 0.117.0 (30.01.24) {#version0.117.0}
 
-## Версия 0.117.0 (30.01.24) {#version0.117.0}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
-
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mgp-name }}**
 
 Для команды `yc managed-greenplum cluster restore` добавлен флаг `restore-only`, который позволяет восстановить только указанные объекты.
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 В команды `yc iot registry create`, `yc iot registry update`, `yc iot broker create` и `yc iot broker update` добавлены параметры:
 
@@ -60,15 +72,15 @@ description: "На странице представлены релизы YC CLI
 * `--log-folder-id`, `--log-folder-name` — идентификатор или имя каталога, в стандартную лог-группу которого будут передаваться логи.
 * `--min-log-level` — минимальный уровень логирования записей.
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
 В команде `k8s cluster update` исправлена ошибка, возникающая, когда в качестве позиционного аргумента передается `cluster-id`.
 
-## Версия 0.116.0 (15.01.24) {#version0.116.0}
+### Версия 0.116.0 (15.01.24) {#version0.116.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### Сети в сервисах бессерверных вычислений {#serverless}
+##### Сети в сервисах бессерверных вычислений {#serverless}
 
 Добавлена группа команд `yc serverless network` для управления сетями, которые используются в сервисах бессерверных вычислений ({{ sf-name }}, {{ serverless-containers-name }} и {{ api-gw-name }}):
 
@@ -77,29 +89,29 @@ description: "На странице представлены релизы YC CLI
   * `yc serverless network list-connections` — получение списка ресурсов сервисов бессерверных вычислений, которые подключены к какой-либо сети из заданной области (сеть, каталог, облако);
   * `yc serverless network trigger-used-cleanup` — инициировать скорейшую очистку сети от системных подсетей, если она больше не используется в сервисах бессерверных вычислений.
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * В дерево команд `iam`, `resource-manager` и `organization-manager` добавлена поддержка листинга более 1000 ресурсов через параметр `limit`.
 
-#### {{ objstorage-name }}
+##### {{ objstorage-name }}
 
 * В команду `yc storage bucket update --lifecycle-rules/--lifecycle-rules-from-file` добавлена поддержка `andOperation` для объединения условий в `filter`.
 * В команду `yc storage bucket update` добавлена возможность изменения используемого ключа шифрования `--encryption key-id=foobarbaz123`, `--remove-encryption`.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
 
 * В команде `{{ yc-mdb-ch }} cluster update` добавлена возможность указать параметр `cloud-storage-data-cache-max-size` в удобном для чтения формате.
 
-#### {{ cdn-name }} {#cdn}
+##### {{ cdn-name }} {#cdn}
 
 В команды `yc cdn resource update` и `yc cdn resource create` добавлены параметры для определения опции *ip address acl*:
 
 * `--policy-type` — политика доступа клиентов по IP-адресам. Одно из значений *allow* или *deny*;
 * `--acl-excepted-values` — список IP-адресов, доступ по которым будет разрешен или запрещен в зависимости от указанного policy-type.
 
-#### {{load-testing-name}}
+##### {{load-testing-name}}
 
 Добавлено дерево команд `yc loadtesting` для управления сервисом нагрузочного тестирования:
 

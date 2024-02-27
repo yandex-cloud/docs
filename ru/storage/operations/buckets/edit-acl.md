@@ -5,7 +5,9 @@ description: "Для управления доступом к бакету {{ ob
 
 # Редактирование ACL бакета
 
-Для управления доступом к бакету {{ objstorage-name }}, помимо [{{ iam-short-name }}](../../../iam/), можно воспользоваться [ACL](../../concepts/acl.md).
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
+Чтобы настроить [ACL](../../concepts/acl.md) бакета:
 
 {% list tabs group=instructions %}
 

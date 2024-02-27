@@ -20,6 +20,12 @@ editable: false
 
 Подробнее о сервисе в документации [{{ at-name }}](../../audit-trails/).
 
+## Сервис {{ certificate-manager-full-name }} {#certificate-manager}
+
+{% include [certificate-manager](../../_includes/monitoring/metrics-ref/certificate-manager.md) %}
+
+Подробнее о сервисе в документации [{{ certificate-manager-name }}](../../certificate-manager/).
+
 ## Сервис {{ cdn-full-name }} {#cdn}
 
 {% include [cdn.md](../../_includes/monitoring/metrics-ref/cdn.md) %}
@@ -39,6 +45,24 @@ editable: false
 
 Подробнее о сервисе в документации [{{ dataproc-name }}](../../data-proc/).
 
+
+## Сервис {{ iam-full-name }} {#iam}
+
+{% include [iam](../../_includes/monitoring/metrics-ref/iam.md) %}
+
+Подробнее о сервисе в документации [{{ iam-name }}](../../iam/).
+
+## Сервис {{ kms-full-name }} {#kms}
+
+{% include [kms](../../_includes/monitoring/metrics-ref/kms.md) %}
+
+Подробнее о сервисе в документации [{{ kms-name }}](../../kms/).
+
+## Сервис {{ lockbox-full-name }} {#lockbox}
+
+{% include [lockbox](../../_includes/monitoring/metrics-ref/lockbox.md) %}
+
+Подробнее о сервисе в документации [{{ lockbox-name }}](../../lockbox/).
 
 ## Сервис {{ mkf-full-name }} {#managed-kafka}
 
@@ -109,6 +133,12 @@ editable: false
 
 
 {% include [monitoring.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
+
+## Сервис {{ captcha-full-name }} {#smartcaptcha}
+
+{% include [smartcaptcha](../../_includes/monitoring/metrics-ref/smartcaptcha.md) %}
+
+Подробнее о сервисе в документации [{{ captcha-name }}](../../smartcaptcha/).
 
 ## Сервис {{ objstorage-full-name }} {#storage}
 

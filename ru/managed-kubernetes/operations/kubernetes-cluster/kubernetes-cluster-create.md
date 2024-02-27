@@ -165,7 +165,7 @@
      >resource "yandex_kubernetes_cluster" "<имя_кластера_Managed_Service_for_Kubernetes>" {
      >  network_id = yandex_vpc_network.<имя_сети>.id
      >  master {
-     >    zonal {
+     >    master_location {
      >      zone      = yandex_vpc_subnet.<имя_подсети>.zone
      >      subnet_id = yandex_vpc_subnet.<имя_подсети>.id
      >    }
@@ -270,7 +270,7 @@
     name = "k8s-zonal"
     network_id = yandex_vpc_network.mynet.id
     master {
-      zonal {
+      master_location {
         zone      = yandex_vpc_subnet.mysubnet.zone
         subnet_id = yandex_vpc_subnet.mysubnet.id
       }
@@ -434,20 +434,17 @@
     name = "k8s-regional"
     network_id = yandex_vpc_network.my-regional-net.id
     master {
-      regional {
-        region = "{{ region-id }}"
-        location {
-          zone      = yandex_vpc_subnet.mysubnet-a.zone
-          subnet_id = yandex_vpc_subnet.mysubnet-a.id
-        }
-        location {
-          zone      = yandex_vpc_subnet.mysubnet-b.zone
-          subnet_id = yandex_vpc_subnet.mysubnet-b.id
-        }
-        location {
-          zone      = yandex_vpc_subnet.mysubnet-d.zone
-          subnet_id = yandex_vpc_subnet.mysubnet-d.id
-        }
+      master_location {
+        zone      = yandex_vpc_subnet.mysubnet-a.zone
+        subnet_id = yandex_vpc_subnet.mysubnet-a.id
+      }
+      master_location {
+        zone      = yandex_vpc_subnet.mysubnet-b.zone
+        subnet_id = yandex_vpc_subnet.mysubnet-b.id
+      }
+      master_location {
+        zone      = yandex_vpc_subnet.mysubnet-d.zone
+        subnet_id = yandex_vpc_subnet.mysubnet-d.id
       }
       security_group_ids = [yandex_vpc_security_group.regional-k8s-sg.id]
     }

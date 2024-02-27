@@ -5,6 +5,8 @@ description: "Для управления доступом к объекту в 
 
 # Редактирование ACL объекта
 
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
 Для управления доступом к объекту в бакете {{ objstorage-name }} можно воспользоваться [ACL](../../concepts/acl.md).
 
 {% list tabs group=instructions %}

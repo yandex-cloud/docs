@@ -1,14 +1,10 @@
 #### Квоты {#kms-quotas}
 
-{% note info %}
-
-Каждая асимметричная ключевая пара [шифрования](../../kms/concepts/asymmetric-signature-key.md) или [подписи](../../kms/concepts/asymmetric-signature-key.md) соответствует одному ключу в квоте.
-
-{% endnote %}
-
 Вид ограничения | Значение
 ----- | -----
-Количество ключей в одном облаке | 100
+Количество [симметричных ключей](../../kms/concepts/key.md) | 100
+Количество асимметричных ключей [шифрования](../../kms/concepts/asymmetric-encryption-key.md) | 100
+Количество асимметричных ключей [подписи](../../kms/concepts/asymmetric-signature-key.md) | 100
 
 #### Лимиты {#kms-limits}
 

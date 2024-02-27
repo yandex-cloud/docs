@@ -2,12 +2,12 @@
 
 | Метка | Значение |
 | --- | --- |
-`service` | Идентификатор сервиса: `audit-trails`
-`trail` | Идентификатор [трейла](../../../audit-trails/concepts/trail.md) |
-`status` | [Статус](../../../audit-trails/concepts/trail.md#status) трейла |
-`event_type` | Тип события |
-`event_source` | Сервис-источник события |
-`destination_type` | [Объект назначения](../../../audit-trails/concepts/trail.md#target) |
+service | Идентификатор сервиса: `audit-trails`
+trail | Идентификатор [трейла](../../../audit-trails/concepts/trail.md) |
+status | [Статус](../../../audit-trails/concepts/trail.md#status) трейла |
+event_type | Тип события |
+event_source | Сервис-источник события |
+destination_type | [Объект назначения](../../../audit-trails/concepts/trail.md#target) |
 
 Метрики сервиса:
 
