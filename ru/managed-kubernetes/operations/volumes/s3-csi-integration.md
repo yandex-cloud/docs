@@ -3,10 +3,12 @@
 {{ CSI }} позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../../storage/) и монтировать их к [подам](../../concepts/index.md#pod) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). При этом можно монтировать уже существующие бакеты или создавать новые.
 
 Чтобы воспользоваться возможностями {{ CSI }}:
+
 1. [Подготовьте рабочее окружение](#create-environment).
 1. [Настройте {{ CSI }}](#configure-csi).
 
 См. также:
+
 * [Как использовать {{ CSI }} при работе с `PersistentVolume`](#csi-usage).
 * [Примеры создания `PersistentVolume`](#examples).
 
@@ -24,9 +26,15 @@
 - {{ marketplace-full-name }} {#marketplace}
 
   Установите приложение {{ CSI }} для S3 с помощью [пошаговой инструкции](../applications/csi-s3.md#install-fb-marketplace). При установке приложения укажите параметры:
+
   * **Пространство имен** — `kube-system`.
-  * **Название класса хранения** — `csi-s3`.
-  * **Название секрета** — `csi-s3-secret`.
+  * **Идентификатор ключа S3** — скопируйте в это поле идентификатор ключа [созданного сервисного аккаунта](#create-environment).
+  * **Секретный ключ S3** — скопируйте в это поле секретный ключ [созданного сервисного аккаунта](#create-environment).
+  * **Общий бакет S3 для томов** — чтобы использовать существующий бакет, укажите его имя. Эта настройка актуальна только для [динамических `PersistentVolume`](#dpvc-csi-usage).
+  * **Название класса хранения** — `csi-s3`. Также выберите опцию **Создать класс хранения**.
+  * **Название секрета** — `csi-s3-secret`. Также выберите опцию **Создать секрет**.
+
+  Значения остальных параметров оставьте по умолчанию.
 
   После установки приложения можно создавать [статические](../../concepts/volume.md#static-provisioning) и [динамические](../../concepts/volume.md#dynamic-provisioning) `PersistentVolume`, которые будут использовать бакеты {{ objstorage-name }}.
 
@@ -99,9 +107,10 @@
 ### Динамический PersistentVolume {#dpvc-csi-usage}
 
 При работе с динамическим `PersistentVolume`:
+
 * Укажите имя нужного класса хранилища в параметре `spec.storageClassName` при создании `PersistentVolumeClaim`.
-* При необходимости укажите имя бакета в параметре `bucket` при [создании класса хранилища](#configure-csi). Это влияет на поведение {{ CSI }}:
-  * Если при настройке класса хранилища было указано имя бакета в параметре `bucket`, {{ CSI }} создаст отдельный каталог внутри этого бакета на каждый созданный `PersistentVolume`.
+* При необходимости укажите имя бакета в параметре `bucket` (в настройках приложения {{ marketplace-full-name }} — поле **Общий бакет S3 для томов**) при [создании класса хранилища](#configure-csi). Это влияет на поведение {{ CSI }}:
+  * Если при настройке класса хранилища было указано имя бакета, {{ CSI }} создаст отдельный каталог внутри этого бакета на каждый созданный `PersistentVolume`.
 
     {% note info %}
 
@@ -109,13 +118,14 @@
 
     {% endnote %}
 
-  * Если при настройке класса хранилища не было указано имя бакета в параметре `bucket`, то {{ CSI }} создаст отдельный бакет на каждый созданный `PersistentVolume`.
+  * Если при настройке класса хранилища не было указано имя бакета, то {{ CSI }} создаст отдельный бакет на каждый созданный `PersistentVolume`.
 
-[Пример создания](#create-dynamic-pvc) динамического `PersistentVolume`.
+См. также [пример создания](#create-dynamic-pvc) динамического `PersistentVolume`.
 
 ### Статический PersistentVolume {#spvc-csi-usage}
 
 При работе со статическим `PersistentVolume`:
+
 * Укажите пустое значение параметра `spec.storageClassName` при создании `PersistentVolumeClaim`.
 * Укажите имя нужного бакета или директории бакета в параметре `spec.csi.volumeHandle` при создании `PersistentVolume`. Если такого бакета не существует — создайте его.
 
@@ -127,15 +137,16 @@
 
 * Если вам нужно изменить опции клиента [GeeseFS](../../../storage/tools/geesefs.md) для работы с бакетом, укажите их в параметре `spec.csi.volumeAttributes.options` при создании `PersistentVolume`. Например, в опции `--uid` можно указать идентификатор пользователя-владельца всех файлов в хранилище. Список опций GeeseFS см. с помощью команды `geesefs -h` или в [репозитории на GitHub](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
 
-  Опции GeeseFS, указанные в параметре `parameters.options` класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
+  Опции GeeseFS, указанные в параметре `parameters.options` (в настройках приложения {{ marketplace-full-name }} — поле **Опции монтирования GeeseFS**) класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
-[Пример создания](#create-static-pvc) статического `PersistentVolume`.
+См. также [пример создания](#create-static-pvc) статического `PersistentVolume`.
 
 ## Примеры использования {#examples}
 
 ### Динамический PersistentVolume {#create-dynamic-pvc}
 
 Чтобы использовать {{ CSI }} совместно с динамическим `PersistentVolume`:
+
 1. [Настройте {{ CSI }}](#configure-csi).
 1. Создайте `PersistentVolumeClaim`:
    1. Создайте файл `pvc-dynamic.yaml`, содержащий описание `PersistentVolumeClaim`:
@@ -148,7 +159,7 @@
       kind: PersistentVolumeClaim
       metadata:
         name: csi-s3-pvc-dynamic
-        namespace: kube-system
+        namespace: default
       spec:
         accessModes:
         - ReadWriteMany
@@ -190,18 +201,17 @@
       apiVersion: v1
       kind: Pod
       metadata:
-        name: csi-s3-test-ubuntu-dynamic
+        name: csi-s3-test-nginx-dynamic
+        namespace: default
       spec:
         containers:
-        - name: csi-s3-test-ubuntu
-          image: ubuntu
-          command: ["/bin/sh"]
-          args: ["-c", "for i in {1..10}; do echo $(date -u) >> /data/s3-dynamic/dynamic-date.txt; sleep 10; done"]
+        - name: csi-s3-test-nginx
+          image: nginx
           volumeMounts:
-            - mountPath: /data/s3-dynamic
-              name: s3-volume
+            - mountPath: /usr/share/nginx/html/s3
+              name: webroot
         volumes:
-          - name: s3-volume
+          - name: webroot
             persistentVolumeClaim:
               claimName: csi-s3-pvc-dynamic
               readOnly: false
@@ -221,14 +231,20 @@
       kubectl get pods
       ```
 
-   В процессе работы под несколько раз выполнит команду `date` и запишет результат в файл `/data/s3-dynamic/dynamic-date.txt`. Этот файл будет размещен в бакете.
+1. Создайте в контейнере файл `/usr/share/nginx/html/s3/hello_world`. Для этого [выполните команду](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) на поде:
+
+    ```bash
+    kubectl exec -ti csi-s3-test-nginx -- touch /usr/share/nginx/html/s3/hello_world
+    ```
+
 1. Убедитесь, что файл попал в бакет:
    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Нажмите на бакет `pvc-<имя_dynamic-бакета>`.
+   1. Нажмите на бакет `pvc-<имя_dynamic-бакета>`. Если при настройке класса хранилища было указано имя бакета, то откройте указанный бакет и каталог `pvc-<имя_dynamic-бакета>` внутри него.
 
 ### Статический PersistentVolume {#create-static-pvc}
 
 Чтобы использовать {{ CSI }} совместно со статическим `PersistentVolume`:
+
 1. [Настройте {{ CSI }}](#configure-csi).
 1. Создайте `PersistentVolumeClaim`:
    1. Создайте файл `pvc-static.yaml`, содержащий описание `PersistentVolumeClaim`:
@@ -241,7 +257,7 @@
       kind: PersistentVolumeClaim
       metadata:
         name: csi-s3-pvc-static
-        namespace: kube-system
+        namespace: default
       spec:
         accessModes:
           - ReadWriteMany
@@ -253,7 +269,7 @@
 
       {% endcut %}
 
-      При необходимости измените размер запрашиваемого хранилища в значении параметра `spec.resources.requests.storage`.
+      Для статического `PersistentVolume` имя класса хранилища в параметре `spec.storageClassName` не указывается. При необходимости измените размер запрашиваемого хранилища в значении параметра `spec.resources.requests.storage`.
    1. Создайте файл `pv-static.yaml`, содержащий описание статического `PersistentVolume`:
 
       {% cut "pv-static.yaml" %}
@@ -271,11 +287,11 @@
         accessModes:
           - ReadWriteMany
         claimRef:
-          namespace: kube-system
+          namespace: defalt
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi
-          volumeHandle: "<имя_бакета>/<опционально:_путь_к_каталогу_в_бакете>"
+          volumeHandle: "<имя_static-бакета>/<опционально:_путь_к_каталогу_в_бакете>"
           controllerPublishSecretRef:
             name: csi-s3-secret
             namespace: kube-system
@@ -330,16 +346,14 @@
       apiVersion: v1
       kind: Pod
       metadata:
-        name: csi-s3-test-ubuntu-static
-        namespace: kube-system
+        name: csi-s3-test-nginx-static
+        namespace: default
       spec:
         containers:
-        - name: csi-s3-test-ubuntu
-          image: ubuntu
-          command: ["/bin/sh"]
-          args: ["-c", "for i in {1..10}; do echo $(date -u) >> /data/s3-static/static-date.txt; sleep 10; done"]
+        - name: csi-s3-test-nginx-static
+          image: nginx
           volumeMounts:
-            - mountPath: /data/s3-static
+            - mountPath: /usr/share/nginx/html/s3
               name: s3-volume
         volumes:
           - name: s3-volume
@@ -362,7 +376,12 @@
       kubectl get pods
       ```
 
-   В процессе работы под несколько раз выполнит команду `date` и запишет результат в файл `/data/s3-static/static-date.txt`. Этот файл будет размещен в бакете.
+1. Создайте в контейнере файл `/usr/share/nginx/html/s3/hello_world_static`. Для этого [выполните команду](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) на поде:
+
+    ```bash
+    kubectl exec -ti csi-s3-test-nginx-static -- touch /usr/share/nginx/html/s3/hello_world_static
+    ```
+
 1. Убедитесь, что файл попал в бакет:
    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Нажмите на бакет `<имя_бакета>`.
+   1. Нажмите на бакет `<имя_static-бакета>`. Если вы указали путь к каталогу в бакете в описании статического `PersistentVolume`, то сначала откройте указанный каталог.

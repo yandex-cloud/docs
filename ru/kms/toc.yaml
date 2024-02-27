@@ -167,6 +167,8 @@ items:
                 href: api-ref/SymmetricKey/update.md
               - name: updateAccessBindings
                 href: api-ref/SymmetricKey/updateAccessBindings.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Вопросы и ответы

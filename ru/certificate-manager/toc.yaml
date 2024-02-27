@@ -129,6 +129,8 @@ items:
                 href: api-ref/Certificate/update.md
               - name: updateAccessBindings
                 href: api-ref/Certificate/updateAccessBindings.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Вопросы и ответы

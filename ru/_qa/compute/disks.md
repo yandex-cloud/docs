@@ -167,3 +167,7 @@ Swap настоятельно не рекомендуется использов
 ```bash
 /usr/sbin/iotop -botqqqk --iter=60 | grep -P "\d\d\d\d.\d\d K/s" >> /var/log/iotop.log
 ```
+
+#### Как узнать условия предоставления технической поддержки публичных образов? {#public-image-support}
+
+{% include [public-image-support](../../_includes/compute/public-image-support.md) %}
