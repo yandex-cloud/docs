@@ -101,3 +101,9 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 {% endlist %}
 
 The value of resource [TXT records](../concepts/resource-record.md#txt) cannot contain more than 255 characters per line and 1024 characters total. If the new value contains more characters, split it into multiple values.
+
+{% note info %}
+
+You cannot modify a [service resource record](../concepts/resource-record.md#service-records).
+
+{% endnote %}

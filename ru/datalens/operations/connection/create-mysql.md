@@ -32,7 +32,7 @@ description: "Из статьи вы узнаете, как подключить
 
    {% list tabs group=connection %}
 
-   - Выбрать в каталоге {#catalog}
+   - Выбрать в организации {#organization}
 
      {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 

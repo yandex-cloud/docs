@@ -47,3 +47,5 @@ Users can only use {{ datalens-short-name }} if they have a role that enables ac
 #### Adding a federated user {#federated-user}
 
 If you set up an [identity federation](../../organization/concepts/add-federation.md), follow [this guide](../../organization/operations/add-account.md#add-user-sso) to add a new federated user. After that, make sure to [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-creator }}` role.
+
+{% include [datalens-federation-user-link](../../_includes/datalens/datalens-federation-user-link.md) %}

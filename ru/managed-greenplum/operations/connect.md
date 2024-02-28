@@ -17,13 +17,13 @@
 
 Настройки правил будут различаться в зависимости от выбранного способа подключения:
 
-{% list tabs %}
+{% list tabs group=connection_method %}
 
-- Через интернет
+- Через интернет {#internet}
 
     {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
-- С ВМ в Облаке
+- С ВМ в {{ yandex-cloud }} {#cloud}
 
     1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 

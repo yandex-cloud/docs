@@ -13,18 +13,18 @@ For more information about creating a trigger for {{ message-queue-short-name }}
 ## Roles required for the proper operation of a trigger for {{ message-queue-short-name }} {#roles}
 
 * To create a trigger, you need:
-   * The `{{ roles-viewer }}` role for the folder with the message queue that the trigger reads messages from.
-   * The `{{ roles-viewer }}` role for the folder with the function that the trigger invokes.
-   * Permission to the service account on whose behalf the trigger executes the operations. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+   * `{{ roles-viewer }}` role for the folder with the message queue that the trigger reads messages from.
+   * `{{ roles-viewer }}` role for the folder with the function that the trigger invokes.
+   * Permission to the service account on whose behalf the trigger executes the operations. This permission is included in the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles and higher.
 * For the trigger to fire, service accounts need the following roles:
    * `{{ roles-editor }}` for the folder with the message queue that the trigger reads messages from.
    * `{{ roles-functions-invoker }}` for the folder with the function that the trigger invokes.
 
 Read more about [access management](../../security/index.md).
 
-## Trigger for {{ message-queue-short-name }} message format {#format}
+## {{ message-queue-short-name }} trigger message format {#format}
 
-After the trigger picks up a message from the queue, it passes it to the function in the following format:
+After the trigger picks up a message from the queue, it sends it to the function in the following format:
 
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
 

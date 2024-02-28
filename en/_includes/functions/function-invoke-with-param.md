@@ -43,7 +43,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    To invoke a function, run the command:
 
    ```
-   yc serverless function invoke <function ID> -d '{"queryStringParameters": {"name": "Username"}}'
+   yc serverless function invoke <function_ID> -d '{"queryStringParameters": {"name": "Username"}}'
    ```
 
    Result:
@@ -61,7 +61,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    For security reasons, you can only invoke a function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar and adding the `name` parameter to the URL:
 
    ```
-   https://{{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
+   https://{{ sf-url }}/<function_ID>?name=Username
    ```
 
    The following response will appear on the page:

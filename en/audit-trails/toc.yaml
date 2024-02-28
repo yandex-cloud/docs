@@ -79,12 +79,12 @@ items:
         href: concepts/export-siem.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Metrics
-        href: concepts/user-metrics.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ monitoring-name }} metrics'
+    href: concepts/user-metrics.md
   - name: Management event reference
     href: concepts/events.md
   - name: Data event reference

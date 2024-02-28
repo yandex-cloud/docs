@@ -6,9 +6,9 @@
 
 ## Профили нагрузки {#load-profiles}
 
-{% list tabs %}
+{% list tabs group=load_generator %}
 
-- Pandora
+- Pandora {#pandora}
 
     #### line {#line}
 
@@ -66,7 +66,7 @@
     {type: unlimited, duration: 30s} # неограниченная нагрузка в течение 30 секунд
     ```
 
-- Phantom
+- Phantom {#phantom}
 
     #### line {#line}
 

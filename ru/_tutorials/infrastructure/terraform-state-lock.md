@@ -301,10 +301,10 @@ export PATH=$PATH:/path/to/terraform
 
     Где:
 
-   * `bucket` — имя бакета.
-   * `dynamodb` — Document API базы данных, в формате `https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaom********`:
-   * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
-   * `dynamodb_table` — имя таблицы.
+    * `bucket` — имя бакета.
+    * `dynamodb` — Document API базы данных, в формате `https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaom********`:
+    * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
+    * `dynamodb_table` — имя таблицы.
 
     Подробнее о бэкенде для хранения состояний читайте на [сайте {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
 

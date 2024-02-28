@@ -37,13 +37,13 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you need
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. In the list of services, select **{{ yq-full-name }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
-1. In the left-hand panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **Tutorial**.
-1. Click **Create connection**. In the Create connection section, all parameter fields are already populated, so type a description (optional) and click **Create**. The action will take you to the data [binding](../../query/concepts/glossary.md#binding) creation screen.
-1. Type a description of data binding (optional) and click **Create**. Appropriate training resources are created.
+1. In the left-hand panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
+1. Click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. In the Create connection section, all parameter fields are pre-filled. Enter a description (optional) and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. This will take you to the data [binding](../../query/concepts/glossary.md#binding) creation screen.
+1. Enter the data binding description (optional) and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. Appropriate training resources are created.
 
 ## Create a connection in {{ datalens-full-name }} {#create_connection_lens}
 

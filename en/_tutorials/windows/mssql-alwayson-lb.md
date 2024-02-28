@@ -1655,9 +1655,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 To stop paying for the created resources, [delete](../../compute/operations/vm-control/vm-delete.md) the VMs and the load balancer you created:
 
-* `ya-jump1`;
-* `ya-ad`;
-* `ya-mssql1`;
-* `ya-mssql2`;
-* `ya-mssql3`;
-* `ya-loadbalancer`.
+* `ya-jump1`
+* `ya-ad`
+* `ya-mssql1`
+* `ya-mssql2`
+* `ya-mssql3`
+* `ya-loadbalancer`

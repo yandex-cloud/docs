@@ -4,8 +4,8 @@
 
 You can connect to {{ mpg-short-name }} cluster hosts:
 * Over the internet, if you configured public access for the appropriate host. You can only connect to such hosts over an SSL connection.
-* From {{ yandex-cloud }} virtual machines located in the same cloud network. If there is no public access to a host, using SSL for connections from such virtual machines is not required.
-* From the container in [{{ serverless-containers-full-name }}](../../serverless-containers/concepts/index.md). If the host is not publicly accessible, the container must be located on the same cloud network.
+* From {{ yandex-cloud }} virtual machines located in the same cloud network. If the host is not publicly accessible, there is no need to use SSL for connections from such virtual machines.
+* From a container in [{{ serverless-containers-full-name }}](../../serverless-containers/concepts/index.md). If the host is not publicly accessible, the container must be located in the same cloud network.
 
 For more information, see the [service documentation](../../managed-postgresql/operations/connect.md).
 

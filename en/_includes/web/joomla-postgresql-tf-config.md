@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for user parameters
+# Declaring variables for user-defined parameters
 
 variable "folder_id" {
   type = string
@@ -46,7 +46,7 @@ locals {
   dns_zone_name      = "example-zone-1"
 }
 
-# Provider setup
+# Provider configuration
 
 terraform {
   required_providers {
@@ -108,7 +108,7 @@ resource "yandex_vpc_security_group" "pgsql-sg" {
   }
 }
 
-# Creating a security group for a VM
+# Creating a security group for the VM
 
 resource "yandex_vpc_security_group" "vm-sg" {
   name       = local.sg_vm_name
@@ -144,7 +144,7 @@ resource "yandex_vpc_security_group" "vm-sg" {
   }
 }
 
-# Adding a ready-made VM image
+# Adding a ready-to-use VM image
 
 resource "yandex_compute_image" "joomla-pg-vm-image" {
   source_family = "centos-stream-8"
@@ -219,7 +219,7 @@ resource "yandex_mdb_postgresql_cluster" "joomla-pg-cluster" {
   }
 }
 
-# Creating a DB
+# Creating a database
 
 resource "yandex_mdb_postgresql_database" "joomla-pg-tutorial-db" {
   cluster_id = yandex_mdb_postgresql_cluster.joomla-pg-cluster.id

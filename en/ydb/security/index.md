@@ -30,13 +30,21 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
-{% include [ydb-viewer](../../_includes/iam/roles/ydb-viewer.md) %}
+#### ydb.viewer {#ydb-viewer}
 
-{% include [ydb-editor](../../_includes/iam/roles/ydb-editor.md) %}
+{% include [ydb.viewer](../../_roles/ydb/viewer.md) %}
 
-{% include [ydb-admin](../../_includes/iam/roles/ydb-admin.md) %}
+#### ydb.editor {#ydb-editor}
 
-{% include [kafka-api](../../_includes/iam/roles/ydb-kafka-api-client.md) %}
+{% include [ydb.editor](../../_roles/ydb/editor.md) %}
+
+#### ydb.admin {#ydb-admin}
+
+{% include [ydb.admin](../../_roles/ydb/admin.md) %}
+
+#### ydb.kafkaApi.client {#ydb-kafkaapi-client}
+
+{% include [ydb.kafkaApi.client](../../_roles/ydb/kafkaApi/client.md) %}
 
 
 ### Primitive roles {#primitive-roles}

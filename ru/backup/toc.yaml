@@ -145,4 +145,8 @@ items:
                 href: backup/api-ref/Resource/listTasks.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Вопросы и ответы
+    items:
+      - name: Решение проблем
+        href: qa/troubleshooting.md
 base: ru/backup

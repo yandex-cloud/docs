@@ -92,11 +92,11 @@ Where:
    }
    ```
 
-- `body`: The request body in string format. Data can be Base64-encoded (in this case, {{ sf-name }} sets `isBase64Encoded: true`).
+- `body`: Request body in string format. Data can be Base64-encoded (in this case, {{ sf-name }} sets `isBase64Encoded: true`).
 
    {% note info %}
 
-   If the function is called with the `Content-Type: application/json` header, the contents of `body` stays in the original format (parameter value `isBase64Encoded`: false).
+   If the function is invoked with the `Content-Type: application/json` header, the contents of `body` remains in the original format (`isBase64Encoded: false`).
 
    {% endnote %}
 
@@ -183,11 +183,11 @@ Optionally, the function can accept the second argument with the following struc
 
 Where:
 
-- `requestId`: The ID of the function call, generated when the function is accessed and displayed in the function call log.
-- `functionName`: The function ID.
-- `functionVersion`: The ID of the function version.
-- `memoryLimitInMB`: The amount of memory given for the function version, MB.
-- `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. Used for working with the [{{ yandex-cloud }} API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
+- `requestId`: ID of the function call, generated when the function is accessed and displayed in the function call log.
+- `functionName`: Function ID.
+- `functionVersion`: ID of the function version.
+- `memoryLimitInMB`: Amount of memory given for the function version, in MB.
+- `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. It is used for working with the [{{ yandex-cloud }} API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
 
 Example of using service data in a function:
 
@@ -217,10 +217,10 @@ module.exports.handler = async (event, context) => {
 
 Where:
 
-- `statusCode`: The HTTP status code, which the client uses to interpret the request results.
-- `headers`: A dictionary of strings with HTTP response headers and their values.
-- `multiValueHeaders`: A dictionary listing one or more HTTP response headers. If the same header is specified in both the `headers` and `multiValueHeaders` dictionaries, the contents of the `headers` dictionary is ignored.
-- `body`: The response body in string format. To work with binary data, the contents can be Base64-encoded. In this case, set `isBase64Encoded: true`.
+- `statusCode`: HTTP status code, which the client uses to interpret the request results.
+- `headers`: Dictionary of strings with HTTP response headers and their values.
+- `multiValueHeaders`: Dictionary listing one or more HTTP response headers. If the same header is specified in both the `headers` and `multiValueHeaders` dictionaries, the contents of the `headers` dictionary is ignored.
+- `body`: Response body in string format. To work with binary data, the contents can be Base64-encoded. In this case, set `isBase64Encoded: true`.
 - `isBase64Encoded`: If `body` is Base64-encoded, set the parameter to `true`.
 
 ### Handling errors in user-defined function code {#error}
@@ -237,9 +237,9 @@ If an unhandled error occurs in user code, {{ sf-name }} returns a 502 error and
 
 Where:
 
-- `errorMessage`: A string with an error description.
-- `errorType`: A programming language-dependent type of error or exception.
-- `stackTrace`: The function execution stack at the time of the error.
+- `errorMessage`: String with an error description.
+- `errorType`: Programming language-dependent type of error or exception.
+- `stackTrace`: Function execution stack at the time of the error.
 
 The specific contents of these fields depend on the programming language and your function's runtime environment.
 
@@ -364,7 +364,7 @@ Detailed description of how to transfer data using different flags and arguments
    yc serverless function invoke <function ID> --data-file <file path>
    ```
 
-   Similar to the command with the `-d` argument with the `@<file name>` value: `yc serverless function invoke b09bhaokchn9pnbrlseb -d @<file path>`
+   Similar to the command with the `-d` argument with the `@<file_name>` value: `yc serverless function invoke <function_ID> -d @<file_path>`
 
 - `--data-stdin`: Data is read from the input stream.
 

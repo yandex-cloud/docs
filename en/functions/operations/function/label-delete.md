@@ -16,7 +16,7 @@ description: "Follow this guide to delete a function label."
    To delete a function label, run this command:
 
    ```
-   yc serverless function remove-labels <function name> --labels <key>
+   yc serverless function remove-labels <function_name> --labels <key>
    ```
 
    Result:
@@ -55,14 +55,14 @@ description: "Follow this guide to delete a function label."
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
-          service_account_id = "<service account ID>"
+          service_account_id = "<service_account_ID>"
           tags               = ["my_tag"]
           labels = {
-            <key1>:"<value1>",
-            <key2>:"<value2>"
+            <key_1>:"<value_1>",
+            <key_2>:"<value_2>"
           }
           content {
-              zip_filename = "<path to ZIP archive>"
+              zip_filename = "<ZIP_archive_path>"
           }
       }
       ```
@@ -99,7 +99,7 @@ description: "Follow this guide to delete a function label."
    You can verify the deletion of the function labels using this [CLI](../../../cli/quickstart.md) command:
 
    ```
-   yc serverless function get <function_name>|<function_ID>
+   yc serverless function get <function_name_or_ID>
    ```
 
 - API {#api}

@@ -1,5 +1,3 @@
-## {{ mch-full-name }} {#managed-clickhouse}
-
 Common labels for all {{ mch-name }} metrics:
 
 | Label | Value |
@@ -15,7 +13,7 @@ Common labels for all {{ mch-name }} metrics:
 ### CPU metrics {#managed-clickhouse-cpu-metrics}
 Processor core workload.
 
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share |
 | `cpu.guarantee`<br/>`DGAUGE`, number | Guaranteed number of cores |
@@ -45,17 +43,17 @@ Processor core workload.
 | `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
 
 ### Disk operation metrics {#managed-clickhouse-diskio-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
 | `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time |
 | `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a specific disk |
 | `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk |
-| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes/s | Read speed for a specific disk |
+| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk |
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk |
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk |
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk; disabled for network drives |
-| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes/s | Write speed for a specific disk |
+| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk |
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk |
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk |
 | `io.read_bytes`<br/>`DGAUGE`, bytes/s | Disk read speed |
@@ -67,7 +65,7 @@ Processor core workload.
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
 ### RAM metrics {#managed-clickhouse-ram-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory |
 | `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit |
@@ -81,7 +79,7 @@ Processor core workload.
 | `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes |
 
 ### Network metrics {#managed-clickhouse-net-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
 | `net.bytes_sent`<br/>`DGAUGE`, bytes/s | Rate of sending data over the network |
@@ -555,19 +553,19 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_system_query_log_written_rows_inc`<br/>`DGAUGE` | |
 
 ##### Replication metrics {#managed-clickhouse-replication-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `ch_replication-future_parts`<br/>`DGAUGE`, number | Number of data parts after MERGE and INSERT operations are completed |
 | `ch_replication-inserts_in_queue`<br/>`DGAUGE`, number | Number of enqueued data parts to be inserted |
 | `ch_replication-is_alive`<br/>`DGAUGE`, 0/1 | Replication performance indicator.<br/>`1` if DB replication is alive, `0` if it is not. |
-| `ch_replication-max_absolute_delay`<br/>`DGAUGE`, seconds | Maximum replication delay. |
-| `ch_replication-merges_in_queue`<br/>`DGAUGE`, number | Merges enqueued. |
-| `ch_replication-parts_to_check`<br/>`DGAUGE`, number | Number of data parts to be checked. |
-| `ch_replication-queue_size`<br/>`DGAUGE`, number | Merge and insert queue size. |
+| `ch_replication-max_absolute_delay`<br/>`DGAUGE`, seconds | Maximum replication delay |
+| `ch_replication-merges_in_queue`<br/>`DGAUGE`, number | Merges enqueued |
+| `ch_replication-parts_to_check`<br/>`DGAUGE`, number | Number of data parts to be checked |
+| `ch_replication-queue_size`<br/>`DGAUGE`, number | Merge and insert queue size |
 | `ch_replication-tables`<br/>`DGAUGE`, number | Number of replicated tables |
 
 ##### System metrics {#managed-clickhouse-config-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, number | Threshold value of active table data parts for {{ CH }} to throw a `Too many parts ...` exception if exceeded. Set in the [settings](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). It pays to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, bytes | Local disk partition size |
@@ -592,11 +590,8 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, seconds | Total server uptime in seconds. Includes the server initialization time before it starts accepting connections. |
 
 ### Other metrics {#managed-clickhouse-other-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if it is not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if it is not. |
 | `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
-
-
-Read more about the service in the [{{ mch-name }}](../../../managed-clickhouse/) documentation.

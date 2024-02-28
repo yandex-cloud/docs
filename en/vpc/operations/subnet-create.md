@@ -74,7 +74,7 @@
 
       * `--network-id`: Cloud network ID. You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR.
       * `--zone`: Availability zone where the subnet is created. If this flag is not set, the subnet is created in the default availability zone.
-      * `--range`: List of internal IPv4 addresses defined for this subnet. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is /28, the maximum subnet size is /16. Only IPv4 is supported.
+      * `--range`: List of internal IPv4 addresses defined for this subnet, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is /28, the maximum subnet size is /16. Only IPv4 is supported.
 
       The subnet naming requirements are as follows:
 
@@ -141,12 +141,12 @@
 
    1. In the configuration file, describe the subnet parameters:
 
-      * `name`: Name of the subnet. The naming requirements are as follows:
+      * `name`: Subnet name. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `description`: Description of the subnet.
-      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
       * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `network_id`: ID of the network where the subnet is created.
 
@@ -200,7 +200,7 @@
    * ID of the folder where the subnet will be placed, in the `folderId` parameter.
    * ID of the network where the subnet will be placed, in the `networkId` parameter.
    * ID of the availability zone where the subnet will be placed, in the `zoneId` parameter.
-   * List of internal IPv4 addresses defined for this subnet, in the `v4CidrBlocks[]` array. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+   * List of internal IPv4 addresses defined for this subnet, in the `v4CidrBlocks[]` array, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 

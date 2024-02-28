@@ -1,5 +1,3 @@
-## {{ mkf-full-name }} {#managed-kafka}
-
 Common labels for all {{ mkf-name }} metrics:
 
 | Label | Value |
@@ -12,83 +10,83 @@ Common labels for all {{ mkf-name }} metrics:
 | subcluster_name | Subcluster type: `zookeeper_subcluster`, `kafka_subcluster` |
 
 ### CPU metrics {#managed-kafka-cpu-metrics}
-The load on processor cores.
+Processor core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share. |
-| `cpu.guarantee`<br/>`DGAUGE`, number | Guaranteed number of cores. |
-| `cpu.limit`<br/>`DGAUGE`, number | Limit on CPUs in use. |
-| `cpu.guest`<br/>`DGAUGE`, % | CPU usage, `guest` usage type. |
-| `cpu.idle`<br/>`DGAUGE`, % | CPU usage, `idle` usage type. |
-| `cpu.iowait`<br/>`DGAUGE`, % | CPU usage, `iowait` usage type. |
-| `cpu.irq`<br/>`DGAUGE`, % | CPU usage, `irq` usage type |
-| `cpu.nice`<br/>`DGAUGE`, % | CPU usage, `nice` usage type |
-| `cpu.softirq`<br/>`DGAUGE`, % | CPU usage, `softirq` usage type |
-| `cpu.steal`<br/>`DGAUGE`, % | CPU usage, `steal` usage type. |
-| `cpu.system`<br/>`DGAUGE`, % | CPU usage, `system` usage type. |
-| `cpu.user`<br/>`DGAUGE`, % | CPU usage, `user` usage type. |
-| `load.avg_15min`<br/>`DGAUGE`, % | Average load in 15 minutes. |
-| `load.avg_1min`<br/>`DGAUGE`, % | Average load per 1 minute. |
-| `load.avg_5min`<br/>`DGAUGE`, % | Average load in 5 minutes |
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share |
+| `cpu.guarantee`<br/>`DGAUGE`, number | Guaranteed number of cores |
+| `cpu.limit`<br/>`DGAUGE`, number | Limit on CPU cores in use |
+| `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
+| `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type |
+| `cpu.iowait`<br/>`DGAUGE`, % | CPU core usage, `iowait` usage type |
+| `cpu.irq`<br/>`DGAUGE`, % | CPU core usage, `irq` usage type |
+| `cpu.nice`<br/>`DGAUGE`, % | CPU core usage, `nice` usage type |
+| `cpu.softirq`<br/>`DGAUGE`, % | CPU core usage, `softirq` usage type |
+| `cpu.steal`<br/>`DGAUGE`, % | CPU core usage, `steal` usage type |
+| `cpu.system`<br/>`DGAUGE`, % | CPU core usage, `system` usage type |
+| `cpu.user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type |
+| `load.avg_15min`<br/>`DGAUGE`, % | Average load over 15 minutes |
+| `load.avg_1min`<br/>`DGAUGE`, % | Average load over 1 minute |
+| `load.avg_5min`<br/>`DGAUGE`, % | Average load over 5 minutes |
 
 ### Disk metrics {#managed-kafka-disk-metrics}
-| Name<br/>Type, units | Description |
+| Name<br/>Type, unit | Description |
 | ----- | ----- |
-| `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space. |
-| `disk.free_inodes`<br/>`DGAUGE`, number | Number of free inodes. |
-| `disk.total_bytes`<br/>`DGAUGE`, bytes | Available space. |
-| `disk.total_inodes`<br/>`DGAUGE`, number | Available inodes. |
-| `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space. |
-| `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes. |
+| `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space |
+| `disk.free_inodes`<br/>`DGAUGE`, number | Number of free inodes |
+| `disk.total_bytes`<br/>`DGAUGE`, bytes | Available space |
+| `disk.total_inodes`<br/>`DGAUGE`, number | Available inodes |
+| `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space |
+| `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
 
 ### Disk operation metrics {#managed-kafka-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time. |
-| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time. |
-| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a specific disk. |
-| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk. |
-| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk. |
-| `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk. |
-| `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk. |
-| `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk; disabled for network drives. |
-| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk. |
-| `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk. |
-| `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk. |
-| `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read speed. |
-| `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second. |
-| `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second. |
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization. |
-| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed. |
-| `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second. |
-| `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second. |
+| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
+| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time |
+| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a specific disk |
+| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk |
+| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk |
+| `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk |
+| `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk |
+| `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk; disabled for network drives |
+| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk |
+| `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk |
+| `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk |
+| `io.read_bytes`<br/>`DGAUGE`, bytes/s | Disk read speed |
+| `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
+| `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization |
+| `io.write_bytes`<br/>`DGAUGE`, bytes/s | Disk write speed |
+| `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
+| `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
 ### RAM metrics {#managed-kafka-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory. |
-| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit. |
-| `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary. |
-| `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type. |
-| `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type. |
-| `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type. |
-| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes`. |
-| `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type. |
-| `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type. |
-| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes. |
+| `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory |
+| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit |
+| `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
+| `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type |
+| `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type |
+| `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
+| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
+| `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type |
+| `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
+| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes |
 
 ### Network metrics {#managed-kafka-net-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `net.bytes_recv`<br/>`DGAUGE`, bytes per second | Rate of receiving data over the network. |
-| `net.bytes_sent`<br/>`DGAUGE`, bytes per second | Rate of sending data over the network. |
-| `net.dropin`<br/>`DGAUGE`, number | Packets dropped upon receipt. |
-| `net.dropout`<br/>`DGAUGE`, number | Packets dropped when being sent. |
-| `net.errin`<br/>`DGAUGE`, number | Number of errors upon receipt. |
-| `net.errout`<br/>`DGAUGE`, number | Number of errors at sending. |
-| `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network. |
-| `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network. |
+| `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
+| `net.bytes_sent`<br/>`DGAUGE`, bytes/s | Rate of sending data over the network |
+| `net.dropin`<br/>`DGAUGE`, number | Packets dropped upon receipt |
+| `net.dropout`<br/>`DGAUGE`, number | Packets dropped when being sent |
+| `net.errin`<br/>`DGAUGE`, number | Number of errors upon receipt |
+| `net.errout`<br/>`DGAUGE`, number | Number of errors at sending |
+| `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
+| `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
 
 ### Service metrics {#managed-kafka-metrics}
 | Name<br/>Type, units | Description |
@@ -126,9 +124,7 @@ The load on processor cores.
 | `kafka_server_ReplicaManager_OfflineReplicaCount`<br/>`DGAUGE`, number | Number of partitions without a leader. These partitions do not support message writes or reads. |
 | `kafka_server_ReplicaManager_PartitionCount`<br/>`DGAUGE`, number | Number of partitions for a broker. |
 | `kafka_server_ReplicaManager_ReassigningPartitions`<br/>`DGAUGE`, number | Number of partitions with the leader being reassigned. |
-| `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, number | Number of partitions with a number of in-sync replicas below the minimum allowed value specified in the settings. |
-| `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, number | Number of partitions whose replication factor is greater than the number of their in-sync replicas (ISRs). |
+| `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, number | Number of partitions with a number of in-sync replicas below the minimum allowed value specified in the settings |
+| `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, number | Number of partitions whose replication factor is greater than the number of their in-sync replicas (ISRs) |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, ms | Request latency in {{ ZK }}.<br/>Additional labels: `quantile` |
-| `kafka_shard_count`<br/>`DGAUGE`, number | Number of active shards. |
-
-Read more about the service in the [{{ mkf-name }}](../../../managed-kafka/) documentation.
+| `kafka_shard_count`<br/>`DGAUGE`, number | Number of active shards |

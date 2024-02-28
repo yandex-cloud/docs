@@ -1,12 +1,12 @@
 # Renaming a cloud
 
-To rename a cloud, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or higher for that cloud. You cannot rename a suspended cloud. If you cannot perform this operation, contact the cloud [administrator](../../../iam/concepts/access-control/roles.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
+To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#editor) role or higher for that cloud. You cannot rename a suspended cloud. If you cannot perform this operation, contact the cloud [administrator](../../../iam/roles-reference.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate cloud in the list on the left.
+   1. In the [management console]({{ link-console-main }}), select the appropriate cloud from the list on the left.
    1. Click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, enter a new cloud name. The naming requirements are as follows:
 

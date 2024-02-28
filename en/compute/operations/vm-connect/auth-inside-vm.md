@@ -13,7 +13,7 @@ To automate operations with {{ yandex-cloud }} from inside a VM, we recommend us
 
 Link your service account to an existing or new VM. You can only link one service account.
 
-To link a service account to a VM, you must have permission to use this account. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+To link a service account to a VM, you must have permission to use this account. This permission is included in the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles and higher.
 
 ### Linking to an existing VM {#link-with-exist-instance}
 

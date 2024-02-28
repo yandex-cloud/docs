@@ -42,7 +42,7 @@ To create a trigger, you need:
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the specified batch size or the maximum waiting time expires.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger will send the message batch to the function when the number of messages in the log group reaches the specified batch size or the maximum wait time expires.
       * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. The values may range from 1 to 10. The default value is 1.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
@@ -77,16 +77,16 @@ To create a trigger, you need:
 
    ```
    yc serverless trigger create cloud-logs \
-     --name <trigger name> \
-     --log-groups <comma-separated log group IDs> \
+     --name <trigger_name> \
+     --log-groups <log_group_IDs_separated_by_commas> \
      --batch-size 10 \
      --batch-cutoff 10s \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead Letter Queue ID> \
-     --dlq-service-account-id <service account ID>
+     --dlq-queue-id <dead_letter_queue_ID> \
+     --dlq-service-account-id <service_account_ID>
    ```
 
    Where:
@@ -94,7 +94,7 @@ To create a trigger, you need:
    * `--name`: Trigger name.
    * `--log-groups`: List of IDs of log groups.
    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
-   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the `batch-size` or the `batch-cutoff` expires.
+   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger will send the message batch to the function when the number of messages in the log group reaches the `batch-size` or the maximum wait time (`batch-cutoff`) expires.
    * `--invoke-function-id`: Function ID.
    * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
    * `--retry-attempts`: Time after which the function will be invoked again if the current attempt fails. This is an optional parameter. The values may range from 10 to 60 seconds. The default value is 10 seconds.
@@ -143,9 +143,9 @@ To create a trigger, you need:
 
 - Functions
 
-   Make sure the trigger is working properly. To do this, [view](../../functions/operations/function/function-logs.md) logs for the following:
-   * The function that the trigger runs.
-   * The functions that are specified as log sources.
+   Check that the trigger operates correctly. To do this, [view](../../functions/operations/function/function-logs.md) the logs for the following:
+   * Function invoked by the trigger.
+   * Functions specified as log sources.
 
 - IoT Core
 

@@ -24,11 +24,25 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
-* {% include [alb.auditor](../../_includes/iam/roles/short-descriptions/alb.auditor.md) %}
-* {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
-* {% include [alb.user](../../_includes/iam/roles/short-descriptions/alb.user.md) %}
-* {% include [alb.editor](../../_includes/iam/roles/short-descriptions/alb.editor.md) %}
-* {% include [alb.admin](../../_includes/iam/roles/short-descriptions/alb.admin.md) %}
+#### alb.auditor {#alb-auditor}
+
+{% include [alb.auditor](../../_roles/alb/auditor.md) %}
+
+#### alb.viewer {#alb-viewer}
+
+{% include [alb.viewer](../../_roles/alb/viewer.md) %}
+
+#### alb.user {#alb-user}
+
+{% include [alb.user](../../_roles/alb/user.md) %}
+
+#### alb.editor {#alb-editor}
+
+{% include [alb.editor](../../_roles/alb/editor.md) %}
+
+#### alb.admin {#alb-admin}
+
+{% include [alb.admin](../../_roles/alb/admin.md) %}
 
    {% note info %}
 

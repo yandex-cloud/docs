@@ -296,7 +296,7 @@ For more information, see [{#T}](../concepts/index.md).
         master_subcluster {
           resources {
             resource_preset_id = "<host_class>"
-            disk_size          = <storage_size_GB>
+            disk_size          = <storage_size_in_GB>
             disk_type_id       = "<disk_type>"
           }
         }
@@ -304,9 +304,21 @@ For more information, see [{#T}](../concepts/index.md).
         segment_subcluster {
           resources {
             resource_preset_id = "<host_class>"
-            disk_size          = <storage_size_GB>
+            disk_size          = <storage_size_in_GB>
             disk_type_id       = "<disk_type>"
           }
+        }
+
+        pxf_config {
+          connection_timeout             = <read_request_timeout>
+          upload_timeout                 = <write_request_timeout>
+          max_threads                    = <maximum_number_of_Apache_Tomcat®_threads>
+          pool_allow_core_thread_timeout = <whether_timeout_for_streaming_threads_is_permitted>
+          pool_core_size                 = <number_of_streaming_threads>
+          pool_queue_capacity            = <capacity_of_pool_queue_for_streaming_threads>
+          pool_max_size                  = <maximum_number_of_streaming_threads>
+          xmx                            = <initial_size_of_JVM_heap>
+          xms                            = <maximum_size_of_JVM_heap>
         }
 
         user_name     = "<username>"
@@ -324,7 +336,13 @@ For more information, see [{#T}](../concepts/index.md).
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts, 1 or 2.
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
-      * `disk_size`: Storage size in GB.
+      * `pxf_config`: [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) (PXF) settings. This is a software platform to access the data in external DBMS's.
+
+         `pxf_config` settings match those in the {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/config_files.html?hWord=N4IghgNiBcIC4HsC2BjMcQF8g#pxfapplicationproperties-1) configuration file. It describes the PXF features. To configure them, use the {{ yandex-cloud }} tools rather than edit the file.
+
+         PXF settings:
+
+         {% include [pxf-config-settings](../../_includes/mdb/mgp/pxf-config-settings.md) %}
 
       Cluster deletion protection will not prevent a manual connection to delete the contents of a database.
 

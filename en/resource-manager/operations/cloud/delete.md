@@ -1,7 +1,7 @@
 # Deleting a cloud
 
 
-To delete a cloud, you must have the [editor](../../../iam/concepts/access-control/roles.md#editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
+To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 

@@ -2,7 +2,7 @@
 
 In {{ iam-short-name }}, you can create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free of charge. They allow you to flexibly manage access for your programs. For more information, see [{#T}](concepts/users/service-accounts.md).
 
-This guide is intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](concepts/access-control/roles.md#admin) role for a cloud or folder. Users with the [`editor`](concepts/access-control/roles.md#editor) role can also create service accounts, but they cannot assign roles, so they cannot allow a service account to perform operations in {{ yandex-cloud }}.
+This guide is intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](./roles-reference.md#admin) role for a cloud or folder. Users with the [`editor`](./roles-reference.md#editor) role can also create service accounts, but they cannot assign roles, so they cannot allow a service account to perform operations in {{ yandex-cloud }}.
 
 Checking for required roles is described in [{#T}](#before-you-begin).
 
@@ -14,10 +14,10 @@ You will learn how to:
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
+1. Log in to the [management console]({{ link-console-main }}). If not registered yet, navigate to the management console and follow the guide.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
-   1. In the management console, select the appropriate cloud in the list on the left. For example:
+   1. In the management console, select the appropriate cloud from the list on the left. For example:
 
       ![image](../_assets/resource-manager/switch-cloud-n-n.png)
 
@@ -40,7 +40,7 @@ To create a service account and assign roles to it:
 
 {% note info %}
 
-Other users can also use the service account you created. To allow them to do this, [assign](operations/sa/set-access-bindings.md#assign-role-to-sa) them the required [roles](concepts/access-control/roles.md#iam-roles) for this account.
+Other users can also use the service account you created. To allow them to do this, [assign](operations/sa/set-access-bindings.md#assign-role-to-sa) them the required [roles](./security/index.md#service-roles) for this account.
 
 {% endnote %}
 

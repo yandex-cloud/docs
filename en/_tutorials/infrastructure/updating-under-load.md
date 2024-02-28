@@ -34,7 +34,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-load`.
-      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the [`editor` role](../../iam/concepts/access-control/roles.md).
+      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the [`editor` role](../../iam/concepts/access-control/roles.md).
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -159,7 +159,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
       1. In the [management console]({{ link-console-main }}), select a folder to host your instance group.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
          * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `group-for-load`.
@@ -262,7 +262,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Click the `group-for-load` instance group name.
 
    - CLI {#cli}
@@ -450,7 +450,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click the `group-for-load` instance group name.
    1. Click ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
@@ -571,6 +571,6 @@ To delete the created resources:
    1. Delete the `load-generator` instance group using the [delete](../../compute/api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../compute/api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
    1. Delete the `yc-auto-sa` service account using the [delete](../../iam/api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../iam/api-ref/grpc/service_account_service.md#Delete) gRPC API call.
    1. Delete `yc-auto-subnet-1` and `yc-auto-subnet-2` using the [delete](../../vpc/api-ref/Subnet/delete.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../../vpc/api-ref/grpc/subnet_service.md#Delete) gRPC API call.
-   1. Delete the `yc-auto-network` using the [delete](../../vpc/api-ref/Network/delete.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Delete](../../vpc/api-ref/grpc/network_service.md#Delete) gRPC API call.
+   1. Delete `yc-auto-network` using the [delete](../../vpc/api-ref/Network/delete.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Delete](../../vpc/api-ref/grpc/network_service.md#Delete) gRPC API call.
 
 {% endlist %}

@@ -49,10 +49,10 @@ To create a trigger, you need:
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Size of the message group in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
+      * Message batch size in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
       * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The total amount of data transmitted to a function may exceed the specified group size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the group size.
+      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The total amount of data transmitted to a function may exceed the specified batch size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the batch size.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
@@ -76,18 +76,18 @@ To create a trigger, you need:
 
    ```bash
    yc serverless trigger create yds \
-     --name <trigger name> \
-     --database <database location> \
-     --stream <data stream name> \
+     --name <trigger_name> \
+     --database <database_location> \
+     --stream <data_stream_name> \
      --batch-size 1b \
      --batch-cutoff 1s \
-     --stream-service-account-id <service account ID> \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --stream-service-account-id <service_account_ID> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead Letter Queue ID> \
-     --dlq-service-account-id <service account ID>
+     --dlq-queue-id <dead_letter_queue_ID> \
+     --dlq-service-account-id <service_account_ID>
    ```
 
    Where:

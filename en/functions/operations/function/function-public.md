@@ -20,7 +20,7 @@ To allow any user to invoke a function without passing an authorization header, 
    To make a function public, run the command:
 
    ```
-   yc serverless function allow-unauthenticated-invoke <function name>
+   yc serverless function allow-unauthenticated-invoke <function_name>
    ```
 
    Result:

@@ -116,6 +116,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/serverless/api-gateway/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -184,6 +188,8 @@ items:
                 href: apigateway/websocket/api-ref/Connection/get.md
               - name: send
                 href: apigateway/websocket/api-ref/Connection/send.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/api-gateway

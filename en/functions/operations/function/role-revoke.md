@@ -18,8 +18,8 @@ description: "Follow this guide to revoke the roles assigned to a function."
    * User:
       ```
       yc serverless function remove-access-binding \
-        --id <function ID> \
-        --user-account-id <user ID> \
+        --id <function_ID> \
+        --user-account-id <user_ID> \
         --role <role>
       ```
       Result:
@@ -29,8 +29,8 @@ description: "Follow this guide to revoke the roles assigned to a function."
    * [Service account](../../../iam/concepts/users/service-accounts.md):
       ```
       yc serverless function remove-access-binding \
-        --id <function ID> \
-        --service-account-id <service account ID> \
+        --id <function_ID> \
+        --service-account-id <service_account_ID> \
         --role <role>
       ```
       Result:
@@ -40,7 +40,7 @@ description: "Follow this guide to revoke the roles assigned to a function."
    * All authorized users (`{{ subjects-allAuthenticatedUsers }}` system group):
       ```
       yc serverless function remove-access-binding \
-        --id <function ID> \
+        --id <function_ID> \
         --all-authenticated-users \
         --role <role>
       ```

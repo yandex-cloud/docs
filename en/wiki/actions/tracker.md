@@ -19,7 +19,7 @@ For example:
 
 ## List of issues {#ticket-list}
 
-Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to a page created in the old editor. For example:
+Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to a page created in the old editor, for example:
 
 ```
 {{tasks url="URL of the filter or the queue"}}

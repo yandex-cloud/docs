@@ -129,7 +129,11 @@ editable: false
 Подробнее о сервисе в документации [{{ mrd-name }}](../../managed-redis/).
 
 
+## Сервис {{ ydb-full-name }} {#ydb}
+
 {% include [ydb.md](../../_includes/monitoring/metrics-ref/ydb.md) %}
+
+Подробнее о сервисе в документации [{{ ydb-name }}](../../ydb/).
 
 
 {% include [monitoring.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}

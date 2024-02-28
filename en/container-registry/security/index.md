@@ -24,14 +24,29 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 ### Service roles {#service-roles}
 
-| Role | Permissions |
---- | ---
-| `container-registry.viewer` | Allows you to read information about registries, [Docker images](../concepts/docker-image.md), and repositories. |
-| `container-registry.editor` | Allows you to create, edit, and delete registries, Docker images, and repositories. It includes all permissions granted by the `{{ roles-cr-viewer }}` role. |
-| `container-registry.admin` | Allows you to manage access to registries, Docker images, and repositories. It includes all permissions granted by the `{{ roles-cr-viewer }}` and `{{ roles-cr-editor }}`roles. |
-| `container-registry.images.pusher` | Allows you to manage Docker images and view information about service resources (registries, Docker images, and repositories). |
-| `container-registry.images.puller` | Allows you to download Docker images and view information about service resources (registries, Docker images, and repositories). |
-| `container-registry.images.scanner` | Allows you to scan Docker images for vulnerabilities and view information about service resources (registries, Docker images, and repositories). |
+#### container-registry.viewer {#container-registry.viewer}
+
+{% include [container-registry.viewer](../../_roles/container-registry/viewer.md) %}
+
+#### container-registry.editor {#container-registry.editor}
+
+{% include [container-registry.editor](../../_roles/container-registry/editor.md) %}
+
+#### container-registry.admin {#container-registry.admin}
+
+{% include [container-registry.admin](../../_roles/container-registry/admin.md) %}
+
+#### container-registry.images.pusher {#container-registry-images-pusher}
+
+{% include [container-registry.images.pusher](../../_roles/container-registry/images/pusher.md) %}
+
+#### container-registry.images.puller {#container-registry-images-puller}
+
+{% include [container-registry.images.puller](../../_roles/container-registry/images/puller.md) %}
+
+#### container-registry.images.scanner {#container-registry-images-scanner}
+
+{% include [container-registry.images.scanner](../../_roles/container-registry/images/scanner.md) %}
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 

@@ -45,11 +45,11 @@ or
 Add the `#` character to the right of the page URL and place the anchor name after it:
 
 ```
-{{ wiki-pagename }}/#anchor_name
+{{ wiki-pagename }}/#<anchor_name>
 ```
 
 To add a link to an anchor on the same page, you do not need to specify the full URL:
 
 ```
-#anchor_name
+#<anchor_name>
 ```

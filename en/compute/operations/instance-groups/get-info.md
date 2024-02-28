@@ -21,9 +21,9 @@ To get information about an instance group:
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's get instance group info command:
+   1. See the description of the CLI get instance group info command:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} get --help
       ```
 
@@ -31,11 +31,59 @@ To get information about an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-   1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
+   1. Select the group `ID` or `NAME`, e.g., `first-instance-group`.
    1. Get information about the instance group:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} get --name first-instance-group
+      ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   To get information about an instance group using {{ TF }}:
+
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      ```
+      data "yandex_compute_instance_group" "my_group" {
+        instance_group_id = "<instance_group_ID>"
+      }
+
+      output "instancegroupvm_external_ip" {
+        value = "${data.yandex_compute_instance_group.my_group.instances.*.network_interface.0.nat_ip_address}"
+      }
+      ```
+
+      Where:
+
+      * `data "yandex_compute_instance_group"`: Description of the data source to get instance group information from:
+         * `instance_group_id`: Instance group ID.
+      * `output "instancegroupvm_external_ip"`: Full list of external IP addresses of the group's instances for the resulting output:
+         * `value`: Returned value.
+
+      For more information about the `yandex_compute_instance_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_instance_group).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+
+      ```bash
+      terraform output instancegroupvm_external_ip
+      ```
+
+      Result:
+
+      ```bash
+      instancegroupvm_external_ip = tolist([
+        "158.160.112.7",
+        "158.160.2.119",
+      ])
       ```
 
 - API {#api}

@@ -15,7 +15,7 @@ The Docker client assigns the `latest` tag automatically if the Docker image is 
 
 #### How do I make a registry public? {#public-registry}
 
-You can issue the [container-registry.images.puller](../security/index.md) [role](../../iam/concepts/access-control/roles.md) for your [registry](../concepts/registry.md) to the [allUsers](../../iam/concepts/access-control/system-group.md) system group.
+You can issue the [container-registry.images.puller](../security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md) for your [registry](../concepts/registry.md) to the [allUsers](../../iam/concepts/access-control/system-group.md) system group.
 
 {% note alert %}
 

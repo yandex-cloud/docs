@@ -1,6 +1,14 @@
 # Управление хостами кластера {{ CH }}
 
-Вы можете добавлять и удалять хосты кластера, а также управлять настройками {{ CH }} для отдельных кластеров. О том, как перенести хосты кластера в другую зону доступности, читайте в [инструкции](host-migration.md).
+Вы можете выполнить следующие действия над хостами {{ CH }}:
+
+* [получить список хостов в кластере](#list-hosts);
+* [добавить хост](#add-host);
+* [изменить настройки {{ CH }} для хоста](#update);
+* [перезапустить хост](#restart);
+* [удалить хост](#remove-host).
+
+О том, как перенести хосты кластера в другую зону доступности, читайте в [инструкции](host-migration.md).
 
 {% note warning %}
 
@@ -10,44 +18,7 @@
 
 ## Получить список хостов в кластере {#list-hosts}
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы получить список хостов в кластере, выполните команду:
-
-  ```bash
-  {{ yc-mdb-ch }} host list \
-    --cluster-name=<имя_кластера>
-  ```
-
-  ```text
-  +----------------------------+--------------+---------+--------+---------------+
-  |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
-  +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
-  | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
-  +----------------------------+--------------+---------+--------+---------------+
-  ```
-
-  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-- API {#api}
-
-  Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
-
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md).
-
-{% endlist %}
+{% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
 ## Добавить хост {#add-host}
 
@@ -267,6 +238,10 @@
 
 {% endnote %}
 
+
+## Перезапустить хост {#restart}
+
+{% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
 ## Удалить хост {#remove-host}
 

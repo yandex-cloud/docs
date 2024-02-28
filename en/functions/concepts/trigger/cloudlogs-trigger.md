@@ -11,7 +11,7 @@ Trigger for {{ cloud-logs-name }} is outdated. Use [triggers for {{ cloud-loggin
 
 {% endnote %}
 
-A trigger for {{ cloud-logs-name }} runs a function when messages are received in a log group. The trigger must be in the same folder as the log groups it is subscribed to.
+A trigger for {{ cloud-logs-name }} runs a function when messages are received in a log group. The trigger must be in the same folder as the log groups to which it is subscribed.
 
 {% note alert %}
 
@@ -25,16 +25,16 @@ For more information about creating a trigger for {{ cloud-logs-name }}, see [{#
 
 ## Batching {#batching}
 
-Batching settings allow you to send multiple messages to a function at the same time. They set a top limit on the size of a message group and its accumulation time. For example, if the size of a message group is 3, the function can receive groups that contain from 1 to 3 messages.
+Batching settings allow you to send multiple messages to a function at the same time. They set a top limit on a message batch size and its accumulation time. For example, if the message batch size is 3, the function can receive batches containing from 1 to 3 messages.
 
 ## Roles required for the proper operation of a trigger for {{ cloud-logs-name }} {#roles}
 
-- To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+- To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [{{ roles-editor }}](../../../iam/roles-reference.md#editor) roles and higher.
 - For the trigger to fire, the service account needs the `{{ roles-functions-invoker }}` role for the folder containing the function called by the trigger.
 
 Read more about [access management](../../security/index.md).
 
-## Trigger for {{ cloud-logs-name }} message format {#ymq-format}
+## {{ cloud-logs-name }} trigger message format {#ymq-format}
 
 After the trigger is fired, it sends the following message to the function:
 

@@ -1,5 +1,3 @@
-## {{ mmy-full-name }} {#managed-mysql}
-
 Common labels for all {{ mmy-name }} metrics:
 
 | Label | Value |
@@ -13,7 +11,7 @@ Common labels for all {{ mmy-name }} metrics:
 ### CPU metrics {#managed-mysql-cpu-metrics}
 Processor core workload.
 
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
 | `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type |
@@ -39,17 +37,17 @@ Processor core workload.
 | `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
 
 ### Disk operation metrics {#managed-mysql-diskio-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
 | `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time |
 | `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a specific disk |
 | `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk |
-| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes/s | Read speed for a specific disk |
+| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk |
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk |
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk |
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk; disabled for network drives |
-| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes/s | Write speed for a specific disk |
+| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk |
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk |
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk |
 | `io.read_bytes`<br/>`DGAUGE`, bytes/s | Disk read speed |
@@ -61,7 +59,7 @@ Processor core workload.
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
 ### RAM metrics {#managed-mysql-ram-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
 | `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type |
@@ -73,7 +71,7 @@ Processor core workload.
 | `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes |
 
 ### Network metrics {#managed-mysql-net-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
 | `net.bytes_sent`<br/>`DGAUGE`, bytes/s | Rate of sending data over the network |
@@ -85,7 +83,7 @@ Processor core workload.
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
 
 ### Service metrics {#managed-mysql-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `disk.free_inodes`<br/>`DGAUGE`, number | Number of free inodes |
 | `disk.mysql.binlogs_bytes`<br/>`DGAUGE`, bytes | Space used by MySQL service logs |
@@ -158,7 +156,7 @@ Processor core workload.
 | `mysql_config_innodb_log_file_size`<br/>`DGAUGE`, bytes | Log file size in the log group |
 | `mysql_config_max_connections`<br/>`DGAUGE`, number | Maximum number of concurrent connections |
 | `mysql_config_table_open_cache`<br/>`DGAUGE`, number | Number of open tables cache for all threads |
-| `mysql_config_thread_cache_size`<br/>`DGAUGE`, number | Number of threads that need to be cached to be reused. |
+| `mysql_config_thread_cache_size`<br/>`DGAUGE`, number | Number of threads that need to be cached to be reused |
 | `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
 | `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>`1` if a DB host is a master, `0` if it is not. |
 | `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>`1` if a DB host is a replica, `0` if it is not. |
@@ -181,9 +179,7 @@ Processor core workload.
 | `mysql_writable`<br/>`DGAUGE`, 0/1 | Server write access.<br/>`1` if a server is available for writes, `0` if it is not. |
 
 ### Other metrics {#managed-mysql-other-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if it is not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if it is not. |
-
-Read more about the service in the [{{ mmy-name }}](../../../managed-mysql/) documentation.

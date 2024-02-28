@@ -320,7 +320,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         network_interface {
           subnet_id          = "${yandex_vpc_subnet.usergate-subnet.id}"
           nat                = true
-          nat_ip_address     = <reserved_ID_address>
+          nat_ip_address     = <reserved_IP_address>
         }
       ```
 

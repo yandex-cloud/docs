@@ -27,7 +27,7 @@ description: "Follow this guide to view function scaling settings."
    To view the function scaling settings, run this command:
 
    ```
-   yc serverless function list-scaling-policies --id=d4eokpuol55h********
+   yc serverless function list-scaling-policies --id=<function_ID>
    ```
 
    Where `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.

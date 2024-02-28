@@ -26,7 +26,7 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
    To make a function private, run the command:
 
    ```
-   yc serverless function deny-unauthenticated-invoke <function name>
+   yc serverless function deny-unauthenticated-invoke <function_name>
    ```
 
    Result:

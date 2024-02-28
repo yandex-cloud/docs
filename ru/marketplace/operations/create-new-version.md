@@ -15,15 +15,15 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% list tabs %}
 
-- {{ compute-name }}
+- {{ compute-name }} {#compute}
 
   {% include [product-version-compute](../../_includes/marketplace/product-version-compute.md) %}
 
-- {{ managed-k8s-name }}
+- {{ managed-k8s-name }} {#managed-k8s}
 
   {% include [product-version-k8s](../../_includes/marketplace/product-version-k8s.md) %}
 
-- {{ cloud-apps-name }}
+- {{ cloud-apps-name }} {#cloud-apps}
 
   {% include [product-version-cloud-apps](../../_includes/marketplace/product-version-cloud-apps.md) %}
 

@@ -60,10 +60,10 @@ description: "Follow this guide to delete a function."
            entrypoint         = "main"
            memory             = "128"
            execution_timeout  = "10"
-           service_account_id = "<service account ID>"
+           service_account_id = "<service_account_ID>"
            tags               = ["my_tag"]
            content {
-               zip_filename = "<path to ZIP archive>"
+               zip_filename = "<ZIP_archive_path>"
            }
        }
       ```

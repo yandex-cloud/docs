@@ -306,6 +306,8 @@ The cost of building a VM image and creating a VM from it includes:
 
 
 
+{% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
+
 ## Build the image {#create-image}
 
 1. In the command line, go to the directory with the image configuration file.
@@ -417,7 +419,7 @@ The cost of building a VM image and creating a VM from it includes:
       * `--name`: Name of the new VM.
       * `--hostname`: VM host's name.
       * `--zone`: Availability zone.
-      * `--create-boot-disk`: Boot disk parameters: `size` is the disk size and `image-id` the ID of the image you are using.
+      * `--create-boot-disk`: Boot disk parameters: `size` is the disk size and `image-id` is the ID of the image you are using.
       * `--cores`: Number of vCPUs.
       * `--memory`: Amount of RAM.
       * `--core-fraction`: Basic vCPU performance in %.

@@ -22,7 +22,7 @@ description: "This guide describes how you can view the roles assigned to a func
    To view [roles](../../security/index.md#roles-list) assigned to a function, run this command:
 
    ```
-   yc serverless function list-access-bindings <function name>
+   yc serverless function list-access-bindings <function_name>
    ```
 
    Result:

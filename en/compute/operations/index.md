@@ -27,6 +27,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](placement-groups/create-ig-in-pg.md)
 * [{#T}](placement-groups/add-vm.md)
 * [{#T}](placement-groups/delete-vm.md)
+* [{#T}](placement-groups/placement-groups-get-info.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
 
 ## Images with pre-installed software {#images-with-pre-installed-software}
@@ -97,8 +98,10 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 ## Disk snapshots {#snapshots}
 
 * [{#T}](disk-control/create-snapshot.md)
+* [{#T}](snapshot-control/get-snapshot.md)
 * [{#T}](snapshot-control/delete.md)
 * [{#T}](snapshot-control/create-schedule.md)
+* [{#T}](snapshot-control/get-snapshot-schedule.md)
 * [{#T}](snapshot-control/update-schedule.md)
 * [{#T}](snapshot-control/stop-and-start-schedule.md)
 * [{#T}](snapshot-control/snapshot-encrypt.md)
@@ -124,6 +127,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 ## Managing images {#image-control}
 
 * [{#T}](image-control/get-list.md)
+* [{#T}](image-control/image-control-get-info.md)
 * [{#T}](image-control/delete.md)
 * [{#T}](image-control/import.md)
 
@@ -194,4 +198,5 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](gpu-cluster/gpu-add-to-cluster.md)
 * [{#T}](gpu-cluster/gpu-cluster-update.md)
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
+* [{#T}](gpu-cluster/gpu-cluster-get-info.md)
 

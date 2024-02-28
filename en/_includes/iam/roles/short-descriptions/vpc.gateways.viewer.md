@@ -1,1 +1,0 @@
-[`vpc.gateways.viewer`](../../../../iam/concepts/access-control/roles.md#vpc-gateways-viewer): This role grants access to information about network gateways.

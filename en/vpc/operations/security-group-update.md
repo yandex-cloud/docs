@@ -95,7 +95,7 @@ After creating a security group, you can change its name and description, and [a
 
    * New security group name, in the `name` parameter.
    * New security group description, in the `description` parameter.
-   * List of settings you want to update in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

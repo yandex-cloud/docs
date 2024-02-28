@@ -18,7 +18,7 @@
    Get detailed information about a trigger:
 
    ```bash
-   yc serverless trigger get <trigger name>
+   yc serverless trigger get <trigger_name>
    ```
 
    Result:

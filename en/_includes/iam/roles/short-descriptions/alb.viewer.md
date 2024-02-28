@@ -1,1 +1,0 @@
-[`alb.viewer`](../../../../iam/concepts/access-control/roles.md#alb-viewer): This role enables you to view a list of {{ alb-name }} resources and their metadata. It includes all permissions of the `alb.auditor` role.

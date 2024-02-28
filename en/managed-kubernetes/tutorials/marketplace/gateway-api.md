@@ -1,8 +1,8 @@
-# Setting up Gateway API
+# Setting up the Gateway API
 
 The [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
 
-In this tutorial, you will learn how to enable access to the applications deployed in two test environments, `dev` and `prod`, by running [{{ alb-full-name }}](../../../application-load-balancer/) through the API Gateway. For this, you will need to create a [public domain zone](../../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../../dns).
+In this tutorial, you will learn how to enable access to the applications deployed in two test environments, `dev` and `prod`, by running [{{ alb-full-name }}](../../../application-load-balancer/) with the Gateway API. For this, you will need to create a [public domain zone](../../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../../dns).
 
 To integrate the Gateway API and {{ alb-name }}:
 1. [{#T}](#k8s-create)
@@ -55,7 +55,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
          * {{ k8s }} version for the {{ k8s }} cluster and node groups.
          * {{ k8s }} cluster CIDR.
-      1. Check that the {{ TF }} configuration files are correct using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -77,7 +77,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `alb.editor`: To create the required resources.
    * `certificate-manager.admin`: To use certificates registered in [{{ certificate-manager-full-name }}](../../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in the [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) [target groups](../../../application-load-balancer/concepts/target-group.md).
-   * `vpc.publicAdmin`: To manage [external connectivity](../../../iam/concepts/access-control/roles.md#vpc-public-admin).
+   * `vpc.publicAdmin`: To manage [external connectivity](../../../vpc/security/index.md#vpc-public-admin).
 1. Create a [static key](../../../iam/operations/sa/create-access-key.md) and save it to a file named `sa-key.json`:
 
    ```bash
@@ -502,7 +502,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
   1. Delete the `k8s-gateway-api.tf` configuration file.
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

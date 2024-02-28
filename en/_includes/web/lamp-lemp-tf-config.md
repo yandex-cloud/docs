@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for user parameters
+# Declaring variables for user-defined parameters
 
 variable "zone" {
   type = string
@@ -36,7 +36,7 @@ locals {
   dns_zone_name      = "example-zone"
 }
 
-# Provider setup
+# Provider configuration
 
 terraform {
   required_providers {
@@ -90,7 +90,7 @@ resource "yandex_vpc_security_group" "sg-1" {
   }
 }
 
-# Adding a ready-made VM image
+# Adding a ready-to-use VM image
 
 resource "yandex_compute_image" "lamp-vm-image" {
   source_family = var.vm_image_family

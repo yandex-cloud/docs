@@ -324,8 +324,6 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% endlist %}
 
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 ## Increasing storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
@@ -354,3 +352,56 @@ You can change the DBMS settings of the hosts in your cluster.
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+## Changing the PXF settings {#pxf}
+
+[{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) (PXF) is a software platform to access the data in external DBMS's.
+
+The PXF settings you can configure using the {{ yandex-cloud }} tools match those in the {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/config_files.html?hWord=N4IghgNiBcIC4HsC2BjMcQF8g#pxfapplicationproperties-1) configuration file. It describes the PXF features. To change them, use the {{ yandex-cloud }} tools rather than edit the file.
+
+To change the PXF settings:
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+
+   1. In the cluster description, under `pxf_config`, configure the PXF settings:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
+        ...
+        pxf_config {
+          connection_timeout             = <read_request_timeout>
+          upload_timeout                 = <write_request_timeout>
+          max_threads                    = <maximum_number_of_Apache_Tomcat®_threads>
+          pool_allow_core_thread_timeout = <whether_timeout_for_streaming_threads_is_permitted>
+          pool_core_size                 = <number_of_streaming_threads>
+          pool_queue_capacity            = <capacity_of_pool_queue_for_streaming_threads>
+          pool_max_size                  = <maximum_number_of_streaming_threads>
+          xmx                            = <initial_size_of_JVM_heap>
+          xms                            = <maximum_size_of_JVM_heap>
+        }
+      }
+      ```
+
+      Where:
+
+      {% include [pxf-config-settings](../../_includes/mdb/mgp/pxf-config-settings.md) %}
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+{% endlist %}
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -1,5 +1,5 @@
 ---
-title: "{{ monitoring-full-name }}. Service overview"
+title: "{{ monitoring-full-name }}. Overview"
 description: "The {{ monitoring-full-name }} service lets you collect and store metrics and display them as charts on dashboards. {{ monitoring-full-name }} automatically collects data on the status of your resources in {{ yandex-cloud }} and displays it on service dashboards. You can use the API to upload custom metrics."
 ---
 
@@ -26,5 +26,7 @@ The {{ monitoring-name }} service collects and stores metrics as [time series](h
 
 {{ monitoring-name }} enables you to export [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) object metrics. The provider converts a request to get external metrics from a {{ managed-k8s-name }} cluster object to the format required by {{ monitoring-name }} and also performs the reverse conversion: from {{ monitoring-name }} to a cluster object.
 
-To export metrics, use [Metrics Provider](/marketplace/products/yc/metric-provider). To install it, [follow this guide](../../managed-kubernetes/operations/applications/metrics-provider.md).
+{% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
+
+The metrics are described in the [Reference](../metrics-ref/index.md#managed-kubernetes).
 

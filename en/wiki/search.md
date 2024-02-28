@@ -14,7 +14,7 @@ To perform a search by text on {{ wiki-name }} pages:
 
 1. To refine the search results, press **Enter** in the search bar and use the filters in the right-hand panel:
 
-   - **Cluster**: [Cluster's](structure.md#clusters) URL relative to the `{{ wiki-host-name }}` home page. For example, to find text on the subpages of the `{{ wiki-username }}` cluster, enter `users/userName`.
+   - **Cluster**: [Cluster's](structure.md#clusters) URL relative to the `{{ wiki-host-name }}` home page. For example, to find a text on the subpages of the `{{ wiki-username }}` cluster, enter `users/<username>`.
    - **Page author**: Name or username of the {{ wiki-name }} page author.
    - **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date_created }}** or **Updated**: Date when the page was created or last changed.
    - **Document type**: Search across {{ wiki-name }} documents of a specific type (page, table, or file).

@@ -87,7 +87,6 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          ```
 
          Where:
-
          * `<service-name>`: Name of the [service](../cli/cli-ref/index.md#service-manage) for whose resource you want to assign the role, e.g., `resource-manager`.
          * `<resource>`: Resource category, e.g., `cloud` to assign a role for the entire cloud or `folder` to assign a role for a directory.
          * `<resource-name>`: Name of the resource. You can specify a resource by its name or ID (cloud or directory name).
@@ -99,7 +98,6 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          ```sh
          yc resource-manager folder add-access-binding **********9n9hi2qu --role editor --subject serviceAccount:**********qhi2qu
          ```
-
          Result:
 
          ```text
@@ -112,7 +110,7 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
 
    {% endlist %}
 
-1. Set up the CLI profile to execute operations on behalf of the service account:
+1. Set up the CLI profile to run operations on behalf of the service account:
 
    {% list tabs group=instructions %}
 
@@ -141,7 +139,7 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          key_algorithm: RSA_2048
          ```
 
-      1. Set up the CLI profile to execute operations on behalf of the service account. Name the profile:
+      1. Create a CLI profile to run operations on behalf of the service account. Name the profile:
 
          ```bash
          yc config profile create <profile_name>

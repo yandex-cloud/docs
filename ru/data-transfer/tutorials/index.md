@@ -78,6 +78,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ yandex-direct }} в {{ CH }}](direct-to-mch.md)
 * [{{ objstorage-name }} в {{ PG }}](object-storage-to-postgresql.md)
 * [{{ objstorage-name }} в {{ CH }}](object-storage-to-clickhouse.md)
+* [{{ objstorage-name }} в {{ ydb-short-name }}](object-storage-to-ydb.md)
 
 ## Загрузка данных в {{ objstorage-name }} {#upload-to-storage}
 

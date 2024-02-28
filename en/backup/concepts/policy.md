@@ -24,6 +24,8 @@ You can set up backup storage for the policy. The following can be stored for ea
 
 The settings apply to all VMs in the policy.
 
+If you make changes to the backup retention rules, by default they will take effect as soon as you create another backup. For more information on the setup parameters of the backup retention rules, see the next section.
+
 ## Backup policy specification {#specification}
 
 In {{ backup-name }}, you can [create](../operations/policy-vm/create.md) or [update](../operations/policy-vm/update.md) backup policies based on the specification in [JSON](https://en.wikipedia.org/wiki/JSON) format by using the {{ yandex-cloud }} [command line](../../cli/quickstart.md) or making an API request.

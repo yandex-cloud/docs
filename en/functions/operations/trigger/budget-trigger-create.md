@@ -55,15 +55,15 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
    
    ```bash
    yc serverless trigger create billing-budget \
-     --name <trigger name> \
-     --billing-account-id <billing account ID> \
-     --budget-id <budget ID> \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --name <trigger_ID> \
+     --billing-account-id <billing_account_ID> \
+     --budget-id <budget_ID> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead Letter Queue ID> \
-     --dlq-service-account-id <service account ID>
+     --dlq-queue-id <dead_letter_queue_ID> \
+     --dlq-service-account-id <service_account_ID>
    ```
 
 

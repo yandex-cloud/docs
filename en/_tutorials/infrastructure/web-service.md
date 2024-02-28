@@ -50,7 +50,7 @@ For your internet service to run, you need two static public IP addresses: one t
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to reserve the IP addresses.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. In the window that opens, select the `{{ region-id }}-b` availability zone. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}** once again.
    1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
@@ -125,8 +125,8 @@ To use static routes, link the route table to a subnet. To do this:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to configure routing.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. In the line of the subnet you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. In the line of the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table in the **Route table** field.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
    1. Link the `vpn-route` route table to all three subnets.
@@ -146,7 +146,7 @@ For a VPN to work properly, allow traffic to be received and transmitted to UDP 
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to create a security group.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Enter the security group name: `vpn-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network that the security group will refer to.
@@ -221,7 +221,7 @@ For the security group rules to take effect, assign the groups to the VM network
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Select the `vpn` VM.
-   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
    1. In the window that opens, select the `vpn-sg` security group.
    1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Repeat the steps and assign the `web-service-sg` security group to the `web-node-a`, `web-node-b`, and `web-node-c` VMs.
@@ -244,7 +244,7 @@ The network load balancer will distribute the internet service's incoming traffi
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
    1. In the window that opens, enter a name for the listener and specify port `80` in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** fields. Click **{{ ui-key.yacloud.common.add }}**.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-   1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**. In the window that opens:
+   1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, click ![icon-users](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**. In the window that opens:
       1. Enter the target group name: `web-tg`.
       1. Select the `web-node-a`, `web-node-b`, and `web-node-c` VMs.
       1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -271,7 +271,7 @@ Test the infrastructure and make sure that traffic to the internet service VMs o
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the deployed resources, delete the created [VMs](../../compute/operations/vm-control/vm-delete.md) and the [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
+To shut down the infrastructure and stop paying for the deployed resources, delete the [VMs](../../compute/operations/vm-control/vm-delete.md) and the [load balancer](../../network-load-balancer/operations/load-balancer-delete.md) you created:
 
 * `vpn`
 * `web-node-a`

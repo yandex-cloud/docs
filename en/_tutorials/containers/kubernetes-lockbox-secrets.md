@@ -32,8 +32,8 @@ The cost of resources for syncing secrets includes:
    1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
    1. [Create service accounts](../../iam/operations/sa/create.md):
-      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ k8s }} resources with the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
+      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ k8s }} resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
+      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
       {% note tip %}
 
@@ -42,7 +42,7 @@ The cost of resources for syncing secrets includes:
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
+   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
    1. [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following properties:
       * **{{ ui-key.yacloud.common.name }}**: `lockbox-secret`.
       * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Enter the `password` non-secret ID.
@@ -70,7 +70,7 @@ The cost of resources for syncing secrets includes:
       * {{ lockbox-name }} secret.
    1. Specify the following in the configuration file:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.
+      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
       * Name of the service account for {{ managed-k8s-name }} resources and nodes.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -192,7 +192,7 @@ Delete the resources you no longer need to avoid paying for them:
 
    1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a [public static IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
-   1. [Delete](../../lockbox/operations/secret-delete.md) `lockbox-secret`.
+   1. [Delete](../../lockbox/operations/secret-delete.md) the secret named `lockbox-secret`.
 
 - {{ TF }} {#tf}
 

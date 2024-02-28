@@ -36,7 +36,7 @@ If the image is from a web resource:
 1. Add the link to the page using markup:
 
    ```
-   ![Alternative text](image URL)
+   ![<alternative_text>](<image_address>)
    ```
 
 For example:
@@ -61,7 +61,7 @@ If you paste an image link with no markup, the image will be added to the page w
 
 1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-comment.edit }}** in the top-right corner of the page.
 
-1. Paste the link to the page. For example:
+1. Paste the link to the page, for example:
 
    ```
    200x0:/users/login/.files/image.png

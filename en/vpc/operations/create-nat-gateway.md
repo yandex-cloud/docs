@@ -85,7 +85,7 @@ To create and set up a NAT gateway:
 
       Where `--network-name` is the name of the network in which you are creating the table.
 
-   1. Link the table to the subnet:
+   1. Associate the table with the subnet:
 
       ```bash
       yc vpc subnet update <subnet_name> \

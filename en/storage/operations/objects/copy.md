@@ -89,7 +89,7 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api --profile <path_to_configuration_file> \
+        s3api put-bucket-acl --profile <source_configuration_file_path> \
         --bucket <target_bucket_name> \
         --grant-full-control id=<service_account_ID>
       ```
@@ -97,15 +97,15 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--profile`: Path to the AWS CLI [configuration file](../../tools/aws-cli.md#config-files) for the organization hosting the target bucket.
+      * `--profile`: Path to the AWS CLI [configuration file](../../tools/aws-cli.md#config-files) for the organization hosting the source bucket.
       * `--bucket`: Target bucket name.
-      * `--grant-full-control`: Parameter for granting the source bucket's service account access to the target bucket.
+      * `--grant-full-control`: Parameter for granting the source bucket's service account access to the target bucket. Specify the service account ID of the organization from which the objects are copied.
 
-   1. Copy the object:
+   1. Copy the objects:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3 cp --profile <path_to_configuration_file> \
+        s3 cp --profile <target_configuration_file_path> \
         s3://<source_bucket>/<object_key> \
         s3://<target_bucket>/<object_key>
       ```

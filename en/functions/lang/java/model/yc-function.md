@@ -38,7 +38,7 @@ public class Handler<T> implements YcFunction<T, Integer> {
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
-// YcFunction doesn't have both parameter types specified
+// YcFunction does not have both parameter types specified
 public class Handler implements YcFunction {
   @Override
   public Object apply(Object i, Context c) {
@@ -65,7 +65,7 @@ To invoke the function, use the [{{ yandex-cloud }} CLI](../../../concepts/funct
 
 {% endnote %}
 
-The `Handler.java` file:
+`Handler.java`:
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -96,9 +96,9 @@ Example of input data:
 The log will contain the following:
 
 ```
-Function name: <your function name>
-Function version: <your function version ID>
-Service account token: <token for your service account>
+Function name: <function_name>
+Function version: <function_version_ID>
+Service account token: <service_account_token>
 ```
 
 Returned string:

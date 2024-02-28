@@ -22,8 +22,6 @@ description: "Стоимость использования {{ tracker-name }} �
 ## Тарифы {#sec_price}
 
 
-{% include [rub-after-30June.md](../_pricing/tracker/rub-after-30June.md) %}
-
 {% include [rub.md](../_pricing/tracker/rub.md) %}
 
 

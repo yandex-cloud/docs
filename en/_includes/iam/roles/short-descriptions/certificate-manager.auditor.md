@@ -1,1 +1,0 @@
-[`certificate-manager.auditor`](../../../../iam/concepts/access-control/roles.md#certificate-manager-auditor): This role allows you to get information about valid and revoked certificates, a list of certificates, their versions, and permissions to certificates, information about domains, a list of domains, and permissions to domains, as well as information about quotas.

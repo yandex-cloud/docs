@@ -13,7 +13,7 @@ When creating a new version, it is assigned the `$latest` [tag](../../concepts/f
    To add a version tag, run the command:
 
    ```
-   yc serverless function version set-tag --id <version ID> --tag <tag>
+   yc serverless function version set-tag --id <version_ID> --tag <tag>
    ```
 
    Result:
@@ -56,10 +56,10 @@ When creating a new version, it is assigned the `$latest` [tag](../../concepts/f
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
-          service_account_id = "<service account ID>"
+          service_account_id = "<service_account_ID>"
           tags               = ["my_tag"]
           content {
-              zip_filename = "<path to ZIP archive>"
+              zip_filename = "<ZIP_archive_path>"
           }
       }
       ```
@@ -96,7 +96,7 @@ When creating a new version, it is assigned the `$latest` [tag](../../concepts/f
    You can check the new tags using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
-   yc serverless function version list --function-name <function name>
+   yc serverless function version list --function-name <function_name>
    ```
 
 - API {#api}

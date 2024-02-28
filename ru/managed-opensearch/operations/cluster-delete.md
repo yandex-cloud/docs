@@ -43,6 +43,12 @@ keywords:
 
   Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+
+  {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
 - API {#api}
 
   Чтобы удалить кластер, воспользуйтесь методом REST API [delete](../api-ref/Cluster/delete.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) и передайте в запросе идентификатор удаляемого кластера в параметре `clusterId`.

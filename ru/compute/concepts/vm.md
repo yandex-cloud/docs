@@ -11,7 +11,13 @@ description: "Виртуальная машина — это аналог сер
 
 ВМ создается в одном из [каталогов](../../resource-manager/concepts/resources-hierarchy.md#folder) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и наследует права доступа от них. [Подробнее о ресурсной модели {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
 
-Каждая ВМ имеет уникальный идентификатор и имя. Имя уникально в рамках каталога. Идентификатор генерируется автоматически при создании ВМ и уникален в пределах {{ yandex-cloud }}.
+Каждая ВМ имеет уникальный идентификатор и имя. Имя уникально в рамках каталога. Требования к имени:
+
+{% include [name-format](../../_includes/name-format.md) %}
+
+{% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+
+Идентификатор генерируется автоматически при создании ВМ и уникален в пределах {{ yandex-cloud }}.
 
 ВМ можно переместить в другой каталог внутри одного облака.
 

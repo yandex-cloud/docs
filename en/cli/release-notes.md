@@ -7,6 +7,40 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+## Version 0.118.0 (14/02/24) {#version0.118.0}
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### {{ mgp-name }}
+
+* Added the `yc managed-greenplum backups` command tree with the `get`, `list`, and `delete` commands to manage backups.
+* Added the `yc managed-greenplum cluster backup` command to create a backup.
+
+#### {{compute-name}}
+* Added the `--identity-file` flag to the `yc compute ssh` command to connect to a VM via SSH with a user key.
+
+#### {{ data-transfer-name }}
+
+- Added the `--file` flag for the following commands to specify a YAML file for request configuration:
+   * `yc datatransfer transfer create`
+   * `yc datatransfer transfer update`
+   * `yc datatransfer endpoint create`
+   * `yc datatransfer endpoint update`
+
+#### {{ org-name }} {#organization}
+
+* Added the `yc organization-manager federation saml delete-user-accounts` command to delete federation users.
+
+#### {{load-testing-name}}
+
+Added the `yc loadtesting test get-report-table` command to get a tabular report on the completed load test.
+
+#### {{ dns-name }} {#dns}
+
+* Added the `--page-token` parameter to the `yc dns zone list-records` command to enable pagination by page token.
+
+## Previous releases {#previous-releases}
+
 ## Version 0.117.0 (30/01/24) {#version0.117.0}
 
 ### Changes to {{ yandex-cloud }} services {#services}
@@ -29,8 +63,6 @@ Added the following parameters to the `yc iot registry create`, `yc iot registry
 #### {{ managed-k8s-name }} {#k8s}
 
 Fixed the error in the `k8s cluster update` command occurring when `cluster-id` is transferred as a positional argument.
-
-## Previous releases {#previous-releases}
 
 ## Version 0.116.0 (15/01/24) {#version0.116.0}
 

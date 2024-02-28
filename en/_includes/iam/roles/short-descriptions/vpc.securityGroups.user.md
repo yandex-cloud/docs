@@ -1,1 +1,0 @@
-[`vpc.securityGroups.user`](../../../../iam/concepts/access-control/roles.md#vpc-securitygroups-user): This role allows you to assign security groups to network interfaces and grants access to information about all {{ vpc-short-name }} resources.

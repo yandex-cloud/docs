@@ -507,7 +507,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 - CLI {#cli}
 
-  1. Choose a role from the list in [Roles](../../../iam/concepts/access-control/roles.md).
+  1. Select a role from the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md).
   1. [Get the user ID](../../../iam/operations/users/get.md).
   1. Assign the role using the command:
 
