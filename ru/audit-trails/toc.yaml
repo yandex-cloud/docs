@@ -83,6 +83,44 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Trail
+            items:
+              - name: Overview
+                href: api-ref/Trail/index.md
+              - name: create
+                href: api-ref/Trail/create.md
+              - name: delete
+                href: api-ref/Trail/delete.md
+              - name: get
+                href: api-ref/Trail/get.md
+              - name: list
+                href: api-ref/Trail/list.md
+              - name: listAccessBindings
+                href: api-ref/Trail/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Trail/listOperations.md
+              - name: setAccessBindings
+                href: api-ref/Trail/setAccessBindings.md
+              - name: update
+                href: api-ref/Trail/update.md
+              - name: updateAccessBindings
+                href: api-ref/Trail/updateAccessBindings.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: TrailService
+            href: api-ref/grpc/trail_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
   - name: Метрики {{ monitoring-name }}
     href: concepts/user-metrics.md
   - name: Справочник событий уровня конфигурации

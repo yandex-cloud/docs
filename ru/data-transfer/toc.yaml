@@ -211,6 +211,8 @@ items:
             href: tutorials/direct-to-mch.md
           - name: '{{ objstorage-name }} в {{ CH }}'
             href: tutorials/object-storage-to-clickhouse.md
+          - name: '{{ objstorage-name }} в {{ ydb-short-name }}'
+            href: tutorials/object-storage-to-ydb.md
       - name: Загрузка данных в {{ objstorage-name }}
         items:
           - name: '{{ MY }} в {{ objstorage-name }}'

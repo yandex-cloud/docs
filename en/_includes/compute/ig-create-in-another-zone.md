@@ -4,14 +4,14 @@
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.
-   1. In the top-right corner, click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, add the availability zone to move the instance group to.
    1. If your instance group is [manually scaled](../../compute/concepts/instance-groups/scale.md#fixed-scale), under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, specify a group size that will be sufficient for placing instances in all the selected availability zones.
 
       You will be able to reset the number of instances back to the initial one after all the instances in the group are moved to the new availability zone and deleted from the old one.
-   1. If your instance group is [automatically scaled](../../compute/concepts/instance-groups/scale.md#auto-scale) and has the `OPPORTUNISTIC` [shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy), change the strategy to `PROACTIVE` in the **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** field.
+   1. If your instance group is [autoscaling](../../compute/concepts/instance-groups/scale.md#auto-scale) and has the `OPPORTUNISTIC` [shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy), change the strategy to `PROACTIVE` in the **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** field.
 
       You will be able to reset the shutdown strategy back to OPPORTUNISTIC after all the instances in the group are moved to the new availability zone and deleted from the old one.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -29,7 +29,7 @@
       * If your instance group is [manually scaled](../../compute/concepts/instance-groups/scale.md#fixed-scale), under `scale_policy`, specify a group size that will be sufficient for placing instances in all the selected availability zones.
 
          You will be able to reset the number of instances back to the initial one after all the instances in the group are moved to the new availability zone and deleted from the old one.
-      * If your instance group is [automatically scaled](../../compute/concepts/instance-groups/scale.md#auto-scale) and has the `OPPORTUNISTIC` [shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy), change the strategy to `PROACTIVE` in the `deploy_policy` section.
+      * If your instance group is [autoscaling](../../compute/concepts/instance-groups/scale.md#auto-scale) and has the `OPPORTUNISTIC` [shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy), change the strategy to `PROACTIVE` in the `deploy_policy` section.
 
          You will be able to reset the shutdown strategy back to OPPORTUNISTIC after all the instances in the group are moved to the new availability zone and deleted from the old one.
    1. View a description of the CLI command to update an instance group:
@@ -122,7 +122,7 @@
 
       You will be able to reset the number of instances back to the initial one after all the instances in the group are moved to the new availability zone and deleted from the old one.
 
-      If your instance group is [automatically scaled](../../compute/concepts/instance-groups/scale.md#auto-scale) and has the `OPPORTUNISTIC` [shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy), change the strategy to `PROACTIVE`:
+      If your instance group is [autoscaling](../../compute/concepts/instance-groups/scale.md#auto-scale) and has the `OPPORTUNISTIC` [shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy), change the strategy to `PROACTIVE`:
 
       ```hcl
       ...
@@ -152,7 +152,7 @@
 
    If your instance group is [manually scaled](../../compute/concepts/instance-groups/scale.md#fixed-scale), specify a group size that will be sufficient for placing instances in all the selected availability zones. You will be able to reset the number of instances back to the initial one after all the instances in the group are moved to the new availability zone and deleted from the old one.
 
-   If your instance group is [automatically scaled](../../compute/concepts/instance-groups/scale.md#auto-scale) and has the `OPPORTUNISTIC` [shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy), change the strategy to `PROACTIVE`. You will be able to reset the shutdown strategy back to OPPORTUNISTIC after all the instances in the group are moved to the new availability zone and deleted from the old one.
+   If your instance group is [autoscaling](../../compute/concepts/instance-groups/scale.md#auto-scale) and has the `OPPORTUNISTIC` [shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy), change the strategy to `PROACTIVE`. You will be able to reset the shutdown strategy back to OPPORTUNISTIC after all the instances in the group are moved to the new availability zone and deleted from the old one.
 
 {% endlist %}
 

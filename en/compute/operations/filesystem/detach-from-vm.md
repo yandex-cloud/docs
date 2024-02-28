@@ -14,7 +14,7 @@ description: "Follow this guide to detach file storage from a VM."
       sudo umount <mounting_path>
       ```
 
-   1. To check that your file storage has been dismounted, run the command:
+   1. To check that your file storage has been unmounted, run this command:
 
       ```bash
       df -T

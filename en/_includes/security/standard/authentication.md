@@ -131,9 +131,9 @@ Remove the group access rights from the accounts that do not require them.
 
 #### 1.4 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, and {{ roles-auditor }} {#min-privileges}
 
-The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid in all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in the specified service. For the list of all service roles, go to the [{#T}](../../../iam/concepts/access-control/roles.md) page of {{ iam-short-name }}.
+The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roll reference](../../../iam/roles-reference.md).
 
-Use the [{{ roles-auditor }}](../../../iam/concepts/access-control/roles.md#auditor) role without data access wherever possible.
+Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
 
 {% list tabs group=instructions %}
 
@@ -192,14 +192,14 @@ Use the [{{ roles-auditor }}](../../../iam/concepts/access-control/roles.md#audi
 
 **Guides and solutions to use:**
 
-Analyze the accounts found with the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}` primitive roles assigned and replace them with [service granular roles](../../../iam/concepts/access-control/roles.md) based on your role matrix.
+Analyze the accounts found with the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}` primitive roles assigned and replace them with [service granular roles](../../../iam/roles-reference.md) based on your role matrix.
 
 #### 1.5 Cloud entities with service accounts are registered and limited {#sa}
 
 A [service account](../../../iam/concepts/users/service-accounts.md) is an account that can be used by a program to manage resources in {{ yandex-cloud }}. A service account is used to make requests as an application.
 
 * Do not use employee accounts instead of service accounts. If, for example, an employee quits or moves to a different department, their account permissions are disabled, which may lead to an application failure.
-* Don't write service account keys directly to your application's code, configuration files, or environment variables.
+* Do not write service account keys directly to your application's code, configuration files, or environment variables.
 
 **When using service accounts**:
 
@@ -364,10 +364,10 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
 
 **Guides and solutions to use:**
 
-Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) parameter to `DISABLED` for the VMs found:
+Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) parameter to `DISABLED` for the found VMs:
 
 ```bash
-yc compute instance update <VM_instance_ID> \ 
+yc compute instance update <VM_instance_ID> \
   --metadata-options aws-v1-http-token=DISABLED
 ```
 
@@ -602,13 +602,13 @@ For a Yandex ID account, set up 2FA using [this guide](https://yandex.com/suppo
 {{ yandex-cloud }} privileged users include accounts with the following roles:
 
 * `billing.accounts.owner`
-* `{{ roles-admin }}` assigned for a billing account.
-* `organization-manager.organizations.owner`.
-* `organization-manager.admin`.
-* `{{ roles-cloud-owner }}`.
-* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for an organization.
-* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a cloud.
-* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a folder.
+* `{{ roles-admin }}` assigned for a billing account
+* `organization-manager.organizations.owner`
+* `organization-manager.admin`
+* `{{ roles-cloud-owner }}`
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for an organization
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a cloud
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a folder
 
 The `billing.accounts.owner` role is granted automatically when creating a billing account and cannot be reassigned to another user. The role allows you to perform any action with the billing account.
 
@@ -738,9 +738,9 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 
 * Assign permissions to contractor employees based on the principle of least privilege.
 * If possible, create a separate account for third-party employees in your corporate IdP and assign the required policies to this account.
-* Make sure they handle their account secrets carefully.
-* Review the expedience of granting external users access to your cloud infrastructure.
-* Use the [{{ roles-auditor }}](../../../iam/concepts/access-control/roles.md#auditor) role without data access wherever possible.
+* Require them to handle their account secrets with care.
+* Review the relevance of granting external users access to your cloud infrastructure.
+* Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
 
 {% list tabs group=instructions %}
 
@@ -1053,7 +1053,7 @@ To control access more selectively and implement the principle of least privileg
 - Performing a check in the management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. Go to the **Access bindings** tab.
+   1. Go to the **Access rights** tab.
    1. Click **Assign roles**.
    1. In the **Configure access bindings** window, click **Select user**.
    1. Select a user from the list or search by user.

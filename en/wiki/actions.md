@@ -19,7 +19,7 @@ You can use dynamic blocks to:
 General format for calling dynamic blocks:
 
 ```
-{{blockName parameter1="value1" parameter2="value2" ...}}
+{{<block_name> <parameter_1>="<value_1>" <parameter_2>="<value_2>" ...}}
 ```
 
 ### See also

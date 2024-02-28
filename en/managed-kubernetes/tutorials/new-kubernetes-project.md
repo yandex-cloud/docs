@@ -67,12 +67,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) to run, the following [service accounts](../../iam/concepts/users/service-accounts.md) are required:
 * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
-* Service account with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). [Nodes](../../managed-kubernetes/concepts/index.md#node-group) will pull the required Docker images from the registry on behalf of this service account.
+* Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). [Nodes](../../managed-kubernetes/concepts/index.md#node-group) will pull the required Docker images from the registry on behalf of this service account.
 * For the {{ alb-name }} Ingress controller to run, you need service accounts with the following roles:
-  * [alb.editor](../../iam/concepts/access-control/roles.md#alb-editor): To create the required resources.
-  * [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin): To manage [external connectivity](../../vpc/security/index.md#roles-list).
-  * [certificate-manager.certificates.downloader](../../iam/concepts/access-control/roles.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-name }}](../../certificate-manager/).
-  * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
+  * [alb.editor](../../application-load-balancer/security/index.md#alb-editor): To create the required resources.
+  * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin): To manage [external connectivity](../../vpc/security/index.md#roles-list).
+  * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-name }}](../../certificate-manager/).
+  * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
 
 ### Service account for resources {#res-sa}
 
@@ -131,7 +131,7 @@ To create a service account for making the resources required by the {{ managed-
 
    {% endlist %}
 
-1. Assign the service account the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role for the folder.
+1. Assign the service account the [{{ roles-editor }}](../../iam/roles-reference.md#editor) role for the folder.
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -197,7 +197,7 @@ To create a service account that lets nodes download the necessary Docker images
 
    {% endlist %}
 
-1. Assign the service account the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder.
+1. Assign the service account the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder.
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -263,10 +263,10 @@ To create a service account that lets nodes download the necessary Docker images
    {% endlist %}
 
 1. Assign the service account the following roles for the folder:
-   * [{{ roles-alb-editor }}](../../iam/concepts/access-control/roles.md#alb-editor).
-   * [{{ roles-vpc-public-admin }}](../../iam/concepts/access-control/roles.md#vpc-public-admin).
-   * [certificate-manager.certificates.downloader](../../iam/concepts/access-control/roles.md#certificate-manager-certificates-downloader).
-   * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer).
+   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor).
+   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
+   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader).
+   * [compute.viewer](../../compute/security/index.md#compute-viewer).
 
    ```bash
    yc resource-manager folder add-access-binding \

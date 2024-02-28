@@ -134,23 +134,6 @@ To update VM metadata, follow these steps:
      * `--metadata`: To change a value from a single string.
      * `--metadata-from-file`: To change a value from multiple strings.
 
-     Example administrator password update on a Windows-based VM:
-     1. Create a YAML file (for example, `metadata.yaml`) and specify the following:
-
-        ```yaml
-        #ps1
-        net user administrator '<password>'
-        ```
-
-     1. Run this command:
-
-        ```bash
-        yc compute instance update first-instance \
-          --metadata-from-file user-data=metadata.yaml
-        ```
-
-        The existing metadata set will be completely overwritten.
-
 {% endlist %}
 
 ### Removing SSH keys from metadata {#delete-keys-from-metadata}

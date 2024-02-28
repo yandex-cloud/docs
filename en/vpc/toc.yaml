@@ -15,6 +15,8 @@ items:
             href: operations/network-delete.md
           - name: Updating a cloud network
             href: operations/network-update.md
+          - name: Getting information about a cloud network
+            href: operations/network-get-info.md
           - name: Studying a cloud network map
             href: operations/network-map.md
           - name: Moving a cloud network between folders
@@ -27,6 +29,8 @@ items:
             href: operations/subnet-delete.md
           - name: Updating a subnet
             href: operations/subnet-update.md
+          - name: Getting information about a subnet
+            href: operations/subnet-get-info.md
           - name: Moving a subnet between folders
             href: operations/subnet-move.md
           - name: Moving a subnet to a different availability zone

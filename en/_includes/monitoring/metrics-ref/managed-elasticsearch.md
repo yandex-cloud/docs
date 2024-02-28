@@ -1,5 +1,3 @@
-## {{ mes-full-name }} {#managed-elasticsearch}
-
 Common labels for all {{ mes-name }} metrics:
 
 | Label | Value |
@@ -12,11 +10,11 @@ Common labels for all {{ mes-name }} metrics:
 ### CPU metrics {#managed-elasticsearch-cpu-metrics}
 Processor core workload.
 
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share |
 | `cpu.guarantee`<br/>`DGAUGE`, number | Guaranteed number of cores |
-| `cpu.limit`<br/>`DGAUGE`, number | Limit on CPUs in use |
+| `cpu.limit`<br/>`DGAUGE`, number | Limit on CPU cores in use |
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
 | `cpu.guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type |
 | `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type |
@@ -46,7 +44,7 @@ Processor core workload.
 | `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
 
 ### Disk operation metrics {#managed-elasticsearch-diskio-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, number | Disk operations in progress |
 | `io.disk*.merged_reads`<br/>`DGAUGE`, number | Merged read operations for a specific disk |
@@ -61,7 +59,7 @@ Processor core workload.
 | `io.disk*.write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk |
 
 ### RAM metrics {#managed-elasticsearch-ram-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
 | `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type |
@@ -99,7 +97,7 @@ Processor core workload.
 | `mem.write_back_tmp_bytes`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
 
 ### Network metrics {#managed-elasticsearch-net-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
 | `net.bytes_sent`<br/>`DGAUGE`, bytes/s | Rate of sending data over the network |
@@ -157,11 +155,11 @@ Processor core workload.
 | `icmp_outechoreps`<br/>`DGAUGE`, number | Number of ICMP Echo Reply messages sent |
 | `icmp_outechos`<br/>`DGAUGE`, number | Number of ICMP Echo messages (requests) sent |
 | `icmp_outerrors`<br/>`DGAUGE`, number | Number of ICMP messages this object did not send due to problems discovered within ICMP, such as a lack of buffers |
-| `icmp_outmsgs`<br/>`DGAUGE`, number | Total number of ICMP messages which this entity attempted to send. This includes all messages counted by `icmp_outerrors`. |
+| `icmp_outmsgs`<br/>`DGAUGE`, number | Total number of ICMP messages which this object attempted to send. This includes all messages counted by `icmp_outerrors`. |
 | `icmp_outparmprobs`<br/>`DGAUGE`, number | Number of ICMP Parameter Problem messages sent |
 | `icmp_outredirects`<br/>`DGAUGE`, number | Number of Redirect Route messages sent |
 | `icmp_outsrcquenchs`<br/>`DGAUGE`, number | Number of ICMP Source Quench messages sent |
-| `icmp_outtimeexcds`<br/>`DGAUGE`, number | Number of ICMP Time Exceeded messages sent is greater than that of messages sent |
+| `icmp_outtimeexcds`<br/>`DGAUGE`, number | Number of ICMP Time Exceeded messages sent is greater than that of messages sent. |
 | `icmp_outtimestampreps`<br/>`DGAUGE`, number | Number of ICMP timestamp reply messages sent |
 | `icmp_outtimestamps`<br/>`DGAUGE`, number | Number of ICMP timestamp messages sent |
 | `icmpmsg_outtype3`<br/>`DGAUGE`, number | Number of ICMP Type 3 (Destination Unreachable) messages sent |
@@ -171,21 +169,21 @@ Processor core workload.
 | `inodes_used`<br/>`DGAUGE`, number | Used inodes |
 | `instance_userfault_broken`<br/>`DGAUGE`, number | Number of memory operation errors |
 | `iops_in_progress`<br/>`DGAUGE`, number | Disk operations in progress |
-| `ip_defaultttl`<br/>`DGAUGE`, string | Default value inserted into the Time-To-Live field of the IP header of packets created in this object, whenever a TTL value is not supplied by the transport layer protocol |
+| `ip_defaultttl`<br/>`DGAUGE`, string | Default value inserted into the Time-To-Live field of the IP header of packets created in this object, whenever a TTL value is not supplied by the transport layer protocol. |
 | `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled |
 | `ip_forwdatagrams`<br/>`DGAUGE`, number | Number of input packets for which this object was not their final IP destination resulting in an attempt to find a route to forward them to that final destination. In objects which do not act as IP Gateways, this counter will include only those packets that were source-routed through this object, and for which the source route parameter was processed successfully. |
 | `ip_fragcreates`<br/>`DGAUGE`, number | Number of IP packet fragments generated as a result of fragmentation in this object |
-| `ip_fragfails`<br/>`DGAUGE`, number | Number of IP packets dropped because they were subject to fragmenting in this object but could not be fragmented, e.g., due to the Do Not Fragment flag |
+| `ip_fragfails`<br/>`DGAUGE`, number | Number of IP packets dropped because they were subject to fragmenting in this object but could not be fragmented, e.g., due to the Do Not Fragment flag. |
 | `ip_fragoks`<br/>`DGAUGE`, number | Number of successfully fragmented IP packets |
-| `ip_inaddrerrors`<br/>`DGAUGE`, number | Number of input datagrams discarded because the IP address in their IP header's destination field was not a valid address to be received at this entity. This count includes invalid addresses, such as `0.0.0.0`, and addresses of unsupported classes, e.g., Class E. For objects that are not IP Gateways and, as such, do not forward packets, this counter includes packets dropped because the destination address was not a local one. |
+| `ip_inaddrerrors`<br/>`DGAUGE`, number | Number of input packets dropped because the IP address in their IP header's destination field was not a valid address to be received in this object. This count includes invalid addresses, such as `0.0.0.0`, and addresses of unsupported classes, e.g., Class E. For objects that are not IP Gateways and, as such, do not forward packets, this counter includes packets dropped because the destination address was not a local one. |
 | `ip_indelivers`<br/>`DGAUGE`, number | Total number of IP packets delivered |
 | `ip_indiscards`<br/>`DGAUGE`, number | Number of input IP packets encountering no problems preventing their further processing but still dropped, e.g., for lack of buffer space. This counter does not include the packets dropped while awaiting reassembly. |
 | `ip_inhdrerrors`<br/>`DGAUGE`, number | Number of input packets with header errors |
 | `ip_inreceives`<br/>`DGAUGE`, number | Total number of input packets received from interfaces, including those received through error |
 | `ip_inunknownprotos`<br/>`DGAUGE`, number | Number of unknown protocol packets received |
 | `ip_outdiscards`<br/>`DGAUGE`, number | Number of output IP packets encountering no problems preventing transmission to their destination but still dropped, e.g., for lack of buffer space. Note that the counter would include datagrams counted in `ip_forwdatagrams` if they met this (discretionary) discard criterion. |
-| `ip_outnoroutes`<br/>`DGAUGE`, number | Number of IP datagrams discarded because no route could be found to transmit them to their destination. This counter includes all the packets counted in `ip_forwdatagrams` that meet this No Route criterion. This includes any datagrams which a host cannot redirect because all its default gateways are down. |
-| `ip_outrequests`<br/>`DGAUGE`, number | Total number of IP datagrams which local IP user protocols (including ICMP) supplied to IP in requests for transmission. This counter does not include any datagrams counted in `ip_forwdatagrams`. |
+| `ip_outnoroutes`<br/>`DGAUGE`, number | Number of IP packets dropped because no route could be found to transmit them to their destination. This counter includes all the packets counted in `ip_forwdatagrams` that meet this No Route criterion. This includes any datagrams which a host cannot redirect because all its default gateways are down. |
+| `ip_outrequests`<br/>`DGAUGE`, number | Total number of IP packets which local IP user protocols (including ICMP) supplied to IP in requests for transmission. This counter does not include any datagrams counted in `ip_forwdatagrams`. |
 | `ip_reasmfails`<br/>`DGAUGE`, number | Number of failures detected by the IP reassembly algorithm (for whatever reason: timed out, errors, etc.). This is not necessarily a count of dropped IP fragments since some algorithms (such as the algorithm in RFC 815) can lose track of the number of fragments, combining them as they are received. |
 | `ip_reasmoks`<br/>`DGAUGE`, number | Number of IP packets successfully reassembled |
 | `ip_reasmreqds`<br/>`DGAUGE`, number | Number of IP fragments received which needed to be reassembled in this object |
@@ -197,7 +195,7 @@ Processor core workload.
 | `mapped`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type |
 | `merged_reads`<br/>`DGAUGE`, number | Number of merged disk reads |
 | `merged_writes`<br/>`DGAUGE`, number | Number of merged disk writes |
-| `n_cpus`<br/>`DGAUGE`, number | Limit on CPUs in use |
+| `n_cpus`<br/>`DGAUGE`, number | Limit on CPU cores in use |
 | `n_users`<br/>`DGAUGE`, number | Limit on the number of users |
 | `packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
 | `packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
@@ -216,17 +214,17 @@ Processor core workload.
 | `tcp_attemptfails`<br/>`DGAUGE`, number | Number of times TCP connections have made a direct transition to the `CLOSED` state either from the `SYN-SENT` state or from the `SYN-RCVD` state, plus the number of times TCP connections have made a direct transition |
 | `tcp_currestab`<br/>`DGAUGE`, number | Current number of TCP connections for the `ESTABLISHED` or `CLOSE WAIT` state |
 | `tcp_estabresets`<br/>`DGAUGE`, number | Number of times TCP connections have made a direct transition to the `CLOSED` state either from the `ESTABLISHED` state or from the `CLOSE-WAIT` state |
-| `tcp_incsumerrors`<br/>`DGAUGE`, number | The value increases when a received TCP packet has an invalid checksum. |
+| `tcp_incsumerrors`<br/>`DGAUGE`, number | The value increases if a received TCP packet has an invalid checksum. |
 | `tcp_inerrs`<br/>`DGAUGE`, number | Total number of segments received with an error, e.g., bad TCP checksums |
 | `tcp_insegs`<br/>`DGAUGE`, number | Total number of segments received, including those received through error |
 | `tcp_maxconn`<br/>`DGAUGE`, number | Maximum allowed number of TCP connections |
 | `tcp_outrsts`<br/>`DGAUGE`, number | Number of TCP segments sent containing the `RST` flag |
 | `tcp_outsegs`<br/>`DGAUGE`, number | Total number of TCP segments sent |
-| `tcp_passiveopens`<br/>`DGAUGE`, number | Number of times TCP connections have made a direct transition to the `SYN-RCVD` state from the `LISTEN` state |
+| `tcp_passiveopens`<br/>`DGAUGE`, number | Number of times TCP connections made a direct transition to the `SYN-RCVD` state from the `LISTEN` state |
 | `tcp_retranssegs`<br/>`DGAUGE`, number | Total number of segments retransmitted, i.e., the number of TCP segments transmitted containing one or more previously transmitted octets |
 | `tcp_rtoalgorithm`<br/>`DGAUGE` | Algorithm used to determine the timeout value used for retransmitting unacknowledged octets |
-| `tcp_rtomax`<br/>`DGAUGE`, ms | Maximum value permitted by a TCP implementation for the retransmission timeout, measured in milliseconds |
-| `tcp_rtomin`<br/>`DGAUGE`, ms | Minimum value permitted by a TCP implementation for the retransmission timeout, measured in milliseconds |
+| `tcp_rtomax`<br/>`DGAUGE`, ms | Maximum value permitted by a TCP implementation for the retransmission timeout, in milliseconds |
+| `tcp_rtomin`<br/>`DGAUGE`, ms | Minimum value permitted by a TCP implementation for the retransmission timeout, in milliseconds |
 | `total`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
 | `udp_ignoredmulti`<br/>`DGAUGE`, number | Used for UDP multicast. |
 | `udp_incsumerrors`<br/>`DGAUGE`, number | The value increases when a received UDP packet contains an invalid kernel code checksum. |
@@ -245,19 +243,19 @@ Processor core workload.
 | `udplite_rcvbuferrors`<br/>`DGAUGE`, number | The value increases when no memory can be allocated to handle an incoming UDP Lite packet. |
 | `udplite_sndbuferrors`<br/>`DGAUGE`, number | The value increases when no memory can be allocated to send a UDP Lite packet. |
 | `uptime`<br/>`DGAUGE`, % | Uptime percentage |
-| `usage_guest`<br/>`DGAUGE`, % | CPU usage, `guest` usage type |
-| `usage_guest_nice`<br/>`DGAUGE`, % | CPU usage, `guest_nice` usage type |
-| `usage_idle`<br/>`DGAUGE`, % | CPU usage, `idle` usage type |
-| `usage_iowait`<br/>`DGAUGE`, % | CPU usage, `iowait` usage type |
-| `usage_irq`<br/>`DGAUGE`, % | CPU usage, `irq` usage type |
-| `usage_nice`<br/>`DGAUGE`, % | CPU usage, `nice` usage type |
-| `usage_softirq`<br/>`DGAUGE`, % | CPU usage, `softirq` usage type |
-| `usage_steal`<br/>`DGAUGE`, % | CPU usage, `steal` usage type |
-| `usage_system`<br/>`DGAUGE`, % | CPU usage, `system` usage type |
-| `usage_user`<br/>`DGAUGE`, % | CPU usage, `user` usage type |
+| `usage_guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
+| `usage_guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type |
+| `usage_idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type |
+| `usage_iowait`<br/>`DGAUGE`, % | CPU core usage, `iowait` usage type |
+| `usage_irq`<br/>`DGAUGE`, % | CPU core usage, `irq` usage type |
+| `usage_nice`<br/>`DGAUGE`, % | CPU core usage, `nice` usage type |
+| `usage_softirq`<br/>`DGAUGE`, % | CPU core usage, `softirq` usage type |
+| `usage_steal`<br/>`DGAUGE`, % | CPU core usage, `steal` usage type |
+| `usage_system`<br/>`DGAUGE`, % | CPU core usage, `system` usage type |
+| `usage_user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type |
 | `used`<br/>`DGAUGE`, bytes | RAM usage, `used` usage type |
 | `used_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `used` usage type |
-| `utilization`<br/>`DGAUGE`, % | Average VM processor core (vCPUs) utilization by database |
+| `utilization`<br/>`DGAUGE`, % | Average VM processor core (vCPUs) utilization by a database |
 | `vmalloc_chunk`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_chunk` usage type |
 | `vmalloc_total`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_total` usage type |
 | `vmalloc_used`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_used` usage type |
@@ -271,7 +269,7 @@ Processor core workload.
 ##### ElasticSearch native metrics {#managed-elasticsearch-system-metrics}
 Metrics collected using the [API](https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html#cluster-nodes-stats-api-response-body).
 
-| Name<br/>Type, unit |
+| Name<br/>Type, units |
 | ----- |
 | `elasticsearch_discovered_cluster_manager`<br/>`DGAUGE`, 0/1 |
 | `elasticsearch_discovered_master`<br/>`DGAUGE`, 0/1 |
@@ -414,7 +412,7 @@ Metrics collected using the [API](https://www.elastic.co/guide/en/elasticsearch/
 | `elasticsearch_transport_tx_size_in_bytes`<br/>`DGAUGE`, bytes |
 
 ##### Other metrics {#managed-elasticsearch-other-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `elasticsearch_active_primary_shards`<br/>`DGAUGE`, number | Number of active [primary shards](../../../managed-elasticsearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster |
 | `elasticsearch_active_shards`<br/>`DGAUGE`, number | Number of active shards |
@@ -425,5 +423,3 @@ Metrics collected using the [API](https://www.elastic.co/guide/en/elasticsearch/
 | `elasticsearch_relocating_shards`<br/>`DGAUGE`, number | Number of shards being relocated |
 | `elasticsearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
 | `elasticsearch_unassigned_shards`<br/>`DGAUGE`, number | Number of inactive shards with no host assigned |
-
-Read more about the service in the [{{ mes-name }}](../../../managed-elasticsearch/) documentation.

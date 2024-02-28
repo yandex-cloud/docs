@@ -35,6 +35,8 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
       nano ~/.terraformrc
       ```
 
+      {% include [terraform-configure-provider-directory](terraform-configure-provider-directory.md) %}
+
    - Windows {#windows}
 
       Open the {{ TF }} CLI configuration file named `terraform.rc` in your user's `%APPDATA%` folder.
@@ -93,7 +95,17 @@ If the provider installation failed, create a [support]({{ link-console-support 
 If you used the `.terraform.lock.hcl` file, run the `terraform providers lock` command before initializing, specifying the URL of the mirror that the provider will be uploaded from and the platforms that the configuration will be used on:
 
 ```bash
-terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=linux_amd64 -platform=darwin_arm64 yandex-cloud/yandex
+terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=<platform_name_1> -platform=<platform_name_2> yandex-cloud/yandex
 ```
 
-If you used modules, first run `terraform init`, then delete the lock file. After that, run the `terraform providers lock` command.
+Where:
+
+* `-net-mirror`: Address of the mirror to upload the provider from.
+* `-platform`: Platforms to use the configuration on. The possible values include:
+   * `windows_amd64`: 64-bit Windows
+   * `linux_amd64`: 64-bit Linux
+   * `darwin_arm64`: 64-bit macOS
+
+If you used the [{{ TF }} modules](../tutorials/infrastructure-management/terraform-modules.md), first run `terraform init`, then delete the lock file. After that, run the `terraform providers lock` command.
+
+For more information about the `terraform providers lock` command, see the [{{ TF }} documentation](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).

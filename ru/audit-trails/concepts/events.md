@@ -315,33 +315,13 @@
 
 Имя сервиса — `ydb`.
 
-Имя события | Описание
---- | ---
-`BackupDatabase` | Создание [бэкапа](../../glossary/backup.md) базы данных
-`CreateDatabase` | Создание базы данных
-`DeleteBackup` | Удаление бэкапа базы данных
-`DeleteDatabase` | Удаление базы данных
-`MoveDatabase` | Перемещение базы данных
-`RestoreBackup` | Восстановление базы данных из бэкапа
-`StartDatabase` | Запуск базы данных
-`StopDatabase` | Остановка базы данных
-`UpdateDatabase` | Изменение базы данных
+{% include [ydb-events](../../_includes/audit-trails/events/ydb-events.md) %}
 
 ## {{ yq-short-name }} {#yq}
 
 Имя сервиса — `yq`.
 
-Имя события | Описание
---- | ---
-`ControlQuery` | Управление запросом
-`CreateBinding` | Создание привязки к данным
-`CreateConnection` | Создание соединения
-`CreateQuery` | Создание запроса
-`DeleteBinding` | Удаление привязки к данным
-`DeleteConnection` | Удаление соединения
-`DeleteQuery` | Удаление запроса
-`UpdateBinding` | Изменение привязки к данным
-`UpdateConnection` | Изменение соединения
-`UpdateQuery` | Изменение запроса
+{% include [yq-events](../../_includes/audit-trails/events/yq-events.md) %}
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

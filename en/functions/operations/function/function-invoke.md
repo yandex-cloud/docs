@@ -44,9 +44,9 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
    You can find the function invocation link in:
    * **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. To do this, in the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and click the required function row.
-   * The `http_invoke_url` parameter. To do this, run the following command:
+   * `http_invoke_url` parameter. To do this, run the following command:
       ```
-      yc serverless function get <function name>
+      yc serverless function get <function_name>
       ```
 
    {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
@@ -54,7 +54,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    For security reasons, you can only invoke a function via HTTPS. Invoke it as a regular HTTP request by inserting the function invoke link in the browser address bar. The link should have the following format:
 
    ```
-   https://{{ sf-url }}/<function ID>
+   https://{{ sf-url }}/<function_ID>
    ```
 
    You can invoke a specific function version using the `tag` parameter. The function with the `$latest` tag is invoked by default.
@@ -62,7 +62,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    * Example of function invocation with no additional parameters:
 
       ```
-      https://{{ sf-url }}/b09bhaokchn9pnbrlseb
+      https://{{ sf-url }}/<function_ID>
       ```
 
       The following response will appear on the page:
@@ -74,7 +74,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    * Example of function invocation with the `name` parameter added to the URL:
 
       ```
-      https://{{ sf-url }}/b09bhaokchn9pnbrlseb?name=<username>
+      https://{{ sf-url }}/<function_ID>?name=<username>
       ```
 
       The following response will appear on the page:
@@ -85,7 +85,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    * Example of invoking a specific function version with the `tag` parameter added to the URL:
 
       ```
-      https://{{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<version tag>
+      https://{{ sf-url }}/<function_ID>?tag=<version_tag>
       ```
 
 - CLI {#cli}
@@ -101,7 +101,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    * Invoke the function by specifying in the parameter a name for the greeting:
 
       ```
-      yc serverless function invoke <function ID> -d '{"queryStringParameters": {"name": "Username"}}'
+      yc serverless function invoke <function_ID> -d '{"queryStringParameters": {"name": "Username"}}'
       ```
 
       Result:
@@ -112,7 +112,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    * Invoke a specific version of the function using the `--tag` parameter:
 
       ```
-      yc serverless function invoke <function ID> --tag <function version tag>
+      yc serverless function invoke <function_ID> --tag <version_tag>
       ```
 
 

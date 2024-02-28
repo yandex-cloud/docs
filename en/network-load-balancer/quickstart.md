@@ -6,7 +6,7 @@ Create a network load balancer with a [listener](concepts/listener.md), attach a
 
 ## Getting started {#before-you-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
+1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
 1. [Create](../compute/quickstart/quick-create-linux.md) multiple VMs in advance to include them in the target group attached to the network load balancer. For testing, you can use inexpensive [preemptible VMs](../compute/concepts/preemptible-vm.md).
@@ -17,7 +17,7 @@ A [target group](concepts/target-resources.md) consists of cloud resources that 
 
 To create a target group:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a target group.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a target group.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. In the left-hand panel, select ![image](../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 1. Click **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.

@@ -39,7 +39,7 @@ To create an image from a disk:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-   1. Select the identifier (`ID`) or the name (`NAME`) of the desired image.
+   1. Select the disk you intend to use by `ID` or `NAME`.
    1. Create an image in the default folder:
 
       ```

@@ -29,6 +29,8 @@ Service name: `dns`.
 
 ## {{ iam-name }} {#iam}
 
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
 Service name: `iam`.
 
 {% include [iam-events-dp](../../_includes/audit-trails/events/iam-events-dp.md) %}
@@ -47,17 +49,23 @@ Service name: `lockbox`.
 
 ## {{ mmg-name }} {#mmg}
 
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
 Service name: `mdb.mongodb`.
 
 {% include [mmg-events-dp](../../_includes/audit-trails/events/mmg-events-dp.md) %}
 
 ## {{ mmy-name }} {#mmy}
 
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
 Service name: `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
 
 ## {{ mpg-name }} {#mpg}
+
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
 
 Service name: `mdb.postgresql`.
 

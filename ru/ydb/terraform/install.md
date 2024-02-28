@@ -8,11 +8,16 @@ Terraform можно скачать с официального сайта [Hash
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
+
     * Скачайте дистрибутив [Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
+
 - macOS {#macos}
+
     * Скачайте [дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
     * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду: `brew install terraform`.
+
 - Windows {#windows}
+
     * Скачайте Terraform с [официального сайта](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
     * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду: `choco install terraform`.
 
@@ -23,10 +28,12 @@ Terraform можно скачать с официального сайта [Hash
 
 ## Установка провайдера для работы с YDB {#provider-install}
 
-Terraform самостоятельно скачает и устанавит провайдер с заданного пользователем url в блоке `provider_installation`, который должен быть расположен в файле `.terraformrc`.
+Terraform самостоятельно скачает и установит провайдер с заданного пользователем url в блоке `provider_installation`, который должен быть расположен в файле `.terraformrc`.
 
 {% list tabs group=operating_system %}
+
 - Linux/macOS {#linux}
+
     1. Откройте файл конфигурации Terraform CLI `~/.terraformrc` в любом удобном для вас текстовом редакторе.
 
         {% include [terraform-configure-provider-directory](../../_tutorials/terraform-configure-provider-directory.md) %}
@@ -44,9 +51,12 @@ Terraform самостоятельно скачает и устанавит пр
             }
         }
         ```
+
 - Windows {#windows}
-    1. Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя. 
-    1. Добавьте в него следующий блок:    
+
+    1. Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
+    1. Добавьте в него следующий блок:
+
         ```tf
         provider_installation {
             network_mirror {
@@ -57,7 +67,8 @@ Terraform самостоятельно скачает и устанавит пр
                 exclude = ["registry.terraform.io/*/*"]
             }
         }
-        ```    
+        ```
+		
 {% endlist %}
 
 На этом установка и настройка Terraform и провайдера для подключения к YDB завершена. Можно переходить к созданию [конфигурационных файлов](./configure.md) для работы с YDB.

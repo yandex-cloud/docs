@@ -218,3 +218,11 @@ Do not confuse [cloud service accounts](../security/index.md#sa-annotation) with
 In the service documentation, _service account_ refers to a regular cloud service account unless otherwise specified.
 
 {% endnote %}
+
+## {{ managed-k8s-name }} cluster statistics {#metrics}
+
+{% include [metrics-resources-list](../../_includes/managed-kubernetes/metrics-resources-list.md) %}
+
+{% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
+
+Metrics are described in the [{#T}](../../managed-kubernetes/metrics.md) section.

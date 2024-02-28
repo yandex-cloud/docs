@@ -20,7 +20,7 @@ public class Handler : YcFunction<int, String> {
 Examples of invalid handlers:
 ```C#
 // YcFunction has only one parameter type specified
-// Handler should not have any type parameters (see the [handler requirements](index.md))
+// Handler should not have any type parameters (see [the handler requirements](index.md))
 public class Handler<T> : YcFunction<T, int> {
   public int FunctionHandler(T i, Context c) {
     return 2;
@@ -29,7 +29,7 @@ public class Handler<T> : YcFunction<T, int> {
 ```
 
 ```C#
-// YcFunction doesn't have both parameter types specified
+// YcFunction does not have both parameter types specified
 public class Handler : YcFunction {
   public Object FunctionHandler(Object i, Context c) {
     return i;
@@ -41,7 +41,7 @@ You can use any classes as input and return types.
 
 {% note info %}
 
-Fields of these classes may have any [access modifiers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers). If a field is non-public, it requires a public `getter` method. Otherwise, the field won't be included in the response.
+Fields of these classes may have any [access modifiers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers). If a field is non-public, it requires a public `getter` method. Otherwise, the field will not be included in the response.
 
 {% endnote %}
 
@@ -85,9 +85,9 @@ Example of input data:
 The log will contain the following:
 
 ```
-Function name: <your function name>
-Function version: <your function version ID>
-Service account token: <token for your service account>
+Function name: <function_name>
+Function version: <function_version_ID>
+Service account token: <service_account_token>
 ```
 
 Returned string:

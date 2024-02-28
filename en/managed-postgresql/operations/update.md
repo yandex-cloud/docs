@@ -224,7 +224,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }}_version>` parameter.
-   * List of settings you want to update in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -380,7 +380,7 @@ You can change the DBMS settings of the hosts in your cluster.
       * `pool_discard`: Odyssey `pool_discard` parameter, `true` or `false`.
       * `pooling_mode`: Pooling mode: `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
-   1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
+   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
    1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 

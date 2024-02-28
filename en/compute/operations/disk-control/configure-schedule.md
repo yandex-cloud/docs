@@ -21,8 +21,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
-   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
-   1. Choose a schedule or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
+   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
+   1. Choose a schedule or create a new one. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

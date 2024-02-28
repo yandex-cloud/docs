@@ -7,17 +7,14 @@ description: "When using {{ TF }} in the cloud, you need to ensure that multiple
 
 {{ yandex-cloud }} supports [infrastructure management through {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). To allow multiple users to manage the infrastructure, you can [automatically upload the {{ TF }} states and store them in {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 
-When multiple users try to access the same state from {{ objstorage-name }}, this may lead to conflicts. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
+When multiple users try to access the same state from {{ objstorage-name }} at the same time, conflicts may occur. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
 
 To set up storing {{ TF }} states in {{ objstorage-name }} and locking them by {{ ydb-name }}:
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a service account and static access key](#create-service-account).
 1. [Create a bucket](#create-service-account).
 1. [Create a {{ ydb-name }} database](#db-create).
-1. [Create a table](#table-create).
-1. [Install {{ TF }}](#install-terraform).
-1. [Create a {{ TF }} configuration file](#configure-terraform).
-1. [Configure a provider](#configure-provider).
+1. [Install and configure {{ TF }}](#prepare-terraform).
 1. [Configure the backend](#set-up-backend).
 1. [Deploy the configuration](#deploy).
 1. [Check the saved state](#check-condition).
@@ -45,7 +42,7 @@ If you deploy resources of other {{ yandex-cloud }} services, the cost will chan
 
 ## Create a service account and static access key {#create-service-account}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the [storage.editor](../../iam/concepts/access-control/roles.md#storage-editor) and [ydb.admin](../../ydb/security/index.md#ydbadmin) [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) specified in the provider settings.
+1. [Create a service account](../../iam/operations/sa/create.md) with the [storage.editor](../../storage/security/index.md#storage-editor) and [ydb.admin](../../ydb/security/index.md#ydbadmin) [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) specified in the provider settings.
 1. [Get a static access key](../../iam/operations/sa/create-access-key.md). Save the key ID and secret key: you will need them at the next steps.
 
 ## Create a bucket {#create-service-account}
@@ -104,19 +101,144 @@ If you deploy resources of other {{ yandex-cloud }} services, the cost will chan
 
 {% endlist %}
 
-## Install {{ TF }} {#install-terraform}
+## Install and configure {{ TF }} {#prepare-terraform}
 
-{% include [terraform-install](../../_tutorials/terraform-install.md) %}
+### Install {{ TF }} {#install-terraform}
 
-## Create a {{ TF }} configuration file {#configure-terraform}
+
+#### From a mirror {#from-yc-mirror}
+
+You can download a {{ TF }} distribution for your platform from a [mirror]({{ terraform-mirror }}). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
+
+```bash
+export PATH=$PATH:/path/to/terraform
+```
+
+#### From the Hashicorp website {#from-hashicorp-site}
+
+
+{% list tabs group=operating_system %}
+
+- Windows {#windows}
+
+   Use one of the following methods:
+
+   * [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
+   * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager and the command below:
+
+      ```
+      choco install terraform
+      ```
+
+- Linux {#linux}
+
+   [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
+
+- macOS {#macos}
+
+   Use one of the following methods:
+
+   * [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
+   * Install {{ TF }} using the [Homebrew](https://brew.sh) package manager and the command below:
+
+      ```
+      brew install terraform
+      ```
+
+{% endlist %}
+
+### Get the authentication credentials {#get-credentials}
+
+Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure using {{ TF }}. It will help you to flexibly configure access rights for resources.
+
+You can also access {{ TF }} from your [Yandex account](../../iam/concepts/index.md#passport),, or a [federated account](../../iam/concepts/index.md#saml-federation), but this method is less secure. For more information, see the end of this section.
+
+1. If you do not have the {{ yandex-cloud }} command line interface, [install](../../cli/quickstart.md#install) it.
+
+1. Set up the CLI profile to run operations on behalf of the service account:
+
+   {% list tabs group=instructions %}
+
+   - CLI {#cli}
+
+      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save the file:
+
+         ```bash
+         yc iam key create \
+           --service-account-id <service_account_ID> \
+           --folder-name <name_of_folder_with_service_account> \
+           --output key.json
+         ```
+
+         Where:
+         * `service-account-id`: ID of your service account.
+         * `folder-name`: Name of the folder the service account was created in.
+         * `output`: Name of the file with the authorized key.
+
+         Result:
+
+         ```yaml
+         id: aje8nn871qo4********
+         service_account_id: ajehr0to1g8b********
+         created_at: "2022-09-14T09:11:43.479156798Z"
+         key_algorithm: RSA_2048
+         ```
+
+      1. Create a CLI profile to run operations on behalf of the service account. Name the profile:
+
+         ```bash
+         yc config profile create <profile_name>
+         ```
+
+         Result:
+
+         ```text
+         Profile 'sa-terraform' created and activated
+         ```
+
+      1. Set the profile configuration:
+
+         ```bash
+         yc config set service-account-key key.json
+         yc config set cloud-id <cloud_ID>
+         yc config set folder-id <folder_ID>
+         ```
+
+         Where:
+         * `service-account-key`: File with the authorized key of the service account.
+         * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
+         * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+
+   {% endlist %}
+
+1. Add the credentials to the environment variables:
+
+   {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
+
+
+{% cut "Managing resources on behalf of a Yandex account or a federated account" %}
+
+{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+
+{% endcut %}
+
+
+
+### Create a {{ TF }} configuration file {#configure-terraform}
 
 {% include [configure-terraform](../_tutorials_includes/configure-terraform.md) %}
 
-## Configure a provider {#configure-provider}
+### Configure a provider {#configure-provider}
 
 {% include [terraform-configure-provider](../../_tutorials/terraform-configure-provider.md) %}
 
 ## Configure the backend {#set-up-backend}
+
+{% note info %}
+
+The backend settings apply to {{ TF }} `1.6.3` and higher.
+
+{% endnote %}
 
 To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
 
@@ -134,8 +256,8 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
    - PowerShell {#powershell}
 
       ```powershell
-      $Env:ACCESS_KEY="<key_ID>"
-      $Env:SECRET_KEY="<secret_key>"
+      $ACCESS_KEY="<key_ID>"
+      $SECRET_KEY="<secret_key>"
       ```
 
    {% endlist %}
@@ -153,15 +275,20 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
      required_version = ">= 0.13"
 
      backend "s3" {
-       endpoint          = "{{ s3-storage-host }}"
+       endpoints = {
+         s3       = "https://{{ s3-storage-host }}"
+         dynamodb = "<Document_API_DB_endpoint>"
+
        bucket            = "<bucket_name>"
        region            = "{{ region-id }}"
        key               = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
-       dynamodb_endpoint = "<Document_API_DB_endpoint>"
-       dynamodb_table    = "<table_name>"
+
+       dynamodb_table = "<table_name>"
 
        skip_region_validation      = true
        skip_credentials_validation = true
+       skip_requesting_account_id  = true # This option is required for {{ TF }} 1.6.1 or higher.
+       skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
      }
    }
 
@@ -171,6 +298,13 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
    ```
 
 
+
+   Where:
+
+   * `bucket`: Bucket name.
+   * `dynamodb`: Document API DB in `https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaom********` format.
+   * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
+   * `dynamodb_table`: Table name.
 
    To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
 
@@ -219,7 +353,7 @@ The VM will have 2 vCPUs and 4 GB RAM. It will be automatically assigned a [publ
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("<path_to_public_SSH_key>")}"
      }
    }
 
@@ -249,6 +383,9 @@ The VM will have 2 vCPUs and 4 GB RAM. It will be automatically assigned a [publ
 
 
 
+   Where:
+   * `vm_user`: VM username.
+   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Check the configuration using the `terraform plan` command.
 1. Deploy the configuration using the `terraform apply` command.
 
@@ -283,3 +420,8 @@ If you no longer need the resources you created, delete them:
 1. [Delete](../../ydb/operations/schema.md#drop-table) the table from the database.
 1. [Delete](../../ydb/operations/manage-databases.md#delete-db) the `state-lock-db` database.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
+
+## See also {#see-also}
+
+* [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).

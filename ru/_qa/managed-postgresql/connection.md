@@ -40,7 +40,7 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
 
    Сертификат будет доступен по пути `C:\temp\CA.pfx`.
 
-2. [Разместите полученный сертификат в хранилище сертификатов Windows](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+1. [Разместите полученный сертификат в хранилище сертификатов Windows](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
 #### Что делать, если при подключении я получаю ошибку SSL is required? {#ssl-req}
 

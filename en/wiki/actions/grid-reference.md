@@ -15,7 +15,7 @@ Using the `grid` block, you can embed a [dynamic table](../create-grid.md) in yo
 
 | Parameter | Description |
 --- | ---
-| `page` | Required parameter. Contains the address of the table you want to embed. |
+| `page` | This is a required parameter. Contains the address of the table you want to embed. |
 | `width` | Table width as a percentage of page width:<br>`{{grid page="tableURL" width="60%"}}` |
 | `readonly` | If specified, the table is embedded in <q>read-only mode</q>. |
 | `num` | If specified, row numbers are not displayed. |
@@ -25,7 +25,7 @@ Using the `grid` block, you can embed a [dynamic table](../create-grid.md) in yo
 
 ## Setting filters for displaying rows {#row-filter}
 
-Use the `filter` parameter to set which rows should be displayed in the embedded table. For example:
+Use the `filter` parameter to set which rows should be displayed in the embedded table, for example:
 
 ```
 {{grid page="tableURL" filter="[id1]=value1, [id2]=value2"}}
@@ -33,9 +33,9 @@ Use the `filter` parameter to set which rows should be displayed in the embedded
 
 This filter will only display the rows for which the following conditions are satisfied at the same time:
 
-- Column with the ID `[id1]` is set to `value1`.
+- Column with ID `[id1]` is set to `<value_1>`.
 
-- Column with the ID `[id2]` contains `value2`.
+- Column with ID `[id2]` is set to `<value_2>`.
 
 To look up column ID:
 

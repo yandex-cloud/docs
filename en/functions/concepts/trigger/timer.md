@@ -10,7 +10,7 @@ For more information about creating a timer, see [{#T}](../../operations/trigger
 
 ## Roles required for timers to run correctly {#roles}
 
-* To create a timer, you need a permission for the service account that runs the timer executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+* To create a timer, you need a permission for the service account that runs the timer executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles and higher.
 * To run a timer, the service account needs the `{{ roles-functions-invoker }}` role for the folder containing the function called by the timer.
 
 Read more about [access management](../../security/index.md).

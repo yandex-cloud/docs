@@ -25,20 +25,53 @@ You can also assign a role for a separate VM.
 
 ### Service roles {#service-roles}
 
-| Role | Permissions |
------ | -----
-| `compute.admin` | Grants the permission to manage VMs and [instance groups](../../compute/concepts/instance-groups/index.md) and assign roles to other users. |
-| `compute.editor` | Grants the permission to manage virtual machines and instance groups. |
-| `compute.viewer` | Grants the permission to view information on [{{ compute-name }} resources](../concepts/index.md). |
-| `compute.auditor` | Enables you to view the amount of used resources and quotas, disk limits, lists of {{ compute-name }} resource operations and their details. |
-| `compute.disks.user` | Allows you to use disks to create new resources, such as virtual machines. |
-| `compute.images.user` | Allows you to use images to create new resources, such as virtual machines. |
-| `compute.operator` | Allows you to [stop, start, and restart virtual machines](../../compute/operations/vm-control/vm-stop-and-start.md), but does not allow creating or deleting them. |
-| `compute.snapshotSchedules.editor` | Grants the permission to [create](../operations/snapshot-control/create-schedule.md) scheduled disk snapshots and [update](../operations/snapshot-control/update-schedule.md) them. |
-| `compute.snapshotSchedules.viewer` | Grants the permission to view information about [scheduled disk snapshots](../concepts/snapshot-schedule.md). |
-| `compute.osLogin` | Allows SSH access to VMs via OS Login. |
-| `compute.osAdminLogin` | Allows SSH access to VMs via OS Login and enables you to run commands as a superuser (`sudo`). |
-| `iam.serviceAccounts.user` | Verifies the right to use the service account.<br/>This role is required to perform operations with instance groups. If you specify a service account in the request, {{ iam-short-name }} will check whether you have permissions to use this account. |
+#### compute.auditor {#compute-auditor}
+
+{% include [compute.auditor](../../_roles/compute/auditor.md) %}
+
+#### compute.viewer {#compute-viewer}
+
+{% include [compute.viewer](../../_roles/compute/viewer.md) %}
+
+#### compute.editor {#compute-editor}
+
+{% include [compute.editor](../../_roles/compute/editor.md) %}
+
+#### compute.admin {#compute-admin}
+
+{% include [compute.admin](../../_roles/compute/admin.md) %}
+
+#### compute.osLogin {#compute-oslogin}
+
+{% include [compute.oslogin](../../_roles/compute/osLogin.md) %}
+
+#### compute.osAdminLogin {#compute-osadminlogin}
+
+{% include [compute.osadminlogin](../../_roles/compute/osAdminLogin.md) %}
+
+#### compute.disks.user {#compute-disks-user}
+
+{% include [compute.disks.user](../../_roles/compute/disks/user.md) %}
+
+#### compute.images.user {#compute-images-user}
+
+{% include [compute.images.user](../../_roles/compute/images/user.md) %}
+
+#### compute.operator {#compute-operator}
+
+{% include [compute.operator](../../_roles/compute/operator.md) %}
+
+#### compute.snapshotSchedules.viewer {#compute-snapshotSchedules-viewer}
+
+{% include [compute.snapshotSchedules.viewer](../../_roles/compute/snapshotSchedules/viewer.md) %}
+
+#### compute.snapshotSchedules.editor {#compute-snapshotSchedules-editor}
+
+{% include [compute.snapshotSchedules.editor](../../_roles/compute/snapshotSchedules/editor.md) %}
+
+#### iam.serviceAccounts.user {#iam-serviceAccounts-user}
+
+{% include [iam.serviceAccounts.user](../../_roles/iam/serviceAccounts/user.md) %}
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 

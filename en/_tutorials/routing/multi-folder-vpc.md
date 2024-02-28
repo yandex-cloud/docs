@@ -345,7 +345,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
    1. In the [management console]({{ link-console-main }}), go to `net-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
    1. Click the name of the `shared-net` cloud network.
-   1. Click ![image](../../_assets/options.svg) in the line of `subnet-b` and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line of `subnet-b` and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
    1. Select `dev-folder` in the drop-down list.
    1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 

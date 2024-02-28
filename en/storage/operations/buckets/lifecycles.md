@@ -1,6 +1,6 @@
 # Managing bucket object lifecycles
 
-{{ objstorage-name }} allows you to manage [object lifecycles](../../concepts/lifecycles.md) in a bucket.
+{{ objstorage-name }} allows managing [object lifecycles](../../concepts/lifecycles.md) in a bucket.
 
 Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This operation takes a few hours to complete.
 
@@ -32,10 +32,10 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
             "id": "DeleteOldBackups",
             "enabled": true,
             "filter": {
-              "prefix": "test/"
+              "prefix": "backup/"
             },
             "expiration": {
-              "days": 180
+              "days": "180"
             }
           }
         ]
@@ -45,8 +45,43 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       The possible configuration parameters include:
       * `id`: Unique rule ID, which must be 255 characters or less. This is an optional parameter.
       * `enabled`: Rule status. This is a required parameter.
-      * `filter`: Object filter. This is an optional parameter. It may contain:
-         * `prefix`: Object key prefix that identifies one or more objects the rule applies to. This is an optional parameter.
+      * `filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
+
+         * `prefix`: Object [key](../../concepts/object.md#key) prefix that identifies one or more objects to which the rule applies. The rule applies to objects with the specified key prefix. This is an optional parameter.
+         * `objectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
+         * `objectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
+         * `tag`: Object [tag](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It is delivered as a record that contains two pairs of values, for example:
+
+            ```json
+            "tag": [{"key": "some_key", "value": "some_value"}]
+            ```
+
+         * `andOperator`: `AND` logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With the `andOperator` logical operator, you can set up filtering by multiple tags at the same time. To do this, specify the tags in the `tag` key as an array of objects each containing two pairs of values.
+
+            Example of a filter with the `AND` logical operator:
+
+            ```json
+            "filter": {
+              "andOperator": {
+                "prefix": "backup/",
+                "tag": [
+                  {
+                    "key": "key_1",
+                    "value": "value_1"
+                  },
+                  {
+                    "key": "key_2",
+                    "value": "value_2"
+                  }
+                ],
+                "objectSizeGreaterThan": "16",
+                "objectSizeLessThan": "1024"
+              }
+            }
+            ```
+
+         If no object filter is set, the rule applies to all objects in the bucket.
+
       * `transition`: Parameter of a rule for changing the storage class of any objects from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
          * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
@@ -121,14 +156,14 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       {
         "Rules": [
           {
-            "ID": "DeleteOldTaggedBackups",
+            "ID": "DeleteOldBackups",
             "Filter": {
-              "Prefix": "backup/"
+              "Prefix": "backup/",
             },
-            "Status": "Enabled",
+            "Status": "Enabled"
             "Expiration": {
               "Days": 180
-            }
+            },
           }
         ]
       }
@@ -137,17 +172,42 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       The possible configuration parameters include:
       * `ID`: Unique rule ID, which must be 255 characters or less. This is an optional parameter.
       * `Filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
-         * `Prefix`: Key prefix. The rule applies to objects with the specified key prefix. This is an optional parameter. It cannot be used with the `Tag` filter.
 
-         * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
-         * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
-         * `Tag`: Object's [tag](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It cannot be used with the `Prefix` filter. It is delivered as a record that contains two pairs of values, for example:
+         * `Prefix`: Object [key](../../concepts/object.md#key) prefix. The rule applies to objects with the specified key prefix. This is an optional parameter.
+         * `objectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
+         * `objectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
+         * `Tag`: object [tag](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It is delivered as a record that contains two pairs of values, for example:
 
             ```json
-            "Tag": {"Key":"sample-key", "Value":"sample-value"}
+            "tag": [{"key": "some_key", "value": "some_value"}]
+            ```
+
+         * `And`: **AND** logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With the `And` logical operator, you can set up filtering by multiple tags at the same time. To do this, specify the tags in the `Tags` key as an array of objects each containing two pairs of values.
+
+            Example of a filter with the `AND` logical operator:
+
+            ```json
+            "Filter": {
+              "And": {
+                "Prefix": "backup/",
+                "Tags": [
+                  {
+                    "Key": "key_1",
+                    "Value": "value_1"
+                  },
+                  {
+                    "Key": "key_2",
+                    "Value": "value_2"
+                  }
+                ],
+                "ObjectSizeGreaterThan": 1,
+                "ObjectSizeLessThan": 1024
+              }
+            }
             ```
 
          If no object filter is set, the rule applies to all objects in the bucket.
+
       * `Status`: Rule status. This is a required parameter. The possible values include:
          * `Enabled`: Rule enabled.
          * `Disabled`: Rule disabled.
@@ -189,7 +249,6 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      
       ```hcl
       provider "yandex" {
         cloud_id  = "<cloud_ID>"
@@ -207,7 +266,13 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
         lifecycle_rule {
           id      = "log"
           enabled = true
-          prefix = "log/"
+
+          filter {
+            tag {
+              key   = "some_key"
+              value = "some_value"
+            }
+          }
 
           transition {
             days          = 30
@@ -220,9 +285,18 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
         }
 
         lifecycle_rule {
-          id      = "tmp"
-          prefix  = "tmp/"
+          id      = "backup"
           enabled = true
+
+          filter {
+            and {
+              prefix = "backup/"
+              tags   = {
+                key1 = "value1"
+                key2 = "value2"
+              }
+            }
+          }
 
           expiration {
             date = "2020-12-21"
@@ -241,8 +315,11 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
         }
 
         lifecycle_rule {
-          prefix  = "config/"
           enabled = true
+
+          filter {
+            prefix = "config/"
+          }
 
           noncurrent_version_transition {
             days          = 30
@@ -256,8 +333,6 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       }
       ```
 
-
-
       Where:
 
       * `bucket`: Bucket name. This is a required parameter.
@@ -266,7 +341,37 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
       `lifecycle_rule` parameters:
       * `id`: Unique rule ID, which must be 255 characters or less. This is an optional parameter.
-      * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. This is an optional parameter.
+      * `filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
+         * `prefix`: Object [key](../../concepts/object.md#key) prefix that identifies one or more objects to which the rule applies. This is an optional parameter.
+         * `object_size_greater_than`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
+         * `object_size_less_than`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
+         * `tag`: Object [tag](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It is delivered as a record that contains two pairs of values, for example:
+
+            ```hcl
+            tag {
+              key   = "some_key"
+              value = "some_value"
+            }
+            ```
+
+         * `And`: **AND** logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With the `And` logical operator, you can set up filtering by multiple tags at the same time. To do this, specify the tags as `key = value` pairs in the `tags` block.
+
+            ```hcl
+            filter {
+              and {
+                prefix = "backup/"
+                tags = {
+                  key1 = "value1"
+                  key2 = "value2"
+                }
+                object_size_greater_than = 1
+                object_size_less_than    = 1024
+              }
+            }
+            ```
+
+         If no object filter is set, the rule applies to all objects in the bucket.
+
       * `enabled`: Rule status. This is a required parameter.
       * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
       * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter.

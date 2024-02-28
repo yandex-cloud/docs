@@ -76,9 +76,9 @@ The cost of the infrastructure includes:
       1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
       1. Specify the subnet parameters:
 
-         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `queue-autoscale-subnet-a`.
-         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`.
-         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`.
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `queue-autoscale-subnet-a`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`
 
       1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -734,7 +734,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
 ## Delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the created resources:
+To shut down the infrastructure and stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/instance-groups/delete.md) `queue-autoscale-ig`.
 1. [Delete](../../compute/operations/image-control/delete.md) `queue-autoscale-image`.

@@ -19,6 +19,6 @@
 
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-   After creation, the disk will have the `Creating` status. Wait until the disk status changes to `Ready` before using it.
+   Once created, the disk will get the `Creating` status. Wait until the disk status changes to `Ready` before using it.
 
 {% endlist %}

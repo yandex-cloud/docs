@@ -6,8 +6,8 @@ description: "Setting a function handler means writing an R function with the ev
 # R programming model
 
 Setting a function handler means writing an R function with the following parameters:
-`event`: A [request](../../../concepts/function-invoke.md#request)
-`context`: Information about the [invocation context](../context.md)
+* `event`: [Request](../../../concepts/function-invoke.md#request)
+* `context`: [Call context](../context.md) information
 
 ## Examples {#examples}
 

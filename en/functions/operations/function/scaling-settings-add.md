@@ -43,7 +43,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    
    ```
    yc serverless function set-scaling-policy \
-     --id=d4eokpuol55h******** \
+     --id=<function_ID> \
      --tag=\$latest \
      --zone-instances-limit=1 \
      --zone-requests-limit=2 \
@@ -93,8 +93,8 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
       
       ```
       provider "yandex" {
-          token     = "<service account OAuth or static key>"
-          folder_id = "<folder ID>"
+          token     = "<service_account_OAuth_token_or_static_key>"
+          folder_id = "<folder_ID>"
           zone      = "{{ region-id }}-a"
       }
 
@@ -141,7 +141,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    You can check the deletion of the scaling settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
-   yc serverless function list-scaling-policies <function_name>|<function_ID>
+   yc serverless function list-scaling-policies <function_name_or_ID>
    ```
 
 - API {#api}

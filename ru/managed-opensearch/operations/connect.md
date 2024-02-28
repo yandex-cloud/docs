@@ -61,9 +61,9 @@ FQDN вида `c-<идентификатор_кластера>.rw.{{ dns-zone }}
 * Через интернет, если для хоста с ролью `DASHBOARDS` включен публичный доступ.
 * Через виртуальную машину в {{ yandex-cloud }}, если публичный доступ не включен ни для какого из хостов с ролью `DASHBOARDS`.
 
-{% list tabs %}
+{% list tabs group=connection_method %}
 
-- Через интернет
+- Через интернет {#internet}
 
     1. Установите [SSL-сертификат](#ssl-certificate) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
     1. На странице кластера в консоли управления нажмите кнопку **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** или перейдите в браузере по адресу `https://c-<идентификатор_кластера>.rw.{{ dns-zone }}>`.
@@ -72,7 +72,7 @@ FQDN вида `c-<идентификатор_кластера>.rw.{{ dns-zone }}
 
     1. Введите имя пользователя `admin` и пароль, который был задан при [создании кластера](cluster-create.md).
 
-- С ВМ в {{ yandex-cloud }}
+- С ВМ в {{ yandex-cloud }} {#cloud}
 
     1. [Создайте](../../compute/quickstart/quick-create-linux.md) виртуальную машину на основе Linux в той же [виртуальной сети](../../vpc/concepts/network.md), что и кластер.
     1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.

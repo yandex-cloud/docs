@@ -31,9 +31,6 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
    }
 
    provider "yandex" {
-     token     = "<OAuth_token_or_IAM_token>"
-     cloud_id  = "<cloud_ID>"
-     folder_id = "<folder_ID>"
      zone      = "{{ region-id }}-a"
    }
 
@@ -137,7 +134,6 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
 
    Where:
 
-   * `token`: OAuth token for a Yandex account or an IAM token for a federated account.
    * `bucket`: Bucket name.
    * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
    * `ssh-keys`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).

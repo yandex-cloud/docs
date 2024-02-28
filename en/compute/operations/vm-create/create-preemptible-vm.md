@@ -251,7 +251,7 @@ To change the type of a VM, for example, make it preemptible:
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-stop }} **.
-   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status changes to `Stopped`.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
    1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, disable the **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}** option.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
@@ -369,4 +369,4 @@ This will affect your bill for the VM usage. More about [VM pricing](../../prici
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md).
+* [{#T}](../vm-connect/ssh.md)

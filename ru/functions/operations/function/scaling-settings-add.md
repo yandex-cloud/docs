@@ -18,7 +18,11 @@ description: "Следуя данной инструкции, вы сможет�
 Настройки масштабирования не могут превышать [квоты](../../concepts/limits.md#functions-quotas).
 
 
+{% note info %}
+
 {% include [provisioned-instances-time](../../../_includes/functions/provisioned-instances-time.md)%}
+
+{% endnote %}
 
 
 {% list tabs group=instructions %}

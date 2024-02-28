@@ -10,8 +10,12 @@ description: "Пошаговые инструкции по работе с DNS-�
 - [{#T}](zone-create-private.md)
 - [{#T}](zone-create-public.md)
 - [{#T}](zone-update.md)
-- [{#T}](zone-get-info.md)
 - [{#T}](zone-delete.md)
+
+## Получение информации о зоне DNS {#zone-info}
+
+- [{#T}](zone-list.md)
+- [{#T}](zone-get-info.md)
 
 ## Ресурсные записи {#resource-records}
 

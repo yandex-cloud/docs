@@ -64,20 +64,20 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
    
    ```bash
    yc serverless trigger create logging \
-     --name <trigger name> \
-     --log-group-name <log group name> \
+     --name <trigger_name> \
+     --log-group-name <log_group_name> \
      --batch-size 1 \
      --batch-cutoff 1s \
-     --resource-ids <resource ID> \
-     --resource-types <resource type> \
-     --stream-names <log stream> \
-     --log-levels <log level> \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --resource-ids <resource_ID> \
+     --resource-types <resource_type> \
+     --stream-names <logging_stream> \
+     --log-levels <logging_level> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead Letter Queue ID> \
-     --dlq-service-account-id <service account ID>
+     --dlq-queue-id <dead_letter_queue_ID> \
+     --dlq-service-account-id <service_account_ID>
    ```
 
 
@@ -142,20 +142,20 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
-        name        = "<trigger name>"
-        description = "<trigger description>"
+        name        = "<trigger_name>"
+        description = "<trigger_description>"
         logging {
-           group_id       = "<log group ID>"
-           resource_types = [ "<resource type>" ]
-           resource_ids   = [ "<resource ID>" ]
+           group_id       = "<log_group_name>"
+           resource_types = [ "<resource_type>" ]
+           resource_ids   = [ "<resource_ID>" ]
            levels         = [ "INFO", "ERROR" ]
-           stream_names   = [ "<log stream>" ]
+           stream_names   = [ "<logging_stream>" ]
            batch_cutoff   = 1
            batch_size     = 1
         }
         function {
-           id                 = "<function ID>"
-           service_account_id = "<service account ID>"
+           id                 = "<function_ID>"
+           service_account_id = "<service_account_ID>"
         }
       }
       ```
@@ -170,7 +170,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
       * `logging`: Logging parameters, which will activate the trigger when added to the log group, and the batch message settings:
          * `group_id`: Log group ID.
          * `resource_types`: Resource types, e.g., `resource_types = [ "serverless.function" ]` for {{ sf-name }} functions. You can specify multiple types.
-         * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., functions `resource_ids = [ "<function ID>" ]`. You can specify multiple IDs.
+         * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., `resource_ids = [ "<function_ID>" ]` functions. You can specify multiple IDs.
          * `levels`: Logging levels. For example, `levels = [ "INFO", "ERROR"]`.
          * `stream_names`: Log streams.
             A trigger fires when the specified log group receives records that match all of the following parameters: `resource-ids`, `resource-types`, `stream-names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
@@ -206,7 +206,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
          ```
-         yc serverless trigger get <trigger ID>
+         yc serverless trigger get <trigger_ID>
          ```
 
 - API {#api}

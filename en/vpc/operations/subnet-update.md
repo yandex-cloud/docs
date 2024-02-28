@@ -142,7 +142,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       * Route table ID, in the `routeTableId` parameter.
       * DHCP options, in the `dhcpOptions` parameter.
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

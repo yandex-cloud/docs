@@ -57,7 +57,7 @@ Add the `terraform-yc-vpc` module to the configuration; you can use it to manage
 
 ```hcl
 module "yc-vpc" {
-  source              = "git@github.com:terraform-yc-modules/terraform-yc-vpc.git"
+  source              = "github.com/terraform-yc-modules/terraform-yc-vpc.git"
   network_name        = "test-module-network"
   network_description = "Test network created with module"
   private_subnets = [{
@@ -85,7 +85,7 @@ Add the `terraform-yc-vpc` module to the configuration and the {{ managed-k8s-na
 
 ```
 module "kube" {
-  source     = "git@github.com:terraform-yc-modules/terraform-yc-kubernetes.git"
+  source     = "github.com/terraform-yc-modules/terraform-yc-kubernetes.git"
   network_id = "${module.yc-vpc.vpc_id}"
 
   master_locations  = [

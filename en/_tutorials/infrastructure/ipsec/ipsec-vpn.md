@@ -3,7 +3,7 @@
 1. [Set up a remote site](#remote-setup).
 1. [Test an IPsec connection and connectivity between remote and cloud resources](#ipsec-test).
 
-If you no longer need the infrastructure, [delete](#clear-out) the created resources.
+If you no longer need the resources you created, [delete](#clear-out) them.
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -20,7 +20,7 @@ The infrastructure deployment cost for this solution based on IPsec gateways inc
 
 ### Create an SSH key pair {#create-ssh-keys}
 
-To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you need a key pair: the public key is placed on the VM, while the private one is stored on the user's device. This method is more secure than connecting with a username and password.
+To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than connecting with login and password.
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
@@ -30,7 +30,7 @@ To create a key pair:
 
 ## Set up a cloud site {#cloud-setup}
 
-At this stage, you will reserve two static IP addresses for IPsec gateways and create and set up an infrastructure for your cloud site in {{ yandex-cloud }}. It will include an IPsec gateway, two VMs, a network, and two subnets.
+At this stage, you will reserve two static IP addresses for IPsec gateways as well as create and set up an infrastructure for your cloud site in {{ yandex-cloud }}: an IPsec gateway, two virtual machines, and a network with two subnets.
 
 ### Create and set up a cloud network {#setup-cloud-net}
 
@@ -38,13 +38,13 @@ At this stage, you will reserve two static IP addresses for IPsec gateways and c
 
 [Reserve](../../../vpc/operations/get-static-ip.md) two static [public IP addresses](../../../vpc/concepts/address.md#public-addresses) in the `{{ region-id }}-b` availability zone:
 
-* For the main IPsec gateway named `cloud-gw`. Further on, we will refer to this address as `<x1.x1.x1.x1>`.
-* For the remote IPsec gateway named `remote-gw`. Further on, we will refer to this address as `<x2.x2.x2.x2>`.
+* Further on, we will refer to the `cloud-gw` main IPsec gateway address as `<x1.x1.x1.x1>`.
+* Further on, we will refer to the `remote-gw` remote IPsec gateway address as `<x2.x2.x2.x2>`.
 
 #### Create a network and subnets on the cloud site {#cloud-net}
 
 1. [Create a network](../../../vpc/operations/network-create.md) named `cloud-net`. When creating your network, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
-1. In the `cloud-net` network, [create subnets](../../../vpc/operations/subnet-create.md) with the following parameters:
+1. In the `cloud-net` network, manually [create subnets](../../../vpc/operations/subnet-create.md) with the following parameters:
 
    1. To connect the `cloud-gw` main IPsec gateway:
       * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `ipsec-subnet`
@@ -93,7 +93,7 @@ At this stage, you will reserve two static IP addresses for IPsec gateways and c
 1. Link the `cloud-net-rt` route table to `subnet-a` and `subnet-b`:
 
    1. Go to the **{{ ui-key.yacloud.vpc.network.switch_overview }}** tab.
-   1. In the line of `subnet-a`, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+   1. In the `subnet-a` line, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the `cloud-net-rt` route table and click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
    1. Repeat the previous two steps for `subnet-b` to link the `cloud-net-rt` route table to it.
 
@@ -102,9 +102,9 @@ At this stage, you will reserve two static IP addresses for IPsec gateways and c
 #### Create a VM with the main IPsec gateway on the cloud site {#create-cloud-gw}
 
 1. In the [management console]({{ link-console-main }}), go to the folder where you need to create the main IPsec gateway.
-1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../../_assets/create-resource-vm.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, specify `cloud-gw`.
-1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the `{{ region-id }}-b` availability zone where the subnet to connect the main IPsec gateway to is located.
+1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b` hosting the subnet to connect the main IPsec gateway to.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -120,7 +120,7 @@ At this stage, you will reserve two static IP addresses for IPsec gateways and c
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify `ipsec`.
-   * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, enter the [previously created](#create-ssh-keys) public SSH key to access the VM.
+   * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, enter the contents of the [previously created](#create-ssh-keys) public SSH key to access the VM.
 
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -288,7 +288,7 @@ At this stage, you will create and set up an infrastructure for a remote site of
 #### Create a network and subnet on the remote site {#remote-net}
 
 1. [Create a network](../../../vpc/operations/network-create.md) named `remote-net`. When creating your network, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
-1. In the `remote-net` network, [create a subnet](../../../vpc/operations/subnet-create.md) to connect the `remote-gw` remote IPsec gateway and a VM named `vm-1` with the following parameters:
+1. In the `remote-net` network, manually [create a subnet](../../../vpc/operations/subnet-create.md) to connect the `remote-gw` remote IPsec gateway and a VM named `vm-1` with the following parameters:
 
    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-1`
    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`
@@ -330,8 +330,8 @@ At this stage, you will create and set up an infrastructure for a remote site of
 1. Link the `remote-net-rt` route table to `subnet-1`:
 
    1. Go to the **{{ ui-key.yacloud.vpc.network.switch_overview }}** tab.
-   1. In the line of `subnet-1`, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-   1. In the window that opens, select the `remote-net-rt` route table and click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
+   1. In the `subnet-1` line, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+   1. In the window that opens, select the `remote-net-rt` table and click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 ### Create and configure VMs on the remote site {#setup-remote-vms}
 
@@ -340,9 +340,9 @@ At this stage, you will create and set up an infrastructure for a remote site of
 Create a VM to act as a remote IPsec gateway.
 
 1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a remote IPsec gateway.
-1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../../_assets/create-resource-vm.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, specify `remote-gw`.
-1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the `{{ region-id }}-b` availability zone where the subnet to connect the remote IPsec gateway to is located.
+1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b` hosting the subnet to connect the remote IPsec gateway to.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the `IPSec instance` image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -837,7 +837,7 @@ To activate an IPsec connection between the gateways:
 
 To stop paying for the resources you created:
 
-* [{#T}](../../../compute/operations/vm-control/vm-delete.md)
-* [{#T}](../../../vpc/operations/address-delete.md)
-* [{#T}](../../../vpc/operations/subnet-delete.md)
-* [{#T}](../../../vpc/operations/network-delete.md)
+* [Delete a VM](../../../compute/operations/vm-control/vm-delete.md).
+* [Delete the static public IP address](../../../vpc/operations/address-delete.md).
+* [Delete the subnet](../../../vpc/operations/subnet-delete.md).
+* [Delete a cloud network](../../../vpc/operations/network-delete.md).

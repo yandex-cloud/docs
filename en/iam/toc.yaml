@@ -123,7 +123,6 @@ items:
     href: pricing.md
   - name: Role reference
     href: roles-reference.md
-    hidden: true
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/iam/index.md
   - name: '{{ TF }} reference'

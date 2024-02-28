@@ -448,18 +448,12 @@ default:
   resmgr-name: Resource Manager
   RMQ: RabbitMQ
   roles-admin: admin
-  roles-alb-admin: alb.admin
   roles-alb-editor: alb.editor
-  roles-alb-viewer: alb.viewer
   roles-auditor: auditor
   roles-cloud-member: resource-manager.clouds.member
   roles-cloud-owner: resource-manager.clouds.owner
-  roles-cr-admin: container-registry.admin
-  roles-cr-editor: container-registry.editor
-  roles-cr-images-scanner: container-registry.images.scanner
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
-  roles-cr-viewer: container-registry.viewer
   roles-data-transfer-admin: data-transfer.admin
   roles-data-transfer-auditor: data-transfer.auditor
   roles-data-transfer-private-admin: data-transfer.privateAdmin
@@ -484,9 +478,6 @@ default:
   roles-functions-ivoker: serverless.functions.invoker
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
-  roles-lb-admin: load-balancer.admin
-  roles-lb-private-admin: load-balancer.privateAdmin
-  roles-lb-viewer: load-balancer.viewer
   roles-lockbox-admin: lockbox.admin
   roles-lockbox-editor: lockbox.editor
   roles-lockbox-payloadviewer: lockbox.payloadViewer
@@ -512,7 +503,6 @@ default:
   roles-vision-user: ai.vision.user
   roles-vpc-private-admin: vpc.privateAdmin
   roles-vpc-public-admin: vpc.publicAdmin
-  roles-vpc-sg-admin: vpc.securityGroups.admin
   roles-vpc-user: vpc.user
   roles-vpc-viewer: vpc.viewer
   roles-yagpt-user: ai.languageModels.user
@@ -525,21 +515,15 @@ default:
       admin: k8s.admin
       cluster-api:
         cluster-admin: k8s.cluster-api.cluster-admin
-        editor: k8s.cluster-api.editor
-        viewer: k8s.cluster-api.viewer
       clusters:
         agent: k8s.clusters.agent
       editor: k8s.editor
-      tunnelClusters:
-        agent: k8s.tunnelClusters.agent
-      viewer: k8s.viewer
     maf:
       admin: managed-airflow.admin
       editor: managed-airflow.editor
       viewer: managed-airflow.viewer
     mch:
       admin: managed-clickhouse.admin
-      auditor: managed-clickhouse.auditor
       editor: managed-clickhouse.editor
       viewer: managed-clickhouse.viewer
     mes:
@@ -561,11 +545,6 @@ default:
       auditor: managed-mongodb.auditor
       editor: managed-mongodb.editor
       viewer: managed-mongodb.viewer
-    mms:
-      admin: managed-sqlserver.admin
-      auditor: managed-sqlserver.auditor
-      editor: managed-sqlserver.editor
-      viewer: managed-sqlserver.viewer
     mmy:
       admin: managed-mysql.admin
       auditor: managed-mysql.auditor
@@ -677,6 +656,7 @@ default:
   tf-provider-mkf: https://terraform-provider.yandexcloud.net/Resources/mdb_kafka_cluster
   tf-provider-mmg: https://terraform-provider.yandexcloud.net/Resources/mdb_mongodb_cluster
   tf-provider-mmy: https://terraform-provider.yandexcloud.net/Resources/mdb_mysql_cluster
+  tf-provider-mos: https://terraform-provider.yandexcloud.net/Resources/mdb_opensearch_cluster
   tf-provider-mpg: https://terraform-provider.yandexcloud.net/Resources/mdb_postgresql_cluster
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
@@ -3621,6 +3601,8 @@ default:
         approved:
           tab:
             write: Writing metrics
+          widget-monitoring:
+            title: Monitor writing progress
         form:
           submit-button:
             text: Submit request
@@ -4886,6 +4868,7 @@ default:
         label_records: Data
         label_zone: Zone
         label_zone-record-sets: Records
+        label_zones-list: Zones
       elasticsearch:
         auth:
           auth-providers: Access control
@@ -5524,6 +5507,7 @@ default:
             value_cost: Cost
             value_time: Time
           hosts:
+            action_restart-host: Restart
             button_add-host: Add host
             button_add-zookeeper: Add ZooKeeper hosts
             button_create-zookeeper: Set up ZooKeeper hosts

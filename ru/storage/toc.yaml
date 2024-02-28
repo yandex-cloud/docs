@@ -127,6 +127,10 @@ items:
           Загрузка данных в {{ mch-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
+      - name: >-
+          Загрузка данных в {{ ydb-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-ydb.md
   - name: Концепции
     items:
       - name: Обзор

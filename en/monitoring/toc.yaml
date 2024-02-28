@@ -123,6 +123,8 @@ items:
         items:
           - name: Policy before October 1, 2020
             href: pricing-archive/pricing-01102020.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
