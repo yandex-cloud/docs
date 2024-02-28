@@ -24,8 +24,6 @@ You can find the FAQ for payments in [{#T}](payment.md).
 
 
 
-{% include [usd-after-30June.md](../_pricing/tracker/usd-after-30June.md) %}
-
 {% include [usd.md](../_pricing/tracker/usd.md) %}
 
 

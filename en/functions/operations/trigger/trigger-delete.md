@@ -24,10 +24,10 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
 
    {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
-   Delete the trigger:
+   Delete a trigger:
 
    ```bash
-   yc serverless trigger delete <trigger name>
+   yc serverless trigger delete <trigger_name>
    ```
 
    Result:

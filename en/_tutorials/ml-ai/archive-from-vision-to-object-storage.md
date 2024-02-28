@@ -62,14 +62,14 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select:
-      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: SSD.
-      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: 19 GB.
+      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: SSD
+      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: 19 GB
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select:
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Cascade Lake.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 20%.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: 2.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: 2 GB.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [network](../../vpc/concepts/network.md#network) and [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. If there is are no networks available, [create one](../../vpc/operations/network-create.md).
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Cascade Lake
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 20%
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: 2
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: 2 GB
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [network](../../vpc/concepts/network.md#network) and the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. If there is are no networks available, [create one](../../vpc/operations/network-create.md).
    1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random public IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you [reserved](../../vpc/operations/get-static-ip.md) one in advance.
    1. Specify the VM access details:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
@@ -141,7 +141,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
       Save the `id` parameter: this is the service account ID you will later need for the setup.
 
-   1. Assign the `editor` [role](../../iam/concepts/access-control/roles.md#editor) to the service account.
+   1. Assign the `editor` [role](../../iam/concepts/access-control/roles.md) to your service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -401,7 +401,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
         https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText \
         -o output.json
 
-      # Get the name of the image file to use it later.
+      # Get the name of the image file for later use.
       IMAGE_BASE_NAME=$(basename -- "$f")
       IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
 

@@ -25,7 +25,7 @@ description: "Follow this guide to update a function name."
    To change the function name, run the command:
 
    ```
-   yc serverless function update <function name> --new-name <new function name>
+   yc serverless function update <function_name> --new-name <function_new_name>
    ```
 
    Result:
@@ -62,10 +62,10 @@ description: "Follow this guide to update a function name."
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
-          service_account_id = "<service account ID>"
+          service_account_id = "<service_account_ID>"
           tags               = ["my_tag"]
           content {
-              zip_filename = "<path to ZIP archive>"
+              zip_filename = "<ZIP_archive_path>"
           }
       }
       ```

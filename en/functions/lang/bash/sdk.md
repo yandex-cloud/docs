@@ -10,10 +10,10 @@ For example, you can get a list of cloud folders using the following script:
 #!/bin/bash
 set -e
 
-HOME=/tmp yc --format json resource-manager folder list --cloud-id bqg1a8m7acm******** | jq -c '{body:. | tostring}'
+HOME=/tmp yc --format json resource-manager folder list --cloud-id <cloud_ID> | jq -c '{body:. | tostring}'
 ```
 
-For YC CLI commands to run successfully, make sure they specify the appropriate [folder](../../../resource-manager/operations/folder/get-id.md) or [cloud](../../../resource-manager/operations/cloud/get-id.md) ID with a `--folder-id` or `--cloud-id` flag, respectively.
+For YC CLI commands to run successfully, make sure they specify the appropriate [folder](../../../resource-manager/operations/folder/get-id.md) or [cloud](../../../resource-manager/operations/cloud/get-id.md) ID with the `--folder-id` or `--cloud-id` flag, respectively.
 
 To work with {{ yandex-cloud }} compatible services, such as [{{ objstorage-full-name }}](../../../storage/index.yaml) and [{{ message-queue-full-name }}](../../../message-queue/index.yaml), the runtime environment comes with pre-installed [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html).
 

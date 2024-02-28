@@ -202,7 +202,7 @@ Learn more about other cluster updates:
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -312,7 +312,7 @@ Learn more about other cluster updates:
    * Required storage size (in bytes) in the following parameters:
       * `configSpec.elasticsearchSpec.dataNode.resources.diskSize`: For hosts with the *Data node* role.
       * `configSpec.elasticsearchSpec.masterNode.resources.diskSize`: For hosts with the *Master node* role.
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -377,7 +377,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
       {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
    * Required DBMS values in the `configSpec.elasticsearchSpec.dataNode.elastcsearchConfig_7` parameter.
-   * List of settings to update in the `updateMask` parameter. If you skip this parameter, the API method will reset any cluster settings that are not explicitly specified in the request to their default values.
+   * List of settings to update, in the `updateMask` parameter. If you skip this parameter, the API method will reset any cluster settings that are not explicitly specified in the request to their default values.
 
    All supported settings are described in [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
@@ -531,7 +531,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 

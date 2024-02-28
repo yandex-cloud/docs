@@ -18,12 +18,16 @@ description: "Из статьи вы узнаете, как задать нас�
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     
-    * [Миграция со сменой хранилища: {{ MY }} в {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md)
-    * [Миграция со сменой хранилища: {{ PG }} в {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md)
+    * [Миграция со сменой хранилища: {{ MY }} в {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md);
+    * [Миграция со сменой хранилища: {{ PG }} в {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
-    * [Поставка данных из {{ KF }} в {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md)
+    * [Поставка данных из {{ KF }} в {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
+
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+
+    * [Загрузка данных из {{ objstorage-name }} в {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -44,7 +48,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/ydb-prepare.md) %}
 
-## Настройка эндпоинта-приемника {{ ydb-name }}
+## Настройка эндпоинта-приемника {{ ydb-name }} {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 

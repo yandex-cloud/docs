@@ -16,7 +16,7 @@ description: "Follow this guide to remove a function version tag."
    To remove a version tag, run the command:
 
    ```
-   yc serverless function version remove-tag --id <version ID> --tag <tag>
+   yc serverless function version remove-tag --id <version_ID> --tag <tag>
    ```
 
    Result:
@@ -58,10 +58,10 @@ description: "Follow this guide to remove a function version tag."
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
-          service_account_id = "<service account ID>"
+          service_account_id = "<service_account_ID>"
           tags               = ["my_tag"]
           content {
-              zip_filename = "<path to ZIP archive>"
+              zip_filename = "<ZIP_archive_path>"
           }
       }
       ```
@@ -98,7 +98,7 @@ description: "Follow this guide to remove a function version tag."
    You can check the deletion of the tags using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
-   yc serverless function version list --function-name <function name>
+   yc serverless function version list --function-name <function_name>
    ```
 
 - API {#api}

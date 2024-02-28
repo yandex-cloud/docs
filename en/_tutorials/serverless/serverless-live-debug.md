@@ -86,10 +86,6 @@ The infrastructure support costs include:
       name: sa-live-debug
       ```
 
-   - API {#api}
-
-      To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
-
    - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -121,7 +117,7 @@ The infrastructure support costs include:
             terraform plan
             ```
 
-         If the configuration is specified correctly, the terminal will display information about the service account. If there are errors in the configuration, Terraform points them out.
+         If the configuration is specified correctly, the terminal will display information about the service account. If there are errors in the configuration, Terraform will point them out.
 
       1. Deploy cloud resources.
 
@@ -130,6 +126,10 @@ The infrastructure support costs include:
             ```bash
             terraform apply
             ```
+
+   - API {#api}
+
+      To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
 
    {% endlist %}
 
@@ -160,10 +160,6 @@ The infrastructure support costs include:
       ```
       done (1s)
       ```
-
-   - API {#api}
-
-      To assign cloud roles to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
 
    - {{ TF }} {#tf}
 
@@ -204,11 +200,15 @@ The infrastructure support costs include:
             terraform apply
             ```
 
+   - API {#api}
+
+      To assign cloud roles to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+
    {% endlist %}
 
 ## Deploy your resources {#create-resources}
 
-1. Set up the CLI profile to execute operations on behalf of the service account:
+1. Set up the CLI profile to run operations on behalf of the service account:
 
    {% list tabs group=instructions %}
 
@@ -225,7 +225,7 @@ The infrastructure support costs include:
 
          Where:
          * `--service-account-id`: `sa-live-debug` ID.
-         * `--folder-id`: ID of the folder the service account was created in.
+         * `--folder-id`: ID of the folder in which the service account was created.
          * `--output`: Name of the file with the authorized key.
 
          Result:
@@ -237,7 +237,7 @@ The infrastructure support costs include:
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to execute operations on behalf of the service account:
+      1. Create a CLI profile to run operations on behalf of the service account:
 
          ```
          yc config profile create sa-live-debug

@@ -30,7 +30,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. Select a role from the [{{ yandex-cloud }} role reference](../../roles-reference.md).
    1. [Get the user ID](../users/get.md).
    1. Assign the role using the command:
 
@@ -39,7 +39,6 @@ This section describes how to assign a role to a user with a Yandex account. The
           --role <role_ID> \
           --subject userAccount:<user_ID>
       ```
-
 
       Where:
 
@@ -115,9 +114,9 @@ This section describes how to assign a role to a user with a Yandex account. The
 
    Use the `updateAccessBindings` REST API method for the respective resource.
 
-   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. Select a role from the [{{ yandex-cloud }} role reference](../../roles-reference.md).
    1. [Get the user ID](../users/get.md).
-   1. Create a request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+   1. Create the request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       **body.json:**
       ```json
@@ -182,6 +181,7 @@ This section describes how to assign a role to a user with a Yandex account. The
             --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
             --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
+
 
 - API {#api}
 
@@ -283,7 +283,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. Select a role from the [{{ yandex-cloud }} role reference](../../roles-reference.md).
    1. [Get the user ID](../users/get.md).
    1. Assign the role using the command:
 
@@ -313,9 +313,9 @@ In the management console, you can assign a [federated user](../../../organizati
 
    Use the `updateAccessBindings` REST API method for the respective resource.
 
-   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. Select a role from the [{{ yandex-cloud }} role reference](../../roles-reference.md).
    1. [Get the user ID](../users/get.md).
-   1. Create a request body, for example, in the `body.json` file. In the `action` property, specify `ADD`, and in the `subject` property, `federatedUser` as the type and the user ID:
+   1. Create the request body, for example, in the `body.json` file. In the `action` property, specify `ADD`, and in the `subject` property, `federatedUser` as the type and the user ID:
 
       **body.json:**
 
@@ -364,7 +364,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. Select a role from the [{{ yandex-cloud }} role reference](../../roles-reference.md).
    1. [Get the user ID](../users/get.md).
    1. Assign the role using the command:
 

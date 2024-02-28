@@ -26,19 +26,25 @@ In this section, you will learn:
 
 ### Roles required to access the {{ k8s }} API {#k8s-api}
 
-The following [roles](../../iam/concepts/access-control/roles.md) give the right to manage [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) resources via the {{ k8s }} API. Roles of the {{ k8s }} API employ the [role-based access control (RBAC) model](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). To manage a {{ managed-k8s-name }} cluster, combine these roles with [roles for the {{ yandex-cloud }} API](#yc-api). For more information about roles in {{ k8s }} RBAC, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles).
-
-{% include [k8s-cluster-api-viewer](../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
-
-{% include [k8s-cluster-api-editor](../../_includes/iam/roles/k8s-cluster-api-editor.md) %}
-
-{% include [k8s-cluster-api-cluster-admin](../../_includes/iam/roles/k8s-cluster-api-cluster-admin.md) %}
+The following [roles](../../iam/concepts/access-control/roles.md) give the permission to manage [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) resources via the {{ k8s }} API. Roles of the {{ k8s }} API employ the [role-based access control (RBAC) model](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). To manage a {{ managed-k8s-name }} cluster, combine these roles with [roles for the {{ yandex-cloud }} API](#yc-api). For more information about roles in {{ k8s }} RBAC, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles).
 
 To view permissions to the {{ managed-k8s-name }} cluster resources available for a specific role, run this command:
 
 ```bash
 kubectl describe clusterrole <role_in_{{ k8s }}_RBAC>
 ```
+
+#### k8s.cluster-api.viewer {#k8s-cluster-api-viewer}
+
+{% include [k8s.cluster-api.viewer](../../_roles/k8s/cluster-api/viewer.md) %}
+
+#### k8s.cluster-api.editor {#k8s-cluster-api-editor}
+
+{% include [k8s.cluster-api.editor](../../_roles/k8s/cluster-api/editor.md) %}
+
+#### k8s.cluster-api.cluster-admin {#k8s-cluster-api-cluster-admin}
+
+{% include [k8s.cluster-api.cluster-admin](../../_roles/k8s/cluster-api/cluster-admin.md) %}
 
 ### {{ managed-k8s-name }} roles {#yc-api}
 
@@ -52,25 +58,25 @@ To manage a {{ managed-k8s-name }} cluster and a node group with public access, 
 
 To create a {{ managed-k8s-name }} cluster with [tunnel mode](../concepts/network-policy.md#cilium), you only need the `k8s.tunnelClusters.agent` role.
 
-#### {{ roles.k8s.tunnelClusters.agent }} {#k8s-tunnel-clusters-agent}
+#### k8s.viewer {#k8s-viewer}
 
-{% include notitle [k8s-tunnel-clusters-agent](../../_includes/iam/roles/k8s-tunnel-clusters-agent.md) %}
+{% include [k8s.viewer](../../_roles/k8s/viewer.md) %}
 
-#### {{ roles.k8s.clusters.agent }} {#k8s-clusters-agent}
+#### k8s.editor {#k8s-editor}
 
-{% include notitle [k8s-clusters-agent](../../_includes/iam/roles/k8s-clusters-agent.md) %}
+{% include [k8s.editor](../../_roles/k8s/editor.md) %}
 
-#### {{ roles.k8s.viewer }} {#k8s-viewer}
+#### k8s.admin {#k8s-admin}
 
-{% include notitle [k8s-viewer](../../_includes/iam/roles/k8s-viewer.md) %}
+{% include [k8s.admin](../../_roles/k8s/admin.md) %}
 
-#### {{ roles.k8s.editor }} {#k8s-editor}
+#### k8s.tunnelClusters.agent {#k8s-tunnelclusters-agent}
 
-{% include notitle [k8s-editor](../../_includes/iam/roles/k8s-editor.md) %}
+{% include [k8s.tunnelClusters.agent](../../_roles/k8s/tunnelClusters/agent.md) %}
 
-#### {{ roles.k8s.admin }} {#k8s-admin}
+#### k8s.clusters.agent {#k8s-clusters-agent}
 
-{% include notitle [k8s-admin](../../_includes/iam/roles/k8s-admin.md) %}
+{% include [k8s.clusters.agent](../../_roles/k8s/clusters/agent.md) %}
 
 ### Primitive roles {#primitive-roles}
 
@@ -90,9 +96,9 @@ To create a {{ managed-k8s-name }} cluster with [tunnel mode](../concepts/networ
 
 When creating a {{ managed-k8s-name }} cluster and a node group, make sure that the [account](../../iam/concepts/users/accounts.md) used for creating the cluster has these [roles](../../iam/concepts/access-control/roles.md):
 * [{{ roles.k8s.editor }}](#k8s-editor) or higher
-* [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user)
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user)
 
-To create a {{ managed-k8s-name }} cluster and node group with public access, you also need the [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin) role:
+To create a {{ managed-k8s-name }} cluster and node group with public access, you also need the [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) role:
 
 ## {{ managed-k8s-name }} cluster service accounts {#sa-annotation}
 
@@ -106,7 +112,7 @@ To manage a {{ managed-k8s-name }} cluster and node groups with public access, y
 
 To access {{ managed-k8s-name }} via the {{ yandex-cloud }} [management console]({{ link-console-main }}), the minimum required role is `k8s.viewer`.
 
-To get detailed information about a {{ managed-k8s-name }} cluster and node group, you will need the additional `k8s.cluster-api.viewer` role. This role corresponds to the `viewer` role in {{ k8s }} RBAC and grants access rights to a limited set of resources in the {{ k8s }} API, so the console's features are limited.
+To get detailed information about a {{ managed-k8s-name }} cluster and node group, you will need the additional `k8s.cluster-api.viewer` role. This role corresponds to the `viewer` role in {{ k8s }} RBAC and grants permissions to a limited set of resources in the {{ k8s }} API, so the console's features are limited.
 
 Users with the `k8s.cluster-api.cluster-admin` role have full access to the {{ managed-k8s-name }} cluster's {{ k8s }} API and can use all the management console features.
 

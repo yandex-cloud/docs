@@ -34,7 +34,7 @@ Learn more about [{{ objstorage-full-name }} pricing plans](../../storage/pricin
 Backups in {{ objstorage-name }} are performed on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you do not have a service account, [create](../../iam/operations/sa/create.md) one.
 
 To create a service account:
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md#editor) to your service account.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/roles-reference.md#editor) to your service account.
 1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and the secret key right away. After you close the window, the private key parameters will become unavailable.
 
 

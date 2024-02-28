@@ -18,8 +18,8 @@ description: "Follow this guide to assign roles to a function."
    * User:
       ```
       yc serverless function add-access-binding \
-        --id <function ID> \
-        --user-account-id <user ID> \
+        --id <function_ID> \
+        --user-account-id <user_ID> \
         --role <role>
       ```
       Result:
@@ -29,8 +29,8 @@ description: "Follow this guide to assign roles to a function."
    * [Service account](../../../iam/concepts/users/service-accounts.md):
       ```
       yc serverless function add-access-binding \
-        --id <function ID> \
-        --service-account-id <service account ID> \
+        --id <function_ID> \
+        --service-account-id <service_account_ID> \
         --role <role>
       ```
       Result:
@@ -40,7 +40,7 @@ description: "Follow this guide to assign roles to a function."
    * All authorized users (`allAuthenticatedUsers` system group):
       ```
       yc serverless function add-access-binding \
-        --id <function ID> \
+        --id <function_ID> \
         --all-authenticated-users \
         --role <role>
       ```

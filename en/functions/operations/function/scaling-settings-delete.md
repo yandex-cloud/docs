@@ -23,7 +23,7 @@ description: "Follow this guide to delete function scaling settings."
 
    ```
    yc serverless function remove-scaling-policy \
-     --id=d4eokpuol55h******** \
+     --id=<function_ID> \
      --tag=\$latest
    ```
 
@@ -94,7 +94,7 @@ description: "Follow this guide to delete function scaling settings."
    You can check the deletion of the scaling settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```
-   yc serverless function list-scaling-policies <function_name>|<function_ID>
+   yc serverless function list-scaling-policies <function_name_or_ID>
    ```
 
 - API {#api}

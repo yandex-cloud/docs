@@ -1,6 +1,6 @@
 # Using external tables
 
-{{ GP }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to [data in external DBMS](#pxf) uses the _PXF_ protocol whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
+{{ GP }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to [data in external DBMS's](#pxf) uses the _PXF_ protocol, whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
 
 With external tables, you can:
 
@@ -28,7 +28,7 @@ Without these settings, the cluster will have no access to external sources.
 
 ## Connecting to external DBMS {#pxf}
 
-The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.pivotal }}/6-4/pxf/overview_pxf.html) is a software platform that provides access to data from external DBMS's. You can connect tables from the following external sources:
+[{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) is a software platform to access the data in external DBMS's. You can connect tables from the following external sources:
 
 * Apache Hive
 * {{ CH }}

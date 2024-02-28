@@ -1,4 +1,8 @@
-# Logs
+# Monitoring and logs
+
+#### How can I monitor the {{ managed-k8s-name }} cluster state? {#monitoring}
+
+[Get the cluster statistics](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-stats.md). You can view the description of the available cluster metrics in the [reference](../../managed-kubernetes/metrics.md).
 
 {% include [logs](../logs.md) %}
 

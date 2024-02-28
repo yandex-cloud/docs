@@ -109,7 +109,11 @@ items:
         href: yql-tutorials/json.md
       - name: Выполнение запроса к потоковым данным
         href: yql-tutorials/streaming-query.md
-  - name: HTTP API
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
     items:
       - name: Обзор
         href: api/index.md
@@ -131,10 +135,8 @@ items:
             href: api/methods/get-query-results.md
       - name: Соответствие YQL и Json-типов
         href: api/yql-json-conversion-rules.md
-  - name: Управление доступом
-    href: security/index.md
-  - name: Правила тарификации
-    href: pricing.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Публичные материалы

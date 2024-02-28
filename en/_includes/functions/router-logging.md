@@ -3,9 +3,9 @@
 When handling each function call, the system logs `START`, `END`, and `REPORT` system messages:
 
 ```
-START RequestID: <request ID> Version: <function version ID>
-END RequestID: <request ID>
-REPORT RequestID: <request ID>
+START RequestID: <request_ID> Version: <function_version_ID>
+END RequestID: <request_ID>
+REPORT RequestID: <request_ID>
     Duration: 236.606 ms
     Billed Duration: 300 ms
     Memory Size: 128 MB
@@ -18,10 +18,9 @@ All lines contain the ID of the request (`RequestID`), which is generated automa
 
 The `REPORT` line provides a report on the function execution. It contains additional information about the resources consumed:
 
-* `Duration`: The time spent invoking the function. It includes the `Queuing Duration` and `Function Init Duration` parameters.
-* `Billed Duration`: The time you're billed for in accordance with the [pricing policy](../../functions/pricing.md).
-* `Memory Size`: The amount of memory specified when creating the version, MB.
-* `Max Memory Used`: The amount of memory used at the start of the request.
-* `Queuing Duration`: The time spent by the function call request in the internal queue. If it increases, this may mean there aren't enough function instances. The maximum number of instances depends on the [quotas](../../functions/concepts/limits.md).
-* `Function Init Duration`: The time spent initializing the runtime and loading the function code.
-
+* `Duration`: Time spent invoking the function. It includes the `Queuing Duration` and `Function Init Duration` parameters.
+* `Billed Duration`: Time billed based on the [pricing policy](../../functions/pricing.md).
+* `Memory Size`: Memory size specified when creating the version, MB.
+* `Max Memory Used`: Memory used at the start of the request.
+* `Queuing Duration`: Time spent by the function call request in the internal queue. If this time increases, it may indicate a lack of function instances. The maximum number of instances is determined by the [quotas](../../functions/concepts/limits.md).
+* `Function Init Duration`: Time spent initializing the runtime and loading the function code.

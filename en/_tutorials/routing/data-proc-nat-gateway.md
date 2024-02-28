@@ -45,9 +45,9 @@ You have to create:
 
    1. [Create a service account](../../iam/operations/sa/create.md) named `data-proc-sa` with the following roles:
 
-      * [mdb.dataproc.agent](../../iam/concepts/access-control/roles.md#mdb-dataproc-agent)
-      * [storage.uploader](../../iam/concepts/access-control/roles.md#storage-uploader)
-      * [storage.viewer](../../iam/concepts/access-control/roles.md#storage-viewer)
+      * [mdb.dataproc.agent](../../data-proc/security/index.md#mdb-dataproc-agent)
+      * [storage.uploader](../../storage/security/index.md#storage-uploader)
+      * [storage.viewer](../../storage/security/index.md#storage-viewer)
 
    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 
@@ -79,7 +79,7 @@ You have to create:
 
    1. Run the `terraform init` command in the working directory hosting the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
 
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -135,7 +135,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    1. Delete the `data-proc-nat-gateway.tf` configuration file.
 
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

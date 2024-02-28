@@ -192,7 +192,7 @@ The sensor outputs the result in JSON format. Here is an example:
 
 ```json
 {
-"DeviceId":"0e3ce1d0-1504-4325-972f-55c961319814",
+"DeviceId":"0e3ce1d0-1504-4325-972f-55c9********",
 "TimeStamp":"2020-05-21T22:53:16Z",
 "Values":[
     {"Type":"Float","Name":"Humidity","Value":"25.281837"},
@@ -330,12 +330,12 @@ The trigger will accept copies of messages from the device topic and pass them t
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify the topic that the device sends data to:
 
          ```
-         $devices/<device id>/events
+         $devices/<device_ID>/events
          ```
 
-         Where `<device id>` is the ID of your device.
+         Where `<device_ID>` is the ID of your device.
 
-         The trigger works when new data appears in the specified topic.
+         The trigger will fire as soon as new data appears in the specified topic.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 
@@ -350,10 +350,10 @@ The trigger will accept copies of messages from the device topic and pass them t
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the created resources:
+To shut down the infrastructure and stop paying for the resources you created:
 
-1. [Delete](../../iot-core/operations/device/device-delete.md) the device.
-1. [Delete](../../iot-core/operations/registry/registry-delete.md) the registry.
-1. [Delete](../../managed-postgresql/operations/cluster-delete.md) the {{ PG }} cluster.
-1. [Delete](../../functions/operations/trigger/trigger-delete.md) the trigger.
-1. [Delete](../../functions/operations/function/function-delete.md) the function.
+1. [Delete](../../iot-core/operations/device/device-delete.md) a device.
+1. [Delete](../../iot-core/operations/registry/registry-delete.md) a registry.
+1. [Delete](../../managed-postgresql/operations/cluster-delete.md) a {{ PG }} cluster.
+1. [Delete](../../functions/operations/trigger/trigger-delete.md) a trigger.
+1. [Delete](../../functions/operations/function/function-delete.md) a function.

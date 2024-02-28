@@ -51,7 +51,7 @@ items:
             href: operations/applications/filebeat-oss.md
           - name: Installing Fluent Bit
             href: operations/applications/fluentbit.md
-          - name: Installing Gateway API
+          - name: Installing the Gateway API
             href: operations/applications/gateway-api.md
           - name: Installing {{ GL }} Agent
             href: operations/applications/gitlab-agent.md
@@ -120,6 +120,8 @@ items:
           - name: Creating a namespace in a {{ k8s }} cluster
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
+          - name: Monitoring {{ k8s }} cluster state
+            href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
@@ -132,7 +134,7 @@ items:
             href: operations/node-connect-ssh.md
           - name: Configuring autoscaling
             href: operations/autoscale.md
-          - name: Changing a node group
+          - name: Updating a node group
             href: operations/node-group/node-group-update.md
           - name: Managing {{ k8s }} node labels
             href: operations/node-group/node-label-management.md
@@ -220,7 +222,7 @@ items:
             href: tutorials/kubernetes-lockbox-secrets.md
           - name: Configuring Fluent Bit for {{ cloud-logging-name }}
             href: tutorials/fluent-bit-logging.md
-          - name: Setting up Gateway API
+          - name: Setting up the Gateway API
             href: tutorials/marketplace/gateway-api.md
           - name: Configuring the {{ alb-name }} Ingress controller
             href: tutorials/alb-ingress-controller.md
@@ -250,7 +252,7 @@ items:
             href: concepts/volume.md
           - name: Service
             href: concepts/service.md
-      - name: Node groups
+      - name: Node group
         items:
           - name: Cluster autoscaler
             href: concepts/node-group/cluster-autoscaler.md
@@ -366,7 +368,7 @@ items:
         href: qa/cluster-autoscaler.md
       - name: Resources
         href: qa/resources.md
-      - name: Logs
+      - name: Monitoring and logs
         href: qa/logs.md
       - name: Troubleshooting
         href: qa/troubleshooting.md

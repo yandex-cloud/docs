@@ -5,8 +5,6 @@ description: "This guide describes how you can specify a cloud network that will
 
 # Specifying a cloud network to host an API gateway
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 You can specify a [cloud network](../../vpc/concepts/network.md#network) to host an API gateway.
 
 {% include [network](../../_includes/functions/network.md) %}

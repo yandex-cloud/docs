@@ -3,6 +3,11 @@
 * Fixed the `gpu-standard-v3` platform issues.
 * Updated system components and packages.
 
+### Version 2.2.0 {#version2.2.0}
+
+* Added the `net.netfilter.nf_conntrack_tcp_be_liberal = 1` flag to the sysctl configuration.
+* Updated system components and packages.
+
 ### Version 2.1.1 {#version2.1.1}
 
 * Added a rotation of Docker container logs using the `local` logging driver.
@@ -11,14 +16,15 @@
 
 ### Version 2.1.0 {#version2.1.0}
 
-* Added support for the XFS file system in the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
+* Added support for the XFS file system in the [Docker Compose specification](../../cos/concepts/index.md#compose-spec).
 * Added Docker container labels to identify automatically launched containers.
 * Added COI version information to Docker image descriptions.
 * Fixed the disk mount issue after VM restart when using the Docker Compose specification.
 
 ### Version 2.0.4 {#version2.0.4}
 
-* Added a {{ coi }} with GPU support: `yc compute image get-latest-from-family coi-base-gpu --folder-id standard-images`.
+* Added a Container Optimized Image with GPU support.
+  `yc compute image get-latest-from-family coi-base-gpu --folder-id standard-images`
 
 ### Version 2.0.3 {#version2.0.3}
 

@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
    1. [Create service accounts](../../../iam/operations/sa/create.md):
       * Service account for {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) assembled in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md) and pull them to run [pods](../../concepts/index.md#pod).
+      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller) and [{{ roles-cr-pusher }}](../../../container-registry/security/index.md#container-registry-images-pusher) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) built in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md) and pull them to run [pods](../../concepts/index.md#pod).
 
       {% note tip %}
 
@@ -34,8 +34,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
-   1. [Configure the default security group](../../../managed-gitlab/operations/configure-security-group.md) required for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance) to run.
+   1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
+   1. [Configure a security group](../../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance).
    1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
    1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
 
@@ -60,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ container-registry-name }} registry.
    1. Specify the following in the configuration file:
       * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
+      * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.
       * {{ managed-k8s-name }} cluster CIDR.
       * Name of the service account for {{ managed-k8s-name }} resources and nodes.
       * Name of the {{ container-registry-name }} registry.
@@ -125,13 +125,13 @@ Install the following items in the local environment:
 1. Clone the repository:
 
    ```bash
-   git clone git@<instance_name>.gitlab.yandexcloud.net:<admin_name>/gitlab-test.git
+   git clone git@<instance_name>.gitlab.yandexcloud.net:<admin_username>/gitlab-test.git
    ```
 
 1. Clone the [yc-webinar-gitops-argo-crossplane](https://github.com/yandex-cloud-examples/yc-webinar-gitops-argo-crossplane) repository to your instance:
 
    ```bash
-   git clone git@github.com:yandex-cloud-examples/yc-webinar-gitops-argo-crossplane.git
+   git clone https://github.com/yandex-cloud-examples/yc-webinar-gitops-argo-crossplane.git
    ```
 
 1. To the `gitlab-test` directory, copy all files from the `yc-webinar-gitops-argo-crossplane/02-argocd/app` directory, including hidden files:
@@ -152,7 +152,7 @@ Install the following items in the local environment:
 1. Open the completed build and copy the following line from the log (you will need it at the next step):
 
    ```text
-   INFO[0025] Pushing image to {{ registry }}/<registry_ID>/<admin_name>/gitlab-test:main.<commit_number>
+   INFO[0025] Pushing image to {{ registry }}/<registry_ID>/<admin_username>/gitlab-test:main.<commit_number>
    ```
 
 ## Deploy your application using Argo CD {#deploy-argo}
@@ -192,9 +192,9 @@ Install the following items in the local environment:
 1. In the Argo CD console, go to **Settings** → **Repositories**.
 1. Click **Connect Repo Using HTTPS**.
 1. In the resulting form, enter the settings:
-   * **Repository URL**: Repository URL in the following format: `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_name>/gitlab-test.git`.
+   * **Repository URL**: Repository URL in the following format: `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_username>/gitlab-test.git`.
    * **Username**: `gitlab-ci-token`.
-   * **Password**: A previously generated {{ GL }} token.
+   * **Password**: Previously generated {{ GL }} token.
 1. Click **Connect**.
 1. In the Argo CD console, go to **Applications**, then click **Create Application**.
 1. In the resulting form, enter the settings:
@@ -202,7 +202,7 @@ Install the following items in the local environment:
    * **Project**: `default`.
    * **Sync policy**: `Automatic`, then select **Prune resources** and **Self Heal**.
    * **Sync options**: Select the `Auto-Create Namespace` option.
-   * **Repository URL**: Specify the repository URL, such as `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_name>/gitlab-test.git`.
+   * **Repository URL**: Specify the repository URL, such as `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_username>/gitlab-test.git`.
    * **Path**: `.helm`.
    * **Cluster URL**: `https://kubernetes.default.svc`.
    * **Namespace**: `gitlab-test`.

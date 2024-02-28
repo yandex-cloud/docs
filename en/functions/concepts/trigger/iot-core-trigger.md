@@ -1,6 +1,6 @@
 # Trigger for {{ iot-short-name }} that sends messages to the {{ sf-name }} function
 
-A [trigger](../trigger/) for {{ iot-short-name }} is designed for managing messages exchanged between devices, registries, and brokers. The trigger is created for topics: it receives copies of messages from them and delivers those copies to the {{ sf-name }} function for processing.
+A [trigger](../trigger/) for {{ iot-short-name }} manages messages exchanged between devices, registries, and brokers. You create this trigger for topics: it receives copies of messages from topics and sends those to the {{ sf-name }} function for processing.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
 
@@ -12,7 +12,7 @@ For more information about creating a trigger for {{ iot-short-name }}, see [{#T
 
 ## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#roles}
 
-* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [{{ roles-editor }}](../../../iam/roles-reference.md#editor) roles and higher.
 * For the trigger to fire, the service account needs the `{{ roles-functions-invoker }}` role for the folder containing the function called by the trigger.
 
 Read more about [access management](../../security/index.md).

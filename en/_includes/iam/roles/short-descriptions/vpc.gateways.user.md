@@ -1,1 +1,0 @@
-[`vpc.gateways.user`](../../../../iam/concepts/access-control/roles.md#vpc-gw-user): Allows you to connect NAT gateways to route tables.

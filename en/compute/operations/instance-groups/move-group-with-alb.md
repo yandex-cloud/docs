@@ -23,7 +23,7 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
 
       1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the the appropriate load balancer row, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the the appropriate load balancer row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone to move the instance group to.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 

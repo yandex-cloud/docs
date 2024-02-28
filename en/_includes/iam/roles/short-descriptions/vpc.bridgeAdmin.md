@@ -1,1 +1,0 @@
-[`vpc.bridgeAdmin`](../../../../iam/concepts/access-control/roles.md#vpc-bridgeadmin): This role grants administrator privileges for multi-interface VMs that provide connectivity between multiple networks.

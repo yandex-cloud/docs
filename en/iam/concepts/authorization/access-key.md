@@ -41,6 +41,8 @@ A secret consists of 40 characters and always starts with `YC`. Other characters
 
 Here is an example of a secret key: `YCVdheub7w9bImcGAnd3dZnf08FRbvjeUFvehGvc`.
 
+For an example of using a secret key and its ID in an AWS-compliant API, see the [AWS Command Line Interface](../../../storage/tools/aws-cli.md#config-files) section.
+
 ## Services that support this authentication method {#supported-services}
 
 The following services support authentication based on static access keys:

@@ -69,6 +69,11 @@ description: "{{ managed-prometheus-full-name }} — система монито
 Количество уникальных метрик | 10 000 000
 Максимальное время хранения [устаревших метрик](../../concepts/ttl.md) | 60 дней
 
+На вкладке **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** справа находится блок **{{ ui-key.yacloud_monitoring.prometheus.approved.widget-monitoring.title }}**. С помощью него можно:
+
+* посмотреть количество записанных метрик;
+* перейти на страницу с сервисными [дашбордами](../../concepts/visualization/dashboard) и посмотреть количество запросов, ошибок и HTTP-статусов в секунду для разных эндпоинтов.
+
 ### Лимиты для одного эндпоинта {#limits-per-endpoint}
 
 Вид ограничения | Значение

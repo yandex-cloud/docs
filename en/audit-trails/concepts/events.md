@@ -57,11 +57,7 @@ On this page, you will find events for the following services:
 
 Service name: `serverless.apigateway`.
 
-| Event name | Description |
---- | ---
-| `CreateApiGateway` | Creating a gateway |
-| `DeleteApiGateway` | Deleting a gateway |
-| `UpdateApiGateway` | Updating a gateway |
+{% include [api-gw-events](../../_includes/audit-trails/events/api-gw-events.md) %}
 
 
 ## {{ alb-name }} {#alb}
@@ -86,25 +82,7 @@ Service name: `audittrails`.
 
 Service name: `serverless`.
 
-| Event name | Description |
---- | ---
-| `functions.CreateFunction` | Creating a function |
-| `functions.CreateFunctionVersion` | Creating a function version |
-| `functions.DeleteFunction` | Deleting a function |
-| `functions.DeleteFunctionVersion` | Destroying a function version |
-| `functions.RemoveFunctionTag` | Removing a function tag |
-| `functions.RemoveScalingPolicy` | Deleting a function scaling policy |
-| `functions.SetFunctionTag` | Assigning a function tag |
-| `functions.SetFunctionAccessBindings` | Setting access bindings for a function |
-| `functions.SetScalingPolicy` | Assigning a function scaling policy |
-| `functions.UpdateFunction` | Updating a function |
-| `functions.UpdateFunctionAccessBindings` | Updating access bindings for a function |
-| `mdbproxy.CreateProxy` | Creating a proxy |
-| `mdbproxy.DeleteProxy` | Deleting a proxy |
-| `mdbproxy.UpdateProxy` | Updating a proxy |
-| `triggers.CreateTrigger` | Creating a trigger |
-| `triggers.DeleteTrigger` | Deleting a trigger |
-| `triggers.UpdateTrigger` | Updating a trigger |
+{% include [functions-events](../../_includes/audit-trails/events/functions-events.md) %}
 
 
 ## {{ backup-name }} {#backup}
@@ -146,29 +124,8 @@ Service name: `dns`.
 
 Service name: `logging`.
 
-| Event name | Description |
---- | ---
-| `ChangeLogGroupAccessBindings` | Updating access bindings for a log group |
-| `CreateExport` | Creating a log export |
-| `CreateLogGroup` | Creating a log group |
-| `CreateRoutingRule` | Creating a routing rule |
-| `CreateSink` | Creating a log sink |
-| `UpdateLogGroup` | Updating a log group |
-| `DeleteExport` | Deleting a log export |
-| `DeleteLogGroup` | Deleting a log group |
-| `DeleteRoutingRule` | Deleting a routing rule |
-| `DeleteSink` | Deleting a log sink |
-| `SetExportAccessBindings` | Setting access bindings for a log export |
-| `SetLogGroupAccessBindings` | Setting access bindings for a log group |
-| `SetRoutingRuleAccessBindings` | Setting access bindings for a routing rule |
-| `SetSinkAccessBindings` | Setting access bindings for a log sink |
-| `UpdateExport` | Updating a log export |
-| `UpdateExportAccessBindings` | Updating access bindings for a log export |
-| `UpdateLogGroupAccessBindings` | Updating access bindings for a log group |
-| `UpdateRoutingRule` | Updating a routing rule |
-| `UpdateRoutingRuleAccessBindings` | Updating access bindings for a routing rule |
-| `UpdateSink` | Updating a log sink |
-| `UpdateSinkAccessBindings` | Updating access bindings for a log sink |
+{% include [logging-events](../../_includes/audit-trails/events/logging-events.md) %}
+
 
 ## {{ compute-name }} {#compute}
 
@@ -180,64 +137,17 @@ Service name: `compute`.
 
 Service name: `containerregistry`.
 
-| Event name | Description |
---- | ---
-| `CreateImage` | Creating an image |
-| `CreateImageTag` | Creating an image tag |
-| `CreateLifecyclePolicy` | Creating a lifecycle policy |
-| `CreateRegistry` | Creating a registry |
-| `CreateRepository` | Creating a repository |
-| `CreateScanPolicy` | Creating a scan policy |
-| `DeleteImage` | Deleting an image |
-| `DeleteImageTag` | Deleting an image tag |
-| `DeleteLifecyclePolicy` | Deleting a lifecycle policy |
-| `DeleteRegistry` | Deleting a registry |
-| `DeleteRepository` | Deleting a repository |
-| `DeleteScanPolicy` | Deleting a scan policy |
-| `ScanImage` | Scanning an image |
-| `SetIpPermission` | Assigning an IP access policy |
-| `UpdateIpPermission` | Updating policies for accessing a registry from IP addresses |
-| `UpdateLifecyclePolicy` | Updating a lifecycle policy |
-| `UpdateRegistry` | Updating a registry |
-| `UpdateScanPolicy` | Updating a scan policy |
-| `UpdateRegistryAccessBindings` | Updating access bindings for a registry |
-| `UpdateRepositoryAccessBindings` | Updating access bindings for a repository |
-| `SetRegistryAccessBindings` | Setting access bindings for a registry |
-| `SetRepositoryAccessBindings` | Setting access bindings for a repository |
+{% include [container-registry-events](../../_includes/audit-trails/events/container-registry-events.md) %}
 
 ## {{ dataproc-name }} {#dataproc}
 
 Service name: `dataproc`.
 
-| Event name | Description |
---- | ---
-| `CreateCluster` | Creating a cluster |
-| `CreateSubcluster` | Creating a subcluster |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteSubcluster` | Deleting a subcluster |
-| `StartCluster` | Starting a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `UpdateSubcluster` | Updating subclusters |
-
 ## {{ data-transfer-name }} {#datatransfer}
 
 Service name: `datatransfer`.
 
-| Event name | Description |
---- | ---
-| `ActivateTransfer` | Activating a transfer |
-| `CreateEndpoint` | Creating an endpoint |
-| `CreateTransfer` | Creating a transfer |
-| `DeactivateTransfer` | Deactivating a transfer |
-| `DeleteEndpoint` | Deleting an endpoint |
-| `DeleteTransfer` | Deleting a transfer |
-| `FreezeTransferVersion` | Committing a certain data plane version for a transfer |
-| `RestartTransfer` | Restarting a transfer |
-| `UnfreezeTransferVersion` | Enabling transfer upgrades to the latest data plane version |
-| `UpdateEndpoint` | Updating an endpoint |
-| `UpdateTransfer` | Updating a transfer |
-| `UpdateTransferVersion` | Updating the version of a data plane transfer |
+{% include [datatransfer-events](../../_includes/audit-trails/events/datatransfer-events.md) %}
 
 ## {{ ml-platform-name }} {#datasphere}
 
@@ -255,14 +165,7 @@ Service name: `iam`.
 
 Service name: `iot`.
 
-| Event name | Description |
---- | ---
-| `devices.CreateDevice` | Creating a device |
-| `devices.CreateRegistry` | Creating a registry |
-| `devices.DeleteDevice` | Deleting a device |
-| `devices.DeleteRegistry` | Deleting a registry |
-| `devices.UpdateDevice` | Updating a device |
-| `devices.UpdateRegistry` | Updating a registry |
+{% include [iot-events](../../_includes/audit-trails/events/iot-events.md) %}
 
 ## {{ kms-name }} {#kms}
 
@@ -274,22 +177,7 @@ Service name: `kms`.
 
 Service name: `loadtesting`.
 
-| Event name | Description |
---- | ---
-| `CreateAgent` | Creating an agent |
-| `CreateConfig` | Creating a configuration |
-| `CreateMigration` | Creating a migration |
-| `CreateTest` | Creating a test |
-| `DeleteAgent` | Deleting an agent |
-| `DeleteConfig` | Deleting a configuration |
-| `DeleteTest` | Deleting a test |
-| `RestartAgent` | Restarting an agent |
-| `StartAgent` | Running an agent |
-| `StopAgent` | Stopping an agent |
-| `StopTest` | Stopping a test |
-| `UpdateAgent` | Updating an agent |
-| `UpdateTest` | Updating a test |
-| `UpgradeImageAgent` | Updating an agent image |
+{% include [load-testing-events](../../_includes/audit-trails/events/load-testing-events.md) %}
 
 ## {{ lockbox-name }} {#lockbox}
 
@@ -568,21 +456,7 @@ Service name: `searchapi`.
 
 Service name: `serverless.containers`.
 
-| Event name | Description |
---- | ---
-| `CreateContainer` | Creating a container |
-| `DeleteContainer` | Deleting a container |
-| `DeployContainerRevision` | Creating a container revision |
-| `RollbackContainer` | Rolling back to a target container revision |
-| `SetContainerAccessBindings` | Setting access bindings to a container |
-| `UpdateContainer` | Updating a container |
-| `UpdateContainerAccessBindings` | Updating access bindings to a container |
-| `mdbproxy.CreateProxy` | Creating a proxy |
-| `mdbproxy.DeleteProxy` | Deleting a proxy |
-| `mdbproxy.UpdateProxy` | Updating a proxy |
-| `triggers.CreateTrigger` | Creating a trigger |
-| `triggers.DeleteTrigger` | Deleting a trigger |
-| `triggers.UpdateTrigger` | Updating a trigger |
+{% include [serverless-containers-events](../../_includes/audit-trails/events/serverless-containers-events.md) %}
 
 ## {{ org-name }} {#organization}
 

@@ -134,16 +134,16 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
-        name        = "<trigger name>"
-        description = "<trigger description>"
+        name        = "<trigger_name>"
+        description = "<trigger_description>"
         object_storage {
-           bucket_id = "<bucket ID>"
+           bucket_id = "<bucket_ID>"
            create    = true
            update    = true
         }
         function {
-          id                 = "<function ID>"
-          service_account_id = "<service account ID>"
+          id                 = "<function_ID>"
+          service_account_id = "<service_account_ID>"
         }
       }
       ```
@@ -193,7 +193,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
          ```
-         yc serverless trigger get <trigger ID>
+         yc serverless trigger get <trigger_ID>
          ```
 
 - API {#api}

@@ -39,7 +39,7 @@ For the purpose of centralized account management, use [SAML-compatible identity
 * Two-factor authentication.
 
 [Instructions for setting up SAML-based identity federations](../../organization/concepts/add-federation#federation-usage).
-[Instructions for setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
+[Guide on configuring a SAML federation with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
 {% note tip %}
 
@@ -51,11 +51,11 @@ Use federated accounts instead of Yandex ID accounts whenever possible.
 
 The [principle of minimum privileges](../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles.
 
-We don't recommend using primitive roles like `admin`, `editor`, `member`, and `viewer` that are valid in all services. To ensure more selective access control and implementation of the principle of minimum privileges, use service roles that only contain permissions for a certain type of resources in the specified service.
+We do not recommend using primitive roles like `admin`, `editor`, `member`, and `viewer` that are valid for all services. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service.
 
 {% note info %}
 
-When a new user is added to the cloud, they're automatically assigned the [cloud member role](../../iam/concepts/access-control/roles.md#member): `resource-manager.clouds.member`. This role is necessary for working with the cloud and does not give any privileges.
+When a new user is added to the cloud, they automatically get the [cloud member role](../../resource-manager/security/index.md#resource-manager-clouds-member): `resource-manager.clouds.member`. This role is necessary to use the cloud and does not give any privileges.
 
 {% endnote %}
 
@@ -77,11 +77,11 @@ When using service accounts:
    ```
 
 * Store the service account keys and manage them in compliance with the standard requirements.
-* Follow the principle of minimum privileges and [assign to the service account](../../iam/operations/roles/grant.md#access-to-sa) only those roles that are needed to run the application.
+* Follow the principle of least privilege and [assign to the service account](../../iam/operations/roles/grant.md#access-to-sa) only those roles that are needed to run the application.
 
    {% note info %}
 
-   You can grant permissions to [use a service account](../../iam/concepts/access-control/roles.md#sa-user) under another user or service account.
+   You can grant permissions to [use a service account](../../iam/security/index.md#iam-serviceAccounts-user) under another user or service account.
 
    {% endnote %}
 
@@ -106,11 +106,10 @@ To set up 2FA for a Yandex ID account, follow the [instructions](https://yandex
 
 The `billing.accounts.owner` role is granted automatically when creating a billing account and cannot be reassigned to another user. The role allows you to perform any action with the billing account. The `billing.accounts.owner` role can only be assigned to a Yandex ID account. An account with the `billing.accounts.owner` role is used when setting up payment methods and adding clouds.
 
-Make sure to properly secure this account, since it has significant privileges and can't be federated with a corporate account.
-
+Make sure to properly secure this account: it offers significant privileges and cannot be federated with a corporate account.
 The most appropriate approach would be to not use this account on a regular basis:
 * Only use it for initial setup and updates.
-* For the duration that this account is actively used, be sure to enable two-factor authentication (2FA) in Yandex ID.
+* When actively using this account, enable two-factor authentication (2FA) in Yandex ID.
 * After that, if you don't use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
 * Change the password to a newly generated one each time you use the account.
 
@@ -148,10 +147,10 @@ To use a database at the application level, in addition to {{ iam-short-name }} 
 ## Providing {{ yandex-cloud }} access to contractors {#contractors}
 
 If you grant third-party contractors access to your clouds, make sure to follow these security measures:
-* Assign permissions to contractor employees based on the principle of minimum privileges.
-* If possible, create a separate account for third-party employees in your corporate IdP and assign the necessary policies to this account.
-* Make sure they handle their account secrets carefully.
-* Review the expedience of granting external users access to your cloud infrastructure.
+* Assign permissions to contractor employees based on the principle of least privilege.
+* If possible, create a separate account for third-party employees in your corporate IdP and assign the required policies to this account.
+* Require them to handle their account secrets with care.
+* Review the relevance of granting external users access to your cloud infrastructure.
 
 ## Resource model {#resourses}
 

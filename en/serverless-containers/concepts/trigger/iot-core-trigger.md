@@ -12,12 +12,12 @@ For more information about creating a trigger for {{ iot-short-name }}, see [{#T
 
 ## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#roles}
 
-* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
 * To run a trigger, the service account needs the `serverless.containers.invoker` role for the folder with the container to be invoked by the trigger.
 
 Read more about [access management](../../security/index.md).
 
-## Trigger for {{ iot-short-name }} message format {#format}
+## {{ iot-short-name }} trigger message format {#format}
 
 Before copying a message to a container, the trigger converts the copy to the below format.
 

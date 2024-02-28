@@ -107,7 +107,7 @@ items:
         href: concepts/registry.md
       - name: Repository
         href: concepts/repository.md
-      - name: Docker image lifecycle policies
+      - name: Docker image lifecycle policy
         href: concepts/lifecycle-policy.md
       - name: Vulnerability scanner
         href: concepts/vulnerability-scanner.md
@@ -121,6 +121,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/container/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -253,8 +257,10 @@ items:
                 href: api-ref/Scanner/listVulnerabilities.md
               - name: scan
                 href: api-ref/Scanner/scan.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Troubleshooting
     href: error/index.md
-  - name: Q&A
+  - name: FAQ
     href: qa/index.md
 base: en/container-registry

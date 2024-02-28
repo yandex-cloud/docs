@@ -16,7 +16,7 @@ description: "Follow this guide to delete a trigger label in {{ sf-name }}."
    To delete a trigger label, run this command:
 
    ```bash
-   yc serverless trigger remove-labels <trigger name> --labels <key>
+   yc serverless trigger remove-labels <trigger_name> --labels <key>
    ```
 
    Result:
@@ -101,10 +101,10 @@ description: "Follow this guide to delete a trigger label in {{ sf-name }}."
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the trigger using this [CLI](../../../cli/quickstart.md) command:
+      You can check the trigger update using this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc serverless trigger get <trigger ID>
+      yc serverless trigger get <trigger_ID>
       ```
 
 - API {#api}

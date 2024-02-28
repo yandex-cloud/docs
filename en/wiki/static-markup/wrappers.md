@@ -17,7 +17,7 @@ Use the `wrapper` parameter to apply one of the block formatting templates. The 
 
 {% note tip %}
 
-When using the `wrapper` parameter, you can add other parameters to customize a block's [position](#align) on the page, [width](#width), color, type and thickness of [borders](#border).
+When using the `wrapper` parameter, you can add other parameters to customize a block's [position](#align) on the page, its [width](#width), color, type, and thickness of its [borders](#border).
 
 {% endnote %}
 
@@ -34,7 +34,7 @@ Text inside the block
 
 Use the `align` parameter to adjust the position of a block on the page.
 
-Along with the `wrapper=text` parameter, the `align` parameter lets you adjust the alignment of text inside the block.
+Along with the `wrapper=text` parameter, the `align` parameter allows you to adjust the alignment of text inside the block.
 
 | Parameter | Description |
 ---|---
@@ -68,7 +68,7 @@ For example:
 Use the `border` parameter to adjust the border around a block.
 
 ```
-border="<thickness in pixels> <line type> <line color>"
+border="<thickness_in_pixels> <line_type> <line_color>"
 ```
 | Parameter | Description |
 ---|---

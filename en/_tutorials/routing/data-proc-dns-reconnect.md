@@ -26,7 +26,7 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`
       * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`
 
-   1. [Create a NAT gateway](../../vpc/operations/create-nat-gateway.md) and routing table named `data-proc-route-table` in `data-proc-network`. Associate the routing table with the `data-proc-subnet-a` subnet.
+   1. [Create a NAT gateway](../../vpc/operations/create-nat-gateway.md) and a routing table named `data-proc-route-table` in `data-proc-network`. Associate the routing table with the `data-proc-subnet-a` subnet.
 
    1. In the `data-proc-network` subnet, [create a security group](../../vpc/operations/security-group-create.md) named `data-proc-security-group` with the following rules:
 
@@ -46,9 +46,9 @@ Prepare the infrastructure:
 
    1. [Create a service account](../../iam/operations/sa/create.md) named `data-proc-sa` with the following roles:
 
-      * [dataproc.agent](../../iam/concepts/access-control/roles.md#mdb-dataproc-agent)
-      * [storage.uploader](../../iam/concepts/access-control/roles.md#storage-uploader)
-      * [storage.viewer](../../iam/concepts/access-control/roles.md#storage-viewer)
+      * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent)
+      * [storage.uploader](../../storage/security/index.md#storage-uploader)
+      * [storage.viewer](../../storage/security/index.md#storage-viewer)
 
    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 

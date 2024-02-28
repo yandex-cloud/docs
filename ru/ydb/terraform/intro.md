@@ -15,4 +15,13 @@
 4. [Создание и изменение параметров бессерверной базы данных](serverless-database.md).
 5. [Создание и изменение параметров выделенной базы данных](dedicated-database.md).
 6. [Создание строковых таблиц в базе данных](row-tables.md).
-7. [Создание потока изменений таблицы](cdc.md).    
+7. [Создание потока изменений таблицы](cdc.md).
+
+Для {{ ydb-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
+
+| **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
+| --- | --- |
+| [yandex_ydb_database_dedicated]({{ tf-provider-resources-link }}/ydb_database_dedicated) | База данных [на выделенных ресурсах](../concepts/resources.md#resource-presets) (Dedicated) |
+| [yandex_ydb_database_iam_binding]({{ tf-provider-resources-link }}/ydb_database_iam_binding) | [Роль](../security/index.md#roles-list) на базу данных |
+| [yandex_ydb_database_serverless]({{ tf-provider-resources-link }}/ydb_database_serverless) | [Бессерверная](../concepts/resources.md#serverless) база данных (Serverless) |
+| [yandex_ydb_topic]({{ tf-provider-resources-link }}/ydb_topic) | [Топик](https://ydb.tech/docs/ru/concepts/topic) |

@@ -34,6 +34,7 @@
 
 [Сертификат ISO/IEC 27001/27017/27018](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27001_27017_27018_22_rus_full.pdf).
 
+[Сертификат ISO 27701](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27701_22_rus_full.pdf).
 
 
 ## PCI DSS {#pci-dss}

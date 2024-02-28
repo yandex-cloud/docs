@@ -23,16 +23,14 @@ Prefixes and suffixes can be of any length. When using a prefix and suffix at th
 
 {% include [batching-events](../../../_includes/functions/batching-events.md) %}
 
-{% include [batching-events](../../../_includes/functions/batching-events.md) %}
-
 ## Roles required for the proper operation of a trigger for {{ objstorage-name }} {#roles}
 
-- To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+- To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles and higher.
 - For the trigger to fire, the service account needs the `{{ roles-functions-invoker }}` role for the folder containing the function called by the trigger.
 
 Read more about [access management](../../security/index.md).
 
-## Trigger for {{ objstorage-name }} message format {#format}
+## {{ objstorage-name }} trigger message format {#format}
 
 After the trigger is activated, it sends the following message to the function:
 

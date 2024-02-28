@@ -1,6 +1,6 @@
 # Deleting a folder
 
-To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or higher for that folder. If you cannot perform this operation, contact an [administrator](../../../iam/concepts/access-control/roles.md#admin) or the [folder owner](../../concepts/resources-hierarchy.md#owner).
+To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must have the [`editor`](../../../iam/roles-reference.md#editor) role or higher for that folder. If you cannot perform this operation, contact an [administrator](../../../iam/roles-reference.md#admin) or the [folder owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 

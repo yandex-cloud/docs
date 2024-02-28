@@ -14,4 +14,5 @@ description: "Различные сценарии использования {{ 
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](ydb-mkf-replication.md)
 * [{#T}](ydb-to-yds.md)
+* [{#T}](object-storage-to-ydb.md)
 * [{#T}](ci-cd-serverless.md)

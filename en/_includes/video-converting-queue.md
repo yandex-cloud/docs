@@ -33,13 +33,13 @@ The infrastructure support cost includes:
 1. [Download](https://{{ s3-storage-host }}/doc-files/video-converting.zip) the archive with the files required to create a video converter.
 1. [Create](../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../iam/operations/sa/assign-role-for-sa.md) it the following roles:
 
-   * `ymq.reader`.
-   * `ymq.writer`.
-   * `{{ roles-lockbox-payloadviewer }}`.
-   * `storage.viewer`.
-   * `storage.uploader`.
-   * `ydb.admin`.
-   * `{{ roles-functions-invoker }}`.
+   * `ymq.reader`
+   * `ymq.writer`
+   * `{{ roles-lockbox-payloadviewer }}`
+   * `storage.viewer`
+   * `storage.uploader`
+   * `ydb.admin`
+   * `{{ roles-functions-invoker }}`
 
 1. [Create a static key](../iam/operations/sa/create-access-key.md) for the service account. Save the **Key ID** and **Your secret key**.
 1. [Create a secret](../lockbox/quickstart.md) named `ffmpeg-sa-secret` in {{ lockbox-name }}. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**, specify:
@@ -182,6 +182,8 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
       ```json
       {"action":"convert", "src_url":"<link_to_video>"}
       ```
+
+      Where `<link_to_video>` is a link to an [MP4](https://en.wikipedia.org/wiki/MP4_file_format) video file saved to [Yandex Disk](https://disk.yandex.com).
 
    1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
    1. You will see the task ID in the **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** field:

@@ -131,6 +131,85 @@ keywords:
 
     {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
+
+    1. Чтобы добавить группу хостов типа `{{ OS }}`, добавьте блок `node_groups` в блок `opensearch`:
+
+        ```hcl
+        resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
+          ...
+          config {
+            opensearch {
+              ...
+              node_groups {
+                name             = "<имя_группы_виртуальных_хостов>"
+                assign_public_ip = <публичный_доступ>
+                hosts_count      = <количество_хостов>
+                zone_ids         = ["<список_зон_доступности>"]
+                subnet_ids       = ["<список_идентификаторов подсетей>"]
+                roles            = ["<список_ролей>"]
+                resources {
+                  resource_preset_id = "<класс_хоста>"
+                  disk_size          = <размер_хранилища_в_байтах>
+                  disk_type_id       = "<тип_диска>"
+                }
+              }
+            }
+            ...
+          }
+        }
+        ```
+
+        Где:
+
+        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+        * `roles` — роли хостов: `DATA` и `MANAGER`.
+
+    1. Чтобы добавить группу хостов типа `Dashboards`, добавьте блок `dashboards` в блок `config`:
+
+        ```hcl
+        resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
+          ...
+          config {
+            ...
+            dashboards {
+              node_groups {
+               name             = "<имя_группы_виртуальных_хостов>"
+                assign_public_ip = <публичный_доступ>
+                hosts_count      = <количество_хостов>
+                zone_ids         = ["<список_зон_доступности>"]
+                subnet_ids       = ["<список_идентификаторов подсетей>"]
+                resources {
+                  resource_preset_id = "<класс_хоста>"
+                  disk_size          = <размер_хранилища_в_байтах>
+                  disk_type_id       = "<тип_диска>"
+                }
+              }
+            }
+          }
+        }
+        ```
+
+        Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
+        В кластере может быть только одна группа хостов типа `Dashboards`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
 - API {#api}
 
     Чтобы добавить группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup).
@@ -188,6 +267,74 @@ keywords:
       * `manager` — предоставляется только роль `MANAGER`;
       * `data+manager` или `manager+data` — предоставляются обе роли.
 
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
+
+    1. Чтобы изменить конфигурацию группы хостов типа `{{ OS }}`, измените параметры нужного блока `node_groups` в блоке `opensearch`:
+
+        ```hcl
+        resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
+          ...
+          opensearch {
+            ...
+            node_groups {
+              name             = "<имя_группы_виртуальных_хостов>"
+              assign_public_ip = <публичный_доступ>
+              hosts_count      = <количество_хостов>
+              roles            = ["<список_ролей>"]
+              resources {
+                resource_preset_id = "<класс_хоста>"
+                disk_size          = <размер_хранилища_в_байтах>
+                disk_type_id       = "<тип_диска>"
+              }
+            }
+            ...
+          }
+        }
+        ```
+
+        Где:
+
+        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+        * `roles` — роли хостов: `DATA` и `MANAGER`.
+
+    1. Чтобы изменить конфигурацию группы хостов типа `Dashboards`, измените параметры блока `dashboards`:
+
+        ```hcl
+        resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
+          ...
+          dashboards {
+            node_groups {
+              name             = "<имя_группы_виртуальных_хостов>"
+              assign_public_ip = <публичный_доступ>
+              hosts_count      = <количество_хостов>
+              resources {
+                resource_preset_id = "<класс_хоста>"
+                disk_size          = <размер_хранилища_в_байтах>
+                disk_type_id       = "<тип_диска>"
+              }
+            }
+          }
+        }
+        ```
+
+        Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API {#api}
 
     Чтобы изменить конфигурацию группы хостов типа `{{ OS }}`, воспользуйтесь методом REST API [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#UpdateOpenSearchNodeGroup).
@@ -233,7 +380,31 @@ keywords:
 
     В команде укажите группу хостов, которую нужно удалить.
 
-- API {#api}
+- {{ TF }} {#tf}
+
+    Чтобы удалить группу хостов из кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
+
+    1. Чтобы удалить группу хостов типа `{{ OS }}`, удалите блок `node_groups`, который соответствует удаляемой группе хостов, из блока `opensearch`.
+
+    1. Чтобы удалить группу хостов типа `Dashboards`, удалите блок `dashboards`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите удаление ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
+- API {#api} {#api}
 
     Чтобы удалить группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#DeleteOpenSearchNodeGroup).
 

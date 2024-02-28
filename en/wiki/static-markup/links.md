@@ -10,7 +10,7 @@ description: "Follow this guide to format links in {{ wiki-full-name }}."
 To design links, use the markup:
 
 ```
-[link text](URL)
+[<link_text>](<address>)
 ```
 
 For example:
@@ -53,7 +53,7 @@ The anchor is generated from the name of a cluster. For example, a cluster named
 To add a link to a cluster, enter the page address followed by the `#` symbol and the anchor:
 
 ```
-[link text](/page URL/#{{ example-anchor }})
+[<link_text>](/<page_address>/#{{ example-anchor }})
 ```
 
 Find out the value of the cluster anchor:
@@ -72,10 +72,10 @@ If you want to link to a specific place on a page, you can always create an anch
 {{anchor name="my-anchor"}}
 ```
 
-To add an anchor link, enter the page address followed by the `#` symbol and then add the anchor at the end:
+To add a link to such an anchor, add it to the the page address after the `#` symbol:
 
 ```
-[link text](http://page URL/#my-anchor)
+[<link_text>](http://<page_address>/#my-anchor)
 ```
 
 ## Links to images {#ref-to-image}
@@ -85,7 +85,7 @@ If you paste an image link with no markup, the image itself will be displayed on
 To add a link to an image, use the link markup:
 
 ```
-[link text](image URL)
+[<link_text>](<image_address>)
 ```
 
 | Markup | Result |
@@ -94,10 +94,10 @@ To add a link to an image, use the link markup:
 
 ## Making an image a link {#image-as-ref}
 
-Images can also function as links so that when you click on the image, a page or file opens. To do this, [insert an image](files.md#add-image) in the link markup element instead of text:
+You can turn an image into a link for it to open a page or file when clicked. To do this, [insert an image](files.md#add-image) in the link markup element instead of text:
 
 ```
-[![Alternative text](image URL)](link)
+[![<alternative_text>](<image_address>)](<link_address>)
 ```
 
 | Markup | Result |
@@ -112,7 +112,7 @@ To add a link to an email address:
 
 - Use the link markup and add `mailto:` before the email address.
 
-`[link text](mailto:email-address)`
+`[<link_text>](mailto:<email_address>)`
 
 | Markup | Result |
 --- | ---

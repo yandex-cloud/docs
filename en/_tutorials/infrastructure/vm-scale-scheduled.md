@@ -661,7 +661,7 @@ To set up scaling for your instance group using {{ TF }}:
       1. Create a directory for files.
       1. In the directory, create:
 
-         * A configuration file named `vm-scale-scheduled.tf`:
+         * `vm-scale-scheduled.tf` configuration file:
 
             {% cut "vm-scale-scheduled.tf" %}
 
@@ -669,7 +669,7 @@ To set up scaling for your instance group using {{ TF }}:
 
             {% endcut %}
 
-         * A file with the {{ sf-name }} function code named `handler.sh`:
+         * `handler.sh` file with the {{ sf-name }} function code:
 
             {% cut "handler.sh" %}
 

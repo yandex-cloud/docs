@@ -16,7 +16,7 @@ To prepare an image ready for use in {{ yandex-cloud }}:
 
       ```
       cd_files = [
-          "../drivers/netkvm/2k19/amd64/*",
+          "../drivers/NetKVM/2k19/amd64/*",
           "../drivers/viostor/2k19/amd64/*",
           "../drivers/vioserial/2k19/amd64/*",
           "../scripts/qemu/*",
@@ -28,7 +28,38 @@ To prepare an image ready for use in {{ yandex-cloud }}:
 
    1. Find out the checksum of your distribution (for example, execute `openssl dgst -sha256 <path to distribution>`). Insert the obtained value into the `iso_checksum` parameter after `sha256:`.
    1. (Optional) With MacOS, you need to replace the `accelerator = "kvm"` value with `accelerator = "hvf"`.
-1. Go to the folder with the required image configuration (e.g., `external-windows-packer/ws22gui-qemu`) and execute the `packer build .` command.
+1. Set a password for the `Administrator` user. To do this, in the `Autounattend.xml` file, add the `UserAccounts` section to the `oobeSystem` section, specifying the password inside the `Value` tag:
+
+   ```xml
+   <settings pass="oobeSystem">
+       <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+           <OOBE>
+               <HideEULAPage>true</HideEULAPage>
+               <HideLocalAccountScreen>true</HideLocalAccountScreen>
+               <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+               <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+               <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+               <ProtectYourPC>1</ProtectYourPC>
+           </OOBE>
+           <RegisteredOwner />
+           <TimeZone>UTC</TimeZone>
+           <UserAccounts>
+               <AdministratorPassword>
+                   <Value><administrator_password></Value>
+                   <PlainText>true</PlainText>
+               </AdministratorPassword>
+           </UserAccounts>
+       </component>
+   </settings>
+   ```
+
+1. Go to the folder with the required image configuration (e.g., `external-windows-packer/ws22gui-qemu`) and run the `packer build .` command.
+
+{% note info %}
+
+To monitor image build and see the errors, you can connect to the VM via VNC, e.g., using a VNC client by [RealVNC](https://www.realvnc.com/en/connect/download/viewer/).
+
+{% endnote %}
 
 After command execution, a disk image is created in `.qcow2` format.
 

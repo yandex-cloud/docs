@@ -5,11 +5,16 @@ description:
         href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
   - >-
     Yandex Cloud Apps — сервис, который позволяет в один клик развернуть
-    приложение на базе стека serverless.
+    приложение на базе Yandex Cloud.
   - >-
     Приложение состоит из интегрированных друг с другом ресурсов Yandex Cloud.
     Настройки ресурсов пользователь может менять в зависимости от того, как
     планирует использовать приложение.
+  - >-
+    Партнеры могут размещать собственные приложения Cloud Apps в Yandex Cloud
+    Marketplace. Подробнее см. инструкцию <a
+    href="/docs/marketplace/operations/create-new-version#cloud-apps">Создание
+    новой версии продукта</a>.
 meta:
   title: Cloud Apps
   description: >-

@@ -20,17 +20,17 @@ Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role to a [
 
 ### Service roles {#service-roles}
 
-#### backup.admin {#backup-admin}
+#### backup.viewer {#backup-viewer}
 
-{% include notitle [roles-backup-admin](../../_includes/roles-backup-admin.md) %}
+{% include [backup.viewer](../../_roles/backup/viewer.md) %}
 
 #### backup.editor {#backup-editor}
 
-{% include notitle [roles-backup-editor](../../_includes/roles-backup-editor.md) %}
+{% include [backup.editor](../../_roles/backup/editor.md) %}
 
-#### backup.viewer {#backup-viewer}
+#### backup.admin {#backup-admin}
 
-{% include notitle [roles-backup-viewer](../../_includes/roles-backup-viewer.md) %}
+{% include [backup.admin](../../_roles/backup/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

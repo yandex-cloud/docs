@@ -141,7 +141,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** field, enter `10`.
    1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, enter the account that you created when [preparing the environment](#prepare).
    1. Add environment variables:
-      * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one preceding `/?database=`), e.g., `ydb.serverless.yandexcloud.net:2135`.
+      * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one between `grpcs://` and `/?database=`), e.g., `ydb.serverless.yandexcloud.net:2135`.
       * `DATABASE`: Enter the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }}](#create-db) database (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
    1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
@@ -280,6 +280,7 @@ To ensure interaction between services, create an API gateway:
       ```
 
       Where:
+
       * `bucket`: Name of the bucket containing `index.html`.
       * `service_account`: ID of the service account created when [preparing the environment](#prepare).
       * `/add` section, `function_id` parameter: ID of the `add-task` function.
@@ -328,6 +329,7 @@ To ensure interaction between services, create an API gateway:
       ```
 
       Where:
+
       * `bucket`: Name of the bucket containing `index.html`.
       * `service_account`: ID of the service account created when [preparing the environment](#prepare).
       * `/add` section, `function_id` parameter: ID of the `add-task` function.

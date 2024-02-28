@@ -11,7 +11,7 @@ keywords:
 
 # Uploading a disk image to {{ yandex-cloud }}
 
-This tutorial will tell you how to upload a Linux OS image file to [{{ objstorage-full-name }}](../../../storage/) and use it to create an [image](../../concepts/image.md) and a [VM](../../concepts/vm.md) in {{ compute-name }}.
+This tutorial will tell you how to upload a Linux OS image file to [{{ objstorage-full-name }}](../../../storage/) and use it to create an [image](../../concepts/image.md) and a [VM](../../concepts/vm.md) in {{ compute-name }}. For more information on how to create an image with Windows OS, see [{#T}](../../../microsoft/prepare-image.md).
 
 Major virtualization systems are supported.
 

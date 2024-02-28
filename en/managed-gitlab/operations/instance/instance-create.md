@@ -15,6 +15,12 @@ description: "In this tutorial, you will learn how to create a {{ mgl-name }} in
 
 {% endlist %}
 
+To prevent your instance disk space from running out:
+
+* [Set the expiration time for job artifacts](https://docs.gitlab.com/ee/administration/settings/continuous_integration.html#default-artifacts-expiration) at the instance level. Its default value is 30 days.
+* [Create and enable a tag cleanup policy](https://docs.gitlab.com/ee/user/packages/container_registry/reduce_container_registry_storage.html#create-a-cleanup-policy) for separate projects utilizing {{ container-registry-name }}.
+* If you are using a [{{ container-registry-full-name }} integration](../../tutorials/image-storage.md), create and enable a [Docker image cleanup policy](../../../container-registry/concepts/lifecycle-policy.md) for {{ container-registry-name }}.
+
 ## Activating the {{ GL }} instance {#activate}
 
 After the instance status changes to **Running**, activate the instance:

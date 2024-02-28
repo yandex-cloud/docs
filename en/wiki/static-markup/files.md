@@ -12,7 +12,7 @@ description: "In this tutorial, you will learn how to use images and files in {{
 To add image to a page, use markup:
 
 ```
-![Alternative text](image URL)
+![<alternative_text>](<image_address>)
 ```
 
 {% note info %}
@@ -30,12 +30,12 @@ If you paste an image link with no markup, the image will be added to the page w
 Set the size of the image on the page in pixels:
 
 ```
-<width>x<height>:<link to image>
+<width>x<height>:<link_to_image>
 ```
 
 {% note info %}
 
-The image is scaled proportionally, so the height value can be set approximately. For example, a drawing with this markup will be displayed correctly: `300x0:<link to image>`.
+The image is scaled proportionally, so the height value can be set approximately. For example, a drawing with this markup will be displayed correctly: `300x0:<link_to_image>`.
 
 {% endnote %}
 
@@ -57,10 +57,10 @@ Use the link markup:
 
 ### Making an image a link {#img-link}
 
-Images can also function as links so that when you click on the image, a page or file opens. To do this, [insert an image](#add-image) in the link markup element instead of text:
+You can turn an image into a link for it to open a page or file when clicked. To do this, [insert an image](#add-image) in the link markup element instead of text:
 
 ```
-[![Alternative text](image URL)](link)
+[![<alternative_text>](<image_address>)](<link_address>)
 ```
 
 | Markup | Result |

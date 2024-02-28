@@ -25,7 +25,7 @@ description: "Follow this guide to update a function description."
    To change the function description, run the command:
 
    ```
-   yc serverless function update <function name> --description "<function description>"
+   yc serverless function update <function_name> --description "<function_description>"
    ```
 
    Result:
@@ -64,10 +64,10 @@ description: "Follow this guide to update a function description."
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
-          service_account_id = "<service account ID>"
+          service_account_id = "<service_account_ID>"
           tags               = ["my_tag"]
           content {
-              zip_filename = "<path to ZIP archive>"
+              zip_filename = "<ZIP_archive_path>"
           }
       }
       ```
@@ -101,10 +101,10 @@ description: "Follow this guide to update a function description."
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can verify the change to the function description using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the function description update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
-   yc serverless function get <function_name>|<function_ID>
+   yc serverless function get <function_name_or_ID>
    ```
 
 - API {#api}

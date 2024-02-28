@@ -58,6 +58,7 @@ description: "Из статьи вы узнаете, как создать пр�
 
 1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.convert-to-project }}** и нажмите **Конвертировать**.
 
+
 ## Добавить задачи в проект {#add-tickets}
 
 #### Со страницы проекта {#from-project}

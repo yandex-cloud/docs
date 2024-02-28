@@ -27,8 +27,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
       1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
       1. [Create service accounts](../../../iam/operations/sa/create.md):
-         * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is created. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
-         * Service account with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) [role](../../../iam/concepts/access-control/roles.md). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
+         * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is created. This service account will be used to create the resources required for the {{ k8s }} cluster.
+         * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller) [role](../../../iam/concepts/access-control/roles.md). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
 
          {% note tip %}
 
@@ -48,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
          * [Network](../../../vpc/concepts/network.md#network).
          * [Subnet](../../../vpc/concepts/network.md#subnet).
-         * [Security group](../../../vpc/concepts/security-groups.md) and the [rules](../../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, and {{ container-registry-full-name }} container to run:
+         * [Security group](../../../vpc/concepts/security-groups.md) and the [rules](../../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, and {{ container-registry-full-name }} container:
             * Rules for service traffic.
             * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
          * {{ k8s }} cluster.

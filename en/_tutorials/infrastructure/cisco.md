@@ -62,12 +62,12 @@ Save the private key in a secure location, as you will not be able to connect to
          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the network and subnet to connect the VM to. If there are no networks available, create one:
-      1. Select ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**.
+      1. Select ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**.
       1. In the window that opens, specify the network name and the folder to host the VM.
       1. (Optional) To automatically create subnets, select the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** option.
       1. Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
-         Each network must have at least one subnet. If there is no subnet available, create one by selecting ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+         Each network must have at least one subnet. If there is no subnet available, create one by selecting ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
       1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
@@ -88,7 +88,7 @@ Save the private key in a secure location, as you will not be able to connect to
    1. In the [management console]({{ link-console-main }}), select the folder containing your VM.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Select `cisco-router` from the VM list.
-   1. Go to the ![image](../../_assets/compute/serial-console.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+   1. Go to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
    1. Wait for the operating system to start up completely.
    1. Run the `enable` command to switch to privileged mode:
 
@@ -183,7 +183,7 @@ Create a user with the administrative rights and password authentication disable
 
 ## Check the SSH connection to the router {#test-ssh}
 
-1. Log in to the router via SSH. For this, in your computer terminal, run this command:
+1. Log in to the router via SSH. Do it by running this command in your computer terminal:
 
    ```bash
    ssh -i <path_to_file_with_private_key> test-user@<public_IP_of_router>
@@ -195,5 +195,5 @@ Create a user with the administrative rights and password authentication disable
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-* [Delete](../../compute/operations/vm-control/vm-delete.md) your VM.
-* [Delete](../../vpc/operations/address-delete.md) your static public IP if you reserved one.
+* [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+* [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.

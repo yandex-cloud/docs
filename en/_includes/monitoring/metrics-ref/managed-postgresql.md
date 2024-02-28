@@ -1,5 +1,3 @@
-## {{ mpg-full-name }} {#managed-postgresql}
-
 Common labels for all {{ mpg-name }} metrics:
 
 | Label | Value |
@@ -14,7 +12,7 @@ Common labels for all {{ mpg-name }} metrics:
 ### CPU metrics {#managed-postgresql-cpu-metrics}
 Processor core workload.
 
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
 | `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type |
@@ -45,17 +43,17 @@ Processor core workload.
 | `pg_backend_write_bytes`<br>`DGAUGE`, bytes/s | Rate of data writes by the {{ PG }} process |
 
 ### Disk operation metrics {#managed-postgresql-diskio-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
 | `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time |
 | `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a specific disk |
 | `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk |
-| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes/s | Read speed for a specific disk |
+| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk |
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk |
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk |
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk; disabled for network drives |
-| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes/s | Write speed for a specific disk |
+| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk |
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk |
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk |
 | `io.read_bytes`<br/>`DGAUGE`, bytes/s | Disk read speed |
@@ -67,7 +65,7 @@ Processor core workload.
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
 ### RAM metrics {#managed-postgresql-ram-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
 | `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type |
@@ -80,7 +78,7 @@ Processor core workload.
 | `oom_count`<br/>`DGAUGE`, pieces | Number of out-of-memory (OOM) events |
 
 ### Network metrics {#managed-postgresql-net-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
 | `net.bytes_sent`<br/>`DGAUGE`, bytes/s | Rate of sending data over the network |
@@ -93,7 +91,7 @@ Processor core workload.
 
 ### Service metrics {#managed-postgresql-metrics}
 ##### Cluster metrics {#managed-postgresql-cluster-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if it is not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if it is not. |
@@ -113,13 +111,13 @@ Processor core workload.
 | `postgres_role_conn_limit`<br/>`DGAUGE`, number | Maximum allowed number of concurrent user sessions |
 | `postgres_role_total_conn_limit`<br/>`DGAUGE`, number | Maximum allowed number of concurrent sessions of all users |
 | `postgres_total_connections`<br/>`DGAUGE`, number | Number of connections |
-| `postgres_wal_rate_bytes`<br/>`DGAUGE`, bytes | Write-ahead logging rate |
+| `postgres_wal_rate_bytes`<br/>`DGAUGE`, bytes/s | Write-ahead logging rate |
 | `postgres_xid_left`<br/>`DGAUGE`, number | Number of transaction counters left |
 | `postgres_xid_left_percent`<br/>`DGAUGE`, % | Percentage of transaction counters left |
 | `postgres_xid_used_percent`<br/>`DGAUGE`, % | Percentage of transaction counters used |
 
 ##### DB metrics {#managed-postgresql-db-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `_pg_database_size`<br/>`DGAUGE`, bytes | DB size. <br/>Additional labels: `dbname` |
 | `<database>_tup_deleted`<br/>`DGAUGE`, number | Number of rows deleted by queries in this `<database>` |
@@ -129,7 +127,7 @@ Processor core workload.
 | `<database>_tup_updated`<br/>`DGAUGE`, number | Number of rows updated by queries in this `<database>` |
 
 ##### Connection pooler metrics {#managed-postgresql-pooler-metrics}
-| Name<br/>Type, unit | Description |
+| Name<br/>Type, units | Description |
 | ----- | ----- |
 | `pooler-avg_query_time`<br/>`DGAUGE`, ms | Average query execution time per DB host |
 | `pooler-avg_xact_time`<br/>`DGAUGE`, ms | Average execution time per transaction per DB host |
@@ -174,5 +172,3 @@ Processor core workload.
 | `pooler-used_clients`<br/>`DGAUGE`, number | Number of client connections in the connection pooler |
 | `pooler-used_servers`<br/>`DGAUGE`, number | Number of server connections in the connection pooler |
 | `pooler-xact_count`<br/>`DGAUGE`, number | Number of transactions executed on each DB host |
-
-Read more about the service in the [{{ mpg-name }}](../../../managed-postgresql/) documentation.

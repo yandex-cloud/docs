@@ -11,7 +11,7 @@ description: "A service account is an account that can be used by a program to m
 
 By using service accounts you can flexibly configure access rights to resources for programs you wrote.
 
-> For example, let's assume you have an app for tracking VM statuses. This app only needs to have the view permissions (the [viewer](../access-control/roles.md#viewer) role); however, it runs under your name and you have the right to delete VMs.
+> For example, let's assume you have an app for tracking VM statuses. This app only needs to have the view permissions (the [viewer](../../roles-reference.md#viewer) role); however, it runs under your name and you have the right to delete VMs.
 >
 > To prevent your app from accidentally deleting a VM, create a service account and grant it view-only access.
 

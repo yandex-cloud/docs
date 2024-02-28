@@ -5,8 +5,8 @@
 You can highlight code syntax in {{ wiki-name }} pages. To do this, use the markup:
 
 ```
-%%(<coding language> nomark nohighlight)
-your code
+%%(<сoding_language> nomark nohighlight)
+source code
 %%
 ```
 

@@ -75,7 +75,7 @@ To create a security group:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab:
+   1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab.
    1. Create a security group:
 
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
@@ -124,7 +124,7 @@ To create a security group:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to create a key pair for SSH connection yourself.
+      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to create an SSH key pair yourself.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    Save the username, private SSH key, and internal and public IPs for the NAT instance.
@@ -139,7 +139,7 @@ To create a security group:
 
 {% note info %}
 
-Creating an NAT instance only automatically configures a single network interface. You can enable other interfaces manually. Assign an IP address to each new interface and specify a route for it in a route table. In each subnet, the correct gateway is the first address: `x.x.x.1`.
+Creating a NAT instance automatically configures only a single network interface. You can enable other interfaces manually. Assign an IP address to each new interface and specify a route for it in a route table. In each subnet, the first IP address will represent the correct gateway. For example, for the `192.168.0.128/25` subnet, the first subnet address will be `192.168.0.129`.
 
 {% endnote %}
 
@@ -151,7 +151,7 @@ Creating an NAT instance only automatically configures a single network interfac
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a static route.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-      1. In the left-hand panel, select ![route-tables](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+      1. In the left-hand panel, select ![route-tables](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
       1. Click **{{ ui-key.yacloud.common.create }}**.
       1. In the **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** field, enter a name for the route table, such as `nat-instance-route`. The naming requirements are as follows:
 
@@ -164,8 +164,8 @@ Creating an NAT instance only automatically configures a single network interfac
       1. In the **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}** field, specify the internal IP address of the NAT instance. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
       1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
    1. Link the route table to the subnet where the test VM is located, such as `private-subnet`:
-      1. In the left-hand panel, select ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-      1. Click ![image](../../_assets/options.svg) in the row of the subnet with the test VM and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+      1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet with the test VM and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
       1. In the window that opens, select the `nat-instance-route` table in the **{{ ui-key.yacloud.vpc.subnet.add-route-table.popup-route-table_field_route-table-id }}** field and click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - {{ TF }} {#tf}
@@ -179,38 +179,27 @@ You can also use the created route for other subnets in the same network, except
 ## Test the NAT instance {#test-nat-instance}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the NAT instance over SSH by specifying:
-   * Path to the private SSH key file of the NAT instance.
-   * NAT instance username.
-   * NAT instance public IP.
+   * NAT instance username
+   * NAT instance public IP
+   * VM username
+   * VM internal IP address
 
-   Run the following command in the terminal window:
+   To do this:
+     1. In the terminal, run this command:
 
-   ```bash
-   ssh -i <path_to_NAT_instance_private_SSH_key_file> \
-     <NAT_instance_username>@<NAT_instance_public_IP>
-   ```
+        ```bash
+        ssh -J <NAT_instance_username>@<NAT_instance_public_IP> \
+        <VM_username>@<VM_internal_IP_address>
+        ```
+     1. Type **yes** to connect to the NAT instance and re-enter **yes** to connect to the test VM.
 
-1. On the NAT instance, create a file with the test VM's private SSH key, such as `private-key`:
+        {% note info %}
 
-   ```bash
-   sudo nano private-key
-   ```
+        When you type **yes**, the command may not be displayed in the terminal, but it will run anyway.
 
-   Paste the contents of the test VM's private SSH key into the file.
+        {% endnote %}
 
-1. From the NAT instance, connect to the test VM in the same cloud network via SSH. To do this, specify:
-   * Path to the test VM's private SSH key file, such as `private-key`.
-   * Test VM username.
-   * Test VM's internal IP.
-
-   Run the following command in the terminal window:
-
-   ```bash
-   ssh -i <path_to_test_VM_private_SSH_key_file> \
-     <test_VM_username>@<test_VM_internal_IP>
-   ```
-
-1. Make sure the test VM is connected to the internet via the public IP of the NAT instance. Enter the following command in the terminal:
+1. Make sure the test VM is connected to the internet via the public IP address of the NAT instance. Run this command:
 
    ```bash
    curl ifconfig.co
@@ -231,15 +220,15 @@ To set up routing through a NAT instance using {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare a file with the infrastructure description:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Ready-made archive
+   - Ready-made archive {#ready}
 
       1. Create a directory for the file with the infrastructure description.
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/nat-instance-tf.zip) (2 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `nat-instance.tf` configuration file and the `nat-instance.auto.tfvars` file with user data.
 
-   - Manually
+   - Manually {#manual}
 
       1. Create a directory for the file with the infrastructure description.
       1. Create the `nat-instance.tf` configuration file in the directory:

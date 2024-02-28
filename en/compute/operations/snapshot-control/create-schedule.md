@@ -66,7 +66,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
       {% endnote %}
 
-      If you need to configure a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, add the `--snapshot-count` or `--retention-period` parameter. Here is an example:
+      If you need to configure a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, add the parameter `--snapshot-count` or `--retention-period`. Here is an example:
       * `--snapshot-count 5`: Retain 5 latest snapshots.
       * `--retention-period 72h`: Retain snapshots for the last 3 days.
 

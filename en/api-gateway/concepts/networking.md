@@ -4,8 +4,6 @@ By default, an API gateway is located in the isolated IPv4 network with the enab
 
 ## User network
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 You can specify a [cloud network](../../vpc/concepts/network.md#network) in API gateway settings, if required. In this case, it will have access to the internet and user resources in the specified network, such as databases and VMs.
 
 {% include [network](../../_includes/functions/network.md) %}

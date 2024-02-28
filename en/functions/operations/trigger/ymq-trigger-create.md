@@ -70,11 +70,11 @@ To create a trigger, you need:
 
    ```bash
    yc serverless trigger create message-queue \
-     --name <trigger name> \
-     --queue <queue ID> \
-     --queue-service-account-id <service account ID> \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --name <trigger_name> \
+     --queue <queue_ID> \
+     --queue-service-account-id <service_account_ID> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --batch-size 1 \
      --batch-cutoff 10s
    ```
@@ -152,21 +152,21 @@ To create a trigger, you need:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
-        name        = "<timer name>"
-        description = "<trigger description>"
+        name        = "<timer_name>"
+        description = "<trigger_description>"
         message_queue {
-          queue_id           = "<queue ID>"
-          service_account_id = "<service account ID>"
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
           batch_size         = "1"
           batch_cutoff       = "10"
         }
         function {
-          id = "<function ID>"
+          id = "<function_ID>"
         }
       }
       ```
 
-      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
    1. Make sure the configuration files are valid.
 
@@ -192,7 +192,7 @@ To create a trigger, you need:
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
          ```
-         yc serverless trigger get <trigger ID>
+         yc serverless trigger get <trigger_ID>
          ```
 
 - API {#api}

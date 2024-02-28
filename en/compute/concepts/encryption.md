@@ -27,18 +27,18 @@ The options available when creating encrypted {{ compute-name }} resources and s
 
 | **Target resource** | **Source resource** | **Key** | **Note** |
 | --- | --- | --- | --- |
-| Empty encrypted disk | N/A | Any | See [{#T}](../operations/disk-create/empty.md) |
+| Empty encrypted disk | N/A | Any | See [{#T}](../operations/disk-create/empty.md). |
 | Encrypted disk | Unencrypted image | Any | See [{#T}](../operations/disk-create/from-image.md). </br>You can also use an image to</br>encrypt existing [disks](../operations/disk-control/disk-encrypt.md) and [snapshots](../operations/snapshot-control/snapshot-encrypt.md). |
-| Encrypted disk | Encrypted snapshot | Snapshot key | See [{#T}](../operations/disk-create/from-snapshot.md) |
-| Encrypted snapshot | Encrypted disk | Disk key | See [{#T}](../operations/disk-control/create-snapshot.md) |
+| Encrypted disk | Encrypted snapshot | Snapshot key | See [{#T}](../operations/disk-create/from-snapshot.md). |
+| Encrypted snapshot | Encrypted disk | Disk key | See [{#T}](../operations/disk-control/create-snapshot.md). |
 
 The following additional encryption options will be implemented in {{ compute-name }} later:
 
 | **Target resource** | **Source resource** | **Key** | **Note** |
 | --- | --- | --- | --- |
 | Encrypted disk | Encrypted image | Image key | See [{#T}](../operations/disk-create/from-image.md).</br>You can also use an encrypted</br>image to create a copy of</br>an encrypted disk. |
-| Encrypted disk | Unencrypted snapshot | Any | See [{#T}](../operations/disk-create/from-snapshot.md) |
-| Encrypted image | Encrypted disk | Disk key | See [{#T}](../operations/image-create/create-from-disk.md) |
+| Encrypted disk | Unencrypted snapshot | Any | See [{#T}](../operations/disk-create/from-snapshot.md). |
+| Encrypted image | Encrypted disk | Disk key | See [{#T}](../operations/image-create/create-from-disk.md). |
 
 ## Using custom keys {#user-keys}
 
@@ -46,13 +46,13 @@ By using custom {{ kms-short-name }} keys for disk and snapshot encryption, you 
 
 {% include [encryption-keys-note](../../_includes/compute/encryption-keys-note.md) %}
 
-For a VM to have access to an encrypted disk, link to it a [service account](../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter). Note that you can attach two types of service accounts to a VM:
+For a VM to have access to an encrypted disk, attach to it a [service account](../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md#kms-keys-encrypterDecrypter). Note that you can attach two types of service accounts to a VM:
 * Service account to [work with cloud resources](../operations/vm-connect/auth-inside-vm) from inside the VM, e.g., to deliver metrics to {{ monitoring-full-name }}, send logs to {{ cloud-logging-full-name }}, or connect to {{ backup-full-name }}. This service account is specified in the access parameter section.
 * Service account to access encrypted disks. This service account is specified in the disk parameter section.
 
 To use encryption in {{ compute-name }}, the user must have the following roles:
-* `iam.serviceAccounts.user` or a higher role for the service account used for encryption. For more information, see [{{ iam-full-name }} roles](../../iam/concepts/access-control/roles.md#sa-user).
-* `kms.viewer` or a higher role for the key used for encryption. For more information, see [{{ kms-full-name }} roles](../../iam/concepts/access-control/roles.md#kms-viewer).
+* `iam.serviceAccounts.user` or a higher role for the service account used for encryption. For more information, see [{{ iam-full-name }} roles](../../iam/security/index.md#iam-serviceAccounts-user).
+* `kms.viewer` or a higher role for the key used for encryption. For more information, see [{{ kms-full-name }} roles](../../kms/security/index.md#kms-viewer).
 
 ### See also {#see-also}
 

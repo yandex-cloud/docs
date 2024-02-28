@@ -8,7 +8,7 @@ description: "Follow this guide to move a subnet to a different availability zon
 
 {% note alert %}
 
-Currently, you cannot migrate subnets.
+Currently the feature is not available.
 
 Additionally, you cannot currently create or migrate {{ managed-k8s-name }} clusters and node groups within the subnets migrated from the `{{ region-id }}-c` availability zone.
 

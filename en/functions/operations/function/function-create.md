@@ -27,7 +27,7 @@ description: "Follow this guide to create a function."
    To create a function, run the command:
 
    ```
-   yc serverless function create --name=<function name>
+   yc serverless function create --name=<function_name>
    ```
 
    Result:
@@ -80,8 +80,8 @@ description: "Follow this guide to create a function."
       
       ```
       provider "yandex" {
-          token     = "<OAuth or static key of service account>"
-          folder_id = "<folder ID>"
+          token     = "<service_account_OAuth_token_or_static_key>"
+          folder_id = "<folder_ID>"
           zone      = "{{ region-id }}-a"
       }
 
@@ -93,10 +93,10 @@ description: "Follow this guide to create a function."
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
-          service_account_id = "<ID of the service account>"
+          service_account_id = "<service_account_ID>"
           tags               = ["my_tag"]
           content {
-              zip_filename = "<path to ZIP archive>"
+              zip_filename = "<ZIP_archive_path>"
           }
       }
 

@@ -47,7 +47,7 @@ Backups in {{ objstorage-name }} are performed on behalf of a [service account](
 
 To create a service account:
 
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.admin` [role](../../iam/concepts/access-control/roles.md#storage-admin) to the service account.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.admin` [role](../../storage/security/index.md#storage-admin) to the service account.
 1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and the secret key right away. After you close the window, the private key parameters will become unavailable.
 
 ## Create a cloud instance on {{ objstorage-full-name }} {#new-becloudinstance}
@@ -58,7 +58,7 @@ To create a service account:
    BEMCLI> New-BECloudInstance
    ```
 
-1. Enter the cloud instance parameters one-by-one:
+1. Enter the cloud instance parameters one by one:
    * `Provider:`: `compatible-with-s3`.
    * `ServiceHost:`: `{{ s3-storage-host }}`.
    * `SslMode:`: `disabled`.
