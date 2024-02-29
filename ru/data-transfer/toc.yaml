@@ -261,6 +261,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Февраль 2024
+        href: release-notes/2402.md
       - name: Январь 2024
         href: release-notes/2401.md
       - name: 2023 год

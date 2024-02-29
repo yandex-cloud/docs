@@ -9,7 +9,7 @@ title: "Как настроить группы безопасности для �
 * для каких IP-адресов доступен инстанс, в том числе доступен ли он из интернета;
 * по какому протоколу можно работать с Git-репозиториями в инстансе {{ GL }}: [SSH](../../glossary/ssh-keygen.md) или HTTPS;
 * какой сертификат можно использовать при работе по HTTPS: [сертификат Let's Encrypt]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) (по умолчанию) или [собственный сертификат]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually);
-* выделен ли доступ к [{{ GL }} {{ container-registry-name }}]({{ gl.docs }}/ee/user/packages/container_registry/).
+* выделен ли доступ к [{{ GL }} Container Registry]({{ gl.docs }}/ee/user/packages/container_registry/).
 
 Чтобы задать правила, которые разрешают определенный трафик для инстанса {{ GL }}:
 
@@ -51,7 +51,7 @@ title: "Как настроить группы безопасности для �
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
 ||
-|| Для подключения к {{ GL }} {{ container-registry-name }}. |
+|| Для подключения к {{ GL }} Container Registry. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `5050`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.

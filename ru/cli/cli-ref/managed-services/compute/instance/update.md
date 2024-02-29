@@ -32,6 +32,7 @@ Syntax:
 |`--gpus`|<b>`int`</b><br/>Specifies how many GPUs instance should have.|
 |`--platform`|<b>`string`</b><br/>Specifies platform for the instance.|
 |`--network-settings`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Network settings for the instance.<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     Type of a network for virtual machine instance. Values: standard, software-accelerated</li> </ul>|
+|`--serial-port-settings`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Serial port settings for the instance.<br/><br/>Possible property names:<br/><ul> <li><code>ssh-authorization</code>:     Authorization mode in interactive serial port console via SSH. Values: instance_metadata, os_login</li> </ul>|
 |`--preemptible`|Specifies whether instance preemptible or not|
 |`--maintenance-policy`|<b>`string`</b><br/>Behaviour on maintenance events. Values: 'restart', 'migrate'|
 |`--maintenance-grace-period`|<b>`duration`</b><br/>Time between notification via metadata service and maintenance.|

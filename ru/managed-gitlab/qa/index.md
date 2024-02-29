@@ -47,3 +47,7 @@ You are not allowed to push code to protected branches on this project.
 Пользователи с ролями `Guest` и `Reporter` отправлять изменения не могут.
 
 Подробнее о ролях см. в [документации {{ GL }}]({{ gl.docs }}/ee/user/permissions.html).
+
+#### Я получаю ошибку `500 Internal Server Error` при открытии инстанса, в чем может быть проблема? {#500-error}
+
+Дисковое пространство инстанса может быть переполнено. [Проверьте и очистите его](../operations/instance/clean-up-disk-space.md).
