@@ -94,11 +94,11 @@
           * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта, которому назначается роль.
      
           Пример:
-         ```bash
-         yc resource-manager folder add-access-binding b1gv87ssvu49******** \
-           --role resource-manager.editor \
-           --subject serviceAccount:aje6ij7qvdhb********
-         ```
+          ```bash
+          yc resource-manager folder add-access-binding b1gv87ssvu49******** \
+            --role resource-manager.editor \
+            --subject serviceAccount:aje6ij7qvdhb********
+          ```
           Результат:
 
           ```text

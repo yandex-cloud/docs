@@ -21,6 +21,8 @@ items:
         href: operations/instance/instance-backups.md
       - name: Миграция из пользовательской инсталляции {{ GL }}
         href: operations/instance/migration.md
+      - name: Очистка переполненного дискового пространства
+        href: operations/instance/clean-up-disk-space.md
       - name: Удаление инстанса
         href: operations/instance/instance-delete.md
       - name: Создание и добавление пользователей в проект

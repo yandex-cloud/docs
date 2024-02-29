@@ -19,6 +19,8 @@ items:
             href: operations/zone-get-info.md
           - name: Deleting a DNS zone
             href: operations/zone-delete.md
+          - name: Viewing operations with DNS zones
+            href: operations/operation-logs.md
       - name: Records
         items:
           - name: Creating a record

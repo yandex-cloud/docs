@@ -22,15 +22,17 @@ items:
         href: operations/regressions.md
       - name: Saving test artifacts to {{ objstorage-name }}
         href: operations/save-artifacts.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: Load testing a gRPC service
         href: tutorials/loadtesting-grpc.md
       - name: Deploying and load testing a gRPC service with scaling
         href: tutorials/loadtesting-grpc-autoscaling.md
-      - name: Using Phantom to run a fixed-load HTTPS test
+      - name: Fixed-load HTTPS testing with Phantom
         href: tutorials/loadtesting-https-phantom.md
-      - name: Using Pandora to run a step-load HTTPS test
+      - name: Step-load HTTPS testing with Pandora
         href: tutorials/loadtesting-https-pandora.md
       - name: Scripted HTTP load testing with Pandora
         href: tutorials/loadtesting-http-scenario-pandora.md

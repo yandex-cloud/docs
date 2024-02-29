@@ -2,6 +2,8 @@
 
 To create a [node group](../../concepts/index.md#node-group), [create a {{ managed-k8s-name }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md) first and make sure that the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [free resources](../../concepts/limits.md).
 
+{% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+
 ## Create a node group {#node-group-create}
 
 {% list tabs group=instructions %}
