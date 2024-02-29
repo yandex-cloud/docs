@@ -33,14 +33,16 @@ items:
         items:
           - name: Information about existing target groups
             href: operations/target-group-list.md
-          - name: Creating target group
+          - name: Creating a target group
             href: operations/target-group-create.md
-          - name: Attaching target group to a load balancer
+          - name: Attaching a target group to a load balancer
             href: operations/target-group-attach.md
-          - name: Detaching target group from a load balancer
+          - name: Detaching a target group from a load balancer
             href: operations/target-group-detach.md
-          - name: Deleting target group
+          - name: Deleting a target group
             href: operations/target-group-delete.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Concepts
     items:
       - name: Overview

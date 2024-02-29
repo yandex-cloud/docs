@@ -81,22 +81,23 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
       1. Assign the service account the role for the resource.
 
          ```bash
-         yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-           --role <role-id> \
-           --subject serviceAccount:<service-account-id>
+         yc <service_name> <resource_type> add-access-binding <resource_name_or_ID> \
+           --role <role> \
+           --subject serviceAccount:<service_account_ID>
          ```
 
          Where:
-         * `<service-name>`: Name of the [service](../cli/cli-ref/index.md#service-manage) for whose resource you want to assign the role, e.g., `resource-manager`.
-         * `<resource>`: Resource category, e.g., `cloud` to assign a role for the entire cloud or `folder` to assign a role for a directory.
-         * `<resource-name>`: Name of the resource. You can specify a resource by its name or ID (cloud or directory name).
-         * `<resource-id>`: Resource ID (cloud or directory ID).
-         * `<role-id>`: Assigned [role](../iam/concepts/access-control/roles.md), e.g., `{{ roles-cloud-owner }}`.
-         * `<service-account-id>`: ID of the service account the role is assigned to.
+         * `<service_name>`: Name of the [service](../cli/cli-ref/index.md#service-manage) for whose resource you want to assign the role, e.g., `resource-manager`.
+         * `<resource_type>`: Resource category. E.g., for the `resource-manager` service, specify `cloud` to assign a role for the entire cloud or `folder` to assign a role for a folder.
+         * `<resource_name_or_ID>`: Resource (cloud or folder) name or ID.
+         * `<role>`: Assigned [role](../iam/concepts/access-control/roles.md), e.g., `resource-manager.editor`.
+         * `<service_account_ID>`: ID of the service account the role is being assigned to.
 
          For example:
-         ```sh
-         yc resource-manager folder add-access-binding **********9n9hi2qu --role editor --subject serviceAccount:**********qhi2qu
+         ```bash
+         yc resource-manager folder add-access-binding b1gv87ssvu49******** \
+           --role resource-manager.editor \
+           --subject serviceAccount:aje6ij7qvdhb********
          ```
          Result:
 

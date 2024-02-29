@@ -325,7 +325,7 @@ items:
             href: operations/gpu-cluster/gpu-cluster-delete.md
           - name: Getting information about a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-get-info.md
-      - name: Getting a list of operations with the service's resources
+      - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
     href: ../cos/

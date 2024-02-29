@@ -2,6 +2,8 @@
 
 Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) and then [create a node group](../node-group/node-group-create.md).
 
+{% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+
 ## Getting started {#before-you-begin}
 
 {% list tabs group=instructions %}
@@ -86,7 +88,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
          {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-      * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+      * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
       * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
       * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
 
@@ -191,7 +193,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
       >  # The service account is assigned the editor role.
       >  folder_id = "<folder_ID>"
       >  role      = "editor"
-      >  member    = "serviceAccount:${yandex_iam_service_account.<service_account_name> id}"
+      >  member    = "serviceAccount:${yandex_iam_service_account.<service_account_name>.id}"
       > }
       >
       > resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
@@ -302,7 +304,7 @@ Install {{ TF }} (unless you already have it), configure the provider according 
    }
 
    resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
-     # The service account is assigned the k8s.clusters.agent role".
+     # The service account is assigned the "k8s.clusters.agent role".
      folder_id = local.folder_id
      role      = "k8s.clusters.agent"
      member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
