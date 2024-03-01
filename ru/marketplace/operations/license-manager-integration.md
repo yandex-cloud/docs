@@ -64,7 +64,7 @@
 
         1. Периодическая проверка того, что привязка подписки активна.
 
-            Получить актуальную информацию о привязке подписке можно с помощью метода REST API [get](../license-manager/api-ref/Instance/get.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/get.md) или вызова gRPC API [LockService/Get](../license-manager/saas/api-ref/grpc/lock_service.md#Get).
+            Получить актуальную информацию о привязке подписки можно с помощью метода REST API [get](../license-manager/saas/api-ref/Lock/get.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Get](../license-manager/saas/api-ref/grpc/lock_service.md#Get).
 
             {% note info %}
 
