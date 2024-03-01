@@ -196,6 +196,8 @@ items:
     href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: История изменений
+    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
 base: ru/api-gateway

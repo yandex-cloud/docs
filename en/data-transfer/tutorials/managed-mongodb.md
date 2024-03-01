@@ -20,7 +20,7 @@ The database name in the target cluster must be the same as the source database 
 
 ## Transferring data {#data-transfer}
 
-{% include notitle [Data migration MMG](../../_tutorials/datatransfer/managed-mongodb.md) %}
+{% include notitle [Data migration MMG](../../_tutorials/dataplatform/datatransfer/managed-mongodb.md) %}
 
 ## See also {#see-also}
 

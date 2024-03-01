@@ -39,4 +39,11 @@
 
 * [{{ managed-k8s-full-name }}](../managed-kubernetes/release-notes.md)
 
+## Бессерверные технологии
+
+* [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
+* [{{ sf-full-name }}](../functions/release-notes.md)
+* [{{ serverless-containers-full-name }}](../serverless-containers/release-notes.md)
+* [{{ iot-full-name }}](../iot-core/release-notes.md)
+
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -47,7 +47,7 @@ Additionally, to migrate data using external {{ MY }} replication:
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MMY moving data with Data Transfer](../../_tutorials/datatransfer/managed-mysql-to-mysql.md) %}
+{% include notitle [MMY moving data with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql-to-mysql.md) %}
 
 ## Transferring data using external replication {#binlog-replication}
 

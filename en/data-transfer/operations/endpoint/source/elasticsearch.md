@@ -3,9 +3,9 @@ title: "How to set up an {{ ES }} source endpoint in {{ data-transfer-full-name 
 description: "In this tutorial, you will learn how to set up an {{ ES }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Transferring data from the {{ ES }} source endpoint
+# Transferring data from an {{ ES }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate search and analytics data from a {{ ES }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ ES }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ ES }}](#prepare) database for the transfer.
@@ -40,7 +40,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mes.viewer }}` role](../../../../managed-elasticsearch/security/index.md#mes-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mes.viewer }}` role](../../../../managed-elasticsearch/security/index.md#mes-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 

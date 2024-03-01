@@ -38,9 +38,9 @@ The transition between statuses for the _{{ dt-type-repl }}_ transfer type is sh
 
 ### Copy and replication {#copy-and-replication}
 
-The _{{ dt-type-copy-repl }}_ transfer combines the features of _{{ dt-type-copy }}_ and _{{ dt-type-repl }}_ transfers, i.e., the source data is completely transferred to the target and is kept up-to-date. Typically, such transfers are used in migration scenarios.
+The _{{ dt-type-copy-repl }}_ transfer combines the features of the _{{ dt-type-copy }}_ and _{{ dt-type-repl }}_ transfers, i.e., the source data is completely transferred to the target and is kept up-to-date. Typically, such transfers are used in migration scenarios.
 
-After successful [activation](../operations/transfer.md#activate) and preparation for work, the status of the transfer automatically switches to {{ dt-status-copy }}. It is maintained until all data in the source is transferred to the target.
+Once a transfer is set and [activated](../operations/transfer.md#activate), it will automatically update its status to {{ dt-status-copy }}. It is maintained until all data in the source is transferred to the target.
 
 Then the status of the transfer switches to {{ dt-status-repl }}: all changes occurring on the source are automatically transferred to the target.
 

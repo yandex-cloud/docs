@@ -21,44 +21,54 @@ To create a budget, you need the `editor` role. The `viewer` role is enough for 
 
 To create a budget:
 
-1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+{% list tabs group=instructions %}
 
-1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+- Management console {#console}
 
-1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
-1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+  1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 
-1. Go to the **{{ ui-key.yacloud.billing.account.budgets.label_budgets }}** page and click **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
+  1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
-   1. Enter the budget name.
-   1. Select **{{ ui-key.yacloud.billing.account.budgets.label_type }}**.
-   1. Set the **Budget amount**: 
-      
-      * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** or **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** type, specify the total usage cost.
-      * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** type, specify the account balance.
+  1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 
-   1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, select a budget tracking period:
+  1. Go to the **{{ ui-key.yacloud.billing.account.budgets.label_budgets }}** page and click **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
 
-      * If you selected the **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** period, set the budget start date. The start date is the first day of the month.
-      * Set the budget end date. The end date defines when the budget stops tracking usage or the account balance and sending notifications. The end date is the last day of the month. It must be within five years of the current date.
+     1. Enter the budget name.
+     1. Select **{{ ui-key.yacloud.billing.account.budgets.label_type }}**.
+     1. Set the **Budget amount**: 
+        
+        * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** or **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** type, specify the total usage cost.
+        * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** type, specify the account balance.
 
-   1. Under **{{ ui-key.yacloud.billing.account.budgets.label_notify }}**, select the users to notify.
-   1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, define the budget **{{ ui-key.yacloud.billing.account.budgets.section_scope }}**. You can select individual clouds, folders, and services to include in a set budget. By default, data is collected from all the clouds, folders, and services that the selected billing account has access to.
-   1. Set at least one utilization threshold to trigger notifications. You can specify a threshold as a percentage or a cash value and select the users to receive notifications. A budget can have multiple thresholds.
+     1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, select a budget tracking period:
 
-   {% note info %}
+        * If you selected the **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** period, set the budget start date. The start date is the first day of the month.
+        * Set the budget end date. The end date defines when the budget stops tracking usage or the account balance and sending notifications. The end date is the last day of the month. It must be within five years of the current date.
 
-   Users listed in the **{{ ui-key.yacloud.common.section-base }}** section will receive notifications when each specified threshold is exceeded. Users listed when setting a threshold will only receive a notification when that specific threshold is reached.
+     1. Under **{{ ui-key.yacloud.billing.account.budgets.label_notify }}**, select the users to notify.
+     1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, define the budget **{{ ui-key.yacloud.billing.account.budgets.section_scope }}**. You can select individual clouds, folders, and services to include in a set budget. By default, data is collected from all the clouds, folders, and services that the selected billing account has access to.
+     1. Set at least one utilization threshold to trigger notifications. You can specify a threshold as a percentage or a cash value and select the users to receive notifications. A budget can have multiple thresholds.
 
-   If several budget thresholds are reached at the same time, users will receive a single notification.
+     {% note info %}
 
-   {% endnote %}
+     Users listed in the **{{ ui-key.yacloud.common.section-base }}** section will receive notifications when each specified threshold is exceeded. Users listed when setting a threshold will only receive a notification when that specific threshold is reached.
 
-1. After filling in all the fields, click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**. This will create a budget.
+     If several budget thresholds are reached at the same time, users will receive a single notification.
 
+     {% endnote %}
+
+  1. After filling in all the fields, click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**. This will create a budget.
+
+- API {#api}
+
+  To create a budget, use the [create](../api-ref/Budget/create.md) REST API method for the [Budget](../api-ref/Budget/index.md) resource or the [BudgetService/Create](../api-ref/grpc/budget_service.md#Create) gRPC API call.
+
+{% endlist %}
 
 
 ## See also
 
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md).
+

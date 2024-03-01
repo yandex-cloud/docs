@@ -409,7 +409,7 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       console:
-        str-1c: 11-1c, 12-1c, 13-1c, 14-1c и 15-1c
+        str-1c: 12-1c, 13-1c, 14-1c и 15-1c
       tf:
         latest: '16'
         str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15, 15-1c или 16
@@ -893,9 +893,6 @@ default:
         hsm|month|string: "360,0000\_₽"
         software|month|string: "2,8800\_₽"
   sku|RUB|lockbox:
-    api:
-      v1:
-        get|string: "3,4560\_₽"
     storage:
       v1:
         active_secrets|month|string: "18,0000\_₽"
@@ -1789,6 +1786,10 @@ default:
       v1:
         hsm|month|string: "2,880000\_$"
         software|month|string: "0,023040\_$"
+  sku|USD|lockbox:
+    storage:
+      v1:
+        active_secrets|month|string: "0,144000\_$"
   sku|USD|mdb:
     cluster:
       clickhouse:
