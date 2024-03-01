@@ -893,9 +893,6 @@ default:
         hsm|month|string: ₽360.0000
         software|month|string: ₽2.8800
   sku|RUB|lockbox:
-    api:
-      v1:
-        get|string: ₽3.4560
     storage:
       v1:
         active_secrets|month|string: ₽18.0000
@@ -1789,6 +1786,10 @@ default:
       v1:
         hsm|month|string: $2.880000
         software|month|string: $0.023040
+  sku|USD|lockbox:
+    storage:
+      v1:
+        active_secrets|month|string: $0.144000
   sku|USD|mdb:
     cluster:
       clickhouse:

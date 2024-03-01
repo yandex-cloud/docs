@@ -11,14 +11,21 @@ The cost of {{ lockbox-name }} usage is based on:
 * Number of secret versions.
 * Number of completed [get](api-ref/Payload/get) operations on a secret.
 
+
+{% note warning %}
+
+The prices are in effect as of March 10, 2024.
+
+{% endnote %}
+
+
 ## Cost of storing secrets {#secrets}
 
 
 
 
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ lockbox-name }} can be used free of charge.
-
+{% include [usd.md](../_pricing/lockbox/usd-secrets.md) %}
 
 
 
@@ -28,7 +35,6 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ lockbox-name }
 
 
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ lockbox-name }} can be used free of charge.
-
+{% include [usd.md](../_pricing/lockbox/usd-secrets.md) %}
 
 

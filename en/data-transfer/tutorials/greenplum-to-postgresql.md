@@ -2,6 +2,6 @@
 canonical: "{{ link-docs }}/tutorials/dataplatform/greenplum-to-postgresql"
 ---
 
-# Uploading {{ GP }} data to a {{ PG }} data mart
+# Loading {{ GP }} data to a {{ PG }} data mart
 
-{% include [article-body](../../_tutorials/datatransfer/mgp-to-mpg.md) %}
+{% include [article-body](../../_tutorials/dataplatform/datatransfer/mgp-to-mpg.md) %}

@@ -1,3 +1,3 @@
-# Migrating databases from {{ mpg-name }} to {{ mmy-name }} using {{ data-transfer-name }}
+# Migrating data from {{ mpg-name }} to {{ mmy-name }} using {{ data-transfer-name }}
 
-{% include [article-body](../../_tutorials/datatransfer/mpg-to-mmy.md) %}
+{% include [article-body](../../_tutorials/dataplatform/datatransfer/mpg-to-mmy.md) %}

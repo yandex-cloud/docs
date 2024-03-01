@@ -12,11 +12,13 @@ Your personal account is created automatically once you [activate the paid versi
 
 You can find your personal account number in [Payment invoice](bill.md).
 
-## Personal account balance  {#balance}
+## Personal account balance {#balance}
 
-After the paid version is activated, the personal account balance is zero by default.
+Upon activation of the paid version, your personal account balance will equal zero by default.
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}
+
+Your balance can go negative due to the [billing threshold](billing-threshold.md) applied after you activate the paid version – and only if paying with a bank card.
 
 We recommend that you [monitor](../operations/pay-the-bill.md) and top up your personal account balance so that it is always positive.
 

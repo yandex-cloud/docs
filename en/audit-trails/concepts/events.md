@@ -143,6 +143,8 @@ Service name: `containerregistry`.
 
 Service name: `dataproc`.
 
+{% include [dataproc-events](../../_includes/audit-trails/events/dataproc-events.md) %}
+
 ## {{ data-transfer-name }} {#datatransfer}
 
 Service name: `datatransfer`.
@@ -189,136 +191,34 @@ Service name: `lockbox`.
 
 Service name: `mdb.kafka`.
 
-| Event name | Description |
---- | ---
-| `CreateCluster` | Creating a cluster |
-| `DeleteCluster` | Deleting a cluster |
-| `StartCluster` | Starting a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `CreateConnector` | Creating a connector |
-| `CreateTopic` | Creating a topic |
-| `CreateUser` | Creating a cluster user |
-| `DeleteConnector` | Deleting a connector |
-| `DeleteTopic` | Deleting a topic |
-| `DeleteUser` | Deleting a cluster user |
-| `GrantUserPermission` | Granting permissions to a cluster user |
-| `MoveCluster` | Moving a cluster |
-| `PauseConnector` | Pausing a connector |
-| `ResumeConnector` | Resuming a connector |
-| `RevokeUserPermission` | Revoking a cluster user's permissions |
-| `UpdateConnector` | Updating a connector |
-| `UpdateTopic` | Updating a topic |
-| `UpdateUser` | Updating a cluster user |
+{% include [managed-kafka-events](../../_includes/audit-trails/events/managed-kafka-events.md) %}
 
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
 Service name: `mdb.clickhouse`.
 
-| Event name | Description |
---- | ---
-| `AddClusterHosts` | Adding new hosts to a cluster |
-| `AddClusterShard` | Adding a shard to a cluster |
-| `AddClusterZookeeper` | Adding a ZooKeeper subcluster to a cluster |
-| `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating a cluster |
-| `CreateClusterExternalDictionary` | Creating an external dictionary |
-| `CreateDatabase` | Creating a database |
-| `CreateFormatSchema` | Creating a data format schema |
-| `CreateMlModel` | Creating a machine learning model |
-| `CreateShardGroup` | Creating a shard group |
-| `CreateUser` | Creating a database user |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteClusterExternalDictionary` | Deleting an external dictionary |
-| `DeleteClusterHosts` | Deleting hosts from a cluster |
-| `DeleteClusterShard` | Deleting a shard from a cluster |
-| `DeleteDatabase` | Deleting a database |
-| `DeleteFormatSchema` | Deleting a data format schema |
-| `DeleteMlModel` | Deleting a machine learning model |
-| `DeleteShardGroup` | Deleting a shard group |
-| `DeleteUser` | Deleting a database user |
-| `GrantUserPermission` | Assigning privileges to a database user |
-| `MoveCluster` | Moving a cluster |
-| `RestoreCluster` | Creating a new cluster from a backup |
-| `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `UpdateClusterExternalDictionary` | Editing an external dictionary |
-| `UpdateClusterShard` | Editing a cluster shard |
-| `UpdateFormatSchema` | Editing a data schema format |
-| `UpdateMlModel` | Editing a machine learning model |
-| `UpdateShardGroup` | Editing a shard group |
-| `UpdateUser` | Editing a database user |
+{% include [mch-events](../../_includes/audit-trails/events/mch-events.md) %}
 
 
 ## {{ mgl-name }} {#managed-service-for-gitlab}
 
 Service name: `gitlab`.
 
-| Event name | Description |
---- | ---
-| `BackupInstance` | Creating backups |
-| `CleanupRegistryInstance` | Docker Registry cleanup |
-| `CreateInstance` | Creating an instance |
-| `CreateInstanceBackup` | Creating an instance backup |
-| `DeleteInstance` | Deleting an instance |
-| `ReconfigureGitlab` | Editing the {{ GL }} configuration |
-| `RescheduleMaintenance` | Changing scheduled maintenance date and time |
-| `ResizeInstance` | Resizing an instance |
-| `ScheduleUpgrade` | Setting the instance upgrade time |
-| `StartInstance` | Launching an instance |
-| `StopInstance` | Stopping an instance |
-| `UpdateInstance` | Updating an instance |
-| `UpdateOmniauthInstance` | Updating OmniAuth settings |
-| `UpgradeInstance` | Updating the GitLab version |
+{% include [mgl-events](../../_includes/audit-trails/events/mgl-events.md) %}
 
 
 ## {{ mgp-short-name }} {#managed-service-for-greenplum}
 
 Service name: `mdb.greenplum`.
 
-| Event name | Description |
---- | ---
-| `CreateCluster` | Creating a cluster |
-| `CreateHBARule` | Creating a user authentication rule |
-| `CreatePXFDatasource` | Creating a connection to an external table |
-| `DeleteBackup` | Deleting backups |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteHBARule` | Deleting a user authentication rule |
-| `DeletePXFDatasource` | Deleting an external table connection |
-| `ExpandCluster` | Expanding a cluster |
-| `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `UpdateHBARule` | Updating a user authentication rule |
-| `UpdatePXFDatasource` | Updating an external table connection |
+{% include [mgp-events](../../_includes/audit-trails/events/managed-greenplum-events.md) %}
 
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
 Service name: `mdb.mongodb`.
 
-| Event name | Description |
---- | ---
-| `AddClusterHosts` | Adding new hosts to a cluster |
-| `AddClusterShard` | Adding a shard to a cluster |
-| `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating a cluster |
-| `DeleteBackup` | Deleting backups |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteClusterHosts` | Deleting hosts from a cluster |
-| `DeleteClusterShard` | Deleting a shard from a cluster |
-| `EnableClusterSharding` | Enabling sharding for a cluster |
-| `MoveCluster` | Moving a cluster |
-| `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `ResetupHosts` | Resyncing a host |
-| `RestartHosts` | Restarting a host |
-| `StepdownHosts` | Changing the master host |
+{% include [mongodb-events](../../_includes/audit-trails/events/mongodb-events.md) %}
 
 
 ## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
@@ -331,108 +231,31 @@ Service name: `k8s`.
 
 Service name: `mdb.mysql`.
 
-| Event name | Description |
---- | ---
-| `AddClusterHosts` | Adding new hosts to a cluster |
-| `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating a cluster |
-| `DatabaseUserLogin` | Connecting a user to the database |
-| `DatabaseUserLogout` | Disconnecting a user from the database |
-| `DeleteBackup` | Deleting backups |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteClusterHosts` | Deleting hosts from a cluster |
-| `MoveCluster` | Moving a cluster |
-| `RescheduleMaintenance` | Changing scheduled maintenance date and time |
-| `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting a cluster |
-| `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `UpdateClusterHosts` | Editing hosts in a cluster |
+{% include [mysql-events](../../_includes/audit-trails/events/mysql-events.md) %}
 
 ## {{ mpg-short-name }} {#managed-service-for-postgresql}
 
 Service name: `mdb.postgresql`.
 
-| Event name | Description |
---- | ---
-| `AddClusterHosts` | Adding new hosts to a cluster |
-| `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating a cluster |
-| `DatabaseUserLogin` | Connecting a user to the database |
-| `DatabaseUserLogout` | Disconnecting a user from the database |
-| `DeleteBackup` | Deleting backups |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteClusterHosts` | Deleting hosts from a cluster |
-| `MoveCluster` | Moving a cluster |
-| `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting a cluster |
-| `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `UpdateClusterHosts` | Editing hosts in a cluster |
+{% include [mpg-events](../../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
 ## {{ mrd-short-name }} {#managed-service-for-redis}
 
 Service name: `mdb.redis`.
 
-| Event name | Description |
---- | ---
-| `AddClusterHosts` | Adding new hosts to a cluster |
-| `AddClusterShard` | Adding a shard to a cluster |
-| `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating a cluster |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteClusterHosts` | Deleting hosts from a cluster |
-| `DeleteClusterShard` | Deleting a shard from a cluster |
-| `MoveCluster` | Moving a cluster |
-| `RebalanceCluster` | Rebalancing a cluster |
-| `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting a cluster |
-| `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `UpdateClusterHosts` | Updating cluster hosts |
+{% include [mrd-events](../../_includes/audit-trails/events/mrd-events.md) %}
 
 ## {{ mes-short-name }} {#managed-service-for-elasticsearch}
 
 Service name: `mdb.elasticsearch`.
 
-| Event name | Description |
---- | ---
-| `AddClusterHosts` | Adding new hosts to a cluster |
-| `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating a cluster |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteClusterHosts` | Deleting hosts from a cluster |
-| `MoveCluster` | Moving a cluster |
-| `RescheduleMaintenance` | Changing scheduled maintenance date and time |
-| `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
+{% include [mes-events](../../_includes/audit-trails/events/mes-events.md) %}
 
 ## {{ mos-short-name }} {#managed-service-for-opensearch}
 
 Service name: `mdb.opensearch`.
 
-| Event name | Description |
---- | ---
-| `AddDashboardsNodeGroup` | Adding a `Dashboards` host group |
-| `AddOpenSearchNodeGroup` | Adding an `OpenSearch` host group |
-| `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating a cluster |
-| `DeleteCluster` | Deleting a cluster |
-| `DeleteDashboardsNodeGroup` | Deleting a `Dashboards` host group |
-| `DeleteOpenSearchNodeGroup` | Deleting an `OpenSearch` host group |
-| `MoveCluster` | Moving a cluster |
-| `RescheduleMaintenance` | Changing scheduled maintenance date and time |
-| `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting a cluster |
-| `StopCluster` | Stopping a cluster |
-| `UpdateCluster` | Updating a cluster |
-| `UpdateDashboardsNodeGroup` | Updating a `Dashboards` host group |
-| `UpdateOpenSearchNodeGroup` | Updating an `OpenSearch` host group |
+{% include [mos-events](../../_includes/audit-trails/events/mos-events.md) %}
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 

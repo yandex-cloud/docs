@@ -27,7 +27,7 @@ Create a {{ MY }} cluster with any suitable configuration. In which case:
 
 ## Transferring data {#data-transfer}
 
-{% include notitle [MySQL migration with Data Transfer](../../_tutorials/datatransfer/managed-mysql-to-mysql.md) %}
+{% include notitle [MySQL migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql-to-mysql.md) %}
 
 ## See also {#see-also}
 

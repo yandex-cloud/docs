@@ -15,7 +15,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ mgp-name }} любой подходящей конфигурации.
 
@@ -37,7 +37,7 @@
     1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
 
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -205,7 +205,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     
     1. [Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).
@@ -216,7 +216,7 @@
     1. [Удалите облачную сеть](../../../vpc/operations/network-delete.md).
 
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

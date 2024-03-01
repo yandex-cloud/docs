@@ -16,7 +16,7 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
 ## Transferring data using {{ data-transfer-name }} {#data-transfer}
 
-{% include notitle [Migration with Data Transfer](../../_tutorials/datatransfer/managed-mysql.md) %}
+{% include notitle [Migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql.md) %}
 
 ## Transferring data by creating and restoring a logical dump {#logical-dump}
 
@@ -331,7 +331,7 @@ Delete the resources you no longer need to avoid paying for them:
 
    To delete the infrastructure created with {{ TF }}:
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-migration-mysql-mmy.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

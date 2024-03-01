@@ -175,10 +175,6 @@
 
 ## Куда заявить о проблеме {#support}
 
-
 Если проблему не удалось решить с помощью приведенных советов, обратитесь в [техническую поддержку]({{ link-console-support }}).
-
-
-В обращении укажите идентификатор [трансфера](../operations/transfer.md#list) или [эндпоинта](../operations/endpoint/index.md#list); приложите информацию о [состоянии трансфера](../operations/monitoring.md).
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

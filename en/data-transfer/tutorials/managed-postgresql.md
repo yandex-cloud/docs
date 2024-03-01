@@ -14,7 +14,7 @@ To use this migration method, allow connecting to the source cluster from the in
 
 ## Transferring data {#data-transfer}
 
-{% include notitle [MPG moving data with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
+{% include notitle [MPG moving data with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-postgresql.md) %}
 
 ## Transferring tables with data types from {{ PG }} extensions
 
