@@ -10,7 +10,7 @@ description: "Follow this guide to link a cloud to a billing account."
 ## Requirements for linking a cloud {#bind-roles}
 
 Before linking a cloud, make sure that the billing account has been activated (the `ACTIVE` or `TRIAL_ACTIVE` status) and that the user has the following roles:
-* [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
+* [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) in the cloud.
 * `billing.accounts.owner` or `editor` in the billing account. To learn more about roles, see [Access management](../security/index.md#roles-list).
 
 ## Linking a cloud {#bind-cloud}
@@ -64,6 +64,10 @@ To link a cloud or transfer an existing one:
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
    After that, the cloud will be linked to the billing account. You can check that the cloud is linked to the account on the billing account page in the [{{ billing-name }} service]({{ link-console-billing }}).
+
+- API {#api}
+
+   To link a cloud, use the [bindBillableObject](../api-ref/BillingAccount/bindBillableObject.md) REST API method for the [BillingAccount](../api-ref/BillingAccount/index.md) resource or the [BillingAccountService/BindBillableObject](../api-ref/grpc/billing_account_service.md#BindBillableObject) gRPC API call.
 
 {% endlist %}
 

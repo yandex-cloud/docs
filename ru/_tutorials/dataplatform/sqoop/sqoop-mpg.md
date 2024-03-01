@@ -205,7 +205,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).
     1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и [удалите его](../../../vpc/operations/address-delete.md).
@@ -218,7 +218,7 @@
     1. Удалите [подсеть](../../../vpc/operations/subnet-delete.md).
     1. Удалите [облачную сеть](../../../vpc/operations/network-delete.md).
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, созданную с помощью {{ TF }}:
 

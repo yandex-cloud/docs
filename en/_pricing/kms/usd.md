@@ -1,6 +1,6 @@
 {% note warning %}
 
-The prices are in effect as of March 1, 2024.
+The prices are in effect as of March 10, 2024.
 
 {% endnote %}
 

@@ -71,7 +71,7 @@ To follow the steps in this section, you will need:​
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the create federation command:
+   1. View a description of the create federation command:
 
       ```
       yc organization-manager federation saml create --help

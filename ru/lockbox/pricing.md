@@ -11,6 +11,7 @@ editable: false
 * Количества версий секретов.
 * Числа выполненных операций [get](api-ref/Payload/get) с секретом.
 
+
 ## Цена хранения секретов {#secrets}
 
 
@@ -21,13 +22,10 @@ editable: false
 
 
 
-
 ## Цена запросов секретов {#requests}
 
 
-
 {% include [rub.md](../_pricing/lockbox/rub-requests.md) %}
-
 
 
 

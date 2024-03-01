@@ -25,7 +25,7 @@ links:
     description: Command line interface
     href: cli/
   - title: Cloud Apps
-    description: Serverless stack-based applications
+    description: Yandex Cloud-based applications
     href: cloud-apps/
   - title: Cloud Backup
     description: Backing up VMs and other resources

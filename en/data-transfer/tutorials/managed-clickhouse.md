@@ -19,6 +19,6 @@ For more information, see [{#T}](../concepts/use-cases.md).
 
 ## Transferring data {#data-transfer}
 
-{% include notitle [Data migration MCH](../../_tutorials/datatransfer/managed-clickhouse.md) %}
+{% include notitle [Data migration MCH](../../_tutorials/dataplatform/datatransfer/managed-clickhouse.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
