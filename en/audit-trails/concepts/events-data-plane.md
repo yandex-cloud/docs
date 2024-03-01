@@ -1,7 +1,5 @@
 # Data event reference
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 The value of the `event_type` (_event type_) field in a data (data plane) audit log is determined by the event source service.
 
 The general value format is as follows:
@@ -13,7 +11,6 @@ The general value format is as follows:
 On this page, you will find events for the following services:
 
 * [{{ dns-name }}](#dns)
-* [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mmg-name }}](#mmg)

@@ -10,14 +10,11 @@
 
 ## События уровня сервисов {#data-plane-events}
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 К событиям уровня сервисов (Data Plane) относятся изменения и действия, которые происходят с данными и ресурсами внутри сервисов {{ yandex-cloud }}. По умолчанию {{ at-name }} не регистрирует события Data Plane. Включать сбор аудитных логов уровня сервисов нужно отдельно для каждого из поддерживаемых сервисов.
 
 Регистрация событий Data Plane доступна для следующих сервисов:
 
 * [{{ dns-full-name }}](../../dns/)
-* [{{ iam-full-name }}](../../iam/)
 * [{{ kms-full-name }}](../../kms/)
 * [{{ lockbox-full-name }}](../../lockbox/)
 * [{{ mmg-full-name }}](../../managed-mongodb/)

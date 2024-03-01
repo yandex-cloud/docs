@@ -14,6 +14,4 @@ The general view of the `event_type` field value is as follows:
 
 ## Data event reference {#data-plane-events}
 
-{% include notitle [preview](../_includes/note-preview-by-request.md) %}
-
 {% include [storage-events-dp](../_includes/audit-trails/events/storage-events-dp.md) %}

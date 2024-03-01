@@ -1,5 +1,5 @@
-# Exporting {{ GP }} data to a cold {{ objstorage-full-name }} storage
+# Exporting {{ GP }} data to cold storage in {{ objstorage-full-name }}
 
-{% include notitle [greenplum-yezzey.md](../../_tutorials/mgp/greenplum-yezzey.md) %}
+{% include notitle [greenplum-yezzey.md](../../_tutorials/dataplatform/mgp/greenplum-yezzey.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

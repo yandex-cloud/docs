@@ -7,19 +7,29 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.119.0 (27.02.24) {#version0.119.0}
+## Версия 0.120.0 (01.03.24) {#version0.120.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ iam-name }} {#iam}
+#### {{compute-name}}
+* В команде `yc compute connect-to-serial-port` поддержана авторизация через OS Login.
+
+#### {{ at-name }}
+* Добавлено дерево команд `yc audit-trails trail` с командами `get`, `list`, `create`, `update`, `delete`, `list-operations`, `list-access-bindings`, `set-access-bindigns`, `add-access-binding`, `remove-access-binding` для управления трейлами.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.119.0 (27.02.24) {#version0.119.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ iam-name }} {#iam}
 
 * Добавлено дерево команд `yc iam service-control`с командами `get`, `list`, `enable`, `pause`, `resume`, `disable` для управления доступом сервисов к ресурсам в облаке.
 
-#### {{compute-name}}
+##### {{compute-name}}
 
 * В командах `yc compute instance create` и `yc compute instance update` добавлена поддержка настроек серийного порта.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.118.0 (14.02.24) {#version0.118.0}
 

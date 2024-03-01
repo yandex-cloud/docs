@@ -74,9 +74,9 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
 ### Examples for creating external tables {#pxf-examples}
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ CH }}
+- {{ CH }} {#clickhouse}
 
    1. [Create a {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the `chuser` username.
    1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
@@ -126,7 +126,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       (1 row)
       ```
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
    1. [Create a {{ mmy-full-name }} cluster](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
@@ -173,7 +173,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       (2 rows)
       ```
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
    1. [Create a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-create.md) with the following settings:
 
@@ -220,7 +220,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       (2 rows)
       ```
 
-- {{ objstorage-name }}
+- {{ objstorage-name }} {#storage}
 
    1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 

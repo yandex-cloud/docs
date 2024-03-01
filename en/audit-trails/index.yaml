@@ -1,12 +1,15 @@
 title: Yandex Audit Trails
 description:
   - >-
-    <em>Audit Trails is currently at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - >-
     This service collects and uploads audit logs from Yandex Cloud resources,
     allowing you to use analytical tools to rapidly respond to events occurring
-    to Yandex Cloud resources."
+    to Yandex Cloud resources.
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_audittrails/">Service Level for
+    Yandex Audit Trails</a>.
 meta:
   title: Yandex Audit Trails
   description: >-

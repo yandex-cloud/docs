@@ -30,21 +30,37 @@ The chart below shows which roles are available in the service and how they inhe
 
 ### Service roles {#service-roles}
 
-{% include [mos-auditor](../../_includes/iam/roles/mos-auditor.md) %}
+#### managed-opensearch.auditor {#managed-opensearch-auditor}
 
-{% include [mos-viewer](../../_includes/iam/roles/mos-viewer.md) %}
+{% include [opensearch.auditor](../../_roles/managed-opensearch/auditor.md) %}
 
-{% include [mos-editor](../../_includes/iam/roles/mos-editor.md) %}
+#### managed-opensearch.viewer {#managed-opensearch-viewer}
 
-{% include [mos-admin](../../_includes/iam/roles/mos-admin.md) %}
+{% include [opensearch.viewer](../../_roles/managed-opensearch/viewer.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+#### managed-opensearch.editor {#managed-opensearch-editor}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+{% include [opensearch.editor](../../_roles/managed-opensearch/editor.md) %}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+#### managed-opensearch.admin {#managed-opensearch-admin}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+{% include [opensearch.admin](../../_roles/managed-opensearch/admin.md) %}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 
 ### Primitive roles {#primitive-roles}

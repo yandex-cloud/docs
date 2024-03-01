@@ -71,7 +71,7 @@ items:
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
-          - name: Resetting a VM user password
+          - name: Resetting a Windows Server VM user password
             href: operations/vm-control/vm-reset-password.md
           - name: Attaching a disk to a VM
             href: operations/vm-control/vm-attach-disk.md

@@ -32,9 +32,9 @@ After creating a cluster, you can change its basic and advanced settings.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, paste the [static access key](../../iam/concepts/authorization/access-key.md) values for your [service account](../../iam/concepts/users/service-accounts.md).
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, activate or deactivate deletion protection.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable or disable deletion protection.
 
-   1. Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, edit, delete, or add [additional {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) in `key:value` format, such as `api.maximum_page_limit` **:** `150`.
+   1. Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, edit, delete, or add [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., `api.maximum_page_limit` as a key and `150` as its value. Fill out the fields manually or import the settings from a configuration file (see [sample configuration file](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 

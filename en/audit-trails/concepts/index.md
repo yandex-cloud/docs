@@ -67,21 +67,9 @@ The following [management events](./events.md) are logged:
 * {{ lockbox-full-name }}
 * {{ kms-full-name }}
 * {{ objstorage-full-name }}
-
-The following [data events](events-data-plane.md) are logged:
-
-* Execution result of a DNS query from a Cloud DNS client.
-* Accessing the contents of a secret.
-* Decrypting ciphertext using a key.
-* Encrypting a text string with a key.
-* Generating a high-entropy key for Envelope Encryption.
-* Decrypting ciphertext with a previous-version key and re-encrypting the decrypted text with a new version of the same key.
-* Updating an object's ACL in a bucket.
-* Creating an object in a bucket.
-* Deleting an object from a bucket.
-* Deleting bucket object tags.
-* Updating bucket object tags.
-* Updating an object in a bucket.
+* {{ mpg-full-name }}
+* {{ mmg-full-name }}
+* {{ mmy-full-name }}
 
 ## Current service limits {#known-restrictions}
 

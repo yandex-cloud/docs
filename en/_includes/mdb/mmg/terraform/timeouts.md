@@ -1,10 +1,9 @@
-{% note warning "Time limits" %}
+{% note warning "Timeouts" %}
 
-A {{ TF }} provider sets the timeout for {{ mmg-name }} cluster operations:
+The {{ TF }} provider sets the following timeouts for {{ mmg-name }} cluster operations:
 
 * Creating a cluster, including by restoring one from a backup: 30 minutes.
 * Editing a cluster: 60 minutes.
-* Deleting a cluster: 30 minutes.
 
 Operations exceeding the set timeout are interrupted.
 
@@ -16,9 +15,8 @@ Add the `timeouts` block to the cluster description, for example:
 resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
   ...
   timeouts {
-    create = "1h30m" # 1 hour 30 minutes
-    update = "2h"    # 2 hours
-    delete = "30m"   # 30 minutes
+    create = "1h30m" # An hour and a half
+    update = "2h"    # Two hours
   }
 }
 ```

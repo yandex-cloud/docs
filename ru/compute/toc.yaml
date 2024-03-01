@@ -51,6 +51,8 @@ items:
             href: operations/placement-groups/placement-groups-get-info.md
           - name: Исключить группу виртуальных машин из группы размещения
             href: operations/placement-groups/delete-ig-from-pg.md
+          - name: Настроить права доступа к группе размещения ВМ
+            href: operations/placement-groups/access.md
       - name: Образы с предустановленным ПО
         items:
           - name: Создать ВМ из публичного образа
@@ -71,7 +73,7 @@ items:
         items:
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
-          - name: Сбросить пароль пользователя ВМ
+          - name: Сбросить пароль пользователя ВМ Windows Server
             href: operations/vm-control/vm-reset-password.md
           - name: Подключить диск к ВМ
             href: operations/vm-control/vm-attach-disk.md
@@ -97,10 +99,12 @@ items:
             href: operations/vm-control/vm-update-resources.md
           - name: Изменить группы безопасности ВМ
             href: operations/vm-control/vm-change-security-groups-set.md
-          - name: Удалить ВМ
-            href: operations/vm-control/vm-delete.md
           - name: Управление политикой обслуживания ВМ
             href: operations/vm-control/vm-update-policies.md
+          - name: Настроить права доступа к ВМ
+            href: operations/vm-control/vm-access.md
+          - name: Удалить ВМ
+            href: operations/vm-control/vm-delete.md
       - name: Работа на виртуальной машине
         items:
           - name: Подключиться к ВМ по SSH
@@ -163,6 +167,8 @@ items:
             href: operations/disk-control/disk-encrypt.md
           - name: Получить информацию о диске
             href: operations/disk-control/get-info.md
+          - name: Настроить права доступа к диску
+            href: operations/disk-control/disk-access.md
           - name: Удалить диск
             href: operations/disk-control/delete.md
       - name: Снимки дисков
@@ -185,6 +191,10 @@ items:
             href: operations/snapshot-control/stop-and-start-schedule.md
           - name: Зашифровать снимок
             href: operations/snapshot-control/snapshot-encrypt.md
+          - name: Настроить права доступа к снимку диска
+            href: operations/snapshot-control/snapshot-access.md
+          - name: Настроить права доступа к расписанию снимков
+            href: operations/snapshot-control/snapshot-schedule-access.md
           - name: Удалить расписание снимков
             href: operations/snapshot-control/delete-schedule.md
       - name: Группы размещения дисков
@@ -195,6 +205,8 @@ items:
             href: operations/disk-placement-groups/add-disk.md
           - name: Получить информацию о группе размещения дисков
             href: operations/disk-placement-groups/get-info.md
+          - name: Настроить права доступа к группе размещения дисков
+            href: operations/disk-placement-groups/access.md
           - name: Удалить диск из группы размещения
             href: operations/disk-placement-groups/remove-disk.md
       - name: Создание образа
@@ -215,10 +227,12 @@ items:
             href: operations/image-control/get-list.md
           - name: Получить информацию об образе
             href: operations/image-control/image-control-get-info.md
-          - name: Удалить образ
-            href: operations/image-control/delete.md
           - name: Импортировать образ из другого облака или каталога
             href: operations/image-control/import.md
+          - name: Настроить права доступа к образу
+            href: operations/image-control/access.md
+          - name: Удалить образ
+            href: operations/image-control/delete.md
       - name: Файловые хранилища
         items:
           - name: Создать файловое хранилище
@@ -231,6 +245,8 @@ items:
             href: operations/filesystem/update.md
           - name: Получить информацию о файловом хранилище
             href: operations/filesystem/get-info.md
+          - name: Настроить права доступа к файловому хранилищу
+            href: operations/filesystem/filesystem-access.md
           - name: Удалить файловое хранилище
             href: operations/filesystem/delete.md
       - name: Управление серийной консолью
@@ -303,10 +319,12 @@ items:
             href: operations/instance-groups/stop.md
           - name: Запустить группу ВМ
             href: operations/instance-groups/start.md
-          - name: Удалить группу ВМ
-            href: operations/instance-groups/delete.md
+          - name: Настроить права доступа к группе ВМ
+            href: operations/instance-groups/access.md
           - name: Исключить группу виртуальных машин из группы размещения
             href: operations/placement-groups/delete-ig-from-pg.md
+          - name: Удалить группу ВМ
+            href: operations/instance-groups/delete.md
       - name: Выделенные хосты
         items:
           - name: Создать группу выделенных хостов
@@ -315,6 +333,8 @@ items:
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Создать ВМ на выделенном хосте
             href: operations/dedicated-host/running-host-vms.md
+          - name: Настроить права доступа к группе выделенных хостов
+            href: operations/dedicated-host/access.md
       - name: Кластеры GPU
         items:
           - name: Создать кластер GPU
@@ -323,10 +343,12 @@ items:
             href: operations/gpu-cluster/gpu-add-to-cluster.md
           - name: Изменить кластер GPU
             href: operations/gpu-cluster/gpu-cluster-update.md
-          - name: Удалить кластер GPU
-            href: operations/gpu-cluster/gpu-cluster-delete.md
           - name: Получить информацию о кластере GPU
             href: operations/gpu-cluster/gpu-cluster-get-info.md
+          - name: Настроить права доступа к кластеру GPU
+            href: operations/gpu-cluster/access.md
+          - name: Удалить кластер GPU
+            href: operations/gpu-cluster/gpu-cluster-delete.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
