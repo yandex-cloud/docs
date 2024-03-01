@@ -165,6 +165,10 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-clickhouse/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -355,6 +359,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

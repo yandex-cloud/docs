@@ -452,8 +452,8 @@ Spark Submit позволяет запускать заранее написан
 
 1. [Установите дополнительные зависимости](#infra-for-scala).
 1. [Соберите Scala-приложение](#scala-build).
-2. [Загрузите JAR-файл в {{ objstorage-name }}](#scala-upload).
-3. [Запустите Spark-задание в кластере {{ dataproc-name }}](#scala-run).
+1. [Загрузите JAR-файл в {{ objstorage-name }}](#scala-upload).
+1. [Запустите Spark-задание в кластере {{ dataproc-name }}](#scala-run).
 
 #### Установите дополнительные зависимости {#infra-for-scala}
 

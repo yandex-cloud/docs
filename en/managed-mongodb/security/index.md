@@ -28,21 +28,37 @@ The chart below shows which roles are available in the service and how they inhe
 
 ### Service roles {#service-roles}
 
-{% include [mmg-auditor](../../_includes/iam/roles/mmg-auditor.md) %}
+#### managed-mongodb.auditor {#managed-mongodb-auditor}
 
-{% include [mmg-viewer](../../_includes/iam/roles/mmg-viewer.md) %}
+{% include [managed-mongodb.auditor](../../_roles/managed-mongodb/auditor.md) %}
 
-{% include [mmg-editor](../../_includes/iam/roles/mmg-editor.md) %}
+#### managed-mongodb.viewer {#managed-mongodb-viewer}
 
-{% include [mmg-admin](../../_includes/iam/roles/mmg-admin.md) %}
+{% include [managed-mongodb.viewer](../../_roles/managed-mongodb/viewer.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+#### managed-mongodb.editor {#managed-mongodb-editor}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+{% include [managed-mongodb.editor](../../_roles/managed-mongodb/editor.md) %}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+#### managed-mongodb.admin {#managed-mongodb-admin}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+{% include [managed-mongodb.admin](../../_roles/managed-mongodb/admin.md) %}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 
 ### Primitive roles {#primitive-roles}

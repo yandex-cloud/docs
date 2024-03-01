@@ -1,7 +1,5 @@
 # Справочник событий уровня сервисов
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 Значение поля `event_type` (_тип события_) аудитного лога уровня сервисов (Data Plane) определяется сервисом-источником события.
 
 Общий вид значения:
@@ -13,7 +11,6 @@
 Ниже описаны события для сервисов:
 
 * [{{ dns-name }}](#dns)
-* [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mmg-name }}](#mmg)
@@ -26,14 +23,6 @@
 Имя сервиса — `dns`.
 
 {% include [dns-events-dp](../../_includes/audit-trails/events/dns-events-dp.md) %}
-
-## {{ iam-name }} {#iam}
-
-{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
-
-Имя сервиса — `iam`.
-
-{% include [iam-events-dp](../../_includes/audit-trails/events/iam-events-dp.md) %}
 
 ## {{ kms-name }} {#kms}
 

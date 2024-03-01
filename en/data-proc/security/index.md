@@ -29,17 +29,65 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
-{% include [mdb.dataproc.agent](../../_includes/iam/roles/dataproc-agent.md) %}
+#### dataproc.agent {#dataproc-agent}
 
-{% include [data-proc-roles](../../_includes/iam/roles/data-proc-roles.md) %}
+{% include [dataproc.agent](../../_roles/dataproc/agent.md) %}
 
-{% include [managed-metastore-roles](../../_includes/iam/roles/managed-metastore-roles.md) %}
+#### mdb.dataproc.agent {#mdb-dataproc-agent}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+{% include [mdb.dataproc.agent](../../_roles/mdb/dataproc/agent.md) %}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+#### dataproc.auditor {#dataproc-auditor}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+{% include [dataproc.auditor](../../_roles/dataproc/auditor.md) %}
+
+#### dataproc.viewer {#dataproc-viewer}
+
+{% include [dataproc.viewer](../../_roles/dataproc/viewer.md) %}
+
+#### dataproc.user {#dataproc-user}
+
+{% include [dataproc.user](../../_roles/dataproc/user.md) %}
+
+#### dataproc.provisioner {#dataproc-provisioner}
+
+{% include [dataproc.provisioner](../../_roles/dataproc/provisioner.md) %}
+
+#### dataproc.editor {#dataproc-editor}
+
+{% include [dataproc.editor](../../_roles/dataproc/editor.md) %}
+
+#### dataproc.admin {#dataproc-admin}
+
+{% include [dataproc.admin](../../_roles/dataproc/admin.md) %}
+
+#### managed-metastore.auditor {#managed-metastore-auditor}
+
+{% include [managed-metastore.auditor](../../_roles/managed-metastore/auditor.md) %}
+
+#### managed-metastore.viewer {#managed-metastore-viewer}
+
+{% include [managed-metastore.viewer](../../_roles/managed-metastore/viewer.md) %}
+
+#### managed-metastore.editor {#managed-metastore-editor}
+
+{% include [managed-metastore.editor](../../_roles/managed-metastore/editor.md) %}
+
+#### managed-metastore.admin {#managed-metastore-admin}
+
+{% include [managed-metastore.admin](../../_roles/managed-metastore/admin.md) %}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

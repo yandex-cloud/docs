@@ -100,7 +100,7 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
    1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable cluster deletion protection.
 
-   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) in `key:value` format, such as `api.maximum_page_limit` **:** `150`.
+   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., `api.maximum_page_limit` as a key and `150` as its value. Fill out the fields manually or import the settings from a configuration file (see [sample configuration file](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 

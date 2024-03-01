@@ -64,8 +64,8 @@ Prepare the infrastructure:
 
    1. [Create a service account](../../iam/operations/sa/create.md) named `data-proc-sa` with the following roles:
 
-      * [dataproc.agent](../../iam/concepts/access-control/roles.md#mdb-dataproc-agent)
-      * [storage.admin](../../iam/concepts/access-control/roles.md#storage-admin)
+      * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent)
+      * [storage.admin](../../storage/security/index.md#storage-admin)
 
    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) named `data-proc-bucket` with restricted access.
    1. [Grant the `data-proc-sa` service account](../../storage/operations/buckets/edit-acl.md) `READ and WRITE` permissions for `data-proc-bucket`.
@@ -567,7 +567,7 @@ To simplify dependency management, build the application to a single JAR file (f
 
 The file will be available at the following path: `spark-app/target/scala-<Scala_version>/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
 
-   If you get the `java.lang.UnsatisfiedLinkError: Error looking up function 'stat': java: undefined symbol: stat` error and your master host OS is Ubuntu, run each `sbt` command with the `-Dsbt.io.jdktimestamps=true` flag:
+#### Upload the JAR file to {{ objstorage-name }} {#scala-upload}
 
 For Spark to have access to the assembled JAR file, upload the file to `data-proc-bucket`. You can upload the file using [s3cmd](../../storage/tools/s3cmd.md):
 
@@ -584,19 +584,19 @@ The file is uploaded to `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAP
 
    The run command varies depending on whether you want to save the job results to {{ objstorage-name }} or to HDFS.
 
-The file is uploaded to `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
+   {% list tabs %}
 
-#### Run the Spark job in the {{ dataproc-name }} cluster {#scala-run}
+   - {{ objstorage-name }}
 
-   ```bash
-   {{ yc-dp }} job create-spark \
-      --cluster-id=<cluster_ID> \
-      --name=<job_name> \
-      --main-class="com.yandex.cloud.dataproc.scala.Main" \
-      --main-jar-file-uri="s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar" \
-      --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
-      --args="s3a://data-proc-bucket/jobs_results/"
-   ```
+      ```bash
+      {{ yc-dp }} job create-spark \
+         --cluster-id=<cluster_ID> \
+         --name=<job_name> \
+         --main-class="com.yandex.cloud.dataproc.scala.Main" \
+         --main-jar-file-uri="s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar" \
+         --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+         --args="s3a://data-proc-bucket/jobs_results/"
+      ```
 
       In the command, specify the following:
 
@@ -605,42 +605,42 @@ The file is uploaded to `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAP
 
       A CSV file with the execution results is saved to `data-proc-bucket`.
 
-- HDFS
+   - HDFS
 
-   ```bash
-   {{ yc-dp }} job create-spark \
-      --cluster-id=<cluster_ID> \
-      --name=<job_name> \
-      --main-class="com.yandex.cloud.dataproc.scala.Main" \
-      --main-jar-file-uri="s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar" \
-      --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
-      --args="tmp/jobs/"
-   ```
-
-   In the command, specify the following:
-
-   * `--cluster-id`: Cluster ID. You can get it with a [list of clusters in the folder](../operations/cluster-list.md#list).
-   * `--name`: Arbitrary Spark job name.
-
-   A CSV file with the execution result is saved to the `/tmp/jobs/<job_ID>/` folder in HDFS.
-
-   Example message saying that the job was run successfully:
-
-   ```text
-   done (1m2s)
-   id: {your_job_id}
-   cluster_id: {your_cluster_id}
-   name: test02
-   status: DONE
-   spark_job:
-     args:
-     - s3a://yc-mdb-examples/dataproc/example01/set01
-     - s3a://data-proc-bucket/jobs_results/
-     main_jar_file_uri: s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar
-     main_class: com.yandex.cloud.dataproc.scala.Main
-   ```
+      ```bash
+      {{ yc-dp }} job create-spark \
+         --cluster-id=<cluster_ID> \
+         --name=<job_name> \
+         --main-class="com.yandex.cloud.dataproc.scala.Main" \
+         --main-jar-file-uri="s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar" \
+         --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+         --args="tmp/jobs/"
+      ```
 
       In the command, specify the following:
+
+      * `--cluster-id`: Cluster ID. You can get it with a [list of clusters in the folder](../operations/cluster-list.md#list).
+      * `--name`: Arbitrary Spark job name.
+
+      A CSV file with the execution result is saved to the `/tmp/jobs/<job_ID>/` folder in HDFS.
+
+      Example message saying that the job was run successfully:
+
+      ```text
+      done (1m2s)
+      id: {your_job_id}
+      cluster_id: {your_cluster_id}
+      name: test02
+      status: DONE
+      spark_job:
+        args:
+        - s3a://yc-mdb-examples/dataproc/example01/set01
+        - s3a://data-proc-bucket/jobs_results/
+        main_jar_file_uri: s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar
+        main_class: com.yandex.cloud.dataproc.scala.Main
+      ```
+
+   {% endlist %}
 
 ## Delete the resources you created {#clear-out}
 

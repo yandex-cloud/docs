@@ -6,6 +6,7 @@ description: "Управление доступом в сервисе предо
 # Управление доступом в {{ compute-name }}
 
 В этом разделе вы узнаете:
+
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list).
 
@@ -15,7 +16,18 @@ description: "Управление доступом в сервисе предо
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Кроме того, роль можно назначить и на отдельную ВМ. 
+Кроме того, роль можно назначить на отдельные ресурсы сервиса:
+
+* [ВМ](../operations/vm-control/vm-access.md);
+* [диск](../operations/disk-control/disk-access.md);
+* [снимок диска](../operations/snapshot-control/snapshot-access.md);
+* [расписание снимка](../operations/snapshot-control/snapshot-schedule-access.md);
+* [файловое хранилище](../operations/filesystem/filesystem-access.md);
+* [образ](../operations/image-control/access.md);
+* [группу размещения ВМ](../operations/placement-groups/access.md);
+* [группу размещения нереплицируемых дисков](../operations/disk-placement-groups/access.md);
+* [группу выделенных хостов](../operations/dedicated-host/access.md);
+* [кластер GPU](../operations/gpu-cluster/access.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

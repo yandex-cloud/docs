@@ -5,4 +5,4 @@ description: "{{ KFC }} is a tool for streaming data between {{ KF }} and other 
 
 # Configuring {{ KFC }} for {{ mkf-name }} clusters
 
-{% include [kafka-connect](../../_tutorials/mkf-kafka-connect.md) %}
+{% include [kafka-connect](../../_tutorials/dataplatform/mkf-kafka-connect.md) %}

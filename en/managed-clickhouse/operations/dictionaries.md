@@ -10,7 +10,7 @@ You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) 
 * {{ MY }}
 * {{ PG }}
 
-Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the recommended method.
+You can manage dictionaries either via SQL or via cloud interfaces. We recommend SQL.
 
 {% note info %}
 
@@ -124,7 +124,7 @@ Changes to the dictionary settings take effect after [restarting the cluster](./
 
    {% endnote %}
 
-   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. [Connect](connect.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
    1. Run the [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/) and specify [dictionary settings](#settings-sql):
 
       ```sql
@@ -201,9 +201,9 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
 
 #### Source {#console-source}
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ CH }}
+- {{ CH }} {#clickhouse}
 
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: Source host name. The host must be in the same network as the {{ CH }} cluster.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
@@ -215,12 +215,12 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-- HTTP(s)
+- HTTP(s) {#https}
 
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}**: HTTP(s) source URL.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}**: File [format]({{ ch.docs }}/interfaces/formats/#formats) for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats/#formats).
 
-- {{ MG }}
+- {{ MG }} {#mongodb}
 
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: Source host name. The host must be in the same network as the {{ CH }} cluster.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
@@ -229,7 +229,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_collection }}**: Name of the collection for the source.
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}**: List of {{ MY }} replicas to use as the dictionary source.
       For replicas, you can set general connection settings or set up a port, username and password.
@@ -242,7 +242,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_hosts }}**: Names of a {{ PG }} host and its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
@@ -294,9 +294,9 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
 
 * `--dict-name`: Name of a new dictionary.
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ CH }}
+- {{ CH }} {#clickhouse}
 
    * `--clickhouse-source`: Settings of a {{ CH }} source:
 
@@ -306,14 +306,14 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
       * `port`: Port for connecting to the source.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
-      * `where`: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+      * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
 
-- HTTP(s)
+- HTTP(s) {#https}
 
    * `--http-source-url`: HTTP(s) source URL.
    * `--http-source-format`: File [format]({{ ch.docs }}/interfaces/formats/#formats) for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats/#formats).
 
-- {{ MG }}
+- {{ MG }} {#mongodb}
 
    * `--mongodb-source`: Settings of a {{ MG }} source:
 
@@ -324,7 +324,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
    * `--mysql-source`: Settings of a {{ MY }} source:
 
@@ -345,7 +345,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
 
    * `--mysql-invalidate-query`: Query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
    * `--postgresql-source`: Settings of a {{ PG }} source:
 
