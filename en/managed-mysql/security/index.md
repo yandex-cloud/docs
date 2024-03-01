@@ -28,21 +28,37 @@ The chart below shows which roles are available in the service and how they inhe
 
 ### Service roles {#service-roles}
 
-{% include [mmy-auditor](../../_includes/iam/roles/mmy-auditor.md) %}
+#### managed-mysql.auditor {#managed-mysql-auditor}
 
-{% include [mmy-viewer](../../_includes/iam/roles/mmy-viewer.md) %}
+{% include [managed-mysql.auditor](../../_roles/managed-mysql/auditor.md) %}
 
-{% include [mmy-editor](../../_includes/iam/roles/mmy-editor.md) %}
+#### managed-mysql.viewer {#managed-mysql-viewer}
 
-{% include [mmy-admin](../../_includes/iam/roles/mmy-admin.md) %}
+{% include [managed-mysql.viewer](../../_roles/managed-mysql/viewer.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+#### managed-mysql.editor {#managed-mysql-editor}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+{% include [managed-mysql.editor](../../_roles/managed-mysql/editor.md) %}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+#### managed-mysql.admin {#managed-mysql-admin}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+{% include [managed-mysql.admin](../../_roles/managed-mysql/admin.md) %}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 
 ### Primitive roles {#primitive-roles}

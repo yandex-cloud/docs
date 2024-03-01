@@ -29,7 +29,7 @@ items:
             href: operations/cluster-delete.md
       - name: Databases
         items:
-          - name: Setting up for a connection
+          - name: Setting up a connection
             href: operations/connect/index.md
           - name: Connecting to a non-sharded cluster
             href: operations/connect/non-sharded.md
@@ -99,9 +99,13 @@ items:
         items:
           - name: Before February 1, 2020
             href: pricing-archive/pricing-01022020.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-redis/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -197,6 +201,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

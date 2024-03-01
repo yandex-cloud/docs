@@ -7,10 +7,7 @@ The general view of the `event_type` field value is as follows:
 ```text
 {{ at-event-prefix }}.audit.iam.<event_name>
 ```
+
 ## Management event reference {#control-plane-events}
 
 {% include [iam-events](../_includes/audit-trails/events/iam-events.md) %}
-
-## Data event reference {#data-plane-events}
-
-{% include [iam-events-dp](../_includes/audit-trails/events/iam-events-dp.md) %}

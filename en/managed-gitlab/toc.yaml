@@ -69,6 +69,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/managed-gitlab

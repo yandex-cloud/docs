@@ -123,6 +123,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
+   1. If you want to restore only certain databases or tables, list them in the **{{ ui-key.yacloud.greenplum.field_restore-only }}** field. If you leave the field blank, the whole cluster will be restored.
    1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
    1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -137,6 +138,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
+   1. If you want to restore only certain databases or tables, list them in the **{{ ui-key.yacloud.greenplum.field_restore-only }}** field. If you leave the field blank, the whole cluster will be restored.
    1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
    1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -175,6 +177,7 @@ If you set the current time as the recovery time, the new cluster will match the
          --segment-disk-type=<disk_type> \
          --segment-host-count <number_of_segment_hosts> \
          --segment-in-host <number_of_segments_per_host> \
+         --restore-only=<list_of_DBs_and_tables_to_restore> \
          --zone-id=<availability_zone> \
          --subnet-id=<subnet_ID> \
          --assign-public-ip=<public_access_to_cluster>
@@ -189,7 +192,7 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--environment`: Environment:
 
          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
-         * `PRODUCTION`: For stable versions of your applications.
+         * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
       * `--master-resource-preset`: [Master host class](../concepts/instance-types.md#available-flavors).
@@ -200,6 +203,7 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--segment-disk-type`: [Disk type](../concepts/storage.md) on the segment hosts.
       * `--segment-host-count`: Number of segment hosts.
       * `--segment-in-host`: Number of [segments](../concepts/index.md) per host.
+      * `--restore-only`: (Optional) Comma-separated list of DBs and tables to restore from the backup. The supported formats include: `<DB>/<chart>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol. If you omit this parameter, the whole cluster will be restored.
       * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
       
@@ -216,6 +220,7 @@ If you set the current time as the recovery time, the new cluster will match the
    * Number of segment hosts in the `segmentHostCount` parameter.
    * Number of [segments](../concepts/index.md) per host in the `segmentInHost` parameter.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
+   * (Optional) Comma-separated list of DBs and tables to restore from the backup, in the `restoreOnly` parameter. The supported formats include: `<DB>/<chart>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol. If you omit this parameter, the whole cluster will be restored.
 
    By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.
 

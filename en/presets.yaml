@@ -483,9 +483,6 @@ default:
   roles-lockbox-payloadviewer: lockbox.payloadViewer
   roles-lockbox-viewer: lockbox.viewer
   roles-logging-writer: logging.writer
-  roles-mdb-admin: mdb.admin
-  roles-mdb-auditor: mdb.auditor
-  roles-mdb-viewer: mdb.viewer
   roles-monitoring-admin: monitoring.admin
   roles-monitoring-editor: monitoring.editor
   roles-monitoring-viewer: monitoring.viewer
@@ -504,7 +501,6 @@ default:
   roles-vpc-private-admin: vpc.privateAdmin
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
-  roles-vpc-viewer: vpc.viewer
   roles-yagpt-user: ai.languageModels.user
   roles:
     gitlab:
@@ -518,10 +514,6 @@ default:
       clusters:
         agent: k8s.clusters.agent
       editor: k8s.editor
-    maf:
-      admin: managed-airflow.admin
-      editor: managed-airflow.editor
-      viewer: managed-airflow.viewer
     mch:
       admin: managed-clickhouse.admin
       editor: managed-clickhouse.editor
@@ -532,37 +524,30 @@ default:
       viewer: managed-elasticsearch.viewer
     mgp:
       admin: managed-greenplum.admin
-      auditor: managed-greenplum.auditor
       editor: managed-greenplum.editor
       viewer: managed-greenplum.viewer
     mkf:
       admin: managed-kafka.admin
-      auditor: managed-kafka.auditor
       editor: managed-kafka.editor
       viewer: managed-kafka.viewer
     mmg:
       admin: managed-mongodb.admin
-      auditor: managed-mongodb.auditor
       editor: managed-mongodb.editor
       viewer: managed-mongodb.viewer
     mmy:
       admin: managed-mysql.admin
-      auditor: managed-mysql.auditor
       editor: managed-mysql.editor
       viewer: managed-mysql.viewer
     mos:
       admin: managed-opensearch.admin
-      auditor: managed-opensearch.auditor
       editor: managed-opensearch.editor
       viewer: managed-opensearch.viewer
     mpg:
       admin: managed-postgresql.admin
-      auditor: managed-postgresql.auditor
       editor: managed-postgresql.editor
       viewer: managed-postgresql.viewer
     mrd:
       admin: managed-redis.admin
-      auditor: managed-redis.auditor
       editor: managed-redis.editor
       viewer: managed-redis.viewer
   s1-large: s1.large (16 vCPU, 64 GB)
@@ -4589,6 +4574,7 @@ default:
           button_action-image: Create image
           button_upload: Upload image
           column_id: ID
+          label_title: Images
           popup-confirm_button_delete: Delete
           popup-upload_button_upload: Upload
           popup-upload_field_pooled: Optimize for deployment
@@ -4705,6 +4691,7 @@ default:
           popup-confirm_button_restart: Restart
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
+        label_service: Compute Cloud
         landing:
           action_create-resource: Create resource
         nfs:
@@ -4755,6 +4742,7 @@ default:
         switch_disks: Disks
         switch_file-storages: File storages
         switch_groups: Instance groups
+        switch_host-groups: Dedicated host groups
         switch_images: Images
         switch_instances: Virtual machines
         switch_operations: Operations
@@ -4907,6 +4895,8 @@ default:
         label_configuration-section: Configuration
         title_backups: Backups
         title_omniauth: OmniAuth
+      gpu-cluster:
+        label_title: GPU clusters
       greenplum:
         action_expand-open: Expand cluster
         action_expand-start: Save
