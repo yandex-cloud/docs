@@ -50,7 +50,7 @@ If you created a [subscription](../concepts/subscription.md) within one of these
          1. In the window that opens, specify the [service account ID](../../iam/operations/sa/get-id.md) and click **{{ ui-key.yacloud_portal.common.action_add }}**.
          1. Find the service account in the list and click ![image](../../_assets/marketplace/three_dots.png) → **{{ ui-key.yacloud_portal.common.action_change }}**.
          1. In the window that opens, click **+ Add role**, select the `license-manager.saasSubscriptionSupervisor` role, and click **Save**.
-         1. Authenticate with the {{ license-manager }} API as a service account. Use an [API key](../../iam/concepts/authorization/api-key.md) to get authenticated.
+         1. Authenticate with the {{ license-manager }} API as a service account. Use an [IAM-token](../../iam/concepts/authorization/iam-token.md#via-jwt) to get authenticated.
 
    1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 
@@ -64,7 +64,7 @@ If you created a [subscription](../concepts/subscription.md) within one of these
 
       1. Regularly checking if your subscription is active.
 
-         You can get the up-to-date subscription information using the [list](../license-manager/api-ref/Instance/list.md) REST API method for the [Instance](../license-manager/api-ref/Instance/index.md) resource or the [InstanceService/List](../license-manager/api-ref/grpc/instance_service.md#List) gRPC API call.
+         You can get the up-to-date subscription information using the [get](../license-manager/saas/api-ref/Instance/get.md) REST API method for the [Lock](../license-manager/saas/api-ref/Lock/index.md) resource or the [LockService/Get](../license-manager/saas/api-ref/grpc/lock_service.md#Get) gRPC API call.
 
          {% note info %}
 
