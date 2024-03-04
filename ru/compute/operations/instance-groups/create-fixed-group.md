@@ -1,6 +1,6 @@
 # Создать группу виртуальных машин фиксированного размера
 
-Вы можете создать группу с фиксированным количеством ВМ. Управление размером такой [группы ВМ](../../concepts/instance-groups/index.md) осуществляется вручную. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
+Вы можете создать группу с фиксированным количеством [ВМ](../../concepts/vm.md). Управление размером такой [группы ВМ](../../concepts/instance-groups/index.md) осуществляется вручную. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -22,7 +22,7 @@
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для создания группы ВМ:
+  1. Посмотрите описание команды [CLI](../../../cli/) для создания группы ВМ:
 
      ```bash
      {{ yc-compute-ig }} create --help
@@ -46,7 +46,7 @@
        ```yaml
        name: first-fixed-group
        service_account_id: <идентификатор_сервисного_аккаунта>
-       description: "This instance group was created from YAML config."
+       description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
        ```
 
        Где:
@@ -101,8 +101,8 @@
            * `true` — будет создана прерываемая ВМ.
            * `false` (по умолчанию) — обычная.
 
-         Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что {{ ig-name }} не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
-       * `placement_policy` — (опционально) параметры [группы размещения ВМ](../../concepts/placement-groups.md):
+         Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что ВМ не смогут сразу перезапуститься их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
+       * `placement_policy` — (опционально) параметры [группы размещения ВМ](../../concepts/placement-groups.md):
          * `placement_group_id` — идентификатор группы размещения.
      * [Политики](../../concepts/instance-groups/policies/index.md):
 
@@ -132,7 +132,7 @@
      ```yaml
      name: first-fixed-group
      service_account_id: ajed6ilf11qg********
-     description: "This instance group was created from YAML config."
+     description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
      instance_template:
        platform_id: standard-v3
        resources_spec:
@@ -178,7 +178,7 @@
      * В сети `default-net`.
      * В зоне доступности `{{ region-id }}-a`.
      * С 2 vCPU и 2 ГБ RAM.
-     * С сетевым HDD-диском объемом 32 ГБ.
+     * С сетевым [HDD-диском](../../concepts/disk.md#disks-types) объемом 32 ГБ.
 
 - {{ TF }} {#tf}
 
@@ -189,7 +189,7 @@
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
        name        = "ig-sa"
-       description = "service account to manage IG"
+       description = "Сервисный аккаунт для управления группой ВМ."
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -296,7 +296,7 @@
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 

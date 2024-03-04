@@ -1,8 +1,8 @@
 # Добавить сертификат от Let's Encrypt®
 
-[Сертификат](../../concepts/managed-certificate.md) из {{ certificate-manager-name }} можно использовать только в [указанных](../../concepts/services.md) сервисах {{ yandex-cloud }}.
+[Сертификат](../../concepts/managed-certificate.md) из {{ certificate-manager-name }} можно использовать только в [указанных сервисах](../../concepts/services.md) {{ yandex-cloud }}.
 
-Чтобы добавить новый [сертификат](../../concepts/managed-certificate.md) от Let's Encrypt®:
+Чтобы добавить новый сертификат от Let's Encrypt®:
 
 {% list tabs group=instructions %}
 
@@ -16,7 +16,7 @@
   1. (Опционально) В поле **Описание** введите описание сертификата.
   1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** введите список доменов, для которых нужно выпустить сертификат.
 
-     Имена доменов могут содержать маску, например `*.example.com`. В этом случае при выборе типа проверки прав на домен необходимо будет выбрать `DNS`. Подробнее см. в разделе [Проверка прав на домен](../../concepts/challenges#dns).
+     Имена доменов могут содержать маску, например `*.example.com`. В этом случае при выборе типа проверки прав на домен необходимо будет выбрать `DNS`. Подробнее см. в разделе [Проверка прав на домен](../../concepts/challenges.md#dns).
   1. Выберите [тип проверки прав на домен](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` или `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
@@ -46,7 +46,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: fpq6gvvm6piu********
      folder_id: b1g7gvsi89m3********
      created_at: "2020-09-15T08:49:11.533771Z"
@@ -73,19 +73,19 @@
      }
      ```
 
-      Где:
-      * `domains` — список доменов, для которых нужно создать сертификат.
-      * `challenge_type` — [тип проверки прав на домен](../../concepts/challenges.md), которую нужно [пройти](cert-validate.md) владельцу домена. Возможные значения:
-        * `DNS_CNAME` — необходимо создать [DNS-запись](../../../dns/concepts/resource-record.md) в формате [CNAME](../../../dns/concepts/resource-record.md#cname-cname) с указанным значением. Рекомендуемый способ для автоматического продления сертификата.
-        * `DNS_TXT` — необходимо создать DNS-запись в формате TXT с указанным значением.
-        * `HTTP` — необходимо поместить указанное значение в указанный URL.
+     Где:
+     * `domains` — список доменов, для которых нужно создать сертификат.
+     * `challenge_type` — [тип проверки прав на домен](../../concepts/challenges.md), которую нужно [пройти](cert-validate.md) владельцу домена. Возможные значения:
+       * `DNS_CNAME` — необходимо создать [DNS-запись](../../../dns/concepts/resource-record.md) в формате [CNAME](../../../dns/concepts/resource-record.md#cname-cname) с указанным значением. Рекомендуемый способ для автоматического продления сертификата.
+       * `DNS_TXT` — необходимо создать DNS-запись в формате [TXT](../../../dns/concepts/resource-record.md#txt) с указанным значением.
+       * `HTTP` — необходимо поместить указанное значение в указанный URL.
 
-      Подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/cm_certificate).
+     Подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/cm_certificate).
   1. Создайте ресурсы:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  После этого в указанном каталоге будет создан сертификат. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+  После этого в указанном [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будет создан сертификат. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
   ```bash
   yc certificate-manager certificate get <имя_сертификата>
@@ -107,6 +107,6 @@
 
 #### См. также {#see-also}
 
-- [{#T}](./cert-get-content.md)
-- [{#T}](./cert-validate.md)
-- [{#T}](./cert-update.md)
+* [{#T}](cert-get-content.md).
+* [{#T}](cert-validate.md).
+* [{#T}](cert-update.md).

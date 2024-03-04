@@ -110,16 +110,16 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Аналогично для ВМ создайте группу безопасности `mysite-sg-vms` и сетью `mysite-network` со следующими правилами:
-      
-     | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
-     | --- | --- | --- | --- | --- | --- |
-     | `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `mysite-sg-balancer` |
-     | `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+
+     Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+     --- | --- | --- | --- | --- | ---
+     `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `mysite-sg-balancer`
+     `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 - {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-  
+
 {% endlist %}
 
 ## Импортируйте TLS-сертификат сайта в {{ certificate-manager-name }} {#import-certificate}
@@ -290,21 +290,17 @@
   1. Укажите **{{ ui-key.yacloud.common.name }}** балансировщика: `mysite-alb`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группу безопасности `mysite-sg-balancer`, [созданную ранее](#create-security-groups).
   1. Создайте обработчик для перенаправления HTTP-запросов на HTTPS:
-
      1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**.
      1. Укажите **{{ ui-key.yacloud.common.name }}** обработчика: `listener-http`.
      1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** выберите тип `{{ ui-key.yacloud.alb.label_address-list }}` и IP-адрес, [зарезервированный ранее](#reserve-ip).
      1. В поле **{{ ui-key.yacloud.alb.label_protocol-type }}** выберите пункт `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
-
   1. Создайте обработчик HTTPS-запросов:
-
      1. Снова нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**.
      1. Укажите **{{ ui-key.yacloud.common.name }}** обработчика: `listener-https`.
      1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** выберите тип `{{ ui-key.yacloud.alb.label_address-list }}` и IP-адрес, [зарезервированный ранее](#reserve-ip).
      1. В поле **{{ ui-key.yacloud.alb.label_protocol-type }}** выберите пункт `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
      1. В блоке **{{ ui-key.yacloud.alb.section_default-sni-match }}** выберите сертификат `mysite-cert` и HTTP-роутер `mysite-router`.
      1. Добавьте обработчик SNI для сайта `my-site.com`:
-
         1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-sni-match }}**.
         1. Укажите **{{ ui-key.yacloud.common.name }}** обработчика SNI: `mysite-sni`.
         1. В поле **{{ ui-key.yacloud.alb.label_server-names }}** укажите `my-site.com`.
@@ -319,18 +315,17 @@
 
 ## Настройте DNS для сайта {#configure-dns}
 
-Доменное имя `my-site.com` должно быть связано с IP-адресом L7-балансировщика с помощью записей DNS. Чтобы это сделать:
-
+Доменное имя `my-site.com` должно быть связано с IP-адресом L7-балансировщика с помощью [записей DNS](../../dns/concepts/resource-record.md). Чтобы это сделать:
 1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Скопируйте IP-адрес созданного балансировщика.
 1. На сайте компании, которая предоставляет вам услуги DNS-хостинга, перейдите в настройки DNS.
-1. Создайте или измените A-запись для `my-site.com` таким образом, чтобы она указывала на скопированный IP-адрес:
+1. Создайте или измените [A-запись](../../dns/concepts/resource-record.md#a) для `my-site.com` таким образом, чтобы она указывала на скопированный IP-адрес:
 
    ```text
    my-site.com. A <IP-адрес_L7-балансировщика>
    ```
 
-   Если вы пользуетесь {{ dns-full-name }}, настройте запись по следующей инструкции:
+   Если вы пользуетесь [{{ dns-full-name }}](../../dns/), настройте запись по следующей инструкции:
 
    {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
@@ -368,101 +363,89 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Чтобы остановить работу хостинга и перестать платить за созданные ресурсы:
-
 1. Удалите нетарифицируемые ресурсы, которые блокируют удаление тарифицируемых ресурсов:
-   
    1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `mysite-alb`.
    1. [Удалите](../../application-load-balancer/operations/http-router-delete.md) HTTP-роутер `mysite-router`.
    1. [Удалите](../../application-load-balancer/operations/backend-group-delete.md) группу бэкендов `my-site-bg`.
-   
-1. [Удалите](../../compute/operations/instance-groups/delete.md) группу виртуальных машин `mysite-ig`.
-1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный адрес.
+1. [Удалите](../../compute/operations/instance-groups/delete.md) группу ВМ `mysite-ig`.
+1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный IP-адрес.
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать инфраструктуру для терминирования TLS-соединений с помощью {{ TF }}:
-
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
-
 1. Подготовьте файлы с описанием инфраструктуры:
 
-    {% list tabs group=infrastructure_description %}
+   {% list tabs group=infrastructure_description %}
 
-    - Готовая конфигурация {#ready}
+   - Готовая конфигурация {#ready}
 
-      1. Клонируйте репозиторий с конфигурационными файлами.
+     1. Клонируйте репозиторий с конфигурационными файлами.
 
-          ```bash
-          git clone https://github.com/yandex-cloud-examples/yc-alb-tls-termination.git
-          ```
+        ```bash
+        git clone https://github.com/yandex-cloud-examples/yc-alb-tls-termination.git
+        ```
 
-      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
-          
-          * `tls-termination-config.tf` — конфигурация создаваемой инфраструктуры;
-          * `tls-terminationg.auto.tfvars` — файл с пользовательскими данными.
+     1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+        * `tls-termination-config.tf` — конфигурация создаваемой инфраструктуры.
+        * `tls-terminationg.auto.tfvars` — файл с пользовательскими данными.
 
-    - Вручную {#manual}
-      
-      1. Создайте папку для конфигурационных файлов.
-      
-      1. Создайте в папке:
-          
-          1. Конфигурационный файл `tls-termination-config.tf`:
+   - Вручную {#manual}
 
-              {% cut "tls-termination-config.tf" %}
-              
-              {% include [tls-termination-config](../../_includes/application-load-balancer/tls-termination-config.md) %}
-              
-              {% endcut %}
-          
-          1. Файл с пользовательскими данными `tls-termination.auto.tfvars`:
-              
-              {% cut "tls-termination.auto.tfvars" %}
-             
-              ```hcl
-              folder_id    = "<идентификатор_каталога>"
-              vm_user      = "<имя_пользователя_ВМ>"
-              ssh_key_path = "<путь_к_публичному_SSH-ключу>"
-              domain       = "<домен>"
-              certificate  = "<путь_к_файлу_с_сертификатом>"
-              private_key  = "<путь_к_файлу_с_закрытым_ключом>"
-              ```
+     1. Создайте папку для конфигурационных файлов.
+     1. Создайте в папке:
+        1. Конфигурационный файл `tls-termination-config.tf`:
 
-              {% endcut %}
-    
-    {% endlist %}
-    
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
-    
-    * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
-    * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
-    * [yandex_vpc_address]({{ tf-provider-resources-link }}/vpc_address)
-    * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
-    * [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate)
-    * [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
-    * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
-    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
-    * [yandex_compute_instance_group]({{ tf-provider-resources-link }}/compute_instance_group)
-    * [yandex_alb_backend_group]({{ tf-provider-resources-link }}/alb_backend_group)
-    * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
-    * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
-    * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
-    * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
+           {% cut "tls-termination-config.tf" %}
 
+           {% include [tls-termination-config](../../_includes/application-load-balancer/tls-termination-config.md) %}
+
+           {% endcut %}
+
+        1. Файл с пользовательскими данными `tls-termination.auto.tfvars`:
+
+           {% cut "tls-termination.auto.tfvars" %}
+
+           ```hcl
+           folder_id    = "<идентификатор_каталога>"
+           vm_user      = "<имя_пользователя_ВМ>"
+           ssh_key_path = "<путь_к_публичному_SSH-ключу>"
+           domain       = "<домен>"
+           certificate  = "<путь_к_файлу_с_сертификатом>"
+           private_key  = "<путь_к_файлу_с_закрытым_ключом>"
+           ```
+
+           {% endcut %}
+
+   {% endlist %}
+
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_address]({{ tf-provider-resources-link }}/vpc_address)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate)
+   * [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
+   * [yandex_compute_instance_group]({{ tf-provider-resources-link }}/compute_instance_group)
+   * [yandex_alb_backend_group]({{ tf-provider-resources-link }}/alb_backend_group)
+   * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
+   * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
+   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 1. В файле `tls-termination.auto.tfvars` задайте пользовательские параметры:
-    
-    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-    * `vm_user` — имя пользователя ВМ.
-    * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-    * `domain` — домен, на котором будет размещен сайт.
-    * `certificate` — путь к файлу с [пользовательским сертификатом](../../certificate-manager/operations/import/cert-create.md#create-file).
-    * `private_key` — путь к файлу с закрытым ключом пользовательского сертификата.
-
+   * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+   * `vm_user` — имя пользователя ВМ.
+   * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `domain` — домен, на котором будет размещен сайт.
+   * `certificate` — путь к файлу с [пользовательским сертификатом](../../certificate-manager/operations/import/cert-create.md#create-file).
+   * `private_key` — путь к файлу с закрытым ключом пользовательского сертификата.
 1. Создайте ресурсы:
-    
-    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Загрузите файлы сайта на ВМ](#upload-site-files).
 1. [Проверьте работу хостинга](#test).

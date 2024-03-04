@@ -2,7 +2,7 @@
 
 {{ yandex-cloud }} предоставляет ![](../../_assets/overview/solution-library-icon.svg)[набор модулей для Terraform](https://github.com/terraform-yc-modules). Модули {{ TF }} объединяют несколько облачных ресурсов, которые должны работать вместе. Благодаря модулям конфигурация облачной инфраструктуры упрощается, блоки легче переиспользовать, а все необходимые для создания ресурсов параметры можно указать в переменных. 
 
-На этой странице рассказано, как подключить модули и использовать их для создания тестовой инфраструктуры: облачной сети с тремя подсетями {{ vpc-name }} и кластера {{ managed-k8s-name }}.
+На этой странице рассказано, как подключить модули и использовать их для создания тестовой инфраструктуры: [облачной сети](../../vpc/concepts/network.md#network) с тремя [подсетями](../../vpc/concepts/network.md#subnet) [{{ vpc-full-name }}](../../vpc/) и [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 Чтобы создать вашу первую инфраструктуру в {{ yandex-cloud }} с помощью {{ TF }}:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -17,43 +17,38 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки созданных с помощью {{ TF }} ресурсов входят:
-* Плата за [региональный мастер](../../managed-kubernetes/concepts#master) (см. [тарифы {{ managed-k8s-full-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за постоянно запущенные [виртуальные машины узлов](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
+* Плата за [региональный мастер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) [групп узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 ## Установите {{ TF }} {#install-terraform}
 
-{% include [terraform_install](../../_tutorials/terraform-install.md) %}
+{% include [terraform_install](../../_tutorials/_tutorials_includes/terraform-install.md) %}
 
 ## Получите данные для аутентификации {#get-credentials}
 
-{% include [terraform-credentials-sa](../../_tutorials/terraform-credentials-sa.md) %}
-
+{% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
 
 {% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
 
-{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+{% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 
 {% endcut %}
 
-
-
 ## Создайте файл конфигурации {{ TF }} {#configure-terraform}
 
-{% include [terraform-configure](../../_tutorials/terraform-configure.md) %}
+{% include [terraform-configure](../../_tutorials/_tutorials_includes/terraform-configure.md) %}
 
 ## Настройте провайдер {#configure-provider}
 
-{% include [terraform-configure-provider](../../_tutorials/terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
 
 ## Подключите модуль управления виртуальными сетями {#vpc-module}
 
-Добавьте в конфигурацию модуль `terraform-yc-vpc` — с его помощью можно управлять сетевой инфраструктурой вашего облака: сетями, подсетями, шлюзами и другими объектами {{ vpc-name }}. Создайте тестовую сеть с тремя подсетями в разных зонах доступности:
+Добавьте в конфигурацию модуль `terraform-yc-vpc` — с его помощью можно управлять сетевой инфраструктурой вашего [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud): сетями, подсетями, [шлюзами](../../vpc/concepts/gateways.md) и другими объектами {{ vpc-name }}. Создайте тестовую сеть с тремя подсетями в разных [зонах доступности](../../overview/concepts/geo-scope.md):
 
 ```hcl
 module "yc-vpc" {
@@ -83,7 +78,7 @@ module "yc-vpc" {
 
 Добавьте в конфигурацию модуль `terraform-yc-vpc` и конфигурацию кластера {{ managed-k8s-name }} с региональным мастером и двумя группами узлов:
 
-```
+```hcl
 module "kube" {
   source     = "github.com/terraform-yc-modules/terraform-yc-kubernetes.git"
   network_id = "${module.yc-vpc.vpc_id}"
@@ -106,7 +101,7 @@ module "kube" {
 
   node_groups = {
     "yc-k8s-ng-01"  = {
-      description   = "Kubernetes nodes group 01"
+      description   = "{{ k8s }} nodes group 01"
       fixed_scale   = {
         size = 3
       }
@@ -117,7 +112,7 @@ module "kube" {
     },
 
     "yc-k8s-ng-02"  = {
-      description   = "Kubernetes nodes group 02"
+      description   = "{{ k8s }} nodes group 02"
       auto_scale    = {
         min         = 2
         max         = 4
@@ -137,12 +132,12 @@ module "kube" {
 
 ## Проверьте и отформатируйте файлы конфигураций {#check-resources}
 
-{% include [check-resources](../../_tutorials/terraform-check-resources.md) %}
+{% include [check-resources](../../_tutorials/_tutorials_includes/terraform-check-resources.md) %}
 
 ## Создайте ресурсы {#create-resources}
 
-{% include [create-resources](../../_tutorials/terraform-create-resources.md) %}
+{% include [create-resources](../../_tutorials/_tutorials_includes/terraform-create-resources.md) %}
 
 ## Как удалить созданные ресурсы {#delete-resources}
 
-{% include [delete-resources](../../_tutorials/terraform-delete-resources.md) %}
+{% include [delete-resources](../../_tutorials/_tutorials_includes/terraform-delete-resources.md) %}

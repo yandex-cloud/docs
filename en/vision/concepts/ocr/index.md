@@ -1,5 +1,5 @@
 ---
-description: "OCR stands for Optical Character Recognition. {{ vision-full-name }} highlights the text characters found in the image and groups them by level: words are grouped into lines, lines into blocks, and blocks into pages. The text recognition is based on a language model that is trained on specific languages."
+description: "OCR stands for optical character recognition. {{ vision-full-name }} highlights the text characters found in the image and groups them by level: words are grouped into lines, lines into blocks, and blocks into pages. The text recognition is based on a language model that is trained on specific languages."
 ---
 
 # About {{ vision-full-name }}
@@ -13,7 +13,7 @@ OCR stands for optical character recognition. {{ vision-full-name }} is a comput
 {{ vision-name }} can process image recognition requests both synchronously and asynchronously.
 
 * In synchronous mode, {{ vision-name }} will process your request once it gets it and will provide you with the result in the response. This mode is good for apps that need to communicate with the user. However, you cannot use {{ vision-name }} synchronous mode to process large pieces of information.
-* In asynchronous mode, {{ vision-name}}, once it gets your request, will return the operation ID you can use to get a response. Recognizing text in asynchronous mode takes more time but allows you to process large batches of information through a single request. Use asynchronous mode if you do not need an urgent response.
+* In asynchronous mode, {{ vision-name}} will get your request and immediately return the operation ID you can use to get the recognition result. Recognizing text in asynchronous mode takes more time but allows processing large volumes of information in a single request. Use asynchronous mode if you do not need an urgent response.
 
 ## Recognition models {#models}
 
@@ -65,6 +65,10 @@ Here is an example of a recognized image with coordinates:
 
 {% include [text-detection-penguins](../../../_includes/vision/text-detection-example.md) %}
 
+### Response format {#response-format}
+
+{{ vision-full-name }} provides recognition results in [JSON Lines](https://jsonlines.org) format, where each line of a JSON file corresponds to one recognized page or image.
+
 ### Errors in determining coordinates {#coordinate-definition-issue}
 
 Coordinates returned by the service may in some cases mismatch the text displayed in the user's image processor. This is due to incorrect handling of `exif` metadata by the user's image processor.
@@ -78,7 +82,7 @@ To fix this error, do one of the following:
 
 ### Recognition accuracy {#confidence}
 
-The recognition accuracy (`confidence`) means {{ vision-full-name }}'s result accuracy. For example, the value `"confidence": 0.9412244558` for the line _we like you_ means that the text is recognized correctly with a probability of 94%.
+Recognition accuracy (`confidence`) represents {{ vision-full-name }}'s estimated result accuracy. For example, `"confidence": 0.9412244558` for the _we like you_ line means that the text is recognized correctly with a probability of 94%.
 
 Currently, the recognition accuracy value is only calculated for lines. You will also see it for words and languages, but it will be borrowed from the line's value.
 

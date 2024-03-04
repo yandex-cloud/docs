@@ -12,5 +12,5 @@ curl -X POST \
 ```
 
 Where:
-* `<IAM_token>`: Previously obtained IAM token
-* `<folder_ID>`: Previously obtained folder ID
+* `<IAM_token>`: Previously obtained IAM token.
+* `<folder_ID>`: Previously obtained folder ID.

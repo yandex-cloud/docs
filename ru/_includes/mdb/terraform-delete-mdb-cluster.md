@@ -1,4 +1,4 @@
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
 {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -14,7 +14,7 @@
 
    {% note alert %}
 
-   {{ TF }} удалит все ресурсы, которые были созданы с его помощью: кластеры, сети, подсети, виртуальные машины и т. д.
+   {{ TF }} удалит все ресурсы, которые были созданы с его помощью: кластеры, сети, подсети, виртуальные машины и т. д.
 
    {% endnote %}
 

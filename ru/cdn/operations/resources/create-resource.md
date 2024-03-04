@@ -1,6 +1,6 @@
 ---
 title: "Как создать ресурс в {{ cdn-full-name }}"
-description: "Следуя данной инструкции, вы сможете создать ресурс." 
+description: "Следуя данной инструкции, вы сможете создать ресурс."
 ---
 
 # Создание ресурса
@@ -15,31 +15,24 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ресурс.
-
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать ресурс.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-
   1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
-
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** выберите **{{ ui-key.yacloud.cdn.label_content-query-type }}** `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` или `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
-
-      * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` выберите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Укажите источник. Подробнее о типах см. в разделе [{#T}](../../concepts/origins.md).
-
-      * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}` выберите [группу источников](../../concepts/origins.md#groups) или создайте новую:
-          * Нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}**.
-          * Введите **{{ ui-key.yacloud.cdn.field_group-name }}**.
-          * Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
-              * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Подробнее о типах см. в разделе [{#T}](../../concepts/origins.md).
-              * Укажите источник.
-              * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` или `{{ ui-key.yacloud.cdn.label_status-backup }}`. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
-          * Добавьте другие источники, если необходимо.
-          * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы.
+     * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` выберите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Укажите [источник](../../concepts/origins.md).
+     * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}` выберите [группу источников](../../concepts/origins.md#groups) или создайте новую:
+       * Нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}**.
+       * Введите **{{ ui-key.yacloud.cdn.field_group-name }}**.
+       * Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+         * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+         * Укажите источник.
+         * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` или `{{ ui-key.yacloud.cdn.label_status-backup }}`.
+       * Добавьте другие источники, если необходимо.
+       * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы источников.
 
      Подробнее см. в разделе [{#T}](../../concepts/origins.md).
-
-  1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** введите **{{ ui-key.yacloud.cdn.label_personal-domain }}**. Вы можете добавить более одного **Доменного имени**. Поддерживаются имена с символами не из ASCII, например кириллическими, и [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). Первое имя считается основным.
+  1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** введите **{{ ui-key.yacloud.cdn.label_personal-domain }}**. Вы можете добавить более одного **Доменного имени**. Поддерживаются имена с символами не из [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), например, кириллическими, и [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). Первое имя считается основным.
 
      {% note warning %}
 
@@ -47,25 +40,21 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% endnote %}
 
-     В настройках вашего DNS-хостинга создайте для указанных доменных имен CNAME-записи со значением, которое отображается внизу блока **{{ ui-key.yacloud.cdn.label_section-domain }}**. Подробнее см. в разделе [{#T}](../../concepts/resource.md#hostnames).
-
+     В настройках вашего DNS-хостинга создайте для указанных доменных имен [записи CNAME](../../../dns/concepts/resource-record.md#cname) со значением, которое отображается внизу блока **{{ ui-key.yacloud.cdn.label_section-domain }}**. Подробнее см. в разделе [{#T}](../../concepts/resource.md#hostnames).
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+     1. Выберите **{{ ui-key.yacloud.cdn.label_protocol }}**.
+     1. Выберите способ переадресации клиентов: `{{ ui-key.yacloud.cdn.value_do-not-use }}` или `{{ ui-key.yacloud.cdn.value_redirect-https-to-http }}`.
 
-      1. Выберите **{{ ui-key.yacloud.cdn.label_protocol }}**.
-      1. Выберите способ переадресации клиентов: `{{ ui-key.yacloud.cdn.value_do-not-use }}` или `{{ ui-key.yacloud.cdn.value_redirect-https-to-http }}`.
+        Чтобы включить переадресацию клиентов с HTTP на HTTPS, создайте CDN-ресурс без переадресации и получите [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для доменного имени. Затем в настройках CDN-ресурса [выберите](configure-basics.md) переадресацию клиентов `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+     1. Включите или выключите **{{ ui-key.yacloud.cdn.label_access }}**.
+     1. В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
+        * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
 
-         Чтобы включить переадресацию клиентов с HTTP на HTTPS, создайте CDN-ресурс без переадресации и получите TLS-сертификат для доменного имени. Затем в настройках CDN-ресурса [выберите](configure-basics.md) переадресацию клиентов `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
 
-      1. Включите или выключите **{{ ui-key.yacloud.cdn.label_access }}**.
-      1. В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
+        * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат в [{{ certificate-manager-full-name }}](../../../certificate-manager/). Это может быть как [сертификат от Let's Encrypt®](../../../certificate-manager/concepts/managed-certificate.md), так и [пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md).
 
-          * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
-          * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат в {{ certificate-manager-name }}. Это может быть как [сертификат от Let's Encrypt®](../../../certificate-manager/concepts/managed-certificate.md), так и [пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md).
-
-          Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
-
-      1. Выберите значение **{{ ui-key.yacloud.cdn.label_host-header }}**: `{{ ui-key.yacloud.cdn.value_host-header-default }}`, `{{ ui-key.yacloud.cdn.value_host-header-resend }}` или выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и введите **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. Подробнее см. в разделе [{#T}](../../concepts/servers-to-origins-host.md).
-
+        Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+     1. Выберите значение **{{ ui-key.yacloud.cdn.label_host-header }}**: `{{ ui-key.yacloud.cdn.value_host-header-default }}`, `{{ ui-key.yacloud.cdn.value_host-header-resend }}` или выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и введите **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. Подробнее см. в разделе [{#T}](../../concepts/servers-to-origins-host.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -76,88 +65,87 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Если вы создаете первый ресурс, сначала подключитесь к провайдеру:
 
-      ```bash
-      yc cdn provider activate --type gcore
-      ```
+     ```bash
+     yc cdn provider activate --type gcore
+     ```
 
-  1. Посмотрите описание команды CLI для создания ресурсов:
+  1. Посмотрите описание команды [CLI](../../../cli/) для создания ресурсов:
 
-      ```bash
-      yc cdn resource create --help
-      ```
+     ```bash
+     yc cdn resource create --help
+     ```
 
-  1. Получите список групп источников в каталоге:
+  1. Получите список [групп источников](../../concepts/origins.md#groups) в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-      ```bash
-      yc cdn origin-group list --format yaml
-      ```
+     ```bash
+     yc cdn origin-group list --format yaml
+     ```
 
-      Результат:
+     Результат:
 
-      ```bash
-      - id: "90209"
-        folder_id: s0mefo1der7p********
-        name: test-group-1
-        use_next: true
-        origins:
-        - id: "561547"
-          origin_group_id: "90209"
-          source: www.example2.com
-          enabled: true
-          backup: true
-        - id: "561546"
-          origin_group_id: "90209"
-          source: www.example1.com
-          enabled: true
-      - id: "90208"
-        folder_id: b1g86q4m5ve********
-        name: test-group
-        use_next: true
-        origins:
-        - id: "561545"
-          origin_group_id: "90208"
-          source: www.a2.com
-          enabled: true
-          backup: true
-        - id: "561544"
-          origin_group_id: "90208"
-          source: www.a1.com
-          enabled: true
-      ```      
+     ```text
+     - id: "90209"
+       folder_id: s0mefo1der7p********
+       name: test-group-1
+       use_next: true
+       origins:
+       - id: "561547"
+         origin_group_id: "90209"
+         source: www.example2.com
+         enabled: true
+         backup: true
+       - id: "561546"
+         origin_group_id: "90209"
+         source: www.example1.com
+         enabled: true
+     - id: "90208"
+       folder_id: b1g86q4m5ve********
+       name: test-group
+       use_next: true
+       origins:
+       - id: "561545"
+         origin_group_id: "90208"
+         source: www.a2.com
+         enabled: true
+         backup: true
+       - id: "561544"
+         origin_group_id: "90208"
+         source: www.a1.com
+         enabled: true
+       ```
 
   1. Создайте ресурс:
 
-      ```bash
-      yc cdn resource create <доменное_имя_ресурса> \
-        --origin-group-id <идентификатор_группы_источников> \
-        --origin-protocol <протокол_для_источников>
-      ```
+     ```bash
+     yc cdn resource create <доменное_имя_ресурса> \
+       --origin-group-id <идентификатор_группы_источников> \
+       --origin-protocol <протокол_для_источников>
+     ```
 
-      * Вместо группы источников `--origin-group-id` можно указать доменное имя источника, используя флаг `--origin-custom-source`.
-      * Для `--origin-protocol` доступны значения `HTTP`, `HTTPS` и `MATCH` (как у клиента).
+     * Вместо группы источников `--origin-group-id` можно указать доменное имя [источника](../../concepts/origins.md), используя флаг `--origin-custom-source`.
+     * Для `--origin-protocol` доступны значения `HTTP`, `HTTPS` и `MATCH` (как у клиента).
 
-      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
+     {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
-      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
-
+     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
   1. Получите значение [CNAME-записи](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса:
 
-      ```bash
-      yc cdn resource get-provider-cname
-      ```
+     ```bash
+     yc cdn resource get-provider-cname
+     ```
 
-      Результат:
+     Результат:
 
-      ```text
-      cname: cl-ms6*****90.edgecdn.ru
-      folder_id: b1gt6g8ht345********
-      ```
+     ```text
+     cname: cl-ms6*****90.edgecdn.ru
+     folder_id: b1gt6g8ht345********
+     ```
 
-  1. В сервисе {{ dns-full-name }} [создайте](../../../dns/operations/resource-record-create.md) ресурсную запись с полученным значением. 
+  1. В сервисе [{{ dns-full-name }}](../../../dns/) [создайте ресурсную запись](../../../dns/operations/resource-record-create.md) с полученным значением.
 
 - {{ TF }} {#tf}
 
-  Провайдер CDN должен быть активирован до создания ресурса. Сделать это можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../../cli/quickstart.md):
+  Провайдер CDN должен быть активирован до создания ресурса. Сделать это можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
   ```bash
   yc cdn provider activate \
@@ -169,19 +157,19 @@ description: "Следуя данной инструкции, вы сможет�
   * `--folder-id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы хотите активировать провайдера CDN.
   * `--type` — тип провайдера: единственное возможное значение — `gcore`.
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса:
 
-      {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
+     {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
   1. Создайте ресурсы:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить создание CDN-ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {{ TF }} создаст все требуемые ресурсы. Проверить создание CDN-ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc cdn resource list
@@ -189,32 +177,28 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Получите значение [CNAME-записи](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса:
 
-      ```bash
-      yc cdn resource get-provider-cname
-      ```
+     ```bash
+     yc cdn resource get-provider-cname
+     ```
 
-      Результат:
+     Результат:
 
-      ```text
-      cname: cl-ms6*****90.edgecdn.ru
-      folder_id: b1gt6g8ht345********
-      ```
+     ```text
+     cname: cl-ms6*****90.edgecdn.ru
+     folder_id: b1gt6g8ht345********
+     ```
 
-  1. В сервисе {{ dns-full-name }} [создайте](../../../dns/operations/resource-record-create.md) ресурсную запись с полученным значением.
+  1. В сервисе [{{ dns-full-name }}](../../../dns/) [создайте ресурсную запись](../../../dns/operations/resource-record-create.md) с полученным значением.
 
 - API {#api}
 
-  Если вы создаете первый ресурс, подключитесь к CDN-провайдеру. Для этого воспользуйтесь методом REST API [activate](../../api-ref/Provider/activate.md) для ресурса [Provider](../../api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../../api-ref/grpc/provider_service.md#Activate).
-
+  Если вы создаете первый ресурс, подключитесь к провайдеру CDN. Для этого воспользуйтесь методом REST API [activate](../../api-ref/Provider/activate.md) для ресурса [Provider](../../api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../../api-ref/grpc/provider_service.md#Activate).
   1. Воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create).
-  
-      Вы можете ограничить доступ к ресурсу с помощью [защищенных токенов](../../concepts/secure-tokens.md) и [политики доступа по IP-адресам](../../concepts/ip-address-acl.md).
 
-  1. Создайте [CNAME-запись](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса в {{ dns-full-name }}:
-
-      * Чтобы получить значение CNAME-записи для CDN-ресурса, воспользуйтесь методом REST API [getProviderCName](../../api-ref/Resource/getProviderCName.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/GetProviderCName](../../api-ref/grpc/resource_service.md#GetProviderCName).
-
-      * Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
+     Вы можете ограничить доступ к ресурсу с помощью [защищенных токенов](../../concepts/secure-tokens.md) и [политики доступа по IP-адресам](../../concepts/ip-address-acl.md).
+  1. Создайте [CNAME-запись](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса в [{{ dns-full-name }}](../../../dns):
+     * Чтобы получить значение CNAME-записи для CDN-ресурса, воспользуйтесь методом REST API [getProviderCName](../../api-ref/Resource/getProviderCName.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/GetProviderCName](../../api-ref/grpc/resource_service.md#GetProviderCName).
+     * Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
 
 {% endlist %}
 
@@ -232,30 +216,26 @@ description: "Следуя данной инструкции, вы сможет�
 
   Создайте ресурс с протоколом HTTP:
 
-    ```bash
-    yc cdn resource create testexample.com \
-      --origin-group-id 90209 \
-      --origin-protocol HTTP
-    ```
+  ```bash
+  yc cdn resource create testexample.com \
+    --origin-group-id 90209 \
+    --origin-protocol HTTP
+  ```
 
-    Результат:
+  Результат:
 
-    ```bash
-    id: s0me1dkfjq********
-
-    ...
-
-    cname: testexample.com
-    active: true
-
-    ...
-
-    origin_group_id: "90209"
-    origin_group_name: test-group-1
-    origin_protocol: HTTP
-    ssl_certificate:
-    type: DONT_USE
-    status: READY
-    ```
+  ```text
+  id: s0me1dkfjq********
+  ...
+  cname: testexample.com
+  active: true
+  ...
+  origin_group_id: "90209"
+  origin_group_name: test-group-1
+  origin_protocol: HTTP
+  ssl_certificate:
+  type: DONT_USE
+  status: READY
+  ```
 
 {% endlist %}

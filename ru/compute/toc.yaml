@@ -407,7 +407,7 @@ items:
             href: concepts/vm-policies.md
           - name: Сброс паролей на ВМ Windows
             href: concepts/guest-agent.md
-      - name: Графические ускорители
+      - name: Графические ускорители GPU
         href: concepts/gpus.md
       - name: Диски и файловые хранилища
         items:

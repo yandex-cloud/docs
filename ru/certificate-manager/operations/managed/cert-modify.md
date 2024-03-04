@@ -1,6 +1,6 @@
 ---
 title: "Как изменить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}"
-description: "Следуя данной инструкции, вы сможете изменить сертификат от Let's Encrypt." 
+description: "Следуя данной инструкции, вы сможете изменить сертификат от Let's Encrypt."
 ---
 
 # Изменить сертификат от Let's Encrypt
@@ -36,9 +36,9 @@ description: "Следуя данной инструкции, вы сможет�
      yc certificate-manager certificate list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
-     ```bash
+     ```text
      +----------------------+---------------+-------------+-----------+---------+------------+
      |          ID          |     NAME      |   DOMAINS   | NOT AFTER |  TYPE   |   STATUS   |
      +----------------------+---------------+-------------+-----------+---------+------------+
@@ -60,9 +60,9 @@ description: "Следуя данной инструкции, вы сможет�
      * `--new-name` — новое имя сертификата.
      * `--description` — описание сертификата.
 
-     Результат выполнения команды:
+     Результат:
 
-     ```bash
+     ```text
      id: fpq6gvvm6piu********
      folder_id: b1g7gvsi89m3********
      created_at: "2020-09-15T08:49:11.533Z"
@@ -74,39 +74,39 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием сертификата:
 
-      {% cut "Пример описания сертификата" %}
+     {% cut "Пример описания сертификата" %}
 
-      ```hcl
-      ...
-      resource "yandex_cm_certificate" "le-certificate" {
-        name        = "managed-certificate-for-dns"
-        description = "this is a certificate for tls"
-        domains     = ["my-domain.ru"]
+     ```hcl
+     ...
+     resource "yandex_cm_certificate" "le-certificate" {
+       name        = "managed-certificate-for-dns"
+       description = "this is a certificate for tls"
+       domains     = ["my-domain.ru"]
 
-        managed {
-        challenge_type = "DNS_CNAME"
-        }
-      }
-      ...
-      ```
+       managed {
+       challenge_type = "DNS_CNAME"
+       }
+     }
+     ...
+     ```
 
-      {% endcut %}
+     {% endcut %}
 
   1. Примените изменения:
-  
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-  Проверить изменение сертификата и его настроек можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    ```bash
-    yc certificate-manager certificate get <имя_сертификата>
-    ```
+  Проверить изменение сертификата и его настроек можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
+
+  ```bash
+  yc certificate-manager certificate get <имя_сертификата>
+  ```
 
 - API {#api}
 

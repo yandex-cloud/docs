@@ -1,6 +1,6 @@
 # Получить информацию о виртуальной машине
 
-Вы можете получить основную информацию о каждой созданной вами [ВМ](../../concepts/vm.md) в [консоли управления]({{ link-console-main }}), на странице ВМ. Чтобы получить детальную информацию вместе с пользовательскими [метаданными](../../concepts/vm-metadata.md), воспользуйтесь CLI или API.
+Вы можете получить основную информацию о каждой созданной вами [ВМ](../../concepts/vm.md) в [консоли управления]({{ link-console-main }}), на странице ВМ. Чтобы получить детальную информацию вместе с пользовательскими [метаданными](../../concepts/vm-metadata.md), воспользуйтесь [CLI](../../../cli/) или API.
 
 Также основную информацию и метаданные можно получить [изнутри ВМ](#inside-instance).
 
@@ -17,11 +17,7 @@
   На вкладке:
   * **{{ ui-key.yacloud.compute.instance.switch_overview }}** приводится общая информация о ВМ, в том числе [IP-адреса](../../../vpc/concepts/address.md), присвоенные ВМ.
   * **{{ ui-key.yacloud.compute.instance.switch_disks }}** приводится информация о [дисках](../../concepts/disk.md), подключенных к ВМ.
-
-  
   * **{{ ui-key.yacloud.compute.instance.switch_file-storages }}** приводится информация о подключенных [файловых хранилищах](../../concepts/filesystem.md).
-
-
   * **{{ ui-key.yacloud.compute.instance.switch_operations }}** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
   * **{{ ui-key.yacloud.compute.instance.switch_monitoring }}** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
   * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../operations/serial-console/index.md), если при [создании](../../operations/index.md#vm-create) ВМ вы разрешили к ней доступ.
@@ -53,50 +49,46 @@
      yc compute instance get --full first-instance
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Чтобы получить информацию о ВМ с помощью {{ TF }}:
-
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
-      ```
-      data "yandex_compute_instance" "my_instance" {
-        instance_id = "<идентификатор_ВМ>"
-      }
+     ```hcl
+     data "yandex_compute_instance" "my_instance" {
+       instance_id = "<идентификатор_ВМ>"
+     }
 
-      output "instance_external_ip" {
-        value = "${data.yandex_compute_instance.my_instance.network_interface.0.nat_ip_address}"
-      }
-      ```
+     output "instance_external_ip" {
+       value = "${data.yandex_compute_instance.my_instance.network_interface.0.nat_ip_address}"
+     }
+     ```
 
-      Где:
+     Где:
+     * `data "yandex_compute_instance"` — описание источника данных для получения информации о ВМ:
+       * `instance_id` — идентификатор ВМ.
+     * `output "instance_external_ip"` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, который будет выводиться в результате:
+       * `value` — возвращаемое значение.
 
-      * `data "yandex_compute_instance"` — описание источника данных для получения информации о ВМ:
-         * `instance_id` — идентификатор ВМ.
-      * `output "instance_external_ip"` — внешний IP-адрес ВМ, который будет выводиться в результате:
-         * `value` — возвращаемое значение.
-      
      Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_compute_instance).
-
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
+     {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
 
-      ```bash
-      terraform output instance_external_ip
-      ```
+     ```bash
+     terraform output instance_external_ip
+     ```
 
-      Результат:
+     Результат:
 
-      ```bash
-      instance_external_ip = "158.160.50.228"
-      ```
+     ```text
+     instance_external_ip = "158.160.50.228"
+     ```
 
 - API {#api}
 
@@ -137,25 +129,25 @@ Metadata-Flavor: Google
 
 Узнать идентификатор ВМ изнутри ВМ:
 
-```
+```bash
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
 ```
 
 Получить метаданные в формате JSON:
 
-```
+```bash
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
 ```
 
 Получить метаданные в удобном для чтения формате. Воспользуйтесь утилитой [jq](https://stedolan.github.io/jq/):
 
-```
+```bash
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
 Получить [идентификационный документ](../../concepts/vm-metadata.md#identity-document):
 
-```
+```bash
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
 ```
 
@@ -206,19 +198,19 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 * `network/interfaces/macs/<MAC-адрес>/local-hostname` — имя хоста, ассоциированное с сетевым интерфейсом.
 * `network/interfaces/macs/<MAC-адрес>/local-ipv4s` — внутренние IPv4-адреса, ассоциированные с сетевым интерфейсом.
 * `network/interfaces/macs/<MAC-адрес>/mac` — MAC-адрес сетевого интерфейса ВМ.
-* `public-ipv4` — [внешний IPv4-адрес](../../../vpc/concepts/address.md#public-addresses).
+* `public-ipv4` — [публичный IPv4-адрес](../../../vpc/concepts/address.md#public-addresses).
 
 #### Примеры запросов {#request-examples}
 
 Получить внутренний IP-адрес изнутри ВМ:
 
-```
+```bash
 curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
 
 Получить [идентификационный документ](../../concepts/vm-metadata.md#identity-document):
 
-```
+```bash
 curl http://169.254.169.254/latest/vendor/instance-identity/document
 ```
 
@@ -228,7 +220,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 
 Доступны следующие настройки:
 * `aws-v1-http-endpoint` — обеспечивает доступ к метаданным с использованием формата AWS (IMDSv1). Возможные значения: `enabled`, `disabled`.
-* `aws-v1-http-token` — обеспечивает доступ к учетным данным {{ iam-name }} с использованием формата AWS (IMDSv1). Возможные значения: `enabled`, `disabled`.
+* `aws-v1-http-token` — обеспечивает доступ к учетным данным [{{ iam-name }}](../../../iam/) с использованием формата AWS (IMDSv1). Возможные значения: `enabled`, `disabled`.
 
   {% note info %}
 
@@ -275,7 +267,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и измените параметр `metadata_options` в описании ВМ:
 
@@ -303,10 +295,9 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
          * `gce_http_token` — обеспечивает доступ к учетным данным {{ iam-name }} с использованием формата Google Compute Engine. Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
 
      Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
-
   1. Создайте ресурсы:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы с заданными настройками. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 

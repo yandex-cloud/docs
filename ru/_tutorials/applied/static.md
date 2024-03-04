@@ -206,7 +206,7 @@ ns1.{{ dns-ns-host-sld }}.
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы разместить статический веб-сайт в {{ objstorage-name }} с помощью {{ TF }}:
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
@@ -262,6 +262,6 @@ ns1.{{ dns-ns-host-sld }}.
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут создаваться ресурсы.
 1. Создайте ресурсы:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Проверьте работу сайта](#test-site).

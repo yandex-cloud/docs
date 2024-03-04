@@ -1,4 +1,4 @@
-# Deploying models
+# {{ ds-inf }}
 
 {{ ml-platform-name }} provides tools for releasing services available to third-party resources. You can deploy a model trained in {{ ml-platform-name }} and use the same tools to develop a fully featured service based on a Docker image.
 
@@ -22,7 +22,7 @@ The maximum size of a request to and a response from the node API is 16 MB.
 
 {% endnote %}
 
-To create a node, specify your organization's cloud [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the node will deploy its instances and store its logs. In the folder, [set up a subnet](../../../vpc/operations/subnet-create.md) with internet access via a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) and create a [service account](../../../iam/operations/sa/create.md) with the `vpc.user` [role](../../../iam/concepts/access-control/roles.md#vpc-user). Specify this service account in the [{{ ml-platform-name }} project settings](../../operations/projects/update.md).
+To create a node, specify your organization's cloud [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the node will deploy its instances and store its logs. In the folder, [set up a subnet](../../../vpc/operations/subnet-create.md) with internet access via a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) and create a [service account](../../../iam/operations/sa/create.md) with the `vpc.user` [role](../../../vpc/security/index.md#vpc-user). Specify this service account in the [{{ ml-platform-name }} project settings](../../operations/projects/update.md).
 
 ### Node from models {#models-node}
 
@@ -34,11 +34,11 @@ Nodes deployed from a Docker image hosted in a container registry will run as a 
 
 {% note info %}
 
-To use {{ container-registry-full-name }}, the project service account needs the `container-registry.images.puller` [role](../../../iam/concepts/access-control/roles.md#cr-images-puller).
+To use {{ container-registry-full-name }}, the project service account needs the `container-registry.images.puller` [role](../../../container-registry/security/index.md#container-registry-images-puller).
 
 {% endnote %}
 
-When [creating a node from a Docker image](../../operations/deploy/node-create.md#from-docker), you set the node's API, port you want your service to use, connection time, format of metrics you will collect, and other parameters. Once the node is created, {{ ml-platform-name }} will monitor its state, maintain the operation of the instances, and scale the node within the specified instance range as needed.
+When [creating a node from a Docker image](../../operations/deploy/node-create.md#from-docker), you yourself set the node's API, port you want your service to use, connection time, collectible metrics format, and other parameters. Once the node is created, {{ ml-platform-name }} will monitor its state, maintain the operation of the instances, and scale the node within the specified instance range as needed.
 
 ### Node from a checkpoint {#checkpoint-node}
 

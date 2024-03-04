@@ -1,6 +1,6 @@
 # Начало работы с {{ TF }}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать вашу первую инфраструктуру в {{ yandex-cloud }} с помощью {{ TF }}:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -18,38 +18,33 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки созданных с помощью {{ TF }} ресурсов входят:
 * Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-
 ## Установите {{ TF }} {#install-terraform}
 
-{% include [terraform_install](../../_tutorials/terraform-install.md) %}
+{% include [terraform_install](../../_tutorials/_tutorials_includes/terraform-install.md) %}
 
 ## Получите данные для аутентификации {#get-credentials}
 
-{% include [terraform-credentials-sa](../../_tutorials/terraform-credentials-sa.md) %}
-
+{% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
 
 {% cut "Управление ресурсами от имени от имени аккаунта на Яндексе или федеративного аккаунта" %}
 
-{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+{% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 
 {% endcut %}
 
-
-
 ## Создайте файл конфигурации {{ TF }} {#configure-terraform}
 
-{% include [terraform-configure](../../_tutorials/terraform-configure.md) %}
+{% include [terraform-configure](../../_tutorials/_tutorials_includes/terraform-configure.md) %}
 
 ## Настройте провайдер {#configure-provider}
 
-{% include [terraform-configure-provider](../../_tutorials/terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
 
 ## Подготовьте план инфраструктуры {#prepare-plan}
 
@@ -75,7 +70,6 @@ yc compute image list --folder-id standard-images
 
 Конфигурации ресурсов задаются сразу после конфигурации провайдера:
 
-
 ```hcl
 terraform {
   required_providers {
@@ -94,17 +88,15 @@ resource "yandex_compute_instance" "vm-1" {
 }
 ```
 
-
-
 {% list tabs group=operating_system %}
 
 - Создание ВМ Linux {#linux}
 
-  {% include [terraform-prepare-plan-linux](../../_tutorials/terraform-prepare-plan-linux.md) %}
+  {% include [terraform-prepare-plan-linux](../../_tutorials/_tutorials_includes/terraform-prepare-plan-linux.md) %}
 
 - Создание ВМ Windows {#windows}
 
-  {% include [terraform-prepare-plan-windows](../../_tutorials/terraform-prepare-plan-windows.md) %}
+  {% include [terraform-prepare-plan-windows](../../_tutorials/_tutorials_includes/terraform-prepare-plan-windows.md) %}
 
 {% endlist %}
 
@@ -114,25 +106,25 @@ resource "yandex_compute_instance" "vm-1" {
 
 - Linux {#linux}
 
-  {% include [terraform-vm-user-linux](../../_tutorials/terraform-vm-user-linux.md) %}
+  {% include [terraform-vm-user-linux](../../_tutorials/_tutorials_includes/terraform-vm-user-linux.md) %}
 
 - Windows {#windows}
 
-  {% include [terraform-vm-user-windows](../../_tutorials/terraform-vm-user-windows.md) %}
+  {% include [terraform-vm-user-windows](../../_tutorials/_tutorials_includes/terraform-vm-user-windows.md) %}
 
 {% endlist %}
 
 ## Проверьте и отформатируйте файлы конфигураций {#check-resources}
 
-{% include [check-resources](../../_tutorials/terraform-check-resources.md) %}
+{% include [check-resources](../../_tutorials/_tutorials_includes/terraform-check-resources.md) %}
 
 ## Создайте ресурсы {#create-resources}
 
-{% include [create-resources](../../_tutorials/terraform-create-resources.md) %}
+{% include [create-resources](../../_tutorials/_tutorials_includes/terraform-create-resources.md) %}
 
 ## Как удалить созданные ресурсы {#delete-resources}
 
-{% include [delete-resources](../../_tutorials/terraform-delete-resources.md) %}
+{% include [delete-resources](../../_tutorials/_tutorials_includes/terraform-delete-resources.md) %}
 
 Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).
 

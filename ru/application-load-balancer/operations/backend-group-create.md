@@ -11,29 +11,26 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться группа бэкендов.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создаваться группа бэкендов.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Введите имя группы бэкендов.
   1. Выберите [тип группы бэкендов](../concepts/backend-group.md#group-types):
-     
-      * `{{ ui-key.yacloud.alb.label_proto-http }}` — для HTTP- или HTTPS-трафика.
-      * `{{ ui-key.yacloud.alb.label_proto-grpc }}` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC)-процедур.
-      * `{{ ui-key.yacloud.alb.label_proto-stream }}` — для TCP-трафика без шифрования или с TLS-шифрованием.
-
+     * `{{ ui-key.yacloud.alb.label_proto-http }}` — для HTTP- или HTTPS-трафика.
+     * `{{ ui-key.yacloud.alb.label_proto-grpc }}` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC)-процедур.
+     * `{{ ui-key.yacloud.alb.label_proto-stream }}` — для TCP-трафика без шифрования или с TLS-шифрованием.
   1. (Опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http-plain }}` или `{{ ui-key.yacloud.alb.label_proto-grpc }}` доступны следующие режимы привязки:
-      
      * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
      * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
      * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
- 
-     Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-stream }}` сессии привязываются по IP-адресу клиента. 
+
+     Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-stream }}` сессии привязываются по [IP-адресу](../../vpc/concepts/address.md) клиента.
 
      {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**. Задайте настройки бэкенда:
-     
+
      {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -50,19 +47,21 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% endnote %}
 
-  1. Посмотрите описание команды CLI для создания группы бэкендов:
-     ```
+  1. Посмотрите описание команды [CLI](../../cli/) для создания группы бэкендов:
+
+     ```bash
      yc alb backend-group create --help
      ```
 
   1. Создайте группу бэкендов, выполнив команду:
-     ```
+
+     ```bash
      yc alb backend-group create <имя_группы_бэкендов>
      ```
 
      Результат:
 
-     ```
+     ```text
      id: a5dg2cv4ngne********
      name: test-backend-group
      folder_id: aoerb349v3h4********
@@ -75,7 +74,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Внутри группы все бэкенды должны быть одного [типа](../concepts/backend-group.md#group-types) — `HTTP`, `gRPC` или `Stream`.
 
-     {% cut "HTTP-бэкенд" %}    
+     {% cut "HTTP-бэкенд" %}
 
      Выполните команду:
 
@@ -92,7 +91,6 @@ description: "Следуя данной инструкции, вы сможет�
      ```
 
      Где:
-
      * `--panic-threshold` — порог для режима паники.
      * `--http-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
@@ -145,10 +143,9 @@ description: "Следуя данной инструкции, вы сможет�
        --panic-threshold 90 \
        --grpc-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
      timeout=10s,interval=2s,service-name=<имя_gRPC-сервиса>
-     ``` 
+     ```
 
      Где:
-
      * `--panic-threshold` — порог для режима паники.
      * `--grpc-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
@@ -204,7 +201,6 @@ description: "Следуя данной инструкции, вы сможет�
      ```
 
      Где:
-
      * `--panic-threshold` — порог для режима паники.
      * `--stream-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
@@ -247,81 +243,79 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
   
   {% include [terraform-install](../../_includes/terraform-install.md) %}
   
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
 
-      ```hcl
-      resource "yandex_alb_backend_group" "test-backend-group" {
-        name                     = "<имя_группы_бэкендов>"
-        session_affinity {
-          connection {
-            source_ip = <режим_привязки_сессий_по_IP-адресу>
-          }
-        }
+     ```hcl
+     resource "yandex_alb_backend_group" "test-backend-group" {
+       name                     = "<имя_группы_бэкендов>"
+       session_affinity {
+         connection {
+           source_ip = <режим_привязки_сессий_по_IP-адресу>
+         }
+       }
 
-        http_backend {
-          name                   = "<имя_бэкенда>"
-          weight                 = 1
-          port                   = 80
-          target_group_ids       = ["<идентификатор_целевой_группы>"]
-          load_balancing_config {
-            panic_threshold      = 90
-          }    
-          healthcheck {
-            timeout              = "10s"
-            interval             = "2s"
-            healthy_threshold    = 10
-            unhealthy_threshold  = 15 
-            http_healthcheck {
-              path               = "/"
-            }
-          }
-        }
-      }
-      ```
+       http_backend {
+         name                   = "<имя_бэкенда>"
+         weight                 = 1
+         port                   = 80
+         target_group_ids       = ["<идентификатор_целевой_группы>"]
+         load_balancing_config {
+           panic_threshold      = 90
+         }    
+         healthcheck {
+           timeout              = "10s"
+           interval             = "2s"
+           healthy_threshold    = 10
+           unhealthy_threshold  = 15 
+           http_healthcheck {
+             path               = "/"
+           }
+         }
+       }
+     }
+     ```
 
-      Где:
-
-      * `yandex_alb_backend_group` — параметры группы бэкендов:
+     Где:
+     * `yandex_alb_backend_group` — параметры группы бэкендов:
        * `name` — имя группы бэкендов.
        * `session_affinity` — настройки [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) (необязательный параметр).
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Может принимать значения `true` или `false`. Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
-      
+         * `connection` — режим привязки сессий по [IP-адресу](../../vpc/concepts/address.md) (`source_ip`). Может принимать значения `true` или `false`. Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
        * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
-        
-      Параметры бэкенда:
-      * `name` — имя бэкенда.
-      * `port` — порт бэкенда.
-      * `weight` — вес бэкенда.
-      * `target_group_ids` — идентификатор целевой группы. Получить список доступных целевых групп можно с помощью команды [CLI](../../cli/quickstart.md): `yc alb target-group list`.
-      * `load_balancing_config` — параметры балансировки:
-        * `panic_threshold` — порог для режима паники.
-      * `healthcheck` — параметры проверки состояния:
-        * `timeout` — таймаут.
-        * `interval` — интервал.
-        * `healthy_threshold` — порог работоспособности.
-        * `unhealthy_threshold` — порог неработоспособности.
-        * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
-          * `path` — путь.
-        
-        {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
-      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
+     Параметры бэкенда:
+     * `name` — имя бэкенда.
+     * `port` — порт бэкенда.
+     * `weight` — вес бэкенда.
+     * `target_group_ids` — идентификатор [целевой группы](../concepts/target-group.md). Получить список доступных целевых групп можно с помощью команды [CLI](../../cli/): `yc alb target-group list`.
+     * `load_balancing_config` — параметры балансировки:
+       * `panic_threshold` — порог для режима паники.
+     * `healthcheck` — параметры проверки состояния:
+       * `timeout` — таймаут.
+       * `interval` — интервал.
+       * `healthy_threshold` — порог работоспособности.
+       * `unhealthy_threshold` — порог неработоспособности.
+       * `http_healthcheck` — параметры проверки состояния типа `HTTP`:
+         * `path` — путь.
+
+       {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
+
+     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Создайте ресурсы:
-  
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      ```bash
-      yc alb backend-group list
-      ```
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+
+     ```bash
+     yc alb backend-group list
+     ```
 
 - API {#api}
 

@@ -1,4 +1,4 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can tune the [{{ yagpt-name }}](../../yandexgpt/concepts/index.md) neural network on your own examples to make it more tailored to your specific tasks. To do this, prepare a file with pairs of queries and reference responses and start tuning.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ yagpt-name }}](../../yandexgpt/concepts/index.md) neural network to adhere to the specified answer format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of queries and reference responses and start tuning. You cannot train the model with new information, e.g., a support service knowledge base.
 
 {% note info %}
 
@@ -142,11 +142,11 @@ File content example:
 
     1. Under **{{ ui-key.yc-ui-datasphere.yagpt-playground.request.title }}**, specify your request to the model.
 
-    1. To change the variability, move the slider in the **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}** field. The higher the value, the more unpredictable the result.
+    1. To change the variability, move the slider in the **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}** field. With a higher value, you get a more unpredictable result.
 
 - {{ jlab }}Lab {#jupyterlab}
 
-   Copy the code to a notebook cell if you did not use any instructions to tune the model:
+   Copy this code to a notebook cell if you did not use any instructions to tune the model:
 
     ```python
     import requests
@@ -174,7 +174,7 @@ File content example:
     Where:
 
     * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-    * `temperature`: Temperature. The higher the value, the more unpredictable the result.
+    * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
     * `maxTokens`: Maximum number of tokens per model response.
     * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
     * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
@@ -199,7 +199,7 @@ File content example:
                 "role": "user",
                 "text": "<request_text>"
                 }
-            ]    
+            ]
     }
     headers = {"Authorization" : "Bearer " + '<IAM_token>',
                        "x-folder-id": "<folder_ID>", }
@@ -236,7 +236,7 @@ File content example:
        Where:
 
        * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-       * `temperature`: Temperature. The higher the value, the more unpredictable the result.
+       * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
        * `maxTokens`: Maximum number of tokens per model response.
        * `text`: Request text.
 
@@ -284,4 +284,4 @@ File content example:
 
 ## How to delete the resources you created {#clear-out}
 
-[Delete your project](../../datasphere/operations/projects/delete).
+[Delete the project](../../datasphere/operations/projects/delete).

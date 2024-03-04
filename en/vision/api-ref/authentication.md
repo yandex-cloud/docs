@@ -1,9 +1,9 @@
 ---
 title: "Authentication in the {{ vision-full-name }} API"
-description: "To run operations over the {{ vision-full-name }} API, issue an IAM token for your account. Use the resulting IAM token to access {{ yandex-cloud }} resources over the API in the format — Authorization: Bearer <IAM-TOKEN>"
+description: "To perform operations using the {{ vision-full-name }} API, get an IAM token for your account. Specify the IAM token when accessing {{ yandex-cloud }} resources via the API in the following format: Authorization: Bearer <IAM token>"
 ---
 
-# Authentication in the {{ vision-full-name }} API
+# Authentication with the {{ vision-full-name }} API
 
 {% include [ai-before-beginning](../../_includes/vision/ai-before-beginning.md) %}
 
