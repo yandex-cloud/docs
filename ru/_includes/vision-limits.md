@@ -2,8 +2,8 @@
 
 Вид ограничения | Значение
 ----- | -----
-Количество запросов в секунду, [синхронное распознавание](../vision/ocr/api-ref/TextRecognition/index.md) | 1
-Количество запросов в секунду, [асинхронное распознавание](../vision/ocr/api-ref/TextRecognitionAsync/index.md) | 10
+Количество запросов в секунду, [синхронный режим](../vision/ocr/api-ref/TextRecognition/index.md) | 1
+Количество запросов в секунду, [асинхронный режим](../vision/ocr/api-ref/TextRecognitionAsync/index.md) | 10
 
 
 #### Лимиты {#vision-limits}

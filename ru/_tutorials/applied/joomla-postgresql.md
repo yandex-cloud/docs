@@ -324,7 +324,7 @@ keywords:
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать инфраструктуру для сайта на базе CMS Joomla с БД {{ PG }}:
 1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
@@ -370,7 +370,7 @@ keywords:
    * `dns_recordset_name` — имя [ресурсной записи](../../dns/concepts/resource-record.md), например `example-recordset`.
 1. Создайте ресурсы:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Установите Joomla и дополнительные компоненты](#install).
 1. [Настройте веб-сервер Apache2](#configure-apache2).

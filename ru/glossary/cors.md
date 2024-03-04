@@ -74,4 +74,4 @@ Access-Control-Allow-Origin: https://client-1.ru https://client-2.ru https://cli
 * [Пример проверочной таблицы](https://ru.wikipedia.org/wiki/Правило_ограничения_домена)
 * [Примеры возможных ошибок](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors)
 * [CORS-конфигурация бакетов](../storage/s3/api-ref/cors/xml-config.md)
-* [Примеры настройки и управления доступом к отдельным ресурсам бакета](../cdn/operations/resources/configure-cors.md)
+* [Примеры настройки и управления доступом к отдельным ресурсам бакета](../storage/operations/buckets/cors.md)

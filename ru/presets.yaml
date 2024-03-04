@@ -1359,6 +1359,12 @@ default:
         standard|pricingRate:
           10|string: "0,3900\_₽"
         standard|string: Не тарифицируется
+      patch:
+        cold|string: "1,1800\_₽"
+        ice|string: "2,3600\_₽"
+        standard|pricingRate:
+          10|string: "0,4800\_₽"
+        standard|string: Не тарифицируется
       post:
         cold|string: "1,1800\_₽"
         ice|string: "2,3600\_₽"
@@ -2235,6 +2241,12 @@ default:
         ice|string: "0,015520\_$"
         standard|pricingRate:
           10|string: "0,003120\_$"
+        standard|string: Не тарифицируется
+      patch:
+        cold|string: "0,009440\_$"
+        ice|string: "0,018880\_$"
+        standard|pricingRate:
+          10|string: "0,003840\_$"
         standard|string: Не тарифицируется
       post:
         cold|string: "0,009440\_$"
@@ -4663,8 +4675,8 @@ default:
             image_button_show-all-products: Посмотреть больше
             image_coi_label_empty-button: Настроить
             image_value_coi: Container Solution
-            image_value_custom: Пользовательские
-            image_value_marketplace: Cloud Marketplace
+            image_value_custom: Свой образ
+            image_value_marketplace: Marketplace
             image_value_os-products: Операционные системы
             label_add-disk: Добавить диск
             label_add-net: Добавить сеть
@@ -5713,7 +5725,7 @@ default:
         field_s3config-access-key-id: Идентификатор ключа доступа
         field_s3config-secret-access-key: Секретный ключ
         label_metastore: Metastore-сервер
-        title_s3config: Настройки доступа к S3
+        title_s3config: Настройки доступа к Object Storage
       mongodb:
         cluster:
           shards:

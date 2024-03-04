@@ -10,35 +10,32 @@ description: "Пошаговая инструкция по изменению г
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   {% note info %}
 
-  Изменить [тип группы](../concepts/backend-group.md#group-types) можно только с помощью других инструментов: CLI, {{ TF }}, API.
+  Изменить [тип группы](../concepts/backend-group.md#group-types) можно только с помощью других инструментов: [CLI](../../cli/), {{ TF }}, API.
 
   {% endnote %}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана группа бэкендов.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [группа бэкендов](../concepts/backend-group.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры группы:
-
      * **{{ ui-key.yacloud.common.name }}** и **{{ ui-key.yc-ui-datasphere.common.description }}** группы бэкендов.
-     * **{{ ui-key.yacloud.alb.label_session-affinity }}** — опция, при которой запросы в рамках одной пользовательской сессии обрабатывает один и тот же эндпоинт. 
-     
+     * **{{ ui-key.yacloud.alb.label_session-affinity }}** — опция, при которой запросы в рамках одной пользовательской сессии обрабатывает один и тот же эндпоинт.
+
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
        Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http }}` или `{{ ui-key.yacloud.alb.label_proto-grpc }}` доступны режимы:
-       
-       * `{{ ui-key.yacloud.alb.label_affinity-connection }}`;
-       * `{{ ui-key.yacloud.alb.label_affinity-header }}`;
+       * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
+       * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
        * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
-       
-       Для типа `{{ ui-key.yacloud.alb.label_proto-stream }}` привязка сессий всегда работает по IP-адресу.
-       
-       Подробнее о привязке сессий и её режимах см. в [разделе](../concepts/backend-group.md#session-affinity).
-   
+
+       Для типа `{{ ui-key.yacloud.alb.label_proto-stream }}` привязка сессий всегда работает по [IP-адресу](../../vpc/concepts/address.md).
+
+       Подробнее о привязке сессий и ее режимах см. в [разделе](../concepts/backend-group.md#session-affinity).
   1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -47,7 +44,7 @@ description: "Пошаговая инструкция по изменению г
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для изменения базовых параметров группы бэкендов:
+  1. Посмотрите описание команды [CLI](../../cli/) для изменения базовых параметров [группы бэкендов](../concepts/backend-group.md):
 
      ```bash
      yc alb backend-group update --help
@@ -72,13 +69,13 @@ description: "Пошаговая инструкция по изменению г
 
      * `--description` — описание группы бэкендов. Необязательный параметр.
      * `--labels key=value` — список меток в формате `ключ=значение`. Необязательный параметр.
-     * `--connection-affinity` — режим [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) по IP-адресу (`source-ip`). Может принимать значения `true` или `false`. Необязательный параметр. Также доступны режимы `--cookie-affinity` (по cookie) и `--header-affinity` (по HTTP-заголовку). Может быть указан только один из режимов. Если группа бэкендов [типа Stream](../concepts/backend-group#group-types), то режим привязки может быть только `--connection-affinity`.
+     * `--connection-affinity` — режим [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) по [IP-адресу](../../vpc/concepts/address.md) (`source-ip`). Может принимать значения `true` или `false`. Необязательный параметр. Также доступны режимы `--cookie-affinity` (по cookie) и `--header-affinity` (по HTTP-заголовку). Может быть указан только один из режимов. Если группа бэкендов [типа Stream](../concepts/backend-group#group-types), режим привязки может быть только `--connection-affinity`.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
      Результат:
 
-     ```
+     ```text
      id: ds7mi7mlqgct********
      name: <имя_группы_бэкендов>
      description: update
@@ -112,11 +109,11 @@ description: "Пошаговая инструкция по изменению г
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Откройте конфигурационный файл {{ TF }} и измените фрагмент с описанием группы бэкендов:
+  1. Откройте конфигурационный файл {{ TF }} и измените фрагмент с описанием [группы бэкендов](../concepts/backend-group.md):
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
@@ -141,13 +138,13 @@ description: "Пошаговая инструкция по изменению г
      * `session_affinity` — настройки [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) (необязательный параметр).
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
-       
-       * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Может принимать значения `true` или `false`. Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
+
+       * `connection` — режим привязки сессий по [IP-адресу](../../vpc/concepts/address.md) (`source_ip`). Может принимать значения `true` или `false`. Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
-     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
@@ -157,7 +154,7 @@ description: "Пошаговая инструкция по изменению г
 
 - API {#api}
 
-  Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update).
+  Чтобы изменить базовые параметры [группы бэкендов](../concepts/backend-group.md), воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update).
 
 {% endlist %}
 
@@ -173,9 +170,9 @@ description: "Пошаговая инструкция по изменению г
   1. Нажмите на имя нужной группы.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
   1. В открывшемся окне задайте настройки бэкенда:
-     
+
      {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
-     
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -190,7 +187,7 @@ description: "Пошаговая инструкция по изменению г
 
   Внутри группы все бэкенды должны быть одного [типа](../concepts/backend-group.md#group-types) — `HTTP` или `Stream`.
 
-  {% cut "HTTP-бэкенд" %} 
+  {% cut "HTTP-бэкенд" %}
 
   Выполните команду:
 
@@ -207,7 +204,6 @@ description: "Пошаговая инструкция по изменению г
   ```
 
   Где:
-
   * `--panic-threshold` — порог для режима паники.
   * `--http-healthcheck` — параметры проверки состояния ресурсов:
     * `port` — порт.
@@ -244,10 +240,9 @@ description: "Пошаговая инструкция по изменению г
     --panic-threshold 90 \
     --grpc-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
   timeout=10s,interval=2s,service-name=<имя_gRPC-сервиса>
-  ``` 
+  ```
 
   Где:
-
   * `--panic-threshold` — порог для режима паники.
   * `--grpc-healthcheck` — параметры проверки состояния ресурсов:
     * `port` — порт.
@@ -289,7 +284,6 @@ description: "Пошаговая инструкция по изменению г
   ```
 
   Где:
-
   * `--panic-threshold` — порог для режима паники.
   * `--stream-healthcheck` — параметры проверки состояния ресурсов:
     * `port` — порт.
@@ -317,64 +311,64 @@ description: "Пошаговая инструкция по изменению г
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Откройте конфигурационный файл {{ TF }} и добавьте блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагмент с описанием группы бэкендов:
 
-      ```hcl
-      resource "yandex_alb_backend_group" "test-backend-group" {
-        name                     = "<имя_группы_бэкендов>"
+     ```hcl
+     resource "yandex_alb_backend_group" "test-backend-group" {
+       name                     = "<имя_группы_бэкендов>"
 
-        http_backend {
-          name                   = "<имя_бэкенда>"
-          weight                 = 1
-          port                   = 80
-          target_group_ids       = ["<идентификатор_целевой_группы>"]
-          load_balancing_config {
-            panic_threshold      = 90
-          }    
-          healthcheck {
-            timeout              = "10s"
-            interval             = "2s"
-            healthy_threshold    = 10
-            unhealthy_threshold  = 15 
-            http_healthcheck {
-              path               = "/"
-            }
-          }
-        }
-      }
-      ```
+       http_backend {
+         name                   = "<имя_бэкенда>"
+         weight                 = 1
+         port                   = 80
+         target_group_ids       = ["<идентификатор_целевой_группы>"]
+         load_balancing_config {
+           panic_threshold      = 90
+         }    
+         healthcheck {
+           timeout              = "10s"
+           interval             = "2s"
+           healthy_threshold    = 10
+           unhealthy_threshold  = 15 
+           http_healthcheck {
+             path               = "/"
+           }
+         }
+       }
+     }
+     ```
 
-      Где `yandex_alb_backend_group` — параметры группы бэкендов:
-      * `name` — имя группы бэкендов.
-      * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
+     Где `yandex_alb_backend_group` — параметры группы бэкендов:
+     * `name` — имя группы бэкендов.
+     * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
 
-      Параметры бэкенда:
-      * `name` — имя бэкенда.
-      * `port` — порт бэкенда.
-      * `weight` — вес бэкенда.
-      * `target_group_ids` — идентификатор целевой группы. Получить список доступных целевых групп можно с помощью команды [CLI](../../cli/quickstart.md): `yc alb target-group list`.
-      * `load_balancing_config` — параметры балансировки:
-        * `panic_threshold` — порог для режима паники.
-      * `healthcheck` — параметры проверки состояния:
-        * `timeout` — таймаут.
-        * `interval` — интервал.
-        * `healthy_threshold` — порог работоспособности.
-        * `unhealthy_threshold` — порог неработоспособности.
-        * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
-          * `path` — путь.
+     Параметры бэкенда:
+     * `name` — имя бэкенда.
+     * `port` — порт бэкенда.
+     * `weight` — вес бэкенда.
+     * `target_group_ids` — идентификатор целевой группы. Получить список доступных целевых групп можно с помощью команды CLI: `yc alb target-group list`.
+     * `load_balancing_config` — параметры балансировки:
+       * `panic_threshold` — порог для режима паники.
+     * `healthcheck` — параметры проверки состояния:
+       * `timeout` — таймаут.
+       * `interval` — интервал.
+       * `healthy_threshold` — порог работоспособности.
+       * `unhealthy_threshold` — порог неработоспособности.
+       * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
+         * `path` — путь.
 
-        {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
+       {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
-      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
+     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
-     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
@@ -431,7 +425,6 @@ description: "Пошаговая инструкция по изменению г
      ```
 
      Где:
-
      * `--panic-threshold` — порог для режима паники.
      * `--http-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
@@ -471,7 +464,6 @@ description: "Пошаговая инструкция по изменению г
      ``` 
 
      Где:
-
      * `--panic-threshold` — порог для режима паники.
      * `--grpc-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
@@ -513,7 +505,6 @@ description: "Пошаговая инструкция по изменению г
      ```
 
      Где:
-
      * `--panic-threshold` — порог для режима паники.
      * `--stream-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
@@ -538,14 +529,15 @@ description: "Пошаговая инструкция по изменению г
      ```
 
      {% endcut %}
-    
+
      {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
   1. Откройте конфигурационный файл {{ TF }} и измените параметры блока с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов:
 
      ```hcl
@@ -581,7 +573,7 @@ description: "Пошаговая инструкция по изменению г
      * `name` — имя бэкенда.
      * `port` — порт бэкенда.
      * `weight` — вес бэкенда.
-     * `target_group_ids` — идентификатор целевой группы. Получить список доступных целевых групп можно с помощью команды [CLI](../../cli/quickstart.md): `yc alb target-group list`.
+     * `target_group_ids` — идентификатор целевой группы. Получить список доступных целевых групп можно с помощью команды CLI: `yc alb target-group list`.
      * `load_balancing_config` — параметры балансировки:
        * `panic_threshold` — порог для режима паники.
      * `healthcheck` — параметры проверки состояния:
@@ -591,15 +583,15 @@ description: "Пошаговая инструкция по изменению г
        * `unhealthy_threshold` — порог неработоспособности.
        * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
          * `path` — путь.
-      
+
       {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
-     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
@@ -639,7 +631,6 @@ description: "Пошаговая инструкция по изменению г
      ```
 
   1. В зависимости от типа бэкенда выполните команду для удаления:
-
      * HTTP-бэкенд:
 
        ```bash
@@ -675,9 +666,10 @@ description: "Пошаговая инструкция по изменению г
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
   1. Откройте конфигурационный файл {{ TF }} и удалите блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов.
 
      Пример описания группы бэкендов в конфигурации {{ TF }}:
@@ -710,9 +702,9 @@ description: "Пошаговая инструкция по изменению г
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
-     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>

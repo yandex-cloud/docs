@@ -1,4 +1,4 @@
-Вы можете загрузить цепочку сертификатов и закрытый ключ для самостоятельного использования, например, при конфигурации веб-сервера на виртуальной машине.
+Вы можете загрузить цепочку [сертификатов](../../certificate-manager/concepts/index.md) и закрытый ключ для самостоятельного использования, например, при конфигурации веб-сервера на [виртуальной машине](../../compute/concepts/vm.md).
 
 Чтобы получить содержимое сертификата:
 
@@ -7,14 +7,12 @@
 - CLI {#cli}
 
   Команда отобразит цепочку сертификатов и приватный ключ и сохранит содержимое в файлы `--chain` и `--key` соответственно.
-
-  * `--id` –  идентификатор сертификата, должен быть указан один из флагов: `--id` или `--name`.
+  * `--id` – идентификатор сертификата, должен быть указан один из флагов: `--id` или `--name`.
   * `--name` – название сертификата, должен быть указан один из флагов: `--id` или `--name`.
   * `--chain` – (опционально) файл, куда будет сохранена цепочка сертификатов в формате PEM.
   * `--key` – (опционально) файл, куда будет сохранен приватный ключ в формате PEM.
 
-
-  ```
+  ```bash
   yc certificate-manager certificate content \
     --id fpqcsmn76v82******** \
     --chain certificate_full_chain.pem \
@@ -23,59 +21,54 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить содержимое пользовательского сертификата с помощью {{ TF }}:
-
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
-      
-      ```
-      data "yandex_cm_certificate_content" "cert_by_id" {
-        certificate_id = "<идентификатор_сертификата>"
-      }
+     
+     ```hcl
+     data "yandex_cm_certificate_content" "cert_by_id" {
+       certificate_id = "<идентификатор_сертификата>"
+     }
 
-      output "certificate_chain" {
-        value = data.yandex_cm_certificate_content.cert_by_id.certificates
-      }
+     output "certificate_chain" {
+       value = data.yandex_cm_certificate_content.cert_by_id.certificates
+     }
 
-      output "certificate_key" {
-        value     = data.yandex_cm_certificate_content.cert_by_id.private_key
-        sensitive = true
-      }
-      ```
+     output "certificate_key" {
+       value     = data.yandex_cm_certificate_content.cert_by_id.private_key
+       sensitive = true
+     }
+     ```
 
 
-
-      Где:
-
-      * `data "yandex_cm_certificate_content"` — описание источника данных для содержимого сертификата:
-         * `certificate_id` — идентификатор сертификата.
-      * блоки `output` — выходные переменные `certificate_chain` с цепочкой сертификатов и приватным ключом `certificate_key`:
-         * `value` — возвращаемое значение.
-         * `sensitive` — пометить как конфиденциальные данные.
+     Где:
+     * `data "yandex_cm_certificate_content"` — описание источника данных для содержимого сертификата:
+       * `certificate_id` — идентификатор сертификата.
+     * Блоки `output` — выходные переменные `certificate_chain` с цепочкой сертификатов и приватным ключом `certificate_key`:
+       * `value` — возвращаемое значение.
+       * `sensitive` — пометить как конфиденциальные данные.
 
      Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_cm_certificate_content).
-
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Чтобы проверить результат, выполните команды:
+     {{ TF }} создаст все требуемые ресурсы. Чтобы проверить результат, выполните команды:
+     * Получить цепочку сертификата:
 
-      * Получить цепочку сертификата:
+       ```bash
+       terraform output certificate_chain
+       ```
 
-        ```bash
-        terraform output certificate_chain
-        ```
+     * Получить значение приватного ключа:
 
-      * Получить значение приватного ключа:
-
-        ```bash
-        terraform output -raw certificate_key
-        ```
+       ```bash
+       terraform output -raw certificate_key
+       ```
 
 - API {#api}
 
@@ -85,6 +78,6 @@
 
 {% note info %}
 
-Для чтения содержимого сертификата сервисному аккаунту необходимо выдать роль `certificate-manager.certificates.downloader`.
+Для чтения содержимого сертификата сервисному аккаунту необходимо выдать [роль](../../iam/concepts/access-control/roles.md) `certificate-manager.certificates.downloader`.
 
 {% endnote %}

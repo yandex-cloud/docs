@@ -1,6 +1,6 @@
 # Создать автоматически масштабируемую группу виртуальных машин
 
-Вы можете создать автоматически масштабируемую [группу однотипных ВМ](../../concepts/instance-groups/index.md). Управление размером такой группой ВМ будет осуществляться автоматически. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/scale.md#auto-scale).
+Вы можете создать [автоматически масштабируемую](../../concepts/instance-groups/scale.md#auto-scale) [группу однотипных ВМ](../../concepts/instance-groups/index.md). Управление размером такой группы [ВМ](../../concepts/vm.md) будет осуществляться автоматически.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -20,7 +20,7 @@
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для создания группы ВМ:
+  1. Посмотрите описание команды [CLI](../../../cli/) для создания группы ВМ:
 
      ```bash
      {{ yc-compute-ig }} create --help
@@ -44,7 +44,7 @@
        ```yaml
        name: first-autoscaled-group
        service_account_id: <идентификатор_сервисного_аккаунта>
-       description: "This instance group was created from YAML config."
+       description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
        ```
 
        Где:
@@ -54,7 +54,6 @@
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
        * `description` — произвольное описание группы ВМ.
-
      * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md), например:
 
        ```yaml
@@ -98,7 +97,7 @@
          * `true` — будет создана прерываемая ВМ.
          * `false` (по умолчанию) — обычная.
 
-         Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что {{ ig-name }} не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
+         Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что ВМ не смогут сразу перезапуститься их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
      * [Политики](../../concepts/instance-groups/policies/index.md):
 
        ```yaml
@@ -129,7 +128,7 @@
      ```yaml
      name: first-autoscaled-group
      service_account_id: ajed6ilf11qg********
-     description: "This instance group was created from YAML config."
+     description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
      instance_template:
        platform_id: standard-v3
        resources_spec:
@@ -176,7 +175,7 @@
      * В сети `default-net`.
      * В зоне доступности `{{ region-id }}-a`.
      * С 2 vCPU и 2 ГБ RAM.
-     * С сетевым HDD-диском объемом 32 ГБ.
+     * С сетевым [HDD-диском](../../concepts/disk.md#disks-types) объемом 32 ГБ.
 
 - {{ TF }} {#tf}
 
@@ -187,7 +186,7 @@
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
        name        = "ig-sa"
-       description = "service account to manage IG"
+       description = "Сервисный аккаунт для управления группой ВМ."
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -261,7 +260,7 @@
      ```
 
      Где:
-     * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+     * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции с группой ВМ выполняются от имени сервисного аккаунта.
      * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
      * `yandex_compute_instance_group` — описание группы ВМ.
        * Общая информация о группе ВМ:
@@ -271,7 +270,7 @@
          * `deletion_protection` — защита группы ВМ от удаления: `true` или `false`. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
        * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md):
          * `platform_id` — [платформа](../../concepts/vm-platforms.md).
-         * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
+         * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной платформе.
          * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md).
            * Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
            * Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
@@ -293,9 +292,9 @@
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

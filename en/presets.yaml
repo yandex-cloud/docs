@@ -124,6 +124,7 @@ default:
   ds: Serverlesss
   DS: YDS
   ds-cli: DataSphere CLI
+  ds-inf: DataSphere Inference
   ds-jobs: DataSphere Jobs
   dt-copy-regular: Regular
   dt-copy-regular-incremental: Regular incremental
@@ -1359,6 +1360,12 @@ default:
         standard|pricingRate:
           10|string: ₽0.3900
         standard|string: Free
+      patch:
+        cold|string: ₽1.1800
+        ice|string: ₽2.3600
+        standard|pricingRate:
+          10|string: ₽0.4800
+        standard|string: Free
       post:
         cold|string: ₽1.1800
         ice|string: ₽2.3600
@@ -2235,6 +2242,12 @@ default:
         ice|string: $0.015520
         standard|pricingRate:
           10|string: $0.003120
+        standard|string: Free
+      patch:
+        cold|string: $0.009440
+        ice|string: $0.018880
+        standard|pricingRate:
+          10|string: $0.003840
         standard|string: Free
       post:
         cold|string: $0.009440
@@ -4659,8 +4672,8 @@ default:
             image_button_show-all-products: Show more
             image_coi_label_empty-button: Configure
             image_value_coi: Container Solution
-            image_value_custom: Custom
-            image_value_marketplace: Cloud Marketplace
+            image_value_custom: Custom image
+            image_value_marketplace: Marketplace
             image_value_os-products: Operating systems
             label_add-disk: Add disk
             label_add-net: Add network
@@ -5278,7 +5291,7 @@ default:
         asymmetric-keys:
           action_public-key: Public key
           button_download: Download
-          title_create: Creating a key
+          title_create: Create key
           title_key-type-encryption: Encryption
         switch_asymmetric-keys: Asymmetric keys
         switch_symmetric-keys: Symmetric keys
@@ -5709,7 +5722,7 @@ default:
         field_s3config-access-key-id: Access key ID
         field_s3config-secret-access-key: Secret key
         label_metastore: Metastore
-        title_s3config: S3 access settings
+        title_s3config: Object Storage access settings
       mongodb:
         cluster:
           shards:

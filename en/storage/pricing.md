@@ -34,7 +34,7 @@ Storage usage is measured in GB per month. The volume of the data stored during 
 ### Performing operations with data {#rules-operations}
 
 Data operations are billed according to the following policy:
-* The minimum billing unit for PUT, POST, and PATCH operations is 10.
+* The minimum billing unit for PUT, POST, PATCH, LIST and TRANSITION operations is 10.
 * The minimum billing unit for GET, HEAD, and OPTIONS operations is 100.
 * You are not charged for deleting data (DELETE operation).
 
@@ -104,33 +104,21 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 {% include [usd.md](../_pricing/storage/usd-operations.md) %}
 
+
+
+
 {% note info %}
-
-From March 5, 2024, the billing of LIST and TRANSITION operations will be introduced:
-* Standard storage:
-  * The first 10,000 LIST operations per month are not charged.
-  * The following 1000 LIST operations: $0.003840, without VAT.
-* Cold storage:
-  * 1000 LIST operations: $0.009440, without VAT.
-  * 1000 TRANSITION operations: $0.009440, without VAT.
-* Ice storage:
-  * 1000 LIST operations: $0.018880, without VAT.
-  * 1000 TRANSITION operations: $0.018880, without VAT.
-
-{% endnote %}
-
-
-
-
 
 Data operations that result in an error are charged only in the following cases:
 
 * Error code 403 for GET, HEAD, and OPTIONS operations.
-* Error code 404 for PUT, POST, GET, HEAD, OPTIONS, and PATCH operations.
+* Error code 404 for PUT, POST, GET, HEAD, OPTIONS, PATCH, LIST and TRANSITION operations.
 
 Prices for standard storage are applied when calculating costs.
 
-The first 10,000 PUT, POST, and PATCH operations and the first 100,000 GET, HEAD, and OPTIONS operations in standard storage per month are free of charge.
+{% endnote %}
+
+The first 10,000 PUT, POST, PATCH, and LIST operations and the first 100,000 GET, HEAD, and OPTIONS operations in standard storage per month are free of charge.
 
 
 

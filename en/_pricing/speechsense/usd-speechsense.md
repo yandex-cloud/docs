@@ -4,10 +4,10 @@
 
 {% note warning %}
 
-This pricing bellow will become effective on February 28, 2024.
+The prices below will take effect on February 28, 2024.
 
 {% endnote %}
 
-| Service | Price per unit, without VAT |
+| Service | Price per unit,<br/>without VAT |
 |---| --- |
-| Speech analytics | $0.000184 | 
+| Audio analytics | $0.000184 |

@@ -1,13 +1,13 @@
 По плану будут созданы следующие ресурсы:
-* [Облачная сеть](../vpc/concepts/network.md#network) `network-1` с [подсетью](../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-* Две [виртуальные машины](../compute/concepts/vm.md) Linux: `terraform1` (2 ядра и 2 ГБ оперативной памяти) и `terraform2` (4 ядра и 4 ГБ оперативной памяти). Они автоматически получат [публичные и приватные IP-адреса](../vpc/concepts/address.md) из диапазона `192.168.10.0/24` в подсети `subnet-1`.
-1. Получите идентификатор [образа](../compute/concepts/image.md) загрузочного диска из {{ marketplace-full-name }}, например [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), который будет установлен на ВМ. Получите список доступных публичных образов, выполнив следующую команду [CLI](../cli/quickstart.md):
+* [Облачная сеть](../../vpc/concepts/network.md#network) `network-1` с [подсетью](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+* Две [виртуальные машины](../../compute/concepts/vm.md) Linux: `terraform1` (2 ядра и 2 ГБ оперативной памяти) и `terraform2` (4 ядра и 4 ГБ оперативной памяти). Они автоматически получат [публичные и внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`.
+1. Получите идентификатор [образа](../../compute/concepts/image.md) загрузочного диска из {{ marketplace-full-name }}, например [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), который будет установлен на ВМ. Получите список доступных публичных образов, выполнив следующую команду [CLI](../../cli/):
 
    ```bash
    yc compute image list --folder-id standard-images
    ```
 
-1. Сгенерируйте [пару SSH-ключей](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для доступа к ВМ по [SSH](../glossary/ssh-keygen.md).
+1. Сгенерируйте [пару SSH-ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для доступа к ВМ по [SSH](../../glossary/ssh-keygen.md).
 1. Опишите параметры ресурсов в файле `main.tf`:
    * В параметре `ssh-keys` блока `metadata` укажите путь к публичной части SSH-ключа.
    * В `image_id` задайте идентификатор образа загрузочного диска.

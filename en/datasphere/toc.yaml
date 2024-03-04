@@ -181,9 +181,13 @@ items:
             href: concepts/models/index.md
           - name: Fine-tuned foundation models
             href: concepts/models/tuned-models.md
-      - name: Deploying models
-        href: concepts/deploy/index.md
-      - name: DataSphere Jobs
+      - name: '{{ ds-inf }}'
+        items:
+          - name: Nodes and aliases
+            href: concepts/deploy/index.md
+          - name: Health checks and monitoring
+            href: concepts/deploy/monitoring.md
+      - name: '{{ ds-jobs }}'
         items:
           - name: Jobs
             href: concepts/jobs/index.md
