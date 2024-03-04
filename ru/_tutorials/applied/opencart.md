@@ -1,4 +1,4 @@
-# Интернет-магазин на платформе OpenCart
+terraform-definition.md# Интернет-магазин на платформе OpenCart
 
 [OpenCart](https://ru.wikipedia.org/wiki/OpenCart) — это платформа, предназначенная для создания собственного интернет-магазина. Платформа бесплатна и имеет открытый исходный код. С помощью OpenCart можно создать интернет-магазин любой сложности с помощью большого количества поддерживаемых сообществом дополнений.
 
@@ -197,7 +197,7 @@
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 Чтобы разместить интернет-магазин на OpenCart с помощью {{ TF }}:
 
@@ -264,7 +264,7 @@
 
 1. Создайте ресурсы:
 
-    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Настройте OpenCart](#configure-opencart).
 

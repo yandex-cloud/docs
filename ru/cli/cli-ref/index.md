@@ -63,3 +63,4 @@ Syntax:
 - [yc storage](managed-services/storage/index.md) — Manage Yandex Object Storage resources
 - [yc backup](managed-services/backup/index.md) — Manage Yandex Cloud Backup resources
 - [yc loadtesting](managed-services/loadtesting/index.md) — Manage Yandex Load Testing resources
+- [yc audit-trails](managed-services/audit-trails/index.md) — Manage Audit Trails resources

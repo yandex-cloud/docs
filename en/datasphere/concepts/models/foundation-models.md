@@ -32,6 +32,10 @@ The file may contain up to 10,000 questions and responses. The maximum size of a
 
 In the {{ ml-platform-name }} interface, create a new fine-tuned foundation model, enter instructions for the model, set the tuning rate, and upload your data. It takes some time to tune the model.
 
+## Fine-tuning capabilities {#tuning-abilities}
+
+{% include [tuning-abilities](../../../_includes/yandexgpt/tuning-abilities.md) %}
+
 ## Requests to a fine-tuned model {#requests}
 
 You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or the [API v1](../../../yandexgpt/api-ref/v1/) from {{ ml-platform-name }} and other applications in synchronous mode. In Playground, requests are made on behalf of a user with the model access flag set. You can send requests through Playground to the original or fine-tuned model to compare the results.

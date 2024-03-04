@@ -210,7 +210,6 @@
      * [yc vpc subnet get <имя_подсети>](../../cli/cli-ref/managed-services/vpc/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-c`.
      * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md) — для образа загрузочного диска.
      * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/managed-services/vpc/security-group/get.md) — для группы безопасности `ddos-sg-vms`.
-
   1. Создайте YAML-файл с именем `specification.yaml`.
   1. Добавьте в него описание конфигурации базовой ВМ:
 
@@ -265,7 +264,7 @@
 
      Результат:
 
-     ```bash
+     ```yaml
      done (25s)
      id: cl1qjhlcdofg********
      folder_id: b1g86q4m5vej********
@@ -646,7 +645,7 @@ Commercial support is available at
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать L7-балансировщик с защитой от DDoS-атак с помощью {{ TF }}:
 
@@ -701,6 +700,6 @@ Commercial support is available at
     * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Создайте ресурсы:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Проверьте работу балансировщика](#test-work).

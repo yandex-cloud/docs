@@ -57,7 +57,7 @@ description: "Из статьи вы узнаете, как удалить тр�
 
   Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы удалить триггер, созданный с помощью {{ TF }}:
 

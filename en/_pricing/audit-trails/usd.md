@@ -1,3 +1,3 @@
 | Service | Cost, without VAT |
 | --- | --- |
-| 100,000 events delivered | $0.2880 |
+| 100,000 data events delivered | $0.2880 |

@@ -117,7 +117,7 @@ description: "Создайте триггер для топика устройс
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -173,7 +173,7 @@ description: "Создайте триггер для топика устройс
 
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 

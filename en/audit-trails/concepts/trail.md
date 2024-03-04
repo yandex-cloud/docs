@@ -53,8 +53,8 @@ The trail contains all the audit log settings:
    * For the `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}` parameter:
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Name of the folder hosting the trail. The value is populated automatically.
 * **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** section:
-   * **Status**: Enables/disables the collection of service-level audit logs.
-   * List of [services](../../audit-trails/concepts/events-data-plane.md#services) for each of which you need to separately set the service-level audit log collection [scope](../../audit-trails/concepts/trail.md#collecting-area) and objects.
+   * **Status**: Enables/disables the collection of data audit logs.
+   * List of [services](../../audit-trails/concepts/events-data-plane.md#services) for each of which you need to separately set the data audit log collection [scope](../../audit-trails/concepts/trail.md#collecting-area) and objects.
 
 ## What's next {#whats-next}
 

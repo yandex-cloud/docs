@@ -79,7 +79,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      
   После этого указанному пользователю будет назначена роль администратора организации. Проверить появление роли можно в [консоли управления]({{ link-console-main }}).
 

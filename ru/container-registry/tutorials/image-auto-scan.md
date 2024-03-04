@@ -486,7 +486,7 @@ description: "Следуя данному руководству, вы смож�
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 Чтобы настроить автоматическое сканирование Docker-образа при загрузке  с помощью {{ TF }}:
 
@@ -550,7 +550,7 @@ description: "Следуя данному руководству, вы смож�
 
 1. Создайте ресурсы:
 
-   {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Создайте триггер](#create-trigger).
 

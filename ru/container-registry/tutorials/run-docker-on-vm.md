@@ -543,7 +543,7 @@ Hi, I'm inside
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать инфраструктуру для запуска Docker-образа на ВМ с использованием реестра:
 1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
@@ -583,7 +583,7 @@ Hi, I'm inside
    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее см. [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
 1. Создайте ресурсы:
 
-   {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [{#T}](#create-image).
 1. [{#T}](#run).

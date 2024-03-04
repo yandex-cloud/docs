@@ -9,7 +9,6 @@ To set up authorization on behalf of a service account:
 1. [Assign roles to the service account](#assign-roles).
 1. [Create an API key](#run-client).
 
-
 ## Prepare your cloud {#prepare-cloud}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -42,7 +41,7 @@ To set up authorization on behalf of a service account:
    yc iam service-account create --name sa-api
    ```
 
-   Where `name` is the name of the service account in the following format:
+   Where `--name` is the name of the service account in the following format:
 
    {% include [name-format](./name-format.md) %}
 
@@ -216,5 +215,5 @@ Now you can send requests to {{ vision-full-name }} and {{ translate-full-name }
 Enter the API key when accessing {{ yandex-cloud }} resources via the API. Include the API key in the `Authorization` header in the following format:
 
 ```yaml
-Authorization: Api-Key <API key>
+Authorization: Api-Key <API_key>
 ```

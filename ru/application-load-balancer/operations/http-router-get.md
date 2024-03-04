@@ -57,7 +57,7 @@ title: "Как получить информацию об HTTP-роутере в
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -86,7 +86,7 @@ title: "Как получить информацию об HTTP-роутере в
 
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} создаст HTTP-роутер и отобразит значения выходной переменной в терминале. Чтобы проверить результат, выполните команду:
 

@@ -329,7 +329,7 @@
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы разместить интернет-магазин на 1С-Битрикс с помощью {{ TF }}:
 
@@ -396,7 +396,7 @@
 
 1. Создайте ресурсы:
 
-    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Настройте виртуальную машину для работы с 1C-Битрикс](#configure-server).
 

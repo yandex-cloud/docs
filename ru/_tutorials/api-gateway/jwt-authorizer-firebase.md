@@ -1,13 +1,11 @@
-# Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и аутентификацией в Firebase
+# Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-full-name }} и аутентификацией в Firebase
 
-В этом руководстве вы узнаете, как реализовать аутентификацию и авторизацию в вашем веб-приложении на основе протоколов [OAuth 2.0](https://oauth.net/2/) и [OpenID Connect](https://openid.net/connect/). Для аутентификации будут использованы [Google OAuth](https://developers.google.com/identity/protocols/oauth2) и [Firebase](https://firebase.google.com/docs). Авторизация будет выполняться на стороне {{ api-gw-name }} с помощью JWT-авторайзера. Веб-приложение будет состоять из:
-
-* внешнего сервиса аутентификации Firebase;
-* простого REST API, развернутого в виде {{ api-gw-name }};
-* статического веб-сайта, развернутого в бакете {{ objstorage-name }}.
+В этом руководстве вы узнаете, как реализовать аутентификацию и авторизацию в вашем веб-приложении на основе протоколов [OAuth 2.0](https://oauth.net/2/) и [OpenID Connect](https://openid.net/connect/). Для аутентификации будут использованы [Google OAuth](https://developers.google.com/identity/protocols/oauth2) и [Firebase](https://firebase.google.com/docs). Авторизация будет выполняться на стороне [{{ api-gw-name }}](../../api-gateway/) с помощью JWT-авторайзера. Веб-приложение будет состоять из:
+* Внешнего сервиса аутентификации Firebase.
+* Простого REST API, развернутого в виде {{ api-gw-name }}.
+* Статического веб-сайта, развернутого в [бакете](../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../storage/).
 
 Чтобы развернуть веб-приложение:
-
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Создайте проект и настройте Google OAuth в Google Cloud](#create-google-cloud-project).
 1. [Настройте аутентификацию в Firebase](#create-firebase-project).
@@ -23,18 +21,15 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для работы веб-приложения входят:
 * Плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 * Плата за использование API-шлюза (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
-
 ## Создайте проект и настройте Google OAuth в Google Cloud {#create-google-cloud-project}
 
 Настройте Google OAuth:
-
 1. Авторизуйтесь в [Google Cloud Console](https://console.cloud.google.com/) и создайте новый проект.
 1. На вкладке **API & Services** → **OAuth consent screen** выберите тип приложения `External` и нажмите кнопку **Create**.
 1. В разделе **OAuth consent screen** укажите название приложения и ваш адрес электронной почты в полях **User support email** и **Developer contact information**. Нажмите кнопку **Save and continue**.
@@ -54,15 +49,13 @@
 ## Завершите настройку ресурсов Google {#google-oauth-setup}
 
 Google Console:
-
-   1. На вкладке **API & Services** → **Credentials** нажмите на имя созданного клиента.
-   1. В список **Authorized redirect URIs** добавьте Callback URL из Firebase, который получили на [предыдущем шаге](#create-firebase-project). Сохраните внесенные изменения.
+1. На вкладке **API & Services** → **Credentials** нажмите на имя созданного клиента.
+1. В список **Authorized redirect URIs** добавьте Callback URL из Firebase, который получили на [предыдущем шаге](#create-firebase-project). Сохраните внесенные изменения.
 
 Firebase:
-
-   1. Перейдите в раздел **Project Overview** → **Project settings**.
-   1. На вкладке `General` создайте веб-приложение. Укажите имя приложения и нажмите кнопку **Register App**.
-   1. Сохраните сгенерированную в блоке `firebaseConfig` конфигурацию приложения.
+1. Перейдите в раздел **Project Overview** → **Project settings**.
+1. На вкладке `General` создайте веб-приложение. Укажите имя приложения и нажмите кнопку **Register App**.
+1. Сохраните сгенерированную в блоке `firebaseConfig` конфигурацию приложения.
 
 ## Создайте API-шлюз {#create-gateway}
 
@@ -70,53 +63,53 @@ Firebase:
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `jwt-api-gw`.
-    1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `jwt-api-gw`.
+  1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
 
-        ```yaml
-        openapi: 3.0.0
-        info:
-          title: Sample API
-          version: 1.0.0
+     ```yaml
+     openapi: 3.0.0
+     info:
+       title: Sample API
+       version: 1.0.0
 
-        paths:
-          /:
-            get:
-              x-yc-apigateway-integration:
-                type: http
-                url: https://oauth2.googleapis.com/tokeninfo
-                method: GET
-                query:
-                  id_token: '{token}'
-              parameters:
-                - name: token
-                  in: query
-                  required: true
-                  schema:
-                    type: string
-              security:
-                - OpenIdAuthorizerScheme: [ ]
-          
-        components:
-          securitySchemes:
-            OpenIdAuthorizerScheme:
-              type: openIdConnect
-              x-yc-apigateway-authorizer:
-                type: jwt
-                jwksUri: https://www.googleapis.com/oauth2/v3/certs
-                identitySource:
-                  in: query
-                  name: token
-                issuers:
-                  - https://accounts.google.com
-                requiredClaims:
-                  - email
-        ```
+     paths:
+       /:
+         get:
+           x-yc-apigateway-integration:
+             type: http
+             url: https://oauth2.googleapis.com/tokeninfo
+             method: GET
+             query:
+               id_token: '{token}'
+           parameters:
+             - name: token
+               in: query
+               required: true
+               schema:
+                 type: string
+           security:
+             - OpenIdAuthorizerScheme: [ ]
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+     components:
+       securitySchemes:
+         OpenIdAuthorizerScheme:
+           type: openIdConnect
+           x-yc-apigateway-authorizer:
+             type: jwt
+             jwksUri: https://www.googleapis.com/oauth2/v3/certs
+             identitySource:
+               in: query
+               name: token
+             issuers:
+               - https://accounts.google.com
+             requiredClaims:
+               - email
+     ```
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI {#cli}
 
@@ -126,71 +119,70 @@ Firebase:
 
   1. Сохраните следующую спецификацию в файл `jwt-auth.yaml`:
 
-      ```yaml
-      openapi: 3.0.0
-      info:
-        title: Sample API
-        version: 1.0.0
+     ```yaml
+     openapi: 3.0.0
+     info:
+       title: Sample API
+       version: 1.0.0
 
-      paths:
-        /:
-          get:
-            x-yc-apigateway-integration:
-              type: http
-              url: https://oauth2.googleapis.com/tokeninfo
-              method: GET
-              query:
-                id_token: '{token}'
-            parameters:
-              - name: token
-                in: query
-                required: true
-                schema:
-                  type: string
-            security:
-              - OpenIdAuthorizerScheme: [ ]
-        
-      components:
-        securitySchemes:
-          OpenIdAuthorizerScheme:
-            type: openIdConnect
-            x-yc-apigateway-authorizer:
-              type: jwt
-              jwksUri: https://www.googleapis.com/oauth2/v3/certs
-              identitySource:
-                in: query
-                name: token
-              issuers:
-                - https://accounts.google.com
-              requiredClaims:
-                - email
-      ```
+     paths:
+       /:
+         get:
+           x-yc-apigateway-integration:
+             type: http
+             url: https://oauth2.googleapis.com/tokeninfo
+             method: GET
+             query:
+               id_token: '{token}'
+           parameters:
+             - name: token
+               in: query
+               required: true
+               schema:
+                 type: string
+           security:
+             - OpenIdAuthorizerScheme: [ ]
+
+     components:
+       securitySchemes:
+         OpenIdAuthorizerScheme:
+           type: openIdConnect
+           x-yc-apigateway-authorizer:
+             type: jwt
+             jwksUri: https://www.googleapis.com/oauth2/v3/certs
+             identitySource:
+               in: query
+               name: token
+             issuers:
+               - https://accounts.google.com
+             requiredClaims:
+               - email
+     ```
 
   1. Выполните команду:
 
-      ```bash
-      yc serverless api-gateway create \
-        --name jwt-api-gw \
-        --spec=jwt-auth.yaml
-      ```
+     ```bash
+     yc serverless api-gateway create \
+       --name jwt-api-gw \
+       --spec=jwt-auth.yaml
+     ```
 
-      Где:
-       
-      * `--name` — имя API-шлюза.
-      * `--spec` — файл со спецификацией.
+     Где:
+     * `--name` — имя API-шлюза.
+     * `--spec` — файл со спецификацией.
 
-      Результат:
+     Результат:
 
-      ```text
-      done (29s)
-      id: d5dug9gkmu187i********
-      folder_id: b1g55tflru0ek7********
-      created_at: "2020-06-17T09:20:22.929Z"
-      name: jwt-api-gw
-      status: ACTIVE
-      domain: d5dug9gkmu187i********.apigw.yandexcloud.net
-      log_group_id: ckghq1hm19********
-      ```
+     ```text
+     done (29s)
+     id: d5dug9gkmu187i********
+     folder_id: b1g55tflru0ek7********
+     created_at: "2020-06-17T09:20:22.929Z"
+     name: jwt-api-gw
+     status: ACTIVE
+     domain: d5dug9gkmu187i********.apigw.yandexcloud.net
+     log_group_id: ckghq1hm19********
+     ```
 
 - {{ TF }} {#tf}
 
@@ -198,59 +190,57 @@ Firebase:
 
   1. Опишите в конфигурационном файле параметры API-шлюза:
 
-      ```hcl
-      resource "yandex_api_gateway" "jwt-api-gateway" {
-        name        = "jwt-api-gw"
-        spec        = <<-EOT
-          openapi: 3.0.0
-          info:
-            title: Sample API
-            version: 1.0.0
-          paths:
-            /:
-              get:
-                x-yc-apigateway-integration:
-                  type: http
-                  url: https://oauth2.googleapis.com/tokeninfo
-                  method: GET
-                  query:
-                    id_token: '{token}'
-                parameters:
-                  - name: token
-                    in: query
-                    required: true
-                    schema:
-                      type: string
-                security:
-                  - OpenIdAuthorizerScheme: [ ] 
-          components:
-            securitySchemes:
-              OpenIdAuthorizerScheme:
-                type: openIdConnect
-                x-yc-apigateway-authorizer:
-                  type: jwt
-                  jwksUri: https://www.googleapis.com/oauth2/v3/certs
-                  identitySource:
-                    in: query
-                    name: token
-                  issuers:
-                    - https://accounts.google.com
-                  requiredClaims:
-                    - email
-        EOT
-      }
-      ```
+     ```hcl
+     resource "yandex_api_gateway" "jwt-api-gateway" {
+       name        = "jwt-api-gw"
+       spec        = <<-EOT
+         openapi: 3.0.0
+         info:
+           title: Sample API
+           version: 1.0.0
+         paths:
+           /:
+             get:
+               x-yc-apigateway-integration:
+                 type: http
+                 url: https://oauth2.googleapis.com/tokeninfo
+                 method: GET
+                 query:
+                   id_token: '{token}'
+               parameters:
+                 - name: token
+                   in: query
+                   required: true
+                   schema:
+                     type: string
+               security:
+                 - OpenIdAuthorizerScheme: [ ] 
+         components:
+           securitySchemes:
+             OpenIdAuthorizerScheme:
+               type: openIdConnect
+               x-yc-apigateway-authorizer:
+                 type: jwt
+                 jwksUri: https://www.googleapis.com/oauth2/v3/certs
+                 identitySource:
+                   in: query
+                   name: token
+                 issuers:
+                   - https://accounts.google.com
+                 requiredClaims:
+                   - email
+       EOT
+     }
+     ```
 
-      Где:
+     Где:
+     * `name` — имя API-шлюза.
+     * `spec` — спецификация API-шлюза.
 
-      * `name` — имя API-шлюза.
-      * `spec` — спецификация API-шлюза.
-
-      Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
-
+     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   После этого в указанном каталоге будет создан API-шлюз.
 
@@ -269,14 +259,11 @@ Firebase:
    ```
 
 1. Откройте с помощью текстового редактора файл `src/App.js` и укажите параметры:
-
    * `firebaseConfig` — конфигурация приложения Firebase, которую вы сохранили при [завершении настройки ресурсов Google](#google-oauth-setup).
    * `providerId` — идентификатор созданного ранее в Firebase провайдера OpenID Connect в формате `oidc.<имя_провайдера>`.
    * `apiGwDomain` — служебный домен созданного ранее API-шлюза.
-
 1. [Установите Node.js](https://nodejs.org/ru/download/) и менеджер пакетов npm. Менеджер пакетов будет установлен автоматически при установке Node.js.
 1. В папке с вашим приложением:
-
    1. Установите react-scripts в ваш проект и добавьте его в зависимости (devDependencies) в файле `package.json`:
 
       ```bash
@@ -289,9 +276,9 @@ Firebase:
       npm run build
       ```
 
-      Результат выполнения команды:
+      Результат:
 
-      ```bash
+      ```text
       File sizes after gzip:
 
         96.05 kB  build\static\js\main.de7af71f.js
@@ -305,106 +292,100 @@ Firebase:
 
 ## Разверните ресурсы {{ yandex-cloud }} и загрузите веб-приложение в бакет {{ objstorage-name }} {#deploy}
 
-Разверните статический веб-сайт:
-
+Разверните статический веб-сайт.
 1. Создайте бакет {{ objstorage-name }}:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-      1. На странице создания бакета:
-          1. Введите имя бакета — `bucket-for-tutorial`.
-          1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
-          1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+     1. На странице создания бакета:
+        1. Введите имя бакета — `bucket-for-tutorial`.
+        1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
    - CLI {#cli}
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+     {% include [cli-install](../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. Выполните следующую команду:
+     1. Выполните следующую команду:
 
-          ```bash
-          yc storage bucket create \
+        ```bash
+        yc storage bucket create \
           --name bucket-for-tutorial \
           --public-read
-          ```
+        ```
 
-          Где:
+        Где:
+        * `--name` — имя бакета.
+        * `--public-read` — флаг для включения публичного доступа на чтение объектов в бакете.
 
-          * `--name` — имя бакета.
-          * `--public-read` — флаг для включения публичного доступа на чтение объектов в бакете.
+        Результат:
 
-          Результат:
-
-          ```bash
-          name: bucket-for-tutorial
-          folder_id: b1gmit33********
-          anonymous_access_flags:
-            read: false
-            list: false
-          default_storage_class: STANDARD
-          versioning: VERSIONING_DISABLED
-          acl: {}
-          created_at: "2023-06-08T11:57:49.898024Z"
-          ```
+        ```text
+        name: bucket-for-tutorial
+        folder_id: b1gmit33********
+        anonymous_access_flags:
+        ...
+        versioning: VERSIONING_DISABLED
+        acl: {}
+        created_at: "2023-06-08T11:57:49.898024Z"
+        ```
 
    - {{ TF }} {#tf}
 
-      {% include [terraform-install](../../_includes/terraform-install.md) %}
+     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-      1. Опишите в конфигурационном файле параметры необходимых ресурсов:
+     1. Опишите в конфигурационном файле параметры необходимых ресурсов:
 
-          ```hcl
-          ...
-          resource "yandex_iam_service_account" "sa" {
-            name = "<имя_сервисного_аккаунта>"
-          }
+        ```hcl
+        ...
+        resource "yandex_iam_service_account" "sa" {
+          name = "<имя_сервисного_аккаунта>"
+        }
 
-          resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
-            folder_id = "<идентификатор_каталога>"
-            role      = "storage.editor"
-            member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
-          }
+        resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
+          folder_id = "<идентификатор_каталога>"
+          role      = "storage.editor"
+          member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+        }
 
-          resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-            service_account_id = yandex_iam_service_account.sa.id
-            description        = "static access key for object storage"
-          }
+        resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+          service_account_id = yandex_iam_service_account.sa.id
+          description        = "static access key for object storage"
+        }
 
-          resource "yandex_storage_bucket" "test" {
-            access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-            secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-            bucket     = "bucket-for-tutorial"
-            acl        = "public-read"
-          }
-          ...
-          ```
+        resource "yandex_storage_bucket" "test" {
+          access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+          secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+          bucket     = "bucket-for-tutorial"
+          acl        = "public-read"
+        }
+        ...
+        ```
 
-          Где:
+        Где:
+        * `yandex_iam_service_account` — описание [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), который создаст бакет и будет работать с ним:
+          * `name` — имя сервисного аккаунта.
+        * `yandex_storage_bucket` — описание бакета:
+          * `bucket` — имя бакета.
+          * `acl` — настройки доступа к бакету.
 
-          * `yandex_iam_service_account` — описание сервисного аккаунта, который создаст бакет и будет работать с ним:
-            * `name` — имя сервисного аккаунта.
-          * `yandex_storage_bucket` — описание бакета:
-            * `bucket` — имя бакета.
-            * `acl` — настройки доступа к бакету.
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+     1. Создайте ресурсы:
 
-          Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+        {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      1. Создайте ресурсы:
-
-          {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
-
-      После этого в указанном каталоге будет создан бакет.
+     После этого в указанном каталоге будет создан бакет.
 
    - API {#api}
 
-      Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md). 
+     Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
 
    {% endlist %}
 
@@ -435,100 +416,94 @@ Firebase:
      1. В [консоли управления]({{ link-console-main }}) перейдите в бакет `bucket-for-tutorial`.
      1. Перейдите на вкладку ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
      1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-         * в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта — `index.html`.
-         * в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх — `error.html`.
+        * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта — `index.html`.
+        * В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх — `error.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
      1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}** скопируйте адрес вашего сайта.
 
    - CLI {#cli}
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+     {% include [cli-install](../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. Создайте файл `setup.json` с настройками хостинга в формате JSON:
+     1. Создайте файл `setup.json` с настройками хостинга в формате JSON:
 
-          ```json
-          {
-            "index": "index.html",
-            "error": "error404.html"
-          }
-          ```
+        ```json
+        {
+          "index": "index.html",
+          "error": "error404.html"
+        }
+        ```
 
-          Где:
+        Где:
+        * `index` — абсолютный путь к файлу главной страницы сайта.
+        * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.
+     1. Выполните команду:
 
-          * `index` — абсолютный путь к файлу главной страницы сайта. 
-          * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.
+        ```bash
+        yc storage bucket update --name bucket-for-tutorial \
+          --website-settings-from-file setup.json
+        ```
 
-      1. Выполните команду:
+        Где:
+        * `--name` — имя бакета.
+        * `--website-settings-from-file` — путь к файлу с настройками переадресации.
 
-          ```bash
-          yc storage bucket update --name bucket-for-tutorial \
-            --website-settings-from-file setup.json
-          ```
+        Результат:
 
-          Где:
-          * `--name` — имя бакета.
-          * `--website-settings-from-file` — путь к файлу с настройками переадресации.
-
-          Результат:
-
-          ```text
-          name: my-bucket
-          folder_id: b1gjs8dck********
-          default_storage_class: STANDARD
-          versioning: VERSIONING_SUSPENDED
-          max_size: "10737418240"
-          acl: {}
-          created_at: "2022-12-14T08:42:16.273717Z"
-          ```
+        ```text
+        name: my-bucket
+        folder_id: b1gjs8dck********
+        default_storage_class: STANDARD
+        versioning: VERSIONING_SUSPENDED
+        max_size: "10737418240"
+        acl: {}
+        created_at: "2022-12-14T08:42:16.273717Z"
+        ```
 
    - {{ TF }} {#tf}
-    
-      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-      Чтобы настроить переадресацию всех запросов:
+     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-      1. Откройте файл конфигурации {{ TF }} и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:
+     Чтобы настроить переадресацию всех запросов:
+     1. Откройте файл конфигурации {{ TF }} и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:
 
-          ```hcl
-          ...
-          resource "yandex_storage_bucket" "test" {
-            access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-            secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_ke
-            bucket     = "bucket-for-tutorial"
-            acl        = "public-read"
-          
-            website {
-              index_document = "index.html"
-              error_document = "error.html"
-            }
+        ```hcl
+        ...
+        resource "yandex_storage_bucket" "test" {
+          access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+          secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_ke
+          bucket     = "bucket-for-tutorial"
+          acl        = "public-read"
+
+          website {
+            index_document = "index.html"
+            error_document = "error.html"
           }
-          ...
-          ```
+        }
+        ...
+        ```
 
-          Где:
+        Где:
+        * `website` — параметры веб-сайта:
+          * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
+          * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
 
-          * `website` — параметры веб-сайта:
-            * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
-            * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     1. Создайте ресурсы:
 
-          Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+        {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      1. Создайте ресурсы:
-
-          {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
-
-      После этого в бакете будет настроен хостинг.
+     После этого в бакете будет настроен хостинг.
 
    - API {#api}
 
-      Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../storage/s3/api-ref/hosting/upload.md).
+     Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../storage/s3/api-ref/hosting/upload.md).
 
    {% endlist %}
 
 1. Добавьте адрес вашего сайта в список допустимых доменов в Firebase:
-
    1. Перейдите в раздел **Authentication** → **Settings** → **Authorized domains**.
    1. Нажмите кнопку **Add domain** и вставьте скопированный адрес.
 
@@ -541,7 +516,6 @@ Firebase:
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-
 1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 1. [Удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md).
 1. [Удалите проект в Firebase](https://support.google.com/firebase/answer/9137886?hl=en).

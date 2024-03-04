@@ -6,7 +6,7 @@ editable: false
 
 # {{ vision-name }} pricing
 
-## What adds up to the cost of {{ vision-short-name }} {#rules}
+## What goes into the cost of using {{ vision-short-name }} {#rules}
 
 {{ vision-name }} allows you to recognize image text.
 

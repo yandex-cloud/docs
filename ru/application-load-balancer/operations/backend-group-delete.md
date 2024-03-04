@@ -11,13 +11,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-Чтобы удалить группу бэкендов:
+Чтобы удалить [группу бэкендов](../concepts/backend-group.md):
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана группа бэкендов.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана группа бэкендов.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Напротив имени группы бэкендов нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
@@ -31,7 +31,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для удаления группы бэкендов:
+  1. Посмотрите описание команды [CLI](../../cli/) для удаления группы бэкендов:
 
      ```bash
      yc alb backend-group delete --help
@@ -51,9 +51,10 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
   1. Откройте конфигурационный файл {{ TF }} и удалите фрагмент с описанием группы бэкендов.
 
      Пример описания группы бэкендов в конфигурации {{ TF }}:
@@ -86,9 +87,9 @@ description: "Следуя данной инструкции, вы сможет�
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
-     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
      ```bash
      yc alb backend-group list

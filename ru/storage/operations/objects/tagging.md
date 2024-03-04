@@ -56,7 +56,7 @@
 
   1. Примените изменения:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   После этого к объекту будут добавлены метки. Проверить появление меток и настройки объекта можно с помощью [AWS CLI или S3 API](#get-tag).
 
@@ -156,7 +156,7 @@
 
   1. Примените изменения:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   После этого у объекта будут удалены метки. Проверить удаление меток и настройки объекта можно с помощью [AWS CLI или S3 API](#get-tag).
 
