@@ -24,30 +24,30 @@ To work with a {{ mch-name }} database, follow these steps:
 To create a connection to {{ mch-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ yq-full-name }}**.
-1. In the panel on the left, go to the **Connections** tab.
-1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
+1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
 
-   1. Under **General parameters**:
+   1. Under **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
-      * **Name**: {{ mch-name }} connection name.
-      * **Type**: `{{ mch-name }}`.
-   1. Under **Connection type parameters**:
-      * **Cluster**: Select an existing {{ mch-name }} cluster or create a new one.
-      * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) in {{ mch-name }}, or create a new service account with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
-      * **Database**: Select the database you will use when working with the {{ CH }} cluster.
-      * **Login**: Username to be used to connect to {{ CH }} databases.
-      * **Password**: User password to be used to connect to {{ CH }} databases.
+      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: Name of the connection to {{ mch-name }}.
+      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.click-house.select-item }}`.
+   1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) {{ mch-name }}, or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-info.database.label }}**: Select the database you will use when working with the {{ CH }} cluster.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ CH }} databases.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: User password to use when connecting to {{ CH }} databases.
 
 
-1. Click **Create**.
+1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 You need a service account to detect {{ mch-name }} cluster connection points inside {{ yandex-cloud }}. You need a separate login/password pair to access data.
 
 {% note warning %}
 
-But first allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, in the settings of the database to which the connection is made, enable **Access from Yandex Query**.
+But first allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** in the settings of the database to which you are connecting.
 
 {% endnote %}
 

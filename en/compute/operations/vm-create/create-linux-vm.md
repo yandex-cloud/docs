@@ -42,9 +42,9 @@ description: "Use this tutorial to create a Linux VM."
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-      | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
-      | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
-      | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
+      | b0c6n43f9lgh******** | default-{{ region-id }}-c | enpe3m3fa00u******** |                | {{ region-id }}-c | [10.130.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.128.0.0/24] |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
@@ -68,7 +68,9 @@ description: "Use this tutorial to create a Linux VM."
       * `subnet-name`: Name of the selected subnet.
       * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
       * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, disable this parameter.
-      * `--ssh-key`: Path to the public SSH key. The VM will automatically create a user named `yc-user` for this key.
+      * `--ssh-key`: Public SSH key path. The VM will automatically create a user named `yc-user` for this key.
+
+      If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
 
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
@@ -145,6 +147,8 @@ description: "Use this tutorial to create a Linux VM."
          * `boot_disk`: Boot disk settings. Specify the disk ID.
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
          * `metadata`: In the metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
+
+            If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and supply it under `metadata`.
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
@@ -290,4 +294,4 @@ description: "Use this tutorial to create a Linux VM."
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md).
+* [{#T}](../vm-connect/ssh.md)

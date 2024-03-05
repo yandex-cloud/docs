@@ -4,6 +4,7 @@
 
 * [{#T}](#overview)
 * [{#T}](#common)
+* [{#T}](#data-transform)
 * [{#T}](#api)
 * [{#T}](#network)
 * [{#T}](#clickhouse)
@@ -52,6 +53,10 @@
 
 {% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
 
+
+## Трансформация данных {#data-transform}
+
+{% include [required-role](../../_includes/data-transfer/troubles/data-transformation/filtr-append-only-sources.md) %}
 
 ## Ошибки в API {#api}
 

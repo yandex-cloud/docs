@@ -18,27 +18,27 @@ WHERE
 To create a binding to read data from {{ objstorage-short-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a binding.
-1. In the list of services, select **{{ yq-full-name }}**.
-1. In the left-hand panel, go to the **Bindings** tab.
-1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
-1. Under **Connection parameters**:
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}** tab.
+1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
+1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
-   1. In the **Type** field, select `{{ objstorage-short-name }}`.
-   1. In the **Connection** field, select a connection or [create a new one](./object-storage.md#create_connection):
+   1. In the **{{ ui-key.yql.yq-binding-form.connection-type.title }}** field, select `{{ ui-key.yql.yq-connection.object-storage.select-item }}`.
+   1. In the **{{ ui-key.yql.yq-binding-form.connection.title }}** field, select an existing connection or [create a new one](./object-storage.md#create_connection).
 
-1. Under **Data binding parameters**:
+1. Under **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
 
-   1. Give your a binding a name in the **Name** field.
-   1. In the **Path** field, specify the [path to bucket data](object-storage.md#path_format). Parts of file names can be specified using `/*`, such as `yellow/*.csv`.
-   1. Specify the [data compression](formats.md#compression) method in the **Compression** field.
-   1. Specify the [format of stored data](formats.md#formats) in the **Format** field.
+   1. In the **{{ ui-key.yql.yq-binding-form.binding-name.title }}** field, specify the binding name.
+   1. In the **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** field, specify the [path to bucket data](object-storage.md#path_format). Parts of file names can be specified using `/*`, such as `yellow/*.csv`.
+   1. In the **{{ ui-key.yql.yq-binding-info.compression.label-text }}** field, specify the [data compression](formats.md#compression) method.
+   1. In the **{{ ui-key.yql.yq-binding-info.format.label-text }}** field, specify the [format of stored data](formats.md#formats).
    1. List data columns and their types.
    1. Select a partitioning mode and list [partitioning columns](../concepts/partitioning.md) and their types.
 
-      If you use **Extended** partitioning, specify the [partition projection](../concepts/partition-projection.md) columns.
+      If you are using the **{{ ui-key.yql.yq-binding-form.projection-radio.enabled.label }}** mode, specify the [partition projection](../concepts/partition-projection.md) columns.
 
-1. To check the data, click **Preview**.
-1. Click **Create**.
+1. To check the data, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**.
+1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 ## Data model {#data-model}
 

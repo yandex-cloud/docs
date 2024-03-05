@@ -6,12 +6,6 @@
 * модели, обученные в проектах;
 * дообученные по методу Fine-tuning [фундаментальные модели](foundation-models.md).
 
-{% note info %}
-
-Модели доступны только в проектах [в режиме {{ dd }}](../project.md#dedicated).
-
-{% endnote %}
-
 ## Поддерживаемые типы переменных {#supported-types}
 
 Вы можете создать модель на основе разных типов библиотек, поддерживаемых библиотекой [serialzy](https://github.com/lambdazy/serialzy#list-of-supported-libraries-for-stable-serialization). Список поддерживаемых типов данных и переменных представлен в таблице ниже.

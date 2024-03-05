@@ -191,7 +191,7 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
          - API {#api}
 
-            1. To remove a network load balancer's listener, use the [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#RemoveListener) gRPC API call and provide the following in the request:
+            1. To remove a network load balancer's listener, use the [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#RemoveListener) gRPC API call, and provide the following in the request:
 
                * Load balancer ID in the `networkLoadBalancerId` parameter.
                * Listener name in the `listenerName` parameter.

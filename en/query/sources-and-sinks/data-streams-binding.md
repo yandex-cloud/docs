@@ -1,6 +1,6 @@
 # Reading data using {{ yq-name }} bindings
 
-When working with {{ yds-full-name }}, it's convenient to use bindings for running regular queries to stored data with no need to specify all details of operations with this data.
+When working with {{ yds-full-name }}, bindings help you run regular queries to stored data with no need to specify all details of operations with this data.
 
 Example of reading data using bindings:
 
@@ -18,15 +18,15 @@ LIMIT 10;
 To read data from {{ yds-full-name }} using bindings:
 
 1. [Setting up a data connection](./data-streams.md#create_connection).
-1. In the Type field, select `Data Streams`.
-1. In the drop-down list of the `Connection` field, select the connection you created in the first step.
-1. Specify a name for a binding in the `Name` field.
-1. Specify a name for a {{ yds-full-name }} stream in the `Stream` field.
-1. Specify the [data compression](formats.md#compression) method in the `Compression` field.
-1. Specify the [format of transferred data](formats.md#formats) in the `Format` field.
-1. List data columns and their data types in the `Columns` fields.
-1. To check the data, click `Preview`.
-1. Click `Create` to create a binding.
+1. In the **{{ ui-key.yql.yq-binding-form.connection-type.title }}** field, select `{{ ui-key.yql.yq-connection.datastreams.select-item }}`.
+1. In the drop-down list of the **{{ ui-key.yql.yq-binding-form.connection.title }}** field, select the connection you created in the first step.
+1. Specify a name for the data binding in the **{{ ui-key.yql.yq-binding-form.binding-name.title }}** field.
+1. Specify a name for a {{ yds-full-name }} stream in the **{{ ui-key.yql.yq-binding-form.binding-stream.title }}** field.
+1. Specify the [data compression](formats.md#compression) method in the **{{ ui-key.yql.yq-binding-info.compression.label-text }}** field.
+1. Specify the [format of transferred data](formats.md#formats) in the **{{ ui-key.yql.yq-binding-info.format.label-text }}** field.
+1. List data columns and their data types in the **{{ ui-key.yql.yq-binding-form.binding-fields.title }}** fields.
+1. To check the data, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**.
+1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** to create a binding.
 
 ## Data model
 

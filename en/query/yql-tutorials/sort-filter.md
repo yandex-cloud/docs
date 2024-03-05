@@ -5,7 +5,7 @@ When selecting data, you can specify filter expressions that will limit the resu
 For example:
 
 * Find 10 rides with the largest tips.
-* Exclude rides with a fare of over  $1,000,000.
+* Exclude rides with a fare of over $1,000,000.
 
 ```sql
 SELECT
@@ -20,8 +20,8 @@ ORDER BY tip_amount DESC    -- Sort the result by the descending tip_amount valu
 LIMIT 10                    -- Use only 10 entries.
 ```
 
-Take a look at the block on the right and click ![run](../../_assets/console-icons/play-fill.svg) **Run**.
-Query execution results are available in the **Result** tab as a table or schema.
+Take a look at the example on the right and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
 
 ## See also {#see-also}
 

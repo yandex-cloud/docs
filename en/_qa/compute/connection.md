@@ -37,9 +37,9 @@ Your data was likely taken over and third parties gained access to the VM. Take 
 
 If the VM created from the snapshot is also unavailable for connection, see [How do I get important data from a broken VM](#get-data-from-fail-vm).
 
-#### What should I do if I can't connect to a VM from the {{ marketplace-name }} image? {#fail-connection-marketplace}
+#### What should I do if I cannot connect to a VM from a {{ marketplace-name }} image? {#fail-connection-marketplace}
 
-Some {{ marketplace-name }} images have service usernames reserved, such as `bitrix` in the [1C-Bitrix](/marketplace/products/yc/bitrix-1c-centos-7) image. When creating a VM and connecting to it, make sure to use a username that is not reserved in the system, like `user`. Do not use `root`, `admin`, or other system usernames.
+Some {{ marketplace-name }} images have service usernames reserved, such as `bitrix` in the [1C-Bitrix](/marketplace/products/yc/bitrix-1c-centos-7) image. When creating a VM and connecting to it, use a username not reserved in the system, e.g., `user`. Do not use `root`, `admin`, or other system usernames.
 
 You can later change the `bitrix` user's password by running the `sudo passwd bitrix` command.
 

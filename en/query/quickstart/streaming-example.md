@@ -6,11 +6,11 @@ As a result, you will get the total cost of the first ten rides since the strea
 
 To run this example:
 
-1. [{#T}](#before-you-begin).
-1. [{#T}](#create-datastream).
-1. [{#T}](#configure-generation).
-1. [{#T}](#run-query).
-1. [{#T}](#check-result).
+1. [{#T}](#before-you-begin)
+1. [{#T}](#create-datastream)
+1. [{#T}](#configure-generation)
+1. [{#T}](#run-query)
+1. [{#T}](#check-result)
 
 {% note info %}
 
@@ -18,11 +18,11 @@ To run this example:
 
 {% endnote %}
 
-## Before you start {#before-you-begin}
+## Get started {#before-you-begin}
 
-1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
+1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you do not have a directory yet, [create one](../../resource-manager/operations/folder/create.md).
 1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). Thus, you will need to [create](../../iam/operations/sa/create.md#create-sa) a service account with the `datastream-connection-account` name and the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. [Create](../../ydb/quickstart.md#serverless) a serverless database.
 
@@ -34,11 +34,11 @@ To run this example:
 
 {% include [streaming-infra](../_includes/create-tutorial-streaming-infra.md) %}
 
-Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **Start** buttons to control the data generator.
+Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.yq-tutorial.stop-stream.button-label }}** and **{{ ui-key.yql.yq-tutorial.run-stream.button-label }}** buttons to control the data generator.
 
 ## Run the query {#run-query}
 
-1. In the query editor in the {{ yq-name }} interface, click **New streaming query**.
+1. In the query editor in the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-streaming-query.button-text }}**.
 1. Enter the query text in the text field:
 
    ```sql
@@ -58,7 +58,7 @@ Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **S
        HOP(CAST(tpep_pickup_datetime AS Timestamp), "PT1M", "PT1M", "PT1M");
    ```
 
-1. Click **Run**.
+1. Click **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 ## Review the result {#check-result}
 

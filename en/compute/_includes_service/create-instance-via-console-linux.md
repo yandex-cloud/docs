@@ -22,7 +22,7 @@
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../concepts/disk.md#disks_types).
-      * Specify the desired block size.
+      * Specify the required block size.
       * Specify the required disk size.
 
       
@@ -67,6 +67,7 @@
 
    * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
    * If required, grant access to the [serial console](../operations/serial-console/index.md).
+   * If you want to add several users with SSH keys to the VM at the same time, [specify](../concepts/vm-metadata.md#how-to-send-metadata) these users' data under **{{ ui-key.yacloud.common.metadata }}**.
 
    {% include [vm-connect-linux](../../_includes/vm-connect-linux.md) %}
 

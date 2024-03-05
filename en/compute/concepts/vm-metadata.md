@@ -12,20 +12,34 @@ From inside a VM instance, metadata is available in the following formats:
 
 ## How to send metadata {#how-to-send-metadata}
 
-You can provide metadata when creating or [updating](../operations/vm-control/vm-update.md#change-metadata) VMs. VM connection data cannot be changed, so it must be provided during VM creation:
-* [For a Linux VM](../operations/vm-create/create-linux-vm.md), provide the public SSH key to be able to connect to it.
-
+You can provide metadata when creating or [updating](../operations/vm-control/vm-update.md#change-metadata) VMs. Data for connection to a VM can only be provided when creating the VM; moreover, in a [VM running Linux](../operations/vm-create/create-linux-vm.md), a public SSH key must be provided for each user.
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  Metadata is provided under **{{ ui-key.yacloud.common.metadata }}** in `Key:Value` format.
+
+  For example, to create multiple users in the virtual machine OS, add the `user-data` key and specify the following configuration in it:
+
+  {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
+
+  When creating users via metadata, specify the data of all users in the `user-data` key, including the data of the user specified under **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
+
 - CLI {#cli}
 
-  In the CLI, you can specify metadata in any of the three parameters:
-  * `--metadata-from-file`: Provide metadata as a file, e.g., `--metadata-from-file key=path/to/file`. This is convenient when providing values consisting of multiple strings.
-  * `--metadata`: Provide a list of `key-value` pairs separated by commas, e.g., `--metadata foo1=bar, foo2=baz`.
+  In the CLI, you can provide metadata in any of the three parameters:
 
-      If the value is multiline, use `\n` to split lines, e.g., `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
-  * `--ssh-key`: Provide an SSH key. This is only available for Linux-based virtual machines.
+  * `--metadata-from-file`: As a configuration file in the `--metadata-from-file key=<file_path>` format. Use this method to conveniently deliver a value consisting of several lines.
+
+      For example, to add several users to a VM at the same time, describe the configuration in a `YAML` file:
+
+      {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
+
+  * `--metadata`: As a comma-separated list of `key=value` pairs, e.g., `--metadata foo1=bar,foo2=baz`.
+
+      For a multiline value, use `\n` to split lines, e.g., `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
+  * `--ssh-key`: Provide an SSH key. Only for Linux VMs.
 
     {{ compute-name }} creates the `yc-user` user and adds the specified SSH key to the list of authorized keys. After the VM is created, you can use this key to connect to it over SSH.
 
@@ -54,20 +68,11 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
       {% cut "Sample contents of the `cloud-init.yaml` file" %}
 
-      ```hcl
-      #cloud-config
-      users:
-        - name: <username>
-          groups: sudo
-          shell: /bin/bash
-          sudo: 'ALL=(ALL) NOPASSWD:ALL'
-          ssh-authorized-keys:
-            - <SSH_key_contents>
-      ```
+      {% include [users-from-metadata-example](../../_includes/compute/users-from-metadata-example.md) %}
 
       {% endcut %}
 
-   * In the `metadata` section, as a line with user metadata. If the value is multiline, use `\n` to split lines. For example:
+   * Under `metadata`, as a line with user metadata. For a multiline value, use `\n` to split lines. For example:
 
       ```hcl
       ...
@@ -77,7 +82,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
       ...
       ```
 
-  * Only for Linux-based virtual machines: Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
+  * Only for Linux VMs. Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
 
       ```hcl
       ...

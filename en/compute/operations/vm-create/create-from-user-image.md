@@ -255,3 +255,7 @@ Make sure the uploaded image is in the `READY` status.
 ## Disable metadata verification {#disable-metadata-check}
 
 {% include [disable-metadata-check](../../../_includes/compute/disable-metadata-check.md) %}
+
+#### See also {#see-also}
+
+* [{#T}](../vm-connect/ssh.md)

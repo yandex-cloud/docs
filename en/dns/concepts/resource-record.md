@@ -39,7 +39,7 @@ All the records in a single set have the same TTL value.
 
 ## A {#a}
 
-`A`: Points a domain name to an IPv4 address. For example, requesting the `www.example.com` A record should return an IPv4 address in `xxx.xxx.xxx.xxx` format.
+`A` resolves a domain name to an IPv4 address. For example, requesting the `www.example.com` A record should return an IPv4 address in `xxx.xxx.xxx.xxx` format.
 
 | Name | Type | TTL | Value |
 |--------------|-----|-----|-----------|
@@ -50,7 +50,7 @@ For more information about A records, see [RFC-1035](https://www.ietf.org/rfc/rf
 
 ## AAAA {#aaaa}
 
-`AAAA`: Resolves a domain name to an IPv6 address. It works in a similar way to an A record.
+`AAAA` resolves a domain name to an IPv6 address. It works in a similar way to an A record.
 
 | Name | Type | TTL | Value |
 |--------------|------|-----|-------------|
@@ -61,7 +61,7 @@ For more information about AAAA records, see [RFC-3596](https://tools.ietf.org/h
 
 ## CAA {#caa}
 
-`CAA` (Certification Authority Authorization): Identifies which certification authorities are authorized to issue certificates for a particular zone and its subzones.
+`CAA` (Certification Authority Authorization) specifies which certification authorities are authorized to issue certificates for a particular zone and its subzones.
 
 A record consists of the following parts:
 
@@ -96,7 +96,7 @@ For more information about CAA records, see [RFC-8659](https://tools.ietf.org/ht
 
 ## CNAME {#cname}
 
-`CNAME`: Creates an alias for an FQDN. You can use CNAME records to access different services running on the same IP address. For example, CNAME records, such as `first.example.com` and `second.example.com`, may point to the same `host.example.com` A record.
+`CNAME` creates an alias for an FQDN. You can use CNAME records to access different services running on the same IP address. For example, CNAME records, such as `first.example.com` and `second.example.com`, may point to the same `host.example.com` A record.
 
 | Name | Type | TTL | Value |
 |---------------------|-------|-----|-------------------|
@@ -129,7 +129,7 @@ Do not use an `ANAME` resource record with domain names for [{{ cdn-full-name }}
 
 A record consists of two parts:
 
-* `PREFERENCE`: 16-bit integer that specifies the host priority. The lower the value, the higher the host preference.
+* `PREFERENCE`: 16-bit integer that defines host priority. The lower the value, the higher the host preference.
 * `EXCHANGE`: FQDN of the email processing host in the specified zone. This field value must point to an A or AAAA record.
 
 | Name | Type | TTL | Value |
@@ -142,7 +142,7 @@ For more information about MX records, see [RFC-1035](https://www.ietf.org/rfc/r
 
 ## NS {#ns}
 
-`NS`: Record that stores the address of the name server in charge of the specified zone.
+`NS` is a record that stores the address of the name server in charge of the specified zone.
 
 | Name | Type | TTL | Value |
 |--------------|-----|-----|------------------|
@@ -154,7 +154,7 @@ For more information about NS records, see [RFC-1035](https://www.ietf.org/rfc/r
 
 ## PTR {#ptr}
 
-`PTR`: Resolves an IP address to a domain name.
+`PTR` resolves an IP address to a domain name.
 
 | IP address | Type | TTL | Value |
 |-----------|-----|-----|--------------------|
@@ -166,7 +166,7 @@ For more information about PTR records, see [RFC-1035](https://www.ietf.org/rfc/
 
 ## SOA {#soa}
 
-`SOA`: Record with basic information about a zone. It is created automatically.
+`SOA` is a record with basic information about a zone. It is created automatically.
 
 It consists of the following parts:
 
@@ -197,11 +197,11 @@ For more information about SOA records, see [RFC-1035](https://www.ietf.org/rfc/
 
 ## SRV {#srv}
 
-`SRV`: Record that specifies the hostname and port number of the server for a particular service. An SRV record must point to an A or AAAA record.
+`SRV` is a record that specifies the hostname and port number of the server for a particular service. An SRV record must point to an A or AAAA record.
 
 It consists of the following parts:
 
-* `Priority`: 16-bit unsigned integer that specifies the host priority. The lower the value, the higher the host preference.
+* `Priority`: 16-bit unsigned integer that defines host priority. The lower the value, the higher the host preference.
 * `Weight`: 16-bit unsigned integer that specifies the weight for hosts with the same priority. The closer the field value is to 0, the less likely it is that this host will be selected. If the service is only running on a single host, set the field value to `0`.
 * `Port`: 16-bit unsigned integer that specifies the port used by the service.
 * `Target`: FQDN of the host for the service.
@@ -223,6 +223,39 @@ The {{ dns-name }} service only supports `IN` class SRV records. When creating r
 
 For more information about SRV records, see [RFC-2782](https://www.ietf.org/rfc/rfc2782.html).
 
+## SVCB and HTTPS {#svcb-https}
+
+`SVCB` is a record specifying the host name and port number of the server for a particular service. It provides the client with additional information on how to connect to the server.
+
+`HTTPS` is a record that provides information about HTTPS connections. The HTTPS record is a variation of the SVCB record type.
+
+It consists of the following parts:
+
+* `priority`: 16-bit unsigned integer that defines host priority. When `priority` equals 0, the SVCB record is in `AliasMode`; otherwise, it is in `ServiceMode`.
+
+   * `AliasMode`: SVCB record mode that creates an alias name for the `target`. It allows creating aliases in the zone's domain.
+   * `ServiceMode`: SVCB record mode that specifies an alternative host name. The lower the `priority` value, the higher the host preference.
+
+* `Target`: FQDN of the host for the service.
+* `port`: 16-bit unsigned integer specifying the port for the service.
+* `alpn` (Application-Layer Protocol Negotiation): Specifies IDs and their associated transport protocols supported by the host.
+
+   * `no-default-alpn`: Indicates that, by default, no additional protocols should be used for a secure connection to the specified host.
+
+* `ipv4hint` and `ipv6hint`: Describe the IPs clients can use to access the service.
+* `echconfig`: Indicates that the host supports Encrypted Client Hello.
+* `mandatory`: Specifies mandatory keys for the record in addition to the existing ones.
+
+| Name                        | Type  | TTL  | Value                                               |
+|-----------------------------|-------|------|-----------------------------------------------------|
+| _1234._bar.example.com.     | SVCB  | 300  | 1 svc1.example.net. ipv6hint=2001:db8::1 port=1234  |
+| _1234._bar.example.com.     | SVCB  | 300  | 2 svc2.example.net. ipv6hint=2001:db8::2 port=1234  |
+| _8443._foo.api.example.com. | SVCB  | 7200 | 0 svc4.example.net.                                 |
+| svc4.example.net.           | SVCB  | 7200 | 3 svc4.example.net. alpn=bar port=8004              |
+| svc2.example.net.           | HTTPS | 7200 | 1 . port=8002                                       |
+| example.net.                | HTTPS | 1800 | 1 . alpn=h3,h3-29,h2 ipv4hint=10.0.0.1 ipv6hint=::1 |
+
+For more information about SVCB records, see [RFC-9460](https://www.ietf.org/rfc/rfc9460.html), [RFC-9461](https://www.ietf.org/rfc/rfc9461.html).
 
 ## TXT {#txt}
 

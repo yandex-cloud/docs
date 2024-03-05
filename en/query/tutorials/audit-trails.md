@@ -31,12 +31,13 @@ Create trails:
 To set up integration:
 
 1. Open the list of trails in the {{ yandex-cloud }} console.
-1. Select the trail that you previously created for uploading cloud audit logs to a bucket and click **Process in YQ**.
+1. Select the trail that you previously created for uploading cloud audit logs to a bucket and click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
 1. When switching from {{ at-name }} to {{ yq-name }} for the first time, set up integration:
-   1. In the {{ yq-name }} interface, select the service account to be used to read data from {{ objstorage-name }} in the connection creation dialog box and click **Create**.
-   1. In the {{ yq-name }} interface, check the preset parameters by clicking **Preview** in the binding creation dialog box. Next, click **Create** to complete the integration process.
 
-You will be redirected to the **Audit Trails** panel of the {{ yq-name }} interface automatically.
+   1. In the {{ yq-name }} interface, select the service account you want to use to read data from {{ objstorage-name }} in the connection creation dialog and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+   1. In the {{ yq-name }} interface, check the preset parameters by clicking **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}** in the binding creation dialog. Next, click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** to complete the integration.
+
+This will automatically redirect you to the **{{ ui-key.yql.yq-audit-trails.audit-trails.title }}** panel of the {{ yq-name }} interface.
 
 Perform similar actions for the previously created trail that sends data to a {{ yds-name }} stream.
 
@@ -44,22 +45,22 @@ Perform similar actions for the previously created trail that sends data to a {{
 
 To query {{ at-name }} analytical data stored in {{ objstorage-name }}:
 
-1. Open the **Audit Trails** panel in the {{ yq-name }} interface, select **Analytical** as the data analysis type, and then select `audit-trails-test-object_storage` from the list of [data bindings](../../query/concepts/glossary.md#binding).
-1. Select the desired query to data from {{ objstorage-name }} in the list and click **Run**.
+1. Under **{{ ui-key.yql.yq-audit-trails.audit-trails.title }}** in the {{ yq-name }} interface, select **{{ ui-key.yql.yq-audit-trails.audit-trails-type-toggle.option-analytical }}** as the data analysis type. In the list of [data bindings](../../query/concepts/glossary.md#binding), select `audit-trails-test-object_storage`.
+1. Select a query to {{ objstorage-name }} data from the list and click **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 You can do the following with analytical query results:
 
 * Download them through the {{ yq-name }} UI by clicking **Export**.
 * [Save them to an {{ objstorage-name }} bucket](../../query/sources-and-sinks/object-storage-write.md).
-<!-- * [visualize](../../query/tutorials/datalens.md) в {{ datalens-full-name }}; -->
 * Get and process them via the [{{ yq-name }} HTTP API](../api/index.md).
+<!-- * [visualize](../../query/tutorials/datalens.md) in {{ datalens-full-name }}; -->
 
 ## Streaming queries to data from {{ yds-name }}
 
 To query {{ at-name }} streaming data transferred through {{ yds-name }}:
 
-1. Under **Audit Trails** in the **{{ yq-full-name }}** interface, select **Streaming** as the data analysis type and then select the [data binding](../../query/concepts/glossary.md#binding) you need from the list.
-1. Select the desired query to data from {{ objstorage-name }} in the list and click **Run**.
+1. Under **{{ ui-key.yql.yq-audit-trails.audit-trails.title }}** in the **{{ yq-full-name }}** interface, select **{{ ui-key.yql.yq-audit-trails.audit-trails-type-toggle.option-streaming }}** as the data analysis type. In the list of [data bindings](../../query/concepts/glossary.md#binding), select the one you need.
+1. Select a query to {{ objstorage-name }} data from the list and click **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 You can do the following with streaming query results:
 

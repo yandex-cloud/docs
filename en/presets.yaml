@@ -4968,6 +4968,9 @@ default:
         cloud:
           change-org:
             button_change: Change
+          create:
+            popup-create-cloud_button_add: Create
+            popup-create-cloud_label_organization: Organization
           edit:
             popup-edit-cloud_button_save: Save
           folders-create:

@@ -7,13 +7,16 @@
 To create a binding:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a binding.
-1. In the list of services, select **{{ yq-full-name }}**.
-1. On the left-hand panel, select **Bindings**.
-1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
-1. Under **Connection parameters**:
-   1. Select the type of connection to create a binding for: `{{ yds-short-name }}` or `{{ objstorage-short-name }}`.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
+1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
+
+   1. Select the type of connection to create a binding for: `{{ ui-key.yql.yq-connection.datastreams.select-item }}` or `{{ ui-key.yql.yq-connection.object-storage.select-item }}`.
    1. Select a connection or create a new one.
-1. Under **Data binding parameters**:
+
+1. Under **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
+
    1. Enter a name and description for the binding. The naming requirements are as follows:
 
       {% include [name-format](../_includes/connection-name-format.md) %}
@@ -23,33 +26,35 @@ To create a binding:
    1. (Optional) Select the compression algorithm.
    1. Select data binding format.
    1. Add columns:
+
       * Enter a name for the column.
       * Select the column type.
-      * Enable the **Obligatory** option if needed.
-1. Click **Create**.
+      * Enable the **{{ ui-key.yql.yq-binding-form.field-type-required.title }}** option if needed.
+
+1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 ## Getting information about a binding {#get-info}
 
 1. In the [management console]({{ link-console-main }}) , select the folder where you created the binding.
-1. In the list of services, select **{{ yq-full-name }}**.
-1. On the left-hand panel, select **Bindings**.
-1. Click ![info](../../_assets/console-icons/circle-info.svg) next to the name of the desired binding.
-   You will see information about the binding under the list of bindings:
-   **General**:
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. In the line with the binding name, click ![info](../../_assets/console-icons/circle-info.svg).
+   Under the list of bindings, you will see the following binding information:
+   **{{ ui-key.yql.yq-binding-info.general.section-header }}**:
 
      * Data paths.
      * Data format.
      * Compression.
 
-   **Schema**: List of data binding columns and their types.
+   **{{ ui-key.yql.yq-binding-form.binding-fields.title }}**: List of data binding columns and their types.
 
-   **Connection parameters**:
+   **{{ ui-key.yql.yq-binding-info.connection-parameters.section-header }}**:
 
      * Type.
      * Information about the source.
      * Authentication.
 
-   **Meta**:
+   **{{ ui-key.yql.yq-common-meta-section.meta.section-header }}**:
 
      * ID.
      * Creation timestamp.
@@ -58,16 +63,16 @@ To create a binding:
 ## Changing a binding {#update}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to change the binding.
-1. In the list of services, select **{{ yq-full-name }}**.
-1. On the left-hand panel, select **Bindings**.
-1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the name of the desired binding.
-1. Specify new parameters for the data binding. You cannot edit information in the **Connection parameters** section.
-1. Click **Edit**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. In the line with the binding name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
+1. Specify new parameters for the data binding. You cannot edit information in the **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}** section.
+1. Click **{{ ui-key.yql.yq-binding-form.binding-modify.button-text }}**.
 
 ## Deleting a binding {#delete}
 
 1. In the [management console]({{ link-console-main }}), select the folder to delete the binding from.
-1. In the list of services, select **{{ yq-full-name }}**.
-1. On the left-hand panel, select **Bindings**.
-1. Click ![delete](../../_assets/console-icons/trash-bin.svg) next to the name of the appropriate binding.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. In the line with the binding name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.delete-binding.menu-item-text }}**.
 1. Confirm the deletion.

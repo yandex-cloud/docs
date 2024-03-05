@@ -1,18 +1,18 @@
 ---
 title: "Access management in {{ dns-full-name }}"
-description: "Access management in the service for managing DNS zones and domain names of your resources: {{ dns-full-name }}. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in the service for managing DNS zones and domain names of your resources: {{ dns-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ dns-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -24,10 +24,21 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
-* {% include [dns.auditor](../../_includes/iam/roles/dns-auditor-short.md) %}
-* {% include [dns.viewer](../../_includes/iam/roles/dns-viewer-short.md) %}
-* {% include [dns.editor](../../_includes/iam/roles/dns-editor-short.md) %}
-* {% include [dns.admin](../../_includes/iam/roles/dns-admin-short.md) %}
+#### dns.auditor {#dns-auditor}
+
+{% include [roles-dns-auditor](../../_roles/dns/auditor.md) %}
+
+#### dns.viewer {#dns-viewer}
+
+{% include [roles-dns-viewer](../../_roles/dns/viewer.md) %}
+
+#### dns.editor {#dns-editor}
+
+{% include [roles-dns-editor](../../_roles/dns/editor.md) %}
+
+#### dns.admin {#dns-admin}
+
+{% include [roles-dns-admin](../../_roles/dns/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 
