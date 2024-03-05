@@ -23,16 +23,16 @@ To set up integration:
 1. Open the list of expense detail exports in the {{ yandex-cloud }} console.
 1. Select the required details and click **{{ ui-key.yacloud.billing.account.exports.button_open-yandex-query }}**.
 1. When switching from {{ billing-name }} to {{ yq-full-name }} for the first time, set up integration:
-   1. In the {{ yq-name }} interface, select the service account to be used to read data from {{ objstorage-name }} in the connection creation dialog box and click **{{ ui-key.yacloud.common.create }}**.
-   1. In the {{ yq-name }} interface, check the preset parameters by clicking **Preview** in the binding creation dialog box. Next, click **{{ ui-key.yacloud.common.create }}** to complete the integration process.
-   1. Once the integration settings are configured, you will be redirected to the **Billing** section automatically.
+   1. In the {{ yq-name }} interface, select the service account to be used to read data from {{ objstorage-name }} in the connection creation dialog box and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+   1. In the {{ yq-name }} interface, check the preset parameters by clicking **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}** in the binding creation dialog. Next, click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** to complete the integration.
+   1. After the integration is set up, you will be redirected to **{{ ui-key.yql.yq-billing.billing.title }}**.
 
 ## Run a data query {#query}
 
 To query {{ billing-name }} analytical data stored in {{ objstorage-name }}:
 
-1. Under **Billing** in the {{ yq-name }} interface, select the [data binding](../../query/concepts/glossary.md#binding) you need from the list.
-1. Select the desired query to data from {{ objstorage-name }} in the list and click **Run**.
+1. Under **{{ ui-key.yql.yq-billing.billing.title }}** in the {{ yq-name }} interface, select the required [data binding](../../query/concepts/glossary.md#binding) from the list.
+1. Select a query to {{ objstorage-name }} data from the list and click **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 You can do the following with data processing results:
 

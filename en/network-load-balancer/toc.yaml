@@ -147,6 +147,14 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ managed-k8s-name }} tool reference'
+    items:
+      - name: Overview
+        href: k8s-ref/index.md
+      - name: Service
+        href: k8s-ref/service.md
+      - name: NetworkPolicy
+        href: k8s-ref/networkpolicy.md
   - name: '{{ at-name }} audit logs'
     href: at-ref.md
   - name: FAQ

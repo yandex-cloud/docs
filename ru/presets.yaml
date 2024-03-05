@@ -126,6 +126,7 @@ default:
   ds-cli: DataSphere CLI
   ds-inf: DataSphere Inference
   ds-jobs: DataSphere Jobs
+  ds-nb: DataSphere Notebook
   dt-copy-regular: Периодическое
   dt-copy-regular-incremental: Периодическое инкрементальное
   dt-copy-snapshot: Однократное
@@ -4971,6 +4972,9 @@ default:
         cloud:
           change-org:
             button_change: Изменить
+          create:
+            popup-create-cloud_button_add: Создать
+            popup-create-cloud_label_organization: Организация
           edit:
             popup-edit-cloud_button_save: Сохранить
           folders-create:

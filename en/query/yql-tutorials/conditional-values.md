@@ -26,8 +26,8 @@ GROUP BY                                -- CASE checks the list of conditions
                                         -- via an alias specified using AS.
 ```
 
-Take a look at the block on the right and click ![run](../../_assets/console-icons/play-fill.svg) **Run**.
-Query execution results are available in the **Result** tab as a table or schema.
+Take a look at the example on the right and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
 
 ## See also {#see-also}
 

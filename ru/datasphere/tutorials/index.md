@@ -24,6 +24,7 @@ description: "Различные сценарии использования {{ 
 
 * [{#T}](node-from-cell.md)
 * [{#T}](node-from-docker.md)
+* [{#T}](node-from-model.md)
 * [{#T}](stable-diffusion.md)
 * [{#T}](yagpt-tuning.md)
 

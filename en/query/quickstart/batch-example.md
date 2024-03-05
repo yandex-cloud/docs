@@ -19,9 +19,9 @@ To run this example:
 
 ## Get started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}) or register as a new user. If you are not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
+1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you do not have a directory yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create a data binding {#create-binding}
 
@@ -29,7 +29,7 @@ To run this example:
 
 ## Run the query {#run-query}
 
-1. In the query editor in the {{ yq-name }} interface, click **New analytics query**.
+1. In the query editor in the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
 1. Enter the query text in the text field:
 
    ```sql
@@ -51,7 +51,7 @@ To run this example:
        $ride_time;
    ```
 
-1. Click **Run**.
+1. Click **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 ## Review the result {#check-result}
 

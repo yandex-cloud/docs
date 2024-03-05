@@ -1,8 +1,8 @@
 # Writing metrics to {{ monitoring-name }}
 
-[{{ monitoring-name }}](../../monitoring/concepts/index.md) lets you collect and store metrics and display them as charts on dashboards. Data sent to {{ monitoring-name }} represents measured values (`metrics`) and `labels` that describe them.
+[{{ monitoring-name }}](../../monitoring/concepts/index.md) allows you to collect and store metrics and display them as charts on dashboards. Data sent to {{ monitoring-name }} represents measured values (`metrics`) and `labels` that describe them.
 
-For example, to track the number of application failures, you can use the failure count per time interval as a metric. Data describing a failure, such as host name and application version, are labels. The {{ monitoring-name }} interface lets you aggregate metrics by label.
+For example, to track the number of application failures, you can use the failure count per time interval as a metric. Data describing a failure, such as host name and application version, are labels. The {{ monitoring-name }} interface allows you to aggregate metrics by label.
 
 Example of writing metrics from {{ yq-full-name }} to {{ monitoring-name }}:
 
@@ -22,11 +22,11 @@ Under [streaming processing](../concepts/stream-processing.md), {{ yq-full-name 
 ## Setting up a connection
 
 To send metrics to {{ monitoring-name }}:
-1. Go to the {{ yq-full-name }} interface, open the **Connections** section, and click **Create**.
-1. In the window that opens, specify a name for a connection to {{ monitoring-name }} in the **Name** field.
-1. In the drop-down list of the **Type** field, select **Monitoring**.
-1. In the **Service account** field, select the service account to be used for metric writes or create a new one by granting it the [`monitoring.editor`](../../monitoring/security/index.md) rights.
-1. Click **Create** to create a connection.
+1. Go to **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** in the {{ yq-full-name }} interface and click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. In the window that opens, specify a name for a connection to {{ monitoring-name }} in the **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** field.
+1. In the drop-down list under **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**, select `{{ ui-key.yql.yq-connection.monitoring.select-item }}`.
+1. In the **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** field, select the service account to use for metric writes. You can also create a new service account with the [`monitoring.editor`](../../monitoring/security/index.md) permissions.
+1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}** to create a connection.
 
 ## Data model
 
@@ -60,7 +60,7 @@ Metrics are written using the [write](../../monitoring/api-ref/MetricsData/write
 
 {{ yq-full-name }} automatically prints the semantics of parameters from the SQL query.
 
-| Field type | Description | Restrictions |
+| Field type | Description | Limitations |
 |---|---|---|
 | Time: `Date`, `Datetime`, `Timestamp`, `TzDate`,` TzDatetime`, and `TzTimestamp` | Timestamp common for all metrics | A query may only contain one field with the timestamp. |
 | Integer: `Bool`, `Int8`, `Uint8`, `Int16`, `Uint16`, `Int32`, `Uint32`, `Int64`, and `Uint64` | Metric values, `IGAUGE` | The SQL query field name is the metric name. A single query may contain an unlimited number of metrics. |

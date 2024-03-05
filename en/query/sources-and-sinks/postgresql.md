@@ -24,27 +24,27 @@ To work with a {{ mpg-name }} database, follow these steps:
 
 To create a connection to {{ mpg-name }}:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ yq-full-name }}**.
-1. In the panel on the left, go to the **Connections** tab.
-1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
+1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
 
-   1. Under **General parameters**:
+   1. Under **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
-      * **Name**: {{ mpg-name }} connection name.
-      * **Type**: `{{ mpg-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: Name of the connection to {{ mpg-name }}.
+      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.postgersql.select-item }}`.
 
-   1. Under **Connection type parameters**:
+   1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
-      * **Cluster**: Select an existing {{ mpg-name }} cluster or create a new one.
-      * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) in {{ mpg-name }}, or create a new service account with the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role, and use it to connect to `{{ mpg-name }}` clusters.
-      * **Database**: Select the database you will use when working with the {{ PG }} cluster.
-      * **Schema**: Specify the [namespace](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) to use when working with the {{ PG }} database.
-      * **Login**: Username to be used to connect to {{ PG }} databases.
-      * **Password**: User password to be used to connect to {{ PG }} databases.
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mpg-name }} cluster or create a new one.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role, and use it to connect to `{{ mpg-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: Select the database you will use when working with the {{ PG }} cluster.
+      * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**: Specify the [namespace](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) to use when working with the {{ PG }} database.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ PG }} databases.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: User password to use when connecting to {{ PG }} databases.
 
 
-1. Click **Create**.
+1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 You need a service account to detect {{ mpg-name }} cluster connection points inside {{ yandex-cloud }}. You need a separate login/password pair to access data.
 
