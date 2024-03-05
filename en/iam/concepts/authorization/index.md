@@ -87,4 +87,4 @@ Before authorization, a user must get authenticated, i.e., they must log in usin
 
 #### See also {#see-also}
 
-[{#T}](../index.md#accounts)
+[{#T}](../users/accounts.md)

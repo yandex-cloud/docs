@@ -12,27 +12,37 @@
 
 ### Сервисные роли {#service-roles}
 
-* `organization-manager.admin` — роль администратора организации.
-  
-  Роль дает возможность редактировать настройки организации, создавать федерации удостоверений, добавлять и удалять пользователей, назначать других администраторов.
+#### organization-manager.viewer {#organization-manager-viewer}
 
-* `organization-manager.organizations.owner` — роль владельца организации.
-  
-  Роль дает возможность назначать владельцев организации, а также пользоваться всеми полномочиями администратора.
-  
-  По умолчанию владелец организации — это пользователь, который ее создал.
+{% include [organizationmanager-viewer](../../_roles/organization-manager/viewer.md) %}
 
-* `organization-manager.viewer` — роль дает возможность просматривать настройки организации, но не редактировать их.
+#### organization-manager.admin {#organization-manager-admin}
 
-* `organization-manager.groups.memberAdmin` — роль дает возможность просматривать информацию о группе, добавлять и удалять участников.
+{% include [organizationmanager-admin](../../_roles/organization-manager/admin.md) %}
 
-* `organization-manager.federations.admin` — роль дает возможность создавать, изменять и удалять федерации, сертификаты и пользователей в них, просматривать настройки организации, получать список организаций и федераций, а также список сопоставлений групп.
+#### organization-manager.organizations.owner {#organization-manager-organizations-owner}
 
-* `organization-manager.federations.viewer` — роль дает возможность просматривать настройки организации, получать список организаций и федераций, а также список сопоставлений групп.
+{% include [organizationmanager-organizations-owner](../../_roles/organization-manager/organizations/owner.md) %}
 
-* `organization-manager.osLogins.admin` — роль позволяет редактировать профили OS Login и SSH-ключи, а также создавать сертификаты для пользователей организации.
+#### organization-manager.federations.viewer {#organization-manager-federations-viewer}
 
-* `organization-manager.osLogins.viewer` — роль позволяет просматривать профили OS Login и SSH-ключи пользователей организации.
+{% include [organization-manager.federations.viewer](../../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.admin {#organization-manager-federations-admin}
+
+{% include [organization-manager.federations.admin](../../_roles/organization-manager/federations/admin.md) %}
+
+#### organization-manager.osLogins.viewer {#organization-manager-osLogins-viewer}
+
+{% include [organizationmanager-oslogins-viewer](../../_roles/organization-manager/osLogins/viewer.md) %}
+
+#### organization-manager.osLogins.admin {#organization-manager-osLogins-admin}
+
+{% include [organizationmanager-oslogins-admin](../../_roles/organization-manager/osLogins/admin.md) %}
+
+#### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
+
+{% include [organizationmanager-groups-memberAdmin](../../_roles/organization-manager/groups/memberAdmin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 
@@ -49,7 +59,7 @@
 
 Назначать роли в {{ org-full-name }} могут администраторы и владельцы организации. Вы можете назначать пользователям не только роли для управления организацией, но и роли для доступа к ресурсам облаков, подключенных к вашей организации.
 
-О том, какие роли доступны в {{ yandex-cloud }} и какие разрешения в них входят, читайте в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
+О том, какие роли доступны в {{ yandex-cloud }} и какие разрешения в них входят, читайте в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
 
 {% list tabs group=instructions %}
 
@@ -67,13 +77,13 @@
   
   1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и введите название роли или выберите роль в списке.
   
-     Описание доступных ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
+     Описание доступных ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
   
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  1. Выберите роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
+  1. Выберите роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
 
   1. [Получите идентификатор пользователя](../operations/users-get.md).
 
@@ -105,7 +115,7 @@
   1. Опишите в конфигурационном файле параметры назначаемых ролей:
 
      * `organization_id` — идентификатор организации.
-     * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
+     * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
      * `members` — массив идентификаторов пользователей, которым будет назначена роль: 
        * `userAccount:{user_id}` — идентификатор аккаунта пользователя на Яндексе.
        * `serviceAccount:{service_account_id}` — идентификатор сервисного аккаунта.
@@ -125,10 +135,10 @@
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
-  2. Проверьте корректность конфигурационных файлов.
+  1. Проверьте корректность конфигурационных файлов.
     
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     2. Выполните проверку с помощью команды:
+     1. Выполните проверку с помощью команды:
  
        ```
        terraform plan
@@ -136,7 +146,7 @@
 
       Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
  
-  3. Назначьте роли.
+  1. Назначьте роли.
   
      Если в конфигурации нет ошибок, выполните команду:
 
@@ -149,7 +159,7 @@
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
 
-  1. Выберите роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
+  1. Выберите роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
 
   1. [Получите идентификатор пользователя](../operations/users-get.md).
 

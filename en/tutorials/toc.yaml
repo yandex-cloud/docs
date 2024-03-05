@@ -158,7 +158,7 @@ items:
         items:
           - name: Configuring a local caching DNS resolver
             href: infrastructure-management/local-dns-cache.md
-          - name: "Migrating DNS zones from Yandex\_360 to {{ dns-name }}"
+          - name: Migrating DNS zones from Yandex 360 to {{ dns-name }}
             href: infrastructure-management/connect-migration.md
           - name: >-
               Configuring {{ dns-name }} for access to managed database clusters
@@ -229,7 +229,7 @@ items:
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
+          "Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
           data-transfer-name }}"
         href: dataplatform/data-transfer-mmy.md
       - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
@@ -323,6 +323,10 @@ items:
           data-transfer-full-name }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
+          Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-clickhouse.md
+      - name: >-
           Configuring {{ dns-name }} for accessing {{ mch-name }} clusters from
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
@@ -387,9 +391,13 @@ items:
           data-transfer-name }}
         href: dataplatform/mmy-to-mpg.md
       - name: >-
-          Migrating data from AWS RDS for {{ PG }} to {{ mpg-full-name }} using
-          {{ data-transfer-full-name }}
+          Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using {{
+          data-transfer-full-name }}
         href: dataplatform/rds-to-mpg.md
+      - name: >-
+          Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/mmy-to-mgp.md
       - name: Migrating data from {{ ES }} to {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
@@ -422,6 +430,10 @@ items:
         href: dataplatform/mpg-ydb-replication.md
       - name: Migrating databases from {{ mpg-name }} to {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
+      - name: >-
+          Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }}
+          using {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-postgresql.md
       - name: '{{ PG }} change data capture and delivery to {{ DS }}'
         href: dataplatform/mpg-to-yds.md
       - name: >-
@@ -476,6 +488,10 @@ items:
           Implementing a secure high-availability network infrastructure with a
           dedicated DMZ based on the Next-Generation Firewall
         href: routing/high-accessible-dmz.md
+      - name: >-
+          Cloud infrastructure segmentation with Check Point Next-Generation
+          Firewall
+        href: routing/network-segmentation-checkpoint.md
       - name: Configuring a secure GRE tunnel over IPsec
         href: routing/gre-over-ipsec.md
       - name: Configuring networks for {{ dataproc-name }}
@@ -554,8 +570,6 @@ items:
         href: serverless/grafana-logs-plugin.md
       - name: Canary release of a {{ sf-name }} function
         href: serverless/canary-release.md
-      - name: Authorization using {{ sf-name }} functions in Ory Kratos
-        href: serverless/ory-kratos-authorization.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: serverless/serverless-live-debug.md
 base: en/tutorials

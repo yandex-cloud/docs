@@ -13,12 +13,12 @@ Special characters provided as parameter values should be replaced with the resp
 
 ## Request format {#get-request-format}
 
-```xml
+```httpget
 https://yandex.<domain>/search/xml
   ? [folderid=<folder_ID>]
-  & [apikey=<API key>]
+  & [apikey=<API_key>]
   & [query=<search_query_text>]
-  & [lr=<search_country_or_region_ID>]
+  & [lr=<search_region_ID>]
   & [l10n=<notification_language>]
   & [sortby=<sorting_type>]
   & [filter=<filtering_type>]
@@ -51,7 +51,7 @@ The format is as follows: `sortby=<sorting type>.order%3D<sorting order>`. For e
 
 Dot-separated parameters are specified in the following format:
 
-```xml
+```httpget
 attr%3D<service_attribute>.mode%3D<grouping_type>.groups-on-page%3D<number_of_groups_per_page>.docs-in-group%3D<number_of_documents_per_group>
 ```
 
@@ -63,8 +63,8 @@ Where:
 
 ## Sample GET request {#example-get-request}
 
-The following request returns the second page with search results in response to the `<table>` query for the `xml-search-user` user. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is five. Bot protection is disabled.
+The following request returns the fifth page of search results for the `<table>` request. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk oblast. Notification language: Russian. A family filter has been applied to the search results. Number of passages: Three. Results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
 
-```xml
-https://yandex.ru/search/xml?user=xml-search-user`&`key=03.44583456:c876e1b098gh65khg834ggg1jk4ll9j8`&`query=%3Ctable%3E`&`groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3`&`maxpassages=3`&`page=1
+```httpget
+https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=5
 ```

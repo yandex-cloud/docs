@@ -41,7 +41,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 
@@ -55,6 +55,8 @@ To create or edit an endpoint of a managed database, you need to have the [`ydb.
 
   * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/service-account.md) %}
 
+  * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
+
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Add paths to the {{ ydb-name }} tables and directories to transfer.
 
@@ -63,6 +65,8 @@ To create or edit an endpoint of a managed database, you need to have the [`ydb.
     For {{ dt-type-copy }} transfers, you may skip specifying paths. In this case, all tables will be transferred.
 
     For {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfers, specifying paths is required, including when you replicate all tables.
+
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.changefeed_custom_name.title }}**: Here, specify the name of the update stream if it was already created. Otherwise, leave the field blank.
 
 {% endlist %}
 

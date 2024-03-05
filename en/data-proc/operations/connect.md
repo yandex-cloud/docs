@@ -119,9 +119,9 @@ To connect to a host, you need its fully qualified domain name ([FQDN](../concep
 
 ## Connecting to a {{ dataproc-name }} host via SSH {#data-proc-ssh}
 
-To connect to a {{ dataproc-name }} host, make sure the SSH key that you specified when creating the {{ dataproc-name }} cluster is accessible on the local machine or the VM. You can copy the key to the machine from which the connection is performed to the cluster, or connect to it with an SSH agent.
+To connect to a {{ dataproc-name }} host, make sure the SSH key you specified when creating the {{ dataproc-name }} cluster is accessible on the local machine or intermediate VM. You can copy the key to the machine from which the connection is performed to the cluster, or connect to it with an SSH agent.
 
-1. (Optional) [Connect](../../compute/operations/vm-connect/ssh.md) to the intermediate virtual machine via SSH.
+1. If you do not have public access configured for your subcluster, [connect](../../compute/operations/vm-connect/ssh.md) to the intermediate VM via SSH.
 
 1. Launch the SSH agent:
 
@@ -203,7 +203,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
                * **Private key file**, **Passphrase**: File with the private key required to connect to the VM and its password.
             1. Click **Test Connection** to test the connection to the VM from DataGrip.
             1. Click **OK** to save the configuration.
-   1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the **OK** connection status and information about the DBMS and driver.
+   1. Click **Test Connection** to test the connection. If the connection is successful, you will get the **OK** connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
 - DBeaver

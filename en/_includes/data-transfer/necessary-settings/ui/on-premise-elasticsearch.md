@@ -4,9 +4,12 @@
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearchHostPort.port.title }}**: Port number {{ data-transfer-name }} will use for connections to the `DATA` host.
 
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ssl_enabled.title }}**: Select this option if a secure SSL connection is used.
+
 * {% include [Field CA certificate](../../fields/elasticsearch/ui/ca-certificate.md) %}
+
 * 
-   **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.subnet_id.title }}**: Select or [create](../../../../vpc/operations/subnet-create.md) a subnet in the desired [availability zone](../../../../overview/concepts/geo-scope.md).
+   **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.subnet_id.title }}**: Select or [create](../../../../vpc/operations/subnet-create.md) a subnet in the required [availability zone](../../../../overview/concepts/geo-scope.md).
 
 
    If the value in this field is specified for both endpoints, both subnets must be hosted in the same availability zone.

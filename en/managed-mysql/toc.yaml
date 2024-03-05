@@ -102,8 +102,8 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-mmy-data-transfer.md
       - name: >-
-          Delivering data to {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
+          "Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}"
         href: tutorials/cdc-data-transfer.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
@@ -123,6 +123,10 @@ items:
           Migrating data from {{ mmy-name }} to {{ mpg-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mmy-to-mpg.md
+      - name: >-
+          Migrating data from {{ mmy-name }} to {{ mgp-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mmy-to-mgp.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -133,9 +137,13 @@ items:
         items:
           - name: Before February 1, 2020
             href: pricing-archive/pricing-01022020.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-mysql/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -253,6 +261,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

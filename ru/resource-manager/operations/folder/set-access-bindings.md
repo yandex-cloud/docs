@@ -20,7 +20,7 @@
       yc resource-manager folder add-access-binding --help
       ```
 
-  2. Выберите каталог, например `my-folder`:
+  1. Выберите каталог, например `my-folder`:
 
       ```bash
       yc resource-manager folder list
@@ -36,7 +36,7 @@
       +----------------------+-----------+--------+--------+
       ```
 
-  3. Выберите [роль](../../../iam/concepts/access-control/roles.md):
+  1. Выберите [роль](../../../iam/concepts/access-control/roles.md):
 
       ```bash
       yc iam role list
@@ -57,7 +57,7 @@
       ```
 
 
-  4. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
+  1. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
 
       ```bash
       yc iam user-account get test-user
@@ -72,7 +72,7 @@
         default_email: test-user@yandex.ru
       ```
 
-  5. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип `userAccount` и ID пользователя:
+  1. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип `userAccount` и ID пользователя:
 
       ```bash
       yc resource-manager folder add-access-binding my-folder \
@@ -187,7 +187,7 @@
        ]
       }
       ```
-  2. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+  1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
       curl -H "Authorization: Bearer <IAM-токен>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
@@ -204,7 +204,7 @@
        }
       }
       ```
-  3. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+  1. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
       ```bash
       curl -X POST \
@@ -250,7 +250,7 @@
       ```bash
       yc resource-manager folder list-access-bindings my-folder
       ```
-  2. Например, назначьте роль нескольким пользователям:
+  1. Например, назначьте роль нескольким пользователям:
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
@@ -507,7 +507,7 @@
 
 - CLI {#cli}
 
-  1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
+  1. Выберите роль из [справочника ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
   1. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).
   1. Назначьте роль с помощью команды:
 

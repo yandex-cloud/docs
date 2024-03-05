@@ -28,7 +28,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [PostgreSQL migration with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
+{% include notitle [PostgreSQL migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-postgresql.md) %}
 
 ## Migrating data using logical replication {#logical-replication}
 

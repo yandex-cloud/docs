@@ -10,7 +10,7 @@ description: "Из статьи вы узнаете, как задать нас�
 1. [Подготовьте базу данных {{ MY }}](#prepare) к трансферу.
 1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
-1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
+1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. [Выполняйте необходимые действия по работе с базой](#db-actions) и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
@@ -54,7 +54,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) или примитивная [роль `viewer`](../../../../iam/concepts/access-control/roles.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 
@@ -174,17 +174,20 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - Консоль управления {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка. Задается с помощью регулярных выражений.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка. Задается с помощью регулярных выражений.
 
-        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+            {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}** — данные таблиц из этого списка передаваться не будут. Задается с помощью регулярных выражений.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}** — данные таблиц из этого списка передаваться не будут. Задается с помощью регулярных выражений.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.object_transfer_settings.title }}** — позволяет выбрать элементы схемы БД, которые будут перенесены в процессе активации или деактивации трансфера.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.timezone.title }}** — указывается как идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется локальная таймзона сервера.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.service_database.title }}** — база данных для технических таблиц (`__tm_keeper`, `__tm_gtid_keeper`). По умолчанию это БД, из которой происходит перенос данных.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.timezone.title }}** — указывается как идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется локальная таймзона сервера.
+
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.service_database.title }}** — база данных для технических таблиц (`__tm_keeper`, `__tm_gtid_keeper`). По умолчанию это БД, из которой происходит перенос данных.
 
 - CLI {#cli}
 

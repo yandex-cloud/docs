@@ -1,7 +1,6 @@
 # {{ brand-voice-full-name }}
 
 
-
 The {{ brand-voice-name }} technology allows you to create unique voices for your speech synthesis model. It can synthesize both plain text and [pattern-based text](../templates.md). Patterns contain phrases with _variables_ that are replaced with prepared text. To cover different practical uses of trained models, {{ yandex-cloud }} offers three types of {{ brand-voice-name }}.
 
 | | [{{ brand-voice-premium }}](#premium) | [{{ brand-voice-core }}](#ss) | [{{ brand-voice-cc }}](#cc) |
@@ -42,7 +41,7 @@ When using pattern-based synthesis with {{ brand-voice-full-name }} voices, mak
 
 The quality of synthesized speech depends directly on the quality of audio recordings used to train the model. When creating a {{ brand-voice-core-name }} voice, you are in charge of the entire process of training data preparation.
 
-For more information about training, see [{#T}](bv-full-data-upload.md).
+For more information on how to train your own model, see [{#T}](bv-full-data-upload.md).
 
 ## {{ brand-voice-cc-name }} {#cc}
 
@@ -65,13 +64,13 @@ For speech synthesis, you need an audio file with your phrase pattern and a text
 
 The sampling frequency in the synthesized audio recording is {{ tts-cc-quality }}. This is enough for phone calls. However, in other scenarios, you might hear some noises and flaws of synthesis.
 
-{{ brand-voice-cc-name }} is designed for phone calls. The texts used for synthesis should be short enough: the duration of a synthesized phrase cannot exceed {{ tts-v3-time }}, while its length, including the variable part, cannot be more than {{ tts-v3-count }}.
+{{ brand-voice-cc-name }} is designed for phone calls. The texts used for synthesis should be short enough: the duration of a synthesized phrase cannot exceed {{ tts-v3-time }}, while its length, including the variable part, cannot be more than {{ tts-v3-count }}. The variable part of a synthesized phrase cannot exceed 25% of its length.
 
 {{ brand-voice-cc-name }} logs your transmitted patterns (both text and audio). However, the synthesized audio recordings and variable parts, including your sensitive data, are not logged. To improve the quality of a model running on your data, you can enable variable logging through the `x-data-logging-enabled: true` [header](../../concepts/support-headers#request-headers).
 
 {% note info %}
 
-It can be useful to log data if synthesis errors occur. If you do not want to log all data, only include the logging header in requests with issues after clearing the variable part of personal data as much as possible.
+It may be useful to log data if synthesis errors occur. If you do not want to log all data, only include the logging header in requests with issues after clearing the variable part of personal data as much as possible.
 
 {% endnote %}
 

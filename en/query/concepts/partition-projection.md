@@ -90,7 +90,7 @@ WITH
         month Int
     ),
     partitioned_by=(year, month),
-    projection=@projection
+    projection=$projection
 )
 ```
 
@@ -123,7 +123,7 @@ WITH
 (
     schema=(<fields>, <field1>, <field2>),
     partitioned_by=(field1, field2),
-    projection=@projection
+    projection=$projection
 )
 ```
 
@@ -137,7 +137,7 @@ WITH
 
 ### Field of integer type {#integer_type}
 
-Used for columns whose values can be represented as integers in the range from 2^-63^ to 2^63^-1.
+Used for columns whose values can be represented as integers in the range from -2^63^ to 2^63^-1.
 
 | Field name | Required | Field description | Sample value |
 |----|----|----|----|
@@ -175,4 +175,4 @@ Used for columns whose values can be represented as a date.
 
 | Field name | Field description | Sample value |
 |----|----|----|
-| `storage.location.template` | Folder name path template. Set in "${<field_name...>}/${<field_name...>}" format. | root/a/${year}/b/${month}/d<br/>${year}/${month} |
+| `storage.location.template` | Folder name path template. Use the `${<field_name...>}/${<field_name...>}` format | `root/a/${year}/b/${month}/d`<br/>`${year}/${month}` |

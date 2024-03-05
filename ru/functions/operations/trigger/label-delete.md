@@ -16,7 +16,7 @@ description: "Следуя данной инструкции, вы сможет�
     Чтобы удалить метку триггера, выполните команду:
 
     ```bash
-    yc serverless trigger remove-labels <имя триггера> --labels <ключ>
+    yc serverless trigger remove-labels <имя_триггера> --labels <ключ>
     ```
 
     Результат:
@@ -46,7 +46,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы удалить метку триггера:
 
@@ -104,7 +104,7 @@ description: "Следуя данной инструкции, вы сможет�
      Проверить изменение триггера можно с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc serverless trigger get <идентификатор триггера>
+     yc serverless trigger get <идентификатор_триггера>
      ```
 
 - API {#api}

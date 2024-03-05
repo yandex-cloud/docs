@@ -1,3 +1,1 @@
-The `managed-clickhouse.auditor` role grants the minimum permissions required to view information about ClickHouse clusters (without access to data or runtime logs).
-
-Users with this role can view information about ClickHouse clusters and quotas.
+The `managed-clickhouse.auditor` role allows you to view information about [ClickHouse® clusters](../../managed-clickhouse/concepts/index.md), as well as [quotas](../../managed-clickhouse/concepts/limits.md#mch-quotas) and resource operations for Managed Service for ClickHouse®.

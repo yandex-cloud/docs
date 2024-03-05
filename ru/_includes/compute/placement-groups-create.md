@@ -15,7 +15,7 @@
 
   ```bash
   yc compute placement-group create \
-    --partitions <кол-во_разделов> \
+    --partitions <количество_разделов> \
     --name <имя_группы_размещения>
   ```
 

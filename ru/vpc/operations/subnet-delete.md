@@ -18,8 +18,8 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить подсеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Нажмите ![image](../../_assets/options.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -63,7 +63,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы удалить подсеть, созданную с помощью {{ TF }}:
 

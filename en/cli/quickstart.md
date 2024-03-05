@@ -4,19 +4,19 @@
 The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
 
 
-## Installing {#install}
+## Installation {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
 ## Creating a profile {#initialize}
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Yandex account
+- Yandex account {#yandex-account}
 
    {% include [include](../_includes/cli/create-profile.md) %}
 
-- Federated account
+- Federated account {#federated-account}
 
    {% include [include](../_includes/cli/auth-federated-user.md) %}
 

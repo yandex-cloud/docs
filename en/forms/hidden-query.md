@@ -8,19 +8,19 @@ You can use hidden fields to automatically send technical or auxiliary parameter
 
 To configure a hidden parameter for this example:
 
-1. Add a [<q>Short text</q>](blocks-ref/short-text.md) prompt named <q>Response source</q> to the form.
+1. Add a [**Short text**](blocks-ref/short-text.md) question named _Response source_ to the form.
 
-1. Turn on **Hidden question** for this prompt.
+1. Enable **Hidden question** for this question.
 
 1. In the **ID of the question** field, specify `utm_source`: [GET parameter](get-params.md) name.
 
-1. [Get a link to the form](publish.md#section_link) and append it to the GET parameter `?utm_source=site_name_1`.
+1. [Get a link to the form](publish.md#section_link) and append it to the `?utm_source=site_name_1` GET parameter.
 
-    - Sample link to the form without GET parameter:
-      `{{ link-forms }}u/6191b18d99e21b1b45b9c82/`
+   - Sample link to the form without the GET parameter:
+      `{{ link-forms }}u/6191b18d99e21b1********/`
 
-    - Sample link to the form with GET parameter:
-      `{{ link-forms }}u/6191b18d99e21b1b45b9c82?utm_source=site_name_1`
+   - Sample link to the form with the GET parameter:
+      `{{ link-forms }}u/6191b18d99e21b1********?utm_source=site_name_1`
 
 1. Post the form link with the GET parameter on the website.
 

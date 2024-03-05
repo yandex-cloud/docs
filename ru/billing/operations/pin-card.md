@@ -22,3 +22,8 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.bind-cloud.button_bind }}**.
 
 {% include [yandex-account](../_includes/payment-card-validation.md) %}
+
+## Удалить банковскую карту {#remove-card}
+
+Отвязать карту можно только у неактивного платежного аккаунта. 
+Для инактивации аккаунта и удаления карты из личного кабинета обратитесь в [службу технической поддержки]({{ link-console-support }}).

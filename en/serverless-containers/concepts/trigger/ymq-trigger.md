@@ -15,16 +15,16 @@ For more information about creating a trigger for {{ message-queue-short-name }}
 * To create a trigger, you need:
    * `{{ roles-viewer }}` role for the folder with the message queue that the trigger reads messages from.
    * `{{ roles-viewer }}` role for the folder with the container that the trigger invokes.
-   * Permission to the service account on whose behalf the trigger executes the operations. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+   * Permission for the service account under which the trigger executes the operations. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
 * For the trigger to fire, service accounts need the following roles:
    * `{{ roles-editor }}`for the folder with the message queue that the trigger reads messages from.
    * `serverless.containers.invoker` for the folder with the container that invokes the trigger.
 
 Read more about [access management](../../security/index.md).
 
-## Trigger for {{ message-queue-short-name }} message format {#format}
+## {{ message-queue-short-name }} trigger message format {#format}
 
-After the trigger picks up a message from the queue, it passes it to the container in the following format:
+After the trigger picks up a message from the queue, it forwards it to the container in the following format:
 
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
 

@@ -4,9 +4,9 @@ To back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/con
 
 To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
 
-For connections to work properly, link a [service account](#sa) with the `backup.editor` role to your VM or set up [network access](#vm-network-access) for the VM.
+For the connection to work properly, assign a [service account](#sa) with the `backup.editor` role to your VM and configure [network access](#vm-network-access) for the VM.
 
-Once you have connected your VM to {{ backup-name }} and set it up, you need to link it to a [backup policy](policy.md).
+After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM to the [backup policy](policy.md).
 
 ## VM configuration requirements {#requirements}
 

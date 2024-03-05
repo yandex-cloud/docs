@@ -45,6 +45,8 @@ instance_template:
     primary_v4_address_spec:
       one_to_one_nat_spec:
         ip_version: IPV4
+    security_group_ids:
+      - enps0ar5s3ti********
   network_settings:
     type: STANDARD
   scheduling_policy: {}

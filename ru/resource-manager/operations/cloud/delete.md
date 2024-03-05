@@ -1,7 +1,7 @@
 # Удаление облака
 
 
-Чтобы удалить облако, у вас должна быть роль [editor](../../../iam/concepts/access-control/roles.md#editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
+Чтобы удалить облако, у вас должна быть роль [editor](../../../iam/roles-reference.md#editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 

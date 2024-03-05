@@ -21,6 +21,8 @@ items:
         href: operations/instance/instance-backups.md
       - name: Миграция из пользовательской инсталляции {{ GL }}
         href: operations/instance/migration.md
+      - name: Очистка переполненного дискового пространства
+        href: operations/instance/clean-up-disk-space.md
       - name: Удаление инстанса
         href: operations/instance/instance-delete.md
       - name: Создание и добавление пользователей в проект
@@ -55,12 +57,14 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Преимущества сервиса перед пользовательской инсталляцией {{ GL }}
+        href: concepts/managed-gitlab-vs-custom-installation.md
+      - name: Порядок миграции из пользовательской инсталляции {{ GL }}
+        href: concepts/migration.md
       - name: Правила ревью кода
         href: concepts/approval-rules.md
       - name: Резервные копии
         href: concepts/backup.md
-      - name: Порядок миграции из пользовательской инсталляции {{ GL }}
-        href: concepts/migration.md
       - name: Безопасность в {{ GL }}
         href: concepts/security.md
       - name: Квоты и лимиты
@@ -69,6 +73,8 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы

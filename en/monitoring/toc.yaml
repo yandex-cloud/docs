@@ -109,7 +109,7 @@ items:
             href: concepts/alerting/notification-channel.md
       - name: Data decimation
         href: concepts/decimation.md
-      - name: Deleting expired metrics (TTL)
+      - name: Deleting obsolete metrics (TTL)
         href: concepts/ttl.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -123,9 +123,11 @@ items:
         items:
           - name: Policy before October 1, 2020
             href: pricing-archive/pricing-01102020.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: REST
         items:

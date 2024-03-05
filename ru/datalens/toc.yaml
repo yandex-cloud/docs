@@ -725,6 +725,8 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Автообновление дашборда
             href: operations/dashboard/auto-update.md
+          - name: Изменение настроек дашборда
+            href: operations/dashboard/dash-settings.md
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
   - name: Настройка доступа
@@ -765,6 +767,10 @@ items:
         href: operations/marketplace/create-connector-for-partners.md
   - name: Правила тарификации
     href: pricing.md
+  - name: История изменений
+    items:
+      - name: Январь 2024
+        href: release-notes/index.md
   - name: Решение проблем
     expanded: true
     items:

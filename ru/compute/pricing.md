@@ -213,17 +213,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 
-### Операционные системы {#prices-os}
-
-
-
-{% include [rub-os.md](../_pricing/compute/rub-os.md) %}
-
-
-
-
-
-
 ### Диски, снимки и образы {#prices-storage}
 
 

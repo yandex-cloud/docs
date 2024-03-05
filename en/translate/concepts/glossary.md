@@ -4,17 +4,27 @@ To increase the accuracy of translations on a specific topic, you can provide a 
 
 Currently, the glossary is provided as an array of text pairs within the request. Going forward, we will add a feature that will allow you to create glossaries from files in advance.
 
-## Word forms {#word-forms}
+## Neuroglossaries {#word-forms}
 
-When translating, the service considers different forms of words, meaning how the word morphs based on the case and gender.
+When translating, the service considers different forms of words, e.g., how the word morphs based on the case and gender.
 
-For example, if you specified in the glossary that the Russian word <q>черный</q> should be translated as <q>dark</q>, then <q>самая черная комната</q> will be translated as <q>the darkest room</q>.
+For example, if you specified in the glossary that the Russian word _черный_ should be translated as _dark_, then _самая черная комната_ will be translated as _the darkest room_.
 
-This currently works for the following language pairs:
+Currently, this works for the following [languages](supported-languages.md): `ar`, `bg`, `cs`, `de`, `en`, `es`, `fr`, `it`, `kk`, `pl`, `ru`, `tr`, `tt`, and `uk`.
 
-* `en-ru`: English-Russian
-* `ru-en`: Russian-English
-* `tr-ru`: Turkish-Russian
+Each pair is provided with the `exact` parameter (bool), which allows you to add translations for specific terms to neuroglossaries. For example, if you specified that _table_ should be translated as _таблицей_, then _It is a table_ will be translated as _Это таблицей_.
+
+If a neuroglossary does not support a particular language, there is no point using this parameter. It may not always work correctly or may produce inaccurate results, so we recommend [escaping](../operations/better-quality.md#screen) it.
+
+## Multiglossaries {#multi}
+
+When translating, the service considers different forms of words, e.g., how the word morphs based on the case and gender.
+
+In contrast to neuroglossaries, in a mutliglossary, you manually specify translation suggestions for one and the same word. The neural network will select the appropriate suggestion depending on the context. For example, _cat_ means _кошка_ and _кот_.
+
+The service works the most effectively with close or synonymic translation meanings. If you specify totally different meanings, this might cause confusion. For example, _letter_ means both _письмо_ and _буква_.
+
+The multiglossary works with all languages for which glossaries are available.
 
 ## Capitalizing a translation using a glossary {#capitalization}
 
@@ -46,14 +56,14 @@ Translation of glossary terms takes the capitalization of the provided translati
 * Glossaries are good for translating names, such as brands and products.
 * When using glossaries, mind the limits described in [Quotas and limits](../../translate/concepts/limits#translate-limits).
 
-## Restrictions in the current version {#restrictions-in-the-current-version}
+## Limitations in the current version {#restrictions-in-the-current-version}
 
 * You can only provide a glossary as an array of text pairs. Going forward, we will add a feature that will allow you to provide a glossary as a file.
-* Glossaries are only supported for specific language pairs. If you enter <q>масло</q> as the source glossary term and translate it as <q>oil</q>, this will apply to the texts translated from Russian to English.
+* Glossaries are only supported for specific language pairs. If you enter _масло_ as the source glossary term and translate it as _oil_, this will apply to texts translated from Russian to English.
 * Only certain language pairs support glossaries. See the list of supported language pairs [here](glossary-supported-pairs.md).
 
 #### See also {#see-also}
 
 * [{#T}](glossary-supported-pairs.md)
 * [{#T}](../operations/better-quality.md#with-glossary)
-* [Authentication in the API](../api-ref/authentication.md)
+* [Authentication with the API](../api-ref/authentication.md)

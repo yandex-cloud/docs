@@ -11,7 +11,7 @@
      
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится образ диска.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. На панели слева выберите ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+     1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
      1. Скопируйте значение из столбца **{{ ui-key.yacloud.compute.images.column_id }}** нужного образа.
 
    - CLI {#cli}
@@ -32,7 +32,7 @@
      +----------------------+----------------+--------+-------------+--------+
      |          ID          |    NAME        | FAMILY | PRODUCT IDS | STATUS |
      +----------------------+----------------+--------+-------------+--------+
-     | xc8n3spmksqmuraspf4h | original-image |        |             | READY  |
+     | xc8n3spmksqm******** | original-image |        |             | READY  |
      +----------------------+----------------+--------+-------------+--------+
      ```
      
@@ -65,8 +65,8 @@
      +----------------------+------------+--------------------------+
      |          ID          |    NAME    |      ORGANIZATION ID     |
      +----------------------+------------+--------------------------+
-     | b1g66mft1vopnevbn57j | my-cloud-1 |                          |
-     | b1gd129pp9ha0vnvf5g7 | my-cloud-2 |                          |
+     | b1g66mft1vop******** | my-cloud-1 |                          |
+     | b1gd129pp9ha******** | my-cloud-2 |                          |
      +----------------------+------------+--------------------------+
      ```
 

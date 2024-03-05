@@ -8,6 +8,7 @@
 `CreateDisk` | Создание диска
 `CreateFilesystem` | Создание файловой системы
 `CreateGpuCluster` | Создание кластера GPU
+`CreateHostGroup` | Создание группы выделенных хостов
 `CreateImage` | Создание образа диска
 `CreateInstance` | Создание ВМ
 `CreateSnapshot` | Создание снимка диска
@@ -15,6 +16,7 @@
 `DeleteDisk` | Удаление диска
 `DeleteFilesystem` | Удаление файловой системы
 `DeleteGpuCluster` | Удаление кластера GPU
+`DeleteHostGroup` | Удаление группы выделенных хостов
 `DeleteImage` | Удаление образа диска
 `DeleteInstance` | Удаление ВМ
 `DeleteSnapshot` | Удаление снимка диска
@@ -32,6 +34,7 @@
 `UpdateDisk` | Изменение диска
 `UpdateFilesystem` | Изменение файловой системы
 `UpdateGpuCluster` | Изменение кластера GPU
+`UpdateHostGroup` | Изменение группы выделенных хостов
 `UpdateImage` | Изменение образа диска
 `UpdateInstance` | Изменение ВМ
 `UpdateInstanceMetadata` | Изменение метаданных ВМ
@@ -52,3 +55,4 @@
 `instancegroup.StopInstanceGroupInstances` | Остановка ВМ из группы
 `instancegroup.UpdateInstanceGroup` | Изменение группы ВМ
 `instancegroup.UpdateInstanceGroupAccessBindings` | Изменение ролей для группы ВМ
+`serialssh.ConnectSerialPort` | Подключение к серийному порту инстанса

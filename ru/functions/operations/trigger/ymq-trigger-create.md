@@ -70,11 +70,11 @@
 
     ```bash
     yc serverless trigger create message-queue \
-      --name <имя триггера> \
-      --queue <идентификатор очереди> \
-      --queue-service-account-id <идентификатор сервисного аккаунта> \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --name <имя_триггера> \
+      --queue <идентификатор_очереди> \
+      --queue-service-account-id <идентификатор_сервисного_аккаунта> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --batch-size 1 \
       --batch-cutoff 10s
     ```
@@ -119,7 +119,7 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -152,16 +152,16 @@
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
-       name        = "<имя таймера>"
-       description = "<описание триггера>"
+       name        = "<имя_таймера>"
+       description = "<описание_триггера>"
        message_queue {
-         queue_id           = "<идентификатор очереди>"
-         service_account_id = "<идентификатор сервисного аккаунта>"
+         queue_id           = "<идентификатор_очереди>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
          batch_size         = "1"
          batch_cutoff       = "10"
        }
        function {
-         id = "<идентификатор функции>"
+         id = "<идентификатор_функции>"
        }
      }
      ```
@@ -192,7 +192,7 @@
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../../cli/quickstart.md):
 
         ```
-        yc serverless trigger get <идентификатор триггера>
+        yc serverless trigger get <идентификатор_триггера>
         ```
 
 - API {#api}

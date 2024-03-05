@@ -44,13 +44,13 @@
      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `queue-autoscale-sa`.
-     1. Нажмите значок ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
+     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
      
   1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с {{ message-queue-name }} и сохраните его в файл `access_key`:
   
      1. В списке сервисных аккаунтов выберите `queue-autoscale-sa`.
-     1. Нажмите ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+     1. Нажмите ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-description }}** укажите `Message Queue`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
      1. Вставьте идентификатор ключа и секретный ключ в файл `access_key` в следующем формате:
@@ -73,7 +73,7 @@
   1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a`:
   
      1. В списке сетей выберите `queue-autoscale-network`.
-     1. Нажмите кнопку ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите параметры подсети:
      
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `queue-autoscale-subnet-a`.
@@ -143,7 +143,7 @@
        created_at: "2021-10-04T16:25:19.143847764Z"
        description: {{ message-queue-name }}
        key_id: g3VybpVKdq_Y********
-     secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7VSOeD_mRG
+     secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7V********
      ```
      
   1. Создайте облачную сеть `queue-autoscale-network`:
@@ -279,7 +279,7 @@
      Результат:
      
      ```yaml
-     QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003n58805qi/queue-autoscale-queue
+     QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003********/queue-autoscale-queue
      ```
      
 - API {#api}
@@ -423,7 +423,7 @@
      
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-       1. Перейдите на вкладку ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+       1. Перейдите на вкладку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
        1. В списке подсетей найдите `queue-autoscale-subnet-a` и скопируйте ее **{{ ui-key.yacloud.vpc.network.overview.column_subnetwork_id }}**.
             
      - CLI {#cli}
@@ -441,7 +441,7 @@
        folder_id: b0g12ga82bcv********
        created_at: "2021-10-04T16:29:12.450858436Z"
        name: queue-autoscale-subnet-a
-       network_id: enpabce123hde4ft1r3t
+       network_id: enpabce123hd********
        zone_id: {{ region-id }}-a
        v4_cidr_blocks:
        - 192.168.1.0/24
@@ -516,7 +516,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
   

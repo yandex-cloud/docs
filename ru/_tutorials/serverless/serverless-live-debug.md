@@ -86,10 +86,6 @@
       name: sa-live-debug
       ```
 
-    - API {#api}
-
-      Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
-
     - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -131,6 +127,10 @@
               terraform apply
               ```
 
+    - API {#api}
+
+      Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+
     {% endlist %}
 
 1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `{{ roles-admin }}` на облако: 
@@ -160,10 +160,6 @@
       ```
       done (1s)
       ```
-
-    - API {#api}
-
-      Чтобы назначить сервисному аккаунту роль на облако, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
 
     - {{ TF }} {#tf}
 
@@ -203,6 +199,10 @@
               ```
               terraform apply
               ```
+
+    - API {#api}
+
+      Чтобы назначить сервисному аккаунту роль на облако, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
 
     {% endlist %}
 

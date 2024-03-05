@@ -63,6 +63,7 @@ instance_template:
       image_id: jk9ib7ecsbrj********
       type_id: network-hdd
       size: 50G
+      preserve_after_instance_delete: false
   secondary_disk_specs:
     - name: disk-2
       mode: READ_WRITE
@@ -79,6 +80,8 @@ instance_template:
           ip_version: IPV4
         }
       }
+      security_group_ids:
+        - enps0ar5s3ti********
   network_settings:
     type: SOFTWARE_ACCELERATED
   placement_policy:
@@ -117,6 +120,7 @@ instance_template:
 `boot_disk_spec.disk_spec.image_id` | Идентификатор образа, из которого будет создан диск.
 `boot_disk_spec.disk_spec.type_id` | Идентификатор типа диска. Чтобы получить список доступных типов дисков, используйте запрос [diskTypes](../../api-ref/DiskType/list.md).
 `boot_disk_spec.disk_spec.size` | Размер диска в байтах. Допустимые значения — от 4194304 (4 МБ) до 4398046511104 (4 ТБ) включительно.
+`boot_disk_spec.preserve_after_instance_delete` | Опция для сохранения диска после удаления виртуальной машины.</br>– `true` — сохранять диск после удаления виртуальной машины.</br>– `false` — удалять диск вместе с виртуальной машиной.
 `secondary_disk_specs` | (опционально) Параметры дополнительных дисков.
 `secondary_disk_specs.name` | (опционально) Имя дополнительного диска. В одной спецификации имена должны быть либо присвоены всем дополнительным дискам, либо не присвоены ни одному. Подробнее см. в разделе [{#T}](./deploy/secondary-disk.md).
 `secondary_disk_specs.mode` | Режим доступа к диску.</br>– `READ_ONLY` — доступ на чтение.</br>– `READ_WRITE` — доступ на чтение и запись.
@@ -126,6 +130,7 @@ instance_template:
 `network_interface_specs.network_id` | Идентификатор облачной сети.
 `network_interface_specs.subnet_ids` | Идентификаторы облачных подсетей.
 `network_interface_specs.ip_version` | Версия IP для публичного IP-адреса.
+`network_interface_specs.security_group_ids` | Идентификаторы групп безопасности.
 `network_settings.type` | (опционально) Тип сети.</br>– `SOFTWARE_ACCELERATED` — программно-ускоренная сеть.</br>– `STANDARD` — обычная сеть, параметр по умолчанию.
 `metadata` | Метаданные для шаблонной ВМ. Подробнее см. раздел [{#T}](../vm-metadata.md).
 `metadata.user-data` | Дополнительные настройки для инициализации виртуальной машины. В приведенном примере настройки описаны для программы `cloud-init`.

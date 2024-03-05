@@ -24,13 +24,25 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 ### Service roles {#service-roles}
 
-Active roles in the service:
+#### certificate-manager.auditor {#certificate-manager-auditor}
 
-* {% include [certificate-manager.auditor](../../_includes/iam/roles/short-descriptions/certificate-manager.auditor.md) %}
-* {% include [certificate-manager.viewer](../../_includes/iam/roles/short-descriptions/certificate-manager.viewer.md) %}
-* {% include [certificate-manager.editor](../../_includes/iam/roles/short-descriptions/certificate-manager.editor.md) %}
-* {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
-* {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
+{% include [certificate-manager.auditor](../../_roles/certificate-manager/auditor.md) %}
+
+#### certificate-manager.viewer {#certificate-manager-viewer}
+
+{% include [certificate-manager.viewer](../../_roles/certificate-manager/viewer.md) %}
+
+#### certificate-manager.editor {#certificate-manager.editor}
+
+{% include [certificate-manager.editor](../../_roles/certificate-manager/editor.md) %}
+
+#### certificate-manager.admin {#certificate-manager-admin}
+
+{% include [certificate-manager.admin](../../_roles/certificate-manager/admin.md) %}
+
+#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
+
+{% include [certificate-manager.certificates.downloader](../../_roles/certificate-manager/certificates/downloader.md) %}
 
 ### Primitive roles {#primitive-roles}
 

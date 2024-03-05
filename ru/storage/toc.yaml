@@ -15,20 +15,22 @@ items:
             href: operations/buckets/delete.md
           - name: Ограничение максимального размера бакета
             href: operations/buckets/limit-max-volume.md
-          - name: Открытие публичного доступа к бакету
-            href: operations/buckets/bucket-availability.md
           - name: Шифрование бакета
             href: operations/buckets/encrypt.md
           - name: Управление жизненными циклами объектов
             href: operations/buckets/lifecycles.md
           - name: Управление конфигурацией CORS
             href: operations/buckets/cors.md
-          - name: Управление политикой доступа
-            href: operations/buckets/policy.md
-          - name: Управление версионированием бакета
-            href: operations/buckets/versioning.md
+          - name: Настройка прав доступа с помощью {{ iam-short-name }}
+            href: operations/buckets/iam-access.md
           - name: Редактирование ACL бакета
             href: operations/buckets/edit-acl.md
+          - name: Управление политикой доступа
+            href: operations/buckets/policy.md
+          - name: Открытие публичного доступа к бакету
+            href: operations/buckets/bucket-availability.md
+          - name: Управление версионированием бакета
+            href: operations/buckets/versioning.md
           - name: Включение механизма логирования
             href: operations/buckets/enable-logging.md
           - name: Управление блокировками версий объектов
@@ -125,6 +127,10 @@ items:
           Загрузка данных в {{ mch-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
+      - name: >-
+          Загрузка данных в {{ ydb-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-ydb.md
   - name: Концепции
     items:
       - name: Обзор
@@ -218,7 +224,19 @@ items:
           - name: Docker-контейнер для (S)FTP(S)
             href: tools/sftps.md
   - name: Управление доступом
-    href: security/index.md
+    items:
+      - name: Обзор
+        href: security/overview.md
+      - name: '{{ iam-name }}'
+        href: security/index.md
+      - name: Список управления доступом (ACL)
+        href: security/acl.md
+      - name: Политика доступа (Bucket Policy)
+        href: security/policy.md
+      - name: Публичный доступ
+        href: security/public-access.md
+      - name: Подписанные (pre-signed) URL
+        href: security/pre-signed-urls.md
   - name: Правила тарификации
     items:
       - name: Действующие правила

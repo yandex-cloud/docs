@@ -1,1 +1,1 @@
-The `load-balancer.auditor` role.
+The `load-balancer.auditor` role enables you to get lists of target groups and network load balancers, details on them and their operations, and view information about the cloud, cloud limits, and the folder.

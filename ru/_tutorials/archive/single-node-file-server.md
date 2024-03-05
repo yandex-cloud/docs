@@ -3,7 +3,6 @@
 Вы научитесь создавать однонодовый файловый сервер с помощью [Samba](https://www.samba.org/) и [NFS](https://docs.microsoft.com/ru-ru/windows-server/storage/nfs/nfs-overview), а также подключаться к нему с компьютеров на Linux, macOS и Windows.
 
 Чтобы создать однонодовый файловый сервер:
-
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте виртуальную машину для файлового сервера](#create-vm).
 1. [Настройте Samba и NFS](#setup-samba-nfs).
@@ -17,51 +16,37 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки статического сайта входит:
-
-* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
-
+* Плата за постоянно запущенную [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Создайте облачные сети и подсети {#before-you-begin}
 
-Перед тем, как создавать виртуальную машину:
+Перед тем, как создавать ВМ:
+1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+1. Убедитесь, что в выбранном каталоге есть [сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet), к которой можно подключить ВМ. Для этого на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть доступные подсети. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
 
-1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
+## Создайте ВМ для файлового сервера {#create-vm}
 
-1. Убедитесь, что в выбранном каталоге есть сеть с подсетью, к которой можно подключить виртуальную машину. Для этого на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть доступные подсети. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
-
-
-## Создайте виртуальную машину для файлового сервера {#create-vm}
-
-Чтобы создать виртуальную машину:
+Чтобы создать ВМ:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-
-  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя виртуальной машины — `fileserver-tutorial`.
-
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ — `fileserver-tutorial`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**. В окне **{{ ui-key.yacloud.compute.instances.create-disk.label_title }}** укажите параметры диска для хранения данных:
-
-     * **{{ ui-key.yacloud.compute.disk-form.field_name }}** — `fileserver-tutorial-disk`;
-     * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`;
-     * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`;
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**. В окне **{{ ui-key.yacloud.compute.instances.create-disk.label_title }}** укажите параметры [диска](../../compute/concepts/disk.md) для хранения данных:
+     * **{{ ui-key.yacloud.compute.disk-form.field_name }}** — `fileserver-tutorial-disk`.
+     * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`.
+     * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      * **{{ ui-key.yacloud.compute.disk-form.field_source }}** — `{{ ui-key.yacloud.compute.disk-form.value_source-none }}`.
 
      Нажмите **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
-
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../compute/concepts/vm-platforms.md).
      * Укажите необходимое количество vCPU и объем RAM.
@@ -70,14 +55,10 @@
      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `8` или больше.
      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `56 {{ ui-key.yacloud.common.units.label_gigabyte }}` или больше.
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети будет подключена виртуальная машина при создании.
-
-  1. Укажите данные для доступа на виртуальную машину:
-
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
-
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети будет подключена ВМ при создании.
+  1. Укажите данные для доступа на ВМ:
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ TF }} {#tf}
@@ -86,18 +67,17 @@
 
 {% endlist %}
 
-Создание виртуальной машины может занять несколько минут. Когда виртуальная машина перейдет в статус `RUNNING`, вы можете [настроить NFS и Samba](#setup-samba-nfs).
+Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете [настроить NFS и Samba](#setup-samba-nfs).
 
-При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
+При создании ВМ назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
 
 ## Настройте Samba и NFS {#setup-samba-nfs}
 
-После того как виртуальная машина `fileserver-tutorial` перейдет в статус `RUNNING`, выполните:
-1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
+После того как ВМ `fileserver-tutorial` перейдет в статус `RUNNING`, выполните:
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
-
-      Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
+   Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
 1. Скачайте и установите Samba:
 
    {% list tabs group=operating_system %}
@@ -126,22 +106,25 @@
    ```
 
 1. Задайте конфигурацию NFS в файле `/etc/exports`. Вы можете отредактировать файл с помощью утилиты `nano`:
+
    ```bash
    sudo nano /etc/exports
    ```
 
    Добавьте в файл следующие строки:
+
    ```bash
    /имя_папки <IP-адрес>(rw,no_subtree_check,fsid=100)
    /имя_папки 127.0.0.1(rw,no_subtree_check,fsid=100)
    ```
-   Где `<IP-адрес>` – IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными.
 
+   Где `<IP-адрес>` – IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными.
 1. Задайте конфигурацию Samba в файле `/etc/samba/smb.conf`. Вы можете отредактировать файл с помощью утилиты `nano`:
 
    ```bash
    sudo nano /etc/samba/smb.conf
    ```
+
    Приведите файл к виду:
 
    ```
@@ -188,7 +171,6 @@
    ```
 
    Где `<IP-адрес>` в блоке `[data]` – IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными.
-
 1. Перезапустите NFS и Samba:
 
    ```bash
@@ -196,19 +178,20 @@
    sudo service smbd restart
    ```
 
-
 ## Протестируйте работу файлового сервера {#test-file-server}
 
-1. Создайте на виртуальной машине `fileserver-tutorial` директорию `remote` и файл test.txt:
+1. Создайте на ВМ `fileserver-tutorial` директорию `remote` и файл test.txt:
 
    {% list tabs group=operating_system %}
 
    - Ubuntu {#ubuntu}
+
      ```bash
      sudo mkdir /имя_папки/remote
      sudo setfacl -m u:<имя_вашего_пользователя>:xw /имя_папки/remote
      echo "Hello world!" > /имя_папки/remote/test.txt
      ```
+
    {% endlist %}
 
 1. Подключите по NFS сетевой диск к вашему компьютеру и проверьте доступность тестового файла:
@@ -232,7 +215,7 @@
       Подключите сетевой диск:
 
       ```bash
-      sudo mount -t nfs <внешний IP>:/имя_папки /remote-test-dir`
+      sudo mount -t nfs <публичный_IP-адрес>:/имя_папки /remote-test-dir`
       ```
 
       В результате в указанной точке монтирования должны быть доступны тестовая директория и файл.
@@ -241,28 +224,20 @@
 
      1. Запустите утилиту **cmd.exe**. Для этого нажмите сочетание клавиш **Windows** + **R** и выполните команду `cmd`.
      1. В командной строке выполните команду:
-         ```
-         net use x: \\<публичный_IP-адрес_виртуальной_машины>\имя_папки
-         ```
+
+        ```bash
+        net use x: \\<публичный_IP-адрес_ВМ>\имя_папки
+        ```
 
      В результате появится диск X с тестовой директорией и файлом.
 
    {% endlist %}
 
-
-## Как удалить созданные ресурсы {#clear-out}
-
-Чтобы перестать платить за созданные ресурсы:
-
-1. [удалите ВМ](../../compute/operations/vm-control/vm-delete.md);
-1. [удалите статический публичный IP-адрес](../../vpc/operations/address-delete.md), если вы его зарезервировали.
-
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать однонодовый файловый сервер с помощью {{ TF }}:
-
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -279,16 +254,15 @@
      1. Создайте папку для файлов.
      1. Создайте в папке конфигурационный файл `single-node-file-server.tf`:
 
-          {% cut "single-node-file-server.tf" %}
+        {% cut "single-node-file-server.tf" %}
 
-          {% include [single-node-file-server-tf-config](../../_includes/archive/single-node-file-server-tf-config.md) %}
+        {% include [single-node-file-server-tf-config](../../_includes/archive/single-node-file-server-tf-config.md) %}
 
-          {% endcut %}
+        {% endcut %}
 
    {% endlist %}
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
-
    * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
    * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
    * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
@@ -296,11 +270,15 @@
    * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
 
 1. В блоке `metadata` укажите имя пользователя и содержимое SSH-ключа. Подробнее см. в разделе [{#T}](../../compute/concepts/vm-metadata.md).
-
 1. Создайте ресурсы:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Настройте Samba и NFS](#setup-samba-nfs).
-
 1. [Протестируйте работу файлового сервера](#test-file-server).
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+1. [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md);
+1. [Удалите статический публичный IP-адрес](../../vpc/operations/address-delete.md), если вы его зарезервировали.

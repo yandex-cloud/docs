@@ -4,6 +4,8 @@ editable: false
 
 # {{ ml-platform-name }} pricing
 
+{% include [serverless-deprecation-note](../_includes/datasphere/serverless-deprecation-note.md) %}
+
 
 
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
@@ -24,7 +26,7 @@ You are separately charged for [data storage](#storage) in datasets and project 
 
 ### Running jobs in {{ ml-platform-name }} Jobs {#jobs}
 
-When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-jobs) required to run jobs: their cache, logs, input data, and execution results.
+When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-jobs) required to run jobs: their cache, logs, input data, and execution results.
 
 ### Using models {#node}
 

@@ -13,7 +13,7 @@ To automate operations with {{ yandex-cloud }} from inside a VM, we recommend us
 
 Link your service account to an existing or new VM. You can only link one service account.
 
-To link a service account to a VM, you must have permission to use this account. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
+To link a service account to a VM, you must have permission to use this account. This permission is included in the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles and higher.
 
 ### Linking to an existing VM {#link-with-exist-instance}
 
@@ -24,7 +24,7 @@ To link a service account to a VM, you must have permission to use this account.
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Click the VM name.
-   1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
+   1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select an existing service account or create a new one.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 

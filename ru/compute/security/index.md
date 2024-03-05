@@ -6,6 +6,7 @@ description: "Управление доступом в сервисе предо
 # Управление доступом в {{ compute-name }}
 
 В этом разделе вы узнаете:
+
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list).
 
@@ -15,7 +16,18 @@ description: "Управление доступом в сервисе предо
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Кроме того, роль можно назначить и на отдельную ВМ. 
+Кроме того, роль можно назначить на отдельные ресурсы сервиса:
+
+* [ВМ](../operations/vm-control/vm-access.md);
+* [диск](../operations/disk-control/disk-access.md);
+* [снимок диска](../operations/snapshot-control/snapshot-access.md);
+* [расписание снимка](../operations/snapshot-control/snapshot-schedule-access.md);
+* [файловое хранилище](../operations/filesystem/filesystem-access.md);
+* [образ](../operations/image-control/access.md);
+* [группу размещения ВМ](../operations/placement-groups/access.md);
+* [группу размещения нереплицируемых дисков](../operations/disk-placement-groups/access.md);
+* [группу выделенных хостов](../operations/dedicated-host/access.md);
+* [кластер GPU](../operations/gpu-cluster/access.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -25,20 +37,53 @@ description: "Управление доступом в сервисе предо
 
 ### Сервисные роли {#service-roles}
 
-Роль | Разрешения
------ | -----
-`compute.admin` | Дает права на управление виртуальными машинами и [группами виртуальных машин](../../compute/concepts/instance-groups/index.md), а также позволяет назначать роли другим пользователям.
-`compute.editor` | Дает права на управление виртуальными машинами и группами виртуальных машин.
-`compute.viewer` | Дает права на просмотр информации о [ресурсах {{ compute-name }}](../concepts/index.md).
-`compute.auditor` | Позволяет просматривать объем использованных ресурсов и квот, лимиты дисков, списки операций ресурсов {{ compute-name }} и информацию об этих операциях.
-`compute.disks.user` | Позволяет использовать диски для создания новых ресурсов, например виртуальных машин.
-`compute.images.user` | Позволяет использовать образы для создания новых ресурсов, например виртуальных машин.
-`compute.operator` | Позволяет [останавливать, запускать и перезапускать виртуальные машины](../../compute/operations/vm-control/vm-stop-and-start.md), но не позволяет создавать и удалять ВМ.
-`compute.snapshotSchedules.editor` | Дает права на [создание](../operations/snapshot-control/create-schedule.md) и [изменение](../operations/snapshot-control/update-schedule.md) снимков дисков по расписаниям.
-`compute.snapshotSchedules.viewer` | Дает права на просмотр информации о [снимках дисков по расписаниям](../concepts/snapshot-schedule.md).
-`compute.osLogin` | Разрешает доступ к виртуальным машинам по протоколу SSH через OS Login.
-`compute.osAdminLogin` | Разрешает доступ к виртуальным машинам по протоколу SSH через OS Login с возможностью выполнять команды от имени суперпользователя (`sudo`).
-`iam.serviceAccounts.user` | Подтверждает права на использование сервисного аккаунта.<br/>Эта роль необходима для выполнения операций с группами ВМ. Если вы указали сервисный аккаунт в запросе, {{ iam-short-name }} проверит, есть ли у вас права на использование этого аккаунта.
+#### compute.auditor {#compute-auditor}
+
+{% include [compute.auditor](../../_roles/compute/auditor.md) %}
+
+#### compute.viewer {#compute-viewer}
+
+{% include [compute.viewer](../../_roles/compute/viewer.md) %}
+
+#### compute.editor {#compute-editor}
+
+{% include [compute.editor](../../_roles/compute/editor.md) %}
+
+#### compute.admin {#compute-admin}
+
+{% include [compute.admin](../../_roles/compute/admin.md) %}
+
+#### compute.osLogin {#compute-oslogin}
+
+{% include [compute.oslogin](../../_roles/compute/osLogin.md) %}
+
+#### compute.osAdminLogin {#compute-osadminlogin}
+
+{% include [compute.osadminlogin](../../_roles/compute/osAdminLogin.md) %}
+
+#### compute.disks.user {#compute-disks-user}
+
+{% include [compute.disks.user](../../_roles/compute/disks/user.md) %}
+
+#### compute.images.user {#compute-images-user}
+
+{% include [compute.images.user](../../_roles/compute/images/user.md) %}
+
+#### compute.operator {#compute-operator}
+
+{% include [compute.operator](../../_roles/compute/operator.md) %}
+
+#### compute.snapshotSchedules.viewer {#compute-snapshotSchedules-viewer}
+
+{% include [compute.snapshotSchedules.viewer](../../_roles/compute/snapshotSchedules/viewer.md) %}
+
+#### compute.snapshotSchedules.editor {#compute-snapshotSchedules-editor}
+
+{% include [compute.snapshotSchedules.editor](../../_roles/compute/snapshotSchedules/editor.md) %}
+
+#### iam.serviceAccounts.user {#iam-serviceAccounts-user}
+
+{% include [iam.serviceAccounts.user](../../_roles/iam/serviceAccounts/user.md) %}
 
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 

@@ -71,6 +71,12 @@
 1. Нажмите **{{ ui-key.startrek.ui_components_agile_common_ColumnForm.create-column-submit-button--create }}**.
     
 1. Добавьте в колонку задачи: рядом с колонкой нажмите ![](../../_assets/tracker/svg/add-task.svg) и добавьте существующую задачу или создайте новую.
+   
+   {% note info %}
+
+   Если на карточку задачи добавлено поле **Story Points**, то суммарное количество **Story Points** в колонке отображается в ее заголовке. Чтобы добавить поле **Story Points** в карточку задачи, на странице доски в правом углу панели поиска, сортировки и группировки нажмите кнопку ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_common_FieldsSelect.fields-settings }}** и выберите поле **Story Points**.
+
+   {% endnote %}
 
 ### Изменить колонку {#edit-user-cols}
 

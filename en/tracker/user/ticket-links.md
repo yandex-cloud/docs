@@ -34,7 +34,7 @@ To create a sub-issue:
 
 1. Open the issue page to create a sub-issue for.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.create-subissue }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.create-subissue }}**.
 
 1. Fill in the fields the same way as when [creating a new issue](./create-ticket.md).
 
@@ -58,13 +58,13 @@ To remove an issue's link:
 
 1. In the **Related** list under the issue description, select the link you want to remove.
 
-1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete link**.
+1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Remove link**.
 
 ## Creating a sub-issue from an issue {#make-subtask}
 
 You can make your issue a part of a larger (parent) issue:
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.to-subissue }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.to-subissue }}**.
 
 1. Specify the key or name of the parent issue, then select it from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
 
@@ -74,7 +74,7 @@ You can make your issue a part of a larger (parent) issue:
 
 1. Open the sub-issue page.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.to-subissue }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.to-subissue }}**.
 
 1. Specify the key or name of the new parent issue, then select it from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
 
@@ -88,7 +88,7 @@ To remove the link to a parent issue:
 
 1. In the **Related** list under the issue description, select the sub-issue the link to which you want to remove.
 
-1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete link**.
+1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Remove link**.
 
 ## Linking a commit to an issue {#section_commit}
 

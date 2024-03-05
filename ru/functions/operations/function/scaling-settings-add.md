@@ -18,7 +18,11 @@ description: "Следуя данной инструкции, вы сможет�
 Настройки масштабирования не могут превышать [квоты](../../concepts/limits.md#functions-quotas).
 
 
+{% note info %}
+
 {% include [provisioned-instances-time](../../../_includes/functions/provisioned-instances-time.md)%}
+
+{% endnote %}
 
 
 {% list tabs group=instructions %}
@@ -43,7 +47,7 @@ description: "Следуя данной инструкции, вы сможет�
     
     ```
     yc serverless function set-scaling-policy \
-      --id=d4eokpuol55h******** \
+      --id=<идентификатор_функции> \
       --tag=\$latest \
       --zone-instances-limit=1 \
       --zone-requests-limit=2 \
@@ -73,7 +77,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}  
 
@@ -93,8 +97,8 @@ description: "Следуя данной инструкции, вы сможет�
         
         ```
         provider "yandex" {
-            token     = "<OAuth или статический ключ сервисного аккаунта>"
-            folder_id = "<идентификатор каталога>"
+            token     = "<OAuth-токен_или_статический_ключ_сервисного_аккаунта>"
+            folder_id = "<идентификатор_каталога>"
             zone      = "{{ region-id }}-a"
         }
 
@@ -141,7 +145,7 @@ description: "Следуя данной инструкции, вы сможет�
     Проверить удаление настроек масштабирования можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
     
     ```
-    yc serverless function list-scaling-policies <имя_функции>|<идентификатор_функции>
+    yc serverless function list-scaling-policies <имя_или_идентификатор_функции>
     ```
 
 - API {#api}

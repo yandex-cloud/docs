@@ -27,7 +27,9 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](placement-groups/create-ig-in-pg.md)
 * [{#T}](placement-groups/add-vm.md)
 * [{#T}](placement-groups/delete-vm.md)
+* [{#T}](placement-groups/placement-groups-get-info.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
+* [{#T}](placement-groups/access.md)
 
 ## Образы с предустановленным программным обеспечением {#images-with-pre-installed-software}
 
@@ -56,6 +58,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
 * [{#T}](vm-control/vm-change-security-groups-set.md)
+* [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
 
 ## Работа на виртуальной машине {#vm-use}
@@ -92,16 +95,21 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/get-info.md)
+* [{#T}](disk-control/disk-access.md)
 * [{#T}](disk-control/delete.md)
 
 ## Снимки дисков {#snapshots}
 
 * [{#T}](disk-control/create-snapshot.md)
+* [{#T}](snapshot-control/get-snapshot.md)
 * [{#T}](snapshot-control/delete.md)
 * [{#T}](snapshot-control/create-schedule.md)
+* [{#T}](snapshot-control/get-snapshot-schedule.md)
 * [{#T}](snapshot-control/update-schedule.md)
 * [{#T}](snapshot-control/stop-and-start-schedule.md)
 * [{#T}](snapshot-control/snapshot-encrypt.md)
+* [{#T}](snapshot-control/snapshot-access.md)
+* [{#T}](snapshot-control/snapshot-schedule-access.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
 
@@ -110,6 +118,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/add-disk.md)
 * [{#T}](disk-placement-groups/get-info.md)
+* [{#T}](disk-placement-groups/access.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
 
 
@@ -124,8 +133,10 @@ description: "Пошаговые инструкции по работе и уп�
 ## Управление образом {#image-control}
 
 * [{#T}](image-control/get-list.md)
+* [{#T}](image-control/image-control-get-info.md)
 * [{#T}](image-control/delete.md)
 * [{#T}](image-control/import.md)
+* [{#T}](image-control/access.md)
 
 
 ## Файловые хранилища {#filesystem}
@@ -135,6 +146,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](filesystem/detach-from-vm.md)
 * [{#T}](filesystem/update.md)
 * [{#T}](filesystem/get-info.md)
+* [{#T}](filesystem/filesystem-access.md)
 * [{#T}](filesystem/delete.md)
 
 
@@ -178,6 +190,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/rolling-recreate.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
+* [{#T}](instance-groups/access.md)
 * [{#T}](instance-groups/delete.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
 
@@ -187,6 +200,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
+* [{#T}](dedicated-host/access.md)
 
 ## Кластеры GPU {#gpu-cluster}
 
@@ -194,4 +208,6 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](gpu-cluster/gpu-add-to-cluster.md)
 * [{#T}](gpu-cluster/gpu-cluster-update.md)
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
+* [{#T}](gpu-cluster/gpu-cluster-get-info.md)
+* [{#T}](gpu-cluster/access.md)
 

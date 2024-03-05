@@ -5,4 +5,4 @@ description: "Вы можете перенести базу данных из {{
 
 # Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}
 
-{% include [article-body](../../_tutorials/datatransfer/mpg-to-objstorage.md) %}
+{% include [article-body](../../_tutorials/dataplatform/datatransfer/mpg-to-objstorage.md) %}

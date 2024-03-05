@@ -2,7 +2,7 @@
 
 Назначать роли в {{ org-full-name }} могут [администраторы и владельцы организации](add-org-admin.md). Вы можете назначать пользователям не только роли для управления организацией, но и роли для доступа к ресурсам облаков, подключенных к вашей организации.
 
-О том, какие роли доступны в {{ yandex-cloud }} и какие разрешения в них входят, читайте в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
+О том, какие роли доступны в {{ yandex-cloud }} и какие разрешения в них входят, читайте в документации {{ iam-full-name }} в разделе [{#T}](../../iam/roles-reference.md).
 
 {% list tabs group=instructions %}
 
@@ -83,7 +83,7 @@
 
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      
   После этого указанному пользователю будут назначены роли в организации. Проверить появление роли можно в [консоли управления]({{ link-console-main }}).
 

@@ -19,6 +19,7 @@ RPC method for generating text completions in asynchronous mode.
 
 **rpc Completion ([CompletionRequest](#CompletionRequest)) returns ([operation.Operation](#Operation))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[CompletionResponse](#CompletionResponse)<br>
 
 ### CompletionRequest {#CompletionRequest}

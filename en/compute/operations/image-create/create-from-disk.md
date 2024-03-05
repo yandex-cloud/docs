@@ -13,8 +13,8 @@ To create an image from a disk:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create the image.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-   1. In the line of the appropriate disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. In the line of the appropriate disk, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
    1. Enter the image name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -39,7 +39,7 @@ To create an image from a disk:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-   1. Select the identifier (`ID`) or the name (`NAME`) of the desired image.
+   1. Select the disk you intend to use by `ID` or `NAME`.
    1. Create an image in the default folder:
 
       ```
@@ -71,8 +71,8 @@ To create an image from a disk:
 
       ```
       resource "yandex_compute_image" "image-1" {
-        name        = "<image name>"
-        source_disk = "<disk ID>"
+        name        = "<image_name>"
+        source_disk = "<disk_ID>"
       }
       ```
 

@@ -13,12 +13,12 @@ Permission denied
 The error occurs when the [resource service account](../../managed-kubernetes/security/index.md#sa-annotation) has no required [roles](../../iam/concepts/access-control/roles.md) in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) whose [cloud network](../../vpc/concepts/network.md#network) is selected when creating a cluster.
 
 To create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) in a cloud network of another folder, [assign](../../iam/operations/sa/assign-role-for-sa.md) the resource [service account](../../iam/concepts/users/service-accounts.md) the following roles in this folder:
-* [{{ roles-vpc-private-admin }}](../../iam/concepts/access-control/roles.md#vpc-private-admin)
-* [{{ roles-vpc-user }}](../../iam/concepts/access-control/roles.md#vpc-user)
+* [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user)
 
-To use a [public IP address](../../vpc/concepts/address.md#public-addresses), also [assign](../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-vpc-public-admin }}](../../iam/concepts/access-control/roles.md#vpc-public-admin) role.
+To use a [public IP address](../../vpc/concepts/address.md#public-addresses), also [assign](../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin) role.
 
-#### A namespace has been deleted but its status is **Terminating** and its deletion is not completed {#namespace-terminating}
+#### A namespace has been deleted but its status is _Terminating_ and its deletion is not completed {#namespace-terminating}
 
 This happens when a [namespace](../../managed-kubernetes/concepts/index.md#namespace) has stuck resources that cannot be deleted by the namespace controller.
 
@@ -172,14 +172,14 @@ There may be no name resolution for internal and external DNS queries in a {{ ma
 1. Find out the {{ managed-k8s-name }} cluster version:
 
    ```bash
-   yc managed-kubernetes cluster get <cluster_id_or_name> | grep version:
+   yc managed-kubernetes cluster get <cluster_name_or_ID> | grep version:
    ```
 
    You can get the {{ managed-k8s-name }} cluster ID and name with a [list of clusters in the folder](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#list).
 1. Find out the {{ managed-k8s-name }} node group version:
 
    ```bash
-   yc managed-kubernetes node-group get <node_group_id_or_name> | grep version:
+   yc managed-kubernetes node-group get <node_group_name_or_ID> | grep version:
    ```
 
    You can get the ID and name of the {{ managed-k8s-name }} node group with a [list of node groups in your cluster](../../managed-kubernetes/operations/node-group/node-group-list.md#list).

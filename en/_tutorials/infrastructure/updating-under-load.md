@@ -34,7 +34,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-load`.
-      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the [`editor` role](../../iam/concepts/access-control/roles.md).
+      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the [`editor` role](../../iam/concepts/access-control/roles.md).
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -50,8 +50,8 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          Command result:
 
          ```bash
-         id: ajeab0cnib1pdefe21dm
-         folder_id: b0g12ga82bcv0cdeferg
+         id: ajeab0cnib1p********
+         folder_id: b0g12ga82bcv********
          created_at: "2021-02-09T17:31:32.561702Z"
          name: for-load
          ```
@@ -59,9 +59,9 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       1. Assign the role to the service account:
 
          ```bash
-         yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
+         yc resource-manager folder add-access-binding b0g12ga82bcv******** \
            --role editor \
-           --subject serviceAccount:ajeab0cnib1pdefe21dm
+           --subject serviceAccount:ajeab0cnib1p********
          ```
 
    - API {#api}
@@ -97,8 +97,8 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          Command result:
 
          ```bash
-         id: enpabce123hde4ft1r3t
-         folder_id: b0g12ga82bcv0cdeferg
+         id: enpabce123hd********
+         folder_id: b0g12ga82bcv********
          created_at: "2021-02-09T17:33:32.561702Z"
          name: yc-auto-network
          ```
@@ -106,16 +106,16 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       1. Create a subnet in the `{{ region-id }}-a` zone:
 
          ```bash
-         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
+         yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-a
          ```
 
          Command result:
 
          ```bash
-         id: e1lnabc23r1c9d0efoje
-         folder_id: b0g12ga82bcv0cdeferg
+         id: e1lnabc23r1c********
+         folder_id: b0g12ga82bcv********
          created_at: "2021-02-09T17:34:32.561702Z"
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24
@@ -124,16 +124,16 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       1. Create a subnet in the `{{ region-id }}-b` zone:
 
          ```bash
-         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-b
+         yc vpc subnet create --network-id enpabce123hd******** --range 192.168.2.0/24 --zone {{ region-id }}-b
          ```
 
          Command result:
 
          ```bash
-         id: b1csa2b3clideftjb121
-         folder_id: b0g12ga82bcv0cdeferg
+         id: b1csa2b3clid********
+         folder_id: b0g12ga82bcv********
          created_at: "2021-02-09T17:35:32.561702Z"
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-b
          v4_cidr_blocks:
          - 192.168.2.0/24
@@ -159,7 +159,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
       1. In the [management console]({{ link-console-main }}), select a folder to host your instance group.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
          * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `group-for-load`.
@@ -205,7 +205,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          Command result:
 
          ```bash
-         id: fd8iv792kirahcnqnt0q
+         id: fd8iv792kira********
          folder_id: standard-images
          created_at: "2021-01-29T13:30:22Z"
          ...
@@ -234,10 +234,10 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
          ```bash
          done (2m18s)
-         id: cl0kabcquk1gomdefbkk
-         folder_id: b0g12ga82bcv0cdeferg
+         id: cl0kabcquk1g********
+         folder_id: b0g12ga82bcv********
          ...
-         service_account_id: ajeab0cnib1pdefe21dm
+         service_account_id: ajeab0cnib1p********
          status: ACTIVE
          application_load_balancer_state: {}
          ```
@@ -262,7 +262,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Click the `group-for-load` instance group name.
 
    - CLI {#cli}
@@ -278,8 +278,8 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       |     INSTANCE ID      |           NAME            |   EXTERNAL IP   | INTERNAL IP |        STATUS        | STATUS MESSAGE |
       +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
       ...
-      | fhmab0cfsfd125efpvn1 | cl0kabcquk1gomdefbkk-oxig | 178.154.226.108 | 10.130.0.8  | RUNNING_ACTUAL [49m] |                |
-      | epdabchpdef0f1e21j14 | cl0kabcquk1gomdefbkk-aqyg | 130.193.40.55   | 10.129.0.20 | RUNNING_ACTUAL [43m] |                |
+      | fhmab0cfsfd1******** | cl0kabcquk1g********-oxig | 178.154.226.108 | 10.130.0.8  | RUNNING_ACTUAL [49m] |                |
+      | epdabchpdef0******** | cl0kabcquk1g********-aqyg | 130.193.40.55   | 10.129.0.20 | RUNNING_ACTUAL [43m] |                |
       +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
       ```
 
@@ -326,7 +326,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          Command result:
 
          ```bash
-         id: enpsa475ej51enuam897
+         id: enpsa475ej51********
          ```
 
       1. Create a network load balancer:
@@ -335,15 +335,15 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          yc load-balancer network-load-balancer create \
            --name load-generator \
            --listener external-ip-version=ipv4,name=http,port=80,protocol=tcp,target-port=80 \
-           --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<target group ID>
+           --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<target_group_ID>
          ```
 
          Command result:
 
          ```bash
          done (14s)
-         id: b0ruab1ccvpd26efgii4
-         folder_id: b1csa2b3clideftjb121
+         id: b0ruab1ccvpd********
+         folder_id: b1csa2b3clid********
          ...
              healthy_threshold: "2"
              http_options:
@@ -383,7 +383,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
       |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
       +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
-      | b0ruab1ccvpd26efgii4 | load-generator | {{ region-id }} | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
+      | b0ruab1ccvpd******** | load-generator | {{ region-id }} | EXTERNAL |              1 | b0r1tabcphde********   | ACTIVE |
       +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
       ```
 
@@ -428,7 +428,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 1. Run the command to create a load:
 
    ```bash
-   wrk -t20 -c20 -d20m --timeout 20s http://<load balancer IP address>/sleep
+   wrk -t20 -c20 -d20m --timeout 20s http://<load_balancer_IP>/sleep
    ```
 
    The command will launch the `wrk` utility that will send requests to 20 threads using 20 connections to the network load balancer for 20 minutes. The request timeout is 20 seconds. The load balancer will distribute the resulting load among the VMs from the group.
@@ -450,10 +450,10 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click the `group-for-load` instance group name.
-   1. Click ![edit](../../_assets/edit.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
-   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, enter the new disk size of `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -479,11 +479,11 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
       ```bash
       done (9m24s)
-      id: cl10kktrjcn8polprdav
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: cl10kktrjcn8********
+      folder_id: b1g7gvsi89m3********
       ...
          name: load-generator
-      service_account_id: ajehbk07uus3s73pcq13
+      service_account_id: ajehbk07uus3********
       status: ACTIVE
       ```
 
@@ -529,32 +529,32 @@ To delete the created resources:
    1. Delete the load balancer:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-      1. To the right of the `load-generator` load balancer line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.remove }}**.
+      1. To the right of the `load-generator` load balancer line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.remove }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.remove }}**.
    1. Delete the instance group:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-      1. To the right of the `load-generator` group line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. To the right of the `load-generator` group line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Delete the service account:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
       1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-      1. To the right of the `yc-auto-sa` account line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+      1. To the right of the `yc-auto-sa` account line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
    1. Delete the network and subnets:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the network and subnets.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Select the network `yc-auto-network`.
       1. Under **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**:
-         1. To the right of the `yc-auto-subnet-1` line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+         1. To the right of the `yc-auto-subnet-1` line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
          1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
          1. Also delete the subnet `yc-auto-subnet-2`.
       1. In the top-right corner, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   Run the following commands one-by-one:
+   Run the following commands one by one:
 
    ```bash
    yc load-balancer network-load-balancer delete load-generator
@@ -571,6 +571,6 @@ To delete the created resources:
    1. Delete the `load-generator` instance group using the [delete](../../compute/api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../compute/api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
    1. Delete the `yc-auto-sa` service account using the [delete](../../iam/api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../iam/api-ref/grpc/service_account_service.md#Delete) gRPC API call.
    1. Delete `yc-auto-subnet-1` and `yc-auto-subnet-2` using the [delete](../../vpc/api-ref/Subnet/delete.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../../vpc/api-ref/grpc/subnet_service.md#Delete) gRPC API call.
-   1. Delete the `yc-auto-network` using the [delete](../../vpc/api-ref/Network/delete.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Delete](../../vpc/api-ref/grpc/network_service.md#Delete) gRPC API call.
+   1. Delete `yc-auto-network` using the [delete](../../vpc/api-ref/Network/delete.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Delete](../../vpc/api-ref/grpc/network_service.md#Delete) gRPC API call.
 
 {% endlist %}

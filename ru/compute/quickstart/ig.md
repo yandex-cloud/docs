@@ -5,7 +5,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Создайте группу ВМ {#create-ig}
@@ -17,7 +17,7 @@
 Чтобы создать группу ВМ:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана группа ВМ.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
     * Введите имя и описание группы ВМ. Требования к имени:
@@ -51,7 +51,7 @@
        * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
        * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}` — чтобы не назначать публичный IP-адрес.
      * (Опционально) Выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если группы безопасности нет, создайте ее:
-       * Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
+       * Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
        * Введите имя и описание группы безопасности. Правила для группы безопасности вы сможете добавить позже в сервисе **{{ vpc-name }}**.
        * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:

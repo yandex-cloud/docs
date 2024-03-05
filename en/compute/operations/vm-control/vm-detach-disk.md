@@ -20,8 +20,8 @@ To detach a disk from a VM:
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-   1. Next to the disk you need to detach, click ![image](../../../_assets/horizontal-ellipsis.svg), and then click **{{ ui-key.yacloud.compute.disks.button_action-detach }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. Next to the disk you need to detach, click ![image](../../../_assets/console-icons/ellipsis.svg), and then click **{{ ui-key.yacloud.compute.disks.button_action-detach }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.popup_detach-disk_button_detach }}**.
 
 - CLI {#cli}
@@ -48,12 +48,12 @@ To detach a disk from a VM:
       yc compute instance get --full first-instance
       ```
 
-   1. Choose the `disk_id` of the disk you need (for example, `fhm4aq4hvq5g3nepvt9b`).
+   1. Select the right `disk_id`, e.g., `fhm4aq4hvq5g********`.
    1. Detach the disk:
 
       ```
       yc compute instance detach-disk first-instance \
-        --disk-id fhm4aq4hvq5g3nepvt9b
+        --disk-id fhm4aq4hvq5g********
       ```
 
       If an error occurs, stop the virtual machine:

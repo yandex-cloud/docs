@@ -5,37 +5,62 @@ description: "Из статьи вы узнаете, как работать с 
 
 # Оформление текста
 
-{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
-
 ## Выделение текста {#inline}
 
-{% note alert %}
+{% list tabs %}
 
-Выделение работает правильно, только если символы разметки вплотную прилегают к тексту.
+- Новый редактор
 
-{% endnote %}
+    {% note alert %}
+    
+    Выделение работает правильно, только если символы разметки вплотную прилегают к тексту.
+    
+    {% endnote %}
 
-Разметка | Результат
---- | ---
-`**Полужирный текст**` | ![](../../_assets/wiki/bold.png)
-`*Курсив*` | ![](../../_assets/wiki/italic.png)
-`_Курсив_` | ![](../../_assets/wiki/italic.png)
-`//Курсив//` | ![](../../_assets/wiki/italic.png)
-`__Подчеркнутый текст__` | ![](../../_assets/wiki/underlined.png)
-`~~Зачеркнутый текст~~` | ![](../../_assets/wiki/crossed.png)
-`--Зачеркнутый текст--` | ![](../../_assets/wiki/crossed.png)
-`##Моноширинный текст##` | ![](../../_assets/wiki/monospaced.png)
-`++Мелкий текст++` | ![](../../_assets/wiki/small.png)
-Верхний индекс: `E=mc^^2^^` | ![](../../_assets/wiki/sup.png)
-Нижний индекс: `Hvv2vvO` | ![](../../_assets/wiki/sub-no-spaces.png)
-`??Выделенный текст??` | ![](../../_assets/wiki/red-background.png)
-`!!Красный текст!!` | ![](../../_assets/wiki/red-colored.png)
-`!!(син)Текст синего цвета!!`<br>Поддерживаются цвета:<ul><li>`red`/`крас`/`красный`;</li><li>`green`/`зел`/`зеленый`;</li><li>`blue`/`син`/`синий`;</li><li>`grey`/`gray`/`сер` /`серый`;</li><li>`yellow`/`жел`/`желтый`;</li><li>`cyan`/`голуб`/`голубой`;</li><li>`orang`/`оранж`/`оранжевый`;</li><li>`violet`/`фиолет`/`фиолетовый`.</li></ul> | ![](../../_assets/wiki/colored.png)
+    Разметка | Результат
+    --- | ---
+    `**Полужирный текст**` | ![](../../_assets/wiki/bold.png)
+    `*Курсив*` | ![](../../_assets/wiki/italic.png)
+    `++Подчеркнутый текст++` | ![](../../_assets/wiki/underlined.png)
+    `~~Зачеркнутый текст~~` | ![](../../_assets/wiki/crossed.png)
+    `##Моноширинный текст##` | ![](../../_assets/wiki/monospaced.png)
+    `==Выделенный текст==` | ![](../../_assets/wiki/small.png)
+    Верхний индекс: `E=mc^2^` | ![](../../_assets/wiki/sup.png)
+    `==Выделенный текст==` | ![](../../_assets/wiki/red-background.png)
+    `{red}(Красный текст)` | ![](../../_assets/wiki/red-colored.png)
+    `{blue}(Синий текст)`<br>Поддерживаются цвета:<ul><li>`red`/`крас`/`красный`;</li><li>`green`/  `зел`/`зеленый`;</li><li>`blue`/`син`/`синий`;</li><li>`grey`/`gray`/`сер` /`серый`;</li><li>`yellow`/`жел`/`желтый`;</li><li>`cyan`/`голуб`/`голубой`;</li><li>`orang`/`оранж`/`оранжевый`;</li><li>`violet`/`фиолет`/`фиолетовый`.</li></ul> | ![](../../_assets/wiki/colored.png)
+
+- Старый редактор
+
+    {% note alert %}
+    
+    Выделение работает правильно, только если символы разметки вплотную прилегают к тексту.
+    
+    {% endnote %}
+
+    Разметка | Результат
+    --- | ---
+    `**Полужирный текст**` | ![](../../_assets/wiki/bold.png)
+    `*Курсив*` | ![](../../_assets/wiki/italic.png)
+    `_Курсив_` | ![](../../_assets/wiki/italic.png)
+    `//Курсив//` | ![](../../_assets/wiki/italic.png)
+    `__Подчеркнутый текст__` | ![](../../_assets/wiki/underlined.png)
+    `~~Зачеркнутый текст~~` | ![](../../_assets/wiki/crossed.png)
+    `--Зачеркнутый текст--` | ![](../../_assets/wiki/crossed.png)
+    `##Моноширинный текст##` | ![](../../_assets/wiki/monospaced.png)
+    `++Мелкий текст++` | ![](../../_assets/wiki/small.png)
+    Верхний индекс: `E=mc^^2^^` | ![](../../_assets/wiki/sup.png)
+    Нижний индекс: `Hvv2vvO` | ![](../../_assets/wiki/sub-no-spaces.png)
+    `??Выделенный текст??` | ![](../../_assets/wiki/red-background.png)
+    `!!Красный текст!!` | ![](../../_assets/wiki/red-colored.png)
+    `!!(син)Текст синего цвета!!`<br>Поддерживаются цвета:<ul><li>`red`/`крас`/`красный`;</li><li>`green`/  `зел`/`зеленый`;</li><li>`blue`/`син`/`синий`;</li><li>`grey`/`gray`/`сер` /`серый`;</li><li>`yellow`/`жел`/`желтый`;</li><li>`cyan`/`голуб`/`голубой`;</li><li>`orang`/`оранж`/`оранжевый`;</li><li>`violet`/`фиолет`/`фиолетовый`.</li></ul> | ![](../../_assets/wiki/colored.png)
+
+{% endlist %}
 
 ## Сочетание элементов оформления {#sec_combine}
-
+    
 К одному фрагменту текста можно применить сразу несколько элементов оформления:
-
+    
 Разметка | Результат
 --- | ---
 `_**Полужирный курсив**_` | ![](../../_assets/wiki/bold-italic.png)
@@ -47,9 +72,9 @@ description: "Из статьи вы узнаете, как работать с 
 --- | ---
 `**[Полужирная ссылка](http://example.com)**` | ![](../../_assets/wiki/bold-link.png)
 `>Цитата с *курсивом*` | ![](../../_assets/wiki/quote-italic.png)
-
+    
 ## Прочая разметка {#other-formatting}
-
+    
 Элемент | Разметка | Результат
 --- | --- | ---
 Перевод строки | `первая строка---вторая строка` | ![](../../_assets/wiki/line-break.png)

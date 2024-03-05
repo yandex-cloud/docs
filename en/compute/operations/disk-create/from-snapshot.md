@@ -19,7 +19,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
    1. Enter the disk name. The naming requirements are as follows:
 
@@ -60,8 +60,8 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
       +----------------------+----------------------+----------------------+----------+
       |          ID          |         NAME         |     PRODUCT IDS      |  STATUS  |
       +----------------------+----------------------+----------------------+----------+
-      | fd84hanhvjqljepbgqr4 | disk-1-1668075122980 | f2ef3frbftr2f3hq3uji | READY    |
-      | fd85mc22cospn62qq5dg | disk-2-1669114692462 | f2ef3frbftr2f3hq3uji | READY    |
+      | fd84hanhvjql******** | disk-1-1668075122980 | f2ef3frbftr2******** | READY    |
+      | fd85mc22cosp******** | disk-2-1669114692462 | f2ef3frbftr2******** | READY    |
       +----------------------+----------------------+----------------------+----------+
       ```
 
@@ -90,8 +90,8 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
       Result:
       ```yaml
-      - id: fhm4aq4hvq5g3nepvt9b
-          folder_id: b1gm3og7ei7aegv8i73m
+      - id: fhm4aq4hvq5g********
+          folder_id: b1gm3og7ei7a********
           created_at: "2018-10-29T07:43:06Z"
           name: first-disk
           description: my first disk via yc
@@ -99,8 +99,8 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
           zone_id: {{ region-id }}-a
           size: "10737418240"
           status: READY
-      - id: fhmo6rdqg5folrc3lsaf
-          folder_id: b1gm3og7ei7aegv8i73m
+      - id: fhmo6rdqg5fo********
+          folder_id: b1gm3og7ei7a********
           created_at: "2018-10-29T07:33:04Z"
           name: second-disk
           description: my second disk via yc
@@ -108,11 +108,11 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
           zone_id: {{ region-id }}-a
           size: "8589934592"
           product_ids:
-          - f2en2dtd08b5la74mlde
+          - f2en2dtd08b5********
           status: READY
-          source_image_id: fdvk34al8k5nltb58shr
+          source_image_id: fdvk34al8k5n********
           instance_ids:
-          - fhm5b617fjnj44ovhcun
+          - fhm5b617fjnj********
       ```
 
 - API {#api}
@@ -122,7 +122,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
 {% endlist %}
 
-After creation, the disk will have the `CREATING` status. Wait until the disk status changes to `READY` before using it.
+Once created, the disk will get the `CREATING` status. Wait until the disk status changes to `READY` before using it.
 
 #### See also {#see-also}
 

@@ -122,7 +122,7 @@ resource "yandex_compute_disk" "boot-disk" {
   name     = "bootdisk"
   type     = "network-ssd"
   zone     = "{{ region-id }}-a"
-  size     = "24
+  size     = "24"
   image_id = yandex_compute_image.ubuntu-image.id
 }
 
@@ -138,7 +138,7 @@ resource "yandex_compute_instance" "vm-bitrix" {
   }
 
   boot_disk {
-    image_id = yandex_compute_disk.boot-disk.id
+    disk_id = yandex_compute_disk.boot-disk.id
   }
 
   network_interface {

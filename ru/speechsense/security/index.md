@@ -19,19 +19,33 @@ description: "Управление доступом в сервисе речев
 
 ### Сервисные роли {#service-roles}
 
-{% include [auditor](../../_includes/roles-speech-sense-auditor.md) %}
+#### speech-sense.auditor {#speechsense-auditor}
 
-{% include [viewer](../../_includes/roles-speech-sense-viewer.md) %}
+{% include [speechsense-auditor](../../_roles/speech-sense/auditor.md) %}
 
-{% include [editor](../../_includes/roles-speech-sense-editor.md) %}
+#### speech-sense.viewer {#speechsense-viewer}
 
-{% include [admin](../../_includes/roles-speech-sense-admin.md) %}
+{% include [speechsense-viewer](../../_roles/speech-sense/viewer.md) %}
 
-{% include [spaces-creator](../../_includes/roles-speech-sense-spaces-creator.md) %}
+#### speech-sense.editor {#speechsense-editor}
 
-{% include [data-viewer](../../_includes/roles-speech-sense-data-viewer.md) %}
+{% include [speechsense-editor](../../_roles/speech-sense/editor.md) %}
 
-{% include [data-editor](../../_includes/roles-speech-sense-data-editor.md) %}
+#### speech-sense.admin {#speechsense-admin}
+
+{% include [speechsense-admin](../../_roles/speech-sense/admin.md) %}
+
+#### speech-sense.spaces.creator {#speechsense-spaces-creator}
+
+{% include [speechsense-spaces-creator](../../_roles/speech-sense/spaces/creator.md) %}
+
+#### speech-sense.data.viewer {#speechsense-data-viewer}
+
+{% include [speechsense-data-viewer](../../_roles/speech-sense/data/viewer.md) %}
+
+#### speech-sense.data.editor {#speechsense-data-editor}
+
+{% include [speechsense-data-editor](../../_roles/speech-sense/data/editor.md) %}
 
 Пользователи с ролями вида `speech-sense.data.*` могут просматривать и оценивать содержимое документов, но не имеют доступа к агрегированной информации.
 

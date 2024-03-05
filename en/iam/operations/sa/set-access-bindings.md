@@ -210,10 +210,10 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 ## Examples {#examples}
 
-* [{#T}](#multiple-roles)
-* [{#T}](#impersonation)
-* [{#T}](#access-to-sa)
-* [{#T}](#access-to-all)
+* [{#T}](#multiple-roles).
+* [{#T}](#impersonation).
+* [{#T}](#access-to-sa).
+* [{#T}](#access-to-all).
 
 ### Assign multiple roles {#multiple-roles}
 
@@ -503,7 +503,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to, specified as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
    {% cut "Example of allowing the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
 
@@ -635,7 +635,7 @@ For example, allow any authenticated user to view information about the `my-robo
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the format `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to, specified as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
    {% cut "Example of allowing any authenticated user to view information about the `my-robot` service account" %}
 

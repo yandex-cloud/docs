@@ -47,6 +47,8 @@ items:
             href: operations/placement-groups/add-vm.md
           - name: Removing a VM from a placement group
             href: operations/placement-groups/delete-vm.md
+          - name: Getting information about a placement group
+            href: operations/placement-groups/placement-groups-get-info.md
           - name: Removing an instance group from a placement group
             href: operations/placement-groups/delete-ig-from-pg.md
       - name: Images with pre-installed software
@@ -69,7 +71,7 @@ items:
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
-          - name: Resetting a VM user password
+          - name: Resetting a Windows Server VM user password
             href: operations/vm-control/vm-reset-password.md
           - name: Attaching a disk to a VM
             href: operations/vm-control/vm-attach-disk.md
@@ -81,9 +83,9 @@ items:
             href: operations/vm-control/vm-change-folder.md
           - name: Moving a VM to another cloud
             href: operations/vm-control/vm-change-cloud.md
-          - name: Attaching a public IP address to a VM
+          - name: Assigning a public IP address to a VM
             href: operations/vm-control/vm-attach-public-ip.md
-          - name: Detaching a public IP address from a VM
+          - name: Removing a public IP address from a VM
             href: operations/vm-control/vm-detach-public-ip.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
@@ -95,6 +97,8 @@ items:
             href: operations/vm-control/vm-change-security-groups-set.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
+          - name: Changing VM maintenance policies
+            href: operations/vm-control/vm-update-policies.md
       - name: Working on VMs
         items:
           - name: Connecting to a VM via SSH
@@ -163,10 +167,14 @@ items:
         items:
           - name: Creating snapshots
             href: operations/disk-control/create-snapshot.md
+          - name: Getting information about a disk snapshot
+            href: operations/snapshot-control/get-snapshot.md
           - name: Deleting snapshots
             href: operations/snapshot-control/delete.md
           - name: Creating a snapshot schedule
             href: operations/snapshot-control/create-schedule.md
+          - name: Getting information about a disk snapshot schedule
+            href: operations/snapshot-control/get-snapshot-schedule.md
           - name: Changing a snapshot schedule
             href: operations/snapshot-control/update-schedule.md
           - name: Disabling and enabling a snapshot schedule
@@ -201,6 +209,8 @@ items:
         items:
           - name: Getting a list of images
             href: operations/image-control/get-list.md
+          - name: Getting information about an image
+            href: operations/image-control/image-control-get-info.md
           - name: Deleting a disk image
             href: operations/image-control/delete.md
           - name: Importing an image from another cloud or folder
@@ -239,7 +249,7 @@ items:
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating a fixed-size instance group with an L7 load balancer
             href: operations/instance-groups/create-with-load-balancer.md
-          - name: Creating an automatically scaled instance group
+          - name: Creating an autoscaling instance group
             href: operations/instance-groups/create-autoscaled-group.md
           - name: Creating an instance group from a Container Optimized Image
             href: operations/instance-groups/create-with-coi.md
@@ -313,7 +323,9 @@ items:
             href: operations/gpu-cluster/gpu-cluster-update.md
           - name: Deleting a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-delete.md
-      - name: Getting a list of operations with the service's resources
+          - name: Getting information about a GPU cluster
+            href: operations/gpu-cluster/gpu-cluster-get-info.md
+      - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
@@ -365,6 +377,8 @@ items:
             href: concepts/vm-statuses.md
           - name: Metadata
             href: concepts/vm-metadata.md
+          - name: VM maintenance policies
+            href: concepts/vm-policies.md
           - name: Resetting a Windows VM password
             href: concepts/guest-agent.md
       - name: Graphics accelerators
@@ -457,6 +471,10 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: From March 1 to May 1, 2019
             href: pricing-archive/pricing-30042019.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/compute/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -849,7 +867,11 @@ items:
                 href: api-ref/InstanceGroup/updateAccessBindings.md
               - name: updateFromYaml
                 href: api-ref/InstanceGroup/updateFromYaml.md
-  - name: Questions and answers
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md

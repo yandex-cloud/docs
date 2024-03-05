@@ -15,6 +15,8 @@ items:
             href: operations/network-delete.md
           - name: Изменить облачную сеть
             href: operations/network-update.md
+          - name: Получить информацию об облачной сети
+            href: operations/network-get-info.md
           - name: Изучить карту облачной сети
             href: operations/network-map.md
           - name: Перенести облачную сеть между каталогами
@@ -27,6 +29,8 @@ items:
             href: operations/subnet-delete.md
           - name: Изменить подсеть
             href: operations/subnet-update.md
+          - name: Получить информацию о подсети
+            href: operations/subnet-get-info.md
           - name: Перенести подсеть между каталогами
             href: operations/subnet-move.md
           - name: Перенести подсеть в другую зону доступности
@@ -80,6 +84,8 @@ items:
             href: operations/adjust-mtu-ddos-protection.md
       - name: График сетевых соединений
         href: operations/connections-view.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Все руководства

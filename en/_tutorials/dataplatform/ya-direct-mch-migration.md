@@ -69,9 +69,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare your {{ yandex-cloud }} infrastructure:
 
-   {% list tabs %}
+   {% list tabs group=resources %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a service account](../../iam/operations/sa/create.md) named `storage-lockbox-sa` and assign it the `storage.uploader` and `lockbox.payloadViewer` roles.
       1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the `storage-lockbox-sa` service account.
@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
       1. If you are using security groups in your {{ mch-name }} cluster, make sure they are [set up correctly](../../managed-clickhouse/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -151,9 +151,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create and configure [a function in the {{ sf-name }} service](../../functions/concepts/function.md):
 
-   {% list tabs %}
+   {% list tabs group=resources %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a function](../../functions/operations/function/function-create.md).
       1. In the editor that opens, select **Python** as the runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -178,7 +178,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}** and wait for the function to compile.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
@@ -226,15 +226,15 @@ You will see a Parquet file in the bucket.
 
 1. Create an endpoint for the target and the transfer:
 
-   {% list tabs %}
+   {% list tabs group=resources %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a {{ mch-name }} target endpoint](../../data-transfer/operations/endpoint/index.md#create) using the parameters of the cluster you created earlier.
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) that will use the created endpoints.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
@@ -290,9 +290,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-- Manually
+- Manually {#manual}
 
    * Target [endpoint](../../data-transfer/operations/endpoint/index.md#delete).
    * [{{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
@@ -301,7 +301,7 @@ Delete the other resources depending on how they were created:
    * [Secret in {{ lockbox-name }}](../../lockbox/operations/secret-delete.md).
    * [Service account](../../iam/operations/sa/delete.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. [Delete objects from the bucket](../../storage/operations/objects/delete.md).
    1. In the terminal window, go to the directory containing the infrastructure plan.

@@ -8,8 +8,8 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
    1. In the [management console]({{ link-console-main }}), change to the folder where you need to update a subnet.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. Click ![image](../../_assets/options.svg) next to the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
    1. Configure as appropriate.
    1. Click **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
 
@@ -142,7 +142,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       * Route table ID, in the `routeTableId` parameter.
       * DHCP options, in the `dhcpOptions` parameter.
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

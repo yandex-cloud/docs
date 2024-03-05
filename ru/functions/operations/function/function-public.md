@@ -20,7 +20,7 @@
     Чтобы сделать функцию публичной, выполните команду:
     
     ```
-    yc serverless function allow-unauthenticated-invoke <имя функции>
+    yc serverless function allow-unauthenticated-invoke <имя_функции>
     ```
 
     Результат:
@@ -31,7 +31,7 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

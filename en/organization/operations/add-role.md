@@ -1,12 +1,12 @@
 # Assigning a role to a user
 
-[Organization administrators and owners](add-org-admin.md) can assign roles in {{ org-full-name }}. You can assign users both roles for managing an organization and roles for your organization's connected cloud resources.
+[Organization administrators and owners](add-org-admin.md) can assign roles in {{ org-full-name }}. You can assign to users not just organization management roles but also roles for access to your organization's connected cloud resources.
 
-For information about roles available in {{ yandex-cloud }} and their associated permissions, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
+For information about roles available in {{ yandex-cloud }} and their associated permissions, see the {{ iam-full-name }} documentation, [{#T}](../../iam/roles-reference.md).
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
@@ -73,7 +73,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       Where:
 
       * `organization_id`: Organization ID.
-      * `role`: Role you wish to assign. For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
+      * `role`: Role you want to assign. For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
       * `members`: Array of the IDs of users to assign a role to:
 
          * `userAccount:<user_ID>`: User's Yandex account ID.

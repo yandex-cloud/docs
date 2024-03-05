@@ -11,7 +11,7 @@ To configure a file system with high availability:
 1. [Prepare an environment for deploying the resources](#setup-environment).
 1. [Deploy your resources](#deploy-resources).
 1. [Install and configure GlusterFS](#install-glusterfs).
-1. [Test the availability and fault tolerance of the solution](#test-glusterfs).
+1. [Test the solution for availability and fault tolerance](#test-glusterfs).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -95,7 +95,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Set up the CLI profile to execute operations on behalf of the service account:
+1. Set up the CLI profile to run operations on behalf of the service account:
 
    {% list tabs group=instructions %}
 
@@ -110,7 +110,7 @@ The infrastructure support costs include:
          ```
          Where:
          * `service-account-id`: ID of your service account.
-         * `folder-id`: ID of the folder the service account was created in.
+         * `folder-id`: ID of the folder in which the service account was created.
          * `output`: Name of the file with the authorized key.
 
          Result:
@@ -121,7 +121,7 @@ The infrastructure support costs include:
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to execute operations on behalf of the service account:
+      1. Create a CLI profile to run operations on behalf of the service account:
          ```
          yc config profile create sa-glusterfs
          ```

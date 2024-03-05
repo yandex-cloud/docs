@@ -186,6 +186,8 @@
      {"action":"convert", "src_url":"<ссылка_на_видео>"}
      ```
 
+     Где `<ссылка_на_видео>` — ссылка на сохраненный на [Яндекс Диске](https://disk.yandex.ru) видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14).
+
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** отобразится идентификатор задачи:
 

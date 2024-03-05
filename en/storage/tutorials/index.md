@@ -28,3 +28,6 @@ description: "This page provides a list of {{ objstorage-name }} tutorials."
 * [Training a model in {{ ml-platform-full-name }} on data from {{ objstorage-name }}](./s3-to-datasphere.md)
 * [Connecting to {{ objstorage-name }} from {{ vpc-short-name }}](./storage-vpc-access.md)
 
+
+* [{#T}](./object-storage-to-postgresql.md)
+* [{#T}](./object-storage-to-clickhouse.md)

@@ -35,6 +35,7 @@ title: "Контейнер в {{ serverless-containers-full-name }}"
 Можно [изменить](../operations/manage-revision.md#create) максимальное количество одновременных вызовов одного экземпляра контейнера и [указать](../operations/scaling-settings-add.md) количество подготовленных экземпляров контейнера.
 
 
+{% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md) %}
 
 
 ### Подготовленные экземпляры {#provisioned-instances}

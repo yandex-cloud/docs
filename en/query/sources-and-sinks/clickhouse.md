@@ -7,12 +7,11 @@ This section describes the basic information about working with [{{ mch-name }}]
 Example of reading data from {{ mch-name }}:
 
 ```sql
-SELECT * FROM clickhouse_mdb_connection.`my_db.my_table`
+SELECT * FROM clickhouse_mdb_connection.my_table
 ```
 
 Where:
 * `clickhouse_mdb_connection`: Name of the established database connection.
-* `my_db`: Name of the {{ CH }} database in the cluster.
 * `my_table`: Name of the table in the database.
 
 
@@ -37,8 +36,9 @@ To create a connection to {{ mch-name }}:
    1. Under **Connection type parameters**:
       * **Cluster**: Select an existing {{ mch-name }} cluster or create a new one.
       * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) in {{ mch-name }}, or create a new service account with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
+      * **Database**: Select the database you will use when working with the {{ CH }} cluster.
       * **Login**: Username to be used to connect to {{ CH }} databases.
-      * **Password**: User password that will be used to connect to {{ CH }} databases.
+      * **Password**: User password to be used to connect to {{ CH }} databases.
 
 
 1. Click **Create**.
@@ -56,12 +56,11 @@ But first allow network access from {{ yq-full-name }} to {{ mch-name }} cluster
 Here is the SQL query format used to access {{ CH }}:
 
 ```sql
-SELECT * FROM clickhouse_mdb_connection.`<db>.<table>`
+SELECT * FROM clickhouse_mdb_connection.<table>
 ```
 
 Where:
 * `clickhouse_mdb_connection`: Name of the established database connection.
-* `<db>`: Name of the {{ CH }} database in the cluster.
 * `<table>`: Name of the table in the database.
 
 ## Limitations {#limits}
@@ -79,12 +78,15 @@ Limitations:
 1. The maximum supported number of rows in a table is 1,000,000. If this value is exceeded, the query will terminate with an error.
 1. {% include [!](_includes/datetime_limits.md) %}
 
+## Filter pushdown {#predicate_pushdown}
+
+{% include [!](_includes/predicate_pushdown.md) %}
 
 ## Supported data types {#supported_types}
 
 Below is a table of correspondence between {{ CH }} types and {{ yq-full-name }} types.
 
-| Data type {{ CH }} | Data type {{ yq-full-name }} | Notes   |
+| Data type {{ CH }} | Data type {{ yq-full-name }} | Notes |
 |---|----|------|
 | `Bool` | `BOOL` | |
 | `Int8` | `INT8` | |

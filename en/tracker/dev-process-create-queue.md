@@ -7,20 +7,20 @@ We recommend that you create an independent queue for each of your development t
 To create a queue for a development team:
 
 
-1. If your organization doesn't work in {{ tracker-name }}, [connect the service](enable-tracker.md).
+1. If {{ tracker-name }} is not enabled for your organization yet, [connect the service](enable-tracker.md).
 
 1. Make sure all members of the development team have [full access to {{ tracker-name }}](access.md).
 
 
 1. [Create a queue of issues.](manager/create-queue.md) Select a queue [template](manager/workflows.md) with statuses and issue types that are best suited to your workflow:
 
-   - <q>Basic development model</q>: This template contains issue types and statuses that are most commonly used when developing programs and apps. A [simple issue board](#board_types) is created when you select this template.
+   - *Basic development model*: This template contains issue types and statuses most commonly used when developing programs and apps. A [simple issue board](#board_types) is created when you select this template.
 
-   - <q>Software development as a service</q>: This template provides an issue type called <q>Project</q> and a status that lets you coordinate approval of your performance with the client.
+   - *Software development as a service*: This template provides an issue type called *Project* and a status that allows you to get your performance approved with the customer.
 
-   - <q>Scrum</q>: This template is suitable for teams that work with [Scrum]({{ link-wiki-scrum }}). A [<q>Scrum</q> issue board](manager/agile.md#sec_boards.md) is created when you select this template.
+   - Scrum: This template is suitable for teams using [Scrum]({{ link-wiki-scrum }}). Selecting this template automatically creates a [Scrum issue board](manager/agile.md#sec_boards.md).
 
-   - <q>Kanban</q>: This template is suitable for teams that work with [Kanban]({{ link-wiki-kanban }}). A [simple <q>Kanban</q> issue board](manager/agile.md#sec_boards.md) is created when you select this template.
+   - Kanban: This template is suitable for teams using [Kanban]({{ link-wiki-kanban }}). Selecting this template automatically creates a [simple Kanban issue board](manager/agile.md#sec_boards.md).
 
    {% note info %}
 

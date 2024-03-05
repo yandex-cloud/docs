@@ -33,14 +33,16 @@ items:
         items:
           - name: Information about existing target groups
             href: operations/target-group-list.md
-          - name: Creating target group
+          - name: Creating a target group
             href: operations/target-group-create.md
-          - name: Attaching target group to a load balancer
+          - name: Attaching a target group to a load balancer
             href: operations/target-group-attach.md
-          - name: Detaching target group from a load balancer
+          - name: Detaching a target group from a load balancer
             href: operations/target-group-detach.md
-          - name: Deleting target group
+          - name: Deleting a target group
             href: operations/target-group-delete.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Concepts
     items:
       - name: Overview
@@ -51,7 +53,7 @@ items:
         href: concepts/listener.md
       - name: Target groups and resources
         href: concepts/target-resources.md
-      - name: Resource availability checks
+      - name: Health checks
         href: concepts/health-check.md
       - name: Implementation specifics
         href: concepts/specifics.md
@@ -67,9 +69,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/load-balancer/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -141,6 +147,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/network-load-balancer

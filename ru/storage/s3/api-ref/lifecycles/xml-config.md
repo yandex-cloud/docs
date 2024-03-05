@@ -10,6 +10,16 @@
         <ID>Описание правила</ID>
         <Status>{Enabled|Disabled}</Status>
         <Filter>
+            <And>
+                <ObjectSizeGreaterThan>минимальный размер объекта</ObjectSizeGreaterThan>
+                <ObjectSizeLessThan>максимальный размер объекта</ObjectSizeLessThan>
+                <Prefix>префикс ключа</Prefix>
+                <Tag>
+                    <Key>ключ метки</Key>
+                    <Value>значение метки</Value>
+                </Tag>
+                ...
+            </And>
             <ObjectSizeGreaterThan>минимальный размер объекта</ObjectSizeGreaterThan>
             <ObjectSizeLessThan>максимальный размер объекта</ObjectSizeLessThan>
             <Prefix>префикс ключа</Prefix>
@@ -60,11 +70,12 @@
 `Rule` | Описание правила.<br/><br/>Объекты, попадающие под действие правила задаются элементом `Filter`. Действия над объектами определяются элементами `Transition` и `Expiration`. Действий каждого типа может быть несколько.<br/><br/>Путь: `LifecycleConfiguration\Rule`.
 `ID` | Уникальный идентификатор правила.<br/><br/>Произвольный текст длиной до 255 символов, например "Удалить через 20 дней". Необязательный параметр, который можно использовать для поиска правила в конфигурации.<br/><br/>Если идентификатор не указан, то {{objstorage-name}} генерирует его автоматически.<br/><br/>Путь: `LifecycleConfiguration\Rule\ID`.
 `Status` | Статус правила.<br/><br/>Правило можно активировать, установив `<Status>Enabled</Status>`, или отключить, установив `<Status>Disabled</Status>`.<br/><br/>Путь: `LifecycleConfiguration\Rule\Status`.
-`Filter` | Фильтр объектов.<br/><br/>Содержит не более одного элемента каждого типа: `Prefix`, `ObjectSizeGreaterThan`, `ObjectSizeLessThan`, `Tag`.<br/><br/>Если установить пустой фильтр `<Filter></Filter>`, то правило применяется ко всем объектам в бакете.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter`.
+`Filter` | Фильтр объектов.<br/><br/>Содержит не более одного элемента каждого типа: `And`, `Prefix`, `ObjectSizeGreaterThan`, `ObjectSizeLessThan`, `Tag`.<br/><br/>Если установить пустой фильтр `<Filter></Filter>`, то правило применяется ко всем объектам в бакете.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter`.
 `ObjectSizeGreaterThan` | Минимальный размер объекта в байтах.<br/><br/>Под действие правила попадают объекты, размер которых больше или равен указанному.<br/><br/>Фильтр может содержать только один минимальный размер объекта.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\ObjectSizeGreaterThan`.
 `ObjectSizeLessThan` | Максимальный размер объекта в байтах.<br/><br/>Под действие правила попадают объекты, размер которых меньше или равен указанному.<br/><br/>Фильтр может содержать только один максимальный размер объекта.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\ObjectSizeLessThan`.
-`Prefix` | Префикс ключа.<br/><br/>Под действие правила попадают объекты с указанным префиксом ключа.<br/><br/>Примеры префиксов для ключа `some/long/object/key`: `some`, `some/`, `some/lo`.<br/><br/>Фильтр может содержать только один префикс.<br/><br/>Нельзя использовать совместно с фильтром `Tag`.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Prefix`.
-`Tag` | [Метка](../../../concepts/tags.md#object-tags) объекта<br/><br/>Под действие правила попадают объекты, которым присвоена указанная метка.<br/><br/>Фильтр может содержать только одну метку объекта.<br/><br/>Нельзя использовать совместно с фильтром `Prefix`.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Tag`.
+`Prefix` | Префикс ключа.<br/><br/>Под действие правила попадают объекты с указанным префиксом ключа.<br/><br/>Примеры префиксов для ключа `some/long/object/key`: `some`, `some/`, `some/lo`.<br/><br/>Фильтр может содержать только один префикс.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Prefix`.
+`Tag` | [Метка](../../../concepts/tags.md#object-tags) объекта<br/><br/>Под действие правила попадают объекты, которым присвоена указанная метка.<br/><br/>Фильтр может содержать только одну метку объекта.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Tag`.
+`And` | Логический оператор **И** (`AND`) для фильтров.<br/><br/>Может содержать любое сочетание следующих элементов: `Prefix`, `ObjectSizeGreaterThan`, `ObjectSizeLessThan`, `Tag`.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\And`.
 `Key` | Ключ метки объекта<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Tag\Key`.
 `Value` | Значение метки объекта<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Tag\Value`.
 `Transition` | Правило для изменения [класса хранилища](../../../concepts/storage-class.md) объекта.<br/><br/>Содержит элемент `StorageClass`, который определяет целевой класс хранилища, а также элемент `Date` или `Days`, который определяет срок исполнения действия.<br/><br/>Переместить объекты можно из стандартного (`STANDARD`) в холодное (`COLD`) или ледяное (`ICE`) хранилище, а также из холодного в ледяное хранилище.<br/><br/>Путь: `LifecycleConfiguration\Rule\Transition\`.

@@ -7,15 +7,15 @@ Applications use the OAuth 2.0 protocol to access {{ api-name }}.
 
 If your app is written in Python, you can use our [Python client](#section_about_python_client) with the API.
 
-In requests to the {{ api-short-name }} API, specify the following headers:
+In {{ api-short-name }} requests, specify the following headers:
 
 * `Host: {{ host }}`
 
-* `Authorization: OAuth <your OAuth token>`: If [OAuth 2.0](#section_about_OAuth) is used.
+* `Authorization: OAuth <OAuth_token>`: If [OAuth 2.0](#section_about_OAuth) is used.
 
-   `Authorization: Bearer <your IAM token>`: If an [IAM token](#iam-token) is used.
+   `Authorization: Bearer <IAM_token>`: If an [IAM token](#iam-token) is used.
 
-* `X-Org-ID or X-Cloud-Org-ID: <organization ID>`
+* `X-Org-ID or X-Cloud-Org-ID: <organization_ID>`.
 
    If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`.
 
@@ -49,7 +49,7 @@ To get access to {{ api-name }}:
    1. In your [Yandex OAuth]({{ link-OAuth }}) account, select the previously created application and copy its ID from the **ClientID** field. Next, generate a link to request a token:
 
       ```
-      {{ link-OAuth }}authorize?response_type=token&client_id=<application ID>
+      {{ link-OAuth }}authorize?response_type=token&client_id=<application_ID>
       ```
 
    1. Follow the link and copy the OAuth token.
@@ -108,10 +108,10 @@ To start using the client:
 
    ```
    from yandex_tracker_client import TrackerClient
-   client = TrackerClient(token=<token>, org_id=<org_id>)
+   client = TrackerClient(token=<OAuth_token>, org_id=<organization_ID>)
    ```
 
-   Here, `<token>` is your OAuth token and `<org_id>` is your organization ID.
+   Here, `<OAuth_token>` is your OAuth token and `<organization_ID>` is your organization ID.
 
 In the client, use the same data format as in the {{ tracker-name }} API.
 

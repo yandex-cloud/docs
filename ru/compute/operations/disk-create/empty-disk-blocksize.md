@@ -51,8 +51,8 @@ description: "Следуя данной инструкции, вы сможет�
 
         Результат:
         ```yaml
-        - id: fhmm0br99mig46rc0em0
-           folder_id: b1gb9jeqoiordtmv1lbo
+        - id: fhmm0br99mig********
+           folder_id: b1gb9jeqoior********
            created_at: "2021-01-11T09:35:05Z"
            name: big-disk
            description: 8k blocksize disk

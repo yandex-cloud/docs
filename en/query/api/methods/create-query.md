@@ -4,9 +4,9 @@ The method creates a data query and runs it. After that, the query status change
 
 {% include [!](../../_includes/api-common.md) %}
 
-## Request {#request}
+## Query {#request}
 
-`POST` request to `/queries?project={folder_id}`, where `{folder_id}` is the folder ID.
+`POST` query to `/queries?project={folder_id}`, where `{folder_id}` is the folder ID.
 
 The request body contains data in JSON format:
 
@@ -19,12 +19,12 @@ The request body contains data in JSON format:
 }
 ```
 
-| Field | Description | Acceptable values | Comment | Constraints |
+| Field | Description | Acceptable values | Comment | Limitations |
 | ----- | ----- | ----- | ----- | ----- |
-| `name` | Query name | | If the parameter is not specified, it's assigned the default name | Length should not exceed 1024 bytes |
-| `type` | Request type | `STREAMING` or `ANALYTICS` | The default value is `ANALYTICS` | |
-| `text` | Query text | String | Required | Length should be between 1 and 102400 bytes |
-| `description` | Query description | | The default value is an empty string | Length should not exceed 10240 bytes |
+| `name` | Query name | | If the parameter is not specified, it is assigned the default name. | The length must not exceed 1024 bytes. |
+| `type` | Query type | `STREAMING` or `ANALYTICS` | The default value is `ANALYTICS`. | |
+| `text` | Query text | String | Required | The length must be from 1 to 102400 bytes. |
+| `description` | Query description | | The default value is an empty string. | The length must not exceed 10240 bytes. |
 
 ## Response {#response}
 

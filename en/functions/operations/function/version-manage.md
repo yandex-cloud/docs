@@ -65,7 +65,7 @@ When creating a version, set the following parameters:
 
    * `--function-name`: Name of the function you want to create a version of.
    * `--runtime`: Runtime environment.
-   * `--entrypoint`: Entry point specified in `<filename_without_extension>`.`<handler_name>` format.
+   * `--entrypoint`: Entry point specified in `<file_name_without_extension>.<handler_name>` format.
    * `--memory`: Amount of RAM.
    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
    * `--source-path`: ZIP archive with the function code and required dependencies.
@@ -124,9 +124,9 @@ When creating a version, set the following parameters:
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
-          service_account_id = "<service account ID>"
+          service_account_id = "<service_account_ID>"
           content {
-              zip_filename = "<path to ZIP archive>"
+              zip_filename = "<ZIP_archive_path>"
           }
       }
       ```
@@ -169,7 +169,7 @@ When creating a version, set the following parameters:
    You can check the new version using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
-   yc serverless function version list --function-name <function name>
+   yc serverless function version list --function-name <function_name>
    ```
 
 - API {#api}
@@ -203,7 +203,7 @@ When creating a version, set the following parameters:
       Where:
       * `functionId`: ID of the function you want to create a version of.
       * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
-      * `entrypoint`: Entry point specified in `<filename_without_extension>`.`<handler_name>` format.
+      * `entrypoint`: Entry point specified in `<file_name_without_extension>.<handler_name>` format.
       * `memory`: Amount of RAM.
       * `executionTimeout`: Maximum function execution time before the timeout is reached.
       * `serviceAccountId`: ID of the service account with a [role](../../../storage/security/index.md#service-roles) that allows bucket data reads.

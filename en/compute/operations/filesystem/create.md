@@ -13,7 +13,7 @@ To create file [storage](../../concepts/filesystem.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a file storage.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
    1. Click **{{ ui-key.yacloud.compute.nfs.button_create-filesystem }}**.
    1. Name the storage.
 

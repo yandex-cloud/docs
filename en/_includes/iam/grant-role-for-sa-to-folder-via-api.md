@@ -1,7 +1,7 @@
 To assign the service account a role for a cloud or folder, use the `updateAccessBindings` REST API method for the [Cloud](../../resource-manager/api-ref/Cloud/index.md) or [Folder](../../resource-manager/api-ref/Folder/index.md) resource:
 
-1. Select the role to assign to the service account. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
-1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with service accounts.
+1. Select a role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
+1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the service accounts folder.
 1. [Get](../../iam/operations/iam-token/create.md) an IAM token required for authorization in the {{ yandex-cloud }} API.
 1. Get a list of folder service accounts to find out their IDs:
 
@@ -29,7 +29,7 @@ To assign the service account a role for a cloud or folder, use the `updateAcces
    }
    ```
 
-1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and the `roleId` property to the appropriate role, such as `{{ roles-editor }}`, and specify the `serviceAccount` type and service account ID in the `subject` property:
+1. Create the request body, for example, in the `body.json` file. Set the `action` property to `ADD` and the `roleId` property to the appropriate role, such as `{{ roles-editor }}`, and specify the `serviceAccount` type and service account ID in the `subject` property:
 
    **body.json:**
    ```json

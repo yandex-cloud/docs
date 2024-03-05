@@ -136,7 +136,6 @@ minute | **int64**<br>Minutes.
 Field | Description
 --- | ---
 rules[] | **[RetentionRule](#RetentionRule)**<br>A list of retention rules. 
-after_backup | **bool**<br>If true, retention rules will be applied after backup is finished. 
 before_backup | **bool**<br>If true, retention rules will be applied before backup is finished. 
 
 
@@ -169,6 +168,7 @@ Field | Description
 setting | **oneof:** `time` or `since_last_exec_time`<br>
 &nbsp;&nbsp;time | **[Time](#Time)**<br> 
 &nbsp;&nbsp;since_last_exec_time | **[SinceLastExecTime](#SinceLastExecTime)**<br> 
+type | enum **Type**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified 
 
 
 ### Time {#Time}
@@ -293,7 +293,6 @@ minute | **int64**<br>Minutes.
 Field | Description
 --- | ---
 rules[] | **[RetentionRule](#RetentionRule1)**<br>A list of retention rules. 
-after_backup | **bool**<br>If true, retention rules will be applied after backup is finished. 
 before_backup | **bool**<br>If true, retention rules will be applied before backup is finished. 
 
 
@@ -326,6 +325,7 @@ Field | Description
 setting | **oneof:** `time` or `since_last_exec_time`<br>
 &nbsp;&nbsp;time | **[Time](#Time1)**<br> 
 &nbsp;&nbsp;since_last_exec_time | **[SinceLastExecTime](#SinceLastExecTime1)**<br> 
+type | enum **Type**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified 
 
 
 ### Time {#Time1}
@@ -493,7 +493,6 @@ minute | **int64**<br>Minutes.
 Field | Description
 --- | ---
 rules[] | **[RetentionRule](#RetentionRule2)**<br>A list of retention rules. 
-after_backup | **bool**<br>If true, retention rules will be applied after backup is finished. 
 before_backup | **bool**<br>If true, retention rules will be applied before backup is finished. 
 
 
@@ -526,6 +525,7 @@ Field | Description
 setting | **oneof:** `time` or `since_last_exec_time`<br>
 &nbsp;&nbsp;time | **[Time](#Time2)**<br> 
 &nbsp;&nbsp;since_last_exec_time | **[SinceLastExecTime](#SinceLastExecTime2)**<br> 
+type | enum **Type**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified 
 
 
 ### Time {#Time2}
@@ -649,7 +649,6 @@ minute | **int64**<br>Minutes.
 Field | Description
 --- | ---
 rules[] | **[RetentionRule](#RetentionRule3)**<br>A list of retention rules. 
-after_backup | **bool**<br>If true, retention rules will be applied after backup is finished. 
 before_backup | **bool**<br>If true, retention rules will be applied before backup is finished. 
 
 
@@ -682,6 +681,7 @@ Field | Description
 setting | **oneof:** `time` or `since_last_exec_time`<br>
 &nbsp;&nbsp;time | **[Time](#Time3)**<br> 
 &nbsp;&nbsp;since_last_exec_time | **[SinceLastExecTime](#SinceLastExecTime3)**<br> 
+type | enum **Type**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified 
 
 
 ### Time {#Time3}

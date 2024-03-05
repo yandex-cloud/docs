@@ -117,7 +117,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       * `--issuer`: ID of the IdP server to be used for authentication.
 
-         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. This is a link in the format:
+         Use the link provided in the **Object ID** field on the **Google IdP information** page in Google Workspace. This is a link in the format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -133,7 +133,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `--sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+      * `--sso-binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -155,10 +155,10 @@ Do not close the page where you create an app in Google Workspace: you will get 
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
          ```
 
-      * `sso_binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+      * `sso_binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
-         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace ** Google IdP information** page. The link should have the following format:
+         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2/idp?idpid=<SAML_application_ID>
@@ -223,11 +223,11 @@ Do not close the page where you create an app in Google Workspace: you will get 
       ```json
       {
         "name": "my-federation",
-        "organizationId": "<organization ID>",
+        "organizationId": "<organization_ID>",
         "autoCreateAccountOnLogin": true,
         "cookieMaxAge":"43200s",
-        "issuer": "https://accounts.google.com/o/saml2?idpid=<SAML application ID>",
-        "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=<SAML application ID>",
+        "issuer": "https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>",
+        "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=<SAML_application_ID>",
         "ssoBinding": "POST",
         "securitySettings": {
           "forceAuthn": true
@@ -244,7 +244,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -253,19 +253,19 @@ Do not close the page where you create an app in Google Workspace: you will get 
          Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
-         https://accounts.google.com/o/saml2?idpid=<SAML app ID>
+         https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
          ```
       * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
 
-         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace ** Google IdP information** page. The link should have the following format:
+         Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
-         https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
+         https://accounts.google.com/o/saml2/idp?idpid=<SAML_application_ID>
          ```
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+      * `ssoBinding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -428,7 +428,7 @@ The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If t
 
 If you did not enable the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
-To do this, you will need user name IDs. They are returned by the IdP server along with a response confirming successful authentication.
+To do this, you will need user name IDs. They are returned by the IdP server together with a response confirming successful authentication.
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 

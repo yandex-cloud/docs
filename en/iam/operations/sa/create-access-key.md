@@ -1,6 +1,6 @@
 # Creating static access keys
 
-This guide will instruct you how to create [static access keys](../../concepts/authorization/access-key.md) for a [service account](../../concepts/users/service-accounts.md).
+Follow this guide to learn how to create [static access keys](../../concepts/authorization/access-key.md) for a [service account](../../concepts/users/service-accounts.md) when using [services](../../concepts/authorization/access-key.md#supported-services) that support this authorization method.
 
 If you do not have a service account yet, [create one](create.md) and [assign roles to it](assign-role-for-sa.md).
 
@@ -20,7 +20,7 @@ To create a static access key:
 
       {% note alert %}
 
-      Once you close the dialog, the private key value will be unavailable.
+      After you close the dialog, the private key value will become unavailable.
 
       {% endnote %}
 
@@ -36,7 +36,7 @@ To create a static access key:
       yc iam access-key create --help
       ```
 
-   1. Select a service account (for example, `my-robot`):
+   1. Select a service account, e.g., `my-robot`:
 
       ```bash
       yc iam service-account list
@@ -131,7 +131,7 @@ To create a static access key:
 
 ## Examples {#examples}
 
-### Add a description when creating {#add-description}
+### Add a description when creating a service account {#add-description}
 
 Add a description when creating an access key.
 

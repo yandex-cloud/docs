@@ -18,10 +18,10 @@ To control access to individual fields or their values, use [RLS](./row-level-se
 
 
 
-Permissions can be assigned to individual users or the **All** group that includes users who passed [authentication](../../iam/concepts/authorization/index.md#authentication). Users can also request permissions on their own via the request form. For more information, see [{#T}](../operations/permission/request.md).
+Permissions can be granted to individual users or the **All** group that includes users who passed [authentication](../../iam/concepts/authorization/index.md#authentication). Users can also request permissions on their own via the request form. For more information, see [{#T}](../operations/permission/request.md).
 
 
-You can assign the following permissions to objects and directories in {{ datalens-short-name }}:
+You can grant the following permissions to objects and directories in {{ datalens-short-name }}:
 
 * [{{ permission-execute }}](#permission-execute)
 * [{{ permission-read }}](#permission-read)
@@ -112,7 +112,7 @@ The `{{ permission-admin }}` permission includes everything included in the `{{ 
 
 {% note info %}
 
-Duplicating (copying) a folder and a connection with any permissions.
+You cannot duplicate (copy) a folder and a connection with any permissions.
 
 {% endnote %}
 

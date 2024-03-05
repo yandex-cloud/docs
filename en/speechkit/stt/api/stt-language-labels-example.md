@@ -31,9 +31,9 @@ To implement an example from this section:
 
 1. Create a client application:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Python 3
+   - Python 3 {#python}
 
       1. Install the `grpcio-tools` package using the [pip](https://pip.pypa.io/en/stable/) package manager:
 

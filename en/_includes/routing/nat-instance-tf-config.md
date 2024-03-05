@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for custom parameters
+# Declaring variables for user-defined parameters
 
 variable "folder_id" {
   type = string
@@ -30,7 +30,7 @@ locals {
   route_table_name = "nat-instance-route"
 }
 
-# Setting up the provider
+# Provider configuration
 
 terraform {
   required_providers {
@@ -102,7 +102,7 @@ resource "yandex_vpc_security_group" "nat-instance-sg" {
   }
 }
 
-# Adding a ready-made VM image
+# Adding a ready-to-use VM image
 
 resource "yandex_compute_image" "ubuntu-1804-lts" {
   source_family = "ubuntu-1804-lts"
@@ -110,6 +110,24 @@ resource "yandex_compute_image" "ubuntu-1804-lts" {
 
 resource "yandex_compute_image" "nat-instance-ubuntu" {
   source_family = "nat-instance-ubuntu"
+}
+
+# Creating boot disks
+
+resource "yandex_compute_disk" "boot-disk-ubuntu" {
+  name     = "boot-disk-ubuntu"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.ubuntu-1804-lts.id
+}
+
+resource "yandex_compute_disk" "boot-disk-nat" {
+  name     = "boot-disk-nat"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "20"
+  image_id = yandex_compute_image.nat-instance-ubuntu.id
 }
 
 # Creating a VM
@@ -126,9 +144,7 @@ resource "yandex_compute_instance" "test-vm" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.ubuntu-1804-lts.id
-    }
+    disk_id = yandex_compute_disk.boot-disk-ubuntu.id
   }
 
   network_interface {
@@ -155,9 +171,7 @@ resource "yandex_compute_instance" "nat-instance" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.nat-instance-ubuntu.id
-    }
+    disk_id = yandex_compute_disk.boot-disk-nat.id
   }
 
   network_interface {
@@ -171,7 +185,7 @@ resource "yandex_compute_instance" "nat-instance" {
   }
 }
 
-# Creating a route table and a static route
+# Creating a routing table and a static route
 
 resource "yandex_vpc_route_table" "nat-instance-route" {
   name       = "nat-instance-route"

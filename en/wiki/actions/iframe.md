@@ -15,7 +15,7 @@ The `iframe` block enables you to add other pages, objects, audio clips, or vide
 
 | Parameter | Description |
 --- | ---
-| `src` | Required parameter. Contains the address of the object. |
+| `src` | This is a required parameter. Contains the address of the object. |
 | `width` | Indicates the width of the iframe in pixels or as a percentage of the page width. |
 | `height` | Indicates the height of the iframe in pixels. |
 | `frameborder` | Indicates if there is an iframe border. |

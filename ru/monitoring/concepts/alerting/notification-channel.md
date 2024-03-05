@@ -17,9 +17,8 @@
   {% endnote %}
 
 * **{{ ui-key.yacloud_monitoring.channel.field_method }}**. Метод, с помощью которого пользователи получат уведомление. Поддерживаются следующие методы уведомлений:
-  - `{{ ui-key.yacloud_monitoring.channel.title_method-email }}`;
-  - `{{ ui-key.yacloud_monitoring.channel.title_method-sms }}`;
-  - `{{ ui-key.yacloud_monitoring.channel.title_method-push }}` (в [мобильном приложении](../../../overview/mobile-app/index.md) {{ yandex-cloud }}).
+
+  {% include [channels](../../../_includes/monitoring/channels.md) %}
 
 После создания канала доступны дополнительные параметры:
 
@@ -35,3 +34,7 @@
 `{{ ui-key.yacloud_monitoring.channel.status-description_success }}` | Уведомление успешно отправлено.
 `{{ ui-key.yacloud_monitoring.channel.status-description_error }}` | Не удалось отправить уведомление из-за ошибки.
 `{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Не удалось отправить уведомление из-за ограничения метода отправки.
+
+## См. также
+
+* [Создание канала уведомлений](../../operations/alert/create-channel.md)

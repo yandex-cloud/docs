@@ -13,7 +13,7 @@ description: "В данной статье описаны особенности
 
 ## Формат запроса {#post-request-format}
 
-```xml
+```httpget
 https://yandex.<домен>/search/xml
   ? [folderid=<идентификатор_каталога>]
   & [filter=<тип_фильтрации>]
@@ -39,19 +39,22 @@ https://yandex.<домен>/search/xml
 <?xml version="1.0" encoding="<кодировка_XML-файла>"?>
 <request>
 <!--Группирующий тег-->
-   <query>
-   <!--Текст поискового запроса-->
-   </query>
-   <sortby>
-   <!--Тип сортировки результатов поиска-->
-   </sortby>
-   <groupings>
-   <!--Параметры группировки в дочерних тегах-->
-      <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="1" />
-   </groupings>
-   <page>
-   <!--Номер запрашиваемой страницы результатов поиска-->
-   </page>
+  <query>
+     <!--Текст поискового запроса-->
+  </query>
+  <sortby order="<!--порядок сортировки документов-->">
+     <!--Тип сортировки результатов поиска-->
+  </sortby>
+  <groupings>
+    <!--Параметры группировки в дочерних тегах-->
+    <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="1" />
+  </groupings>
+  <maxpassages>
+    <!--максимальное количество пассажей-->
+  </maxpassages>
+  <page>
+    <!--Номер запрашиваемой страницы результатов поиска-->
+  </page>
 </request>
 ```
 
@@ -83,12 +86,12 @@ https://yandex.<домен>/search/xml
 
 ## Пример POST-запроса {#example-post-request}
 
-Приведенные ниже URL и тело запроса возвращают третью страницу результатов поиска по запросу `<table>` для пользователя `xml-search-user`. Результаты сортируются по времени редактирования документа. Тип поиска — `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Результаты группируются по домену. Каждая группа содержит три документа, а количество групп, возвращаемых на одной странице, равно десяти. Максимальное количество пассажей на один документ — два. Сервис возвращает XML-файл в кодировке UTF-8.
+Приведенные ниже URL и тело запроса возвращают пятую страницу результатов поиска по запросу `<table>`. Результаты сортируются по времени редактирования документа в порядке от наиболее свежего к наиболее старому. Тип поиска — `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Регион поиска — Новосибирская область. К результатам поиска применен семейный фильтр. Результаты группируются по домену. Каждая группа содержит три документа, а количество групп, возвращаемых на одной странице, равно десяти. Максимальное количество пассажей на один документ — два. Сервис возвращает XML-файл в кодировке UTF-8.
 
 URL запроса:
 
 ```httpget
-https://yandex.ru/search/xml?user=xml-search-user`&`key=03.44583456:c876e1b098gh65khg834ggg1jk4ll9j8
+https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru
 ```
 
 Тело запроса:
@@ -96,12 +99,12 @@ https://yandex.ru/search/xml?user=xml-search-user`&`key=03.44583456:c876e1b098gh
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <request>
-<query>%3Ctable%3E</query>
-      <sortby>tm</sortby>
-      <maxpassages>2</maxpassages>
-      <page>2</page>
-      <groupings>
-      <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="3" />
-</groupings>
+  <query>&lt;table&gt;</query>
+  <sortby order="descending">tm</sortby>
+  <maxpassages>2</maxpassages>
+  <page>5</page>
+  <groupings>
+    <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="3" />
+  </groupings>
 </request>
 ```

@@ -1,6 +1,6 @@
-# Передача данных в эндпоинт-приемник {{ objstorage-name }}
+# Передача данных в эндпоинт-приемник {{ objstorage-full-name }}
 
-С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в хранилище {{ objstorage-name }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в хранилище {{ objstorage-full-name }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Настройте один из поддерживаемых источников данных](#supported-sources).
@@ -9,7 +9,7 @@
 1. Выполняйте необходимые действия по работе с хранилищем и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../../data-transfer/troubleshooting/index.md) по их устранению.
 
-## Сценарии передачи данных в {{ objstorage-name }} {#scenarios}
+## Сценарии передачи данных в {{ objstorage-full-name }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
@@ -43,6 +43,8 @@
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}** — имя [бакета](../../../../storage/concepts/bucket.md), в который будут загружаться данные из источника.
 
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}** — имя папки объекта. Поддерживает шаблон раскладки данных по дате. Пример: `2006/01/02/<имя_папки>`.
+
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с ролью `storage.uploader`, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../../../data-streams/).
 
 
@@ -51,8 +53,6 @@
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}** — преобразование комплексных значений в строки для выходного формата `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — сжатие выходных данных, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.GZIP.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
-
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}** — имя папки для размещения файлов. Поддерживает шаблон раскладки данных по дате, например `2006/01/02/<имя_каталога>`.
 
 ### Расширенные настройки {#additional-settings}
 

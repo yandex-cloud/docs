@@ -11,7 +11,7 @@ To select data from all columns, use the SELECT statement:
 SELECT  -- Data selection operator.
     *   -- Select all columns.
 FROM
-    bindings.`tutorial-analytics`
+    `tutorial-analytics`
 ```
 
 Take a look at the block on the right and click ![run](../../_assets/console-icons/play-fill.svg) **Run**.

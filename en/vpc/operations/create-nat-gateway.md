@@ -5,6 +5,8 @@ description: "Follow this guide to create and set up a NAT gateway."
 
 # Setting up a NAT gateway
 
+The minimum required [roles](../security/#roles-list) to create and configure a NAT gateway are `vpc.admin` and `vpc.gateways.user`.
+
 To create and set up a NAT gateway:
 
 {% list tabs group=instructions %}
@@ -32,8 +34,8 @@ To create and set up a NAT gateway:
 
    Next, link the route table to a subnet to route traffic from it via the NAT gateway:
 
-   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. In the required subnet row, click ![image](../../_assets/options.svg).
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. In the required subnet row, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -78,13 +80,12 @@ To create and set up a NAT gateway:
       yc vpc route-table create \
         --name=test-route-table \
         --network-name=<network_name> \
-        --route destination=0.0.0.0/0,`
-                gateway-id=enpkq1v2e7p0********
+        --route destination=0.0.0.0/0,gateway-id=enpkq1v2e7p0********
       ```
 
       Where `--network-name` is the name of the network in which you are creating the table.
 
-   1. Link the table to the subnet:
+   1. Associate the table with the subnet:
 
       ```bash
       yc vpc subnet update <subnet_name> \
@@ -108,18 +109,20 @@ To create and set up a NAT gateway:
    resource "yandex_vpc_subnet" "subnet" {
      folder_id      = "<folder_ID>"
      name           = "<subnet_name>"
-     v4_cidr_blocks = "10.20.30.0/24"
+     v4_cidr_blocks = ["10.20.30.0/24"]
      zone           = {{ region-id }}-a
      network_id     = data.yandex_vpc_network.net.id
      route_table_id = yandex_vpc_route_table.rt.id
    }
 
    resource "yandex_vpc_gateway" "nat_gateway" {
+     folder_id      = "<folder_ID>"
      name = "test-gateway"
      shared_egress_gateway {}
    }
 
    resource "yandex_vpc_route_table" "rt" {
+     folder_id      = "<folder_ID>"
      name       = "test-route-table"
      network_id = "<network_ID>"
 

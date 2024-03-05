@@ -52,16 +52,32 @@ description: "{{ managed-prometheus-full-name }} — система монито
 * Не поддерживаются `recording rules` и `alerting rules`.
 * Не поддерживаются `staleness markers`, `exemplars` и `native histograms`.
 
-## Лимиты для одного эндпоинта {#limits-per-endpoint}
+## Квоты и лимиты {#limits}
 
-Лимиты, указанные ниже, не являются техническими ограничениями системы и могут быть увеличены по запросу в [техническую поддержку]({{ link-console-support }}).
+В {{ managed-prometheus-full-name }} действуют следующие ограничения:
 
-* 350 запросов/с и 5 МБ/с на запись в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).
-* 10000 метрик в одном запросе на запись.
-* 100 запросов в секунду на чтение через [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api).
-* 100 запросов в секунду на чтение через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
-* 1 миллион уникальных метрик.
-* 29 уникальных меток для одной метрики.
-* [Устаревшие метрики](../../concepts/ttl.md) удаляются через 60 дней.
+{% include [quotes-limits-def.md](../../../_includes/quotes-limits-def.md) %}
+
+### Квоты для одного эндпоинта {#quotas-per-endpoint}
+
+Вид ограничения | Значение
+----- | -----
+Максимальная скорость записи в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | 500 запросов/с и 20 МБ/с
+Количество метрик в одном запросе на запись | 10000
+Количество запросов в секунду на чтение через [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) | 100
+Количество запросов в секунду на чтение через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) | 100
+Количество уникальных метрик | 10 000 000
+Максимальное время хранения [устаревших метрик](../../concepts/ttl.md) | 60 дней
+
+На вкладке **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** справа находится блок **{{ ui-key.yacloud_monitoring.prometheus.approved.widget-monitoring.title }}**. С помощью него можно:
+
+* посмотреть количество записанных метрик;
+* перейти на страницу с сервисными [дашбордами](../../concepts/visualization/dashboard) и посмотреть количество запросов, ошибок и HTTP-статусов в секунду для разных эндпоинтов.
+
+### Лимиты для одного эндпоинта {#limits-per-endpoint}
+
+Вид ограничения | Значение
+----- | -----
+Количество уникальных меток для одной метрики | 29
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

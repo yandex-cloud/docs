@@ -11,7 +11,7 @@ description: "In this tutorial, you will learn how to set up a {{ ydb-name }} ta
 1. [Prepare the {{ ydb-name }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform required operations with the database(../../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [control the transfer](../../monitoring.md).
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data to {{ ydb-name }} {#scenarios}
@@ -56,7 +56,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 
@@ -81,6 +81,8 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
       If the setting is specified, the `_shard_col` column is added to tables. The values in it are calculated as the remainder of `H/N`, where `H` is the result of the hash function at the current time and `N` is the number of shards specified by the setting.
 
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.default_compression.title }}**: Set the `COMPRESSION` setting for the default column group (FAMILY default).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory](https://ydb.tech/en/docs/concepts/datamodel/dir) to place tables in.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.partition_policy.title }}**:
 
@@ -92,7 +94,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.keep_part_count.title }}**: Required number of tables in the target database.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Split (_partition_) a table by the specified column's values. The column must be of the <q>time</q> type.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Split (_partition_) a table by the specified column's values. The column must be of the **time** type.
 
             
             For more information about table partitioning, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel/table#partitioning) documentation.
@@ -102,9 +104,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}**: Fill it in if you need to rename tables in the source database when transferring data to the target database.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory](https://ydb.tech/en/docs/concepts/datamodel/dir) to place tables in.
-
-        The table path you should get is `<path_in_Yandex_Database>/<subdirectory>/<table>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}**: Select this option to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used.
 
 {% endlist %}
 

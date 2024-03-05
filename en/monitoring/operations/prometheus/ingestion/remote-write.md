@@ -17,15 +17,15 @@ To set up metric writes via the Remote API with Prometheus used as an agent for 
    ...
    remote_write:
      ...
-     - url: '<url>' # Provided on request
+     - url: '<url>' # Provided upon request
        bearer_token: '<api_key>'
-       # Or via a file (recommended):
-       # bearer_token_file: '<name of file with api_key>'
+       # Or through a file (recommended):
+       # bearer_token_file: '<api_key_file_name>'
        queue_config:
-           max_samples_per_send: 1000
+           max_samples_per_send: 2000 # 10000 if using vmagent
            min_backoff: 100ms
            max_backoff: 15s
-           # for Prometheus 2.26 or higher
+           # for Prometheus 2.26 and later
            # retry_on_http_429: true
        metadata_config:
            send: false

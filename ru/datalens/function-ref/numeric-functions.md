@@ -11,7 +11,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/numeric-functions.md
 
 **Синтаксис:**`ABS( number )`
 
-Возвращает абсолюное значение заданного числа `number`.
+Возвращает абсолютное значение заданного числа `number`.
 
 
 

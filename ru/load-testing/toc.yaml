@@ -22,6 +22,8 @@ items:
         href: operations/regressions.md
       - name: Сохранить артефакты теста в {{ objstorage-name }}
         href: operations/save-artifacts.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Нагрузочное тестирование gRPC-сервиса
@@ -84,6 +86,8 @@ items:
         href: concepts/load-test-results.md
       - name: Сравнение результатов нагрузочных тестов
         href: concepts/load-tests-compare.md
+      - name: Артефакты тестирования
+        href: concepts/artifacts.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -158,6 +162,8 @@ items:
                 href: user/api-ref/Test/list.md
               - name: stop
                 href: user/api-ref/Test/stop.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Обучающие курсы
     href: training.md
 base: ru/load-testing

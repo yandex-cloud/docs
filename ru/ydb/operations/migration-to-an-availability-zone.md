@@ -42,7 +42,7 @@ Dedicated БД располагается в нескольких [зонах д
 
       1. Примените изменения:
 
-         {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    {% endlist %}
 

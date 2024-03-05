@@ -5,9 +5,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Открытие публичного доступа к операциям с бакетом
 
-По умолчанию бакеты создаются с ограниченным [доступом](../../concepts/bucket.md#bucket-access). С помощью консоли управления вы можете открыть публичный доступ:
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
+По умолчанию бакеты создаются с ограниченным [доступом](../../concepts/bucket.md#bucket-access). Вы можете открыть публичный доступ:
 
 {% include [storage-public-operations](../../_includes_service/storage-public-operations.md) %}
+
+{% include [public-access-warning](../../../_includes/storage/security/public-access-warning.md) %}
 
 {% list tabs group=instructions %}
 
@@ -85,7 +89,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}

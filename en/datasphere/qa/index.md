@@ -5,6 +5,8 @@ description: "How do I get {{ ml-platform-full-name }} activity logs? Find the a
 
 # General questions about {{ ml-platform-name }}
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 {% include [logs](../../_qa/logs.md) %}
 
 {% include [personal-data](../../_qa/personal-data.md) %}
@@ -57,3 +59,23 @@ When opening a project in the IDE, {{ ml-platform-name }} redirects your request
 #### My browser asks me to grant access to a {{ jlab }}Lab host. How do I do that? {#access}
 
 The message is triggered by an experimental option in Google Chrome, which implements the storage access API. To disable it, type `chrome://flags` in the browser address bar, find **Storage Access API** in the search bar below, and change the option status to **Disabled**.
+
+#### How do I deploy a Hugging Face model in {{ ml-platform-name }}? {#huggingface}
+
+Some libraries download models to predefined folders by default. Models may not be available for import if the folder they were downloaded to is not located in the project repository. To avoid this, choose a correct download directory and specify it when importing a model:
+
+```python
+cache_dir="/home/jupyter/datasphere/project/huggingface_cache_dir/"
+
+config = AutoConfig.from_pretrained("<model_name>", cache_dir=cache_dir)
+model = AutoModel.from_pretrained("<model_name>", config=config, cache_dir=cache_dir)
+```
+
+To avoid specifying the directory's path every time, you can provide it in an environment variable. Make sure you do this at the very start of the notebook, prior to importing libraries:
+
+```python
+import os
+os.environ['TRANSFORMERS_CACHE'] = '/home/jupyter/datasphere/project/huggingface_cache_dir/'
+```
+
+In addition, you can configure a model to operate in offline mode by referring to the [official Hugging Face documentation](https://huggingface.co/docs/transformers/installation#fetch-models-and-tokenizers-to-use-offline).

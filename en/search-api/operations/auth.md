@@ -18,7 +18,7 @@ API keys do not expire. If your key might have been compromised, invalidate it a
      Authorization: Api-Key <API key>
      ```
 
-   * For [GET requests](../concepts/get-request.md), provide the folder ID and API key values in the `folderid` and `apikey` request fields, respectively:
+   * For [GET requests](../concepts/get-request.md), provide the folder ID and API key values in the `folderid` and `apikey` fields of the request, respectively:
 
      ```curl
      curl 'https://yandex.ru/search/xml?folderid=<folder_ID>&apikey=<API_key_value>&query=<search_query_text>'

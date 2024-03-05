@@ -7,8 +7,8 @@ description: "Follow this guide to use asynchronous OggOpus audio file recogniti
 
 Here are examples of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md). These examples use the following parameters:
 
-* [Language](../models.md#languages): Russian
-* Audio stream format: [OggOpus](../../formats.md#OggOpus) with an OPUS file
+* [Language](../models.md#languages): Russian.
+* Audio stream format: [OggOpus](../../formats.md#OggOpus) with an OPUS file.
 * Other parameters left by default.
 
 You can generate and send a speech recognition request using the [cURL](https://curl.haxx.se) utility or a Python script.
@@ -19,7 +19,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
 {% include [transcribation-before-you-begin](../../../_includes/speechkit/transcribation-before-you-begin.md) %}
 
-If you do not have an OggOpus audio file, you can download a [sample file](https://{{ s3-storage-host }}/doc-files/speech.ogg).
+If you do not have an OggOpus audio file, you can download a [sample file](https://{{ s3-storage-host }}/doc-files/speechkit-ogg.ogg).
 
 ## Perform speech recognition via the API {#recognize-using-api}
 
@@ -201,6 +201,16 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
       ```
 
 {% endlist %}
+
+## Troubleshooting {#troubleshooting}
+
+In case you get a null, an empty file, or the `Invalid audio received` error, check the codec your file is encrypted with. To recognize a file correctly, changing its extension is not enough.
+
+Use [FFmpeg](https://ffmpeg.org/) to convert an OGG file into the supported OggOpus format:
+
+```bash
+ffmpeg -i audio.ogg -c:a libopus -b:a 65536 audio_new.ogg
+```
 
 #### See also {#see-also}
 

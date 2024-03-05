@@ -74,15 +74,15 @@ Incorrect settings may cause the cluster to fail.
    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.auth.auth-providers }}** tab.
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Create an authentication provider:
-      * **{{ ui-key.yacloud.elasticsearch.auth.provider-type }}**: `SAML`.
+      * **{{ ui-key.yacloud.elasticsearch.auth.provider-type }}**: `SAML`
 
-      * **{{ ui-key.yacloud.common.name }}**: Provider name.
+      * **{{ ui-key.yacloud.common.name }}**: Provider name
 
       * **{{ ui-key.yacloud.common.description }}**: Provider description.
 
-      * **{{ ui-key.yacloud.elasticsearch.auth.provider-hint }}**: Login hint.
+      * **{{ ui-key.yacloud.elasticsearch.auth.provider-hint }}**: Login hint
 
-      * **{{ ui-key.yacloud.elasticsearch.auth.provider-icon }}**: Provider icon.
+      * **{{ ui-key.yacloud.elasticsearch.auth.provider-icon }}**: Provider icon
 
       * Select **{{ ui-key.yacloud.elasticsearch.auth.provider-enabled }}**.
 

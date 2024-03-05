@@ -41,9 +41,9 @@
      yc certificate-manager certificate list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
-     ```bash
+     ```text
      +----------------------+--------+-------------+---------------------+----------+--------+
      |          ID          |  NAME  |   DOMAINS   |      NOT AFTER      |   TYPE   | STATUS |
      +----------------------+--------+-------------+---------------------+----------+--------+
@@ -65,9 +65,9 @@
      * `--chain` — путь к файлу новой цепочки сертификатов.
      * `--key` — путь к файлу нового закрытого ключа сертификата.
 
-     Результат выполнения команды:
+     Результат:
 
-     ```bash
+     ```text
      id: fpqmg47avvim********
      folder_id: b1g7gvsi89m3********
      created_at: "2020-09-15T06:54:44.916Z"
@@ -85,7 +85,7 @@
 
      {% cut "Пример описания сертификата в конфигурации {{ TF }}" %}
 
-     ```
+     ```hcl
      ...
      resource "yandex_cm_certificate" "imported-certificate" {
        name        = "my-certificate"
@@ -111,13 +111,13 @@
 
   1. Примените изменения:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  Проверить изменение сертификата можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+  Проверить изменение сертификата можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
-    ```bash
-    yc certificate-manager certificate get <имя_сертификата>
-    ```
+  ```bash
+  yc certificate-manager certificate get <имя_сертификата>
+  ```
 
 - API {#api}
 

@@ -69,7 +69,7 @@ Aggregation function is applied to the [test query](#request) calculation result
 | **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.at-all-times }}** | All metric values in the query exceed the thresholds set in the specified period. |
 | **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.avg }}** | Calculates an average value for each metric in the specified period. For example, if a query returns two metrics, {{ monitoring-short-name }} calculates an average value for each of them in the specified window. |
 | **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.count }}** | Calculates the number of metric values in the specified period. |
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.last-non-nan }}** | Uses the latest metric value in the specified period. If {{ monitoring-full-name }} could not obtain the metric value, it changes the alert status to `No Data`. |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.last-non-nan }}** | Uses the latest metric value in the specified period. If {{ monitoring-full-name }} could not obtain the metric value, it changes the alert status to `{{ ui-key.yacloud_monitoring.alert.status_no_data }}`. |
 | **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.max }}** | Uses the maximum metric value in the specified period. |
 | **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.min }}** | Uses the minimum metric value in the specified period. |
 | **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.sum }}** | Calculates the sum of values for each metric in the specified period. |

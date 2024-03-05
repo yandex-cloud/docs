@@ -26,7 +26,7 @@
     Чтобы сделать функцию приватной, выполните команду:
 
     ```
-    yc serverless function deny-unauthenticated-invoke <имя функции>
+    yc serverless function deny-unauthenticated-invoke <имя_функции>
     ```
 
     Результат:

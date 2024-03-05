@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to set up a trigger action."
 
 # Configuring trigger actions
 
-Configure one or more actions under **Actions** by clicking **Add new action**.
+Configure one or more actions under **Trigger action** by clicking **Add action**:
 
 - [Change issue status](set-action.md#section_change_status)
 - [Update fields](set-action.md#section_mod_fields)
@@ -16,14 +16,14 @@ Configure one or more actions under **Actions** by clicking **Add new action**.
 - [Create issue](set-action.md#sec_create_issue)
 - [HTTP request](set-action.md#create-http)
 
-## Change issue status {#section_change_status}
+## Changing issue status {#section_change_status}
 
 Set a new issue status. The available statuses depend on the [workflow](../manager/workflow-status-edit.md) settings.
 
-If you set up a [transition screen](../manager/workflow-action-edit.md#section_uf2_sks_gcb) for a status update, make sure it doesn't have required fields. Otherwise, it won't be possible to change the status using a trigger.
+If you set up a [transition screen](../manager/workflow-action-edit.md#section_uf2_sks_gcb) for a status update, make sure it does not have required fields. Otherwise, you will not be able to change the status using a trigger.
 
 
-## Update fields {#section_mod_fields}
+## Updating fields {#section_mod_fields}
 
 Set up new values for one or more fields.
 
@@ -33,8 +33,8 @@ Set up new values for one or more fields.
 
    | Action | Description |
    ----- | -----
-   | Set value | Assign the value to a field. |
-   | Clear field | Delete a field value. |
+   | Set the value | Assign the value to a field. |
+   | Clear the field | Delete a field value. |
    | Add to list | Add another value for the field (for multiple-item fields). |
    | Remove from list | Remove one value from the field (for multiple-item fields). |
 
@@ -48,7 +48,7 @@ Write the comment text that will be added to an issue.
 You can insert [values of issue fields](vars.md) into the comment text. To do this, click **Add variable** and select one or more values. The **{{ ui-key.startrek-backend.fields.issue.meta.comment }}** field will show a sequence like `not_var{{issue.<field_ID>}}`.
 
 
-## Create a checklist {#create-checklist}
+## Create checklist {#create-checklist}
 
 Create a [checklist](checklist.md) that will be added to an issue.
 
@@ -76,12 +76,12 @@ To calculate the field value automatically:
 1. Add an action for the **{{ ui-key.startrek-backend.types.types.trigger.action.calc.formula }}** trigger.
 
 1. Set a formula for calculating the value:
-   - Click **Add a variable** and add a field formula with numeric values. The formula will include a [sequence](vars.md) like `not_var{{issue.<field_key>}}`.
+   - Click **Add variable** and add a field formula with numeric values. The formula will include a [sequence](vars.md) like `not_var{{issue.<field_key>}}`.
             If the desired field is missing in {{ tracker-name }}, you can [create one](create-param.md).
    - You can use mathematical symbols for addition `+`, subtraction `-`, multiplication `*`, and division `/`.
    - To set the priority of operations, use parentheses.
 
-1. Click **Choose the field** and specify the field to write the calculated value to.
+1. Click **Choose the field** and set the field you want to put the calculated value into.
 
    {% note info %}
 
@@ -94,19 +94,19 @@ To calculate the field value automatically:
 
 ## Move issue {#sec_move}
 
-1. Add an action for the **Move issue** trigger.
+1. Add the **Move issue** trigger action.
 
 1. Select the queue to move your issue to.
 
 The issue will be moved only if the user who ran the trigger has rights for creating issues in the selected queue.
 
-## Create issue {#sec_create_issue}
+## Create an issue {#sec_create_issue}
 
-You can set up a trigger that will automatically create an issue when certain conditions are met. For example, you can create a trigger that creates an issue for beta testing when a programmer implements a new feature and updates the issue status to <q>{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}</q>.
+You can set up a trigger that will automatically create an issue when certain conditions are met. For example, you can create a trigger that creates an issue for testing when a programmer implements a new feature and updates the issue status to **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**.
 
 To set up creation of an issue:
 
-1. Add an action for the **Create issue** trigger.
+1. Add the **Create issue** trigger action.
 
 1. Click **Fill in fields**.
 
@@ -173,4 +173,6 @@ Sample HTTP request settings:
 - [Creating and updating a checklist in an issue](../manager/trigger-examples.md#checklist).
 
 - [Creating an issue with field values from its parent issue](../manager/trigger-examples.md#create-ticket-with-params).
+
+- [Updating status, priority and adding a comment in related issues](../manager/trigger-examples.md#update-related-tasks).
 

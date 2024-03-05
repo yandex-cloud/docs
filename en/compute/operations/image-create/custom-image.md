@@ -183,7 +183,7 @@ The supported formats are `Qcow2`, `VMDK`, and `RAW`.
 We recommend that you use `Qcow2` format with an optimized cluster size for faster import. To convert your image from other formats, use the `qemu-img` utility:
 
 ```bash
-qemu-img convert -p -O qcow2 -o cluster_size=2M <name of your image file> <name of the new image file>
+qemu-img convert -p -O qcow2 -o cluster_size=2M <your_image_file_name> <new_image_file_name>
 ```
 
 {% note info %}

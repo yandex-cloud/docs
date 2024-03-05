@@ -16,7 +16,7 @@ To create an instance group with an L7 load balancer:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your instance group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
       * Enter a name and description of the instance group. The naming requirements are as follows:
@@ -31,7 +31,7 @@ To create an instance group with an L7 load balancer:
 
       * Enable the **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** option, if needed. You cannot delete a group with this option enabled.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances of a group may reside in [different availability zones and regions](../../../overview/concepts/geo-scope.md).
-   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to set up the configuration for a basic instance:
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
@@ -73,8 +73,8 @@ To create an instance group with an L7 load balancer:
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** field, select the protocol for the health checks: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field (for the HTTP type), specify the URL path for the HTTP check requests sent from {{ ig-name }}.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** field, specify the port number from 1 to 32767 for {{ ig-name }} to send the health check requests to.
-      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** field, specify the response wait time from 1 to 60 seconds.
-      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** field, specify the interval between the repeat checks from 1 to 60 seconds. The interval must be at least 1 second longer than the timeout.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** field, specify the response waiting time from 1 to 60 seconds.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** field, specify the interval between the repeat checks from 1 to 60 seconds. The interval must be at least 1 second longer than the waiting time.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** field, specify the number of successful health checks required for the instance to be considered healthy.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** field, specify the number of failed health checks for the instance to be considered unhealthy.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_variables }}**, enter the `{{ ui-key.yacloud.common.label_key }}`-`{{ ui-key.yacloud.common.label_value }}` pairs, if needed.
@@ -109,7 +109,7 @@ To create an instance group with an L7 load balancer:
 
          ```yaml
          name: first-fixed-group-with-l7-balancer
-         service_account_id: <ID>
+         service_account_id: <service_account_ID>
          description: "This instance group was created from YAML config."
          ```
 
@@ -137,6 +137,8 @@ To create an instance group with an L7 load balancer:
            network_interface_specs:
              - network_id: c64mknqgnd8a********
                primary_v4_address_spec: {}
+               security_group_ids:
+                 - enps0ar5s3ti********
            placement_policy:
              placement_group_id: rmppvhrgm77g********
            scheduling_policy:
@@ -157,8 +159,9 @@ To create an instance group with an L7 load balancer:
          * `size`: Disk size.
          * `network_id`: ID of the `default-net` network.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+         * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
          * `scheduling_policy`: Scheduling policy configuration.
-         * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
+         * `preemptible`: Flag for creating [preemptible VMs](../../concepts/preemptible-vm.md).
             * `true`: Create a preemptible VM.
             * `false` (default): Create a regular VM.
 
@@ -205,7 +208,7 @@ To create an instance group with an L7 load balancer:
 
      ```yaml
      name: first-fixed-group-with-l7-balancer
-     service_account_id: <ID>
+     service_account_id: <service_account_ID>
      description: "This instance group was created from YAML config."
      instance_template:
        platform_id: standard-v3
@@ -221,6 +224,8 @@ To create an instance group with an L7 load balancer:
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+           security_group_ids:
+             - enps0ar5s3ti********
        placement_policy:
           placement_group_id: rmppvhrgm77g********
      deploy_policy:
@@ -254,9 +259,9 @@ To create an instance group with an L7 load balancer:
       * Availability zone: `{{ region-id }}-a`
       * vCPUs: 2; RAM: 2 GB
       * Network HDD: 32 GB
-      * With a target group named `first-target-group`
+      * Target group: `first-target-group`
 
-   After that, you can add the `first-target-group` target group to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-update.md).
+   After that, you can add `first-target-group` to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-update.md).
 
 - {{ TF }} {#tf}
 
@@ -280,12 +285,12 @@ To create an instance group with an L7 load balancer:
         name                = "fixed-ig-with-balancer"
         folder_id           = "<folder_ID>"
         service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        deletion_protection = "<deletion_protection>"
         instance_template {
           platform_id = "standard-v3"
           resources {
-            memory = <amount_of_RAM_in_GB>
-            cores  = <number_of_vCPU_cores>
+            memory = <RAM_amount_in_GB>
+            cores  = <number_of_vCPUs>
           }
 
           boot_disk {
@@ -298,6 +303,7 @@ To create an instance group with an L7 load balancer:
           network_interface {
             network_id = "${yandex_vpc_network.network-1.id}"
             subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+            security_group_ids = ["<list_of_seciruty_group_IDs>"]
           }
 
           metadata = {
@@ -307,7 +313,7 @@ To create an instance group with an L7 load balancer:
 
         scale_policy {
           fixed_scale {
-            size = <number_of_instances_in_the_group>
+            size = <number_of_VM_instances_in_the_group>
           }
         }
 
@@ -349,14 +355,14 @@ To create an instance group with an L7 load balancer:
             * `name`: Name of the instance group.
             * `folder_id`: Folder ID.
             * `service_account_id`: Service account ID.
-            * `deletion_protection`: Instance group deletion protection. You cannot delete an instance group with this option enabled. The default value is `false`.
+            * `deletion_protection`: Instance group deletion protection, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
             * `platform_id`: [Platform](../../concepts/vm-platforms.md).
             * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
             * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
                * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
                * Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write).
-            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the network ID and [subnet](../../../vpc/concepts/network.md#subnet) ID.
+            * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
             * `metadata`: In the [metadata](../../concepts/vm-metadata.md), provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * [Policies](../../concepts/instance-groups/policies/index.md):
             * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.

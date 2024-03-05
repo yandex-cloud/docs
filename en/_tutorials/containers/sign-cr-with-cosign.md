@@ -16,8 +16,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Manually {#manual}
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
-      * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../../resource-manager/security/index.md#roles-list) [role](../../iam/concepts/access-control/roles.md) to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
+      * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
       You can use the same service account for both operations.
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
@@ -29,16 +29,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-   1. Download the [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/k8s-validate-cr-image.tf) configuration file to the same working directory.
+   1. Download the [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-validate-cr-image.tf) configuration file to the same working directory.
 
       This file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../managed-kubernetes/operations/connect/security-groups.md) and rules needed to run the {{ managed-k8s-name }} cluster:
+      * [Security group](../../managed-kubernetes/operations/connect/security-groups.md) and rules required for the {{ managed-k8s-name }} cluster to operate:
          * Rules for service traffic.
          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
       * {{ managed-k8s-name }} cluster.
-      * Service account required to use the {{ managed-k8s-name }} cluster and node group.
+      * Service account required for the {{ managed-k8s-name }} cluster and node group to operate.
       * {{ container-registry-name }} registry.
    1. In the `k8s-validate-cr-image.tf` file, specify:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
@@ -432,7 +432,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
    1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `k8s-validate-cr-image.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

@@ -119,7 +119,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
     * `--function-name`: Name of the function you want to create a version of.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point specified in the `<function file name>.<handler name>` format.
+    * `--entrypoint`: Entry point specified in the `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
     * `--execution-timeout`: Maximum function execution time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.
@@ -143,7 +143,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
     - $latest
     log_group_id: ckg3qh8h363p********
     ```
-  
+
 
 - API {#api}
 

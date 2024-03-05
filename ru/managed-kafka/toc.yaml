@@ -43,6 +43,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Развертывание веб-интерфейса {{ KF }}
+        href: tutorials/deploy-kafka-ui.md
       - name: Перемещение данных из {{ KF }}
         items:
           - name: Настройка {{ KFC }} для работы с {{ mkf-name }}
@@ -125,6 +127,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/managed-kafka/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -243,6 +249,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Публичные материалы
     href: public-talks.md
   - name: История изменений

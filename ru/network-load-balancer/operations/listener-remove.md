@@ -14,7 +14,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить обработчик балансировщика.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите сетевой балансировщик, у которого требуется удалить обработчик.
-  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}** нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке обработчика, который нужно удалить.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обработчика, который нужно удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
   
 - CLI {#cli}
@@ -34,7 +34,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 

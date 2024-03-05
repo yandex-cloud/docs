@@ -4,8 +4,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. В строке с диском нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. В строке с диском нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
   1. Введите имя снимка. Требования к имени:
 
       {% include [name-format](../name-format.md) %}
@@ -35,7 +35,7 @@
       yc compute snapshot create \
         --name first-snapshot \
         --description "my first snapshot via CLI" \
-        --disk-id fhm4aq4hvq5g3nepvt9b
+        --disk-id fhm4aq4hvq5g********
       ```
 
       В результате будет создан снимок диска с именем `first-snapshot` и описанием `my first snapshot via CLI`.
@@ -55,7 +55,7 @@
      ```hcl
      resource "yandex_compute_snapshot" "snapshot-1" {
        name           = "disk-snapshot"
-       source_disk_id = "<идентификатор диска>"
+       source_disk_id = "<идентификатор_диска>"
      }
      ```
 

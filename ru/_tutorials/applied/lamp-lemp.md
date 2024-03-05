@@ -194,7 +194,7 @@
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы разместить веб-сервер LAMP- или LEMP-сайта на ВМ с помощью {{ TF }}:
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
@@ -248,6 +248,6 @@
    * `dns_zone` — [зона DNS](../../dns/concepts/dns-zone.md). Укажите ваш зарегистрированный домен с точкой в конце, например `example.com.`.
 1. Создайте ресурсы:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Проверьте работу сайта](#test-site).

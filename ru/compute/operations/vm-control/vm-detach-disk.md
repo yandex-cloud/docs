@@ -20,8 +20,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. Напротив нужного диска нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-detach }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. Напротив нужного диска нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-detach }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.popup_detach-disk_button_detach }}**.
 
 - CLI {#cli}
@@ -48,12 +48,12 @@
       yc compute instance get --full first-instance
       ```
   
-  1. Выберите `disk_id` нужного диска, например `fhm4aq4hvq5g3nepvt9b`.
+  1. Выберите `disk_id` нужного диска, например `fhm4aq4hvq5g********`.
   1. Отключите диск:
   
       ```
       yc compute instance detach-disk first-instance \
-        --disk-id fhm4aq4hvq5g3nepvt9b
+        --disk-id fhm4aq4hvq5g********
       ```
       
       Если возникла ошибка, остановите виртуальную машину:

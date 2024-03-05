@@ -182,7 +182,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
      1. On the folder page in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
      1. Select `my-rds-vm`.
-     1. Click ![image](../../_assets/options.svg) and select **Restart**.
+     1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **Restart**.
 
    - CLI {#cli}
 

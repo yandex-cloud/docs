@@ -3,7 +3,7 @@ title: "How to configure a {{ GP }} source endpoint in {{ data-transfer-full-nam
 description: "In this tutorial, you will learn how to set up a {{ GP }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Transferring data from the {{ GP }} source endpoint
+# Transferring data from a {{ GP }} source endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data from a {{ GP }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
 
@@ -42,7 +42,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mgp.viewer }}` role](../../../../managed-greenplum/security/index.md#mgp-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mgp.viewer }}` role](../../../../managed-greenplum/security/index.md#mgp-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 
@@ -71,7 +71,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-### Additional settings {#additional-settings}
+### Table filter {#additional-settings}
 
 {% list tabs group=instructions %}
 

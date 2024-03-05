@@ -3,14 +3,13 @@
 Nodes need resources to run the {{ k8s }} components in charge of running the node as part of the {{ k8s }} cluster. This is why the resulting amount of node resources may not match the resources allocated for the jobs in the {{ k8s }} cluster.
 
 Some nodes need more resources:
-
 * Nodes with a more powerful configuration, which can run more containers and more pods, need more resources allocated to them.
 * Nodes running Windows Server. These nodes need more resources than Linux nodes, since they need more resources to support the Windows and Windows Server components that can't run in containers.
 
 To view the node resources allocated to the {{ k8s }} components, run the command:
 
 ```
-kubectl describe node <node name> | grep Allocatable -B 4 -A 3
+kubectl describe node <node_name> | grep Allocatable -B 4 -A 3
 ```
 
 ## Amount of allocated RAM and CPU resources {#allocate}
@@ -18,7 +17,6 @@ kubectl describe node <node name> | grep Allocatable -B 4 -A 3
 ### RAM resource allocation {#ram}
 
 For RAM, the following resources are allocated:
-
 * 255 MB of RAM for nodes with less than 1 GB of RAM.
 * 25% from the first 4 GB of RAM.
 * 20% from the next 4 GB of RAM (up to 8 GB).
@@ -30,9 +28,8 @@ For RAM, the following resources are allocated:
 
 ### CPU resource allocation {#cpu}
 
-For processors, the following resources are allocated:
-
-* 6% from the first core.
-* 1% from the next core (up to 2 cores inclusive).
-* 0.5% from the next two cores (up to 4 cores inclusive).
-* 0.25% from 5 and more cores.
+For CPUs, the following resources are allocated:
+* 6% from one core.
+* 1% from the next core (up to two cores).
+* 0.5% from the next two cores (up to four cores).
+* 0.25% from all cores over four.

@@ -18,7 +18,7 @@
 
    {% note info %}
 
-   In the tree list, nesting of issues is implemented as <q>Parent issue — Sub-issue</q> [links](../../tracker/user/links.md).
+   In the tree list mode, nesting of some issues in other issues denotes _Parent issue — Sub-issue_ [links](../../tracker/user/links.md).
 
    {% endnote %}
 

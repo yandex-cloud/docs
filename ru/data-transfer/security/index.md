@@ -28,13 +28,21 @@ description: "Управление доступом в сервисе по пе�
 
 ### Сервисные роли {#service-roles}
 
-{% include [data-transfer-auditor](../../_includes/iam/roles/data-transfer-auditor.md) %}
+#### data-transfer.auditor {#data-transfer-auditor}
 
-{% include [data-transfer-viewer](../../_includes/iam/roles/data-transfer-viewer.md) %}
+{% include [data-transfer.auditor](../../_roles/data-transfer/auditor.md) %}
 
-{% include [data-transfer-privateadmin](../../_includes/iam/roles/data-transfer-privateadmin.md) %}
+#### data-transfer.viewer {#data-transfer-viewer}
 
-{% include [data-transfer-admin](../../_includes/iam/roles/data-transfer-admin.md) %}
+{% include [data-transfer.viewer](../../_roles/data-transfer/viewer.md) %}
+
+#### data-transfer.privateAdmin {#data-transfer-privateadmin}
+
+{% include [data-transfer.privateadmin](../../_roles/data-transfer/privateAdmin.md) %}
+
+#### data-transfer.admin {#data-transfer-admin}
+
+{% include [data-transfer.admin](../../_roles/data-transfer/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 
@@ -54,7 +62,7 @@ description: "Управление доступом в сервисе по пе�
 
 Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `editor` или выше на каталог, в котором создаются проекты. Роль `viewer` позволит только просматривать список проектов и содержимое файлов, которые были загружены.
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется сервисная или примитивная [роль `viewer`](../../iam/concepts/access-control/roles.md), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется сервисная или примитивная [роль `viewer`](../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `admin` вместо `editor`.
 

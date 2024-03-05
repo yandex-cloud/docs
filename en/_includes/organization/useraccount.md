@@ -8,7 +8,7 @@ You can invite a user to an organization via the management console or {{ org-fu
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
@@ -42,7 +42,7 @@ The user will be able to log in to the organization upon accepting the invitatio
 
 You can delete or resend your invitation only via {{ org-name }}.
 
-### Delete your invitation {#delete-invitation}
+### Delete the invitation {#delete-invitation}
 
 1. Under [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg), go to **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}** → **{{ ui-key.yacloud_org.entity.invitation.label_option-actual }}**.
 1. Click ![icon-users](../../_assets/console-icons/ellipsis.svg) in the invitation line and select **{{ ui-key.yacloud_org.entity.invitation.label_row-action-delete }}**.

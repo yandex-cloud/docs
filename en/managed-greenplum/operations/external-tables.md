@@ -1,6 +1,6 @@
 # Using external tables
 
-{{ GP }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to [data in external DBMS](#pxf) uses the _PXF_ protocol whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
+{{ GP }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to [data in external DBMS's](#pxf) uses the _PXF_ protocol, whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
 
 With external tables, you can:
 
@@ -28,7 +28,7 @@ Without these settings, the cluster will have no access to external sources.
 
 ## Connecting to external DBMS {#pxf}
 
-The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.pivotal }}/6-4/pxf/overview_pxf.html) is a software platform that provides access to data from external DBMS's. You can connect tables from the following external sources:
+[{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) is a software platform to access the data in external DBMS's. You can connect tables from the following external sources:
 
 * Apache Hive
 * {{ CH }}
@@ -74,9 +74,9 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
 ### Examples for creating external tables {#pxf-examples}
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ CH }}
+- {{ CH }} {#clickhouse}
 
    1. [Create a {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the `chuser` username.
    1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
@@ -126,7 +126,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       (1 row)
       ```
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
    1. [Create a {{ mmy-full-name }} cluster](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
@@ -173,7 +173,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       (2 rows)
       ```
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
    1. [Create a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-create.md) with the following settings:
 
@@ -220,7 +220,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       (2 rows)
       ```
 
-- {{ objstorage-name }}
+- {{ objstorage-name }} {#storage}
 
    1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 

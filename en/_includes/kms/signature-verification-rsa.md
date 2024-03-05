@@ -182,45 +182,45 @@
            'SHA512': hashes.SHA512
        }
 
-   # Check if the provided hash algorithm is supported
-   if hash_algorithm not in hash_algorithms:
-       raise ValueError('Unsupported hash algorithm: ' + hash_algorithm)
+       # Check if the provided hash algorithm is supported
+       if hash_algorithm not in hash_algorithms:
+           raise ValueError('Unsupported hash algorithm: ' + hash_algorithm)
 
-   # Loading a PEM Encoded Public Key
-   public_key = serialization.load_pem_public_key(
-       public_key_b64.encode(),
-       backend=default_backend()
-   )
-
-   # Update the Signature object with the message data
-   message_bytes = message.encode()
-
-   # Automatically calculate salt length based on hash digest size
-   salt_length = hash_algorithms[hash_algorithm]().digest_size
-
-   # Verify the signature using the original message and the decoded signature
-   try:
-       public_key.verify(
-           signature_bytes,
-           message_bytes,
-           padding.PSS(
-               mgf = padding.MGF1(hash_algorithms[hash_algorithm]()),
-               salt_length = salt_length
-           ),
-           hash_algorithms[hash_algorithm]()
+       # Loading a PEM Encoded Public Key
+       public_key = serialization.load_pem_public_key(
+           public_key_b64.encode(),
+           backend=default_backend()
        )
-       return True
-   except InvalidSignature:
-       return False
+
+       # Update the Signature object with the message data
+       message_bytes = message.encode()
+
+       # Automatically calculate salt length based on hash digest size
+       salt_length = hash_algorithms[hash_algorithm]().digest_size
+
+       # Verify the signature using the original message and the decoded signature
+       try:
+           public_key.verify(
+               signature_bytes,
+               message_bytes,
+               padding.PSS(
+                   mgf = padding.MGF1(hash_algorithms[hash_algorithm]()),
+                   salt_length = salt_length
+               ),
+               hash_algorithms[hash_algorithm]()
+           )
+           return True
+       except InvalidSignature:
+           return False
 
    def test_verify_signature():
        public_key_b64 = """
        -----BEGIN PUBLIC KEY-----
        <public_key_contents>
        -----END PUBLIC KEY-----"""
-       signature_b64 = '<signature_string>'
+       signature_b64 = '<signature>'
        signature_bytes = base64.b64decode(signature_b64)
-       message = '<message_string>'
+       message = '<message>'
        print(verify_rsa_signature(public_key_b64, signature_bytes, message, '<algorithm_type>'))
    ```
 

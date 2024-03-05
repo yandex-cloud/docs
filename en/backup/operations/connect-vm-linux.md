@@ -11,7 +11,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
-1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../../iam/concepts/access-control/roles.md#backup-editor).
+1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../security/index.md#backup-editor).
 1. [Connect](../../compute/operations/vm-control/vm-update.md) the previously created service account to the VM.
 1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.

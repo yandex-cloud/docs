@@ -2,8 +2,6 @@
 
 The value of the `event_type` (_event type_) field in a data (data plane) audit log is determined by the event source service.
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 The general value format is as follows:
 
 ```text
@@ -13,39 +11,65 @@ The general value format is as follows:
 On this page, you will find events for the following services:
 
 * [{{ dns-name }}](#dns)
-* [{{ lockbox-name }}](#lockbox)
 * [{{ kms-name }}](#kms)
+* [{{ lockbox-name }}](#lockbox)
+* [{{ mmg-name }}](#mmg)
+* [{{ mmy-name }}](#mmy)
+* [{{ mpg-name }}](#mpg)
 * [{{ objstorage-name }}](#objstorage)
 
 ## {{ dns-name }} {#dns}
 
-Service name: `dns`
+Service name: `dns`.
 
-| Event name | Description |
---- | ---
-| `ProcessDnsQuery` | Execution result of a DNS query from a Cloud DNS client |
+{% include [dns-events-dp](../../_includes/audit-trails/events/dns-events-dp.md) %}
 
-## {{ lockbox-name }} {#lockbox}
+## {{ iam-name }} {#iam}
 
-Service name: `lockbox`
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
 
-| Event name | Description |
---- | ---
-| `GetPayload` | Accessing the contents of a secret |
+Service name: `iam`.
+
+{% include [iam-events-dp](../../_includes/audit-trails/events/iam-events-dp.md) %}
 
 ## {{ kms-name }} {#kms}
 
-Service name: `kms`
+Service name: `kms`.
 
-| Event name | Description |
---- | ---
-| `Decrypt` | Decrypting ciphertext with a key |
-| `Encrypt` | Encrypting a text string with a key |
-| `GenerateDataKey` | Generating a high-entropy key for Envelope Encryption |
-| `ReEncrypt` | Decrypting ciphertext with a previous-version key and re-encrypting the decrypted text with a new version of the same key |
+{% include [kms-events-dp](../../_includes/audit-trails/events/kms-events-dp.md) %}
+
+## {{ lockbox-name }} {#lockbox}
+
+Service name: `lockbox`.
+
+{% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
+
+## {{ mmg-name }} {#mmg}
+
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
+Service name: `mdb.mongodb`.
+
+{% include [mmg-events-dp](../../_includes/audit-trails/events/mmg-events-dp.md) %}
+
+## {{ mmy-name }} {#mmy}
+
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
+Service name: `mdb.mysql`.
+
+{% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
+
+## {{ mpg-name }} {#mpg}
+
+{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
+
+Service name: `mdb.postgresql`.
+
+{% include [mpg-events-dp](../../_includes/audit-trails/events/mpg-events-dp.md) %}
 
 ## {{ objstorage-name }} {#objstorage}
 
-Service name: `storage`
+Service name: `storage`.
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}

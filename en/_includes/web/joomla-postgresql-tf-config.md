@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for custom parameters
+# Declaring variables for user-defined parameters
 
 variable "folder_id" {
   type = string
@@ -46,7 +46,7 @@ locals {
   dns_zone_name      = "example-zone-1"
 }
 
-# Setting up the provider
+# Provider configuration
 
 terraform {
   required_providers {
@@ -94,7 +94,7 @@ resource "yandex_vpc_subnet" "joomla-pg-network-subnet-c" {
   network_id     = yandex_vpc_network.joomla-pg-network.id
 }
 
-# Creating a security group for the DB cluster {{ PG }}
+# Creating a security group for a {{ PG }} DB cluster
 
 resource "yandex_vpc_security_group" "pgsql-sg" {
   name       = local.sg_pgsql_name
@@ -108,7 +108,7 @@ resource "yandex_vpc_security_group" "pgsql-sg" {
   }
 }
 
-# Creating a security group for VM
+# Creating a security group for the VM
 
 resource "yandex_vpc_security_group" "vm-sg" {
   name       = local.sg_vm_name
@@ -144,10 +144,18 @@ resource "yandex_vpc_security_group" "vm-sg" {
   }
 }
 
-# Adding a ready-made VM image
+# Adding a ready-to-use VM image
 
 resource "yandex_compute_image" "joomla-pg-vm-image" {
   source_family = "centos-stream-8"
+}
+
+resource "yandex_compute_disk" "boot-disk" {
+  name     = "bootvmdisk"
+  type     = "network-hdd"
+  zone     = "{{ region-id }}-a"
+  size     = "10"
+  image_id = yandex_compute_image.joomla-pg-vm-image.id
 }
 
 # Creating a VM
@@ -164,10 +172,7 @@ resource "yandex_compute_instance" "joomla-pg-vm" {
   }
 
   boot_disk {
-    initialize_params {
-      image_id = yandex_compute_image.joomla-pg-vm-image.id
-      size     = 10
-    }
+    disk_id = yandex_compute_disk.boot-disk.id
   }
 
   network_interface {
@@ -214,7 +219,7 @@ resource "yandex_mdb_postgresql_cluster" "joomla-pg-cluster" {
   }
 }
 
-# Creating a DB
+# Creating a database
 
 resource "yandex_mdb_postgresql_database" "joomla-pg-tutorial-db" {
   cluster_id = yandex_mdb_postgresql_cluster.joomla-pg-cluster.id
@@ -238,7 +243,7 @@ resource "yandex_dns_zone" "joomla-pg" {
   public  = true
 }
 
-# Creating an A resource record
+# Creating a type A resource record
 
 resource "yandex_dns_recordset" "joomla-pg-a" {
   zone_id = yandex_dns_zone.joomla-pg.id

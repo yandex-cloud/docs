@@ -16,6 +16,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--file`|<b>`string`</b><br/>Path to a file with grpc request, see proto files in the protobuf API specification: https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/datatransfer/v1|
 |`--source-id`|<b>`string`</b><br/>Source endpoint identifier|
 |`--target-id`|<b>`string`</b><br/>Target endpoint identifier|
 |`--name`|<b>`string`</b><br/>Transfer name|

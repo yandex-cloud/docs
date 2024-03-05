@@ -185,6 +185,8 @@ items:
         href: user/create-param.md
       - name: Viewing issue change history
         href: user/history.md
+      - name: Viewing the queue workflow
+        href: user/see-workflow.md
       - name: Getting access to an issue
         href: user/ticket-access.md
       - name: Deleting an issue
@@ -221,6 +223,8 @@ items:
             href: manager/portfolio.md
           - name: Creating a portfolio
             href: manager/create-portfolio.md
+      - name: Viewing the revision history for a project or portfolio
+        href: manager/history.md
   - name: Issue boards
     items:
       - name: Overview
@@ -313,6 +317,8 @@ items:
             href: user/edit-dashboard.md
           - name: How to copy a dashboard
             href: user/copy-dashboard.md
+          - name: How to copy a widget
+            href: user/copy-widget.md
           - name: Shared access to dashboards
             href: user/share-dashboard.md
           - name: Making a dashboard your start page
@@ -480,7 +486,7 @@ items:
         href: about-api.md
       - name: API access
         href: concepts/access.md
-      - name: Generic request format
+      - name: Common request format
         href: common-format.md
       - name: Issues
         items:
@@ -526,7 +532,7 @@ items:
             href: concepts/issues/delete-checklist.md
           - name: Deleting a checklist item
             href: concepts/issues/delete-checklist-item.md
-      - name: Projects
+      - name: Projects (old version)
         items:
           - name: Creating a project
             href: concepts/projects/create-project.md
@@ -536,11 +542,11 @@ items:
             href: concepts/projects/get-projects.md
           - name: Getting a list of project queues
             href: concepts/projects/get-project-queues.md
-          - name: Editing a project
+          - name: Updating a project
             href: concepts/projects/update-project.md
           - name: Deleting a project
             href: concepts/projects/delete-project.md
-      - name: Projects and portfolios (new version)
+      - name: Projects and portfolios
         items:
           - name: Projects and portfolios. Overview
             href: concepts/entities/about-entities.md
@@ -556,6 +562,52 @@ items:
             href: concepts/entities/search-entities.md
           - name: Bulk changes to entities
             href: concepts/entities/bulkchange-entities.md
+          - name: Getting entity event history
+            href: concepts/entities/get-events-relative.md
+          - name: Comments
+            items:
+              - name: Adding a comment
+                href: concepts/entities/comments/add-comment.md
+              - name: Editing a comment
+                href: concepts/entities/comments/patch-comment.md
+              - name: Getting all comments
+                href: concepts/entities/comments/get-all-comments.md
+              - name: Getting a comment
+                href: concepts/entities/comments/get-comment.md
+              - name: Deleting a comment
+                href: concepts/entities/comments/delete-comment.md
+          - name: Entity checklists
+            items:
+              - name: Creating a checklist or adding items to it
+                href: concepts/entities/checklists/add-checklist.md
+              - name: Editing a checklist
+                href: concepts/entities/checklists/patch-checklist.md
+              - name: Editing an item
+                href: concepts/entities/checklists/patch-checklist-item.md
+              - name: Moving an item
+                href: concepts/entities/checklists/move-checklist-item.md
+              - name: Deleting a checklist
+                href: concepts/entities/checklists/delete-checklist.md
+              - name: Deleting one item
+                href: concepts/entities/checklists/delete-checklist-item.md
+          - name: Attached files
+            items:
+              - name: Getting a list of attached files
+                href: concepts/entities/attachments/get-all-attachments.md
+              - name: Getting information about an attached file
+                href: concepts/entities/attachments/get-attachment.md
+              - name: Attaching files
+                href: concepts/entities/attachments/add-attachment.md
+              - name: Deleting a file
+                href: concepts/entities/attachments/delete-attachment.md
+          - name: Entity links
+            items:
+              - name: Linking entities
+                href: concepts/entities/links/add-links.md
+              - name: Getting links
+                href: concepts/entities/links/get-links.md
+              - name: Deleting a link
+                href: concepts/entities/links/delete-link.md
       - name: Comments
         items:
           - name: Adding a comment
@@ -622,7 +674,7 @@ items:
             href: concepts/queues/restore-queue.md
           - name: Removing a tag from a queue
             href: concepts/queues/delete-tag.md
-          - name: Granting queue access rights
+          - name: Granting access to a queue
             href: concepts/queues/manage-access.md
           - name: Automation
             items:
@@ -720,9 +772,9 @@ items:
             href: concepts/issues/create-field.md
           - name: Getting issue field parameters
             href: concepts/issues/get-issue-fields.md
-          - name: Editing issue field names
+          - name: Editing an issue field name
             href: concepts/issues/patch-issue-field-name.md
-          - name: Editing possible values of issue fields
+          - name: Editing possible issue field values
             href: concepts/issues/patch-issue-field-value.md
           - name: Creating an issue field category
             href: concepts/issues/create-issue-field-category.md
@@ -756,18 +808,20 @@ items:
         href: organizations.md
   - name: Release notes
     items:
-      - name: December 2023
+      - name: January 2024
         href: release-notes/index.md
+      - name: December 2023
+        href: release-notes/2312.md
       - name: November 2023
         href: release-notes/2311.md
       - name: October 2023
         href: release-notes/2310.md
       - name: September 2023
         href: release-notes/2309.md
-      - name: August 2023
-        href: release-notes/2308.md
       - name: Archive
         items:
+          - name: August 2023
+            href: release-notes/2308.md
           - name: July 2023
             href: release-notes/2307.md
           - name: June 2023

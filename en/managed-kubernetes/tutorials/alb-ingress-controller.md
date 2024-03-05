@@ -42,11 +42,11 @@ yc certificate-manager certificate list
 Command result:
 
 ```text
-+------+--------+---------------+---------------------+----------+--------+
-|  ID  |  NAME  |    DOMAINS    |      NOT AFTER      |   TYPE   | STATUS |
-+------+--------+---------------+---------------------+----------+--------+
-| <ID> | <name> | <domain_name> | 2022-01-06 17:19:37 | IMPORTED | ISSUED |
-+------+--------+---------------+---------------------+----------+--------+
++----------------------+-----------+----------------+---------------------+----------+--------+
+|          ID          |   NAME    |    DOMAINS     |      NOT AFTER      |   TYPE   | STATUS |
++----------------------+-----------+----------------+---------------------+----------+--------+
+| fpq8diorouhp******** | sert-test |    test.ru     | 2022-01-06 17:19:37 | IMPORTED | ISSUED |
++----------------------+-----------+----------------+---------------------+----------+--------+
 ```
 
 {% list tabs %}
@@ -267,7 +267,7 @@ Command result:
         annotations:
           ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
           ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
-          ingress.alb.yc.io/external-ipv4-address: <auto_or_static_IP_address>
+          ingress.alb.yc.io/external-ipv4-address: <IP_address_assignment_method>
           ingress.alb.yc.io/group-name: my-ingress-group
       spec:
         tls:
@@ -539,7 +539,7 @@ Command result:
         annotations:
           ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
           ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
-          ingress.alb.yc.io/external-ipv4-address: <auto_or_static_IP_address>
+          ingress.alb.yc.io/external-ipv4-address: <IP_address_assignment_method>
           ingress.alb.yc.io/group-name: my-ingress-group
       spec:
         tls:
@@ -650,7 +650,7 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
    apiVersion: alb.yc.io/v1alpha1
    kind: IngressGroupSettings
    metadata:
-     name: <name_for_Ingress_group_settings_in_the_annotation_ingress.alb.yc.io/group-settings-name>
+     name: <name_for_Ingress_group_settings>
    logOptions:
      logGroupID: <custom_log_group_ID>
      discardRules:
@@ -667,6 +667,8 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
            - 200
            - 404
    ```
+
+   Where `name` is the name for Ingress group settings in the `ingress.alb.yc.io/group-settings-name` annotation.
 
 1. Apply the settings for the Ingress group:
 

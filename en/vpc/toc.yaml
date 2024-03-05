@@ -15,7 +15,9 @@ items:
             href: operations/network-delete.md
           - name: Updating a cloud network
             href: operations/network-update.md
-          - name: Reading a cloud network map
+          - name: Getting information about a cloud network
+            href: operations/network-get-info.md
+          - name: Studying a cloud network map
             href: operations/network-map.md
           - name: Moving a cloud network between folders
             href: operations/network-move.md
@@ -27,6 +29,8 @@ items:
             href: operations/subnet-delete.md
           - name: Updating a subnet
             href: operations/subnet-update.md
+          - name: Getting information about a subnet
+            href: operations/subnet-get-info.md
           - name: Moving a subnet between folders
             href: operations/subnet-move.md
           - name: Moving a subnet to a different availability zone
@@ -80,6 +84,8 @@ items:
             href: operations/adjust-mtu-ddos-protection.md
       - name: Chart of network connections
         href: operations/connections-view.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -156,9 +162,13 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/vpc/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: REST
         items:
@@ -316,6 +326,8 @@ items:
             href: api-ref/grpc/subnet_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/vpc

@@ -3,7 +3,7 @@
 1. [Настройте удаленную площадку](#remote-setup).
 1. [Проверьте работу IPsec-соединения и связность между удаленными и облачными ресурсами](#ipsec-test).
 
-Если инфраструктура вам больше не нужна, [удалите](#clear-out) созданные ресурсы.
+Если созданные ресурсы вам больше не нужны, [удалите](#clear-out) их.
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -30,7 +30,7 @@
 
 ## Настройте облачную площадку {#cloud-setup}
 
-На этом этапе вы зарезервируете два статических IP-адреса для IPsec-шлюзов, а также создадите и настроите инфраструктуру облачной площадки {{ yandex-cloud }}. В нее войдут IPsec-шлюз, две виртуальные машины, сеть и две подсети.
+На этом этапе вы зарезервируете два статических IP-адреса для IPsec-шлюзов, а также создадите и настроите инфраструктуру облачной площадки {{ yandex-cloud }}: IPsec-шлюз, две виртуальные машины, сеть с двумя подсетями.
 
 ### Создайте и настройте облачную сеть {#setup-cloud-net}
 
@@ -38,13 +38,13 @@
 
 [Зарезервируйте](../../../vpc/operations/get-static-ip.md) два статических [публичных IP-адреса](../../../vpc/concepts/address.md#public-addresses) в зоне доступности `{{ region-id }}-b`:
 
-* Для основного IPsec-шлюза `cloud-gw`. В дальнейшем этот адрес будет обозначаться как `<x1.x1.x1.x1>`.
-* Для удаленного IPsec-шлюза `remote-gw`. В дальнейшем этот адрес будет обозначаться как `<x2.x2.x2.x2>`.
+* Адрес основного IPsec-шлюза `cloud-gw` — в дальнейшем будет обозначаться `<x1.x1.x1.x1>`.
+* Адрес удаленного IPsec-шлюза `remote-gw` — в дальнейшем будет обозначаться `<x2.x2.x2.x2>`.
 
 #### Создайте сеть и подсети на облачной площадке {#cloud-net}
 
 1. [Создайте сеть](../../../vpc/operations/network-create.md) с именем `cloud-net`. При создании сети отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-1. В сети `cloud-net` [создайте подсети](../../../vpc/operations/subnet-create.md) со следующими параметрами:
+1. В сети `cloud-net` вручную [создайте подсети](../../../vpc/operations/subnet-create.md) со следующими параметрами:
 
     1. Для подключения основного IPsec-шлюза `cloud-gw`:
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `ipsec-subnet`.
@@ -81,9 +81,9 @@
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана сеть `cloud-net`.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Выберите сеть `cloud-net`.
-1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_route-table }}** и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_route-table }}** и нажмите **{{ ui-key.yacloud.common.create }}**.
 1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** укажите `cloud-net-rt`.
-1. В блоке **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}** нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+1. В блоке **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}** нажмите **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
 
     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}** укажите `10.10.0.0/16`.
     1. В поле **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}** укажите внутренний IP-адрес основного IPsec-шлюза — `172.16.0.10`.
@@ -93,8 +93,8 @@
 1. Привяжите таблицу маршрутизации `cloud-net-rt` к подсетям `subnet-a` и `subnet-b`:
 
     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_overview }}**.
-    1. В строке подсети `subnet-a` нажмите значок ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-    1. В открывшемся окне выберите таблицу маршрутизации `cloud-net-rt` и нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
+    1. В строке подсети `subnet-a` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+    1. В открывшемся окне выберите таблицу маршрутизации `cloud-net-rt` и нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
     1. Повторите два предыдущих шага для подсети `subnet-b`, чтобы привязать к ней таблицу маршрутизации `cloud-net-rt`.
 
 ### Создайте и настройте виртуальные машины на облачной площадке {#setup-cloud-vms}
@@ -102,10 +102,10 @@
 #### Создайте ВМ с основным IPsec-шлюзом на облачной площадке {#create-cloud-gw}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать основной IPsec-шлюз.
-1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/create-resource-vm.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. Справа сверху нажмите **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** укажите `cloud-gw`.
-1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b` — зону доступности, где находится подсеть, к которой будет подключен основной IPsec-шлюз.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}** и выберите образ [IPSec-инстанс](/marketplace/products/yc/ipsec-instance-ubuntu).
+1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b`, где находится подсеть, к которой будет подключен основной IPsec-шлюз.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}** и выберите образ [IPSec-инстанс](/marketplace/products/yc/ipsec-instance-ubuntu).
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
     1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите `ipsec-subnet`. 
@@ -120,9 +120,9 @@
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите `ipsec`.
-    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** введите [созданный ранее](#create-ssh-keys) публичный SSH-ключ для доступа к ВМ.
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** введите содержимое [созданного ранее](#create-ssh-keys) публичного SSH-ключа для доступа к ВМ.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Дождитесь, когда ВМ перейдет в статус `Running`.
 
@@ -281,14 +281,14 @@
 
 ## Настройте удаленную площадку {#remote-setup}
 
-На этом этапе вы создадите и настроите инфраструктуру удаленной площадки условного корпоративного ЦОД. В нее войдут IPsec-шлюз, виртуальная машина, сеть и  подсеть.
+На этом этапе вы создадите и настроите инфраструктуру удаленной площадки условного корпоративного ЦОД. В нее войдут IPsec-шлюз, виртуальная машина, сеть и подсеть.
 
 ### Создайте и настройте удаленную сеть {#setup-remote-net}
 
 #### Создайте сеть и подсеть на удаленной площадке {#remote-net}
 
 1. [Создайте сеть](../../../vpc/operations/network-create.md) с именем `remote-net`. При создании сети отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-1. В сети `remote-net` [создайте подсеть](../../../vpc/operations/subnet-create.md) для подключения удаленного IPsec-шлюза `remote-gw` и виртуальной машины `vm-1` со следующими параметрами:
+1. В сети `remote-net` вручную [создайте подсеть](../../../vpc/operations/subnet-create.md) для подключения удаленного IPsec-шлюза `remote-gw` и ВМ `vm-1` со следующими параметрами:
 
     * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `subnet-1`.
     * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
@@ -313,9 +313,9 @@
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана сеть `remote-net`.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Выберите сеть `remote-net`.
-1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_route-table }}** и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_route-table }}** и нажмите **{{ ui-key.yacloud.common.create }}**.
 1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** укажите `remote-net-rt`.
-1. В блоке **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}** нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+1. В блоке **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}** нажмите **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
 
     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}** укажите `172.16.1.0/24`.
     1. В поле **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}** укажите внутренний IP-адрес основного IPsec-шлюза — `10.10.20.20`.
@@ -326,12 +326,12 @@
     * **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}** — `172.16.2.0/24`.
     * **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}** — `10.10.20.20`.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
+1. Нажмите **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 1. Привяжите таблицу маршрутизации `remote-net-rt` к подсети `subnet-1`:
 
     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_overview }}**.
-    1. В строке подсети `subnet-1` нажмите значок ![image](../../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-    1. В открывшемся окне выберите таблицу `remote-net-rt` и нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
+    1. В строке подсети `subnet-1` нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+    1. В открывшемся окне выберите таблицу `remote-net-rt` и нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 ### Создайте и настройте виртуальные машины на удаленной площадке {#setup-remote-vms}
 
@@ -340,10 +340,10 @@
 Создайте ВМ, которая будет выступать в роли удаленного IPsec-шлюза. 
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать удаленный IPsec-шлюз.
-1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/create-resource-vm.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. Справа сверху нажмите **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** укажите `remote-gw`.
 1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b` — зону доступности, где находится подсеть, к которой будет подключен удаленный IPsec-шлюз.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}** и выберите образ `IPSec-инстанс`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}** и выберите образ `IPSec-инстанс`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
     1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите `subnet-1`.
@@ -360,7 +360,7 @@
     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите `ipsec`.
     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** введите [созданный ранее](#create-ssh-keys) публичный SSH-ключ для доступа к ВМ.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Дождитесь, когда ВМ перейдет в статус `Running`.
 
@@ -837,7 +837,7 @@ IPsec-шлюзы на основной и удаленной площадках 
 
 Чтобы перестать платить за созданные ресурсы:
 
-* [{#T}](../../../compute/operations/vm-control/vm-delete.md)
-* [{#T}](../../../vpc/operations/address-delete.md)
-* [{#T}](../../../vpc/operations/subnet-delete.md)
-* [{#T}](../../../vpc/operations/network-delete.md)
+* [Удалите ВМ](../../../compute/operations/vm-control/vm-delete.md).
+* [Удалите статический публичный IP-адрес](../../../vpc/operations/address-delete.md).
+* [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
+* [Удалите облачную сеть](../../../vpc/operations/network-delete.md).

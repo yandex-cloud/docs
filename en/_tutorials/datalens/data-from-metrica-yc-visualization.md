@@ -1,5 +1,7 @@
 # Web analytics with funnels and cohorts calculated based on Yandex Metrica data
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 In this tutorial, you will learn how to build conversion funnels, run cohort analysis, calculate the Retention rate for the user base in {{ ml-platform-full-name }}, and visualize the data in {{ datalens-full-name }}.
 
 Yandex Metrica data is used as the data source.

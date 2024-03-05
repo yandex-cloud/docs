@@ -20,6 +20,8 @@ items:
         items:
           - name: Creating a space
             href: operations/space/create.md
+          - name: Linking a billing account
+            href: operations/space/link-ba.md
           - name: Adding a user to a space
             href: operations/space/add-user-to-space.md
           - name: Deleting a space
@@ -48,6 +50,8 @@ items:
         href: concepts/dialogs.md
       - name: Reports
         href: concepts/reports.md
+      - name: Supported audio formats
+        href: concepts/formats.md
   - name: API reference
     items:
       - name: Authentication with the API

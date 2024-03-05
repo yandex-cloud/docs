@@ -10,9 +10,9 @@ You can automatically create a cloud network and subnets in all availability zon
 
 ## Getting started {#before-begin}
 
-1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
+1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
 ## Create a cloud network {#create-network}
 
@@ -21,16 +21,16 @@ To create a cloud network:
 1. In the [management console]({{ link-console-main }}) select a folder to create your cloud network in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-1. Enter a network name, like `test-network`.
+1. Enter a name for the network, e.g., `test-network`.
 1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 ## Create a subnet {#create-subnet}
 
 Create a subnet where cloud resources will be assigned [internal IP addresses](concepts/address.md#internal-addresses):
 
-1. Click the name of the created cloud network.
-1. Click ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
-1. Enter a subnet name, like `test-subnet-1`.
+1. Click the name of the cloud network you created.
+1. Click ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+1. Enter a name for the subnet, e.g., `test-subnet-1`.
 1. Select an availability zone from the drop-down list. Any zone from the list will be fine for the first subnet.
 1. Enter the subnet CIDR: its IP address and mask (for example, `10.10.0.0/24`). For more information about subnet IP address ranges, see [Cloud networks and subnets](concepts/network.md).
 1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.

@@ -7,9 +7,9 @@ keywords:
   - OpenSearch
 ---
 
-# Creating a {{ OS }} cluster
+# Creating an {{ OS }} cluster
 
-A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
+A {{ mos-name }} cluster is a group of multiple linked {{ OS }} hosts and [dashboards]({{ os.docs }}/dashboards/index/). A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
@@ -107,7 +107,92 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- API {#api}
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a cluster:
+
+   1. View a description of the create cluster CLI command:
+
+      ```bash
+      {{ yc-mdb-os }} cluster create --help
+      ```
+
+   1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
+
+      ```bash
+      {{ yc-mdb-os }} cluster create \
+         --name <cluster_name> \
+         --description <cluster_description> \
+         --labels <labels> \
+         --environment <environment:_production_or_prestable> \
+         --network-name <network_name> \
+         --security-group-ids <security_group_IDs> \
+         --service-account-name <service_account_name> \
+         --delete-protection <deletion_protection:_true_or_false> \
+         --maintenance schedule=<maintenance_type>,`
+                      `weekday=<day_of_week>,`
+                      `hour=<hour_of_day> \
+         --version <{{ OS }}_version> \
+         --read-admin-password \
+         --data-transfer-access=<true_or_false> \
+         --serverless-access=<true_or_false> \
+         --plugins <{{ OS }}_plugins> \
+         --advanced-params <advanced_parameters> \
+         --opensearch-node-group name=<name_of_{{ OS }}_host_group>,`
+                                `resource-preset-id=<host_class>,`
+                                `disk-size=<disk_size_in_bytes>,`
+                                `disk-type-id=<disk_type>,`
+                                `hosts-count=<number_of_hosts_per_group>,`
+                                `zone-ids=<availability_zones>,`
+                                `subnet-names=<subnet_names>,`
+                                `assign-public-ip=<assign_public_IP:_true_or_false>,`
+                                `roles=<host_roles> \
+         --dashboards-node-group name=<name_of_Dashboards_host_group>,`
+                                `resource-preset-id=<host_class>,`
+                                `disk-size=<disk_size_in_bytes>,`
+                                `disk-type-id=<disk_type>,`
+                                `hosts-count=<number_of_hosts_per_group>,`
+                                `zone-ids=<availability_zones>,`
+                                `subnet-names=<subnet_names>,`
+                                `assign-public-ip=<assign_public_IP:_true_or_false>
+      ```
+
+      Where:
+
+      * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) in `<key>=<value>` format. You can use them to logically separate resources.
+      * `--environment`: Environment:
+
+         * `production`: For stable versions of your applications.
+         * `prestable`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+
+      * `--service-account-name`: Name of the service account.
+
+      * `--delete-protection`: Cluster protection against accidental deletion by a user, `true` or `false`. Cluster deletion protection will not prevent a manual connection to a cluster to delete data.
+
+      * `--maintenance`: Maintenance time settings:
+
+         * To allow maintenance at any time, do not specify the `--maintenance` parameter in the command (default configuration) or specify `--maintenance schedule=anytime`.
+         * To specify the preferred start time for maintenance, specify the `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>` parameter in the command. In this case, maintenance will take place every week on a specified day at a specified time.
+
+         Both enabled and disabled clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
+
+      * `--read-admin-password`: `admin` user password. If you specify this parameter in the command, it will prompt you to enter a password.
+      * `--data-transfer-access`: Access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml), `true` or `false`.
+      * `--serverless-access`: Access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), `true` or `false`.
+      * `--plugins`: [{{ OS }} plugins](../concepts/plugins.md) you want to install in the cluster.
+      * `--advanced-params`: Additional cluster parameters. The possible values include:
+
+         * `max-clause-count`: Maximum allowed number of boolean clauses per query. See more in the [{{ OS }} documentation]({{ os.docs }}/query-dsl/compound/bool/).
+         * `fielddata-cache-size`: Amount of JVM heap memory allocated for the fielddata data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more details, see the [{{ OS }} documentation]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
+         * `reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value as `<host_address>:<port>`. If you need to specify more than one host, list values separated by commas. For more details, see the [{{ OS }} documentation]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+
+      {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
+
+-  API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -131,5 +216,93 @@ When creating a cluster, you need to specify individual parameters for each [hos
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+
+{% endlist %}
+
+## Examples {#examples}
+
+Create a {{ mos-name }} cluster with the following test characteristics:
+
+* Name: `my-os-clstr`.
+* Description: `My OS cluster`.
+* Label: `label-key` with the `label-value` value.
+* Environment: `production`.
+* Network name: `{{ network-name }}`.
+* Security group ID: `{{ security-group }}`.
+* Service account name: `os-account`.
+* Cluster deletion protection: Disabled.
+* Maintenance time: Every Monday from 13:00 till 14:00.
+* {{ OS }} version: `2.8`.
+* `admin` user password: To be set after entering the cluster creation command.
+* Access to {{ data-transfer-name }}: Enabled.
+* Access to {{ serverless-containers-name }}: Enabled.
+* {{ OS }} added plugin: analysis-icu.
+* {{ OS }} advanced parameter: `fielddata-cache-size=50%`.
+* `{{ OS }}` node group configuration:
+
+   * Group name: `os-group`
+   * Host class: `{{ host-class }}`
+   * Disk size: `10737418240` (in bytes)
+   * Disk type: `network-ssd`
+   * Number of hosts: Three
+   * Availability zone: `{{ region-id }}-b`
+   * Subnet: `{{ network-name }}-{{ region-id }}-b`
+   * Public address: Assigned
+   * Host group roles: `DATA` and `MANAGER`
+
+* Configuration of the `Dashboards` host group:
+
+   * Group name: `dashboard-group`
+   * Host class: `{{ host-class }}`
+   * Disk size: `10737418240` (in bytes)
+   * Disk type: `network-ssd`
+   * Number of hosts: One
+   * Availability zone: `{{ region-id }}-b`
+   * Subnet: `{{ network-name }}-{{ region-id }}-b`
+   * Public address: Assigned
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   Run this command:
+
+   ```bash
+   {{ yc-mdb-os }} cluster create \
+      --name my-os-clstr \
+      --description "My OS cluster" \
+      --labels label-key=label-value \
+      --environment production \
+      --network-name {{ network-name }} \
+      --security-group-ids {{ security-group }} \
+      --service-account-name os-account \
+      --delete-protection=false \
+      --maintenance schedule=weekly,`
+                   `weekday=mon,`
+                   `hour=14 \
+      --version 2.8 \
+      --read-admin-password \
+      --data-transfer-access=true \
+      --serverless-access=true \
+      --plugins analysis-icu \
+      --advanced-params fielddata-cache-size=50% \
+      --opensearch-node-group name=os-group,`
+                             `resource-preset-id={{ host-class }},`
+                             `disk-size=10737418240,`
+                             `disk-type-id=network-ssd,`
+                             `hosts-count=3,`
+                             `zone-ids={{ region-id }}-b,`
+                             `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                             `assign-public-ip=true,`
+                             `roles=data+manager \
+      --dashboards-node-group name=dashboard-group,`
+                             `resource-preset-id={{ host-class }},`
+                             `disk-size=10737418240,`
+                             `disk-type-id=network-ssd,`
+                             `hosts-count=1,`
+                             `zone-ids={{ region-id }}-b,`
+                             `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                             `assign-public-ip=true
+   ```
 
 {% endlist %}

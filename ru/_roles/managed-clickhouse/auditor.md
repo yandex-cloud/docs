@@ -1,3 +1,1 @@
-Роль `managed-clickhouse.auditor` предоставляет минимально необходимые разрешения для просмотра информации о кластерах {{ CH }} (без доступа к данным и логам работы).
-
-Пользователи с этой ролью могут просматривать информацию о кластерах {{ CH }} и квотах.
+Роль `managed-clickhouse.auditor` позволяет просматривать информацию о [кластерах ClickHouse®](../../managed-clickhouse/concepts/index.md), а также о [квотах](../../managed-clickhouse/concepts/limits.md#mch-quotas) и операциях с ресурсами сервиса Managed Service for ClickHouse®.

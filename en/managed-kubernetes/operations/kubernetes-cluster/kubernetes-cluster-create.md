@@ -2,32 +2,34 @@
 
 Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) and then [create a node group](../node-group/node-group-create.md).
 
+{% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+
 ## Getting started {#before-you-begin}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}). If not registered yet, navigate to the management console and follow the guide.
+   1. Log in to the [management console]({{ link-console-main }}). If not registered yet, navigate to the management console and follow the guide.
 
    
    1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
 
 
    1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
-   1. Make sure that the [account](../../../iam/concepts/index.md#accounts) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
+   1. Make sure that the [account](../../../iam/concepts/users/accounts.md) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
    1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
    1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
    1. Create the following [service accounts](../../../iam/operations/sa/create.md):
-      * Service account with the [k8s.clusters.agent](../../security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+      * Service account with the [k8s.clusters.agent](../../security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
       * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
       You can use the same service account for both operations.
 
       {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
 
-  1. [Create and configure the security groups](../connect/security-groups.md).
+   1. [Create and configure the security groups](../connect/security-groups.md).
 
    1. Review the [recommendations for using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
@@ -69,8 +71,9 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
       ```
 
       Where:
+
       * `--name`: {{ managed-k8s-name }} cluster name.
-      * `--network-name`: Name of the [network](../../../vpc/concepts/network.md#network).
+      * `--network-name`: [Network](../../../vpc/concepts/network.md#network) name.
 
          {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
@@ -85,7 +88,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
          {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-      * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+      * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
       * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
       * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
 
@@ -128,10 +131,10 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
         --master-logging enabled=<log_sending>,`
           `log-group-id=<log_group_ID>,`
           `folder-id=<folder_ID>,`
-          `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
-          `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
-          `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
-          `audit-enabled=<audit_event_sending:_true_or_false>
+          `kube-apiserver-enabled=<kube-apiserver_log_sending>,`
+          `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending>,`
+          `events-enabled=<{{ k8s }}_event_sending>`
+          `audit-enabled=<audit_event_sending>`
       ```
 
       Where:
@@ -157,7 +160,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
       > Here is an example of the configuration file structure:
       >
       > ```hcl
-      > resource "yandex_kubernetes_cluster" "<{{ managed-k8s-name }}_cluster_name>" {
+      > resource "yandex_kubernetes_cluster" "<Managed_Service_for_Kubernetes_cluster_name>" {
       >  network_id = yandex_vpc_network.<network_name>.id
       >  master {
       >    zonal {
@@ -190,7 +193,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
       >  # The service account is assigned the editor role.
       >  folder_id = "<folder_ID>"
       >  role      = "editor"
-      >  member    = "serviceAccount:${yandex_iam_service_account.<service_account_name> id}"
+      >  member    = "serviceAccount:${yandex_iam_service_account.<service_account_name>.id}"
       > }
       >
       > resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
@@ -241,8 +244,8 @@ Create a {{ managed-k8s-name }} cluster and a network for it with the following 
 * Network: `mynet`.
 * Subnet: `mysubnet`. Its network settings are as follows:
 
-   * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-   * Range: `10.1.0.0/16`.
+   * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
+   * Range: `10.1.0.0/16`
 
 * Service account: `myaccount`.
 * Service account [roles](../../../iam/concepts/access-control/roles.md): `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.keys.encrypterDecrypter`.
@@ -301,7 +304,7 @@ Install {{ TF }} (unless you already have it), configure the provider according 
    }
 
    resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
-     # The service account is assigned the k8s.clusters.agent role".
+     # The service account is assigned the "k8s.clusters.agent role".
      folder_id = local.folder_id
      role      = "k8s.clusters.agent"
      member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"

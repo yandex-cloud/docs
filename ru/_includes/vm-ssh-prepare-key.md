@@ -13,7 +13,7 @@
 
      Пара ключей будет создана в текущей директории. Открытый ключ будет сохранен в файле с расширением `.pub`.
 
-- Windows 10 {#windows}
+- Windows 10/11 {#windows}
 
   Если у вас еще не установлен [OpenSSH](https://ru.wikipedia.org/wiki/OpenSSH), установите его по [инструкции](https://learn.microsoft.com/ru-ru/windows-server/administration/openssh/openssh_install_firstuse).
 

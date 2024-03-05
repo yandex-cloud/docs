@@ -45,7 +45,7 @@ To use the service, you need the `{{ roles.gitlab.editor }}` [role](../../iam/co
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.gitlab.admin }}` instead of `{{ roles.gitlab.editor }}`.
 
-To create a {{ GL }} instance, you also need the [`{{ roles-vpc-user }}`](../../iam/concepts/access-control/roles.md#vpc-user) role.
+To create a {{ GL }} instance, you also need the [`{{ roles-vpc-user }}`](../../vpc/security/index.md#vpc-user) role.
 
 
 ## What's next {#whats-next}

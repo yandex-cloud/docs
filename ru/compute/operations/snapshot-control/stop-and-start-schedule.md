@@ -15,9 +15,9 @@ description: "Из статьи вы узнаете, как остановить
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
-  1. Напротив расписания, которое нужно остановить, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
+  1. Напротив расписания, которое нужно остановить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
   1. Подтвердите остановку расписания.
 
 - CLI {#cli}
@@ -40,8 +40,8 @@ description: "Из статьи вы узнаете, как остановить
       ```
       Результат:
       ```text
-      - id: fc852cvb1ipd55flc7t9
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc852cvb1ipd5********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-28T13:25:02Z"
         name: sched-1
         status: ACTIVE
@@ -49,8 +49,8 @@ description: "Из статьи вы узнаете, как остановить
           start_at: "2022-10-01T00:00:00Z"
           expression: 59 14 */1 * *
         snapshot_spec: {}
-      - id: fc89n1j15l7frkrne9eo
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc89n1j15l7f********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-27T16:04:13Z"
         name: sched-2
         status: ACTIVE
@@ -59,8 +59,8 @@ description: "Из статьи вы узнаете, как остановить
           expression: 0 */1 * * *
         retention_period: 3600s
         snapshot_spec: {}
-      - id: fc8bplhqmh2bnjni3lm0
-        folder_id: b8gauskl78li5n96eabk
+      - id: fc8bplhqmh2b********
+        folder_id: b8gauskl78li********
         created_at: "2022-10-03T13:28:01Z"
         name: sched-3
         description: Ежедневное
@@ -82,8 +82,8 @@ description: "Из статьи вы узнаете, как остановить
       Результат:
       ```text
       done (3s)
-      id: fc8e52mvchb2dbp0pou2
-      folder_id: e1ea8s8l71li5n96eakv
+      id: fc8e52mvchb2********
+      folder_id: e1ea8s8l71li********
       created_at: "2022-09-28T09:15:28Z"
       name: sched-1
       status: INACTIVE
@@ -115,9 +115,9 @@ description: "Из статьи вы узнаете, как остановить
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
-  1. Напротив расписания, которое нужно запустить, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
+  1. Напротив расписания, которое нужно запустить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
 
@@ -139,8 +139,8 @@ description: "Из статьи вы узнаете, как остановить
       ```
       Результат:
       ```text
-      - id: fc852cvb1ipd55flc7t9
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc852cvb1ipd5********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-28T13:25:02Z"
         name: sched-1
         status: ACTIVE
@@ -148,8 +148,8 @@ description: "Из статьи вы узнаете, как остановить
           start_at: "2022-10-01T00:00:00Z"
           expression: 59 14 */1 * *
         snapshot_spec: {}
-      - id: fc89n1j15l7frkrne9eo
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc89n1j15l7f********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-27T16:04:13Z"
         name: sched-2
         status: ACTIVE
@@ -158,8 +158,8 @@ description: "Из статьи вы узнаете, как остановить
           expression: 0 */1 * * *
         retention_period: 3600s
         snapshot_spec: {}
-      - id: fc8bplhqmh2bnjni3lm0
-        folder_id: b8gauskl78li5n96eabk
+      - id: fc8bplhqmh2b********
+        folder_id: b8gauskl78li********
         created_at: "2022-10-03T13:28:01Z"
         name: sched-3
         description: Ежедневное
@@ -181,8 +181,8 @@ description: "Из статьи вы узнаете, как остановить
       Результат:
       ```text
       done (3s)
-      id: fc8e52mvchb2dbp0pou2
-      folder_id: e1ea8s8l71li5n96eakv
+      id: fc8e52mvchb2********
+      folder_id: e1ea8s8l71li********
       created_at: "2022-09-28T09:15:28Z"
       name: sched-1
       status: ACTIVE

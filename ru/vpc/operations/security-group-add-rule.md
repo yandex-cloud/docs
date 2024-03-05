@@ -17,9 +17,9 @@ description: "Добавлять правила можно через консо
 
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
 
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке группы, в которой требуется добавить правило, и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, в которой требуется добавить правило, и выберите **{{ ui-key.yacloud.common.edit }}**.
 
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте правила для управления трафиком:
 
@@ -109,7 +109,7 @@ description: "Добавлять правила можно через консо
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и добавьте блок `ingress` или `egress` в описании группы безопасности:
 

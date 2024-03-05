@@ -1,6 +1,6 @@
 # Удалить кластер GPU
 
-Перед удалением кластера удалите из него все ВМ.
+Перед удалением [кластера GPU](../../concepts/gpus.md#gpu-clusters) удалите из него все [виртуальные машины](../../concepts/vm.md).
 
 {% list tabs group=instructions %}
 
@@ -10,20 +10,20 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для удаления кластера GPU:
+  1. Посмотрите описание команды [CLI](../../../cli/) для удаления кластера GPU:
 
      ```bash
      yc compute gpu-cluster delete --help
      ```
 
-  1. Получите список кластеров GPU в каталоге по умолчанию:
+  1. Получите список кластеров GPU в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
 
      ```bash
      yc compute gpu-cluster list
      ```
 
-  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного кластера, например `first-gpu-cluster`.
-  1. Удалите кластер:
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного кластера GPU, например `first-gpu-cluster`.
+  1. Удалите кластер GPU:
 
      ```bash
      yc compute gpu-cluster delete first-gpu-cluster
@@ -33,11 +33,11 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием GPU кластера:
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием кластера GPU:
 
-     {% cut "Пример описания GPU кластера в конфигурации {{ TF }}" %}
+     {% cut "Пример описания кластера GPU в конфигурации {{ TF }}" %}
 
-     ```
+     ```hcl
      ...
      resource "yandex_compute_gpu_cluster" "default" {
        name               = "gpu-cluster-name"
@@ -55,9 +55,9 @@
 
   1. Примените изменения:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  Проверить удаление кластера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+  Проверить удаление кластера GPU можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
     ```bash
     yc compute gpu-cluster list

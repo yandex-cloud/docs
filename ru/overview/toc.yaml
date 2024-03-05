@@ -16,6 +16,8 @@ items:
             href: concepts/ru-central1-c-deprecation.md
           - name: Миграция в зону ru-central1-d
             href: concepts/zone-migration.md
+          - name: Миграция ресурсов с помощью партнеров
+            href: concepts/zone-migration-partners.md
       - name: Устройство сети
         href: concepts/network.md
       - name: Взаимодействие пользователей и ресурсов

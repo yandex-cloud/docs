@@ -30,7 +30,7 @@
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
+    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
     1. [Получите идентификатор пользователя](../users/get.md).
     1. Назначьте роль с помощью команды:
 
@@ -114,7 +114,7 @@
 
     Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
 
-    1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
+    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
     1. [Получите идентификатор пользователя](../users/get.md).
     1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
 
@@ -283,7 +283,7 @@
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
+    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
     1. [Получите идентификатор пользователя](../users/get.md).
     1. Назначьте роль с помощью команды:
 
@@ -313,7 +313,7 @@
 
     Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
 
-    1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
+    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
     1. [Получите идентификатор пользователя](../users/get.md).
     1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `federatedUser` и идентификатор пользователя:
 
@@ -364,7 +364,7 @@
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
+    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
     1. [Получите идентификатор пользователя](../users/get.md).
     1. Назначьте роль с помощью команды:
 

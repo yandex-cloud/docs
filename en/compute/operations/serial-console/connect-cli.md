@@ -46,12 +46,12 @@ To connect to the serial console, use the CLI.
    ```
 
    Where:
-   * `instance-name`: Required parameter. VM name.
-   * `user`: Optional parameter. Username. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when creating the VM. For more information, see [{#T}](../vm-create/create-linux-vm.md).
-   * `port`: Optional parameter. Port number to connect to the serial console.
-      * The default value is 1. You don't need to specify this parameter to connect to the Linux serial console.
-      * When connecting to the Windows serial console (SAC), pass the value 2.
-   * `ssh-key`: Optional parameter. Path to the private key for SSH access to the Linux VM to be added to the [metadata](../../concepts/vm-metadata.md). If this parameter is omitted, the `yc_serialssh_key` SSH key is generated.
+   * `--instance-name`: Required parameter. VM name.
+   * `--user`: Optional parameter. Username. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is created automatically when creating the VM. For more information, see [{#T}](../vm-create/create-linux-vm.md).
+   * `--port`: Optional parameter. Port number to connect to the serial console.
+      * The default value is 1. You do not need to specify this parameter to connect to the Linux serial console.
+      * When connecting to the Windows serial console (SAC), specify 2.
+   * `--ssh-key`: Optional parameter. Path to the private key for SSH access to the Linux VM to be added to the [metadata](../../concepts/vm-metadata.md). If this parameter is omitted, the `yc_serialssh_key` SSH key is generated.
 
       {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
@@ -60,8 +60,8 @@ To connect to the serial console, use the CLI.
 * If you connect to the serial console and nothing appears on the screen:
    * Press **Enter**.
    * Restart the VM (for VMs created before February 22, 2019).
-* If the OS requests user credentials to provide access to the VM, enter the login and password:
-   * On a Linux VM, set a user password first. Run `sudo passwd <username>`. For more information, see [Getting started with the serial console](./index.md#linux-configuration).
+* If the OS requests user credentials to provide access to the VM, enter the username (login) and password:
+   * On a Linux VM, set a user password first. Run the `sudo passwd <username>` command. For more information, see [Getting started with the serial console](./index.md#linux-configuration).
    * On a Windows VM, enter your username, domain (VM name), and password. For more information, see [Starting your terminal in the Windows serial console (SAC)](./windows-sac.md).
 
 ## Disconnecting from the serial console {#turn-off-serial-console}

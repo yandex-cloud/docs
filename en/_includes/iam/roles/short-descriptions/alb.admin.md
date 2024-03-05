@@ -1,1 +1,0 @@
-[`alb.admin`](../../../../iam/concepts/access-control/roles.md#alb-admin): This role enables you to manage {{ alb-name }}, including viewing, creating, updating, and deleting resources, as well as managing access to them (the latter feature is yet to be implemented). It includes all permissions of the `alb.editor` role.

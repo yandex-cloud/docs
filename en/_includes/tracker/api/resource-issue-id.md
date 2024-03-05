@@ -1,8 +1,7 @@
 {% cut "Resource" %}
 
-Parameter | Description | Data type
+| Parameter | Description | Data type |
 -------- | -------- | ----------
-\<issue-id> | ID or key of the current issue. | String
+| \<issue_key_or_ID\> | ID or key of the current issue. | String |
 
 {% endcut %}
-

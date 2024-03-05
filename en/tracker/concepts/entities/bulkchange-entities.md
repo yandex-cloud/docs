@@ -12,13 +12,13 @@ Before making a request, [get permission to access the API](../access.md).
 Use an HTTP `POST` request for bulk changes of multiple entities. Request parameters are provided in the request body in JSON format.
 
 ```
-POST /{{ ver }}/entities/<entityType>/bulkchange/_update
+POST /{{ ver }}/entities/<entity_type>/bulkchange/_update
 Host: {{ host }}
 Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
-   "metaEntities":[ "<ID_of_entity_1>","<ID_of_entity_2>", ...],
+   "metaEntities":[ "<entity_1_ID>","<entity_2_ID>", ...],
    "values":
    {
       "fields":
@@ -37,7 +37,7 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| \<entityType> | Entity ID:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
+| \<entity_type> | Entity ID:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
 
 {% endcut %}
 
@@ -47,23 +47,23 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| metaEntities | List of entity IDs | Array of strings |
-| values | Object with settings for bulk entity changes | Object |
+| metaEntities | List of entity IDs. | Array of strings |
+| values | Object with settings for bulk entity changes. | Object |
 
-**Object fields** `values`
-
-| Parameter | Description | Data type |
--------- | -------- | ----------
-| fields | Object with key-value pairs | Object |
-| comment | Comment | String |
-| links | Array of objects with settings of links to other entities | Array of objects |
-
-**Array object fields** `links`
+`values` **object fields**
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| relationship | Link type. Here is an example:<ul><li>`relates`</li><li>`is dependent by`</li><li>`depends on`</li></ul>. | String |
-| entity | Linked entity's ID | String |
+| fields | Object with key-value pairs. | Object |
+| comment | Comment. | String |
+| links | Array of objects with settings of links to other entities. | Array of objects |
+
+`links` **array object fields**
+
+| Parameter | Description | Data type |
+-------- | -------- | ----------
+| relationship | Link type, e.g.:<ul><li>`relates`</li><li>`is dependent by`</li><li>`depends on`</li></ul> | String |
+| entity | Linked entity's ID. | String |
 
 {% endcut %}
 
@@ -107,8 +107,8 @@ Authorization: OAuth <OAuth_token>
    ```json
    {
       "id": "6560c6f59b0b1e76********",
-      "self": "{{ host }}/{{ ver }}/bulkchange/6560c6f59b0b1e76********",
-      "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "First and Last Name", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
+      "self": "https://{{ host }}/{{ ver }}/bulkchange/6560c6f59b0b1e76********",
+      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/11********", "id": "11********", "display": "Full name", "cloudUid": "ajevuhegoggf********", "passportUid": 11******** },
       "createdAt": "2023-11-24T15:53:25.122+0000",
       "status": "CREATED",
       "statusText": "Bulk change task created.",
@@ -121,22 +121,22 @@ Authorization: OAuth <OAuth_token>
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | id | Bulk request ID | String |
-   | self | Address of the API resource with information about the bulk request | String |
-   | createdBy | Block with information about the user who created the bulk request | Object |
-   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
-   | status | Bulk request status | String |
-   | statusText | Interpretation of the bulk request status | String |
+   | id | Bulk request ID. | String |
+   | self | Address of the API resource with information about the bulk request. | String |
+   | createdBy | Block with information about the user who created the bulk request. | Object |
+   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
+   | status | Bulk request status. | String |
+   | statusText | Interpretation of the bulk request status. | String |
 
-   **Object fields** `createdBy`
+   `createdBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the user who created the entity | String |
-   | id | User ID | Number |
-   | display | Displayed user name | String |
-   | cloudUid | User unique ID in {{ org-full-name }} | String |
-   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | String |
+   | self | Address of the API resource with information about the user who created the entity. | String |
+   | id | User ID. | Number |
+   | display | Displayed user name. | String |
+   | cloudUid | User unique ID in {{ org-full-name }}. | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
 
    {% endcut %}
 

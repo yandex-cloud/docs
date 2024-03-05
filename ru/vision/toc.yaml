@@ -1,4 +1,4 @@
-title: Yandex Vision
+title: Yandex Vision OCR
 href: index.yaml
 items:
   - name: Начало работы
@@ -7,26 +7,28 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Распознавание текста
-        items:
-          - name: Распознавание текста на изображении
-            href: operations/ocr/text-detection-image.md
-          - name: Распознавание текста из PDF-файла
-            href: operations/ocr/text-detection-pdf.md
-          - name: Распознавание строки текста
-            href: operations/ocr/text-detection-single-line.md
-          - name: Распознавание рукописного текста
-            href: operations/ocr/text-detection-handwritten.md
-          - name: Распознавание таблицы
-            href: operations/ocr/text-detection-table.md
+      - name: Распознавание текста на изображении
+        href: operations/ocr/text-detection-image.md
+      - name: Распознавание текста из PDF-файла
+        href: operations/ocr/text-detection-pdf.md
+      - name: Распознавание строки текста
+        hidden: true
+        href: operations/ocr/text-detection-single-line.md
+      - name: Распознавание рукописного текста
+        href: operations/ocr/text-detection-handwritten.md
+      - name: Распознавание таблицы
+        href: operations/ocr/text-detection-table.md
       - name: Определение качества изображения
         stage: preview
+        hidden: true
         href: operations/classification/quality.md
       - name: Модерирование изображений
         stage: preview
+        hidden: true
         href: operations/classification/moderation.md
       - name: Обнаружение лиц
         stage: preview
+        hidden: true
         href: operations/face-detection/index.md
       - name: Кодирование в Base64
         href: operations/base64-encode.md
@@ -36,24 +38,21 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Распознавание архива изображений в Yandex Vision
+      - name: Распознавание архива изображений в {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
   - name: Концепции
     items:
       - name: Обзор
-        href: concepts/index.md
-      - name: Распознавание текста
-        items:
-          - name: Обзор
-            href: concepts/ocr/index.md
-          - name: Распознавание документов
-            href: concepts/ocr/template-recognition.md
-          - name: Поддерживаемые языки
-            href: concepts/ocr/supported-languages.md
-          - name: Ограничения в текущей версии
-            href: concepts/ocr/known-issues.md
+        href: concepts/ocr/index.md
+      - name: Распознавание документов
+        href: concepts/ocr/template-recognition.md
+      - name: Поддерживаемые языки
+        href: concepts/ocr/supported-languages.md
+      - name: Ограничения в текущей версии
+        href: concepts/ocr/known-issues.md
       - name: Классификация изображений
         stage: preview
+        hidden: true
         items:
           - name: Обзор
             stage: preview
@@ -63,6 +62,7 @@ items:
             href: concepts/classification/supported-models.md
       - name: Обнаружение лиц
         stage: preview
+        hidden: true
         href: concepts/face-detection/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
@@ -74,24 +74,6 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: Vision API (англ.)
-        items:
-          - name: gRPC
-            items:
-              - name: Overview
-                href: vision/api-ref/grpc/index.md
-              - name: VisionService
-                href: vision/api-ref/grpc/vision_service.md
-          - name: REST
-            items:
-              - name: Overview
-                href: vision/api-ref/index.md
-              - name: Vision
-                items:
-                  - name: Overview
-                    href: vision/api-ref/Vision/index.md
-                  - name: batchAnalyze
-                    href: vision/api-ref/Vision/batchAnalyze.md
       - name: OCR API (англ.)
         items:
           - name: gRPC
@@ -122,7 +104,27 @@ items:
                     href: ocr/api-ref/TextRecognitionAsync/getRecognition.md
                   - name: recognize
                     href: ocr/api-ref/TextRecognitionAsync/recognize.md
+      - name: Vision API (англ.)
+        hidden: true
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: vision/api-ref/grpc/index.md
+              - name: VisionService
+                href: vision/api-ref/grpc/vision_service.md
+          - name: REST
+            items:
+              - name: Overview
+                href: vision/api-ref/index.md
+              - name: Vision
+                items:
+                  - name: Overview
+                    href: vision/api-ref/Vision/index.md
+                  - name: batchAnalyze
+                    href: vision/api-ref/Vision/batchAnalyze.md
       - name: Classifier API (англ.)
+        hidden: true
         items:
           - name: gRPC
             items:

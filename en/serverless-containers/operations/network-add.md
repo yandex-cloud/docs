@@ -5,8 +5,6 @@ description: "Use this guide to specify a cloud network to run a container in."
 
 # Specifying a cloud network to run a container in
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 You can specify a [cloud network](../../vpc/concepts/network.md#network) to run your container in.
 
 {% include [network](../../_includes/functions/network.md) %}

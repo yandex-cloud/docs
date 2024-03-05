@@ -46,13 +46,13 @@
 
 {% include [encryption-keys-note](../../_includes/compute/encryption-keys-note.md) %}
 
-Чтобы ВМ имела доступ к зашифрованному диску, к ней должен быть привязан [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) c [ролью](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter) `kms.keys.encrypterDecrypter`. Обратите внимание, к ВМ могут быть привязаны два сервисных аккаунта:
+Чтобы ВМ имела доступ к зашифрованному диску, к ней должен быть привязан [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) c [ролью](../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter`. Обратите внимание, к ВМ могут быть привязаны два сервисных аккаунта:
 *  Для [работы с ресурсами облака](../operations/vm-connect/auth-inside-vm) изнутри ВМ, например для отправки метрик в {{ monitoring-full-name }}, логов в {{ cloud-logging-full-name }} или подключения к {{ backup-full-name }}. Этот сервисный аккаунт указывается в блоке параметров доступа.
 *  Для работы с зашифрованными дисками. Этот сервисный аккаунт указывается в блоке параметров дисков.
 
 Чтобы использовать шифрование в {{ compute-name }} у пользователя должны быть следующие роли:
-* `iam.serviceAccounts.user` и выше на сервисный аккаунт, который используется для шифрования. Подробнее см. [Роли {{ iam-full-name }}](../../iam/concepts/access-control/roles.md#sa-user).
-* `kms.viewer` и выше на ключ, который используется для шифрования. Подробнее см. [Роли {{ kms-full-name }}](../../iam/concepts/access-control/roles.md#kms-viewer).
+* `iam.serviceAccounts.user` и выше на сервисный аккаунт, который используется для шифрования. Подробнее см. [Роли {{ iam-full-name }}](../../iam/security/index.md#iam-serviceAccounts-user).
+* `kms.viewer` и выше на ключ, который используется для шифрования. Подробнее см. [Роли {{ kms-full-name }}](../../kms/security/index.md#kms-viewer).
 
 ### См. также {#see-also}
 

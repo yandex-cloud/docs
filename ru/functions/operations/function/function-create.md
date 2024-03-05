@@ -27,7 +27,7 @@ description: "Следуя данной инструкции, вы сможет�
     Чтобы создать функцию, выполните команду:
 
     ```
-    yc serverless function create --name=<имя функции>
+    yc serverless function create --name=<имя_функции>
     ```
 
     Результат:
@@ -44,7 +44,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}  
 
@@ -80,8 +80,8 @@ description: "Следуя данной инструкции, вы сможет�
         
         ```
         provider "yandex" {
-            token     = "<OAuth или статический ключ сервисного аккаунта>"
-            folder_id = "<идентификатор каталога>"
+            token     = "<OAuth-токен_или_статический_ключ_сервисного_аккаунта>"
+            folder_id = "<идентификатор_каталога>"
             zone      = "{{ region-id }}-a"
         }
              
@@ -93,10 +93,10 @@ description: "Следуя данной инструкции, вы сможет�
             entrypoint         = "main"
             memory             = "128"
             execution_timeout  = "10"
-            service_account_id = "<идентификатор сервисного аккаунта>"
+            service_account_id = "<идентификатор_сервисного_аккаунта>"
             tags               = ["my_tag"]
             content {
-                zip_filename = "<путь к ZIP-архиву>"
+                zip_filename = "<путь_к_ZIP-архиву>"
             }
         }
 

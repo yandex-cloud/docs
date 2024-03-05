@@ -7,6 +7,8 @@ description: "In this tutorial, you will create a {{ managed-k8s-name }} cluster
 
 Create a [{{ managed-k8s-name }} cluster](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s }} command line tool.
 
+{% include [unable-in-relocated-subnet](../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+
 ## Getting started {#before-you-begin}
 
 To get started with {{ managed-k8s-name }}:
@@ -23,8 +25,8 @@ To get started with {{ managed-k8s-name }}:
 1. If you do not have any [subnets](../vpc/concepts/network.md#subnet), [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
 1. Create the following [service accounts](../iam/operations/sa/create.md):
 
-   * Service account with the [k8s.clusters.agent](security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster requires.
-   * Service account with the [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
+   * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+   * Service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
    You can use the same service account for both operations.
 
@@ -39,7 +41,7 @@ To get started with {{ managed-k8s-name }}:
 1. Enter the {{ managed-k8s-name }} cluster name. It must be unique within the folder.
 1. (Optional) Enter the {{ managed-k8s-name }} cluster description.
 1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify a [service account](../iam/concepts/users/service-accounts.md) with the `k8s.clusters.agent` and `vpc.publicAdmin` roles which you intend to use to create resources.
-1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: Specify a service account with the [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) role that {{ managed-k8s-name }} nodes will use to access the Docker image registry.
+1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: Specify a service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role that {{ managed-k8s-name }} nodes will use to access the Docker image registry.
 1. Specify a [release channel](concepts/release-channels-and-updates.md). You cannot edit this setting after you create a {{ managed-k8s-name }} cluster.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: Select a {{ k8s }} version to install on the [{{ managed-k8s-name }} master](concepts/index.md#master).
@@ -112,7 +114,7 @@ To create a {{ managed-k8s-name }} node group:
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Choose a [platform](../compute/concepts/vm-platforms.md).
    * Specify the required number of vCPUs, [guaranteed vCPU performance](../compute/concepts/performance-levels.md), and the amount of RAM.
-   * (Optional) Specify that you want the VM to be [preemptible](../compute/concepts/preemptible-vm.md).
+   * (Optional) Specify that the VM must be [preemptible](../compute/concepts/preemptible-vm.md).
    * (Optional) Enable a [software-accelerated network](../compute/concepts/software-accelerated-network.md).
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:

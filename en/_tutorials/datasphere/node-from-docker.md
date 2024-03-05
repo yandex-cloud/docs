@@ -126,13 +126,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
    # syntax=docker/dockerfile:1
    FROM nvcr.io/nvidia/tritonserver:22.01-py3
 
-   RUN mkdir -p /models/resnet50_640x640/1/model.savedmodel/ &&\
-     curl -L "https://tfhub.dev/tensorflow/faster_rcnn/resnet50_v1_640x640/1?tf-hub-format=compressed" |\
-     tar -zxvC /models/resnet50_640x640/1/model.savedmodel/ &&\
-     mkdir -p /models/resnet101_640x640/1/model.savedmodel/ &&\
-     curl -L "https://tfhub.dev/tensorflow/faster_rcnn/resnet101_v1_640x640/1?tf-hub-format=compressed" |\
-     tar -zxvC /models/resnet101_640x640/1/model.savedmodel/ && \
-     mkdir -p /models/resnet152_640x640/1/model.savedmodel/ &&\
+   RUN mkdir -p /models/resnet152_640x640/1/model.savedmodel/ &&\
      curl -L "https://tfhub.dev/tensorflow/faster_rcnn/resnet152_v1_640x640/1?tf-hub-format=compressed" |\
      tar -zxvC /models/resnet152_640x640/1/model.savedmodel/ &&\
      mkdir -p /models/inception_resnet_v2_640x640/1/model.savedmodel/ &&\
@@ -147,8 +141,8 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
    {% endcut %}
 
-1. Run [Docker Desktop](https://docs.docker.com/desktop/):
-1. In the command shell, switch to the folder with your Dockerfile.
+1. Run [Docker Desktop](https://docs.docker.com/desktop/).
+1. In the command shell, navigate to the folder with `Dockerfile` you created.
 
    ```bash
    cd docker-images
@@ -157,7 +151,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. Build a Docker image:
 
    ```bash
-   docker build -t triton-docker .
+   docker build -t triton-docker --platfom linux/amd64 .
    ```
 
 ### Upload the Docker image to {{ container-registry-name }} {#push-docker}
@@ -172,12 +166,6 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
       ```bash
       yc config set folder-name data-folder
-      ```
-
-   1. Get a list of registries in `data-folder`.
-
-      ```bash
-      yc container registry list
       ```
 
    1. [Get authenticated in {{ container-registry-name }}](../../container-registry).
@@ -205,7 +193,24 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
         {{ registry }}
       ```
 
-   1. Push the Docker image to {{ container-registry-name }}. For <registry_ID>, use the ID of your registry (`datasphere-registry`):
+   1. Get a list of registries in `data-folder`.
+
+      ```bash
+      yc container registry list
+
+      ```
+
+      You will need the registry ID at the next step. Sample command output:
+
+      ```text
+      +----------------------+---------------------+----------------------+
+      |          ID          |        NAME         |      FOLDER ID       |
+      +----------------------+---------------------+----------------------+
+      | crp86bmgl1da******** | datasphere-registry | b1g4bh24c406******** |
+      +----------------------+---------------------+----------------------+
+      ```
+
+   1. Push the Docker image to {{ container-registry-name }}. For `<registry_ID>`, use the ID of your registry (`datasphere-registry`):
 
       ```bash
       docker tag triton-docker {{ registry }}/<registry_ID>/triton:v1
@@ -228,7 +233,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. Create a node. To do this, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**. Specify the basic node parameters:
    * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.common.docker }}**.
    * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: `triton`.
-   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the {{ container-registry-name }} image. You can obtain it in the management console or CLI by running the `yc container registry list` command.
+   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the {{ container-registry-name }} image in the `cr.yandex/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value (along with the tag) on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.
    * Click **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** and specify:
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: Select `key-for-sa`.
@@ -243,14 +248,14 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
       * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}**: 8000.
    * Under **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}**: Select **HTTP**.
-      * **{{ ui-key.yc-ui-datasphere.common.port }}**: 8020.
+      * **{{ ui-key.yc-ui-datasphere.common.port }}**: 8000.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: `/v2/health/ready`.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: 1.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: 20.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: 3.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: 3.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the `c1.4` [configuration](../../datasphere/concepts/configurations.md) and the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Leave the [subnet](../../vpc/concepts/network.md#subnet) ID empty, as {{ ml-platform-name }} will use its default subnet.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the `g1.1` [configuration](../../datasphere/concepts/configurations.md) and the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Leave the [subnet](../../vpc/concepts/network.md#subnet) ID empty, as {{ ml-platform-name }} will use its default subnet.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, keep the default folder value.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 

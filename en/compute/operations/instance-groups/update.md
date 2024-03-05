@@ -21,7 +21,7 @@ To change the name and description of an instance group:
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.
    1. In the top-right corner of the page, click **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
    1. Fill in the **{{ ui-key.yacloud.compute.groups.create.field_name }}** and **{{ ui-key.yacloud.compute.groups.create.field_description }}** fields.
@@ -48,7 +48,7 @@ To change the name and description of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
+      {{ yc-compute-ig }} update --id <instance_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.
@@ -78,11 +78,11 @@ To change the computing resources of an instance group:
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.
    1. In the top-right corner of the page, click **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**:
-      * Click ![image](../../../_assets/horizontal-ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.delete }}** to delete the current instance template.
+      * Click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.delete }}** to delete the current instance template.
       * Click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to create a new template with required instance parameters.
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Click **{{ ui-key.yacloud.common.save }}** on the **{{ ui-key.yacloud.compute.group.edit.label_title }}** page.
@@ -108,7 +108,7 @@ To change the computing resources of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
+      {{ yc-compute-ig }} update --id <instance_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.
@@ -133,10 +133,10 @@ To increase the disk size of an instance group:
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.
    1. In the top-right corner of the page, click **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
-   1. In the top-right corner of the **{{ ui-key.yacloud.compute.groups.create.section_instance }}** section, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner of the **{{ ui-key.yacloud.compute.groups.create.section_instance }}** section, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify the disk size.
    1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Click **{{ ui-key.yacloud.common.save }}** on the **{{ ui-key.yacloud.compute.group.edit.label_title }}** page.
@@ -162,7 +162,7 @@ To increase the disk size of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
+      {{ yc-compute-ig }} update --id <instance_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.

@@ -53,15 +53,15 @@ If you use the wizard to create a profile, the CLI prompts you to enter the basi
 You can stop profile creation at any time. All the settings you entered before stopping are saved to the profile.
 
 
-If you aren't connected to the management console yet, log in to the [console]({{ link-console-main }}) and accept the user agreement by clicking **Log in**.
+If you are not connected to the management console yet, log in to the [console]({{ link-console-main }}) and accept the user agreement by clicking **Log in**.
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Yandex account
+- Yandex account {#yandex-account}
 
    {% include [include](../../../_includes/cli/create-profile.md) %}
 
-- Federated account
+- Federated account {#federated-account}
 
    {% include [include](../../../_includes/cli/auth-federated-user.md) %}
 

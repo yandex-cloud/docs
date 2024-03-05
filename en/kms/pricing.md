@@ -24,7 +24,6 @@ The cost of {{ kms-name }} usage is based on:
 
 
 
-The service keeps track of consumed resources, but you can use {{ kms-full-name }} resources free of charge.
-
+{% include [usd.md](../_pricing/kms/usd.md) %}
 
 

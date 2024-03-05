@@ -61,28 +61,28 @@ description: "Следуя данной инструкции, вы сможет�
 
 
      Где:
-     * `name` – имя ВМ.
+     * `--name` – имя ВМ.
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * `zone` – [зона доступности](../../../overview/concepts/geo-scope.md).
+     * `--zone` – [зона доступности](../../../overview/concepts/geo-scope.md).
 
        
        {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
  
 
-     * `platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
+     * `--platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
        
        {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
        
-     * `cores` – [количество vCPU](../../concepts/gpus.md).
-     * `memory` – размер RAM.
-     * `gpus` – количество GPU.
-     * `preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
+     * `--cores` – [количество vCPU](../../concepts/gpus.md).
+     * `--memory` – размер RAM.
+     * `--gpus` – количество GPU.
+     * `--preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
 
        
-     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
+     * `--create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
 
        {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
@@ -131,7 +131,7 @@ description: "Следуя данной инструкции, вы сможет�
 
        resources {
          cores  = <количество_ядер_vCPU>
-         memory = <объем_RAM_в_ГБ>
+         memory = <объем_RAM_ГБ>
          gpus   = <количество_GPU>
        }
 
@@ -204,7 +204,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Создайте ресурсы:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 

@@ -11,6 +11,15 @@ You can move a VM instance to a different availability zone by running a [CLI co
 
 {% include [relocate-note](../../../_includes/compute/relocate-note.md) %}
 
+{% note warning %}
+
+The `{{ region-id }}-d` zone does not support VM instances running on the Intel Broadwell [platform](../../concepts/vm-platforms.md). To move such an instance to the `{{ region-id }}-d` zone, you can do one of the following:
+
+* Take a disk snapshot and use it to create a new VM instance in the `{{ region-id }}-d` zone on a different platform.
+* Stop the VM instance, change the platform, and move the VM by running `relocate`.
+
+{% endnote %}
+
 ## Moving VM instances using disk snapshots {#relocate-snapshots}
 
 To move a VM instance to a different availability zone using snapshots, create a copy of the VM instance in the destination availability zone and then delete the original one.
@@ -134,7 +143,7 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
 
    For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
 
-   Please note that a VM's relocation to a new subnet changes its IP addressing. If you need to specify a VM's internal IP address, use the `ipv4-address=<internal IP>` property of the `network-interface` parameter; for its public IP address, use the `nat-address=<public IP>` property of the same parameter. In other respects, setting the network interface parameters of a VM you are migrating is similar to creating an instance.
+   Please note that a VM's relocation to a new subnet changes its IP addressing. If you need to specify an internal IP address for your VM, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for a public IP address, use the `nat-address=<public_IP_address>` property. In other respects, setting the network interface parameters of a VM you are migrating is similar to creating an instance.
 
    For example:
 
@@ -219,55 +228,118 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
 
    {% endnote %}
 
-### Example {#example}
+Please note that migrating a VM to a new subnet changes its IP addressing. If you need to specify an internal IP address for your VM, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for a public IP address, use the `nat-address=<public_IP_address>` property. In other respects, setting up the network interface parameters of the VM you want to migrate is similar to creating an instance.
+
+### Examples {#examples}
+
+#### Moving a VM to a different zone {#jump-from-a-to-d}
 
 In this example, a VM instance named `my-vm-1` is moved from the `{{ region-id }}-a` availability zone to the `{{ region-id }}-d` availability zone.
 
-   ```bash
-   yc compute instance relocate a7lh48f5jvlk******** \
-     --destination-zone-id {{ region-id }}-d \
-     --network-interface \
-       subnet-id=bltign9kcffv********,security-group-ids=c646ev94tb6k********
-   ```
+```bash
+yc compute instance relocate a7lh48f5jvlk******** \
+  --destination-zone-id {{ region-id }}-d \
+  --network-interface \
+    subnet-id=bltign9kcffv********,security-group-ids=c646ev94tb6k********
+```
 
 Result:
 
-   ```text
-   done (3m15s)
-   id: a7lh48f5jvlk********
-   folder_id: aoeg2e07onia********
-   created_at: "2023-10-13T19:47:40Z"
-   name: my-vm-1
-   zone_id: {{ region-id }}-d
-   platform_id: standard-v3
-   resources:
-     memory: "2147483648"
-     cores: "2"
-     core_fraction: "100"
-   status: RUNNING
-   metadata_options:
-     gce_http_endpoint: ENABLED
-     aws_v1_http_endpoint: ENABLED
-     gce_http_token: ENABLED
-     aws_v1_http_token: DISABLED
-   boot_disk:
-     mode: READ_WRITE
-     device_name: a7lp7jpslu59********
-     auto_delete: true
-     disk_id: a7lp7jpslu59********
-   network_interfaces:
-     - index: "0"
-       mac_address: d0:0d:11:**:**:**
-       subnet_id: bltign9kcffv********
-       primary_v4_address:
-         address: 192.168.1.17
-       security_group_ids:
-         - c646ev94tb6k********
-   gpu_settings: {}
-   fqdn: my-vm-1.ru-central1.internal
-   scheduling_policy: {}
-   network_settings:
-     type: STANDARD
-   placement_policy: {}
-   ```
+```text
+done (3m15s)
+id: a7lh48f5jvlk********
+folder_id: aoeg2e07onia********
+created_at: "2023-10-13T19:47:40Z"
+name: my-vm-1
+zone_id: {{ region-id }}-d
+platform_id: standard-v3
+resources:
+  memory: "2147483648"
+  cores: "2"
+  core_fraction: "100"
+status: RUNNING
+metadata_options:
+  gce_http_endpoint: ENABLED
+  aws_v1_http_endpoint: ENABLED
+  gce_http_token: ENABLED
+  aws_v1_http_token: DISABLED
+boot_disk:
+  mode: READ_WRITE
+  device_name: a7lp7jpslu59********
+  auto_delete: true
+  disk_id: a7lp7jpslu59********
+network_interfaces:
+  - index: "0"
+mac_address: d0:0d:11:**:**:**
+subnet_id: bltign9kcffv********
+primary_v4_address:
+  address: 192.168.1.17
+security_group_ids:
+  - c646ev94tb6k********
+gpu_settings: {}
+fqdn: my-vm-1.ru-central1.internal
+scheduling_policy: {}
+network_settings:
+  type: STANDARD
+placement_policy: {}
+```
 
+#### Moving a VM with disks in a placement group {#jump-with-disk-placement-group}
+
+In this example, a VM instance named `my-vm-1` with two disks in a placement group is moved from the `{{ region-id }}-b` availability zone to the `{{ region-id }}-d` availability zone.
+
+```bash
+yc compute instance relocate epd6qtn128k1******** \
+  --destination-zone-id {{ region-id }}-d \
+  --network-interface \
+    subnet-id=fl8glc5v0lqj********,security-group-ids=enp1gjh3q042******** \
+  --boot-disk-placement-group-id fv4pfmor782v******** \
+  --boot-disk-placement-group-partition 1 \
+  --secondary-disk-placement \
+    disk-name=disk-two,fv4pfmor782v********,disk-placement-group-partition=2
+```
+
+Result:
+
+```text
+done (9m0s)
+id: epd6qtn128k1********
+folder_id: b1gmit33ngp3********
+created_at: "2023-12-07T19:30:20Z"
+name: my-vm-1
+zone_id: {{ region-id }}-d
+platform_id: standard-v3
+resources:
+  memory: "2147483648"
+  cores: "2"
+  core_fraction: "100"
+status: RUNNING
+metadata_options:
+  gce_http_endpoint: ENABLED
+  aws_v1_http_endpoint: ENABLED
+  gce_http_token: ENABLED
+  aws_v1_http_token: DISABLED
+boot_disk:
+  mode: READ_WRITE
+  device_name: epdeqrm6g38j********
+  auto_delete: true
+  disk_id: epdeqrm6g38j********
+secondary_disks:
+  - mode: READ_WRITE
+    device_name: epdi54snn7t6********
+    disk_id: epdi54snn7t6********
+network_interfaces:
+  - index: "0"
+    mac_address: d0:0d:6d:76:e1:12
+    subnet_id: fl8glc5v0lqj********
+    primary_v4_address:
+      address: 10.130.0.12
+    security_group_ids:
+      - enp1gjh3q042********
+gpu_settings: {}
+fqdn: my-vm-1.ru-central1.internal
+scheduling_policy: {}
+network_settings:
+  type: STANDARD
+placement_policy: {}
+```

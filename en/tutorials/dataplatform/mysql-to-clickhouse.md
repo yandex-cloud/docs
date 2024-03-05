@@ -5,6 +5,6 @@ description: "With {{ data-transfer-name }}, you can migrate a database from a s
 
 # Migrating databases from {{ MY }} to {{ CH }} using {{ data-transfer-full-name }}
 
-{% include notitle [article-body](../../_tutorials/mysql-to-clickhouse.md) %}
+{% include notitle [article-body](../../_tutorials/dataplatform/mysql-to-clickhouse.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

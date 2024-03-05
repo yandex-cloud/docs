@@ -32,13 +32,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. Create the following [service accounts](../../iam/operations/sa/create.md) for the {{ managed-k8s-name }} cluster:
 
       * Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) is created.
-      * Service account for nodes with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role to the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
       * Service account for the operation of the {{ alb-name }} Ingress controller with the following roles:
 
-         * [{{ roles-alb-editor }}](../../iam/concepts/access-control/roles.md#alb-editor): To create the required resources.
-         * [{{ roles-vpc-public-admin }}](../../iam/concepts/access-control/roles.md#vpc-public-admin): To manage [external connectivity](../../vpc/security/index.md#roles-list).
-         * [certificate-manager.certificates.downloader](../../iam/concepts/access-control/roles.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
-         * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
+         * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor): To create the required resources.
+         * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin): To manage [external connectivity](../../vpc/security/index.md#roles-list).
+         * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
+         * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
 
       You can use the same service account for all operations.
 
@@ -52,12 +52,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The key data is required for the [installation](#install-alb-ingress-controller) of the ALB Ingress Controller application.
 
-   1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Specify these settings at creation:
+   1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
 
       * Specify the previously created service account for resources.
-      * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate it a public IP address. To allow connections from outside the network, assign a public IP to the cluster.
+      * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP to the cluster.
 
-   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Specify these settings at creation:
+   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
 
       * Specify the previously created service account for nodes.
       * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
@@ -471,7 +471,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `k8s-and-registry-for-alb.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

@@ -36,7 +36,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Выполните команду:
   
      ```powershell
-     Reset-YCUserPassword -InstanceName <имя ВМ> -Username <имя пользователя ВМ>
+     Reset-YCUserPassword -InstanceName <имя_ВМ> -Username <имя_пользователя_ВМ>
      ```
 
      {% note info %}

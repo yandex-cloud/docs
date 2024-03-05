@@ -50,16 +50,23 @@ In some cases, changing the instance template (`instance_template`) causes the i
 
 * Changing the instance name, description, and labels (`name`, `description`, `labels`).
 * Changing the service account of an instance (not instance group) (`service_account_id`).
+* Changing the VM security groups (`network_interface_specs.security_group_ids`).
 
-### Parameters whose change leads to instance restart {#ch-temp-with-restart}
+### Parameters whose update leads to instance restart {#ch-temp-with-restart}
 
 * `platform_id`: The hardware platform.
 * `resources_spec.{memory,cores,core_fraction,gpus}`: RAM, CPU, [guaranteed CPU %](../../performance-levels.md), [number of GPUs](../../gpus.md).
 * `boot_disk_spec`: Boot disk.
 * `metadata`: Instance metadata.
 
-### Parameters whose change leads to instance re-creation {#ch-temp-with-recreate}
+### Parameters whose update leads to instance recreation {#ch-temp-with-recreate}
 
-* `network_interface_specs`: You can't update network interfaces without re-creating the instance.
-* `secondary_disk_specs`: You can't update secondary disks without re-creating the instance. Disks are retained whenever possible.
-* `scheduling_policy`: You can't convert a regular instance into a preemptible instance or vice versa without re-creating the instance.
+* Network parameters you cannot update without recreating the instance:
+
+   * `network_interface_specs.network_id`
+   * `network_interface_specs.subnet_ids`
+   * `network_interface_specs.primary_v4_address_spec`
+   * `network_interface_specs.primary_v6_address_spec`
+
+* `secondary_disk_specs`: You cannot update secondary disks without recreating the instance. Disks are retained whenever possible.
+* `scheduling_policy`: You cannot convert a regular instance to a preemptible instance or vice versa without recreating it.

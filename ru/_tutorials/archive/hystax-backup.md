@@ -122,7 +122,7 @@ Hystax Acura Backup будет выполнять действия от имен
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. На панели слева выберите ![img](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+      1. На панели слева выберите ![img](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
           * Введите имя `hystax-acura-vm` и описание ВМ.
@@ -140,7 +140,7 @@ Hystax Acura Backup будет выполнять действия от имен
           * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
           * Выберите в списке облачную [сеть](../../vpc/concepts/network.md#network). Если сети нет, нажмите кнопку **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Задайте параметры сети и нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
-          * Выберите [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Задайте параметры подсети и нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Сохраните идентификатор подсети, он потребуется в дальнейшем.
+          * Выберите [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Задайте параметры подсети и нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Сохраните идентификатор подсети, он потребуется в дальнейшем.
           * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика.
 
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
@@ -166,24 +166,24 @@ Hystax Acura Backup будет выполнять действия от имен
         --network-interface subnet-id=<идентификатор_подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
         --create-boot-disk name=hystax-acura-disk,size=200,image-id=<идентификатор_образа_Hystax_Acura_Backup> \
         --service-account-id <идентификатор_сервисного_аккаунта> \
-        --ssh-key <путь_к_файлу_открытого_ключа_SSH>
+        --ssh-key <путь_к_файлу_открытого_SSH-ключа>
       ```
 
       Где:
-      * `name` — имя ВМ, например, `hystax-acura-vm`.
-      * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например `{{ region-id }}-a`. Сохраните обозначение зоны доступности, оно потребуется в дальнейшем.
-      * `cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
-      * `memory` — [размер оперативной памяти](../../compute/concepts/vm.md) ВМ.
-      * `network-interface` — описание сетевого интерфейса ВМ:
+      * `--name` — имя ВМ, например, `hystax-acura-vm`.
+      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), например `{{ region-id }}-a`. Сохраните обозначение зоны доступности, оно потребуется в дальнейшем.
+      * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
+      * `--memory` — [размер оперативной памяти](../../compute/concepts/vm.md) ВМ.
+      * `--network-interface` — описание сетевого интерфейса ВМ:
         * `subnet-id` — идентификатор подсети, к которой будет подключена ВМ. Получить список подсетей можно с помощью команды CLI `yc vpc subnet list`. Сохраните идентификатор подсети, он потребуется в дальнейшем.
         * `nat-ip-version=ipv4` — подключить публичный IP-адрес.
         * `security-group-ids` — группа безопасности. Используйте этот параметр, если группа была настроена ранее. Получить список групп можно с помощью команды CLI `yc vpc security-group list`. Если параметр не указывать, будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
-      * `create-boot-disk` — создать для ВМ новый диск:
+      * `--create-boot-disk` — создать для ВМ новый диск:
         * `name` — имя диска, например `hystax-acura-disk`.
         * `size` — размер диска.
         * `image-id` — идентификатор образа диска. Используйте `image_id` из [описания продукта](/marketplace/products/hystax/hystax-acura-backup) в {{ marketplace-name }}.
-      * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa). Получить список аккаунтов можно с помощью команды `yc iam service-account list`.
-      * `ssh-key` — путь к файлу открытого ключа SSH. Имя пользователя по умолчанию для доступа по SSH — `yc-user`.
+      * `--service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa). Получить список аккаунтов можно с помощью команды `yc iam service-account list`.
+      * `--ssh-key` — путь к файлу открытого ключа SSH. Имя пользователя по умолчанию для доступа по SSH — `yc-user`.
 
     - API {#api}
 
@@ -202,7 +202,7 @@ Hystax Acura Backup будет выполнять действия от имен
   1. В [консоли управления]({{ link-console-main }}) откройте страницу каталога, в котором вы работаете.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке адреса ВМ с Hystax Acura Backup.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке адреса ВМ с Hystax Acura Backup.
   1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
   1. Сохраните IP-адрес, он потребуется в дальнейшем.
@@ -297,7 +297,7 @@ Hystax Acura Backup будет выполнять действия от имен
 
     * **Default folder ID** — [идентификатор](../../resource-manager/operations/folder/get-id.md) вашего каталога.
     * **Availability zone** — зона доступности, в которой находится ВМ с Hystax Acura Backup (получена на шаге [Создайте ВМ с Hystax Acura Backup](#create-acura-vm)).
-    * **Hystax Service Subnet** — идентификатор подсети, к которой подключена ВМ с Hystax Acura Backup (получен на шаге [Создайте ВМ с Hystax Acura Backup](#create-acura-vm).
+    * **Hystax Service Subnet** — идентификатор подсети, к которой подключена ВМ с Hystax Acura Backup (получен на шаге [Создайте ВМ с Hystax Acura Backup](#create-acura-vm)).
     * **S3 Host** — `{{ s3-storage-host }}`.
     * **S3 Port** — `443`.
     * **Enable HTTPS** — включите опцию HTTPS-соединения.
@@ -368,7 +368,7 @@ Hystax Acura Backup автоматически проверит доступ к 
 Чтобы включить защиту ВМ:
 1. Откройте административную панель Hystax Acura Backup. Нажмите на логотип Hystax.
 1. В блоке **Machines Groups** разверните группу ВМ, например `Default`.
-1. В списке ВМ справа нажмите кнопку ![image](../../_assets/options.svg).
+1. В списке ВМ справа нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
 1. В меню **Edit replication settings** настройте расписание репликации для группы ВМ по часам, дням, неделям или беспрерывную защиту, в разделе **Volume type** укажите тип диска для восстановления: `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`. 
 1. В меню **Edit retention settings** укажите срок хранения резервных копий. Подробнее см. в [документации Hystax](https://hystax.com/documentation/dr/dr_overview.html#edit-replication-settings-schedule).
 1. Выберите **Start Protection**.
@@ -384,7 +384,7 @@ Hystax Acura Backup автоматически проверит доступ к 
 - Автоматически {#auto}
 
   1. Откройте административную панель Hystax Acura Backup. Нажмите на логотип Hystax.
-  1. Отметьте нужные ВМ в списке, затем нажмите кнопку **Bulk actions** и выберите **Generate DR plan**. Также план можно сгенерировать для группы ВМ, нажав кнопку ![image](../../_assets/options.svg) в заголовке группы.
+  1. Отметьте нужные ВМ в списке, затем нажмите кнопку **Bulk actions** и выберите **Generate DR plan**. Также план можно сгенерировать для группы ВМ, нажав кнопку ![image](../../_assets/console-icons/ellipsis.svg) в заголовке группы.
   1. В поле **Name** введите название: `Plan-1`.
   1. В блоке **Subnets** справа укажите параметры подсети, в которой будут запущены ВМ после восстановления:  
       * В поле **Subnet ID** укажите идентификатор подсети.
@@ -404,7 +404,7 @@ Hystax Acura Backup автоматически проверит доступ к 
   1. Откройте административную панель Hystax Acura Backup. Нажмите на логотип Hystax.
   1. Нажмите кнопку **Add DR Plan**.
   1. В поле **Name** введите название: `Plan-1`.
-  1. В блоке **Devices & Ranks** нажмите кнопку ![image](../../_assets/options.svg). В открывшемся меню нажмите **Add machine**. Выберите группу ВМ, например `Default`. Выберите ВМ, которую следует добавить в план восстановления. Повторите действия для всех ВМ, которые следует восстановить.
+  1. В блоке **Devices & Ranks** нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg). В открывшемся меню нажмите **Add machine**. Выберите группу ВМ, например `Default`. Выберите ВМ, которую следует добавить в план восстановления. Повторите действия для всех ВМ, которые следует восстановить.
   1. В блоке **Subnets** справа укажите параметры подсети, в которой будут запущены ВМ после восстановления:  
       * В поле **Subnet ID** укажите идентификатор подсети.
       * В поле **CIDR** укажите [CIDR](../../vpc/concepts/network.md#subnet) подсети.

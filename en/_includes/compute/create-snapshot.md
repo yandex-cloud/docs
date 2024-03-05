@@ -4,8 +4,8 @@
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-   1. In the line of the disk, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. In the line of the disk, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
    1. Enter a name for the snapshot. The naming requirements are as follows:
 
       {% include [name-format](../name-format.md) %}
@@ -35,7 +35,7 @@
       yc compute snapshot create \
         --name first-snapshot \
         --description "my first snapshot via CLI" \
-        --disk-id fhm4aq4hvq5g3nepvt9b
+        --disk-id fhm4aq4hvq5g********
       ```
 
       As a result, a disk snapshot is created with the name `first-snapshot` and description `my first snapshot via CLI`.
@@ -55,7 +55,7 @@
       ```hcl
       resource "yandex_compute_snapshot" "snapshot-1" {
         name           = "disk-snapshot"
-        source_disk_id = "<disk ID>"
+        source_disk_id = "<disk_ID>"
       }
       ```
 

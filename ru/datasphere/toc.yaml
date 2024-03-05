@@ -57,7 +57,7 @@ items:
             href: operations/projects/control-compute-resources.md
           - name: Проверить загрузку GPU
             href: operations/projects/gpu-performance-check.md
-          - name: Получить идентификаторы ноутбука и ячейки
+          - name: Получить идентификатор ноутбука
             href: operations/projects/get-notebook-cell-ids.md
           - name: Установить пакеты
             href: operations/projects/install-dependencies.md
@@ -181,14 +181,24 @@ items:
             href: concepts/models/index.md
           - name: Дообученные фундаментальные модели
             href: concepts/models/tuned-models.md
-      - name: Эксплуатация моделей
-        href: concepts/deploy/index.md
-      - name: DataSphere Jobs
+      - name: '{{ ds-inf }}'
+        items:
+          - name: Ноды и алиасы
+            href: concepts/deploy/index.md
+          - name: Проверки состояния и мониторинг
+            href: concepts/deploy/monitoring.md
+      - name: '{{ ds-jobs }}'
         items:
           - name: Задания
             href: concepts/jobs/index.md
+          - name: Аутентификация
+            href: concepts/jobs/authentication.md
           - name: DataSphere CLI
             href: concepts/jobs/cli.md
+          - name: Docker-образы в заданиях
+            href: concepts/jobs/docker.md
+          - name: Среда исполнения заданий
+            href: concepts/jobs/environment.md
       - name: Фундаментальные модели
         href: concepts/models/foundation-models.md
       - name: Квоты и лимиты
@@ -235,6 +245,8 @@ items:
         items:
           - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
             href: tutorials/data-from-metrica-yc-visualization.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Обзор
@@ -291,6 +303,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Dataset/index.md
+              - name: activate
+                href: api-ref/Dataset/activate.md
               - name: deactivate
                 href: api-ref/Dataset/deactivate.md
           - name: DockerImage
@@ -343,6 +357,8 @@ items:
                 href: api-ref/S3/activate.md
               - name: deactivate
                 href: api-ref/S3/deactivate.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

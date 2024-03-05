@@ -4,13 +4,13 @@
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -22,9 +22,17 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
-* {% include [cdn.viewer](../../_includes/iam/roles/short-descriptions/cdn.viewer.md) %}
-* {% include [cdn.editor](../../_includes/iam/roles/short-descriptions/cdn.editor.md) %}
-* {% include [cdn.admin](../../_includes/iam/roles/short-descriptions/cdn.admin.md) %}
+#### cdn.viewer {#cdn-viewer}
+
+{% include [cdn-viewer](../../_roles/cdn/viewer.md) %}
+
+#### cdn.editor {#cdn-editor}
+
+{% include [cdn-editor](../../_roles/cdn/editor.md) %}
+
+#### cdn.admin {#cdn-admin}
+
+{% include [cdn-admin](../../_roles/cdn/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

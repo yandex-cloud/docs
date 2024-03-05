@@ -6,9 +6,9 @@ editable: false
 
 {{ speechsense-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage.
 
-## What adds up to the cost of {{ speechsense-name }} {#rules}
+## What goes into the cost of using {{ speechsense-name }} {#rules}
 
-{{ speechsense-name }} cost depends on the length of the two-channel audio files you submit for recognition. The billing unit is a one-second segment of a two-channel audio file.
+{{ speechsense-name }} cost depends on the length of the two-channel audio files. The billing unit is a one-second segment of a two-channel audio file.
 
 ## Pricing {#prices}
 

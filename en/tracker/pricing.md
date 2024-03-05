@@ -1,9 +1,9 @@
 ---
-title: "Pricing policy for {{ tracker-full-name }}"
+title: "{{ tracker-full-name }} pricing policy"
 description: "The cost of using {{ tracker-name }} is based on the number of users with full access to the service. You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees."
 ---
 
-# Pricing for {{ tracker-full-name }}
+# {{ tracker-full-name }} pricing
 
 {% note tip %}
 
@@ -11,7 +11,7 @@ You don't have to pay anything for {{ tracker-name }} if you only have a small t
 
 {% endnote %}
 
-By default, all company employees can use {{ tracker-full-name }} for free in [<q>Read only</q>](access.md#readonly) mode. Grant [full access](access.md) to {{ tracker-name }} so that your employees can use all of its features.
+By default, all employees of an organization can use {{ tracker-full-name }} for free in [read only](access.md#readonly) mode. Grant [full access](access.md) to {{ tracker-name }} so that your employees can use all of its features.
 
 The cost of using {{ tracker-name }} is based on the number of users with [full access to the service](access.md). The monthly fee [is debited from the billing account](pay-the-bill.md#charge) linked to {{ tracker-name }}.
 
@@ -23,8 +23,6 @@ You can find the FAQ for payments in [{#T}](payment.md).
 
 
 
-
-{% include [usd-after-30June.md](../_pricing/tracker/usd-after-30June.md) %}
 
 {% include [usd.md](../_pricing/tracker/usd.md) %}
 

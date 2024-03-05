@@ -117,13 +117,13 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
       ```
 
       This command creates the VM:
-      * Named `first-instance`.
+      * Name: `first-instance`.
 
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Availability zone: `{{ region-id }}-a`.
-      * Subnet: `default-a`.
-      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses) and two disks.
+      * Availability zone: `{{ region-id }}-a`
+      * Subnet: `default-a`
+      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses) and two disks
 
 
       To specify whether to delete the disk when deleting the VM, set the `--auto-delete` flag:
@@ -198,7 +198,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
          * `name`: Disk name.
-         * `type`: Type of the disk being created.
+         * `type`: Disk type.
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
          * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).

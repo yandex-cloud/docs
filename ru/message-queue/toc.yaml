@@ -71,7 +71,9 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: API {{ message-queue-name }}
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
+  - name: Справочник API
     items:
       - name: Обзор
         href: api-ref/index.md

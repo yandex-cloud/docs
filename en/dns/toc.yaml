@@ -9,14 +9,18 @@ items:
         href: operations/index.md
       - name: Zones
         items:
-          - name: Creating an internal DNS zone
+          - name: Creating a private DNS zone
             href: operations/zone-create-private.md
           - name: Creating a public DNS zone
             href: operations/zone-create-public.md
           - name: Updating a DNS zone
             href: operations/zone-update.md
+          - name: Getting information about a DNS zone
+            href: operations/zone-get-info.md
           - name: Deleting a DNS zone
             href: operations/zone-delete.md
+          - name: Viewing operations with DNS zones
+            href: operations/operation-logs.md
       - name: Records
         items:
           - name: Creating a record
@@ -57,9 +61,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/dns/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -105,6 +113,8 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/dns

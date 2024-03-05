@@ -63,6 +63,7 @@ instance_template:
       image_id: jk9ib7ecsbrj********
       type_id: network-hdd
       size: 50G
+      preserve_after_instance_delete: false
   secondary_disk_specs:
     - name: disk-2
       mode: READ_WRITE
@@ -79,6 +80,8 @@ instance_template:
           ip_version: IPV4
         }
       }
+      security_group_ids:
+        - enps0ar5s3ti********
   network_settings:
     type: SOFTWARE_ACCELERATED
   placement_policy:
@@ -106,29 +109,32 @@ instance_template:
 
 Keys (the table lists keys that directly define the base instance configuration):
 
-Key | Value
+| Key | Value |
 ----- | -----
-`platform_id` | ID of the instance's hardware platform.
-`resources_spec.memory` | Amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB).
-`resources_spec.cores` | Number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type.
-`resources_spec.core_fraction` | Basic [vCPU performance level](../performance-levels.md). |
-`boot_disk_spec` | Boot disk parameters.
-`boot_disk_spec.disk_spec.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
-`boot_disk_spec.disk_spec.image_id` | ID of the image that will be used for disk creation. |
-`boot_disk_spec.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md).
-`boot_disk_spec.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
-`secondary_disk_specs` | (Optional) Secondary disks parameters.
-`secondary_disk_specs.name` | (Optional) Secondary disk name. In the same specification, names should be assigned either to all secondary disks or none of them. For more information, see [{#T}](./deploy/secondary-disk.md).
-`secondary_disk_specs.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
-`secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
-`secondary_disk_specs.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md).
-`secondary_disk_specs.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
-`network_interface_specs.network_id` | ID of the network.
-`network_interface_specs.subnet_ids` | IDs of cloud subnets.
-`network_interface_specs.ip_version` | IP version for the public IP address.
-`metadata` | Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md).
-`metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program.
-`placement_policy` | (Optional) [VM placement group](../placement-groups.md) parameters
-`placement_policy.placement_group_id` | Placement group ID. VM instances will be hosted in data center server racks depending on the selected placement strategy:</br>– `Spread` placement strategy ensures that each VM instance is hosted in a separate server rack in one of the availability zones.</br>– `Partition` placement strategy provides even allocation of VM instances across group partitions and ensures that VM instances from different partitions reside in different server racks in one of the availability zones.
+| `platform_id` | ID of the instance's hardware platform. |
+| `resources_spec.memory` | Amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB). |
+| `resources_spec.cores` | Number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type. |
+| `resources_spec.core_fraction` | Basic [vCPU performance level](../performance-levels.md). |
+| `boot_disk_spec` | Boot disk parameters. |
+| `boot_disk_spec.disk_spec.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access. |
+| `boot_disk_spec.disk_spec.image_id` | ID of the image that will be used for disk creation. |
+| `boot_disk_spec.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the [diskTypes](../../api-ref/DiskType/list.md) request. |
+| `boot_disk_spec.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |
+| `boot_disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance. |
+| `secondary_disk_specs` | (Optional) Secondary disks parameters. |
+| `secondary_disk_specs.name` | (Optional) Secondary disk name. In the same specification, names should be assigned either to all secondary disks or none of them. For more information, see [{#T}](./deploy/secondary-disk.md). |
+| `secondary_disk_specs.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access. |
+| `secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance. |
+| `secondary_disk_specs.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the [diskTypes](../../api-ref/DiskType/list.md) request. |
+| `secondary_disk_specs.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |
+| `network_interface_specs.network_id` | Cloud network ID. |
+| `network_interface_specs.subnet_ids` | IDs of cloud subnets. |
+| `network_interface_specs.ip_version` | IP version for the public IP address. |
+| `network_interface_specs.security_group_ids` | Security group IDs. |
+| `network_settings.type` | (Optional) Network type.</br>– `SOFTWARE_ACCELERATED`: Software-accelerated network.</br>– `STANDARD`: Standard network (default). |
+| `metadata` | Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md). |
+| `metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program. |
+| `placement_policy` | (Optional) [VM placement group](../placement-groups.md) parameters. |
+| `placement_policy.placement_group_id` | Placement group ID. VM instances will be hosted in data center server racks depending on the selected placement strategy:</br>– `Spread` placement strategy ensures that each VM instance is hosted in a separate server rack in one of the availability zones.</br>– `Partition` placement strategy provides even allocation of VM instances across group partitions and ensures that VM instances from different partitions reside in different server racks in one of the availability zones. |
 
 For information about the technical restrictions of {{ ig-name }}, see [{#T}](../limits.md).

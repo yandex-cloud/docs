@@ -5,7 +5,7 @@
 К хостам кластера {{ mpg-short-name }} можно подключиться:
 * Через интернет, если вы настроили публичный доступ для нужного хоста. К таким хостам подключиться можно только используя SSL-соединение.
 * С виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети. Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
-* Из контейнера в сервисе [{{ serverless-containers-full-name }}]((../../../serverless-containers/concepts/index.md)). Если к хосту нет публичного доступа, контейнер должен располагаться в той же облачной сети.
+* Из контейнера в сервисе [{{ serverless-containers-full-name }}](../../serverless-containers/concepts/index.md). Если к хосту нет публичного доступа, контейнер должен располагаться в той же облачной сети.
 
 Подробнее см. в [документации сервиса](../../managed-postgresql/operations/connect.md).
 
@@ -40,7 +40,7 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
 
    Сертификат будет доступен по пути `C:\temp\CA.pfx`.
 
-2. [Разместите полученный сертификат в хранилище сертификатов Windows](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+1. [Разместите полученный сертификат в хранилище сертификатов Windows](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
 #### Что делать, если при подключении я получаю ошибку SSL is required? {#ssl-req}
 

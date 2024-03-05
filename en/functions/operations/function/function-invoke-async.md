@@ -54,7 +54,7 @@ description: "Follow this guide to configure and invoke a function asynchronousl
 
     * `--function-name`: Function name.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point specified in the <function_file_name>.<handler_name> format.
+    * `--entrypoint`: Entry point specified in the `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
     * `--execution-timeout`: Maximum function execution time before the timeout is reached.
     * `--source-version-id`: ID of the function version to copy the code of.

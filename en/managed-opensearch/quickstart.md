@@ -20,7 +20,7 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. You can connect to an {{ OS }} cluster from both inside {{ yandex-cloud }} and the internet:
+1. You can connect to an {{ OS }} cluster both from inside {{ yandex-cloud }} and from the internet:
 
    * To connect from inside {{ yandex-cloud }}, [create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same network as the cluster.
 

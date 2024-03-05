@@ -31,6 +31,7 @@ description: "In this tutorial, you will learn how to set up a {{ CH }} target e
    * [Loading {{ yandex-direct }} data to {{ CH }}](../../../tutorials/direct-to-mch.md).
 
 * [Loading {{ PG }} data to {{ CH }}](../../../tutorials/rdbms-to-clickhouse.md).
+* [Loading data from {{ objstorage-name }} to {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -67,7 +68,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mch.viewer }}` role](../../../../managed-clickhouse/security/index.md#mch-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mch.viewer }}` role](../../../../managed-clickhouse/security/index.md#mch-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 
@@ -230,6 +231,8 @@ Connecting to the database with explicitly specified network addresses and ports
 
          {% endnote %}
 
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_round_robin.title }}**: Data will be randomly distributed across shards. Each shard will contain approximately the same amount of data.
+
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}**: Specify the settings for renaming tables during a transfer, if required.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.flush_interval.title }}**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if {{ CH }} fails to merge data parts.
@@ -269,7 +272,7 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [New tables are not added](#no-new-tables).
+* [New tables are not added](#no-new-tables)
 * [Data is not transferred](#no-transfer)
 
 See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.

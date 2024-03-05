@@ -1,6 +1,6 @@
 # Загрузка данных из {{ objstorage-full-name }} в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}
 
-Вы можете перенести данные из {{ objstorage-name }} в таблицу {{ mch-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
+Вы можете перенести данные из {{ objstorage-full-name }} в таблицу {{ mch-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -28,7 +28,7 @@
     1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
 
 
-    1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
 

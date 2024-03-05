@@ -72,34 +72,3 @@ You can request detailed information about each network load balancer you create
    You can get the network load balancer ID with a [list of network load balancers in the folder](#list).
 
 {% endlist %}
-
-## Viewing a list of operations in a network load balancer {#list-operations}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-   1. Click the name of the load balancer and go to ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
-
-- CLI {#cli}
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To get a list of operations, run the following command:
-
-   ```bash
-   yc load-balancer network-load-balancer list-operations <load_balancer_name_or_ID>
-   ```
-
-   You can get the load balancer ID and name with a [list of network load balancers in the folder](#list).
-
-- API {#api}
-
-   Use the [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) API method and provide the network load balancer ID in the `networkLoadBalancerId` request parameter.
-
-   You can get the network load balancer ID with a [list of network load balancers in the folder](#list).
-
-{% endlist %}

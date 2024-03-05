@@ -37,8 +37,8 @@
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
-      | a7lqgbt0bb9s40tifuhc | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbhnkcteb5n |                         |
-      | a7lv5j5hm1p1hppprga7 | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbh******** |                         |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```      
 
@@ -54,8 +54,8 @@
       +----------------------+--------------------+------------------+--------+
       |          ID          |        NAME        |      LABELS      | STATUS |
       +----------------------+--------------------+------------------+--------+
-      | b1gd129pp9ha0vnvf5g7 | my-folder          |                  | ACTIVE |
-      | b1g66mft1vopnevbn57j | default            |                  | ACTIVE |
+      | b1gd129pp9ha******** | my-folder          |                  | ACTIVE |
+      | b1g66mft1vop******** | default            |                  | ACTIVE |
       +----------------------+--------------------+------------------+--------+
       ```
 
@@ -69,14 +69,14 @@
 
       ```bash
       yc compute disk move \
-        --id a7lqgbt0bb9s40tifuhc \
-        --destination-folder-id b1gd129pp9ha0vnvf5g7
+        --id a7lqgbt0bb9s******** \
+        --destination-folder-id b1gd129pp9ha********
       ```
 
       Где:
 
-      * `id` – идентификатор диска, например `a7lqgbt0bb9s40tifuhc`.
-      * `destination-folder-id` – идентификатор целевого каталога, например `b1gd129pp9ha0vnvf5g7`.
+      * `--id` – идентификатор диска, например `a7lqgbt0bb9s********`.
+      * `--destination-folder-id` – идентификатор целевого каталога, например `b1gd129pp9ha********`.
 
       Подробнее о команде `yc compute disk move` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/disk/move.md).
 

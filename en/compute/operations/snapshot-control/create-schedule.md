@@ -15,7 +15,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
    1. In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, click **{{ ui-key.yacloud.common.create }}**.
    1. Configure schedule parameters:
       * Enter a name for the schedule in the following format:
@@ -66,7 +66,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
       {% endnote %}
 
-      If you need to configure a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, add the parameter `--snapshot-count` or `--retention-period`. For example:
+      If you need to configure a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, add the parameter `--snapshot-count` or `--retention-period`. Here is an example:
       * `--snapshot-count 5`: Retain 5 latest snapshots.
       * `--retention-period 72h`: Retain snapshots for the last 3 days.
 
@@ -83,8 +83,8 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
       ```
       Result:
       ```text
-      - id: epdcq9g3co9se5uhmgg5
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: epdcq9g3co9s********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
@@ -92,14 +92,14 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
         size: "21474836480"
         block_size: "4096"
         product_ids:
-          - f2euv1kekdgvc0jrpaet
+          - f2euv1kekdgv********
         status: READY
-        source_image_id: fd88d14a6790do254kj7
+        source_image_id: fd88d14a6790********
         instance_ids:
-          - ephothb6lppn5kn8mtom
+          - ephothb6lppn********
         disk_placement_policy: {}
-      - id: fhm7mip40dqh2lt2hhn2
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fhm7mip40dqh********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-10T05:00:04Z"
         name: disk-1
         type_id: network-hdd
@@ -107,11 +107,11 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
         size: "21474836480"
         block_size: "4096"
         product_ids:
-          - f2euv1kekdgvc0jrpaet
+          - f2euv1kekdgv********
         status: READY
-        source_image_id: fd88d14a6790do254kj7
+        source_image_id: fd88d14a6790********
         instance_ids:
-          - fhm1c7u23aiq8scvnhag
+          - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
 
@@ -124,8 +124,8 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
       Result:
       ```text
       done (3s)
-      id: fc8e52mvchb2dbp0pou2
-      folder_id: e1ea8s8l71li5n96eakv
+      id: fc8e52mvchb2********
+      folder_id: e1ea8s8l71li********
       created_at: "2022-09-28T09:15:28Z"
       name: sched-1
       status: ACTIVE
@@ -155,7 +155,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
         snapshot_spec {
             description = "<snapshot_description>"
             labels = {
-              <snapshot_label_key> = "<_snapshot_label_value>"
+              <snapshot_label_key> = "<snapshot_label_value>"
             }
         }
 
@@ -232,8 +232,8 @@ Snapshots are created and deleted automatically only while the schedule is on (`
       ```
       Result:
       ```text
-      - id: epdcq9g3co9se5uhmgg5
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: epdcq9g3co9s********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
@@ -241,14 +241,14 @@ Snapshots are created and deleted automatically only while the schedule is on (`
         size: "21474836480"
         block_size: "4096"
         product_ids:
-          - f2euv1kekdgvc0jrpaet
+          - f2euv1kekdgv********
         status: READY
-        source_image_id: fd88d14a6790do254kj7
+        source_image_id: fd88d14a6790********
         instance_ids:
-          - ephothb6lppn5kn8mtom
+          - ephothb6lppn********
         disk_placement_policy: {}
-      - id: fhm7mip40dqh2lt2hhn2
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fhm7mip40dqh********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-10T05:00:04Z"
         name: disk-1
         type_id: network-hdd
@@ -256,11 +256,11 @@ Snapshots are created and deleted automatically only while the schedule is on (`
         size: "21474836480"
         block_size: "4096"
         product_ids:
-          - f2euv1kekdgvc0jrpaet
+          - f2euv1kekdgv********
         status: READY
-        source_image_id: fd88d14a6790do254kj7
+        source_image_id: fd88d14a6790********
         instance_ids:
-          - fhm1c7u23aiq8scvnhag
+          - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
 
@@ -272,13 +272,13 @@ Snapshots are created and deleted automatically only while the schedule is on (`
 
       ```bash
       yc compute snapshot-schedule add-disks sched-1 \
-        --disk-id epdcq9g3co9se5uhmgg5,fhm7mip40dqh2lt2hhn2
+        --disk-id epdcq9g3co9s********,fhm7mip40dqh********
       ```
       Result:
       ```text
       done (3s)
-      id: fc8bplhqmh2bnjni3lm0
-      folder_id: e1ea8s8l71li5n96eakv
+      id: fc8bplhqmh2b********
+      folder_id: e1ea8s8l71li********
       created_at: "2022-10-03T13:28:01Z"
       name: sched-1
       description: Daily

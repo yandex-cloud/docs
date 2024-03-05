@@ -245,7 +245,7 @@
         
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы создать кластер:
 
@@ -308,6 +308,18 @@
              disk_type_id       = "<тип_диска>"
            }
          }
+
+         pxf_config {
+           connection_timeout             = <таймаут_для_запросов_на_чтение>
+           upload_timeout                 = <таймаут_для_запросов_на_запись>
+           max_threads                    = <максимальное_число_потоков_Apache_Tomcat®>
+           pool_allow_core_thread_timeout = <разрешен_ли_таймаут_для_стриминговых_потоков>
+           pool_core_size                 = <количество_стриминговых_потоков>
+           pool_queue_capacity            = <емкость_очереди_в_пул_за_стриминговыми_потоками>
+           pool_max_size                  = <максимальное_число_стриминговых_потоков>
+           xmx                            = <изначальный_размер_JVM-кучи>
+           xms                            = <максимальный_размер_JVM-кучи>
+         }
   
          user_name     = "<имя_пользователя>"
          user_password = "<пароль>"
@@ -324,7 +336,13 @@
        * `version` — версия {{ GP }}.
        * `master_host_count` — количество хостов-мастеров: 1 или 2.
        * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
-       * `disk_size` — объем хранилища в гигабайтах.
+       * `pxf_config` — настройки [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) (PXF). Это программная платформа, которая позволяет получить доступ к данным во внешних СУБД.
+
+          Настройки `pxf_config` совпадают с настройками в конфигурационном файле {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/config_files.html?hWord=N4IghgNiBcIC4HsC2BjMcQF8g#pxfapplicationproperties-1). Он описывает свойства сервиса PXF. Чтобы задать их, используйте средства {{ yandex-cloud }} вместо правки файла.
+
+          Настройки PXF:
+
+          {% include [pxf-config-settings](../../_includes/mdb/mgp/pxf-config-settings.md) %}
 
        Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
 

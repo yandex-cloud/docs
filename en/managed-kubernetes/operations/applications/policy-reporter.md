@@ -12,7 +12,7 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
 To export policy results, set up external storage:
 
-* {{ objstorage-name }}:
+* **{{ objstorage-name }}**
 
    1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -29,7 +29,7 @@ To export policy results, set up external storage:
 
    1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 
-* {{ yds-name }}:
+* **{{ yds-name }}**
 
    [Create a data stream](../../../data-streams/quickstart/create-stream.md).
 
@@ -69,15 +69,21 @@ To export policy results, set up external storage:
      --namespace <namespace> \
      --create-namespace \
      --set clusterId=<cluster_ID> \
-     --set ui.enabled=<enable_Policy_Reporter_UI_(true_or_false)> \
-     --set target.s3.enabled=<export_to_Object_Storage_(true_or_false)> \
+     --set ui.enabled=<enable_Policy_Reporter_UI> \
+     --set target.s3.enabled=<export_to_Object_Storage> \
      --set target.s3.bucket=<Object_Storage_bucket_name> \
      --set-file serviceaccountawskeyvalue=<path_to_service_account_static_key_file> \
-     --set target.kinesis.enabled=<export_to_Data_Streams_(true_or_false)> \
+     --set target.kinesis.enabled=<export_to_Data_Streams> \
      --set target.kinesis.endpoint=<Data_Streams_stream_endpoint> \
      --set target.kinesis.streamName=<Data_Streams_stream_name> \
      policy-reporter ./policy-reporter/
    ```
+
+   Where:
+
+   * `ui.enabled`: Enabling Policy Reporter UI. It may take either the `true` or `false` value.
+   * `target.s3.enabled`: Export to {{ objstorage-name }}. It may take either the `true` or `false` value.
+   * `target.kinesis.enabled`: Export to {{ yds-name }}. It may take either the `true` or `false` value.
 
    The `target.s3.bucket` and `serviceaccountawskeyvalue` parameters are only required if export to {{ objstorage-name }} is enabled (`target.s3.enabled=true`), and the `target.kinesis.endpoint` and `target.kinesis.streamName` parameters are required if export to {{ yds-name }} is enabled (`target.kinesis.enabled=true`).
 

@@ -24,7 +24,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
    {% endnote %}
 
-* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet) .
+* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet).
 
    {% note warning %}
 
@@ -61,20 +61,20 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
    1. Run the following command and provide a list of settings you want to change (not all settings are listed in the example below):
 
       ```bash
-      {{ yc-k8s }} cluster update <{{ managed-k8s-name }}_cluster_name> \
-        --new-name <new_{{ managed-k8s-name }}_cluster_name> \
-        --description <{{ managed-k8s-name }}_cluster_description> \
+      {{ yc-k8s }} cluster update <Managed_Service_for_Kubernetes_cluster_name> \
+        --new-name <new_name_of_Managed_Service_for_Kubernetes_cluster> \
+        --description <Managed_Service_for_Kubernetes_cluster_description> \
         --service-account-id <resource_service_account_ID> \
         --service-account-name <resource_service_account_name> \
-        --node-service-account-id <{{ managed-k8s-name }}_node_service_account_ID> \
+        --node-service-account-id <{{ k8s }}_node_service_account_ID> \
         --security-group-ids <list_of_security_group_IDs> \
-        --master-logging enabled=<log_sending:_true_or_false>,`
+        --master-logging enabled=<log_sending>,`
             `log-group-id=<log_group_ID>,`
             `folder-id=<folder_ID>,`
-            `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
-            `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
-            `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
-            `audit-enabled=<audit_event_sending:_true_or_false>
+            `kube-apiserver-enabled=<kube-apiserver_log_sending>,`
+            `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending>,`
+            `events-enabled=<{{ k8s }}_event_sending_>`
+            `audit-enabled=<audit_event_sending>`
       ```
 
       Where:
@@ -106,7 +106,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
       For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
    1. Edit the required parameters in the {{ managed-k8s-name }} cluster description.
 
-      To edit the settings for submitting logs to {{ cloud-logging-name }}, configure the `master_logging` section parameters. If there is no such section, create one:
+      To edit the settings for submitting logs to {{ cloud-logging-name }}, configure the `master_logging` section parameters. If there is no such section, create one.
 
       {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
@@ -173,16 +173,17 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 - CLI {#cli}
 
-- CLI {#cli}
-
-- CLI {#cli}
-
    Run this command:
 
    ```bash
    yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
    ```
 
+   {% note warning %}
+
+   The existing set of `labels` is completely overwritten by the one transmitted in the request.
+
+   {% endnote %}
 
   Result:
 

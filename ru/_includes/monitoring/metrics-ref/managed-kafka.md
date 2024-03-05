@@ -1,5 +1,3 @@
-## Сервис {{ mkf-full-name }} {#managed-kafka}
-
 Общие метки для всех метрик сервиса {{ mkf-name }}: 
 
 Метка | Значение
@@ -130,5 +128,3 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, штуки | Количество разделов, у которых число синхронизированных реплик (in-sync replicas, ISR) меньше фактора репликации. |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, миллисекунды | Задержка запросов в {{ ZK }}.<br/>Дополнительные метки: `quantile` |
 | `kafka_shard_count`<br/>`DGAUGE`, штуки | Количество активных шардов. |
-
-Подробнее о сервисе в документации [{{ mkf-name }}](../../../managed-kafka/).

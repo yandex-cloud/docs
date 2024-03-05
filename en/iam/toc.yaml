@@ -79,6 +79,12 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
+      - name: Accounts in {{ yandex-cloud }}
+        items:
+          - name: Overview
+            href: concepts/users/accounts.md
+          - name: Service accounts
+            href: concepts/users/service-accounts.md
       - name: How access management works
         items:
           - name: Overview
@@ -105,8 +111,6 @@ items:
             href: concepts/authorization/key.md
           - name: AWS-compatible access keys
             href: concepts/authorization/access-key.md
-      - name: Service accounts
-        href: concepts/users/service-accounts.md
       - name: Identity federations
         href: concepts/federations.md
       - name: Quotas and limits
@@ -119,10 +123,13 @@ items:
     href: pricing.md
   - name: Role reference
     href: roles-reference.md
-    hidden: true
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/iam/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -138,6 +145,8 @@ items:
             href: api-ref/grpc/role_service.md
           - name: ServiceAccountService
             href: api-ref/grpc/service_account_service.md
+          - name: ServiceControlService
+            href: api-ref/grpc/service_control_service.md
           - name: UserAccountService
             href: api-ref/grpc/user_account_service.md
           - name: YandexPassportUserAccountService
@@ -224,6 +233,22 @@ items:
                 href: api-ref/ServiceAccount/update.md
               - name: updateAccessBindings
                 href: api-ref/ServiceAccount/updateAccessBindings.md
+          - name: ServiceControl
+            items:
+              - name: Overview
+                href: api-ref/ServiceControl/index.md
+              - name: disable
+                href: api-ref/ServiceControl/disable.md
+              - name: enable
+                href: api-ref/ServiceControl/enable.md
+              - name: get
+                href: api-ref/ServiceControl/get.md
+              - name: list
+                href: api-ref/ServiceControl/list.md
+              - name: pause
+                href: api-ref/ServiceControl/pause.md
+              - name: resume
+                href: api-ref/ServiceControl/resume.md
           - name: UserAccount
             items:
               - name: Overview
@@ -294,6 +319,8 @@ items:
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     items:
       - name: General questions

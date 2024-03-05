@@ -16,7 +16,7 @@ description: "Follow this guide to add a trigger label in {{ sf-name }}."
    To add a label to a trigger, run the command:
 
    ```bash
-   yc serverless trigger add-labels <trigger name> --labels <key>=<value>
+   yc serverless trigger add-labels <trigger_name> --labels <key>=<value>
    ```
 
    Result:
@@ -103,10 +103,10 @@ description: "Follow this guide to add a trigger label in {{ sf-name }}."
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the trigger using this [CLI](../../../cli/quickstart.md) command:
+      You can check the trigger update using this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc serverless trigger get <trigger ID>
+      yc serverless trigger get <trigger_ID>
       ```
 
 - API {#api}

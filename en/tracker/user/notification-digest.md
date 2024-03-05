@@ -11,7 +11,7 @@ To get a recurrent report on the latest changes in the issues that you are subsc
 
 1. Click the link [{{ link-tracker }} settings]({{ link-settings }}).
 
-1. Enable **Receive digest of issue updates** and choose how often you want to receive updates.
+1. Enable **Receive issue update digest** and choose how often you'd like to receive updates.
 
 1. Click **Save**.
 

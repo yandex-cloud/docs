@@ -19,7 +19,7 @@ For more information about working with OmniAuth in {{ GL }}, see the [{{ GL }} 
 
 Some parameters are common to all providers:
 
-* **Allow single sign on**: Allow using SSO. If set to `true`, when a user who has not singed up with {{ GL }} is being authorized through OmniAuth, an account is automatically created for them in {{ GL }}.
+* **Allow single sign on**: Allow using SSO. If set to `true`, when a user who has not singed up with {{ GL }} authenticates through OmniAuth, an account in {{ GL }} will be automatically created for that user.
 * **Auto link users by email**: Map the username in OmniAuth to that in {{ GL }} if they have the same email address linked.
 * **Block auto-created users**: Switch automatically created accounts to the [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) status until they are approved by an administrator.
 * **External provider**: Set the _external_ attribute for the provider. Users authorized through this provider will be treated as [external]({{ gl.docs }}/ee/user/admin_area/external_users.html) and will have no access to [internal projects]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups).

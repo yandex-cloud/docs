@@ -1,10 +1,10 @@
-The `storage.admin` role is intended for managing Object Storage. Users with this role can:
+The `storage.admin` role is intended for managing [Object Storage](../../storage/). Users with this role can:
 
-* Create buckets.
+* Create [buckets](../../storage/concepts/bucket.md).
 * Delete buckets.
-* Assign an access control list (ACL).
-* Manage any bucket object.
-* Manage any bucket website.
+* Assign an [access control list](../../storage/concepts/acl.md) (ACL).
+* Manage any bucket [object](../../storage/concepts/object.md).
+* Manage any bucket [website](../../storage/concepts/hosting.md).
 * Configure other bucket parameters and objects in the bucket.
 
 This role enables the user to grant other users access to a bucket or a specific object in it.

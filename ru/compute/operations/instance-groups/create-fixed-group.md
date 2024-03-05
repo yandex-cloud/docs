@@ -1,6 +1,6 @@
 # Создать группу виртуальных машин фиксированного размера
 
-Вы можете создать группу с фиксированным количеством ВМ. Управление размером такой [группы ВМ](../../concepts/instance-groups/index.md) осуществляется вручную. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
+Вы можете создать группу с фиксированным количеством [ВМ](../../concepts/vm.md). Управление размером такой [группы ВМ](../../concepts/instance-groups/index.md) осуществляется вручную. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -22,7 +22,7 @@
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для создания группы ВМ:
+  1. Посмотрите описание команды [CLI](../../../cli/) для создания группы ВМ:
 
      ```bash
      {{ yc-compute-ig }} create --help
@@ -45,8 +45,8 @@
 
        ```yaml
        name: first-fixed-group
-       service_account_id: <ID>
-       description: "This instance group was created from YAML config."
+       service_account_id: <идентификатор_сервисного_аккаунта>
+       description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
        ```
 
        Где:
@@ -73,6 +73,8 @@
          network_interface_specs:
            - network_id: c64mknqgnd8a********
              primary_v4_address_spec: {}
+             security_group_ids:
+               - enps0ar5s3ti********
          scheduling_policy:
            preemptible: false
          placement_policy:
@@ -93,13 +95,14 @@
        * `size` — размер диска.
        * `network_id` — идентификатор сети `default-net`.
        * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. Вы можете предоставить публичный доступ к ВМ группы, указав версию IP для [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses). Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+       * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
        * `scheduling_policy` — конфигурация политики планирования.
        * `preemptible` — флаг, указывающий создавать [прерываемые ВМ](../../concepts/preemptible-vm.md).
            * `true` — будет создана прерываемая ВМ.
            * `false` (по умолчанию) — обычная.
 
-         Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что {{ ig-name }} не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
-       * `placement_policy` — (опционально) параметры [группы размещения ВМ](../../concepts/placement-groups.md):
+         Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что ВМ не смогут сразу перезапуститься их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
+       * `placement_policy` — (опционально) параметры [группы размещения ВМ](../../concepts/placement-groups.md):
          * `placement_group_id` — идентификатор группы размещения.
      * [Политики](../../concepts/instance-groups/policies/index.md):
 
@@ -129,7 +132,7 @@
      ```yaml
      name: first-fixed-group
      service_account_id: ajed6ilf11qg********
-     description: "This instance group was created from YAML config."
+     description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
      instance_template:
        platform_id: standard-v3
        resources_spec:
@@ -144,6 +147,8 @@
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+           security_group_ids:
+             - enps0ar5s3ti********
        placement_policy:
          placement_group_id: rmppvhrgm77g********
      deploy_policy:
@@ -173,7 +178,7 @@
      * В сети `default-net`.
      * В зоне доступности `{{ region-id }}-a`.
      * С 2 vCPU и 2 ГБ RAM.
-     * С сетевым HDD-диском объемом 32 ГБ.
+     * С сетевым [HDD-диском](../../concepts/disk.md#disks-types) объемом 32 ГБ.
 
 - {{ TF }} {#tf}
 
@@ -184,7 +189,7 @@
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
        name        = "ig-sa"
-       description = "service account to manage IG"
+       description = "Сервисный аккаунт для управления группой ВМ."
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -200,12 +205,12 @@
        name                = "fixed-ig"
        folder_id           = "<идентификатор_каталога>"
        service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
-       deletion_protection = "<защита_от_удаления:_true_или_false>"
+       deletion_protection = "<защита_от_удаления>"
        depends_on          = [yandex_resourcemanager_folder_iam_member.editor]
        instance_template {
          platform_id = "standard-v3"
          resources {
-           memory = <объем_RAM_в_ГБ>
+           memory = <объем_RAM_ГБ>
            cores  = <количество_ядер_vCPU>
          }
 
@@ -217,8 +222,9 @@
          }
 
          network_interface {
-           network_id = "${yandex_vpc_network.network-1.id}"
-           subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+           network_id         = "${yandex_vpc_network.network-1.id}"
+           subnet_ids         = ["${yandex_vpc_subnet.subnet-1.id}"]
+           security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
          }
 
          metadata = {
@@ -265,14 +271,14 @@
          * `name` — имя группы ВМ.
          * `folder_id` — идентификатор каталога.
          * `service_account_id` — идентификатор сервисного аккаунта.
-         * `deletion_protection` — защита группы ВМ от удаления. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
+         * `deletion_protection` — защита группы ВМ от удаления: `true` или `false`. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
        * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md):
          * `platform_id` — [платформа](../../concepts/vm-platforms.md).
          * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
          * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md).
            * Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
            * Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
-         * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификаторы сети и [подсети](../../../vpc/concepts/network.md#subnet).
+         * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификаторы сети, [подсети](../../../vpc/concepts/network.md#subnet) и [групп безопасности](../../../vpc/concepts/security-groups.md).
          * `metadata` — в [метаданных](../../concepts/vm-metadata.md) необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
        * [Политики](../../concepts/instance-groups/policies/index.md):
          * `deploy_policy` — [политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) ВМ в группе.
@@ -290,7 +296,7 @@
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 

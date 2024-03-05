@@ -4,7 +4,7 @@
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to create an encrypted disk in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
    1. Enter the disk name.
 
@@ -19,6 +19,6 @@
 
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-   After creation, the disk will have the `Creating` status. Wait until the disk status changes to `Ready` before using it.
+   Once created, the disk will get the `Creating` status. Wait until the disk status changes to `Ready` before using it.
 
 {% endlist %}

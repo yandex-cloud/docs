@@ -5,6 +5,8 @@ description: "Для управления доступом к объекту в 
 
 # Редактирование ACL объекта
 
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
 Для управления доступом к объекту в бакете {{ objstorage-name }} можно воспользоваться [ACL](../../concepts/acl.md).
 
 {% list tabs group=instructions %}
@@ -22,7 +24,7 @@ description: "Для управления доступом к объекту в 
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}

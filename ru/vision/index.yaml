@@ -1,14 +1,18 @@
-title: Yandex Vision
+title: Yandex Vision OCR
 description:
-  - Yandex Vision — сервис компьютерного зрения для анализа изображений.
+  - >-
+    Yandex Vision OCR — сервис компьютерного зрения для распознавания текста на
+    изображениях и в файлах PDF.
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_vision">Уровень
     обслуживания Yandex Vision</a>.
 meta:
-  title: Yandex Vision
-  description: Yandex Vision — сервис компьютерного зрения для анализа изображений.
+  title: Yandex Vision OCR
+  description: >-
+    Yandex Vision OCR — сервис компьютерного зрения для распознавания текста на
+    изображениях.
 links:
   - title: Начало работы
     description: Отправьте ваше изображение на анализ
@@ -18,7 +22,7 @@ links:
     href: operations/
   - title: Концепции
     description: Узнайте про концепции сервиса
-    href: concepts/
+    href: concepts/ocr/
   - title: Справочник API
     description: Описание аутентификации и методов API
     href: api-ref/authentication

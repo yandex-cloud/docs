@@ -9,7 +9,7 @@ description: "In this tutorial, you will learn how to get a folder ID in {{ yand
 
 - Management console {#console}
 
-   1. Go to the [management console]({{ link-console-cloud }}) and select the appropriate folder from the list on the left. On the page that opens, the folder ID is shown on top, next to the folder name.
+   1. Go to the [management console]({{ link-console-cloud }}) and select the appropriate [folder](../../concepts/resources-hierarchy.md#folder) from the list on the left. On the page that opens, the folder ID is shown on top, next to the folder name.
 
    1. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
 
@@ -23,7 +23,7 @@ description: "In this tutorial, you will learn how to get a folder ID in {{ yand
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   If you know the folder name, get its ID using the `get` command:
+   If you know the [folder](../../concepts/resources-hierarchy.md#folder) name, get its ID using the `get` command:
 
    ```bash
    yc resource-manager folder get my-folder
@@ -61,6 +61,6 @@ description: "In this tutorial, you will learn how to get a folder ID in {{ yand
 
 - API {#api}
 
-   To get the list of folders with IDs, use the [list](../../api-ref/Folder/list.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/List](../../api-ref/grpc/folder_service.md#List) gRPC API call.
+   To get the list of [folders](../../concepts/resources-hierarchy.md#folder) with IDs, use the [list](../../api-ref/Folder/list.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/List](../../api-ref/grpc/folder_service.md#List) gRPC API call.
 
 {% endlist %}

@@ -12,13 +12,9 @@
 1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
    1. Select the instance type.
-   1. Specify the [subnet](../../vpc/concepts/network.md#subnet) where the instance will be hosted. For the time being, {{ yandex-cloud }} technical restrictions do not allow selecting a subnet with an address range of `192.168.0.0/24`.
+   1. Specify the [subnet](../../vpc/concepts/network.md#subnet) where the instance will be hosted. Currently, {{ yandex-cloud }} technical restrictions do not allow selecting a subnet with an address range of `192.168.0.0/24`.
 
-      {% note warning %}
-
-      The [default security group](../../vpc/concepts/security-groups.md#default-security-group) for the selected [network](../../vpc/concepts/network.md#network) will be used. You cannot create a different security group when creating an instance. You might need to [set up](../../managed-gitlab/operations/connect.md#configuring-security-groups) this default security group to establish a connection.
-
-      {% endnote %}
+      The [default security group](../../vpc/concepts/security-groups.md#default-security-group) for the selected [network](../../vpc/concepts/network.md#network) will be used for the instance. If you cannot open the {{ GL }} web interface after creating the instance, create a separate security group and [configure it](../../managed-gitlab/operations/configure-security-group.md) so that the rules allow incoming traffic from the required ports and IP addresses.
 
    1. Select the [disk](../../compute/concepts/disk.md) size.
    1. Specify the [instance domain name](../../compute/concepts/network.md#hostname): relevant DNS records will be created for it in the `.gitlab.yandexcloud.net` domain.
@@ -30,7 +26,6 @@
       * It must not start or end with a dash character.
 
    1. Set up the retention period for automatic backups (in days).
-   1. (Optional) Change the backup start time. The default time is 00:00 UTC (Coordinated Universal Time). The backup starts within 30 minutes of the specified time.
 
 1. Under **{{ ui-key.yacloud.gitlab.label_admin-section }}**, specify:
    * **{{ ui-key.yacloud.gitlab.field_admin-email }}**: Email address of the {{ GL }} instance administrator. This mailbox will receive an email with a link for creating a password.

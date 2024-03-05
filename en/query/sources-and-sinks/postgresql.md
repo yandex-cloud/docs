@@ -8,12 +8,11 @@ This section describes the basic information about working with [{{ mpg-name }}]
 Example of reading data from {{ mpg-name }}:
 
 ```sql
-SELECT * FROM postgresql_mdb_connection.`my_db.my_table`
+SELECT * FROM postgresql_mdb_connection.my_table
 ```
 
 Where:
 * `postgresql_mdb_connection`: Name of the created database connection.
-* `my_db`: Name of the {{ PG }} database in the cluster.
 * `my_table`: Name of the table in the database.
 
 
@@ -39,8 +38,10 @@ To create a connection to {{ mpg-name }}:
 
       * **Cluster**: Select an existing {{ mpg-name }} cluster or create a new one.
       * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) in {{ mpg-name }}, or create a new service account with the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role, and use it to connect to `{{ mpg-name }}` clusters.
+      * **Database**: Select the database you will use when working with the {{ PG }} cluster.
+      * **Schema**: Specify the [namespace](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) to use when working with the {{ PG }} database.
       * **Login**: Username to be used to connect to {{ PG }} databases.
-      * **Password**: User password that will be used to connect to {{ PG }} databases.
+      * **Password**: User password to be used to connect to {{ PG }} databases.
 
 
 1. Click **Create**.
@@ -49,7 +50,7 @@ You need a service account to detect {{ mpg-name }} cluster connection points 
 
 {% note warning %}
 
-But first allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable "Access from Yandex Query" in the settings of the database you are connecting to.
+But first allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
 
 {% endnote %}
 
@@ -57,30 +58,25 @@ But first allow network access from {{ yq-full-name }} to {{ mpg-name }} cluster
 Here is the SQL query format used to access {{ PG }}:
 
 ```sql
-SELECT * FROM postgresql_mdb_connection.`<db>.<table>`
+SELECT * FROM postgresql_mdb_connection.<table>
 ```
 
 Where:
 * `postgresql_mdb_connection`: Name of the created database connection.
-* `<db>`: Name of the {{ PG }} database in the cluster.
 * `<table>`: Name of the table in the database.
 
 ## Limitations {#limits}
 
 There are several restrictions when working with {{ PG }} clusters.
 
-{% note warning %}
-
-Currently, regardless of the choice of filters for reading the {{ PG }} tables specified in the SQL query, all data from the table will be read into {{ yq-full-name }} and filters will be applied there.
-
-{% endnote %}
-
 Limitations:
 1. No query types are supported other than the `SELECT` data read queries.
 1. The maximum supported number of rows in a table is 1,000,000. If this value is exceeded, the query will terminate with an error.
 1. {% include [!](_includes/datetime_limits.md) %}
-1. When reading, the `public` [namespace](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) is always used; other namespaces are not supported.
 
+## Filter pushdown {#predicate_pushdown}
+
+{% include [!](_includes/predicate_pushdown.md) %}
 
 ## Supported data types {#supported_types}
 

@@ -35,6 +35,14 @@ addressId | <p>Required. ID of the Address resource to return.</p> <p>To get Add
   "type": "string",
   "ipVersion": "string",
   "deletionProtection": true,
+  "dnsRecords": [
+    {
+      "fqdn": "string",
+      "dnsZoneId": "string",
+      "ttl": "string",
+      "ptr": true
+    }
+  ],
   "externalIpv4Address": {
     "address": "string",
     "zoneId": "string",
@@ -58,8 +66,13 @@ labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p>
 reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
 used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
 type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
-ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
+ipVersion | **string**<br>Version of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
 deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
+dnsRecords[] | **object**<br><p>Optional dns record specifications</p> 
+dnsRecords[].<br>fqdn | **string**
+dnsRecords[].<br>dnsZoneId | **string**
+dnsRecords[].<br>ttl | **string** (int64)
+dnsRecords[].<br>ptr | **boolean** (boolean)
 externalIpv4Address | **object**
 externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

@@ -123,6 +123,8 @@ items:
         items:
           - name: Правила до 1 октября 2020 года
             href: pricing-archive/pricing-01102020.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

@@ -2,9 +2,9 @@
 
 This use case describes integration within {{ compute-full-name }}, [{{ message-queue-full-name }}](/services/message-queue), and [{{ monitoring-full-name }}](/services/monitoring).
 
-In this use case, an [instance group](../../compute/concepts/instance-groups/index.md) is created. All instances in the group handle messages from the same {{ message-queue-name }} queue (for example, they receive messages and delete them after a while). The number of enqueued messages is registered in a {{ monitoring-name }} metric, and the instance group is [automatically scaled](../../compute/concepts/instance-groups/scale.md#auto-scale) based on this metric.
+In this use case, an [instance group](../../compute/concepts/instance-groups/index.md) is created. All instances in the group handle messages from the same {{ message-queue-name }} queue (for example, they receive messages and delete them after a while). The number of enqueued messages is registered in a {{ monitoring-name }} metric, and the instance group is [autoscaled](../../compute/concepts/instance-groups/scale.md#auto-scale) based on this metric.
 
-An [opportunistic VM shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy) is chosen for scaling the instance group: the instances stop on their own once they handle all the messages and only then are deleted from the group when reducing its size. This ensures that the instances won't be forcibly deleted and will handle the last messages even if the queue empties before message handling is completed.
+An [opportunistic VM shutdown strategy](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy) is chosen for scaling the instance group: the instances stop on their own once they handle all the messages and only then are deleted from the group when reducing its size. This ensures that the instances will not be forcibly deleted and will handle the last messages even if the queue empties before message handling is completed.
 
 To perform this use case:
 
@@ -44,13 +44,13 @@ The cost of the infrastructure includes:
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `queue-autoscale-sa`.
-      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
+      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    1. Create a [static access key](../../iam/concepts/authorization/access-key.md) to enable the service account to work with {{ message-queue-name }} and save the key to the `access_key` file:
 
       1. In the list of service accounts, select `queue-autoscale-sa`.
-      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-description }}** field, select `Message Queue`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
       1. Insert the key ID and secret key into `access_key` in the following format:
@@ -73,12 +73,12 @@ The cost of the infrastructure includes:
    1. Create a subnet named `queue-autoscale-subnet-a` in the `{{ region-id }}-a` zone:
 
       1. In the list of networks, select `queue-autoscale-network`.
-      1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
       1. Specify the subnet parameters:
 
-         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `queue-autoscale-subnet-a`.
-         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`.
-         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`.
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `queue-autoscale-subnet-a`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`
 
       1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -143,7 +143,7 @@ The cost of the infrastructure includes:
         created_at: "2021-10-04T16:25:19.143847764Z"
         description: {{ message-queue-name }}
         key_id: g3VybpVKdq_Y********
-      secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7VSOeD_mRG
+      secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7V********
       ```
 
    1. Create a cloud network named `queue-autoscale-network`:
@@ -279,7 +279,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       Result:
 
       ```yaml
-      QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003n58805qi/queue-autoscale-queue
+      QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003********/queue-autoscale-queue
       ```
 
 - API {#api}
@@ -423,7 +423,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
          1. In the [management console]({{ link-console-main }}), select `example-folder`.
          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-         1. Go to ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+         1. Go to ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
          1. In the list of subnets, find `queue-autoscale-subnet-a` and copy its **{{ ui-key.yacloud.vpc.network.overview.column_subnetwork_id }}**.
 
       - CLI {#cli}
@@ -441,7 +441,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          folder_id: b0g12ga82bcv********
          created_at: "2021-10-04T16:29:12.450858436Z"
          name: queue-autoscale-subnet-a
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24
@@ -516,7 +516,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
@@ -563,12 +563,12 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    1. Under **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**, specify the following values:
 
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric }}**: `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}**: `message-queue`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}**: `queue.messages.stored_count`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}**: The `queue` key and the `queue-autoscale-queue` value
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}**: `GAUGE`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}**: `WORKLOAD`.
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric }}**: `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`
+      * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}**: `message-queue`
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}**: `queue.messages.stored_count`
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}**: `queue` key and `queue-autoscale-queue` value
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}**: `GAUGE`
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}**: `WORKLOAD`
       * **{{ ui-key.yacloud.compute.groups.create.field_metric-target }}**: `5`
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -734,7 +734,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
 ## Delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the created resources:
+To shut down the infrastructure and stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/instance-groups/delete.md) `queue-autoscale-ig`.
 1. [Delete](../../compute/operations/image-control/delete.md) `queue-autoscale-image`.

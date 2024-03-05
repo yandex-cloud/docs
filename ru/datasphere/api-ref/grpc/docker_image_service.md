@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/docker_image_service.md
 
 # DataSphere API v2, gRPC: DockerImageService
 
-
+A set of methods for managing Docker Images.
 
 | Call | Description |
 | --- | --- |
@@ -19,6 +19,7 @@ Activates shared docker image in project
 
 **rpc Activate ([ActivateDockerImageRequest](#ActivateDockerImageRequest)) returns ([operation.Operation](#Operation))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### ActivateDockerImageRequest {#ActivateDockerImageRequest}

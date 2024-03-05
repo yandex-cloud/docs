@@ -494,15 +494,15 @@ To set up automatic Docker image scan on push using {{ TF }}:
 1. Specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare files with the infrastructure description:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Ready-made archive
+   - Ready-made archive {#ready}
 
       1. Create a directory for files.
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/image-auto-scan-tf.zip) (2 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `image-auto-scan.tf` configuration file, the `image-auto-scan.auto.tfvars` file with user data, and the `function.zip` archive with the function code.
 
-   - Creating files manually
+   - Manually {#manual}
 
       1. Create a directory for configuration files.
       1. In the directory, create a configuration file named `image-auto-scan.tf`:

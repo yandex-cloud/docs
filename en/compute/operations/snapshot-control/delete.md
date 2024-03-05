@@ -7,7 +7,7 @@ description: "Follow this guide to delete a disk snapshot."
 
 {% note warning %}
 
-Deleting a snapshot is an operation that cannot be canceled or reversed. You cannot restore a deleted snapshot.
+Deleting a [snapshot](../../concepts/snapshot.md) is an operation that you cannot cancel or reverse. You cannot restore a deleted snapshot. When you delete a snapshot, all the information in it is deleted. The data on the main disk will remain unchanged.
 
 {% endnote %}
 
@@ -19,8 +19,8 @@ To delete a snapshot:
 
    1. In the management console, select the folder where the snapshot is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-   1. In the line with the appropriate snapshot, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots.list.button_action-delete }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. In the line with the appropriate snapshot, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.snapshots.list.popup-confirm_button_delete }}**.
 
 - CLI {#cli}

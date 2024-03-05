@@ -232,15 +232,7 @@ Let us consider an example of deploying a service from a model in ONNX format. T
 
       ```python
       import tritonclient.http as httpclient
-      import ssl
-
-      # because of troubles with verification of SSL certificate from node-api.preprod
-      def insecure_ssl_context_factory():
-          context = ssl.create_default_context()
-          context.check_hostname = False
-          context.verify_mode = ssl.CERT_NONE
-          return context
-
+      
       model="<DataSphere_model_ID>"
 
       # request model config with model ready status

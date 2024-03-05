@@ -5,7 +5,7 @@ description: "The main entity used in {{ mpg-name }} is a database cluster. Each
 
 # Resource relationships in {{ mpg-name }}
 
-The main entity used in {{ mpg-name }} is a _database cluster_.
+The main entity used in the {{ mpg-name }} service is a _database cluster_.
 
 Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
 
