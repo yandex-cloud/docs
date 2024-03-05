@@ -26,6 +26,8 @@ In addition to the fact that preemptible VMs can be forcibly stopped, they have 
 
 When a preemptible VM is stopped, it is not deleted and all its data is saved. When you need the VM again, you can just [start it](../operations/vm-control/vm-stop-and-start#start).
 
+With the [{{ sf-full-name }}](../../functions/) function, you can [configure](../tutorials/nodejs-cron-restart-vm.md) a stopped preemptible VM to run automatically.
+
 {% note info %}
 
 In [{{ ig-name }}](instance-groups/index.md), stopped VMs start automatically based on the [autohealing](instance-groups/autohealing.md) feature.

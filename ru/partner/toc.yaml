@@ -2,13 +2,13 @@ title: Партнерская программа Yandex Cloud
 href: index.yaml
 editable: false
 items:
+  - name: Начало работы
+    href: quickstart.md
   - name: Пошаговые инструкции
     expanded: true
     items:
       - name: Добавить клиента
         href: operations/pin-client.md
-      - name: Проверить наличие доступа к облаку клиента
-        href: operations/access/check.md
       - name: Предоставить партнеру доступ к облаку клиента
         href: operations/access/grant.md
       - name: Предоставить доступ к партнерскому аккаунту
@@ -23,7 +23,11 @@ items:
       - name: Реферальная программа
         href: program/referral.md
       - name: Программа прямого партнерства
-        href: program/var.md
+        items:
+          - name: Обзор
+            href: program/var.md
+          - name: Инструменты
+            href: program/var-tools.md
   - name: Специализации
     expanded: true
     items:

@@ -1,4 +1,3 @@
-
 ---
 title: "Как подключить виртуальную машину на Windows Server к {{ backup-full-name }}"
 description: "Следуя данной инструкции, вы сможете подключить виртуальную машину на Windows Server к {{ backup-name }}."

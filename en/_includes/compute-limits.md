@@ -237,4 +237,12 @@ Read and write operations utilize the same disk resource. The more read operatio
 | Type of limit | Value |
 --- | ---
 | Number of disks included in a schedule | 1,000 |
-| Number of schedules to add a disk to | 1,000 |
+| Number of schedules a disk is added to | 1,000 |
+
+#### Other limits {#compute-other-limits}
+
+| Type of limit | Value |
+--- | ---
+| Time to complete processes when stopping a VM^6^ | 30 seconds |
+
+^6^ When a VM stops, the hypervisor sends a shutdown signal to the VM operating system. The OS needs to terminate the current processes nice and easy within the next 30 seconds to avoid data loss. After this time elapses, the VM process is forced to stop.

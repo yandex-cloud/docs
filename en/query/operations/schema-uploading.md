@@ -8,11 +8,11 @@ description: "Follow this guide to upload a data schema."
 To simplify repetitive actions related to data schema setup and [data binding](../concepts/glossary.md#binding), you can prepare a file with data schemas and upload it. For this, follow these steps:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to change a data binding.
-1. In the list of services, select **{{ yq-full-name }}**.
-1. On the left-hand panel, select **Bindings**.
-1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the name of the desired binding.
-1. Click the **Upload from file** button and select the [data schema](#schema) file.
-1. Click **Edit**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+1. In the line with the binding name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
+1. Click **{{ ui-key.yql.yq-binding-form.action_upload-schema-file }}** and select the [data schema](#schema) file.
+1. Click **{{ ui-key.yql.yq-binding-form.binding-modify.button-text }}**.
 
 ## Data schemas {#schema}
 
@@ -37,7 +37,7 @@ SCHEMA=(
 Where:
 * `billing_account_id`: Field name.
 * `String`: Field type.
-* `NOT NULL`: Flag indicating that the field is required in the source data.
+* `NOT NULL`: Flag indicating a required field in the source data.
 
 ### JSON format {#json_schema}
 
@@ -64,7 +64,7 @@ Here is an example of a data schema in JSON format:
 Where:
 * `billing_account_id`: Field name.
 * `String`: Field type.
-* `required: true`: Flag indicating that the field is required in the source data.
+* `required: true`: Flag indicating a required field in the source data.
 
 ### {{ data-transfer-name }} compatible JSON format {#json_schema_data_transfer}
 

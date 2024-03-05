@@ -55,6 +55,8 @@ To stop a VM:
 
 {% endlist %}
 
+When a VM stops, the hypervisor sends a shutdown signal to the VM operating system. The OS needs to terminate the current processes nice and easy within the next 30 seconds to avoid data loss. After this time elapses, the VM process is forced to stop.
+
 ## Start {#start}
 
 The **{{ ui-key.yacloud.compute.instances.button_action-start }}** command starts a previously stopped VM. Once the VM is started, its status changes to `Running`, and the operating system starts loading. From this point on, you will be charged for using the VM.

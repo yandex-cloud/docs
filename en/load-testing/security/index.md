@@ -3,13 +3,13 @@
 {{ load-testing-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -21,12 +21,29 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
-* `loadtesting.viewer`: Allows viewing reports and created agents.
-* `loadtesting.editor`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables running and stopping load tests, and uploading test data and output to the repository.
-* `loadtesting.admin`: At the moment, the service does not include an administrative function, so the role has the same permissions as `loadtesting.editor`.
-* `loadtesting.loadTester`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables running and stopping load tests, and loading test data.
-* `loadtesting.generatorClient`: Allows starting VMs, running tests on agents, and uploading the output to the repository (assigned to a service account that is used to create VMs with agents).
-* `loadtesting.externalAgent` allows registering agents created outside {{ load-testing-name }}, create, update, and run tests, as well as transfer their results to {{ load-testing-name }}.
+#### loadtesting.viewer {#loadtesting-viewer}
+
+{% include [loadtesting.viewer](../../_roles/loadtesting/viewer.md) %}
+
+#### loadtesting.editor {#loadtesting-editor}
+
+{% include [loadtesting.editor](../../_roles/loadtesting/editor.md) %}
+
+#### loadtesting.admin {#loadtesting-admin}
+
+{% include [loadtesting.admin](../../_roles/loadtesting/admin.md) %}
+
+#### loadtesting.loadTester {#loadtesting-loadtester}
+
+{% include [loadtesting.loadtester](../../_roles/loadtesting/loadTester.md) %}
+
+#### loadtesting.generatorClient {#loadtesting-generatorclient}
+
+{% include [loadtesting.generatorclient](../../_roles/loadtesting/generatorClient.md) %}
+
+#### loadtesting.externalAgent {#loadtesting-externalagent}
+
+{% include [loadtesting.externalagent](../../_roles/loadtesting/externalAgent.md) %}
 
 ### Primitive roles {#primitive-roles}
 

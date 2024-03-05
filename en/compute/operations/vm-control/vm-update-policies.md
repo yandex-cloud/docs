@@ -1,13 +1,13 @@
-# Editing a maintenance policy
+# Maintenance policy management
 
-To edit a [VM maintenance policy](../../concepts/vm-policies.md), perform the following steps:
+To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md), complete the following steps:
 
-1. [Creating a VM with a configured maintenance policy](#create).
-1. [Checking maintenance event processing](#check).
-1. [Connecting to the VM via SSH](#ssh).
-1. [Creating a script to track VM maintenance events](#script).
-1. [Simulating the occurrence of a VM maintenance event](#simulate).
-1. [Optional. Changing the VM maintenance policy type](#change-policy).
+1. [Create a VM with a configured maintenance policy](#create).
+1. [Check the maintenance event processing](#check).
+1. [Connect to the VM via SSH](#ssh).
+1. [Create a script to track VM maintenance events](#script).
+1. [Simulate the occurrence of a VM maintenance event](#simulate).
+1. [Optional. Change the VM maintenance policy type](#change-policy).
 
 ## Create a VM with a configured maintenance policy {#create}
 
@@ -100,7 +100,7 @@ To edit a [VM maintenance policy](../../concepts/vm-policies.md), perform the fo
 
 {% endlist %}
 
-## Check maintenance event processing {#check}
+## Check the maintenance event processing {#check}
 
 You can use the CLI to check the configuration of the VM maintenance policies after it has been created. Run this command:
 

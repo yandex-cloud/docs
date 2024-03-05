@@ -46,7 +46,7 @@ If the startup is successful, the VM's status will change to `RUNNING` and the o
 
 ### Stop and start {#stop-and-start}
 
-When [stopped](../operations/vm-control/vm-stop-and-start.md#stop), the VM switches to the `STOPPED` status.
+When a VM [stops](../operations/vm-control/vm-stop-and-start.md#stop), the hypervisor sends a shutdown signal to the VM operating system. The OS needs to terminate the current processes nice and easy within the next 30 seconds to avoid data loss. When this time expires, the VM process is forced to stop, and the VM gets the `STOPPED` status.
 
 At the next [start](../operations/vm-control/vm-stop-and-start.md#start), the VM will go through the same statuses as when it was created: `PROVISIONING` → `STARTING` → `RUNNING`.
 

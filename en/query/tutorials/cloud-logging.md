@@ -14,11 +14,11 @@ In this use case, you will send {{ cloud-logging-short-name }} logs to a {{ yds-
 
 To implement this use case:
 
-1. [{#T}](#create-yds-stream).
-1. [{#T}](#create-log-group).
-1. [{#T}](#send-to-loggroup).
-1. [{#T}](#connect-query).
-1. [{#T}](#query).
+1. [{#T}](#create-yds-stream)
+1. [{#T}](#create-log-group)
+1. [{#T}](#send-to-loggroup)
+1. [{#T}](#connect-query)
+1. [{#T}](#query)
 
 ## Getting started {#before-you-begin}
 
@@ -57,13 +57,13 @@ done
 
 ## Connect {{ yq-name }} to your data stream {#connect-query}
 
-1. [Create a connection](../operations/connection.md#create) with the `cloud-logging-connection` name and `Data Streams` type.
+1. [Create a connection](../operations/connection.md#create) named `cloud-logging-connection` of the `{{ ui-key.yql.yq-connection.datastreams.select-item }}` type.
 1. On the binding creation page:
-   * Select **Automatically populate columns for Cloud Logging**.
+   * Select **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }} {{ cloud-logging-short-name }}**.
    * Enter the binding name: `cloud-logging-binding`.
    * Specify the stream: `cloud-logging-stream`.
    * Set `json-list` format.
-1. Click **Create**.
+1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 ## Run a data query {#query}
 
@@ -98,4 +98,4 @@ Result:
 
 ## See also {#see-also}
 
-* [{#T}](../sources-and-sinks/data-streams.md).
+* [{#T}](../sources-and-sinks/data-streams.md)

@@ -17,11 +17,11 @@ In this use case, you will send [{{ PG }}](https://www.postgresql.org/) database
 
 To implement this use case:
 
-1. [{#T}](#create-yds-stream).
-1. [{#T}](#credentials).
-1. [{#T}](#debezium-server).
-1. [{#T}](#connect-query).
-1. [{#T}](#query).
+1. [{#T}](#create-yds-stream)
+1. [{#T}](#credentials)
+1. [{#T}](#debezium-server)
+1. [{#T}](#connect-query)
+1. [{#T}](#query)
 
 ## Getting started {#before-you-begin}
 
@@ -56,12 +56,12 @@ On the server where PostgreSQL is set up and running:
 
 ## Connect {{ yq-name }} to your data stream {#connect-query}
 
-1. [Create a connection](../operations/connection.md#create) with the `yds-connection` name and `Data Streams` type.
+1. [Create a connection](../operations/connection.md#create) named `yds-connection` of the `{{ ui-key.yql.yq-connection.datastreams.select-item }}` type.
 1. On the binding creation page:
    * Enter the binding name: `debezium`.
    * Specify the stream: `cdebezium`.
    * Add a `JSON` column named `data`.
-1. Click **Create**.
+1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 ## Run a data query {#query}
 

@@ -71,7 +71,7 @@ items:
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
-          - name: Resetting a Windows Server VM user password
+          - name: Resetting a VM user password
             href: operations/vm-control/vm-reset-password.md
           - name: Attaching a disk to a VM
             href: operations/vm-control/vm-attach-disk.md
@@ -97,7 +97,7 @@ items:
             href: operations/vm-control/vm-change-security-groups-set.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
-          - name: Changing VM maintenance policies
+          - name: VM maintenance policy management
             href: operations/vm-control/vm-update-policies.md
       - name: Working on VMs
         items:
@@ -351,6 +351,8 @@ items:
         href: tutorials/packer-custom-image.md
       - name: Creating a VM backup with Hystax Acura Backup
         href: tutorials/hystax-backup.md
+      - name: Deploying a fault-tolerant architecture with preemptible VMs
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Concepts
     items:
       - name: Relationship between resources
