@@ -236,6 +236,8 @@ items:
     items:
       - name: Все руководства
         href: dataplatform/index.md
+      - name: Развертывание веб-интерфейса {{ KF }}
+        href: dataplatform/deploy-kafka-ui.md
       - name: Миграция БД из стороннего кластера {{ KF }} в {{ mkf-name }}
         href: dataplatform/kafka-connector.md
       - name: >-
@@ -456,6 +458,26 @@ items:
         href: dataplatform/redis-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
         href: dataplatform/redis-as-php-sessions-storage.md
+      - name: >-
+          Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/ydb-mkf-replication.md
+      - name: >-
+          Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/mkf-ydb-stream.md
+      - name: >-
+          Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/mmy-ydb-migration.md
+      - name: >-
+          Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/mpg-ydb-replication.md
+      - name: >-
+          Загрузка данных из {{ objstorage-full-name }} в {{ ydb-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-ydb.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства

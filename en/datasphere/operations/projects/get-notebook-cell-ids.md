@@ -1,5 +1,7 @@
 # Getting notebook and cell IDs
 
+{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 To work with a project through API, you may need IDs of notebooks and their cells.
 
 {% note warning %}

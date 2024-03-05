@@ -1,1 +1,0 @@
-Run the script from a command line. In the arguments, pass [OAuth token](../../iam/concepts/authorization/oauth-token.md), folder ID and path to the image file:

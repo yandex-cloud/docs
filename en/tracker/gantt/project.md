@@ -64,6 +64,32 @@ Issue color settings are saved at the project chart level, i.e., the selected co
 
 {% include [critical-path](../../_includes/tracker/gantt-critical-path.md) %}
 
+### Baselines {#baselines}
+
+A baseline is a saved version of the project Gantt chart. With its help, you can look back and compare the originally planned deadlines with the current ones. Baselines help to predict the outcome of the project and, retrospectively, understand what can be improved in planning.
+
+To open the project baseline panel, click ![](../../_assets/console-icons/clock-arrow-rotate-left.svg) above the time scale on the right.
+
+#### Creating a baseline {#create-baseline}
+
+Create a baseline when the current deadlines, milestones, and links between issues are laid out on the chart. When creating a baseline, the current deadlines will be saved on the Gantt chart. To create a baseline:
+
+1. On the project baseline panel, click **Create**.
+1. By default, the name of the baseline includes the day and month it was created. If required, adjust the name of the baseline and click **Create**.
+
+The baseline will save the current status of issue deadlines in the project. On the baseline panel, you can compare the current deadlines for project issues with those fixed in the baselines: how many days the actual deadlines are ahead or behind the planned ones (for the last issue in the project).
+
+#### Using a baseline {#working-with-baselines}
+
+Baselines can be overlaid on top of the original project Gantt chart. To do this, open the baseline panel and click the baseline. In comparison mode, you can evaluate the differences in the chart:
+
+1. Lag from the fixed deadline for specific issues: when hovering over the issue deadlines in the baseline.
+1. Converting an issue to a milestone or vice versa: the appearance of the issue or milestone on the chart will change, and a comment will appear when hovering the cursor.
+1. Deleting issues from the project: deadlines of such issues will not be displayed in the comparison mode.
+1. Adding new issues to the project: such issues will not have old deadlines fixed.
+
+To turn off comparison mode, hover over ![](../../_assets/console-icons/clock-arrow-rotate-left.svg) and click the highlighted baseline.
+
 ## Displaying the issue list section {#tasks-view}
 
 {% include [issues-table-project](../../_includes/tracker/issues-table-project.md) %}

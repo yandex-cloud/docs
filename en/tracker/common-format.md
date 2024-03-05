@@ -9,14 +9,40 @@ sourcePath: en/tracker/api-ref/common-format.md
 General {{ api-name }} request format:
 
 ```
-<method> /{{ ver }}/<resources>/<resource_id>/?<param>=<value>
+<method> /{{ ver }}/<resource_type>/<resource_ID>/?<parameter>=<value>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 {
    Request body in JSON format
 }
 ```
+
+{% cut "Python" %}
+
+```python
+import requests;
+
+def my_function():
+    session = requests.Session()
+    url = "https://{{ host }}/{{ ver }}/<resources>/<resource_ID>/?<param>=<value>"
+    json = {
+        # Request body in JSON format
+    }
+    head =  {
+        "Authorization": "OAuth <OAuth_token>",
+        "X-Org-ID" or "X-Cloud-Org-ID": <organization_ID>
+    }
+    session.headers.update(head)
+    response = session.post(url, json=json) # session.* - get, post, path, delete
+    data = response.json()
+    print(response)
+    print(data)
+
+my_function()
+```
+
+{% endcut %}
 
 {% note info %}
 
@@ -38,18 +64,22 @@ Requests made to {{ api-short-name }} use one of the following HTTP methods:
 
 ## Headers {#headings}
 
-In requests to the {{ api-short-name }} API, specify the following headers:
+In {{ api-short-name }} requests, specify the following headers:
 
 - `Host: {{ host }}`
 
-- `Authorization: OAuth <your OAuth token>`: If [OAuth 2.0 protocol](concepts/access.md#section_about_OAuth) is used.
+- `Authorization: OAuth <OAuth_token>`: If [OAuth 2.0](concepts/access.md#section_about_OAuth) is used.
 
-   `Authorization: Bearer <your IAM token>`: If an [IAM token](concepts/access.md#iam-token) is used.
+   `Authorization: Bearer <IAM token>`: If an [IAM token](concepts/access.md#iam-token) is used.
 
-- `X-Org-ID: <organization ID>` or `X-Cloud-Org-ID: <organization ID>`
+- `X-Org-ID: <organization_ID>` or `X-Cloud-Org-ID: <organization_ID>`.
 
-   If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+   If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`. To find out the organization ID, go to the [{{ tracker-name }} settings page]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
+
+- `Accept-Language: <language tag>`: Localization language.
+
+   By default, an HTTP request returns localized fields in Russian. To get localized field values in English, specify a header with the **en** tag.
 
 ## Request body format {#body}
 
@@ -58,44 +88,44 @@ The request body includes a JSON object with the IDs of updated fields and their
 - To add or remove an array value, use the `add` or `remove` command:
 
    - ```json
+          {
+              "followers": { "add": ["<employee_1_ID>", "<employee_2_ID>"] }
+          }
+      ```
+
+   The `add` command adds new values to the array. To overwrite the array (delete the old values and add new ones), use the `set` command.
+
+- To reset the field value, set it to `null`. To reset the array, use an empty array, `[]`. You can change individual values in the array using the `target` and `replacement` commands:
+
+   - `{"followers": null}`
+   - ```json
         {
-            "followers": { "add": ["<1employee ID>", "<2employee ID>"] }
+          "followers": {
+            "replace": [
+                {"target": "<ID_1>", "replacement": "<ID_2>"},
+                {"target": "<ID_3>", "replacement": "<ID_4>"}]
+          }
         }
-    ```
-
-  The `add` command adds new values to the array. To overwrite the array (delete the old values and add new ones), use the `set` command.
-
-- To reset the field value, set it to `null`. To reset the array, use an empty array `[]`. You can change individual values in the array using the `target` and `replacement` commands:
-
-  - `{"followers": null}`
-  - ```json
-    {
-      "followers": {
-        "replace": [
-            {"target": "<ID1>", "replacement": "<ID2>"},
-            {"target": "<ID3>", "replacement": "<ID4>"}]
-      }
-    }
-    ```
-
-- For example, to change the issue type to <q>Bug</q>, use one of these methods:
-
-  - `{"type": 1}`
-  - `{"type": "bug"}`
-  - ```json
-      {
-        "type": { "id": "1" }
-      }
       ```
-    ```json
-      {
-        "type": { "name": "Error" }
-      }
+
+- For example, to change the issue type to **Error**, use one of these methods:
+
+   - `{"type": 1}`
+   - `{"type": "bug"}`
+   -  ```json
+        {
+            "type": { "id": "1" }
+        }
       ```
-  - ```json
-      {
-        "type": {"set": "bug"}
-      }
+   - ```json
+        {
+            "type": { "name": "Error" }
+        }
+      ```
+   - ```json
+        {
+            "type": {"set": "bug"}
+        }
       ```
 
 ## Text formats and variables {#text-format}
@@ -105,11 +135,13 @@ When making requests for the creation or update of [comments](concepts/issues/ad
 * To add a line break, use ``\n``.
 * To add values from the issue fields, use [variables](user/vars.md#variable-type).
 
-## Paginated result output {#displaying-results}
+## Pagination of results {#displaying-results}
 
-If you request a list of objects, and the number of rows in the response exceeds 50, the response returns a page with the specified number of results. You can run more requests to view the next pages. This is where request pagination helps.
+If you request a list of objects, and the number of rows in the response exceeds 50, the response returns a page with the specified number of results. You can run more requests to view the next pages. This is where pagination of results helps.
 
-With the paginated output, the request results are calculated each time a new page is returned. So if changes occur in the request results when viewing a certain page, this may affect the output of the following pages. For example, the request found 11 issues, 10 of which are displayed. While viewing the results of the first page, one of the issues was changed and no longer meets the requirements of the search query. In this case, when requesting the second page with the results, an empty array is returned, since the remaining 10 issues are on the first page.
+If you use pagination, request results are calculated each time a new page is returned. So if changes occur in the request results when viewing a certain page, this may affect the output of the following pages. For example, the request found 11 issues, 10 of which are displayed. While viewing the results of the first page, one of the issues was changed and no longer meets the requirements of the search request. In this case, when requesting the second page with the results, an empty array is returned, since the remaining 10 issues are on the first page.
+
+The [new API](./concepts/entities/about-entities.md) offers paginated output of request results for [events](./concepts/entities/get-events-relative.md) and [comments](./concepts/entities/comments/get-all-comments.md#pagination) with better customization.
 
 For paginated results, use these parameters in the request:
 
@@ -136,29 +168,68 @@ The response will contain the following headers:
 {% cut "Example 1: Change the name, description, type, and priority of an issue." %}
 
 - An HTTP PATCH method is used.
-- We're editing the TEST-1 issue.
-- New issue type: <q>Bug</q>.
-- New issue priority: <q>Low</q>.
+- We are editing the TEST-1 issue.
+- New issue type: **Error**.
+- New issue priority: **Low**.
 
-```
-PATCH /v2/issues/TEST-1
-Host: {{ host }}
-Authorization: OAuth <OAuth token>
-{{ org-id }}
+{% list tabs %}
 
-{
-  "summary": "New issue name",
-  "description": "New issue description",
-  "type": {
-      "id": "1",
-      "key": "bug"
-      },
-  "priority": {
-      "id": "2",
-      "key": "minor"
-      }
-}
-```
+- Request format
+
+   ```
+   PATCH /v2/issues/TEST-1
+   Host: {{ host }}
+   Authorization: OAuth <OAuth_token>
+   {{ org-id }}
+   {
+     "summary": "<new_issue_name>",
+     "description": "<new_issue_description>",
+     "type": {
+         "id": "1",
+         "key": "bug"
+         },
+     "priority": {
+         "id": "2",
+         "key": "minor"
+         }
+   }
+   ```
+
+- Python
+
+   ```python
+   import requests;
+
+   def my_function():
+       session = requests.Session()
+       url = "https://{{ host }}/{{ ver }}/issues/TEST-1"
+       json = {
+           "summary": "<new_issue_name>",
+           "description": "<new_issue_description>",
+           "type": {
+               "id": "1",
+               "key": "bug"
+               },
+           "priority": {
+               "id": "2",
+               "key": "minor"
+               }
+           }
+       head =  {
+           "Authorization": "OAuth <OAuth_token>",
+           "X-Org-ID" or "X-Cloud-Org-ID": <organization_ID>
+       }
+       session.headers.update(head)
+       response = session.patch(url, json=json)
+       data = response.json()
+       print(response)
+       print(data)
+
+   my_function()
+   ```
+
+{% endlist %}
+
 {% endcut %}
 
 {% cut "Example 2: Request for a single issue with the required fields specified." %}
@@ -166,56 +237,152 @@ Authorization: OAuth <OAuth token>
 - An HTTP GET method is used.
 - The response will display attachments.
 
-```
-GET /v2/issues/JUNE-3?expand=attachments
-Host: {{ host }}
-Authorization: OAuth <OAuth token>
-{{ org-id }}
-```
+{% list tabs %}
+
+- Request format
+
+   ```
+   GET /v2/issues/JUNE-3?expand=attachments
+   Host: {{ host }}
+   Authorization: OAuth <OAuth token>
+   {{ org-id }}
+   ```
+
+- Python
+
+   ```python
+   import requests;
+
+   def my_function():
+       session = requests.Session()
+       url = "https://{{ host }}/{{ ver }}/issues/JUNE-3?expand=attachments"
+       head =  {
+           "Authorization": "OAuth <token>",
+           "X-Org-ID" or "X-Cloud-Org-ID": <organization_ID>
+       }
+       session.headers.update(head)
+       response = session.get(url)
+       data = response.json()
+       print(response)
+       print(data)
+
+   my_function()
+   ```
+
+{% endlist %}
+
 {% endcut %}
 
 {% cut "Example 3: Create an issue." %}
 
 - An HTTP POST method is used.
-- We're creating an issue named <q>Test Issue</q> in the queue with the [key](manager/create-queue.md#key) <q>TREK</q>.
-- The new issue is a sub-issue of <q>JUNE-2</q>.
-- Type of the new issue: <q>Bug</q>.
-- Assignee: <user_login>
+- We are creating an issue named **Test Issue** in the queue with the **TREK** [key](manager/create-queue.md#key).
+- The new issue is a sub-issue of **JUNE-2**.
+- New issue type: **Error**.
+- Assignee: <user_login>.
 
-```
-POST /v2/issues/ HTTP/1.1
-Host: {{ host }}
-Authorization: OAuth <OAuth token>
-{{ org-id }}
+{% list tabs %}
 
-{
-  "queue": "TREK",
-  "summary": "Test Issue",
-  "parent":"JUNE-2",
-  "type": "bug",
-  "assignee": "<user_login>",
-  "attachmentIds": [55, 56]
-}
-```
+- Request format
+
+   ```
+   POST /v2/issues/ HTTP/1.1
+   Host: {{ host }}
+   Authorization: OAuth <OAuth_token>
+   {{ org-id }}
+   {
+     "queue": "TREK",
+     "summary": "Test Issue",
+     "parent":"JUNE-2",
+     "type": "bug",
+     "assignee": "<user_login>",
+     "attachmentIds": [55, 56]
+   }
+   ```
+
+- Python
+
+   ```python
+   import requests;
+
+   def my_function():
+       session = requests.Session()
+       url = "https://{{ host }}/{{ ver }}/issues/"
+       json = {
+           "queue": "TREK",
+           "summary": "Test Issue",
+           "parent":"JUNE-2",
+           "type": "bug",
+           "assignee": "<user_login>",
+           "attachmentIds": [55, 56]
+           }
+       head =  {
+           "Authorization": "OAuth <token>",
+           "X-Org-ID" or "X-Cloud-Org-ID": <organization_ID>
+       }
+       session.headers.update(head)
+       response = session.post(url, json=json)
+       data = response.json()
+       print(response)
+       print(data)
+
+   my_function()
+   ```
+
+{% endlist %}
+
 {% endcut %}
 
 {% cut "Example 4: Find the issues in the queue that were assigned to a given employee. Paginate the results." %}
 
 - An HTTP POST method is used.
-- Key of the queue: <q>TREK</q>.
+- Queue key: **TREK**.
 - Assignee: <user_login>.
 
-```
-POST /v2/issues/_search?perPage=15
-Host: {{ host }}
-Authorization: OAuth <OAuth token>
-{{ org-id }}
+{% list tabs %}
 
-{
-  "filter": {
-    "queue": "TREK",
-    "assignee": "<user_login>"
-  }
-}
-```
+- Request format
+
+   ```
+   POST /v2/issues/_search?perPage=15
+   Host: {{ host }}
+   Authorization: OAuth <OAuth_token>
+   {{ org-id }}
+   {
+     "filter": {
+       "queue": "TREK",
+       "assignee": "<user_login>"
+     }
+   }
+   ```
+
+- Python
+
+   ```python
+   import requests;
+
+   def my_function():
+       session = requests.Session()
+       url = "https://{{ host }}/{{ ver }}/issues/_search?perPage=15"
+       json = {
+           "filter": {
+               "queue": "TREK",
+               "assignee": "<user_login>"
+               }
+           }
+       head =  {
+           "Authorization": "OAuth <token>",
+           "X-Org-ID" or "X-Cloud-Org-ID": <organization_ID>
+       }
+       session.headers.update(head)
+       response = session.post(url, json=json)
+       data = response.json()
+       print(response)
+       print(data)
+
+   my_function()
+   ```
+
+{% endlist %}
+
 {% endcut %}

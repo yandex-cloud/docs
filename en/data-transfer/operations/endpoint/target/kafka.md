@@ -53,7 +53,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mkf.viewer }}` role](../../../../managed-kafka/security/index.md#mkf-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mkf.viewer }}` role](../../../../managed-kafka/security/index.md#mkf-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 
@@ -86,13 +86,15 @@ Connecting to the database with explicitly specified network addresses.
 
 - Management console {#console}
 
-   {% include [On premise Kafka UI](../../../../_includes/data-transfer/kafka-topic.md) %}
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Specify the name of the topic to send messages to. Select **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.save_tx_order.title }}**, so as not to split an event stream into independent queues by table.
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Specify the topic prefix, similar to the `Debezium database.server.name` setting. Messages will be sent to a topic named `<topic_prefix>.<schema>.<table_name>`.
 
    {{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MY }}, and {{ ydb-short-name }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
 
    {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
-
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.save_tx_order.title }}**: Do not split an event stream into independent queues by table.
 
 {% endlist %}
 
@@ -106,5 +108,10 @@ Connecting to the database with explicitly specified network addresses.
 
 {% endlist %}
 
+### Additional settings {#additional-settings}
+
+You can specify [topic configuration parameters](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) to use when creating new topics.
+
+Specify the parameter and one of its possible values, e.g., `cleanup.policy` and `compact`.
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

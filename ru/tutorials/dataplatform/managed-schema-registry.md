@@ -5,4 +5,4 @@ description: "Чтобы использовать {{ mkf-msr }} совместн
 
 # Использование {{ mkf-msr }} с {{ mkf-full-name }}
 
-{% include [_includes/tutorials/kafka/managed-schema-registry](../../_tutorials/kafka/kafka-managed-schema-registry.md) %}
+{% include [_includes/tutorials/kafka/managed-schema-registry](../../_tutorials/dataplatform/kafka/kafka-managed-schema-registry.md) %}

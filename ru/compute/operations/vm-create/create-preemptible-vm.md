@@ -162,7 +162,7 @@
 
         resources {
           cores  = <количество_ядер_vCPU>
-          memory = <объем_RAM_в_ГБ>
+          memory = <объем_RAM_ГБ>
         }
 
         boot_disk {
@@ -228,7 +228,7 @@
 
   1. Создайте ресурсы:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
@@ -250,12 +250,12 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. В строке с нужной ВМ нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+  1. В строке с нужной ВМ нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. Статус ВМ изменится на `Stopped`.
-  1. В строке с нужной ВМ нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В строке с нужной ВМ нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выключите опцию **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. Справа сверху нажмите ![image](../../../_assets/compute/run-vm.svg) **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+  1. Справа сверху нажмите ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI {#cli}
@@ -278,7 +278,7 @@
   1. Остановите ВМ:
 
      ```bash
-     yc compute instance stop <идентификатор или имя ВМ>
+     yc compute instance stop <имя_или_идентификатор_ВМ>
      ```
 
      Результат:
@@ -290,7 +290,7 @@
   1. Измените параметры ВМ:
 
      ```bash
-     yc compute instance update <идентификатор или имя ВМ> \
+     yc compute instance update <имя_или_идентификатор_ВМ> \
        --preemptible=false
      ```
 
@@ -298,8 +298,8 @@
 
      ```text
      done (1s)
-     id: fhm0b28lgfp4tkoa3jl6
-     folder_id: b1ghgf288nvg541tgu73
+     id: fhm0b28lgfp4********
+     folder_id: b1ghgf288nvg********
      ...
      network_settings:
        type: STANDARD
@@ -309,15 +309,15 @@
   1. Вновь запустите ВМ:
 
      ```bash
-     yc compute instance start <идентификатор или имя ВМ>
+     yc compute instance start <имя_или_идентификатор_ВМ>
      ```
 
      Результат:
 
      ```text
      done (11s)
-     id: fhm0b28lgfp4tkoa3jl6
-     folder_id: b1ghgf288nvg541tgu73
+     id: fhm0b28lgfp4********
+     folder_id: b1ghgf288nvg********
      ...
      network_settings:
        type: STANDARD

@@ -6,6 +6,29 @@ description: "The article provides a full reference and description of roles for
 # {{ yandex-cloud }} roles reference
 
 
+## Primitive roles {#primitive-roles}
+
+The chart below shows which primitive roles are available in {{ yandex-cloud }} and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of the `{{ roles-viewer }}` role. You can find the description of each role under the chart.
+
+![image](../_assets/iam/security/primitive-roles-hierarchy.svg)
+
+#### {{ roles-auditor }} {#auditor}
+
+{% include [auditor](../_roles/primitive-roles/auditor.md) %}
+
+#### {{ roles-viewer }} {#viewer}
+
+{% include [viewer](../_roles/primitive-roles/viewer.md) %}
+
+#### {{ roles-editor }} {#editor}
+
+{% include [editor](../_roles/primitive-roles/editor.md) %}
+
+#### {{ roles-admin }} {#admin}
+
+{% include [admin](../_roles/primitive-roles/admin.md) %}
+
+
 ## Service roles {#auxiliary-roles}
 
 #### marketplace.meteringAgent {#marketplace-meteringagent}
@@ -163,6 +186,10 @@ For more information, see [{#T}](../backup/security/index.md).
 
 {% include [billing.accounts.viewer](../_roles/billing/accounts/viewer.md) %}
 
+#### billing.accounts.accountant {#billing-accounts-accountant}
+
+{% include [billing.accounts.accountant](../_roles/billing/accounts/accountant.md) %}
+
 #### billing.accounts.editor {#billing-accounts-editor}
 
 {% include [billing.accounts.editor](../_roles/billing/accounts/editor.md) %}
@@ -309,6 +336,31 @@ For more information, see [{#T}](../logging/security/index.md).
 {% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
 
 For more information, see [{#T}](../organization/security/index.md).
+
+
+## {{ postbox-full-name }} {#postbox-roles}
+
+#### postbox.sender {#postbox-sender}
+
+{% include [postbox.sender](../_roles/postbox/sender.md) %}
+
+#### postbox.auditor {#postbox-auditor}
+
+{% include [postbox.auditor](../_roles/postbox/auditor.md) %}
+
+#### postbox.viewer {#postbox-viewer}
+
+{% include [postbox.viewer](../_roles/postbox/viewer.md) %}
+
+#### postbox.editor {#postbox-editor}
+
+{% include [postbox.editor](../_roles/postbox/editor.md) %}
+
+#### postbox.admin {#postbox-admin}
+
+{% include [postbox.admin](../_roles/postbox/admin.md) %}
+
+For more information, see [{#T}](../postbox/security/index.md).
 
 
 ## {{ compute-full-name }} {#compute-roles}

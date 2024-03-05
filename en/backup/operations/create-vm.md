@@ -11,7 +11,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
 ## Getting started {#before-you-begin}
 
-1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../../iam/concepts/access-control/roles.md#backup-editor).
+1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../security/index.md#backup-editor).
 1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
 
 ## Creating a VM {#creating-vm}

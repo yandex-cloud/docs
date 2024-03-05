@@ -80,6 +80,8 @@ items:
         href: concepts/bonus-account.md
       - name: Пробный период
         href: concepts/trial-period.md
+      - name: Организация
+        href: concepts/organization.md
       - name: Отчетный период
         href: concepts/reporting-period.md
       - name: Резервируемое потребление (CVoS)
@@ -126,7 +128,7 @@ items:
             items:
               - name: Общие сведения
                 href: payment/documents.md
-              - name: Акт
+              - name: Акты
                 href: concepts/act.md
               - name: Счет-фактура
                 href: concepts/invoice.md
@@ -146,6 +148,8 @@ items:
     href: pricing.md
   - name: Вопросы и ответы
     items:
+      - name: Все вопросы на одной странице
+        href: qa/all.md
       - name: Общие вопросы
         href: qa/common.md
       - name: Вопросы о договоре
@@ -158,8 +162,8 @@ items:
         href: qa/trial-commercial.md
       - name: Вопросы по работе с нерезидентами РФ и РК
         href: qa/non-resident.md
-      - name: Все вопросы на одной странице
-        href: qa/all.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

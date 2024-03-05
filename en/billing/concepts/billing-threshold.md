@@ -27,7 +27,7 @@ The billing threshold amount is calculated individually and depends on a combina
 - Amount for resources consumed.
 - Your financial standing.
 
-You can find information about the billing threshold amount in the [management console]({{ link-console-billing }}).
+You can find information about the billing threshold amount in the [management console]({{ link-console-billing }}), in the billing account information under **{{ ui-key.yacloud.billing.account.overview.section_account-data }}**.
 
 ## Enabling a billing threshold {#enable}
 
@@ -35,7 +35,7 @@ The billing threshold is enabled automatically after the [paid version is activa
 
 {% note info %}
 
-The billing threshold cannot be disabled and is valid until [the billing account is deleted](../operations/delete-account.md).
+The billing threshold cannot be disabled and is valid until [the billing account is deleted](../operations/delete-account.md). To change the billing threshold, create a [new support request]({{ link-console-support }}/create-ticket).
 
 {% endnote %}
 

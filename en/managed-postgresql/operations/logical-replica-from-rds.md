@@ -58,9 +58,9 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 
 Create the required resources:
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-* Manually
+- Manually {#manual}
 
    [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. In which case:
 
@@ -68,7 +68,7 @@ Create the required resources:
    * The name of the database must be the same as in the source cluster.
    * Enable the same [{{ PG }} extensions](../operations/extensions/cluster-extensions.md) as in the source database.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -150,7 +150,7 @@ The DB instance must have public access: `Public accessibility = yes`.
 
    {% endnote %}
 
-1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). Here is an example:
+1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). For example:
 
    ```text
    protocol: tcp, port: 5432, source: 84.201.175.90/32

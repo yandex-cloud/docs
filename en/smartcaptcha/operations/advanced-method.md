@@ -43,6 +43,7 @@ You control how the widget loads using the `window.smartCaptcha` [object](../con
 
    Where:
 
+   * `<container_ID>`: ID generated at the previous step.
    * `sitekey`: [Client-side key](../concepts/keys.md).
    * `hl`: Widget and task [language](../concepts/widget-methods.md#render).
 

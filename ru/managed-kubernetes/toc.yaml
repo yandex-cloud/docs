@@ -11,6 +11,8 @@ items:
         href: operations/index.md
       - name: Подключение к узлу по SSH
         href: operations/node-connect-ssh.md
+      - name: Подключение к узлу через {{ oslogin }}
+        href: operations/node-connect-oslogin.md
       - name: Обновление {{ k8s }}
         href: operations/update-kubernetes.md
       - name: Настройка автомасштабирования
@@ -120,6 +122,8 @@ items:
           - name: Создание пространства имен в кластере {{ k8s }}
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
+          - name: Мониторинг состояния кластера {{ k8s }}
+            href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Удаление кластера {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Управление группой узлов
@@ -146,6 +150,8 @@ items:
         href: tutorials/index.md
       - name: Создание нового {{ k8s }}-проекта в {{ yandex-cloud }}
         href: tutorials/new-kubernetes-project.md
+      - name: Создание кластера {{ k8s }} без доступа в интернет
+        href: tutorials/k8s-cluster-with-no-internet.md
       - name: Запуск рабочих нагрузок с GPU
         href: tutorials/running-pod-gpu.md
       - name: Использование групп узлов c GPU без предустановленных драйверов
@@ -370,7 +376,7 @@ items:
         href: qa/cluster-autoscaler.md
       - name: Ресурсы
         href: qa/resources.md
-      - name: Логи
+      - name: Мониторинг и логи
         href: qa/logs.md
       - name: Решение проблем
         href: qa/troubleshooting.md

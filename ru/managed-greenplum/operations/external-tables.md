@@ -28,7 +28,7 @@
 
 ## Подключение к внешним СУБД {#pxf}
 
-[{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.pivotal }}/6-4/pxf/overview_pxf.html) — программная платформа, которая позволяет получить доступ к данным во внешних СУБД. Доступно подключение таблиц следующих внешних источников:
+[{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) — программная платформа, которая позволяет получить доступ к данным во внешних СУБД. Доступно подключение таблиц следующих внешних источников:
 
 * Apache Hive;
 * {{ CH }};
@@ -74,9 +74,9 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
 ### Примеры создания внешних таблиц {#pxf-examples}
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ CH }}
+- {{ CH }} {#clickhouse}
 
     1. [Создайте кластер {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-create.md) с именем пользователя `chuser`.
     1. В подсети кластера [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
@@ -126,7 +126,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         (1 row)
         ```
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
     1. [Создайте кластер {{ mmy-full-name }}](../../managed-mysql/operations/cluster-create.md) с настройками:
 
@@ -173,7 +173,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         (2 rows)
         ```
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
     1. [Создайте кластер {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-create.md) с настройками:
 
@@ -220,7 +220,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         (2 rows)
         ```
 
-- {{ objstorage-name }}
+- {{ objstorage-name }} {#storage}
 
     1. В подсети кластера [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 

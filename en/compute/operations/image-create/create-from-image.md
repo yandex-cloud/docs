@@ -13,8 +13,8 @@ To create an image from another user image:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create the image.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
-   1. In the line with the appropriate snapshot, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.images.button_action-image }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+   1. In the line with the appropriate snapshot, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.images.button_action-image }}**.
    1. Enter the image name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -71,8 +71,8 @@ To create an image from another user image:
 
       ```
       resource "yandex_compute_image" "image-1" {
-        name         = "<image name>"
-        source_image = "<source image ID>"
+        name         = "<image_name>"
+        source_image = "<source_image_ID>"
       }
       ```
 

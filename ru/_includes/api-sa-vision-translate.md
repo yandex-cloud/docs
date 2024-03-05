@@ -41,7 +41,7 @@
    yc iam service-account create --name sa-api
    ```
 
-   Где `name` — имя сервисного аккаунта в формате:
+   Где `--name` — имя сервисного аккаунта в формате:
 
    {% include [name-format](./name-format.md) %}
 

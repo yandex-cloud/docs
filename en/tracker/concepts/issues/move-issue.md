@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/move-issue.md
 ---
-# Moving an issue to another queue using API
+# Move an issue to another queue using an API request
 
 Use this request to move an issue to a different queue.
 
@@ -24,12 +24,11 @@ Before making the request, [get permission to access the API](../access.md).
 To move issues, use an HTTP `POST` request:
 
 ```json
-POST /{{ ver }}/issues/<issue-id>/_move?queue=<queue-id>
+POST /{{ ver }}/issues/<issue_id_or_key>/_move?queue=<queue_id_or_key>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
-
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 {% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
@@ -39,18 +38,18 @@ Authorization: OAuth <OAuth token>
 **Required parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Key of the queue to move the issue to. | String |
+----- | ----- | -----
+| \<queue_ID_or_key\> | Key of the queue to move the issue to. | String |
 
 **Additional parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| notify | Flag notifying users about changes to the issue:<ul><li>`true` (by default): The users specified in the issue fields are notified.</li><li>`false`: No users are notified.</li></ul> | Boolean |
-| notifyAuthor | Flag notifying the issue reporter:<ul><li>`true`: The reporter is notified.</li><li>`false` (by default): The reporter is not notified.</li></ul> | Boolean |
-| moveAllFields | Shows whether to move the issue's versions, components, and projects to the new queue:<ul><li>`true`: Move them if the new queue has similar versions, components, and projects.</li><li>`false` (by default): Clear the versions, components, and projects.</li></ul> | Boolean |
-| initialStatus | Resetting the issue status. The status is reset if the issue is moved to another queue with a different [workflow](../../manager/add-workflow.md):<ul><li>`true`: Reset the status.</li><li>`false` (by default): Retain the status as is.</li></ul> | Boolean |
-| expand | Additional fields to be included in the response:<ul><li>`attachments`: Attachments.</li><li>`comments`: Comments.</li><li>`workflow`: Issue workflow.</li><li>`transitions`: Workflow transitions between statuses.</li></ul> | String |
+| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true` (by default): Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Logical |
+| notifyAuthor | Flag notifying the issue reporter:<ul><li>`true`: The reporter is notified.</li><li>`false` (by default): The reporter is not notified.</li></ul> | Logical |
+| moveAllFields | Shows whether to move the issue's versions, components, and projects to the new queue:<ul><li>`true`: Move them if the new queue has similar versions, components, and projects.</li><li>`false` (by default): Clear the versions, components, and projects.</li></ul> | Logical |
+| initialStatus | Resetting the issue status. The status is reset if the issue is moved to another queue with a different [workflow](../../manager/add-workflow.md):<ul><li>`true`: Reset the status.</li><li>`false` (by default): Retain the current status.</li></ul> | Logical |
+| expand | Additional fields to include in the response:<ul><li>`attachments`: Attached files.</li><li>`comments`: Comments.</li><li>`workflow`: Issue workflow.</li><li>`transitions`: Workflow transitions between statuses.</li></ul> | String |
 
 {% endcut %}
 
@@ -60,17 +59,17 @@ You can use the request body if you need to change the parameters of the issue b
 
 {% endcut %}
 
->Example: Move an issue
+> Example: Move an issue
 >
->- An HTTP POST method is used.
->- We're moving the <q>TEST-1</q> issue to the <q>NEW</q> queue.
+> - An HTTP POST method is used.
+> - Moving the TEST-1 issue to the NEW queue.
 >
->```
->POST /v2/issues/TEST-1/_move?queue=NEW
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->```
+> ```
+> POST /v2/issues/TEST-1/_move?queue=NEW
+> Host: {{ host }}
+> Authorization: OAuth <OAuth token>
+> {{ org-id }}
+> ```
 
 ## Response format {#section_xpm_q1y_51b}
 
@@ -78,160 +77,159 @@ You can use the request body if you need to change the parameters of the issue b
 
 - Request executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains the results in JSON format.
+   The response body contains the results in JSON format.
 
-    ```json
-    {
-        "self": "{{ host }}/v2/issues/NEW-1",
-        "id": "1a2345678b",
-        "key": "NEW-1",
-        "version": 2,
-        "aliases": [
-            "TEST-1"
-        ],
-        "previousQueue": {
-            "self": "{{ host }}/v2/queues/TEST",
-            "id": "3",
-            "key": "TEST",
-            "display": "TEST"
-        },
-        "description": "<issue description>",
-        "type": {
-            "self": "{{ host }}/v2/issuetypes/2",
-            "id": "2",
-            "key": "task",
-            "display": "Issue"
-        },
-        "createdAt": "2020-09-04T14:18:56.776+0000",
-        "updatedAt": "2020-11-12T12:38:19.040+0000",
-        "lastCommentUpdatedAt": "2020-10-18T13:33:44.291+0000",
-        },
-        "summary": "Test",
-        "updatedBy": {
-            "self": "{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
-            "display": "First and Last name"
-        },
-        "priority": {
-            "self": "{{ host }}/v2/priorities/3",
-            "id": "3",
-            "key": "normal",
-            "display": "Medium"
-        },
-        "followers": [
-            {
-                "self": "{{ host }}/v2/users/1234567890",
-                "id": "1234567890",
-                "display": "First and Last name"
-            }
-        ],
-        "createdBy": {
-            "self": "{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
-            "display": "First and Last name"
-        },
-        "assignee": {
-            "self": "{{ host }}/v2/users/1234567890",
-            "id": "1234567890",
-            "display": "First and Last name"
-        },
-        "queue": {
-            "self": "{{ host }}/v2/queues/NEW",
-            "id": "5",
-            "key": "NEW",
-            "display": "Queue"
-        },
-        "status": {
-            "self": "{{ host }}/v2/statuses/8",
-            "id": "1",
-            "key": "open",
-            "display": "Open"
-        },
-        "previousStatus": {
-            "self": "{{ host }}/v2/statuses/1",
-            "id": "1",
-            "key": "open",
-            "display": "Open"
-        },
-        "favorite": false
-    }
-    ```
+   ```json
+   {
+       "self": "https://{{ host }}/v2/issues/NEW-1",
+       "id": "1a********",
+       "key": "NEW-1",
+       "version": 2,
+       "aliases": [
+           "TEST-1"
+       ],
+       "previousQueue": {
+           "self": "https://{{ host }}/v2/queues/TEST",
+           "id": "3",
+           "key": "TEST",
+           "display": "TEST"
+       },
+       "description": "Move the issue to a new queue",
+       "type": {
+           "self": "https://{{ host }}/v2/issuetypes/2",
+           "id": "2",
+           "key": "task",
+           "display": "Issue"
+       },
+       "createdAt": "2020-09-04T14:18:56.776+0000",
+       "updatedAt": "2020-11-12T12:38:19.040+0000",
+       "lastCommentUpdatedAt": "2020-10-18T13:33:44.291+0000",
+       },
+       "summary": "Test",
+       "updatedBy": {
+           "self": "https://{{ host }}/v2/users/12********",
+           "id": "12********",
+           "display": "Ivan Ivanov"
+       },
+       "priority": {
+           "self": "https://{{ host }}/v2/priorities/3",
+           "id": "3",
+           "key": "normal",
+           "display": "Normal"
+       },
+       "followers": [
+           {
+               "self": "https://{{ host }}/v2/users/12********",
+               "id": "12********",
+               "display": "Ivan Ivanov"
+           }
+       ],
+       "createdBy": {
+           "self": "https://{{ host }}/v2/users/12********",
+           "id": "12********",
+           "display": "Ivan Ivanov"
+       },
+       "assignee": {
+           "self": "https://{{ host }}/v2/users/12********",
+           "id": "12********",
+           "display": "Ivan Ivanov"
+       },
+       "queue": {
+           "self": "https://{{ host }}/v2/queues/NEW",
+           "id": "5",
+           "key": "NEW",
+           "display": "Queue"
+       },
+       "status": {
+           "self": "https://{{ host }}/v2/statuses/8",
+           "id": "1",
+           "key": "open",
+           "display": "Open"
+       },
+       "previousStatus": {
+           "self": "https://{{ host }}/v2/statuses/1",
+           "id": "1",
+           "key": "open",
+           "display": "Open"
+       },
+       "favorite": false
+   }
+   ```
 
-    {% cut "Response parameters" %}
+   {% cut "Response parameters" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the issue. | String |
-    | id | Issue ID. | String |
-    | key | Issue key. | String |
-    | version | Issue version. Each change to the issue parameters increases its version number. | Number |
-    | aliases | Array with information about alternative issue keys. | Array of strings |
-    | [previousQueue](#previous-queue) | Object with information about the issue's previous queue. | Object |
-    | description | Issue description. | String |
-    | [type](#type) | Object with information about the issue type. | Object |
-    | createdAt | Issue creation date and time. | String |
-    | updatedAt | Issue update date and time. | String |
-    | lastCommentUpdatedAt | Date and time when the last comment was added. | String |
-    | summary | Issue name. | String |
-    | [updatedBy](#updated-by) | Object with information about the user who edited the issue last. | Object |
-    | [priority](#priority) | Object with information about the priority. | Object |
-    | [followers](#followers) | Array of objects with information about issue followers. | Array of strings |
-    | [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
-    | [assignee](#assignee) | Object with information about the issue's assignee. | Object |
-    | [queue](#queue) | Object with information about the issue queue. | Object |
-    | [status](#status) | Object with information about the issue status. | Object |
-    | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
-    | favorite | Flag indicating a favorite issue:<ul><li>`true`: Notifications are disabled.</li><li>`false`: Notifications are enabled.</li></ul> | Boolean |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Address of the API resource with information about the issue. | String |
+   | id | Issue ID. | String |
+   | key | Issue key. | String |
+   | version | Issue version. Each change to the issue parameters increases its version number. | Number |
+   | aliases | Array with information about alternative issue keys. | Array of strings |
+   | [previousQueue](#previous-queue) | Object with information about the issue's previous queue. | Object |
+   | description | Issue description. | String |
+   | [type](#type) | Object with information about the issue type. | Object |
+   | createdAt | Issue creation date and time. | String |
+   | updatedAt | Issue update date and time. | String |
+   | lastCommentUpdatedAt | Date and time when the last comment was added. | String |
+   | summary | Issue name. | String |
+   | [updatedBy](#updated-by) | Object with information about the user who edited the issue last. | Object |
+   | [priority](#priority) | Object with information about the priority. | Object |
+   | [followers](#followers) | Array of objects with information about issue followers. | Array of strings |
+   | [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
+   | [assignee](#assignee) | Object with information about the issue's assignee. | Object |
+   | [queue](#queue) | Object with information about the issue queue. | Object |
+   | [status](#status) | Object with information about the issue status. | Object |
+   | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
+   | favorite | Favorite issue flag:<ul><li>`true`: Notifications disabled.</li><li>`false`: Notifications enabled.</li></ul> | Logical |
 
-    **Object fields** `previousQueue` {#previous-queue}
+   `previousQueue` **object fields** {#previous-queue}
 
-    {% include [queue](../../../_includes/tracker/api/queue.md) %}
+   {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-    {% include [type](../../../_includes/tracker/api/type.md) %}
+   {% include [type](../../../_includes/tracker/api/type.md) %}
 
-    **Object fields** `updatedBy` {#updated-by}
+   `updatedBy` {#updated-by} **object fields**
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    {% include [priority](../../../_includes/tracker/api/priority.md) %}
+   {% include [priority](../../../_includes/tracker/api/priority.md) %}
 
-    **Object array fields** `followers` {#followers}
+   `followers` **object array fields** {#followers}
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `createdBy` {#created-by}
+   `createdBy` **object fields** {#created-by}
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `assignee` {#assignee}
+   `assignee` **object fields** {#assignee}
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `queue` {#queue}
+   `queue` **object fields** {#queue}
 
-    {% include [queue](../../../_includes/tracker/api/queue.md) %}
+   {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-    **Object fields** `status` {#status}
+   `status` **object fields** {#status}
 
-    {% include [status](../../../_includes/tracker/api/status.md) %}
+   {% include [status](../../../_includes/tracker/api/status.md) %}
 
-    **Object fields** `previousStatus` {#previousStatus}
+   `previousStatus` **object fields** {#previousStatus}
 
-    {% include [status](../../../_includes/tracker/api/status.md) %}
+   {% include [status](../../../_includes/tracker/api/status.md) %}
 
-    {% endcut %}
+   {% endcut %}
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
+   {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

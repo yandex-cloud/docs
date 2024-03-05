@@ -7,7 +7,7 @@ description: "{{ ES }} is a specialized distributed document storage system. Whe
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-With {{ mes-full-name }}, you can deploy and maintain {{ ES }} server clusters in the {{ yandex-cloud }} infrastructure.
+{{ mes-full-name }} helps you deploy and maintain clusters of {{ ES }} servers in the {{ yandex-cloud }} infrastructure.
 
 {{ ES }} is a specialized distributed document storage system. When a document is added to {{ ES }}, it gets added to the [index](indexing.md). Data from the indexed document becomes available for [search and analysis](searching.md).
 
@@ -19,7 +19,7 @@ When [creating a cluster](../operations/cluster-create.md), specify the followin
 
 - _Environment_ where the cluster will be deployed:
    - `PRODUCTION`: For stable versions of your apps.
-   - `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+   - `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
 - `admin` _user password_.
 

@@ -87,6 +87,8 @@ items:
         href: tutorials/greenplum-to-postgresql.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
+      - name: Migrating a database from {{ MY }} to {{ GP }}
+        href: tutorials/mmy-to-mgp.md
       - name: Exporting {{ GP }} data to cold storage in {{ objstorage-full-name }}
         href: tutorials/yezzey.md
   - name: Concepts
@@ -125,9 +127,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing/index.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-greenplum/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -237,6 +243,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

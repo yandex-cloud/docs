@@ -211,6 +211,8 @@ items:
             href: tutorials/direct-to-mch.md
           - name: '{{ objstorage-name }} в {{ CH }}'
             href: tutorials/object-storage-to-clickhouse.md
+          - name: '{{ objstorage-name }} в {{ ydb-short-name }}'
+            href: tutorials/object-storage-to-ydb.md
       - name: Загрузка данных в {{ objstorage-name }}
         items:
           - name: '{{ MY }} в {{ objstorage-name }}'
@@ -259,6 +261,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Февраль 2024
+        href: release-notes/2402.md
       - name: Январь 2024
         href: release-notes/2401.md
       - name: 2023 год
@@ -273,6 +277,16 @@ items:
             href: release-notes/2309.md
           - name: Август 2023
             href: release-notes/2308.md
+  - name: Справочник CLI
+    items:
+      - name: Overview
+        href: ../cli/cli-ref/managed-services/datatransfer/index.md
+      - name: Transfer
+        href: ../cli/cli-ref/managed-services/datatransfer/transfer/index.md
+      - name: Endpoint
+        href: ../cli/cli-ref/managed-services/datatransfer/endpoint/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -329,6 +343,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Публичные материалы
     href: public-talks.md
   - name: Обучающие курсы

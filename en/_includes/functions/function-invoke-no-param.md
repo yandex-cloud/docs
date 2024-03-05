@@ -29,7 +29,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    To invoke a function, run the command:
 
    ```
-   yc serverless function invoke <function ID>
+   yc serverless function invoke <function_ID>
    ```
 
    The function version with the `$latest` tag is invoked by default.
@@ -42,7 +42,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    For security reasons, you can only invoke a function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar:
 
    ```
-   https://{{ sf-url }}/b09bhaokchn9pnbrlseb
+   https://{{ sf-url }}/<function_ID>
    ```
 
    The following response will appear on the page:

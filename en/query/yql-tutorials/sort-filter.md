@@ -5,15 +5,15 @@ When selecting data, you can specify filter expressions that will limit the resu
 For example:
 
 * Find 10 rides with the largest tips.
-* Exclude rides with a fare of over $1000000.
+* Exclude rides with a fare of over  $1,000,000.
 
 ```sql
 SELECT
     *
 FROM
-    bindings.`tutorial-analytics`
+    `tutorial-analytics`
 WHERE
-    tip_amount > 0          -- List of conditions to generate a result.
+    tip_amount > 0          -- List of conditions to get the result.
     AND                     -- Operator AND for complex conditions.
     total_amount < 1000000
 ORDER BY tip_amount DESC    -- Sort the result by the descending tip_amount values.

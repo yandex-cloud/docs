@@ -5,4 +5,4 @@ description: "To use Confluent Schema Registry together with {{ mkf-name }}, cre
 
 # Using Confluent Schema Registry with {{ mkf-name }}
 
-{% include [kafka-confluent-schema-registry](../../_tutorials/kafka/kafka-confluent-schema-registry.md) %}
+{% include [kafka-confluent-schema-registry](../../_tutorials/dataplatform/kafka/kafka-confluent-schema-registry.md) %}

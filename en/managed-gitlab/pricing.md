@@ -44,10 +44,7 @@ The cost of using an instance with the following parameters for 30 days:
 
 Calculating the cost of computing resources:
 
-> 
-> > 720 × (2 × $0.013440 + 8 × $0.003600) = $40.089600
-> 
-> 
+> 720 × (2 × $0.013440 + 8 × $0.003600) = $40.089600
 
 Where:
 
@@ -59,10 +56,7 @@ Where:
 
 Calculation for storage and backup cost:
 
-> 
-> > 30 × $0.104080 + 20 × 7 × $0.015360 = $5.272800
-> 
-> 
+> 30 × $0.104080 + 20 × 7 × $0.015360 = $5.272800
 
 Where:
 
@@ -74,10 +68,7 @@ Where:
 
 Total instance cost calculation:
 
-> 
-> > $40.089600 + $5.272800 = $45.362400
-> 
-> 
+> $40.089600 + $5.272800 = $45.362400
 
 Where $45.362400 is the cost of using the instance for 30 days.
 

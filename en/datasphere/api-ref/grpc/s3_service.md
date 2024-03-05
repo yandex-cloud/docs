@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/s3_service.md
 
 # DataSphere API v2, gRPC: S3Service
 
-
+A set of methods for managing S3 configurations.
 
 | Call | Description |
 | --- | --- |
@@ -20,6 +20,7 @@ Activates shared s3 for project
 
 **rpc Activate ([ActivateS3Request](#ActivateS3Request)) returns ([operation.Operation](#Operation))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### ActivateS3Request {#ActivateS3Request}
@@ -52,6 +53,7 @@ Deactivates shared s3 for project
 
 **rpc Deactivate ([DeactivateS3Request](#DeactivateS3Request)) returns ([operation.Operation](#Operation1))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeactivateS3Request {#DeactivateS3Request}

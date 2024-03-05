@@ -31,13 +31,13 @@ Enter a field name or a prompt.
 
 ### Link to the table of responses
 
-In the **Settings** section, insert an absolute or relative link to the [dynamic table of response options](#sec_table). For example:
+In the **Settings** section, insert an absolute or relative link to the [dynamic table of response options](#sec_table). E.g.:
 
 
-`{{ link-wiki }}users/<user-name>/<table-name>`
+`{{ link-wiki }}users/<username>/<table_name>`
 
 
-`/users/<user-name>/<table-name>`
+`/users/<username>/<table_name>`
 
 ### Filter responses {#filter}
 

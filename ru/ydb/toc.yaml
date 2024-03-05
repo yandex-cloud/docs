@@ -52,6 +52,10 @@ items:
           помощью {{ data-transfer-full-name }}
         href: tutorials/ydb-to-yds.md
       - name: >-
+          Загрузка данных из {{ objstorage-full-name }} в {{ ydb-short-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/object-storage-to-ydb.md
+      - name: >-
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
@@ -87,6 +91,8 @@ items:
             href: pricing/ru-topics.md
       - name: Режим с выделенными инстансами
         href: pricing/dedicated.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/ydb/index.md
   - name: Document API, совместимый с Amazon DynamoDB
     items:
       - name: Инструменты
@@ -171,6 +177,8 @@ items:
                 href: docapi/api-ref/actions/updateItem.md
               - name: UpdateTimeToLive
                 href: docapi/api-ref/actions/updateTimeToLive.md
+              - name: UpdateTable
+                href: docapi/api-ref/actions/updateTable.md
       - name: Общие ошибки при работе с Document API
         href: docapi/common-errors.md
   - name: Справочник API {{ yandex-cloud }} для {{ ydb-name }}
@@ -259,6 +267,10 @@ items:
                 href: api-ref/StorageType/get.md
               - name: list
                 href: api-ref/StorageType/list.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Работа с YDB через Terraform
     items:
       - name: Введение в работу с YDB через Terraform

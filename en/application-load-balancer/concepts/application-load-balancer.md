@@ -16,11 +16,13 @@ For the load balancer to work correctly:
    * Receiving external incoming traffic on the ports specified in the [listener](#listener), e.g., for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR: `0.0.0.0/0`).
    * Receiving incoming traffic for health checks of load balancer nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` with the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` source.
    * Sending traffic to backend VMs, i.e., VMs whose IP addresses are included in [target groups](target-group.md). For example, any outgoing connections to internal VM addresses (any protocol, the whole port range, CIDR: `<VM_internal_IP>/32`).
-* Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md), e.g., any incoming connections from subnets [hosting the load balancer](#lb-location)  or from at least one of its security groups.
+* Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md), e.g., any incoming connections from subnets [hosting the load balancer](#lb-location) or from at least one of its security groups.
 
 ## Host load balancer {#lb-location}
 
 When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
+
+{% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
 See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommended for load balancers.
 
@@ -55,7 +57,7 @@ The minimum number of resource units per availability zone
 
 : If you expect higher loads on the load balancer, you can increase the minimum number of resource units per zone in advance without waiting for it to increase following the load.
 
-  The default minimum is 2. You cannot set any minimum value that is less than 2.
+  The default minimum is 2. You cannot set a minimum value below 2.
 
 Maximum total number of resource units
 

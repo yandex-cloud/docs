@@ -5,7 +5,7 @@ description: "The main entity used in {{ mmy-name }} is a database cluster. Each
 
 # Resource relationships in {{ mmy-name }}
 
-The main entity used in {{ mmy-name }} is a _database cluster_.
+The main entity used in the {{ mmy-name }} service is a _database cluster_.
 
 Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
 
@@ -34,7 +34,7 @@ When creating a cluster, specify:
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
-   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
 
 A cluster created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see the [{{ vpc-name }} documentation](../../vpc/).

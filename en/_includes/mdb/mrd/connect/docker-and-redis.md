@@ -2,10 +2,10 @@
 
 To connect to a {{ mrd-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    ```bash
    # Build the redis-tools utility with TLS support manually.
@@ -20,7 +20,7 @@ To connect to a {{ mrd-name }} cluster from a Docker container, add the followin
    ```
 
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    ```bash
    # Build the redis-tools utility with TLS support manually.

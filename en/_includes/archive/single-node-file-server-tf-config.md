@@ -67,6 +67,14 @@ resource "yandex_compute_image" "ubuntu-1804-lts" {
   source_family = "ubuntu-1804-lts"
 }
 
+resource "yandex_compute_disk" "boot-disk-ubuntu" {
+  name     = "fileserver-tutorial-disk"
+  type     = "network-ssd"
+  zone     = "{{ region-id }}-a"
+  size     = "100"
+  image_id = yandex_compute_image.ubuntu-1804-lts.id
+}
+
 resource "yandex_compute_instance" "fileserver-tutorial" {
   name        = "fileserver-tutorial"
   platform_id = "standard-v3"
@@ -79,12 +87,7 @@ resource "yandex_compute_instance" "fileserver-tutorial" {
   }
 
   boot_disk {
-    initialize_params {
-      name     = "fileserver-tutorial-disk"
-      image_id = yandex_compute_image.ubuntu-1804-lts.id
-      type     = "network-ssd"
-      size     = "100"
-    }
+    disk_id = yandex_compute_disk.boot-disk-ubuntu.id
   }
 
   network_interface {

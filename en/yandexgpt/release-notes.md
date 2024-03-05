@@ -7,13 +7,17 @@ description: "This page contains {{ yagpt-full-name }} release notes."
 
 ## Current version {#current}
 
-### Release on 06/12/2023 {#061223}
+### Release on 26/01/2024 {#260124}
 
-1. Added a new {{ yagpt-name }} model to use the service in asynchronous mode.
-1. Significantly revised the service's API.
-1. Unified model names and the way to access the models.
+Updated the {{ yagpt-name }} and {{ yagpt-name }} Lite [models](concepts/models.md) and improved their response performance.
 
 ## Previous versions {#previous}
+
+### Release on 06/12/2023 {#061223}
+
+1. Added a new {{ yagpt-name }} [model](concepts/models.md) for asynchronous mode.
+1. Significantly revised the service's API.
+1. Unified model names and the way to access the models.
 
 ### Release on 02/08/2023 {#020823}
 

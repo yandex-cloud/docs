@@ -69,7 +69,7 @@ items:
             href: operations/broker/broker-delete.md
       - name: Managing certificates
         items:
-          - name: Create a certificate
+          - name: Creating a certificate
             href: operations/certificates/create-certificates.md
           - name: Managing registry certificates
             href: operations/certificates/registry-certificates.md
@@ -89,7 +89,7 @@ items:
     items:
       - name: Authentication
         href: concepts/authorization.md
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: MQTT server connection parameters
         href: concepts/mqtt-properties.md
@@ -135,9 +135,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/iot/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: Devices API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/devices/authentication.md
       - name: gRPC
         items:
@@ -233,7 +237,7 @@ items:
                 href: api-ref/Registry/update.md
   - name: Broker API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/broker/authentication.md
       - name: gRPC
         items:
@@ -283,6 +287,8 @@ items:
                 href: broker/api-ref/Broker/listPasswords.md
               - name: update
                 href: broker/api-ref/Broker/update.md
-  - name: Questions and answers
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
+  - name: FAQ
     href: qa/index.md
 base: en/iot-core

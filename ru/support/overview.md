@@ -22,7 +22,7 @@
 | Запрос в центре поддержки | Обычный: 24 часа<br>Увеличить квоты: 30 минут | Обычный: 4 часа<br>Критический: 30 минут<br>Увеличить квоты: 30 минут | Обычный: 2 часа<br>Критический: 15 минут<br>Увеличить квоты: 30 минут |
 | Чат                       | -                                             | 5 минут                                                               | 5 минут, мессенджер по выбору                                         |
 
-Создать запрос в центре поддержки может пользователь, который является [членом организации](../organization/concepts/membership.md) {{ yandex-cloud }}. [Убедитесь](./support-center.md#before-you-begin), что вы создаете запрос от имени нужной организации. Если возникла проблема с продакшен-средой вашей инфраструктуры, укажите тип обращения _Критичная проблема_.
+Создать запрос в центре поддержки может пользователь, который является [членом организации](../organization/concepts/membership.md) {{ yandex-cloud }}. [Убедитесь](./support-center.md#before-you-begin), что вы создаете запрос от имени нужной организации. Если возникла проблема с продакшен-средой вашей инфраструктуры, укажите тип обращения _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_.
 
 Вне зависимости от тарифного плана вы можете запрашивать у технической поддержки:
 
@@ -68,12 +68,13 @@
 
 - [Операционные системы](https://cloud.yandex.ru/marketplace?categories=os) на виртуальных машинах {{ yandex-cloud }}, которые были созданы из предоставленных {{ yandex-cloud }} публичных образов.
 - БД и системы управления кластерами, созданные в сервисах:
+    - [{{ maf-full-name }}](../managed-airflow)
     - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
     - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
-      - [{{ mes-full-name }}](../managed-elasticsearch/index.yaml)
-      - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
+    - [{{ mes-full-name }}](../managed-elasticsearch/index.yaml)
+    - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
     - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
-      - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
+    - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
     - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
     - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
     - [{{ mrd-full-name }}](../managed-redis/index.yaml)

@@ -1,1 +1,1 @@
-Роль `managed-airflow.viewer` позволяет просматривать информацию о кластерах, логах их работы и квотах.
+Роль `managed-airflow.viewer` позволяет просматривать информацию о [кластерах Apache Airflow™](../../managed-airflow/concepts/index.md#cluster).

@@ -314,7 +314,7 @@
        }
 
        boot_disk {
-         image_id = yandex_compute_disk.boot-disk.id
+         disk_id = yandex_compute_disk.boot-disk.id
        }
 
        network_interface {

@@ -32,7 +32,7 @@ The fastest way to create an issue is to do it from the board. You only need to
 
 1. To create an issue, click **Create issue**.
 
-1. In the dialog that opens, enter a name for the issue in the **Issue name** field. Make sure the name is informative to be easy to find in the list, for example: <q>Find the answer to the ultimate question of life, the Universe, and everything else</q>.
+1. In the dialog that opens, enter a name for the issue in the **Issue name** field. Make sure the name is explicative so that the issue is easy to find in the list, e.g.: _Find the answer to the ultimate question of life, the Universe, and everything else_.
 
 1. Click **Create** or press **Enter**.
 
@@ -44,7 +44,7 @@ Use the full form to set up all the issue attributes you need right from the sta
 
 1. Click ![](../_assets/tracker/svg/icon-add.svg) **Create issue** in the left panel.
 
-1. In the top-left corner of the page, choose the queue to create your issue in, such as <q>QUEUE</q>.
+1. In the top-left corner of the page, select the queue to create your issue in, such as `QUEUE`.
 
    {% note tip %}
 
@@ -54,7 +54,7 @@ Use the full form to set up all the issue attributes you need right from the sta
 
 1. You will be suggested to fill out a standard form with a pre-configured list of parameters.
 
-   1. Enter a name for the issue in the **Issue name** field. Make sure the name is informative to be easy to find in the list, for example: <q>Find the answer to the ultimate question of life, the Universe, and everything else</q>.
+   1. Enter a name for the issue in the **Issue name** field. Make sure the name is explicative so that the issue is easy to find in the list, e.g.: _Find the answer to the ultimate question of life, the Universe, and everything else_.
 
    1. Enter a description of the issue if needed. To do so, click the `{{ ui-key.startrek.ui_components_PageCreateIssue.description-placeholder }}` placeholder and describe the issue in the text editor that opens.
 

@@ -9,7 +9,7 @@ If you previously attached a public IP address to a VM, you can detach it.
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Select the VM.
-   1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, in the top-right corner, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
+   1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, in the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.overview.popup-confirm_button_remove-one-to-one-nat }}**.
 
 - CLI {#cli}
@@ -28,8 +28,8 @@ If you previously attached a public IP address to a VM, you can detach it.
 
    Where:
 
-   * `id`: VM ID. You can get a list of instance IDs in a folder using the [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
-   * `network-interface-index`: VM's network interface index. By default: `0`.
+   * `--id`: VM ID. You can get a list of instance IDs in a folder using the `yc compute instance list` [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md).
+   * `--network-interface-index`: VM network interface index. The default value is `0`.
 
    For more information about the `yc compute instance remove-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md).
 

@@ -47,7 +47,7 @@
 
 Чтобы настроить сервисный аккаунт:
 
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md#storage-admin) `storage.admin`.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../storage/security/index.md#storage-admin) `storage.admin`.
 1. [Создайте](../../iam/operations/sa/create-access-key.md) статические ключи доступа. Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны.
 
 ## Создайте облачный инстанс на {{ objstorage-full-name }} {#new-becloudinstance}

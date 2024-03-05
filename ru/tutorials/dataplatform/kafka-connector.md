@@ -5,4 +5,4 @@ description: "Перенести топики из кластера-источн
 
 # Миграция базы данных из стороннего кластера {{ KF }} в {{ mkf-full-name }}
 
-{% include [_tutorials/mkf-data-migration](../../_tutorials/mkf-data-migration.md) %}
+{% include [_tutorials/mkf-data-migration](../../_tutorials/dataplatform/mkf-data-migration.md) %}

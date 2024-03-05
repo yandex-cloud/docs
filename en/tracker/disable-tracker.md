@@ -15,13 +15,13 @@ To avoid service deactivation and deletion of your data, log in to {{ tracker-na
 
 {% note info %}
 
-To avoid paying for {{ tracker-name }}, you can disable the paid features, leaving the free [<q>{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_read_only }}</q>](access.md#readonly) mode for your employees. You cannot fully disable {{ tracker-name }}.
+To avoid paying for {{ tracker-name }}, you can disable the paid features leaving only the free [*{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_read_only }}*](access.md#readonly) mode for your employees. You cannot fully disable {{ tracker-name }}.
 
 {% endnote %}
 
-To stop using the paid {{ tracker-full-name }} features, revoke full access to {{ tracker-name }} from your company's employees. If only 5 or fewer users have full access, you can use {{ tracker-name }} free of charge. For more information, see [{#T}](pricing.md).
+To stop using the paid features {{ tracker-full-name }}, revoke full access to {{ tracker-name }} from your company's employees. If only 5 or fewer users have full access, you can use {{ tracker-name }} free of charge. For more information, see [{#T}](pricing.md).
 
-1. In the {{ tracker-name }} left-hand panel, click **Admin settings** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. In the {{ tracker-name }} left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. Make sure the **Full access for all new users** option is disabled.
 

@@ -30,7 +30,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 1. Install {{ MG }} Shell:
 

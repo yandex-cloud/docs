@@ -36,6 +36,7 @@ All the records in a single set have the same TTL value.
 
 {{ dns-name }} supports the following types of resource records.
 
+
 ## A {#a}
 
 `A`: Points a domain name to an IPv4 address. For example, requesting the `www.example.com` A record should return an IPv4 address in `xxx.xxx.xxx.xxx` format.
@@ -64,10 +65,10 @@ For more information about AAAA records, see [RFC-3596](https://tools.ietf.org/h
 
 A record consists of the following parts:
 
-* `FLAG`: A single-byte unsigned integer that may take two values:
+* `FLAG`: Single-byte unsigned integer that may take two values:
    * `0`: Indicates a noncritical record. The certification authority may issue a certificate at its discretion.
    * `128`: Indicates a critical record. The certification authority should not issue a certificate for an FQDN if the corresponding CAA record contains a critical property for an unknown or unsupported tag.
-* `TAG`: A string that consists of Latin characters and numbers and identifies the purpose of a record:
+* `TAG`: String that consists of Latin characters and numbers and identifies the purpose of a record:
    * `issue`: Determines which certification authority is authorized to issue certificates for a zone or subzone.
    * `issuewild`: Determines which certification authority is authorized to issue certificates for a zone and all of its subzones (wildcard, `*.example.com`).
    * Contact information that the certification authority should use to notify zone owners about receiving a request to issue a certificate in violation of the rules defined in CAA records:
@@ -271,3 +272,14 @@ TXT record implementation in {{ dns-full-name }} has the following special featu
 | example.com. | TXT | 6000 | "v=spf1 ip4=192.0.2.0 ip4=192.0.2.1 include:examplesender.email -all" |
 
 For more information about TXT records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.14) and [RFC-1464](https://tools.ietf.org/html/rfc1464).
+
+
+## Service records {#service-records}
+
+Some {{ yandex-cloud }} services use {{ dns-name }} resource records and allow you to create them. In the list of {{ dns-name }} resource records, such records are marked with icons of the services in which they were created:
+
+* {{ api-gw-full-name }}: [ANAME record](#aname) required to [bind](../../api-gateway/operations/api-gw-domains.md) the domain to the API gateway and marked with ![logo](../../_assets/api-gateway/api-gateway-logo.svg)
+* {{ certificate-manager-full-name }}: [CNAME record](#cname) required to pass the [domain permissions verification](../../certificate-manager/concepts/challenges.md) and marked with ![logo](../../_assets/certificate-manager/certificate-manager-logo.svg)
+* {{ objstorage-full-name }}: [ANAME record](#aname) required to [bind](../../storage/operations/hosting/own-domain.md) the domain to the bucket and marked with ![logo](../../_assets/storage/storage-logo.svg)
+
+You cannot modify service records and you can only delete one at a time. After you delete the resource for which the service resource record was created, you have to [delete](../operations/resource-record-delete.md) this resource record manually.

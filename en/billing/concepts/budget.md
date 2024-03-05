@@ -24,7 +24,6 @@ In usage budgets, you set a spending limit for given resources over the calculat
 The following types of usage budgets are available:
 * _{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}_: Keeps track of the cost of resources without applying any discounts.
 * _{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}_: Keeps track of the cost of resources with discounts and active promo codes applied. This type is set by default when creating a billing account.
-* _{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}_: Sends a notification when the personal account balance falls below a specified threshold.
 
 Budgets keep usage totals over the entire tracking period. A budget created in the middle of a month, for instance, will still keep track of all the monthly costs for the specified resources. You can set the tracking period to be a month, a quarter, or a year. As each subsequent tracking period begins, the budget will reset automatically. You can also set a custom tracking period by specifying the start and end dates. This type of budget will not reset after it ends.
 

@@ -161,8 +161,6 @@ items:
             href: concepts/async.md
           - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
-          - name: DataSphere jobs
-            href: concepts/jobs.md
       - name: Resources
         items:
           - name: Overview
@@ -183,8 +181,20 @@ items:
             href: concepts/models/index.md
           - name: Fine-tuned foundation models
             href: concepts/models/tuned-models.md
-      - name: Deploying models
-        href: concepts/deploy/index.md
+      - name: '{{ ds-inf }}'
+        items:
+          - name: Nodes and aliases
+            href: concepts/deploy/index.md
+          - name: Health checks and monitoring
+            href: concepts/deploy/monitoring.md
+      - name: '{{ ds-jobs }}'
+        items:
+          - name: Jobs
+            href: concepts/jobs/index.md
+          - name: Authentication
+            href: concepts/jobs/authentication.md
+          - name: DataSphere CLI
+            href: concepts/jobs/cli.md
       - name: Foundation models
         href: concepts/models/foundation-models.md
       - name: Quotas and limits
@@ -233,6 +243,8 @@ items:
               Web analytics with funnels and cohorts calculated based on Yandex
               Metrica data
             href: tutorials/data-from-metrica-yc-visualization.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Overview
@@ -289,6 +301,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Dataset/index.md
+              - name: activate
+                href: api-ref/Dataset/activate.md
               - name: deactivate
                 href: api-ref/Dataset/deactivate.md
           - name: DockerImage
@@ -341,6 +355,8 @@ items:
                 href: api-ref/S3/activate.md
               - name: deactivate
                 href: api-ref/S3/deactivate.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

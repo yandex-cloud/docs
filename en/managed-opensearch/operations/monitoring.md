@@ -124,7 +124,7 @@ This page displays charts showing the load on the cluster's host group. Which ch
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
@@ -154,7 +154,7 @@ The recommended thresholds are as follows:
 | JVM heap memory used | `opensearch_jvm_mem_heap_used_percent` | `top_last(1)` | Over 90% of host RAM |                                   |
 | Storage space used | `opensearch_fs_total_used_percent` | `top_last(1)` | Over 90% of the storage size | Over 85% of the storage size |
 | Using the JVM long-lived object pool | `opensearch_jvm_mem_heap_pressure` | `top_last(1)` | Over 90% of host RAM | Over 75% of host RAM |
-| Storage space used | `disk.used_bytes` | — | 90% of the storage size | 80% of storage size |
+| Storage space used | `disk.used_bytes` | — | 90% of the storage size | 80% of the storage size |
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
@@ -176,6 +176,22 @@ To view a cluster's state and status:
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To find out the state and status of a cluster, get information about it:
+
+   ```bash
+   {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
+   ```
+
+   You will see the cluster state in the `health` parameter and the cluster status, in the `status` parameter.
+
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 

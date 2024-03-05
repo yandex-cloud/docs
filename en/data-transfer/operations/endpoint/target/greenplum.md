@@ -17,7 +17,9 @@ description: "In this tutorial, you will learn how to set up a {{ GP }} target e
 ## Scenarios for transferring data to {{ GP }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+
    * [Migrating the {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
+   * [Migration with storage changed from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
    * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
@@ -57,7 +59,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mgp.viewer }}` role](../../../../managed-greenplum/security/index.md#mgp-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mgp.viewer }}` role](../../../../managed-greenplum/security/index.md#mgp-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 

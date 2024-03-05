@@ -125,11 +125,11 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
 
       This command creates a preemptible VM with the following characteristics:
-      * Named `first-preemptible-instance`.
-      * OS: CentOS 7.
-      * In the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
-      * In the `default-a` [subnet](../../../vpc/concepts/network.md#subnet).
-      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses).
+      * Name: `first-preemptible-instance`
+      * OS: CentOS 7
+      * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
+      * [Subnet](../../../vpc/concepts/network.md#subnet): `default-a`
+      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses)
 
       To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
 
@@ -198,7 +198,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
          * `name`: Disk name.
-         * `type`: Type of the disk being created.
+         * `type`: Disk type.
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
          * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
@@ -250,12 +250,12 @@ To change the type of a VM, for example, make it preemptible:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the line with the appropriate VM, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-stop }} **.
-   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status changes to `Stopped`.
-   1. In the line with the appropriate VM, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-stop }} **.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
+   1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, disable the **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}** option.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-   1. At the top right, click ![image](../../../_assets/compute/run-vm.svg) **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+   1. At the top right, click ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI {#cli}
@@ -278,7 +278,7 @@ To change the type of a VM, for example, make it preemptible:
    1. Stop the VM:
 
       ```bash
-      yc compute instance stop <VM ID or name>
+      yc compute instance stop <VM_name_or_ID>
       ```
 
       Result:
@@ -290,7 +290,7 @@ To change the type of a VM, for example, make it preemptible:
    1. Edit the VM parameters:
 
       ```bash
-      yc compute instance update <VM ID or name> \
+      yc compute instance update <VM_name_or_ID> \
         --preemptible=false
       ```
 
@@ -298,8 +298,8 @@ To change the type of a VM, for example, make it preemptible:
 
       ```text
       done (1s)
-      id: fhm0b28lgfp4tkoa3jl6
-      folder_id: b1ghgf288nvg541tgu73
+      id: fhm0b28lgfp4********
+      folder_id: b1ghgf288nvg********
       ...
       network_settings:
         type: STANDARD
@@ -309,15 +309,15 @@ To change the type of a VM, for example, make it preemptible:
    1. Start the VM again:
 
       ```bash
-      yc compute instance start <VM ID or name>
+      yc compute instance start <VM_name_or_ID>
       ```
 
       Result:
 
       ```text
       done (11s)
-      id: fhm0b28lgfp4tkoa3jl6
-      folder_id: b1ghgf288nvg541tgu73
+      id: fhm0b28lgfp4********
+      folder_id: b1ghgf288nvg********
       ...
       network_settings:
         type: STANDARD
@@ -369,4 +369,4 @@ This will affect your bill for the VM usage. More about [VM pricing](../../prici
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md).
+* [{#T}](../vm-connect/ssh.md)

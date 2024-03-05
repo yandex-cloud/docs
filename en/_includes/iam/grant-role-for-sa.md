@@ -64,7 +64,7 @@ Access rights will be inherited by child resources from their parent resources. 
 
       Where:
       * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is a required parameter.
-      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). This is a required parameter.
+      * `role`: Role being assigned. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). This is a required parameter.
       * `member`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. This is a required parameter.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
@@ -126,7 +126,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and enter the role name or select one from the list.
 
-      You can find a description of the available roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
+      You can find the description of the available roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -151,7 +151,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
    For example, to assign a service account the `{{ roles-viewer }}` role for the `MyOrg` organization:
 
-   1. Select the role to assign to the service account. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
+   1. Select a role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 
    1. Get a list of available organizations to find out their IDs and technical names:
 
@@ -229,9 +229,8 @@ To grant a service account access rights to an organization, you need the `{{ ro
       ```
 
       Where:
-
       * `organization_id`: [Organization ID](../../organization/operations/org-profile.md). This is a required parameter.
-      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`. This is a required parameter.
+      * `role`: Role being assigned. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`. This is a required parameter.
       * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. This is a required parameter.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
@@ -267,8 +266,8 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
    To assign the service account a role for the organization, use the [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../organization/api-ref/Organization/index.md) resource:
 
-   1. Select the role to assign to the service account. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
-   1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with service accounts.
+   1. Select a role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
+   1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the service accounts folder.
    1. [Get](../../iam/operations/iam-token/create.md) an IAM token for authorization in the {{ yandex-cloud }} API.
    1. Get a list of folder service accounts to find out their IDs:
 
@@ -319,7 +318,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
       }
       ```
 
-   1. Create a request body, for example, in the `body.json` file. Set the `action` property to `ADD` and the `roleId` property to the appropriate role, such as `{{ roles-viewer }}`, and specify the `serviceAccount` type and service account ID in the `subject` property:
+   1. Create the request body, for example, in the `body.json` file. Set the `action` property to `ADD` and the `roleId` property to the appropriate role, such as `{{ roles-viewer }}`, and specify the `serviceAccount` type and service account ID in the `subject` property:
 
       **body.json:**
 

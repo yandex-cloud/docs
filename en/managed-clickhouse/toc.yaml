@@ -105,6 +105,10 @@ items:
           Migrating data from {{ yandex-direct }} using {{ sf-full-name }}, {{
           objstorage-full-name }}, and {{ data-transfer-full-name }}
         href: tutorials/transfer-from-direct.md
+      - name: >-
+          Loading data from {{ objstorage-full-name }} to {{ mch-name }} using
+          {{ data-transfer-full-name }}
+        href: tutorials/object-storage-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -135,6 +139,8 @@ items:
         href: concepts/dictionaries.md
       - name: Sharding
         href: concepts/sharding.md
+      - name: Service users
+        href: concepts/service-users.md
       - name: Maintenance
         href: concepts/maintenance.md
       - name: Supported clients
@@ -159,9 +165,13 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-clickhouse/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -349,6 +359,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

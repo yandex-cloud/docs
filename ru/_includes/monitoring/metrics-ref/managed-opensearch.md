@@ -1,5 +1,3 @@
-## Сервис {{ mos-full-name }} {#managed-opensearch}
-
 Общие метки для всех метрик сервиса {{ mos-name }}: 
 
 Метка | Значение
@@ -429,5 +427,3 @@ host | FQDN хоста
 | `opensearch_unassigned_shards`<br/>`DGAUGE`, штуки | Количество неактивных шардов с неназначенным хостом. |
 | `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. | 
 | `dashboards_metrics_requests_total`<br/>`DGAUGE`, штуки | Общее количество запросов к кластеру. | 
-
-Подробнее о сервисе в документации [{{ mos-name }}](../../../managed-opensearch/).

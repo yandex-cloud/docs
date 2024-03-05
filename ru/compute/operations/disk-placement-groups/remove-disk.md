@@ -1,30 +1,29 @@
 # Удалить диск из группы размещения
 
-Удалите нереплицируемый диск из [группы размещения](../../concepts/disk-placement-group.md). Затем диск можно [удалить насовсем](../disk-control/delete.md) или добавить обратно в группу размещения.
+Удалите [нереплицируемый диск](../../concepts/disk.md#nr-disks) из [группы размещения](../../concepts/disk-placement-group.md). Затем [диск](../../concepts/disk.md) можно [удалить насовсем](../disk-control/delete.md) или добавить обратно в группу размещения.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить диск из группы размещения.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно удалить диск из группы размещения.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
   1. Выберите группу размещения, из которой нужно удалить диск.
   1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_disks }}**.
-  1. Справа от имени удаляемого диска нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
+  1. Справа от имени удаляемого диска нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.disks.popup-confirm_button_delete }}**.
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы удалить нереплицируемый диск из группы размещения, созданный с помощью {{ TF }}:
-
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием нереплицируемого диска.
-     
+
      {% cut "Пример описания нереплицируемого диска в конфигурации {{ TF }}" %}
 
      ```hcl
@@ -50,15 +49,14 @@
      {% endcut %}
 
   1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
-
   1. Проверьте конфигурацию командой:
 
      ```bash
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```text
      Success! The configuration is valid.
      ```
@@ -68,9 +66,8 @@
      ```bash
      terraform plan
      ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
      ```bash
@@ -82,7 +79,7 @@
      Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```bash
-     yc compute disk-placement-group get <имя_группы_размещения>
+     yc compute disk-placement-group get <имя_группы_размещения_дисков>
      ```
 
 {% endlist %}

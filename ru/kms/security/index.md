@@ -30,19 +30,49 @@ description: "Управление доступом в сервисе для с�
 
 Пользователи, у которых отсутствует роль `resource-manager.clouds.owner` или роль `admin`, не могут назначать роли через консоль управления.
 
-Список сервисных ролей:
+#### kms.keys.encrypter {#kms-keys-encrypter}
 
-* `kms.admin` — позволяет назначать произвольные роли на ключи с помощью CLI и API, удалять ключи и версии ключей, изменять основную версию. Включает все разрешения, которые дает роль `kms.editor`.
-* `kms.editor` — позволяет управлять ключами (просмотр, создание, изменение, ротация, шифрование и расшифрование данных). Включает все разрешения, которые дают роли `kms.viewer`, `kms.keys.encrypterDecrypter`, `kms.asymmetricEncryptionKeys.publicKeyViewer` и `kms.asymmetricEncryptionKeys.decrypter`.
-* `kms.asymmetricEncryptionKeys.publicKeyViewer` — позволяет получать открытый ключ асимметричной ключевой пары шифрования.
-* `kms.asymmetricSignatureKeys.publicKeyViewer` — позволяет получать открытый ключ асимметричной ключевой пары электронной подписи.
-* `kms.asymmetricSignatureKeys.signer` — позволяет подписывать данные с помощью закрытого ключа асимметричной ключевой пары электронной подписи.
-* `kms.asymmetricEncryptionKeys.decrypter` — позволяет расшифровывать данные с помощью закрытого ключа асимметричной ключевой пары шифрования.
-* `kms.keys.encrypterDecrypter` — позволяет шифровать и расшифровывать данные по симметричной схеме, а также просматривать информацию о ключах. Включает все разрешения, которые дают роли `kms.keys.encrypter` и `kms.keys.decrypter`.
-* `kms.keys.encrypter` – позволяет [шифровать](../operations/symmetric-encryption.md#encryption) данные, а также просматривать информацию о ключах.
-* `kms.keys.decrypter` – позволяет [расшифровывать](../operations/symmetric-encryption.md#decryption) данные, а также просматривать информацию о ключах.
-* `kms.viewer` — позволяет просматривать информацию о ключах подписи и шифрования. Включает все разрешения, которые дает роль `kms.auditor`. Не позволяет получить публичный ключ.
-* `kms.auditor` — позволяет просматривать список ключей подписи и шифрования и получать информацию о правах доступа к подписи и шифрованию. Не позволяет получить публичный ключ.
+{% include [kms.keys.encrypter](../../_roles/kms/keys/encrypter.md) %}
+
+#### kms.keys.decrypter {#kms-keys-decrypter}
+
+{% include [kms.keys.decrypter](../../_roles/kms/keys/decrypter.md) %}
+
+#### kms.keys.encrypterDecrypter {#kms-keys-encrypterDecrypter}
+
+{% include [kms.keys.encrypterDecrypter](../../_roles/kms/keys/encrypterDecrypter.md) %}
+
+#### kms.asymmetricEncryptionKeys.publicKeyViewer {#kms-asymmetricEncryptionKeys-publicKeyViewer}
+
+{% include [kms.asymmetricEncryptionKeys.publicKeyViewer](../../_roles/kms/asymmetricEncryptionKeys/publicKeyViewer.md) %}
+
+#### kms.asymmetricSignatureKeys.publicKeyViewer {#kms-asymmetricSignatureKeys-publicKeyViewer}
+
+{% include [kms.asymmetricSignatureKeys.publicKeyViewer](../../_roles/kms/asymmetricSignatureKeys/publicKeyViewer.md) %}
+
+#### kms.asymmetricSignatureKeys.signer {#kms-asymmetricSignatureKeys-signer}
+
+{% include [kms.asymmetricSignatureKeys.signer](../../_roles/kms/asymmetricSignatureKeys/signer.md) %}
+
+#### kms.asymmetricEncryptionKeys.decrypter {#kms-asymmetricEncryptionKeys-decrypter}
+
+{% include [kms.asymmetricEncryptionKeys.decrypter](../../_roles/kms/asymmetricEncryptionKeys/decrypter.md) %}
+
+#### kms.auditor {#kms-auditor}
+
+{% include [kms.auditor](../../_roles/kms/auditor.md) %}
+
+#### kms.viewer {#kms-viewer}
+
+{% include [kms.viewer](../../_roles/kms/viewer.md) %}
+
+#### kms.editor {#kms-editor}
+
+{% include [kms.editor](../../_roles/kms/editor.md) %}
+
+#### kms.admin {#kms-admin}
+
+{% include [kms.admin](../../_roles/kms/admin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

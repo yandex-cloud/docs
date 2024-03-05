@@ -11,7 +11,7 @@ description: "Из статьи вы узнаете, как задать нас�
 1. [Подготовьте базу данных {{ PG }}](#prepare) к трансферу.
 1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
-1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
+1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. [Выполняйте необходимые действия по работе с базой](#db-actions) и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
@@ -57,7 +57,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) или примитивная [роль `viewer`](../../../../iam/concepts/access-control/roles.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 
@@ -176,12 +176,12 @@ description: "Из статьи вы узнаете, как задать нас�
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**: 
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка.
+            {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
-
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}** — данные таблиц из этого списка передаваться не будут.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}** — данные таблиц из этого списка передаваться не будут.
 
       Списки включают имя [схемы]({{pg-docs}}/ddl-schemas.html) (описание содержания, структуры и ограничений целостности базы данных) и имя таблицы. Для обоих списков поддерживаются выражения вида:
 
@@ -191,14 +191,16 @@ description: "Из статьи вы узнаете, как задать нас�
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.object_transfer_settings.title }}** — при необходимости выберите элементы схемы БД, которые будут перенесены в процессе активации или деактивации трансфера.
+    
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** — максимальный размер Write-Ahead Log, удерживаемого слотом репликации. При превышении этого ограничения репликация останавливается и слот репликации удаляется. Значение по умолчанию — 50 ГБ. Данная настройка не обеспечивает защиту от переполнения диска на базе данных источника. Ее возможно использовать только для версии {{ PG }} ниже 13, а рекомендованный способ — это [мониторинг значения слота WAL-лога](../../prepare.md#source-pg) на базе данных источника.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** — максимальный размер Write-Ahead Log, удерживаемого слотом репликации. При превышении этого ограничения репликация останавливается и слот репликации удаляется. Значение по умолчанию — 50 ГБ. Данная настройка не обеспечивает защиту от переполнения диска на базе данных источника. Ее возможно использовать только для версии {{ PG }} ниже 13, а рекомендованный способ — это [мониторинг значения слота WAL-лога](../../prepare.md#source-pg) на базе данных источника.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}** — укажите имя схемы для хранения служебных таблиц (`__consumer_keeper`, `__data_transfer_mole_finder`).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}** — укажите имя схемы для хранения служебных таблиц (`__consumer_keeper`, `__data_transfer_mole_finder`).
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}** — выберите для объединения содержимого таблиц. Подробнее см. в разделе [Особенности работы с эндпоинтами](../../../concepts/work-with-endpoints.md#postgresql).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}** — выберите для объединения содержимого таблиц. Подробнее см. в разделе [Особенности работы с эндпоинтами](../../../concepts/work-with-endpoints.md#postgresql).
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}** — при необходимости задайте детальные настройки параллельного копирования таблиц (если в трансфере заданы параметры параллельного копирования).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}** — при необходимости задайте детальные настройки параллельного копирования таблиц (если в трансфере заданы параметры параллельного копирования).
 
 - CLI {#cli}
 

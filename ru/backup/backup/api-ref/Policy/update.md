@@ -75,12 +75,12 @@ policyId | <p>Required. Policy ID.</p> <p>The maximum string length in character
 
         }
       ],
-      "afterBackup": true,
       "beforeBackup": true
     },
     "scheduling": {
       "backupSets": [
         {
+          "type": "string",
 
           // `settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`
           "time": {
@@ -177,10 +177,10 @@ settings.<br>retention.<br>rules[].<br>maxAge | **object** <br>`settings.retenti
 settings.<br>retention.<br>rules[].<br>maxAge.<br>type | **string**<br><p>Required. A type of the interval.</p> 
 settings.<br>retention.<br>rules[].<br>maxAge.<br>count | **string** (int64)<br><p>The amount of value specified in ``Interval.Type``.</p> <p>Value must be greater than 0.</p> 
 settings.<br>retention.<br>rules[].<br>maxCount | **string** (int64) <br>`settings.retention.rules[]` includes only one of the fields `maxAge`, `maxCount`<br>
-settings.<br>retention.<br>afterBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied after backup is finished.</p> 
 settings.<br>retention.<br>beforeBackup | **boolean** (boolean)<br><p>If true, retention rules will be applied before backup is finished.</p> 
 settings.<br>scheduling | **object**<br><p>Required. Configuration of the backup schedule.</p> 
 settings.<br>scheduling.<br>backupSets[] | **object**<br><p>Required. A list of schedules with backup sets that compose the whole scheme.</p> <p>Must contain at least one element.</p> 
+settings.<br>scheduling.<br>backupSets[].<br>type | **string**<br>BackupSet type -- one of incr, full, differential or auto. if custom scheme is used the BackupSet type should be specified
 settings.<br>scheduling.<br>backupSets[].<br>time | **object** <br>`settings.scheduling.backupSets[]` includes only one of the fields `time`, `sinceLastExecTime`<br>
 settings.<br>scheduling.<br>backupSets[].<br>time.<br>weekdays[] | **string**<br><p>Days in a week to perform a backup.</p> 
 settings.<br>scheduling.<br>backupSets[].<br>time.<br>repeatAt[] | **object**<br><p>Time to repeat the backup.</p> 

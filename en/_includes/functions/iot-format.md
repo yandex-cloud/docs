@@ -11,7 +11,7 @@
                  "registry_id": "arenou2oj4ct********",
                  "device_id": "areqjd6un3af********",
                  "mqtt_topic": "$devices/areqjd6un3af********/events",
-                 "payload": "VGVzdCA0"
+                 "payload": "VGVz****"
             }
         },
         {
@@ -24,7 +24,7 @@
                  "registry_id": "arenou2oj4ct********",
                  "device_id": "areqjd6un3af********",
                  "mqtt_topic": "$devices/areqjd6un3af********/events",
-                 "payload": "VGVzdCA0"
+                 "payload": "VGVz****"
             }
         }
     ]

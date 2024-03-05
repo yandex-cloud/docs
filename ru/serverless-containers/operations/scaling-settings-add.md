@@ -6,7 +6,11 @@
 
 Настройки масштабирования не могут превышать [квоты](../concepts/limits.md#serverless-containers-quotas).
 
+{% note info %}
+
 {% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md)%}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

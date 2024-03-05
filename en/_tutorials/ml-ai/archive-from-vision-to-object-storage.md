@@ -1,8 +1,9 @@
 # Recognizing text in image archives in {{ vision-full-name }}
 
-Use the [{{ vision-name }}](../../vision/) service to recognize text in images. You can also store both the source images and recognition results in [{{ objstorage-full-name }}](../../storage/).
+With [{{ vision-name }}](../../vision/) and [{{ objstorage-full-name }}](../../storage/), you can manage recognizing image text and storing both the source image archive and the recognition results.
 
 To set up an infrastructure for text recognition using {{ vision-name }} and export the results automatically to {{ objstorage-name }}:
+
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a bucket](#create-bucket).
 1. [Create a VM](#create-vm).
@@ -24,7 +25,7 @@ The infrastructure costs for image recognition and data storage include:
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for data storage in a [bucket](../../storage/concepts/bucket.md) and [operations](../../storage/operations/index.md) with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using a dynamic or a static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for using {{ vision-name }} (see [{{ vision-name }}](../../vision/pricing.md) pricing).
+* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing](../../vision/pricing.md)).
 
 
 ## Create a bucket {#create-bucket}
@@ -35,12 +36,13 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 - Management console {#console}
 
-   1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform your steps in.
-   1. On the folder page, click **Create resource** and select **Bucket**.
-   1. In the **Name** field, enter the bucket name following the [naming requirements](../../storage/concepts/bucket.md#naming).
-   1. In the **Bucket access** field, select **Restricted**.
-   1. In the **Storage class** field, select **Cold**.
-   1. Click **Create bucket**.
+   1. Go to the [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform your steps in.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+   1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -50,35 +52,31 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 - Management console {#console}
 
-   1. In the [management console] ({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter the VM name. The naming requirements are as follows:
+   1. Go to the [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform your steps in.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. Enter the VM name. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-   1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
-   1. Under **Disks and file storages**, select the parameters:
-      * **Type**: SSD.
-      * **Size**: 19 GB.
-   1. Under **Computing resources**, select:
-      * **Platform**: Intel Cascade Lake
-      * **Guaranteed vCPU share**: 20%
-      * **vCPU**: 2
-      * **RAM**: 2 GB
-   1. Under **Network settings**, select the [network](../../vpc/concepts/network.md#network) and [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. If there are no networks available, create one:
-      1. Select ![image](../../_assets/console-icons/plus.svg) **Create network**.
-      1. In the window that opens, enter the network name and specify the folder to host the network.
-      1. (Optional) To automatically create subnets, select the **Create subnets** option.
-      1. Click **Create**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select:
+      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: SSD
+      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: 19 GB
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Cascade Lake
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 20%
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: 2
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: 2 GB
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [network](../../vpc/concepts/network.md#network) and the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to. If there is are no networks available, [create one](../../vpc/operations/network-create.md).
+   1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random public IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you [reserved](../../vpc/operations/get-static-ip.md) one in advance.
+   1. Specify the VM access details:
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         Each network must have at least one subnet. If there is no subnet available, create one by selecting ![image](../../_assets/console-icons/plus.svg)**Add subnet**.
-   1. In the **Public address** field, keep **Auto** to assign your VM a random public IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you [reserved](../../vpc/operations/get-static-ip.md) one in advance.
-   1. Enter the VM access information:
-      * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the public key file.
-
-         You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   1. Click **Create VM**.
+         You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
    1. Wait for the VM status to change to `Running` and save its public IP address: you will need it for SSH connection.
 
 {% endlist %}
@@ -128,8 +126,8 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       ```
 
       Where:
-      * `--name` is the service account name, such as `vision-sa`.
-      * `--description` is a description of the service account, for example, `this is the vision service account`.
+      * `--name`: Service account name, e.g., `vision-sa`.
+      * `--description`: Service account description, e.g., `This is a vision service account`.
 
       Result:
 
@@ -142,7 +140,8 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       ```
 
       Save the `id` parameter: this is the service account ID you will later need for the setup.
-   1. Assign the `editor` [role](../../iam/concepts/access-control/roles.md#editor) to the service account.
+
+   1. Assign the `editor` [role](../../iam/concepts/access-control/roles.md) to your service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -163,7 +162,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
       Where:
       * `--service-account-id`: Service account ID.
-      * `--description`: A description for the key, for example, `this key is for vision`.
+      * `--description`: Key description, e.g., `This key is for vision`.
 
       Result:
 
@@ -177,8 +176,8 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       secret: YC...J5
       ```
 
-      Save the following parameters (you'll need them to set up the AWS CLI utility):
-      * `key_id`: The ID of the static access key.
+      Save the following parameters (you will need them to configure the AWS CLI utility):
+      * `key_id`: Static access key ID.
       * `secret`: Secret key.
    1. Create an [authorized key](../../iam/concepts/authorization/key.md) for a service account:
 
@@ -190,7 +189,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
       Where:
       * `--service-account-id`: Service account ID.
-      * `--output`: The name of JSON file with an authorized key.
+      * `--output`: Name of the JSON file with an authorized key.
 
       Result:
 
@@ -231,7 +230,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 ### Set up the AWS CLI {#configure-aws-cli}
 
-1. Update the packages installed in the VM operating system. To do this, run the command:
+1. Update the packages installed in the VM operating system. To do this, run this command:
 
    ```bash
    sudo yum update -y
@@ -270,11 +269,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 1. [Upload](../../storage/operations/objects/upload.md) your images that include recognizable text to the bucket.
 
-   {% note tip %}
-
-   Use the [sample image](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) of the penguin crossing road sign.
-
-   {% endnote %}
+   {% include [example-image](../../_includes/vision/example-image.md) %}
 
 1. To make sure that the images were uploaded, use the request with the bucket name:
 
@@ -304,19 +299,25 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 ### Configure the environment {#prepare-environment}
 
+1. Install the `epel` repository for additional packages:
+
+   ```bash
+   sudo yum install epel-release -y
+   ```
+
 1. Install the `jq` package. The script will use it to process the results from {{ vision-name }}:
 
    ```bash
    sudo yum install jq -y
    ```
 
-1. Install the text editor `nano`:
+1. Install the `nano` text editor:
 
    ```bash
    sudo yum install nano -y
    ```
 
-1. Set the environment variables necessary for the script to run:
+1. Set the environment variables required for the script to run:
 
    ```bash
    export BUCKETNAME="<bucket_name>"
@@ -325,116 +326,119 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    ```
 
    Where:
-   * `BUCKETNAME`: The bucket name.
-   * `FOLDERID`: The folder ID.
+   * `BUCKETNAME`: Bucket name.
+   * `FOLDERID`: Folder ID.
    * `IAMTOKEN`: {{ iam-name }} token you obtained when [setting up the service account](#configure-sa).
 
 ### Create a script {#create-script}
 
-The script includes the following steps:
-1. Create the relevant directories.
-1. Unpack the archive with images.
-1. Process all the images one-by-one:
-   1. Base64-encode the image.
-   1. Create a request body for the given image.
-   1. Send the image in a POST request to {{ vision-name }} for recognition.
-   1. Save the result to the `output.json` file.
-   1. Extract the recognized text from `output.json` and save it to a text file.
-1. Add the resulting text files to an archive.
-1. Upload the archive with the text files to {{ objstorage-name }}.
-1. Delete the auxiliary files.
+{% list tabs group=programming_language %}
 
-For your convenience, the text of the script includes comments to each step.
+- Bash {#bash}
 
-To implement the script:
-1. Create a file, for example, `vision.sh` and open it in the `nano` text editor:
+   The script includes the following steps:
+   1. Create the relevant directories.
+   1. Unpack the archive with images.
+   1. Process all images one by one:
+      1. Encode the image as Base64.
+      1. Create a request body for the specific image.
+      1. Send the image in a POST request to {{ vision-name }} for recognition.
+      1. Save the result to the `output.json` file.
+      1. Extract the recognized text from `output.json` and save it to a text file.
+   1. Add the resulting text files to an archive.
+   1. Upload the archive with the text files to {{ objstorage-name }}.
+   1. Delete the auxiliary files.
 
-   ```bash
-   sudo nano vision.sh
-   ```
+   For your convenience, the text of the script includes comments to each step.
 
-1. Copy the script text to `vision.sh`:
+   To implement the script:
+   1. Create a file, e.g., `vision.sh`, and open it in the `nano` text editor:
 
-   ```bash
-   #!/bin/bash
+      ```bash
+      sudo nano vision.sh
+      ```
 
-   # Create the required directories.
-   echo "Creating directories..."
+   1. Copy the Bash script text to `vision.sh`:
 
-   # Create a directory for the recognized text.
-   mkdir my_pictures_text
+      ```bash
+      #!/bin/bash
 
-   # Unpack the archive with images to the new directory.
-   echo "Extract pictures in my_pictures directory..."
-   tar -xf my_pictures.tar
+      # Create the required directories.
+      echo "Creating directories..."
 
-   # Recognize the images from the archive
-   FILES=my_pictures/*
-   for f in $FILES
-   # For each file in the directory, perform the following actions in a loop:
-   do
-      # Encode the image to base64 to upload it to {{ vision-name }}.
-      CODEIMG=$(base64 -i $f | cat)
+      # Create a directory for the recognized text.
+      mkdir my_pictures_text
 
-      # Create a body.json file to upload to {{ vision-name }} in a POST request.
-      cat <<EOF > body.json
-   {
-     "folderId": "$FOLDERID",
-     "analyze_specs": [{
-       "content": "$CODEIMG",
-       "features": [{
-         "type": "TEXT_DETECTION",
-         "text_detection_config": {
-         "language_codes": ["en","ru"]
-         }
-       }]
-     }]
-   }
-   EOF
-     # Send the image to {{ vision-name }} for recognition and write the result to the output.json file.
-     echo "Processing file $f in {{ vision-name }}..."
-     curl -X POST --silent \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer ${IAMTOKEN}" \
-     -d '@body.json' \
-     https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
+      # Unpack the archive with images to the new directory.
+      echo "Extract pictures in my_pictures directory..."
+      tar -xf my_pictures.tar
 
-     # Get the name of the image file to use it later.
-     IMAGE_BASE_NAME=$(basename -- "$f")
-     IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
+      # Recognize the images from the archive
+      FILES=my_pictures/*
+      for f in $FILES
+      # For each file in the directory, perform the following actions in a loop:
+      do
+         # Encode the image to base64 to upload it to {{ vision-name }}.
+         CODEIMG=$(base64 -i $f | cat)
 
-     # Get the text data from the output.json file and write it to a .txt file with the same name as the image file.
-     cat output.json | jq -r '.results[].results[].textDetection.pages[].blocks[].lines[].words[].text' | awk -v ORS=" " '{print}' > my_pictures_text/$IMAGE_NAME".txt"
-   done
+         # Create a body.json file to upload to {{ vision-name }} in a POST request.
+         cat <<EOF > body.json
+      {
+      "mimeType": "JPEG",
+      "languageCodes": ["*"],
+      "model": "page",
+      "content": "$CODEIMG"
+      }
+      EOF
+      # Send the image to Vision for recognition and write the result to the output.json file.
+      echo "Processing file $f in Vision..."
+      curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${IAMTOKEN}" \
+        -H "x-data-logging-enabled: true" \
+        -H "x-folder-id: ${FOLDERID}" \
+        -d '@body.json' \
+        https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText \
+        -o output.json
 
-   # Archive the contents of the text file directory.
-   echo "Packing text files to archive..."
-   tar -cf my_pictures_text.tar my_pictures_text
+      # Get the name of the image file for later use.
+      IMAGE_BASE_NAME=$(basename -- "$f")
+      IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
 
-   # Move the text file archive to your bucket.
-   echo "Sending archive to Object Storage Bucket..."
-   aws --endpoint-url=https://{{ s3-storage-host }} s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
+      # Get the text data from the output.json file and write it to a .txt file with the same name as the image file.
+      cat output.json | jq -r '.result[].blocks[].lines[].text' | awk -v ORS=" " '{print}' > my_pictures_text/$IMAGE_NAME".txt"
+      done
 
-   # Delete the auxiliary files.
-   echo "Cleaning up..."
-   rm -f body.json
-   rm -f output.json
-   rm -rfd my_pictures
-   rm -rfd my_pictures_text
-   rm -r my_pictures_text.tar
-   ```
+      # Archive the contents of the text file directory.
+      echo "Packing text files to archive..."
+      tar -cf my_pictures_text.tar my_pictures_text
 
-1. Set the permissions to run the script:
+      # Move the text file archive to your bucket.
+      echo "Sending archive to Object Storage Bucket..."
+      aws --endpoint-url=https://{{ s3-storage-host }} s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
 
-   ```bash
-   sudo chmod 755 vision.sh
-   ```
+      # Delete the auxiliary files.
+      echo "Cleaning up..."
+      rm -f body.json
+      rm -f output.json
+      rm -rfd my_pictures
+      rm -rfd my_pictures_text
+      rm -r my_pictures_text.tar
+      ```
 
-1. Run the script:
+   1. Set the permissions to run the script:
 
-   ```bash
-   ./vision.sh
-   ```
+      ```bash
+      sudo chmod 755 vision.sh
+      ```
+
+   1. Run the script:
+
+      ```bash
+      ./vision.sh
+      ```
+
+{% endlist %}
 
 ## Double-check the recognition results {#check-result}
 
@@ -443,7 +447,7 @@ To implement the script:
 - Management console {#console}
 
    1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder where the bucket with the recognition results is located.
-   1. Select **{{ objstorage-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Open the bucket with the recognition results.
    1. Make sure that the bucket contains the `my_pictures_text.tar` archive.
    1. Download and unpack the archive.
@@ -454,6 +458,7 @@ To implement the script:
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
+
 1. [Delete](../../storage/operations/objects/delete-all.md) all the objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.

@@ -5,7 +5,7 @@ description: "Use this tutorial to create a {{ PG }} cluster with a single or mu
 
 # Creating a {{ PG }} cluster
 
-A {{ PG }} cluster consists of one or more [database hosts](../concepts/index.md) you can configure [replication](../concepts/replication.md) between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to [disk](../concepts/storage.md) both on the master host and on a certain number of replicas sufficient to establish a quorum.
+A {{ PG }} cluster is one or more [database hosts](../concepts/index.md) between which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to [disk](../concepts/storage.md) both on the master host and on a certain number of replicas sufficient to establish a quorum.
 
 {% note info %}
 
@@ -43,7 +43,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       {% endnote %}
 
-   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for a cluster, the characteristics of all the already created hosts change too.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       

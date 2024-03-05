@@ -42,10 +42,12 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
 * [{#T}](data-transfer-direct-to-mch.md)
+* [{#T}](object-storage-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
 
 * [{#T}](managed-kafka-to-greenplum.md)
+* [{#T}](mmy-to-mgp.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](greenplum-to-postgresql.md)
 * [{#T}](greenplum-yezzey.md)
@@ -77,6 +79,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mmy-to-yds.md)
 * [{#T}](mmy-to-mpg.md)
+* [{#T}](mmy-to-mgp.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](data-transfer-mmy.md)
 * [{#T}](debezium-mmy.md)
@@ -103,6 +106,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](sqoop-mpg.md)
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
+* [{#T}](object-storage-to-postgresql.md)
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mpg-to-yds.md)
 * [{#T}](rds-to-mpg.md)

@@ -40,7 +40,7 @@ To create a [VM](../../concepts/vm.md):
       {% endnote %}
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * Enter a [subnet](../../../vpc/concepts/network.md#subnet) ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you do not have a network, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+      * Enter a [subnet](../../../vpc/concepts/network.md#subnet) ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you do not have a network, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
          * In the window that opens, enter the folder to host the new network, as well as the network name.
          * In the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_advanced }}** field, enable **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** (each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet)).
 
@@ -127,15 +127,15 @@ To create a [VM](../../concepts/vm.md):
       ```
 
       Where:
-      * `name`: VM name.
+      * `--name`: VM name.
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
       * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the operating system from the specified family.
       * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
-      * `ssh-key`: Path to the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
+      * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The VM will automatically create a user named `yc-user` for this key.
 
 
 

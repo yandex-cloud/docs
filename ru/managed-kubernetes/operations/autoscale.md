@@ -58,7 +58,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
-  1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  1. {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
      {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов.

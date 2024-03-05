@@ -1,8 +1,8 @@
 ### Bash {#bash}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    {% include [Install requirements](./connect/bash/install-requirements.md) %}
 
@@ -17,7 +17,7 @@
        -a <password>
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
@@ -52,9 +52,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% include [Install requirements](./connect/go/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.go`
 
@@ -97,7 +97,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    }
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.go`
 
@@ -204,9 +204,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% include [Install requirements](./connect/java/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `src/java/com/example/App.java`
 
@@ -244,7 +244,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    }
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `src/java/com/example/App.java`
 
@@ -301,9 +301,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% include [Install requirements](./connect/nodejs/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `app.js`
 
@@ -348,7 +348,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    });
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `app.js`
 
@@ -410,9 +410,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% include [Install requirements](./connect/php/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.php`
 
@@ -444,7 +444,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    ?>
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.php`
 
@@ -494,9 +494,9 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
     pip install pyopenssl redis-py-cluster setuptools_rust
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.py`
 
@@ -521,7 +521,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
    print(rc.get("foo"))
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.py`
 
@@ -559,9 +559,9 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
 
 {% include [Install requirements](./connect/ruby/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Connecting without using SSL
+- Connecting without SSL {#without-ssl}
 
    `connect.rb`
 
@@ -587,7 +587,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
    conn.close
    ```
 
-- Connecting via SSL
+- Connecting via SSL {#with-ssl}
 
    `connect.rb`
 

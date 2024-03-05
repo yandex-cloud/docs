@@ -30,20 +30,32 @@ Records are permanently deleted once the 12-month period expires.
 
 ## Deleting a user cloud {#cloud}
 
-When a cloud is deleted:
+When a cloud is [deleted](../../resource-manager/operations/cloud/delete.md):
 
 1. Active virtual machines and other resources are stopped, but the data is not deleted. You have 30 days to restore the cloud and existing resources.
-2. If the cloud is not restored within 30 days, resources from every service are marked for deletion and then deleted within 72 hours.
+1. If the cloud is not restored within 30 days, resources from every service are marked for deletion and then deleted within 72 hours.
 
 When a contract is terminated, all user's clouds and resources are immediately marked for deletion and deleted within 72 hours.
 
 
 
-## Deleting a billing account {#billing-account}
+## How to stop working with {{ yandex-cloud }} {#quit-cloud}
 
-You can only delete a [billing account](../../billing/concepts/billing-account.md) if it is not linked to a cloud, and only with the help of the support team.
+At the user's request, their billing account is marked for deletion, and the user loses access to it within 72 hours.
 
-1. At the user's request, the billing account is marked for deletion, and the user loses access it within 72 hours.
-2. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws.
-3. When these terms expire, the billing account is irrevocably deleted.
+Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws.
 
+When these terms expire, the billing account is irrevocably deleted.
+
+To stop working with the platform and delete your profile:
+
+{% include [delete-account](../../_includes/billing/delete-account.md) %}
+
+
+#### See also {#see-also}
+
+* [Deleting a folder](../../resource-manager/operations/folder/delete.md)
+* [Deleting a cloud](../../resource-manager/operations/cloud/delete.md)
+* [Deleting an organization](../../organization/operations/delete-org.md)
+* [Deleting a {{ ml-platform-name }} community](../../datasphere/operations/community/delete.md)
+* [Deleting a {{ speechsense-name }} space](../../speechsense/operations/space/delete.md)

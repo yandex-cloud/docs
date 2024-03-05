@@ -16,7 +16,7 @@
 
 ## Перенос данных с использованием сервиса {{ data-transfer-name }} {#data-transfer}
 
-{% include notitle [Migration with Data Transfer](../../_tutorials/datatransfer/managed-mysql.md) %}
+{% include notitle [Migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql.md) %}
 
 ## Перенос данных через создание и восстановление логического дампа {#logical-dump}
 

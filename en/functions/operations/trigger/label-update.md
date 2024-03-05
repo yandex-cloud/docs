@@ -17,12 +17,12 @@ description: "Follow this guide to update a trigger label in {{ sf-name }}."
 
    {% note warning %}
 
-   The existing set of `labels` is completely overwritten by the transmitted set.
+   The existing set of `labels` is completely overwritten by the one transmitted in the request.
 
    {% endnote %}
 
    ```bash
-   yc serverless trigger update <trigger name> --labels <key>=<value>
+   yc serverless trigger update <trigger_name> --labels <key>=<value>
    ```
 
    Result:
@@ -109,10 +109,10 @@ description: "Follow this guide to update a trigger label in {{ sf-name }}."
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the trigger using this [CLI](../../../cli/quickstart.md) command:
+      You can check the trigger update using this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc serverless trigger get <trigger ID>
+      yc serverless trigger get <trigger_ID>
       ```
 
 - API {#api}

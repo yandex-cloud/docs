@@ -71,7 +71,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
      --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
 
@@ -184,7 +184,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
          ```
-         yc serverless trigger get <trigger ID>
+         yc serverless trigger get <trigger_ID>
          ```
 
 - API {#api}

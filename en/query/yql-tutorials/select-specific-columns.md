@@ -16,7 +16,7 @@ SELECT
     (total_amount/1000) AS total_amount_thousand_dollars, -- or name an arbitrary expression,
     CAST(VendorID as Uint32) AS vendorID -- using CAST, you can update the data type.
 FROM
-    bindings.`tutorial-analytics`
+    `tutorial-analytics`
 LIMIT 10
 ```
 

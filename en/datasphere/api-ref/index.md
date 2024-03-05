@@ -9,7 +9,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [Community](Community/index.md) | A set of methods for managing Community resources.
-[Dataset](Dataset/index.md) | 
-[DockerImage](DockerImage/index.md) | 
+[Dataset](Dataset/index.md) | A set of methods for managing Datasets.
+[DockerImage](DockerImage/index.md) | A set of methods for managing Docker Images.
 [Project](Project/index.md) | A set of methods for managing Project resources.
-[S3](S3/index.md) | 
+[S3](S3/index.md) | A set of methods for managing S3 configurations.

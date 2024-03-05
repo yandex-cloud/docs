@@ -16,7 +16,7 @@
 ## Настройте окружение {#set-space}
 
 1. Создайте [пространство](concepts/resources-hierarchy.md#space), в котором будут находиться все ваши [проекты](concepts/resources-hierarchy.md#project): выберите **Создать пространство**, введите название, (опционально) добавьте описание и нажмите кнопку **Создать**.
-1. К пространству привяжите платежный аккаунт, с которого будет оплачиваться использование {{ speechsense-name }}.
+1. К пространству [привяжите платежный аккаунт](operations/space/link-ba.md), с которого будет оплачиваться использование {{ speechsense-name }}.
 
    {% note tip %}
 
@@ -61,6 +61,6 @@
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md).
 1. [Добавьте сервисный аккаунт в пространство](operations/space/add-user-to-space.md) с ролью `speech-sense.data.editor`. Подробнее о ролях, действующих в сервисе, см. раздел [{#T}](security/index.md).
 1. [Создайте API-ключ](../iam/operations/api-key/create.md) или [IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API. [Подробнее об аутентификации в API {{ speechsense-name }}](api-ref/authentication.md).
-1. [Загрузите данные](operations/data/upload-data.md) с помощью Python-скрипта отправки данных. Вы можете передавать аудио целиком в одном сообщении или аудиофрагментами. 
+1. [Загрузите данные](operations/data/upload-data.md) с помощью Python-скрипта отправки данных. Аудио передается целиком в одном сообщении. 
 
    {% include [supported-formats](../_includes/speechsense/formats.md) %}

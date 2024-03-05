@@ -1,4 +1,4 @@
-# General procedure for activation
+# How to activate
 
 To send requests to the Yandex search database using {{ search-api-full-name }}, you need a [service account](../../iam/concepts/users/service-accounts.md).
 
@@ -10,7 +10,7 @@ To send requests to the Yandex search database using {{ search-api-full-name }},
 
 ### Create a service account {#create-sa}
 
-{% include [create-sa](../../_includes/iam/create-sa-via-console.md) %}
+{% include [create-sa](../../_includes/iam/create-sa-via-console-without-role.md) %}
 
 ### Assign the required role {#grant-role}
 

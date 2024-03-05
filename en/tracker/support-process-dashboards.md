@@ -17,7 +17,7 @@ To the personal dashboard of a support representative, add the widget with a lis
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
    ```
-   Queue: "<queue name>" AND Assignee: me() AND Resolution: empty()
+   Queue: "<queue_name>" AND Assignee: me() AND Resolution: empty()
    ```
 
    In the selected queue, this filter will find non-closed issues assigned to you.
@@ -39,7 +39,7 @@ To make sure that your support representatives can quickly find the requests wit
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
    ```
-   Queue: "<queue name>" AND Assignee: empty()
+   Queue: "<queue_name>" AND Assignee: empty()
    ```
 
    This filter will find issues without an assignee within the selected queue.
@@ -56,12 +56,12 @@ To get statistics about how many issues were assigned to your employees over the
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a **Summary table** widget.
+1. Add **Summary table** widget.
 
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
    ```
-   Queue: "<queue name>" AND Created: >= today() - 30d
+   Queue: "<queue_name>" AND Created: >= today() - 30d
    ```
 
    This filter will find all the issues created over the past 30 days within the selected queue.
@@ -85,7 +85,7 @@ To watch the dynamics of creation and resolution of requests, add the following
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
    ```
-   Queue: "<queue name>"
+   Queue: "<queue_name>"
    ```
 
    This filter will find all the issues inside the selected queue.
@@ -104,12 +104,12 @@ If you use components to [group issues by topic](#group), you can create a chart
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a widget with the **Issue Statistics** type.
+1. Add an **Issue statistics** widget.
 
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
    ```
-   Queue: "<queue name>"
+   Queue: "<queue_name>"
    ```
 
    This filter will find all the issues inside the selected queue.

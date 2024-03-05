@@ -38,7 +38,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the window that opens:
          * In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-autoscale`.
-         * To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
+         * To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
          * Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -54,8 +54,8 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          Command result:
 
          ```bash
-         id: ajelabcde12f33nol1v5
-         folder_id: b0g12ga82bcv0cdeferg
+         id: ajelabcde12f********
+         folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T14:32:18.900092Z"
          name: for-autoscale
          ```
@@ -63,9 +63,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       1. Assign the role to the service account:
 
          ```bash
-         yc resource-manager folder add-access-binding b1g23ga82bcv0cdeferg \
+         yc resource-manager folder add-access-binding b1g23ga82bcv******** \
            --role editor \
-           --subject serviceAccount:ajelabcde12f33nol1v5
+           --subject serviceAccount:ajelabcde12f********
          ```
 
    
@@ -104,8 +104,8 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          Command result:
 
          ```bash
-         id: enpabce123hde4ft1r3t
-         folder_id: b0g12ga82bcv0cdeferg
+         id: enpabce123hd********
+         folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T14:57:15Z"
          name: yc-auto-network
          ```
@@ -114,7 +114,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
          ```bash
          yc vpc subnet create \
-           --network-id enpabce123hde4ft1r3t \
+           --network-id enpabce123hd******** \
            --range 192.168.1.0/24 \
            --zone {{ region-id }}-a
          ```
@@ -122,10 +122,10 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          Command result:
 
          ```bash
-         id: e1lnabc23r1c9d0efoje
-         folder_id: b0g12ga82bcv0cdeferg
+         id: e1lnabc23r1c********
+         folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T16:23:12Z"
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24
@@ -135,7 +135,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
          ```bash
          yc vpc subnet create \
-           --network-id enpabce123hde4ft1r3t \
+           --network-id enpabce123hd******** \
            --range 192.168.2.0/24 \
            --zone {{ region-id }}-b
          ```
@@ -143,10 +143,10 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          Command result:
 
          ```bash
-         id: b1csa2b3clideftjb121
-         folder_id: b0g12ga82bcv0cdeferg
+         id: b1csa2b3clid********
+         folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T16:25:02Z"
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-b
          v4_cidr_blocks:
          - 192.168.2.0/24
@@ -196,7 +196,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
          * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
          * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-         * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
+         * **Load balancer health checks**: Rule allowing a load balancer to health check VMs.
 
          1. Click **Save**. Repeat the steps to create all the rules from the table.
 
@@ -261,7 +261,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
        disk_spec:
          type_id: network-hdd
          size: 30G
-         image_id: fd8iv792kirahcnqnt0q # ID of the public Container Optimized Image.
+         image_id: fd8iv792kira******** # ID of the public Container Optimized Image.
      network_interface_specs:
        - network_id: <cloud_network_ID>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
@@ -284,13 +284,13 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
       ```bash
       done (2m45s)
-      id: cl0hmabc1nd2hdefgb7k
-      folder_id: b0g12ga82bcv0cdeferg
+      id: cl0hmabc1nd2********
+      folder_id: b0g12ga82bcv********
       ...
-        target_group_id: enpoi5jhfps37opefgus
+        target_group_id: enpoi5jhfps3********
       ...
           name: auto-group-tg
-      service_account_id: ajelabcde12f33nol1v5
+      service_account_id: ajelabcde12f********
       status: ACTIVE
       ```
 
@@ -314,7 +314,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
 
    - CLI {#cli}
@@ -329,8 +329,8 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
       |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP  |         STATUS         | STATUS MESSAGE |
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
-      | epdab0c1ji2ad4ef8l1s | cl0habce1nd2hqstgd7e-fned | 84.201.163.202 | 192.168.1.34 | RUNNING_ACTUAL [4m26s] |                |
-      | ef0uabc1s2fbde6f5tlu | cl0habce1nd2hqstga7b-craq | 130.193.56.102 | 192.168.2.19 | RUNNING_ACTUAL [4m14s] |                |
+      | epdab0c1ji2a******** | cl0habce1nd2********-fned | 84.201.163.202 | 192.168.1.34 | RUNNING_ACTUAL [4m26s] |                |
+      | ef0uabc1s2fb******** | cl0habce1nd2********-craq | 130.193.56.102 | 192.168.2.19 | RUNNING_ACTUAL [4m14s] |                |
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
       ```
 
@@ -431,7 +431,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-      | b0rbabc1m2edfu2ss579 | group-balancer | {{ region-id }} | EXTERNAL |              1 | b0rdabckribed1fbv2l1   | ACTIVE |
+      | b0rbabc1m2ed******** | group-balancer | {{ region-id }} | EXTERNAL |              1 | b0rdabckribe********   | ACTIVE |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       ```
 
@@ -474,7 +474,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       Command result:
 
       ```bash
-      projects/b0g12ga82bcv0cdeferg/zones/{{ region-id }}-b
+      projects/b0g12ga82bcv********/zones/{{ region-id }}-b
       ```
 
    {% endlist %}
@@ -487,7 +487,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
       1. Go to the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
          The load balancer sent the request to an instance in the group. In the availability zone this instance belongs to, the average CPU utilization is higher than in other zones (see the **Average CPU utilization in zone** chart).
@@ -539,7 +539,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `auto-group` instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
       1. Go to the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
          The chart **Number of instances in zone** shows how the number of instances changed in each availability zone. The chart **Average CPU utilization in zone** shows average CPU utilization in each availability zone.
@@ -560,7 +560,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `group-balancer` load balancer.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-      1. In the `group-balancer` line, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the `group-balancer` line, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI {#cli}
@@ -589,8 +589,8 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `auto-group` instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-      1. In the `auto-group` instance group line, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the `auto-group` instance group line, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
    - CLI {#cli}
@@ -620,7 +620,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       1. In the [management console]({{ link-console-main }}), select the folder where you created the subnets.
       1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section.
       1. Select the network with the appropriate subnets.
-      1. In the line of the subnet you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the line of the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
       1. Repeat the previous three steps to delete the remaining subnets.
 
@@ -629,17 +629,17 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       1. Delete the subnet in the `{{ region-id }}-a` zone:
 
          ```bash
-         yc vpc subnet delete e1lnabc23r1c9d0efoje
+         yc vpc subnet delete e1lnabc23r1c********
          ```
 
          Command result:
 
          ```bash
          done (1s)
-         id: e1lnabc23r1c9d0efoje
-         folder_id: b0g12ga82bcv0cdeferg
+         id: e1lnabc23r1c********
+         folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T16:23:12Z"
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24
@@ -648,17 +648,17 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       1. Delete the subnet in the `{{ region-id }}-b` zone:
 
          ```bash
-         yc vpc subnet delete b1csa2b3clideftjb121
+         yc vpc subnet delete b1csa2b3clid********
          ```
 
          Command result:
 
          ```bash
          done (1s)
-         id: b1csa2b3clideftjb121
-         folder_id: b0g12ga82bcv0cdeferg
+         id: b1csa2b3clid********
+         folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T16:25:02Z"
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-b
          v4_cidr_blocks:
          - 192.168.2.0/24
@@ -678,7 +678,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the network.
       1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section.
-      1. In the line of the network you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the line of the network you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI {#cli}
@@ -690,8 +690,8 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       Command result:
 
       ```bash
-      id: enpabce123hde4ft1r3t
-      folder_id: b0g12ga82bcv0cdeferg
+      id: enpabce123hd********
+      folder_id: b0g12ga82bcv********
       created_at: "2020-11-30T14:57:15Z"
       name: yc-auto-network
       ```
@@ -710,7 +710,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
       1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-      1. In the line of the service account you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+      1. In the line of the service account you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
       1. Confirm the deletion.
 
    - CLI {#cli}
@@ -742,9 +742,9 @@ To set up scaling for your instance group using {{ TF }}:
 
 1. Prepare files with the infrastructure description:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Ready-made archive
+   - Ready-made archive {#ready}
 
       1. Clone the repository with configuration files:
 
@@ -758,7 +758,7 @@ To set up scaling for your instance group using {{ TF }}:
          * `config.tpl`: Description of VM user parameters.
          * `vm-autoscale.auto.tfvars`: User data.
 
-   - Manually
+   - Manually {#manual}
 
       1. Create a directory for configuration files.
 

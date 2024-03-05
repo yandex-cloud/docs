@@ -126,7 +126,7 @@ WAF могут быть аппаратными, программными и об
 
 {{ yandex-cloud }} предлагает пять продуктов для защиты ваших веб-приложений:
 
-1. [Валарм WAF (BYOL)](/marketplace/products/wallarm/waf-byol-3) — доступный файрвол с неограниченным горизонтальным масштабированием.
+1. [Вебмониторэкс API Security](/marketplace/products/webmonitorx/node) — решение для защиты веб‑приложений и API от хакерских атак и автоматического поиска уязвимостей.
 1. [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf) — самый мощный файрвол от {{ yandex-cloud }}, который контролирует процесс работы приложений и выявляет уязвимости бизнес-логики.
 1. [Nemesida AI MLC](/marketplace/products/pentestit/nwaf-mlc) — ВМ для построения поведенческих моделей и выявления прочих аномалий.
 1. [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st) — ВМ для настройки взаимодействия компонентов между собой, визуализации информации об атаках и управления обучением модуля Nemesida AI.

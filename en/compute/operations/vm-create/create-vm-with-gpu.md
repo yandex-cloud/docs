@@ -58,28 +58,28 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
 
       Where:
-      * `name`: VM name.
+      * `--name`: VM name.
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
 
          
          {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
 
-      * `platform`: ID of the [platform](../../concepts/vm-platforms.md):
+      * `--platform`: [Platform](../../concepts/vm-platforms.md) ID:
 
          {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
 
-      * `cores`: [Number of vCPUs](../../concepts/gpus.md).
-      * `memory`: Amount of RAM.
-      * `gpus`: Number of GPUs.
-      * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
+      * `--cores`: [Number of vCPUs](../../concepts/gpus.md).
+      * `--memory`: Amount of RAM.
+      * `--gpus`: Number of GPUs.
+      * `--preemptible`: For a [preemptible](../../concepts/preemptible-vm.md) VM.
 
 
-      * `create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
+      * `--create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
 
          {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
@@ -161,7 +161,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
          * `name`: Disk name.
-         * `type`: Type of the disk being created.
+         * `type`: Disk type.
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
          * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).

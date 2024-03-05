@@ -68,7 +68,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) администратора на каталог: 
+1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) администратора на каталог:
 
    {% list tabs group=instructions %}
 

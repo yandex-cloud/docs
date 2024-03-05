@@ -1,10 +1,12 @@
-# Executing SQL queries
+# Working with the SQL query editor
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+The SQL query editor opens in the data panel when you select a database, a table, or a view in the **Connection manager** window.
+
 ## Running a query {#execute-query}
 
-To perform a query to a database, [establish a connection](connect.md##connect-db) with this database first. If the connection is inactive, [activate](connect.md#update-connection) it.
+To perform a database query, [establish](connect.md##connect-db) or [activate](connect.md#update-connection) a connection with the database.
 
 {% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 

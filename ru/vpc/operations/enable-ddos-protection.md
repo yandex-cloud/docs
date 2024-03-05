@@ -25,7 +25,7 @@
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется зарезервировать адрес.
 	1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-	1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+	1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 	1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
 	1. Выберите зону доступности, в которой нужно зарезервировать адрес.
 	1. Выберите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
@@ -35,7 +35,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием статического публичного IP-адреса, добавив поле `ddos_protection_provider`:
 

@@ -50,7 +50,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который будет добавлен пользовательский сертификат.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который будет добавлен пользовательский сертификат.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_add }}**.
   1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_import }}**.
@@ -94,9 +94,9 @@
      * `--chain` — путь к файлу цепочки сертификатов.
      * `--key` — путь к файлу закрытого ключа сертификата.
 
-     Результат выполнения команды:
+     Результат:
 
-     ```bash
+     ```text
      id: fpqmg47avvim********
      folder_id: b1g7gvsi89m3********
      created_at: "2020-09-15T06:54:44.916325Z"
@@ -112,7 +112,6 @@
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-          
      ```hcl
      resource "yandex_cm_certificate" "user-certificate" {
        name    = "<имя_сертификата>"
@@ -132,19 +131,15 @@
      }
      ```
 
-
-
      Где:
-
-     * `name` — имя сертификата.
+     * `name` — имя сертификата.
      * `certificate` — содержимое файла с [сертификатом](../../concepts/imported-certificate.md).
-     * `private_key` — содержимое файла с закрытым ключом.
+     * `private_key` — содержимое файла с закрытым ключом.
 
      Более подробную информацию о параметрах ресурса `yandex_cm_certificate` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
-
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   После этого в указанный каталог будет добавлен сертификат. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
@@ -160,9 +155,9 @@
 
 В списке сертификатов появится новый сертификат со статусом `Issued`.
 
-## Хранение публичной части сертификата в {{ lockbox-name }} {#create-lockbox}
+## Хранение публичной части сертификата в {{ lockbox-full-name }} {#create-lockbox}
 
-Вы можете хранить публичную часть пользовательского сертификата {{ certificate-manager-name }} в [{{ lockbox-name }}](../../../lockbox/quickstart.md). Чтобы добавить сертификат:
+Вы можете хранить публичную часть пользовательского сертификата {{ certificate-manager-name }} в [{{ lockbox-name }}](../../../lockbox/). Чтобы добавить сертификат:
 
 {% list tabs group=instructions %}
 
@@ -172,42 +167,40 @@
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-      ```hcl
-        resource "yandex_cm_certificate" "example-lockbox" {
-        name    = "<имя_секрета>"
+     ```hcl
+       resource "yandex_cm_certificate" "example-lockbox" {
+       name    = "<имя_секрета>"
 
-      self_managed {
-          certificate = <<-EOT
-                        -----BEGIN CERTIFICATE-----
-                        <содержимое_сертификата>
-                        -----END CERTIFICATE-----
-                        EOT
-          private_key_lockbox_secret {
-            id  = "<идентификатор_секрета>"
-            key = "<ключ_секрета>"
-          }
-        }
-      }
-      ```
+     self_managed {
+         certificate = <<-EOT
+                       -----BEGIN CERTIFICATE-----
+                       <содержимое_сертификата>
+                       -----END CERTIFICATE-----
+                       EOT
+         private_key_lockbox_secret {
+           id  = "<идентификатор_секрета>"
+           key = "<ключ_секрета>"
+         }
+       }
+     }
+     ```
 
-      Где:
+     Где:
+     * `name` — имя [секрета](../../../lockbox/concepts/secret.md) {{ lockbox-name }}.
+     * `certificate` — содержимое файла с сертификатом.
+     * `id` — идентификатор секрета {{ lockbox-name }}.
+     * `key` — ключ секрета {{ lockbox-name }}, значение которого содержит приватный ключ сертификата.
 
-      * `name` — имя секрета {{ lockbox-short-name }}.
-      * `certificate` — содержимое файла с [сертификатом](../../concepts/imported-certificate.md).
-      * `id` — идентификатор секрета {{ lockbox-short-name }}.
-      * `key` — ключ секрета {{ lockbox-short-name }}, значение которого содержит приватный ключ сертификата.
-
-      Более подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
-
+     Более подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
   1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  После этого в указанный каталог будет добавлен сертификат. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+  После этого в указанный [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) будет добавлен сертификат. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
-    ```bash
-    yc certificate-manager certificate get <имя_сертификата>
-    ```
+  ```bash
+  yc certificate-manager certificate get <имя_сертификата>
+  ```
 
 {% endlist %}
 

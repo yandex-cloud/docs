@@ -5,4 +5,4 @@ description: "Инструмент {{ KFC }} предназначен для п�
 
 # Настройка {{ KFC }} для работы с кластером {{ mkf-full-name }}
 
-{% include [kafka-connect](../../_tutorials/mkf-kafka-connect.md) %}
+{% include [kafka-connect](../../_tutorials/dataplatform/mkf-kafka-connect.md) %}

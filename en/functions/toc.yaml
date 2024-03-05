@@ -411,8 +411,6 @@ items:
         href: tutorials/regular-launch-datasphere.md
       - name: Interactive debugging of functions
         href: tutorials/serverless-live-debug.md
-      - name: Authorization using functions in Ory Kratos
-        href: tutorials/ory-kratos-authorization.md
       - name: Regular recognition of audio files in {{ objstorage-name }} buckets
         href: tutorials/batch-recognition-stt.md
       - name: Canary release of a {{ sf-name }} function
@@ -423,9 +421,15 @@ items:
     href: pricing.md
   - name: Access management
     href: security/index.md
+  - name: CLI Functions reference
+    href: ../cli/cli-ref/managed-services/serverless/function/index.md
+  - name: CLI Triggers reference
+    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API Functions reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
@@ -501,7 +505,7 @@ items:
                 href: functions/api-ref/Network/triggerUsedCleanup.md
   - name: API Triggers reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
@@ -535,6 +539,8 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
-  - name: Q&A
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
+  - name: FAQ
     href: qa/index.md
 base: en/functions

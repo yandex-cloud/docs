@@ -7,9 +7,9 @@ This section describes how to recognize text in an image or file using the {{ vi
 {% include [curl](../_includes/curl.md) %}
 
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- User's Yandex account
+- Yandex account {#yandex-account}
 
    1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
    1. [Get an IAM token](../iam/operations/iam-token/create.md), which is required for authentication.
@@ -20,7 +20,7 @@ This section describes how to recognize text in an image or file using the {{ vi
 
 ## Recognize text {#analyze-image}
 
-You can use any of the analysis features from the [list](concepts/index.md#features). For example, use the [Text recognition](concepts/ocr/index.md) feature:
+You can use any recognition model from [this list](concepts/ocr/index.md#models). As an example, we will use the `page` model that enables recognizing any amount of text on an image:
 
 1. Prepare an image file that meets the requirements:
 
@@ -36,7 +36,7 @@ You can use any of the analysis features from the [list](concepts/index.md#featu
 
    {% include [base64-encode-command](../_includes/vision/base64-encode-command.md) %}
 
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`.
 
    **body.json:**
    ```json
@@ -57,182 +57,8 @@ You can use any of the analysis features from the [list](concepts/index.md#featu
 
    The result will consist of recognized blocks of text, lines, and words with their position on the image:
 
-   ```json
-   {
-     "result": {
-       "text_annotation": {
-         "width": "1920",
-         "height": "1280",
-         "blocks": [{
-           "bounding_box": {
-             "vertices": [{
-               "x": "460",
-               "y": "777"
-             }, {
-               "x": "460",
-               "y": "906"
-             }, {
-               "x": "810",
-               "y": "906"
-             }, {
-               "x": "810",
-               "y": "777"
-             }]
-           },
-           "lines": [{
-             "bounding_box": {
-               "vertices": [{
-                 "x": "460",
-                 "y": "777"
-               }, {
-                 "x": "460",
-                 "y": "820"
-               }, {
-                 "x": "802",
-                 "y": "820"
-               }, {
-                 "x": "802",
-                 "y": "777"
-               }]
-             },
-             "alternatives": [{
-               "text": "PENGUINS",
-               "words": [{
-                 "bounding_box": {
-                   "vertices": [{
-                     "x": "460",
-                     "y": "768"
-                   }, {
-                     "x": "460",
-                     "y": "830"
-                   }, {
-                     "x": "802",
-                     "y": "830"
-                   }, {
-                     "x": "802",
-                     "y": "768"
-                   }]
-                 },
-                 "text": "PENGUINS",
-                 "entity_index": "-1"
-               }]
-             }]
-           }, {
-             "bounding_box": {
-               "vertices": [{
-                 "x": "489",
-                 "y": "861"
-               }, {
-                 "x": "489",
-                 "y": "906"
-               }, {
-                 "x": "810",
-                 "y": "906"
-               }, {
-                 "x": "810",
-                 "y": "861"
-               }]
-             },
-             "alternatives": [{
-               "text": "CROSSING",
-               "words": [{
-                 "bounding_box": {
-                   "vertices": [{
-                     "x": "489",
-                     "y": "852"
-                   }, {
-                     "x": "489",
-                     "y": "916"
-                   }, {
-                     "x": "810",
-                     "y": "916"
-                   }, {
-                     "x": "810",
-                     "y": "852"
-                   }]
-                 },
-                 "text": "CROSSING",
-                 "entity_index": "-1"
-               }]
-             }]
-           }],
-           "languages": [{
-             "language_code": "en"
-           }]
-         }, {
-           "bounding_box": {
-             "vertices": [{
-               "x": "547",
-               "y": "989"
-             }, {
-               "x": "547",
-               "y": "1046"
-             }, {
-               "x": "748",
-               "y": "1046"
-             }, {
-               "x": "748",
-               "y": "989"
-             }]
-           },
-           "lines": [{
-             "bounding_box": {
-               "vertices": [{
-                 "x": "547",
-                 "y": "989"
-               }, {
-                 "x": "547",
-                 "y": "1046"
-               }, {
-                 "x": "748",
-                 "y": "1046"
-               }, {
-                 "x": "748",
-                 "y": "989"
-               }]
-             },
-             "alternatives": [{
-               "text": "SLOW",
-               "words": [{
-                 "bounding_box": {
-                   "vertices": [{
-                     "x": "547",
-                     "y": "983"
-                   }, {
-                     "x": "547",
-                     "y": "1054"
-                   }, {
-                     "x": "748",
-                     "y": "1054"
-                   }, {
-                     "x": "748",
-                     "y": "983"
-                   }]
-                 },
-                 "text": "SLOW",
-                 "entity_index": "-1"
-               }]
-             }]
-           }],
-           "languages": [{
-             "language_code": "en"
-           }]
-         }],
-         "entities": []
-       },
-       "page": "0"
-     }
-   }
-   ```
+   {% include [text-detection-penguins](../_includes/vision/text-detection-example.md) %}
 
 1. To get all the recognized words in an image, find all the values with the `text` property.
 
 {% include [coordinate-definition-issue-note](../_includes/vision/coordinate-definition-issue-note.md) %}
-
-#### What's next {#what-is-next}
-
-* [Find out about all the service features](concepts/index.md)
-* [Learn about API authentication methods](api-ref/authentication.md)
-* [Detect faces in a photo](operations/face-detection/index.md)
-* [Assess the quality of an image](operations/classification/quality.md)
-* [Moderate images](operations/classification/moderation.md)

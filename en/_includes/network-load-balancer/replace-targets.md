@@ -4,7 +4,7 @@
 
    1. In the [management console]({{ link-console-main }}), select the folder where the network load balancer is stored.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
    1. Select the target group you need.
    1. Under **{{ ui-key.yacloud.load-balancer.target-group.label_targets-section-title }}**, remove the old VMs and add new ones.
 

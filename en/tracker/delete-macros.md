@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/delete-macros.md
 ---
-# Delete a macro
+# Deleting a macro
 
 Use this request to delete macros.
 
@@ -12,9 +12,9 @@ Before making the request, [get permission to access the API](concepts/access.md
 To delete a macro, use an HTTP `DELETE` request:
 
 ```
-DELETE /{{ ver }}/queues/<queue-id>/macros/<macros-id>
+DELETE /{{ ver }}/queues/<queue_ID_or_key>/macros/<macro_ID>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -23,9 +23,9 @@ Authorization: OAuth <token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<queue-id> | Queue ID or key. The queue key is case-sensitive. | String |
-| \<macros-id> | Macro ID. | String |
+-------- | -------- | ----------
+| \<queue_ID_or_key> | Queue ID or key. The queue key is case-sensitive. | String |
+| \<macro_ID> | Macro ID. | String |
 
 {% endcut %}
 
@@ -35,21 +35,21 @@ Authorization: OAuth <token>
 
 - Request executed successfully
 
-  {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
+   {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
 
-  The response body is missing.
+   The response body is missing.
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
 
-    {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
+   {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
 
-    {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
+   {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

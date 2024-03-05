@@ -1,5 +1,7 @@
 # Checkpoints
 
+{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
 A checkpoint in {{ ml-platform-name }} is a [saved state](save-state.md) of a notebook. It includes cell code, output, and variable values, as well as project storage data.
 
 {% include [save-state-dedicated](../../_includes/datasphere/save-state-dedicated.md) %}

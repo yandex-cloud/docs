@@ -1,5 +1,9 @@
-The `managed-airflow.editor` role enables you to create, edit, and delete clusters, as well as view information about clusters, runtime logs, and quotas.
+The `managed-airflow.editor` role allows you to manage the Apache Airflow™ clusters, as well as get information about quotas and service resource operations.
 
-To create clusters, you also need the `vpc.user` role.
+Users with this role can:
+* View information about the [Apache Airflow™ clusters](../../managed-airflow/concepts/index.md#cluster), as well as create, modify, and delete them.
+* Use the web interface to access the [Apache Airflow™ components](../../managed-airflow/concepts/index.md#components).
 
-It includes the `managed-airflow.viewer` role.
+It includes the permissions of the `managed-airflow.viewer` role.
+
+To create Apache Airflow™ clusters, you also need the `vpc.user` role.

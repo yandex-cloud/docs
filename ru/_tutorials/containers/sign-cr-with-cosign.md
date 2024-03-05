@@ -16,7 +16,7 @@
 - Вручную {#manual}
 
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../resource-manager/security/index.md#roles-list) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../iam/roles-reference.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
@@ -29,7 +29,7 @@
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-  1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/k8s-validate-cr-image.tf).
+  1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-validate-cr-image.tf).
 
      В этом файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).

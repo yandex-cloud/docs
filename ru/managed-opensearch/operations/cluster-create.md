@@ -192,6 +192,108 @@ keywords:
 
       {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать кластер {{ mos-name }}:
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      * Кластер БД — описание кластера {{ mos-name }} и его хостов.
+
+      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+
+      Пример структуры конфигурационного файла:
+
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
+        name                = "<имя_кластера>"
+        environment         = "<окружение>"
+        network_id          = "<идентификатор_сети>"
+        security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
+        deletion_protection = "<защита_от_удаления>"
+
+        config {
+
+          version        = "<версия_{{ OS }}>"
+          admin_password = "<пароль_пользователя-администратора>"
+
+          opensearch {
+            node_groups {
+              name             = "<имя_группы_виртуальных_хостов>"
+              assign_public_ip = <публичный_доступ>
+              hosts_count      = <количество_хостов>
+              zone_ids         = ["<список_зон_доступности>"]
+              subnet_ids       = ["<список_идентификаторов подсетей>"]
+              roles            = ["<список_ролей>"]
+              resources {
+                resource_preset_id = "<класс_хоста>"
+                disk_size          = <размер_хранилища_в_байтах>
+                disk_type_id       = "<тип_диска>"
+              }
+            }
+
+            plugins = ["<список_имен_плагинов>"]
+
+          }
+
+          dashboards {
+            node_groups {
+              name             = "<имя_группы_виртуальных_хостов>"
+              assign_public_ip = <публичный_доступ>
+              hosts_count      = <количество_хостов>
+              zone_ids         = ["<список_зон_доступности>"]
+              subnet_ids       = ["<список_идентификаторов подсетей>"]
+              resources {
+                resource_preset_id = "<класс_хоста>"
+                disk_size          = <размер_хранилища_в_байтах>
+                disk_type_id       = "<тип_диска>"
+              }
+            }
+          }
+        }
+      }
+
+      resource "yandex_vpc_network" "<имя_сети>" { 
+        name = "<имя_сети>"
+      }
+
+      resource "yandex_vpc_subnet" "<имя_подсети>" {
+        name           = "<имя_подсети>"
+        zone           = "<зона_доступности>"
+        network_id     = "<идентификатор_сети>"
+        v4_cidr_blocks = ["<диапазон>"]
+      }
+      ```
+
+      Где:
+
+      * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
+      * `deletion_protection` — защита от удаления: `true` или `false`.
+      * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+      * `roles` — роли хостов: `DATA` и `MANAGER`.
+
+      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      {% include [Maintenance window](../../_includes/mdb/mos/terraform/maintenance-window.md) %}
+
+      Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Создайте кластер.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
 - API {#api}
 
   Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
@@ -219,51 +321,75 @@ keywords:
 
 {% endlist %}
 
+## Импортировать кластер в {{ TF }} {#import-cluster}
+
+С помощью импорта вы можете передать существующие кластеры под управление {{ TF }}.
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+    1. Укажите в конфигурационном файле {{ TF }} кластер, который необходимо импортировать:
+
+        ```hcl
+        resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {} 
+        ```
+
+    1. Выполните команду для импорта кластера:
+
+        ```hcl
+        terraform import yandex_mdb_opensearch_cluster.<имя_кластера> <идентификатор_кластера>
+        ```
+
+        Подробнее об импорте кластеров см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}#import).
+
+{% endlist %}
+
 ## Примеры {#examples}
-
-Создайте кластер {{ mos-name }} с тестовыми характеристиками:
-
-* Имя — `my-os-clstr`.
-* Описание — `My OS cluster`.
-* Метка — `label-key` со значением `label-value`.
-* Окружение — `production`.
-* Имя сети — `{{ network-name }}`.
-* Идентификатор группы безопасности — `{{ security-group }}`.
-* Имя сервисного аккаунта — `os-account`.
-* Защита от удаления кластера — отключена.
-* Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
-* Версия {{ OS }} — `2.8`.
-* Пароль пользователя `admin` — указывается после ввода команды по созданию кластера.
-* Доступ к {{ data-transfer-name }} — включен.
-* Доступ к {{ serverless-containers-name }} — включен.
-* Подключенный плагин {{ OS }} — analysis-icu.
-* Дополнительный параметр {{ OS }} — `fielddata-cache-size=50%`.
-* Конфигурация группы узлов `{{ OS }}`:
-
-  * название группы — `os-group`;
-  * класс хостов — `{{ host-class }}`;
-  * размер диска — `10737418240` (в байтах);
-  * тип диска — `network-ssd`;
-  * количество хостов — три;
-  * зона доступности — `{{ region-id }}-b`;
-  * подсеть — `{{ network-name }}-{{ region-id }}-b`;
-  * публичный адрес — выделен;
-  * роли группы хостов — `DATA` и `MANAGER`.
-
-* Конфигурация группы хостов `Dashboards`:
-
-  * название группы — `dashboard-group`;
-  * класс хостов — `{{ host-class }}`;
-  * размер диска — `10737418240` (в байтах);
-  * тип диска — `network-ssd`;
-  * количество хостов — один;
-  * зона доступности — `{{ region-id }}-b`;
-  * подсеть — `{{ network-name }}-{{ region-id }}-b`;
-  * публичный адрес — выделен.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
+
+    Создайте кластер {{ mos-name }} с тестовыми характеристиками:
+
+    * Имя — `my-os-clstr`.
+    * Описание — `My OS cluster`.
+    * Метка — `label-key` со значением `label-value`.
+    * Окружение — `production`.
+    * Имя сети — `{{ network-name }}`.
+    * Идентификатор группы безопасности — `{{ security-group }}`.
+    * Имя сервисного аккаунта — `os-account`.
+    * Защита от удаления кластера — отключена.
+    * Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
+    * Версия {{ OS }} — `2.8`.
+    * Пароль пользователя `admin` — указывается после ввода команды по созданию кластера.
+    * Доступ к {{ data-transfer-name }} — включен.
+    * Доступ к {{ serverless-containers-name }} — включен.
+    * Подключенный плагин {{ OS }} — analysis-icu.
+    * Дополнительный параметр {{ OS }} — `fielddata-cache-size=50%`.
+    * Конфигурация группы узлов `{{ OS }}`:
+
+        * название группы — `os-group`;
+        * класс хостов — `{{ host-class }}`;
+        * размер диска — `10737418240` (в байтах);
+        * тип диска — `network-ssd`;
+        * количество хостов — три;
+        * зона доступности — `{{ region-id }}-b`;
+        * подсеть — `{{ network-name }}-{{ region-id }}-b`;
+        * публичный адрес — выделен;
+        * роли группы хостов — `DATA` и `MANAGER`.
+
+    * Конфигурация группы хостов `Dashboards`:
+
+        * название группы — `dashboard-group`;
+        * класс хостов — `{{ host-class }}`;
+        * размер диска — `10737418240` (в байтах);
+        * тип диска — `network-ssd`;
+        * количество хостов — один;
+        * зона доступности — `{{ region-id }}-b`;
+        * подсеть — `{{ network-name }}-{{ region-id }}-b`;
+        * публичный адрес — выделен.
 
     Выполните команду:
 
@@ -303,6 +429,91 @@ keywords:
                               `zone-ids={{ region-id }}-b,`
                               `subnet-names={{ network-name }}-{{ region-id }}-b,`
                               `assign-public-ip=true
+    ```
+
+- {{ TF }} {#tf}
+
+    Создайте кластер {{ mos-name }} с тестовыми характеристиками:
+
+    * Имя — `my-os-clstr`.
+    * Окружение — `PRODUCTION`.
+    * Версия {{ OS }} — `2.8`.
+    * Пароль пользователя `admin` — `osadminpwd`.
+    * Имя группы узлов `{{ OS }}` — `os-group`.
+    * Класс хостов — `{{ host-class }}`.
+    * Размер диска — `10737418240` (в байтах).
+    * Тип диска — `{{ disk-type-example }}`.
+    * Количество хостов — `1`.
+    * Публичный адрес — выделен.
+    * Роли группы хостов — `DATA` и `MANAGER`.
+    * Имя сети — `mynet`.
+    * Имя подсети — `mysubnet`.
+    * Зона доступности — `{{ region-id }}-a`.
+    * Диапазон адресов — `10.1.0.0/16`.
+    * Имя группы безопасности — `os-sg`. Группа безопасности разрешает подключение к хосту кластера из любой сети (в том числе из интернета) по порту `9200`.
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    resource "yandex_mdb_opensearch_cluster" "my-os-clstr" {
+      name               = "my-os-clstr"
+      environment        = "PRODUCTION"
+      network_id         = yandex_vpc_network.mynet.id
+      security_group_ids = [yandex_vpc_security_group.os-sg.id]
+
+      config {
+
+        version        = "2.8"
+        admin_password = "osadminpwd"
+
+        opensearch {
+          node_groups {
+            name             = "os-group"
+            assign_public_ip = true
+            hosts_count      = 1
+            zone_ids         = ["{{ region-id }}-a"]
+            subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
+            roles            = ["DATA", "MANAGER"]
+            resources {
+              resource_preset_id = "{{ host-class }}"
+              disk_size          = 10737418240
+              disk_type_id       = "{{ disk-type-example }}"
+            }
+          }
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
+    }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ region-id }}-a"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.1.0.0/16"]
+    }
+
+    resource "yandex_vpc_security_group" "os-sg" {
+      name       = "os-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Allow connections to the {{ mos-name }} cluster from the Internet"
+        protocol       = "TCP"
+        port           = 9200
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+
+      egress {
+        description    = "The rule allows all outgoing traffic"
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+        from_port      = 0
+        to_port        = 65535
+      }
+    }
     ```
 
 {% endlist %}

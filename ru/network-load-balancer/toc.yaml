@@ -41,6 +41,8 @@ items:
             href: operations/target-group-detach.md
           - name: Удалить целевую группу
             href: operations/target-group-delete.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Обзор
@@ -145,6 +147,14 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Справочник инструментов для {{ managed-k8s-name }}
+    items:
+      - name: Обзор
+        href: k8s-ref/index.md
+      - name: Service
+        href: k8s-ref/service.md
+      - name: NetworkPolicy
+        href: k8s-ref/networkpolicy.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Вопросы и ответы

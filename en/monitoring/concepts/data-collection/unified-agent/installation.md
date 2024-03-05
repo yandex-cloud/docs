@@ -31,7 +31,7 @@ Prior to installing {{ unified-agent-full-name }}, follow these steps:
    - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. In that case, the agent will automatically receive the service account IAM token from the metadata service.
    - If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authorized-key/create.md) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
 
-## Installing {#setup}
+## Installation {#setup}
 
 Install {{ unified-agent-short-name }} using one of the following methods:
 
@@ -103,7 +103,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   * `ubuntu-16.04-xenial`
   * `ubuntu-18.04-bionic`
   * `ubuntu-20.04-focal`
-  * `ubuntu-22.04-jammy` since version `23.03.02`
+  * `ubuntu-22.04-jammy`, starting with version `23.03.02`
 
   To find out all the available versions of the agent, run this command:
   ```(bash)
@@ -160,7 +160,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 - When creating a VM
 
-  You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable the **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** option under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./configuration.md#linux_metrics_input) and [agent health metrics](./configuration.md#agent_metrics_input). You'll be [charged](../../../pricing.md) for metric delivery.
+  You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable the **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** option under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./configuration.md#linux_metrics_input) and [agent health metrics](./configuration.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
 
   The installed agent is a regular [Unified Agent](./index.md) that you can additionally [set up](./configuration.md) to deliver custom metrics or [logs to {{ cloud-logging-name }}](./configuration.md#yc_logs_output).
 

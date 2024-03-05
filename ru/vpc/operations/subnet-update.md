@@ -8,8 +8,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить подсеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Нажмите ![image](../../_assets/options.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите нужные изменения.
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
 
@@ -72,7 +72,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием подсети:
 

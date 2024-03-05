@@ -20,7 +20,7 @@ When creating a cluster, specify:
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
-   * `PRESTABLE`: For testing, including {{ mrd-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
 {% note info %}
 

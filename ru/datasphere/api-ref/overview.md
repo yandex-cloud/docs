@@ -114,7 +114,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
       -d '{ "communityId": "<идентификатор_сообщества>" }'
     ```
 
-  **Пример**. Вывод списка проектов в каталоге:
+  **Пример**. Вывод списка проектов в сообществе:
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
@@ -128,37 +128,41 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
 ## Работа с ноутбуком {#notebook}
 
-Вызовы `ProjectService` и методы `Project` позволяют запустить ноутбук или конкретную ячейку, получить результаты выполнения определённой ячейки, получить значения переменных состояния ноутбука или метаданные.
+Вызов `Execute` и метод `execute` сервиса `ProjectService` позволяют запустить ноутбук для исполнения.
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
-| Запускает заданную ячейку или ноутбук | [Execute](grpc/project_service.md#Execute) | [execute](Project/execute.md) |
-| Возвращает значение переменных состояния ноутбука | [GetStateVariables](grpc/project_service.md#GetStateVariables) | [getStateVariables](Project/getStateVariables.md) |
+| Запускает заданный ноутбук | [Execute](grpc/project_service.md#Execute) | [execute](Project/execute.md) |
+
 
 {% list tabs %}
 
 - gRPC
 
-  **Пример**. Запуск конкретной ячейки ноутбука:
+  **Пример**. Запуск всего ноутбука:
 
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
-      -d '{"project_id": "<идентификатор_проекта>", "target": "cell_id", "cell_id": "<идентификатор_ячейки>"}' \
+      -d '{"project_id": "<идентификатор_проекта>", "target": "notebook_id", "notebook_id": "<идентификатор_ноутбука>"}' \
       datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.ProjectService/Execute
     ```
+
+  Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
   Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/project_service.md).
 
 - REST
 
-  **Пример**. Запуск конкретной ячейки ноутбука:
+  **Пример**. Запуск всего ноутбука:
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
       -X POST "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:execute" \
-      -d '{ "cellId": "<идентификатор_ячейки>" }'
+      -d '{ "notebook_id": "<идентификатор_ноутбука>" }'
     ```
+
+  Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
   Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
 

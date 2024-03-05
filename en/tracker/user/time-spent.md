@@ -1,4 +1,4 @@
-# Logging time spent
+# Logging spent time
 
 In {{ tracker-name }}, you can keep track of the time you spent resolving the issue.
 
@@ -20,9 +20,9 @@ The **Time tracking** category in the issue fields shows the time according to p
 
 Before starting out on an issue, we recommend that you specify the time you plan to spend on it. When your work is done, you will be able to compare your preliminary estimate against the actual time you spent.
 
-* **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}**: Time planned for resolving the issue.
+* **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}**: Time you plan to spend on the issue.
 
-* **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}**: You can specify how much time is still required to resolve the issue. Fill it out in the beginning or in the process of working on the issue.
+* **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}**: You can specify the time you still need to spend on the issue. Fill it out in the beginning or in the process of working on the issue.
 
    * If you do not specify the **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}**, whenever you [register time](#add-limited-time-spent), the value in the **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}** field will decrease by the registered value.
 
@@ -30,21 +30,21 @@ Before starting out on an issue, we recommend that you specify the time you plan
 
 * **Time spent**: Total time spent on resolving the issue. If you [logged time multiple times](#add-limited-time-spent), this field will show the total value.
 
-### Registering time spent {#add-limited-time-spent}
+### Logging spent time {#add-limited-time-spent}
 
-To log time:
+To log spent time:
 
 1. Open the issue page.
 
-1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.add-worklog }}**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-worklog }}**.
 
-1. Fill in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}** field.
+1. Fill in the **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.duration-label }}** field.
 
    Here is an example:
    * 1 week and 3 days: `1w 3d`.
    * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`.
 
-1. Fill in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.date-label }}** field with the date and time in the current time zone.
+1. Fill in the **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.date-label }}** field with the date and time in the current time zone.
 
    {% note info %}
 
@@ -56,7 +56,7 @@ To log time:
 
 1. Leave a comment, if needed. The comment will not be visible in the issue but will be saved in the [Time spent report](../manager/statistics.md#section_uxt_3ft_xz) and the [History of issue changes](#records-history).
 
-1. Click **{{ ui-key.startrek.ui_components_AddWorklogDialog.apply-button }}**.
+1. Click **{{ ui-key.startrek.ui_components_issue-actions_worklog_AddWorklogDialog.apply-button }}**.
 
 {% note info %}
 
@@ -102,9 +102,9 @@ As a result, a new section called **{{ ui-key.startrek.ui_components_page-queue-
 
 To switch back to basic time tracking, disable **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** in the queue settings. Data from the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be transferred to the fields of the **Time tracking** category.
 
-### Registering time spent {#add-extended-time-spent}
+### Logging spent time {#add-extended-time-spent}
 
-To log time:
+To log spent time:
 
 1. Make sure the **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** option is enabled in the queue settings.
 1. Open the issue page.

@@ -7,11 +7,11 @@ description: "Follow this guide to link a cloud to a billing account."
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
-## Requirements for linking a cloud
+## Requirements for linking a cloud {#bind-roles}
 
 Before linking a cloud, make sure that the billing account has been activated (the `ACTIVE` or `TRIAL_ACTIVE` status) and that the user has the following roles:
-* [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
-* `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access control](../security/index.md#roles-list).
+* [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) in the cloud.
+* `billing.accounts.owner` or `editor` in the billing account. To learn more about roles, see [Access management](../security/index.md#roles-list).
 
 ## Linking a cloud {#bind-cloud}
 
@@ -65,10 +65,17 @@ To link a cloud or transfer an existing one:
 
    After that, the cloud will be linked to the billing account. You can check that the cloud is linked to the account on the billing account page in the [{{ billing-name }} service]({{ link-console-billing }}).
 
+- API {#api}
+
+   To link a cloud, use the [bindBillableObject](../api-ref/BillingAccount/bindBillableObject.md) REST API method for the [BillingAccount](../api-ref/BillingAccount/index.md) resource or the [BillingAccountService/BindBillableObject](../api-ref/grpc/billing_account_service.md#BindBillableObject) gRPC API call.
+
 {% endlist %}
 
 
-{% include [account_scope.md](../_includes/account-scope.md) %}
-
 If you are migrating a cloud because you want to stop using the old billing account, make sure the free Basic service plan is activated in it. Otherwise, even though it has no linked clouds remaining, you will continue to be charged for the paid service plan.
 
+## Resource management in organizations {#bind-cloud-organization}
+
+1. If your billing account is [added to your organization](../concepts/organization.md), you will be able to connect only those clouds and {{ ml-platform-name }}, {{ tracker-name }}, or {{ datalens-short-name }} instances that are created in your organization.
+
+1. {% include [account_scope.md](../_includes/account-scope.md) %}

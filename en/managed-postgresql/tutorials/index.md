@@ -13,6 +13,8 @@ description: "Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](./data-transfer-ydb.md)
 * [{#T}](./mpg-to-yds.md)
 * [{#T}](./mkf-to-mpg.md)
+* [{#T}](./object-storage-to-postgresql.md)
+* [{#T}](./container-connect.md)
 
 ## Replication and migration {#replication-and-migration}
 

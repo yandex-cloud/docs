@@ -1,1 +1,1 @@
-The `loadtesting.externalAgent` role.
+The `loadtesting.externalAgent` role allows registering agents created outside Load Testing, create, update, and run tests, as well as transfer their results to Load Testing.

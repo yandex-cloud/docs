@@ -13,9 +13,9 @@ To delete a disk snapshot schedule:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
    1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-   1. Next to the schedule to delete, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Next to the schedule to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the schedule deletion.
 
 - CLI {#cli}
@@ -38,8 +38,8 @@ To delete a disk snapshot schedule:
       ```
       Result:
       ```text
-      - id: fc852cvb1ipd55flc7t9
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc852cvb1ipd5********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-28T13:25:02Z"
         name: sched-1
         status: ACTIVE
@@ -47,8 +47,8 @@ To delete a disk snapshot schedule:
           start_at: "2022-10-01T00:00:00Z"
           expression: 59 14 */1 * *
         snapshot_spec: {}
-      - id: fc89n1j15l7frkrne9eo
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc89n1j15l7f********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-27T16:04:13Z"
         name: sched-2
         status: ACTIVE
@@ -57,8 +57,8 @@ To delete a disk snapshot schedule:
           expression: 0 */1 * * *
         retention_period: 3600s
         snapshot_spec: {}
-      - id: fc8bplhqmh2bnjni3lm0
-        folder_id: b8gauskl78li5n96eabk
+      - id: fc8bplhqmh2b********
+        folder_id: b8gauskl78li********
         created_at: "2022-10-03T13:28:01Z"
         name: sched-3
         description: Daily

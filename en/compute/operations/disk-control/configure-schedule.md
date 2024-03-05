@@ -7,8 +7,8 @@ description: "Follow this guide to to configure disk snapshot schedules."
 
 For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [snapshot](../../concepts/snapshot.md) creation:
 
-* [{#T}](#add-schedule)
-* [{#T}](#remove-schedule)
+* [{#T}](#add-schedule).
+* [{#T}](#remove-schedule).
 
 ## Adding a schedule to a disk {#add-schedule}
 
@@ -20,9 +20,9 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Open the ![image](../../../_assets/compute/disks-pic.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
-   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
-   1. Choose a schedule or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
+   1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
+   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
+   1. Choose a schedule or create a new one. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -45,8 +45,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       ```
       Result:
       ```text
-      - id: epdcq9g3co9se5uhmgg5
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: epdcq9g3co9s********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
@@ -54,14 +54,14 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         size: "21474836480"
         block_size: "4096"
         product_ids:
-          - f2euv1kekdgvc0jrpaet
+          - f2euv1kekdgv********
         status: READY
-        source_image_id: fd88d14a6790do254kj7
+        source_image_id: fd88d14a6790********
         instance_ids:
-          - ephothb6lppn5kn8mtom
+          - ephothb6lppn********
         disk_placement_policy: {}
-      - id: fhm7mip40dqh2lt2hhn2
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fhm7mip40dqh********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-10T05:00:04Z"
         name: disk-1
         type_id: network-hdd
@@ -69,11 +69,11 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         size: "21474836480"
         block_size: "4096"
         product_ids:
-          - f2euv1kekdgvc0jrpaet
+          - f2euv1kekdgv********
         status: READY
-        source_image_id: fd88d14a6790do254kj7
+        source_image_id: fd88d14a6790********
         instance_ids:
-          - fhm1c7u23aiq8scvnhag
+          - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
       For more information about the `yc compute disk list` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/list.md).
@@ -92,8 +92,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       ```
       Result:
       ```text
-      - id: fc852cvb1ipd55flc7t9
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc852cvb1ipd5********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-28T13:25:02Z"
         name: sched-1
         status: ACTIVE
@@ -101,8 +101,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
           start_at: "2022-10-01T00:00:00Z"
           expression: 59 14 */1 * *
         snapshot_spec: {}
-      - id: fc89n1j15l7frkrne9eo
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc89n1j15l7f********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-27T16:04:13Z"
         name: sched-2
         status: ACTIVE
@@ -111,8 +111,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
           expression: 0 */1 * * *
         retention_period: 3600s
         snapshot_spec: {}
-      - id: fc8bplhqmh2bnjni3lm0
-        folder_id: b8gauskl78li5n96eabk
+      - id: fc8bplhqmh2b********
+        folder_id: b8gauskl78li********
         created_at: "2022-10-03T13:28:01Z"
         name: sched-3
         description: Daily
@@ -137,8 +137,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       Result:
       ```text
       done (3s)
-      id: fc8e52mvchb2dbp0pou2
-      folder_id: e1iaui8l7klihn96gabc
+      id: fc8e52mvchb2********
+      folder_id: e1iaui8l7kli********
       created_at: "2022-09-28T09:15:28Z"
       name: sched-1
       status: ACTIVE
@@ -154,8 +154,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Open the ![image](../../../_assets/compute/disks-pic.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
-   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, in the line with the schedule, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
+   1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
+   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, in the line with the schedule, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
 
 - CLI {#cli}
 
@@ -177,8 +177,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       ```
       Result:
       ```text
-      - id: fc852cvb1ipd55flc7t9
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc852cvb1ipd5********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-28T13:25:02Z"
         name: sched-1
         status: ACTIVE
@@ -186,8 +186,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
           start_at: "2022-10-01T00:00:00Z"
           expression: 59 14 */1 * *
         snapshot_spec: {}
-      - id: fc89n1j15l7frkrne9eo
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc89n1j15l7f********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-09-27T16:04:13Z"
         name: sched-2
         status: ACTIVE
@@ -196,8 +196,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
           expression: 0 */1 * * *
         retention_period: 3600s
         snapshot_spec: {}
-      - id: fc8bplhqmh2bnjni3lm0
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fc8bplhqmh2b********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-03T13:28:01Z"
         name: sched-3
         description: Daily
@@ -219,8 +219,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       ```
       Result:
       ```text
-      - id: epdcq9g3co9se5uhmgg5
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: epdcq9g3co9s********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
@@ -228,14 +228,14 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         size: "21474836480"
         block_size: "4096"
         product_ids:
-          - f2euv1kekdgvc0jrpaet
+          - f2euv1kekdgv********
         status: READY
-        source_image_id: fd88d14a6790do254kj7
+        source_image_id: fd88d14a6790********
         instance_ids:
-          - epdothb6lppn5kn8mtom
+          - epdothb6lppn********
         disk_placement_policy: {}
-      - id: fhm7mip40dqh2lt2hhn2
-        folder_id: e1ea8s8l71li5n96eakv
+      - id: fhm7mip40dqh********
+        folder_id: e1ea8s8l71li********
         created_at: "2022-10-10T05:00:04Z"
         name: disk-1
         type_id: network-hdd
@@ -243,11 +243,11 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         size: "21474836480"
         block_size: "4096"
         product_ids:
-          - f2euv1kekdgvc0jrpaet
+          - f2euv1kekdgv********
         status: READY
-        source_image_id: fd88d14a6790do254kj7
+        source_image_id: fd88d14a6790********
         instance_ids:
-          - fhm1c7u23aiq8scvnbag
+          - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
 
@@ -260,8 +260,8 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       Result:
       ```text
       done (3s)
-      id: fc8e52mvchb2dbp0pou2
-      folder_id: e1ea8s8l71li5n96eakv
+      id: fc8e52mvchb2********
+      folder_id: e1ea8s8l71li********
       created_at: "2022-09-28T09:15:28Z"
       name: sched-1
       status: ACTIVE

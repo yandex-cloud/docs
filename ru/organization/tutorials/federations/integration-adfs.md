@@ -114,51 +114,6 @@
 
         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-- API {#api}
-
-  1. Создайте файл с телом запроса, например `body.json`:
-
-      ```json
-      {
-        "name": "my-federation",
-        "organizationId": "<идентификатор_организации>",
-        "autoCreateAccountOnLogin": true,
-        "cookieMaxAge":"43200s",
-        "issuer": "http://example.com/adfs/services/trust",
-        "ssoUrl": "https://example.com/adfs/ls/",
-        "ssoBinding": "POST",
-        "securitySettings": {
-          "forceAuthn": true
-        }
-      }
-      ```
-
-      Где:
-
-      * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-      * `organizationId` — идентификатор организации. 
-      * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
-        Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
-
-          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
-
-      * `cookieMaxAge` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
-      * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
-
-          Укажите ссылку в формате `http://<ADFS>/adfs/services/trust`, где `<ADFS>` — это FQDN вашего AD FS сервера.
-
-      * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
-
-          Укажите ссылку в формате `https://<ADFS>/adfs/ls/`, где `<ADFS>` — это FQDN вашего AD FS сервера.
-
-          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
-
-      * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
-
-      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
-
-  1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
-
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -230,7 +185,62 @@
 
      После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
 
+- API {#api}
+
+  1. Создайте файл с телом запроса, например `body.json`:
+
+      ```json
+      {
+        "name": "my-federation",
+        "organizationId": "<идентификатор_организации>",
+        "autoCreateAccountOnLogin": true,
+        "cookieMaxAge":"43200s",
+        "issuer": "http://example.com/adfs/services/trust",
+        "ssoUrl": "https://example.com/adfs/ls/",
+        "ssoBinding": "POST",
+        "securitySettings": {
+          "forceAuthn": true
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя федерации. Имя должно быть уникальным в каталоге.
+      * `organizationId` — идентификатор организации. 
+      * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+        Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
+
+          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
+
+      * `cookieMaxAge` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
+      * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
+
+          Укажите ссылку в формате `http://<ADFS>/adfs/services/trust`, где `<ADFS>` — это FQDN вашего AD FS сервера.
+
+      * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
+
+          Укажите ссылку в формате `https://<ADFS>/adfs/ls/`, где `<ADFS>` — это FQDN вашего AD FS сервера.
+
+          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
+      * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+
+      * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
+
+  1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
+
 {% endlist %}
+
+{% note info %}
+
+Чтобы принудительная повторная аутентификация (ForceAuthn) в IdP работала корректно, внесите изменения в настройки IdP-провайдера. Для этого на вашем сервере ADFS откройте консоль `PowerShell` и выполните команду:
+
+```powershell
+Get-AdfsRelyingPartyTrust -Name YC | Set-AdfsRelyingPartyTrust -AlwaysRequireAuthentication $true
+```
+
+{% endnote %}
 
 ## Укажите сертификаты для федерации {#add-certificate}
 
@@ -401,7 +411,7 @@ AD FS требует создавать _отношение доверия с п
 
 Данные пользователя | Комментарий | Outgoing Claim Type
 ------------------- | ----------- | -------------------
-Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать атрибут **User-Principal-Name** или адрес электронной почты. | Name ID 
+Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуем использовать один из уникальных и неизменных атрибутов пользователя Active Directory: **User-Principal-Name**, **Object-Sid**, **Object-Guid** или адрес электронной почты. | Name ID 
 Фамилия | Отображается в сервисах {{ yandex-cloud }}. Рекомендуется использовать атрибут **Surname**.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | Surname
 Имя | Отображается в сервисах {{ yandex-cloud }}. Рекомендуется использовать атрибут **Given-Name**.<br> Ограничение значения по длине: {{ saml-limit-first-name }}. | Given Name
 Полное имя | Отображается в сервисах {{ yandex-cloud }}. Пример: Иван Иванов.<br>Рекомендуется использовать атрибут **Display-Name**.<br> Ограничение значения по длине: {{ saml-limit-display-name }}. | Name
@@ -411,7 +421,7 @@ AD FS требует создавать _отношение доверия с п
 
 {% note warning %}
 
-Идентификатор Name ID должен быть уникальным для всех пользователей федерации. В качестве идентификатора рекомендуется указывать User Principal Name (UPN) или адрес электронной почты.
+В качестве идентификатора `Name ID` используйте только такие атрибуты пользователя Active Directory, значения которых уникальны и не будут изменены. Если значение `Name ID` пользователя федерации изменится, для такого пользователя потребуется создать новую учетную запись в федерации, а доступ к прежним настройкам и данным в {{ yandex-cloud }} будет потерян.
 
 Значение атрибута `thumbnailPhoto`, превышающее ограничение по длине, игнорируется. Если значение другого атрибута превышает ограничения, то часть значения, выходящая за пределы ограничения, отбрасывается.
 
@@ -433,7 +443,7 @@ AD FS требует создавать _отношение доверия с п
 
     1. Укажите, что будет передаваться в качестве Name ID — уникального идентификатора пользователя. Для этого добавьте строчку в списке **Mapping of LDAP attributes**:
 
-        В столбце **LDAP Attribute** выберите **User-Principal-Name** или **E-Mail-Addresses**.
+        В столбце **LDAP Attribute** выберите атрибут, который обеспечит уникальность и неизменность идентификатора пользователя федерации: **User-Principal-Name**, **Object-Sid**, **Object-Guid** или **E-Mail-Addresses**.
 
         В столбце **Outgoing Claim Type** выберите **Name ID**.
 
@@ -478,17 +488,17 @@ AD FS требует создавать _отношение доверия с п
    
       Пример CSV-файла:
 	  
-	  ```csv
-	  AD_username, Photo
+      ```csv
+      AD_username, Photo
       smith, C:\Photo\smith.jpg
       jones, C:\Photo\jones.jpg
-	  ```
+      ```
 	  
    1. Выполните команду:
    
-    ```
-	  Import-Csv <путь_к_CSV-файлу> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
-	  ```
+      ```
+      Import-Csv <путь_к_CSV-файлу> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
+      ```
    
 ## Добавьте пользователей в организацию {#add-users}
 

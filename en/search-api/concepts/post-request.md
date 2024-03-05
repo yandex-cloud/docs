@@ -13,7 +13,7 @@ Special characters provided as parameter values in the request body should be re
 
 ## Request format {#post-request-format}
 
-```xml
+```httpget
 https://yandex.<domain>/search/xml
   ? [folderid=<folder_ID>]
   & [filter=<filtering_type>]
@@ -25,7 +25,7 @@ https://yandex.<domain>/search/xml
 
 {% include [name-and-key](../../_includes/search-api/key.md) %}
 
-Provide the API key value in the `Authorization` header. Fore more information, see [Authentication in {{ search-api-full-name }}](../operations/auth.md).
+Provide the API key value in the `Authorization` header. Fore more information, see [Authentication in {{ search-api-name }}](../operations/auth.md).
 
 {% include [filter](../../_includes/search-api/filter.md) %}
 
@@ -38,20 +38,23 @@ Provide the API key value in the `Authorization` header. Fore more information, 
 ```xml
 <?xml version="1.0" encoding="<XML_file_encoding>"?>
 <request>
-<!--Grouping tag-->
-   <query>
-   <!--Search query text-->
-   </query>
-   <sortby>
-   <!--Search result sorting type-->
-   </sortby>
-   <groupings>
-   <!--Grouping parameters for child tags-->
-      <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="1" />
-   </groupings>
-   <page>
-   <!--Number of the requested page with search results-->
-   </page>
+<!--Grouping_tag-->
+  <query>
+     <!--Search request text-->
+  </query>
+  <sortby order="<!--document sorting order-->">
+     <!--Search results sorting type-->
+  </sortby>
+  <groupings>
+    <!--Grouping parameters in child tags-->
+    <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="1" />
+  </groupings>
+  <maxpassages>
+    <!--maximum number of passages-->
+  </maxpassages>
+  <page>
+    <!--Number of requested search results page-->
+  </page>
 </request>
 ```
 
@@ -83,12 +86,12 @@ The `groupings` tag brings grouping result parameters together.
 
 ## Sample POST request {#example-post-request}
 
-The following request URL and request body return the third page with search results in response to the `<table>` query for the `xml-search-user` user. The results are sorted by the document update time. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
+The URL and request body below return the fifth page of search results for the `<table>` request. The results are sorted by the document editing time – from the newest to the oldest. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk oblast. A family filter has been applied to the search results. The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
 
 Request URL:
 
 ```httpget
-https://yandex.ru/search/xml?user=xml-search-user`&`key=03.44583456:c876e1b098gh65khg834ggg1jk4ll9j8
+https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=11316&l10n=ru
 ```
 
 Request body:
@@ -96,12 +99,12 @@ Request body:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <request>
-<query>%3Ctable%3E</query>
-      <sortby>tm</sortby>
-      <maxpassages>2</maxpassages>
-      <page>2</page>
-      <groupings>
-      <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="3" />
-</groupings>
+  <query><table></query>
+  <sortby order="descending">tm</sortby>
+  <maxpassages>2</maxpassages>
+  <page>5</page>
+  <groupings>
+    <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="3" />
+  </groupings>
 </request>
 ```

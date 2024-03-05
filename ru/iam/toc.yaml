@@ -79,6 +79,12 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: Аккаунты в {{ yandex-cloud }}
+        items:
+          - name: Обзор
+            href: concepts/users/accounts.md
+          - name: Сервисные аккаунты
+            href: concepts/users/service-accounts.md
       - name: Как устроено управление доступом
         items:
           - name: Обзор
@@ -105,8 +111,6 @@ items:
             href: concepts/authorization/key.md
           - name: AWS-совместимые ключи доступа
             href: concepts/authorization/access-key.md
-      - name: Сервисные аккаунты
-        href: concepts/users/service-accounts.md
       - name: Федерации удостоверений
         href: concepts/federations.md
       - name: Квоты и лимиты
@@ -119,7 +123,6 @@ items:
     href: pricing.md
   - name: Справочник ролей
     href: roles-reference.md
-    hidden: true
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/iam/index.md
   - name: Справочник {{ TF }}
@@ -142,6 +145,8 @@ items:
             href: api-ref/grpc/role_service.md
           - name: ServiceAccountService
             href: api-ref/grpc/service_account_service.md
+          - name: ServiceControlService
+            href: api-ref/grpc/service_control_service.md
           - name: UserAccountService
             href: api-ref/grpc/user_account_service.md
           - name: YandexPassportUserAccountService
@@ -228,6 +233,22 @@ items:
                 href: api-ref/ServiceAccount/update.md
               - name: updateAccessBindings
                 href: api-ref/ServiceAccount/updateAccessBindings.md
+          - name: ServiceControl
+            items:
+              - name: Overview
+                href: api-ref/ServiceControl/index.md
+              - name: disable
+                href: api-ref/ServiceControl/disable.md
+              - name: enable
+                href: api-ref/ServiceControl/enable.md
+              - name: get
+                href: api-ref/ServiceControl/get.md
+              - name: list
+                href: api-ref/ServiceControl/list.md
+              - name: pause
+                href: api-ref/ServiceControl/pause.md
+              - name: resume
+                href: api-ref/ServiceControl/resume.md
           - name: UserAccount
             items:
               - name: Overview
@@ -298,6 +319,8 @@ items:
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Вопросы и ответы

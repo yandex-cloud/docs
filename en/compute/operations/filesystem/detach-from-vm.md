@@ -5,16 +5,16 @@ description: "Follow this guide to detach file storage from a VM."
 
 # Detaching file storage from a VM
 
-1. Dismount your [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
+1. Unmount the [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
    1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
    1. If you added a line to the `/etc/fstab` file for automatically mounting file storage to the VM at startup (for example, when [attaching storage to a VM](attach-to-vm.md)), delete the line.
    1. Run this command:
 
       ```bash
-      sudo umount <mount path>
+      sudo umount <mounting_path>
       ```
 
-   1. To check that your file storage has been dismounted, run the command:
+   1. To check that your file storage has been unmounted, run this command:
 
       ```bash
       df -T
@@ -42,10 +42,10 @@ description: "Follow this guide to detach file storage from a VM."
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage is located.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
+      1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
       1. Select the required storage.
       1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
-      1. In the line of the appropriate VM, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
+      1. In the line of the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
       1. In the window that opens, confirm the detach operation.
 
    - {{ TF }} {#tf}
@@ -67,7 +67,7 @@ description: "Follow this guide to detach file storage from a VM."
             zone        = "{{ region-id }}-a"
 
             filesystem {
-               filesystem_id = "fhmaikp755grp4mlvvem"
+               filesystem_id = "fhmaikp755gr********"
             }
          ...
          ```

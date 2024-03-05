@@ -3,13 +3,14 @@
 В {{ yandex-cloud }} сетевые ресурсы, например, облачные сети и подсети, обычно создаются в одном облачном каталоге ресурсов, а связь с ресурсами в других каталогах облака отсутствует. При развертывании ресурсов в {{ yandex-cloud }} часто возникает необходимость обеспечить сетевое взаимодействие между ресурсами из разных каталогов. Один из способов решения этой задачи – метод `Multi-folder VPC`, расширяющий область действия отдельно взятой сети {{ vpc-short-name }} с одного каталога на несколько.
 
 В зависимости от выбранного интерфейса управления {{ yandex-cloud }} расширение области действия сети в другие каталоги достигается за счет:
-* перемещения подсетей в другие каталоги облака - `консоль управления (UI)`
-* создания подсетей в целевых каталогах - `YC CLI`
-* создания подсетей в целевых каталогах - `Terraform`
+
+* перемещения подсетей в другие каталоги облака — `консоль управления (UI)`, `YC CLI`;
+* создания подсетей в целевых каталогах — `YC CLI`;
+* создания подсетей в целевых каталогах — `Terraform`.
 
 После этого к подсетям в целевых каталогах можно подключать виртуальные машины, кластеры {{ managed-k8s-name }}, хосты БД, балансировщики нагрузки, агенты нагрузочного тестирования или другие ресурсы, находящиеся в этих каталогах. Таким образом можно получить сеть, которая обеспечит связность между ресурсами из разных каталогов.
 
-В данном руководстве описан пример создания инфраструктуры, состоящей из трех виртуальных машин, расположенных в трех разных каталогах и объединенных в одну общую внутреннюю сеть. Сетевое объединение облачных ресурсов в разных каталогах заключается в создании в одном из этих каталогов облачной сети c последуюшим расширением области ее действия в другие каталоги. Таким образом, сеть из одного каталога, как бы растягивается на несколько каталогов, давая возможность подключать к `"растянутым подсетям"` в этих каталогах нужные ресурсы.
+В данном руководстве описан пример создания инфраструктуры, состоящей из трех виртуальных машин, расположенных в трех разных каталогах и объединенных в одну общую внутреннюю сеть. Сетевое объединение облачных ресурсов в разных каталогах заключается в создании в одном из этих каталогов облачной сети с последующим расширением области ее действия в другие каталоги. Таким образом, сеть из одного каталога, как бы растягивается на несколько каталогов, давая возможность подключать к `«растянутым подсетям»` в этих каталогах нужные ресурсы.
 
 {% note warning %}
 
@@ -17,7 +18,7 @@
 
 {% endnote %}
 
-Например, в составе среды разработки есть модуль CI/CD, компоненты которого размещаются в каталоге `net-folder`. Им необходимо обеспечить сетевое взаимодействие с компонентами **dev**-, **stage**- и **prod**-окружений, которые находятся в соответствующих каталогах. 
+Например, в составе среды разработки есть модуль CI/CD, компоненты которого размещаются в каталоге `net-folder`. Им необходимо обеспечить сетевое взаимодействие с компонентами **dev**-, **stage**- и **prod**-окружений, которые находятся в соответствующих каталогах.
 
 Схема такого решения показана на рисунке ниже.
 
@@ -33,8 +34,8 @@
 
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Создайте каталоги без сети {{ vpc-short-name }}](#create-folders).
-1. [Создайте облачную сеть {{ vpc-short-name }} с подсетями](#create-vpc). 
-1. [Переместите подсети](#move-subnets). Только для консоли управления.
+1. [Создайте облачную сеть {{ vpc-short-name }} с подсетями](#create-vpc).
+1. [Переместите подсети](#move-subnets).
 1. [Создайте виртуальные машины](#create-vms).
 1. [Проверьте сетевую связность ресурсов](#check-connectivity).
 
@@ -64,15 +65,14 @@
 
 ## Создайте каталоги без сети {{ vpc-short-name }} {#create-folders}
 
-1. Создайте каталог `net-folder`:
+1. Создайте каталоги `net-folder`, `dev-folder` и `prod-folder`:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и нажмите кнопку ![Create icon](../../_assets/create.png) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+     1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и нажмите кнопку ![Create icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
      1. Введите имя [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) `net-folder`.
-     1. При желании, введите описание каталога.
      1. Отключите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**, чтобы создать сеть и подсети вручную.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -84,7 +84,7 @@
 
      {% note info %}
 
-     Для создания ресурсов с помощью CLI необходимо [аутентифицироваться](../../cli/operations/authentication/service-account.md#auth-as-sa) от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `admin` на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud). 
+     Для создания ресурсов с помощью CLI необходимо [аутентифицироваться](../../cli/operations/authentication/service-account.md#auth-as-sa) от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `admin` на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 
      {% endnote %}
 
@@ -101,15 +101,14 @@
         yc resource-manager folder create --name dev-folder
         yc resource-manager folder create --name prod-folder
         ```
- 
+
    - {{ TF }} {#tf}
 
      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-
      1. Задайте параметры для Terraform-провайдера {{ yandex-cloud }}:
 
-         ```
+         ```hcl
         # ==================================
         # Terraform & Provider Configuration
         # ==================================
@@ -125,7 +124,7 @@
 
      1. Опишите входные переменные:
 
-        ```
+        ```hcl
         variable "cloud_id" {
           description = "YC cloud-id. Taken from environment variable."
         }
@@ -133,7 +132,7 @@
 
      1. Опишите целевые ресурсы — облачные каталоги:
 
-        ```
+        ```hcl
         # ========
         # Folders
         # ========
@@ -141,12 +140,12 @@
           cloud_id = var.cloud_id
           name     = "net-folder"
         }
-   
+
         resource "yandex_resourcemanager_folder" "dev_folder" {
           cloud_id = var.cloud_id
           name     = "dev-folder"
         }
-   
+
         resource "yandex_resourcemanager_folder" "prod_folder" {
           cloud_id = var.cloud_id
           name     = "prod-folder"
@@ -167,51 +166,44 @@
 
    - API {#api}
 
-     Чтобы создать каталог, воспользуйтесь:
-     * методом [create](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/create) для ресурса [Folder](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/) (`REST API`);
-     * вызовом [FolderService/Create](https://cloud.yandex.ru/docs/resource-manager/api-ref/grpc/folder_service#Create) (`gRPC API`).
+     Воспользуйтесь методом REST API [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/) или вызовом gRPC API [FolderService/Create](../../resource-manager/api-ref/grpc/folder_service.md#Create).
 
    {% endlist %}
 
-
 ## Создайте облачную сеть {{ vpc-short-name }} с подсетями {#create-vpc}
 
-В каталоге `net-folder` создайте сеть `shared-net` с тремя подсетями со следуюшими параметрами:
+В каталоге `net-folder` создайте сеть `shared-net` с тремя подсетями со следующими параметрами:
 
 | Имя подсети | Префикс | Зона доступности | Целевой каталог |
 | --- | --- | --- | --- |
-| subnet-a | 10.1.11.0/24 | {{ region-id }}-a | net-folder |
-| subnet-b | 10.1.12.0/24 | {{ region-id }}-b | dev-folder |
-| subnet-c | 10.1.13.0/24 | {{ region-id }}-c | prod-folder |
+| `subnet-a` | `10.1.11.0/24` | `{{ region-id }}-a` | `net-folder` |
+| `subnet-b` | `10.1.12.0/24` | `{{ region-id }}-b` | `dev-folder` |
+| `subnet-c` | `10.1.13.0/24` | `{{ region-id }}-c` | `prod-folder` |
 
-
-1. Создайте сеть:
+1. Создайте [облачную сеть](../../vpc/concepts/network.md):
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
      1. В списке сервисов выберите **{{ vpc-name }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Задайте имя сети `shared-net`.
-     1. При желании, добавьте описание сети.
      1. Отключите опцию [Создать подсети](../../vpc/operations/subnet-create.md), чтобы создать подсети вручную.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
    - CLI {#cli}
 
-     Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
      1. Посмотрите описание команды CLI для создания облачной сети:
 
-        ```
+        ```bash
         yc vpc network create --help
         ```
 
      1. Создайте облачную сеть `shared-net` в каталоге `net-folder`:
 
-        ```
+        ```bash
         yc vpc network create --folder-name net-folder --name shared-net
         ```
 
@@ -219,7 +211,7 @@
 
      1. Опишите целевой ресурс — облачную сеть:
 
-        ```
+        ```hcl
         # =============
         # VPC Resources
         # =============
@@ -243,45 +235,38 @@
 
    - API {#api}
 
-     Чтобы создать облачную сеть, воспользуйтесь:
-     * методом [create](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) для ресурса [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) (`REST API`)
-     * вызовом [NetworkService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/network_service#Create) (`gRPC API`)
+     Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
 
    {% endlist %}
 
-1. Создайте подсеть `subnet-a` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`: 
+1. Создайте [подсеть](../../vpc/concepts/network.md#subnet) `subnet-a` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     Чтобы создать [подсеть](../../vpc/concepts/network.md#subnet):
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
      1. В списке сервисов выберите **{{ vpc-name }}**.
      1. Нажмите на имя облачной сети `shared-net`.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите название подсети `subnet-a`.
-     1. При желании, добавьте описание.
      1. Выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
-     1. Введите CIDR подсети: IP-адрес `10.1.11.0` и маску подсети `24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md). 
-     1. Нажмите кнопку **Создать подсеть**.
+     1. Введите CIDR подсети: IP-адрес `10.1.11.0` и маску подсети `24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-     Аналогично создайте подсети `subnet-b` и `subnet-с` в каталоге **net-folder**.
-
+     Аналогично создайте подсети `subnet-b` и `subnet-с` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-c` в каталоге **net-folder**.
 
    - CLI {#cli}
 
-     Чтобы создать [подсеть](../../vpc/concepts/network.md#subnet):
-
      1. Посмотрите описание команды CLI для создания подсети:
 
-        ```
+        ```bash
         yc vpc subnet create --help
         ```
 
      1. Создайте подсети в целевых каталогах:
 
-        ```
+        ```bash
         yc vpc subnet create --folder-name net-folder --name subnet-a \
           --network-name shared-net --zone {{ region-id }}-a --range 10.1.11.0/24
 
@@ -294,7 +279,7 @@
 
      1. Проверьте состояние созданных подсетей:
 
-        ```
+        ```bash
         yc vpc subnet list --folder-name net-folder
         yc vpc subnet list --folder-name dev-folder
         yc vpc subnet list --folder-name prod-folder
@@ -304,7 +289,7 @@
 
      1. Опишите целевые ресурсы — облачные подсети:
 
-        ```
+        ```hcl
         resource "yandex_vpc_subnet" "subnet_a" {
           folder_id      = yandex_resourcemanager_folder.net_folder.id
           name           = "subnet-a"
@@ -313,7 +298,7 @@
           zone           = "{{ region-id }}-a"
           network_id     = yandex_vpc_network.shared_net.id
         }
-   
+
         resource "yandex_vpc_subnet" "subnet_b" {
           folder_id      = yandex_resourcemanager_folder.dev_folder.id
           name           = "subnet-b"
@@ -322,7 +307,7 @@
           zone           = "{{ region-id }}-b"
           network_id     = yandex_vpc_network.shared_net.id
         }
-   
+
         resource "yandex_vpc_subnet" "subnet_c" {
           folder_id      = yandex_resourcemanager_folder.prod_folder.id
           name           = "subnet-c"
@@ -332,7 +317,6 @@
           network_id     = yandex_vpc_network.shared_net.id
         }
         ```
-
 
      1. Выполните команды:
 
@@ -346,44 +330,57 @@
 
    - API {#api}
 
-     Чтобы создать подсеть, воспользуйтесь:
-     * методом [create](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/create) для ресурса [Subnet](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/) (`REST API`)
-     * вызовом [SubnetService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/subnet_service#Create) (`gRPC API`)
+     Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
    {% endlist %}
 
+## Переместите подсети {#move-subnets}
 
-## Переместите подсети. Только для консоли управления. {#move-subnets}
-
-Переместите подсеть `subnet-b` в каталог `dev-folder`.
+[Переместите](../../vpc/operations/subnet-move.md) подсеть `subnet-b` в каталог `dev-folder`:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы переместить подсеть в другой каталог:
-
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
   1. В списке сервисов выберите **{{ vpc-name }}**.
   1. Нажмите на имя облачной сети `shared-net`.
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке подсети `subnet-b`, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-b`, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. В выпадающем списке выберите каталог `dev-folder`.
-  1. Нажмите кнопку **Переместить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-  Аналогично переместите подсеть `subnet-с` в каталог `prod-folder`.
+- CLI {#cli}
+
+  1. Посмотрите описание команды CLI для перемещения подсети:
+
+     ```bash
+     yc vpc subnet move --help
+     ```
+
+  1. Переместите подсеть:
+
+     ```bash
+     yc vpc subnet move subnet-b \
+       --destination-folder-name dev-folder
+     ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [move](../../vpc/api-ref/Subnet/move.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/) или вызовом gRPC API [SubnetService/Move](../../vpc/api-ref/grpc/subnet_service.md#Move).
 
 {% endlist %}
 
+Аналогично переместите подсеть `subnet-с` в каталог `prod-folder`.
 
 ## Создайте виртуальные машины {#create-vms}
 
-Создайте виртуальные машины со следующими параметрами:
+Создайте [виртуальные машины](../../compute/concepts/vm.md) со следующими параметрами:
 
 | Имя ВМ | Каталог | Зона доступности | Подсеть |
 | --- | --- | --- | --- |
-| net-vm | net-folder | {{ region-id }}-a | subnet-a |
-| dev-vm | dev-folder | {{ region-id }}-b | subnet-b |
-| prod-vm | prod-folder | {{ region-id }}-c | subnet-c |
+| `net-vm` | `net-folder` | `{{ region-id }}-a` | `subnet-a` |
+| `dev-vm` | `dev-folder` | `{{ region-id }}-b` | `subnet-b` |
+| `prod-vm` | `prod-folder` | `{{ region-id }}-c` | `subnet-c` |
 
 {% list tabs group=instructions %}
 
@@ -395,9 +392,9 @@
   1. В списке сервисов выберите **{{ compute-name }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * Введите имя `net-vm`. 
+     * Введите имя `net-vm`.
      * Выберите зону доступности `{{ region-id }}-a`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).   
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя `ycuser`.
@@ -408,7 +405,7 @@
 
   {% note info %}
 
-  При создании ВМ назначаются публичный и внутренний IP-адреса. Запишите их, они понадобятся для доступа к ВМ и проверки сетевого взаимодействия с другими ВМ.
+  При создании ВМ назначаются публичный и внутренний IP-адреса. Запишите их — они понадобятся для доступа к ВМ и проверки сетевого взаимодействия с другими ВМ.
 
   {% endnote %}
 
@@ -480,7 +477,7 @@
 
   1. Опишите входные переменные:
 
-     ```
+     ```hcl
      variable "user_name" {
        description = "VM User Name"
        default     = "ycuser"
@@ -494,7 +491,7 @@
 
   1. Опишите шаблон для метаданных ВМ в отдельном файле `vm-init.tpl`:
 
-     ```
+     ```hcl
      #cloud-config
    
      datasource:
@@ -511,7 +508,7 @@
 
   1. Опишите целевые ресурсы — виртуальные машины:
 
-     ```
+     ```hcl
      # =================
      # Compute Resources
      # =================
@@ -555,7 +552,7 @@
        }
 
        boot_disk {
-         image_id = yandex_compute_disk.boot-disk-1.id
+         disk_id = yandex_compute_disk.boot-disk-1.id
        }
 
        network_interface {
@@ -583,7 +580,7 @@
        }
 
        boot_disk {
-         image_id = yandex_compute_disk.boot-disk-2.id
+         disk_id = yandex_compute_disk.boot-disk-2.id
        }
 
        network_interface {
@@ -611,7 +608,7 @@
        }
 
        boot_disk {
-         image_id = yandex_compute_disk.boot-disk-3.id
+         disk_id = yandex_compute_disk.boot-disk-3.id
        }
 
        network_interface {
@@ -655,9 +652,7 @@
 
 - API {#api}
 
-  Чтобы создать виртуальную машину, воспользуйтесь:
-  * методом [create](https://cloud.yandex.ru/docs/compute/api-ref/Instance/create) для ресурса [Compute Instance](https://cloud.yandex.ru/docs/compute/api-ref/Instance/) (`REST API`)
-  * вызовом [InstanceService/Create](https://cloud.yandex.ru/docs/compute/api-ref/grpc/instance_service#Create) (`gRPC API`)
+  Чтобы создать виртуальную машину, воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Compute Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
 
 {% endlist %}
 
@@ -676,8 +671,8 @@
    ```
 
    Результат:
-    
-   ```
+
+   ```text
    PING 10.127.20.4 (10.127.20.4) 56(84) bytes of data.
    64 bytes from 10.127.20.4: icmp_seq=1 ttl=61 time=7.45 ms
    64 bytes from 10.127.20.4: icmp_seq=2 ttl=61 time=5.61 ms
@@ -689,10 +684,9 @@
 
 1. Аналогично проверьте IP-связность с ВМ `prod-vm` внутри VPC.
 
-1. Подключитесь к ВМ `dev-vm` по SSH и проверьте IP-связность с ВМ `net-vm` и ВМ `prod-vm` с помощью команды **ping**. 
+1. Подключитесь к ВМ `dev-vm` по SSH и проверьте IP-связность с ВМ `net-vm` и ВМ `prod-vm` с помощью команды **ping**.
 
-1. Подключитесь к ВМ `prod-vm` по SSH и проверьте IP-связность с ВМ `net-vm` и ВМ `dev-vm` с помощью команды **ping**. 
-
+1. Подключитесь к ВМ `prod-vm` по SSH и проверьте IP-связность с ВМ `net-vm` и ВМ `dev-vm` с помощью команды **ping**.
 
 ## Как удалить созданные ресурсы {#clear-out}
 

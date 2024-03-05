@@ -69,7 +69,7 @@
      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — 20%.
      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — 2.
      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — 2 ГБ.
-  1. В блоке **С{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите [сеть](../../vpc/concepts/network.md#network) и [подсеть](../../vpc/concepts/network.md#subnet), к которым нужно подключить ВМ. Если сети нет, [создайте ее](../../vpc/operations/network-create.md).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите [сеть](../../vpc/concepts/network.md#network) и [подсеть](../../vpc/concepts/network.md#subnet), к которым нужно подключить ВМ. Если сети нет, [создайте ее](../../vpc/operations/network-create.md).
   1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить ВМ случайный публичный IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы [зарезервировали](../../vpc/operations/get-static-ip.md) его заранее.
   1. Укажите данные для доступа к ВМ:
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
@@ -141,7 +141,7 @@
 
      Сохраните идентификатор сервисного аккаунта — параметр `id`, он понадобится для дальнейшей настройки.
      
-  1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md#editor) `editor`:
+  1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`:
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
@@ -269,11 +269,7 @@
 
 1. [Загрузите](../../storage/operations/objects/upload.md) изображения с текстом в бакет.
 
-   {% note tip %}
-
-   Воспользуйтесь [примером изображения](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) дорожного знака, предупреждающего о пингвинах.
-
-   {% endnote %}
+   {% include [example-image](../../_includes/vision/example-image.md) %}
 
 1. Убедитесь, что изображения были загружены, указав в запросе имя бакета:
 

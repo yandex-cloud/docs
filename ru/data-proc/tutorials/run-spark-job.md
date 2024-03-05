@@ -64,8 +64,8 @@ keywords:
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `data-proc-sa` с ролями:
 
-        * [dataproc.agent](../../iam/concepts/access-control/roles.md#mdb-dataproc-agent);
-        * [storage.admin](../../iam/concepts/access-control/roles.md#storage-admin).
+        * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent);
+        * [storage.admin](../../storage/security/index.md#storage-admin).
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) `data-proc-bucket` с ограниченным доступом.
     1. [Предоставьте сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) `data-proc-sa` разрешение `READ и WRITE` на бакет `data-proc-bucket`.
@@ -400,9 +400,9 @@ Spark Submit позволяет запускать заранее написан
 
     Команда для запуска зависит от того, где нужно сохранить результаты задания: в {{ objstorage-name }} или HDFS.
 
-    {% list tabs %}
+    {% list tabs group=storage_system %}
 
-    - {{ objstorage-name }}
+    - {{ objstorage-name }} {#storage}
 
       ```bash
       {{ yc-dp }} job create-pyspark \
@@ -420,7 +420,7 @@ Spark Submit позволяет запускать заранее написан
 
       CSV-файл с результатом сохранится в бакете `data-proc-bucket`.
 
-    - HDFS
+    - Директория HDFS {#hdfs}
 
       ```bash
       {{ yc-dp }} job create-pyspark \
@@ -452,8 +452,8 @@ Spark Submit позволяет запускать заранее написан
 
 1. [Установите дополнительные зависимости](#infra-for-scala).
 1. [Соберите Scala-приложение](#scala-build).
-2. [Загрузите JAR-файл в {{ objstorage-name }}](#scala-upload).
-3. [Запустите Spark-задание в кластере {{ dataproc-name }}](#scala-run).
+1. [Загрузите JAR-файл в {{ objstorage-name }}](#scala-upload).
+1. [Запустите Spark-задание в кластере {{ dataproc-name }}](#scala-run).
 
 #### Установите дополнительные зависимости {#infra-for-scala}
 
@@ -582,9 +582,9 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
     Команда для запуска зависит от того, где нужно сохранить результаты задания: в {{ objstorage-name }} или HDFS.
 
-    {% list tabs %}
+    {% list tabs group=storage_system %}
 
-    - {{ objstorage-name }}
+    - {{ objstorage-name }} {#storage}
 
       ```bash
       {{ yc-dp }} job create-spark \
@@ -603,7 +603,7 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
       CSV-файл с результатом сохранится в бакете `data-proc-bucket`.
 
-    - HDFS
+    - Директория HDFS {#hdfs}
 
       ```bash
       {{ yc-dp }} job create-spark \

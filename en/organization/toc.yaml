@@ -31,8 +31,8 @@ items:
             href: operations/edit-account.md
           - name: Leaving an organization
             href: operations/leave-organization.md
-      - name: Managing user groups
-        href: operations/manage-groups.md
+          - name: Managing user groups
+            href: operations/manage-groups.md
       - name: Managing identity federations
         items:
           - name: Overview
@@ -103,6 +103,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/organization-manager/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication
@@ -253,6 +257,8 @@ items:
                 href: api-ref/Federation/create.md
               - name: delete
                 href: api-ref/Federation/delete.md
+              - name: deleteUserAccounts
+                href: api-ref/Federation/deleteUserAccounts.md
               - name: get
                 href: api-ref/Federation/get.md
               - name: list
@@ -263,4 +269,6 @@ items:
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
 base: en/organization

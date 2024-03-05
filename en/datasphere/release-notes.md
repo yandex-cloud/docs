@@ -9,10 +9,17 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 29/01/2024 {#290124}
+
+1. Updated the NVIDIA driver to version 535.
+1. Added support for multi-login to multiple organizations in various federations.
+1. Added the option to pause and resume a running node.
+1. Fixed bugs and added minor improvements in platform performance.
+
 ## Release on 15/01/2024 {#150124}
 
 1. Added self-service problem-solving tools to the project page.
-1. In [{{ ml-platform-name }} Jobs](concepts/jobs.md), now you can use your project resources: secrets, S3 connectors, environment dockers, datasets, and project disk.
+1. In [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), now you can use your project resources: secrets, S3 connectors, environment dockers, datasets, and project disk.
 1. Fixed bugs and added minor improvements in platform performance.
 
 ## Release on 20/12/2023 {#201223}
@@ -31,7 +38,7 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 ## Release on 25/09/2023 {#250923}
 
-1. With [{{ ml-platform-name }} Jobs](concepts/jobs.md), cloud computing resources in {{ ml-platform-name }} can now be used from a user's local environment.
+1. With [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), cloud computing resources in {{ ml-platform-name }} can now be used from a user's local environment.
 1. {{ ml-platform-name }} projects now have a new type of resources: [Models](concepts/models/index.md).
 1. Optimized JupyterLab 3 (available in [dedicated](concepts/project.md#dedicated) mode) by adding new extensions.
 1. [{{ yagpt-name }} model retraining](concepts/models/foundation-models.md#yagpt-tuning) is now available at the [Preview](../overview/concepts/launch-stages.md) stage.

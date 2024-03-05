@@ -408,6 +408,7 @@ Adds shared resource to community
 
 **rpc AddResource ([AddCommunityResourceRequest](#AddCommunityResourceRequest)) returns ([operation.Operation](#Operation5))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### AddCommunityResourceRequest {#AddCommunityResourceRequest}
@@ -441,6 +442,7 @@ Removes shared resource from community
 
 **rpc RemoveResource ([RemoveCommunityResourceRequest](#RemoveCommunityResourceRequest)) returns ([operation.Operation](#Operation6))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### RemoveCommunityResourceRequest {#RemoveCommunityResourceRequest}

@@ -51,7 +51,7 @@
 
 С помощью {{ TF }} в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: [виртуальные машины](../../compute/concepts/vm.md), [диски](../../compute/concepts/disk.md), [образы](../../compute/concepts/image.md) и т. д. Подробную информацию о ресурсах, создающихся с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
-{% include [terraform_install](../terraform-install.md) %}
+{% include [terraform_install](../_tutorials_includes/terraform-install.md) %}
 
 ## Опишите инфраструктуру {#set-configuration}
 
@@ -91,7 +91,7 @@
 
 1. Перейдите в папку `iot-terraform` и проверьте конфигурацию командой:
 
-   ```hcl
+   ```bash
    terraform validate
    ```
 
@@ -103,7 +103,7 @@
 
 1. Отформатируйте файлы конфигураций в текущем каталоге и подкаталогах:
 
-   ```hcl
+   ```bash
    terraform fmt
    ```
 
@@ -116,7 +116,7 @@
 
 1. После проверки конфигурации выполните команду:
 
-   ```hcl
+   ```bash
    terraform plan
    ```
 
@@ -130,7 +130,7 @@
 
 1. Чтобы создать ресурсы, выполните команду:
 
-   ```hcl
+   ```bash
    terraform apply
    ```
 

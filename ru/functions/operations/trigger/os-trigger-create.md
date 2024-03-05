@@ -122,7 +122,7 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -134,16 +134,16 @@
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
-       name        = "<имя триггера>"
-       description = "<описание триггера>"
+       name        = "<имя_триггера>"
+       description = "<описание_триггера>"
        object_storage {
-          bucket_id = "<идентификатор бакета>"
+          bucket_id = "<идентификатор_бакета>"
           create    = true
           update    = true
        }
        function {
-         id                 = "<идентификатор функции>"
-         service_account_id = "<идентификатор сервисного аккаунта>"
+         id                 = "<идентификатор_функции>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
      ```
@@ -193,7 +193,7 @@
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../../cli/quickstart.md):
 
         ```
-        yc serverless trigger get <идентификатор триггера>
+        yc serverless trigger get <идентификатор_триггера>
         ```
 
 - API {#api}

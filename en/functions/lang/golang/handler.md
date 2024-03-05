@@ -1,6 +1,6 @@
-# Go function call handler
+# Function request handler in Go
 
-A _call handler_ is a method used to handle each Go function call. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.Handler`).
+A _request handler_ is a method used to process each Go function call. When creating a function version, you should specify the entry point that consists of the file name and request handler name, e.g., `index.Handler`.
 
 * To work properly, the handler must reside in the `main` package.
 * To make the handler available outside the module (file), export it by typing the first letter of its name in uppercase.
@@ -18,10 +18,10 @@ When calling the handler, the runtime environment may pass the following argumen
 
    The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).
    If the second argument (HTTP request body) is present, the invocation context must be the first in the list of arguments.
-1. The HTTP request body (the `request` parameter).
+1. HTTP request body (`request` parameter).
 
-   The body can be represented by an array of bytes, a string, a custom type, or a pointer to it. In the first two cases, the view reflects the HTTP request in its pure form: either as a byte array or as a string.
-   If the handler argument has a custom type and the request body is a JSON document, it's converted to an object of this type using the `json.Unmarshal` method.
+   The body can be represented by an array of bytes, a string, a custom type, or a pointer to it. In the first two cases, it represents a pure HTTP request, either as a byte array or as a string.
+   If the handler argument has a custom type and the request body is a JSON document, it will be converted to an object of this type using the `json.Unmarshal` method.
 
 All the above arguments are **optional**.
 If the argument responsible for the request body is missing, any function input data is **ignored**.
@@ -127,7 +127,7 @@ Example of input data:
 
 The log will contain the following:
 ```
-context {context.Background map[lambdaRuntimeFunctionName:b09ks558ute7l8agve8t lambdaRuntimeFunctionVersion:b09ebrsp6jbam10vrvs2 lambdaRuntimeLogGroupName:eolitpnj15jrgmsnqloh lambdaRuntimeLogStreamName:b09ebrsp6jbam10vrvs2 lambdaRuntimeMemoryLimit:512 lambdaRuntimeRequestID:58fc90cc-97b9-4c2b-95db-9dd0e961e8ae]}
+context {context.Background map[lambdaRuntimeFunctionName:b09ks558ute7******** lambdaRuntimeFunctionVersion:b09ebrsp6jba******** lambdaRuntimeLogGroupName:eolitpnj15jr******** lambdaRuntimeLogStreamName:b09ebrsp6jba******** lambdaRuntimeMemoryLimit:512 lambdaRuntimeRequestID:58fc90cc-97b9-4c2b-95db-9dd0********]}
 request &{Hello, world 24}
 ```
 

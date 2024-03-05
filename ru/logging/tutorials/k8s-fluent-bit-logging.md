@@ -28,8 +28,8 @@ description: "Обработчик логов Fluent Bit позволяет тр
   1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../managed-kubernetes/concepts/index.md#node-group).
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md#create-sa):
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов {{ managed-k8s-name }} с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}.
-     * Сервисный аккаунт для узлов {{ managed-k8s-name }} с ролью [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов {{ managed-k8s-name }} с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../iam/roles-reference.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}.
+     * Сервисный аккаунт для узлов {{ managed-k8s-name }} с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 
        {% note tip %}
 
@@ -37,7 +37,7 @@ description: "Обработчик логов Fluent Bit позволяет тр
 
        {% endnote %}
 
-  1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../iam/concepts/access-control/roles.md#logging-writer). Она необходима для отправки логов кластером {{ managed-k8s-name }} в {{ cloud-logging-name }}.
+  1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../logging/security/index.md#logging-writer). Она необходима для отправки логов кластером {{ managed-k8s-name }} в {{ cloud-logging-name }}.
   1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
   1. [Настройте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
   1. [Создайте лог-группу](../operations/create-group.md).

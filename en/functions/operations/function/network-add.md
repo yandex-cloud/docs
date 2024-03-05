@@ -5,8 +5,6 @@ description: "This guide describes how you can specify a cloud network where the
 
 # Specifying a cloud network where the function will be executed
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 You can specify a [cloud network](../../../vpc/concepts/network.md#network) where the function will be executed.
 
 {% include [network](../../../_includes/functions/network.md) %}
@@ -32,19 +30,19 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
 
    ```
    yc serverless function version create \
-     --function-name=<function name> \
-     --runtime <runtime environment> \
-     --entrypoint <entry point> \
+     --function-name=<function_name> \
+     --runtime <runtime> \
+     --entrypoint <entry_point> \
      --memory 128m \
      --execution-timeout 5s \
-     --source-version-id <version ID> \
-     --network-id <network ID>
+     --source-version-id <version_ID> \
+     --network-id <network_ID>
    ```
    Where:
 
    * `--function-name`: Function name.
    * `--runtime`: Runtime environment.
-   * `--entrypoint`: Entry point specified in the <function file name>.<handler name> format.
+   * `--entrypoint`: Entry point specified in the `<function_file_name>.<handler_name>` format.
    * `--memory`: Amount of RAM.
    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
    * `--source-version-id`: ID of the function version to copy the code of.

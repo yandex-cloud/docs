@@ -16,11 +16,11 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 ## Configure the environment {#set-space}
 
 1. Create a [space](concepts/resources-hierarchy.md#space) where all your [projects](concepts/resources-hierarchy.md#project) will be stored: select **Create space**, enter a name, add a description (optional), and click **Create**.
-1. Link a billing account to the space. This account will be debited for your use of {{ speechsense-name }}.
+1. [Link a billing account](operations/space/link-ba.md) to the space. This account will be debited for the use of {{ speechsense-name }}.
 
   {% note tip %}
 
-  Billing account management can only be performed by users with a [Yandex account](../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} via an [identity federation](../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
+  You can only manage a billing account if you have a [Yandex account](../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} through an [identity federation](../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
 
   {% endnote %}
 
@@ -29,8 +29,8 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
     1. Enter the **Connection name**.
     1. Select **Two-channel audio** under **Data type**.
     1. Set connection parameters using the metadata of your audio recordings:
-        * Under **Operator**, specify the number of the track that contains the agent's voice in your audio recordings and define their display name (`Operator` by default).
-        * Under **Client**, specify the number of the track that contains the client's voice in your audio recordings and define their display name (`Client` by default).
+        * Under **Agent**, specify the number of the track that contains the agent's voice in your audio recordings and define their displayed name (`Agent` by default).
+        * Under **Customer**, specify the number of the track that contains the customer's voice in your audio recordings and define their displayed name (`Customer` by default).
         * Under **Shared metadata**, change the parameter names used in the system, if necessary.
         * If your metadata includes additional information you want to save and analyze, add it to the appropriate section. Provide the parameter key (must match the key in the metadata file), specify a type, and enter a display name to use in the system. The supported additional parameters are `Date`, `String`, `Number`, `Logical`, and `JSON`.
     1. Click **Create connection**.
@@ -58,9 +58,9 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
 {{ speechsense-name }} uses the [gRPC API](api-ref/grpc/index.md) to upload data.
 
-1. [Create a service account](../iam/operations/sa/create.md) with the `speech-sense.data.editor` role. This way, the service account will be authorized to upload data to the connection you created. To learn more about the roles available in the service, see [{#T}](security/index.md).
-1. [Add the service account to the namespace](operations/space/add-user-to-space.md) with the `{{ roles-speechsense-editor }}` role.
+1. [Create a service account](../iam/operations/sa/create.md).
+1. [Add the service account to the space](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).
 1. [Create an API key](../iam/operations/api-key/create.md) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
-1. [Upload your data](operations/data/upload-data.md) using a Python data transfer script. You can send your entire audio recording as one message or in snippets.
+1. [Upload your data](operations/data/upload-data.md) using a Python data transfer script. You must provide your entire audio recording as one message.
 
 {% include [supported-formats](../_includes/speechsense/formats.md) %}

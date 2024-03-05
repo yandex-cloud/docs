@@ -1,10 +1,8 @@
 # Data event audit log
 
-You can track data (data plane) events to make sure only authorized users can access and update your data. This will help you ensure your cloud infrastructure's compliance with legal regulations and industry standards. For example, you can track granting employees access permissions to sensitive data stored in buckets.
+You can track [data (data plane) events](events-data-plane.md) to make sure only authorized users can access and update your data. This will help you ensure your cloud infrastructure's compliance with legal regulations and industry standards. For example, you can track granting employees access permissions to sensitive data stored in buckets.
 
 You can analyze data event logs to optimize the use of resources in your infrastructure. Thus, you can determine what resources are used most often and enhance their performance, or identify rarely used resources that can be grouped or removed to cut costs.
-
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 {% note warning %}
 
@@ -154,7 +152,7 @@ If a federated user requests the contents of a secret in {{ lockbox-full-name }}
 --- | ---
 | `event_id` | **string**<br>Event ID |
 | `event_source` | **string**<br>Name of the event source service |
-| `event_type` | **string**<br>Event type, which is determined by the event source service. For more information, see [{#T}](events.md). |
+| `event_type` | **string**<br>Event type, which is determined by the event source service. For more information, see [{#T}](events-data-plane.md). |
 | `event_time` | **string**<br>Time when the event occurred. |
 | `authentication` | **object**<br>Authentication data of the event subject |
 | `authentication.authenticated` | **boolean**<br>Authentication result. The possible values include:<ul><li>`true`: Authentication is successful.</li><li>`false`: Authentication failed.</li> |

@@ -50,7 +50,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется зарезервировать IP-адреса.
-    1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
     1. В открывшемся окне выберите зону доступности `{{ region-id }}-b`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
     1. Снова нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
     1. В открывшемся окне выберите зону доступности `{{ region-id }}-a`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
@@ -125,8 +125,8 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется настроить маршрутизацию.
-    1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**
-    1. В строке нужной подсети нажмите ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**
+    1. В строке нужной подсети нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
     1. В открывшемся окне в поле **Таблица маршрутизации** выберите созданную ранее таблицу.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
     1. Привяжите таблицу маршрутизации `vpn-route` ко всем трем подсетям.
@@ -146,7 +146,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется создать группу безопасности.
-    1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Введите имя группы безопасности — `vpn-sg`.
     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, к которой будет относиться группа безопасности.
@@ -221,7 +221,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. Выберите виртуальную машину `vpn`.
-    1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите значок ![options](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+    1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
     1. В открывшемся окне выберите группу безопасности `vpn-sg`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
     1. Повторите шаги и назначьте группу безопасности `web-service-sg` виртуальным машинам `web-node-a`, `web-node-b` и `web-node-c`.
@@ -244,7 +244,7 @@
     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
     1. В открывшемся окне введите имя обработчика и укажите порт `80` в полях **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** и **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-    1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** нажмите ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**. В открывшемся окне:
+    1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** нажмите ![icon-users](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**. В открывшемся окне:
        1. Задайте имя целевой группы: `web-tg`.
        1. Выберите виртуальные машины `web-node-a`, `web-node-b` и `web-node-c`.
        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

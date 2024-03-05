@@ -19,15 +19,25 @@
 
 ### Сервисные роли {#service-roles}
 
-{% include [serverless-containers-roles-viewer](../../_includes/roles-serverless-containers-viewer.md) %}
+#### serverless-containers.auditor {#serverless-containers-auditor}
 
-{% include [serverless-containers-roles-auditor](../../_includes/roles-serverless-containers-auditor.md) %}
+{% include [containers-auditor](../../_roles/serverless-containers/auditor.md) %}
 
-{% include [serverless-containers-roles-invoker](../../_includes/roles-serverless-containers-invoker.md) %}
+#### serverless-containers.viewer {#serverless-containers-viewer}
 
-{% include [serverless-containers-roles-editor](../../_includes/roles-serverless-containers-editor.md) %}
+{% include [containers-viewer](../../_roles/serverless-containers/viewer.md) %}
 
-{% include [serverless-containers-roles-admin](../../_includes/roles-serverless-containers-admin.md) %}
+#### serverless-containers.editor {#serverless-containers-editor}
+
+{% include [containers-editor](../../_roles/serverless-containers/editor.md) %}
+
+#### serverless-containers.admin {#serverless-containers-admin}
+
+{% include [containers-admin](../../_roles/serverless-containers/admin.md) %}
+
+#### serverless-containers.containerInvoker {#serverless-containers-containerinvoker}
+
+{% include [containers-containerinvoker](../../_roles/serverless-containers/containerInvoker.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

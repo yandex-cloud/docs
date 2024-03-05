@@ -13,13 +13,13 @@ For more information about creating a trigger for {{ container-registry-name }},
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
 
 * To create a trigger, you need:
-   * Permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
-   * The `{{ roles-cr-puller }}` role for the registry whose events the trigger handles.
+   * Permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
+   * The `{{ roles-cr-puller }}` role for the registry whose events are processed by the trigger.
 * To run a trigger, the service account needs the `serverless.containers.invoker` role for the folder with the container to be invoked by the trigger.
 
 Read more about [access management](../../security/index.md).
 
-## Trigger for {{ container-registry-name }} message format {#format}
+## {{ container-registry-name }} trigger message format {#format}
 
 After the trigger is activated, it sends the following message to the container:
 

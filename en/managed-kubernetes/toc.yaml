@@ -120,11 +120,13 @@ items:
           - name: Creating a namespace in a {{ k8s }} cluster
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
+          - name: Monitoring {{ k8s }} cluster state
+            href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
         items:
-          - name: Information about available node groups
+          - name: Information about existing node groups
             href: operations/node-group/node-group-list.md
           - name: Creating a node group
             href: operations/node-group/node-group-create.md
@@ -212,7 +214,7 @@ items:
             href: tutorials/filebeat-oss-monitoring.md
       - name: Using {{ marketplace-name }} products
         items:
-          - name: Integrating with Argo CD
+          - name: Integration with Argo CD
             href: tutorials/marketplace/argo-cd.md
           - name: Integration with Crossplane
             href: tutorials/marketplace/crossplane.md
@@ -220,7 +222,7 @@ items:
             href: tutorials/kubernetes-lockbox-secrets.md
           - name: Configuring Fluent Bit for {{ cloud-logging-name }}
             href: tutorials/fluent-bit-logging.md
-          - name: Setting up Gateway API
+          - name: Setting up the Gateway API
             href: tutorials/marketplace/gateway-api.md
           - name: Configuring the {{ alb-name }} Ingress controller
             href: tutorials/alb-ingress-controller.md
@@ -278,9 +280,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-kubernetes/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -346,8 +352,10 @@ items:
                 href: api-ref/Version/index.md
               - name: list
                 href: api-ref/Version/list.md
-  - name: Metric reference
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: FAQ
     items:
       - name: General questions
@@ -360,7 +368,7 @@ items:
         href: qa/cluster-autoscaler.md
       - name: Resources
         href: qa/resources.md
-      - name: Logs
+      - name: Monitoring and logs
         href: qa/logs.md
       - name: Troubleshooting
         href: qa/troubleshooting.md

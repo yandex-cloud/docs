@@ -127,7 +127,7 @@ func Handler(ctx context.Context, request *Request) ([]byte, error) {
 
 В журнале будет напечатано:
 ```
-context {context.Background map[lambdaRuntimeFunctionName:b09ks558ute7l8agve8t lambdaRuntimeFunctionVersion:b09ebrsp6jbam10vrvs2 lambdaRuntimeLogGroupName:eolitpnj15jrgmsnqloh lambdaRuntimeLogStreamName:b09ebrsp6jbam10vrvs2 lambdaRuntimeMemoryLimit:512 lambdaRuntimeRequestID:58fc90cc-97b9-4c2b-95db-9dd0e961e8ae]}
+context {context.Background map[lambdaRuntimeFunctionName:b09ks558ute7******** lambdaRuntimeFunctionVersion:b09ebrsp6jba******** lambdaRuntimeLogGroupName:eolitpnj15jr******** lambdaRuntimeLogStreamName:b09ebrsp6jba******** lambdaRuntimeMemoryLimit:512 lambdaRuntimeRequestID:58fc90cc-97b9-4c2b-95db-9dd0********]}
 request &{Hello, world 24}
 ```
 

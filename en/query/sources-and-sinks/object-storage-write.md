@@ -5,7 +5,7 @@ In {{ yq-full-name }}, to write data to {{ objstorage-full-name }} buckets, you 
 Example of writing `JSON` data using bindings:
 
 ```sql
-INSERT INTO bindings.`my_binding`
+INSERT INTO `my_binding`
 SELECT
     "value" AS value, "name" AS name
 FROM
@@ -61,8 +61,8 @@ Where:
 If you need to make data writes on a regular basis, it is handy to use bindings. This helps avoid entering all the details of handling this data in each query. Before writing data to a bucket, create a [data binding](object-storage-binding.md) in {{ objstorage-short-name }} and use the following SQL statement:
 
 ```sql
-INSERT INTO bindings.`<binding_name>`
-SELECT    
+INSERT INTO `<binding_name>`
+SELECT
     <expression>
 FROM
     <query>
@@ -78,14 +78,13 @@ Where:
 Sample query to write data to {{ objstorage-short-name }} using bindings:
 
 ```sql
-INSERT INTO bindings.`test`
+INSERT INTO `test`
 SELECT
     "value" AS value, "name" AS name
 ```
 
 Where:
 
-* `bindings`: Keyword indicating that a data write is being performed using bindings.
 * `test`: Name of binding to {{ objstorage-short-name }} data.
 
 ## Supported write formats {#write-formats}

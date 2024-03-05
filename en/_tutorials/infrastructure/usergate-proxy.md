@@ -148,7 +148,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to create a group.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Enter the `usergate-sg` security group name.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `usergate-network`.
@@ -344,7 +344,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field.
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
@@ -396,7 +396,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
          {% note info %}
 
-         These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the [official recommendations](https://www.usergate.com/products/usergate-vm) from UserGate.
+         These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the [UserGate official recommendations](https://www.usergate.com/products/usergate-vm).
 
          {% endnote %}
 
@@ -411,7 +411,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+         You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -482,6 +482,14 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    1. In the configuration file, describe the parameters of the `usergate-proxy` VM:
 
       ```
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "boot-disk"
+        type     = "network-hdd"
+        zone     = "{{ region-id }}-a"
+        size     = "110"
+        image_id = "<UserGate_NGFW_image_ID>"
+      }
+
       resource "yandex_compute_instance" "usergate-proxy" {
         name        = "usergate-proxy"
         platform_id = "standard-v3"
@@ -494,10 +502,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         }
 
         boot_disk {
-          initialize_params {
-            image_id = "<UserGate_NGFW_image_ID>"
-            size     = 110
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
 
         network_interface {

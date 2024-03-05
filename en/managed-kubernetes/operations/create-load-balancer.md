@@ -107,7 +107,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
        Labels:  app=hello
        Containers:
         hello-app:
-         Image:        {{ registry }}/crpab12cdef3********/hello:1.1
+         Image:        {{ registry }}/crpjd37scfv6********/hello:1.1
          Port:         <none>
          Host Port:    <none>
          Environment:  <none>
@@ -395,7 +395,7 @@ spec:
   - Ingress
   ingress:
   - from:
-    # IP ranges used by the load balancer to check the health of nodes.
+    # IP ranges used by the load balancer to health check nodes.
     - ipBlock:
         cidr: 198.18.235.0/24
     - ipBlock:

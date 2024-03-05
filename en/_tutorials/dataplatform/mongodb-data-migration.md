@@ -28,7 +28,7 @@ The database name in the target cluster must be the same as the source database 
 
 ## Migrating data using {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MongoDB migration with Data Transfer](../datatransfer/managed-mongodb.md) %}
+{% include notitle [MongoDB migration with Data Transfer](datatransfer/managed-mongodb.md) %}
 
 ## Migrating a database using a dump {#dump-and-restore}
 
@@ -84,7 +84,7 @@ You can create a database dump using `mongodump`. For more information about thi
    tar -cvzf db_dump.tar.gz ~/db_dump
    ```
 
-### (optional) Create a VM for loading a dump {#create-vm}
+### (Optional) Create a VM for loading a dump {#create-vm}
 
 You need an intermediate virtual machine in {{ compute-full-name }} if:
 
@@ -121,7 +121,7 @@ To prepare the virtual machine to restore the dump:
    tar -xzf /tmp/db_dump.tar.gz
    ```
 
-As a result, you'll get a VM with a database dump that is ready to be restored to the {{ mmg-name }} cluster.
+As a result, you will get a VM with a database dump that is ready to be restored to the {{ mmg-name }} cluster.
 
 
 ### Recover data {#restore}

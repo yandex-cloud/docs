@@ -31,7 +31,7 @@ To get started with the service:
 
 ## Create a cluster {#cluster-create}
 
-1. In the management console, select the folder where you want to create a cluster.
+1. In the management console, select the directory where you want to create a cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
 1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).

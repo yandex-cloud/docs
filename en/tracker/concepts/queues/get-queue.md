@@ -12,9 +12,9 @@ Before making the request, [get permission to access the API](../access.md).
 To get queue information, use an HTTP `GET` request.
 
 ```
-GET /v2/queues/<queue-id>
+GET /v2/queues/<queue_id_or_key>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -23,8 +23,8 @@ Authorization: OAuth <OAuth token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+----- | ----- | -----
+| \<queue_ID_or_key\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
@@ -60,41 +60,41 @@ Authorization: OAuth <OAuth token>
 
    ```json
    {
-       "self": "{{ host }}/v2/queues/TEST",
+       "self": "https://{{ host }}/v2/queues/TEST",
        "id": "3",
        "key": "TEST",
        "version": 5,
        "name": "Test",
        "description": "Queue created for testing purposes",
        "lead": {
-              "self": "{{ host }}/v2/users/1120000000016876",
-              "id": "<employee ID>",
-              "display": "<employee name displayed>"
+              "self": "https://{{ host }}/v2/users/11********",
+              "id": "11********",
+              "display": "Ivan Ivanov"
        },
        "assignAuto": false,
        "defaultType": {
-              "self": "{{ host }}/v2/issuetypes/1",
+              "self": "https://{{ host }}/v2/issuetypes/1",
               "id": "1",
               "key": "bug",
               "display": "Error"
        },
        "defaultPriority": {
-              "self": "{{ host }}/v2/priorities/3",
+              "self": "https://{{ host }}/v2/priorities/3",
               "id": "3",
               "key": "normal",
               "display": "Normal"
        },
        "teamUsers": [
               {
-                  "self": "{{ host }}/v2/users/1120000000016876",
-                  "id": "<employee ID>",
-                  "display": "<employee name displayed>"
+                  "self": "https://{{ host }}/v2/users/11********",
+                  "id": "11********",
+                  "display": "Ivan Ivanov"
               },
               ...
        ],
        "issueTypes": [
               {
-                  "self": "{{ host }}/v2/issuetypes/1",
+                  "self": "https://{{ host }}/v2/issuetypes/1",
                   "id": "1",
                   "key": "bug",
                   "display": "Error"
@@ -103,15 +103,15 @@ Authorization: OAuth <OAuth token>
        ],
        "versions": [
               {
-                  "self": "{{ host }}/v2/versions/4",
+                  "self": "https://{{ host }}/v2/versions/4",
                   "id": "4",
-                  "display": "Peak-a-boo"
+                  "display": "Peek-a-boo"
            }
        ],
        "workflows": {
               "dev": [
                   {
-                       "self": "{{ host }}/v2/issuetypes/1",
+                       "self": "https://{{ host }}/v2/issuetypes/1",
                        "id": "1",
                        "key": "bug",
                        "display": "Error"
@@ -123,22 +123,22 @@ Authorization: OAuth <OAuth token>
        "issueTypesConfig": [
               {
                   "issueType": {
-                         "self": "{{ host }}/v2/issuetypes/1",
+                         "self": "https://{{ host }}/v2/issuetypes/1",
                          "id": "1",
                          "key": "bug",
                          "display": "Error"
                },
                "workflow": {
-                         "self": "{{ host }}/v2/workflows/dev",
+                         "self": "https://{{ host }}/v2/workflows/dev",
                          "id": "dev",
                          "display": "dev"
                },
                "resolutions": [
                       {
-                         "self": "{{ host }}/v2/resolutions/2",
+                         "self": "https://{{ host }}/v2/resolutions/2",
                          "id": "2",
                          "key": "wontFix",
-                         "display": "Won't be fixed"
+                         "display": "Won't fix"
                       },
                    ...
                ]
@@ -159,19 +159,19 @@ Authorization: OAuth <OAuth token>
    | name | Queue name | String |
    | description | Text description of the queue | String |
    | [lead](#lead) | Block with information about the queue owner | Object |
-   | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Boolean |
+   | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Logical |
    | [defaultType](#default-type) | Block with information about the default issue type | Object |
    | [defaultPriority](#default-priority) | Block with information about the default issue priority | Object |
    | [teamUsers](#team-users) | Array with information about queue team members | Array of objects |
    | [issueTypes](#issue-types) | Array with information about queue issue types | Array of objects |
    | [versions](#versions) | Array with information about queue versions | Array of objects |
    | [workflows](#workflows) | List of queue workflows and their issue types | Array |
-   | denyVoting | Flag that indicates if voting for issues is enabled | Boolean |
+   | denyVoting | Flag that indicates if voting for issues is enabled | Logical |
    | [issueTypesConfig](#issue-types-config) | Array with queue issue settings | Array of objects |
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `defaultType` {#default-type}
+   `defaultType` ** object fields** {#default-type}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -180,7 +180,7 @@ Authorization: OAuth <OAuth token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Object fields** `defaultPriority` {#default-priority}
+   `defaultPriority` **object fields** {#default-priority}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -189,7 +189,7 @@ Authorization: OAuth <OAuth token>
    | key | Priority key | String |
    | display | Priority name displayed | String |
 
-    **Array object fields** `teamUsers` {#team-users}
+   **teamUsers** `array object fields` {#team-users}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -197,7 +197,7 @@ Authorization: OAuth <OAuth token>
    | id | User ID | String |
    | display | User name displayed | String |
 
-    **Array object fields** `issueTypes` {#issue-types}
+   **issueTypes** `array object fields` {#issue-types}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -206,7 +206,7 @@ Authorization: OAuth <OAuth token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Array object fields** `versions` {#versions}
+   **versions** `array object fields` {#versions}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -214,7 +214,7 @@ Authorization: OAuth <OAuth token>
    | id | Version ID | String |
    | display | Version name displayed | String |
 
-    **Array object fields** `workflows` {#workflows}
+   **workflows** `array object fields` {#workflows}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -223,7 +223,7 @@ Authorization: OAuth <OAuth token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Array object fields** `issueTypesConfig` {#issue-types-config}
+   `issueTypesConfig` **array object fields** {#issue-types-config}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -231,7 +231,7 @@ Authorization: OAuth <OAuth token>
    | [workflow](#workflow) | Block with information about the issue type workflow | Object |
    | [resolutions](#resolutions) | Array with possible issue type resolutions | Array of objects |
 
-    **Object fields** `issueType` {#issue-type}
+   `issueType` **object fields** {#issue-type}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -240,7 +240,7 @@ Authorization: OAuth <OAuth token>
    | key | Key of the issue type | String |
    | display | Issue type name displayed | String |
 
-    **Object fields** `workflow` {#workflow}
+   `workflow` **object fields** {#workflow}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----
@@ -248,7 +248,7 @@ Authorization: OAuth <OAuth token>
    | id | Workflow ID | String |
    | display | Workflow name displayed | String |
 
-    **Array object fields** `resolutions` {#resolutions}
+   `resolutions` `array object fields` {#resolutions}
 
    | Parameter | Description | Data type |
    ----- | ----- | -----

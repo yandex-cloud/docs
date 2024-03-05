@@ -11,15 +11,15 @@ items:
         href: operations/secret-create.md
       - name: Updating secrets
         href: operations/secret-update.md
-      - name: Configuring access rights to secrets
+      - name: Configuring access to a secret
         href: operations/secret-access.md
       - name: Getting information about a secret
         href: operations/secret-get-info.md
-      - name: Deleting secrets
+      - name: Deleting a secret
         href: operations/secret-delete.md
-      - name: Disabling and enabling a secret
+      - name: Deactivating and activating a secret
         href: operations/secret-activation-manage.md
-      - name: Secret version control
+      - name: Managing secret versions
         href: operations/secret-version-manage.md
       - name: Serverless
         items:
@@ -47,9 +47,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/lockbox/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -105,6 +109,8 @@ items:
                 href: api-ref/Secret/update.md
               - name: updateAccessBindings
                 href: api-ref/Secret/updateAccessBindings.md
-  - name: Questions and answers
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
+  - name: FAQ
     href: qa/index.md
 base: en/lockbox

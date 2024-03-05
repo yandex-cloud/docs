@@ -201,9 +201,9 @@
 
 #### Источник {#console-source}
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ CH }}
+- {{ CH }} {#clickhouse}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
@@ -215,12 +215,12 @@
     * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
         Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-- HTTP(s)
+- HTTP(s) {#https}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}** — URL HTTP(s)-источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}** — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
 
-- {{ MG }}
+- {{ MG }} {#mongodb}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
@@ -229,7 +229,7 @@
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_collection }}** — имя коллекции источника.
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}** — список реплик {{ MY }}, которые будут использоваться как источник словаря.
         Для реплик можно задать общие параметры подключения или настроить порт, имя пользователя и пароль.
@@ -242,7 +242,7 @@
     * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
         Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_hosts }}** — имена хоста {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
@@ -294,9 +294,9 @@
 
 * `--dict-name` — имя нового словаря.
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ CH }}
+- {{ CH }} {#clickhouse}
 
     * `--clickhouse-source` — настройки источника {{ CH }}:
 
@@ -308,12 +308,12 @@
         * `password` — пароль для доступа к базе данных источника.
         * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
 
-- HTTP(s)
+- HTTP(s) {#https}
 
     * `--http-source-url` — URL HTTP(s)-источника.
     * `--http-source-format` — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
 
-- {{ MG }}
+- {{ MG }} {#mongodb}
 
     * `--mongodb-source` — настройки источника {{ MG }}:
 
@@ -324,7 +324,7 @@
         * `user` — имя пользователя базы данных источника.
         * `password` — пароль для доступа к базе данных источника.
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
     * `--mysql-source` — настройки источника {{ MY }}:
 
@@ -345,7 +345,7 @@
 
     * `--mysql-invalidate-query` — запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
     * `--postgresql-source` — настройки источника {{ PG }}:
 

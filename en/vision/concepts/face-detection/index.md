@@ -7,7 +7,7 @@ keywords:
 
 # Face detection
 
-_Face detection is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 This section describes how the {{ vision-full-name }} _face detection_ feature works.
 

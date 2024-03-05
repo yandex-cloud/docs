@@ -1,6 +1,6 @@
 # Supported models
 
-_Image classification is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
+{% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
 {{ vision-full-name }} provides image classification based on a model that is trained on a specific set of images. The model is specified in the `classificationConfig` configuration of a request.
 
@@ -107,7 +107,7 @@ The **properties** are as follows:
 
 This model evaluates how well the image matches the moderation properties.
 
-**With it, you can:**
+**With this model, you can:**
 
 * Filter adult content.
 * Detect illegal content.

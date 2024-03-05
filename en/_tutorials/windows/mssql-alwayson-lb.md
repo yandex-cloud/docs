@@ -82,7 +82,7 @@ Prepare the network infrastructure to host the availability group.
 
       1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Select the `ya-network` network.
-      1. Click ![image](../../_assets/plus.svg) **Create subnet**.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **Create subnet**.
       1. Fill out the form: enter the `ya-sqlserver-rc1a` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `192.168.1.0/28`.
       1. Click **Create subnet**.
@@ -1655,9 +1655,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 To stop paying for the created resources, [delete](../../compute/operations/vm-control/vm-delete.md) the VMs and the load balancer you created:
 
-* `ya-jump1`;
-* `ya-ad`;
-* `ya-mssql1`;
-* `ya-mssql2`;
-* `ya-mssql3`;
-* `ya-loadbalancer`.
+* `ya-jump1`
+* `ya-ad`
+* `ya-mssql1`
+* `ya-mssql2`
+* `ya-mssql3`
+* `ya-loadbalancer`

@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/create-issue-field-category.md
 ---
-# Create an issue field category
+# Creating an issue field category
 
 Use this request to create a category for an issue field.
 
@@ -9,7 +9,7 @@ Use this request to create a category for an issue field.
 
 Before making the request, [get permission to access the API](../access.md).
 
-To create an issue field category, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
+To create an issue field category, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/fields/categories
@@ -22,7 +22,7 @@ Authorization: OAuth <OAuth token>
         "en": "Name in English",
         "ru": "Name in Russian"
         },
-        "description": "Text description", 
+        "description": "Text description",
     "order": 400
 }
 ```
@@ -34,14 +34,14 @@ Authorization: OAuth <OAuth token>
 **Required parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| name | Category name:<ul><li>`en`: In English.</li><li>`ru`: In Russian.</li></ul> | String |
+----- | ----- | -----
+| name | Category name:<ul><li>`en`: In English.</li><li>`ru`: In Russian</li></ul> | String |
 | order | Weight of the field when displayed in the interface. Fields with a lower weight are displayed above fields with a higher weight. | Number |
 
 **Additional parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | description | Category description. | String |
 
 {% endcut %}
@@ -52,47 +52,46 @@ Authorization: OAuth <OAuth token>
 
 - Request executed successfully
 
-    {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
+   {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
-    The response body contains information about the updated project in JSON format.
+   The response body contains information about the updated project in JSON format.
 
-    ```json
-    {
-        "id" : "604f9920d23cd5e1697ee3",
-        "name" : "category_name",
-        "self" : "{{ host }}/v2/fields/categories/604f9920d23cd5e1697ee3",
-        "version" : 1
-    }
-    ```
+   ```json
+   {
+       "id" : "604f9920d23cd5********",
+       "name" : "category_name",
+       "self" : "https://{{ host }}/v2/fields/categories/604f9920d23cd5********",
+       "version" : 1
+   }
+   ```
 
-    {% cut "Response parameters" %}
+   {% cut "Response parameters" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | id | Unique ID of the category. | String |
-    | name | Category name in Russian. | String |
-    | self | Address of the API resource with information about the category. | String |
-    | version | Category version. Each change to the field increases the version number. | Number |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | id | Unique ID of the category. | String |
+   | name | Category name in Russian. | String |
+   | self | Address of the API resource with information about the category. | String |
+   | version | Category version. each change to the field increases the version number | Number |
 
-    {% endcut %}
+   {% endcut %}
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-401.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
 
-    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
+   {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

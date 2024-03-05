@@ -18,8 +18,8 @@ You cannot restore an address after it is deleted.
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete the static address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-   1. Click ![image](../../_assets/options.svg) next to the IP you need and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the IP you need and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}

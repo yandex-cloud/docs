@@ -1,6 +1,6 @@
 # Configuring access to {{ tracker-name }}
 
-The user's capacity to create or edit issues in {{ tracker-full-name }} depends on their access level. All employees in your company automatically get access to [<q>Read</q>](#readonly) mode. Employees will need full access to {{ tracker-name }} to manage issues without restrictions.
+The user's capacity to create or edit issues in {{ tracker-full-name }} depends on their access level. All employees in your company automatically get the [read](#readonly) access. Employees will need full access to {{ tracker-name }} to manage issues without restrictions.
 
 You can grant full access to {{ tracker-name }} to [each user individually](#set) or [automatically grant full access](#access-new-users) to all new employees who joined an organization.
 
@@ -25,7 +25,7 @@ User's access level covers their operations on {{ tracker-name }} entities in th
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the left-hand panel, click **Admin settings** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. In the left-hand panel, click **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. For all employees who need to manage issues, select **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_full-access }}** in the **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.title_access }}** column.
 
@@ -39,8 +39,8 @@ To grant full access to six or more users, you need to [add a billing account](b
 ## Authorizing a user to invite new users {#invite-users}
 
 For a user to invite new users to the organization, administrator rights are required:
-* In {{ org-full-name }} [assign](https://org.cloud.yandex.ru/acl) the `admin` and `organization-manager.organizations.owner` roles to the user.
-* In {{ ya-360 }} make the user an administrator.
+* In {{ org-full-name }}, [assign](https://org.cloud.yandex.ru/acl) the `admin` and `organization-manager.organizations.owner` roles to the user.
+* In {{ ya-360 }}, make the user an administrator.
 
 
 ## Full access for new users {#access-new-users}
@@ -67,20 +67,20 @@ When enabling or disabling **Full access for all new users**, the access rights 
 
 If your company uses {{ yandex-360 }} for Business, you can create employee groups and set up access for them. For more information about creating a group, see the [Yandex 360 for Business documentation](https://yandex.ru/support/business/projects.html). To configure full access for a group of users, [link a billing account](billing-account.md).
 
-To configure access for a group of users, open **Admin settings** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** and select the required access level for each group.
+To configure access for a group of users, open **Administration** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** and select the required access level for each group.
 
 {% note warning %}
 
-If a user with "Read" access joins a group with "Full" access, the user's access level will change to "Full".
+If a user with read access joins a group with full access, the user's access level will change to full.
 
 Otherwise, the user's access level will not change when joining a group.
 
 {% endnote %}
 
 
-## <q>Read</q> mode {#readonly}
+## Read mode {#readonly}
 
-In <q>Read</q> mode, users cannot perform actions related to creating, updating, and deleting objects, e.g.:
+In read mode, users cannot perform actions related to creating, updating, or deleting objects, e.g.:
 
 - Create issues using the {{ tracker-name }} interface.
 

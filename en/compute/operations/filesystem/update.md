@@ -14,8 +14,8 @@ You can only change the storage size by using the CLI or API.
 
    1. In the [management console]({{ link-console-main }}), select the folder where your file storage resides.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-   1. In the appropriate file storage row, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
+   1. In the appropriate file storage row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Change the file storage parameters, e.g., rename it by editing the **{{ ui-key.yacloud.common.name }}** field.
 
       {% note info %}
@@ -55,8 +55,8 @@ You can only change the storage size by using the CLI or API.
       Result:
 
       ```bash
-      - id: epd0u6h8lh41kq5tua6h
-        folder_id: b1g86q4m5vej8lkljme5
+      - id: epd0u6h8lh41********
+        folder_id: b1g86q4m5vej********
         created_at: "2022-04-26T16:59:19Z"
         name: storage-1
         type_id: network-hdd
@@ -64,8 +64,8 @@ You can only change the storage size by using the CLI or API.
         size: "1073741824"
         block_size: "4096"
         status: READY
-      - id: epd5g123c8hk1thkkccm
-        folder_id: b1g86q4m5vej8lkljme5
+      - id: epd5g123c8hk********
+        folder_id: b1g86q4m5vej********
         created_at: "2022-04-26T16:37:30Z"
         name: storage-2
         description: test
@@ -90,8 +90,8 @@ You can only change the storage size by using the CLI or API.
          Result:
 
          ```bash
-         id: epd5g123c8hk1thkkccm
-         folder_id: b1g86q4m5vej8lkljme5
+         id: epd5g123c8hk********
+         folder_id: b1g86q4m5vej********
          created_at: "2022-04-26T16:37:30Z"
          name: storage-3
          description: vm-storage
@@ -113,8 +113,8 @@ You can only change the storage size by using the CLI or API.
          Result:
 
          ```bash
-         id: epd5g123c8hk1thkkccm
-         folder_id: b1g86q4m5vej8lkljme5
+         id: epd5g123c8hk********
+         folder_id: b1g86q4m5vej********
          created_at: "2022-04-26T16:37:30Z"
          name: storage-1
          type_id: network-hdd

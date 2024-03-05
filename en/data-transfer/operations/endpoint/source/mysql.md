@@ -21,6 +21,7 @@ description: "In this tutorial, you will learn how to set up a {{ MY }} source e
    * [Migrating the {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
    * [Migration with storage changed from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
    * [Migration with storage changed from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
+   * [Migration with storage changed from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
@@ -53,7 +54,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 
@@ -173,17 +174,20 @@ For OnPremise, all fields are filled in manually.
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: Data is only transferred from listed tables. This option is specified using regular expressions.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: Data is only transferred from listed tables. This option is specified using regular expressions.
 
-      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+          {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.object_transfer_settings.title }}**: Allows you to select the DB schema elements that will be transferred when activating or deactivating a transfer.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.timezone.title }}**: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. By default, the server local time zone is used.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.service_database.title }}**: Database for dummy tables (`__tm_keeper` and `__tm_gtid_keeper`). By default, this is the source database the data is transferred from.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.timezone.title }}**: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. By default, the server local time zone is used.
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.service_database.title }}**: Database for dummy tables (`__tm_keeper` and `__tm_gtid_keeper`). By default, this is the source database the data is transferred from.
 
 - CLI {#cli}
 
@@ -247,7 +251,7 @@ During a transfer, the database schema is transferred from the source to the tar
 
    This step is performed at the end of the transfer operation when it is deactivated. If the transfer keeps running in replication mode, the final stage of the transfer will be performed only when replication stops. At this stage, you can enable the migration of views and stored procedures, stored functions, and triggers.
 
-   At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to "read-only" mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
+   At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to read-only mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
 
 ### Known limitations {#known-limitations}
 

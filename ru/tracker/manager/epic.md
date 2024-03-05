@@ -42,7 +42,7 @@
 
 Также вы можете добавить задачу в эпик с помощью [связи](../user/ticket-links.md):
 
-1. На странице задачи нажмите **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **Добавить связь**.
+1. На странице задачи нажмите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **Добавить связь**.
 
 1. Выберите тип связи **{{ ui-key.startrek-backend.fields.issue.links.relationship.has.epic }}**.
 

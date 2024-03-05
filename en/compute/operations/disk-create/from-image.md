@@ -14,7 +14,7 @@ To create a disk from an [image](../../concepts/image.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
    1. Enter the disk name.
 
@@ -122,7 +122,7 @@ To create a disk from an [image](../../concepts/image.md):
 
 {% endlist %}
 
-After creation, the disk will have the `CREATING` status. Wait until the disk status changes to `READY` before using it.
+Once created, the disk will get the `CREATING` status. Wait until the disk status changes to `READY` before using it.
 
 #### See also {#see-also}
 

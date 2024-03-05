@@ -16,15 +16,15 @@ The project portfolio page shows information about the portfolio team and curren
 
 * **{{ ui-key.startrek.ui_components_portfolios_Header.description-tab }}** tab. It includes the portfolio description, status, timeframes, author and employee in charge of the portfolio, list of team members, comments, customers, and tags.
 
-* **{{ ui-key.startrek.ui_components_portfolios_Header.projects-tab }}** tab. The list shows both open and closed portfolios and projects. You can reorder and move them across portfolios.
+* **{{ ui-key.startrek.ui_components_portfolios_Header.projects-tab }}** tab. The list shows both open and closed portfolios and projects. You can reorder them, move across portfolios, and filter by the parameters you specify.
 
-* **Gantt chart** tab. This is a road map for portfolio projects and issues included in them. The Gantt chart specifies the timeframes of the portfolios, projects, and issues and relationships between them. For more information, see [{#T}](../gantt/project.md).
+* **Gantt chart** tab. This is a road map for portfolio projects and issues included in them. The Gantt chart specifies the timeframes of the portfolios, projects, and issues and relationships between them. For more information, see [{#T}](../gantt/portfolio.md).
 
 You can track your portfolio's progress indicator in the top-right corner of the portfolio page. The colors and sizes of the indicator bars change depending on the statuses of portfolios and projects explicitly nested in this portfolio. The portfolios and projects nested in the portfolios of this portfolio are not displayed in the progress indicator.
 
-To commit changes to the portfolio activities, click **Update status**. In the status transition window, you can update the status and end date of your project portfolio and add a comment.
+To record portfolio updates, type in a comment. If you need to change the portfolio status, select a new status at the bottom panel before submitting the comment.
 
-To restrict access to the portfolio, click the lock icon in the top-right corner and select **Members only**. Doing so will make the portfolio only available to the users listed in the **Participants**, **Author**, **Clients**, and **Responsible** fields.
+To restrict access to the portfolio, click the lock icon in the top-right corner and select **Members only**. Doing so will make the portfolio only available to the users listed in the **Participants**, **Author**, **Customers**, and **Responsible** fields.
 
 {% note info %}
 

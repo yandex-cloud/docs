@@ -39,6 +39,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/AGO.md
 Аргумент `unit` принимает следующие значения:
 - `"year"` — год;
 - `"month"` — месяц;
+- `"week"` — неделя;
 - `"day"` — день;
 - `"hour"` — час;
 - `"minute"` — минута;

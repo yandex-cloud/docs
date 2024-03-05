@@ -13,7 +13,7 @@
 
 Привяжите сервисный аккаунт к существующей или к создаваемой ВМ. Привязать можно только один сервисный аккаунт.
 
-Чтобы привязать сервисный аккаунт к ВМ, необходимо иметь разрешение на использование этого аккаунта. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
+Чтобы привязать сервисный аккаунт к ВМ, необходимо иметь разрешение на использование этого аккаунта. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
 
 ### К существующей ВМ {#link-with-exist-instance}
 
@@ -24,7 +24,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. В правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите один из существующих сервисных аккаунтов или создайте новый.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 

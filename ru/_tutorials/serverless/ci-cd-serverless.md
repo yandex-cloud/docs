@@ -63,7 +63,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
    {% endnote %}
 
 1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
-   * Сервисный аккаунт для ресурсов с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../resource-manager/security/index.md#roles-list) на каталог, в котором создается [кластер {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+   * Сервисный аккаунт для ресурсов с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../iam/roles-reference.md#editor) на каталог, в котором создается [кластер {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
    * Сервисный аккаунт для [узлов](../../managed-kubernetes/concepts/index.md#node-group) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог с реестром Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
@@ -75,15 +75,15 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 Создайте инстанс {{ mgl-name }} или [виртуальную машину](../../compute/concepts/vm.md) с [образом](../../compute/concepts/image.md) {{ GL }} в той же [облачной сети](../../vpc/concepts/network.md#network), где расположен кластер {{ managed-k8s-name }}.
 
-{% list tabs %}
+{% list tabs group=gl_installation %}
 
 
-- Инстанс {{ mgl-name }}
+- Инстанс {{ mgl-name }} {#instance-mgl}
 
   Создайте инстанс {{ mgl-name }} [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
 
 
-- ВМ с образом {{ GL }}
+- ВМ с образом {{ GL }} {#gl-image-vm}
 
   Запустите {{ GL }} на ВМ с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses).
 

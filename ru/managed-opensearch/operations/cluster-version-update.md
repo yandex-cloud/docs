@@ -58,6 +58,36 @@
            --version <версия_{{ OS }}>
         ```
 
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
+
+    1. Измените в описании кластера значение параметра `version` в блоке `config`. Если такого параметра нет, добавьте его.
+
+        ```hcl
+        resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
+          ...
+          config {
+            version = "<версия_{{ OS }}>"
+            ...
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
 - API {#api}
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:

@@ -1,5 +1,5 @@
 ---
-title: "Synchronous speech recognition using the {{ speechkit-full-name }} Python SDK "
+title: "Synchronous speech recognition using the {{ speechkit-full-name }} Python SDK"
 description: "Follow this guide to test synchronous speech recognition using the {{ speechkit-name }} Python SDK."
 ---
 
@@ -20,9 +20,9 @@ Below, we provide an example of synchronous speech recognition from an audio fil
 
 ## Create an application for synchronous speech recognition {#create-an-application}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
    1. Create a file named `test.py` and add the following code to it:

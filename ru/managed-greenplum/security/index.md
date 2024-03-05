@@ -36,21 +36,37 @@ keywords:
 
 ### Сервисные роли {#service-roles}
 
-{% include [mgp-auditor](../../_includes/iam/roles/mgp-auditor.md) %}
+#### managed-greenplum.auditor {#managed-greenplum-auditor}
 
-{% include [mgp-viewer](../../_includes/iam/roles/mgp-viewer.md) %}
+{% include [managed-greenplum.auditor](../../_roles/managed-greenplum/auditor.md) %}
 
-{% include [mgp-editor](../../_includes/iam/roles/mgp-editor.md) %}
+#### managed-greenplum.viewer {#managed-greenplum-viewer}
 
-{% include [mgp-admin](../../_includes/iam/roles/mgp-admin.md) %}
+{% include [managed-greenplum.viewer](../../_roles/managed-greenplum/viewer.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+#### managed-greenplum.editor {#managed-greenplum-editor}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+{% include [managed-greenplum.editor](../../_roles/managed-greenplum/editor.md) %}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+#### managed-greenplum.admin {#managed-greenplum-admin}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+{% include [managed-greenplum.admin](../../_roles/managed-greenplum/admin.md) %}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

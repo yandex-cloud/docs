@@ -28,7 +28,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    {{ yc-mdb-gp }} cluster list-backups <cluster_name_or_ID>
    ```
 
-   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    Result:
 
@@ -73,6 +73,22 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 {% endlist %}
 
+## Creating a backup {#create-backup}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
+
+   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
+{% endlist %}
+
+{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
+
 ## Restoring clusters from backups {#restore}
 
 The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any recovery point created after saving a backup. For more information, see [{#T}](../concepts/backup.md).
@@ -107,6 +123,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
+   1. If you want to restore only certain databases or tables, list them in the **{{ ui-key.yacloud.greenplum.field_restore-only }}** field. If you leave the field blank, the whole cluster will be restored.
    1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
    1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -121,6 +138,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
+   1. If you want to restore only certain databases or tables, list them in the **{{ ui-key.yacloud.greenplum.field_restore-only }}** field. If you leave the field blank, the whole cluster will be restored.
    1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
    1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -159,6 +177,7 @@ If you set the current time as the recovery time, the new cluster will match the
          --segment-disk-type=<disk_type> \
          --segment-host-count <number_of_segment_hosts> \
          --segment-in-host <number_of_segments_per_host> \
+         --restore-only=<list_of_DBs_and_tables_to_restore> \
          --zone-id=<availability_zone> \
          --subnet-id=<subnet_ID> \
          --assign-public-ip=<public_access_to_cluster>
@@ -184,6 +203,7 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--segment-disk-type`: [Disk type](../concepts/storage.md) on the segment hosts.
       * `--segment-host-count`: Number of segment hosts.
       * `--segment-in-host`: Number of [segments](../concepts/index.md) per host.
+      * `--restore-only`: (Optional) Comma-separated list of DBs and tables to restore from the backup. The supported formats include: `<DB>/<chart>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol. If you omit this parameter, the whole cluster will be restored.
       * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
       
@@ -200,6 +220,7 @@ If you set the current time as the recovery time, the new cluster will match the
    * Number of segment hosts in the `segmentHostCount` parameter.
    * Number of [segments](../concepts/index.md) per host in the `segmentInHost` parameter.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
+   * (Optional) Comma-separated list of DBs and tables to restore from the backup, in the `restoreOnly` parameter. The supported formats include: `<DB>/<chart>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol. If you omit this parameter, the whole cluster will be restored.
 
    By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.
 

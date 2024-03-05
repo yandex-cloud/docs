@@ -4,13 +4,16 @@
 
 You can connect to {{ mpg-short-name }} cluster hosts:
 * Over the internet, if you configured public access for the appropriate host. You can only connect to such hosts over an SSL connection.
-* From {{ yandex-cloud }} virtual machines located in the same cloud network. If there is no public access to a host, using SSL for connections from such virtual machines is not required.
+* From {{ yandex-cloud }} virtual machines located in the same cloud network. If the host is not publicly accessible, there is no need to use SSL for connections from such virtual machines.
+* From a container in [{{ serverless-containers-full-name }}](../../serverless-containers/concepts/index.md). If the host is not publicly accessible, the container must be located in the same cloud network.
 
 For more information, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
 #### Can I connect to a cluster from a Docker container? {#conn-from-docker}
 
 Yes, you can. To do this, [configure the Dockerfile](../../managed-postgresql/operations/connect.md#connection-docker).
+
+You can find an example of connection from a container in {{ serverless-containers-full-name }} in [this tutorial](../../serverless-containers/tutorials/pg-connect.md).
 
 #### How do I obtain an SSL certificate to connect to {{ mpg-name }} on Windows? {#get-ssl}
 

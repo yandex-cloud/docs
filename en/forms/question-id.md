@@ -1,6 +1,6 @@
 # Getting IDs for questions and responses
 
-Question and response IDs are used to prefill the form. There are several ways to get IDs for different types of questions.
+Question and response IDs are used to prefill a form. There are several ways to get IDs for different types of questions.
 
 ## ID of the question {#sec_question}
 

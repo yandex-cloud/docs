@@ -21,7 +21,7 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/kafka.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/kafka.md
           - name: AWS CloudTrail
             items:
@@ -35,19 +35,19 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/clickhouse.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/clickhouse.md
           - name: Elasticsearch
             items:
               - name: Source
                 href: operations/endpoint/source/elasticsearch.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/elasticsearch.md
           - name: Greenplum®
             items:
               - name: Source
                 href: operations/endpoint/source/greenplum.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/greenplum.md
           - name: '{{ metrika-endpoint }}'
             items:
@@ -61,25 +61,25 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/mongodb.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/mongodb.md
           - name: MySQL
             items:
               - name: Source
                 href: operations/endpoint/source/mysql.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/mysql.md
           - name: Object Storage
             items:
               - name: Source
                 href: operations/endpoint/source/object-storage.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/object-storage.md
           - name: OpenSearch
             items:
               - name: Source
                 href: operations/endpoint/source/opensearch.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/opensearch.md
           - name: Oracle
             items:
@@ -89,7 +89,7 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/postgresql.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/postgresql.md
           - name: S3
             items:
@@ -99,13 +99,13 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/data-streams.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/data-streams.md
           - name: '{{ ydb-short-name }}'
             items:
               - name: Source
                 href: operations/endpoint/source/ydb.md
-              - name: Consumer
+              - name: Target
                 href: operations/endpoint/target/yandex-database.md
       - name: Managing transfer process
         href: operations/transfer.md
@@ -149,6 +149,8 @@ items:
             href: tutorials/mmy-to-mpg.md
           - name: '{{ PG }} to {{ MY }}'
             href: tutorials/mpg-to-mmy.md
+          - name: '{{ MY }} to {{ GP }}'
+            href: tutorials/mmy-to-mgp.md
           - name: '{{ ES }} to {{ OS }}'
             href: tutorials/mes-to-mos.md
       - name: Change data capture and delivery to the queue
@@ -203,8 +205,12 @@ items:
             href: tutorials/rdbms-to-clickhouse.md
           - name: '{{ GP }} to {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
+          - name: '{{ objstorage-name }} to {{ PG }}'
+            href: tutorials/object-storage-to-postgresql.md
           - name: '{{ yandex-direct }} to {{ CH }}'
             href: tutorials/direct-to-mch.md
+          - name: '{{ objstorage-name }} to {{ CH }}'
+            href: tutorials/object-storage-to-clickhouse.md
       - name: Uploading data to {{ objstorage-name }}
         items:
           - name: '{{ MY }} to {{ objstorage-name }}'
@@ -253,16 +259,30 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
-      - name: December 2023
-        href: release-notes/2312.md
-      - name: November 2023
-        href: release-notes/2311.md
-      - name: October 2023
-        href: release-notes/2310.md
-      - name: September 2023
-        href: release-notes/2309.md
-      - name: August 2023
-        href: release-notes/2308.md
+      - name: January 2024
+        href: release-notes/2401.md
+      - name: '2023'
+        items:
+          - name: December 2023
+            href: release-notes/2312.md
+          - name: November 2023
+            href: release-notes/2311.md
+          - name: October 2023
+            href: release-notes/2310.md
+          - name: September 2023
+            href: release-notes/2309.md
+          - name: August 2023
+            href: release-notes/2308.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: ../cli/cli-ref/managed-services/datatransfer/index.md
+      - name: Transfer
+        href: ../cli/cli-ref/managed-services/datatransfer/transfer/index.md
+      - name: Endpoint
+        href: ../cli/cli-ref/managed-services/datatransfer/endpoint/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -319,6 +339,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
 base: en/data-transfer

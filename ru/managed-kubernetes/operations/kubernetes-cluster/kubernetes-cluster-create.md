@@ -2,6 +2,10 @@
 
 Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), а затем [создайте группу узлов](../node-group/node-group-create.md).
 
+{% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+
+Если вы хотите создать кластер без доступа в интернет, обратитесь к разделу [{#T}](../../tutorials/k8s-cluster-with-no-internet.md).
+
 ## Перед началом работы {#before-you-begin}
 
 {% list tabs group=instructions %}
@@ -15,12 +19,12 @@
 
 
   1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
-  1. Убедитесь, что у [аккаунта](../../../iam/concepts/index.md#accounts), с помощью которого вы собираетесь создавать кластер {{ managed-k8s-name }}, есть [необходимые для этого роли](../../security/index.md#required-roles).
+  1. Убедитесь, что у [аккаунта](../../../iam/concepts/users/accounts.md), с помощью которого вы собираетесь создавать кластер {{ managed-k8s-name }}, есть [необходимые для этого роли](../../security/index.md#required-roles).
   1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
   1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../concepts/index.md#node-group).
   1. Создайте [сервисные аккаунты](../../../iam/operations/sa/create.md):
-     * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+     * Сервисный аккаунт с [ролью](../../security/index.md#yc-api) `k8s.clusters.agent` на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
@@ -141,7 +145,7 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -161,7 +165,7 @@
      >resource "yandex_kubernetes_cluster" "<имя_кластера_Managed_Service_for_Kubernetes>" {
      >  network_id = yandex_vpc_network.<имя_сети>.id
      >  master {
-     >    zonal {
+     >    master_location {
      >      zone      = yandex_vpc_subnet.<имя_подсети>.zone
      >      subnet_id = yandex_vpc_subnet.<имя_подсети>.id
      >    }
@@ -191,7 +195,7 @@
      >  # Сервисному аккаунту назначается роль "editor".
      >  folder_id = "<идентификатор_каталога>"
      >  role      = "editor"
-     >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта> id}"
+     >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта>.id}"
      >}
      >
      >resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
@@ -266,7 +270,7 @@
     name = "k8s-zonal"
     network_id = yandex_vpc_network.mynet.id
     master {
-      zonal {
+      master_location {
         zone      = yandex_vpc_subnet.mysubnet.zone
         subnet_id = yandex_vpc_subnet.mysubnet.id
       }
@@ -430,20 +434,17 @@
     name = "k8s-regional"
     network_id = yandex_vpc_network.my-regional-net.id
     master {
-      regional {
-        region = "{{ region-id }}"
-        location {
-          zone      = yandex_vpc_subnet.mysubnet-a.zone
-          subnet_id = yandex_vpc_subnet.mysubnet-a.id
-        }
-        location {
-          zone      = yandex_vpc_subnet.mysubnet-b.zone
-          subnet_id = yandex_vpc_subnet.mysubnet-b.id
-        }
-        location {
-          zone      = yandex_vpc_subnet.mysubnet-d.zone
-          subnet_id = yandex_vpc_subnet.mysubnet-d.id
-        }
+      master_location {
+        zone      = yandex_vpc_subnet.mysubnet-a.zone
+        subnet_id = yandex_vpc_subnet.mysubnet-a.id
+      }
+      master_location {
+        zone      = yandex_vpc_subnet.mysubnet-b.zone
+        subnet_id = yandex_vpc_subnet.mysubnet-b.id
+      }
+      master_location {
+        zone      = yandex_vpc_subnet.mysubnet-d.zone
+        subnet_id = yandex_vpc_subnet.mysubnet-d.id
       }
       security_group_ids = [yandex_vpc_security_group.regional-k8s-sg.id]
     }

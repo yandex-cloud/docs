@@ -17,12 +17,9 @@ If the issue is systematic (tens of percent of the total number of speech recogn
 If you have any issues, please contact [support]({{ link-console-support }}) and provide files and a description.
 
 
-#### Noises, beeps, silence is reproduced as a strange speech {#strange-speech}
-
-Try using a [different recognition model](../../{{ speechkit-slug }}/stt/models.md#tags), such as `general:rc`. For streaming recognition, there is a [setting](../../{{ speechkit-slug }}/stt/api/streaming-api.md#additional-settings) that reduces the sensitivity of background noise recognition.
-
-
 #### Two channels were recognized as one / How to recognize each channel separately {#two-channels}
+
+You can recognize multi-channel audio files only using [asynchronous recognition](../../{{ speechkit-slug }}/stt/transcribation.md).
 
 Check the format of your recording:
 
@@ -33,9 +30,11 @@ The recognized text in the response is separated by the [channelTag](../../{{ sp
 
 #### Is it possible to recognize two or more voices separated by speaker? {#separate-speaker}
 
+You can recognize multi-channel audio files only using [asynchronous recognition](../../{{ speechkit-slug }}/stt/transcribation.md).
+
 During speech recognition, text is not split by voice, but you can place the voices in different channels and separate the recognized text in the response with the [channelTag](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#get-result-response) parameter.
 
-The number of channels can be specified in a request using the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter.
+You can specify the number of channels in a request using the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter.
 
 #### Incomplete audio recognition {#incomplete}
 
@@ -46,7 +45,7 @@ To recognize an audio file, try different [models](../../{{ speechkit-slug }}/st
 
 #### The file doesn't exceed the limit, but an error occurs during recognition {#multi-channel-limits}
 
-If the file is multi-channel, take into account the total recording time of all channels. For more information, see the [Quotas and limits in {{ speechkit-short-name }}](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-limits) section in the documentation.
+If the file is multi-channel, take into account the total recording time of all channels. For the full list of limitations, see [Quotas and limits in {{ speechkit-short-name }}](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-limits).
 
 #### Internal Server Error {#internal-server-err}
 
@@ -62,7 +61,7 @@ Intermediate results allow you to quickly respond to the recognized speech witho
 
 #### Where can I find an example of audio file recognition? {#audiofile}
 
-You can find examples of asynchronous recognition of [LPCM](../../{{ speechkit-slug }}/stt/api/transcribation-lpcm.md) and [OggOpus](../../{{ speechkit-slug }}/stt/api/transcribation-ogg.md) files in the [Tutorials](../../{{ speechkit-slug }}/tutorials/index.md) section.
+For {{ speechkit-name }} usage examples, see [Tutorials](../../{{ speechkit-slug }}/tutorials/index.md). To recognize pre-recorded audio files, use [asynchronous recognition](../../speechkit/stt/transcribation.md).
 
 #### Where can I find an example of microphone speech recognition? {#microphone}
 
@@ -70,21 +69,21 @@ You can find examples of asynchronous recognition of [LPCM](../../{{ speechkit-s
 
 #### Can I use POST for streaming recognition? {#post}
 
-Streaming recognition only works through the gRPC API, you can't use POST.
-
-When using the [header](../../{{ speechkit-slug }}/stt/api/request-api.md#http_request) `Transfer-Encoding: chunked` during synchronous recognition, you can send an audio stream without closing the current connection.
+Streaming recognition uses gRPC and is not supported by the REST API, so you cannot use the POST method.
 
 #### A streaming recognition session is broken/terminated {#broken-session}
 
-If the [streaming recognition](../../{{ speechkit-slug }}/stt/streaming.md#session-restrictions) service doesn't receive data to recognize within 5 seconds, a session is aborted. You cannot change this parameter.
+When using the [API v2](../../{{ speechkit-slug }}/stt/streaming.md#session-restrictions) for streaming recognition, the service awaits audio data. If it does not receive any data within 5 seconds, the session terminates. You cannot change this parameter in the API v2.
 
-Streaming recognition runs in real time. You can send "silence" for recognition so that the service doesn't terminate the connection.
+Streaming recognition runs in real time. You can send "silence" for recognition so that the service does not terminate the connection.
 
-#### How are the end of an utterance and the recognition session duration determined? {#utterance-end}
+We recommend using the [API v3](../../) for streaming recognition. The API v3 features a [special message type](../../speechkit/stt-v3/api-ref/grpc/stt_service.md#SilenceChunk) for sending "silence", so you will not have to simulate it yourself in your audio recording.
 
-The end of an utterance is determined automatically by the "silence" after the utterance.
+#### How does the service figure out the end of an utterance and the duration of a recognition session? {#utterance-end}
 
-[The maximum duration of a session](../../{{ speechkit-slug }}/stt/streaming.md#session-restrictions) is 5 minutes.
+The end of an utterance is determined automatically by the "silence" after the utterance. For more information about end-of-utterance detection, see [{#T}](../../speechkit/stt/eou.md).
+
+The [maximum session duration](../../{{ speechkit-slug }}/stt/streaming.md#session-restrictions) for streaming recognition is {{ stt-streaming-audioLength }}.
 
 #### What should I do if {{ speechkit-name }} does not listen to a conversation to the end or, conversely, it takes too long to wait until it ends? {#eou-tune}
 
@@ -92,12 +91,10 @@ Interruptions or delays during [streaming recognition](../../{{ speechkit-slug }
 
 #### Error: OutOfRange desc = Exceeded maximum allowed stream duration {#duration-exceeded}
 
-This error means that the maximum allowed duration of a recognition session has been exceeded.
+This error means that the maximum allowed duration of a recognition session has been exceeded. In this case, you need to reopen the session.
 
-For streaming recognition, [the maximum session duration](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-limits) is 5 minutes.
+For streaming recognition, the [maximum session duration](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-limits) is {{ stt-streaming-audioLength }}. This is a technical limitation due to the {{ yandex-cloud }} architecture and it cannot be changed.
 
-This is a technical limitation due to the {{ yandex-cloud }} architecture and it cannot be changed.
+#### What goes into the usage cost? {#stt-cost}
 
-#### What goes into the cost of using the service? {#stt-cost}
-
-You can find examples of calculating the usage cost, pricing rules, and effective prices in the [documentation](../../{{ speechkit-slug }}/pricing.md).
+For usage cost calculation examples, pricing rules, and effective prices, see [{#T}](../../{{ speechkit-slug }}/pricing.md).

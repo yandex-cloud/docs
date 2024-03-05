@@ -20,6 +20,7 @@ To send the image for asynchronous text recognition.
 
 **rpc Recognize ([RecognizeTextRequest](#RecognizeTextRequest)) returns ([operation.Operation](#Operation))**
 
+Response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### RecognizeTextRequest {#RecognizeTextRequest}
@@ -28,7 +29,7 @@ Field | Description
 --- | ---
 source | **oneof:** `content`<br>
 &nbsp;&nbsp;content | **bytes**<br>Bytes with data 
-mime_type | **string**<br>Specifications of the ([MIME type](https://en.wikipedia.org/wiki/Media_type)). Each specification contains the file to analyze and features to use for analysis. Restrictions: <ul><li>Supported file formats: `JPEG`, `PNG`, `WEBP`, `PDF`. </li><li>Maximum file size: 20 MB. </li><li>Image size should not exceed 20M pixels (length x width). </li><li>The number of pages in a PDF file should not exceed 200 (each page counts as 1 request).</li></ul> 
+mime_type | **string**<br>Specifications of the ([MIME type](https://en.wikipedia.org/wiki/Media_type)). Each specification contains the file to analyze and features to use for analysis. Restrictions: <ul><li>Supported file formats: `JPEG`, `PNG`, `PDF`. </li><li>Maximum file size: 20 MB. </li><li>Image size should not exceed 20M pixels (length x width). </li><li>The number of pages in a PDF file should not exceed 200 (each page counts as 1 request).</li></ul> 
 language_codes[] | **string**<br>List of the languages to recognize text. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`). 
 model | **string**<br>Model to use for text detection. The maximum string length in characters is 50.
 
@@ -80,6 +81,7 @@ blocks[] | **[Block](#Block)**<br>Recognized text blocks in this page.
 entities[] | **[Entity](#Entity)**<br>Recognized entities. 
 tables[] | **[Table](#Table)**<br> 
 full_text | **string**<br>Full text recognized from image. 
+rotate | enum **Angle**<br>Angle of rotate image 
 
 
 ### Block {#Block}
@@ -122,6 +124,7 @@ bounding_box | **[Polygon](#Polygon1)**<br>Area on the page where the line is lo
 text | **string**<br>Recognized text. 
 words[] | **[Word](#Word)**<br>Recognized words. 
 text_segments[] | **[TextSegments](#TextSegments)**<br>Line position from full_text string. 
+orientation | enum **Angle**<br>Angle of rotate line 
 
 
 ### Word {#Word}

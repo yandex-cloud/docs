@@ -17,8 +17,8 @@ Prepare the infrastructure:
    1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
    1. [Create service accounts](../../iam/operations/sa/create.md):
-      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
+      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
+      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
       {% note tip %}
 
@@ -27,7 +27,7 @@ Prepare the infrastructure:
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster to run.
+   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
    1. [Create a log group](../../logging/operations/create-group.md).
 
 - {{ TF }} {#tf}
@@ -49,7 +49,7 @@ Prepare the infrastructure:
       * {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md).
    1. Specify the following in the configuration file:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.
+      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
       * Name of the service account for {{ managed-k8s-name }} resources and nodes.
       * {{ cloud-logging-name }} log group name.
    1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
@@ -88,7 +88,7 @@ Prepare the infrastructure:
       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
       ```
 
-   1. Create a secret including the key of the [service account](../../iam/concepts/users/service-accounts.md):
+   1. Create a secret containing the key of the [service account](../../iam/concepts/users/service-accounts.md):
 
       ```bash
       kubectl create secret generic secret-key-json \

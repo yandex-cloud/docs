@@ -21,9 +21,9 @@ description: "This guide describes how to use Sqoop."
 
 A JDBC connect string has the following format:
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
    ```http
    jdbc:postgresql://<database_server_address>:5432/<database_name>
@@ -37,7 +37,7 @@ A JDBC connect string has the following format:
 
    You can get the cluster ID with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
    ```http
    jdbc:mysql://<database_server_address>:3306/<database_name>
@@ -57,13 +57,13 @@ A JDBC connect string has the following format:
 
 For Sqoop to connect to the database using a JDBC connect string, install a JDBC driver:
 
-{% list tabs %}
+{% list tabs group=data_sources %}
 
-- {{ PG }}
+- {{ PG }} {#postgresql}
 
    {{ dataproc-name }} has a pre-installed {{ mpg-full-name }} driver, so no additional action is needed.
 
-- {{ MY }}
+- {{ MY }} {#mysql}
 
    [Connect](./connect.md) over SSH to the {{ dataproc-name }} subcluster host that stores the data and run this command:
 

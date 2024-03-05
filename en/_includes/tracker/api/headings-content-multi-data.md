@@ -8,9 +8,9 @@
 
 - **Authorization**
 
-   OAuth token in `OAuth <token value>` format, for example:
+   OAuth token in `OAuth <OAuth_token>` format, e.g.:
    ```
-   OAuth 0c4181a7c2cf4521964a72ff57a34a07
+   OAuth 0c4181a7c2cf4521964a72ff********
    ```
 - **X-Org-ID** or **X-Cloud-Org-ID**
 

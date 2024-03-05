@@ -53,6 +53,51 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
       yc compute instance get --full first-instance
       ```
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   To get information about a VM using {{ TF }}:
+
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      ```
+      data "yandex_compute_instance" "my_instance" {
+        instance_id = "<instance_ID>"
+      }
+
+      output "instance_external_ip" {
+        value = "${data.yandex_compute_instance.my_instance.network_interface.0.nat_ip_address}"
+      }
+      ```
+
+      Where:
+
+      * `data "yandex_compute_instance"`: Description of the data source to get VM information from:
+         * `instance_id`: VM ID.
+      * `output "instance_external_ip"`: External IP address of the VM for the resulting output:
+         * `value`: Returned value.
+
+      For more information about the `yandex_compute_instance` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_instance).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+
+      ```bash
+      terraform output instance_external_ip
+      ```
+
+      Result:
+
+      ```bash
+      instance_external_ip = "158.160.50.228"
+      ```
+
 - API {#api}
 
    To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get) gRPC API call.
@@ -142,7 +187,7 @@ The {{ yandex-cloud }} metadata service allows you to return metadata in Amazon 
 GET http://169.254.169.254/latest/meta-data/<element>
 ```
 
-Where `<element>` stands for the path to the element you want to get. If the element is omitted, the response returns a list of available elements.
+Where `<element>` is the path to the element you want to get. If the element is omitted, the response returns a list of available elements.
 
 #### List of returned elements {#list-of-returned-items}
 
@@ -150,7 +195,7 @@ List of elements that are available for this request.
 
 {% note info %}
 
-The angle brackets contain parameters that need to be replaced with values. For example, instead of `<mac>`, you should insert the MAC address of the network interface.
+The angle brackets contain parameters to replace with values. For example, instead of `<MAC_address>`, you should specify the MAC address of the network interface.
 
 {% endnote %}
 
@@ -159,10 +204,10 @@ The angle brackets contain parameters that need to be replaced with values. For 
 * `local-ipv4`: [Internal IPv4 address](../../../vpc/concepts/address.md#internal-addresses).
 * `local-hostname`: VM's hostname.
 * `mac`: MAC address of the VM's network interface.
-* `network/interfaces/macs/<mac>/ipv6s`: Internal IPv6 addresses associated with the network interface.
-* `network/interfaces/macs/<mac>/local-hostname`: Hostname associated with the network interface.
-* `network/interfaces/macs/<mac>/local-ipv4s`: Internal IPv4 addresses associated with the network interface.
-* `network/interfaces/macs/<mac>/mac`: MAC address of the VM's network interface.
+* `network/interfaces/macs/<MAC_address>/ipv6s`: Internal IPv6 addresses associated with the network interface.
+* `network/interfaces/macs/<MAC_address>/local-hostname`: Hostname associated with the network interface.
+* `network/interfaces/macs/<MAC_address>/local-ipv4s`: Internal IPv4 addresses associated with the network interface.
+* `network/interfaces/macs/<MAC_address>/mac`: MAC address of the VM network interface.
 * `public-ipv4`: [External IPv4 address](../../../vpc/concepts/address.md#public-addresses).
 
 #### Request examples {#request-examples}
@@ -224,7 +269,7 @@ To set up metadata service parameters for a VM instance:
    1. Set the metadata service settings using the `--metadata-options` parameter:
 
       ```bash
-      yc compute instance update <VM instance ID> \
+      yc compute instance update <VM_ID> \
         --metadata-options gce-http-endpoint=enabled
       ```
 

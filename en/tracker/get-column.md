@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/get-column.md
 ---
-# Get column parameters
+# Getting column parameters
 
 Use this request to get the parameters of a board's column.
 
@@ -12,9 +12,9 @@ Before making the request, [get permission to access the API](concepts/access.md
 To get the parameters of board columns, use an HTTP `GET` request.
 
 ```
-GET /{{ ver }}/boards/<board-id>/columns/<column-id>
+GET /{{ ver }}/boards/<board_ID>/columns/<column_ID>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 ```
 
@@ -23,9 +23,9 @@ Authorization: OAuth <token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<board-id\> | Board ID | Number |
-| \<column-id\> | Column ID | Number |
+----- | ----- | -----
+| \<board_ID\> | Board ID | Number |
+| \<column_ID\> | Column ID | Number |
 
 {% endcut %}
 
@@ -35,56 +35,55 @@ Authorization: OAuth <token>
 
 - Request executed successfully
 
-    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains a JSON object with column parameters.
+   The response body contains a JSON object with column parameters.
 
-    ```json
-    {
-        "self": "{{ host }}/v2/boards/73/columns/1",
-        "id": 1,
-        "name": "Open",
-        "statuses":
-          [
-             {
-                "self": "{{ host }}/v2/statuses/1",
-                "id": "1",
-                "key": "open",
-                "display": "Open"
-             },
-              ...
-          ]
-    }
-    ```
+   ```json
+   {
+       "self": "https://{{ host }}/v2/boards/73/columns/1",
+       "id": 1,
+       "name": "Open",
+       "statuses":
+         [
+            {
+               "self": "https://{{ host }}/v2/statuses/1",
+               "id": "1",
+               "key": "open",
+               "display": "Open"
+            },
+             ...
+         ]
+   }
+   ```
 
-    {% cut "Response parameters" %}
+   {% cut "Response parameters" %}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the board column. | String |
-    | id | Column ID. | Number |
-    | name | Column name. | String |
-    | [statuses](#statuses) | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Array. |
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Address of the API resource with information about the board column | String |
+   | id | Column ID | Number |
+   | name | Column name | String |
+   | [statuses](#statuses) | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Array |
 
-    **Object fields** `statuses` {#statuses}
+   `statuses` **object fields** {#statuses}
 
-    {% include [status](../_includes/tracker/api/status.md) %}
+   {% include [status](../_includes/tracker/api/status.md) %}
 
-    {% endcut %}
+   {% endcut %}
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
+   {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
-    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
 
-    {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
+   {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
 
-    {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
+   {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

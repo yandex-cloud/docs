@@ -78,6 +78,10 @@ items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: >-
+          Setting up a connection from a {{ serverless-containers-name }}
+          container
+        href: tutorials/container-connect.md
+      - name: >-
           Delivering data to {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
@@ -93,6 +97,10 @@ items:
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-to-mpg.md
+      - name: >-
+          Transferring data from {{ objstorage-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-postgresql.md
       - name: Replication and migration
         items:
           - name: Logical {{ PG }} replication
@@ -173,9 +181,13 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/managed-postgresql/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -299,6 +311,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

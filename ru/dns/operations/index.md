@@ -12,6 +12,11 @@ description: "Пошаговые инструкции по работе с DNS-�
 - [{#T}](zone-update.md)
 - [{#T}](zone-delete.md)
 
+## Получение информации о зоне DNS {#zone-info}
+
+- [{#T}](zone-list.md)
+- [{#T}](zone-get-info.md)
+
 ## Ресурсные записи {#resource-records}
 
 - [{#T}](resource-record-create.md)

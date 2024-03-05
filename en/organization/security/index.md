@@ -47,13 +47,13 @@ To grant a user organization management access, [assign](#add-role) the user one
 
 ### Assigning a role to a user {#add-role}
 
-An organization's administrators and owners can assign roles in {{ org-full-name }}. You can assign users both roles for managing an organization and roles for your organization's connected cloud resources.
+Organization administrators and owners can assign roles in {{ org-full-name }}. You can assign to users not just organization management roles but also roles for access to your organization's connected cloud resources.
 
-For information about roles available in {{ yandex-cloud }} and their associated permissions, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
+For information about roles available in {{ yandex-cloud }} and their associated permissions, see the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
@@ -67,13 +67,13 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
    1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and enter the role name or select one from the list.
 
-      You can find a description of the available roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
+      You can find the description of the available roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   1. Select the role you want to assign. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
+   1. Select the role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 
    1. [Get the user ID](../operations/users-get.md).
 
@@ -105,7 +105,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
    1. Describe the properties of the roles to be assigned in the configuration file:
 
       * `organization_id`: Organization ID.
-      * `role`: Role you want to assign. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
+      * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
       * `members`: Array of the IDs of users to assign the role to:
                   * `userAccount:{user_id}`: User's Yandex account ID.
          * `serviceAccount:{service_account_id}`: Service account ID.
@@ -115,10 +115,10 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
       ```
       resource "yandex_organizationmanager_organization_iam_binding" "editor" {
-        organization_id = "<organization ID>"
+        organization_id = "<organization_ID>"
         role = "editor"
         members = [
-         "federatedUser:<user ID>",
+         "federatedUser:<user_ID>",
         ]
       }
       ```
@@ -134,7 +134,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal displays a list of the roles assigned. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Assign roles.
 
@@ -149,7 +149,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
    Use the `updateAccessBindings` method for the corresponding resource.
 
-   1. Select the role you want to assign. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
+   1. Select the role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 
    1. [Get the user ID](../operations/users-get.md).
 
@@ -194,13 +194,13 @@ In a similar way, you can [assign roles](../../iam/operations/sa/assign-role-for
 
 ### Revoking a user's role {#revoke}
 
-If you wish to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access control in {{ yandex-cloud }}, please see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
+If you want to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access control in {{ yandex-cloud }}, please see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
 
 The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant roles to a user, see [Roles](#admin).
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} {#cloud-org}
+- {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
@@ -272,7 +272,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
    To revoke a resource role from a subject, delete the corresponding access binding:
 
-   1. View the roles and assignees for a resource using the `listAccessBindings` method. For example, to view the roles in an organization with the `bpf3crucp1v2********` ID:
+   1. View the roles and assignees for a resource using the `listAccessBindings` method. For example, to view the roles in the organization with the `bpf3crucp1v2********` ID:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
@@ -296,7 +296,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       }
       ```
 
-   1. Create the request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
+   1. Create a request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
 
       Example of `body.json` file:
 

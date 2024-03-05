@@ -31,9 +31,9 @@
 
 1. Создайте клиентское приложение:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Python 3
+    - Python 3 {#python}
 
         1. Установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 

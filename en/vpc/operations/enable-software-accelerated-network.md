@@ -16,9 +16,9 @@ To enable a software-accelerated network on an existing VM:
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the line with the appropriate VM, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-stop }} **.
+   1. In the line with the appropriate VM, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-stop }} **.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
-   1. Wait for the VM status to change to `Stopped`, click ![image](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Wait for the VM status to change to `Stopped`, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}**.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
    1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the top-right corner.

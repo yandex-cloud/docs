@@ -10,11 +10,11 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-The cost depends on the selected service plan. The selected service plan applies to an organization and can only be changed by the organization's owner or administrator. You can use one billing account to pay for technical support for multiple organizations that may have different support service plans activated. Service packages under various service plans are described in [Requesting technical support](overview.md).
+The cost depends on the service plan selected. The service plan applies to an organization and can only be changed by the organization's owner or administrator. You can use one billing account to pay for technical support for multiple organizations that may have different support service plans activated. Service packages under various service plans are described in [Requesting technical support](overview.md).
 
-| Service plan | Basic | Business                     | Premium |
---- |-------|------------------------------|--------
-| **Cost** | Free  | {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} per month plus 5% of the cost of the billing</br> account resources consumed by the organization | Contact us |
+| Service plan | Basic | Business | Premium |
+--- |-------------------|------------------------------|--------
+| **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} per month plus 5% of the cost of the billing</br> account resources consumed by the organization | Contact us |
 
 {% note info %}
 
@@ -41,7 +41,7 @@ The price is calculated based on the amount of resources consumed over the curre
 
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account {#business-example-one-ba}
 
-If a customer consumes resources for $800 a month, technical support will cost them {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $800 * 0.05 = $64 with the respective amount debited from a single billing account.
+If the customer consumes $800 worth of resources a month, the technical support service will cost {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $800 * 0.05 = $64 payable from a single billing account.
 
 #### Example of calculating the cost for an organization whose resources are paid from two billing accounts {#business-example-two-ba}
 

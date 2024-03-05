@@ -1,7 +1,7 @@
 Отправьте запрос с помощью метода [recognize](../../vision/ocr/api-ref/TextRecognition/recognize.md) и сохраните ответ в файл, например `output.json`:
 
 ```bash
-export IAM_TOKEN=<IAM_токен>
+export IAM_TOKEN=<IAM-токен>
 curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -13,5 +13,5 @@ curl -X POST \
 ```
 
 Где:
-* `<IAM_токен>` — полученный ранее IAM-токен.
+* `<IAM-токен>` — полученный ранее IAM-токен.
 * `<идентификатор_каталога>` — полученный ранее идентификатор каталога.

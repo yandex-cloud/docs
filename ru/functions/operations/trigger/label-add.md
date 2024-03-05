@@ -16,7 +16,7 @@ description: "Следуя данной инструкции, вы сможет�
     Чтобы добавить метку триггеру, выполните команду:
 
     ```bash
-    yc serverless trigger add-labels <имя триггера> --labels <ключ>=<значение>
+    yc serverless trigger add-labels <имя_триггера> --labels <ключ>=<значение>
     ```
 
     Результат:
@@ -48,7 +48,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы добавить метку триггера:
 
@@ -106,7 +106,7 @@ description: "Следуя данной инструкции, вы сможет�
      Проверить изменение триггера можно с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc serverless trigger get <идентификатор триггера>
+     yc serverless trigger get <идентификатор_триггера>
      ```
 
 - API {#api}

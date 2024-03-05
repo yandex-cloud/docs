@@ -10,6 +10,7 @@ description: "На странице представлен список поша
 - [{#T}](network-create.md)
 - [{#T}](network-delete.md)
 - [{#T}](network-update.md)
+- [{#T}](network-get-info.md)
 - [{#T}](network-map.md)
 - [{#T}](network-move.md)
 
@@ -18,6 +19,7 @@ description: "На странице представлен список поша
 - [{#T}](subnet-create.md)
 - [{#T}](subnet-delete.md)
 - [{#T}](subnet-update.md)
+- [{#T}](subnet-get-info.md)
 - [{#T}](subnet-move.md)
 - [{#T}](subnet-relocate.md)
 - [{#T}](subnet-used-addresses.md)

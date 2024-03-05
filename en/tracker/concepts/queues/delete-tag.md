@@ -1,30 +1,31 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/queues/delete-tag.md
 ---
-# Remove a tag from a queue
+# Removing a tag from a queue
 
 Use this request to remove a tag from a queue.
 
 {% note warning %}
 
-You can't remove a tag if it is used in at least one issue of the queue.
+You cannot remove a tag if it is used in at least one issue of the queue.
 
 {% endnote %}
+
 
 ## Request format {#query}
 
 Before making the request, [get permission to access the API](../access.md).
 
-To remove a tag, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
+To remove a tag, use an HTTP `POST` request. Request parameters are provided in the request body in JSON format.
 
 ```
-POST /{{ ver }}/queues/<queue-id>/tags/_remove
+POST /{{ ver }}/queues/<queue_ID_or_key>/tags/_remove
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
-    "tag": "<tag name>"
+    "tag": "<tag_name>"
 }
 ```
 
@@ -33,8 +34,8 @@ Authorization: OAuth <OAuth token>
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+----- | ----- | -----
+| \<queue_ID_or_key\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
@@ -43,7 +44,7 @@ Authorization: OAuth <OAuth token>
 **Required parameters**
 
 | Parameter | Value | Data type |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | tag | Tag name | String |
 
 {% endcut %}
@@ -54,23 +55,22 @@ Authorization: OAuth <OAuth token>
 
 - Request executed successfully
 
-    {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
+   {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-    The response body is missing.
+   The response body is missing.
 
 - Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
+   {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
+   {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+   {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
-    {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
+   {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
 
 {% endlist %}
-

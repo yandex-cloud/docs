@@ -70,12 +70,14 @@ To create an instance group based on a {{ coi }}:
         boot_disk_spec:
           mode: READ_WRITE
           disk_spec:
-            image_id: <ID_of_latest_COI_version>
+            image_id: <latest_COI_version_ID>
             type_id: network-hdd
             size: 32G
         network_interface_specs:
           - network_id: c64mknqgnd8a********
             primary_v4_address_spec: {}
+            security_group_ids:
+              - enps0ar5s3ti********
         placement_policy:
          placement_group_id: rmppvhrgm77g********
         metadata:
@@ -105,6 +107,7 @@ To create an instance group based on a {{ coi }}:
       * `size`: Disk size. It must be at least 30 GB.
       * `network_id`: ID of the `default-net` network.
       * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [allow public access to group instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for the public IP address.
+      * `security_group_ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
       * `metadata`: Values to send to the VM metadata.
       * `docker-container-declaration`: Key in the VM metadata that is used with the [COI specification of the Docker container](../../cos/concepts/coi-specifications.md). In the metadata, you can use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). To do this, specify the `docker-compose` key instead of the `docker-container-declaration` key.
       * `placement_policy`: (Optional) [VM placement group](../../compute/concepts/placement-groups.md) parameters:
@@ -148,12 +151,14 @@ To create an instance group based on a {{ coi }}:
         boot_disk_spec:
           mode: READ_WRITE
           disk_spec:
-            image_id: <ID_of_latest_COI_version>
+            image_id: <latest_COI_version_ID>
             type_id: network-hdd
             size: 32G
         network_interface_specs:
           - network_id: c64mknqgnd8a********
             primary_v4_address_spec: {}
+            security_group_ids:
+              - enps0ar5s3ti********
         placement_policy:
           placement_group_id: rmppvhrgm77g********
         metadata:

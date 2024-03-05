@@ -1,5 +1,7 @@
 # Управление политикой доступа (bucket policy)
 
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
 [Политики доступа (bucket policy)](../../concepts/policy.md) устанавливают права на действия с бакетами, объектами и группами объектов.
 
 ## Применить или изменить политику {#apply-policy}

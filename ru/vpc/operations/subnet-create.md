@@ -8,7 +8,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать подсеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.common.create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите название подсети. Требования к названию:
 
@@ -135,7 +135,7 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
