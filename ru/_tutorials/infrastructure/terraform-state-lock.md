@@ -250,11 +250,11 @@ export PATH=$PATH:/path/to/terraform
      ```
 
    - PowerShell {#powershell}
-
-     ```powershell
-     $ACCESS_KEY="<идентификатор_ключа>"
-     $SECRET_KEY="<секретный_ключ>"
-     ```
+   
+    ```powershell
+    $Env:AWS_ACCESS_KEY_ID="<идентификатор_ключа>"
+    $Env:AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
+    ```
 
    {% endlist %}
 
@@ -301,9 +301,10 @@ export PATH=$PATH:/path/to/terraform
    Подробнее о бэкенде для хранения состояний читайте на [сайте {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
 1. В папке с конфигурационным файлом выполните команду:
 
-   ```bash
-   terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY"
-   ```
+    ```bash
+    terraform init
+    ```
+
 
 ## Разверните конфигурацию {#deploy}
 
