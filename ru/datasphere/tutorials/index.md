@@ -22,9 +22,9 @@ description: "Различные сценарии использования {{ 
 
 ## Эксплуатация {#deployment}
 
-* [{#T}](node-from-cell.md)
-* [{#T}](node-from-docker.md)
 * [{#T}](node-from-model.md)
+* [{#T}](node-from-docker.md)
+* [{#T}](node-from-docker-fast-api.md)
 * [{#T}](stable-diffusion.md)
 * [{#T}](yagpt-tuning.md)
 

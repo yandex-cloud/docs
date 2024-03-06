@@ -55,12 +55,14 @@ items:
     items:
       - name: Resource relationships
         href: concepts/index.md
+      - name: Service advantages over a {{ GL }} custom installation
+        href: concepts/managed-gitlab-vs-custom-installation.md
+      - name: Running migration from a {{ GL }} custom installation
+        href: concepts/migration.md
       - name: Approval rules
         href: concepts/approval-rules.md
       - name: Backups
         href: concepts/backup.md
-      - name: Running migration from a {{ GL }} custom installation
-        href: concepts/migration.md
       - name: Security in {{ GL }}
         href: concepts/security.md
       - name: Quotas and limits

@@ -14,9 +14,9 @@
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-* DBeaver
+- DBeaver {#dbeaver}
 
     Поддержка подключения к {{ RD }}-кластеру доступна только в [коммерческих редакциях DBeaver](https://dbeaver.com/buy/).
 

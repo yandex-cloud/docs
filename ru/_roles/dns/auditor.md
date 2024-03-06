@@ -1,1 +1,1 @@
-Роль `dns.auditor` предоставляет минимально необходимые права для просмотра информации о DNS-зонах (без доступа к ресурсным записям).
+Роль `dns.auditor` позволяет просматривать информацию о [DNS-зонах](../../dns/concepts/dns-zone.md) и [привязках](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к ним, а также о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](../../dns/concepts/limits.md#cloud-dns-quotas) сервиса Cloud DNS. Роль не дает доступа к [ресурсным записям](../../dns/concepts/resource-record.md).

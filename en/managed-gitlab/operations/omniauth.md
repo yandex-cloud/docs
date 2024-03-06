@@ -118,3 +118,38 @@ Learn how to register an application on the Azure side in the [{{ GL }} document
 * **Name identifier format**: Format of the name identifier. Issued when configuring the IdP.
 
 Learn how to configure SAML on the IdP side in the [{{ GL }} documentation]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp).
+
+### Yandex ID {#yandex-id}
+
+* **Label**: Name of the authentication provider. Specify any name.
+* **Client ID**: Client ID received when registering an application.
+* **Client Secret**: Client secret key received when registering an application.
+* **Site**: Link to the {{ GL }} repository.
+
+For information on how to register an app on the identification provider side, see the [{{ yandex-oauth }} documentation](https://yandex.ru/dev/id/doc/en/register-client). When registering an app, permit access to the user's email address. If selecting web services as the platform, use the **Redirect URI** field to specify a URL in the following format:
+
+```
+https://<{{ GL }}_instance_address>/users/auth/Yandex/callback
+```
+
+URL example:
+
+```
+https://my-domain.gitlab.yandexcloud.net/users/auth/Yandex/callback
+```
+
+{% note warning %}
+
+When integrating with the Yandex ID service, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }} but also block them at first log in.
+
+{% endnote %}
+
+### Yandex 360 {#yandex-360}
+
+Yandex 360 uses [Yandex ID](#yandex-id) or [LDAP](#ldap) as authentication providers. To allow Yandex 360 users to log into your {{ GL }} instance, [add](#add-provider) and configure one of these providers in OmniAuth.
+
+{% note warning %}
+
+If you use Yandex ID, the authentication process does not include checking users for membership in a Yandex 360 organization. Any user with a Yandex account can log into your {{ GL }} instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }} but also block them at first log in.
+
+{% endnote %}

@@ -3,7 +3,7 @@ title: "{{ yandex-cloud }} role reference"
 description: "The article provides a full reference and description of roles for {{ yandex-cloud }} services."
 ---
 
-# {{ yandex-cloud }} roles reference
+# {{ yandex-cloud }} role reference
 
 
 ## Primitive roles {#primitive-roles}

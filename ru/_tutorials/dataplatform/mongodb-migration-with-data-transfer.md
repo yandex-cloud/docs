@@ -65,15 +65,15 @@
 
 ### Создайте и настройте кластер-приемник {#target-setup}
 
-{% list tabs %}
+{% list tabs group=cluster %}
 
-- Нешардированный кластер-приемник
+- Нешардированный кластер-приемник {#non-sharded}
 
   1. [Создайте кластер](../../managed-mongodb/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации.
   1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) `db1`.
   1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
   
-- Шардированный кластер-приемник
+- Шардированный кластер-приемник {#sharded}
 
   1. [Создайте кластер](../../managed-mongodb/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации. В кластере должно быть не менее двух хостов.
   1. [Включите шардирование](../../managed-mongodb/operations/shards.md).
@@ -85,9 +85,9 @@
 
 ### Настройте эндпоинты и трансфер {#prepare-endpoints-transfer}
 
-{% list tabs %}
+{% list tabs group=cluster %}
 
-- Нешардированный кластер-приемник
+- Нешардированный кластер-приемник {#non-sharded}
 
   1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
@@ -110,7 +110,7 @@
      * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** — выберите созданный эндпоинт для кластера-источника.
      * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}** — выберите созданный эндпоинт для кластера-приемника.
 
-- Шардированный кластер-приемник
+- Шардированный кластер-приемник {#sharded}
 
   1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
@@ -137,9 +137,9 @@
 
 ### Перенесите данные {#transfer}
 
-{% list tabs %}
+{% list tabs group=cluster %}
 
-- Нешардированный кластер-приемник
+- Нешардированный кластер-приемник {#non-sharded}
 
   1. [Активируйте](../../data-transfer/operations/transfer.md#activate) созданный трансфер.
   1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
@@ -157,7 +157,7 @@
      200000
      ```
 
-- Шардированный кластер-приемник
+- Шардированный кластер-приемник {#sharded}
 
   1. [Активируйте](../../data-transfer/operations/transfer.md#activate) созданный трансфер.
   1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.

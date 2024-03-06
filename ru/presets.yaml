@@ -476,6 +476,7 @@ default:
   roles-datasphere-project-viewer: datasphere.community-projects.viewer
   roles-datasphere-user: datasphere.user
   roles-editor: editor
+  roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
@@ -3455,6 +3456,7 @@ default:
         button:
           add-role: Добавить роль
         label:
+          public: Публичные
           title: Настройка прав доступа
       marketplace:
         label_product-ids: Идентификаторы продукта
@@ -4336,6 +4338,8 @@ default:
           label_inherited-bindings: Наследуемые роли
           label_service-account: Сервисный аккаунт
           label_service-accounts: Сервисные аккаунты
+          label_user-accounts: Пользовательские аккаунты
+          placeholder_filter-by-type: Тип аккаунта
         save: Сохранить
         save-changes: Сохранить изменения
         section-base: Общая информация

@@ -158,9 +158,9 @@ mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 
 {% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-- DataGrip
+- DataGrip {#datagrip}
 
   1. Создайте источник данных:
      1. Выберите в меню **File** → **New** → **Data Source** → **{{ MY }}**.
@@ -177,7 +177,7 @@ mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
   1. Чтобы проверить подключение, нажмите ссылку **Test Connection**. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
   1. Нажмите кнопку **OK**, чтобы сохранить источник данных.
 
-- DBeaver
+- DBeaver {#dbeaver}
 
   1. Создайте новое соединение с БД:
      1. Выберите в меню **База данных** пункт **Новое соединение**.
