@@ -17,6 +17,8 @@ To start working with {{ mgl-name }}, check [this guide](operations/instance/mig
 
 {% endnote %}
 
+For more information about the differences between {{ mgl-name }} and the {{ GL }} Community Edition custom installation, see the [Service advantages over a {{ GL }} custom installation](concepts/managed-gitlab-vs-custom-installation.md) section.
+
 ## Getting started {#before-you-begin}
 
 {% list tabs group=instructions %}

@@ -43,7 +43,7 @@ keywords:
 
 Резервные копии создаются только на работающих кластерах. Если вы используете кластер {{ mpg-short-name }} не круглосуточно, проверьте [настройки времени начала резервного копирования](../operations/update.md#change-additional-settings). Кластер, у которого нет резервных копий, невозможно [остановить](../operations/cluster-stop.md#stop-cluster).
 
-О том, как вручную создать резервную копию, читайте в разделе [{#T}](../operations/cluster-backups.md).
+О том, как вручную создать резервную копию, читайте в разделе [Управление резервными копиями](../operations/cluster-backups.md).
 
 {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
 

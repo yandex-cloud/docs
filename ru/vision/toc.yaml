@@ -40,6 +40,8 @@ items:
         href: tutorials/index.md
       - name: Распознавание архива изображений в {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
+      - name: Telegram-бот для распознавания текста на изображениях
+        href: tutorials/recognizer-bot.md
   - name: Концепции
     items:
       - name: Обзор

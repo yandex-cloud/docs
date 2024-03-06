@@ -4,9 +4,83 @@
 
 ## Активировать сбор статистики {#activate-stats-collector}
 
-Включите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings) (по умолчанию опция отключена).
+{% list tabs group=instructions %}
 
-Настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Единицы измерения обеих настроек — секунды.
+* Консоль управления {#console}
+
+    При [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings):
+
+    1. Включите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (по умолчанию отключена).
+    1. Настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Диапазон значений — от `1` до `86400` секунд.
+
+* CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы включить и настроить сбор статистики, передайте параметр `--performance-diagnostics` в команде изменения кластера:
+
+    ```bash
+    {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
+       ...
+       --performance-diagnostics enabled=true,`
+                                `sessions-sampling-interval=<интервал_сбора_сессий>,`
+                                `statements-sampling-interval=<интервал_сбора_запросов> \
+        ...
+    ```
+
+    Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
+
+* {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Чтобы включить и настроить сбор статистики, добавьте блок `performance_diagnostics` в конфигурацию кластера:
+
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<название_кластера>" {
+          ...
+          performance_diagnostics {
+            enabled = true
+            sessions_sampling_interval = <интервал_сбора_сессий>
+            statements_sampling_interval = <интервал_сбора_запросов>
+          }
+          ...
+        }
+        ```
+
+        Допустимые значения параметров `sessions_sampling_interval` и `statements_sampling_interval` — от `1` до `86400` секунд.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+
+* API {#api}
+
+    Чтобы включить сбор статистики, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) или [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) или [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Идентификатор можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    * Значение `true` в параметре `configSpec.performanceDiagnostics.enabled`.
+    * Интервал сбора сессий в параметре `configSpec.performanceDiagnostics.sessionsSamplingInterval`. Допустимые значения — от `1` до `86400` секунд.
+    * Интервал сбора запросов в параметре `configSpec.performanceDiagnostics.statementsSamplingInterval`. Допустимые значения — от `1` до `86400` секунд.
+    * Список полей, подлежащих изменению, в параметре `updateMask`.
+
+    {% note warning %}
+
+    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
+
+    {% endnote %}
+
+{% endlist %}
 
 ## Получить статистику по сессиям {#get-sessions}
 

@@ -13,7 +13,7 @@ items:
             href: operations/cluster-list.md
           - name: Создание кластера
             href: operations/cluster-create.md
-          - name: Изменение настроек {{ PG }}-кластера
+          - name: Изменение настроек кластера
             href: operations/update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md

@@ -402,9 +402,9 @@ On a local computer:
 
    The run command varies depending on whether you want to save the job results to {{ objstorage-name }} or to HDFS.
 
-   {% list tabs %}
+   {% list tabs group=storage_system %}
 
-   - {{ objstorage-name }}
+   - {{ objstorage-name }} {#storage}
 
       ```bash
       {{ yc-dp }} job create-pyspark \
@@ -422,7 +422,7 @@ On a local computer:
 
       A CSV file with the execution results is saved to `data-proc-bucket`.
 
-   - HDFS
+   - HDFS directory {#hdfs}
 
       ```bash
       {{ yc-dp }} job create-pyspark \
@@ -584,9 +584,9 @@ The file is uploaded to `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAP
 
    The run command varies depending on whether you want to save the job results to {{ objstorage-name }} or to HDFS.
 
-   {% list tabs %}
+   {% list tabs group=storage_system %}
 
-   - {{ objstorage-name }}
+   - {{ objstorage-name }} {#storage}
 
       ```bash
       {{ yc-dp }} job create-spark \
@@ -605,7 +605,7 @@ The file is uploaded to `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAP
 
       A CSV file with the execution results is saved to `data-proc-bucket`.
 
-   - HDFS
+   - HDFS directory {#hdfs}
 
       ```bash
       {{ yc-dp }} job create-spark \

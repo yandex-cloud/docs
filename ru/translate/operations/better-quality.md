@@ -139,19 +139,39 @@ description: "Из статьи вы узнаете, как можно повы�
 
 ## Экранировать текст {#screen}
 
-Чтобы текст не переводился, вы можете экранировать его в HTML-формате с помощью тега `span translate`. Например:
+Чтобы определенные фрагменты текста не переводились, в теле запроса укажите формат текста `HTML` и экранируйте не требующие перевода фрагменты тегом `<span>` с атрибутом `translate=no`. Например:
 
-```html
-"format": "HTML",
-"texts": [
-"The e-mail has been changed. The new password is **<span translate=no>**%\$Qvd14aa2NMc**</span>**"
-],
-"translations": [
-{
-"text": "L'e-mail a été modifié. Le nouveau mot de passe est **<span translate="no">**%\$Qvd14aa2NMc**</span>**"
- }
-]
-```
+{% list tabs group=programming_language %}
+
+- Bash {#bash}
+
+  ```json
+  {
+      "format": "HTML",
+      "texts": [
+          "The e-mail has been changed. The new password is **<span translate=no>**%\$Qvd14aa2NMc**</span>**"
+      ]
+  }
+  ```
+
+  Где:
+
+  * `format` — формат текста.
+  * `texts` — текст для перевода в виде списка из строк.
+
+  В ответе текст внутри тега `<span>` останется без перевода:
+
+  ```json
+  {
+      "translations": [
+          {
+              "text": "L'e-mail a été modifié. Le nouveau mot de passe est **<span translate="no">**%\$Qvd14aa2NMc**</span>**"
+          }
+      ]
+  }
+  ```
+
+{% endlist %}
 
 ## Проверить опечатки {#with-speller}
 

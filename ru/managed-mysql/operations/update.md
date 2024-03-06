@@ -336,7 +336,10 @@ description: "Из статьи вы узнаете, как изменить н�
                               `day=<день_недели>,`
                               `hour=<час_дня> \
           --websql-access=<запросы_из_консоли_управления> \
-          --deletion-protection=<защита_от_удаления>
+          --deletion-protection=<защита_от_удаления> \
+          --performance-diagnostics enabled=true,`
+                                   `sessions-sampling-interval=<интервал_сбора_сессий>,`
+                                   `statements-sampling-interval=<интервал_сбора_запросов>
         ```
         
         
@@ -358,6 +361,8 @@ description: "Из статьи вы узнаете, как изменить н�
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    * `performance-diagnostics` — активация сбора статистики для [диагностики производительности кластера](performance-diagnostics.md). Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -416,6 +421,22 @@ description: "Из статьи вы узнаете, как изменить н�
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+  1. Чтобы активировать сбор статистики для [диагностики производительности кластера](performance-diagnostics.md), добавьте к описанию кластера {{ mmy-name }} блок `performance_diagnostics`:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<название_кластера>" {
+        ...
+        performance_diagnostics {
+          enabled = true
+          sessions_sampling_interval = <интервал_сбора_сессий>
+          statements_sampling_interval = <интервал_сбора_запросов>
+        }
+        ...
+      }
+      ```
+
+      Допустимые значения параметров `sessions_sampling_interval` и `statements_sampling_interval` — от `1` до `86400` секунд.
+
   1. Проверьте корректность настроек.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -440,6 +461,8 @@ description: "Из статьи вы узнаете, как изменить н�
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    * Настройки сбора статистики для [диагностики производительности кластера](performance-diagnostics.md) в параметре `configSpec.performanceDiagnostics`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

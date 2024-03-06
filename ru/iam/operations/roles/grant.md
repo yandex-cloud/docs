@@ -13,18 +13,19 @@
 
 - Консоль управления {#console}
 
-    В консоли управления можно назначить роль только на облако или каталог:
+  В консоли управления можно назначить роль только на облако или каталог:
+
+  
+  1. [Добавьте пользователя в облако](../users/create.md) через {{ org-full-name }} или Cloud Console.
 
 
-    1. [Добавьте пользователя в облако](../users/create.md) через {{ org-full-name }} или Cloud Console.
+  1. Назначьте пользователю роль в облаке:
 
-    1. Назначьте пользователю роль в облаке:
+     {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
 
-        {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
-
-    1. Назначьте пользователю роль в каталоге:
+  1. Назначьте пользователю роль в каталоге:
  
-        {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
+     {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
 - CLI {#cli}
 
@@ -352,11 +353,10 @@
     1. В [консоли управления]({{ link-console-main }}) [выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-    1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** нажмите кнопку **{{ ui-key.yacloud_components.acl.action.select-subject }}**:
-        1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_groups }}** или воспользуйтесь поиском, чтобы найти группу по названию.
-        1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-        1. Выберите роль в облаке.
-        1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. В открывшемся окне выберите раздел **{{ ui-key.yacloud.common.resource-acl.label_groups }}**.
+    1. Выберите группу из списка или воспользуйтесь поиском, чтобы найти группу по названию.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
+    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
   
     Название группы отобразится в разделе **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** облака вместе с остальными пользователями, у которых есть роли в этом облаке.
 

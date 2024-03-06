@@ -4,9 +4,9 @@
 * `Subscription`, вам необходимо настроить интеграцию с [{{ license-manager }} API](../license-manager/api-ref/index.md), чтобы подписка работала корректно.
 * `PAYG`, пользователь автоматически перейдет на этот тариф, когда отвяжет подписку от ресурса или срок действия подписки закончится. При необходимости вы можете настроить интеграцию с {{ license-manager }} API.
 
-{% list tabs %}
+{% list tabs group=service %}
 
-- {{ compute-name }}
+- {{ compute-name }} {#compute}
 
     1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 
@@ -16,7 +16,7 @@
 
         1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
 
-- {{ managed-k8s-name }}
+- {{ managed-k8s-name }} {#managed-k8s}
 
     1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 
@@ -28,7 +28,7 @@
 
         1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
 
-- {{ cloud-apps-name }}
+- {{ cloud-apps-name }} {#cloud-apps}
 
     1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 
@@ -38,7 +38,7 @@
 
         1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
 
-- SaaS
+- SaaS {#saas}
 
     1. Создайте:
 

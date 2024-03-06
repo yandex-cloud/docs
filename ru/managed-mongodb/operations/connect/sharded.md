@@ -13,9 +13,9 @@ description: "Из статьи вы узнаете, подключиться к
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-- DataGrip
+- DataGrip {#datagrip}
 
   1. Создайте источник данных:
      1. Выберите в меню **File** → **New** → **Data Source** → **{{ MG }}**.
@@ -37,7 +37,7 @@ description: "Из статьи вы узнаете, подключиться к
   1. Нажмите ссылку **Test Connection** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
   1. Нажмите кнопку **OK**, чтобы сохранить источник данных.
 
-- DBeaver
+- DBeaver {#dbeaver}
 
   Поддержка подключения к {{ MG }}-кластеру доступна только в [коммерческих редакциях DBeaver](https://dbeaver.com/buy/).
 

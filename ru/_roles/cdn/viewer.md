@@ -1,1 +1,1 @@
-Роль `cdn.viewer` позволяет просматривать CDN-ресурсы и группы источников.
+Роль `cdn.viewer` позволяет просматривать информацию о каталоге, [группах источников](../../cdn/concepts/origins.md), [CDN-ресурсах](../../cdn/concepts/resource.md) и [квотах](../../cdn/concepts/limits.md#cdn-quotas) сервиса Cloud CDN.
