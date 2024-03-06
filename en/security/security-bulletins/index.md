@@ -2,6 +2,12 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [06.03.2024 — CVE-2023-23919 Multiple OpenSSL error handling issues in nodejs crypto library](../../_includes/security/security-bulletins/cve-2023-23919.md) %}
+
+{% include [06.03.2024 — CVE-2023-23946 GitLab Critical Security Release: 15.8.2, 15.7.7 and 15.6.8](../../_includes/security/security-bulletins/cve-2023-23946.md) %}
+
+{% include [06.03.2024 — CVE-2023-22490 GitLab Critical Security Release: 15.8.2, 15.7.7 and 15.6.8](../../_includes/security/security-bulletins/cve-2023-22490.md) %}
+
 {% include [28.12.2023 — CVE-2023-44487 HTTP/2 Rapid Reset Attack](../../_includes/security/security-bulletins/cve-2023-44487.md) %}
 
 {% include [28.12.2023 — CVE-2023-23583 Reptar in Ice Lake IPU Out-of-Band](../../_includes/security/security-bulletins/cve-2023-23583.md) %}

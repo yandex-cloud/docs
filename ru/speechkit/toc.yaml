@@ -137,6 +137,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Telegram-бот для распознавания и синтеза аудио
+        href: tutorials/recognizer-bot.md
       - name: Распознавание
         items:
           - name: Потоковое распознавание аудиофайла API v3

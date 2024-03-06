@@ -8,7 +8,7 @@ canonical: "{{ link-docs }}/tutorials/dataplatform/postgresql-data-migration"
 
 {% note info %}
 
-Миграция данных в сторонний кластер {{ PG }} описана в статье [{#T}](../../managed-postgresql/tutorials/outbound-replication.md).
+Миграция данных в сторонний кластер {{ PG }} описана в разделе [{#T}](../../managed-postgresql/tutorials/outbound-replication.md).
 
 {% endnote %}
 

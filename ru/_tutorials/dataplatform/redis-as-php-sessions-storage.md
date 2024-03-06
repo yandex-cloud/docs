@@ -121,10 +121,10 @@
     Не нужно вносить изменения в `php.ini` для PHP CLI.
 
     {% endnote %}
+    
+    {% list tabs group=cluster %}
 
-    {% list tabs %}
-
-      - Кластер {{ RD }} без шардирования
+      - Нешардированный кластер {#non-sharded}
 
         ```ini
         [PHP]
@@ -136,7 +136,7 @@
         session.save_path = "tcp://<FQDN_хоста-мастера_{{ RD }}>:6379?auth=<пароль>"
         ```
 
-      - Кластер {{ RD }} с шардированием
+      - Шардированный кластер {#sharded}
 
         ```ini
         [PHP]

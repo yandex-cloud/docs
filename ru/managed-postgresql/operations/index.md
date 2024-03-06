@@ -7,40 +7,40 @@ description: "На странице представлен список поша
 
 ## Кластеры
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](update.md)
-* [{#T}](cluster-stop.md)
-* [{#T}](hosts.md)
-* [{#T}](host-migration.md)
-* [{#T}](replication-slots.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](storage-space.md)
-* [{#T}](cluster-version-update.md)
-* [{#T}](cluster-delete.md)
+* [Получение информации об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Изменение настроек кластера](update.md)
+* [Остановка и запуск кластера](cluster-stop.md)
+* [Управление хостами кластера](hosts.md)
+* [Миграция хостов кластера в другую зону доступности](host-migration.md)
+* [Управление слотами репликации](replication-slots.md)
+* [Управление резервными копиями](cluster-backups.md)
+* [Управление дисковым пространством](storage-space.md)
+* [Обновление версии {{ PG }}](cluster-version-update.md)
+* [Удаление кластера](cluster-delete.md)
 
 ## Базы данных
 
-* [{#T}](connect.md)
-* [{#T}](web-sql-query.md)
-* [{#T}](copy-write-data.md)
-* [{#T}](databases.md)
+* [Подключение к базе данных в кластере](connect.md)
+* [SQL-запросы в консоли управления](web-sql-query.md)
+* [Копирование и заполнение таблицы с локальной машины](copy-write-data.md)
+* [Управление базами данных](databases.md)
 
 ## Пользователи {{ PG }}
 
-* [{#T}](cluster-users.md)
-* [{#T}](grant.md)
+* [Управление пользователями](cluster-users.md)
+* [Назначение привилегий и ролей пользователям](grant.md)
 
 ## Расширения {{ PG }}
 
-* [{#T}](./extensions/cluster-extensions.md)
-* [{#T}](./extensions/pg_cron.md)
-* [{#T}](./extensions/pgaudit.md)
-* [{#T}](./extensions/pgcrypto.md)
+* [Управление расширениями](./extensions/cluster-extensions.md)
+* [Использование pg_cron](./extensions/pg_cron.md)
+* [Использование pgaudit](./extensions/pgaudit.md)
+* [Использование pgcrypto](./extensions/pgcrypto.md)
 
 ## Логи и мониторинг
 
-* [{#T}](cluster-logs.md)
-* [{#T}](performance-diagnostics.md)
-* [{#T}](monitoring.md)
-* [{#T}](datalens-connect.md)
+* [Просмотр логов кластера](cluster-logs.md)
+* [Диагностика производительности](performance-diagnostics.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)
+* [Подключение к кластеру из {{ datalens-name }}](datalens-connect.md)

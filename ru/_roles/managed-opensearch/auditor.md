@@ -1,1 +1,1 @@
-Роль `managed-opensearch.auditor` позволяет просматривать информацию о кластерах и квотах.
+Роль `managed-opensearch.auditor` позволяет просматривать информацию о [кластерах](../../managed-opensearch/concepts/index.md) OpenSearch, а также о [квотах](../../managed-opensearch/concepts/limits.md#quotas) и операциях с ресурсами сервиса Managed Service for OpenSearch.

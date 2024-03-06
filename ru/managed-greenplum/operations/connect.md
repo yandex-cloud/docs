@@ -99,9 +99,9 @@ psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
 
 {% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-* DataGrip
+- DataGrip {#datagrip}
 
     1. Создайте источник данных:
 
@@ -124,7 +124,7 @@ psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
     1. Нажмите ссылку **Test Connection** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
     1. Нажмите кнопку **OK**, чтобы сохранить источник данных.
 
-* DBeaver
+- DBeaver {#dbeaver}
 
     1. Создайте новое соединение с БД:
         1. Выберите в меню **База данных** пункт **Новое соединение**.

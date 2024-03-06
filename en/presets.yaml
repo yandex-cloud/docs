@@ -3453,6 +3453,7 @@ default:
         button:
           add-role: Add role
         label:
+          public: Public
           title: Configuring access bindings
       marketplace:
         label_product-ids: Product IDs
@@ -4334,6 +4335,8 @@ default:
           label_inherited-bindings: Inherited roles
           label_service-account: Service account
           label_service-accounts: Service accounts
+          label_user-accounts: User accounts
+          placeholder_filter-by-type: Account type
         save: Save
         save-changes: Save changes
         section-base: General information

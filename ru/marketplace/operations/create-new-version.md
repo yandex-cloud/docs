@@ -13,7 +13,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=service %}
 
 - {{ compute-name }} {#compute}
 

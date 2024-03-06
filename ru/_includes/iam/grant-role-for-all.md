@@ -9,8 +9,7 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-    1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.subject.select }}**.
-    1. Выберите раздел **{{ ui-key.yacloud_org.common.resource-acl.label_groups }}**.
+    1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.public }}**.
     1. Выберите группу `All authenticated users`.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
     1. Выберите роль `resource-manager.viewer`.

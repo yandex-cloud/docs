@@ -1,1 +1,1 @@
-Роль `managed-mysql.auditor` позволяет просматривать информацию о кластерах и квотах.
+Роль `managed-mysql.auditor` позволяет просматривать информацию о [хостах и кластерах](../../managed-mysql/concepts/index.md) MySQL®, а также о [квотах](../../managed-mysql/concepts/limits.md#mmy-quotas) и операциях с ресурсами сервиса Managed Service for MySQL®.

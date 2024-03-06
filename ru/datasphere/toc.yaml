@@ -235,8 +235,11 @@ items:
         items:
           - name: Развертывание сервиса из контрольной точки
             href: tutorials/node-from-cell.md
+            hidden: true
           - name: Развертывание сервиса на основе Docker-образа
             href: tutorials/node-from-docker.md
+          - name: Развертывание сервиса на основе Docker-образа с FastAPI
+            href: tutorials/node-from-docker-fast-api.md
           - name: Развертывание сервиса на основе модели ONNX
             href: tutorials/node-from-model.md
           - name: Генерация изображения с помощью модели Stable Diffusion

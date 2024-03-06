@@ -152,18 +152,20 @@ items:
     href: pricing.md
   - name: История изменений
     items:
-      - name: Январь 2024
+      - name: Февраль 2024
         href: release-notes/index.md
+      - name: Январь 2024
+        href: release-notes/2401.md
       - name: Декабрь 2023
         href: release-notes/2312.md
       - name: Ноябрь 2023
         href: release-notes/2311.md
       - name: Октябрь 2023
         href: release-notes/2310.md
-      - name: Сентябрь 2023
-        href: release-notes/2309.md
       - name: Архив
         items:
+          - name: Сентябрь 2023
+            href: release-notes/2309.md
           - name: Август 2023
             href: release-notes/2308.md
           - name: Июль 2023

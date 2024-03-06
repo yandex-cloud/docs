@@ -4,8 +4,8 @@ The application is run in a virtual environment.
 
 Runtime environment characteristics:
 
-* Operating system: Ubuntu 18.04 LTS.
-* Linux kernel: 4.19.
+* Operating system: Ubuntu 22.04 LTS.
+* Linux kernel: 5.15.
 * Architecture: AMD64.
 
 ## Supported languages and images {#image}

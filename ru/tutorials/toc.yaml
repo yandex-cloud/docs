@@ -232,6 +232,8 @@ items:
             href: web/prefetch.md
           - name: Создание SAP-программы в {{ yandex-cloud }}
             href: infrastructure-management/sap.md
+          - name: Разработка Telegram-бота для распознавания текста и аудио
+            href: ml-ai/recognizer-bot.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -528,6 +530,8 @@ items:
         href: routing/dataproc-nat-instance.md
       - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
+      - name: Подключение к {{container-registry-name}} из {{vpc-short-name}}
+        href: routing/vpc-cr-access.md
   - name: Визуализация и анализ данных
     items:
       - name: Все руководства
