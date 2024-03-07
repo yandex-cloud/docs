@@ -1,6 +1,6 @@
 # Loading data from {{ objstorage-full-name }} to {{ mch-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate data from {{ objstorage-name }} to the {{ mch-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-full-name }} to the {{ mch-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
@@ -28,7 +28,7 @@ Prepare the infrastructure:
    1. If you are using security groups in a cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect.md#configuring-security-groups) and allow connecting to it.
 
 
-   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
+   1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 
    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
 

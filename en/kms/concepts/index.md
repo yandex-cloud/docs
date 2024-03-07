@@ -1,5 +1,5 @@
 ---
-title: "{{ kms-name }}. Service overview"
+title: "{{ kms-name }}. Overview"
 description: "{{ kms-name }} is a service to create and manage encryption keys in {{ yandex-cloud }}. Modern encryption algorithms are public. Without access to keys, the knowledge of the ciphertext and encryption algorithm is not enough to decrypt data. Therefore, secure data storage means secure storage of encryption keys."
 ---
 
@@ -7,7 +7,7 @@ description: "{{ kms-name }} is a service to create and manage encryption keys i
 
 {{ kms-name }} is a service to create and manage encryption keys in {{ yandex-cloud }}.
 
-Modern encryption algorithms are public. The knowledge of the ciphertext and encryption algorithm is not enough to decrypt data without access to keys. Secure data storage means secure storage of encryption keys.
+Modern encryption algorithms are public. The knowledge of the ciphertext and encryption algorithm is not enough to decrypt data unless you have access to keys. Therefore, secure data storage means secure storage of encryption keys.
 
 There are various types of encrypted data: from passwords, OAuth tokens, and SSH keys to data arrays that are several GB in size. They may require different types of access (random or sequential) and different types of storage. The optimal encryption algorithms are selected depending on all these factors. With a large amount of data, it is equally important to control access to it in a consistent manner and to consider the specifics of each data type.
 
@@ -16,7 +16,7 @@ There are various types of encrypted data: from passwords, OAuth tokens, and SSH
 ## Interfaces for using the service {#interface}
 
 To interact with {{ kms-short-name }}, you can use:
-* The [management console]({{ link-console-main }}).
+* [The management console]({{ link-console-main }}).
 * [Command line interface (CLI)](../../cli/).
 * SDK: in [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), or [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 * API: [REST](../api-ref/) or [gRPC](../api-ref/grpc/).
@@ -31,29 +31,17 @@ A [symmetric encryption key](key.md) is a {{ kms-short-name }} resource and a co
 
 ## Managing asymmetric encryption key pairs {#asymmetric-encryption-keys-control}
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 An [asymmetric encryption key pair](asymmetric-encryption-key.md) is a {{ kms-short-name }} resource that consists of two parts: a public key and a private key. The public key is used for encryption and the private key is used for decryption. Manage encryption key pairs:
-* [Create key pairs](../operations/asymmetric-encryption-key.md#create).
-* [Update key pairs](../operations/asymmetric-encryption-key.md#update).
-* [Delete key pairs](../operations/asymmetric-encryption-key.md#delete).
+* [Create a key pair](../operations/asymmetric-encryption-key.md#create).
+* [Update a key pair](../operations/asymmetric-encryption-key.md#update).
+* [Delete a key pair](../operations/asymmetric-encryption-key.md#delete).
 
 ## Managing asymmetric key pairs of digital signatures {#asymmetric-signature-keys-control}
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
-An [asymmetric key pair of a digital signature](asymmetric-signature-key.md) is a {{ kms-short-name }} resource that consists of two parts: a public key and a private key. The private key is used to create a digital signature and the public key is used to verify it. Manage signature key pairs:
-* [Create key pairs](../operations/asymmetric-signature-key.md#create).
-* [Update key pairs](../operations/asymmetric-signature-key.md#update).
-* [Delete key pairs](../operations/asymmetric-signature-key.md#delete).
+An [asymmetric digital signature key pair](asymmetric-signature-key.md) is a {{ kms-short-name }} resource that consists of two parts: a public key and a private key. You use the private key to create a digital signature and the public key to verify it. Manage signature key pairs:
+* [Create a key pair](../operations/asymmetric-signature-key.md#create).
+* [Update a key pair](../operations/asymmetric-signature-key.md#update).
+* [Delete a key pair](../operations/asymmetric-signature-key.md#delete).
 
 ### Key integration with services and tools {#integration}
 
@@ -63,8 +51,8 @@ You can use {{ kms-short-name }} keys:
    * [Certificate Manager](../../certificate-manager/)
 * When working with [{{ TF }}](../tutorials/terraform-key.md).
 * In cryptographic libraries:
-   * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).
-   * [Google Tink](../tutorials/encrypt/google-tink.md).
+   * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md)
+   * [Google Tink](../tutorials/encrypt/google-tink.md)
 
 ### Secure key storage {#keys-storage}
 

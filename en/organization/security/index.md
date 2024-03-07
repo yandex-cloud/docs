@@ -12,27 +12,37 @@ For more information about access control in {{ yandex-cloud }}, see the {{ iam-
 
 ### Service roles {#service-roles}
 
-* `organization-manager.admin`: Organization administrator role.
+#### organization-manager.viewer {#organization-manager-viewer}
 
-   The role allows you to edit organization settings, create identity federations, add and remove users, and assign other administrators.
+{% include [organizationmanager-viewer](../../_roles/organization-manager/viewer.md) %}
 
-* `organization-manager.organizations.owner`: The organization owner role.
+#### organization-manager.admin {#organization-manager-admin}
 
-   The role allows you to appoint organization owners as well as use all the administrator privileges.
+{% include [organizationmanager-admin](../../_roles/organization-manager/admin.md) %}
 
-   By default, the user who creates an organization is the organization owner.
+#### organization-manager.organizations.owner {#organization-manager-organizations-owner}
 
-* `organization-manager.viewer`: This role allows you to view an organization's settings without editing them.
+{% include [organizationmanager-organizations-owner](../../_roles/organization-manager/organizations/owner.md) %}
 
-* `organization-manager.groups.memberAdmin`: This role allows you to view information about a group and add and remove group members.
+#### organization-manager.federations.viewer {#organization-manager-federations-viewer}
 
-* `organization-manager.federations.admin`: This role allows you to create, update, and delete federations, certificates, and their users, view organization settings, and get organization and federation lists and group mapping lists.
+{% include [organization-manager.federations.viewer](../../_roles/organization-manager/federations/viewer.md) %}
 
-* `organization-manager.federations.viewer`: This role enables you to view organization settings and get organization and federation lists and group mapping lists.
+#### organization-manager.federations.admin {#organization-manager-federations-admin}
 
-* `organization-manager.osLogins.admin`: This role allows you to edit OS Login profiles, SSH keys, and create certificates for the organization users.
+{% include [organization-manager.federations.admin](../../_roles/organization-manager/federations/admin.md) %}
 
-* `organization-manager.osLogins.viewer`: This role allows you to view OS Login profiles and SSH keys of the organization users.
+#### organization-manager.osLogins.viewer {#organization-manager-osLogins-viewer}
+
+{% include [organizationmanager-oslogins-viewer](../../_roles/organization-manager/osLogins/viewer.md) %}
+
+#### organization-manager.osLogins.admin {#organization-manager-osLogins-admin}
+
+{% include [organizationmanager-oslogins-admin](../../_roles/organization-manager/osLogins/admin.md) %}
+
+#### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
+
+{% include [organizationmanager-groups-memberAdmin](../../_roles/organization-manager/groups/memberAdmin.md) %}
 
 ### Primitive roles {#primitive-roles}
 
@@ -90,7 +100,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       * `--role`: Role ID, e.g., `organization-manager.admin`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) to whom the role is assigned.
 
-      For example, assign the administrator role for the organization with the ID `bpf3crucp1v2********`:
+      For example, assign the administrator role for the organization with the `bpf3crucp1v2********` ID:
 
       ```bash
       yc organization-manager organization add-access-binding bpf3crucp1v2******** \

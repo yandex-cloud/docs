@@ -5,12 +5,6 @@ description: "Follow this guide to create a digital signature."
 
 # Digital signature and its verification based on data hash
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 In {{ kms-name }}, you can create a [digital signature](../concepts/digital-signature.md) that can be used to validate data authenticity and integrity, as well as to protect signed data from editing.
 
 ## Getting started {#before-you-begin}
@@ -52,7 +46,7 @@ A signature based on a private key is used for messages of up to 32 KB.
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. View a description of the CLI command to get a signature public key:
+      1. View the description of the CLI command to get a signature public key:
 
           ```bash
           yc kms asymmetric-signature-crypto get-public-key --help
@@ -110,7 +104,7 @@ A signature based on a private key is used for messages of up to 32 KB.
           Where:
           * `--id`: ID of the digital signature key pair.
           * `--signature-output-file`: Path to the file to save the digital signature to.
-          * `--message-file`: Path to the previously created file with the `base64` encoded message.
+          * `--message-file`: Path to the previously created file with the `base64`-encoded message.
           * `--inform`: Message file format. Possible values: `raw` (default), `base64`, and `hex`.
           * `--outform`: Signature file format. Possible values: `raw` (default), `base64`, and `hex`.
 
@@ -164,7 +158,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. View a description of the CLI command to get a signature public key:
+      1. View the description of the CLI command to get a signature public key:
 
           ```bash
           yc kms asymmetric-signature-crypto get-public-key --help

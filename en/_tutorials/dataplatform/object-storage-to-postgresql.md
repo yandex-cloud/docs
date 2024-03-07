@@ -1,6 +1,6 @@
 # Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate data from {{ objstorage-name }} to the {{ mpg-name }} table using the {{ data-transfer-name }} service. To do this:
+You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
 1. [Set up the transfer](#prepare-transfer).
@@ -18,16 +18,16 @@ Prepare the infrastructure:
 
    1. [Create a {{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable [configuration](../../managed-postgresql/concepts/instance-types.md) with the following settings:
 
-      * Allocated public access to the cluster hosts.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
+      * Public access to cluster hosts: Allowed
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`
 
    
    1. If you are using security groups in a cluster, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connecting to it.
 
 
-   1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
+   1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 
    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the `storage-viewer` service account.
@@ -56,7 +56,7 @@ Prepare the infrastructure:
    1. In the `objstorage-to-postgres.tf` file, specify:
 
       * `folder_id`: Cloud directory ID, the same one specified in the provider settings.
-      * `bucket_name`: Bucket name according to the [naming rules](../../storage/concepts/bucket.md#naming).
+      * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
       * `pg_password`: {{ PG }} user password.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:

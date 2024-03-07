@@ -455,10 +455,6 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
-  roles-data-transfer-admin: data-transfer.admin
-  roles-data-transfer-auditor: data-transfer.auditor
-  roles-data-transfer-private-admin: data-transfer.privateAdmin
-  roles-data-transfer-viewer: data-transfer.viewer
   roles-datalens-admin: datalens.admin
   roles-datalens-creator: datalens.creator
   roles-datalens-instances-admin: datalens.instances.admin
@@ -7457,6 +7453,7 @@ default:
         folder: Folder
         foundation-models: Foundation models
         general: General settings
+        input: Input
         link: Link
         manage-labels: Manage labels
         member:
@@ -7508,6 +7505,7 @@ default:
         advanced-settings: Advanced settings
         balance: Project balance
         dataproc-cluster: Data Proc cluster
+        dedicated-vm-inactivity-timeout: Stop inactive VM after
         default-mode: Default mode
         description: Description
         name: Name
@@ -7588,6 +7586,7 @@ default:
           distribution-by-zones: Distribution by zones
         request:
           create-test-request: Create test request
+          curl: cURL
           server-response: Server response
         tab:
           logs: Logs
@@ -7602,6 +7601,7 @@ default:
         project-card:
           create-resource: Create resource
           go-to-jupyter: Open project in JupyterLab
+        project-disk: Project storage
         project-resources: Project resources
         settings:
           default-folder: Default folder

@@ -24,10 +24,8 @@ To transfer your cloud to a different billing account, just [link](../../billing
 
 #### Why cannot I link a cloud to my billing account? {#cannot-pin-cloud}
 
-Possible causes include:
-
-1. You have no [permissions to work with this cloud](../../billing/operations/pin-cloud.md#bind-roles). Ask your organization's administrator to [grant you the required roles](../../billing/security/index.md#set-role).
-1. You are trying to link a cloud from a different [organization](../../billing/concepts/organization.md).
+If your billing account is added to an organization, you can only link to it the resources that are in the same organization. You may not have [permissions to work](../../billing/operations/pin-cloud.md#bind-roles) with this cloud or billing account. Ask your [organization](../../billing/concepts/organization.md) administrator to [grant you the roles you need](../../billing/security/index.md#set-role).
+Roles can be issued either directly to the billing account and cloud, or to the organization they reside in.
 
 #### I created a new billing account, but it is blocked. Why? {#blocked-account}
 

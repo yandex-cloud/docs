@@ -24,16 +24,37 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 ### Service roles {#service-roles}
 
-Service roles are roles that provide access to {{ billing-name }}:
+#### billing.accounts.member {#billing-accounts-member}
 
-* `billing.accounts.member` is granted automatically when a user is added to {{ billing-name }}. It is required to display the selected billing account in the list of all user accounts.
-* `billing.accounts.owner` is granted automatically when you create a billing account. The role granted when creating an account cannot be revoked, but it can be assigned to other users and revoked from them.
-* `billing.accounts.viewer` is assigned for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, and export reconciliation reports and reporting documents.
-* `billing.accounts.accountant` is assigned for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, export reconciliation reports and reporting documents, create new reconciliation reports, and top up your personal account using a bank account.
-* `billing.accounts.editor` is assigned for a billing account. It enables you to get payment invoices, activate promo codes, link clouds and services to your billing account, create details export and budgets, create reconciliation reports, and reserve resources. This role includes the `billing.accounts.viewer` role.
-* `billing.accounts.admin` is assigned for a billing account. It enables you to manage billing account access permissions (except for the `billing.accounts.owner` role). It includes the `billing.accounts.editor` role.
-* `billing.accounts.varWithoutDiscounts` is assigned for a billing account. This role grants partner accounts all administrator privileges, except the permission to get information about discounts. This role includes the `billing.partners.editor` role.
-* `billing.partners.editor` is assigned for a billing account. It grants permission to edit information about a partner and their products in the partner product catalog.
+{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
+
+#### billing.accounts.owner {#billing-accounts-owner}
+
+{% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
+
+#### billing.accounts.viewer {#billing-accounts-viewer}
+
+{% include [billing.accounts.viewer](../../_roles/billing/accounts/viewer.md) %}
+
+#### billing.accounts.accountant {#billing-accounts-accountant}
+
+{% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
+
+#### billing.accounts.editor {#billing-accounts-editor}
+
+{% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
+
+#### billing.accounts.admin {#billing-accounts-admin}
+
+{% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
+
+{% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
+
+#### billing.partners.editor {#billing-partners-editor}
+
+{% include [billing.partners.editor](../../_roles/billing/partners/editor.md) %}
 
 ### Primitive roles {#primitive-roles}
 
@@ -85,7 +106,7 @@ The steps for adding a new billing account user depend on whether this billing a
 
 {% list tabs %}
 
-- For accounts added to an organization
+- For linked accounts
 
    [Assign](#set-role) the required role to the billing account of a user or service account in the organization.
 
@@ -196,7 +217,7 @@ The steps for revoking a billing account role depend on whether this billing acc
 
 ## Deleting users {#delete-user}
 
-You can only delete users from those billing accounts that are not added to an organization. To do this:
+You can only delete users from those billing accounts that are not linked to an organization. To do this:
 
 1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
@@ -205,4 +226,4 @@ You can only delete users from those billing accounts that are not added to an o
 1. In the line with the user or service account you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_remove-user }}**.
 1. This deletes the user from the list of the billing account users.
 
-If the billing account is added to an organization, you can simply [revoke](#delete-role) the required role from a user or service account. You can [remove a user from the organization](../../organization/edit-account) to prevent them from accessing any of its clouds or resources.
+If the billing account is linked to an organization, you can simply [revoke](#delete-role) the required role from a user or service account. You can [remove a user from the organization](../../organization/edit-account) to prevent them from accessing any of its clouds or resources.

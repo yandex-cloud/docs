@@ -18,25 +18,18 @@ items:
           - name: Encryption key access rights
             href: operations/key-access.md
       - name: Asymmetric encryption
-        stage: preview
         items:
           - name: Encryption key pair
-            stage: preview
             href: operations/asymmetric-encryption-key.md
           - name: Data encryption
-            stage: preview
             href: operations/asymmetric-encryption.md
       - name: Digital signature
-        stage: preview
         items:
           - name: Digital signature key pair
-            stage: preview
             href: operations/asymmetric-signature-key.md
           - name: Digital signature and its verification
-            stage: preview
             href: operations/signature-verification.md
           - name: Digital signature of files and artifacts using Cosign
-            stage: preview
             href: operations/signature-verification-cosign.md
   - name: Concepts
     items:
@@ -59,13 +52,10 @@ items:
           - name: Asymmetric encryption
             href: concepts/asymmetric-encryption.md
       - name: Digital signature
-        stage: preview
         items:
           - name: Digital signature key pair
-            stage: preview
             href: concepts/asymmetric-signature-key.md
           - name: Digital signature
-            stage: preview
             href: concepts/digital-signature.md
       - name: Envelope encryption
         href: concepts/envelope.md

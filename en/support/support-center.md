@@ -26,34 +26,34 @@ To find answers to questions about {{ yandex-cloud }}, do the following in {{ su
    1. In the **{{ ui-key.support-center.search.common.value_search-input-placeholder }}** window, provide a brief description of your issue, e.g., `How to restore access to a billing account`. {{ yandex-cloud }} {{ support-center-name }} will take your query to the technical support knowledge base and return all relevant articles.
    1. If no suitable article is found, a notification window will appear under the search bar. In this window, click **{{ ui-key.support-center.search.common.action_search-in-documentation }}** to find the answer to your question in the {{ yandex-cloud }} documentation.
 
-## Creating a request {#create-request}
+## Creating a ticket {#create-request}
 
-If a [search for a way to resolve your issue](#finding-solution) in the support knowledge base and the {{ yandex-cloud }} documentation produced no results, create a request for support:
+If you [searched for a way to resolve your issue](#finding-solution) in the support knowledge base and did not find anything in the {{ yandex-cloud }} documentation, create a ticket for support:
 
 1. Open the {{ support-center-name }} [home page]({{ link-console-support }}).
 1. Go to **{{ ui-key.support-center.common.tickets }}**.
 1. Click **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
 1. Fill out the following fields in the **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}** form that opens:
-   * **{{ ui-key.yacloud.support.ticket.create.field_type }}**: Select the request type that describes your issue best.
+   * **{{ ui-key.yacloud.support.ticket.create.field_type }}**: Select the ticket type that describes your issue best.
    * **{{ ui-key.yacloud.support.ticket.create.field_service }}**: Specify the service you have an issue with.
-   * **{{ ui-key.yacloud.support.ticket.create.field_summary }}**: Enter the subject of your request.
+   * **{{ ui-key.yacloud.support.ticket.create.field_summary }}**: Enter the subject of your ticket.
    * **{{ ui-key.yacloud.support.ticket.create.field_description }}**: Provide a detailed description of the issue. For best results, specify the resource ID and the event date and time.
-   * **{{ ui-key.yacloud.support.ticket.create.field_attachments }}**: Optionally attach screenshots or other evidence that may help describe your request in better detail.
-   * **{{ ui-key.yacloud.support.ticket.create.field_access-type }}**: Select who will be able to see your request.
+   * **{{ ui-key.yacloud.support.ticket.create.field_attachments }}**: Optionally, attach screenshots or other files that may help describe your ticket in better detail.
+   * **{{ ui-key.yacloud.support.ticket.create.field_access-type }}**: Select who will be able to see your ticket.
 1. Click **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
-## Viewing requests {#view-requests}
+## Viewing tickets {#view-requests}
 
-You can view all submitted requests you have access to on the {{ support-center-name }} [home page]({{ link-console-support }}) under **{{ ui-key.support-center.tickets.list.title_ticket_table }}**.
+You can view all submitted tickets you have access to on the {{ support-center-name }} [home page]({{ link-console-support }}) under **{{ ui-key.support-center.tickets.list.title_ticket_table }}**.
 
-To quickly find the request you need, use filters and sorting by:
-* Request author
-* Request status
-* Service specified in the request
+To quickly find the ticket you need, use filters and sorting by:
+* Ticket reporter
+* Ticket status
+* Service specified in the ticket
 * Response status
-* Request type
+* Ticket type
 
-To reset the request filters, click **{{ ui-key.support-center.tickets.filters.action_reset-filters }}**.
+To clear the ticket filters, click **{{ ui-key.support-center.tickets.filters.action_reset-filters }}**.
 
 ## Changing your service plan {#change-pricing}
 

@@ -26,22 +26,10 @@ description: "Step-by-step guides on using encryption keys in {{ yandex-cloud }}
 
 ## Asymmetric encryption {#symmetric-encryption}
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 - [{#T}](asymmetric-encryption-key.md)
 - [{#T}](asymmetric-encryption.md)
 
 ## Digital signature {#digital-signature}
-
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
 
 - [{#T}](asymmetric-signature-key.md)
 - [{#T}](signature-verification.md)

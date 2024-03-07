@@ -2,15 +2,15 @@
 
 If you encounter an error while using the {{ yandex-cloud }} console, a HAR file can help troubleshoot it. It is a network log of the interaction between a browser and a web page. For {{ yandex-cloud }} specialists to be able to identify the cause of a server malfunction, enable logging and reproduce the error. Save the HAR file and send it to [technical support]({{ link-console-support }}).
 
-{% list tabs %}
+{% list tabs group=web_browsers %}
 
 
-- Yandex Browser
+- Yandex Browser {#yandex}
 
    {% include [create-har-yandex](../_includes/support/create-har-yandex.md) %}
 
 
-- Google Chrome
+- Google Chrome {#chrome}
 
    1. On the page that produces the error, press **Ctrl** + **Shift** + **I** (**⌥** + **⌘** + **I** for macOS) or select ![image](../_assets/vertical-ellipsis.svg) → **More Tools** → **Developer Tools** from the menu.
    1. Go to the **Network** tab.
@@ -21,7 +21,7 @@ If you encounter an error while using the {{ yandex-cloud }} console, a HAR file
    1. Right-click the table and select **Save all as HAR with content**.
    1. Attach the HAR file to your message to [technical support]({{ link-console-support }}).
 
-- Opera
+- Opera {#opera}
 
    1. On the page that produces the error, press **Ctrl** + **Shift** + **I** (**⌥** + **⌘** + **I** for macOS) or select **Opera** → **Developer** → **Developer Tools** from the menu in the top-left corner.
    1. Go to the **Network** tab.
@@ -32,7 +32,7 @@ If you encounter an error while using the {{ yandex-cloud }} console, a HAR file
    1. Right-click the table and select **Save all as HAR with content**.
    1. Attach the HAR file to your message to [technical support]({{ link-console-support }}).
 
-- Mozilla Firefox
+- Mozilla Firefox {#firefox}
 
    1. On the page that produces the error, press **Ctrl** + **Shift** + **I** (**⌥** + **⌘** + **I** for macOS) or select ![image](../_assets/support/firefox-menu.png) → **More Tools** → **Web Developer Tools** from the menu.
    1. Go to the **Network** tab.
@@ -40,7 +40,7 @@ If you encounter an error while using the {{ yandex-cloud }} console, a HAR file
    1. Right-click the table and select **Save all as HAR**.
    1. Attach the HAR file to your message to [technical support]({{ link-console-support }}).
 
-- Microsoft Edge
+- Microsoft Edge {#edge}
 
    1. On the page that produces the error, press **Ctrl** + **Shift** + **I** (**⌥** + **⌘** + **I** for macOS) or select ![image](../_assets/horizontal-ellipsis.svg) → **More Tools** → **Developer Tools** from the menu.
    1. Go to the **Network** tab.
@@ -51,7 +51,7 @@ If you encounter an error while using the {{ yandex-cloud }} console, a HAR file
    1. Right-click the table and select **Save all as HAR with content**.
    1. Attach the HAR file to your message to [technical support]({{ link-console-support }}).
 
-- Safari
+- Safari {#safari}
 
    1. On the page that produces the error, select **Safari** → **Preferences** → **Advanced** from the menu and enable **Show Develop menu in menu bar**.
    1. In the **Develop** menu, select **Show Web Inspector** or use the **⌥** + **⌘** + **I** keyboard shortcut.

@@ -17,7 +17,7 @@
 
         * `GREENPLUM` — лог операций {{ GP }}.
         * `GREENPLUM_POOLER` — лог операций менеджера подключений.
-        * `GREENPLUM_PXF` — лог протокола [PXF](external-tables.md).
+        * `GREENPLUM_PXF` — лог протокола [PXF](../concepts/external-tables.md).
     
     1. При необходимости выберите хосты и уровень логирования.
 
@@ -57,7 +57,7 @@
         * `--service-type` — тип сервиса, для которого требуется вывести записи:
             * `greenplum` — лог операций {{ GP }}.
             * `greenplum-pooler`— лог операций менеджера подключений.
-            * `greenplum-pxf` — лог протокола [PXF](external-tables.md).
+            * `greenplum-pxf` — лог протокола [PXF](../concepts/external-tables.md).
         * `--columns` — список колонок для вывода информации:
             * `hostname` — [имя хоста](./hosts/cluster-hosts.md#list-hosts).
             * `level` — уровень логирования, например, `info`.
@@ -90,7 +90,7 @@
 
         * `GREENPLUM` — лог операций {{ GP }}.
         * `GREENPLUM_POOLER` — лог операций менеджера подключений.
-        * `GREENPLUM_PXF` — лог протокола [PXF](external-tables.md).
+        * `GREENPLUM_PXF` — лог протокола [PXF](../concepts/external-tables.md).
 
 {% endlist %}
 
@@ -126,7 +126,7 @@
 
         * `GREENPLUM` — лог операций {{ GP }}.
         * `GREENPLUM_POOLER` — лог операций менеджера подключений.
-        * `GREENPLUM_PXF` — лог протокола [PXF](external-tables.md).
+        * `GREENPLUM_PXF` — лог протокола [PXF](../concepts/external-tables.md).
 
 {% endlist %}
 

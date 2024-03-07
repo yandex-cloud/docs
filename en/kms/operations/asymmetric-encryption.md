@@ -5,12 +5,6 @@ description: "This guide describes how you can encrypt and decrypt data using as
 
 # Asymmetric data encryption
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt data using [asymmetric encryption](../concepts/asymmetric-encryption.md).
 
 ## Getting started {#before-you-begin}

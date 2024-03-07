@@ -124,20 +124,24 @@
      ```
 
 
-     Данная команда создаст прерываемую ВМ со следующими характеристиками:
-     * С именем `first-preemptible-instance`.
-     * С OC CentOS 7.
-     * В [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-     * В [подсети](../../../vpc/concepts/network.md#subnet) `default-a`.
-     * С [публичным IP-адресом](../../../vpc/concepts/address.md#public-addresses).
+     Где:
 
-     Чтобы создать ВМ без публичного IP-адреса, исключите опцию `nat-ip-version=ipv4`.
+      * `--name` — имя ВМ. Требования к имени:
 
-     Требования к имени ВМ:
+        {% include [name-format](../../../_includes/name-format.md) %}
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+      * `subnet-name` — имя выбранной подсети.
+      * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адрес, исключите параметр.
+      * `--preemptible` — выбор прерываемого типа ВМ.
+      * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+      * `--ssh-key` — путь до [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+
+        {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
+     
+
 
 - {{ TF }} {#tf}
 

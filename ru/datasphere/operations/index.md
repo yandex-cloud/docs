@@ -48,7 +48,6 @@ description: "Страница содержит все инструкции дл
 ## Работа с ресурсами {#resources}
 
 * [{#T}](data/secrets.md)
-* [{#T}](projects/checkpoints.md)
 * [{#T}](data-proc-template.md)
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
@@ -73,6 +72,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](deploy/alias-create.md)
 * [{#T}](deploy/alias-update.md)
 * [{#T}](deploy/alias-delete.md)
+* [{#T}](deploy/alias-api.md)
 
 ## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
 

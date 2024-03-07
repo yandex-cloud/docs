@@ -22,3 +22,8 @@ To set a different bank card:
 1. Click **{{ ui-key.yacloud.billing.account.bind-cloud.button_bind }}**.
 
 {% include [yandex-account](../_includes/payment-card-validation.md) %}
+
+## Deleting a bank card {#remove-card}
+
+You can unlink a bank card only from an inactive billing account.
+To inactivate an account and delete a bank card from your account profile, please contact the [technical support service]({{ link-console-support }}).

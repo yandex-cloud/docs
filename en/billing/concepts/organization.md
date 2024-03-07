@@ -9,7 +9,7 @@ The method of working with billing accounts in {{ billing-name }} depends on whe
 
 ![](../../_assets/billing/organization.svg)
 
-If a billing account is added to an organization, this organization dictates which cloud resources it can manage. For more information, refer to these sections:
+If a billing account is added to an organization, you will not be able to link new resources from other organizations to it in the management console. However, you will be able to pay for and use resources from other organizations previously linked to your billing account. For more information, refer to these sections:
 
 * [Linking a cloud](../operations/pin-cloud.md#bind-cloud-organization)
 * [Managing access](../security/index.md)
