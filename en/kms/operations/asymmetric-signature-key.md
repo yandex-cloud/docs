@@ -5,12 +5,6 @@ description: "This guide describes how you can create, update, and destroy digit
 
 # Managing digital signature key pairs
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 You can use {{ kms-name }} to create, update, and destroy digital signature key pairs.
 
 ## Creating digital signature key pairs {#create}
@@ -150,9 +144,9 @@ To update a digital signature key pair:
 
 {% endlist %}
 
-## Deleting digital signature key pair {#delete}
+## Deleting a digital signature key pair {#delete}
 
-To delete your digital signature key pair:
+To delete a digital signature key pair:
 
 {% list tabs group=instructions %}
 

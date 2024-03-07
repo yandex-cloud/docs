@@ -5,12 +5,6 @@ description: "This article describes the features of digital signatures in {{ km
 
 # Digital signature in {{ kms-short-name }}
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 _Digital signature_ is a product of a cryptographic operation that provides additional data protection. Digital signatures serve these main purposes:
 
 * Validating data

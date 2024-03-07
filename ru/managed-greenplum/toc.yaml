@@ -31,12 +31,8 @@ items:
             href: operations/cluster-backups.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
-      - name: Базы данных
-        items:
-          - name: Подключение к базе данных
-            href: operations/connect.md
-          - name: Использование внешних таблиц
-            href: operations/external-tables.md
+      - name: Подключение к базе данных
+        href: operations/connect.md
       - name: Пользователи и сессии
         items:
           - name: Управление ролями и пользователями
@@ -49,6 +45,24 @@ items:
             href: operations/command-center.md
           - name: Управление клиентскими процессами и сессиями пользователей
             href: operations/cluster-process.md
+      - name: Работа с PXF
+        items:
+          - name: Обзор
+            href: operations/external-tables.md
+          - name: Создание внешних источников данных
+            items:
+              - name: S3
+                href: operations/pxf/create-s3-source.md
+              - name: JDBC
+                href: operations/pxf/create-jdbc-source.md
+              - name: HDFS
+                href: operations/pxf/create-hdfs-source.md
+              - name: Hive
+                href: operations/pxf/create-hive-source.md
+          - name: Создание внешней таблицы
+            href: operations/pxf/create-table.md
+      - name: Подключение к внешнему файловому серверу (gpfdist)
+        href: operations/gpfdist/connect.md
       - name: Расширения {{ GP }}
         items:
           - name: Управление расширениями
@@ -119,6 +133,8 @@ items:
         href: concepts/user-authentication.md
       - name: Командный центр
         href: concepts/command-center.md
+      - name: Внешние таблицы
+        href: concepts/external-tables.md
       - name: Управление соединениями
         href: concepts/pooling.md
       - name: Техническое обслуживание

@@ -5,12 +5,6 @@ description: "This guide describes how you can create, update, and destroy encry
 
 # Managing encryption key pairs
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 You can use {{ kms-name }} to create, update, and destroy asymmetric encryption key pairs.
 
 ## Creating an encryption key pair {#create}

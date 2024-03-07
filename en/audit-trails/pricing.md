@@ -4,15 +4,15 @@ description: "This article describes the {{ at-name }} pricing policy."
 editable: false
 ---
 
-# Pricing for {{ at-full-name }}
+# {{ at-full-name }} pricing
 
-The cost of {{ at-name }} usage is based on the number of delivered [data events](concepts/control-plane-vs-data-plane.md). At the moment, use of configuration-level events is not charged.
+The cost of using {{ at-name }} is based on the number of delivered [data events](concepts/control-plane-vs-data-plane.md). Management events are currently not billed.
 
 ## Pricing {#prices}
 
 {% note warning %}
 
-The prices are in effect as of March 1, 2024.
+The prices are valid as of March 1, 2024.
 
 {% endnote %}
 

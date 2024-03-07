@@ -76,6 +76,6 @@ If you are migrating a cloud because you want to stop using the old billing acco
 
 ## Resource management in organizations {#bind-cloud-organization}
 
-1. If your billing account is [added to your organization](../concepts/organization.md), you will be able to connect only those clouds and {{ ml-platform-name }}, {{ tracker-name }}, or {{ datalens-short-name }} instances that are created in your organization.
+1. After your billing account is added to an [organization](../concepts/organization.md), only those clouds and {{ ml-platform-name }}, {{ tracker-name }}, or {{ datalens-short-name }} instances will be available for linking in the management console that were created in your organization. However, you will be able to pay for and use resources from other organizations previously linked to your billing account.
 
 1. {% include [account_scope.md](../_includes/account-scope.md) %}

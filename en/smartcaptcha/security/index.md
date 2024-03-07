@@ -22,12 +22,21 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
-| Role | Permissions |
------ | -----
-| `smart-captcha.auditor` | Enables you to view CAPTCHA information and permissions. |
-| `smart-captcha.viewer` | Enables you to view CAPTCHA information and permissions. It includes all access rights of the `smart-captcha.auditor` role. |
-| `smart-captcha.editor` | Enables you to manage CAPTCHAS (create, change, or delete them). It includes all access rights of the `smart-captcha.viewer` role. |
-| `smart-captcha.admin` | Enables you to manage CAPTCHAS and access to them. It includes all access rights of the `smart-captcha.editor` role. |
+#### smart-captcha.auditor {#smart-captcha-auditor}
+
+{% include [smart-captcha.auditor](../../_roles/smart-captcha/auditor.md) %}
+
+#### smart-captcha.viewer {#smart-captcha-viewer}
+
+{% include [smartcaptcha-viewer](../../_roles/smart-captcha/viewer.md) %}
+
+#### smart-captcha.editor {#smart-captcha-editor}
+
+{% include [smartcaptcha-editor](../../_roles/smart-captcha/editor.md) %}
+
+#### smart-captcha.admin {#smart-captcha-admin}
+
+{% include [smartcaptcha-admin](../../_roles/smart-captcha/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

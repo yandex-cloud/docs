@@ -5,12 +5,6 @@ description: "This guide describes the features of asymmetric encryption in {{ k
 
 # Asymmetric encryption in {{ kms-short-name }}
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
-
 One of the available encryption modes in {{ kms-short-name }} is _asymmetric encryption_. It uses a public key of an asymmetric key pair (crypto pair) to encrypt data and its private key to decrypt the data. {{ kms-name }} allows you to export the public key to encrypt text on the client side. To decrypt such text in {{ kms-short-name }}, you can use the private key from the key pair. You cannot access the private key in {{ kms-short-name }} directly.
 
 {% include [asymmetric-keys-quota](../../_includes/kms/asymmetric-keys-quota.md) %}

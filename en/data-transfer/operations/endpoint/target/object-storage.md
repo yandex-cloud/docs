@@ -1,4 +1,4 @@
-# Transferring data to an {{ objstorage-name }} target endpoint
+# Transferring data to an {{ objstorage-full-name }} target endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data to the {{ objstorage-full-name }} storage and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
 
@@ -9,7 +9,7 @@
 1. Perform required operations with the storage and [control the transfer](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
 
-## Scenarios for transferring data to {{ objstorage-name }} {#scenarios}
+## Scenarios for transferring data to {{ objstorage-full-name }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
    * [Delivering data from {{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).

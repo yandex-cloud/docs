@@ -24,13 +24,25 @@ In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../res
 
 ### Service roles {#service-roles}
 
-| Role | Permissions |
------ | -----
-| `audit-trails.auditor` | Allows you to view information about trails |
-| `audit-trails.viewer` | Gives you access to audit logs of the trails. Includes all access rights of the `audit-trails.auditor` role |
-| `audit-trails.editor` | Allows you to manage trails (create, edit, and delete them). Includes all access rights of the `audit-trails.viewer` role |
-| `audit-trails.admin` | Allows you to manage your trails and user access to them. Includes all access rights of the `audit-trails.editor` role |
-| `audit-trails.configViewer` (deprecated) | Allows you to view information about trails. Use `audit-trails.auditor` instead of this role. |
+#### audit-trails.auditor {#at-auditor}
+
+{% include [audit-trails.auditor](../../_roles/audit-trails/auditor.md) %}
+
+#### audit-trails.viewer {#at-viewer}
+
+{% include [audit-trails.viewer](../../_roles/audit-trails/viewer.md) %}
+
+#### audit-trails.editor {#at-editor}
+
+{% include [audit-trails.editor](../../_roles/audit-trails/editor.md) %}
+
+#### audit-trails.admin {#at-admin}
+
+{% include [audit-trails.admin](../../_roles/audit-trails/admin.md) %}
+
+#### audit-trails.configViewer {#at-configviewer}
+
+{% include [audit-trails.configviewer](../../_roles/audit-trails/configViewer.md) %}
 
 ### Primitive roles {#primitive-roles}
 

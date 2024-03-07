@@ -1,14 +1,14 @@
 Specify the settings for the storage to import the data to:
 
-{% list tabs %}
+{% list tabs group=storage_system %}
 
-- Bucket {{ objstorage-name }}
+- {{ objstorage-name }} {#storage}
 
    * **{{ ui-key.yacloud.mdb.cluster.overview.label_service-account }}**: Name of the previously created service account.
    * **{{ ui-key.yacloud.mdb.cluster.overview.label_bucket }}**: Name of the previously created bucket.
    * **{{ ui-key.yacloud.mdb.cluster.overview.label_services }}**: `Sqoop`.
 
-- HDFS directory
+- HDFS directory {#hdfs}
 
    **Services**:
 
@@ -18,7 +18,7 @@ Specify the settings for the storage to import the data to:
    * `Yarn`
    * `Zookeeper`
 
-- Apache Hive
+- Apache Hive {#hive}
 
    * **Services**:
 
@@ -30,7 +30,7 @@ Specify the settings for the storage to import the data to:
 
    * **Properties**: The `hive:hive.execution.engine` key with the `mr` value.
 
-- Apache HBase
+- Apache HBase {#hbase}
 
    **Services**:
 
