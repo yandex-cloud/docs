@@ -23,7 +23,6 @@ description: "На странице представлен список поша
 ## Базы данных
 
 * [{#T}](connect.md)
-* [{#T}](external-tables.md)
 
 ## Пользователи и сессии
 
@@ -32,6 +31,19 @@ description: "На странице представлен список поша
 * [{#T}](user-auth-rules.md)
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
+
+## Внешние таблицы PXF
+
+* [{#T}](external-tables.md)
+* [{#T}](pxf/create-s3-source.md)
+* [{#T}](pxf/create-jdbc-source.md)
+* [{#T}](pxf/create-hdfs-source.md)
+* [{#T}](pxf/create-hive-source.md)
+* [{#T}](pxf/create-table.md)
+
+## Работа с утилитой `gpfdist`
+
+* [{#T}](gpfdist/connect.md)
 
 ## Расширения {{ GP }}
 

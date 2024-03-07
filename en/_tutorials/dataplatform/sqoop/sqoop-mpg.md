@@ -124,9 +124,9 @@ Let's assume that:
 {% include [Shared settings](./shared-properties.md) %}
 * {{ mpg-name }} cluster ID: `c9qgcd6lplrs********`
 
-{% list tabs %}
+{% list tabs group=storage_system %}
 
-- {{ objstorage-name }}
+- {{ objstorage-name }} {#storage}
 
    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#object-storage).
    1. Run this command:
@@ -141,7 +141,7 @@ Let's assume that:
           --split-by "age"
       ```
 
-- HDFS directory
+- HDFS directory {#hdfs}
 
    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#hdfs).
    1. Run this command:
@@ -156,7 +156,7 @@ Let's assume that:
           --split-by "age"
       ```
 
-- Apache Hive
+- Apache Hive {#hive}
 
    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hive).
    1. Run this command:
@@ -174,7 +174,7 @@ Let's assume that:
           --split-by "age"
       ```
 
-- Apache HBase
+- Apache HBase {#hbase}
 
    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hbase).
    1. Run this command:

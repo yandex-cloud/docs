@@ -1,6 +1,6 @@
 # {{ at-full-name }} audit log reference
 
-{{ at-name }} for {{ lockbox-full-name }} supports tracking of [management (control plane) events](../audit-trails/concepts/format.md) and [data (data plane) events](../audit-trails/concepts/format-data-plane.md).
+{{ at-name }} supports tracking of [management (control plane) events](../audit-trails/concepts/format.md) and [data (data plane) events](../audit-trails/concepts/format-data-plane.md) for {{ lockbox-full-name }}.
 
 The general view of the `event_type` field value is as follows:
 

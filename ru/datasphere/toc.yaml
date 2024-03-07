@@ -49,7 +49,7 @@ items:
             href: operations/projects/delete-user.md
           - name: Использовать ресурс с совместным доступом
             href: operations/projects/use-shared-resource.md
-      - name: Работа в ноутбуке
+      - name: '{{ ds-nb }}'
         items:
           - name: Подключиться к JupyterLab из локальной IDE
             href: operations/projects/remote-connect.md
@@ -63,6 +63,7 @@ items:
             href: operations/projects/install-dependencies.md
           - name: Очистить состояние интерпретатора
             href: operations/projects/clear-kernel-state.md
+            hidden: true
           - name: Примеры кода в ноутбуке
             href: operations/projects/snippets.md
           - name: Очистить вывод ячеек ноутбука
@@ -73,6 +74,7 @@ items:
             href: operations/projects/work-with-jobs.md
           - name: Запустить Docker-контейнер в отдельной ячейке
             href: operations/user-images-cell.md
+            hidden: true
           - name: Настроить создание ноутбуков по шаблону
             href: operations/projects/templates.md
       - name: Работа с ресурсами
@@ -81,6 +83,7 @@ items:
             href: operations/data/secrets.md
           - name: Работа с контрольными точками
             href: operations/projects/checkpoints.md
+            hidden: true
           - name: Работа с шаблонами {{ dataproc-name }}
             href: operations/data-proc-template.md
           - name: Работа с Docker-образами
@@ -121,6 +124,8 @@ items:
             href: operations/deploy/alias-update.md
           - name: Удалить алиас
             href: operations/deploy/alias-delete.md
+          - name: Отправить запрос в алиас
+            href: operations/deploy/alias-api.md
       - name: Совместный доступ
         items:
           - name: Опубликовать ноутбук

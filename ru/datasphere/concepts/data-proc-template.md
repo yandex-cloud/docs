@@ -23,7 +23,7 @@
 
 ### Конфигурации временных кластеров {#configurations}
 
-Автоматические кластеры {{ dataproc-name }} разворачиваются на базе [виртуальных машин {{ compute-full-name }}](../../compute/concepts/vm.md) с 4 vCPU и 16 ГБ RAM.
+Автоматические кластеры {{ dataproc-name }} разворачиваются на базе [виртуальных машин {{ compute-full-name }}](../../compute/concepts/vm.md) на платформе Intel Cascade Lake (`standard-v2`) с 4 vCPU и 16 ГБ RAM.
 
 Необходимый суммарный объем дисков для разных конфигураций кластеров можно рассчитать по формуле:
 

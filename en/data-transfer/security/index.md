@@ -28,13 +28,21 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 ### Service roles {#service-roles}
 
-{% include [data-transfer-auditor](../../_includes/iam/roles/data-transfer-auditor.md) %}
+#### data-transfer.auditor {#data-transfer-auditor}
 
-{% include [data-transfer-viewer](../../_includes/iam/roles/data-transfer-viewer.md) %}
+{% include [data-transfer.auditor](../../_roles/data-transfer/auditor.md) %}
 
-{% include [data-transfer-privateadmin](../../_includes/iam/roles/data-transfer-privateadmin.md) %}
+#### data-transfer.viewer {#data-transfer-viewer}
 
-{% include [data-transfer-admin](../../_includes/iam/roles/data-transfer-admin.md) %}
+{% include [data-transfer.viewer](../../_roles/data-transfer/viewer.md) %}
+
+#### data-transfer.privateAdmin {#data-transfer-privateadmin}
+
+{% include [data-transfer.privateadmin](../../_roles/data-transfer/privateAdmin.md) %}
+
+#### data-transfer.admin {#data-transfer-admin}
+
+{% include [data-transfer.admin](../../_roles/data-transfer/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

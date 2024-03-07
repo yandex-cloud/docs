@@ -2,15 +2,15 @@
 
 If there is a problem when working with pages and interactive elements in the {{ yandex-cloud }} [management console]({{ link-console-main }}), information from the browser console can help identify the cause. Copy the message from the error console and forward it to [technical support]({{ link-console-support }}).
 
-{% list tabs %}
+{% list tabs group=web_browsers %}
 
 
-- Yandex Browser
+- Yandex Browser {#yandex}
 
    {% include [browser-console-yandex](../_includes/support/browser-console-yandex.md) %}
 
 
-- Google Chrome
+- Google Chrome {#chrome}
 
    1. On the error page, press **Ctrl** + **Shift** + **J** (or **⌥** + **⌘** + **J** for macOS).
 
@@ -24,7 +24,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
       ![image](../_assets/support/chromium-console.png)
 
-   1. Refresh the page or reproduce the actions that result in an error.
+   1. Refresh the page or repeat the actions that resulted in the error.
    1. Copy the messages:
 
       * Take a screenshot. If you need to scroll vertically to view messages, take several screenshots.
@@ -34,7 +34,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
    For more information, take a screenshot of the information on the **Network** tab.
 
-- Opera
+- Opera {#opera}
 
    1. On the error page, press **Ctrl** + **Shift** + **J**.
 
@@ -48,7 +48,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
       ![image](../_assets/support/chromium-console.png)
 
-   1. Refresh the page or reproduce the actions that result in an error.
+   1. Refresh the page or repeat the actions that resulted in the error.
    1. Copy the messages:
 
       - Take a screenshot. If you need to scroll vertically to view messages, take several screenshots.
@@ -58,7 +58,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
    For more information, take a screenshot of the information on the **Network** tab.
 
-- Mozilla Firefox
+- Mozilla Firefox {#firefox}
 
    1. On the error page, press **Ctrl** + **Shift** + **J**.
 
@@ -79,7 +79,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
       ![image](../_assets/support/firefox-console.png)
 
-   1. Refresh the page or reproduce the actions that result in an error.
+   1. Refresh the page or repeat the actions that resulted in the error.
    1. Copy the messages:
 
       * Take a screenshot. If you need to scroll vertically to view messages, take several screenshots.
@@ -87,7 +87,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
    1. Attach the error log or screenshots to your message to [technical support]({{ link-console-support }}).
 
-- Microsoft Edge
+- Microsoft Edge {#edge}
 
    1. On the error page, press **Ctrl** + **Shift** + **J**.
 
@@ -102,7 +102,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
       ![image](../_assets/support/chromium-console.png)
 
-   1. Refresh the page or reproduce the actions that result in an error.
+   1. Refresh the page or repeat the actions that resulted in the error.
    1. Copy the messages:
 
       * Take a screenshot. If you need to scroll vertically to view messages, take several screenshots.
@@ -112,7 +112,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
    For more information, take a screenshot of the information on the **Network** tab.
 
-- Safari
+- Safari {#safari}
 
    1. Activate the error console: in the menu, select **Safari** → **Preferences** → **Advanced** and enable **Show Develop menu** in the menu bar.
    1. On the error page, press **⌥** + **⌘** + **C**.
@@ -128,7 +128,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
       ![image](../_assets/support/safari-console.png)
 
-   1. Refresh the page or reproduce the actions that result in an error.
+   1. Refresh the page or repeat the actions that resulted in the error.
    1. Copy the messages:
 
       * Take a screenshot. If you need to scroll vertically to view messages, take several screenshots.

@@ -456,10 +456,6 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
-  roles-data-transfer-admin: data-transfer.admin
-  roles-data-transfer-auditor: data-transfer.auditor
-  roles-data-transfer-private-admin: data-transfer.privateAdmin
-  roles-data-transfer-viewer: data-transfer.viewer
   roles-datalens-admin: datalens.admin
   roles-datalens-creator: datalens.creator
   roles-datalens-instances-admin: datalens.instances.admin
@@ -7460,6 +7456,7 @@ default:
         folder: Каталог
         foundation-models: Фундаментальные модели
         general: Общие настройки
+        input: Входные значения
         link: Привязать
         manage-labels: Управление метками
         member:
@@ -7511,6 +7508,7 @@ default:
         advanced-settings: Расширенные настройки
         balance: Баланс проекта
         dataproc-cluster: Кластер Data Proc
+        dedicated-vm-inactivity-timeout: Остановить простаивающую ВМ через
         default-mode: Режим работы проекта
         description: Описание
         name: Имя
@@ -7591,6 +7589,7 @@ default:
           distribution-by-zones: Распределение по зонам
         request:
           create-test-request: Создать тестовый запрос
+          curl: cURL
           server-response: Ответ сервера
         tab:
           logs: Логи
@@ -7605,6 +7604,7 @@ default:
         project-card:
           create-resource: Создать ресурс
           go-to-jupyter: Открыть проект в JupyterLab
+        project-disk: Хранилище проекта
         project-resources: Ресурсы проекта
         settings:
           default-folder: Каталог по умолчанию

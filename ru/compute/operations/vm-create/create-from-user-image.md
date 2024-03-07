@@ -7,7 +7,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Перед началом работы {#before-you-begin}
 
-[Подготовьте и загрузите](../image-create/upload.md) [образ](../../concepts/image.md), из которого будет создаваться [ВМ](../../concepts/vm.md).
+[Подготовьте и загрузите](../image-create/upload.md) [образ](../../concepts/image.md) в {{ compute-name }}, из которого будет создаваться [ВМ](../../concepts/vm.md).
 
 Убедитесь, что загруженный образ находится в состоянии `READY`.
 
@@ -149,19 +149,73 @@ description: "Следуя данной инструкции, вы сможет�
 
      ```bash
      yc compute instance create \
-       --name test-vm-from-image \
-       --zone {{ region-id }}-a \
-       --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov******** \
+       --name <имя_ВМ> \
+       --zone <зона_доступности> \
+       --create-boot-disk name=<имя_диска>,size=<размер_диска_ГБ>,image-id=<идентификатор_пользовательского_образа> \
        --public-ip \
-       --ssh-key ~/.ssh/id_ed25519.pub
+       --ssh-key <путь_к_файлу_открытого_ключа>
      ```
 
-     Данная команда создаст ВМ с загрузочным диском на 5 ГБ из заранее загруженного образа с именем `test-vm-from-image`.
+     Где:
 
-     {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+     * `--name` — имя виртуальной машины. Требования к имени:
 
-     На ВМ будет создан пользователь `yc-user` с публичным ключом из файла `~/.ssh/id_ed25519.pub`. ВМ получит [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP, исключите флаг `--public-ip`.
+        {% include [name-format](../../../_includes/name-format.md) %}
 
+        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+     * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+     * `--create-boot-disk` — параметры загрузочного диска:
+       * `name` — имя загрузочного диска. Требования к имени:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
+
+       * `size` — размер диска в ГБ.
+       * `image-id` — идентификатор пользовательского образа для ВМ. Укажите идентификатор [загруженного](../image-create/upload.md) образа.
+     * `--public-ip` — флаг для назначения [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ВМ. Чтобы создать ВМ без публичного IP-адреса, не указывайте этот флаг.
+     * `--ssh-key` — путь к файлу открытого [ключа SSH](../../operations/vm-connect/ssh.md#creating-ssh-keys). Имя пользователя по умолчанию для доступа по SSH — `yc-user`.
+
+
+     Результат:
+
+      ```bash
+      id: fhmue131en37********
+      folder_id: b1g681qpemb4********
+      created_at: "2024-03-02T12:58:43Z"
+      name: test-vm-from-image
+      zone_id: ru-central1-a
+      platform_id: standard-v2
+      resources:
+        memory: "2147483648"
+        cores: "2"
+        core_fraction: "100"
+      status: RUNNING
+      metadata_options:
+        gce_http_endpoint: ENABLED
+        aws_v1_http_endpoint: ENABLED
+        gce_http_token: ENABLED
+        aws_v1_http_token: DISABLED
+      boot_disk:
+        mode: READ_WRITE
+        device_name: fhmn9n1uhutc********
+        auto_delete: true
+        disk_id: fhmn9n1uhutc********
+      network_interfaces:
+        - index: "0"
+          mac_address: d0:0d:1e:70:46:17
+          subnet_id: e9bb9n0v4h17********
+          primary_v4_address:
+            address: 10.12*.*.**
+            one_to_one_nat:
+              address: 178.154.***.***
+              ip_version: IPV4
+      gpu_settings: {}
+      fqdn: fhmue131en37********.auto.internal
+      scheduling_policy: {}
+      network_settings:
+        type: STANDARD
+      placement_policy: {}
+      ```
 
 - {{ TF }} {#tf}
 
@@ -218,13 +272,21 @@ description: "Следуя данной инструкции, вы сможет�
      Где:
 
      * `yandex_compute_disk` — описание загрузочного [диска](../../concepts/disk.md):
-       * `name` — имя диска.
+       * `name` — имя диска. Требования к имени:
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
        * `type` — тип создаваемого диска.
        * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
        * `size` — размер диска в ГБ.
-       * `image_id` — идентификатор образа для ВМ. Укажите идентификатор [загруженного](../image-create/upload.md) образа.
+       * `image_id` — идентификатор пользовательского образа для ВМ. Укажите идентификатор [загруженного](../image-create/upload.md) образа.
      * `yandex_compute_instance` — описание ВМ:
-       * `name` — имя ВМ.
+       * `name` — имя ВМ.  Требования к имени:
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
        * `zone` — зона доступности, в которой будет находиться ВМ.
@@ -261,4 +323,5 @@ description: "Следуя данной инструкции, вы сможет�
 
 #### См. также {#see-also}
 
+* [{#T}](../image-create/custom-image.md)
 * [{#T}](../vm-connect/ssh.md)

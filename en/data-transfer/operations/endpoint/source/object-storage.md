@@ -1,8 +1,8 @@
 ---
-title: "How to configure an {{ objstorage-name }} source endpoint"
-description: "Follow this guide to configure an {{ objstorage-name }} source endpoint."
+title: "How to configure an {{ objstorage-full-name }} source endpoint"
+description: "Follow this guide to configure an {{ objstorage-full-name }} source endpoint."
 ---
-# Transferring data from an {{ objstorage-name }} source endpoint
+# Transferring data from an {{ objstorage-full-name }} source endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data from {{ objstorage-full-name }} storage to {{ yandex-cloud }} managed databases and implement various scenarios of data processing and transformation. To implement a transfer:
 
@@ -15,7 +15,7 @@ description: "Follow this guide to configure an {{ objstorage-name }} source end
 
 ## Scenarios for transferring data from {{ objstorage-name }} {#scenarios}
 
-You can implement scenarios for data migration and delivery from the {{ objstorage-name }} storage to managed databases for further storage in the cloud, processing and loading into data marts for further visualization.
+You can implement scenarios for data migration and delivery from the {{ objstorage-full-name }} storage to managed databases for further storage in the cloud, processing and loading into data marts for further visualization.
 
 {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
@@ -79,7 +79,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.unexpected_field_behavior.title }}**: Method for handling JSON fields outside the `explicit_schema` (if specified). See [the PyArrow documentation](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.block_size.title }}**: Size of file segments in bytes for concurrent processing in each file memory. When handling large amounts of data where the schema cannot be inferred, increasing this value should solve the problem. Setting the value too high may lead to OOM errors.
 
-- **proto**
+- proto
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.proto_desc.title }}**: Upload a descriptor file.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_package_type.title }}**: Specify the message packaging method:

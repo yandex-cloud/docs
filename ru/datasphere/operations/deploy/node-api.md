@@ -10,12 +10,12 @@ description: "Следуя данной инструкции, вы сможет�
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 1. Выберите ноду, к которой нужно отправить запрос.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}** в поле **Input** введите входные переменные запроса в формате `{"a":2,"b":3}` и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.execute }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}** в поле **{{ ui-key.yc-ui-datasphere.common.input }}** введите входные переменные запроса в формате `{"a":2,"b":3}` и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.execute }}**.
 1. Посмотрите результат обработки запроса в блоке **{{ ui-key.yc-ui-datasphere.common.response }}**.
 
 {% note info %}
 
-В блоке **Запросы командной строки** приведены примеры запросов в ноду для утилит cURL и gRPCurl.
+В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.curl }}** приведены примеры запросов в ноду для утилит cURL и gRPCurl.
 
 В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.server-response }}** приведены коды и описание ответов ноды.
 
