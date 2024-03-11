@@ -19,3 +19,4 @@ description: "Различные сценарии использования {{ 
 
 
 * [{#T}](image-storage.md)
+* [{#T}](vpc-cr-access.md)

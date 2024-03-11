@@ -1,5 +1,3 @@
-# Вопросы о {{ MY }}
-
 #### Какие версии {{ MY }} поддерживает {{ mmy-short-name }}? {#supported-version}
 
 {{ mmy-short-name }} поддерживает {{ MY }} 5.7 и {{ MY }} 8.

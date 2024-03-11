@@ -28,11 +28,11 @@ To add a column by status to the issue board:
 
    {% note info %}
 
-   If the board includes the issues with statuses not linked to any columns, such issues won't be shown on the board.
+   If the board includes issues with statuses not linked to any columns, they will not appear on the board.
 
    {% endnote %}
 
-1. To add a note with the text to be shown under the name of the column, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardColumnHeader.column-menu--add-note }}**.
+1. To add a note with text to appear under the column name, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardColumnHeader.column-menu--add-note }}**.
 
 ### Editing a column {#edit-status-cols}
 
@@ -71,6 +71,12 @@ To add a custom column to the issue board:
 1. Click **{{ ui-key.startrek.ui_components_agile_common_ColumnForm.create-column-submit-button--create }}**.
 
 1. Add issues to a column: click ![](../../_assets/tracker/svg/add-task.svg) next to it and add an existing issue or create a new one.
+
+   {% note info %}
+
+   If you add the **Story Points** field to the issue card, the total number of **Story Points** in the column will be shown in its heading. To add the **Story Points** field to the issue card, click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_common_FieldsSelect.fields-settings }}** in the right-hand corner of the search, sort, and group panel on the board page and select the **Story Points** field.
+
+   {% endnote %}
 
 ### Editing a column {#edit-user-cols}
 

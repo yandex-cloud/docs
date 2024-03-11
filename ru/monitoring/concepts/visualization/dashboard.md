@@ -13,8 +13,6 @@ description: "Дашборд в {{ monitoring-full-name }} — набор вид
 
 Пользователям {{ yandex-cloud }} доступны сервисные дашборды, которые содержат преднастроенные виджеты с метриками о состоянии облачных ресурсов. Сервисные дашборды создаются автоматически.
 
- <!-- Big Yandex dashboards -->
-
 ## Параметры дашбордов {#parameterization}
 
 Параметры позволяют создавать интерактивные дашборды, содержание которых изменяется в зависимости от выбора пользователя. Например, дашборд, показывающий сводную информацию о состоянии виртуальной машины, можно параметризовать идентификатором виртуальной машины.
@@ -27,15 +25,9 @@ description: "Дашборд в {{ monitoring-full-name }} — набор вид
 * *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* — параметр принимает набор фиксированных значений, перечисленных через запятую.
 * *{{ ui-key.yacloud_monitoring.component.parametrizer.type.text-field }}* — параметр принимает единственное значение, указанное в текстовом поле.
 
- <!-- Big Yandex dashboards -->
-
 Для параметров типа *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* и *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* доступна настройка *{{ ui-key.yacloud_monitoring.component.parametrizer.dashboard.multivalue-key-value }}*, позволяющая выбирать несколько значений параметра одновременно.
 
 Для всех типов параметров доступно указание *{{ ui-key.yacloud_monitoring.component.parametrizer.default-value }}* — это значение параметра будет использоваться при загрузке дашборда в веб-интерфейсе {{ monitoring-full-name }}.
-
- <!-- Big Yandex dashboards -->
-
- <!-- Cloud dashboards -->
 
 ### Подстановка параметров {#templates}
 
@@ -57,7 +49,6 @@ description: "Дашборд в {{ monitoring-full-name }} — набор вид
 Подстановка значения параметра в строку запроса выглядит следующим образом:
 
 ![Подстановка значения параметра в строку запроса](../../../_assets/monitoring/query_string_templating_2023.png "Подстановка значения параметра в строку запроса")
- <!-- Cloud dashboards -->
 
 ### Фильтр значений меток {#common-labels-filter}
 
@@ -90,5 +81,3 @@ description: "Дашборд в {{ monitoring-full-name }} — набор вид
 
 * Возможные значения параметра `cluster` будут сокращены до `prod` и `preprod`. Значение `testing` будет исключено как не подпадающее под правило `cluster=*prod*`.
 * Возможные значения параметра `account` будут сокращены до `prodaccount`, `preprodaccount` и `multiaccount`. Значение `testingaccount` будет исключено, так как не существует метрики с комбинацией меток `account="testingaccount"` и `cluster`, подпадающей под правило `cluster=*prod*` (тогда как для `multiaccount` такая комбинация существует).
-
- <!-- Big Yandex dashboards -->

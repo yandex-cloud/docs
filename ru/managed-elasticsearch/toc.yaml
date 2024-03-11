@@ -246,9 +246,7 @@ items:
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
-    items:
-      - name: Общие вопросы
-        href: qa/index.md
+    href: qa/index.md
   - name: Обучающие курсы
     href: training.md
 base: ru/managed-elasticsearch

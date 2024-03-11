@@ -307,6 +307,10 @@ Your function receives and transmits the contents of HTTP headers as JSON fields
       - "Connection"
       - "Max-Forwards"
       - "Cookie"
+      - "X-Request-Id"
+      - "X-Function-Id"
+      - "X-Function-Version-Id"
+      - "X-Content-Type-Options"
 
    - Cause an error if present in a response:
 

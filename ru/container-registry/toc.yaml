@@ -97,6 +97,8 @@ items:
         href: tutorials/ci-cd-serverless.md
       - name: Хранение Docker-образов из проектов {{ mgl-full-name }}
         href: tutorials/image-storage.md
+      - name: Подключение к {{ container-registry-name }} из {{ vpc-short-name }}
+        href: tutorials/vpc-cr-access.md
   - name: Концепции
     items:
       - name: Обзор

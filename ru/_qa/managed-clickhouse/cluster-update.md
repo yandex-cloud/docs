@@ -1,5 +1,3 @@
-# Изменение {{ CH }}-кластера
-
 #### Как добавить хост в кластер? {#add-host}
 
 Чтобы добавить хост, воспользуйтесь [инструкцией](../../managed-clickhouse/operations/hosts.md#add-host). Вы также можете добавить новые хосты в кластер при [создании шарда](../../managed-clickhouse/operations/shards.md#add-shard).

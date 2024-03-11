@@ -51,6 +51,10 @@ When being passed to the container, some HTTP request and response headers chang
       - "Connection"
       - "Max-Forwards"
       - "Cookie"
+      - "X-Request-Id"
+      - "X-Function-Id"
+      - "X-Function-Version-Id"
+      - "X-Content-Type-Options"
 
    - Cause an error if present in a response:
 

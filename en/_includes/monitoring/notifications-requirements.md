@@ -1,4 +1,6 @@
 To get notifications, the user must:
 
-* Have the `monitoring.viewer` role for the folder the alert is set up in.
-* Specify their email address and phone number, and enable **{{ ui-key.yacloud_components.settings.label_monitoring-name }}** in the management console [settings]({{ link-console-main }}/settings).
+* Have the `monitoring.viewer` role for the folder the alert is configured in.
+* In the management console [settings]({{ link-console-main }}):
+   * Enable **{{ ui-key.yacloud_components.settings.label_monitoring-name }}**.
+   * Specify an e-mail address, phone number, and Telegram account or group.

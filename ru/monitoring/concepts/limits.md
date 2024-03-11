@@ -7,7 +7,6 @@ editable: false
 
 # Квоты и лимиты в {{ monitoring-name }}
 
-
 В сервисе {{ monitoring-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
@@ -15,6 +14,3 @@ editable: false
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
 {% include [compute-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
-
-
-
