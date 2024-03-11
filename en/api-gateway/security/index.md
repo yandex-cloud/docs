@@ -31,13 +31,21 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
-{% include [api-gateway-viewer](../../_includes/roles-api-gateway-viewer.md) %}
+#### api-gateway.viewer {#api-gateway-viewer}
 
-{% include [api-gateway-editor](../../_includes/roles-api-gateway-editor.md) %}
+{% include [api-gateway.viewer](../../_roles/api-gateway/viewer.md) %}
 
-{% include [api-gateway-websocket-writer](../../_includes/roles-api-gateway-websocket-writer.md) %}
+#### api-gateway.editor {#api-gateway-editor}
 
-{% include [api-gateway-admin](../../_includes/roles-api-gateway-admin.md) %}
+{% include [api-gateway.editor](../../_roles/api-gateway/editor.md) %}
+
+#### api-gateway.websocketWriter {#api-gateway-websocketwriter}
+
+{% include [api-gateway.websocketWriter](../../_roles/api-gateway/websocketWriter.md) %}
+
+#### api-gateway.admin {#api-gateway-admin}
+
+{% include [api-gateway.admin](../../_roles/api-gateway/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

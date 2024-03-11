@@ -202,7 +202,5 @@ items:
   - name: Публичные материалы
     href: public-talks.md
   - name: Вопросы и ответы
-    items:
-      - name: Общие вопросы
-        href: qa/index.md
+    href: qa/index.md
 base: ru/managed-opensearch

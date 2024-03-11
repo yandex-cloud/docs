@@ -492,7 +492,7 @@
    cut -f1 -d',' | \
    cut -f2 -d':' | \
    tr -d '"' | \
-   sudo docker login --username iam --password-stdin {{ registry }}
+   docker login --username iam --password-stdin {{ registry }}
    ```
 
    Результат:

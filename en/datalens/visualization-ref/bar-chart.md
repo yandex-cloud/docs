@@ -25,7 +25,7 @@ This chart displays the values of one or more measures by each category, using h
 
 ### With grouping {#groupped}
 
-A chart with grouping by dimension lets you compare two or more categories by a single measure. For example, with grouping by delivery type you can compare the cost of products delivered by a courier to those with pickup. Categories are highlighted in different colors and the length of the bar indicates the measure value.
+A chart with grouping by dimension lets you compare two or more categories by a single measure. For example, grouping by delivery type allows you to compare the cost of products delivered by courier and picked up. Categories are highlighted in different colors and the length of the bar indicates the measure value.
 
 ![horizontal-bar-chart-groupped-1](../../_assets/datalens/visualization-ref/horizontal-bar-chart/horizontal-bar-chart-groupped-1.png)
 
@@ -92,8 +92,8 @@ This type of chart is used to see the contribution of each measure to the total 
 ----- | ----
 | Y | Dimensions. You can specify one or two dimensions. |
 | X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis. |
-| Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field that affects the color of columns. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the X axis. |
-| Sorting | Dimension or measure that affects column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the column color. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the X axis. |
+| Sorting | Dimension or measure. Affects the column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Labels | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
 | Filters | Dimension or measure. Used as a filter. |
 
@@ -117,14 +117,14 @@ To display an Y-axis grouped bar chart:
 1. Go to the bar chart that you created.
 1. Depending on the number of measures in the **X** section, follow these steps:
 
-   {% list tabs %}
+   {% list tabs group=indicators_number %}
 
-   - One measure
+   - Single measure {#one}
 
       1. Check if there is a dimension in the **Colors** section.
       1. Duplicate this dimension in the **Y** section. The sequence of dimensions affects the grouping order.
 
-   - Two or more measures
+   - Two or more measures {#more}
 
       1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
       1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Y** section. The sequence of dimensions affects the grouping order.
@@ -138,9 +138,9 @@ To color columns in a chart based on the value of a measure:
 1. Go to the column chart that you created.
 1. Depending on the number of measures in the **X** section, follow the steps below:
 
-   {% list tabs %}
+   {% list tabs group=indicators_number %}
 
-   - One measure
+   - Single measure {#one}
 
       Copy the measure from the **X** section to the **Colors** section.
 
@@ -148,7 +148,7 @@ To color columns in a chart based on the value of a measure:
 
       ![image](../../_assets/datalens/operations/chart/bar-colors-1.png)
 
-   - Two or more measures
+   - Two or more measures {#more}
 
       Drag the [Measure Values](../concepts/chart/measure-values.md) measure to the **Colors** section.
 
