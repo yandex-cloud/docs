@@ -210,7 +210,5 @@ items:
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
-    items:
-      - name: Общие вопросы
-        href: qa/general.md
+    href: qa/general.md
 base: ru/managed-redis

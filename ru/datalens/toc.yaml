@@ -769,8 +769,10 @@ items:
     href: pricing.md
   - name: История изменений
     items:
-      - name: Январь 2024
+      - name: Февраль 2024
         href: release-notes/index.md
+      - name: Январь 2024
+        href: release-notes/2401.md
   - name: Решение проблем
     expanded: true
     items:

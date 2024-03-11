@@ -65,8 +65,8 @@ Since the sum of all segments is equal to the total length of a column, when col
 ----- | ----
 | X | Dimensions. You can specify one or two dimensions. Affects X-axis value grouping. The order of specified dimensions affects the order of value grouping on the X-axis. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on. |
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). |
-| Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field that affects the color of columns. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the Y axis. |
-| Sorting | Dimension or measure that affects column sorting. Sorting only applies to dimensions used when building a chart. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the column color. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the Y axis. |
+| Sorting | Dimension or measure. Affects the column sorting. Sorting only applies to dimensions used when building a chart. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Labels | Measure. Displays measure values on the chart. When using multiple measures for a signature, add [Measure Values](../concepts/chart/measure-values.md). |
 | Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
 | Filters | Dimension or measure. Used as a filter. A filter can be overridden by a dashboard selector if the selector is based on the same field. |
@@ -90,16 +90,16 @@ To display an X-axis grouped column chart:
 1. Go to the column chart that you created.
 1. Depending on the number of measures in the **Y** section, follow these steps:
 
-   {% list tabs %}
+   {% list tabs group=indicators_number %}
 
-   - One measure
+   - Single measure {#one}
 
       1. Check if there is a dimension in the **Colors** section.
       1. Duplicate this dimension in the **X** section. The sequence of dimensions affects the grouping order.
 
       ![one-measure](../../_assets/datalens/visualization-ref/bar-chart/one-measure.png)
 
-   - Two or more measures
+   - Two or more measures {#more}
 
       1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
       1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **X** section. The sequence of dimensions affects the grouping order.
@@ -115,9 +115,9 @@ To color columns in a chart based on the value of a measure:
 1. Go to the column chart that you created.
 1. Depending on the number of measures in the **Y** section, follow the steps below:
 
-   {% list tabs %}
+   {% list tabs group=indicators_number %}
 
-   - One measure
+   - Single measure {#one}
 
       Copy the measure from the **Y** section to the **Colors** section.
 
@@ -125,7 +125,7 @@ To color columns in a chart based on the value of a measure:
 
       ![image](../../_assets/datalens/operations/chart/column-colors-1.png)
 
-   - Two or more measures
+   - Two or more measures {#more}
 
       Drag the [Measure Values](../concepts/chart/measure-values.md) measure to the **Colors** section.
 
@@ -138,7 +138,7 @@ To color columns in a chart based on the value of a measure:
 1. Configure a color gradient for the measure as well. To do this, in the top right-hand corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you mouse over the section).
 1. In the color settings, specify:
 
-   * **Gradient type**: Select 2 or 3 colors.
+   * **Gradient type**: Select two or three colors.
    * Gradient color: Select a color palette for the gradient from the list.
    * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
    * **Set threshold values**: Set numeric thresholds for each color. Works if the **Y** section contains a single value.

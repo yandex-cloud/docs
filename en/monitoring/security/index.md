@@ -32,21 +32,17 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
-#### {{ roles-monitoring-viewer }} {#monitoring-viewer}
+#### monitoring.viewer {#monitoring-viewer}
 
-Users with the `{{ roles-monitoring-viewer }}` role can view created dashboards and widgets, as well as uploaded metrics.
+{% include [monitoring.viewer](../../_roles/monitoring/viewer.md) %}
 
-#### {{ roles-monitoring-editor }} {#monitoring-editor}
+#### monitoring.editor {#monitoring-editor}
 
-Users with the `{{ roles-monitoring-editor }}` role can create dashboards and widgets as well as upload metrics and manage alerts.
+{% include [monitoring.editor](../../_roles/monitoring/editor.md) %}
 
-The `{{ roles-monitoring-editor }}` role also includes all permissions of the `{{ roles-monitoring-viewer }}` role.
+#### monitoring.admin {#monitoring-admin}
 
-#### {{ roles-monitoring-admin }} {#monitoring-admin}
-
-Users with the `{{ roles-monitoring-admin }}` role can create dashboards and widgets as well as upload metrics and manage alerts.
-
-The `{{ roles-monitoring-admin }}` role also includes all permissions of the `{{ roles-monitoring-editor }}` role.
+{% include [monitoring.admin](../../_roles/monitoring/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

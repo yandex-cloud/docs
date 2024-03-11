@@ -12,10 +12,9 @@ For example, the value of a database cluster's free disk space threshold is spec
 
 #### How do I set an alert recipient? {#alert-recipient}
 
-In the [notification channel](../../monitoring/concepts/alerting.md#channel-parameters), the following methods are supported:
-* Email
-* Text message (SMS)
-* Push notifications in the {{ yandex-cloud }} [mobile app](../../overview/mobile-app/index.md).
+The following methods are supported in the [notification channel](../../monitoring/concepts/alerting/notification-channel.md):
+
+{% include [channels](../../_includes/monitoring/channels.md) %}
 
 {% include [account-info](../../_includes/monitoring/account-info.md) %}
 

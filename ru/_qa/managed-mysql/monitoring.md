@@ -1,5 +1,3 @@
-# Мониторинг и логи в {{ mmy-name }}
-
 #### Как посмотреть графики кластера и хостов? {#charts}
 
 В [консоли управления]({{ link-console-main }}) перейдите на страницу кластера. Чтобы просмотреть [графики кластера](../../managed-mysql/operations/monitoring.md#monitoring-cluster), перейдите в раздел **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**. Для [графиков отдельных хостов](../../managed-mysql/operations/monitoring.md#monitoring-hosts) перейдите в раздел **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.

@@ -14,3 +14,12 @@ If payment is at the end of a billing cycle, {{ yandex-cloud }} will deduct the 
 Different service plans are available for different types of products.
 
 {% include [types](../../_includes/marketplace/types-of-charge.md) %}
+
+The table below demonstrates compatibility between different product types and service plans.
+
+|   | Free | BYOL | PAYG (core per hour, instance per hour, RAM per hour) | PAYG (other pricing system) | Subscription |
+|-----|-----|-----|-----|-----|-----|
+| {{ compute-name }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| {{ managed-k8s-name }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| {{ cloud-apps-name }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| SaaS | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |

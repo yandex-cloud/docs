@@ -1,7 +1,7 @@
 #### Quotas {#monitoring-quotas}
 | Type of limit | Value |
 ----- | -----
-| Number of alerts per cloud | 10 |
+| Number of alerts per cloud | 1,000 |
 | Number of metrics per service in the folder | 1,000,000 |
 
 #### General limits {#monitoring-common-limits}
@@ -23,4 +23,4 @@
 | Type of limit | Value |
 ----- | -----
 | Number of metrics per alert | 100 |
-| Number of SMS per number per day | 50 |
+| Number of SMS per number per day | 20 |

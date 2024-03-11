@@ -28,7 +28,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Пример вызова gRPC API {#grpc-call-example}
 
-Для отправки REST-запросов можно воспользоваться утилитой [gRPCurl](https://github.com/fullstorydev/grpcurl).
+Для отправки вызовов gRPC можно воспользоваться утилитой [gRPCurl](https://github.com/fullstorydev/grpcurl).
 
 ```bash
 grpcurl -H "Authorization: Bearer <IAM-токен>" \
