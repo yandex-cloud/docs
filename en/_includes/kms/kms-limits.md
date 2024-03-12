@@ -1,14 +1,10 @@
 #### Quotas {#kms-quotas}
 
-{% note info %}
-
-Each asymmetric [encryption](../../kms/concepts/asymmetric-signature-key.md) or [signature](../../kms/concepts/asymmetric-signature-key.md) key pair counts towards the quota as a single key.
-
-{% endnote %}
-
 | Type of limit | Value |
 ----- | -----
-| Number of keys per cloud | 100 |
+| Number of [symmetric keys](../../kms/concepts/key.md) | 100 |
+| Number of asymmetric [encryption](../../kms/concepts/asymmetric-encryption-key.md) keys | 100 |
+| Number of asymmetric [signature](../../kms/concepts/asymmetric-signature-key.md) keys | 100 |
 
 #### Limits {#kms-limits}
 

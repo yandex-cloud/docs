@@ -17,10 +17,10 @@ To create an [authorized key](../../concepts/authorization/key.md):
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
-   1. Enter a description of the key so that you can easily find it in the management console.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**. In the window that opens:
-      1. Copy your public and private keys and save them securely. The private key is not saved in {{ yandex-cloud }}, and the public key is not shown in the management console.
-      1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
+   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+   1. In the window that opens:
+      * Copy your public and private keys and save them securely. The private key is not saved in {{ yandex-cloud }}, and the public key is not shown in the management console.
+      * Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
 
          You can also download your keys in a single JSON file. To do this, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 

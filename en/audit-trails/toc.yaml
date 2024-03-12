@@ -87,7 +87,7 @@ items:
     items:
       - name: Authentication with the API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: REST
         items:
           - name: Overview
             href: api-ref/index.md
@@ -113,7 +113,7 @@ items:
                 href: api-ref/Trail/update.md
               - name: updateAccessBindings
                 href: api-ref/Trail/updateAccessBindings.md
-      - name: REST
+      - name: gRPC
         items:
           - name: Overview
             href: api-ref/grpc/index.md

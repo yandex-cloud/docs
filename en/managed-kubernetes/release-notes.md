@@ -4,7 +4,7 @@ Updates appear in the service's [release channels](./concepts/release-channels-a
 
 ## Release 2023-6 {#2023-6}
 
-In the `rapid` release channel, the following changes are available:
+In the `rapid`, `regular`, and `stable` release channels, the following changes are available:
 * Added support for [high performance SSDs](../compute/concepts/disk.md#disks-types) for [storage classes](./operations/volumes/manage-storage-class.md) and [persistent volumes](./concepts/volume.md#persistent-volume).
 * Node groups can now be used with [GPUs](../compute/concepts/gpus.md) without preinstalled drivers. Now you can use the [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html) application to select an appropriate driver version. For more information, see [{#T}](./tutorials/driverless-gpu.md).
 * Removed the CPU resource restriction imposed on [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/) pods to prevent throttling.

@@ -19,7 +19,7 @@ To enable {{ managed-prometheus-name }} in the current folder:
 
 1. Open the [service home page]({{ link-monitoring }}) {{ monitoring-full-name }}.
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
-1. Fill out the form and click **{{ ui-key.yacloud_monitoring.prometheus.form.submit-button.text }}**.
+1. Fill out the form and click **Submit request**.
 1. Wait until {{ yandex-cloud }} processes your request.
 1. Once the request is approved, the page will show links to the endpoints to be used for the current folder.
 
