@@ -27,7 +27,7 @@ Access to image 2.1 is provided upon request. To get such access, contact [suppo
 | HBase | 1.3.5 | 2.2.7 | 2.4.9 |
 | Sqoop | 1.4.7 | N/A | N/A |
 | Oozie | 5.2.0 | 5.2.1 | N/A |
-| Spark | 2.4.6 | 3.0.3 | 3.3.2 (note 1) |
+| Spark | 2.4.6 | 3.0.3 | 3.3.2 |
 | Flume | 1.9.0 | N/A | N/A |
 | Zeppelin | 0.8.2 | 0.9.0 | 0.10.0 |
 | Livy | 0.7.0 | 0.8.0 | 0.8.0 |
@@ -47,11 +47,6 @@ Access to image 2.1 is provided upon request. To get such access, contact [suppo
 | boto3 | N/A | 1.16.7 | 1.16.7 |
 | IPython | 7.9.0 | 7.19.0 | 7.22.0 |
 | Matplotlib | 3.1.1 | 3.2.2 | 3.4.2 |
-
-Additional comments:
-
-1. Spark 3.3.2 is available in Data Proc 2.1.x images since version 2.1.4. Data Proc image versions 2.1.1-2.1.3 contain Spark version 3.2.1.
-
 
 ## Deprecated images {#deprecated-images}
 
