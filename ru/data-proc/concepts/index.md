@@ -19,7 +19,7 @@
 
 {% note warning %}
 
-Зона `{{ region-id }}-c` [выводится из эксплуатации](/blog/posts/2023/08/new-availability-zone). Если ваш кластер находится в этой зоне, [создайте новый кластер и перенесите](../operations/migration-to-an-availability-zone.md) в него рабочую нагрузку.
+Зона `{{ region-id }}-c` [выводится из эксплуатации](/blog/posts/2023/08/new-availability-zone). Если ваш кластер находится в этой зоне, создайте новый кластер и перенесите в него рабочую нагрузку. Узнайте, как выполнить миграцию [легковесных кластеров](../operations/migration-to-an-availability-zone.md) и [кластеров с файловой системой HDFS](../tutorials/hdfs-cluster-migration.md).
 
 {% endnote %}
 

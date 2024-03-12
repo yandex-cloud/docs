@@ -25,7 +25,7 @@ items:
                 href: operations/zk-hosts.md
               - name: Управление хостами {{ CH }}
                 href: operations/hosts.md
-              - name: Миграция хостов {{ CH }} в другую зону доступности
+              - name: Миграция хостов в другую зону доступности
                 href: operations/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md

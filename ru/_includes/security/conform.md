@@ -8,10 +8,10 @@
 
 Дополнительная информация доступна по ссылкам:
 
-* [Аттестат соответствия](https://{{ s3-storage-host }}/yc-compliance/conformance_ru_certificate.pdf).
-* [Заключение о соответствии системы защиты персональных данных требованиям ФЗ-152 «О персональных данных»](https://{{ s3-storage-host }}/yc-compliance/conformance_ru_pdp.pdf).
+* [Аттестат соответствия](https://{{ s3-storage-host }}/yc-compliance/certificates/conformance_ru_certificate-14-12-2023.pdf).
+* [Заключение о соответствии системы защиты персональных данных требованиям ФЗ-152 «О персональных данных»](https://{{ s3-storage-host }}/yc-compliance/conformance-ru-pdp-2023-11-23.pdf).
 * [Соглашение об обработке данных](https://yandex.ru/legal/cloud_dpa/?lang=ru).
-* [Действия клиентов по защите ПД](https://{{ s3-storage-host }}/yc-compliance/recomendations/FZ-152-RU.pdf).
+* [Действия клиентов по защите ПД](https://{{ s3-storage-host }}/yc-compliance/recomendations/fz-152-ru-2023-11-23.pdf).
 
 ## GDPR (General Data Protection Regulation) {#gdpr}
 

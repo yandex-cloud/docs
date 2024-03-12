@@ -6,7 +6,12 @@
 Вы можете выключить передачу логов кластера в сервис {{ cloud-logging-full-name }}. Подробнее см. в разделе [Работа с логами](logging.md#disable-logs).
 
 
-Если вы хотите переместить кластер в другую зону доступности, обратитесь к [инструкции](migration-to-an-availability-zone.md).
+Кластер {{ dataproc-name }} также можно переместить в другую зону доступности. Процесс зависит от типа кластера:
+
+* [{#T}](migration-to-an-availability-zone.md).
+* [{#T}](../tutorials/hdfs-cluster-migration.md).
+
+Чтобы изменить настройки кластера {{ dataproc-name }}:
 
 {% list tabs group=instructions %}
 

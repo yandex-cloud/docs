@@ -206,9 +206,9 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.25, 1.26, 1.27, 1.28
-  k8s-versions-regular: 1.25, 1.26, 1.27, 1.28
-  k8s-versions-stable: 1.25, 1.26, 1.27, 1.28
+  k8s-versions-rapid: 1.26, 1.27, 1.28, 1.29
+  k8s-versions-regular: 1.26, 1.27, 1.28
+  k8s-versions-stable: 1.26, 1.27, 1.28
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -3597,9 +3597,6 @@ default:
             write: Writing metrics
           widget-monitoring:
             title: Monitor writing progress
-        form:
-          submit-button:
-            text: Submit request
       service:
         field:
           function: Aggregation function
@@ -7822,7 +7819,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.1.24
+        tag: v0.1.25
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -7830,16 +7827,16 @@ default:
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/helm/cert-manager-webhook-yandex
-        tag: 1.0.7
+          cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
+        tag: 1.0.8
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
         tag: 2.6.1-1b
     yc_crossplane:
       helmChart:
-        name: cr.yandex/yc-marketplace/crossplane/crossplane
-        tag: 1.14.2
+        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
+        tag: 1.14.4
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -7873,7 +7870,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.28
+        tag: 0.4.29
     yc_gitlab-agent:
       helmChart:
         name: >-
@@ -7923,5 +7920,5 @@ default:
         tag: 0.25.0-1
     yc_velero-yc-csi:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/velero-yc-csi/helm/velero
-        tag: 2.30.3
+        name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
+        tag: 2.30.4

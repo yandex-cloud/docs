@@ -6,58 +6,24 @@
 
 По этой инструкции вы создадите новый трейл, который будет загружать аудитные логи ресурсов вашей организации в бакет {{ objstorage-name }}.
 
+{% include [bucket-encryption-tip](../_includes/audit-trails/bucket-encryption-tip.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Убедитесь, что в вашем облаке существует бакет для хранения аудитного лога, при необходимости [создайте новый бакет](../storage/quickstart.md#the-first-bucket) с ограниченным доступом.
-1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт и назначьте ему роли:
 
-    {% list tabs group=instructions %}
-
-    - CLI {#cli}
-
-      {% include [cli-install](../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../_includes/default-catalogue.md) %}
-
-      * Назначьте роль [`storage.uploader`](../storage/security/index.md#storage-uploader) на каталог, в котором будет находиться трейл:
-
-        ```
-        yc resource-manager folder add-access-binding \
-          --role storage.uploader \
-          --id <идентификатор_каталога> \
-          --service-account-id <идентификатор_сервисного_аккаунта>
-        ```
-
-        Где:
-
-        * `--role` — назначаемая роль.
-        * `--id` — идентификатор каталога, в котором будет находиться трейл.
-        * `--service-account-id` — идентификатор сервисного аккаунта.
-
-      * Назначьте роль [`audit-trails.viewer`](./security/index.md#roles-list) на организацию, с которой будут собираться аудитные логи:
-
-        ```
-        yc organization-manager organization add-access-binding \
-          --role audit-trails.viewer \
-          --id <идентификатор_организации> \
-          --service-account-id <идентификатор_сервисного_аккаунта>
-        ```
-
-        Где:
-
-        * `--role` — назначаемая роль.
-        * `--id` — идентификатор организации, с которой будут собираться аудитные логи.
-        * `--service-account-id` — идентификатор сервисного аккаунта.
-
-    {% endlist %}
+1. {% include [add-roles-to-sa](../_includes/audit-trails/add-roles-to-sa.md) %}
 
 1. На странице [Управление доступом]({{ link-console-access-management }}) убедитесь, что у вас есть роли:
     * `iam.serviceAccounts.user` на сервисный аккаунт;
     * `audit-trails.editor` на каталог, где будет находиться трейл;
     * `audit-trails.viewer` на организацию, с которой будут собираться аудитные логи;
+    * `kms.editor` на каталог, в котором будет создан ключ шифрования для бакета;
     * `storage.viewer` на бакет или каталог.
+
+{% include [bucket-encryption-section](../_includes/audit-trails/bucket-encryption-section.md) %}
 
 ## Создание трейла {#the-trail-creation}
 

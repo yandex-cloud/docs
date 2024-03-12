@@ -34,6 +34,7 @@ ISO/IEC 27018 sets the requirements for the protection of personal data processe
 
 [ISO/IEC 27001/27017/27018 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27001_27017_27018_22_eng_full.pdf).
 
+[ISO 27701 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27701_22_rus_full.pdf).
 
 
 ## PCI DSS {#pci-dss}

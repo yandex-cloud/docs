@@ -4,62 +4,23 @@
 
 {% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
-
 ## Подготовить окружение {#before-you-begin}
 
 Для сбора аудитных логов отдельного облака:
 
 1. [Создайте новый бакет](../../storage/operations/buckets/create.md) с ограниченным доступом для загрузки в него аудитных логов.
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
-1. Назначьте роли сервисном аккаунту:
 
-    {% list tabs group=instructions %}
-
-    - CLI {#cli}
-
-      {% include [cli-install](../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-      * Назначьте [роль `audit-trails.viewer`](../security/index.md#roles-list) на облако, со всех ресурсов которого будут собираться аудитные логи:
-
-        ```
-        yc resource-manager cloud add-access-binding \
-          --role audit-trails.viewer \
-          --id <идентификатор_облака> \
-          --service-account-id <идентификатор_сервисного_аккаунта>
-        ```
-
-        Где:
-        * `--role` — назначаемая роль;
-        * `--id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), с которого будут собираться аудитные логи;
-        * `--service-account-id` — идентификатор сервисного аккаунта.
-
-      * Назначьте [роль `storage.uploader`](../../storage/security/index.md#storage-uploader) на каталог, в котором будет находиться трейл:
-
-        ```
-        yc resource-manager folder add-access-binding \
-          --role storage.uploader \
-          --id <идентификатор_каталога> \
-          --service-account-id <идентификатор_сервисного_аккаунта>
-        ```
-
-        Где:
-        * `--role` — назначаемая роль;
-        * `--id` — идентификатор каталога, в котором будет находиться трейл;
-        * `--service-account-id` — идентификатор сервисного аккаунта.
-
-    {% endlist %}
+1. {% include [add-roles-to-sa](../../_includes/audit-trails/add-roles-to-sa.md) %}
 
 1. На странице [Права доступа]({{ link-console-access-management }}) убедитесь, что у вас есть роли:
     * `iam.serviceAccounts.user` на сервисный аккаунт;
     * `audit-trails.editor` на каталог, где будет находиться трейл;
     * `audit-trails.viewer` на облако, с которого будут собираться аудитные логи;
+    * `kms.editor` на каталог, в котором будет создан ключ шифрования для бакета;
     * `storage.viewer` на бакет или каталог.
 
-
 {% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}
-
 
 ## Создать трейл {#the-trail-creation}
 

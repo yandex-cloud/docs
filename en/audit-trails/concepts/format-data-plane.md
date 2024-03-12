@@ -216,3 +216,4 @@ Log group entries have the following values:
    * `WARN`: For the `CANCELLED` value
    * `INFO`: For all other cases
 * **{{ ui-key.yacloud.logging.column_header-message }}**: Includes the values of the `event_status`, `event_type`, `subject_name`, `cloud_name`, and `resource_name` fields.
+
