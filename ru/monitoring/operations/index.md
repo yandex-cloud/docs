@@ -30,9 +30,3 @@ description: "На странице представлен список поша
 * [{#T}](alert/create-alert.md)
 * [{#T}](alert/create-channel.md)
 * [{#T}](alert/delete-alert.md)
-
-## Работа с {{ prometheus-name }} API
-
-* [{#T}](prometheus/ingestion/index.md)
-* [{#T}](prometheus/querying/index.md)
-* [{#T}](prometheus/read-write-for-kubernetes.md)

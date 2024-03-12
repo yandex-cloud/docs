@@ -6,13 +6,21 @@ For more information about voice models, see [About technology](tts/index.md#voi
 
 ## Current version {#current}
 
-### Release on 10/01/24 {#100124}
+### Release on 20/02/24 {#200224}
 
-1. Added support for cardinal number normalization (English). It works for positive integer numbers only. Ordinal numbers are not supported.
-1. Added [DurationHint](./tts-v3/api-ref/grpc/tts_service.md#DurationHint) to the API, which allows you to specify minimum and maximum time spent on synthesizing the text.
-1. Added the `text_chunk`, `start_ms`, and `length_ms` fields to the [UtteranceSynthesisResponse](./tts-v3/api-ref/grpc/tts_service.md#UtteranceSynthesisResponse) message. These fields store the info on the text, as well as the start and end time of the audio included into the fragment in question.
+Improved the [voices](tts/voices.md): `masha`, `marina`, `anton`, `alexander`, `dasha`, `julia`.
 
 ## Previous versions {#previous}
+
+### Release on 06/02/24 {#060224}
+
+Added [REST API v3](./tts-v3/api-ref/index.md) support.
+
+### Release on 10/01/24 {#100124}
+
+1. Added support for cardinal number normalization (English). Normalization works for positive integers only. Ordinal numbers are not supported.
+1. Added [DurationHint](./tts-v3/api-ref/grpc/tts_service.md#DurationHint) to the API which you can use to specify minimum and maximum time spent on synthesizing the text.
+1. Added the `text_chunk`, `start_ms`, and `length_ms` fields to the [UtteranceSynthesisResponse](./tts-v3/api-ref/grpc/tts_service.md#UtteranceSynthesisResponse) message. These fields store the info on the text, as well as the start and end time of the audio that came with the fragment.
 
 ### Release on 05/12/23 {#051223}
 

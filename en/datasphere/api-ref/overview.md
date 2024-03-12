@@ -34,7 +34,7 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
      yandex.cloud.datasphere.v2.CommunityService/Create
    ```
 
-   **Example**. Getting a list of communities in an organization:
+   **Example**. Viewing a list of communities in an organization:
 
    ```bash
    grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
@@ -55,7 +55,7 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
      -d '{ "organizationId": "<organization_ID>" }'
    ```
 
-   **Example**. Getting a list of communities in an organization:
+   **Example**. Viewing a list of communities in an organization:
 
    ```bash
    curl -H "Authorization: Bearer <IAM token>" \
@@ -93,7 +93,7 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
      yandex.cloud.datasphere.v2.ProjectService/Create
    ```
 
-   **Example**. Getting a list of folder projects:
+   **Example**. Viewing a list of folder projects:
 
    ```bash
    grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
@@ -114,7 +114,7 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
      -d '{ "communityId": "<community_ID>" }'
    ```
 
-   **Example**. Getting a list of folder projects:
+   **Example**. Viewing a list of community projects:
 
    ```bash
    curl -H "Authorization: Bearer <IAM token>" \
@@ -128,37 +128,41 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
 
 ## Working with notebooks {#notebook}
 
-Use `ProjectService` calls and `Project` methods to run a notebook or a specific cell, get the results of cell execution or the values of notebook state variables, or metadata.
+To run a notebook, you can use the `Execute` call or the `execute` method in `ProjectService`.
 
 | Description | gRPC | REST |
 | --- | --- | --- |
-| Runs the specified cell or notebook | [Execute](grpc/project_service.md#Execute) | [execute](Project/execute.md) |
-| Returns the values of notebook state variables | [getStateVariables](grpc/project_service.md#GetStateVariables) | [getStateVariables](Project/getStateVariables.md) |
+| Runs the specified notebook | [Execute](grpc/project_service.md#Execute) | [execute](Project/execute.md) |
+
 
 {% list tabs %}
 
 - gRPC
 
-   **Example**. Running a notebook cell:
+   **Example**. Running the whole notebook:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-     -d '{"project_id": "<project_ID>", "target": "cell_id", "cell_id": "<cell_ID>"}' \
+   grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
+     -d '{"project_id": "<project_ID>", "target": "notebook_id", "notebook_id": "<notebook_ID>"}' \
      datasphere.api.cloud.yandex.net:443 \
      yandex.cloud.datasphere.v2.ProjectService/Execute
    ```
+
+   To get the notebook ID, follow this guide: [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
    For more information about the `ProjectService` calls, see the [API documentation](grpc/project_service.md).
 
 - REST
 
-   **Example**. Running a notebook cell:
+   **Example**. Running the whole notebook:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM token>" \
+   curl -H "Authorization: Bearer <IAM_token>" \
      -X POST "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<project_ID>:execute" \
-     -d '{ "cellId": "<cell_ID>" }'
+     -d '{ "notebook_id": "<notebook_ID>" }'
    ```
+
+   To get the notebook ID, follow this guide: [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
    For more information about the `Project` methods, see the [API documentation](Project/index.md).
 
@@ -181,7 +185,7 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
 
 - gRPC
 
-   **Example**. Return a list of access permissions for a project:
+   **Example**. Viewing a list of access permissions for a project:
 
    ```bash
    grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
@@ -190,7 +194,7 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
      yandex.cloud.datasphere.v2.ProjectService/ListAccessBindings
    ```
 
-   **Example**. Return a list of access permissions for a community:
+   **Example**. Viewing a list of access permissions for a community:
 
    ```bash
    grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
@@ -203,14 +207,14 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
 
 - REST
 
-   **Example**. Return a list of access permissions for a project:
+   **Example**. Viewing a list of access permissions for a project:
 
    ```bash
    curl -H "Authorization: Bearer <IAM token>" \
      -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<resource_ID>:accessBindings"
    ```
 
-   **Example**. Return a list of access permissions for a community:
+   **Example**. Viewing a list of access permissions for a community:
 
    ```bash
    curl -H "Authorization: Bearer <IAM token>" \

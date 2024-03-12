@@ -6,7 +6,11 @@ You can set the number of provisioned instances.
 
 The scaling settings must be within the [quotas](../concepts/limits.md#serverless-containers-quotas).
 
+{% note info %}
+
 {% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md)%}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

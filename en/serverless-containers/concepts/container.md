@@ -35,6 +35,7 @@ A container instance processes one container invocation at a single point in tim
 You can [change](../operations/manage-revision.md#create) the maximum number of concurrent invocations of a single container instance and [specify](../operations/scaling-settings-add.md) the number of provisioned container instances.
 
 
+{% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md) %}
 
 
 ### Provisioned instances {#provisioned-instances}

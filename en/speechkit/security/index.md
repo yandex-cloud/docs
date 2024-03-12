@@ -6,12 +6,12 @@ description: "Access management in {{ speechkit-full-name }}: a speech technolog
 # Access management in {{ speechkit-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources can be assigned a role {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
 
@@ -19,29 +19,29 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
-#### {{ roles-speechkit-stt }} {#ai-speechkit-stt-user}
+#### ai.speechkit-stt.user {#ai-speechkit-stt-user}
 
-{% include notitle [roles-speechkit-stt-user](../../_includes/roles-speechkit-stt-user.md) %}
+{% include [speechkit-stt-user](../../_roles/ai/speechkit-stt/user.md) %}
 
-#### {{ roles-speechkit-tts }} {#ai-speechkit-tts-user}
+#### ai.speechkit-tts.user {#ai-speechkit-tts-user}
 
-{% include notitle [roles-speechkit-tts-user](../../_includes/roles-speechkit-tts-user.md) %}
+{% include [speechkit-tts-user](../../_roles/ai/speechkit-tts/user.md) %}
 
 #### ai.auditor {#ai-auditor}
 
-{% include notitle [roles-ai-auditor](../../_includes/roles-ai-auditor.md) %}
+{% include [ai-auditor](../../_roles/ai/auditor.md) %}
 
 #### ai.viewer {#ai-viewer}
 
-{% include notitle [roles-ai-viewer](../../_includes/roles-ai-viewer.md) %}
+{% include [ai-viewer](../../_roles/ai/viewer.md) %}
 
 #### ai.editor {#ai-editor}
 
-{% include notitle [roles-ai-editor](../../_includes/roles-ai-editor.md) %}
+{% include [ai-editor](../../_roles/ai/editor.md) %}
 
 #### ai.admin {#ai-admin}
 
-{% include notitle [roles-ai-admin](../../_includes/roles-ai-admin.md) %}
+{% include [ai-admin](../../_roles/ai/admin.md) %}
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 
@@ -50,7 +50,17 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 
 When working with {{ speechkit-name }}, you may need roles of other services, for example, to upload results and source materials to an {{ objstorage-name }} bucket.
 
-{% include [roles-integration](../../_includes/roles-integration-roles-speechkit.md) %}
+#### resource-manager.clouds.owner {#resource-manager-clouds-owner}
+
+{% include [resourcemanager-clouds-owner](../../_roles/resource-manager/clouds/owner.md) %}
+
+#### storage.uploader {#storage-uploader}
+
+{% include [storage-uploader](../../_roles/storage/uploader.md) %}
+
+#### kms.keys.encrypterDecrypter {#kms-keys-encrypterDecrypter}
+
+{% include [kms.keys.encrypterDecrypter](../../_roles/kms/keys/encrypterDecrypter.md) %}
 
 
 ### Primitive roles {#primitive-roles}

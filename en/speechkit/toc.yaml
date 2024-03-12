@@ -109,6 +109,16 @@ items:
                 href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: tts-v3/api-ref/grpc/tts_service.md
+      - name: API v3 REST
+        items:
+          - name: Overview
+            href: tts-v3/api-ref/index.md
+          - name: Synthesizer
+            items:
+              - name: Overview
+                href: tts-v3/api-ref/Synthesizer/index.md
+              - name: utteranceSynthesis
+                href: tts-v3/api-ref/Synthesizer/utteranceSynthesis.md
   - name: SDK
     items:
       - name: About the Python SDK
@@ -149,6 +159,8 @@ items:
         items:
           - name: Speech synthesis in the API v3
             href: tts/api/tts-examples-v3.md
+          - name: Speech synthesis in REST API v3
+            href: tts/api/tts-v3-rest.md
           - name: Pattern-based speech synthesis
             href: tts/api/tts-templates.md
           - name: Brand Voice Call Center pattern-based speech synthesis

@@ -5,8 +5,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Чтение и визуализация метрик при помощи Grafana
 
-{% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
-
 {{ managed-prometheus-name }} поддерживает [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) и позволяет работать с дашбордами, которые созданы вами или сообществом, в {{ grafana-name }}.
 
 ## Подключить data source {#data-source}

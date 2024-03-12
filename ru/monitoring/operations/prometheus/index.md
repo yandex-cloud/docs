@@ -3,9 +3,7 @@ title: "{{ managed-prometheus-full-name }}"
 description: "{{ managed-prometheus-full-name }} — система мониторинга, совместимая с {{ prometheus-name }}. С помощью нее можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов {{ promql-name }}, что позволяет работать с уже существующими дашбордами в {{ grafana-name }}."
 ---
 
-# {{managed-prometheus-full-name}}
-
-{% include [note-preview](../../../_includes/monitoring/prometheus-preview.md) %}
+# Обзор {{managed-prometheus-full-name}}
 
 {{ managed-prometheus-full-name }} — система мониторинга, совместимая с [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/). С помощью нее можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/), что позволяет работать с уже существующими дашбордами в [{{ grafana-name }}](https://grafana.com/grafana/).
 
@@ -13,15 +11,14 @@ description: "{{ managed-prometheus-full-name }} — система монито
 
 {{ managed-prometheus-name }} построена на основе системы, которую Яндекс использует для мониторинга внутренних сервисов. Система автоматически масштабирует запись, хранение и чтение метрик в зависимости от рабочей нагрузки. Высокая доступность обеспечивается благодаря тому, что данные мониторинга реплицируются в двух зонах доступности.
 
-## Получить доступ {#access}
+## Перед началом работы {#access}
 
-Чтобы подключить {{ managed-prometheus-name }} в текущем каталоге:
+Чтобы начать работать с {{ managed-prometheus-full-name }} в текущем каталоге, необходимо создать воркспейс. Для этого:
 
 1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-full-name }}.
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
-1. Заполните форму и нажмите **{{ ui-key.yacloud_monitoring.prometheus.form.submit-button.text }}**.
-1. Дождитесь, пока {{ yandex-cloud }} обработает заявку.
-1. Когда заявка будет одобрена, на странице появятся ссылки на эндпоинты, которые необходимо использовать для текущего каталога.
+1. Нажмите кнопку **Создать воркспейс**.
+1. На открывшейся странице появятся ссылки на эндпоинты, которые необходимо использовать для текущего каталога.
 
 Чтобы подключить [запись](ingestion/index.md) и [чтение](querying/index.md) метрик в формате {{ prometheus-name }}, воспользуйтесь соответствующими инструкциями.
 

@@ -74,7 +74,7 @@ items:
             items:
               - name: Static response
                 href: concepts/extensions/dummy.md
-              - name: Access via HTTP
+              - name: HTTP Access
                 href: concepts/extensions/http.md
               - name: '{{ sf-name }}'
                 href: concepts/extensions/cloud-functions.md
@@ -192,4 +192,6 @@ items:
     href: at-ref.md
   - name: FAQ
     href: qa/index.md
+  - name: Release notes
+    href: release-notes.md
 base: en/api-gateway

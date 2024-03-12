@@ -6,20 +6,38 @@ description: "Access management in the service for integrating {{ translate-full
 # Access management in {{ translate-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 ### Service roles {#service-roles}
 
-{% include [service-roles](../../_includes/roles-service-roles-translate.md) %}
+#### ai.translate.user {#translate-user}
+
+{% include [translate-user](../../_roles/ai/translate/user.md) %}
+
+#### ai.auditor {#ai-auditor}
+
+{% include [ai-auditor](../../_roles/ai/auditor.md) %}
+
+#### ai.viewer {#ai-viewer}
+
+{% include [ai-viewer](../../_roles/ai/viewer.md) %}
+
+#### ai.editor {#ai-editor}
+
+{% include [ai-editor](../../_roles/ai/editor.md) %}
+
+#### ai.admin {#ai-admin}
+
+{% include [ai-admin](../../_roles/ai/admin.md) %}
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 

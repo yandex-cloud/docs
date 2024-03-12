@@ -264,9 +264,9 @@ yc compute instance create \
 
    To view records in the log group, run the command:
 
-  ```bash
-  yc logging read --group-id=<log_group_ID>
-  ```
+   ```bash
+   yc logging read --group-id=<log_group_ID>
+   ```
 
    Where `--group-id` is the ID of the `default` log group specified in `spec.yaml`.
 
@@ -280,7 +280,7 @@ yc compute instance create \
 
 If you no longer need the resources you created, delete them:
 1. [Delete a cloud network](../../vpc/operations/network-delete.md).
-1. [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
-1. [Delete the registry](../../container-registry/operations/registry/registry-delete.md).
+1. [Delete a Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
+1. [Delete a registry](../../container-registry/operations/registry/registry-delete.md).
 1. [Delete a VM](../../compute/operations/vm-control/vm-delete.md).
-1. [Delete the log group](../../logging/operations/delete-group.md).
+1. [Delete a log group](../../logging/operations/delete-group.md).

@@ -1,6 +1,6 @@
 # Function
 
-A _function_ lets you put your code in {{ yandex-cloud }} and run it on request or trigger.
+A _function_ allows you to put your code in {{ yandex-cloud }} and run it on request or trigger.
 
 Once created, a function only contains its own metadata, including its name, description, and unique ID. To start using the function, you need to [create a function version](../operations/function/version-manage.md). You can execute functions using the HTTPS API or CLI.
 
@@ -62,6 +62,8 @@ A function instance processes one function call at a single point in time. If th
 Function calls are distributed across availability zones randomly. {{ sf-name }} does not guarantee their even distribution across zones. For example, all calls, no matter how many, might end up in the same zone.
 
 {% endnote %}
+
+{% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md) %}
 
 #### Limits {#limits}
 
