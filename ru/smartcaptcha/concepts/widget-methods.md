@@ -220,6 +220,7 @@ description: "Вы можете подключить виджет {{ captcha-nam
     | 'challenge-visible'
     | 'challenge-hidden'
     | 'network-error'
+    | 'javascript-error'
     | 'success'
     | 'token-expired';
     ```
@@ -231,6 +232,7 @@ description: "Вы можете подключить виджет {{ captcha-nam
     | `challenge-visible` | Открытие всплывающего окна с заданием        | `() => void`              |
     | `challenge-hidden`  | Закрытие всплывающего окна с заданием        | `() => void`              |
     | `network-error`     | Возникла сетевая ошибка                      | `() => void`              |
+    | `javascript-error`  | Возникла критическая ошибка JS при работе виджета | `(error: { filename: string, message: string, col: number, line: number }) => void`              |
     | `success`           | Успешная валидация пользователя              | `(token: string) => void` |
     | `token-expired`     | Токен прохождения проверки стал невалидным | `() => void`              |
 
@@ -239,6 +241,14 @@ description: "Вы можете подключить виджет {{ captcha-nam
     ```ts
     UnsubscribeFunction = () => void;
     ```
+
+{% note warning %}
+
+Событие `javascript-error` сообщает о возникшей проблеме при исполнении критического JavaScript в работе виджета {{captcha-full-name}}. При возникновении данного события нужно сообщить пользователю о возникшей ошибке в вашем интерфейсе.
+
+Пропускать пользователя без прохождения капчи при возникновении ошибки нельзя, иначе это создаст потенциальную уязвимость в вашем приложении.
+
+{% endnote %}
 
 Пример использования:
 
