@@ -50,6 +50,7 @@
 `onChallengeVisible` | `() => void` \| `undefined`               | Метод вызывается, когда появляется всплывающее окно с заданием.
 `onChallengeHidden`  | `() => void` \| `undefined`               | Метод вызывается, когда закрывается всплывающее окно с заданием.
 `onNetworkError`     | `() => void` \| `undefined`               | Метод вызывается, когда происходит ошибка сети.
+`onJavaScriptError`  | `(error: { filename: string, message: string, col: number, line: number }) => void` \| `undefined`               | Метод вызывается, когда происходит критическая ошибка в работе JavaScript.
 `onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. Аргумент для обработчика — уникальный токен пользователя.
 `onTokenExpired`     | `() => void` \| `undefined`               | Метод вызывается, когда токен, полученный пользователем после прохождения проверки, становится невалидным.
 
@@ -81,6 +82,7 @@ export const ComponentWithCaptcha = () => {
 `onChallengeVisible` | `() => void` \| `undefined`               | Метод вызывается, когда появляется всплывающее окно с заданием.
 `onChallengeHidden`  | `() => void` \| `undefined`               | Метод вызывается, когда закрывается всплывающее окно с заданием.
 `onNetworkError`     | `() => void` \| `undefined`               | Метод вызывается, когда происходит ошибка сети.
+`onJavaScriptError`  | `(error: { filename: string, message: string, col: number, line: number }) => void` \| `undefined`               | Метод вызывается, когда происходит критическая ошибка в работе JavaScript.
 `onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. В качестве аргумента обработчик получает уникальный токен пользователя.
 `onTokenExpired`     | `() => void` \| `undefined`               | Метод вызывается, когда токен, полученный пользователем после прохождения проверки, становится невалидным.
 
@@ -120,6 +122,7 @@ export const InvisibleCaptcha = () => {
 * `onChallengeVisible`
 * `onChallengeHidden`
 * `onNetworkError`
+* `onJavaScriptError`
 * `onSuccess`
 * `onTokenExpired`
 
@@ -128,7 +131,7 @@ export const InvisibleCaptcha = () => {
 Пример подписки на события:
 
 ```ts
-import { SmartCaptcha } from '@yandex/smart-captcha';
+import { SmartCaptcha, SmartCaptchaProps } from '@yandex/smart-captcha';
 
 export const SubscriptionToCaptcha = () => {
   const [token, setToken] = useState('');
@@ -136,7 +139,7 @@ export const SubscriptionToCaptcha = () => {
 
   const handleChallengeVisible = useCallback(() => setStatus('visible'), []);
   const handleChallengeHidden = useCallback(() => setStatus('hidden'), []);
-  const handleNetworkError = useCallback(() => setStatus('network-error'), []);
+
   const handleSuccess = useCallback((token: string) => {
     setStatus('success');
     setToken(token);
@@ -144,6 +147,13 @@ export const SubscriptionToCaptcha = () => {
   const handleTokenExpired = useCallback(() => {
     setStatus('token-expired');
     setToken('');
+  }, []);
+
+  const handleNetworkError: SmartCaptchaProps['onNetworkError'] = useCallback(() => setStatus('network-error'), []);
+
+  const handleJavaScriptError: SmartCaptchaProps['onJavaScriptError']  = useCallback((error) => {
+    setStatus('javascript-error');
+    logError(error);
   }, []);
 
   return (
@@ -154,6 +164,7 @@ export const SubscriptionToCaptcha = () => {
         onChallengeVisible={handleChallengeVisible}
         onChallengeHidden={handleChallengeHidden}
         onNetworkError={handleNetworkError}
+        onJavaScriptError={handleJavaScriptError}
         onSuccess={handleSuccess}
         onTokenExpired={handleTokenExpired}
       />
@@ -161,6 +172,14 @@ export const SubscriptionToCaptcha = () => {
   );
 };
 ```
+
+{% note warning %}
+
+Событие `javascript-error` сообщает о возникшей проблеме при исполнении критического JavaScript в работе виджета {{captcha-full-name}}. При возникновении данного события нужно сообщить пользователю о возникшей ошибке в вашем интерфейсе.
+
+Пропускать пользователя без прохождения капчи при возникновении ошибки нельзя, иначе это создаст потенциальную уязвимость в вашем приложении.
+
+{% endnote %}
 
 ## Сброс состояния {{ captcha-name }} {#reset-status}
 
