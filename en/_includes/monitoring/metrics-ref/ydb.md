@@ -1,5 +1,3 @@
-## Service: {{ ydb-full-name }} {#ydb}
-
 ### Resource usage metrics {#resources}
 
 | Metric name<br>Type, units of measurement | Label<br>description |
@@ -74,10 +72,10 @@ You can analyze a transaction's execution time using a histogram counter. The in
 
 | Metric name<br>Type<br>units of measurement | Label<br>description |
 --- | ---
-| `resources.cpu.used_core_percents`<br>`RATE`, % | CPU usage. If the value is `100`, one of the cores is being used for 100%. The value may be greater than `100` for multi-core configurations.<br>Labels:<br>- _pool_: The computing pool, possible values are `user`, `system`, `batch`, `io`, and `ic`. |
-| `resources.cpu.limit_core_percents`<br>`IGAUGE`, % | The percentage of CPU available to a database. For example, for a database of three nodes, 4 cores with `pool=user` in each node, the value of this sensor with equal `1200`.<br>Labels:<br>- _pool_: Computing pool, acceptable values - `user`, `system`, `batch`, `io`, or `ic`. |
-| `resources.memory.used_bytes`<br>`IGAUGE`, bytes | The amount of RAM used by the database nodes. |
-| `resources.memory.limit_bytes`<br>`IGAUGE`, bytes | RAM available to the database nodes. |
+| `resources.cpu.used_core_percents`<br>`RATE`, % | CPU usage. If the value is `100`, one of the cores is being used for 100%. The value may be greater than `100` for multi-core configurations.<br>Labels:<br>- _pool_: Computing pool; the possible values are `user`, `system`, `batch`, `io`, and `ic`. |
+| `resources.cpu.limit_core_percents`<br>`IGAUGE`, % | Percentage of CPU available to a database. For example, for a database of three nodes, 4 cores with `pool=user` in each node, the value of this sensor will equal `1200`.<br>Labels:<br>- _pool_: Computing pool; the acceptable values are `user`, `system`, `batch`, `io`, or `ic`. |
+| `resources.memory.used_bytes`<br>`IGAUGE`, bytes | Amount of RAM used by the database nodes |
+| `resources.memory.limit_bytes`<br>`IGAUGE`, bytes | RAM available to the database nodes |
 
 ### Query processing metrics (for Dedicated mode only) {#ydb_dedicated_queries}
 

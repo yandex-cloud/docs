@@ -5,13 +5,13 @@ description: "Access management in the {{ speechsense-full-name }} speech analyt
 
 # Access management in {{ speechsense-name }}
 
-Access to {{ speechsense-full-name }} is regulated by assigning permissions in an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
+User access to {{ speechsense-full-name }} depends on relevant permissions granted within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
 The list of operations available to {{ speechsense-name }} users is determined by the roles they have. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md). For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
 Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
 
-## Which resources can be assigned a role {#resources}
+## Which resources you can assign a role for {#resources}
 
 You can assign a role for a space or a project. Roles assigned for a space also apply to all nested projects and resources.
 
@@ -19,19 +19,33 @@ You can assign a role for a space or a project. Roles assigned for a space also 
 
 ### Service roles {#service-roles}
 
-{% include [auditor](../../_includes/roles-speech-sense-auditor.md) %}
+#### speech-sense.auditor {#speechsense-auditor}
 
-{% include [viewer](../../_includes/roles-speech-sense-viewer.md) %}
+{% include [speechsense-auditor](../../_roles/speech-sense/auditor.md) %}
 
-{% include [editor](../../_includes/roles-speech-sense-editor.md) %}
+#### speech-sense.viewer {#speechsense-viewer}
 
-{% include [admin](../../_includes/roles-speech-sense-admin.md) %}
+{% include [speechsense-viewer](../../_roles/speech-sense/viewer.md) %}
 
-{% include [spaces-creator](../../_includes/roles-speech-sense-spaces-creator.md) %}
+#### speech-sense.editor {#speechsense-editor}
 
-{% include [data-viewer](../../_includes/roles-speech-sense-data-viewer.md) %}
+{% include [speechsense-editor](../../_roles/speech-sense/editor.md) %}
 
-{% include [data-editor](../../_includes/roles-speech-sense-data-editor.md) %}
+#### speech-sense.admin {#speechsense-admin}
+
+{% include [speechsense-admin](../../_roles/speech-sense/admin.md) %}
+
+#### speech-sense.spaces.creator {#speechsense-spaces-creator}
+
+{% include [speechsense-spaces-creator](../../_roles/speech-sense/spaces/creator.md) %}
+
+#### speech-sense.data.viewer {#speechsense-data-viewer}
+
+{% include [speechsense-data-viewer](../../_roles/speech-sense/data/viewer.md) %}
+
+#### speech-sense.data.editor {#speechsense-data-editor}
+
+{% include [speechsense-data-editor](../../_roles/speech-sense/data/editor.md) %}
 
 Users with roles like `speech-sense.data.*` can view and rate the contents of documents but do not have access to aggregate information.
 

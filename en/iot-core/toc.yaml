@@ -291,4 +291,6 @@ items:
     href: at-ref.md
   - name: FAQ
     href: qa/index.md
+  - name: Release notes
+    href: release-notes.md
 base: en/iot-core

@@ -7,17 +7,49 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.120.0 (01.03.24) {#version0.120.0}
+### Версия 0.121.0 (12.03.24) {#version0.121.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{compute-name}}
-* В команде `yc compute connect-to-serial-port` поддержана авторизация через OS Login.
+##### {{ mgp-name }} {#mgp}
 
-#### {{ at-name }}
-* Добавлено дерево команд `yc audit-trails trail` с командами `get`, `list`, `create`, `update`, `delete`, `list-operations`, `list-access-bindings`, `set-access-bindigns`, `add-access-binding`, `remove-access-binding` для управления трейлами.
+* Добавлено дерево команд `yc managed-greenplum pxf-datasource` с командами `get`, `list`, `delete`.
+* Добавлены деревья команд `yc managed-greenplum pxf-datasource s3` и `yc managed-greenplum pxf-datasource jdbc` с командами `create` и `update`.
+* Добавлены флаги `--pxf-connection-timeout`, `--pxf-upload-timeout`, `--pxf-max-threads`, `--pxf-pool-allow-core-thread-timeout`, `--pxf-poll-core-size`, `--pxf-pool-queue-capacity`, `--pxf-pool-max-size`, `--pxf-xmx`, `--pxf-xms` для команды `yc managed-greenplum cluster update`.
+
+##### {{ org-name }} {#organization}
+
+* Добавлена группа команд `yc organization-manager oslogin` для управления настройками OS Login и пользовательскими SSH-ключами.
+
+##### {{ container-registry-name }} {#container-registry}
+
+* Добавлены поля `origin` и `type` в результат `yc container image list-vulnerabilities`.
+
+##### {{load-testing-name}} {#load-testing}
+
+* Добавлена команда `yc loadtesting test wait` для ожидания окончания нагрузочного теста.
+* В команде `yc loadtesting test create` добавлены флаги `--wait` и `--wait-idle-timeout` для ожидания окончания созданного нагрузочного теста.
+* В команду `yc loadtesting test create` добавлены флаги `--configuration agent-by-filter=""` и `--configuration anonymous-agent=true` для выбора агента нагрузочного тестирования по фильтру и выбора анонимного агента соответственно.
+* В команду `yc loadtesting agent list` добавлен флаг `--filter` для фильтрации списка агентов.
+
+##### {{ vpc-name }} {#vpc}
+
+* В команду `yc vpc address create` добавлен флаг `--dns-record` для указания DNS-спецификаций адреса.
+* В команду `yc vpc address update` добавлены флаги:
+  * `--dns-record` для указания DNS-спецификаций адреса;
+  * `--clear-dns-records` для удаления всех DNS-спецификаций адреса.
 
 ## Предыдущие релизы {#previous-releases}
+
+### Версия 0.120.0 (01.03.24) {#version0.120.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{compute-name}}
+* В команде `yc compute connect-to-serial-port` поддержана авторизация через OS Login.
+
+##### {{ at-name }}
+* Добавлено дерево команд `yc audit-trails trail` с командами `get`, `list`, `create`, `update`, `delete`, `list-operations`, `list-access-bindings`, `set-access-bindigns`, `add-access-binding`, `remove-access-binding` для управления трейлами.
 
 ### Версия 0.119.0 (27.02.24) {#version0.119.0}
 

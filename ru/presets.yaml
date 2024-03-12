@@ -469,7 +469,6 @@ default:
   roles-datasphere-project-admin: datasphere.community-projects.admin
   roles-datasphere-project-developer: datasphere.community-projects.developer
   roles-datasphere-project-editor: datasphere.community-projects.editor
-  roles-datasphere-project-viewer: datasphere.community-projects.viewer
   roles-datasphere-user: datasphere.user
   roles-editor: editor
   roles-functions-editor: functions.editor

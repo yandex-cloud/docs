@@ -57,7 +57,7 @@ items:
             href: operations/projects/control-compute-resources.md
           - name: Checking GPU load
             href: operations/projects/gpu-performance-check.md
-          - name: Getting notebook and cell IDs
+          - name: Getting a notebook ID
             href: operations/projects/get-notebook-cell-ids.md
           - name: Installing packages
             href: operations/projects/install-dependencies.md
@@ -195,6 +195,10 @@ items:
             href: concepts/jobs/authentication.md
           - name: DataSphere CLI
             href: concepts/jobs/cli.md
+          - name: Docker images in jobs
+            href: concepts/jobs/docker.md
+          - name: Job runtime environment
+            href: concepts/jobs/environment.md
       - name: Foundation models
         href: concepts/models/foundation-models.md
       - name: Quotas and limits

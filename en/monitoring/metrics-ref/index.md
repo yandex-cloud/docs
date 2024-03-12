@@ -20,6 +20,12 @@ Read more about the service in the [{{ alb-name }}](../../application-load-balan
 
 Read more about the service in the [{{ at-name }}](../../audit-trails/) documentation.
 
+## {{ certificate-manager-full-name }} service {#certificate-manager}
+
+{% include [certificate-manager](../../_includes/monitoring/metrics-ref/certificate-manager.md) %}
+
+Read more about the service in the [{{ certificate-manager-name }}](../../certificate-manager/) documentation.
+
 ## {{ cdn-full-name }} service {#cdn}
 
 {% include [cdn.md](../../_includes/monitoring/metrics-ref/cdn.md) %}
@@ -39,6 +45,24 @@ Read more about the service in the [{{ compute-name }}](../../compute/) document
 
 Read more about the service in the [{{ dataproc-name }}](../../data-proc/) documentation.
 
+
+## {{ iam-full-name }} service {#iam}
+
+{% include [iam](../../_includes/monitoring/metrics-ref/iam.md) %}
+
+Read more about the service in the [{{ iam-name }}](../../iam/) documentation.
+
+## {{ kms-full-name }} service {#kms}
+
+{% include [kms](../../_includes/monitoring/metrics-ref/kms.md) %}
+
+Read more about the service in the [{{ kms-name }}](../../kms/) documentation.
+
+## {{ lockbox-full-name }} service {#lockbox}
+
+{% include [lockbox](../../_includes/monitoring/metrics-ref/lockbox.md) %}
+
+Read more about the service in the [{{ lockbox-name }}](../../lockbox/) documentation.
 
 ## {{ mkf-full-name }} service {#managed-kafka}
 
@@ -105,10 +129,20 @@ Read more about the service in the [{{ mpg-name }}](../../managed-postgresql/) d
 Read more about the service in the [{{ mrd-name }}](../../managed-redis/) documentation.
 
 
+## {{ ydb-full-name }} service {#ydb}
+
 {% include [ydb.md](../../_includes/monitoring/metrics-ref/ydb.md) %}
+
+Read more about the service in the [{{ ydb-name }}](../../ydb/) documentation.
 
 
 {% include [monitoring.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
+
+## {{ captcha-full-name }} service {#smartcaptcha}
+
+{% include [smartcaptcha](../../_includes/monitoring/metrics-ref/smartcaptcha.md) %}
+
+Read more about the service in the [{{ captcha-name }}](../../smartcaptcha/) documentation.
 
 ## {{ objstorage-full-name }} service {#storage}
 

@@ -1,14 +1,6 @@
-# Getting notebook and cell IDs
+# Getting a notebook ID
 
-{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
-
-To work with a project through API, you may need IDs of notebooks and their cells.
-
-{% note warning %}
-
-The guide applies to {{ ds }} mode only.
-
-{% endnote %}
+To work with a project through the API, you may need a notebook ID.
 
 ## Getting started {#before-begin}
 
@@ -16,38 +8,15 @@ The guide applies to {{ ds }} mode only.
 
 ## Getting a notebook ID {#get-notebook-id}
 
-{% list tabs %}
-
-- {{ ds }}
-
-   1. Right-click any cell.
-   1. In the window that opens, select **Сopy Notebook Id**.
+   1. In the file browser on the left, right-click the notebook you need.
+   1. In the window that opens, select **Сopy Path**.
 
       The clipboard will have a line like:
 
       ```text
-      null/<community_ID>/<project_ID>/<notebook_ID>
+      /home/jupyter/datasphere/project/<notebook_name>.ipynb
       ```
 
-   1. Copy the part of the line with the notebook ID.
+   1. Use the copied path as the notebook ID.
 
-{% endlist %}
 
-## Getting a cell ID {#get-cell-id}
-
-{% list tabs %}
-
-- {{ ds }}
-
-   1. Right-click the cell you need.
-   1. In the window that opens, select **Сopy Cell Id**.
-
-      The clipboard will have a line like:
-
-      ```text
-      null/<community_ID>/<project_ID>/<notebook_ID>/cell/<cell_ID>
-      ```
-
-   1. Copy the part of the line with the cell ID.
-
-{% endlist %}
