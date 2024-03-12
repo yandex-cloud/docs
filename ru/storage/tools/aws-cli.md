@@ -48,7 +48,19 @@
   [default]
     region = {{ region-id }}
   ```
+  
+* Вы можете создать несколько профилей для разных сервисных аккаунтов, вписав их в файл `.aws/credentials`. Это позволит быстро переключаться между разными профилями в командах AWS CLI с опцией `--profile`:
 
+  ```
+  [default]
+    aws_access_key_id = id
+    aws_secret_access_key = secretKey
+
+  [newprofile]
+    aws_access_key_id = <newProfileId>
+    aws_secret_access_key = <newProfileSecretKey>
+  ```
+  
 ## Особенности {#specifics}
 
 Учитывайте особенности AWS CLI при работе с {{ objstorage-name }}:
