@@ -74,6 +74,8 @@
 
 Кластер должен состоять из подкластера с хостом-мастером и как минимум из одного подкластера для хранения или обработки данных.
 
+Если вы хотите создать копию кластера, [импортируйте его конфигурацию](#duplicate) в {{ TF }}.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -590,6 +592,89 @@
 {% endlist %}
 
 После того как кластер перейдет в статус **Running**, вы можете [подключиться](connect.md) к хостам подкластеров с помощью указанного SSH-ключа.
+
+## Создайте копию кластера {#duplicate}
+
+Вы можете создать кластер, который будет обладать настройками созданного ранее кластера. Для этого конфигурация исходного кластера импортируется в {{ TF }}. В результате вы можете либо создать идентичную копию, либо взять за основу импортированную конфигурацию и внести в нее изменения. Использовать импорт удобно, если исходный кластер обладает множеством настроек (например, это кластер с файловой системой HDFS) и нужно создать похожий на него кластер.
+
+Чтобы создать копию кластера:
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    1. В той же рабочей директории разместите файл с расширением `.tf` и содержимым:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "old" { }
+        ```
+
+    1. Запишите идентификатор первоначального кластера в переменную окружения:
+
+        ```bash
+        export DATAPROC_CLUSTER_ID=<идентификатор_кластера>
+        ```
+
+    1. Импортируйте настройки первоначального кластера в конфигурацию {{ TF }}:
+
+        ```bash
+        terraform import yandex_dataproc_cluster.old ${DATAPROC_CLUSTER_ID}
+        ```
+
+    1. Получите импортированную конфигурацию:
+
+        ```bash
+        terraform show
+        ```
+
+    1. Скопируйте ее из терминала и вставьте в файл с расширением `.tf`.
+    1. Расположите файл в новой директории `imported-cluster`.
+    1. Измените скопированную конфигурацию так, чтобы из нее можно было создать новый кластер:
+
+        * Укажите новое имя кластера в строке `resource` и параметре `name`.
+        * Удалите параметры `created_at`, `host_group_ids`, `id` и `subcluster_spec.id`.
+        * Измените формат SSH-ключа в параметре `ssh_public_keys`. Исходный формат:
+
+            ```hcl
+            ssh_public_keys = [
+              <<-EOT
+                <ключ>
+              EOT,
+            ]
+            ```
+
+            Требуемый формат:
+
+            ```hcl
+            ssh_public_keys = [
+              "<ключ>"
+            ]
+            ```
+
+        * (Опционально) Внесите дополнительные изменения, если вам нужна не идентичная, а кастомизированная копия.
+
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 ## Пример {#example}
 

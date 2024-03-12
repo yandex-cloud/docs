@@ -4,7 +4,7 @@
 
 ## Релиз 2023-6 {#2023-6}
 
-В релизном канале `rapid` доступны следующие изменения:
+В релизных каналах `rapid`, `regular` и `stable` доступны следующие изменения:
 * Добавлена поддержка [высокопроизводительных SSD-дисков](../compute/concepts/disk.md#disks-types) для [классов хранилищ](./operations/volumes/manage-storage-class.md) и [постоянных томов](./concepts/volume.md#persistent-volume).
 * Появилась возможность использовать группы узлов c [GPU](../compute/concepts/gpus.md) без предустановленных драйверов. Теперь вы можете самостоятельно выбирать подходящую версию драйвера с помощью приложения [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html). Подробнее см. [{#T}](./tutorials/driverless-gpu.md).
 * Убрано ограничение ресурса CPU у подов [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/) для предотвращения троттлинга.

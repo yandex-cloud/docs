@@ -132,6 +132,7 @@ description: "На странице представлен список прак
 
 ## {{ dataproc-full-name }} {#dataproc}
 
+* [{#T}](hdfs-cluster-migration.md)
 * [{#T}](dp-mch-data-exchange.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)

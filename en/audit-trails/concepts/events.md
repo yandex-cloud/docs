@@ -315,33 +315,13 @@ Service name: `network`.
 
 Service name: `ydb`.
 
-| Event name | Description |
---- | ---
-| `BackupDatabase` | Creating a database backup |
-| `CreateDatabase` | Creating a database |
-| `DeleteBackup` | Deleting a database backup |
-| `DeleteDatabase` | Deleting a database |
-| `MoveDatabase` | Moving a database |
-| `RestoreBackup` | Restoring a database from a backup |
-| `StartDatabase` | Starting a database |
-| `StopDatabase` | Stopping a database |
-| `UpdateDatabase` | Updating a database |
+{% include [ydb-events](../../_includes/audit-trails/events/ydb-events.md) %}
 
 ## {{ yq-short-name }} {#yq}
 
 Service name: `yq`.
 
-| Event name | Description |
---- | ---
-| `ControlQuery` | Managing queries |
-| `CreateBinding` | Creating a data binding |
-| `CreateConnection` | Creating a connection |
-| `CreateQuery` | Creating a query |
-| `DeleteBinding` | Deleting a data binding |
-| `DeleteConnection` | Deleting a connection |
-| `DeleteQuery` | Deleting a query |
-| `UpdateBinding` | Updating a data binding |
-| `UpdateConnection` | Updating a connection |
-| `UpdateQuery` | Updating a query |
+{% include [yq-events](../../_includes/audit-trails/events/yq-events.md) %}
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

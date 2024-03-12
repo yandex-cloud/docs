@@ -17,7 +17,7 @@ items:
             href: operations/connect.md
           - name: Изменение кластера
             href: operations/cluster-update.md
-          - name: Миграция кластера в другую зону доступности
+          - name: Миграция легковесного кластера в другую зону доступности
             href: operations/migration-to-an-availability-zone.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
@@ -101,6 +101,8 @@ items:
             href: tutorials/remote-run-job.md
       - name: Настройка сети для {{ dataproc-name }}
         href: tutorials/configure-network.md
+      - name: Миграция кластера с HDFS в другую зону доступности
+        href: tutorials/hdfs-cluster-migration.md
       - name: >-
           Переключение сетевого соединения при пересоздании кластера {{
           dataproc-name }}

@@ -6,6 +6,7 @@ description: "Различные сценарии использования {{ 
 # Все практические руководства
 
 * [{#T}](./configure-network.md).
+* [{#T}](./hdfs-cluster-migration.md).
 * [{#T}](./reconnect-network.md).
 * [{#T}](./copy-files-from-object-storage.md).
 * [{#T}](./exchange-data-with-mch.md)
