@@ -47,26 +47,6 @@ items:
             href: operations/alert/create-channel.md
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
-      - name: Работа с {{ prometheus-name }} API
-        items:
-          - name: Обзор
-            href: operations/prometheus/index.md
-          - name: Запись метрик
-            items:
-              - name: Обзор
-                href: operations/prometheus/ingestion/index.md
-              - name: Remote Write
-                href: operations/prometheus/ingestion/remote-write.md
-          - name: Чтение метрик
-            items:
-              - name: Обзор
-                href: operations/prometheus/querying/index.md
-              - name: Remote Read
-                href: operations/prometheus/querying/remote-read.md
-              - name: Grafana
-                href: operations/prometheus/querying/grafana.md
-          - name: Чтение и запись метрик кластера {{ k8s }}
-            href: operations/prometheus/read-write-for-kubernetes.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -113,6 +93,26 @@ items:
         href: concepts/ttl.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: '{{ managed-prometheus-name }}'
+    items:
+      - name: Обзор
+        href: operations/prometheus/index.md
+      - name: Запись метрик
+        items:
+          - name: Обзор
+            href: operations/prometheus/ingestion/index.md
+          - name: Remote Write
+            href: operations/prometheus/ingestion/remote-write.md
+      - name: Чтение метрик
+        items:
+          - name: Обзор
+            href: operations/prometheus/querying/index.md
+          - name: Remote Read
+            href: operations/prometheus/querying/remote-read.md
+          - name: Grafana
+            href: operations/prometheus/querying/grafana.md
+      - name: Чтение и запись метрик кластера {{ k8s }}
+        href: operations/prometheus/read-write-for-kubernetes.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

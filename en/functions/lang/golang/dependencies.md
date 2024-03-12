@@ -12,7 +12,7 @@ The `ycf` build tag is set for the build.
 
 ### mod
 
-[Modules](https://github.com/golang/go/wiki/Modules) are built-in dependency management mechanisms for the `Go` programming language. This is the main and recommended way to manage dependencies in {{ sf-name }}.
+[Modules](https://github.com/golang/go/wiki/Modules) are built-in dependency management mechanisms for the `Go` language. This is the main and recommended way to manage dependencies in {{ sf-name }}.
 
 To install dependencies using modules, import the `go.mod` file together with the function source code. This installs the latest versions of the packages specified in this file. To specify the versions explicitly, you should also import the `go.sum` file.
 

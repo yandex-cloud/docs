@@ -18,7 +18,11 @@ You can configure different scaling settings for different function [versions](.
 The scaling settings must be within the [quotas](../../concepts/limits.md#functions-quotas).
 
 
+{% note info %}
+
 {% include [provisioned-instances-time](../../../_includes/functions/provisioned-instances-time.md)%}
+
+{% endnote %}
 
 
 {% list tabs group=instructions %}

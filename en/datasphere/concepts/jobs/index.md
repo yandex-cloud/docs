@@ -12,7 +12,7 @@ You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their
 
 ## Job configuration file {#config}
 
-When creating a job, specify its parameters in the `config.yaml` file: a [configuration of computing resources](../configurations.md) that will be used for job execution and required files with input data. Depending on the settings specified in the configuration file, {{ ml-platform-name }} analyzes the job, identifies dependencies, deploys the environment on the VM, and runs the job code. Job execution results are saved in the {{ ml-platform-name }} project files listed in the job configuration.
+When creating a job, specify its parameters in the `config.yaml` file: a [configuration of computing resources](../configurations.md) that will be used for job execution and required files with input data. Depending on the settings specified in the configuration file, {{ ml-platform-name }} analyzes the job, identifies dependencies, [deploys the environment](environment.md) on the VM, and runs the job code. Job execution results are saved in the {{ ml-platform-name }} project files listed in the job configuration.
 
 ```yaml
 # Job name
@@ -20,8 +20,8 @@ name: simple-python-script
 # Job description
 desc: Program description
 
-# Entry point parameters for running computations
-cmd: >  # Multiline YAML string
+# Entry point parameters to run computations
+cmd: >  # multi-line YAML string
   python src/main.py
     --params ${PARAMS}
     --features ${<connector_ID>}/features.tsv
@@ -32,8 +32,8 @@ cmd: >  # Multiline YAML string
 
 # Files with input data
 inputs:
-  - misc/logging.yaml  # Path to the file relative to the job run directory on your local computer
-  - /usr/share/params.json: # Absolute file path on the local computer is saved to the PARAMS variable
+  - misc/logging.yaml  # File path relative to the job run directory on local computer
+  - /usr/share/params.json: # Absolute file path on local computer is saved to the PARAMS variable
       var: PARAMS
 
 # Files with results
@@ -49,18 +49,18 @@ datasets:
   - <dataset_ID>:  # ID of the available project dataset
       var: CIFAR   # CIFAR is a variable to access the dataset
 
-# Environment parameters       
+# Environment parameters
 env:
   vars:  # Environment variables
-    PYTHONBUFFERED: Yes
-    DEVICE_COUNT: 8
+    - DEVICE_COUNT: 8    # environment variable can be specified explicitly
+    - PYTHONBUFFERED     # if the parameter is not specified, its value will be determined from the current environment
   docker: <Docker_image_ID>  # Docker image available in the project {{ ml-platform-name }}
   # You can also specify a Docker image in an image registry
   # docker:
-  #   image: <path_to_image_in_registry>:<tag>  # E.g., <cr.yandex/crtabcdef12345678900/myenv:0.1>
-                                              # For Docker Hub, you can just specify `<name>:<tag>`, such as `ubuntu:focal`
-  #   username: <login>
-  #   password: <password> # in text format or a {{ ml-platform-name }} secret name
+  #   image: <image_path_in_registry>:<tag>  # E.g., <cr.yandex/crtabcdef12345678900/myenv:0.1>
+                                              # For Docker Hub, it is enough to specify `<name>:<tag>`, e.g., `ubuntu:focal`
+  #   username: <username>
+  #   password: <password> # in text format or {{ ml-platform-name }} secret name
   #   # password:
   #   #   secret-id: PASSWORD
 

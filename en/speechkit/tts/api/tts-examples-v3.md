@@ -15,7 +15,7 @@ To implement an example:
 
 1. [Create](../../../iam/operations/sa/create.md) a service account to work with the {{ speechkit-short-name }} API.
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-tts }}` role or higher to the service account, which will allow it to work with {{ speechkit-name }} in the folder it was created in.
-1. Get an [API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/api-key/create.md) for your service account.
+1. Get an [API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for your service account.
 1. Create a client application:
 
    {% list tabs group=programming_language %}

@@ -1,10 +1,7 @@
 Prometheus Operator с поддержкой {{ monitoring-full-name }} упрощает установку и управление системой мониторинга [{{ managed-prometheus-full-name }}](../../monitoring/operations/prometheus/index.md). С помощью нее можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/), что позволяет работать с уже существующими дашбордами в [{{ grafana-name }}](https://grafana.com/grafana/).
 
-{% include [preview-pp](../preview-pp.md) %}
-
 ## Перед началом работы {#before-you-begin}
 
-1. [Запросите](../../monitoring/operations/prometheus/index.md#access) доступ к {{ managed-prometheus-name }} и дождитесь одобрения заявки. 
 1. На [главной странице сервиса]({{ link-monitoring }}) {{ monitoring-full-name }}, на панели слева, выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
 1. На вкладке **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.write }}** найдите URL-адрес эндпоинта для записи метрик:
 

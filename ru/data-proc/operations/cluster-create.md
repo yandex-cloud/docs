@@ -21,9 +21,9 @@
     * По одному правилу для входящего и исходящего служебного трафика:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**  — `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**— `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
 
     * Отдельное правило для исходящего HTTPS-трафика. Это позволит использовать [бакеты {{ objstorage-full-name }}](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md) и [автоматическое масштабирование](../concepts/autoscaling.md) кластеров.
 
@@ -50,7 +50,12 @@
 
         {% endlist %}
 
-   * Правило, разрешающее доступ к NTP-серверам для синхронизации времени.
+   * Правило, разрешающее доступ к NTP-серверам для синхронизации времени:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 Если планируется использовать несколько групп безопасности для кластера, разрешите весь трафик между этими группами.
 
@@ -62,7 +67,7 @@
 
 {% endnote %}
 
-Настройку групп безопасности для [подключения к хостам кластера](connect.md) через промежуточную ВМ и для [подключения к {{ metastore-name }}](./metastore/dataproc-connect.md) можно выполнить после создания кластера.
+Вы можете настроить группы безопасности после создания кластера, чтобы [подключиться к {{ metastore-name }}](./metastore/dataproc-connect.md) или [хостам кластера](connect.md) через интернет или промежуточную ВМ.
 
 
 ## Создайте кластер {#create}

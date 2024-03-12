@@ -67,7 +67,12 @@ The system functionality will be enhanced in upcoming releases.
 | Number of [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) read requests per second | 100 |
 | Number of [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) read requests per second | 100 |
 | Number of unique metrics | 10,000,000 |
-| Maximum retention period for [obsolete metrics](../../concepts/ttl.md) | 60 days |
+| Maximum retention period for [expired metrics](../../concepts/ttl.md) | 60 days |
+
+In the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** tab on the right, you can see the **{{ ui-key.yacloud_monitoring.prometheus.approved.widget-monitoring.title }}** section. Use this section to:
+
+* View the number of written metrics.
+* Go to the page with service [dashboards](../../concepts/visualization/dashboard) and view the number of requests, errors, and HTTP status codes per second for various endpoints.
 
 ### Limits per endpoint {#limits-per-endpoint}
 

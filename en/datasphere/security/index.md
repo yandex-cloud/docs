@@ -5,22 +5,22 @@ description: "Access management in {{ ml-platform-full-name }}, a service that p
 
 # Access management in {{ ml-platform-name }}
 
-Access to {{ ml-platform-full-name }} is regulated by assigning permissions in an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
+User access to {{ ml-platform-full-name }} depends on relevant permissions granted within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
 The list of operations available to {{ ml-platform-short-name }} users is determined by the roles they have. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md). For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
 Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
-Access control is implemented at the level of [communities](../concepts/community.md) and [projects](../concepts/project.md). You can also grant resource access to all community users. The access rights granted apply to the entire hierarchy of resources. For example, if you assign a user a role for a {{ ml-platform-name }} project, all permissions are also valid for resources within this project. Learn more about [relationships between {{ ml-platform-name }} resources](../concepts/resource-model.md).
+Access control is implemented at the [community](../concepts/community.md) and [project](../concepts/project.md) level. You can also make resources available to all community users. Once granted, access permissions apply to the whole hierarchy of resources. For example, if you give a user a role for a {{ ml-platform-name }} project, all the permissions will also be valid for the resources within this project. Learn more about [relationships between {{ ml-platform-name }} resources](../concepts/resource-model.md).
 
 ## How to assign a role {#grant-role}
 
 You can assign a role to a user in the {{ ml-platform-name }} interface:
 * [{#T}](../operations/community/add-user.md)
 * [{#T}](../operations/projects/add-user.md)
-* [Share resources with community members](../operations/index.md#share)
+* [Share resources with community members](../operations/index.md#share).
 
 You can also [grant access rights](../../organization/security/index.md) through the {{ org-name }} interface.
 
@@ -28,37 +28,45 @@ You can also [grant access rights](../../organization/security/index.md) through
 
 ### Service roles {#service-roles}
 
-{% include [projects-viewer](../../_includes/roles-datasphere-project-viewer.md) %}
+#### datasphere.community-projects.viewer {#datasphere-communityprojects-viewer}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-viewer }}` role have the `Viewer` role in the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab on the project page.
+{% include [datasphere.community-projects.viewer](../../_roles/datasphere/community-projects/viewer.md) %}
 
-{% include [projects-developer](../../_includes/roles-datasphere-projects-developer.md) %}
+#### datasphere.community-projects.developer {#datasphere-communityprojects-developer}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-developer }}` role have the `Developer` role in the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab on the project page.
+{% include [datasphere.community-projects.developer](../../_roles/datasphere/community-projects/developer.md) %}
 
-{% include [projects-editor](../../_includes/roles-datasphere-projects-editor.md) %}
+#### datasphere.community-projects.editor {#datasphere-communityprojects-editor}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-editor }}` role have the `Editor` role in the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab on the project page.
+{% include [datasphere.community-projects.editor](../../_roles/datasphere/community-projects/editor.md) %}
 
-{% include [projects-admin](../../_includes/roles-datasphere-projects-admin.md) %}
+#### datasphere.community-projects.admin {#datasphere-communityprojects-admin}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-admin }}` role have the `Admin` role in the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab on the project page.
+{% include [datasphere.community-projects.admin](../../_roles/datasphere/community-projects/admin.md) %}
 
-{% include [communities-viewer](../../_includes/roles-datasphere-communities-viewer.md) %}
+#### datasphere.communities.viewer {#datasphere-communities-viewer}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-viewer }}` role have the `Viewer` role in the **{{ ui-key.yc-ui-datasphere.common.members }}** tab on the community page.
+{% include [datasphere.communities.viewer](../../_roles/datasphere/communities/viewer.md) %}
 
-{% include [communities-developer](../../_includes/roles-datasphere-communities-developer.md) %}
+#### datasphere.communities.developer {#datasphere-communities-developer}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-developer }}` role have the `Developer` role in the **{{ ui-key.yc-ui-datasphere.common.members }}** tab on the community page.
+{% include [datasphere.communities.developer](../../_roles/datasphere/communities/developer.md) %}
 
-{% include [communities-editor](../../_includes/roles-datasphere-communities-editor.md) %}
+#### datasphere.communities.editor {#datasphere-communities-editor}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-editor }}` role have the `Editor` role in the **{{ ui-key.yc-ui-datasphere.common.members }}** tab on the community page.
+{% include [datasphere.communities.editor](../../_roles/datasphere/communities/editor.md) %}
 
-{% include [communities-admin](../../_includes/roles-datasphere-communities-admin.md) %}
+#### datasphere.communities.admin {#datasphere-communities-admin}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-admin }}` role have the `Admin` role in the **{{ ui-key.yc-ui-datasphere.common.members }}** tab on the community page.
+{% include [datasphere.communities.admin](../../_roles/datasphere/communities/admin.md) %}
+
+#### datasphere.user {#datasphere-user}
+
+{% include [datasphere.user](../../_roles/datasphere/user.md) %}
+
+#### datasphere.admin {#datasphere-admin}
+
+{% include [datasphere.admin](../../_roles/datasphere/admin.md) %}
 
 > {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
 
@@ -94,7 +102,7 @@ The table below lists the roles needed to perform a particular action. You can a
 
 #### See also {#see-also}
 
-* [{{ org-full-name }}](../../organization/)
-* [{#T}](../../iam/concepts/access-control/index.md)
-* [{#T}](../../iam/concepts/users/service-accounts.md)
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)
+* [{{ org-full-name }}](../../organization/).
+* [{#T}](../../iam/concepts/access-control/index.md).
+* [{#T}](../../iam/concepts/users/service-accounts.md).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

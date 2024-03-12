@@ -20,29 +20,41 @@ To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Roles {#roles}
+## Which roles exist in the service {#roles-list}
 
 The list below shows all roles that are considered when verifying access rights in the {{ yds-name }} service.
 
-{% include [yds-viewer](../../_includes/iam/roles/yds-viewer.md) %}
+### Service roles {#service-roles}
 
-{% include [yds-writer](../../_includes/iam/roles/yds-writer.md) %}
+#### yds.viewer {#yds-viewer}
 
-{% include [yds-editor](../../_includes/iam/roles/yds-editor.md) %}
+{% include [yds.viewer](../../_roles/yds/viewer.md) %}
 
-{% include [yds-admin](../../_includes/iam/roles/yds-admin.md) %}
+#### yds.writer {#yds-writer}
 
-### {{ roles-viewer }} {#viewer}
+{% include [yds.writer](../../_roles/yds/writer.md) %}
 
-Users with the `{{ roles-viewer }}` role can view information about resources, for example, a list of streams, databases where they're created, and their properties.
+#### yds.editor {#yds-editor}
 
-### {{ roles-editor }} {#editor}
+{% include [yds.editor](../../_roles/yds/editor.md) %}
 
-Users with the `{{ roles-editor }}` role can manage any resources, for example, create a stream or delete it. In addition, this role allows writing application data to streams.
+#### yds.admin {#yds-admin}
+
+{% include [yds.admin](../../_roles/yds/admin.md) %}
+
+### Primitive roles {#primitive-roles}
+
+#### {{ roles-viewer }} {#viewer}
+
+A user with the `{{ roles-viewer }}` role can view information about resources, e.g., lists of data streams and databases they are created in, their properties.
+
+#### {{ roles-editor }} {#editor}
+
+A user with the `{{ roles-editor }}` role can manage any resources, e.g., create a stream or delete it. In addition, this role allows writing application data to streams.
 
 The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 Users with the `{{ roles-admin }}` role can manage resource access rights, for example, allow other users to create streams or view information about them.
 

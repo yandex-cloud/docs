@@ -13,7 +13,7 @@ Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-m
 
 {% note info %}
 
-For more information about role inheritance, see the section [Inheritance of access rights](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
+For more information about role inheritance, see [Inheritance of access rights](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
 
 {% endnote %}
 
@@ -31,11 +31,17 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
-{% include [roles-ymq-reader](../../_includes/roles-ymq-reader.md) %}
+#### ymq.reader {#ymq-reader}
 
-{% include [roles-ymq-writer](../../_includes/roles-ymq-writer.md) %}
+{% include [ymq.reader](../../_roles/ymq/reader.md) %}
 
-{% include [roles-ymq-admin](../../_includes/roles-ymq-admin.md) %}
+#### ymq.writer {#ymq-writer}
+
+{% include [ymq.writer](../../_roles/ymq/writer.md) %}
+
+#### ymq.admin {#ymq-admin}
+
+{% include [ymq.admin](../../_roles/ymq/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

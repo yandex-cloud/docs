@@ -69,7 +69,7 @@ items:
         href: tutorials/message-broker.md
       - name: Saving data to ClickHouse®
         href: tutorials/send-to-clickhouse.md
-      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+      - name: Replicating logs to Object Storage using Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
@@ -120,7 +120,11 @@ items:
       - name: Examples
         href: kinesisapi/examples.md
   - name: Kafka API
-    href: kafkaapi/index.md
-  - name: Questions and answers
+    items:
+      - name: Overview
+        href: kafkaapi/index.md
+      - name: Authenticating and connecting to a database
+        href: kafkaapi/auth.md
+  - name: FAQ
     href: qa/index.md
 base: en/data-streams

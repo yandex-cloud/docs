@@ -35,17 +35,21 @@
 * `<sasl.password>` = `<api-key>`
 
 ## Пример записи и чтения сообщения {#example}
+
 В примере используются:
+
  * `<kafka-api-endpoint>` — [эндпоинт](#endpoint).
  * `<stream-name>` — имя [потока данных](../concepts/glossary.md#stream-concepts).
 
 1. Установите SSL-сертификат:
+
    ```bash
     mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
     wget "https://crls.yandex.net/YandexInternalRootCA.crt" \
      --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
     chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
+
    Сертификат будет сохранен в файле `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt`.
 
 1. Установите `kcat` — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных:

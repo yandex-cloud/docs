@@ -6,15 +6,25 @@
 
 ### Service roles {#service-roles}
 
-{% include [roles-yandexgpt-user](../../_includes/roles-yandexgpt-user.md) %}
+#### ai.languageModels.user {#languageModels-user}
 
-{% include [roles-ai-auditor](../../_includes/roles-ai-auditor.md) %}
+{% include [yandexgpt-user](../../_roles/ai/languageModels/user.md) %}
 
-{% include [roles-ai-viewer](../../_includes/roles-ai-viewer.md) %}
+#### ai.auditor {#ai-auditor}
 
-{% include [roles-ai-editor](../../_includes/roles-ai-editor.md) %}
+{% include [ai-auditor](../../_roles/ai/auditor.md) %}
 
-{% include [roles-ai-admin](../../_includes/roles-ai-admin.md) %}
+#### ai.viewer {#ai-viewer}
+
+{% include [ai-viewer](../../_roles/ai/viewer.md) %}
+
+#### ai.editor {#ai-editor}
+
+{% include [ai-editor](../../_roles/ai/editor.md) %}
+
+#### ai.admin {#ai-admin}
+
+{% include [ai-admin](../../_roles/ai/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

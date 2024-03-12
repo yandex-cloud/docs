@@ -36,7 +36,7 @@ links:
     href: pricing
   - title: Вопросы и ответы
     description: Ответы на часто задаваемые вопросы
-    href: qa/all.md
+    href: qa/all
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/

@@ -30,26 +30,36 @@ You can manage access to {{ yq-name }} objects using both service and primitive 
 
 </center>
 
-## Roles {#roles}
-
 The list below shows all roles that are considered when verifying access rights in the {{ yq-name }} service.
 
-{% include [yq-invoker](../../_includes/iam/roles/yq-invoker.md) %}
+### Service roles {#service-roles}
 
-{% include [yq-viewer](../../_includes/iam/roles/yq-viewer.md) %}
+#### yq.viewer {#query-viewer}
 
-{% include [yq-editor](../../_includes/iam/roles/yq-editor.md) %}
+{% include [query.viewer](../../_roles/yq/viewer.md) %}
 
-{% include [yq-admin](../../_includes/iam/roles/yq-admin.md) %}
+#### yq.editor {#query-editor}
 
-### {{ roles-viewer }}
+{% include [query.editor](../../_roles/yq/editor.md) %}
+
+#### yq.admin {#query-admin}
+
+{% include [query.admin](../../_roles/yq/admin.md) %}
+
+#### yq.invoker {#query-invoker}
+
+{% include [query.invoker](../../_roles/yq/invoker.md) %}
+
+### Primitive roles {#primitive-roles}
+
+#### {{ roles-viewer }}
 
 Users with the `{{ roles-viewer }}` role can view information about resources, such as query runs.
 
-### {{ roles-editor }}
+#### {{ roles-editor }}
 
 Users with the `{{ roles-editor }}` role can manage any resource, such as creating or deleting a query. The `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
 
-### {{ roles-admin }}
+#### {{ roles-admin }}
 
 Users with the `{{ roles-admin }}` role can manage resource access rights, such as permitting other users to create queries. The `{{ roles-admin }}` role includes all permissions of the `{{ roles-editor }}` role.
