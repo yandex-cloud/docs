@@ -173,12 +173,12 @@
 * `403` — Forbidden
 * `404` — Not Found
 * `405` — Method Not Allowed
-* `406` — Not Aceptable
+* `406` — Not Acceptable
 * `407` — Proxy Authentication Required
 * `408` — Request Timeout
 * `409` — Conflict
 * `410` — Gone
-* `411` — Lenght Required
+* `411` — Length Required
 * `412` — Precondition Failed
 * `413` — Request Entity Too Large
 * `414` — Request-URI Too Long
