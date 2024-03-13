@@ -35,7 +35,7 @@ title: "Как получить информацию о группе разме�
       folder_id: aoe3hggkil3t********
       created_at: "2023-10-27T13:01:20Z"
       name: test-placement-group
-      zone_id: ru-central1-c
+      zone_id: {{ region-id }}-d
       status: READY
       spread_placement_strategy: {}
       ```

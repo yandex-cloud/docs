@@ -65,6 +65,8 @@ This opens a panel with information about the table, including its name, size, a
 * Whether the column is Nullable.
 * Whether the column is a primary key.
 
+If the table contains indexes or triggers, the same panel will display information about columns and indexing types, as well as trigger events.
+
 ## Viewing information about a view {#view-view}
 
 To see detailed information about a view:

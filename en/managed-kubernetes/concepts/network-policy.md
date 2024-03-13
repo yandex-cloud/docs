@@ -35,7 +35,7 @@ Unlike Calico, the Cilium controller has broader capabilities and enables you to
 * Create more functional network policies, for example, by filtering pod-to-pod traffic at the [L7 application layer](https://en.wikipedia.org/wiki/OSI_model#Layer_architecture) or using the DNS name of an external resource.
 * Use the built-in [Hubble](https://docs.cilium.io/en/v1.9/intro/#why-cilium-hubble) tool to monitor network events.
 
-In a {{ managed-k8s-name }} cluster, Cilium operates in [tunneling mode](https://docs.cilium.io/en/v1.9/concepts/networking/routing/#encapsulation). This mode implements network connectivity for cluster objects based on [VxLAN technology](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN) using Cilium CNI.
+In a {{ managed-k8s-name }} cluster, Cilium operates in [tunneling mode](https://docs.cilium.io/en/v1.14/network/concepts/routing/#encapsulation). This mode implements network connectivity for cluster objects based on [VxLAN technology](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN) using Cilium CNI.
 
 Cilium tunneling mode helps:
 * Create clusters with overlapping IP addresses on the same network.

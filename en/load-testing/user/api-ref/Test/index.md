@@ -13,7 +13,13 @@ A set of methods for managing tests.
     {
       "configId": "string",
       "agentSelector": {
-        "agentId": "string"
+
+        // `configurations[].agentSelector` includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`
+        "agentId": "string",
+        "matchByFilter": "string",
+        "anonymousAgent": true,
+        // end of the list of possible fields`configurations[].agentSelector`
+
       },
       "files": "object"
     }
@@ -40,7 +46,8 @@ A set of methods for managing tests.
     "imbalancePoint": {
       "at": "string",
       "rps": "string"
-    }
+    },
+    "assignedAgentId": "string"
   },
   "folderId": "string"
 }
@@ -52,7 +59,9 @@ id | **string**<br><p>ID of the test. Generated at creation time.</p>
 configurations[] | **object**<br><p>Configuration of the test.</p> <p>A test can have multiple configurations if it can be executed on multiple agents simultaneously. For more information, see <a href="docs/load-testing/tutorials/loadtesting-multiply">Load testing using multiple agents</a>.</p> 
 configurations[].<br>configId | **string**<br><p>ID of the config.</p> 
 configurations[].<br>agentSelector | **object**<br><p>Agent selection criterion.</p> <p>Agent selection criterion.</p> <p>The structure is used by service to determine on which agents a specific test should be executed.</p> 
-configurations[].<br>agentSelector.<br>agentId | **string**<br><p>Selection by agent ID.</p> 
+configurations[].<br>agentSelector.<br>agentId | **string** <br>`configurations[].agentSelector` includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`<br><br><p>Selection by agent ID.</p> 
+configurations[].<br>agentSelector.<br>matchByFilter | **string** <br>`configurations[].agentSelector` includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`<br><br><p>Selection by filter string.</p> 
+configurations[].<br>agentSelector.<br>anonymousAgent | **boolean** (boolean) <br>`configurations[].agentSelector` includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`<br><br><p>Select anonymoud (i.e. not registered) agents.</p> 
 configurations[].<br>files | **object**<br><p>Additional files to be used during test execution, represented as ``rel_path:file`` pairs.</p> <p>``rel_path`` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location.</p> <p>Use cases include:</p> <ul> <li><a href="https://cloud.yandex.com/en-ru/docs/load-testing/concepts/payload">Test Data files</a>.</li> <li>Custom Pandora executable.</li> <li>JMeter executable or ".jmx" scenario.</li> <li>etc.</li> </ul> 
 details | **object**<br><p>Test meta information. Name, description, etc.</p> <p>Test meta information.</p> 
 details.<br>name | **string**<br><p>Name of the test.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
@@ -72,6 +81,7 @@ summary.<br>error | **string**<br><p>Error message.</p>
 summary.<br>imbalancePoint | **object**<br><p>Detected imbalance point.</p> <p>Contains information about a state at the moment it has been <a href="/docs/load-testing/concepts/auto-stop">auto-stopped</a>.</p> <p>Empty if no auto-stop occured.</p> <p>Test imbalance point.</p> 
 summary.<br>imbalancePoint.<br>at | **string** (date-time)<br><p>Imbalance moment timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 summary.<br>imbalancePoint.<br>rps | **string** (int64)<br><p>Imbalance moment RPS.</p> 
+summary.<br>assignedAgentId | **string**<br><p>ID of the agent that executed the test.</p> 
 folderId | **string**<br><p>ID of the folder that the test belongs to.</p> 
 
 ## Methods {#methods}

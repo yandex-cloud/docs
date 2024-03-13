@@ -89,6 +89,7 @@ POST https://serverless-functions.{{ api-host }}/functions/v1/versions
     },
     "serviceAccountId": "string"
   },
+  "tmpfsSize": "string",
 
   //  includes only one of the fields `package`, `content`, `versionId`
   "package": {
@@ -148,6 +149,7 @@ asyncInvocationConfig.<br>failureTarget.<br>ymqTarget | **object**<br>Target to 
 asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>queueArn | **string**<br><p>Required. Queue ARN</p> 
 asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
 asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
+tmpfsSize | **string** (int64)<br><p>Optional size of in-memory mounted /tmp directory in bytes. Available for versions with resources.memory greater or equal to 1024 MiB.</p> <p>0 or in range from 512 MiB to 3/4 of resources.memory.</p> 
 package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br>
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 

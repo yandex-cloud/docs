@@ -61,7 +61,7 @@ Scan your {{ TF }} manifests using [Checkov](https://github.com/bridgecrewio/che
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
-![](../../_assets/overview/solution-library-icon.svg)[Example: Storing {{ TF }} states in {{ objstorage-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/remote-backend)
+![](../../_assets/overview/solution-library-icon.svg)[Example: Storing {{ TF }} states in {{ objstorage-name }}](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)
 
 
 ### Integrity control {#integrity-control}

@@ -9,7 +9,7 @@ description: "Follow this guide to create a bookmark on a page."
 
 To go to the specified area on the current or any other page, use an *anchor*:
 
-1. Open the page in [edit mode](../old-editor.md) and add to its text a label using the [`anchor` block](#anchor-call).
+1. Open the page in edit mode and add a label to the text using the [`anchor` block](#anchor-call).
 
 1. When generating a link to the specified part of the page, [insert an anchor link](#add-anchor-to-link).
 

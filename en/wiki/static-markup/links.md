@@ -5,8 +5,6 @@ description: "Follow this guide to format links in {{ wiki-full-name }}."
 
 # Links
 
-{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
-
 To design links, use the markup:
 
 ```
@@ -66,17 +64,45 @@ The anchor is shown after the `#` symbol at the end of the address.
 
 ### Link to any place on a page {#place-link}
 
-If you want to link to a specific place on a page, you can always create an anchor ID wherever you need. To set an anchor, use the [dynamic block `not_var{{anchor}}`](../actions/anchor.md):
+{% list tabs %}
 
-```
-{{anchor name="my-anchor"}}
-```
+- New editor
 
-To add a link to such an anchor, add it to the the page address after the `#` symbol:
+   {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
 
-```
-[<link_text>](http://<page_address>/#my-anchor)
-```
+   You may refer to:
+
+   - Cluster of the current page
+      ```
+      [text](#anchor)
+      ```
+      Result:
+
+      [Link text style](#)
+
+   - Cluster of another page
+      ```
+      [text](base.md#anchor)
+      ```
+      Result:
+
+      [Headers](#)
+
+- Old editor
+
+   If you want to link to a specific place on a page, you can always create an anchor ID wherever you need. To set an anchor, use the [`not_var{{anchor}}` dynamic block](../actions/anchor.md):
+
+   ```
+   {{anchor name="my-anchor"}}
+   ```
+
+   To add a link to such an anchor, add it to the the page address after the `#` symbol:
+
+   ```
+   [link text](http://page URL/#my-anchor)
+   ```
+
+{% endlist %}
 
 ## Links to images {#ref-to-image}
 
@@ -92,9 +118,9 @@ To add a link to an image, use the link markup:
 --- | ---
 | `[Yandex logo]({{ yandex-logo-link }})` | [Yandex logo]({{ yandex-logo-link }}) |
 
-## Making an image a link {#image-as-ref}
+## Turning an image into a link {#image-as-ref}
 
-You can turn an image into a link for it to open a page or file when clicked. To do this, [insert an image](files.md#add-image) in the link markup element instead of text:
+You can turn an image into a link for it to open a page or file when clicked. To do this, [insert an image](./files.md#add-image) in the link markup element instead of text:
 
 ```
 [![<alternative_text>](<image_address>)](<link_address>)
@@ -108,9 +134,9 @@ You can turn an image into a link for it to open a page or file when clicked. To
 
 To add a link to an email address:
 
-- Enclose the email address in angle brackets `< >`.
+- Enclose the email address in angle brackets (`< >`).
 
-- Use the link markup and add `mailto:` before the email address.
+- Use the link markup. Add `mailto:` before the mail address.
 
 `[<link_text>](mailto:<email_address>)`
 
@@ -121,27 +147,37 @@ To add a link to an email address:
 
 ## Footnotes {#footnotes}
 
-A footnote is a note to the text, usually found at the bottom of the page. To add a footnote to the page:
+{% list tabs %}
 
-1. Add double square brackets, an <q>asterisk</q>, and a footnote symbol after the words covered by the footnote. You can use numbers and other symbols or just <q>asterisks</q> for your footnotes.
+- New editor
 
-1. Add double square brackets, the `#` symbol, and the same footnote sign before the footnote text.
+   {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
 
-For example:
+- Old editor
 
-```
-Text, then a footnote[[*]] and the second[[**]].
+   A footnote is a note to the text, usually found at the bottom of the page. To add a footnote to the page:
 
-Text, then a digital footnote[[*1]] and the second[[*2]].
+   1. Add double square brackets, an <q>asterisk</q>, and a footnote symbol after the words covered by the footnote. You can use numbers and other symbols or just <q>asterisks</q> for your footnotes.
 
-[[#*]] First footnote definition.
-[[#**]] Second footnote definition.
-[[#1]] First digital footnote definition.
-[[#2]] Second digital footnote definition.
-```
+   1. Add double square brackets, the `#` symbol, and the same footnote sign before the footnote text.
 
-{% cut "See the result" %}
+   For example:
 
-![](../../_assets/wiki/footnotes.png)
+   ```
+   Text, then a footnote[[*]] and the second[[**]].
 
-{% endcut %}
+   Text, then a digital footnote[[*1]] and the second[[*2]].
+
+   [[#*]] First footnote definition.
+   [[#**]] Second footnote definition.
+   [[#1]] First digital footnote definition.
+   [[#2]] Second digital footnote definition.
+   ```
+
+   {% cut "See the result" %}
+
+   ![](../../_assets/wiki/footnotes.png)
+
+   {% endcut %}
+
+{% endlist %}

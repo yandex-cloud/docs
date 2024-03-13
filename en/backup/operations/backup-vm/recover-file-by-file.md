@@ -5,7 +5,7 @@ description: "This guide describes how you can restore individual directories an
 
 # Restoring individual directories and files on a VM
 
-You can restore individual files and directories from a backup to any VM connected to {{ backup-name }}:
+You can restore individual files and directories from a backup to any VM with `Running` [status](../../../compute/concepts/vm-statuses.md#list-of-statuses) connected to {{ backup-name }}:
 
 {% list tabs group=instructions %}
 

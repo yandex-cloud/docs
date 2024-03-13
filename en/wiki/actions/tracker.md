@@ -1,4 +1,4 @@
-# Issues from {{ tracker-full-name }}
+# {{ tracker-full-name }} issues
 
 {% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
 
@@ -19,7 +19,7 @@ For example:
 
 ## List of issues {#ticket-list}
 
-Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to a page created in the old editor, for example:
+Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to a page created in the old editor. For example:
 
 ```
 {{tasks url="URL of the filter or the queue"}}
@@ -49,7 +49,7 @@ Using dynamic tables, you can add a list of issues and their main parameters to 
 
 1. Save the table.
 
-As a result, the columns with the issue parameters are filled in automatically. The resulting table can be [embedded in a {{ wiki-name }} page](../add-grid.md).
+The columns with the issue parameters will be filled in automatically. The resulting table can be [embedded in a {{ wiki-name }} page](../wysiwyg/tables-format.md).
 
 For example:
 

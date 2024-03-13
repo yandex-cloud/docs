@@ -52,6 +52,7 @@ labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs.
 zone | **string**<br>DNS zone suffix. 
 private_visibility | **[PrivateVisibility](#PrivateVisibility)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
 public_visibility | **[PublicVisibility](#PublicVisibility)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
+deletion_protection | **bool**<br>Prevents accidental zone removal. 
 
 
 ### PrivateVisibility {#PrivateVisibility}
@@ -102,6 +103,7 @@ labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs.
 zone | **string**<br>DNS zone suffix. 
 private_visibility | **[PrivateVisibility](#PrivateVisibility1)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
 public_visibility | **[PublicVisibility](#PublicVisibility1)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
+deletion_protection | **bool**<br>Prevents accidental zone removal. 
 
 
 ### PrivateVisibility {#PrivateVisibility1}
@@ -136,6 +138,7 @@ labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. No more
 zone | **string**<br>Required. DNS zone suffix. The maximum string length in characters is 255. Value must match the regular expression ` [.]\|[a-z0-9][-a-z0-9.]*\\. `.
 private_visibility | **[PrivateVisibility](#PrivateVisibility2)**<br>Privately visible zone settings. At least one of two visibility fields must be set. 
 public_visibility | **[PublicVisibility](#PublicVisibility2)**<br>Publicly visible zone settings. At least one of two visibility fields must be set. 
+deletion_protection | **bool**<br>Prevents accidental zone removal. 
 
 
 ### PrivateVisibility {#PrivateVisibility2}
@@ -185,6 +188,7 @@ labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs.
 zone | **string**<br>DNS zone suffix. 
 private_visibility | **[PrivateVisibility](#PrivateVisibility3)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
 public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
+deletion_protection | **bool**<br>Prevents accidental zone removal. 
 
 
 ## Update {#Update}
@@ -208,6 +212,7 @@ description | **string**<br>New description of the DNS zone. The maximum string 
 labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [DnsZoneService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 private_visibility | **[PrivateVisibility](#PrivateVisibility3)**<br>Change network IDs for private visibility. 
 public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Public visibility configuration. 
+deletion_protection | **bool**<br>Prevents accidental zone removal. 
 
 
 ### PrivateVisibility {#PrivateVisibility3}
@@ -257,6 +262,7 @@ labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs.
 zone | **string**<br>DNS zone suffix. 
 private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
 public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
+deletion_protection | **bool**<br>Prevents accidental zone removal. 
 
 
 ## Delete {#Delete}
@@ -729,6 +735,7 @@ labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs.
 zone | **string**<br>DNS zone suffix. 
 private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
 public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
+deletion_protection | **bool**<br>Prevents accidental zone removal. 
 
 
 ### PrivateVisibility {#PrivateVisibility4}

@@ -16,13 +16,7 @@ The service has two types of restrictions: [quotas and limits](limits.md).
 
 ## Comparison with disk snapshots in {{ compute-name }} {#snapshot-comparison}
 
-| | Disk snapshots in {{ compute-name }} | {{ backup-name }} |
-| --- | --- | --- |
-| **Granularity** | Disk | VMs with all disks.<br>We may also add support for VM application backups. |
-| **Disk types** | Network SSD and HDD | Any:<br>Network SSD and HDD,<br>non-replicated disks,<br>and local disks on [dedicated hosts](../../compute/concepts/dedicated-host.md) |
-| **Application awareness** | No | To be implemented |
-| **Pricing** | Per disk | Per VM |
-
+{% include [backup-image-snapshot-comparison](../../_includes/backup-image-snapshot-comparison.md) %}
 
 ## Service activation and backup provider {#providers}
 

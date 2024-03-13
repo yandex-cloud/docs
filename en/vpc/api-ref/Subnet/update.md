@@ -37,7 +37,10 @@ subnetId | <p>Required. ID of the Subnet resource to update.</p> <p>The maximum 
     "ntpServers": [
       "string"
     ]
-  }
+  },
+  "v4CidrBlocks": [
+    "string"
+  ]
 }
 ```
 
@@ -53,6 +56,7 @@ dhcpOptions | **object**
 dhcpOptions.<br>domainNameServers[] | **string**
 dhcpOptions.<br>domainName | **string**
 dhcpOptions.<br>ntpServers[] | **string**
+v4CidrBlocks[] | **string**<br><p>New CIDR blocks which will overwrite the existing ones.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

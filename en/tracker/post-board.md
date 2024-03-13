@@ -63,7 +63,7 @@ The request body contains the parameters of a new board.
 | Parameter | Description | Data type |
 -------- | -------- | ----------
 | \<parameter_1_key\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
-| \<parameter_2_key\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields:[{{ link-admin-fields }}] ({{ link-admin-fields }}) | Array |
+| \<parameter_2_key\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
 
 `country` **object fields** {#req-country}
 
@@ -211,7 +211,7 @@ The request body contains the parameters of a new board.
    | Parameter | Description | Data type |
    -------- | -------- | ----------
    | \<parameter_1_key\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
-   | \<parameter_2_key\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields:[{{ link-admin-fields }}] ({{ link-admin-fields }}) | Array |
+   | \<parameter_2_key\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>The full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
 
    `country` **object fields** {#ans-country}
 

@@ -129,6 +129,10 @@ items:
             href: infrastructure-management/serverless-trigger-budget-vm.md
           - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
             href: infrastructure/nodejs-cron-restart-vm.md
+          - name: >-
+              Создание триггеров, которые вызывают функции для остановки ВМ и
+              отправки уведомлений в Telegram
+            href: infrastructure-management/serverless-trigger-budget-queue-vm-tg.md
       - name: Инструменты
         items:
           - name: Начало работы с {{ TF }}

@@ -20,7 +20,8 @@ A set of methods for managing DNS zones.
       "string"
     ]
   },
-  "publicVisibility": {}
+  "publicVisibility": {},
+  "deletionProtection": true
 }
 ```
  
@@ -36,6 +37,7 @@ zone | **string**<br><p>DNS zone suffix.</p>
 privateVisibility | **object**<br><p>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only.</p> <p>Configuration for privately visible zones.</p> 
 privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.</p> 
 publicVisibility | **object**<br><p>Publicly visible zone settings. Indicates whether records within the zone are publicly visible.</p> <p>Configuration for publicly visible zones.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Prevents accidental zone removal.</p> 
 
 ## Methods {#methods}
 Method | Description

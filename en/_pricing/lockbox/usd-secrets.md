@@ -1,4 +1,4 @@
-Billing occurs per hour. For reference only. Assuming a 720-hour (30-day) month. The value is rounded.
+Billing is hourly. For reference only. Assuming a 720-hour (30-day) month. The value is rounded.
 
 | Service | Rate per month, without VAT |
 | ----- | ----- |

@@ -212,7 +212,7 @@ title: "Обеспечение доступа к приложению, запу�
        app: hello
    ```
 
-   Подробнее см. в [справочнике](../../network-load-balancer/k8s-ref/service.md) ресурса `Service` для {{ network-load-balancer-full-name }}.
+   Подробнее см. в [справочнике](../nlb-ref/service.md) ресурса `Service` для {{ network-load-balancer-full-name }}.
 
 1. Создайте сетевой балансировщик нагрузки:
 
@@ -320,7 +320,7 @@ title: "Обеспечение доступа к приложению, запу�
        app: hello
    ```
 
-   Подробнее см. в [справочнике](../../network-load-balancer/k8s-ref/service.md#annotations) ресурса `Service` для {{ network-load-balancer-full-name }}.
+   Подробнее см. в [справочнике](../nlb-ref/service.md#annotations) ресурса `Service` для {{ network-load-balancer-full-name }}.
 
 1. Удалите созданный ранее внешний сетевой балансировщик нагрузки:
 
@@ -386,7 +386,7 @@ spec:
 
 {% endcut %}
 
-Подробнее см. в [справочнике](../../network-load-balancer/k8s-ref/service.md#servicespec) ресурса `Service` для {{ network-load-balancer-full-name }}.
+Подробнее см. в [справочнике](../nlb-ref/service.md#servicespec) ресурса `Service` для {{ network-load-balancer-full-name }}.
 
 ## Укажите параметры проверки состояния узлов {#healthcheck}
 
@@ -405,7 +405,7 @@ metadata:
     yandex.cloud/load-balancer-healthcheck-interval: "2s"
 ```
 
-Подробнее см. в [справочнике](../../network-load-balancer/k8s-ref/service.md#annotations) ресурса `Service` для {{ network-load-balancer-full-name }}.
+Подробнее см. в [справочнике](../nlb-ref/service.md#annotations) ресурса `Service` для {{ network-load-balancer-full-name }}.
 
 ## Создайте объект NetworkPolicy {#network-policy}
 
@@ -441,7 +441,7 @@ spec:
 
 {% endcut %}
 
-Подробнее см. в [справочнике](../../network-load-balancer/k8s-ref/networkpolicy.md) ресурса `NetworkPolicy` для {{ network-load-balancer-full-name }}.
+Подробнее см. в [справочнике](../nlb-ref/networkpolicy.md) ресурса `NetworkPolicy` для {{ network-load-balancer-full-name }}.
 
 ## Удалите созданные ресурсы {#clear-out}
 

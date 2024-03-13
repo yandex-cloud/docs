@@ -1,5 +1,5 @@
 ---
-title: "Instructions for creating a {{ PG }} connection in {{ datalens-full-name }}"
+title: "How to create a {{ PG }} connection in {{ datalens-full-name }}"
 description: "In this tutorial, you will learn how to connect to {{ PG }} in {{ datalens-full-name }}."
 ---
 
@@ -26,7 +26,7 @@ To create a {{ PG }} connection:
 
    {% list tabs group=connection %}
 
-   - Select in folder {#catalog}
+   - Select in organization {#organization}
 
       {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 

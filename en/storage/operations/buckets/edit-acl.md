@@ -5,7 +5,9 @@ description: "To control access to an {{ objstorage-name }} bucket, besides {{ i
 
 # Editing the ACL of a bucket
 
-To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name }}](../../../iam/), you can also use an [ACL](../../concepts/acl.md).
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
+To configure the [ACL](../../concepts/acl.md) of a bucket:
 
 {% list tabs group=instructions %}
 

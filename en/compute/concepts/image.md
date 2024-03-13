@@ -1,6 +1,6 @@
 ---
 title: "What is a virtual machine image? Overview"
-description: "A VM image is a complete copy of the file system structure and data on a disk. Images can be used for distributing software, such as OS distributions or disks with pre-installed software."
+description: "A VM image is a complete copy of the file system structure and data on a disk. Images can be used for distributing software, e.g., OS distributions or disks with pre-installed software."
 keywords:
   - vm
   - vm image
@@ -11,7 +11,7 @@ keywords:
 
 An _image_ is a complete copy of the file system structure and data on a disk.
 
-It is designed to quickly create a data disk, primarily, a VM boot disk. Images can be used for distributing software, such as OS distributions or disks with pre-installed software.
+It is designed to quickly create a data disk, primarily, a VM boot disk. Images can be used for distributing software, e.g., OS distributions or disks with pre-installed software.
 
 {% include [end-of-life](../../_includes/compute/end-of-life.md) %}
 
@@ -35,11 +35,17 @@ All images belonging to the same family must be in the same folder.
 
 {% endnote %}
 
-> Let's assume you want to upload an image of your operating system to {{ yandex-cloud }}. When creating an image, specify a family, such as `best-linux-distro`. This will allow other users to get the latest version of your operating system by specifying the family and image folder ID in the [request](../api-ref/Image/getLatestByFamily.md).
+> Let's assume you want to upload an image of your operating system to {{ yandex-cloud }}. When creating an image, specify a family, e.g., `best-linux-distro`. This will allow other users to get the latest version of your operating system by specifying the family and image folder ID in the [request](../api-ref/Image/getLatestByFamily.md).
 
 ## Public images {#public}
 
-Public images are, for example, [products and solutions from {{ marketplace-full-name }}](/marketplace).
+{% note info %}
+
+{% include [public-image-support](../../_includes/compute/public-image-support.md) %}
+
+{% endnote %}
+
+Public images are, e.g., [products and solutions from {{ marketplace-full-name }}](/marketplace).
 
 You can learn how to get a list of public images [here](../operations/images-with-pre-installed-software/get-list.md).
 

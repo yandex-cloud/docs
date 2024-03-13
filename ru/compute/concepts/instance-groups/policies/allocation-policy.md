@@ -7,7 +7,7 @@ _Регион_ — это географическое расположение,
 
 Регион | Зоны | Географическая привязка
 ----- | ----- | -----
-`{{ region-id }}` | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-c` | Владимирская, Московская и Рязанская области.
+`{{ region-id }}` | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-d` | Владимирская, Московская и Калужская области.
 
 
 
@@ -33,7 +33,7 @@ allocation_policy:
       instance_tags_pool:
       - third-tag
       - fourth-tag
-    - zone_id: {{ region-id }}-c
+    - zone_id: {{ region-id }}-d
       instance_tags_pool:
       - fifth-tag
       - sixth-tag

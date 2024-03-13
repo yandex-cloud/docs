@@ -46,7 +46,7 @@ title: "Как получить информацию об L7-балансиро�
           subnet_id: buc4gsmpj8hv********
         - zone_id: {{ region-id }}-b
           subnet_id: blt6pcatjje6********
-        - zone_id: {{ region-id }}-c
+        - zone_id: {{ region-id }}-d
           subnet_id: fo2ap2nrhjk9********
       log_group_id: eolul9ap0bv0********
       created_at: "2021-04-26T12:12:13.624832586Z"

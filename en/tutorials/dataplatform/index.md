@@ -7,6 +7,7 @@ description: "This page provides a list of tutorials for building a data platfor
 
 ## {{ KF }} {#kafka}
 
+* [{#T}](deploy-kafka-ui.md)
 * [{#T}](kafka-connector.md)
 * [{#T}](data-transfer-mkf.md)
 * [{#T}](data-transfer-mmy.md)
@@ -116,6 +117,14 @@ description: "This page provides a list of tutorials for building a data platfor
 
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)
+
+## {{ ydb-short-name }} {#ydb}
+
+* [{#T}](ydb-mkf-replication.md)
+* [{#T}](mkf-ydb-stream.md)
+* [{#T}](mmy-ydb-migration.md)
+* [{#T}](mpg-ydb-replication.md)
+* [{#T}](object-storage-to-ydb.md)
 
 ## {{ dns-full-name }} {#dns}
 

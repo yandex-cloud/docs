@@ -5,9 +5,13 @@ description: "Follow this guide to enable public access to operations with a buc
 
 # Enabling public access for bucket operations
 
-By default, buckets are created with restricted [access](../../concepts/bucket.md#bucket-access). You can use the management console to enable public access:
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
+By default, buckets are created with restricted [access](../../concepts/bucket.md#bucket-access). You can enable public access:
 
 {% include [storage-public-operations](../../_includes_service/storage-public-operations.md) %}
+
+{% include [public-access-warning](../../../_includes/storage/security/public-access-warning.md) %}
 
 {% list tabs group=instructions %}
 

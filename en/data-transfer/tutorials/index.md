@@ -1,8 +1,9 @@
 # {{ data-transfer-name }} tutorials
 
-Using {{ data-transfer-name }}, you can implement a variety of scenarios for migrating data, capturing data changes, delivering data from queues, uploading data to data marts, and mirroring and uploading data to scalable storage.
+Using {{ data-transfer-name }}, you can implement a variety of scenarios for migrating data, capturing data changes, delivering data from queues, loading data to data marts, and mirroring and uploading data to scalable storage.
 
 ## Data migration {#migration}
+
 Migration is a task that involves transferring data from one data storage to another. In {{ data-transfer-name }}, migration often means migrating a database from obsolete local databases to managed cloud ones.
 
 ![migration](../../_assets/data-transfer/tutorials/migration.svg)
@@ -66,7 +67,7 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 
 ## Loading data to data marts {#upload-to-data-mart}
 
-Loading data to data marts is a process of transferring prepared data to storage for subsequent visualization. Sources are data stores used for massively parallel processing of data. Targets are data stores that can quickly deliver data.
+Loading data to data marts is a process of transferring prepared data to storage for subsequent visualization. Sources are data storages used for massively parallel processing of data. Targets are data storages that can quickly deliver data.
 
 ![data mart](../../_assets/data-transfer/tutorials/data-mart.svg)
 
@@ -78,6 +79,7 @@ Loading data to data marts is a process of transferring prepared data to storage
 * [{{ yandex-direct }} to {{ CH }}](direct-to-mch.md)
 * [{{ objstorage-name }} to {{ PG }}](object-storage-to-postgresql.md)
 * [{{ objstorage-name }} to {{ CH }}](object-storage-to-clickhouse.md)
+* [{{ objstorage-name }} to {{ ydb-short-name }}](object-storage-to-ydb.md)
 
 ## Importing data to {{ objstorage-name }} {#upload-to-storage}
 
@@ -90,6 +92,8 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

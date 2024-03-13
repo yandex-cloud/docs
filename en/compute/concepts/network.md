@@ -22,7 +22,7 @@ Currently, only IPv4 addresses are supported. {{ compute-full-name }} VMs and DB
 
 An internal IP address can be used to access a VM from another VM. You can use an internal IP address only to connect to the VMs that belong to the same [cloud network](../../vpc/concepts/network.md#network).
 
-You cannot change an internal IP address.
+You can [change](../operations/vm-control/internal-ip-update.md) the internal IP address after you create a VM.
 
 ## Public IP address {#public-ip}
 

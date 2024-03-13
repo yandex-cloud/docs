@@ -32,7 +32,8 @@ dnsZoneId | <p>ID of the DNS zone to update.</p> <p>To get the DNS zone ID, make
       "string"
     ]
   },
-  "publicVisibility": {}
+  "publicVisibility": {},
+  "deletionProtection": true
 }
 ```
 
@@ -46,6 +47,7 @@ labels | **object**<br><p>DNS zone labels as ``key:value`` pairs.</p> <p>Existin
 privateVisibility | **object**<br><p>Change network IDs for private visibility.</p> <p>Configuration for privately visible zones.</p> 
 privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.</p> 
 publicVisibility | **object**<br><p>Public visibility configuration.</p> <p>Configuration for publicly visible zones.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Prevents accidental zone removal.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

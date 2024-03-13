@@ -267,7 +267,7 @@
     1. Удалите пароль: 
     
         ```
-        yc iot registry password delete --registry-name registry-with-pass --password-id are0gffs957egmoksgf4
+        yc iot registry password delete --registry-name registry-with-pass --password-id are0gffs957e********
         ```
     1. Убедитесь, что пароль действительно удален: 
         

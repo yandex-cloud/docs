@@ -5,7 +5,7 @@ description: "Using this guide, you can connect to a VM with an SSH key pair: th
 
 # Connecting to a Linux VM via SSH
 
-The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH uses a key pair: the public key resides on the VM, and the private one is kept by the user. To enable another user to connect to your VM, add an SSH key for them by following [this guide](#vm-authorized-keys). Connecting with a key pair is more secure than with login and password.
+The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH uses a key pair: the public key resides on the VM, and the private one is kept by the user. To enable another user to connect to your VM, add an SSH key for them by following [this guide](#vm-authorized-keys). Connecting with a key pair is more secure than with a username and password.
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
@@ -30,7 +30,7 @@ You can also copy the key using the command line:
 
 {% list tabs group=operating_system %}
 
-- Linux {#linux-macos}
+- Linux/macOS {#linux-macos}
 
    1. Run the terminal.
    1. Output the file contents:
@@ -44,29 +44,9 @@ You can also copy the key using the command line:
       The public key will be shown on the screen. Select and copy its text to the clipboard. For example: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz user@Desktop`.
    1. You can copy the file contents right to the clipboard:
 
-      ```bash
-      cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
-      ```
+      For Linux: `cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard`
 
-      Paste the public key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field when creating a new VM in the [management console]({{ link-console-main }}).
-
-- macOS {#macos}
-
-   1. Run the terminal.
-   1. Output the file contents:
-
-      ```bash
-      cat ~/.ssh/<key_name>.pub
-      ```
-
-      Where `<key_name>` is the key name, such as `id_ed25519` or `id_rsa`.
-
-      The public key will be shown on the screen. Select and copy its text to the clipboard. For example: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz user@Desktop`.
-   1. You can copy the file contents right to the clipboard:
-
-      ```bash
-      cat ~/.ssh/id_ed25519.pub | pbcopy
-      ```
+      For macOS: `cat ~/.ssh/id_ed25519.pub | pbcopy`
 
       Paste the public key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field when creating a new VM in the [management console]({{ link-console-main }}).
 
@@ -83,7 +63,7 @@ You can also copy the key using the command line:
       * `<username>`: Your Windows account name, such as `User`.
       * `<key_name>`: Key name, such as `id_ed25519` or `id_rsa`.
 
-      The public key will be shown on the screen. To copy the key, select and right-click it. For example: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz`.
+      The command will output the public key. To copy the key, select and right-click it. For example: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz`.
    1. You can copy the file contents right to the clipboard:
 
       ```bash
@@ -204,10 +184,17 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
 {% endlist %}
 
+For more information on how to solve connection issues, see [FAQ](../../qa/connection.md).
+
 ## Adding SSH keys for other users {#vm-authorized-keys}
 
 You can add SSH keys for another VM user. To do this, create a new user and add a file with the authorized keys for this user.
-1. Log in to the VM under the username that you specified when creating the VM in the management console. If the VM is created via the CLI, the default `yc-user` is used.
+
+To create multiple users with keys at the same time, use [metadata](../../concepts/vm-metadata.md#how-to-send-metadata).
+
+To configure users from within the VM, follow these steps:
+
+1. [Connect](#vm-connect) to the VM under the username you specified when creating the VM in the management console. If you created the VM via the CLI, `yc-user` is used by default.
 
    {% note info %}
 
@@ -246,10 +233,10 @@ You can add SSH keys for another VM user. To do this, create a new user and add 
 1. Add the new user's public key to the `authorized_keys` file:
 
    ```bash
-   echo "<public_key>" > /home/testuser/.ssh/authorized_keys
+   echo "<public_key>" >> /home/testuser/.ssh/authorized_keys
    ```
 
-1. Change the access rights `authorized_keys` to the file and `.ssh` folder:
+1. Change the access permissions to the `authorized_keys` file and the `.ssh` folder:
 
    ```bash
    chmod 700 ~/.ssh
@@ -267,3 +254,9 @@ You can add SSH keys for another VM user. To do this, create a new user and add 
 #### What's next {#what-is-next}
 
 * [Learn how to work with {{ yandex-cloud }} from inside a VM](auth-inside-vm.md).
+
+#### See also {#see-also}
+
+* [{#T}](rdp.md)
+* [{#T}](powershell.md)
+* [{#T}](os-login.md)

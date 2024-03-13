@@ -121,7 +121,10 @@ name | <p>Required. Name of the bucket to update.</p> <p>The name cannot be upda
           "noncurrentDays": "integer",
           "storageClass": "string"
         }
-      ]
+      ],
+      "noncurrentDeleteMarkers": {
+        "noncurrentDays": "integer"
+      }
     }
   ],
   "policy": "object",
@@ -229,6 +232,8 @@ lifecycleRules[].<br>noncurrentExpiration.<br>noncurrentDays | **integer** (int6
 lifecycleRules[].<br>noncurrentTransitions[] | **object**<br><p>List of transition rules for non-current versions of objects in a bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``) or suspended (``VERSIONING_SUSPENDED``).</p> <p>At transition, the non-current version of the object is transitioned to the specified storage class.</p> 
 lifecycleRules[].<br>noncurrentTransitions[].<br>noncurrentDays | **integer** (int64)<br><p>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned.</p> 
 lifecycleRules[].<br>noncurrentTransitions[].<br>storageClass | **string**<br><p>Required. Storage class to which a non-current version of an object is transitioned from standard storage.</p> <p>The only supported class is cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed.</p> 
+lifecycleRules[].<br>noncurrentDeleteMarkers | **object**<br><p>Expiration rule for non-current delete markers of an objects in a bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``) or suspended (``VERSIONING_SUSPENDED``). Works in the same way as noncurrent_expiration rule, but only for delete markers.</p> <p>At expiration, the non-current delete marker of the object is deleted and cannot be recovered.</p> 
+lifecycleRules[].<br>noncurrentDeleteMarkers.<br>noncurrentDays | **integer** (int64)<br><p>Time period, in number of days since the version of a delete marker was classified as non-current, after which the delete marker expires.</p> 
 policy | **object**<br><p>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see <a href="/docs/storage/concepts/policy">documentation</a>.</p> 
 acl | **object**<br><p>Access control list (ACL) of the bucket. For details, see <a href="/docs/storage/concepts/acl">documentation</a>.</p> 
 acl.<br>grants[] | **object**<br><p>List of permissions granted and the grantees.</p> 

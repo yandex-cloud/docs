@@ -5,70 +5,120 @@ description: "In this tutorial, you will learn about the methods of escaping cha
 
 # Escaping characters
 
-{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+{% list tabs %}
 
-* To display markup characters, escape them by using the backward slash (`\`) or tilde (`~`):
+- New editor
 
-   ```
-   \* — Asterisk.
-   ~+ — Plus sign.
-   ```
+   {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
 
-   {% cut "See the result" %}
+   * If you want to display a backquote inside a source code snippet, place two backquotes (` `` `) at the beginning and end of the code snippet:
 
-   ![](../../_assets/wiki/escape-symbols.png)
+      ```
+      ``SELECT `id` FROM `table` ``
+      ```
 
-   {% endcut %}
+      {% cut "See the result" %}
 
-* To escape all characters in a certain text fragment, enclose this fragment in double quotes `""`:
+      ![](../../_assets/wiki/escape-backtick.png)
 
-   ```
-   ""<tag>""
-   ```
+      {% endcut %}
 
-   {% cut "See the result" %}
+   * All markup characters placed in the source code are escaped automatically:
 
-   ![](../../_assets/wiki/escape-tag.png)
+      ```
+          Formatting text:
 
-   {% endcut %}
+          ```
+          *Italics*
+          **Bold**
+          ```
 
-* If you want to display a backquote inside a source code snippet, place two backquotes ` `` ` at the beginning and end of the code snippet:
+      ```
 
-   ```
-   ``SELECT `id` FROM `table` ``
-   ```
+      {% cut "See the result" %}
 
-   {% cut "See the result" %}
+      ![](../../_assets/wiki/escape-codeblock.png)
 
-   ![](../../_assets/wiki/escape-backtick.png)
+      {% endcut %}
 
-   {% endcut %}
+   * Any text in angle brackets (`<...>`) is handled as an [HTML tag](html-code.md) and is not explicitly displayed on the page. If you need to display this text, escape it, format it as a code snippet, or replace the opening angle bracket (`<`) with the `&lt;` code:
 
-* All markup characters placed in the source code are escaped automatically:
+      ```
+      &lt;tag>
+      ```
 
-   ```
-       Formatting text:
+      {% cut "See the result" %}
 
-       ```
-       *Italics*
-       **Bold**
-       ```
+      ![](../../_assets/wiki/escape-tag.png)
 
-   ```
-   {% cut "See the result" %}
+      {% endcut %}
 
-   ![](../../_assets/wiki/escape-codeblock.png)
+- Old editor
 
-   {% endcut %}
+   * To display markup characters, escape them by using a backslash (`\`) or tilde (`~`):
 
-* Any text in angle brackets `<...>` is handled as an [HTML tag](html-code.md) and is not explicitly displayed on the page. If you need to display this text, escape it, format it as a code snippet, or replace the opening parenthesis `<` with code `&lt;`:
+      ```
+      \*: Asterisk
+      ~+: Plus sign
+      ```
 
-   ```
-   &lt;tag>
-   ```
+      {% cut "See the result" %}
 
-   {% cut "See the result" %}
+      ![](../../_assets/wiki/escape-symbols.png)
 
-   ![](../../_assets/wiki/escape-tag.png)
+      {% endcut %}
 
-   {% endcut %}
+   * To escape all characters in a certain text fragment, enclose this fragment in double quotes (`""`):
+
+      ```
+      ""<tag>""
+      ```
+
+      {% cut "See the result" %}
+
+      ![](../../_assets/wiki/escape-tag.png)
+
+      {% endcut %}
+
+   * If you want to display a backquote inside a source code snippet, place two backquotes (` `` `) at the beginning and end of the code snippet:
+
+      ```
+      ``SELECT `id` FROM `table` ``
+      ```
+
+      {% cut "See the result" %}
+
+      ![](../../_assets/wiki/escape-backtick.png)
+
+      {% endcut %}
+
+   * All markup characters placed in the source code are escaped automatically:
+
+      ```
+          Formatting text:
+
+          ```
+          *Italics*
+          **Bold**
+          ```
+
+      ```
+      {% cut "See the result" %}
+
+      ![](../../_assets/wiki/escape-codeblock.png)
+
+      {% endcut %}
+
+   * Any text in angle brackets (`<...>`) is handled as an [HTML tag](html-code.md) and is not explicitly displayed on the page. If you need to display this text, escape it, format it as a code snippet, or replace the opening angle bracket (`<`) with the `&lt;` code:
+
+      ```
+      &lt;tag>
+      ```
+
+      {% cut "See the result" %}
+
+      ![](../../_assets/wiki/escape-tag.png)
+
+      {% endcut %}
+
+{% endlist %}

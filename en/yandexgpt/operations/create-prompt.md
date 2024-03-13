@@ -5,7 +5,7 @@ description: "By following this guide, you will learn to use {{ yagpt-full-name 
 
 # Sending requests in prompt mode
 
-To generate text in [prompt mode](../concepts/index.md#working-mode), send a request to the model using the [completion](../api-ref/v1/TextGeneration/completion.md) method.
+To generate text in [prompt mode](../concepts/index.md#working-mode), send a request to the model using the [completion](../text-generation/api-ref/TextGeneration/completion.md) method.
 
 ## Getting started {#before-begin}
 

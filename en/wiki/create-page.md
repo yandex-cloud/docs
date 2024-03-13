@@ -1,8 +1,6 @@
-# Creating a page in the old editor
+# Creating a page
 
-Pages created in the _old editor_ are regular pages that can contain text, images, tables, attached files, and more.
-
-There are multiple ways to create a page in the old editor:
+There are multiple ways to create pages:
 
 - [From any {{ wiki-name }} page](#create-page), by setting the address of a new page manually.
 
@@ -18,11 +16,11 @@ The maximum number of pages per organization is 10,000.
 
 ## Setting the address of a page manually {#create-page}
 
-To create a page in the old editor:
+To create a page:
 
 1. In the left-hand panel, click ![](../_assets/wiki/svg/create-page.svg) **Create page**.
 
-1. Select the **Old editor** type.
+1. Select the [page type](pages-types.md).
 
 1. Give your page a title.
 
@@ -38,8 +36,6 @@ To create a page in the old editor:
 
 1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
-1. [Add text to the page](basic-markup.md) and save the changes.
-
 ## Creating cluster subpages {#create-subpage}
 
 You can create a page in the old editor in a specific cluster:
@@ -52,7 +48,7 @@ You can create a page in the old editor in a specific cluster:
 
    * In the top-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.create_page }}**.
 
-1. Select the **Old editor** type.
+1. Select the [page type](pages-types.md).
 
 1. Give your page a title.
 
@@ -60,16 +56,13 @@ You can create a page in the old editor in a specific cluster:
 
 1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
-1. [Add text to the page](basic-markup.md) and save the changes.
-
 #### See also
 
 - [{#T}](page-management/access-setup.md)
 
-- [{#T}](old-editor.md)
-
 - [{#T}](create-grid.md)
 
-- [{#T}](wysiwyg-create.md)
 
 - [{#T}](delete-page.md)
+
+- [{#T}](import-page.md)

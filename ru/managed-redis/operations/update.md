@@ -164,11 +164,11 @@ description: "Из статьи вы узнаете, как изменить н�
      |     ID      |            ZONE IDS            |  MEMORY  |
      +-------------+--------------------------------+----------+
      | b1.nano     | {{ region-id }}-a, {{ region-id }}-b,  | 2.0 GB   |
-     |             | {{ region-id }}-c                  |          |
+     |             | {{ region-id }}-d                  |          |
      | b1.small    | {{ region-id }}-a, {{ region-id }}-b,  | 4.0 GB   |
-     |             | {{ region-id }}-c                  |          |
+     |             | {{ region-id }}-d                  |          |
      | hm1.nano    | {{ region-id }}-a, {{ region-id }}-b,  | 8.0 GB   |
-     |             | {{ region-id }}-c                  |          |
+     |             | {{ region-id }}-d                  |          |
      | hm1.micro   | {{ region-id }}-a, {{ region-id }}-b,  | 12.0 GB  |
      | ...                                                     |
      +-----------+----------------------------------+----------+

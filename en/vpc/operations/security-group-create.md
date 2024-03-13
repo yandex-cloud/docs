@@ -116,7 +116,7 @@ To create a new [security group](../concepts/security-groups.md):
 
         ingress {
           protocol          = "ANY"
-          description       = "Allows networking between resources within current security group"
+          description       = "Allows networking between resources within the current security group"
           predefined_target = "self_security_group"
           from_port         = 0
           to_port           = 65535
@@ -124,7 +124,7 @@ To create a new [security group](../concepts/security-groups.md):
 
         ingress {
           protocol           = "TCP"
-          description        = "Allows connections for sg-frontend security group resources over port 27017"
+          description        = "Allows connections for the sg-frontend security group resources over port 27017"
           security_group_id  = yandex_vpc_security_group.sg-frontend.id
           port               = 27017
         }

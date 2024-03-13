@@ -358,7 +358,7 @@ yc certificate-manager certificate list
 
      {% endnote %}
 
-     Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
+     Подробное описание настроек ресурса Ingress см. в статье [{#T}](../alb-ref/ingress.md).
 
   1. Создайте Ingress-контроллер и приложения:
 
@@ -606,7 +606,7 @@ yc certificate-manager certificate list
 
      {% endnote %}
 
-     Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
+     Подробное описание настроек ресурса Ingress см. в статье [{#T}](../alb-ref/ingress.md).
   1. Создайте Ingress-контроллер, объект `HttpBackendGroup` и приложение {{ k8s }}:
 
      ```bash

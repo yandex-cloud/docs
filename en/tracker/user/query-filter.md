@@ -88,7 +88,7 @@ You can combine multiple conditions per filter using logical operators:
 
    {% endnote %}
 
-- `OR`: Logical **{{ ui-key.startrek-backend.messages.trigger.condition.type.or }}** operator. at least one of the conditions must be fulfilled.
+- `OR`: Logical **{{ ui-key.startrek-backend.messages.trigger.condition.type.or }}** operator. At least one of the conditions must be fulfilled.
 
    For example:
    ```no-highlight
@@ -265,7 +265,7 @@ For example:
    "3d 5h 32m"
    ```
 
-* You can set intervals using acceptable date formats
+* You can set intervals using acceptable date formats:
    ```
    DD-MM-YYYY .. DD-MM-YYYY
    ```
@@ -411,7 +411,7 @@ Try to run some ready-made queries to get a better idea of how they work:
    Assignee: me() Deadline: week()
    ```
 
-* Issues with the **Critical** or **Blocker** priority for which you are the reporter, assignee, or follower:
+* Issues with the **Critical** or **Blocker** priority for which you are the reporter, assignee, or follower.
    ```no-highlight
    (Followers: me() OR Assignee: me() OR Author: me()) AND Resolution: empty() AND Priority: Blocker, Critical
    ```

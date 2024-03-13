@@ -1,5 +1,6 @@
 # {{ data-transfer-name }} release notes
 
+- [February 2024](2402.md)
 - [January 2024](2401.md)
 
 ## 2023 {#2023}

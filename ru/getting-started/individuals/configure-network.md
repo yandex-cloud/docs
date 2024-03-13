@@ -40,7 +40,7 @@ description: "Из статьи вы узнаете, как настроить �
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`. В блоке **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
     1. В поле **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите логин и SSH-ключ для доступа к ВМ.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-    1. Повторите операции для ВМ `web-node-b` и `web-node-c`. Создайте их в зонах `{{ region-id }}-b` и `{{ region-id }}-c`, и подключите к подсетям `subnet-b` и `subnet-c` соответственно.
+    1. Повторите операции для ВМ `web-node-b` и `web-node-d`. Создайте их в зонах `{{ region-id }}-b` и `{{ region-id }}-d`, и подключите к подсетям `subnet-b` и `subnet-d` соответственно.
 
 {% endlist %}
 
@@ -192,7 +192,7 @@ description: "Из статьи вы узнаете, как настроить �
     1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
     1. В открывшемся окне в поле **{{ ui-key.yacloud.compute.instance.edit-network-interface.field_security-groups-ids }}** выберите группу безопасности `vpn-sg`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-    1. Повторите шаги и назначьте группу безопасности `web-service-sg` виртуальным машинам `web-node-a`, `web-node-b` и `web-node-c`.
+    1. Повторите шаги и назначьте группу безопасности `web-service-sg` виртуальным машинам `web-node-a`, `web-node-b` и `web-node-d`.
     
 {% endlist %}
 
@@ -214,7 +214,7 @@ description: "Из статьи вы узнаете, как настроить �
     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** нажмите на список и нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
     1. В открывшемся окне задайте имя целевой группы: `web-tg`.
-    1. Выберите виртуальные машины `web-node-a`, `web-node-b` и `web-node-c`.
+    1. Выберите виртуальные машины `web-node-a`, `web-node-b` и `web-node-d`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Выберите созданную целевую группу из списка.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -226,7 +226,7 @@ description: "Из статьи вы узнаете, как настроить �
 Проверьте работоспособность инфраструктуры и убедитесь, что трафик к ВМ интернет-сервиса поступает только от разрешенных правилами адресов:
 
 1. Выполните на вашем компьютере команду `curl <Публичный IP-адрес сетевого балансировщика>`. Убедитесь, что ответ не поступил.
-1. Создайте группу безопасности `web-service-test-sg` без правил и назначьте ее ВМ `web-node-a`, `web-node-b` и `web-node-c`.
+1. Создайте группу безопасности `web-service-test-sg` без правил и назначьте ее ВМ `web-node-a`, `web-node-b` и `web-node-d`.
 1. Создайте в группе безопасности `web-service-test-sg` следующее правило для входящего трафика:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`,
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`,
@@ -240,7 +240,7 @@ description: "Из статьи вы узнаете, как настроить �
 * `vpn`;
 * `web-node-a`; 
 * `web-node-b`; 
-* `web-node-c`;
+* `web-node-d`;
 * `web-service-lb`.
 
 Освободите и [удалите](../../vpc/operations/address-delete.md) зарезервированные статические публичные IP-адреса.

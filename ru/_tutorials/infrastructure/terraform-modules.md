@@ -67,7 +67,7 @@ module "yc-vpc" {
   },
   {
     name           = "subnet-3"
-    zone           = "{{ region-id }}-c"
+    zone           = "{{ region-id }}-d"
     v4_cidr_blocks = ["10.12.0.0/24"]
   }
   ]

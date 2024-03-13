@@ -1,6 +1,6 @@
 # Converting a page to the new editor
 
-If you had a chance to try out the features of the [new {{ wiki-name }} editor](../new-editor.md) and want to use it exclusively, you can convert {{ wiki-name }} pages created in the old editor to the new one.
+If you had a chance to try out the features of the [new {{ wiki-name }} editor](../pages-types.md#new-editor) and want to use it exclusively, you can convert {{ wiki-name }} pages created in the old editor to the new one.
 
 ## What you should know before converting a page {#restrictions}
 

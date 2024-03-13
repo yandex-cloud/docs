@@ -33,13 +33,13 @@
 		
         Результат:
         ```
-        2019-09-19 18:51:02     connected, cert: "94ea0421199ec70f1f3d359a1c167a81de4cf6ec", address: "77.88.15.128:53171", clientID: "YCCmdLine"
-        2019-09-19 18:51:02     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3afc3cefcvm/events"]
+        2019-09-19 18:51:02     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53171", clientID: "YCCmdLine"
+        2019-09-19 18:51:02     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
         2019-09-19 18:52:30     disconnected: client disconnected
-        2019-09-19 18:52:36     connected, cert: "94ea0421199ec70f1f3d359a1c167a81de4cf6ec", address: "77.88.15.128:53198", clientID: "YCCmdLine"
-        2019-09-19 18:52:36     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3afc3cefcvm/events"]
+        2019-09-19 18:52:36     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53198", clientID: "YCCmdLine"
+        2019-09-19 18:52:36     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
         2019-09-19 18:52:54     disconnected: client disconnected
-        2019-09-19 18:52:58     connected, cert: "94ea0421199ec70f1f3d359a1c167a81de4cf6ec", address: "77.88.15.128:53209", clientID: "YCCmdLine"
+        2019-09-19 18:52:58     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53209", clientID: "YCCmdLine"
         2019-09-19 18:53:32     disconnected: client disconnected
         ```
   
@@ -78,17 +78,17 @@
 
         Результат:
         ```
-        2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53189", clientID: "YCCmdLine"
-        2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3afc3cefcvm/events" not allowed
-        2019-09-19 18:52:38     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53201", clientID: "YCCmdLine"
-        2019-09-19 18:52:38     disconnected: publish to topic "$device/areqjd6un3afc3cefcvm/events" not allowed
-        2019-09-19 18:52:51     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53206", clientID: "YCCmdLine"
+        2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53189", clientID: "YCCmdLine"
+        2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed
+        2019-09-19 18:52:38     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53201", clientID: "YCCmdLine"
+        2019-09-19 18:52:38     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed
+        2019-09-19 18:52:51     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53206", clientID: "YCCmdLine"
         2019-09-19 18:52:51     disconnected: client disconnected
-        2019-09-19 18:53:01     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53213", clientID: "YCCmdLine"
+        2019-09-19 18:53:01     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53213", clientID: "YCCmdLine"
         2019-09-19 18:53:01     disconnected: client disconnected
-        2019-09-19 18:53:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53217", clientID: "YCCmdLine"
+        2019-09-19 18:53:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53217", clientID: "YCCmdLine"
         2019-09-19 18:53:03     disconnected: client disconnected
-        2019-09-19 18:53:04     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53220", clientID: "YCCmdLine"
+        2019-09-19 18:53:04     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53220", clientID: "YCCmdLine"
         2019-09-19 18:53:04     disconnected: client disconnected
         ```
   

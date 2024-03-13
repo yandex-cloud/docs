@@ -58,7 +58,7 @@
      resource "yandex_serverless_container" "test-container" {
        name               = "my-container"
        memory             = 256
-       service_account_id = "ajec........34ova"
+       service_account_id = "ajecvjv1lv01********"
        image {
            url = "{{ registry }}/yc/test-image:v1"
            environment = {
@@ -69,7 +69,7 @@
      ...
      ```
 
-     Где `--environment` — переменные окружения в формате `key="value"`. Можно указать несколько пар.
+     Где `environment` — переменные окружения в формате `key="value"`. Можно указать несколько пар.
 
 	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 

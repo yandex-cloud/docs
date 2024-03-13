@@ -1,8 +1,8 @@
 # {{ GL }} integration with {{ tracker-full-name }}
 
-In [{{ tracker-name }} issues](../../tracker/about-tracker.md#zadacha), you can automatically add links to [Merge Requests]({{ gl.docs }}/ee/user/project/merge_requests/) from {{ GL }}. To do this, specify the appropriate issue's [key](../../tracker/glossary.md#key) in the name or description of a new Merge Request. The links will be placed in [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations }}](../../tracker/external-links.md).
+In [{{ tracker-name }} issues](../../tracker/about-tracker.md#zadacha), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the appropriate issue [key](../../tracker/glossary.md#key) in the name or description of a new merge request. The links will be placed in [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations }}](../../tracker/external-links.md).
 
-You can also enable automatic creation of issue comments with information about Merge Requests. Auto comments are only available for [{{ mgl-name }}](../../managed-gitlab/).
+You can also enable automatic creation of issue comments with information about merge requests. Auto comments are only available for [{{ mgl-name }}](../../managed-gitlab/).
 
 To set up integration with {{ GL }} in {{ tracker-name }}:
 
@@ -74,8 +74,8 @@ To set up integration for an individual {{ GL }} project, create one.
    1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
    1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
    1. Log in using the administrator account:
-      * **Username or email**: `root`
-      * **Password**: Password you copied earlier
+      * **Username or email**: `root`.
+      * **Password**: Password you copied earlier.
 
       If you are unable to log in, [reset the administrator account password]({{ gl.docs }}/ee/security/reset_user_password.html#reset-your-root-password).
    1. [Change the administrator account password]({{ gl.docs }}/ee/user/profile/user_passwords.html#change-your-password).
@@ -97,10 +97,10 @@ To set up integration for an individual {{ GL }} project, create one.
 ## Check the result {#check-result}
 
 1. [Create an issue](../../tracker/user/create-ticket.md#create-task) in {{ tracker-name }}.
-1. [Create a Merge Request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key](../../tracker/glossary.md#key) in its name or description.
-1. Make sure the {{ tracker-name }} issue now contains a link to the {{ GL }} Merge Request under [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations}}](../../tracker/external-links.md).
+1. [Create a merge request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key](../../tracker/glossary.md#key) in its name or description.
+1. Make sure the {{ tracker-name }} issue now contains a link to the {{ GL }} merge request under [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations}}](../../tracker/external-links.md).
 
-   If you used {{ mgl-name }} and enabled auto comments when [creating a hook](#create-hook), the issue will show a comment with the Merge Request link and details.
+   If you used {{ mgl-name }} and enabled auto comments when [creating a hook](#create-hook), the issue will show a comment with the merge request link and details.
 
 ## Delete the resources you created {#clear-out}
 

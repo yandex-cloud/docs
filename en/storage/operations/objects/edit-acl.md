@@ -1,9 +1,11 @@
 ---
 title: "Editing an object ACL in {{ objstorage-full-name }}"
-description: "To control access to an object in an {{ objstorage-name }}, you can use an access control list (ACL)."
+description: "To control access to an object in an {{ objstorage-name }} bucket, you can use an access control list (ACL)."
 ---
 
 # Editing an object ACL
+
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
 To control access to an object in an {{ objstorage-name }} bucket, you can use an [ACL](../../concepts/acl.md).
 
@@ -16,7 +18,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
    1. Click the bucket name.
    1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-      You can also click the object name, click ![image](../../../_assets/console-icons/ellipsis.svg) on the resulting page, and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
+      You can also click the object name, click ![image](../../../_assets/console-icons/ellipsis.svg) on the page that opens, and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
 
    1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
@@ -48,7 +50,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
       Where:
       * `access_key`: ID of the static access key.
       * `secret_key`: Secret access key value.
-      * `acl`: [Predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of an object. `private` (default): {{ yandex-cloud }} users are authorized based on their roles in {{ iam-short-name }}.
+      * `acl`: [Predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of an object. The default value is `private`: {{ yandex-cloud }} users get permissions based on their roles in {{ iam-short-name }}.
 
       For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).
 

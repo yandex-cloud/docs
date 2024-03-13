@@ -299,6 +299,7 @@ secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the ve
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ### Resources {#Resources}
@@ -416,6 +417,7 @@ secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig1)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ### Resources {#Resources1}
@@ -534,6 +536,7 @@ secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig2)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ### Resources {#Resources2}
@@ -652,6 +655,7 @@ secrets[] | **[Secret](#Secret3)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount3)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig3)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ### Resources {#Resources3}
@@ -782,6 +786,7 @@ secrets[] | **[Secret](#Secret4)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount4)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig4)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ### Resources {#Resources4}
@@ -912,6 +917,7 @@ secrets[] | **[Secret](#Secret5)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions5)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount5)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig5)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ### Resources {#Resources5}
@@ -1098,6 +1104,7 @@ secrets[] | **[Secret](#Secret6)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions6)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount6)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig6)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ### Resources {#Resources6}
@@ -1243,6 +1250,7 @@ secrets[] | **[Secret](#Secret7)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions7)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount7)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig7)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ### Resources {#Resources7}
@@ -1428,6 +1436,7 @@ secrets[] | **[Secret](#Secret8)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions8)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount8)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig8)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. Available for versions with resources.memory greater or equal to 1024 MiB. <br>0 or in range from 512 MiB to 3/4 of resources.memory. 
 
 
 ### Resources {#Resources8}
@@ -1564,6 +1573,7 @@ secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig9)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -1599,6 +1609,7 @@ secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the v
 log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig9)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. Available for versions with resources.memory greater or equal to 1024 MiB. <br>0 or in range from 512 MiB to 3/4 of resources.memory. 
 
 
 ### Resources {#Resources9}
@@ -1735,6 +1746,7 @@ secrets[] | **[Secret](#Secret10)**<br>Yandex Lockbox secrets to be used by the 
 log_options | **[LogOptions](#LogOptions10)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount10)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig10)**<br>Config for asynchronous invocations of the version 
+tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
 
 
 ## ListRuntimes {#ListRuntimes}

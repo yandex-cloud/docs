@@ -63,9 +63,9 @@ items:
         href: testing/loadtesting-grpc.md
       - name: Deploying and load testing a gRPC service with scaling
         href: testing/loadtesting-grpc-autoscaling.md
-      - name: Using Phantom to run a fixed-load HTTPS test
+      - name: Fixed-load HTTPS testing with Phantom
         href: testing/loadtesting-https-phantom.md
-      - name: Using Pandora to run a step-load HTTPS test
+      - name: Step-load HTTPS testing with Pandora
         href: testing/loadtesting-https-pandora.md
       - name: Load testing using multiple agents
         href: testing/loadtesting-multiply.md
@@ -220,6 +220,8 @@ items:
     items:
       - name: All tutorials
         href: dataplatform/index.md
+      - name: Deploying the {{ KF }} web interface
+        href: dataplatform/deploy-kafka-ui.md
       - name: >-
           Migrating databases from a third-party {{ KF }} cluster to {{ mkf-name
           }}
@@ -452,6 +454,26 @@ items:
         href: dataplatform/redis-data-migration.md
       - name: Using {{ mrd-name }} clusters as PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
+      - name: >-
+          Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/ydb-mkf-replication.md
+      - name: >-
+          Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mkf-ydb-stream.md
+      - name: >-
+          Migrating databases from {{ mmy-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mmy-ydb-migration.md
+      - name: >-
+          Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mpg-ydb-replication.md
+      - name: >-
+          Loading data from {{ objstorage-full-name }} to {{ ydb-full-name }}
+          using {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-ydb.md
   - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials

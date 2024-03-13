@@ -130,12 +130,16 @@ items:
                 href: user/api-ref/Agent/get.md
               - name: list
                 href: user/api-ref/Agent/list.md
+              - name: update
+                href: user/api-ref/Agent/update.md
           - name: Config
             items:
               - name: Overview
                 href: user/api-ref/Config/index.md
               - name: create
                 href: user/api-ref/Config/create.md
+              - name: delete
+                href: user/api-ref/Config/delete.md
               - name: get
                 href: user/api-ref/Config/get.md
               - name: list

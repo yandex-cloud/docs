@@ -11,6 +11,8 @@ items:
         href: operations/index.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
+      - name: Connecting to a node over {{ oslogin }}
+        href: operations/node-connect-oslogin.md
       - name: Updating {{ k8s }}
         href: operations/update-kubernetes.md
       - name: Configuring autoscaling
@@ -148,6 +150,8 @@ items:
         href: tutorials/index.md
       - name: Creating a new {{ k8s }} project in {{ yandex-cloud }}
         href: tutorials/new-kubernetes-project.md
+      - name: Creating a {{ k8s }} cluster with no internet access
+        href: tutorials/k8s-cluster-with-no-internet.md
       - name: Running workloads using GPUs
         href: tutorials/running-pod-gpu.md
       - name: Using node groups with GPUs and no pre-installed drivers

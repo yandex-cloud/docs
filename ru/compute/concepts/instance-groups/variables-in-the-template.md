@@ -92,8 +92,8 @@ _Пользовательская переменная_ — значение, к
        value: rc1a
      - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_{{ region-id }}-c
-       value: rc1c
+     - key: short_zone_var_{{ region-id }}-d
+       value: rc1d
    instance_template:
      name: production-{short_zone_var_{instance.zone_id}}-{instance.index}
      hostname: production-{instance.index}
@@ -110,8 +110,8 @@ _Пользовательская переменная_ — значение, к
        value: rc1a
      - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_{{ region-id }}-c
-       value: rc1c
+     - key: short_zone_var_{{ region-id }}-d
+       value: rc1d
    instance_template:
      name: production-{short_zone_var_{{ region-id }}-a}-1
      hostname: production-1
@@ -135,8 +135,8 @@ _Пользовательская переменная_ — значение, к
        value: rc1a
      - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_{{ region-id }}-c
-       value: rc1c
+     - key: short_zone_var_{{ region-id }}-d
+       value: rc1d
    instance_template:
      name: production-rc1a-1
      hostname: production-1

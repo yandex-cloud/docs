@@ -78,8 +78,8 @@
 
     
     ```text
-    id: a1s5msktij**********
-    folder_id: b1gmit33hg**********
+    id: a1s5msktijh2********
+    folder_id: b1gmit33hgh2********
     created_at: "2022-10-24T15:19:15.353909857Z"
     name: timer
     rule:
@@ -87,14 +87,14 @@
         cron_expression: 5 10 ? * * *
         payload: <сообщение>
         invoke_container_with_retry:
-          container_id: bba5jb38o8**********
-          service_account_id: aje3932acd**********
+          container_id: bba5jb38o8h2********
+          service_account_id: aje3932acdh2********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:dlq
-            service-account-id: aje3932acd**********
+            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:dlq
+            service-account-id: aje3932acdh2********
     status: ACTIVE
     ```
   

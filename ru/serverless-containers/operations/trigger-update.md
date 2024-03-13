@@ -44,8 +44,8 @@
 
       
       ```text
-      id: a1s5msktij**********
-      folder_id: b1gmit33hg**********
+      id: a1s5msktijh2********
+      folder_id: b1gmit33hgh2********
       created_at: "2022-10-24T15:19:15.353909857Z"
       name: my-trigger
       rule:
@@ -58,14 +58,14 @@
           prefix: dev
           suffix: 12.jpg
           invoke_container:
-            container_id: bba5jb38o8**********
-            service_account_id: aje3932acd**********
+            container_id: bba5jb38o8h2********
+            service_account_id: aje3932acdh2********
             retry_settings:
               retry_attempts: "1"
               interval: 10s
             dead_letter_queue:
-              queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
-              service-account-id: aje3932acd**********
+              queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmkh2********:dlq
+              service-account-id: aje3932acdh2********
       status: ACTIVE
       ```
 

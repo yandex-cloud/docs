@@ -604,7 +604,7 @@ default:
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
   subjects-allUsers: allUsers
   subnet-id: b0rcctk2rvtr********
-  subnet-name: default-ru-central1-c
+  subnet-name: default-ru-central1-d
   support-center-name: Support Center
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
@@ -725,7 +725,7 @@ default:
   YZ: Yezzey
   ZK: ZooKeeper
   zk-host-class: b2.medium
-  zone-id: ru-central1-c
+  zone-id: ru-central1-d
   sku|RUB|ai:
     mt:
       detect|string: "492,2000\_₽"
@@ -2572,8 +2572,6 @@ default:
           upload-btn-text: Выберите файл
         blocks_w-comment:
           edit: Редактировать
-        blocks_w-page-setting:
-          add: Добавить
       blocks_common_favorites:
         blocks_b-favs-links:
           name_search: Поиск по названию
@@ -3968,9 +3966,12 @@ default:
             button_bind: Привязать
           budgets:
             button_create: Создать бюджет
+            label_amount: Сумма
             label_budgets: Бюджеты
+            label_expire: Дата окончания
             label_limits: Пороги
             label_notify: Уведомить
+            label_reset-period: Период расчета
             label_type: Тип бюджета
             label_type-balance: Остаток средств
             label_type-cost: Стоимость потребления
@@ -5089,6 +5090,7 @@ default:
             popup-robot_button_add: Создать
             popup-robot_button_save: Сохранить
             popup-robot_field_name: Имя
+            popup-robot_field_roles: Роли в каталоге
           service-accounts:
             button_action-delete: Удалить
             button_action-edit: Редактировать
@@ -5963,6 +5965,7 @@ default:
             field_mqtt-topic: MQTT-топик
             field_name: Имя
             field_prefix: Префикс ключа объекта
+            field_queue: Очередь сообщений
             field_registry: Реестр
             field_resource-type: Типы ресурсов
             field_retry-attempts: Количество попыток

@@ -5,8 +5,6 @@ description: "In this tutorial, you will learn how to use text formatting in {{ 
 
 # Quotes
 
-{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
-
 ## Quoting a paragraph {#paragraph}
 
 * To quote a paragraph, add the `>` character at the start of that paragraph.
@@ -58,33 +56,62 @@ Sample markups:
 
 ## Quoting a long text {#long-text}
 
-To quote a long piece of text, enclose the quote in `<[` and `]>`.
+{% list tabs %}
 
-This format also supports nested quotes and other markup elements.
+- New editor
 
-* ```
-    <[First-level quote.
-    >Second-level quote
+   {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
+   For example:
+
+   *  ```
+      > Subtitle
+      >
+      > * *First* item.
+      > * **Second** item.
+      >
+      > code snippet
+      ```
+
+      {% cut "See the result" %}
+
+      ![](../../_assets/wiki/quote-formatting.png)
+
+      {% endcut %}
+
+- Old editor
+
+   * To quote a long piece of text, enclose the quote in `<[`and `]>`.
+
+   * This format also supports nested quotes and other markup elements.
+
+   Sample markups:
+
+   * ```
+     <[First-level quote.
+     >Second-level quote
    
-    First level again.]>
-  ```
+     First level again.]>
+     ```
 
-   {% cut "See the result" %}
+       {% cut "See the result" %}
 
-   ![](../../_assets/wiki/quote-nested.png)
+       ![](../../_assets/wiki/quote-nested.png)
 
-   {% endcut %}
+       {% endcut %}
 
-* ```
+   * ```
      <[#### Subtitle
      * *First* item.
      * **Second** item.
 
      `code snippet`]>
-  ```
+     ```
 
-   {% cut "See the result" %}
+       {% cut "See the result" %}
 
-   ![](../../_assets/wiki/quote-formatting.png)
+       ![](../../_assets/wiki/quote-formatting.png)
 
-   {% endcut %}
+       {% endcut %}
+
+{% endlist %}

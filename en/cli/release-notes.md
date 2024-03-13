@@ -7,19 +7,33 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
-## Version 0.118.0 (14/02/24) {#version0.118.0}
+## Version 0.119.0 (27/02/24) {#version0.119.0}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ mgp-name }}
+#### {{ iam-name }} {#iam}
+
+* Added the `yc iam service-control` command tree with the `get`, `list`, `enable`, `pause`, `resume`, and `disable` commands for managing service access to the cloud resources.
+
+#### {{compute-name}}
+
+* Added support for serial port settings in the `yc compute instance create` and `yc compute instance update` commands.
+
+## Previous releases {#previous-releases}
+
+### Version 0.118.0 (14/02/24) {#version0.118.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ mgp-name }}
 
 * Added the `yc managed-greenplum backups` command tree with the `get`, `list`, and `delete` commands to manage backups.
 * Added the `yc managed-greenplum cluster backup` command to create a backup.
 
-#### {{compute-name}}
+##### {{compute-name}}
 * Added the `--identity-file` flag to the `yc compute ssh` command to connect to a VM via SSH with a user key.
 
-#### {{ data-transfer-name }}
+##### {{ data-transfer-name }}
 
 - Added the `--file` flag for the following commands to specify a YAML file for request configuration:
    * `yc datatransfer transfer create`
@@ -27,31 +41,29 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
    * `yc datatransfer endpoint create`
    * `yc datatransfer endpoint update`
 
-#### {{ org-name }} {#organization}
+##### {{ org-name }} {#organization}
 
 * Added the `yc organization-manager federation saml delete-user-accounts` command to delete federation users.
 
-#### {{load-testing-name}}
+##### {{load-testing-name}}
 
 Added the `yc loadtesting test get-report-table` command to get a tabular report on the completed load test.
 
-#### {{ dns-name }} {#dns}
+##### {{ dns-name }} {#dns}
 
 * Added the `--page-token` parameter to the `yc dns zone list-records` command to enable pagination by page token.
 
-## Previous releases {#previous-releases}
+### Version 0.117.0 (30/01/24) {#version0.117.0}
 
-## Version 0.117.0 (30/01/24) {#version0.117.0}
+#### Changes to {{ yandex-cloud }} services {#services}
 
-### Changes to {{ yandex-cloud }} services {#services}
-
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mgp-name }}**
 
 Added the `restore-only` flag for the `yc managed-greenplum cluster restore` command to restore only the specified objects.
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 Added the following parameters to the `yc iot registry create`, `yc iot registry update`, `yc iot broker create`, and `yc iot broker update` commands:
 
@@ -60,15 +72,15 @@ Added the following parameters to the `yc iot registry create`, `yc iot registry
 * `--log-folder-id`, `--log-folder-name`: ID or name of the folder with a default log group to deliver the logs to.
 * `--min-log-level`: Minimum record logging level.
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
 Fixed the error in the `k8s cluster update` command occurring when `cluster-id` is transferred as a positional argument.
 
-## Version 0.116.0 (15/01/24) {#version0.116.0}
+### Version 0.116.0 (15/01/24) {#version0.116.0}
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to {{ yandex-cloud }} services {#services}
 
-#### Networks in serverless computing services {#serverless}
+##### Networks in serverless computing services {#serverless}
 
 Added the `yc serverless network` command group to manage networks that are used in serverless computing services ({{ sf-name }}, {{ serverless-containers-name }}, and {{ api-gw-name }}):
 
@@ -77,29 +89,29 @@ Added the `yc serverless network` command group to manage networks that are used
 * `yc serverless network list-connections`: Get a list of resources of serverless computing services that are connected to any network in the specified area (network, directory, or cloud).
 * `yc serverless network trigger-used-cleanup`: Initiate an early cleanup of the network from system subnets if it is no longer used in serverless computing services.
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * Support for listing more than 1,000 resources via the `limit` parameter has been added to the `iam`, `resource-manager` and `organization-manager` command tree.
 
-#### {{ objstorage-name }}
+##### {{ objstorage-name }}
 
 * Added support for `andOperation` to the `yc storage bucket update --lifecycle-rules/--lifecycle-rules-from-file` command to combine conditions in the `filter`.
 * Now you can edit the `--encryption key-id=foobarbaz123` encryption key in the `yc storage bucket update` command: `--remove-encryption`.
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mch-name }}**
 
 * Now you can specify the `cloud-storage-data-cache-max-size` parameter in the `{{ yc-mdb-ch }} cluster update` command in an easy-to-read format.
 
-#### {{ cdn-name }} {#cdn}
+##### {{ cdn-name }} {#cdn}
 
 Added the parameters to the `yc cdn resource update` and `yc cdn resource create` commands to define the *ip address acl* option:
 
 * `--policy-type`: Client access policy by IP addresses; either *allow* or *deny*.
 * `--acl-excepted-values`: List of IP addresses for which access will be allowed or denied depending on the specified policy type.
 
-#### {{load-testing-name}}
+##### {{load-testing-name}}
 
 Added the `yc loadtesting` command tree to manage the load testing service:
 

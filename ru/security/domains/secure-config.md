@@ -61,7 +61,7 @@
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Пример: сканирование tf-файлов с помощью Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
-![](../../_assets/overview/solution-library-icon.svg)[Пример: хранение состояния {{ TF }} в {{ objstorage-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/remote-backend)
+![](../../_assets/overview/solution-library-icon.svg)[Пример: хранение состояния {{ TF }} в {{ objstorage-name }}](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)
 
 
 ### Контроль целостности {#integrity-control}

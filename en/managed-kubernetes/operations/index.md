@@ -1,11 +1,12 @@
 ---
-title: "Instructions for operations with {{ managed-k8s-full-name }}"
-description: "In this article, you'll learn how to work with the managed service for {{ k8s }} in {{ yandex-cloud }}. Find out how to use persistent volumes and manage {{ k8s }} clusters and node groups."
+title: "How to work with {{ managed-k8s-full-name }}"
+description: "In this article, you will learn how to work with the managed service for {{ k8s }} in {{ yandex-cloud }}. Find out how to use persistent volumes and manage {{ k8s }} clusters and node groups."
 ---
 
 # Step-by-step guides for {{ managed-k8s-name }}
 
 * [{#T}](node-connect-ssh.md)
+* [{#T}](node-connect-oslogin.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
 

@@ -145,4 +145,8 @@ items:
                 href: backup/api-ref/Resource/listTasks.md
   - name: '{{ at-name }} audit logs'
     href: at-ref.md
+  - name: FAQ
+    items:
+      - name: Troubleshooting
+        href: qa/troubleshooting.md
 base: en/backup

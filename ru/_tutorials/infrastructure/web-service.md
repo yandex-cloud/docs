@@ -38,8 +38,7 @@
 Перед тем, как создавать ВМ:
 
 1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и откройте каталог, в котором будете выполнять операции.
-
-1. Выберите сервис **{{ vpc-name }}** и создайте [облачную сеть](../../vpc/operations/network-create.md) с [подсетями](../../vpc/operations/subnet-create.md) `subnet-a`, `subnet-b` и `subnet-c` в зонах доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-c` соответственно.
+1. Выберите сервис **{{ vpc-name }}** и создайте [облачную сеть](../../vpc/operations/network-create.md) с [подсетями](../../vpc/operations/subnet-create.md) `subnet-a`, `subnet-b` и `subnet-d` в зонах доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d` соответственно.
 
 ## Зарезервируйте два статических публичных IP-адреса {#reserve-ips}
 
@@ -70,7 +69,7 @@
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_none }}**.
     1. В поле **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите логин и [SSH-ключ](../../glossary/ssh-keygen.md) для доступа к ВМ. Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys) самостоятельно.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-    1. Повторите операции для ВМ `web-node-b` и `web-node-c`. Создайте их в зонах `{{ region-id }}-b` и `{{ region-id }}-c`, и подключите к подсетям `subnet-b` и `subnet-c` соответственно.
+    1. Повторите операции для ВМ `web-node-b` и `web-node-d`. Создайте их в зонах `{{ region-id }}-b` и `{{ region-id }}-d`, и подключите к подсетям `subnet-b` и `subnet-d` соответственно.
 
 {% endlist %}
 
@@ -89,16 +88,16 @@
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_list }}**. В открывшемся списке выберите зарезервированный IP-адрес.
     1. В поле **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите логин и SSH-ключ для доступа к ВМ.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-    
+
 {% endlist %}
 
 ## Настройте маршрутизацию для VPN {#vpn-routing}
 
-Настройте маршрутизацию между удаленной сетью и IPSec-инстансом. В примере будет использоваться подсеть `192.168.0.0/24`. 
+Настройте маршрутизацию между удаленной сетью и IPSec-инстансом. В примере будет использоваться подсеть `192.168.0.0/24`.
 
 ### Создайте таблицу маршрутизации {#create-route-table}
 
-Создайте таблицу маршрутизации и добавьте в нее [статические маршруты](../../vpc/concepts/static-routes.md): 
+Создайте таблицу маршрутизации и добавьте в нее [статические маршруты](../../vpc/concepts/static-routes.md):
 
 {% list tabs group=instructions %}
 
@@ -113,7 +112,7 @@
     1. В открывшемся окне введите префикс подсети назначения на удаленной площадке, в примере это `192.168.0.0/24`.
     1. В поле **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** укажите внутренний IP-адрес IPSec-шлюза. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
-    
+
 {% endlist %}
 
 ### Привяжите таблицу маршрутизации ко всем подсетям {#associate-route-table}
@@ -224,8 +223,8 @@
     1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
     1. В открывшемся окне выберите группу безопасности `vpn-sg`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-    1. Повторите шаги и назначьте группу безопасности `web-service-sg` виртуальным машинам `web-node-a`, `web-node-b` и `web-node-c`.
-    
+    1. Повторите шаги и назначьте группу безопасности `web-service-sg` виртуальным машинам `web-node-a`, `web-node-b` и `web-node-d`.
+
 {% endlist %}
 
 ## Создайте сетевой балансировщик {#create-load-balancer}
@@ -246,7 +245,7 @@
     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** нажмите ![icon-users](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**. В открывшемся окне:
        1. Задайте имя целевой группы: `web-tg`.
-       1. Выберите виртуальные машины `web-node-a`, `web-node-b` и `web-node-c`.
+       1. Выберите виртуальные машины `web-node-a`, `web-node-b` и `web-node-d`.
        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Выберите созданную целевую группу из списка и в настройках измените протокол проверки состояния балансировщика на `TCP`:
        1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
@@ -260,7 +259,7 @@
 Проверьте работоспособность инфраструктуры и убедитесь, что трафик к ВМ интернет-сервиса поступает только от разрешенных правилами адресов:
 
 1. Выполните на вашем компьютере команду `curl <публичный_IP-адрес_сетевого_балансировщика>`. Убедитесь, что ответ не поступил.
-1. Создайте группу безопасности `web-service-test-sg` без правил и назначьте ее ВМ `web-node-a`, `web-node-b` и `web-node-c`.
+1. Создайте группу безопасности `web-service-test-sg` без правил и назначьте ее ВМ `web-node-a`, `web-node-b` и `web-node-d`.
 1. Создайте в группе безопасности `web-service-test-sg` следующее правило для входящего трафика:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`;
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`;
@@ -276,7 +275,7 @@
 * `vpn`;
 * `web-node-a`;
 * `web-node-b`;
-* `web-node-c`;
+* `web-node-d`;
 * `web-service-lb`.
 
 Освободите и [удалите](../../vpc/operations/address-delete.md) зарезервированные статические публичные IP-адреса.

@@ -93,7 +93,7 @@
     * `--name` — имя триггера.
     * `--database` — размещение базы данных {{ ydb-short-name }}, к которой привязан поток {{ yds-name }}.
 
-      Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
+      Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/{{ region-id }}/b1gia87mbah2********/etn7hehf6gh3********`.
 
     * `--stream` — имя потока данных.
     * `--batch-size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
@@ -105,27 +105,27 @@
     Результат:
 
     ```text
-    id: a1s5msktij**********
-    folder_id: b1gmit33hg**********
+    id: a1s5msktijh2********
+    folder_id: b1gmit33hgh2********
     created_at: "2022-10-24T14:07:04.693126923Z"
     name: data-streams-trigger
     rule:
       data_stream:
-        database: /{{ region-id }}/b1gia87mba**********/etn7heh**********
+        database: /{{ region-id }}/b1gia87mbah2********/etn7hehh2********
         stream: streams-name
-        service_account_id: ajep8qm0k**********
+        service_account_id: ajep8qm0kh2********
         batch_settings:
           size: "1"
           cutoff: 1s
         invoke_container:
-          container_id: bba5jb38o8**********
-          service_account_id: aje03adgd2**********
+          container_id: bba5jb38o8h2********
+          service_account_id: aje03adgd2h2********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:dlq
-            service-account-id: aje3lebfem**********
+            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:dlq
+            service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```
 

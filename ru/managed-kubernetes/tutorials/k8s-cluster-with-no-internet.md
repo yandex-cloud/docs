@@ -346,7 +346,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
                    else
                      echo "Doing Nothing as no certs has not been changed"
                    fi
-                 sleep 60                
+                 sleep 60
                done
            imagePullPolicy: Never
            securityContext:
@@ -356,7 +356,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
                memory: 200Mi
              requests:
                cpu: 100m
-               memory: 200Mi          
+               memory: 200Mi
            volumeMounts:
            - mountPath: /etc/
              name: etc

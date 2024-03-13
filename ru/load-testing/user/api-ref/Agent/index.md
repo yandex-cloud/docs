@@ -18,7 +18,8 @@ A set of methods for managing Load Testing agents.
     "string"
   ],
   "currentJobId": "string",
-  "agentVersionId": "string"
+  "agentVersionId": "string",
+  "labels": "object"
 }
 ```
  
@@ -33,6 +34,7 @@ status | **string**<br><p>Status of the agent.</p> <p>Agent status.</p> <ul> <li
 errors[] | **string**<br><p>List of errors reported by the agent.</p> 
 currentJobId | **string**<br><p>ID of the test that is currently being executed by the agent.</p> 
 agentVersionId | **string**<br><p>Version of the agent.</p> 
+labels | **object**<br><p>Agent labels as ``key:value`` pairs.</p> 
 
 ## Methods {#methods}
 Method | Description
@@ -41,3 +43,4 @@ Method | Description
 [delete](delete.md) | Deletes the specified agent.
 [get](get.md) | Returns the specified agent.
 [list](list.md) | Retrieves the list of agents in the specified folder.
+[update](update.md) | Updates the specified agent.
