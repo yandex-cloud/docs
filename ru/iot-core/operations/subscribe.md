@@ -4,11 +4,11 @@
 
 Для реестров и устройств выбор топиков ограничен, вы можете подписать:
 
-- Реестр на события устройства, используя топики `$devices/<ID устройства>/events` или `$registries/<ID реестра>/events`.
-- Реестр на события устройства, используя перманентные топики `$devices/<ID устройства>/state` или `$registries/<ID реестра>/state`.
-- Устройство на команды реестра, используя топики `$devices/<ID устройства>/commands` или `$registries/<ID реестра>/commands`.
-- Устройство на команды реестра, используя перманентные топики `$devices/<ID устройства>/config` или `$registries/<ID реестра>/config`.
-- Реестр или устройство на данные мониторинга устройства, используя топик `$monitoring/<ID устройства>/json`.
+- Реестр на события устройства, используя топики `$devices/<идентификатор_устройства>/events` или `$registries/<идентификатор_реестра>/events`.
+- Реестр на события устройства, используя перманентные топики `$devices/<идентификатор_устройства>/state` или `$registries/<идентификатор_реестра>/state`.
+- Устройство на команды реестра, используя топики `$devices/<идентификатор_устройства>/commands` или `$registries/<идентификатор_реестра>/commands`.
+- Устройство на команды реестра, используя перманентные топики `$devices/<идентификатор_устройства>/config` или `$registries/<идентификатор_реестра>/config`.
+- Реестр или устройство на данные мониторинга устройства, используя топик `$monitoring/<идентификатор_устройства>/json`.
 
 О том, как обмениваться сообщениями, читайте в разделе [{#T}](publish.md).
 
@@ -38,7 +38,7 @@
         yc iot mqtt subscribe \
           --cert registry-cert.pem \
           --key registry-key.pem \
-          --topic '$devices/<ID устройства>/events' \
+          --topic '$devices/<идентификатор_устройства>/events' \
           --qos 1
         ```
     - Подпишите реестр на перманентный топик устройства, используя авторизацию по сертификату:
@@ -47,7 +47,7 @@
         yc iot mqtt subscribe \
           --cert registry-cert.pem \
           --key registry-key.pem \
-          --topic '$devices/<ID устройства>/state' \
+          --topic '$devices/<идентификатор_устройства>/state' \
           --qos 1
         ```
 	  
@@ -62,18 +62,18 @@
      
         ```
         yc iot mqtt subscribe \
-          --username <ID реестра> \
-          --password <пароль для реестра> \
-          --topic '$devices/<ID устройства>/events' \
+          --username <идентификатор_реестра> \
+          --password <пароль_для_реестра> \
+          --topic '$devices/<идентификатор_устройства>/events' \
           --qos 1
         ```
     - Подпишите реестр на перманентный топик устройства, используя авторизацию по логину и паролю:
      
         ```
         yc iot mqtt subscribe \
-          --username <ID реестра> \
-          --password <пароль для реестра> \
-          --topic '$devices/<ID устройства>/state' \
+          --username <идентификатор_реестра> \
+          --password <пароль_для_реестра> \
+          --topic '$devices/<идентификатор_устройства>/state' \
           --qos 1
         ```
 		
@@ -88,7 +88,7 @@
 
 ### Подпишите реестр на топики всех устройств, добавленных в него {#all-device}
 
-Реестр будет получать данные только от тех устройств, которые отправляют сообщения в топик `$registries/<ID реестра>/events` или `$registries/<ID реестра>/state`.
+Реестр будет получать данные только от тех устройств, которые отправляют сообщения в топик `$registries/<идентификатор_реестра>/events` или `$registries/<идентификатор_реестра>/state`.
 
 {% list tabs group=instructions %}
 
@@ -100,7 +100,7 @@
         yc iot mqtt subscribe \
           --cert registry-cert.pem \
           --key registry-key.pem \
-          --topic '$registries/<ID реестра>/events' \
+          --topic '$registries/<идентификатор_реестра>/events' \
           --qos 1
         ```
 		
@@ -110,7 +110,7 @@
         yc iot mqtt subscribe \
           --cert registry-cert.pem \
           --key registry-key.pem \
-          --topic '$registries/<ID реестра>/state' \
+          --topic '$registries/<идентификатор_реестра>/state' \
           --qos 1
         ```
       
@@ -125,18 +125,18 @@
     
         ```
         yc iot mqtt subscribe \
-          --username <ID реестра> \
-          --password <пароль для реестра> \
-          --topic '$registries/<ID реестра>/events' \
+          --username <идентификатор_реестра> \
+          --password <пароль_для_реестра> \
+          --topic '$registries/<идентификатор_реестра>/events' \
           --qos 1
         ```
     - Подпишите реестр на перманентные топики всех устройств, используя авторизацию по логину и паролю: 
     
         ```
         yc iot mqtt subscribe \
-          --username <ID реестра> \
-          --password <пароль для реестра> \
-          --topic '$registries/<ID реестра>/state' \
+          --username <идентификатор_реестра> \
+          --password <пароль_для_реестра> \
+          --topic '$registries/<идентификатор_реестра>/state' \
           --qos 1
         ```
 		
@@ -167,7 +167,7 @@
         yc iot mqtt subscribe \
           --cert device-cert.pem \
           --key device-key.pem \
-          --topic '$devices/<ID устройства>/commands' \
+          --topic '$devices/<идентификатор_устройства>/commands' \
           --qos 1
         ```
 			
@@ -177,7 +177,7 @@
         yc iot mqtt subscribe \
           --cert device-cert.pem \
           --key device-key.pem \
-          --topic '$devices/<ID устройства>/config' \
+          --topic '$devices/<идентификатор_устройства>/config' \
           --qos 1
         ```
 
@@ -192,9 +192,9 @@
             
         ```
         yc iot mqtt subscribe \
-          --username <ID устройства> \
-          --password <пароль для устройства> \
-          --topic '$devices/<ID устройства>/commands' \
+          --username <идентификатор_устройства> \
+          --password <пароль_для_устройства> \
+          --topic '$devices/<идентификатор_устройства>/commands' \
           --qos 1
         ```
 			
@@ -202,9 +202,9 @@
             
         ```
         yc iot mqtt subscribe \
-          --username <ID устройства> \
-          --password <пароль для устройства> \
-          --topic '$devices/<ID устройства>/config' \
+          --username <идентификатор_устройства> \
+          --password <пароль_для_устройства> \
+          --topic '$devices/<идентификатор_устройства>/config' \
           --qos 1
         ```
           
@@ -219,7 +219,7 @@
           
 ### Подпишите устройство на топики — команды для всех устройств {#for-all}
 
-Команды будут получать только устройства, подписанные на топик `$registries/<ID реестра>/commands` или `$registries/<ID реестра>/config`.
+Команды будут получать только устройства, подписанные на топик `$registries/<идентификатор_реестра>/commands` или `$registries/<идентификатор_реестра>/config`.
 
 {% list tabs group=instructions %}
 
@@ -231,7 +231,7 @@
         yc iot mqtt subscribe \
           --cert device-cert.pem \
           --key device-key.pem \
-          --topic '$registries/<ID реестра>/commands' \
+          --topic '$registries/<идентификатор_реестра>/commands' \
           --qos 1
         ```
     - Подпишите устройство на перманентные топики — команды, используя авторизацию по сертификату:     
@@ -240,7 +240,7 @@
         yc iot mqtt subscribe \
           --cert device-cert.pem \
           --key device-key.pem \
-          --topic '$registries/<ID реестра>/config' \
+          --topic '$registries/<идентификатор_реестра>/config' \
           --qos 2
         ```
 
@@ -255,18 +255,18 @@
         
         ```
         yc iot mqtt subscribe \
-          --username <ID устройства> \
-          --password <пароль для устройства> \
-          --topic '$registries/<ID реестра>/commands' \
+          --username <идентификатор_устройства> \
+          --password <пароль_для_устройства> \
+          --topic '$registries/<идентификатор_реестра>/commands' \
           --qos 1
         ```          
     - Подпишите устройство на перманентные топики — команды, используя авторизацию по логину и паролю:
         
         ```
         yc iot mqtt subscribe \
-          --username <ID устройства> \
-          --password <пароль для устройства> \
-          --topic '$registries/<ID реестра>/config' \
+          --username <идентификатор_устройства> \
+          --password <пароль_для_устройства> \
+          --topic '$registries/<идентификатор_реестра>/config' \
           --qos 1
         ```          
 
@@ -291,8 +291,8 @@
 
         ```
         yc iot mqtt subscribe \
-          --username <ID брокера> \
-          --password <пароль для брокера> \
+          --username <идентификатор_брокера> \
+          --password <пароль_для_брокера> \
           --topic /my/custom/topic \
           --qos 1
         ```

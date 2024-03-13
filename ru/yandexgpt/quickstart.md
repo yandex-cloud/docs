@@ -63,7 +63,7 @@
 
      {% include [api-parameters](../_includes/yandexgpt/api-parameters.md) %}
 
-  1. Отправьте запрос нейросети с помощью метода [completion](./api-ref/v1/TextGeneration/completion.md), выполнив команду:
+  1. Отправьте запрос нейросети с помощью метода [completion](./text-generation/api-ref/TextGeneration/completion.md), выполнив команду:
 
      ```bash
      export FOLDER_ID=<идентификатор_каталога>

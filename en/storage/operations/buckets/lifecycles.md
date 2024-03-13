@@ -82,21 +82,21 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
          If no object filter is set, the rule applies to all objects in the bucket.
 
-      * `transition`: Parameter of a rule for changing the storage class of any objects from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
+      * `transition`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
          * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
          * `storage_class`: Storage class to move the object to. Can be either `COLD` or `STANDARD_IA`. This is a required parameter.
       * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
          * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
-      * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
-         * `days`: Number of days before the transition. The minimum value is 1. This is a required parameter.
+      * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current object versions from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter. It may contain:
+         * `noncurrent_days`: Number of days before the transition. The minimum value is 1. This is a required parameter.
          * `storage_class`: Storage class to move the object to. Can be either `COLD` or `STANDARD_IA`. This is a required parameter.
-      * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. It may contain:
-         * `days`: Number of days before expiration. The minimum value is 1. This is a required parameter.
+      * `noncurrent_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. It may contain:
+         * `noncurrent_days`: Number of days before expiration. The minimum value is 1. This is a required parameter.
       * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
 
-      Make sure to specify at least one of the following parameters: `transition`, `expiration`, `noncurrent_version_transition`, `noncurrent_version_expiration`, or `abort_incomplete_multipart_upload_days`.
+      Make sure to specify at least one of the following parameters: `transition`, `expiration`, `noncurrent_transitions`, `noncurrent_expiration`, or `abort_incomplete_multipart_upload_days`.
 
       Once completed, save the configuration to a file, e.g., `lifecycles.json`.
 
@@ -174,12 +174,12 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       * `Filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
 
          * `Prefix`: Object [key](../../concepts/object.md#key) prefix. The rule applies to objects with the specified key prefix. This is an optional parameter.
-         * `objectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
-         * `objectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
-         * `Tag`: object [tag](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It is delivered as a record that contains two pairs of values, for example:
+         * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
+         * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
+         * `Tag`: Object's [tag](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It is delivered as a record that contains two pairs of values, for example:
 
             ```json
-            "tag": [{"key": "some_key", "value": "some_value"}]
+            "Tag": [{"Key": "some_key", "Value": "some_value"}]
             ```
 
          * `And`: **AND** logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With the `And` logical operator, you can set up filtering by multiple tags at the same time. To do this, specify the tags in the `Tags` key as an array of objects each containing two pairs of values.
@@ -211,14 +211,14 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       * `Status`: Rule status. This is a required parameter. The possible values include:
          * `Enabled`: Rule enabled.
          * `Disabled`: Rule disabled.
-      * `Transition`: Parameter of a rule for changing the storage class of any objects from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
+      * `Transition`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter. It may contain:
          * `Date`: Date after which the storage class will change, in the [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DD`. Time is always 00:00 UTC. This is an optional parameter.
          * `Days`: Number of days since the creation of the object, after which the storage class will be changed. The minimum value is `1`. This is an optional parameter.
          * `StorageClass`: Storage class to move the object to. Can be either `COLD` or `STANDARD_IA`. This is a required parameter.
       * `Expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
          * `Date`: Date after which the object will be deleted, in the ISO 8601 format, e.g., `YYYY-MM-DD`. Time is always 00:00 UTC. This is an optional parameter.
          * `Days`: Number of days since the creation of the object, after which the object will be deleted. The minimum value is `1`. This is an optional parameter.
-      * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current object versions from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
+      * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current object versions from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter. It may contain:
          * `NoncurrentDays`: Number of days before changing the storage class of non-current object versions. The minimum value is `1`. This is a required parameter.
          * `StorageClass`: Storage class to move the object to. Can be either `COLD` or `STANDARD_IA`. This is a required parameter.
       * `NoncurrentVersionExpiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter.
@@ -375,9 +375,9 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       * `enabled`: Rule status. This is a required parameter.
       * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
       * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter.
-      * `transition`: Parameter of a rule for changing the storage class of any objects from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter.
+      * `transition`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter.
       * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter.
-      * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter.
+      * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter.
 
       Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
 

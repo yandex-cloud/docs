@@ -221,7 +221,7 @@
    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Также создайте еще две подсети:
       * `trails-subnet-2` в зоне доступности `{{ region-id }}-b`, CIDR подсети – `10.129.0.0/24`.
-      * `trails-subnet-3` в зоне доступности `{{ region-id }}-c`, CIDR подсети – `10.130.0.0/24`.
+      * `trails-subnet-3` в зоне доступности `{{ region-id }}-d`, CIDR подсети – `10.130.0.0/24`.
 
 - CLI {#cli}
 
@@ -263,7 +263,7 @@
       * `--range` — CIDR подсети, например `10.128.0.0/24`.
    1. Также создайте еще две подсети:
       * `trails-subnet-2` в зоне доступности `{{ region-id }}-b`, CIDR подсети – `10.129.0.0/24`.
-      * `trails-subnet-3` в зоне доступности `{{ region-id }}-c`, CIDR подсети – `10.130.0.0/24`.
+      * `trails-subnet-3` в зоне доступности `{{ region-id }}-d`, CIDR подсети – `10.130.0.0/24`.
 
 {% endlist %}
 

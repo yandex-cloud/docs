@@ -14,6 +14,8 @@ To get information about a DNS zone:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+   To find out the name or unique ID of a DNS zone, [get](zone-list.md) a list of zones in the folder.
+
    1. View the description of the CLI command to get information about a DNS zone:
 
       ```bash

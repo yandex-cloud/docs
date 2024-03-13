@@ -5,6 +5,7 @@ sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getCellOutputs.md
 
 # DataSphere API v2, REST: Project.getCellOutputs
 Returns outputs of the specified cell.
+Deprecated
  
 
  

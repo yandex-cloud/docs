@@ -24,7 +24,7 @@ For non-bootable disks, the partition size won't expand automatically. Use stand
 
 #### How do I upload a custom image? {#load-image}
 
-Follow this guide: [{#T}](../../compute/operations/image-create/upload.md).
+See [{#T}](../../compute/operations/image-create/upload.md).
 
 To ensure that the VM created from your image functions properly, follow the steps specified in the guide.
 
@@ -94,10 +94,9 @@ A user in another cloud must:
 
 1. When creating a VM, specify this image as a boot disk.
 
-
 #### How do I attach a new disk to a VM? {#attach-disk-to-vm}
 
-After creating and connecting a new disk to the VM, you need to mount it or assign it a letter, depending on the operating system. Follow this guide: [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid).
+After creating and connecting a new disk to the VM, you need to mount it or assign it a letter, depending on the operating system. See [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid).
 
 
 #### How do I set up automatic backups? {#set-up-automatic-snapshot-creation}
@@ -152,7 +151,7 @@ If you would like to delete a disk with a VM, specify this option when creating 
 
 #### Do I need to stop a VM to create disk snapshots? Do I have to wait until disk snapshots are created before I can start a virtual machine? {#create-snapshot}
 
-You don't have to stop the VM. However, keep in mind that a snapshot contains only the data written to disk when creating the snapshot. You need to take care of the data integrity yourself. For information about how to create disk snapshots, see [{#T}](../../compute/operations/disk-control/create-snapshot.md).
+You do not have to stop the VM. However, keep in mind that a snapshot contains only the data present on the disk at the time of creating the snapshot. You need to take care of the data integrity yourself. For information about how to create disk snapshots, see [{#T}](../../compute/operations/disk-control/create-snapshot.md).
 
 A snapshot is created asynchronously. You can resume writing data to your disk immediately after running the create snapshot command without waiting for the snapshot generation to be completed.
 
@@ -169,3 +168,7 @@ You can detect these processes using the [iotop](https://manpages.ubuntu.com/man
 ```bash
 /usr/sbin/iotop -botqqqk --iter=60 | grep -P "\d\d\d\d.\d\d K/s" >> /var/log/iotop.log
 ```
+
+#### How can I find out the terms and conditions of technical support for public images? {#public-image-support}
+
+{% include [public-image-support](../../_includes/compute/public-image-support.md) %}

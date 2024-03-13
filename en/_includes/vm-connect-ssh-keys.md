@@ -1,0 +1,3 @@
+After the VM starts (its status is `RUNNING`), you can connect to it over SSH. To do this, use `ssh` in Linux, macOS, and Windows 10/11, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows 7/8.
+
+To connect, specify the VM address. This can be either its [IP address](../vpc/concepts/address.md) or [FQDN](../vpc/concepts/address.md#fqdn). You can also connect from another {{ yandex-cloud }} VM using FQDN if this VM is connected to the same [virtual network](../vpc/concepts/network.md#network). You can find out the IP address in the [management console]({{ link-console-main }}) by going to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM's page.

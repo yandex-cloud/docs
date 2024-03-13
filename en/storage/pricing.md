@@ -12,14 +12,14 @@ editable: false
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
-## What is included in the {{ objstorage-short-name }} cost {#rules}
+## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
 The {{ objstorage-name }} usage cost is based on:
 
-* [Storage class](concepts/storage-class.md)
-* Amount of storage used by your data
-* Number of operations with your data
-* Amount of outgoing traffic
+* [Storage class](concepts/storage-class.md).
+* Amount of storage used by your data.
+* Number of operations with your data.
+* Amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -73,7 +73,7 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 
 
-^3^ The minimum billable period for ice storage is 12 months (except for storage prior to September 1, 2022). If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
+^3^ The minimum billable storage time of an object in ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
 
 
 

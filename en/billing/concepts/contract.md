@@ -31,10 +31,6 @@ Companies and individual entrepreneurs can sign a bilateral agreement. For this,
 
 Once the offer has been accepted, both parties start acting under the agreement. The agreement stipulates that you shall pay for the resources consumed at the end of the reporting period. For more information, see [How to pay for resources](../payment/index.md).
 
-The list of countries that can sign an agreement is provided below.
-
-{% include [non-resident-countries](../_includes/non-resident-countries.md) %}
-
 You can learn more about the terms of the agreement in [Yandex Legal documents](https://yandex.com/legal/cloud_customer_agreement/?lang=en).
 
 ## Agreement number {#id}

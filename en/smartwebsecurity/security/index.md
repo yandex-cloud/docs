@@ -1,18 +1,18 @@
 ---
 title: "Access management in {{ sws-name }}"
-description: "This section describes what resources you can assign a role for and what roles the service supports."
+description: "This section describes the resources for which you can assign a role and the roles existing in the service."
 ---
 
 # Access management in {{ sws-name }}
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 You can assign a role to an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned to an organization, cloud, or folder also apply to security profiles in them.
 
@@ -24,15 +24,25 @@ You can assign a role to an [organization](../../organization/), [cloud](../../r
 
 ### Service roles {#service-roles}
 
-{% include [sws-auditor](../../_includes/iam/roles/sws-auditor.md) %}
+#### smart-web-security.auditor {#smart-web-security-auditor}
 
-{% include [sws-viewer](../../_includes/iam/roles/sws-viewer.md) %}
+{% include [sws-auditor](../../_roles/smart-web-security/auditor.md) %}
 
-{% include [sws-user](../../_includes/iam/roles/sws-user.md) %}
+#### smart-web-security.viewer {#smart-web-security-viewer}
 
-{% include [sws-editor](../../_includes/iam/roles/sws-editor.md) %}
+{% include [sws-viewer](../../_roles/smart-web-security/viewer.md) %}
 
-{% include [sws-admin](../../_includes/iam/roles/sws-admin.md) %}
+#### smart-web-security.user {#smart-web-security-user}
+
+{% include [sws-user](../../_roles/smart-web-security/user.md) %}
+
+#### smart-web-security.editor {#smart-web-security-editor}
+
+{% include [sws-editor](../../_roles/smart-web-security/editor.md) %}
+
+#### smart-web-security.admin {#smart-web-security-admin}
+
+{% include [sws-admin](../../_roles/smart-web-security/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

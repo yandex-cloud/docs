@@ -25,6 +25,7 @@ To create a project portfolio:
    * **Responsible**, **Clients**, and **Participants**: Start typing the name or login of the employee and select a relevant option from the list.
    * **Tags**: Add or select the tags that would make it easier to find the portfolio.
 
+
 ## Linking portfolios and projects {#add-portfolios-projects}
 
 #### Adding a nested portfolio or project {#add-nested}

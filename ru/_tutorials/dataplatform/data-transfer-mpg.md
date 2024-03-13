@@ -71,9 +71,9 @@
 
 Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). При этом имена топиков для данных конструируются по тому же принципу, что и в [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) — `<префикс_топика>.<имя_схемы>.<имя_таблицы>`. В этом руководстве в качестве примера будет использоваться префикс `cdc`.
 
-{% list tabs %}
+{% list tabs group=topic_management %}
 
-* Интерфейсы {{ yandex-cloud }}
+- Интерфейсы {{ yandex-cloud }} {#yc}
 
     Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, YC CLI, {{ TF }}, API):
 
@@ -83,7 +83,7 @@
 
     1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `kafka-user` и ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER`, действующими на созданные топики.
 
-* Admin API
+- Admin API {#api}
 
     Если для управления топиками используется Kafka Admin API:
 

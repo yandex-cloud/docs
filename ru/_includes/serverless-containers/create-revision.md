@@ -70,7 +70,7 @@
 
      ```hcl
      provider "yandex" {
-       token     = "<OAuth>"
+       token     = "<OAuth-токен>"
        cloud_id  = "<идентификатор_облака>"
        folder_id = "<идентификатор_каталога>"
        zone      = "{{ region-id }}-a"

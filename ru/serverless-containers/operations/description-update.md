@@ -60,7 +60,7 @@ description: "Следуя данной инструкции, вы сможет�
        name               = "my-conrainer"
        description        = "my first container with description"
        memory             = 256
-       service_account_id = "ajec........34ova"
+       service_account_id = "ajecvjv1lv01********"
        image {
            url = "{{ registry }}/yc/test-image:v1"
        }
@@ -98,7 +98,7 @@ description: "Следуя данной инструкции, вы сможет�
   Проверить изменение контейнера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
   ```
-  yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
+  yc serverless container get <имя_или_идентификатор_контейнера>
   ```
 
 - API {#api}

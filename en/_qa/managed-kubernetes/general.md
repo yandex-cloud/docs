@@ -28,4 +28,8 @@ The [master](../../managed-kubernetes/concepts/index.md#master) is managed by {{
 
 {{ yandex-cloud }} services, images and master configuration initially undergo [various security tests and checks for standard compliance](../../security).
 
-Users can choose [frequency of updates](../../managed-kubernetes/concepts/release-channels-and-updates.md#updates) depending on their tasks and cluster configuration. It's important to consider attack targets and vulnerabilities in applications deployed in a {{ k8s }} cluster. Application security can be affected by such factors as [network security policies](../../managed-kubernetes/concepts/network-policy.md) between applications, vulnerabilities inside Docker containers, and incorrect launch mode of containers in a cluster.
+Users can choose [frequency of updates](../../managed-kubernetes/concepts/release-channels-and-updates.md#updates) depending on their tasks and cluster configuration. It is important to consider attack targets and vulnerabilities in applications deployed in a {{ k8s }} cluster. Application security can be affected by such factors as [network security policies](../../managed-kubernetes/concepts/network-policy.md) between applications, vulnerabilities inside Docker containers, and incorrect launch mode of containers in a cluster.
+
+#### Can I connect to a cluster node via {{ oslogin }}, similar to a {{ yandex-cloud }} VM? {#connect-via-oslogin}
+
+Yes, you can. To do this, [follow the guide](../../managed-kubernetes/operations/node-connect-oslogin.md).

@@ -1,8 +1,8 @@
 # Fields and annotations of the Service resource
 
-The `Service` resource defines the [{{ k8s }} service](../../managed-kubernetes/concepts/index.md#service). In {{ network-load-balancer-name }} for {{ managed-k8s-name }}, services act as load balancers for incoming traffic.
+The `Service` resource defines the [{{ k8s }} service](../../managed-kubernetes/concepts/index.md#service). Services in {{ network-load-balancer-name }} for {{ managed-k8s-name }} are load balancers for incoming traffic.
 
-`Service` is a standard {{ k8s }} resource. This reference describes the resource's fields and annotations supporting {{ network-load-balancer-name }} for {{ managed-k8s-name }}. For a complete reference on the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` is a standard {{ k8s }} resource. This reference describes fields and annotations of the resource that support {{ network-load-balancer-name }} for {{ managed-k8s-name }}. For a complete reference for the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 
@@ -73,9 +73,9 @@ You can provide the following annotations for the `ObjectMeta` object:
 
 * **yandex.cloud/load-balancer-type**
 
-   Type of load balancer (by default, with an external IP address).
+   Load balancer type (by default, with an external IP address).
 
-   For a load balancer with an internal IP address the value is `internal`.
+   For a load balancer with an internal IP address, the value is `internal`.
 * **yandex.cloud/subnet-id**
 
    ID of the subnet in which you need to allocate an IP address for the internal network load balancer.
@@ -83,22 +83,22 @@ You can provide the following annotations for the `ObjectMeta` object:
 
    Number of consecutive successful [checks](../concepts/health-check.md) for a node to be considered available.
 
-   The minimum value is `2`, the maximum is `10`.
+   The minimum value is `2` and the maximum is `10`.
 * **yandex.cloud/load-balancer-healthcheck-interval**
 
    [Health check](../concepts/health-check.md) interval in seconds.
 
-   The minimum value is `2s`, the maximum is `300s`.
+   The minimum value is `2s` and the maximum is `300s`.
 * **yandex.cloud/load-balancer-healthcheck-timeout**
 
    Timeout for [health checks](../concepts/health-check.md) in seconds. A node is considered unavailable if it has not responded within the specified time.
 
-   The minimum value is `1s`, the maximum is `60s`.
+   The minimum value is `1s` and the maximum is `60s`.
 * **yandex.cloud/load-balancer-healthcheck-unhealthy-threshold**
 
    Number of consecutive failed [checks](../concepts/health-check.md) for a node to be considered unavailable.
 
-   The minimum value is `2`, the maximum is `10`.
+   The minimum value is `2` and the maximum is `10`.
 
 ## ServiceSpec {#servicespec}
 
@@ -124,17 +124,17 @@ The {{ k8s }} services used as network load balancers must be of the `LoadBalanc
 ||
 
 || `ports`    | `[]ServicePort`      | **Required**
-[List of ports the service is available on](#ports).
+[List of ports on which the service is available](#ports).
 ||
 
-|| `loadBalancerIP` | `string` | [Static public IP address reserved in advance](../../vpc/operations/get-static-ip.md). If not specified, the network load balancer gets a dynamic IP address.
+|| `loadBalancerIP` | `string` | [Static public IP address reserved in advance](../../vpc/operations/get-static-ip.md) for an external network load balancer. If not specified, the network load balancer gets a dynamic IP address.
 
-When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
+When reserving a static IP address, you can enable [DDoS protection](../../vpc/ddos-protection/index.md).
 ||
 
 || `externalTrafficPolicy` | `string` | [Traffic management policy]({{ k8s-api-link }}#servicespec-v1-core):
 
-* `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node. Default value.
+* `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node. This is a default value.
 * `Local`: Traffic goes directly to the nodes where the application containers are running. In which case:
 
    * The originating IP address of the user query is saved.
@@ -153,7 +153,7 @@ targetPort: <int32>
 #|
 || **Field** | **Value or type** | **Description** ||
 || `port`    | `int32`           | **Required**
-Port of the network load balancer to process user requests.
+Port of the network load balancer to handle user requests.
 ||
 
 || `targetPort`    | `int32`      | **Required**

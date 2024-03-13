@@ -27,7 +27,7 @@ Migration of a [master host](../concepts/index.md#master) depends on its type: [
 
 A zonal master is located in one availability zone. You can only migrate the master host from the `{{ region-id }}-c` zone to the `{{ region-id }}-d` zone. During migration, the master host is restarted, and the {{ k8s }} server API becomes briefly unavailable. Once migrated, the master host's public and private IP addresses remain the same; the cluster and node group are not recreated.
 
-To migrate a zonal master host to a different availability zone:
+To migrate a zonal master to a different availability zone:
 
 {% list tabs group=instructions %}
 
@@ -156,6 +156,12 @@ To migrate a zonal master host to a different availability zone:
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 {% endlist %}
+
+{% note info %}
+
+The zonal master host is moved to the new subnet with the same internal IP address it had in the old subnet. This IP address remains reserved in the old subnet as well, so you cannot delete it. Later on, you will be able to [move](../../vpc/operations/subnet-relocate.md) such a subnet to a new availability zone, or it will be moved to the `{{ region-id }}-d` zone automatically as soon as the `{{ region-id }}-c` zone is closed.
+
+{% endnote %}
 
 ### Migrating a regional master host {#regional}
 
@@ -322,6 +328,12 @@ To migrate a regional master host to a different set of availability zones:
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 {% endlist %}
+
+{% note info %}
+
+The internal IP address for the regional master host is assigned automatically in one of the three hosting subnets. If the internal IP address of the master host resides in the `{{ region-id }}-c` zone subnet, it will be retained when moving to the `{{ region-id }}-d` zone. This IP address remains reserved in the old subnet as well, so you cannot delete it. Later on, you will be able to [move](../../vpc/operations/subnet-relocate.md) such a subnet to a new availability zone, or it will be moved to the `{{ region-id }}-d` zone automatically as soon as the `{{ region-id }}-c` zone is closed.
+
+{% endnote %}
 
 ## Migrate the node group and the pod workloads to a different availability zone {#transfer-a-node-group}
 

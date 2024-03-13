@@ -1,7 +1,8 @@
 # Troubleshooting in {{ data-transfer-name }}
 
-This section describes typical problems that may arise during [transfer](../operations/transfer.md#activate) [activation](../concepts/index.md#transfer) or operation, and the relevant resolution methods.
+This section describes typical problems that may arise during [transfer](../concepts/index.md#transfer) [activation](../operations/transfer.md#activate) or operation, and the relevant solutions.
 
+* [{#T}](#overview)
 * [{#T}](#common)
 * [{#T}](#api)
 * [{#T}](#network)
@@ -15,15 +16,26 @@ This section describes typical problems that may arise during [transfer](../oper
 * [{#T}](#yds)
 * [{#T}](#support)
 
-Key features about preparing sources and targets for a transfer are described in the [relevant section](../operations/prepare.md).
+## Problems that arise when working with {{ data-transfer-name }} {#overview}
+To detect a problem in time:
 
-Limitations on sources and targets while a transfer is running are described in [{#T}](../operations/db-actions.md).
+1. Monitor the transfer state on the **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+1. [Configure alerts](../operations/monitoring.md#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures.
+1. [Request](../../support/request.md) records of what happened to your resources from {{ yandex-cloud }} service logs.
+1. Use the {{ yandex-cloud }} [mobile app](/mobile-app) to track the state of transfers.
 
-You can request log records about your resources from {{ yandex-cloud }} services. For more information, see [{#T}](../../support/request.md).
+If the work of {{ data-transfer-name }} was disrupted during data migration, try to localize and analyze the problem. Some solutions are provided in this article or other sections of the documentation.
 
+| Issue source | Issue | Solution |
+|-----------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Endpoint | Lack of network accessibility or endpoint access permissions | Check the source read operations using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Check the target write operations using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>If the data is being read and written, check the [restrictions on working with the DBMS](../operations/transfer.md).</br>Check the requirements for [preparing](../operations/prepare.md) and [configuring](../operations/index.md) the endpoint.</br>Look for a ready-made [solution to the problem](#common). |
+| Endpoint or transfer | Lack of physical transfer resources or endpoints | If the data is being read and written, check whether there are enough physical resources on the [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) and [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem) charts.</br>Check out the recommendations for DBMS diagnostics. For example, [{{ MY }}](../../managed-mysql/operations/performance-diagnostics.md), [{{ MG }}](../../managed-mongodb/operations/performance-diagnostics.md), or [{{ PG }}](../../managed-postgresql/operations/performance-diagnostics.md). |
+| Data | Outdated data due to changes in the data schema | See the different data transfer scenarios in the [{{ data-transfer-name }} Tutorials](../tutorials/index.md) section. |
+| Data | Outdated data due to large data volume | Increase the number of workers for [parallel copying](../concepts/sharded.md) or [replication](../operations/transfer.md#create).</br>Split the tables into several transfers. |
 
-Use the {{ yandex-cloud }} [mobile app](/mobile-app) to quickly view logs, monitor transfers, and get error details.
+After troubleshooting the problem, depending on the status of the transfer, activate it or change the data transfer limits of the running transfer.
 
+![image](../../_assets/data-transfer/restore-transfer.svg)
 
 ## General {#common}
 
@@ -49,7 +61,7 @@ Error example:
 {"code": 13, "message": "internal"}
 ```
 
-**Troubleshooting:** Contact [support]({{ link-console-support }}) or your account manager and specify `request_id`. If you're using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
+**Solution:** Contact [support]({{ link-console-support }}) or your account manager and specify the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
 
 ## Network {#network}
 
@@ -163,10 +175,6 @@ Error example:
 
 ## How to report a problem {#support}
 
-
 If you followed the tips provided but the problem persists, contact [tech support]({{ link-console-support }}).
-
-
-In your request, specify the [transfer](../operations/transfer.md#list) or [endpoint](../operations/endpoint/index.md#list) ID and attach [transfer status](../operations/monitoring.md) details.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

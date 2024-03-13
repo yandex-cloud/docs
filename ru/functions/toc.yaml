@@ -419,6 +419,10 @@ items:
         href: tutorials/canary-release.md
       - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
         href: tutorials/nodejs-cron-restart-vm.md
+      - name: >-
+          Создание триггеров, которые вызывают функции для остановки ВМ и
+          отправки уведомлений в Telegram
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

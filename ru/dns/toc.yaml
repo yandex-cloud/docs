@@ -25,6 +25,8 @@ items:
             href: operations/zone-list.md
           - name: Получить информацию о зоне DNS
             href: operations/zone-get-info.md
+          - name: Мониторинг зон DNS
+            href: operations/monitoring.md
       - name: Записи
         items:
           - name: Создать запись
@@ -117,6 +119,8 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Вопросы и ответы

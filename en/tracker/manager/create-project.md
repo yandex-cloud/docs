@@ -28,7 +28,7 @@ To create a project:
    * **Status**: Specify the current stage of the project.
    * **Start date** and **End date**.
    * **Responsible**, **Clients**, and **Participants**: Start typing the name or login of the employee and select a relevant option from the list.
-   * **Tags**: Add or select the tags that would make it easier to find the project.
+   * **Tags**: Add or select the tags that would make it easier to find the project you need.
 
 1. [Add](#add-tickets) issues to the project. You can add issues from the project page or from the issue page, as well as by using [bulk editing](bulk-change.md).
 
@@ -57,6 +57,7 @@ To create a project based on an issue:
 1. Open the issue page. The issue should not belong to another project. To delete an issue from the project, clear the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field in the right-hand panel.
 
 1. In the top-right corner, select **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.convert-to-project }}**, then click **Convert**.
+
 
 ## Adding issues to a project {#add-tickets}
 

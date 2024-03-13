@@ -71,8 +71,6 @@ We recommend that you use the `default deny` rule for the default incoming and o
 
 To generate policies, you can use the Cilium CNI built-in Hubble platform to analyze the traffic manually. Various solutions for automatic generation of network policies are also available on the market.
 
-![](../../_assets/overview/solution-library-icon.svg)[{{ k8s }} security solutions comparison matrix](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/kubernetes-security/choice_of_solutions/Сравнение_функций_k8s_security.pdf).
-
 For useful examples of network policies, see the [repo](https://github.com/ahmetb/kubernetes-network-policy-recipes).
 
 A helpful tool to create both basic and advanced network policies is available [here](https://editor.cilium.io/).
@@ -335,7 +333,3 @@ In the {{ managed-k8s-name }} console, you can audit the current role model used
 You can also use:
 * [KubiScan](https://github.com/cyberark/KubiScan)
 * [Krane](https://github.com/appvia/krane)
-
-## {{ k8s }} security solutions comparison {#security-solutions-comparison}
-
-![](../../_assets/overview/solution-library-icon.svg)[{{ k8s }} security solutions comparison.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/choice_of_solutions)

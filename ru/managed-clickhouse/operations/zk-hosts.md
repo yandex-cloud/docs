@@ -55,7 +55,7 @@
 
      ```bash
      {{ yc-mdb-ch }} cluster add-zookeeper <имя_кластера> \
-        --host zone-id={{ region-id }}-c,subnet-name=default-c \
+        --host zone-id={{ region-id }}-d,subnet-name=default-d \
         --host zone-id={{ region-id }}-a,subnet-name=default-a \
         --host zone-id={{ region-id }}-b,subnet-name=default-b
      ```
@@ -90,11 +90,11 @@
        v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-b>" ]
      }
 
-     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_{{ region-id }}-c>" {
-       name           = "<имя_подсети_в_зоне_{{ region-id }}-c>"
-       zone           = "{{ region-id }}-c"
+     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_{{ region-id }}-d>" {
+       name           = "<имя_подсети_в_зоне_{{ region-id }}-d>"
+       zone           = "{{ region-id }}-d"
        network_id     = yandex_vpc_network.<имя_сети>.id
-       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-c>" ]
+       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-d>" ]
      }
      ```
 
@@ -160,8 +160,8 @@
        }
        host {
          type      = "ZOOKEEPER"
-         zone      = "{{ region-id }}-c"
-         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-c>.id
+         zone      = "{{ region-id }}-d"
+         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-d>.id
        }
      }
      ```

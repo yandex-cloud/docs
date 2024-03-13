@@ -85,11 +85,11 @@ resource "yandex_vpc_subnet" "joomla-pg-network-subnet-b" {
   network_id     = yandex_vpc_network.joomla-pg-network.id
 }
 
-# Создание подсети в зоне доступности {{ region-id }}-c
+# Создание подсети в зоне доступности {{ region-id }}-d
 
-resource "yandex_vpc_subnet" "joomla-pg-network-subnet-c" {
+resource "yandex_vpc_subnet" "joomla-pg-network-subnet-d" {
   name           = local.subnet_name3
-  zone           = "{{ region-id }}-c"
+  zone           = "{{ region-id }}-d"
   v4_cidr_blocks = ["10.130.0.0/24"]
   network_id     = yandex_vpc_network.joomla-pg-network.id
 }
@@ -214,8 +214,8 @@ resource "yandex_mdb_postgresql_cluster" "joomla-pg-cluster" {
   }
 
   host {
-    zone      = "{{ region-id }}-c"
-    subnet_id = yandex_vpc_subnet.joomla-pg-network-subnet-c.id
+    zone      = "{{ region-id }}-d"
+    subnet_id = yandex_vpc_subnet.joomla-pg-network-subnet-d.id
   }
 }
 

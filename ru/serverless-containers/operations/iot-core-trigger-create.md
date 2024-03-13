@@ -94,21 +94,21 @@ description: "Создайте триггер для топика устройс
     Результат:
 
     ```text
-    id: a1s5msktij**********
-    folder_id: b1gmit33hg**********
+    id: a1s5msktijh2********
+    folder_id: b1gmit33hgh2********
     created_at: "2022-10-24T15:19:15.353909857Z"
     name: iot-trigger
     rule:
       iot_message:
-        registry_id: arenou2oj4**********
-        device_id: areqjd6un3**********
-        mqtt_topic: $devices/areqjd6un**********/events
+        registry_id: arenou2oj4h2********
+        device_id: areqjd6un3h2********
+        mqtt_topic: $devices/areqjd6unh2********/events
         batch_settings:
           size: "1"
           cutoff: 0s
         invoke_container:
-          container_id: bba5jb38o8**********
-          service_account_id: aje3932acd**********
+          container_id: bba5jb38o8h2********
+          service_account_id: aje3932acdh2********
           retry_settings:
             retry_attempts: "1"
             interval: 10s

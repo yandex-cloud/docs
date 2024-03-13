@@ -5,25 +5,27 @@ description: "In this tutorial, you will learn about the methods of formatting a
 
 # Source code formatting
 
-{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+{% list tabs %}
 
-* To highlight a source code snippet, such as a function name, in the text, wrap it in back quotes ``` ` ```.
+- Old editor
 
-* To format multiple source code lines, paste three back quotes ` ``` ` in the row preceding the code block and the row following the code block.
+   * To highlight a source code snippet, such as a function name, in the text, wrap it in back quotes (` ` `).
 
-For example:
+   * To format multiple source code lines, paste three back quotes (` ``` `) in the row preceding the code block and the row following the code block.
 
-* ```
-  Function `exit()`
-  ```
+   For example:
 
-   {% cut "See the result" %}
+   * ```
+     Function `exit()`
+     ```
 
-   ![](../../_assets/wiki/code-line.png)
+      {% cut "See the result" %}
 
-   {% endcut %}
+      ![](../../_assets/wiki/code-line.png)
 
-* ```
+      {% endcut %}
+
+   * ```
       Start of a code snippet
       ```
       <?
@@ -32,14 +34,16 @@ For example:
       print $s;
       ```
       End of the code snippet
-  ```
+     ```
 
-   {% cut "See the result" %}
+      {% cut "See the result" %}
 
-   ![](../../_assets/wiki/listing-nomark.png)
+      ![](../../_assets/wiki/listing-nomark.png)
 
-   {% endcut %}
+      {% endcut %}
 
-#### See also
+   #### See also
 
-[{#T}](highlight.md)
+   [{#T}](highlight.md)
+
+{% endlist %}

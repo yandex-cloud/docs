@@ -14,7 +14,7 @@ The cost of {{ lockbox-name }} usage is based on:
 
 {% note warning %}
 
-The prices are in effect as of March 10, 2024.
+The prices are valid as of March 10, 2024.
 
 {% endnote %}
 
@@ -35,6 +35,6 @@ The prices are in effect as of March 10, 2024.
 
 
 
-{% include [usd.md](../_pricing/lockbox/usd-secrets.md) %}
+{% include [usd.md](../_pricing/lockbox/usd-requests.md) %}
 
 

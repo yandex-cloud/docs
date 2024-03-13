@@ -11,7 +11,13 @@ A _VM_ is similar to a server in the cloud infrastructure.
 
 A VM is created in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) within your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and inherits access rights from it. You can read more about the {{ yandex-cloud }} resource hierarchy [here](../../resource-manager/concepts/resources-hierarchy.md).
 
-Each VM has a unique ID and name. The name is unique within the folder. The ID is generated automatically when the VM is being created and is unique within {{ yandex-cloud }}.
+Each VM has a unique ID and name. The name is unique within the folder. The naming requirements are as follows:
+
+{% include [name-format](../../_includes/name-format.md) %}
+
+{% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+
+The ID is generated automatically when the VM is being created and is unique within {{ yandex-cloud }}.
 
 You can move a VM to another folder within a single cloud.
 

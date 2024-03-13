@@ -27,7 +27,8 @@ POST https://dns.{{ api-host }}/dns/v1/zones
       "string"
     ]
   },
-  "publicVisibility": {}
+  "publicVisibility": {},
+  "deletionProtection": true
 }
 ```
 
@@ -42,6 +43,7 @@ zone | **string**<br><p>Required. DNS zone suffix.</p> <p>The maximum string len
 privateVisibility | **object**<br><p>Privately visible zone settings. At least one of two visibility fields must be set.</p> <p>Configuration for privately visible zones.</p> 
 privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.</p> 
 publicVisibility | **object**<br><p>Publicly visible zone settings. At least one of two visibility fields must be set.</p> <p>Configuration for publicly visible zones.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Prevents accidental zone removal.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

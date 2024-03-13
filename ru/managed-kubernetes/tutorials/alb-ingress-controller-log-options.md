@@ -377,7 +377,7 @@
 
     {% endnote %}
 
-    Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
+    Подробное описание настроек ресурса Ingress см. в статье [{#T}](../alb-ref/ingress.md).
 
 1. Создайте Ingress-контроллеры:
 

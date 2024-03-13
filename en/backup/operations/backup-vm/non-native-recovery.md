@@ -4,7 +4,7 @@ If a folder contains multiple VMs connected to {{ backup-name }}, you can restor
 
 {% note info %}
 
-The target VM's operating system must match that of the source VM the backup was created from. The boot disk of the target VM must be at least equal to that of the source VM.
+The target VM's operating system must match that of the source VM the backup was created from. The boot disk size of the target VM must be at least equal to that of the source VM. The target VM's [status](../../../compute/concepts/vm-statuses.md#list-of-statuses) must be `Running`.
 
 {% endnote %}
 
@@ -26,7 +26,7 @@ To restore a VM from a backup of another VM:
       1. Select the previously created VM.
    1. To avoid a conflict between the restored and source VMs, select **{{ ui-key.yacloud.backup.field_delete-old-vm }}**.
 
-      If you do not select this option, once the source VM you created the backup from is restored, it will become outdated. To continue creating backups of this VM, [refresh](../refresh-connection.md) its connection to {{ backup-name }}.
+      If this option is not selected, after the recovery the source VM you created the backup from will become outdated. To continue creating backups of this VM, [refresh](../refresh-connection.md) its connection to {{ backup-name }}.
    1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
 - CLI {#cli}
@@ -99,7 +99,7 @@ To restore a VM from a backup of another VM:
 
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
 
-   Once the source VM you created the backup from is restored, it becomes outdated. To avoid conflicts between the two VMs when making backups, [delete](../../../compute/operations/vm-control/vm-delete.md) the outdated VM or [refresh](../refresh-connection.md) its connection to {{ backup-name }}:
+   After the recovery the source VM you created the backup from will become outdated. To avoid conflicts between the two VMs when making backups, [delete](../../../compute/operations/vm-control/vm-delete.md) the outdated VM or [refresh](../refresh-connection.md) its connection to {{ backup-name }}:
 
 - API {#api}
 

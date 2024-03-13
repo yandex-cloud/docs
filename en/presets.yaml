@@ -396,6 +396,7 @@ default:
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
+  oslogin: OS Login
   packer-source-link: github.com/hashicorp/yandex
   permission-admin: Admin
   permission-execute: Execute
@@ -2571,8 +2572,6 @@ default:
           upload-btn-text: Choose file
         blocks_w-comment:
           edit: Edit
-        blocks_w-page-setting:
-          add: Add
       blocks_common_favorites:
         blocks_b-favs-links:
           name_search: Search by name
@@ -3965,9 +3964,12 @@ default:
             button_bind: Link
           budgets:
             button_create: Create budget
+            label_amount: Amount
             label_budgets: Budgets
+            label_expire: Expires
             label_limits: Limits
             label_notify: Notify
+            label_reset-period: Calculation period
             label_type: Budget type
             label_type-balance: Balance
             label_type-cost: Cost
@@ -5084,6 +5086,7 @@ default:
             popup-robot_button_add: Create
             popup-robot_button_save: Save
             popup-robot_field_name: Name
+            popup-robot_field_roles: Roles in the folder
           service-accounts:
             button_action-delete: Delete
             button_action-edit: 'Edit '
@@ -5958,6 +5961,7 @@ default:
             field_mqtt-topic: MQTT topic
             field_name: Name
             field_prefix: Object key prefix
+            field_queue: Message queue
             field_registry: Registry
             field_resource-type: Resource types
             field_retry-attempts: Number of attempts

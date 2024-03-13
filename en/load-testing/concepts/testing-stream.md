@@ -5,9 +5,11 @@ A [load generator](load-generator.md) creates parallel _testing threads_. Operat
 You can track thread utilization on a chart in the [report](reports.md).
 
 The maximum number of requests per second depends on the number of testing threads and the total request response time in a given second:
+
 ```
 RPS_max = number of testing threads / (total request response time in a given second)
 ```
+
 Where `RPS_max` is the maximum number of requests per second.
 
 By default, Phantom creates 1000 testing threads.
@@ -16,21 +18,24 @@ Pandora creates 1000 testing threads unless you filled in the **Testing threads*
 
 If you need to set the number of threads, configure it in the [management console]({{ link-console-main }})
 
-You can calculate the necessary number of testing threads using the formula:
+You can calculate the required number of testing threads using this formula:
+
 ```
 Number of testing threads = RPS x (average response time in seconds)
 ```
+
 Where `RPS` is the number of requests per second.
 
 > For example, to ensure a load of 200 requests per second at an average response time of 50 ms, you need to create 10 testing threads.
 
 ## Sample configuration file {#config_example}
 
-An example of configuring testing threads to generate 200 requests per second for 5 minutes:
+An example of configuring testing threads to generate 200 requests per second over 5 minutes:
 
-{% list tabs %}
+{% list tabs group=load_generator %}
 
-- Pandora
+- Pandora {#pandora}
+
    ```yaml
    pandora:
      enabled: true
@@ -62,7 +67,8 @@ An example of configuring testing threads to generate 200 requests per second fo
            port: 1234
    ```
 
-- Phantom
+- Phantom {#phantom}
+
    ```yaml
    phantom:
      enabled: true
