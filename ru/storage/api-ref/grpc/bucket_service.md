@@ -157,6 +157,7 @@ transitions[] | **[Transition](#Transition)**<br>List of transition rules. <br>T
 abort_incomplete_multipart_upload | **[AfterDays](#AfterDays)**<br>Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart). 
 noncurrent_expiration | **[NoncurrentExpiration](#NoncurrentExpiration)**<br>Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket1) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). <br>At expiration, the non-current version of the object is deleted and cannot be recovered. 
 noncurrent_transitions[] | **[NoncurrentTransition](#NoncurrentTransition)**<br>List of transition rules for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket1) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). <br>At transition, the non-current version of the object is transitioned to the specified storage class. 
+noncurrent_delete_markers | **[NoncurrentDeleteMarkers](#NoncurrentDeleteMarkers)**<br>Expiration rule for non-current delete markers of an objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket1) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). Works in the same way as noncurrent_expiration rule, but only for delete markers. <br>At expiration, the non-current delete marker of the object is deleted and cannot be recovered. 
 
 
 ### AfterDays {#AfterDays}
@@ -164,6 +165,13 @@ noncurrent_transitions[] | **[NoncurrentTransition](#NoncurrentTransition)**<br>
 Field | Description
 --- | ---
 days_after_expiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the start of the multipart upload, after which the incomplete upload is aborted. 
+
+
+### NoncurrentDeleteMarkers {#NoncurrentDeleteMarkers}
+
+Field | Description
+--- | ---
+noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of a delete marker was classified as non-current, after which the delete marker expires. 
 
 
 ### NoncurrentExpiration {#NoncurrentExpiration}
@@ -391,6 +399,7 @@ transitions[] | **[Transition](#Transition1)**<br>List of transition rules. <br>
 abort_incomplete_multipart_upload | **[AfterDays](#AfterDays1)**<br>Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart). 
 noncurrent_expiration | **[NoncurrentExpiration](#NoncurrentExpiration1)**<br>Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket2) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). <br>At expiration, the non-current version of the object is deleted and cannot be recovered. 
 noncurrent_transitions[] | **[NoncurrentTransition](#NoncurrentTransition1)**<br>List of transition rules for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket2) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). <br>At transition, the non-current version of the object is transitioned to the specified storage class. 
+noncurrent_delete_markers | **[NoncurrentDeleteMarkers](#NoncurrentDeleteMarkers1)**<br>Expiration rule for non-current delete markers of an objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket2) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). Works in the same way as noncurrent_expiration rule, but only for delete markers. <br>At expiration, the non-current delete marker of the object is deleted and cannot be recovered. 
 
 
 ### AfterDays {#AfterDays1}
@@ -398,6 +407,13 @@ noncurrent_transitions[] | **[NoncurrentTransition](#NoncurrentTransition1)**<br
 Field | Description
 --- | ---
 days_after_expiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the start of the multipart upload, after which the incomplete upload is aborted. 
+
+
+### NoncurrentDeleteMarkers {#NoncurrentDeleteMarkers1}
+
+Field | Description
+--- | ---
+noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of a delete marker was classified as non-current, after which the delete marker expires. 
 
 
 ### NoncurrentExpiration {#NoncurrentExpiration1}
@@ -665,6 +681,7 @@ transitions[] | **[Transition](#Transition2)**<br>List of transition rules. <br>
 abort_incomplete_multipart_upload | **[AfterDays](#AfterDays2)**<br>Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart). 
 noncurrent_expiration | **[NoncurrentExpiration](#NoncurrentExpiration2)**<br>Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket3) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). <br>At expiration, the non-current version of the object is deleted and cannot be recovered. 
 noncurrent_transitions[] | **[NoncurrentTransition](#NoncurrentTransition2)**<br>List of transition rules for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket3) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). <br>At transition, the non-current version of the object is transitioned to the specified storage class. 
+noncurrent_delete_markers | **[NoncurrentDeleteMarkers](#NoncurrentDeleteMarkers2)**<br>Expiration rule for non-current delete markers of an objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket3) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). Works in the same way as noncurrent_expiration rule, but only for delete markers. <br>At expiration, the non-current delete marker of the object is deleted and cannot be recovered. 
 
 
 ### AfterDays {#AfterDays2}
@@ -672,6 +689,13 @@ noncurrent_transitions[] | **[NoncurrentTransition](#NoncurrentTransition2)**<br
 Field | Description
 --- | ---
 days_after_expiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the start of the multipart upload, after which the incomplete upload is aborted. 
+
+
+### NoncurrentDeleteMarkers {#NoncurrentDeleteMarkers2}
+
+Field | Description
+--- | ---
+noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of a delete marker was classified as non-current, after which the delete marker expires. 
 
 
 ### NoncurrentExpiration {#NoncurrentExpiration2}
@@ -869,6 +893,7 @@ transitions[] | **[Transition](#Transition3)**<br>List of transition rules. <br>
 abort_incomplete_multipart_upload | **[AfterDays](#AfterDays3)**<br>Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart). 
 noncurrent_expiration | **[NoncurrentExpiration](#NoncurrentExpiration3)**<br>Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket3) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). <br>At expiration, the non-current version of the object is deleted and cannot be recovered. 
 noncurrent_transitions[] | **[NoncurrentTransition](#NoncurrentTransition3)**<br>List of transition rules for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket3) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). <br>At transition, the non-current version of the object is transitioned to the specified storage class. 
+noncurrent_delete_markers | **[NoncurrentDeleteMarkers](#NoncurrentDeleteMarkers3)**<br>Expiration rule for non-current delete markers of an objects in a bucket with versioning enabled ([Bucket.versioning](#Bucket3) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`). Works in the same way as noncurrent_expiration rule, but only for delete markers. <br>At expiration, the non-current delete marker of the object is deleted and cannot be recovered. 
 
 
 ### AfterDays {#AfterDays3}
@@ -876,6 +901,13 @@ noncurrent_transitions[] | **[NoncurrentTransition](#NoncurrentTransition3)**<br
 Field | Description
 --- | ---
 days_after_expiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the start of the multipart upload, after which the incomplete upload is aborted. 
+
+
+### NoncurrentDeleteMarkers {#NoncurrentDeleteMarkers3}
+
+Field | Description
+--- | ---
+noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of a delete marker was classified as non-current, after which the delete marker expires. 
 
 
 ### NoncurrentExpiration {#NoncurrentExpiration3}

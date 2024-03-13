@@ -4,20 +4,6 @@
 
    1. Make sure that the {{ PG }} major version on the target is not lower than that on the source.
 
-   1. Disable the following settings on the target:
-
-      * Integrity checks for foreign keys
-      * Triggers
-      * Other constraints
-
-      {% note warning %}
-
-      Do not reactivate these settings before the transfer is complete. This will ensure data integrity with respect to foreign keys.
-
-      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [copy stage](../../../../data-transfer/concepts/transfer-lifecycle.md#copy-and-replication) is completed.
-
-      {% endnote %}
-
    1. In the target database, [enable the same extensions](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) that are enabled in the source database.
 
    1. Make sure the target has the `DROP transfer tables` cleanup policy selected.
@@ -48,20 +34,6 @@
    1. {% include notitle [White IP list](../../configure-white-ip.md) %}
 
    1. Make sure that the {{ PG }} major version on the target is not lower than that on the source.
-
-   1. Disable the following settings on the target:
-
-      * Integrity checks for foreign keys
-      * Triggers
-      * Other constraints
-
-      {% note warning %}
-
-      Do not reactivate these settings before the transfer is complete. This will ensure data integrity with respect to foreign keys.
-
-      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [copy stage](../../../../data-transfer/concepts/transfer-lifecycle.md#copy-and-replication) is completed.
-
-      {% endnote %}
 
    1. In the target database, enable the same extensions that are enabled in the source database.
 

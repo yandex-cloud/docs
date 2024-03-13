@@ -5,9 +5,11 @@ description: "Follow this guide to attach file storage to a VM."
 
 # Attaching file storage to a VM
 
-{% note info %}
+{% note warning %}
 
-You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.md#os) with kernel version 5.4 or higher.
+You can only attach file storage to VMs running Linux [OS](../../concepts/filesystem.md#os) with kernel version 5.4 or higher.
+
+To check the kernel version, run `sudo uname -r`.
 
 {% endnote %}
 
@@ -93,7 +95,7 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
       ...
       ```
 
-      Save the `device_name` value from the `filesystems` section.
+      Save the `device_name` field value from the `filesystems` section. This is the name of the device to mount the file store on that you will need later.
 
    1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
 
@@ -105,7 +107,7 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
 
       Where:
 
-      * `<device_name>`: Previously saved device name.
+      * `<device_name>`: Previously saved `device_name` field value. In the example above, it is `storagename`. Your device name may differ.
       * `<mount_path>`: Folder or disk on which to mount the file store, e.g., `/mnt/vfs0`.
 
    1. Check that the file store has been mounted:
@@ -125,11 +127,11 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
       tmpfs             tmpfs             5120       0      5120   0% /run/lock
       tmpfs             tmpfs          1017604       0   1017604   0% /sys/fs/cgroup
       tmpfs             tmpfs           203520       0    203520   0% /run/user/1000
-      filesystem        virtiofs      66774660       0  66774660   0% /mnt/vfs0
+      storagename       virtiofs      66774660       0  66774660   0% /mnt/vfs0
       ```
 
    1. For the file store to be mounted every time the VM is started, add the following string to the `/etc/fstab` file:
 
-      ```
-      <device_name>  <mount_path> virtiofs    rw    0   0
+      ```text
+      <device_name> <mount_path> virtiofs    rw    0   0
       ```

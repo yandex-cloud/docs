@@ -1,10 +1,11 @@
 # {{ managed-k8s-name }} tutorials
 
-You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
+You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
 
 ## Creating and setting up a project {#creating-project}
 
 * [{#T}](new-kubernetes-project.md)
+* [{#T}](k8s-cluster-with-no-internet.md)
 * [{#T}](running-pod-gpu.md)
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)

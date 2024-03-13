@@ -5,11 +5,11 @@ description: "In this tutorial, you will learn about importing a page from a fil
 
 # Importing a page from a file
 
-## Pages created in the old editor {#page}
+## Importing a page {#page}
 
-To convert a .txt file or a .docx document to a page created in the old editor:
+To convert a .txt file or a .docx document to a page:
 
-1. On any page created in the old editor, click ![](../_assets/wiki/svg/create-page.svg) **Create page** in the left-hand panel or select ![](../_assets/wiki/svg/actions-icon.svg) **Actions** → **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.create_page }}** in the top-right corner.
+1. On any page, click ![](../_assets/wiki/svg/create-page.svg) **Create page** in the left-hand panel or select ![](../_assets/wiki/svg/actions-icon.svg) **Actions** → **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.create_page }}** in the top-right corner.
 
 1. Select **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page.page }}**.
 
@@ -21,16 +21,15 @@ To convert a .txt file or a .docx document to a page created in the old editor:
 
 The contents of the selected file will be uploaded to a new page:
 
-- If you uploaded a .txt file, the complete text of the file is copied to the page. If the text contains [markup elements](basic-markup.md), they will be displayed correctly on the page.
+- If you uploaded a .txt file, the complete text of the file is copied to the page. If the text contains [markup elements](wysiwyg/text-format.md), they will be displayed correctly on the page.
 
-- If you uploaded a .docx document, its text will be converted to [page markup](basic-markup.md). If the document contains images, they will be placed at the end of the page in the `<<Imported images>>` section.
-
+- If you uploaded a .docx document, its text will be converted to [page markup](wysiwyg/text-format.md). If the document contains images, they will be placed at the end of the page in the `<<Imported images>>` section.
 
 ## Dynamic table {#dynamic-table}
 
 You can create dynamic tables from CSV or TXT files:
 
-1. Save your spreadsheet (for instance, an MS Excel file) in CSV format. Alternatively, you can create a TXT file in which the cell values are separated by a comma, semicolon, or tab character.
+1. Save your spreadsheet, e.g., an MS Excel file, in CSV format. Alternatively, you can create a TXT file in which the cell values are separated by a comma, semicolon, or tab character.
 
 1. [Create](create-grid.md) a new dynamic table or open an existing one.
 
@@ -63,4 +62,4 @@ You can create dynamic tables from CSV or TXT files:
 
 - [{#T}](create-page.md)
 
-- [{#T}](add-grid.md)
+- [{#T}](wysiwyg/tables-format.md)

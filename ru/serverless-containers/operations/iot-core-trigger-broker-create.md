@@ -92,20 +92,20 @@ description: "Создайте триггер для топика брокера
     Результат:
 
     ```text
-    id: a1s5msktij**********
-    folder_id: b1gmit33hg**********
+    id: a1s5msktijh2********
+    folder_id: b1gmit33hgh2********
     created_at: "2022-10-24T15:19:15.353909857Z"
     name: iot-broker-trigger
     rule:
       iot_broker_message:
-        broker_id: arenou2oj4**********
+        broker_id: arenou2oj4h2********
         mqtt_topic: topic-for-broker
         batch_settings:
           size: "1"
           cutoff: 0s
         invoke_container:
-          container_id: bba5jb38o8**********
-          service_account_id: aje3932acd**********
+          container_id: bba5jb38o8h2********
+          service_account_id: aje3932acdh2********
           retry_settings:
             retry_attempts: "1"
             interval: 10s

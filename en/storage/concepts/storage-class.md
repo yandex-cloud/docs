@@ -16,7 +16,7 @@ _Cold_ classes are designed to store objects that you plan to use less frequentl
 
 {% note info %}
 
-The minimum billable period of ice storage is 12 months (except storage until September 1, 2022). If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
+The minimum billable storage time of an object in ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
 
 {% endnote %}
 

@@ -33,7 +33,7 @@ To make it easier to compare different values, you can add conditional formattin
 
 ## Sections in the wizard {#wizard-sections}
 
-| Wizard section | Description |
+| Wizard<br/>section | Description |
 ----- | ----
 | Columns | Dimensions and measures to be used as columns. Field names are used as column headers. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
@@ -118,7 +118,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 1. In the top-right corner of the **Color** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you mouse over the section).
 1. Set up colors:
 
-   * **Gradient type**: Select 2 or 3 colors.
+   * **Gradient type**: Select two or three colors.
       * Gradient color: Select a color palette for the gradient from the list.
       * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
    * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
@@ -136,18 +136,18 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
    {% endnote %}
 
-   {% list tabs %}
+   {% list tabs group=fill %}
 
-   - For a dimension
+   - For a dimension {#measure}
 
       1. Click the color scheme selection field and set a color for each dimension value.
       1. Click **Apply**.
 
-   - For a measure
+   - For a measure {#indicator}
 
       1. Click the gradient selection field and set up:
 
-         * **Gradient type**: Select 2 or 3 colors.
+         * **Gradient type**: Select two or three colors.
 
             * Gradient color: Select a color palette for the gradient from the list.
             * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.

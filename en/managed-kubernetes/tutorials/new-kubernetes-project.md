@@ -2,12 +2,14 @@
 
 This article describes how to run a new {{ k8s }} project in {{ yandex-cloud }}. An application from [{{ container-registry-full-name }}](../../container-registry/) is deployed in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and published on the internet via the [{{ alb-full-name }}](../../application-load-balancer/) Ingress controller.
 
+If you need to create a {{ managed-k8s-name }} cluster with no internet access, see the [{#T}](k8s-cluster-with-no-internet.md) section.
+
 To launch an app:
-1. [{#T}](#create-sa).
-1. [{#T}](#create-k8s-res).
-1. [{#T}](#create-cr-res).
-1. [{#T}](#setup-alb).
-1. [{#T}](#create-ingress).
+1. [{#T}](#create-sa)
+1. [{#T}](#create-k8s-res)
+1. [{#T}](#create-cr-res)
+1. [{#T}](#setup-alb)
+1. [{#T}](#create-ingress)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 

@@ -11,21 +11,18 @@ description: "This page contains a reference of {{ alb-name }} tools for {{ mana
 
 
 
-
 ## Ingress controller resources {#ingress}
 
 * [Ingress](ingress.md): Backend traffic distribution rules.
 * [HttpBackendGroup](http-backend-group.md): Combining backends into groups.
-
 
 ## Gateway API resources {#gateway-api}
 
 * [Gateway](gateway.md): Rules for receiving incoming traffic and selecting routes (`HTTPRoute`) for the traffic.
 * [HTTPRoute](http-route.md): Rules for routing traffic across backends or redirecting it.
 
-
 ## Common resources {#common}
 
-* [Service](service.md): Description of {{ k8s }} services used as backends.
+* [Service](service.md): Description of [{{ k8s }} services](../../managed-kubernetes/concepts/index.md#service) used as backends.
 
 

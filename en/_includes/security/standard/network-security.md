@@ -284,7 +284,7 @@ To enable administrators to establish remote connections to your cloud resources
 
    **Setup options**:
    * [Creating an IPsec VPN tunnel using the strongSwan](../../../tutorials/routing/ipsec/index.md).
-   * [Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
+   * [Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud-examples/yc-site-to-site-vpn-with-ipsec-strongswan).
    * Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
 
    See the details in the [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md) section. You can also use certified data cryptographic security tools.

@@ -4,7 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
-В сценарии описывается развертывание серверов Microsoft Exchange в {{ yandex-cloud }}. Инсталляция Microsoft Exchange будет состоять из двух почтовых серверов, двух серверов Active Directory и двух серверов Edge Transport в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`. Нагрузка будет распределяться по серверам с помощью сетевого балансировщика нагрузки. Управление всеми серверами будет осуществляться через отдельную ВМ с доступом в интернет в зоне доступности `{{ region-id }}-c`.
+В сценарии описывается развертывание серверов Microsoft Exchange в {{ yandex-cloud }}. Инсталляция Microsoft Exchange будет состоять из двух почтовых серверов, двух серверов Active Directory и двух серверов Edge Transport в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`. Нагрузка будет распределяться по серверам с помощью сетевого балансировщика нагрузки. Управление всеми серверами будет осуществляться через отдельную ВМ с доступом в интернет в зоне доступности `{{ region-id }}-d`.
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную сеть и подсети](#create-network).
@@ -84,7 +84,7 @@
       1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
       1. Нажмите кнопку **Создать подсеть**.
 
-      Повторите шаги еще для двух подсетей `exchange-subnet-b` и `exchange-subnet-c` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-c` с CIDR `10.2.0.0/16` и `10.3.0.0/16` соответственно.
+      Повторите шаги еще для двух подсетей `exchange-subnet-b` и `exchange-subnet-d` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-d` с CIDR `10.2.0.0/16` и `10.3.0.0/16` соответственно.
 
    - CLI {#cli}
 
@@ -104,8 +104,8 @@
         --range 10.2.0.0/16
 
       yc vpc subnet create \
-        --name exchange-subnet-c \
-        --zone {{ region-id }}-c \
+        --name exchange-subnet-d \
+        --zone {{ region-id }}-d \
         --network-name exchange-network \
         --range 10.3.0.0/16
       ```
@@ -189,7 +189,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `fsw-vm`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-c`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
   1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter).
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -199,7 +199,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
          * **Гарантированная доля vCPU** — 100%.
          * **RAM** — 4 ГБ.
 
-  1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-c`. В поле **Публичный адрес** выберите вариант **Автоматически**.
+  1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-d`. В поле **Публичный адрес** выберите вариант **Автоматически**.
   1. Нажмите кнопку **Создать ВМ**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
@@ -212,8 +212,8 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname fsw-vm \
     --memory 4 \
     --cores 2 \
-    --zone {{ region-id }}-c \
-    --network-interface subnet-name=exchange-subnet-c,nat-ip-version=ipv4 \
+    --zone {{ region-id }}-d \
+    --network-interface subnet-name=exchange-subnet-d,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
     --metadata-from-file user-data=setpass
   ```
@@ -270,7 +270,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    ```powershell
    New-ADReplicationSite '{{ region-id }}-b'
-   New-ADReplicationSite '{{ region-id }}-c'
+   New-ADReplicationSite '{{ region-id }}-d'
    ```
 
 1. Создайте подсети и привяжите их к сайтам:
@@ -278,7 +278,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    ```powershell
    New-ADReplicationSubnet -Name '10.1.0.0/16' -Site '{{ region-id }}-a'
    New-ADReplicationSubnet -Name '10.2.0.0/16' -Site '{{ region-id }}-b'
-   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-c'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-d'
    ```
 
 1. Переименуйте сайт-линк и настройте репликацию:

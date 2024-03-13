@@ -18,6 +18,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/configs
 ```json 
 {
   "folderId": "string",
+  "name": "string",
   "yamlString": "string"
 }
 ```
@@ -26,6 +27,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/configs
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create a config in.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Name of the config.</p> 
 yamlString | **string**<br><p>Config content provided as a string in YAML format.</p> 
  
 ## Response {#responses}

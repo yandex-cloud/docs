@@ -22,7 +22,13 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests
     {
       "configId": "string",
       "agentSelector": {
-        "agentId": "string"
+
+        // `configurations[].agentSelector` includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`
+        "agentId": "string",
+        "matchByFilter": "string",
+        "anonymousAgent": true,
+        // end of the list of possible fields`configurations[].agentSelector`
+
       },
       "files": "object"
     }
@@ -48,7 +54,9 @@ folderId | **string**<br><p>Required. ID of the folder to create a test in.</p> 
 configurations[] | **object**<br><p>Test configuration associated with agents on which they will be executed. In case of multiple configurations, a multitest will be created.</p> 
 configurations[].<br>configId | **string**<br><p>ID of the config.</p> 
 configurations[].<br>agentSelector | **object**<br><p>Agent selection criterion.</p> <p>Agent selection criterion.</p> <p>The structure is used by service to determine on which agents a specific test should be executed.</p> 
-configurations[].<br>agentSelector.<br>agentId | **string**<br><p>Selection by agent ID.</p> 
+configurations[].<br>agentSelector.<br>agentId | **string** <br>`configurations[].agentSelector` includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`<br><br><p>Selection by agent ID.</p> 
+configurations[].<br>agentSelector.<br>matchByFilter | **string** <br>`configurations[].agentSelector` includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`<br><br><p>Selection by filter string.</p> 
+configurations[].<br>agentSelector.<br>anonymousAgent | **boolean** (boolean) <br>`configurations[].agentSelector` includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`<br><br><p>Select anonymoud (i.e. not registered) agents.</p> 
 configurations[].<br>files | **object**<br><p>Additional files to be used during test execution, represented as ``rel_path:file`` pairs.</p> <p>``rel_path`` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location.</p> <p>Use cases include:</p> <ul> <li><a href="https://cloud.yandex.com/en-ru/docs/load-testing/concepts/payload">Test Data files</a>.</li> <li>Custom Pandora executable.</li> <li>JMeter executable or ".jmx" scenario.</li> <li>etc.</li> </ul> 
 testDetails | **object**<br><p>Test details. Name, tags etc.</p> <p>Test meta information.</p> 
 testDetails.<br>name | **string**<br><p>Name of the test.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 

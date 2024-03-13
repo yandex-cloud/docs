@@ -1,5 +1,7 @@
 # Managing bucket policies
 
+{% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
 [Bucket policies](../../concepts/policy.md) set permissions for bucket, object, and object group actions.
 
 ## Applying or editing a policy {#apply-policy}

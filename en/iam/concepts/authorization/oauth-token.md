@@ -8,11 +8,11 @@ OAuth tokens are not available for federated users and service accounts.
 
 ## OAuth token format {#oauth-token-format}
 
-It consists of 58 characters and always starts with the letter `y`, a random number in the range of `0-3`, and the `_` symbol. Other characters may be:
+The token always starts with the letter `y`, a random digit in the `0-3` range, and the `_` symbol. Other characters may include:
 
-* Latin letters.
-* Numbers.
-* `_` and `-`.
+* Latin letters
+* Numbers
+* Underscores `_` and hyphens `-`
 
 Sample OAuth token: `y3_Vdheub7w9bIut67GHeL345gfb5GAnd3dZnf08FRbvjeUFvetYiohGvc`.
 

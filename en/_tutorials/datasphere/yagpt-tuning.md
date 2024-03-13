@@ -208,7 +208,7 @@ File content example:
     print(res.json())
     ```
 
-   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/api-ref/v1/index.md).
+   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/concepts/index.md).
 
 - cURL {#curl}
 

@@ -208,7 +208,7 @@
     print(res.json())
     ```
 
-    Подробнее о параметрах запроса к дообученной модели см. в [документации {{ yagpt-full-name }}](../../yandexgpt/api-ref/v1/index.md).
+    Подробнее о параметрах запроса к дообученной модели см. в [документации {{ yagpt-full-name }}](../../yandexgpt/concepts/index.md).
 
 - cURL {#curl}
 

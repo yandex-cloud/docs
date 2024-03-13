@@ -107,7 +107,8 @@ filter | <p>A filter expression that filters resources listed in the response.</
 
         },
         "serviceAccountId": "string"
-      }
+      },
+      "tmpfsSize": "string"
     }
   ],
   "nextPageToken": "string"
@@ -165,4 +166,5 @@ versions[].<br>asyncInvocationConfig.<br>failureTarget.<br>ymqTarget | **object*
 versions[].<br>asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>queueArn | **string**<br><p>Required. Queue ARN</p> 
 versions[].<br>asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
 versions[].<br>asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
+versions[].<br>tmpfsSize | **string** (int64)<br><p>Optional size of in-memory mounted /tmp directory in bytes.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

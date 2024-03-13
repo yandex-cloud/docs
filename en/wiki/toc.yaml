@@ -23,60 +23,20 @@ items:
         href: structure.md
       - name: Page types
         href: pages-types.md
-  - name: Creating pages
-    items:
-      - name: New editor
-        href: wysiwyg-create.md
-      - name: Old editor
-        href: create-page.md
-      - name: Dynamic table
-        href: create-grid.md
-      - name: Importing a page from a file
-        href: import-page.md
-      - name: Page copy
-        href: create-copy.md
-  - name: New editor
-    items:
-      - name: Overview
-        href: new-editor.md
-      - name: Visual editor
-        items:
-          - name: Formatting text
-            href: wysiwyg/text-format.md
-          - name: Block formatting
-            href: wysiwyg/block-format.md
-          - name: Adding tables and tables of contents
-            href: wysiwyg/tables-format.md
-          - name: Adding third-party content
-            href: wysiwyg/embed-content.md
-  - name: Old editor
-    items:
-      - name: Overview
-        href: old-editor.md
-      - name: Formatting text
-        href: basic-markup.md
-      - name: Inserting images
-        href: add-image.md
-      - name: Adding a table
-        href: add-grid.md
-      - name: Content structuring
-        items:
-          - name: Table of contents of a page
-            href: actions/toc.md
-          - name: Bookmarks on pages
-            href: actions/anchor.md
-          - name: Page lists
-            href: actions/page-lists.md
-  - name: Dynamic tables
-    href: edit-grid-wysiwyg.md
   - name: Managing pages
     items:
       - name: Overview
         href: page-management/page-settings.md
+      - name: Creating a page
+        href: create-page.md
       - name: Viewing the history of page changes
         href: history.md
       - name: Attaching files
         href: attach-file.md
+      - name: Importing a page from a file
+        href: import-page.md
+      - name: Page copy
+        href: create-copy.md
       - name: Moving a page
         href: page-management/move-page.md
       - name: Finding text on a page
@@ -95,7 +55,7 @@ items:
     items:
       - name: Overview
         href: navigation.md
-      - name: Searching by {{ wiki-name }}
+      - name: Searching in {{ wiki-name }}
         href: search.md
       - name: Subscriptions and favorites
         href: notifications.md
@@ -115,6 +75,16 @@ items:
         href: actions/tracker.md
       - name: Yandex Metrica tags
         href: add-metrika.md
+  - name: Visual editor
+    items:
+      - name: Formatting text
+        href: wysiwyg/text-format.md
+      - name: Block formatting
+        href: wysiwyg/block-format.md
+      - name: Adding tables and tables of contents
+        href: wysiwyg/tables-format.md
+      - name: Adding third-party content
+        href: wysiwyg/embed-content.md
   - name: Markup guide
     items:
       - name: Markdown markup
@@ -151,6 +121,14 @@ items:
             href: actions/iframe.md
           - name: Formulas, diagrams, and flowcharts
             href: add-diagram-formula.md
+          - name: Content structuring
+            items:
+              - name: Table of contents of a page
+                href: actions/toc.md
+              - name: Bookmarks on pages
+                href: actions/anchor.md
+              - name: Page lists
+                href: actions/page-lists.md
       - name: Blocks with special formatting
         items:
           - name: Overview
@@ -165,6 +143,12 @@ items:
             href: static-markup/diagram.md
           - name: Borders, width, and alignment of blocks
             href: static-markup/wrappers.md
+  - name: Dynamic tables
+    items:
+      - name: Creating a dynamic table
+        href: create-grid.md
+      - name: Editing a dynamic table
+        href: edit-grid-wysiwyg.md
   - name: '{{ ya-360 }} will no longer be free of charge'
     href: organization-changes.md
   - name: Pricing policy

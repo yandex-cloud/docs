@@ -32,11 +32,11 @@ description: "Вы можете посмотреть график монитор
     ```
     Результат:
     ```
-	2021-12-07 10:39:03  INFO START RequestID: 24ad08bd-10f7-4e76-9f08-b2b14b04495b
+	2021-12-07 10:39:03  INFO START RequestID: 24ad08bd-10f7-4e76-9f08-b2b1********
 	2021-12-07 10:39:03       Hi, I'm inside
 	2021-12-07 10:39:03       runtime pid 76: exited with 0
 	...
-	2021-12-07 10:42:04  INFO END RequestID: 24ad08bd-10f7-4e76-9f08-b2b14b04495b
+	2021-12-07 10:42:04  INFO END RequestID: 24ad08bd-10f7-4e76-9f08-b2b1********
     ```
 
 {% endlist %}

@@ -21,6 +21,8 @@ items:
             href: operations/cluster-stop.md
           - name: Управление хостами {{ KF }}
             href: operations/cluster-hosts.md
+          - name: Миграция хостов в другую зону доступности
+            href: operations/host-migration.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Топики

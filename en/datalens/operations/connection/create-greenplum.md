@@ -27,7 +27,7 @@ To create a {{ GP }} connection:
 
    {% list tabs group=connection %}
 
-   - Select in folder {#catalog}
+   - Select in organization {#organization}
 
       {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 

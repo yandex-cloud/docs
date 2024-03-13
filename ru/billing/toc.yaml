@@ -142,6 +142,10 @@ items:
           Создание триггера для бюджетов, который вызывает функцию для остановки
           ВМ
         href: tutorials/serverless-trigger-budget-vm.md
+      - name: >-
+          Создание триггеров, которые вызывают функции для остановки ВМ и
+          отправки уведомлений в Telegram
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

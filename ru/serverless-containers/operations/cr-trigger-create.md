@@ -86,8 +86,8 @@
 
     
     ```text
-    id: a1s5msktij**********
-    folder_id: b1gmit33hg**********
+    id: a1s5msktijh2********
+    folder_id: b1gmit33hgh2********
     created_at: "2022-10-24T15:19:15.353909857Z"
     name: registry-trigger
     rule:
@@ -97,19 +97,19 @@
         - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
         - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
         - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
-        registry_id: crtlds4tdfg12kil77**********
+        registry_id: crtlds4tdfg12kil77h2********
         batch_settings:
           size: "3"
           cutoff: 20s
         invoke_container:
-          container_id: bba5jb38o8**********
-          service_account_id: aje3932acd**********
+          container_id: bba5jb38o8h2********
+          service_account_id: aje3932acdh2********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
-            service-account-id: aje3932acd**********
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmkh2********:dlq
+            service-account-id: aje3932acdh2********
     status: ACTIVE
     ```
   

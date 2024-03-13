@@ -35,13 +35,13 @@
 
 Настроить аутентификацию в {{ GL }} можно с помощью токена сервисного аккаунта {{ k8s }} или приложения [{{ GLA }}](/marketplace/products/yc/gitlab-agent):
 
-{% list tabs %}
+{% list tabs group=gl_auth %}
 
-- Токен сервисного аккаунта
+- Токен сервисного аккаунта {#token}
 
   {% include notitle [k8s-get-token](../_includes/managed-gitlab/k8s-get-token.md) %}
 
-- {{ GLA }}
+- {{ GLA }} {#gla}
 
   {% include notitle [create gla](../_includes/managed-gitlab/k8s-agent.md) %}
 
@@ -54,9 +54,9 @@
    1. Нажмите кнопку **Expand** напротив пункта **Variables**.
    1. Добавьте переменные окружения в зависимости от способа аутентификации {{ managed-k8s-name }} в {{ GL }}:
 
-      {% list tabs %}
+      {% list tabs group=gl_auth %}
 
-      - Токен сервисного аккаунта
+      - Токен сервисного аккаунта {#token}
 
         * `KUBE_URL` — адрес [мастера {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
 
@@ -67,7 +67,7 @@
 
         * `KUBE_TOKEN` — токен, который {{ GL }} будет использовать для применения конфигурации. Используйте токен, полученный ранее.
 
-      - {{ GLA }}
+      - {{ GLA }} {#gla}
 
       {% endlist %}
 
@@ -83,9 +83,9 @@
    1. Справа от имени проекта нажмите кнопку ![image](../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
    1. Назовите файл `.gitlab-ci.yml`. Добавьте в него шаги сборки и загрузки Docker-образа, его сканирования на наличие уязвимостей и обновления конфигурации приложения в кластере {{ managed-k8s-name }}. Структура файла зависит от способа аутентификации {{ k8s }} в {{ GL }}:
 
-      {% list tabs %}
+      {% list tabs group=gl_auth %}
 
-      - Токен сервисного аккаунта
+      - Токен сервисного аккаунта {#token}
 
         {% cut ".gitlab-ci.yml" %}
 
@@ -152,7 +152,7 @@
 
         {% endcut %}
 
-      - {{ GLA }}
+      - {{ GLA }} {#gla}
 
         {% cut ".gitlab-ci.yml" %}
 

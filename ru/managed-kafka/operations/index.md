@@ -13,6 +13,7 @@ description: "На странице представлен список поша
 - [{#T}](cluster-version-update.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](cluster-hosts.md)
+- [{#T}](host-migration.md)
 - [{#T}](cluster-delete.md)
 
 ## Топики

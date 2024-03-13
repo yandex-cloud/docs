@@ -183,7 +183,7 @@
         --network-name <имя_сети> \
         --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-a>,zone={{ region-id }}-a \
         --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-b>,zone={{ region-id }}-b \
-        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-c>,zone={{ region-id }}-c
+        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-d>,zone={{ region-id }}-d
       ```
 
   1. Добавьте обработчик:

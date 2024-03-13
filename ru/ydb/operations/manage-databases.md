@@ -435,7 +435,7 @@
     > resource "yandex_ydb_database_dedicated" "database2" {
     >    name                = "test-ydb-dedicated"
     >    network_id          = yandex_vpc_network.my-net.id
-    >    subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+    >    subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-d.id]
     >    resource_preset_id  = "medium"
     >    deletion_protection = "true"
     >    scale_policy {
@@ -515,7 +515,7 @@
       > resource "yandex_ydb_database_dedicated" "database2" {
       >   name                = "my-first-ydb-dedicated"
       >   network_id          = yandex_vpc_network.my-net.id
-      >   subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+      >   subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-d.id]
       >   resource_preset_id  = "medium"
       >   deletion_protection = "true"
       >   scale_policy {
@@ -615,7 +615,7 @@
        name               = "test-ydb-dedicated"
 
        network_id         = yandex_vpc_network.my-net.id
-       subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+       subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-d.id]
 
        resource_preset_id = "medium"
        scale_policy {

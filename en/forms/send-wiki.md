@@ -3,12 +3,12 @@
 
 {% note warning %}
 
-Integration with {{ wiki-name }} can be configured by users of [{{ forms-full-name }} for business](forms-for-org.md).
+Users of [{{ forms-full-name }} for business](forms-for-org.md) can configure integration with {{ wiki-name }}.
 
 {% endnote %}
 
 
-You can integrate your form with [{{ wiki-name }}]({{ link-wiki }}) to save user responses on a Wiki page. For example, if you are using a form to register participants for an event, you can automatically create a list of participants in {{ wiki-name }}. For more information about Wiki pages, see the [{{ wiki-name }} documentation](../wiki/old-editor.md).
+You can integrate your form with [{{ wiki-name }}]({{ link-wiki }}) to save user responses on a Wiki page. For example, if you are using a form to register participants for an event, you can automatically create a list of participants in {{ wiki-name }}. For more information about Wiki pages, see the [{{ wiki-name }} documentation](../wiki/pages-types.md).
 
 {% note alert %}
 
@@ -32,7 +32,7 @@ To set up adding responses from forms to a {{ wiki-name }} page:
 
    1. In the {{ wiki-name }} integration settings, append the `#` character and the name of the anchor to the page address like this: `users/login/my-page#form`. Responses from the form will be added to the page after the anchor.
 
-1. In the **Text** field, specify what data to add to the page. You can format the text using [wiki markup](../wiki/static-markup.md).
+1. In the **Text** field, specify what data to add to the page. You can format your text using [wiki markup](../wiki/static-markup.md).
    You can add to the text a response to a prompt or other data from the form:
 
    1. Select the field and click ![](../_assets/forms/add-var.png) to the right.

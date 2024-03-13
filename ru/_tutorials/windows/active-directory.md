@@ -78,7 +78,7 @@
 
        Повторите шаги еще для двух подсетей:
        * Название: `ad-subnet-b`. Зона доступности: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
-       * Название: `ad-subnet-c`. Зона доступности: `{{ region-id }}-c`. CIDR: `10.3.0.0/16`.
+       * Название: `ad-subnet-d`. Зона доступности: `{{ region-id }}-d`. CIDR: `10.3.0.0/16`.
 
    - CLI {#cli}
 
@@ -98,8 +98,8 @@
          --range 10.2.0.0/16
 
        yc vpc subnet create \
-         --name ad-subnet-c \
-         --zone {{ region-id }}-c \
+         --name ad-subnet-d \
+         --zone {{ region-id }}-d \
          --network-name ad-network \
          --range 10.3.0.0/16
        ```
@@ -186,7 +186,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя ВМ: `jump-server-vm`.
-  1. Выберите зону доступности `{{ region-id }}-c`.
+  1. Выберите зону доступности `{{ region-id }}-d`.
   1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) и нажмите **Использовать**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -195,7 +195,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
        * **vCPU** — 2.
        * **Гарантированная доля vCPU** — 100%.
        * **RAM** — 4 ГБ.
-  1. В блоке **Сетевые настройки** выберите подсеть `ad-subnet-c`. В блоке **Публичный адрес** выберите вариант **Автоматически**.
+  1. В блоке **Сетевые настройки** выберите подсеть `ad-subnet-d`. В блоке **Публичный адрес** выберите вариант **Автоматически**.
   1. Нажмите кнопку **Создать ВМ**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
@@ -208,8 +208,8 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname jump-server-vm \
     --memory 4 \
     --cores 2 \
-    --zone {{ region-id }}-c \
-    --network-interface subnet-name=ad-subnet-c,nat-ip-version=ipv4 \
+    --zone {{ region-id }}-d \
+    --network-interface subnet-name=ad-subnet-d,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
     --metadata-from-file user-data=setpass
   ```
@@ -260,7 +260,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    ```powershell
    New-ADReplicationSite '{{ region-id }}-b'
-   New-ADReplicationSite '{{ region-id }}-c'
+   New-ADReplicationSite '{{ region-id }}-d'
    ```
 
 1. Создайте подсети и привяжите их к сайтам:
@@ -268,7 +268,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    ```powershell
    New-ADReplicationSubnet -Name '10.1.0.0/16' -Site '{{ region-id }}-a'
    New-ADReplicationSubnet -Name '10.2.0.0/16' -Site '{{ region-id }}-b'
-   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-c'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-d'
    ```
 
 1. Переименуйте сайт-линк и настройте репликацию:

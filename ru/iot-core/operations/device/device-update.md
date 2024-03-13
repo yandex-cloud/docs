@@ -52,7 +52,7 @@
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
-        registry_id = "<идентификатор реестра>"
+        registry_id = "<идентификатор_реестра>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
       ...
@@ -91,7 +91,7 @@
       Проверить измененное имя устройства можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
       ```bash
-      yc iot device list --registry-id <идентификатор реестра>
+      yc iot device list --registry-id <идентификатор_реестра>
       ```
 
 - API {#api}
@@ -150,7 +150,7 @@
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
-        registry_id = "<идентификатор реестра>"
+        registry_id = "<идентификатор_реестра>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
       ...
@@ -189,7 +189,7 @@
       Проверить измененное описание устройства можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
       ```bash
-      yc iot device get <имя устройства>
+      yc iot device get <имя_устройства>
       ```
 
 - API {#api}

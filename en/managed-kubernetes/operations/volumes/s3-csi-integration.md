@@ -3,10 +3,12 @@
 {{ CSI }} allows you to dynamically reserve [{{ objstorage-full-name }}](../../../storage/) [buckets](../../../storage/concepts/bucket.md) and mount them in [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) [pods](../../concepts/index.md#pod). You can mount existing buckets or create new ones.
 
 To use {{ CSI }} capabilities:
+
 1. [Set up a work environment](#create-environment).
 1. [Configure {{ CSI }}](#configure-csi).
 
 See also:
+
 * [Using {{ CSI }} with a `PersistentVolume`](#csi-usage)
 * [Examples of creating a `PersistentVolume`](#examples)
 
@@ -24,9 +26,15 @@ See also:
 - {{ marketplace-full-name }} {#marketplace}
 
    Install the {{ CSI }} application for S3 by following [this step-by-step guide](../applications/csi-s3.md#install-fb-marketplace). While installing the application, specify the following parameters:
+
    * **Namespace**: `kube-system`.
-   * **Storage class name**: `csi-s3`.
-   * **Secret name**: `csi-s3-secret`.
+   * **S3 key ID**: Copy the key ID of the [created service account](#create-environment) into this field.
+   * **S3 secret key**: Copy the secret key of the [created service account](#create-environment) into this field.
+   * **Shared S3 bucket for volumes**: To use the existing bucket, specify its name. This setting is only relevant for [dynamic `PersistentVolumes`](#dpvc-csi-usage).
+   * **Storage class name**: `csi-s3`. Also select the **Create a storage class** option.
+   * **Secret name**: `csi-s3-secret`. Also select the **Create a secret** option.
+
+   Leave the default values for the other parameters.
 
    After installing the application, you can create [static](../../concepts/volume.md#static-provisioning) and [dynamic](../../concepts/volume.md#dynamic-provisioning) `PersistentVolumes` to use {{ objstorage-name }} buckets.
 
@@ -99,9 +107,10 @@ With {{ CSI }} configured, there are certain things to note about creating stati
 ### Dynamic PersistentVolume {#dpvc-csi-usage}
 
 For a dynamic `PersistentVolume`:
+
 * Specify the name of the storage class in the `spec.storageClassName` parameter when creating a `PersistentVolumeClaim`.
-* If required, specify a bucket name in the `bucket` parameter when [creating a storage class](#configure-csi). This affects {{ CSI }} behavior:
-   * If you specified a bucket name in the `bucket` parameter when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each created `PersistentVolume`.
+* If required, specify the bucket name in the `bucket` parameter (or the **Shared S3 bucket for volumes** field in the {{ marketplace-full-name }} settings) when [creating a storage class](#configure-csi). This affects {{ CSI }} behavior:
+   * If you specify the bucket name when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each created `PersistentVolume`.
 
       {% note info %}
 
@@ -109,15 +118,16 @@ For a dynamic `PersistentVolume`:
 
       {% endnote %}
 
-   * If you omitted a bucket name in the `bucket parameter`, {{ CSI }} will create a separate bucket for each `PersistentVolume` created.
+   * If you skip the bucket name, {{ CSI }} will create a separate bucket for each `PersistentVolume` created.
 
-[Example of creating](#create-dynamic-pvc) a dynamic `PersistentVolume`
+For more information, refer to the [example of creating](#create-dynamic-pvc) a dynamic `PersistentVolume`.
 
 ### Static PersistentVolume {#spvc-csi-usage}
 
 For a static `PersistentVolume`:
+
 * Leave the `spec.storageClassName` parameter empty when creating `PersistentVolumeClaim`.
-* Specify the name of the desired bucket or bucket directory in the `spec.csi.volumeHandle` parameter when creating `PersistentVolume`. If there is no such bucket, create one.
+* Specify the name of the bucket or bucket directory of your choice in the `spec.csi.volumeHandle` parameter when creating `PersistentVolume`. If no such bucket exists, create one.
 
    {% note info %}
 
@@ -127,15 +137,16 @@ For a static `PersistentVolume`:
 
 * To update [GeeseFS](../../../storage/tools/geesefs.md) options for working with a bucket, specify them in the `spec.csi.volumeAttributes.options` parameter when creating a `PersistentVolume`. For example, in the `--uid` option, you can specify the ID of the user being the owner of all files in storage. To get a list of GeeseFS options, run the `geesefs -h` command or find it in the [GitHub repository](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
 
-   The GeeseFS options specified in the `parameters.options` parameter of `StorageClass` for static `PersistentVolumes` are ignored. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
+   The GeeseFS options specified under `parameters.options` (or the **GeeseFS mount options** field in the {{ marketplace-full-name }} settings) in `StorageClass` are ignored for static `PersistentVolumes`. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
-[Example of creating](#create-static-pvc) a static `PersistentVolume`
+For more information, refer to the [example of creating](#create-static-pvc) a static `PersistentVolume`.
 
 ## Use cases {#examples}
 
 ### Dynamic PersistentVolume {#create-dynamic-pvc}
 
 To use {{ CSI }} with a dynamic `PersistentVolume`:
+
 1. [Configure {{ CSI }}](#configure-csi).
 1. Create a `PersistentVolumeClaim`:
    1. Create a file named `pvc-dynamic.yaml` with a description of your `PersistentVolumeClaim`:
@@ -148,7 +159,7 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
       kind: PersistentVolumeClaim
       metadata:
         name: csi-s3-pvc-dynamic
-        namespace: kube-system
+        namespace: default
       spec:
         accessModes:
         - ReadWriteMany
@@ -190,18 +201,17 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
       apiVersion: v1
       kind: Pod
       metadata:
-        name: csi-s3-test-ubuntu-dynamic
+        name: csi-s3-test-nginx-dynamic
+        namespace: default
       spec:
         containers:
-        - name: csi-s3-test-ubuntu
-          image: ubuntu
-          command: ["/bin/sh"]
-          args: ["-c", "for i in {1..10}; do echo $(date -u) >> /data/s3-dynamic/dynamic-date.txt; sleep 10; done"]
+        - name: csi-s3-test-nginx
+          image: nginx
           volumeMounts:
-            - mountPath: /data/s3-dynamic
-              name: s3-volume
+            - mountPath: /usr/share/nginx/html/s3
+              name: webroot
         volumes:
-          - name: s3-volume
+          - name: webroot
             persistentVolumeClaim:
               claimName: csi-s3-pvc-dynamic
               readOnly: false
@@ -221,14 +231,20 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
       kubectl get pods
       ```
 
-   While running, the pod will execute the `date` command several times and it write its result to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
+1. Create the `/usr/share/nginx/html/s3/hello_world` file in the container. For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
+
+   ```bash
+   kubectl exec -ti csi-s3-test-nginx -- touch /usr/share/nginx/html/s3/hello_world
+   ```
+
 1. Make sure that the file is in the bucket:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Click the `pvc-<dynamic_bucket_name>` bucket.
+   1. Click the `pvc-<dynamic_bucket_name>` bucket. If you specified the bucket name when configuring your storage class, open the specified bucket and the `pvc-<dynamic_bucket_name>` folder located inside.
 
 ### Static PersistentVolume {#create-static-pvc}
 
 To use {{ CSI }} with a static `PersistentVolume`:
+
 1. [Configure {{ CSI }}](#configure-csi).
 1. Create a `PersistentVolumeClaim`:
    1. Create a file named `pvc-static.yaml` with a description of your `PersistentVolumeClaim`:
@@ -241,7 +257,7 @@ To use {{ CSI }} with a static `PersistentVolume`:
       kind: PersistentVolumeClaim
       metadata:
         name: csi-s3-pvc-static
-        namespace: kube-system
+        namespace: default
       spec:
         accessModes:
           - ReadWriteMany
@@ -253,7 +269,7 @@ To use {{ CSI }} with a static `PersistentVolume`:
 
       {% endcut %}
 
-      If necessary, change the requested storage size in the `spec.resources.requests.storage` parameter value.
+      For a static `PersistentVolume`, you do not need to specify the storage class name in the `spec.storageClassName` parameter. If necessary, change the requested storage size in the `spec.resources.requests.storage` parameter value.
    1. Create a file named `pv-static.yaml` containing a description of your static `PersistentVolume`:
 
       {% cut "pv-static.yaml" %}
@@ -271,11 +287,11 @@ To use {{ CSI }} with a static `PersistentVolume`:
         accessModes:
           - ReadWriteMany
         claimRef:
-          namespace: kube-system
+          namespace: defalt
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi
-          volumeHandle: "<bucket_name>/<optional:_path_to_the_folder_in_the_bucket>"
+          volumeHandle: "<static_bucket_name>/<optional:_path_to_the_folder_in_the_bucket>"
           controllerPublishSecretRef:
             name: csi-s3-secret
             namespace: kube-system
@@ -330,16 +346,14 @@ To use {{ CSI }} with a static `PersistentVolume`:
       apiVersion: v1
       kind: Pod
       metadata:
-        name: csi-s3-test-ubuntu-static
-        namespace: kube-system
+        name: csi-s3-test-nginx-static
+        namespace: default
       spec:
         containers:
-        - name: csi-s3-test-ubuntu
-          image: ubuntu
-          command: ["/bin/sh"]
-          args: ["-c", "for i in {1..10}; do echo $(date -u) >> /data/s3-static/static-date.txt; sleep 10; done"]
+        - name: csi-s3-test-nginx-static
+          image: nginx
           volumeMounts:
-            - mountPath: /data/s3-static
+            - mountPath: /usr/share/nginx/html/s3
               name: s3-volume
         volumes:
           - name: s3-volume
@@ -362,7 +376,12 @@ To use {{ CSI }} with a static `PersistentVolume`:
       kubectl get pods
       ```
 
-   While running, the pod will execute the `date` command several times and write its result to a file named `/data/s3-static/static-date.txt`. You will find this file in the bucket.
+1. Create the `/usr/share/nginx/html/s3/hello_world_static` file in the container. For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
+
+   ```bash
+   kubectl exec -ti csi-s3-test-nginx-static -- touch /usr/share/nginx/html/s3/hello_world_static
+   ```
+
 1. Make sure that the file is in the bucket:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Click the `<bucket_name>`.
+   1. Click `<static_bucket_name>`. If you specified the path to the folder located inside the bucket in the static `PersistentVolume` description, you need to open the specified folder first.

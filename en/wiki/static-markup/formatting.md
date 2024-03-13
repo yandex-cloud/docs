@@ -5,32 +5,57 @@ description: "In this tutorial, you will learn about using text layout in {{ wik
 
 # Text formatting
 
-{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
-
 ## Highlighting text {#inline}
 
-{% note alert %}
+{% list tabs %}
 
-Highlighting only works correctly if the markup characters are adjacent to the text.
+- New editor
 
-{% endnote %}
+   {% note alert %}
 
-| Markup | Result |
---- | ---
-| `**Bold text**` | ![](../../_assets/wiki/bold.png) |
-| `*Italic*` | ![](../../_assets/wiki/italic.png) |
-| `_Italic_` | ![](../../_assets/wiki/italic.png) |
-| `//Italic//` | ![](../../_assets/wiki/italic.png) |
-| `__Underlined text__` | ![](../../_assets/wiki/underlined.png) |
-| `~~Strikethrough text~~` | ![](../../_assets/wiki/crossed.png) |
-| `--Strikethrough text--` | ![](../../_assets/wiki/crossed.png) |
-| `##Monospaced text##` | ![](../../_assets/wiki/monospaced.png) |
-| `++Small font++` | ![](../../_assets/wiki/small.png) |
-| Superscript: `E=mc^^2^^` | ![](../../_assets/wiki/sup.png) |
-| Subscript: `Hvv2vvO` | ![](../../_assets/wiki/sub-no-spaces.png) |
-| `??Highlighted text??` | ![](../../_assets/wiki/red-background.png) |
-| `!!Red text!!` | ![](../../_assets/wiki/red-colored.png) |
-| `!!(blue)Blue text!!`<br>Supported colors:<ul><li>`red`</li><li>`green`</li><li>`blue`</li><li>`grey`/`gray`</li><li>`yellow`</li><li>`cyan`</li><li>`orange`</li><li>`violet`</li></ul> | ![](../../_assets/wiki/colored.png) |
+   Highlighting only works correctly if the markup characters are adjacent to the text.
+
+   {% endnote %}
+
+   | Markup | Result |
+   --- | ---
+   | `**Bold text**` | ![](../../_assets/wiki/bold.png) |
+   | `*Italic*` | ![](../../_assets/wiki/italic.png) |
+   | `++Underlined text++` | ![](../../_assets/wiki/underlined.png) |
+   | `~~Strikethrough text~~` | ![](../../_assets/wiki/crossed.png) |
+   | `##Monospaced text##` | ![](../../_assets/wiki/monospaced.png) |
+   | `==Highlighted text==` | ![](../../_assets/wiki/small.png) |
+   | Superscript: `E=mc^2^` | ![](../../_assets/wiki/sup.png) |
+   | `==Highlighted text==` | ![](../../_assets/wiki/red-background.png) |
+   | `{red}(Red text)` | ![](../../_assets/wiki/red-colored.png) |
+   | `{blue}(Blue text)`<br>Supported colors:<ul><li>`red`</li><li>`green`</li><li>`blue`</li><li>`grey`/`gray`</li><li>`yellow`</li><li>`cyan`</li><li>`orange`</li><li>`violet`</li></ul> | ![](../../_assets/wiki/colored.png) |
+
+- Old editor
+
+   {% note alert %}
+
+   Highlighting only works correctly if the markup characters are adjacent to the text.
+
+   {% endnote %}
+
+   | Markup | Result |
+   --- | ---
+   | `**Bold text**` | ![](../../_assets/wiki/bold.png) |
+   | `*Italic*` | ![](../../_assets/wiki/italic.png) |
+   | `_Italic_` | ![](../../_assets/wiki/italic.png) |
+   | `//Italic//` | ![](../../_assets/wiki/italic.png) |
+   | `__Underlined text__` | ![](../../_assets/wiki/underlined.png) |
+   | `~~Strikethrough text~~` | ![](../../_assets/wiki/crossed.png) |
+   | `--Strikethrough text--` | ![](../../_assets/wiki/crossed.png) |
+   | `##Monospaced text##` | ![](../../_assets/wiki/monospaced.png) |
+   | `++Small font++` | ![](../../_assets/wiki/small.png) |
+   | Superscript: `E=mc^^2^^` | ![](../../_assets/wiki/sup.png) |
+   | Subscript: `Hvv2vvO` | ![](../../_assets/wiki/sub-no-spaces.png) |
+   | `??Highlighted text??` | ![](../../_assets/wiki/red-background.png) |
+   | `!!Red text!!` | ![](../../_assets/wiki/red-colored.png) |
+   | `!!(blue)Blue text!!`<br>Supported colors:<ul><li>`red`</li><li>`green`</li><li>`blue`</li><li>`grey`/`gray`</li><li>`yellow`</li><li>`cyan`</li><li>`orange`</li><li>`violet`</li></ul> | ![](../../_assets/wiki/colored.png) |
+
+{% endlist %}
 
 ## Combining formatting types {#sec_combine}
 

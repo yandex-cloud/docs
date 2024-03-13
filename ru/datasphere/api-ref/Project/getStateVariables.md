@@ -5,6 +5,7 @@ sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getStateVariables.md
 
 # DataSphere API v2, REST: Project.getStateVariables
 Returns state variables of the specified notebook.
+Deprecated
  
 
  

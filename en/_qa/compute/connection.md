@@ -3,7 +3,7 @@
 
 #### How do I connect to a Linux VM? {#conn-vm-linux}
 
-See: [{#T}](../../compute/operations/vm-connect/ssh.md). If the computer you are connecting from has an older version of Windows (7, 8, or the first releases of Windows 10) and there is no built-in SSH console client, use [PuTTY](https://www.putty.org/).
+See [{#T}](../../compute/operations/vm-connect/ssh.md). If the computer you are connecting from has an older version of Windows (7, 8, or the first releases of Windows 10) and there is no built-in SSH console client, use [PuTTY](https://www.putty.org/).
 
 The Linux images from {{ yandex-cloud }} are initially supplied without a graphical shell. Connection via SSH using a username and a password is disabled by default because this method is outdated and unsafe.
 
@@ -41,7 +41,28 @@ If the VM created from the snapshot is also unavailable for connection, see [How
 
 Some {{ marketplace-name }} images have service usernames reserved, such as `bitrix` in the [1C-Bitrix](/marketplace/products/yc/bitrix-1c-centos-7) image. When creating a VM and connecting to it, use a username not reserved in the system, e.g., `user`. Do not use `root`, `admin`, or other system usernames.
 
-You can later change the `bitrix` user's password by running the `sudo passwd bitrix` command.
+You can later change the `bitrix` user password by running the `sudo passwd bitrix` command.
+
+#### What do I do if the _Permission denied_ error occurs? {#permission-denied}
+
+When [connecting](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM via SSH, the following errors may occur:
+
+```bash
+Permission denied (publickey)
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic)
+```
+
+Common causes of errors include:
+
+* Mistyped public key specified when creating a virtual machine.
+* Invalid private key provided when attempting to establish a connection.
+* Invalid data in the `authorized_keys` file.
+
+To solve the issue, try to specify the appropriate private key using the `-i` flag when connecting to your VM:
+
+```bash
+ssh -i <key_path/key_file_name><username>@<VM_public_IP_address>
+```
 
 #### How do I set up an RDP/VNC connection to a Linux VM? {#set-rdp-vnc-to-linux}
 

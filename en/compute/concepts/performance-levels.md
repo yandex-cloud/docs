@@ -51,7 +51,7 @@ Minimum configurations are specified for the 5% performance level, while maximum
    | Configuration | vCPU | RAM, GB |
    --- | --- | ---
    | Min | 2 | 2 |
-   | Max | 56 | 460 |
+   | Max | 56 | 448 |
 
 
 The computing resources may have the following configurations:

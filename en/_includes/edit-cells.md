@@ -1,5 +1,5 @@
-* In the selected cell, click ![](../_assets/wiki/svg/edit.svg) and enter the value. The height of the row depends on the contents of the cell in which the largest value is recorded.
-* To format the text, use [Markdown markup](../wiki/basic-markup.md). 
-* To switch to a new row inside a cell, press the **Shift** + **Enter**.
-* To open the input field in a separate window, click ![](../_assets/wiki/svg/write.svg). 
-* To save the changes, exit the cell editing window. Changes are saved automatically.
+* Click ![](../_assets/wiki/svg/edit.svg) in the selected cell and enter a value. The row height depends on the content of the cell where the largest value is written.
+* Use the [Markdown markup](../wiki/wysiwyg/text-format.md) to format text.
+* To switch to a new row in a cell, press the **Shift** + **Enter** hotkey.
+* To open an input field in a separate window, click ![](../_assets/wiki/svg/write.svg).
+* To save the changes, exit the cell editing window. This saves the changes automatically.

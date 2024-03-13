@@ -178,7 +178,7 @@
 | --- | --- | --- | --- |
 | `subnet-a` | `10.1.11.0/24` | `{{ region-id }}-a` | `net-folder` |
 | `subnet-b` | `10.1.12.0/24` | `{{ region-id }}-b` | `dev-folder` |
-| `subnet-c` | `10.1.13.0/24` | `{{ region-id }}-c` | `prod-folder` |
+| `subnet-d` | `10.1.13.0/24` | `{{ region-id }}-d` | `prod-folder` |
 
 1. Создайте [облачную сеть](../../vpc/concepts/network.md):
 
@@ -254,7 +254,7 @@
      1. Введите CIDR подсети: IP-адрес `10.1.11.0` и маску подсети `24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-     Аналогично создайте подсети `subnet-b` и `subnet-с` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-c` в каталоге **net-folder**.
+     Аналогично создайте подсети `subnet-b` и `subnet-d` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-d` в каталоге **net-folder**.
 
    - CLI {#cli}
 
@@ -273,8 +273,8 @@
         yc vpc subnet create --folder-name dev-folder --name subnet-b \
           --network-name shared-net --zone {{ region-id }}-b --range 10.1.12.0/24
 
-        yc vpc subnet create --folder-name prod-folder --name subnet-c \
-          --network-name shared-net --zone {{ region-id }}-c --range 10.1.13.0/24
+        yc vpc subnet create --folder-name prod-folder --name subnet-d \
+          --network-name shared-net --zone {{ region-id }}-d --range 10.1.13.0/24
         ```
 
      1. Проверьте состояние созданных подсетей:
@@ -308,12 +308,12 @@
           network_id     = yandex_vpc_network.shared_net.id
         }
 
-        resource "yandex_vpc_subnet" "subnet_c" {
+        resource "yandex_vpc_subnet" "subnet_d" {
           folder_id      = yandex_resourcemanager_folder.prod_folder.id
-          name           = "subnet-c"
+          name           = "subnet-d"
           description    = "PROD folder subnet"
           v4_cidr_blocks = ["10.1.13.0/24"]
-          zone           = "{{ region-id }}-c"
+          zone           = "{{ region-id }}-d"
           network_id     = yandex_vpc_network.shared_net.id
         }
         ```
@@ -370,7 +370,7 @@
 
 {% endlist %}
 
-Аналогично переместите подсеть `subnet-с` в каталог `prod-folder`.
+Аналогично переместите подсеть `subnet-d` в каталог `prod-folder`.
 
 ## Создайте виртуальные машины {#create-vms}
 
@@ -380,7 +380,7 @@
 | --- | --- | --- | --- |
 | `net-vm` | `net-folder` | `{{ region-id }}-a` | `subnet-a` |
 | `dev-vm` | `dev-folder` | `{{ region-id }}-b` | `subnet-b` |
-| `prod-vm` | `prod-folder` | `{{ region-id }}-c` | `subnet-c` |
+| `prod-vm` | `prod-folder` | `{{ region-id }}-d` | `subnet-d` |
 
 {% list tabs group=instructions %}
 
@@ -457,11 +457,11 @@
        --metadata-from-file user-data=vm-config.txt
  
      yc compute instance create --name=prod-vm --hostname=prod-vm \
-       --zone={{ region-id }}-c \
+       --zone={{ region-id }}-d \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-{{ region-id }}-c,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=default-{{ region-id }}-d,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
      ```
   
@@ -601,7 +601,7 @@
        name        = "prod-vm"
        hostname    = "prod-vm"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-c"
+       zone        = "{{ region-id }}-d"
        resources {
          cores  = 2
          memory = 4
@@ -612,7 +612,7 @@
        }
 
        network_interface {
-         subnet_id = yandex_vpc_subnet.subnet_c.id
+         subnet_id = yandex_vpc_subnet.subnet_d.id
          nat       = true
        }
 

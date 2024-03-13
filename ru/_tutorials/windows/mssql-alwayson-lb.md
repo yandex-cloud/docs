@@ -71,7 +71,7 @@
 
 1. Создайте подсети, в которых будут размещаться виртуальные машины и сетевой балансировщик: 
 
-   * Три подсети для размещения ВМ SQLServer: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b` и `ya-sqlserver-rc1c`. К каждой подсети будет привязана таблица маршрутизации `mssql`.
+   * Три подсети для размещения ВМ SQLServer: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b` и `ya-sqlserver-rc1d`. К каждой подсети будет привязана таблица маршрутизации `mssql`.
    * Подсеть `ya-ilb-rc1a` для сетевого балансировщика.
    * Подсеть `ya-ad-rc1a` для Active Directory.
 
@@ -90,7 +90,7 @@
       Повторите шаги для подсетей со следующими именами и CIDR:
 
       * `ya-sqlserver-rc1b` в зоне доступности `{{ region-id }}-b` — `192.168.1.16/28`;
-      * `ya-sqlserver-rc1c` в зоне доступности `{{ region-id }}-c` — `192.168.1.32/28`;
+      * `ya-sqlserver-rc1d` в зоне доступности `{{ region-id }}-d` — `192.168.1.32/28`;
       * `ya-ilb-rc1a` в зоне доступности `{{ region-id }}-a` — `192.168.1.48/28`;
       * `ya-ad-rc1a` в зоне доступности `{{ region-id }}-a` — `10.0.0.0/28`.
 
@@ -114,8 +114,8 @@
 
       ```
       yc vpc subnet create \
-         --name ya-sqlserver-rc1c \
-         --zone {{ region-id }}-c \
+         --name ya-sqlserver-rc1d \
+         --zone {{ region-id }}-d \
          --range 192.168.1.32/28 \
          --network-name ya-network
       ```
@@ -156,8 +156,8 @@
 
       ```
       yc vpc subnet create `
-         --name ya-sqlserver-rc1c `
-         --zone {{ region-id }}-c `
+         --name ya-sqlserver-rc1d `
+         --zone {{ region-id }}-d `
          --range 192.168.1.32/28 `
          --network-name ya-network
       ```
@@ -249,7 +249,7 @@
      --name ya-tg \
      --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a \
      --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b \
-     --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1c
+     --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1d
   ```
   
   Скопируйте из ответа идентификатор целевой группы и выполните команду:
@@ -267,7 +267,7 @@
      --name ya-tg `
      --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a `
      --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b `
-     --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1c
+     --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1d
   ```
   
   ```
@@ -511,7 +511,7 @@
   yc compute instance create \
      --name ya-mssql3 \
      --hostname ya-mssql3 \
-     --zone {{ region-id }}-c \
+     --zone {{ region-id }}-d \
      --memory 16 \
      --cores 4 \
      --metadata-from-file user-data=setpass \
@@ -520,7 +520,7 @@
      --create-disk \
        type=network-ssd,size=200 \
      --network-interface \
-       subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 \
+       subnet-name=ya-sqlserver-rc1d,ipv4-address=192.168.1.35 \
      --host-id <идентификатор_выделенного_хоста> \
      --async
   ```
@@ -576,7 +576,7 @@
   yc compute instance create `
      --name ya-mssql3 `
      --hostname ya-mssql3 `
-     --zone {{ region-id }}-c `
+     --zone {{ region-id }}-d `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -585,7 +585,7 @@
      --create-disk `
        type=network-ssd,size=200 `
      --network-interface `
-       subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 `
+       subnet-name=ya-sqlserver-rc1d,ipv4-address=192.168.1.35 `
      --host-id <идентификатор_выделенного_хоста> `
      --async
   ```

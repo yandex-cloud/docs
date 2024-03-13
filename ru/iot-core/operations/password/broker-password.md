@@ -65,7 +65,7 @@ description: "Из статьи вы узнаете, как получить с�
 		Результат:
 		```
 		broker_id: arenou2oj4**********
-        id: areuu2hgsv6klgbd4e6d
+        id: areuu2hgsv6k********
         created_at: "2019-12-16T15:32:46.655139Z"
         ```
 
@@ -204,7 +204,7 @@ description: "Из статьи вы узнаете, как получить с�
     1. Удалите пароль: 
     
         ```
-        yc iot broker password delete --broker-name broker-with-pass --password-id are0gffs957egmoksgf4
+        yc iot broker password delete --broker-name broker-with-pass --password-id are0gffs957e********
         ```
     1. Убедитесь, что пароль удален: 
         

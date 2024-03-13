@@ -4,13 +4,15 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
 {% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
 
+To create a cluster with no internet access, see the [{#T}](../../tutorials/k8s-cluster-with-no-internet.md) section.
+
 ## Getting started {#before-you-begin}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. Log in to the [management console]({{ link-console-main }}). If not registered yet, navigate to the management console and follow the guide.
+   1. Log in to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
 
    
    1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
@@ -22,7 +24,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
    1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
    1. Create the following [service accounts](../../../iam/operations/sa/create.md):
-      * Service account with the [k8s.clusters.agent](../../security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+      * Service account with the `k8s.clusters.agent` [role](../../security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
       * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
       You can use the same service account for both operations.
@@ -163,7 +165,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
       > resource "yandex_kubernetes_cluster" "<Managed_Service_for_Kubernetes_cluster_name>" {
       >  network_id = yandex_vpc_network.<network_name>.id
       >  master {
-      >    zonal {
+      >    master_location {
       >      zone      = yandex_vpc_subnet.<subnet_name>.zone
       >      subnet_id = yandex_vpc_subnet.<subnet_name>.id
       >    }
@@ -268,7 +270,7 @@ Install {{ TF }} (unless you already have it), configure the provider according 
      name = "k8s-zonal"
      network_id = yandex_vpc_network.mynet.id
      master {
-       zonal {
+       master_location {
          zone      = yandex_vpc_subnet.mysubnet.zone
          subnet_id = yandex_vpc_subnet.mysubnet.id
        }
@@ -432,20 +434,17 @@ Install {{ TF }} (unless you already have it), configure the provider according 
      name = "k8s-regional"
      network_id = yandex_vpc_network.my-regional-net.id
      master {
-       regional {
-         region = "{{ region-id }}"
-         location {
-           zone      = yandex_vpc_subnet.mysubnet-a.zone
-           subnet_id = yandex_vpc_subnet.mysubnet-a.id
-         }
-         location {
-           zone      = yandex_vpc_subnet.mysubnet-b.zone
-           subnet_id = yandex_vpc_subnet.mysubnet-b.id
-         }
-         location {
-           zone      = yandex_vpc_subnet.mysubnet-d.zone
-           subnet_id = yandex_vpc_subnet.mysubnet-d.id
-         }
+       master_location {
+         zone      = yandex_vpc_subnet.mysubnet-a.zone
+         subnet_id = yandex_vpc_subnet.mysubnet-a.id
+       }
+       master_location {
+         zone      = yandex_vpc_subnet.mysubnet-b.zone
+         subnet_id = yandex_vpc_subnet.mysubnet-b.id
+       }
+       master_location {
+         zone      = yandex_vpc_subnet.mysubnet-d.zone
+         subnet_id = yandex_vpc_subnet.mysubnet-d.id
        }
        security_group_ids = [yandex_vpc_security_group.regional-k8s-sg.id]
      }

@@ -2,13 +2,13 @@
 
 To figure out the load to be generated on the server when [creating a test](../operations/create-test-bucket.md#create-test), a _load profile_ is used. The profile determines how the load will be modified and maintained.
 
-Most tools have their own formats for load profiles. When configuring a test via the UI, you can assemble the final profile by adding sections in the correct order.
+Most tools have their own formats for load profiles. When configuring a test via the UI, you can get the final profile by adding sections in the correct order.
 
 ## Load profiles {#load-profiles}
 
-{% list tabs %}
+{% list tabs group=load_generator %}
 
-- Pandora
+- Pandora {#pandora}
 
     #### line {#line}
 
@@ -52,11 +52,11 @@ Most tools have their own formats for load profiles. When configuring a test via
 
     #### unlimited {#unlimited}
 
-   {% note info %}
+    {% note info %}
 
-   You can set the `unlimited` load profile only with the help of a [configuration file](testing-stream.md#config_example).
+    You can set the `unlimited` load profile only with the help of a [configuration file](testing-stream.md#config_example).
 
-   {% endnote %}
+    {% endnote %}
 
     Sends as many requests as the target can accept within the established connections without restrictions during the specified time.
 
@@ -66,7 +66,7 @@ Most tools have their own formats for load profiles. When configuring a test via
     {type: unlimited, duration: 30s} # unlimited load for 30 seconds
     ```
 
-- Phantom
+- Phantom {#phantom}
 
     #### line {#line}
 

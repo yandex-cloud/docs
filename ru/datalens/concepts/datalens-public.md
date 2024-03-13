@@ -30,13 +30,13 @@
 
 ## Как опубликовать объект {#how-to-publish}
 
-{% list tabs %}
+{% list tabs group=datalens_public %}
 
-- Дашборд
+- Публикация дашборда {#dashboard}
 
   {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
 
-- Чарт
+- Публикация чарта {#chart}
 
   {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
 

@@ -94,13 +94,13 @@
 
     
     ```text
-    id: a1s5msktij**********
-    folder_id: b1gmit33hg**********
+    id: a1s5msktijh2********
+    folder_id: b1gmit33hgh2********
     created_at: "2022-10-24T15:19:15.353909857Z"
     name: logging-trigger
     rule:
       logging:
-        log_group_id: e23bidnftl**********
+        log_group_id: e23bidnftlh2********
         resource_type:
           - serverless.functions
         resource_id:
@@ -113,14 +113,14 @@
           size: "1"
           cutoff: 1s
         invoke_container:
-          container_id: bba5jb38o8**********
-          service_account_id: aje03adgd2**********
+          container_id: bba5jb38o8h2********
+          service_account_id: aje03adgd2h2********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:dlq
-            service-account-id: aje3lebfem**********
+            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:dlq
+            service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```
   

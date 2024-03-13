@@ -49,8 +49,10 @@ files | **map<string,FilePointer>**<br>Additional files to be used during test e
 
 Field | Description
 --- | ---
-agent | **oneof:** `agent_id`<br>
+agent | **oneof:** `agent_id`, `match_by_filter` or `anonymous_agent`<br>
 &nbsp;&nbsp;agent_id | **string**<br>Selection by agent ID. 
+&nbsp;&nbsp;match_by_filter | **string**<br>Selection by filter string. 
+&nbsp;&nbsp;anonymous_agent | **bool**<br>Select anonymoud (i.e. not registered) agents. 
 
 
 ### Details {#Details}
@@ -136,6 +138,7 @@ finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protoc
 is_finished | **bool**<br>Indicates whether the test is finished. 
 error | **string**<br>Error message. 
 imbalance_point | **[ImbalancePoint](#ImbalancePoint)**<br>Detected imbalance point. <br>Contains information about a state at the moment it has been [auto-stopped](/docs/load-testing/concepts/auto-stop). <br>Empty if no auto-stop occured. 
+assigned_agent_id | **string**<br>ID of the agent that executed the test. 
 
 
 ### ImbalancePoint {#ImbalancePoint}
@@ -183,8 +186,10 @@ files | **map<string,FilePointer>**<br>Additional files to be used during test e
 
 Field | Description
 --- | ---
-agent | **oneof:** `agent_id`<br>
+agent | **oneof:** `agent_id`, `match_by_filter` or `anonymous_agent`<br>
 &nbsp;&nbsp;agent_id | **string**<br>Selection by agent ID. 
+&nbsp;&nbsp;match_by_filter | **string**<br>Selection by filter string. 
+&nbsp;&nbsp;anonymous_agent | **bool**<br>Select anonymoud (i.e. not registered) agents. 
 
 
 ### Details {#Details2}
@@ -217,6 +222,7 @@ finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protoc
 is_finished | **bool**<br>Indicates whether the test is finished. 
 error | **string**<br>Error message. 
 imbalance_point | **[ImbalancePoint](#ImbalancePoint1)**<br>Detected imbalance point. <br>Contains information about a state at the moment it has been [auto-stopped](/docs/load-testing/concepts/auto-stop). <br>Empty if no auto-stop occured. 
+assigned_agent_id | **string**<br>ID of the agent that executed the test. 
 
 
 ### ImbalancePoint {#ImbalancePoint1}
@@ -291,8 +297,10 @@ files | **map<string,FilePointer>**<br>Additional files to be used during test e
 
 Field | Description
 --- | ---
-agent | **oneof:** `agent_id`<br>
+agent | **oneof:** `agent_id`, `match_by_filter` or `anonymous_agent`<br>
 &nbsp;&nbsp;agent_id | **string**<br>Selection by agent ID. 
+&nbsp;&nbsp;match_by_filter | **string**<br>Selection by filter string. 
+&nbsp;&nbsp;anonymous_agent | **bool**<br>Select anonymoud (i.e. not registered) agents. 
 
 
 ### Details {#Details3}
@@ -325,6 +333,7 @@ finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protoc
 is_finished | **bool**<br>Indicates whether the test is finished. 
 error | **string**<br>Error message. 
 imbalance_point | **[ImbalancePoint](#ImbalancePoint2)**<br>Detected imbalance point. <br>Contains information about a state at the moment it has been [auto-stopped](/docs/load-testing/concepts/auto-stop). <br>Empty if no auto-stop occured. 
+assigned_agent_id | **string**<br>ID of the agent that executed the test. 
 
 
 ### ImbalancePoint {#ImbalancePoint2}
@@ -423,8 +432,10 @@ files | **map<string,FilePointer>**<br>Additional files to be used during test e
 
 Field | Description
 --- | ---
-agent | **oneof:** `agent_id`<br>
+agent | **oneof:** `agent_id`, `match_by_filter` or `anonymous_agent`<br>
 &nbsp;&nbsp;agent_id | **string**<br>Selection by agent ID. 
+&nbsp;&nbsp;match_by_filter | **string**<br>Selection by filter string. 
+&nbsp;&nbsp;anonymous_agent | **bool**<br>Select anonymoud (i.e. not registered) agents. 
 
 
 ### Details {#Details4}
@@ -457,6 +468,7 @@ finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protoc
 is_finished | **bool**<br>Indicates whether the test is finished. 
 error | **string**<br>Error message. 
 imbalance_point | **[ImbalancePoint](#ImbalancePoint3)**<br>Detected imbalance point. <br>Contains information about a state at the moment it has been [auto-stopped](/docs/load-testing/concepts/auto-stop). <br>Empty if no auto-stop occured. 
+assigned_agent_id | **string**<br>ID of the agent that executed the test. 
 
 
 ### ImbalancePoint {#ImbalancePoint3}

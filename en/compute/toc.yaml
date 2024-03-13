@@ -89,6 +89,8 @@ items:
             href: operations/vm-control/vm-detach-public-ip.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
+          - name: Changing the VM internal IP address
+            href: operations/vm-control/internal-ip-update.md
           - name: Updating a VM
             href: operations/vm-control/vm-update.md
           - name: Changing VM computing resources

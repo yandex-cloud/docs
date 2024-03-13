@@ -7,7 +7,7 @@ description: "Use this guide to restore a VM from a backup."
 
 {% note info %}
 
-If the current VM is down, [create](../#connect-vm) a new one with a connection to {{ backup-name }} and [restore](non-native-recovery.md) a backup to it.
+If the current VM is down, [create](../#connect-vm) a new one with a connection to {{ backup-name }} and [restore](non-native-recovery.md) a backup to it. To restore from a backup, the new VM must be in `Running` [status](../../../compute/concepts/vm-statuses.md#list-of-statuses).
 
 {% endnote %}
 

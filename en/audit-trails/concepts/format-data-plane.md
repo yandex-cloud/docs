@@ -1,6 +1,6 @@
 # Data event audit log
 
-You can track [data (data plane) events](events-data-plane.md) to make sure only authorized users can access and update your data. This will help you ensure your cloud infrastructure's compliance with legal regulations and industry standards. For example, you can track granting employees access permissions to sensitive data stored in buckets.
+Keep track of [data (data plane) events](events-data-plane.md) to make sure only authorized users can access and update your data. This will help you ensure your cloud infrastructure's compliance with legal regulations and industry standards. For example, you can keep track of your employees' access permissions to sensitive data stored in buckets.
 
 You can analyze data event logs to optimize the use of resources in your infrastructure. Thus, you can determine what resources are used most often and enhance their performance, or identify rarely used resources that can be grouped or removed to cut costs.
 

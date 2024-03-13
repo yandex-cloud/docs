@@ -101,7 +101,7 @@ To delete a column:
 
 Specify the data type for a table column:
 
-* ![](../_assets/wiki/svg/type-text.svg) **Formatted text**. Any text formatted by [Markdown](basic-markup.md).
+* ![](../_assets/wiki/svg/type-text.svg) **Formatted text**. Any text formatted by [Markdown](wysiwyg/text-format.md).
 
 * ![](../_assets/wiki/svg/type-number.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.number }}**.
 
@@ -164,7 +164,7 @@ To set the sorting order, click and drag ![](../_assets/wiki/svg/moving.svg) in 
 
 ## Filtering a table {#filter}
 
-If a dynamic table was embedded into the page using the [old editor](old-editor.md), you can use the `grid` [dynamic block](actions/grid-reference.md) to set up conditions for displaying rows or columns.
+If a dynamic table was embedded into the page using the [old editor](pages-types.md#old-editor), you can use the `grid` [dynamic block](actions/grid-reference.md) to set up conditions for displaying rows or columns.
 
 To filter a table:
 
@@ -183,14 +183,14 @@ To filter a table:
 
 1. Specify the filtering conditions:
 
-   * To filter rows, use the [`filter` parameter](actions/grid-reference.md#row-filter).
+   * To customize the display of rows, use the [`filters` parameter](actions/grid-reference.md#row-filter).
 
-   * To set up the way columns are displayed, use the [`column` parameter](actions/grid-reference.md#col-filter).
+   * To customize the display of columns, use the [`column` parameter](actions/grid-reference.md#col-filter).
 
 #### See also
 
 * [{#T}](create-grid.md)
 
-* [{#T}](add-grid.md)
+* [{#T}](wysiwyg/tables-format.md)
 
 * [{#T}](import-page.md)
