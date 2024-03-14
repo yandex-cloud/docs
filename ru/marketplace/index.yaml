@@ -1,0 +1,22 @@
+title: '{{ marketplace-full-name }}'
+description:
+  - >-
+    Yandex Cloud Marketplace — это магазин готовых инструментов для разработки,
+    анализа данных, обеспечения безопасности, создания бизнес‑приложений и
+    других задач. Продукты в Marketplace доступны всем пользователям сервисов
+    Yandex Cloud.
+  - >-
+    Партнеры могут размещать свои продукты в Yandex Cloud Marketplace и
+    зарабатывать на них.
+meta:
+  title: '{{ marketplace-full-name }}'
+  description: >-
+    Cloud Marketplace — магазин готовых инструментов для разработки, анализа
+    данных, обеспечения безопасности, создания бизнес‑приложений и других задач.
+links:
+  - title: Партнерам
+    description: Разместите свой продукт в Cloud Marketplace
+    href: quickstart
+  - title: Пользователям
+    description: Используйте готовые решения Yandex Cloud и партнеров
+    href: operations/users/buy-subscription

@@ -564,7 +564,7 @@
            - default.svc.cluster.local
            - svc.cluster.local
            - cluster.local
-           - ru-central1.internal
+           - {{ region-id }}.internal
            - internal
            - my.dns.search.suffix
          options:

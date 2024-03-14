@@ -148,7 +148,7 @@
    1. В [консоли управления]({{ link-console-main }}) выберите каталог `site-a`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. Укажите имя ВМ, например `cisco-router-a`.
-   1. В списке **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите опцию **ru-central1-a**.
+   1. В списке **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите опцию **{{ region-id }}-a**.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Cisco CSR](/marketplace/products/yc/cisco-csr).
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
@@ -302,7 +302,7 @@
 
 ### Создайте и настройте вторую ВМ с Cisco Cloud Services Router {#test-ssh}
 
-1. В каталоге `site-b` создайте ВМ `cisco-router-b` по вышеописанной схеме. В качестве зоны доступности выберите **ru-central1-b**.
+1. В каталоге `site-b` создайте ВМ `cisco-router-b` по вышеописанной схеме. В качестве зоны доступности выберите **{{ region-id }}-b**.
 1. Настройте ВМ так же, как ВМ `cisco-router-a`.
 
 ## Настройте IPsec-протоколы {#ipsec-setup}

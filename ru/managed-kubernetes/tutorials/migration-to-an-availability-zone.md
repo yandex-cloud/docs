@@ -58,7 +58,7 @@
       {{ yc-k8s }} cluster update \
          --folder-id <идентификатор_каталога> \
          --id <идентификатор_кластера> \
-         --master-location subnet-id=<идентификатор_новой_подсети>,zone=ru-central1-d
+         --master-location subnet-id=<идентификатор_новой_подсети>,zone={{ region-id }}-d
       ```
 
       Где:
@@ -227,7 +227,7 @@
          master {
             ...
             regional {
-               region = "ru-central1"
+               region = "{{ region-id }}"
                location {
                   subnet_id = yandex_vpc_subnet.my-subnet-a.id
                   zone      = yandex_vpc_subnet.my-subnet-a.zone

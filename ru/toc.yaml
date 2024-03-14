@@ -89,8 +89,8 @@ items:
     href: managed-postgresql/index.yaml
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
-  - name: Кабинет партнера Marketplace
-    href: marketplace/index.md
+  - name: Yandex Cloud Marketplace
+    href: marketplace/index.yaml
   - name: Message Queue
     href: message-queue/index.yaml
   - name: Использование продуктов Microsoft

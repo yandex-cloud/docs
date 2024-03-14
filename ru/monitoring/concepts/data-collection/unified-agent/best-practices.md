@@ -66,7 +66,7 @@ channels:
       output:
         plugin: yc_metrics
         config:
-          folder_id: <FOLDER_ID>
+          folder_id: <идентификатор_каталога>
           iam:
             cloud_meta: {}
 

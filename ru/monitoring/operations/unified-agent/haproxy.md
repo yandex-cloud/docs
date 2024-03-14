@@ -115,7 +115,7 @@
       -v /proc:/ua_proc \
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
+      -e FOLDER_ID=a1bs81qpemb4******** \
       {{ registry }}/yc/unified-agent
       ```
 
