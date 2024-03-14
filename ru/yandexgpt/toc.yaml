@@ -40,6 +40,8 @@ items:
         href: concepts/api.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
+      - name: Миграция на YandexGPT API v1 и Embeddings API v1
+        href: api-ref/migration-to-v1.md
       - name: YandexGPT API (англ.)
         items:
           - name: REST

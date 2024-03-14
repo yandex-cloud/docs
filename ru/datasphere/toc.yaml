@@ -146,12 +146,12 @@ items:
         href: concepts/community.md
       - name: Управление расходами
         href: concepts/budget.md
+      - name: Проект
+        href: concepts/project.md
+      - name: Конфигурации вычислительных ресурсов
+        href: concepts/configurations.md
       - name: '{{ ds-nb }}'
         items:
-          - name: Проект
-            href: concepts/project.md
-          - name: Конфигурации вычислительных ресурсов
-            href: concepts/configurations.md
           - name: Состояние интерпретатора
             hidden: true
             href: concepts/save-state.md

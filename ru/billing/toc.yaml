@@ -26,6 +26,8 @@ items:
             href: operations/get-data.md
           - name: Привязать облако к платежному аккаунту
             href: operations/pin-cloud.md
+          - name: Изменить организацию платежного аккаунта
+            href: operations/change-organization.md
           - name: Удалить платежный аккаунт
             href: operations/delete-account.md
           - name: Активировать платную версию

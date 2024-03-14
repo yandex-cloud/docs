@@ -51,17 +51,17 @@
        scheme: 'https'
        params:
          folderId:
-         - '<folderId>' # например, aoeng2krmasimogorn5m
+         - '<идентификатор_каталога>' # например, aoeng2krmasi********
          service:
-         - '<service>' # например, managed-mongodb
-       bearer_token: '<api_key>'
+         - '<сервис>' # например, managed-mongodb
+       bearer_token: '<API-ключ>'
        # Или через файл (рекомендуется):
-       # bearer_token_file: '<имя файла с api_key>'
+       # bearer_token_file: '<имя_файла_с_API-ключом>'
        static_configs:
        - targets: ['monitoring.{{ api-host }}']
          labels:
-           folderId: '<folderId>'
-           service: '<serviceId>'
+           folderId: '<идентификатор_каталога>'
+           service: '<идентификатор_сервиса>'
    ```
 1. Перезапустите {{ prometheus-name }}.
 1. Проверьте сбор данных в пользовательском интерфейсе {{ prometheus-name }}: `http://localhost:9090/targets` (замените `localhost` именем хоста, на котором установлен {{ prometheus-name }}).

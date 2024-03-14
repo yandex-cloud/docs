@@ -57,7 +57,7 @@ description: "Из статьи вы узнаете, как установить
       --name=ua \
       -v /proc:/ua_proc \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
+      -e FOLDER_ID=a1bs81qpemb4******** \
       {{ registry }}/yc/unified-agent
   ```
 
@@ -80,7 +80,7 @@ description: "Из статьи вы узнаете, как установить
       -v `pwd`/config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
       --entrypoint="" \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
+      -e FOLDER_ID=a1bs81qpemb4******** \
       {{ registry }}/yc/unified-agent
   ```
 

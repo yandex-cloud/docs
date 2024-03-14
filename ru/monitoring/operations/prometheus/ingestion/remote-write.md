@@ -15,10 +15,10 @@ description: "Следуя данной инструкции, вы сможет�
    ...
    remote_write:
      ...
-     - url: '<url>' # предоставляется по запросу
-       bearer_token: '<api_key>'
+     - url: '<URL>' # предоставляется по запросу
+       bearer_token: '<API-ключ>'
        # Или через файл (рекомендуется):
-       # bearer_token_file: '<имя файла с api_key>'
+       # bearer_token_file: '<имя_файла_с_API-ключом>'
        queue_config:
            max_samples_per_send: 2000 # 10000 в случае использования vmagent
            min_backoff: 100ms
@@ -34,11 +34,11 @@ description: "Следуя данной инструкции, вы сможет�
 ## Примеры ошибок {#errors}
 
 * Не найден эндпоинт
-  >```ts=2022-11-09T20:55:43.329Z caller=dedupe.go:112 component=remote level=error remote_name=1d1b77 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="non-recoverable error" count=499 exemplarCount=0 err="server returned HTTP status 404 Not Found: {\"type\":\"NOT_FOUND\",\"message\":\"workspace not found: monb1piptmdo916sceer\",\"code\":404}"```
+  >```ts=2022-11-09T20:55:43.329Z caller=dedupe.go:112 component=remote level=error remote_name=1d1b77 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo********/prometheus/api/v1/write msg="non-recoverable error" count=499 exemplarCount=0 err="server returned HTTP status 404 Not Found: {\"type\":\"NOT_FOUND\",\"message\":\"workspace not found: monb1piptmdo********\",\"code\":404}"```
 * Превышен лимит запросов на запись
-  >```ts=2022-10-27T20:11:26.806Z caller=dedupe.go:112 component=remote level=error remote_name=f0fd14 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="non-recoverable error" count=500 exemplarCount=0 err="server returned HTTP status 429 Too Many Requests: {\"type\":\"RESOURCE_EXHAUSTED\",\"message\":\"too many write requests (bytes/sec): monb1piptmdo916sceer\",\"code\":429}"```
+  >```ts=2022-10-27T20:11:26.806Z caller=dedupe.go:112 component=remote level=error remote_name=f0fd14 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo********/prometheus/api/v1/write msg="non-recoverable error" count=500 exemplarCount=0 err="server returned HTTP status 429 Too Many Requests: {\"type\":\"RESOURCE_EXHAUSTED\",\"message\":\"too many write requests (bytes/sec): monb1piptmdo********\",\"code\":429}"```
 * Сервис не доступен
-  >```ts=2022-11-07T11:14:42.754Z caller=dedupe.go:112 component=remote level=warn remote_name=db8f73 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="Failed to send batch, retrying" err="server returned HTTP status 503 Service Unavailable: {\"type\":\"UNAVAILABLE\",\"message\":\"Service Unavailable\",\"code\":503}"```
+  >```ts=2022-11-07T11:14:42.754Z caller=dedupe.go:112 component=remote level=warn remote_name=db8f73 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo********/prometheus/api/v1/write msg="Failed to send batch, retrying" err="server returned HTTP status 503 Service Unavailable: {\"type\":\"UNAVAILABLE\",\"message\":\"Service Unavailable\",\"code\":503}"```
 
 ## Метрики {{ prometheus-name }} {#metrics}
 

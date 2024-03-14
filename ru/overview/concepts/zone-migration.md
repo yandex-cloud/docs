@@ -84,8 +84,7 @@
 * {{ mgp-name }} — для миграции нужно восстановить кластер из [резервной копии](../../managed-greenplum/operations/cluster-backups.md).
 * [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md)
 * [{{ dataproc-name }} с файловой системой HDFS](../../data-proc/tutorials/hdfs-cluster-migration.md)
-
-Инструменты для миграции {{ mkf-name }} будут доступны в начале 2024 года. Мы оповестим об их готовности, если у вас есть ресурсы сервиса в зоне `{{ region-id }}-c`.
+* [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md)
 
 ### {{ data-transfer-name }} {#data-transfer}
 

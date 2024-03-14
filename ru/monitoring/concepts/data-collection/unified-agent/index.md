@@ -17,7 +17,7 @@ docker run \
     --name=ua \
     -v /proc:/ua_proc \
     -e PROC_DIRECTORY=/ua_proc \
-    -e FOLDER_ID=a1bs... \
+    -e FOLDER_ID=a1bs81qpemb4******** \
     {{ registry }}/yc/unified-agent
 ```
 

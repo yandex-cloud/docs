@@ -6,6 +6,7 @@ _NAT-инстанс_ — специальная [виртуальная маши
 
 Чтобы настроить маршрутизацию через NAT-инстанс:
 1. [Подготовьте облако к работе](#before-you-begin).
+1. [Создайте группу безопасности](#create-security-groups).
 1. [Создайте тестовую ВМ](#create-vm).
 1. [Создайте NAT-инстанс](#create-nat-instance).
 1. [Настройте статическую маршрутизацию в облачной сети](#configure-static-route).
@@ -32,36 +33,6 @@ _NAT-инстанс_ — специальная [виртуальная маши
    * `public-subnet`, в которой будет размещен NAT-инстанс.
    * `private-subnet`, в которой будет размещена тестовая ВМ.
 
-## Создайте тестовую виртуальную машину {#create-vm}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать тестовую ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ, например `test-vm`.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), где находится [подсеть](../../vpc/concepts/network.md#subnet) `private-subnet`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../compute/concepts/image.md) и версию операционной системы на базе Linux.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть для тестовой ВМ, например `private-subnet`.
-     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_none }}**.
-     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-
-   Сохраните имя пользователя, закрытый SSH-ключ и внутренний IP-адрес тестовой ВМ.
-
-- {{ TF }} {#tf}
-
-  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
-
-{% endlist %}
-
 ## Создайте группу безопасности {#create-security-groups}
 
 [Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) содержат правила, которые разрешают обращаться к ВМ по SSH. В сценарии будет создана группа безопасности `nat-instance-sg`.
@@ -73,7 +44,7 @@ _NAT-инстанс_ — специальная [виртуальная маши
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. Откройте вкладку ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
   1. Создайте группу безопасности:
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
      1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя группы: `nat-instance-sg`.
@@ -101,27 +72,73 @@ _NAT-инстанс_ — специальная [виртуальная маши
 
 {% endlist %}
 
+## Создайте тестовую виртуальную машину {#create-vm}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать тестовую ВМ.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ, например `test-vm`.
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, где находится подсеть `private-subnet`.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из образов и версию операционной системы на базе Linux.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть для тестовой ВМ, например `private-subnet`.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_none }}**.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу `nat-instance-sg`.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+
+           {% note info %}
+
+           Сохраните ключи в директории по умолчанию и используйте для них стандартные имена, например `id_ed25519` или `id_rsa`.
+
+           {% endnote %}
+
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+   Сохраните имя пользователя, закрытый SSH-ключ и внутренний IP-адрес тестовой ВМ.
+
+- {{ TF }} {#tf}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+{% endlist %}
+
 ## Создайте NAT-инстанс {#create-nat-instance}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать NAT-инстанс.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ для NAT-инстанса, например `nat-instance`.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, где находится подсеть `public-subnet`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [NAT-инстанс](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть для NAT-инстанса, например `public-subnet`.
-     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо создать самостоятельно.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать NAT-инстанс.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ для NAT-инстанса, например `nat-instance`.
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, где находится подсеть `public-subnet`.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [NAT-инстанс](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts).
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть для NAT-инстанса, например `public-subnet`.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу `nat-instance-sg`.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо создать самостоятельно.
+
+           {% note info %}
+
+           Сохраните ключи в директории по умолчанию и используйте для них стандартные имена, например `id_ed25519` или `id_rsa`.
+
+           {% endnote %}
+
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    Сохраните имя пользователя, закрытый SSH-ключ, внутренний и публичный IP-адреса NAT-инстанса.
 
@@ -173,27 +190,32 @@ _NAT-инстанс_ — специальная [виртуальная маши
 
 ## Проверьте работу NAT-инстанса {#test-nat-instance}
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к NAT-инстансу по SSH, указав:
-   * Имя пользователя NAT-инстанса.
-   * Публичный IP-адрес NAT-инстанса.
-   * Имя пользователя ВМ.
-   * Внутренний IP-адрес ВМ.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к тестовой ВМ через внутренний IP-адрес, используя NAT-инстанс в роли джамп-хоста:
 
-   1. В терминале выполните команду:
+   ```bash
+   ssh -J <имя_пользователя_NAT-инстанса>@<публичный_IP-адрес_NAT-инстанса> \
+     <имя_пользователя_ВМ>@<внутренний_IP-адрес_ВМ>
+   ```
 
-      ```bash
-      ssh -J <имя_пользователя_NAT-инстанса>@<публичный_IP-адрес_NAT-инстанса> \
-      <имя_пользователя_ВМ>@<внутренний IP-адрес ВМ>
-      ```
+   Также подключиться к тестовой ВМ можно с помощью перенаправления стандартного ввода-вывода (флаг `-W`) для «проброса» соединения через NAT-инстанс:
 
-   1. Введите **yes** для подключения к NAT-инстансу и повторно введите **yes** для подключения к тестовой ВМ.
+   ```bash
+   ssh -o ProxyCommand="ssh -i <путь/имя_файла_ключа_NAT> -W %h:%p <имя_пользователя_NAT>@<публичный_IP-адрес_NAT>" \
+     -i <путь/имя_файла_ключа_ВМ> <имя_пользователя_ВМ>@<внутренний_IP-адрес_ВМ>
+   ```
 
-      {% note info %}
+   Используйте эту команду для подключения в следующих случаях:
 
-      При вводе **yes** команда может не отображаться в терминале, но сработает.
+   * на ВМ используется версия OpenSSH ниже 7.3;
+   * ваши SSH-ключи хранятся в отличном от директории по умолчанию месте или имеют нестандартные имена.
 
-      {% endnote %}
+1. Введите **yes** для подключения к NAT-инстансу и повторно введите **yes** для подключения к тестовой ВМ.
 
+   {% note info %}
+
+   При вводе **yes** команда может не отображаться в терминале, но сработает.
+
+   {% endnote %}
 
 1. Убедитесь, что тестовая ВМ получает доступ в интернет через публичный IP-адрес NAT-инстанса. Выполните команду:
 

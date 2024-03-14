@@ -127,8 +127,8 @@ links:
   - title: Managed Service for Redis™
     description: Управление базой данных Redis
     href: managed-redis/
-  - title: Кабинет партнера Marketplace
-    description: Кабинет партнера Marketplace
+  - title: Yandex Cloud Marketplace
+    description: Инструменты и решения от ведущих вендоров
     href: marketplace/
   - title: MDB
     description: Группа сервисов для управления базами данных
