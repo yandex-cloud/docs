@@ -11,7 +11,7 @@
 
 Для работы с API потребуется Git, Python 3.6 или старше и пакет `grpcio-tools`. [Как установить Python](https://www.python.org/downloads/).
 
-1. В консоли управления [создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `speech-sense.data.editor`. Подробнее о ролях, действующих в сервисе, см. раздел [{#T}](../../security/index.md).
+1. В консоли управления [создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
 1. [Добавьте сервисный аккаунт в пространство](../space/add-user-to-space.md) с ролью `{{ roles-speechsense-data-editor }}`. Это позволит сервисному аккаунту загружать данные в созданное [подключение](../../concepts/resources-hierarchy.md#connection).
 1. [Создайте API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API. 
 

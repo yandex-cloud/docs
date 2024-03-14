@@ -13,10 +13,10 @@
    1. [Создайте авторизованный ключ](../../../iam/operations/authorized-key/create.md) для созданного сервисного аккаунта при помощи утилиты [YC CLI](../../../cli/quickstart.md):
 
        ```bash
-       yc iam key create --service-account-id <SA_ID> --output jwt_params.json
+       yc iam key create --service-account-id <идентификатор_сервисного_аккаунта> --output jwt_params.json
        ```
 
-       Где `<SA_ID>` – идентификатор сервисного аккаунта.
+       Где `--service-account-id` – идентификатор сервисного аккаунта.
 
       Другие способы создания авторизованных ключей описаны в разделе [{#T}](../../../iam/operations/authorized-key/create.md).
 
@@ -25,8 +25,8 @@
        Пример файла **jwt_params.json**:
        ```json
        {
-           "id": "ajt...",
-           "service_account_id": "aje...",
+           "id": "ajt4yut8vb12********",
+           "service_account_id": "ajeo5pert10z********",
            "created_at": "2021-01-14T13:18:51.070026Z",
            "key_algorithm": "RSA_2048",
            "public_key": "-----BEGIN PUBLIC KEY-----\nMD...",
@@ -105,7 +105,7 @@
       -v /proc:/ua_proc \
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
+      -e FOLDER_ID=a1bs81qpemb4******** \
       {{ registry }}/yc/unified-agent
       ```
 

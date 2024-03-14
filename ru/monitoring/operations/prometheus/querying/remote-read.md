@@ -13,10 +13,10 @@ description: "Следуя данной инструкции, вы сможет�
    ...
    remote_read:
      ...
-     - url: '<url>' # предоставляется по запросу
-       bearer_token: '<api_key>'
+     - url: '<URL>' # предоставляется по запросу
+       bearer_token: '<API-ключ>'
        # Или через файл (рекомендуется):
-       # bearer_token_file: '<имя файла с api_key>'
+       # bearer_token_file: '<имя_файла_с_API-ключом>'
 
        # Рекомендуется добавить пользовательский заголовок X-Lookback-Delta.
        # Если вы не меняли параметр lookback-delta в конфигурации
@@ -33,14 +33,14 @@ description: "Следуя данной инструкции, вы сможет�
 
        # Если вы хотите читать только часть метрик через Remote API, укажите их метки:
        # required_matchers:
-       # [ <labelname>: <labelvalue> ... ]
+       # [ <label_name>: <label_value> ... ]
    ```
 1. Перезапустите {{ prometheus-name }} или перезагрузите конфигурацию. 
 
 ## Примеры ошибок {#errors}
 
 * Превышен лимит запросов на чтение
-  >```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo916sceer","code":429}```
+  >```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo********/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo********","code":429}```
 
 ## Метрики {{ prometheus-name }} {#metrics}
 

@@ -3437,6 +3437,10 @@ default:
         payment-type_label_invoice: Bank transfer
         section_person-type: Payer type
         section_persons: Payers
+    yacloud_billing:
+      billing:
+        account:
+          switch_overview: Account info
     yacloud_components:
       acl:
         action:
@@ -4643,6 +4647,7 @@ default:
             button_create: Create VM
             button_create-subnetwork-new: Create subnet
             button_net_empty-create: Create a network
+            button_show-all-marketplace-products: Show all Marketplace products
             column_disk-size: Size
             field_access-advanced: Advanced
             field_coi-arguments: Command arguments
@@ -5447,7 +5452,15 @@ default:
         label_sinks: Sinks
         label_title: Logging
       marketplace-v2:
+        action_detach-subscription: Unlink subscription
+        action_disable-autorenewal: Disable autorenewal
+        action_goto-partner-url: Link to service
+        action_move: Move
+        action_purchase-license: Purchase a subscription
+        action_specify-vm: Link virtual machine
+        button_k8s-product-use: Go to install
         button_use: Use
+        label_licenses: Subscriptions
       mdb:
         cluster:
           backups:
@@ -7625,6 +7638,7 @@ default:
       restrictions:
         CHANGING_DISK_SIZE: Changing the size of project storage
         DATAPROC_TEMPLATES: Data Proc templates
+        JUPYTER_TOKEN: Connect external IDEs
         NODES_AND_ALIASES: Deploying models
         project-mode: Project mode
         SERVERLESS_BACKGROUND_CELLS: Background cells

@@ -42,7 +42,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        'https://monitoring.{{ api-host }}/monitoring/v2/data/write?folderId=aoe6vrq0g3svvs3uf62u&service=custom' > output.json
+        'https://monitoring.{{ api-host }}/monitoring/v2/data/write?folderId=aoe6vrq0g3sv********&service=custom' > output.json
     ```
 
     Пример ответа на запрос:

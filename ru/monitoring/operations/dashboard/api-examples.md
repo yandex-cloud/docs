@@ -12,7 +12,7 @@
 
 ```bash
 grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
-   -d '{"folder_id": “<идентификатор_каталога>”}' \
+   -d '{"folder_id": "<идентификатор_каталога>"}' \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \
@@ -66,7 +66,7 @@ monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Create
         "h": "8"
       },
       "chart": {
-        "id": "61jjd238n",
+        "id": "61jjd****",
         "queries": {
           "targets": [
             {
@@ -166,7 +166,7 @@ monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Update
         "h": "8"
       },
       "chart": {
-        "id": "61jjd238n",
+        "id": "61jjd****",
         "queries": {
           "targets": [
             {

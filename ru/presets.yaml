@@ -18,6 +18,7 @@ default:
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
+  api-host-llm: llm.api.cloud.yandex.net
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
@@ -3439,6 +3440,10 @@ default:
         payment-type_label_invoice: Банковский перевод
         section_person-type: Тип плательщика
         section_persons: Плательщики
+    yacloud_billing:
+      billing:
+        account:
+          switch_overview: Данные аккаунта
     yacloud_components:
       acl:
         action:
@@ -4645,6 +4650,7 @@ default:
             button_create: Создать ВМ
             button_create-subnetwork-new: Создать подсеть
             button_net_empty-create: Создать сеть
+            button_show-all-marketplace-products: Показать все продукты Marketplace
             column_disk-size: Размер
             field_access-advanced: Дополнительно
             field_coi-arguments: Аргументы команды
@@ -5451,7 +5457,15 @@ default:
         label_sinks: Приёмники логов
         label_title: Логирование
       marketplace-v2:
+        action_detach-subscription: Отвязать подписку
+        action_disable-autorenewal: Отключить автопродление
+        action_goto-partner-url: Привязать к сервису
+        action_move: Переместить
+        action_purchase-license: Купить подписку
+        action_specify-vm: Привязать виртуальную машину
+        button_k8s-product-use: Перейти к установке
         button_use: Использовать
+        label_licenses: Подписки
       mdb:
         cluster:
           backups:
@@ -7627,6 +7641,7 @@ default:
       restrictions:
         CHANGING_DISK_SIZE: Изменение размера хранилища проекта
         DATAPROC_TEMPLATES: Шаблоны Data Proc
+        JUPYTER_TOKEN: Подключение внешних IDE
         NODES_AND_ALIASES: Развертывание эксплуатации моделей
         project-mode: Режим работы проектов
         SERVERLESS_BACKGROUND_CELLS: Фоновые ячейки

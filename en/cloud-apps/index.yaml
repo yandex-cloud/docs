@@ -4,32 +4,37 @@ description:
     <em>Yandex Cloud Apps is currently at the <a
         href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
-    Yandex Cloud Apps is a service that enables the one-click deployment of a
-    serverless stack-based application.
+    Yandex Cloud Apps is a service that enables deploying a Yandex Cloud based
+    app with a single click.
   - >-
-    This application would consist of two mutually integrated Yandex Cloud
-    resources. A user may change resource settings depending on the intended use
-    of the application.
+    Such an app would consist of two mutually integrated Yandex Cloud resources.
+    Users may change resource settings depending on how they are going to use
+    such an app.
+  - >-
+    Partners may publish their own Cloud Apps based apps in Yandex Cloud
+    Marketplace. For more information, see <a
+    href="/docs/marketplace/operations/create-new-version#cloud-apps">how to
+    create a new version of a product</a>.
 meta:
   title: Cloud Apps
   description: >-
-    Yandex Cloud Apps is a service that enables the one-click deployment of a
-    serverless stack-based application.
+    Yandex Cloud Apps is a service that enables deploying a Yandex Cloud based
+    app with a single click.
 links:
   - title: Demo Telegram Bot
-    description: A demo Telegram bot on a serverless stack
+    description: Demo Telegram bot based on serverless stack
     href: telegram-bot
   - title: Django Container
-    description: A serverless demo website on Django in serverless mode
+    description: Serverless demo website based on Django, in serverless mode
     href: django-container
   - title: Image Resizer
     description: Modifies image resolution
     href: image-resizer
   - title: Metrics Collector
-    description: Records resource usage information in Monitoring
+    description: Logs resource usage information to Monitoring
     href: metrics-collector
   - title: VM Watchdog
-    description: Starts and stops a VM on a schedule
+    description: Starts and stops VMs on a schedule
     href: vm-watchdog
   - title: VM Folder Watchdog
     description: Starts and stops VM instances in a folder on a schedule
@@ -37,8 +42,3 @@ links:
   - title: Instance Group Scheduled Scaler
     description: Modifies the size of an instance group on a schedule
     href: yc-ig-scheduled-scale
-  - title: Identity Server based on Ory Kratos
-    description: >-
-      An application for account authorization and management based on Ory
-      Kratos
-    href: kratos

@@ -331,7 +331,7 @@
          - $latest
    log_group_id: lmnoivbe341g********
    environment:
-         DATABASE: /ru-central1/b1gia87mbaom********/etnilt3o6v9e********
+         DATABASE: /{{ region-id }}/b1gia87mbaom********/etnilt3o6v9e********
          ENDPOINT: grpcs://ydb.serverless.yandexcloud.net:2135
    log_options:
          folder_id: pqrs81qpemb********
