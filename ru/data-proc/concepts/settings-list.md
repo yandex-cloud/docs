@@ -89,7 +89,7 @@ spark:spark.driver.cores : 1
 
 {% note info %}
 
-Изменение свойств кластера `spark:spark.driver.defaultJavaOptions` или `spark:spark.executor.defaultJavaOptions` на значения, конфликтующими с настройками в `extraJavaOptions`, может приводить к ошибкам конфигурации кластера.
+Изменение свойств кластера `spark:spark.driver.defaultJavaOptions` или `spark:spark.executor.defaultJavaOptions` на значения, конфликтующие с настройками в `extraJavaOptions`, может приводить к ошибкам конфигурации кластера.
 
 {% endnote %}
 
