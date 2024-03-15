@@ -25,6 +25,12 @@
 
         1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с именем `mkf-user` и правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к созданному топику.
 
+        1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации со следующими настройками:
+
+            * В той же зоне доступности, что и кластер-источник.
+            * С публичным доступом к хостам с ролью `DATA`.
+
+
         
         1. Для подключения к кластерам с локальной машины пользователя, настройте группы безопасности:
 
@@ -41,7 +47,7 @@
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mkf-mos.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mos.tf).
+        1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mkf-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-opensearch/blob/main/data-transfer-mkf-mos.tf).
 
 
 
@@ -53,12 +59,15 @@
             * кластер-источник {{ mkf-name }};
             * топик {{ KF }} с именем `sensors`;
             * пользователь {{ KF }} `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
+            * кластер-приемник {{ mos-name }};
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mos.tf` переменные:
 
-            * `source_kf_version` — версия {{ KF }} в кластере-источнике;
-            * `source_user_password` — пароль пользователя `mkf-user`;
+            * `kf_version` — версия {{ KF }} в кластере-источнике;
+            * `kf_user_password` — пароль пользователя `mkf-user`;
+            * `os_version` — версия {{ OS }} в кластере-приемнике;
+            * `os_user_password` — пароль пользователя `admin`;
             * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -76,12 +85,6 @@
             {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
     {% endlist %}
-
-1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации со следующими настройками:
-
-    * В той же зоне доступности, что и кластер-источник.
-    * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам с ролью `DATA`.
-
 
 1. Установите утилиты:
 
@@ -144,6 +147,18 @@
 ```
 
 {% endcut %}
+
+## Настройте кластер-приемник {#configure-target}
+
+{% note tip %}
+
+Вы можете поставлять данные в кластер {{ mos-name }} от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее см. в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).
+
+{% endnote %}
+
+1. [Создайте роль]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) с привилегиями `create_index` и `write` для всех индексов (`*`).
+
+1. [Создайте пользователя](../../managed-opensearch/operations/cluster-users.md) и назначьте ему эту роль.
 
 ## Настройте кластер-приемник {#configure-target}
 
@@ -254,8 +269,8 @@
 
         1. Укажите в файле `data-transfer-mkf-mos.tf` переменные:
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
+            * `source_endpoint_id` — идентификатор эндпоинта для источника;
+            * `target_endpoint_id` — идентификатор эндпоинта для приемника;
             * `transfer_enabled` — значение `1` для создания трансфера.
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -332,7 +347,6 @@
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
@@ -340,9 +354,10 @@
 
 - Вручную {#manual}
 
-    [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+    1. [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+    1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-- {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `data-transfer-mkf-mos.tf`.

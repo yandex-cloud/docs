@@ -7,6 +7,8 @@
 
      1. Copy the token to the clipboard or save it.
 
+  1. If authenticating for the first time, go to the [cloud console]({{ link-console-main }}). Accept the terms of the license agreement and privacy policy.
+
   1. To initialize CLI profile setup, run this command:
 
       ```bash

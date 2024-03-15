@@ -21,6 +21,8 @@ items:
         href: operations/instance/instance-backups.md
       - name: Migration from a {{ GL }} custom installation
         href: operations/instance/migration.md
+      - name: Cleaning up full disk space
+        href: operations/instance/clean-up-disk-space.md
       - name: Deleting an instance
         href: operations/instance/instance-delete.md
       - name: Adding and removing users from a project

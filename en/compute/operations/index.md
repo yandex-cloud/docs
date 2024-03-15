@@ -29,6 +29,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](placement-groups/delete-vm.md)
 * [{#T}](placement-groups/placement-groups-get-info.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
+* [{#T}](placement-groups/access.md)
 
 ## Images with pre-installed software {#images-with-pre-installed-software}
 
@@ -57,9 +58,10 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
 * [{#T}](vm-control/vm-change-security-groups-set.md)
+* [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
 
-## Working on VMs {#vm-use}
+## Working on a VM {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
 * [{#T}](vm-connect/rdp.md)
@@ -93,6 +95,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/get-info.md)
+* [{#T}](disk-control/disk-access.md)
 * [{#T}](disk-control/delete.md)
 
 ## Disk snapshots {#snapshots}
@@ -113,6 +116,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/add-disk.md)
 * [{#T}](disk-placement-groups/get-info.md)
+* [{#T}](disk-placement-groups/access.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
 
 
@@ -130,15 +134,17 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](image-control/image-control-get-info.md)
 * [{#T}](image-control/delete.md)
 * [{#T}](image-control/import.md)
+* [{#T}](image-control/access.md)
 
 
-## File storage {#filesystem}
+## File storages {#filesystem}
 
 * [{#T}](filesystem/create.md)
 * [{#T}](filesystem/attach-to-vm.md)
 * [{#T}](filesystem/detach-from-vm.md)
 * [{#T}](filesystem/update.md)
 * [{#T}](filesystem/get-info.md)
+* [{#T}](filesystem/filesystem-access.md)
 * [{#T}](filesystem/delete.md)
 
 
@@ -182,6 +188,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](instance-groups/rolling-recreate.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
+* [{#T}](instance-groups/access.md)
 * [{#T}](instance-groups/delete.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
 
@@ -191,6 +198,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
+* [{#T}](dedicated-host/access.md)
 
 ## GPU clusters {#gpu-cluster}
 
@@ -199,4 +207,5 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](gpu-cluster/gpu-cluster-update.md)
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
 * [{#T}](gpu-cluster/gpu-cluster-get-info.md)
+* [{#T}](gpu-cluster/access.md)
 

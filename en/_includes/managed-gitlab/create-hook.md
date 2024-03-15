@@ -1,11 +1,10 @@
 ### Create a hook for integration {#create-hook}
 
-To link {{ GL }} Merge Requests to {{ tracker-name }} issues, create a hook:
+To link {{ GL }} merge requests to {{ tracker-name }} issues, create a hook:
 
 1. If you do not have an OAuth token for working with the {{ tracker-name }} API yet, [get one](../../tracker/concepts/access.md#section_about_OAuth).
 1. Check if you have access to the API by [requesting information about the current user](../../tracker/get-user-info.md).
 1. Open a {{ GL }} instance and go to the hook settings:
-
     * To enable integration for the entire [{{ GL }} instance](../../managed-gitlab/concepts/index.md) ({{ GL }} admin privileges are required):
         1. In the left-hand panel, click the **Your work** drop-down list and select **Admin Area**.
         1. Go to **System Hooks**.
@@ -17,7 +16,7 @@ To link {{ GL }} Merge Requests to {{ tracker-name }} issues, create a hook:
 
        Where:
 
-        * `comments=true`: Enables automatic creation of comments in an issue with a link to and information about Merge Requests. Disable it if commenting is not required. This parameter is only available for {{ mgl-name }}.
+        * `comments=true`: Enables automatic creation of comments in an issue with a link to and information about merge requests. Disable it if commenting is not required. This parameter is only available for {{ mgl-name }}.
         * `<organization_type>`: It may take the following values:
 
             * `x_cloud_org_id`: If the type of your organization is {{ org-full-name }}.

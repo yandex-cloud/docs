@@ -28,9 +28,9 @@ Regardless of the connection method, {{ mes-name }} only supports cluster host c
 
 Rule settings depend on the connection method you select:
 
-{% list tabs %}
+{% list tabs group=connection_method %}
 
-- Over the internet
+- Over the internet {#internet}
 
    [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP on ports 443 (Kibana GUI and Kibana API) and 9200 ({{ ES }}). To do this, create the following rules for incoming traffic:
 
@@ -41,7 +41,7 @@ Rule settings depend on the connection method you select:
 
    A separate rule is created for each port.
 
-- With a VM in Yandex.Cloud
+- From a VM in {{ yandex-cloud }} {#cloud}
 
    1. [Configure all the security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 443 (Kibana GUI and Kibana API) and 9200 ({{ ES }}) from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
 

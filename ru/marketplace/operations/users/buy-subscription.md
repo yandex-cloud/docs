@@ -4,7 +4,7 @@ title: "Как купить подписку в {{ marketplace-full-name }}"
 
 # Покупка подписки
 
-{% list tabs group=instructions %}
+{% list tabs group=service %}
 
 - {{ compute-name }} {#compute}
 

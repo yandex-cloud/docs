@@ -45,20 +45,65 @@
 
 #### Подготовьте инфраструктуру {#deploy-infrastructure-snapshot}
 
-1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
-1. Если вы переносите данные из стороннего кластера {{ ES }}, [создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для этого сервисного аккаунта.
+{% list tabs group=instructions %}
 
-    {% note warning %}
+* Вручную {#manual}
 
-    Сохраните **идентификатор ключа** и **секретный ключ**. Они понадобятся позднее.
+    1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
 
-    {% endnote %}
+        1. Если вы переносите данные из стороннего кластера {{ ES }}, [создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для этого сервисного аккаунта.
 
-1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
 
-    * Плагин — `repository-s3`.
-    * Публичный доступ к группе хостов с ролью `DATA`.
+        {% note warning %}
+
+        Сохраните **идентификатор ключа** и **секретный ключ**. Они понадобятся позднее.
+
+        {% endnote %}
+
+    1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
+
+        * Плагин — `repository-s3`.
+        * Публичный доступ к группе хостов с ролью `DATA`.
+
+* С помощью {{ TF }} {#tf}
+
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+    1. Скачайте в ту же рабочую директорию файл конфигурации [es-mos-migration-snapshot.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-to-managed-opensearch/blob/main/es-mos-migration-snapshot.tf). В файле описаны:
+
+        * [сеть](../../vpc/concepts/network.md#network);
+        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
+        * сервисный аккаунт для работы с бакетом {{ objstorage-name }};
+        * бакет {{ objstorage-name }};
+        * кластер-приемник {{ mos-name }}.
+
+    1. Укажите в файле `es-mos-migration-snapshot.tf` переменные:
+
+        * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
+        * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+        * `os_admin_password` — пароль администратора {{ OS }}.
+        * `os_version` — версия {{ OS }}.
+
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 #### Завершите настройку и проверьте доступ к ресурсам {#complete-setup-snapshot}
 
@@ -273,9 +318,34 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-* [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
-* [Удалите снапшоты](../../storage/operations/objects/delete.md) из бакета и затем удалите [бакет целиком](../../storage/operations/buckets/delete.md).
-* [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+{% list tabs group=instructions %}
+
+* Вручную {#manual}
+
+    * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
+    * [Удалите снапшоты](../../storage/operations/objects/delete.md) из бакета и затем удалите [бакет целиком](../../storage/operations/buckets/delete.md).
+    * [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+
+* С помощью {{ TF }} {#tf}
+
+    1. Удалите все объекты из бакета.
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите конфигурационный файл `es-mos-migration-snapshot.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        Все ресурсы, которые были описаны в конфигурационном файле `es-mos-migration-snapshot.tf`, будут удалены.
+
+{% endlist %}
 
 ## Миграция с помощью переиндексации {#reindex}
 
@@ -292,7 +362,48 @@
 ### Перед началом работы {#before-you-begin-reindex}
 
 
-1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
+1. Подготовьте инфраструктуру:
+
+    {% list tabs group=instructions %}
+
+    * Вручную {#manual}
+
+        [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
+
+    * С помощью {{ TF }} {#tf}
+
+        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+        1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+        1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+        1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+        1. Скачайте в ту же рабочую директорию файл конфигурации [es-mos-migration-reindex.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-to-managed-opensearch/blob/main/es-mos-migration-reindex.tf). В файле описаны:
+
+            * [сеть](../../vpc/concepts/network.md#network);
+            * [подсеть](../../vpc/concepts/network.md#subnet);
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
+            * кластер-приемник {{ mos-name }}.
+
+        1. Укажите в файле `es-mos-migration-reindex.tf` переменные:
+
+            * `os_admin_password` — пароль администратора {{ OS }}.
+            * `os_version` — версия {{ OS }}.
+
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+            ```bash
+            terraform validate
+            ```
+
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+        1. Создайте необходимую инфраструктуру:
+
+           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+           {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+    {% endlist %}
 
 1. Установите SSL-сертификат:
 
@@ -454,6 +565,33 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-* [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+* Удалите ресурсы в зависимости от способа их создания:
+
+    {% list tabs group=instructions %}
+
+    * Вручную {#manual}
+
+        [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+
+    * С помощью {{ TF }} {#tf}
+
+        1. В терминале перейдите в директорию с планом инфраструктуры.
+        1. Удалите конфигурационный файл `es-mos-migration-reindex.tf`.
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+            ```bash
+            terraform validate
+            ```
+
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+        1. Подтвердите изменение ресурсов.
+
+            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+            Все ресурсы, которые были описаны в конфигурационном файле `es-mos-migration-reindex.tf`, будут удалены.
+
+    {% endlist %}
+
 * Если вы зарезервировали для доступа к кластеру публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 

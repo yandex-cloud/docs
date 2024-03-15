@@ -2,7 +2,7 @@
 
 A report is aggregate data that was collected during load testing.
 
-## To view a report
+## Viewing a report
 
 {% list tabs group=instructions %}
 

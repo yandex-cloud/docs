@@ -11,10 +11,10 @@ keywords:
 
 In {{ mos-name }} clusters, you cannot add, update, or delete individual hosts. Instead, you can manage [host groups](../concepts/host-groups.md):
 
-* [{#T}](#list-groups).
-* [{#T}](#add-host-group).
-* [{#T}](#update-host-group).
-* [{#T}](#delete-host-group).
+* [{#T}](#list-groups)
+* [{#T}](#add-host-group)
+* [{#T}](#update-host-group)
+* [{#T}](#delete-host-group)
 
 You can also get a list of [cluster hosts](#list-hosts).
 
@@ -131,6 +131,85 @@ To add a host group to a cluster:
 
    {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+
+   1. To add а host group of the `{{ OS }}` type, add the `node_groups` section to `opensearch`:
+
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
+        ...
+        config {
+          opensearch {
+            ...
+            node_groups {
+              name             = "<virtual_host_group_name>"
+              assign_public_ip = <public_access>
+              hosts_count      = <number_of_hosts>
+              zone_ids         = ["<list_of_availability_zones>"]
+              subnet_ids       = ["<list_of_subnet_IDs>"]
+              roles            = ["<list_of_roles>"]
+              resources {
+                resource_preset_id = "<host_class>"
+                disk_size          = <storage_size_in_bytes>
+                disk_type_id       = "<disk_type>"
+              }
+            }
+          }
+          ...
+        }
+      }
+      ```
+
+      Where:
+
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
+      * `roles`: `DATA` and `MANAGER` host roles.
+
+   1. To add а host group of the `Dashboards` type, add the `dashboards` section to `config`:
+
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
+        ...
+        config {
+          ...
+          dashboards {
+            node_groups {
+             name             = "<virtual_host_group_name>"
+              assign_public_ip = <public_access>
+              hosts_count      = <number_of_hosts>
+              zone_ids         = ["<list_of_availability_zones>"]
+              subnet_ids       = ["<list_of_subnet_IDs>"]
+              resources {
+                resource_preset_id = "<host_class>"
+                disk_size          = <storage_size_in_bytes>
+                disk_type_id       = "<disk_type>"
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where `assign_public_ip` is public access to the host, `true` or `false`.
+
+      A cluster may contain only one `Dashboards` host group.
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
 - API {#api}
 
    To add a group of `{{ OS }}` hosts, use the [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup) gRPC API call.
@@ -188,6 +267,74 @@ To add a host group to a cluster:
       * `manager`: Assigns the `MANAGER` role only.
       * `data+manager` or `manager+data`: Assigns both roles.
 
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+
+   1. To update the configuration of аn `{{ OS }}` host group, edit the parameters of the required `node_groups` section in `opensearch`:
+
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
+        ...
+        opensearch {
+          ...
+          node_groups {
+            name             = "<virtual_host_group_name>"
+            assign_public_ip = <public_access>
+            hosts_count      = <number_of_hosts>
+            roles            = ["<list_of_roles>"]
+            resources {
+              resource_preset_id = "<host_class>"
+              disk_size          = <storage_size_in_bytes>
+              disk_type_id       = "<disk_type>"
+            }
+          }
+          ...
+        }
+      }
+      ```
+
+      Where:
+
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
+      * `roles`: `DATA` and `MANAGER` host roles.
+
+   1. To update the configuration of а `Dashboards` host group, edit the `dashboards` section parameters:
+
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
+        ...
+        dashboards {
+          node_groups {
+            name             = "<virtual_host_group_name>"
+            assign_public_ip = <public_access>
+            hosts_count      = <number_of_hosts>
+            resources {
+              resource_preset_id = "<host_class>"
+              disk_size          = <storage_size_in_bytes>
+              disk_type_id       = "<disk_type>"
+            }
+          }
+        }
+      }
+      ```
+
+      Where `assign_public_ip` is public access to the host, `true` or `false`.
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API {#api}
 
    To update the `{{ OS }}` host group configuration, use the [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#UpdateOpenSearchNodeGroup) gRPC API call.
@@ -232,6 +379,30 @@ When deleting a host group, the following limitation applies: you cannot delete 
    ```
 
    In the command, specify the host group you want to delete.
+
+- {{ TF }} {#tf}
+
+   To remove a host group from a cluster:
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+
+   1. To remove аn `{{ OS }}` host group, remove its corresponding `node_groups` section from `opensearch`.
+
+   1. To remove а `Dashboards` host group, remove the corresponding `dashboards` section.
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the deletion of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API {#api}
 

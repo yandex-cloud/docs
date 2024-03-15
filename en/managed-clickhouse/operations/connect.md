@@ -20,9 +20,9 @@ You can connect to a cluster both using encryption via ports `{{ port-mch-cli }}
 
 Rule settings depend on the connection method you select:
 
-{% list tabs %}
+{% list tabs group=connection_method %}
 
-- Over the internet
+- Over the internet {#internet}
 
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in a cluster to allow incoming traffic on ports 8443 and 9440 from any IP address. To do this, create the following rules for incoming traffic:
 
@@ -33,7 +33,7 @@ Rule settings depend on the connection method you select:
 
    A separate rule is created for each port.
 
-- From a VM in {{ yandex-cloud }}
+- From a VM in {{ yandex-cloud }} {#cloud}
 
    1. [Configure all the security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 8123, 8443, 9000, and 9440 from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
 

@@ -61,9 +61,9 @@ You can connect to {{ OS }} Dashboards:
 * Over the internet, if public access is enabled for a host with the `DASHBOARDS` role.
 * Using a VM instance in {{ yandex-cloud }}, if public access is not enabled for any hosts with the `DASHBOARDS` role.
 
-{% list tabs %}
+{% list tabs group=connection_method %}
 
-- Over the internet
+- Over the internet {#internet}
 
    1. Install the [SSL certificate](#ssl-certificate) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** or go to `https://c-< cluster_ID>.rw.{{ dns-zone }}>` in your browser.
@@ -72,7 +72,7 @@ You can connect to {{ OS }} Dashboards:
 
    1. Enter `admin` for the username and the password you set when [creating the cluster](cluster-create.md).
 
-- From a VM in {{ yandex-cloud }}
+- From a VM in {{ yandex-cloud }} {#cloud}
 
    1. [Create](../../compute/quickstart/quick-create-linux.md) a Linux VM in the same [network](../../vpc/concepts/network.md) as the cluster.
    1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.

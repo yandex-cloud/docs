@@ -6,9 +6,9 @@ description: "На странице представлен список поша
 # Пошаговые инструкции для {{ mgl-name }}
 
 * [{#T}](instance/instance-list.md)
-* [{#T}](instance/instance-create.md)
-* [{#T}](configure-security-group.md)
-* [{#T}](instance/instance-stop.md)
+* [Создание и активация инстанса](instance/instance-create.md)
+* [Настройка групп безопасности и ограничение доступа к инстансу](configure-security-group.md)
+* [Остановка и запуск инстанса](instance/instance-stop.md)
 * [{#T}](instance/instance-update.md)
 * [{#T}](instance/instance-backups.md)
 * [{#T}](instance/migration.md)

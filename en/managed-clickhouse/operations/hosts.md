@@ -1,6 +1,14 @@
 # Managing {{ CH }} cluster hosts
 
-You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can perform the following actions on {{ CH }} hosts:
+
+* [Get a list of cluster hosts](#list-hosts).
+* [Add a host](#add-host).
+* [Update {{ CH }} host settings](#update).
+* [Restart a host](#restart).
+* [Remove a host](#remove-host).
+
+To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 {% note warning %}
 
@@ -10,44 +18,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 ## Getting a list of cluster hosts {#list-hosts}
 
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-
-- CLI {#cli}
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To get a list of cluster hosts, run the command:
-
-   ```bash
-   {{ yc-mdb-ch }} host list \
-     --cluster-name=<cluster_name>
-   ```
-
-   ```text
-   +----------------------------+--------------+---------+--------+---------------+
-   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
-   +----------------------------+--------------+---------+--------+---------------+
-   | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
-   | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
-   +----------------------------+--------------+---------+--------+---------------+
-   ```
-
-   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
-- API {#api}
-
-   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
-
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-
-{% endlist %}
+{% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
 ## Adding a host {#add-host}
 
@@ -267,6 +238,10 @@ If you can't [connect](connect.md) to the changed host, check that the cluster's
 
 {% endnote %}
 
+
+## Restarting a host {#restart}
+
+{% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
 ## Removing a host {#remove-host}
 

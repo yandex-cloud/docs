@@ -1,10 +1,18 @@
 # Managing {{ ZK }} hosts
 
-Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer data replication. To make such shards fault-tolerant, increase the number of hosts in them by one or more. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](hosts.md#add-host) to the desired shard. Otherwise, you must first [enable fault tolerance](#add-zk) and only then will you be able to add {{ CH }} hosts.
+Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer data replication. To make such shards fault-tolerant, increase the number of hosts in them by one or more. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](hosts.md#add-host) to the appropriate shard. Otherwise, you must first enable fault tolerance and only then will you be able to add {{ CH }} hosts.
 
 For more information, see [Sharding](../concepts/sharding.md).
 
-You can [add](#add-zk-host) and [delete](#delete-zk-host) {{ ZK }} hosts in fault-tolerant clusters. A fault-tolerant cluster can contain a total of three to five {{ ZK }} hosts.
+You can perform the following actions on {{ ZK }} hosts in fault-tolerant clusters:
+
+* [Get a list of cluster hosts](#list-hosts).
+* Use {{ ZK }} hosts to [enable fault tolerance](#add-zk).
+* [Add a host](#add-zk-host).
+* [Restart a host](#restart).
+* [Remove a host](#delete-zk-host).
+
+A fault-tolerant cluster can contain a total of three to five {{ ZK }} hosts.
 
 {% note warning %}
 
@@ -13,6 +21,10 @@ If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are cre
 {% endnote %}
 
 To learn more, see [Replication](../concepts/replication.md).
+
+## Getting a list of cluster hosts {#list-hosts}
+
+{% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
 ## Enabling fault tolerance for the cluster {#add-zk}
 
@@ -267,6 +279,10 @@ To learn more, see [Replication](../concepts/replication.md).
    * Settings for the host, in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
 
 {% endlist %}
+
+## Restarting a {{ ZK }} host {#restart}
+
+{% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
 ## Deleting a {{ ZK }} host {#delete-zk-host}
 

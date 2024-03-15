@@ -20,7 +20,7 @@ yc managed-clickhouse user update <имя_пользователя> \
 
 #### Как изменить часовой пояс (timezone)? {#timezone}
 
-Воспользуйтесь инструкцией в разделе [{#T}](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
+Воспользуйтесь инструкцией в разделе [Изменение настроек {{ CH }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
 
 #### Будет ли кластер недоступен при добавлении реплик? {#add-replica-availability}
 

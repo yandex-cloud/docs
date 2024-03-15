@@ -16,28 +16,28 @@ In single-host clusters, the only master host is brought out of its running stat
 In multi-host clusters, upgrades follow the procedure below:
 
 1. The master is unavailable during upgrades. During this time, the replicas continue running in read-only mode. No [failover](../concepts/replication.md#replication-auto) occurs. After an upgrade, the master is not returned to a running state until all the replicated hosts are upgraded. It is temporarily unavailable even for reading.
-1. The replicas are sequentially made unavailable and upgraded. Their queue positions are random. Following an upgrade, the replicas are returned to a running state in read-only mode.
+1. The replicas are sequentially made unavailable and upgraded. The replicas are queued randomly. Following an upgrade, the replicas are returned to a running state in read-only mode.
 
    A two-host cluster is unavailable while its replica is upgrading. In a cluster of three or more hosts, at least one replica will be available for reading.
 
 1. The master returns to a running state.
 
-To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
+To learn more about upgrades within the same version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
-## Before updating the version {#before-update}
+## Before a version upgrade {#before-update}
 
 Make sure this does not affect your applications:
 
-1. See the {{ PG }} [changelog](https://www.postgresql.org/docs/release/) to check how updates might affect your applications or installed [extensions](./extensions/cluster-extensions.md).
-1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
+1. See the {{ PG }} [changelog](https://www.postgresql.org/docs/release/) to see how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
+1. Try a version upgrade on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
 
 {% note alert %}
 
 * Once your DBMS is upgraded, you cannot roll a cluster back to the previous version.
-* The success of a {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
+* The success of a {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
 
 {% endnote %}
 
@@ -46,13 +46,9 @@ Make sure this does not affect your applications:
 - Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select the appropriate cluster from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Select the cluster from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
-
-   Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
-
-   The time it takes a cluster to upgrade depends on database size and normally is a few minutes. If a database is very large, an upgrade may take 10 or more minutes.
 
 - CLI {#cli}
 
@@ -72,16 +68,12 @@ Make sure this does not affect your applications:
       {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
       ```
 
-   1. Start the {{ PG }} upgrade:
+   1. Run the {{ PG }} upgrade:
 
       ```bash
       {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
          --postgresql-version <new_version_number>
       ```
-
-   Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
-
-   The time it takes a cluster to upgrade depends on database size and normally is a few minutes. If the database is very large, an upgrade may take up to 10 minutes.
 
 - {{ TF }} {#tf}
 
@@ -116,7 +108,7 @@ Make sure this does not affect your applications:
 
    To upgrade a cluster to a specific {{ PG }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ PG }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -124,9 +116,13 @@ Make sure this does not affect your applications:
 
 {% endlist %}
 
+As soon as you run the upgrade, the cluster enters the **UPDATING** status. Wait for the operation to complete and then check the cluster version.
+
+Cluster upgrade time depends on the database size.
+
 ## Examples {#examples}
 
-Let's say you need to upgrade your cluster from version 11 to version 12.
+Let's assume that you need to upgrade your cluster from version 11 to version 12.
 
 {% list tabs group=instructions %}
 
