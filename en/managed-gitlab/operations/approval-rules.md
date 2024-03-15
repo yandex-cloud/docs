@@ -46,17 +46,17 @@ To create a token:
 
 ## Enable approval rules {#enable}
 
-1. Activate the {{ GL }} setting that disables incorporating changes to the target branch until all threads are resolved in a merge request:
+1. Activate the {{ GL }} setting that prevents merging changes to the target branch until all threads in a merge request are resolved:
    1. Open your project in {{ GL }}.
    1. In the left-hand menu, select **Settings** → **Merge requests**.
    1. Under **Merge checks**, select **All threads must be resolved**.
    1. Click **Save changes**.
-1. Add a system webhook:
+1. Add a system hook:
    1. Open your {{ GL }} instance.
    1. In the left-hand menu, select **Search or go to** → **Admin Area**.
    1. In the left-hand menu, select **System Hooks**.
    1. Click **Add new webhook**.
-   1. Specify the webhook parameters:
+   1. Specify the hook parameters:
       * **URL**: `http://localhost:24080/default`.
       * In the **Trigger** section, disable all options except **Merge request events**, **Push events**, and **Repository update events**.
    1. Click **Add system hook**.
@@ -176,13 +176,13 @@ Issues related to the `APPROVALRULES` file are handled as follows:
 * If the file is missing from the repository, no approval rules apply to the repository's merge requests.
 * If the file is available but is configured incorrectly:
    * An email notification of the error is sent to users with the `Maintainer` role.
-   * All merge requests of the repository are locked.
+   * All merge requests of the repository are blocked.
 
-### Bypassing the rules {#force-merge}
+### Overriding the rules {#force-merge}
 
-If merge request changes need to be committed but the team members who can do that are not available and cannot approve the MR, a user with at least the `Maintainer` role can commit them bypassing the set rules:
+If you need to commit merge request changes, but the responsible team members are not available, a user with the `Maintainer` role or higher can commit the changes by overriding the existing approval rules:
 
 1. Add a comment with the `force_merge` keyword to the merge request.
-1. Update the MR description so that {{ mgl-name }} gets notified of the MR change.
+1. Update the merge request description so that {{ mgl-name }} gets notified of the changes in the merge request.
 
-This will close the thread and the MR integration will be unlocked. During the integration, users with the role `Maintainer` or higher will receive an email notification about a violation of the established code approval procedure.
+This will close the thread and unblock the merge request. During the integration, users with the `Maintainer` role or higher will receive an email notification about the violated code approval workflow.

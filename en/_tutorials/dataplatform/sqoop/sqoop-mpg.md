@@ -238,7 +238,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    Delete the resources you created manually:
 
-   1. [Subnet](../../../vpc/operations/subnet-delete.md).
-   1. [Cloud network](../../../vpc/operations/network-delete.md).
+   1. [Subnet](../../../vpc/operations/subnet-delete.md)
+   1. [Cloud network](../../../vpc/operations/network-delete.md)
 
 {% endlist %}

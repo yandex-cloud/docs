@@ -5,47 +5,47 @@ description: "На странице представлен список поша
 
 # Пошаговые инструкции для {{ mch-name }}
 
-## Кластеры
+## Кластеры {clusters}
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](update.md)
+* [Информация об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Изменение настроек кластера](update.md)
 * [{#T}](cluster-version-update.md)
-* [{#T}](cluster-stop.md)
+* [Остановка и запуск кластера](cluster-stop.md)
 * [{#T}](zk-hosts.md)
-* [{#T}](hosts.md)
-* [{#T}](host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](cluster-delete.md)
+* [Управление хостами кластера](hosts.md)
+* [Миграция хостов кластера в другую зону доступности](host-migration.md)
+* [Управление резервными копиями](cluster-backups.md)
+* [Удаление кластера](cluster-delete.md)
 
-## Базы данных
+## Базы данных {databases}
 
-* [{#T}](connect.md)
+* [Подключение к базе данных в кластере](connect.md)
 * [{#T}](web-sql-query.md)
-* [{#T}](databases.md)
-* [{#T}](cluster-users.md)
+* [Управление базами данных](databases.md)
+* [Управление пользователями](cluster-users.md)
 
-## Хранение и обработка данных
+## Хранение и обработка данных {data-storage-and-processing}
 
-* [{#T}](geobase.md)
-* [{#T}](dictionaries.md)
-* [{#T}](format-schemas.md)
-* [{#T}](ml-models.md)
-
-
-* [{#T}](s3-access.md)
+* [Подключение собственной геобазы](geobase.md)
+* [Подключение внешних словарей](dictionaries.md)
+* [Управление схемами формата данных](format-schemas.md)
+* [Управление моделями машинного обучения](ml-models.md)
 
 
-## Шардирование
+* [Настройка доступа к {{ objstorage-name }}](s3-access.md)
 
-* [{#T}](shards.md)
-* [{#T}](shard-groups.md)
 
-## Логи и мониторинг
+## Шардирование {sharding}
 
-* [{#T}](cluster-logs.md)
-* [{#T}](monitoring.md)
-* [{#T}](datalens-connect.md)
+* [Управление шардами](shards.md)
+* [Управление группами шардов](shard-groups.md)
+
+## Логи и мониторинг {monitoring-and-logs}
+
+* [Просмотр логов кластера](cluster-logs.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)
+* [Подключение к кластеру из {{ datalens-name }}](datalens-connect.md)
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

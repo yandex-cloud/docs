@@ -17,13 +17,13 @@ To ensure {{ mgp-name }} cluster functionality and network connectivity between 
 
 Rule settings depend on the connection method you select:
 
-{% list tabs %}
+{% list tabs group=connection_method %}
 
-- Over the internet
+- Over the internet {#internet}
 
    {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
-- With a VM in {{ yandex-cloud }}
+- From a VM in {{ yandex-cloud }} {#cloud}
 
    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 

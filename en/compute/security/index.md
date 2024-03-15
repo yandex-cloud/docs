@@ -6,6 +6,7 @@ description: "Access management in {{ compute-full-name }}, a service providing 
 # Access management in {{ compute-name }}
 
 In this section, you will learn:
+
 * [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
@@ -15,7 +16,18 @@ In this section, you will learn:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign a role for a separate VM.
+You can also assign a role for individual resources of the service:
+
+* [VM](../operations/vm-control/vm-access.md)
+* [Disk](../operations/disk-control/disk-access.md)
+* [Disk snapshot](../operations/snapshot-control/snapshot-access.md)
+* [Snapshot schedule](../operations/snapshot-control/snapshot-schedule-access.md)
+* [File storage](../operations/filesystem/filesystem-access.md)
+* [Image](../operations/image-control/access.md)
+* [VM placement group](../operations/placement-groups/access.md)
+* [Non-replicated disk placement group](../operations/disk-placement-groups/access.md)
+* [Dedicated host group](../operations/dedicated-host/access.md)
+* [GPU cluster](../operations/gpu-cluster/access.md)
 
 ## Which roles exist in the service {#roles-list}
 

@@ -1,21 +1,21 @@
-# Deploying the {{ KF }} web interface
+# Deploying the UI for {{ KF }}
 
-You can install the [{{ KF }} web interface](https://docs.kafka-ui.provectus.io/overview/readme) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
+You can install the [UI for {{ KF }}](https://docs.kafka-ui.provectus.io/overview/readme) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
 
 
-You can deploy the {{ KF }} web interface in two ways:
+You can deploy the UI for {{ KF }} in two ways:
 
-* In a [Docker container](#docker) on a {{ yandex-cloud }} virtual machine. This option is cheaper but less reliable, which makes it more suitable for getting started with the {{ KF }} web interface.
+* In a [Docker container](#docker) on a {{ yandex-cloud }} virtual machine. This option is cheaper but less reliable, which makes it more suitable for getting started with the UI for {{ KF }}.
 * In a [{{ managed-k8s-full-name }} cluster](#kubernetes). This option is more expensive and more reliable, which makes it suitable for consistent and long-term use of the web interface.
 
 
 ## Deploying in Docker containers {#docker}
 
-To deploy the {{ KF }} web interface in a Docker container:
+To deploy the UI for {{ KF }} in a Docker container:
 
 1. [Install additional dependencies](#infra-for-docker).
 1. [Create a TrustStore](#truststore-for-docker).
-1. [Set up the {{ KF }} web interface](#prepare-ui-via-docker).
+1. [Set up the UI for {{ KF }}](#prepare-ui-via-docker).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -121,7 +121,7 @@ When deploying {{ KF }} in a Docker container, TrustStore commands run on a VM.
 
 {% include [TrustStore](../../_includes/mdb/mkf/truststore.md) %}
 
-### Set up the {{ KF }} web interface {#prepare-ui-via-docker}
+### Set up the UI for {{ KF }} {#prepare-ui-via-docker}
 
 1. On the VM, run the Docker container to deploy your web interface in:
 
@@ -148,20 +148,20 @@ When deploying {{ KF }} in a Docker container, TrustStore commands run on a VM.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password`: {{ KF }} user password.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD`: Password you set when creating the `truststore.jks` file.
 
-   Once started, the command does not terminate. While it is running, the {{ KF }} web interface is available.
+   Once started, the command does not terminate. While it is running, the UI for {{ KF }} is available.
 
-1. On a local machine, go to `http://<VM_public_IP_address>:8080` in your browser. The {{ KF }} web interface with {{ mkf-name }} cluster data will open.
+1. On a local machine, go to `http://<VM_public_IP_address>:8080` in your browser. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
 
    You can find the VM's public IP address in the management console, on the VM page.
 
 
 ## Deploying in a {{ managed-k8s-name }} cluster {#kubernetes}
 
-To deploy the {{ KF }} web interface in a {{ managed-k8s-name }} cluster:
+To deploy the UI for {{ KF }} in a {{ managed-k8s-name }} cluster:
 
 1. [Install additional dependencies](#infra-for-kubernetes).
 1. [Create a TrustStore](#truststore-for-kubernetes).
-1. [Deploy your application with the {{ KF }} web interface in the {{ k8s }} pod](#application-in-pod).
+1. [Deploy your application with the UI for {{ KF }} in the {{ k8s }} pod](#application-in-pod).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -261,7 +261,7 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
 
 {% include [TrustStore](../../_includes/mdb/mkf/truststore.md) %}
 
-### Deploy your application with the {{ KF }} web interface in the {{ k8s }} pod {#application-in-pod}
+### Deploy your application with the UI for {{ KF }} in the {{ k8s }} pod {#application-in-pod}
 
 1. To deliver the `truststore.jks` file to the {{ k8s }} pod, create a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) containing this file:
 
@@ -297,7 +297,7 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
    * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password`: {{ KF }} user password.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD`: Password you set when creating the `truststore.jks` file.
 
-1. Create a file named `kafka-ui-pod.yaml` with the configuration of the pod to deploy your application with the {{ KF }} web interface in:
+1. Create a file named `kafka-ui-pod.yaml` with the configuration of the pod to deploy your application with the UI for {{ KF }} in:
 
    ```yaml
    apiVersion: v1
@@ -338,7 +338,7 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
 
 ### Check the result {#check-result}
 
-1. View the pod logs to make sure the {{ KF }} web interface is deployed successfully:
+1. View the pod logs to make sure the UI for {{ KF }} is deployed successfully:
 
    ```bash
    kubectl logs kafka-ui-pod
@@ -359,13 +359,13 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
    2024-01-23 12:13:25,747 INFO  [main] c.p.k.u.KafkaUiApplication: No active profile set, falling back to 1 default profile: "default"
    ```
 
-1. Set the {{ KF }} web interface port to `8080`:
+1. Set the UI for {{ KF }} port to `8080`:
 
    ```bash
    kubectl --namespace default port-forward kafka-ui-pod 8080:8080
    ```
 
-1. In your browser, open `http://127.0.0.1:8080/`. The {{ KF }} web interface with {{ mkf-name }} cluster data will open.
+1. In your browser, open `http://127.0.0.1:8080/`. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
 
 
 ## Delete the resources you created {#clear-out}

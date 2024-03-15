@@ -8,7 +8,7 @@
 
 * **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-api }}
 
-   The maximum disk space (in bytes) that the temporary files of an active query can occupy in every segment.
+   The maximum amount of disk space (in bytes) the temporary files of an active query can occupy in every segment.
 
    The maximum value is `1099511627776` (1 TB), the minimum one is `0` (unlimited amount), and the default one is also `0`.
 
@@ -55,13 +55,13 @@
 
    The maximum value is `1000`, the minimum one is `250`, and the default one is `350`. For segment hosts, this value is automatically multiplied by five.
 
-   If you increase this setting, we recommend increasing [Max prepared transactions](#setting-max-prepared-transactions) as well.
+   If you increase this value, we recommend increasing [Max prepared transactions](#setting-max-prepared-transactions) as well.
 
    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
 
 * **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-api }}
 
-   The maximum number of transactions that can be in the [prepared state](https://www.postgresql.org/docs/9.6/sql-prepare-transaction.html) at the same time.
+   Maximum number of concurrent [prepared]({{ pg.docs.org }}/current/sql-prepare-transaction.html) transactions.
 
    The maximum value is `10000`, the minimum one is `350`, and the default one is `350`. The values for master hosts and segment hosts are the same.
 

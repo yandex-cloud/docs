@@ -47,3 +47,7 @@ To push changes to the {{ mgl-name }} repository, [assign]({{ gl.docs }}/ee/user
 Users with the `Guest` and `Reporter` roles cannot push changes.
 
 For more information about roles, see the [{{ GL }} documentation]({{ gl.docs }}/ee/user/permissions.html).
+
+#### I am getting `500 Internal Server Error` when opening an instance. What could be the problem? {#500-error}
+
+The instance disk space may be full. [Check and clean it up](../operations/instance/clean-up-disk-space.md).

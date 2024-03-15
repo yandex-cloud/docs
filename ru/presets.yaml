@@ -3285,6 +3285,9 @@ default:
         menu-item-permissions: Права доступа
         menu-item-timetracking: Учёт времени
         menu-item-workflows: Рабочие процессы
+      ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
+        change-owner: Изменить владельца
+        set-as-default: Назначать исполнителем по умолчанию
       ui_components_page-queue-admin_Signature:
         alias-title: Псевдоним
       ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
