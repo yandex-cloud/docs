@@ -5,8 +5,6 @@ description: "Follow this guide to set up access to an existing VM via OS Login.
 
 # Setting up OS Login access on an existing VM
 
-{% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
-
 If you need to set up a connection to a deployed VM via OS Login, you can install the OS Login agent on the VM yourself.
 
 To set up OS Login access to an existing VM:

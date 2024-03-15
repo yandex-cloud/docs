@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Общие метки для всех метрик сервиса {{ mkf-name }}: 
 
 Метка | Значение
@@ -9,7 +11,7 @@ host | FQDN хоста
 node | Тип брокера: `leader`, `follower`, `replica`
 subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_subcluster`
 
-### Метрики CPU {#managed-kafka-cpu-metrics}
+## Метрики CPU {#managed-kafka-cpu-metrics}
 Загрузка процессорных ядер.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -30,7 +32,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 
-### Метрики диска {#managed-kafka-disk-metrics}
+## Метрики диска {#managed-kafka-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, байты | Свободное место. | 
@@ -40,7 +42,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `disk.used_bytes`<br/>`DGAUGE`, байты | Занятое место. | 
 | `disk.used_inodes`<br/>`DGAUGE`, штуки | Занятое количество inodes. |
 
-### Метрики дисковых операций {#managed-kafka-diskio-metrics}
+## Метрики дисковых операций {#managed-kafka-diskio-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с дисков. | 
@@ -62,7 +64,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `io.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
 | `io.write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи в секунду. |
 
-### Метрики RAM {#managed-kafka-ram-metrics}
+## Метрики RAM {#managed-kafka-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `mem.guarantee_bytes`<br/>`DGAUGE`, байты | Гарантированный размер оперативной памяти. | 
@@ -76,7 +78,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `mem.total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `total`. | 
 | `mem.used_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которую в данный момент используют запущенные процессы. | 
 
-### Метрики сети {#managed-kafka-net-metrics}
+## Метрики сети {#managed-kafka-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
@@ -88,7 +90,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. | 
 
-### Метрики сервиса {#managed-kafka-metrics}
+## Метрики сервиса {#managed-kafka-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs`<br/>`DGAUGE`, миллисекунды | Смена брокера-лидера за единицу времени, в норме показывает 0. При проведении технического обслуживания может расти, что не является тревожным сигналом.<br/>Дополнительные метки: `quantile` |

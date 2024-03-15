@@ -162,7 +162,55 @@ items:
           - name: DashboardService
             href: api-ref/api-ref-grpc/DashboardService.md
   - name: Справочник метрик
-    href: metrics-ref/index.md
+    items:
+      - name: Все справочники метрик
+        href: metrics-ref/index.md
+      - name: '{{ alb-name }}'
+        href: metrics-ref/alb-ref.md
+      - name: '{{ at-name }}'
+        href: metrics-ref/at-ref.md
+      - name: '{{ certificate-manager-name }}'
+        href: metrics-ref/certificate-manager-ref.md
+      - name: '{{ cdn-name }}'
+        href: metrics-ref/cdn-ref.md
+      - name: '{{ compute-name }}'
+        href: metrics-ref/compute-ref.md
+      - name: '{{ dataproc-name }}'
+        href: metrics-ref/data-proc-ref.md
+      - name: '{{ iam-name }}'
+        href: metrics-ref/iam-ref.md
+      - name: '{{ kms-name }}'
+        href: metrics-ref/kms-ref.md
+      - name: '{{ lockbox-name }}'
+        href: metrics-ref/lockbox-ref.md
+      - name: '{{ mkf-name }}'
+        href: metrics-ref/managed-kafka-ref.md
+      - name: '{{ mch-name }}'
+        href: metrics-ref/managed-clickhouse-ref.md
+      - name: '{{ mes-name }}'
+        href: metrics-ref/managed-elasticsearch-ref.md
+      - name: '{{ mgp-name }}'
+        href: metrics-ref/managed-greenplum-ref.md
+      - name: '{{ managed-k8s-name }}'
+        href: metrics-ref/managed-kubernetes-ref.md
+      - name: '{{ mmg-name }}'
+        href: metrics-ref/managed-mongodb-ref.md
+      - name: '{{ mmy-name }}'
+        href: metrics-ref/managed-mysql-ref.md
+      - name: '{{ mos-name }}'
+        href: metrics-ref/managed-opensearch-ref.md
+      - name: '{{ mpg-name }}'
+        href: metrics-ref/managed-postgresql-ref.md
+      - name: '{{ mrd-name }}'
+        href: metrics-ref/managed-redis-ref.md
+      - name: '{{ ydb-name }}'
+        href: metrics-ref/ydb-ref.md
+      - name: '{{ monitoring-name}}'
+        href: metrics-ref/monitoring-ref.md
+      - name: '{{ objstorage-name }}'
+        href: metrics-ref/storage-ref.md
+      - name: '{{ captcha-name}}'
+        href: metrics-ref/captcha-ref.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

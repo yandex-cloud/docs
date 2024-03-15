@@ -195,6 +195,10 @@ items:
           Настройка подключения к {{ mpg-full-name }} из контейнера {{
           serverless-containers-name }}
         href: tutorials/pg-connect.md
+      - name: >-
+          Запуск контейнерного приложения в {{ serverless-containers-full-name
+          }}
+        href: tutorials/deploy-app-container.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

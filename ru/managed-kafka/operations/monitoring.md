@@ -106,7 +106,7 @@ description: "Из статьи вы узнаете, как осуществля
 * `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` — `96636764160` байт (90%).
 * `{{ ui-key.yacloud_monitoring.alert.label_warning }}` — `85899345920` байт (80%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-kafka).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-kafka-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

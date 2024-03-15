@@ -86,13 +86,6 @@ Make sure the uploaded image is in the `READY` status.
 
       * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
       * (Optional) [Enable VM access via OS Login](../vm-connect/os-login.md). This option is only available for Linux images.
-
-         {% note info %}
-
-         {% include [preview](../../../_includes/preview-pp.md) %}
-
-         {% endnote %}
-
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}

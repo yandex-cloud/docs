@@ -1,7 +1,5 @@
 # OS Login
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 OS Login is a convenient tool for managing SSH connections to [VM instances](../../compute/concepts/vm.md) using {{ iam-short-name }}. Use OS Login to manage SSH access to VM instances without having to create and manage separate SSH keys.
 
 The OS Login agent is based on the [Guest Agent for Google Compute Engine](https://github.com/GoogleCloudPlatform/guest-agent). To monitor the changes introduced by the {{ yandex-cloud }} team, see the project's repository on [GitHub](https://github.com/yandex-cloud/yandex-cloud-guest-agent).

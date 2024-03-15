@@ -132,3 +132,5 @@ resource "yandex_compute_instance" "vm-1" {
 
 * [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).
+* [Использование модулей {{ yandex-cloud }} в {{ TF }}](../../tutorials/infrastructure-management/terraform-modules.md).
+* [Источники данных {{ TF }}](../../tutorials/infrastructure-management/terraform-data-sources.md).

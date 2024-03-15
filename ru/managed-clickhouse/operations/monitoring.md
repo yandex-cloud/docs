@@ -181,7 +181,7 @@ description: "Из статьи вы узнаете, как осуществля
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` — `102005473280` байт (95%).
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` — `85899345920` байт (80%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-clickhouse).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

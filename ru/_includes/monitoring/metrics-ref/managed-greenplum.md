@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Общие метки для всех метрик сервиса {{ mgp-name }}: 
 
 Метка | Значение
@@ -9,7 +11,7 @@ cid | Идентификатор кластера
 host | FQDN хоста
 fqdn | FQDN хоста
 
-### Метрики CPU {#managed-greenplum-cpu-metrics}
+## Метрики CPU {#managed-greenplum-cpu-metrics}
 Загрузка процессорных ядер.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -28,7 +30,7 @@ fqdn | FQDN хоста
 | `cpu.usage_system`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `system`. | 
 | `cpu.usage_user`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `user`. |
 
-### Метрики диска {#managed-greenplum-disk-metrics}
+## Метрики диска {#managed-greenplum-disk-metrics}
 Дополнительные метки: `device` — идентификатор диска в системе.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -41,7 +43,7 @@ fqdn | FQDN хоста
 | `disk.used`<br/>`DGAUGE`, байты | Использованное место. | 
 | `disk.used_percent`<br/>`DGAUGE`, % | Процент использованного места. |
 
-### Метрики дисковых операций {#managed-greenplum-diskio-metrics}
+## Метрики дисковых операций {#managed-greenplum-diskio-metrics}
 Дополнительные метки: `dev` — идентификатор диска в системе.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -58,7 +60,7 @@ fqdn | FQDN хоста
 | `diskio.write_time`<br/>`DGAUGE`, миллисекунды | Длительность записи на диск. | 
 | `diskio.writes`<br/>`DGAUGE`, штуки | Количество операций записи на диск. | 
 
-### Метрики RAM {#managed-greenplum-ram-metrics}
+## Метрики RAM {#managed-greenplum-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `mem.active`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `active`. | 
@@ -96,7 +98,7 @@ fqdn | FQDN хоста
 | `mem.write_back`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back`. | 
 | `mem.write_back_tmp`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back_tmp`. |
 
-### Метрики сети {#managed-greenplum-net-metrics}
+## Метрики сети {#managed-greenplum-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
@@ -339,7 +341,7 @@ fqdn | FQDN хоста
 | `ping.standard_deviation_ms`<br/>`DGAUGE`, миллисекунды | Стандартное отклонение времени ответа пинга. |
 | `ping.ttl`<br/>`DGAUGE`, штуки | TTL пинга — количество переходов (hop) между сетевыми узлами (обычно измеряемое в количестве маршрутизаторов), которые должен пройти пакет пинга. |
 
-### Метрики сервиса {#managed-greenplum-metrics}
+## Метрики сервиса {#managed-greenplum-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `gp.conn_aborted`<br/>`DGAUGE`, штуки | Количество соединений с БД. Статус соединения: `aborted`. | 
@@ -377,7 +379,7 @@ fqdn | FQDN хоста
 | `gp.spill_files_num_per_seghost`<br/>`DGAUGE`, штуки | Число временных файлов на хост. | 
 | `gp.spill_files_size_per_seghost`<br/>`DGAUGE`, байты | Размер временных файлов на хост. |
 
-##### Системные метрики {#managed-greenplum-config-metrics}
+#### Системные метрики {#managed-greenplum-config-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `system.load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка процессора за 1 минуту. |
@@ -387,7 +389,7 @@ fqdn | FQDN хоста
 | `system.n_users`<br/>`DGAUGE`, штуки | Предельное число пользователей. |
 | `system.uptime`<br/>`DGAUGE`, % | Коэффициент отказоустойчивости. | 
 
-### Метрики PXF {#managed-greenplum-pxf-metrics}
+## Метрики PXF {#managed-greenplum-pxf-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `pxf.jvm_memory_committed_bytes`<br/>`DGAUGE`, байты | Размер выделенной операционной системой памяти для JVM PXF. | 
@@ -406,7 +408,7 @@ fqdn | FQDN хоста
 | `pxf.tomcat_threads_config_max_threads`<br/>`DGAUGE`, штуки | Максимальное количество потоков в настройках Tomcat PXF. | 
 | `pxf.tomcat_threads_current_threads`<br/>`DGAUGE`, штуки | Количество текущих потоков в Tomcat PXF. | 
 
-### Метрики SNMP {#managed-greenplum-snmp-metrics}
+## Метрики SNMP {#managed-greenplum-snmp-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `snmp.icmpinaddrmaskreps`<br/>`DGAUGE`, штуки | Количество полученных ответных ICMP-сообщений с маской адреса от опрашиваемого узла (в сетевом протоколе SNMP). |

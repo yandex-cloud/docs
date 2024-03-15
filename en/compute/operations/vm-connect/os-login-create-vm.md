@@ -5,8 +5,6 @@ description: "Follow this guide to create a VM that can be accessed via OS Login
 
 # Creating a VM with OS Login
 
-{% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
-
 [OS Login](../../../organization/concepts/os-login.md) is used to provide users with SSH access to VMs through {{ iam-short-name }}. To grant access to a VM that supports OS Login at the OS level, [assign](../../../iam/operations/roles/grant.md) a user the `compute.osLogin` or `compute.osAdminLogin` role.
 
 Please note that you cannot use an [SSH key pair](./ssh.md#creating-ssh-keys) to connect to VMs with OS Login access enabled. However, we recommend specifying SSH keys when creating a VM: this way, you can [connect to a VM over SSH](./ssh.md#vm-connect) if you disable OS Login access for it. You can provide SSH keys to a VM using [metadata](../../concepts/vm-metadata.md).

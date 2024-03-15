@@ -140,9 +140,9 @@
 
 {% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
 
-### Включить доступ через OS Login {#enable-oslogin-access}
+### Включить доступ по OS Login {#enable-oslogin-access}
 
-Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) через [OS Login](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
+Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) по [OS Login](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
 
 {% list tabs group=instructions %}
 
@@ -173,7 +173,7 @@
 
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
 
-  1. Включите доступ через OS Login:
+  1. Включите доступ по OS Login:
 
      ```bash
      yc compute instance update first-instance \

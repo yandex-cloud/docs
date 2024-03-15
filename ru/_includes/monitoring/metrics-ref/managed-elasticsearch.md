@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Общие метки для всех метрик сервиса {{ mes-name }}: 
 
 Метка | Значение
@@ -7,7 +9,7 @@ resource_type | Тип ресурса: `cluster`
 resource_id | Идентификатор кластера
 host | FQDN хоста
 
-### Метрики CPU {#managed-elasticsearch-cpu-metrics}
+## Метрики CPU {#managed-elasticsearch-cpu-metrics}
 Загрузка процессорных ядер.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -33,7 +35,7 @@ host | FQDN хоста
 | `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 
-### Метрики диска {#managed-elasticsearch-disk-metrics}
+## Метрики диска {#managed-elasticsearch-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, байты | Свободное место. | 
@@ -43,7 +45,7 @@ host | FQDN хоста
 | `disk.used_bytes`<br/>`DGAUGE`, байты | Занятое место. | 
 | `disk.used_inodes`<br/>`DGAUGE`, штуки | Занятое количество inodes. |
 
-### Метрики дисковых операций {#managed-elasticsearch-diskio-metrics}
+## Метрики дисковых операций {#managed-elasticsearch-diskio-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, штуки | Количество незавершенных дисковых операций. | 
@@ -58,7 +60,7 @@ host | FQDN хоста
 | `io.disk*.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи на конкретный диск в секунду. | 
 | `io.disk*.write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на конкретный диск. | 
 
-### Метрики RAM {#managed-elasticsearch-ram-metrics}
+## Метрики RAM {#managed-elasticsearch-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которая используется наиболее часто и освобождается только в крайнем случае. | 
@@ -96,7 +98,7 @@ host | FQDN хоста
 | `mem.write_back_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back`. | 
 | `mem.write_back_tmp_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back_tmp`. |
 
-### Метрики сети {#managed-elasticsearch-net-metrics}
+## Метрики сети {#managed-elasticsearch-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
@@ -112,7 +114,7 @@ host | FQDN хоста
 | `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. | 
 
-### Метрики сервиса {#managed-elasticsearch-metrics}
+## Метрики сервиса {#managed-elasticsearch-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `active`<br/>`DGAUGE`, штуки | Количество активных кластеров. |
@@ -266,7 +268,7 @@ host | FQDN хоста
 | `write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
 | `write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. | 
 
-##### Нативные метрики ElasticSearch {#managed-elasticsearch-system-metrics}
+#### Нативные метрики ElasticSearch {#managed-elasticsearch-system-metrics}
 Метрики, собранные через [API](https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html#cluster-nodes-stats-api-response-body).
 
 | Имя<br/>Тип, единицы измерения | 
@@ -411,7 +413,7 @@ host | FQDN хоста
 | `elasticsearch_transport_tx_count`<br/>`DGAUGE`, штуки | 
 | `elasticsearch_transport_tx_size_in_bytes`<br/>`DGAUGE`, байты |
 
-##### Прочие метрики {#managed-elasticsearch-other-metrics}
+#### Прочие метрики {#managed-elasticsearch-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `elasticsearch_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](../../../managed-elasticsearch/concepts/scalability-and-resilience.md) и общее количество активных шардов в кластере. | 

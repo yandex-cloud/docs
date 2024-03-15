@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Общие метки для всех метрик сервиса {{ dataproc-name }}:
 
 Метка | Значение
@@ -8,7 +10,7 @@ resource_id | Идентификатор кластера
 zone_id | Зона размещения
 host | FQDN хоста
 
-### Метрики HDFS {#data-proc-hdfs-metrics}
+## Метрики HDFS {#data-proc-hdfs-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `dfs.cluster.Free_bytes`<br/>`DGAUGE`, байты | Доступное место на HDFS. |
@@ -18,7 +20,7 @@ host | FQDN хоста
 | `dfs.cluster.Total_bytes`<br/>`DGAUGE`, байты | Размер HDFS. |
 | `dfs.cluster.Used_bytes`<br/>`DGAUGE`, байты | Использованное место на HDFS. |
 
-### Метрики дисков {#data-proc-disk-metrics}
+## Метрики дисков {#data-proc-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `system.disk.free_bytes`<br/>`DGAUGE`, байты | Доступное место в системном хранилище. |
@@ -30,7 +32,7 @@ host | FQDN хоста
 | `system.disk.used_bytes`<br/>`DGAUGE`, байты | Использованное место на диске. |
 | `system.disk.used_percent`<br/>`DGAUGE`, % | Использованное место на диске. |
 
-### Метрики YARN {#data-proc-yarn-metrics}
+## Метрики YARN {#data-proc-yarn-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `yarn.cluster.activeNodes`<br/>`DGAUGE`, штуки | Число активных нод. |
@@ -70,7 +72,7 @@ host | FQDN хоста
 | `yarn.cluster.utilizedMBPercent`<br/>`DGAUGE`, % | Утилизация памяти. |
 | `yarn.cluster.utilizedVirtualCoresPercent`<br/>`DGAUGE`, % | Утилизация виртуальных ядер. |
 
-### Прочие метрики {#data-proc-other-metrics}
+## Прочие метрики {#data-proc-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `dataproc.cluster.health_status`<br/>`IGAUGE`, 0/1/2 | Уровень работоспособности и техническое состояние кластера:<br/>`0` — Кластер неработоспособен: все его хосты не работают.<br/>`1` — Кластер работает не на полную мощность: минимум один из хостов имеет состояние, отличное от `ALIVE`.<br/>`2` — Кластер работает в штатном режиме. |
