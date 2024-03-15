@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Общие метки для всех метрик сервиса {{ mmg-name }}: 
 
 Метка | Значение
@@ -9,7 +11,7 @@ host | FQDN хоста
 node | Тип хоста: `primary`, `secondary`
 shard | Идентификатор шарда
 
-### Метрики CPU {#managed-mongodb-cpu-metrics}
+## Метрики CPU {#managed-mongodb-cpu-metrics}
 Загрузка процессорных ядер.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -32,7 +34,7 @@ shard | Идентификатор шарда
 | `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Средняя утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 60 секунд. | 
 | `cpu_utilization_by_db_60_limit`<br/>`DGAUGE`, % | Предельная утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 60 секунд. |
 
-### Метрики диска {#managed-mongodb-disk-metrics}
+## Метрики диска {#managed-mongodb-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, байты | Свободное место. | 
@@ -45,7 +47,7 @@ shard | Идентификатор шарда
 | `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 
-### Метрики дисковых операций {#managed-mongodb-diskio-metrics}
+## Метрики дисковых операций {#managed-mongodb-diskio-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, штуки | Количество незавершенных дисковых операций. | 
@@ -60,7 +62,7 @@ shard | Идентификатор шарда
 | `io.disk*.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи на конкретный диск в секунду. | 
 | `io.disk*.write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на конкретный диск. | 
 
-### Метрики RAM {#managed-mongodb-ram-metrics}
+## Метрики RAM {#managed-mongodb-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которая используется наиболее часто и освобождается только в крайнем случае. | 
@@ -98,7 +100,7 @@ shard | Идентификатор шарда
 | `mem.write_back_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back`. | 
 | `mem.write_back_tmp_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back_tmp`. |
 
-### Метрики сети {#managed-mongodb-net-metrics}
+## Метрики сети {#managed-mongodb-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
@@ -110,7 +112,7 @@ shard | Идентификатор шарда
 | `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. | 
 
-### Метрики dbStats {#managed-mongodb-dbstats-metrics}
+## Метрики dbStats {#managed-mongodb-dbstats-metrics}
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
@@ -123,7 +125,7 @@ shard | Идентификатор шарда
 | `db_stats_mdb_internal_dataSize`<br/>DGAUGE, байты | Размер несжатых данных внутренней базы. |
 | `db_stats_mdb_internal_indexSize`<br/>DGAUGE, байты | Размер места, занимаемого индексами внутренней базы. |
 
-### Метрики сервиса {#managed-mongodb-metrics}
+## Метрики сервиса {#managed-mongodb-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `active`<br/>`DGAUGE`, штуки | Количество активных кластеров. |
@@ -277,7 +279,7 @@ shard | Идентификатор шарда
 | `write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
 | `write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. | 
 
-##### Метрики serverStatus {#managed-mongodb-serverstatus-metrics}
+#### Метрики serverStatus {#managed-mongodb-serverstatus-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `server_status_admin_asserts.msg_rate`<br/>`DGAUGE`, штуки | Прирост срабатываний ассертов сообщений за секунду. | 
@@ -339,7 +341,7 @@ shard | Идентификатор шарда
 | `server_status_admin_wiredTiger.transaction.transactions_committed_rate`<br/>`DGAUGE`, штуки | Прирост завершенных транзакций за секунду. | 
 | `server_status_admin_wiredTiger.transaction.transactions_rolled_back_rate`<br/>`DGAUGE`, штуки | Прирост отмененных транзакций за секунду. | 
 
-### Прочие метрики {#managed-mongodb-other-metrics}
+## Прочие метрики {#managed-mongodb-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности на чтение.<br/>Принимает значение `1`, если кластер доступен на чтение, `0`, если нет.  | 

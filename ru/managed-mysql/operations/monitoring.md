@@ -183,7 +183,7 @@ description: "Вы можете отслеживать состояние кла
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байтов (90%).
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `85899345920` байтов (80%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-mysql).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-mysql-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

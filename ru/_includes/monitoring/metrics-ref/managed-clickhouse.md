@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Общие метки для всех метрик сервиса {{ mch-name }}: 
 
 Метка | Значение
@@ -10,7 +12,7 @@ node | Тип хоста: `replica`, `follower`, `leader`
 subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zookeeper_subcluster`
 shard | Идентификатор шарда
 
-### Метрики CPU {#managed-clickhouse-cpu-metrics}
+## Метрики CPU {#managed-clickhouse-cpu-metrics}
 Загрузка процессорных ядер.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -31,7 +33,7 @@ shard | Идентификатор шарда
 | `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 
-### Метрики диска {#managed-clickhouse-disk-metrics}
+## Метрики диска {#managed-clickhouse-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `ch_s3_disk_parts_size`<br/>`DGAUGE`, байты | Место, занятое кусками таблиц [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в сервисе {{ objstorage-full-name }} при настроенном [гибридном хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) {{ mch-name }}. |
@@ -42,7 +44,7 @@ shard | Идентификатор шарда
 | `disk.used_bytes`<br/>`DGAUGE`, байты | Занятое место. | 
 | `disk.used_inodes`<br/>`DGAUGE`, штуки | Занятое количество inodes. |
 
-### Метрики дисковых операций {#managed-clickhouse-diskio-metrics}
+## Метрики дисковых операций {#managed-clickhouse-diskio-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с дисков. | 
@@ -64,7 +66,7 @@ shard | Идентификатор шарда
 | `io.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
 | `io.write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи в секунду. |
 
-### Метрики RAM {#managed-clickhouse-ram-metrics}
+## Метрики RAM {#managed-clickhouse-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `mem.guarantee_bytes`<br/>`DGAUGE`, байты | Гарантированный размер оперативной памяти. | 
@@ -78,7 +80,7 @@ shard | Идентификатор шарда
 | `mem.total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `total`.  | 
 | `mem.used_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которую в данный момент используют запущенные процессы.  | 
 
-### Метрики сети {#managed-clickhouse-net-metrics}
+## Метрики сети {#managed-clickhouse-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
@@ -90,8 +92,8 @@ shard | Идентификатор шарда
 | `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. |
 
-### Метрики сервиса {#managed-clickhouse-metrics}
-##### Метрики системных событий {#managed-clickhouse-system-events-metrics}
+## Метрики сервиса {#managed-clickhouse-metrics}
+#### Метрики системных событий {#managed-clickhouse-system-events-metrics}
 Нативные метрики {{ CH }} из таблицы [system.events]({{ ch.docs }}/operations/system-tables/events). 
 По каждой метрике считается прирост `inc` и скорость изменения `rate` за единицу времени.
 
@@ -322,7 +324,7 @@ shard | Идентификатор шарда
 | `ch_system_events_WriteBufferFromS3Microseconds_inc`<br/>`DGAUGE` | 
 | `ch_system_events_WriteBufferFromS3Microseconds_rate`<br/>`DGAUGE` | 
 
-##### Метрики текущих событий {#managed-clickhouse-system-metrics}
+#### Метрики текущих событий {#managed-clickhouse-system-metrics}
 Нативные метрики {{ CH }} из таблицы [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/).
 
 | Имя<br/>Тип| 
@@ -536,7 +538,7 @@ shard | Идентификатор шарда
 | `ch_system_metrics_ZooKeeperSession`<br/>`DGAUGE` | 
 | `ch_system_metrics_ZooKeeperWatch`<br/>`DGAUGE` | 
 
-##### Метрики очереди запросов {#managed-clickhouse-query-log-metrics}
+#### Метрики очереди запросов {#managed-clickhouse-query-log-metrics}
 Нативные метрики {{ CH }} из таблицы [system.query_log]({{ ch.docs }}/operations/system-tables/query_log).
 По каждой метрике считается прирост за единицу времени (секунда).
 
@@ -552,7 +554,7 @@ shard | Идентификатор шарда
 | `ch_system_query_log_written_bytes_inc`<br/>`DGAUGE` | | 
 | `ch_system_query_log_written_rows_inc`<br/>`DGAUGE` | |  
 
-##### Метрики репликации {#managed-clickhouse-replication-metrics}
+#### Метрики репликации {#managed-clickhouse-replication-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `ch_replication-future_parts`<br/>`DGAUGE`, штуки | Количество блоков данных после завершения слияний и операций INSERT.| 
@@ -564,7 +566,7 @@ shard | Идентификатор шарда
 | `ch_replication-queue_size`<br/>`DGAUGE`, штуки | Размер очереди операций слияния и вставок. | 
 | `ch_replication-tables`<br/>`DGAUGE`, штуки | Количество реплицируемых таблиц. |
 
-##### Системные метрики {#managed-clickhouse-config-metrics}
+#### Системные метрики {#managed-clickhouse-config-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого {{ CH }} отправляет исключение `Too many parts ....` Задается в [настройках](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). Имеет смысл [анализировать](../../../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
@@ -589,7 +591,7 @@ shard | Идентификатор шарда
 | `ch_system_async_metrics_TotalRowsOfMergeTreeTablesSystem`<br/>`DGAUGE`, штуки | Общее количество строк (записей), хранящихся в таблицах семейства MergeTree в системной БД. | 
 | `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, секунды | Время безотказной работы сервера в секундах. Включает время, затраченное на инициализацию сервера перед принятием подключений. | 
 
-### Прочие метрики {#managed-clickhouse-other-metrics}
+## Прочие метрики {#managed-clickhouse-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности на чтение.<br/>Принимает значение `1`, если кластер доступен на чтение, `0`, если нет. | 
