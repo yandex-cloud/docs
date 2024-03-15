@@ -65,7 +65,7 @@ You can manage web sockets using the [API](../api-ref/websocket/authentication.m
 
 For limits related to WebSocket support, see [Quotas and limits](../concepts/limits.md).
 
-[Example of a serverless WebSocket app](http://github.com/yandex-cloud-examples/yc-serverless-serverless-game).
+[Example of a serverless WebSocket app](http://github.com/yandex-cloud-examples/yc-serverless-game).
 
 #### See also {#see-also}
 
