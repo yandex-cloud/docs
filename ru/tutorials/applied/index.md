@@ -16,6 +16,7 @@ description: "На странице представлен список прак
 * [Веб-сайт на базе 1С-Битрикс](../web/bitrix-website.md)
 * [Интернет-магазин на платформе OpenCart](../internet-store/opencart.md)
 * [Организация виртуального хостинга](../web/virtual-hosting.md)
+* [Привязка доменного имени к ВМ с веб-сервером](../web/bind-domain-vm.md)
 
 ## 1С {#1c}
 

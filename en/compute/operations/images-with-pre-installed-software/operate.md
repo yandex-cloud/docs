@@ -25,8 +25,6 @@ This method for connecting to a virtual machine uses an SSH key pair: the public
 
 ### Connecting via OS Login {#os-login-connect}
 
-{% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
-
 {% include [vm-connect-ssh-login](../../../_includes/vm-connect-ssh-login.md) %}
 
 ### Connecting using your username and password {#logins-passwords}

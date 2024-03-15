@@ -70,7 +70,9 @@ _Группа узлов_ — группа ВМ с одинаковой конф
 
 ### Подключение к узлам группы {#node-connect-ssh}
 
-К узлам группы можно подключаться по SSH. О том, как это сделать, читайте в разделе [Подключиться к узлу по SSH](../operations/node-connect-ssh.md).
+К узлам группы можно подключаться следующими способами:
+* через SSH-клиент с помощью стандартной пары SSH-ключей, см. [{#T}](../operations/node-connect-ssh.md);
+* через SSH-клиент и YC CLI с помощью OS Login, см. [{#T}](../operations/node-connect-oslogin.md).
 
 ### Политики taints и tolerations {#taints-tolerations}
 

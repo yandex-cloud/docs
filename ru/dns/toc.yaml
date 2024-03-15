@@ -63,6 +63,8 @@ items:
         href: tutorials/mdb-dns-peering.md
       - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
         href: tutorials/cert-manager-webhook.md
+      - name: Привязка доменного имени к ВМ с веб-сервером
+        href: tutorials/bind-domain-vm.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

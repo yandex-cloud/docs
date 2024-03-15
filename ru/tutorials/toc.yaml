@@ -137,6 +137,8 @@ items:
         items:
           - name: Начало работы с {{ TF }}
             href: infrastructure-management/terraform-quickstart.md
+          - name: Источники данных {{ TF }}
+            href: infrastructure-management/terraform-data-sources.md
           - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
             href: infrastructure-management/terraform-state-storage.md
           - name: Начало работы с Packer
@@ -214,6 +216,8 @@ items:
             href: internet-store/opencart.md
           - name: Организация виртуального хостинга
             href: web/virtual-hosting.md
+          - name: Привязка доменного имени к ВМ с веб-сервером
+            href: web/bind-domain-vm.md
       - name: 1С
         items:
           - name: Интернет-магазин на 1С-Битрикс
@@ -614,4 +618,8 @@ items:
         href: serverless/canary-release.md
       - name: Интерактивная отладка функций {{ sf-name }}
         href: serverless/serverless-live-debug.md
+      - name: >-
+          Запуск контейнерного приложения в {{ serverless-containers-full-name
+          }}
+        href: serverless/deploy-app-container.md
 base: ru/tutorials

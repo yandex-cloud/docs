@@ -1,6 +1,8 @@
+Имя метрики пишется в метку `name`.
+
 Все метрики сервиса {{ managed-k8s-name }} имеют общую метку `service=managed-kubernetes`.
 
-### Метрики контейнера {#managed-kubernetes-container-metrics}
+## Метрики контейнера {#managed-kubernetes-container-metrics}
 
 Общие метки для всех метрик контейнера:
 
@@ -31,7 +33,7 @@ pod | Имя пода
 | `container.restart_count`<br/>`COUNTER`, штуки | Количество перезапусков контейнера. |
 | `container.uptime_seconds`<br/>`DGAUGE`, миллисекунды | Время работы контейнера с момента запуска. |
 
-### Метрики мастера {#managed-kubernetes-master-metrics}
+## Метрики мастера {#managed-kubernetes-master-metrics}
 
 Общие метки для всех метрик мастера:
 
@@ -47,7 +49,7 @@ host | Идентификатор кластера
 | `master.cpu.utilization_percent`<br/>`DGAUGE`, % | Утилизация процессора. |
 | `master.memory.utilization_percent`<br/>`DGAUGE`, % | Утилизация памяти. |
 
-### Метрики узла {#managed-kubernetes-node-metrics}
+## Метрики узла {#managed-kubernetes-node-metrics}
 
 Общие метки для всех метрик узла:
 
@@ -77,7 +79,7 @@ node | Имя узла
 | `node.pid.limit`<br/>`IGAUGE`, штуки | Ограничение количества идентификаторов процессов в узле. |
 | `node.pid.used`<br/>`IGAUGE`, штуки | Использование идентификаторов процессов в узле. |
 
-### Метрики пода {#managed-kubernetes-pod-metrics}
+## Метрики пода {#managed-kubernetes-pod-metrics}
 
 Общие метки для всех метрик пода:
 
@@ -101,7 +103,7 @@ pod | Имя пода
 | `pod.volume.used_bytes`<br/>`IGAUGE`, байты | Использование временного тома.<br/>Дополнительные метки: `volume`. |
 | `pod.volume.utilization`<br/>`DGAUGE`, % | Утилизация временного тома.<br/>Дополнительные метки: `volume`. |
 
-### Метрики постоянного тома {#managed-kubernetes-persistent-volume-metrics}
+## Метрики постоянного тома {#managed-kubernetes-persistent-volume-metrics}
 
 Общие метки для всех метрик постоянного тома:
 

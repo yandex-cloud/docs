@@ -3446,6 +3446,9 @@ default:
     yacloud_billing:
       billing:
         account:
+          overview:
+            account-data_label_organization: Организация
+            section_account-data: Общие сведения
           switch_overview: Данные аккаунта
     yacloud_components:
       acl:
@@ -4706,6 +4709,7 @@ default:
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
+            value_docker-compose-yaml: Docker-compose
             value_network-ssd: SSD
           label_title: Виртуальные машины
           popup-confirm_button_delete: Удалить
@@ -4873,6 +4877,7 @@ default:
         label_auto-select-zone: Определять автоматически
         label_dns-internal-settings: Настройки DNS для внутренних адресов
         label_form-ttl: TTL (в секундах)
+        label_fqdn-equal-to-zone: Совпадает с именем зоны (@)
         label_networks: Сети
         label_private: Внутренняя
         label_public: Публичная

@@ -106,6 +106,18 @@ Where:
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating.md) %}
 
 
+{% note warning %}
+
+The prices below will take effect on March 25, 2024.
+
+{% endnote %}
+
+
+
+
+{% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
+
+
 ### Text vectorization in {{ yagpt-full-name }} {#pricing-embedding}
 
 

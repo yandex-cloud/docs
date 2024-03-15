@@ -3443,6 +3443,9 @@ default:
     yacloud_billing:
       billing:
         account:
+          overview:
+            account-data_label_organization: Organization
+            section_account-data: General information
           switch_overview: Account info
     yacloud_components:
       acl:
@@ -4701,6 +4704,7 @@ default:
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
+            value_docker-compose-yaml: Docker Compose
             value_network-ssd: SSD
           label_title: Virtual machines
           popup-confirm_button_delete: Delete
@@ -4868,6 +4872,7 @@ default:
         label_auto-select-zone: Detect automatically
         label_dns-internal-settings: DNS settings for internal addresses
         label_form-ttl: TTL (in seconds)
+        label_fqdn-equal-to-zone: Matches zone name (@)
         label_networks: Networks
         label_private: Internal
         label_public: Public

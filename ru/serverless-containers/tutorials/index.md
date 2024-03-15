@@ -5,10 +5,7 @@ description: "На странице представлен список прак
 
 # Практические руководства {{ serverless-containers-name }}
 
-
 * [{#T}](movies-database.md)
-
-
-
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](pg-connect.md)
+* [{#T}](deploy-app-container.md)

@@ -123,7 +123,7 @@ items:
                 href: operations/vm-connect/enable-os-login.md
               - name: Экспортировать сертификат OS Login
                 href: operations/vm-connect/os-login-export-certificate.md
-              - name: Подключиться к ВМ через OS Login
+              - name: Подключиться к ВМ по OS Login
                 href: operations/vm-connect/os-login.md
           - name: Работа с {{ yandex-cloud }} изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md
@@ -377,6 +377,8 @@ items:
         href: tutorials/hystax-backup.md
       - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
         href: tutorials/nodejs-cron-restart-vm.md
+      - name: Привязка доменного имени к ВМ с веб-сервером
+        href: tutorials/bind-domain-vm.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

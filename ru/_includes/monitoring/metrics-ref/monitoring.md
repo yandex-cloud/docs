@@ -1,4 +1,4 @@
-## Сервис {{ monitoring-full-name }} {#monitoring}
+Имя метрики пишется в метку `name`.
 
 Все метрики сервиса [{{ monitoring-name }}](../../../monitoring/) имеют общую метку `service=monitoring`.
 

@@ -194,7 +194,7 @@ Attribute sections with multiple nested values.
    | `scheduling.maxParallelBackups` | Maximum number of parallel backups allowed. Unlimited if no value is specified. | Integer |
    | `scheduling.randMaxDelay.type` | Units of time used to set the maximum delay before running parallel jobs. | <ul><li>`TYPE_UNSPECIFIED`: Not set.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`</li></ul> |
    | `scheduling.randMaxDelay.count` | Value of the maximum delay before running parallel jobs in time units set by the `randMaxDelay.type` attribute. The delay is determined randomly but it may not exceed the value set here. | Integer |
-   | `scheduling.scheme` | Backup schedule scheme. | <ul><li>`SCHEME_UNSPECIFIED`: Not set.</li><li>`SIMPLE`: Simple.</li><li>`ALWAYS_FULL`: Always full.</li><li>`ALWAYS_INCREMENTAL`: Always incremental.</li><li>`WEEKLY_INCREMENTAL`: Weekly: incremental.</li><li>`WEEKLY_FULL_DAILY_INCREMENTAL`: Weekly: full; daily: incremental.</li><li>`CDP`: Continuous Data Protection.</li></ul> |
+   | `scheduling.scheme` | Backup schedule scheme. | <ul><li>`SCHEME_UNSPECIFIED`: Not set.</li><li>`SIMPLE`: Simple.</li><li>`ALWAYS_FULL`: Always full.</li><li>`ALWAYS_INCREMENTAL`: Always incremental.</li><li>`WEEKLY_INCREMENTAL`: Weekly: incremental.</li><li>`WEEKLY_FULL_DAILY_INCREMENTAL`: Weekly: full; daily: incremental.</li><li>`CUSTOM`: User-defined.</li><li>`CDP`: Continuous Data Protection.</li></ul> |
    | `scheduling.weeklyBackupDay` | Day of the week to make weekly backups on. | Integer from 1 to 7 |
 
 {% endlist %}

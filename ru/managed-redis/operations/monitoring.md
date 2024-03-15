@@ -212,7 +212,7 @@ description: "Вы можете отслеживать состояние кла
 * `Alarm` — `96636764160` байтов (90%).
 * `Warning` — `85899345920` байтов (80%).
 
-Текущий объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-redis).
+Текущий объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-redis-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

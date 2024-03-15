@@ -10,3 +10,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](dns-integration.md)
 * [{#T}](mdb-dns-peering.md)
 * [{#T}](cert-manager-webhook.md)
+* [{#T}](bind-domain-vm.md)
