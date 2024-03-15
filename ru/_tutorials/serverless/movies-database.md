@@ -191,7 +191,7 @@
 1. Склонируйте репозиторий с исходными файлами для проекта CRUD API:
 
    ```bash
-   git clone https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website.git
+   git clone https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website.git
    ```
 
    Откройте директорию проекта в WebStorm и изучите исходные файлы.
@@ -213,7 +213,7 @@
    yc config profile get <имя_профиля>
    ```
 
-1. Скопируйте в файл [provider.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/provider.tf) полученные параметры:
+1. Скопируйте в файл [provider.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/provider.tf) полученные параметры:
    * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
    * `cloud-id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud).
    * `folder-id` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -239,7 +239,7 @@
 ## Создайте базу данных {{ ydb-name }} {#create-database}
 
 В проекте используется база данных [{{ ydb-short-name }}]({{ link-cloud-services }}/ydb) в режиме serverless. БД состоит из двух таблиц: `movies` для хранения информации о фильмах и `votes` для хранения оценок пользователей. Каждая запись в таблице содержит идентификатор и конечный набор атрибутов.
-1. Конфигурация {{ TF }} для создания БД описана в файле [ydb.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/ydb.tf). Создайте базу данных:
+1. Конфигурация {{ TF }} для создания БД описана в файле [ydb.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/ydb.tf). Создайте базу данных:
 
    ```bash
    terraform apply -target=yandex_ydb_database_serverless.movies_database
@@ -340,14 +340,14 @@
 Слой для работы с базой данных используется каждый раз, когда необходимо создавать, получать, обновлять или удалять записи. Эти действия называют CRUD-операциями.
 
 Взаимодействие с базой данных через [Document API](../../ydb/docapi/api-ref/) реализовано с помощью библиотеки [AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html):
-* В файле [model.ts](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/src/model.ts) через интерфейс TypeScript определены модели фильма `Movie` и оценки `Vote`.
-* В файле [repository.ts](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/src/repository.ts) реализованы CRUD-операции для работы с этими сущностями.
+* В файле [model.ts](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/model.ts) через интерфейс TypeScript определены модели фильма `Movie` и оценки `Vote`.
+* В файле [repository.ts](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/repository.ts) реализованы CRUD-операции для работы с этими сущностями.
 
 При выполнении операций с данными для авторизации используются [IAM-токены](../../iam/concepts/authorization/iam-token.md). Для получения IAM-токена перед выполнением операции вызывается [сервис метаданных](../../serverless-containers/operations/sa.md).
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-1. Конфигурация {{ TF }} для создания сервисного аккаунта описана в файле [sa.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/sa.tf). Создайте сервисный аккаунт:
+1. Конфигурация {{ TF }} для создания сервисного аккаунта описана в файле [sa.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/sa.tf). Создайте сервисный аккаунт:
 
    ```bash
    terraform apply -target=yandex_iam_service_account.movies_api_sa
@@ -408,15 +408,15 @@
 
 ## Разработайте REST API {#develop-rest-api}
 
-В файле [openapi/api.yaml](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/openapi/api.yaml) подготовлена спецификация OpenAPI, в которой описаны основные операции для работы с фильмами и оценками.
+В файле [openapi/api.yaml](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) подготовлена спецификация OpenAPI, в которой описаны основные операции для работы с фильмами и оценками.
 
-Для реализации сервиса в соответствии с этой спецификацией используется библиотека [OpenAPI Backend](https://github.com/anttiviljami/openapi-backend) в связке с фреймворком [Express](https://expressjs.com). В файле [app.ts](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/src/app.ts) описаны необходимые классы и маппинг операций, а также запуск HTTP-сервиса.
+Для реализации сервиса в соответствии с этой спецификацией используется библиотека [OpenAPI Backend](https://github.com/anttiviljami/openapi-backend) в связке с фреймворком [Express](https://expressjs.com). В файле [app.ts](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/app.ts) описаны необходимые классы и маппинг операций, а также запуск HTTP-сервиса.
 
 ### Разверните приложение в {{ serverless-containers-name }} {#deploy-container}
 
 Соберите приложение в виде Docker-образа и запустите его в [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers):
-1. В [спецификации OpenAPI](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/openapi/api.yaml) `api.yaml`, в поле `x-yc-apigateway.service_account_id`, укажите идентификатор сервисного аккаунта, который создали ранее.
-1. В файле [container-registry.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/container-registry.tf) описана конфигурация реестра и репозитория, в которые будет загружаться Docker-образ приложения. Перейдите в директорию `deploy` и создайте ресурсы в [{{ container-registry-full-name }}]({{ link-cloud-services }}/container-registry):
+1. В [спецификации OpenAPI](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) `api.yaml`, в поле `x-yc-apigateway.service_account_id`, укажите идентификатор сервисного аккаунта, который создали ранее.
+1. В файле [container-registry.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/container-registry.tf) описана конфигурация реестра и репозитория, в которые будет загружаться Docker-образ приложения. Перейдите в директорию `deploy` и создайте ресурсы в [{{ container-registry-full-name }}]({{ link-cloud-services }}/container-registry):
 
    ```bash
    cd <путь_к_директории_deploy>
@@ -438,7 +438,7 @@
    yc container registry configure-docker
    ```
 
-1. В файле [Dockerfile](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/Dockerfile) описана конфигурация для сборки Docker-образа. Соберите образ и загрузите его в созданный на предыдущем шаге репозиторий:
+1. В файле [Dockerfile](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/Dockerfile) описана конфигурация для сборки Docker-образа. Соберите образ и загрузите его в созданный на предыдущем шаге репозиторий:
 
    ```bash
    docker build -t ${MOVIES_API_REPOSITORY_NAME}:0.0.1 .
@@ -493,8 +493,8 @@
 
 ### Разверните API в {{ api-gw-name }} {#deploy-api-gw}
 
-1. В [спецификации OpenAPI](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/openapi/api.yaml) `api.yaml` замените переменную `${MOVIES_API_CONTAINER_ID}` на идентификатор созданного контейнера.
-1. В файле [api-gateway.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/api-gateway.tf) описана конфигурация {{ TF }} для создания [API-шлюза](../../api-gateway/concepts/index.md). Разверните API-шлюз:
+1. В [спецификации OpenAPI](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) `api.yaml` замените переменную `${MOVIES_API_CONTAINER_ID}` на идентификатор созданного контейнера.
+1. В файле [api-gateway.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/api-gateway.tf) описана конфигурация {{ TF }} для создания [API-шлюза](../../api-gateway/concepts/index.md). Разверните API-шлюз:
 
    ```bash
    terraform apply -target=yandex_api_gateway.movies_api_gateway
