@@ -1,6 +1,6 @@
 # Managing {{ OS }} plugins
 
-When creating a cluster in {{ mos-short-name }}, you can specify a list of necessary plugins and they will be installed in the cluster automatically. For a full list of available plugins, see [{#T}](../concepts/plugins.md#opensearch).
+When creating a cluster in {{ mos-short-name }}, you can specify a list of required plugins and they will be installed in the cluster automatically. For a full list of available plugins, see [{#T}](../concepts/plugins.md#opensearch).
 
 ## Retrieving a list of installed plugins {#list}
 
@@ -64,6 +64,34 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of neces
    In the `--plugins` parameter, list the required plugins separated by commas. To keep the previously installed plugins, specify them in the `--plugins` parameter as well.
 
    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+
+   1. In the cluster description, change the list of clusters for the `plugins` parameter under `config`. If there is no such parameter, add it.
+
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
+        ...
+        config {
+          plugins = ["<list_of_plugin_names>"]
+          ...
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API {#api}
 

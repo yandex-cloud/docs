@@ -7,19 +7,31 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
-## Version 0.119.0 (27/02/24) {#version0.119.0}
+## Version 0.120.0 (01.03.24) {#version0.120.0}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ iam-name }} {#iam}
+#### {{ compute-name }}
+
+* The `yc compute connect-to-serial-port` command supports authorization through OS Login.
+
+#### {{ at-name }}
+
+* Added the `yc audit-trails trail` command tree with the `get`, `list`, `create`, `update`, `delete`, `list-operations`, `list-access-bindings`, `set-access-bindings`, `add-access-binding`, `remove-access-binding` commands for managing trails.
+
+## Previous releases {#previous-releases}
+
+### Version 0.119.0 (27/02/24) {#version0.119.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ iam-name }} {#iam}
 
 * Added the `yc iam service-control` command tree with the `get`, `list`, `enable`, `pause`, `resume`, and `disable` commands for managing service access to the cloud resources.
 
-#### {{compute-name}}
+##### {{ compute-name }}
 
-* Added support for serial port settings in the `yc compute instance create` and `yc compute instance update` commands.
-
-## Previous releases {#previous-releases}
+* Added support for serial port settings in the `yc compute instance create` and the `yc compute instance update` commands.
 
 ### Version 0.118.0 (14/02/24) {#version0.118.0}
 
@@ -30,7 +42,8 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 * Added the `yc managed-greenplum backups` command tree with the `get`, `list`, and `delete` commands to manage backups.
 * Added the `yc managed-greenplum cluster backup` command to create a backup.
 
-##### {{compute-name}}
+##### {{ compute-name }}
+
 * Added the `--identity-file` flag to the `yc compute ssh` command to connect to a VM via SSH with a user key.
 
 ##### {{ data-transfer-name }}
@@ -45,7 +58,7 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 * Added the `yc organization-manager federation saml delete-user-accounts` command to delete federation users.
 
-##### {{load-testing-name}}
+##### {{ load-testing-name }}
 
 Added the `yc loadtesting test get-report-table` command to get a tabular report on the completed load test.
 
@@ -111,7 +124,7 @@ Added the parameters to the `yc cdn resource update` and `yc cdn resource create
 * `--policy-type`: Client access policy by IP addresses; either *allow* or *deny*.
 * `--acl-excepted-values`: List of IP addresses for which access will be allowed or denied depending on the specified policy type.
 
-##### {{load-testing-name}}
+##### {{ load-testing-name }}
 
 Added the `yc loadtesting` command tree to manage the load testing service:
 
@@ -470,7 +483,7 @@ Added the `--container-network-settings` parameter to the `yc k8s node-group cre
 
 ##### {{ compute-name }} {#compute}
 
-* Fixed listing for a large number of folder objects for all {{ compute-short-name }} entities.
+* Fixed the listing for large numbers of folder objects for all {{ compute-short-name }} entities.
 
 ##### Managed database services {#managed-db}
 
@@ -1119,7 +1132,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `yc compute filesystem resize` command to resize the file system storage.
+* Added the `yc compute filesystem resize` command to resize a file storage.
 * Added the `--preemptible` flag to the `yc compute instance update` command to enable you to make regular VMs preemptible and vice versa.
 
 ##### {{ sf-name }} {#functions}
@@ -1400,9 +1413,9 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 ##### {{ compute-name }} {#compute}
 
 * Added the `--pooled` flag to the `yc compute image create` command to create a deployment-optimized image.
-* Added the `yc compute filesystem` group of commands to manage file stores.
+* Added the `yc compute filesystem` group of commands to manage file storages.
 * Added new commands to attach and detach file storages to/from VM instances: `yc compute instance attach-filesystem` and `yc compute instance detach-filesystem`.
-* Added the `--attach-filesystem` parameter to the `yc compute instance create` command to create a VM instance with attached file storage.
+* Added the `--attach-filesystem` parameter to the `yc compute instance create` command to create a VM instance with an attached file storage.
 
 ##### {{ managed-k8s-name }} {#k8s}
 
@@ -2475,7 +2488,7 @@ Added support for {{ api-gw-full-name }}.
 
 * `yc managed-kubernetes cluster get-credentials` command.
 
-   Added checking and warning if the user runs `kubectl` versions earlier than 1.11 because they do not support the authentication method set by this command.
+   Added a check and alert feature if a `kubectl` version below 1.11 is used, because such versions do not support the authentication method specified by this command.
 
 
 ##### Managed database services {#managed-db}

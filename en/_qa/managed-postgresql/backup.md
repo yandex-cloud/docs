@@ -12,7 +12,7 @@ Yes, you need the plugin even if you do not copy data.
 
 #### Can I make a local dump of a database backup? {#backup-local-dump}
 
-You cannot use the service to make a local dump of a DB backup from {{ yandex-cloud }} but you can use the [pg_dump utility](https://www.postgresql.org/docs/9.6/app-pgdump.html).
+You cannot use the service to make a local dump of a DB backup from {{ yandex-cloud }}, but you can use the [pg_dump utility]({{ pg.docs.org }}/current/app-pgdump.html) for this purpose.
 
 #### How do I move a local {{ PG }} database dump to {{ yandex-cloud }}? {#dump-to-yc}
 

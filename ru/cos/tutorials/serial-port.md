@@ -42,14 +42,14 @@ description: "Следуя данному руководству, вы смож�
   ```yaml
   #cloud-config
   runcmd:
-    - [ sudo, chmod, 666, /dev/ttyS1]
+  - [ sudo, chmod, 666, /dev/ttyS1]
   users:
-    - name: <имя_пользователя>
-      groups: sudo
-      shell: /bin/bash
-      sudo: 'ALL=(ALL) NOPASSWD:ALL'
-      ssh-authorized-keys:
-        - <публичный_SSH-ключ_для_подключения_к_ВМ>
+  - name: <имя_пользователя>
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh-authorized-keys:
+    - <публичный_SSH-ключ_для_подключения_к_ВМ>
   ```
 
   В конфигурации файла задайте имя пользователя и укажите публичную часть [SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для подключения к ВМ. Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
@@ -66,22 +66,22 @@ description: "Следуя данному руководству, вы смож�
 
   ```yaml
   spec:
-    containers:
-    - image: ubuntu
-      name: app
-      command: ["/bin/bash", "-c", "sleep 30 && echo 'Hello World!' > /dev/ttyS1"]
-      securityContext:
-        privileged: true
+  containers:
+  - image: ubuntu
+    name: app
+    command: ["/bin/bash", "-c", "sleep 30 && echo 'Hello World!' > /dev/ttyS1"]
+    securityContext:
+      privileged: true
       stdin: false
       tty: false
       volumeMounts:
-        - mountPath: /dev/ttyS1
-          name: log-port
+      - mountPath: /dev/ttyS1
+        name: log-port
     restartPolicy: Always
     volumes:
-      - name: log-port
-        hostPath:
-          path: /dev/ttyS1
+    - name: log-port
+      hostPath:
+        path: /dev/ttyS1
   ```
 
   1. Создайте ВМ с несколькими [дисками](../../compute/concepts/disk.md).

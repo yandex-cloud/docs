@@ -13,7 +13,7 @@
 Этапы миграции:
 1. [Подготовьтесь к миграции](#prepare).
 1. [Установите {{ ZK }}](#zookeeper-install).
-1. [Создайте кластер {{ mch-name }}](#create-cluster).
+1. [Создайте кластер](#create-cluster).
 1. [Создайте задачу](#copier-task) для `clickhouse-copier`.
 1. [Добавьте задачу](#zookeeper-task) для `clickhouse-copier` в {{ ZK }}.
 1. [Запустите](#copier-run) `clickhouse-copier`.
@@ -292,6 +292,6 @@ clickhouse-copier \
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, [удалите кластер {{ mch-full-name }}](../operations/cluster-delete.md).
+Если созданный кластер вам больше не нужен, [удалите его](../operations/cluster-delete.md).
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

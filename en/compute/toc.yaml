@@ -51,6 +51,8 @@ items:
             href: operations/placement-groups/placement-groups-get-info.md
           - name: Removing an instance group from a placement group
             href: operations/placement-groups/delete-ig-from-pg.md
+          - name: Configuring VM placement group access permissions
+            href: operations/placement-groups/access.md
       - name: Images with pre-installed software
         items:
           - name: Creating a VM from a public image
@@ -71,7 +73,7 @@ items:
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
-          - name: Resetting a VM user password
+          - name: Resetting a Windows Server VM user password
             href: operations/vm-control/vm-reset-password.md
           - name: Attaching a disk to a VM
             href: operations/vm-control/vm-attach-disk.md
@@ -89,7 +91,7 @@ items:
             href: operations/vm-control/vm-detach-public-ip.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
-          - name: Changing the VM internal IP address
+          - name: Changing VM internal IP address
             href: operations/vm-control/internal-ip-update.md
           - name: Updating a VM
             href: operations/vm-control/vm-update.md
@@ -97,11 +99,13 @@ items:
             href: operations/vm-control/vm-update-resources.md
           - name: Changing VM security groups
             href: operations/vm-control/vm-change-security-groups-set.md
+          - name: VM service policy management
+            href: operations/vm-control/vm-update-policies.md
+          - name: Configuring VM access permissions
+            href: operations/vm-control/vm-access.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
-          - name: VM maintenance policy management
-            href: operations/vm-control/vm-update-policies.md
-      - name: Working on VMs
+      - name: Working on a VM
         items:
           - name: Connecting to a VM via SSH
             href: operations/vm-connect/ssh.md
@@ -163,6 +167,8 @@ items:
             href: operations/disk-control/disk-encrypt.md
           - name: Getting information about a disk
             href: operations/disk-control/get-info.md
+          - name: Configuring disk access permissions
+            href: operations/disk-control/disk-access.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
       - name: Disk snapshots
@@ -183,6 +189,10 @@ items:
             href: operations/snapshot-control/stop-and-start-schedule.md
           - name: Encrypting an image
             href: operations/snapshot-control/snapshot-encrypt.md
+          - name: Configuring disk snapshot access permissions
+            href: operations/snapshot-control/snapshot-access.md
+          - name: Configuring snapshot schedule access permissions
+            href: operations/snapshot-control/snapshot-schedule-access.md
           - name: Deleting a snapshot schedule
             href: operations/snapshot-control/delete-schedule.md
       - name: Disk placement groups
@@ -193,6 +203,8 @@ items:
             href: operations/disk-placement-groups/add-disk.md
           - name: Getting information about a disk placement group
             href: operations/disk-placement-groups/get-info.md
+          - name: Configuring disk placement group access permissions
+            href: operations/disk-placement-groups/access.md
           - name: Removing a disk from a placement group
             href: operations/disk-placement-groups/remove-disk.md
       - name: Creating an image
@@ -213,23 +225,27 @@ items:
             href: operations/image-control/get-list.md
           - name: Getting information about an image
             href: operations/image-control/image-control-get-info.md
-          - name: Deleting a disk image
-            href: operations/image-control/delete.md
           - name: Importing an image from another cloud or folder
             href: operations/image-control/import.md
-      - name: File storage
+          - name: Configuring image access permissions
+            href: operations/image-control/access.md
+          - name: Deleting a disk image
+            href: operations/image-control/delete.md
+      - name: File storages
         items:
-          - name: Creating file storage
+          - name: Creating a file storage
             href: operations/filesystem/create.md
-          - name: Attaching file storage to a VM
+          - name: Attaching a file storage to a VM
             href: operations/filesystem/attach-to-vm.md
-          - name: Detaching file storage from a VM
+          - name: Detaching a file storage from a VM
             href: operations/filesystem/detach-from-vm.md
-          - name: Updating file storage
+          - name: Updating a file storage
             href: operations/filesystem/update.md
-          - name: Getting information about file storage
+          - name: Getting information about a file storage
             href: operations/filesystem/get-info.md
-          - name: Deleting file storage
+          - name: Configuring file storage access permissions
+            href: operations/filesystem/filesystem-access.md
+          - name: Deleting a file storage
             href: operations/filesystem/delete.md
       - name: Managing the serial console
         items:
@@ -303,10 +319,12 @@ items:
             href: operations/instance-groups/stop.md
           - name: Starting an instance group
             href: operations/instance-groups/start.md
-          - name: Deleting an instance group
-            href: operations/instance-groups/delete.md
+          - name: Configuring instance group access permissions
+            href: operations/instance-groups/access.md
           - name: Removing an instance group from a placement group
             href: operations/placement-groups/delete-ig-from-pg.md
+          - name: Deleting an instance group
+            href: operations/instance-groups/delete.md
       - name: Dedicated hosts
         items:
           - name: Creating a group of dedicated hosts
@@ -315,6 +333,8 @@ items:
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Creating a VM on a dedicated host
             href: operations/dedicated-host/running-host-vms.md
+          - name: Configuring dedicated host group access permissions
+            href: operations/dedicated-host/access.md
       - name: GPU clusters
         items:
           - name: Creating a GPU cluster
@@ -323,10 +343,12 @@ items:
             href: operations/gpu-cluster/gpu-add-to-cluster.md
           - name: Updating a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-update.md
-          - name: Deleting a GPU cluster
-            href: operations/gpu-cluster/gpu-cluster-delete.md
           - name: Getting information about a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-get-info.md
+          - name: Configuring GPU cluster access permissions
+            href: operations/gpu-cluster/access.md
+          - name: Deleting a GPU cluster
+            href: operations/gpu-cluster/gpu-cluster-delete.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
@@ -387,7 +409,7 @@ items:
             href: concepts/guest-agent.md
       - name: Graphics accelerators
         href: concepts/gpus.md
-      - name: Disks and file storage
+      - name: Disks and file storages
         items:
           - name: Overview
             href: concepts/storage-overview.md
@@ -399,7 +421,7 @@ items:
             href: concepts/snapshot-schedule.md
           - name: Non-replicated disk placement groups
             href: concepts/disk-placement-group.md
-          - name: File storage
+          - name: File storages
             href: concepts/filesystem.md
           - name: Read and write operations
             href: concepts/storage-read-write.md

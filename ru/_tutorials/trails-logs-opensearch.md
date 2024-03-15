@@ -41,7 +41,50 @@
 
 ## Создайте кластер {{ mos-name }} {#create-os}
 
-[Создайте кластер {{ mos-name }}](../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации.
+{% list tabs group=instructions %}
+
+* Вручную {#manual}
+
+    [Создайте кластер {{ mos-name }}](../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации.
+
+* С помощью {{ TF }} {#tf}
+
+    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
+
+    1. Скачайте в ту же рабочую директорию файл конфигурации [trails-to-opensearch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-audit-trails-to-opensearch/blob/main/trails-to-opensearch.tf).
+
+        В этом файле описаны:
+
+        * [сеть](../vpc/concepts/network.md#network);
+        * [подсеть](../vpc/concepts/network.md#subnet);
+        * [группа безопасности](../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
+        * кластер-приемник {{ mos-name }};
+        * трансфер.
+
+    1. Укажите в файле `trails-to-opensearch.tf` переменные:
+
+        * `os_version` — версия {{ OS }} в кластере-приемнике;
+        * `os_admin_password` — пароль пользователя `admin`;
+        * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
+
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 ## Настройте трансфер для доставки логов в кластер {{ mos-name }} {#configure-data-transfer}
 
@@ -73,8 +116,38 @@
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — укажите имя и пароль пользователя с доступом к базе, например, [пользователя `admin`](../managed-opensearch/operations/cluster-users.md).
 
-1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**, использующий созданные эндпоинты.
-1. [Активируйте](../data-transfer/operations/transfer.md#activate) его.
+1. Создайте и активируйте трансфер:
+
+    {% list tabs group=instructions %}
+
+    * Вручную {#manual}
+
+        1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**, использующий созданные эндпоинты.
+        1. [Активируйте трансфер](../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+
+    * С помощью {{ TF }} {#tf}
+
+        1. Укажите в файле `trails-to-opensearch.tf` переменные:
+
+            * `source_endpoint_id` — идентификатор эндпоинта для источника;
+            * `target_endpoint_id` — идентификатор эндпоинта для приемника;
+            * `transfer_enabled` — значение `1` для создания трансфера.
+
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+            ```bash
+            terraform validate
+            ```
+
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+        1. Создайте необходимую инфраструктуру:
+
+            {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+
+    {% endlist %}
 
 ## Проверьте результат {#check-result}
 
@@ -93,7 +166,7 @@
 
 1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. В разделе **OpenSearch Dashboards** выберите **Discover**.
-1. В открывшемся дашборде должны появится данные из {{ at-name }} в формате [Elastic Common Schema]({{ links.es.docs }}/ecs/current/ecs-reference.html).
+1. В открывшемся дашборде должны появиться данные из {{ at-name }} в формате [Elastic Common Schema]({{ links.es.docs }}/ecs/current/ecs-reference.html).
 
 ![opensearch-discover](../_assets/mdb/opensearch-discover.png)
 
@@ -165,14 +238,41 @@
 
 {% endnote %}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 1. [Удалите трансфер](../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. [Удалите кластер {{ mos-name }}](../managed-opensearch/operations/cluster-delete.md).
 1. [Удалите базу данных {{ ydb-name }}](../ydb/operations/manage-databases.md#delete-db).
 1. [Удалите созданные сервисные аккаунты](../iam/operations/sa/delete.md).
 1. Удалите [трейл {{ at-name }}](../audit-trails/concepts/trail.md).
+
+Остальные ресурсы удалите в зависимости от способа их создания:
+
+{% list tabs group=instructions %}
+
+* Вручную {#manual}
+
+    [Удалите кластер {{ mos-name }}](../managed-opensearch/operations/cluster-delete.md).
+
+* С помощью {{ TF }} {#tf}
+
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите конфигурационный файл `trails-to-opensearch.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+        Все ресурсы, которые были описаны в конфигурационном файле `trails-to-opensearch.tf`, будут удалены.
+
+{% endlist %}
 
 
 ## Дополнительные материалы {#video}

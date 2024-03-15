@@ -58,6 +58,36 @@ Make sure the update does not affect your applications:
          --version <{{ OS }}_version>
       ```
 
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+
+   1. In the cluster description, change the value of the `version` parameter under `config`. If there is no such parameter, add it.
+
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
+        ...
+        config {
+          version = "<{{ OS }}_version>"
+          ...
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
 - API {#api}
 
    Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
