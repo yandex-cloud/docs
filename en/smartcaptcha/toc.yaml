@@ -37,7 +37,7 @@ items:
         href: concepts/validation.md
       - name: Domain validation
         href: concepts/domain-validation.md
-      - name: Task types
+      - name: Challenge types
         href: concepts/tasks.md
       - name: Widget connection methods
         href: concepts/widget-methods.md
@@ -61,6 +61,6 @@ items:
     href: pricing.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
 base: en/smartcaptcha

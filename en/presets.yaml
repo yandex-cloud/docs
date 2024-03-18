@@ -4759,7 +4759,6 @@ default:
           list:
             button_action-delete: Delete
             button_action-image: Create image
-            popup-confirm_button_delete: Delete
         switch_disks: Disks
         switch_file-storages: File storages
         switch_groups: Instance groups

@@ -50,6 +50,6 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
 base: en/smartwebsecurity

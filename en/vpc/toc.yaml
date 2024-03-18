@@ -326,7 +326,7 @@ items:
             href: api-ref/grpc/subnet_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md
