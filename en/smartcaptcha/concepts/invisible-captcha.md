@@ -1,6 +1,6 @@
 # Invisible CAPTCHA
 
-Invisible CAPTCHA is a way of connecting the {{ captcha-name }} widget without the **"I’m not a robot"** button on the page. Only users whose requests are considered suspicious by {{ captcha-name }} will see the task pop-up window.
+Invisible CAPTCHA is a way of connecting the {{ captcha-name }} widget without the **"I’m not a robot"** button on the page. Only users whose requests are considered suspicious by {{ captcha-name }} will see the challenge pop-up window.
 
 The developer chooses when the service will check the user, for example, when clicking the **submit** button.
 

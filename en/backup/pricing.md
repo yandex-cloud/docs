@@ -18,6 +18,12 @@ If you delete a VM in [{{ compute-full-name }}](../compute/) using the [manageme
 
 The minimum billing unit is 1 VM per month.
 
+{% note info %}
+
+As of April 1, 2024, hourly billing of VMs connected to {{ backup-name }} will be introduced. The monthly cost of consumption will remain unchanged and will be based on 720 hours per month.
+
+{% endnote %}
+
 ### Using storage {#backups}
 
 A fee is charged for the total size of storage used by backups.

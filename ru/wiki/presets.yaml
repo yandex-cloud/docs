@@ -9,6 +9,7 @@ default:
   link-tracker: https://tracker.yandex.ru/
   link-metrika: https://metrika.yandex.ru
   link-metrica_termsofuse: https://yandex.ru/legal/metrica_termsofuse/
+  link-wiki-feedback: https://forms.yandex.ru/surveys/6768/
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   support-metrica: https://yandex.ru/support/metrica/
   support-metrica-cr-counter: https://yandex.ru/support/metrica/general/creating-counter.html

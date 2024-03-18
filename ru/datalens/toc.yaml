@@ -687,6 +687,8 @@ items:
         href: dashboard/link.md
       - name: Селекторы
         href: dashboard/selector.md
+      - name: Фильтрация чартов чартами
+        href: dashboard/chart-chart-filtration.md
       - name: Настройки дашборда
         href: dashboard/settings.md
       - name: Версионирование
@@ -723,6 +725,8 @@ items:
             href: operations/dashboard/manage-access.md
           - name: Добавление параметров на дашборд
             href: operations/dashboard/add-parameters.md
+          - name: Настройка фильтрации чартами
+            href: operations/dashboard/add-filtration.md
           - name: Автообновление дашборда
             href: operations/dashboard/auto-update.md
           - name: Изменение настроек дашборда

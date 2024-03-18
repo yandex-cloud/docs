@@ -467,7 +467,7 @@ items:
                     href: api-ref/Bucket/update.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Bucket logs
     href: logs-ref.md

@@ -31,9 +31,9 @@ items:
             href: operations/connect.md
           - name: Работа с топиками и разделами
             href: operations/cluster-topics.md
-      - name: Управление пользователями {{ KF }}
+      - name: Управление пользователями
         href: operations/cluster-accounts.md
-      - name: Управление коннекторами {{ KF }}
+      - name: Управление коннекторами
         href: operations/cluster-connector.md
       - name: Логи и мониторинг
         items:

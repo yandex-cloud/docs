@@ -298,19 +298,19 @@ WITH(
 
 |Формат сжатия|Название в {{ yq-name }}|
 |--|--|
-|[Gzip](https://ru.wikipedia.org/wiki/Gzip)|gzip|
+|[gzip](https://ru.wikipedia.org/wiki/Gzip)|gzip|
 |[Zstd](https://ru.wikipedia.org/wiki/Zstandard)|zstd|
 |[LZ4](https://ru.wikipedia.org/wiki/LZ4)|lz4|
 |[Brotli](https://ru.wikipedia.org/wiki/Brotli)|brotli|
-|[Bzip2](https://ru.wikipedia.org/wiki/Bzip2)|bzip2|
-|[Xz](https://ru.wikipedia.org/wiki/XZ)|xz|
+|[bzip2](https://ru.wikipedia.org/wiki/Bzip2)|bzip2|
+|[XZ](https://ru.wikipedia.org/wiki/XZ)|xz|
 
 Формат файлов parquet поддерживает собственные внутренние алгоритмы сжатия. {{ yq-full-name }} позволяет читать данные в формате parquet с использованием следующих алгоритмов сжатия:
 
-|Формат сжатия|Название в {{ yq-name }}|
+|Формат сжатия|Название в {{ yq-name }}
 |--|--|
-|[Raw](https://ru.wikipedia.org/wiki/Gzip)|raw|
-|[Snappy](https://ru.wikipedia.org/wiki/Gzip)|snappy|
+|Raw (Формат позволяет считывать содержимое файлов как есть, в «сыром» виде. Без сжатия.)|raw|
+|[Snappy] (Формат применяется для уменьшения объема данных при сохранении высокой скорости чтения.)(https://ru.wikipedia.org/wiki/Snappy_(библиотека))|snappy|
 
 ### Запись в {{ objstorage-full-name }} {#write_objstorage}
 

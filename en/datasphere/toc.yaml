@@ -359,7 +359,7 @@ items:
                 href: api-ref/S3/activate.md
               - name: deactivate
                 href: api-ref/S3/deactivate.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Access management
     href: security/index.md

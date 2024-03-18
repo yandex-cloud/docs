@@ -269,6 +269,6 @@ items:
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
 base: en/organization

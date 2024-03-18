@@ -117,7 +117,7 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md

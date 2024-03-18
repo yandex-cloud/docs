@@ -56,10 +56,10 @@ The request contains data in JSON format.
 
 | Parameter | Description |
 ----- | -----
-| `TableName` | Name of the table to be updated.<br/>It may contain a path through folder hierarchy in *path/to/table* format.<br/><br/>**Type**: String<br/>**Length**: 3 - 255 characters<br/>**Template**: [a-zA-Z0-9_.-]+<br/>**Required**: Yes |
+| `TableName` | Name of the table to update.<br/>May contain a path in the hierarchical directory structure in path/to/table format.<br/><br/>**Type**: String<br/>**Length**: 3-255 characters<br/>**Template**: [a-zA-Z0-9_.-]+<br/>**Required**: Yes |
 | `AttributeDefinitions` | Array of attributes describing the key schema for the table and indexes.<br/><br/>**Type**: Array of `AttributeDefinition` type objects<br/>**Required**: No |
-| `GlobalSecondaryIndexUpdates` | Array of operations describing actions on global secondary indexes: <ul><li>`Create` adds a new global secondary index to the table.<br>**Type**: Array of `GlobalSecondaryIndexUpdate` objects<br>**Required**: No </li> <li>`Delete` deletes a global secondary index from the table.</li></ul>You can add or delete only one index per query.<br>When creating an index, specify the following parameters:<ul><li>`IndexName`: Index name. The name must be unique and at least three characters long. This is a required parameter.</li><li>`KeySchema`: Attributes that constitute the primary key of the index.</li><li>`Projection`: Specifies attributes copied from the table into the index. Currently the only supported `ProjectionType` is `ALL`.</li><li>`NonKeyAttributes`: List of one or more non-key attribute names that are projected to the secondary index.</li><br/>**Required**: No</ul><br>When deleting a table, it is enough to specify `IndexName`. |
-| `StreamSpecification` | Description of the update stream settings for a table:<br/><ul><li>`StreamEnabled` defines whether update streaming for the table is active or not.</li><li>`StreamViewType` defines the streaming type:<ul><li>`KEYS_ONLY`: Only the primary key components and the change flag are written.</li><li>`NEW_IMAGE`: Any column values resulting from updates are written.</li><li>`OLD_IMAGE`: Any column values before updates are written.</li><li>`NEW_AND_OLD_IMAGES`: Combination of the *NEW_IMAGE* and *OLD_IMAGE* modes. Writes the values of all columns before and after the update.</li></ul></li><br/>**Type**: A `StreamSpecification` type object<br/>**Required**: No |
+| `GlobalSecondaryIndexUpdates` | Array of operations describing actions on global secondary indexes: <ul><li>`Create` adds a new global secondary index to the table.<br>**Type**: Array of `GlobalSecondaryIndexUpdate` objects<br>**Required**: No </li> <li>`Delete` deletes a global secondary index from the table.</li></ul>You can add or delete only one index per query.<br>When creating an index, specify the following parameters:<ul><li>`IndexName`: Index name. The name must be unique and at least three characters long. This is a required parameter.</li><li>`KeySchema`: Attributes that constitute the primary key of the index.</li><li>`Projection`: Specifies attributes copied from the table into the index. Currently the only supported `ProjectionType` is `ALL`.</li><li>`NonKeyAttributes`: List of one or more non-key attribute names that are projected to the secondary index.</li><br/>**Required**: No</ul><br>When deleting a table, it is enough to specify `IndexName`. |
+| `StreamSpecification` | Description of the update stream settings for a table:<br/><ul><li>`StreamEnabled` defines whether update streaming for the table is active or not.</li><li>`StreamViewType` defines the streaming type:<ul><li>`KEYS_ONLY`: Only the primary key components and the change flag are written.</li><li>`NEW_IMAGE`: Any column values resulting from updates are written.</li><li>`OLD_IMAGE`: Any column values before updates are written.</li><li>`NEW_AND_OLD_IMAGES`: Combination of the *NEW_IMAGE* and *OLD_IMAGE* modes. Writes the values of all columns before and after the update.</li></ul></li><br/>**Type**: `StreamSpecification` type object<br/>**Required**: No |
 
 ## Response
 
@@ -133,7 +133,7 @@ The response is returned in JSON format.
 
 | Parameter | Description |
 ----- | -----
-| `TableDescription` | Properties of the created table.<br/><br/>**Type**: A `TableDescription` type object |
+| `TableDescription` | Properties of the created table.<br/><br/>**Type**: `TableDescription` type object |
 
 ## Errors
 

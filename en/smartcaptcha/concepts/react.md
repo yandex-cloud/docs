@@ -45,10 +45,10 @@ Available properties:
 --- | --- | ---
 | `sitekey` | `string` | Client key. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
-| `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only. |
+| `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a challenge. Use this property for debugging and testing only. |
 | `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**. |
-| `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |
-| `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
+| `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a challenge appears. |
+| `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a challenge closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
 | `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. As an argument, the handler gets a unique user token. |
 | `onTokenExpired` | `() => void` \| `undefined` | The method is invoked when the token obtained by the user after passing the verification gets invalidated. |
@@ -72,14 +72,14 @@ Available properties:
 | Property | Type | Description |
 --- | --- | ---
 | `sitekey` | `string` | Client key. |
-| `visible` | `boolean` \| `undefined` | Show a task to the user. |
+| `visible` | `boolean` \| `undefined` | Show a challenge to the user. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
-| `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only. |
+| `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a challenge. Use this property for debugging and testing only. |
 | `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**. |
 | `shieldPosition` | `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined` | Position of the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
 | `hideShield` | `boolean` \| `undefined` | Hide the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
-| `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |
-| `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
+| `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a challenge appears. |
+| `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a challenge closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
 | `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. The handler gets a unique user token as an argument. |
 | `onTokenExpired` | `() => void` \| `undefined` | The method is invoked when the token obtained by the user after passing the verification gets invalidated. |
@@ -123,7 +123,7 @@ Both components provide methods for [subscribing](./widget-methods.md#subscribe)
 * `onSuccess`
 * `onTokenExpired`
 
-You can use these methods, for example, to invoke a function when a task is shown to the user.
+You can use these methods, for example, to invoke a function when a challenge is shown to the user.
 
 Example of a subscription to events:
 

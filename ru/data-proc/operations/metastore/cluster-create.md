@@ -54,7 +54,7 @@ description: "Следуя данной инструкции, вы сможет�
 
         В выбранной подсети нужно [настроить NAT-шлюз](../../../vpc/operations/create-nat-gateway.md). Подробнее см. в разделе [{#T}](#set-up-network).
 
-    1. Если необходимо, чтобы кластер {{ metastore-name }} мог взаимодействовать с объектным хранилищем [S3](../../../glossary/s3.md), в блоке **{{ ui-key.yacloud.metastore.title_s3config }}** укажите **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** и **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** [AWS-совместимого статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
+    1. Если необходимо, чтобы кластер {{ metastore-name }} мог взаимодействовать с {{ objstorage-full-name }}, в блоке **{{ ui-key.yacloud.metastore.title_s3config }}** укажите **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** и **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** [AWS-совместимого статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
 
     1. При необходимости включите защиту кластера от непреднамеренного удаления пользователем.
 

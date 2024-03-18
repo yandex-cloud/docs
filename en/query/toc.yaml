@@ -89,6 +89,8 @@ items:
         href: tutorials/audit-trails.md
       - name: Processing files with billing details
         href: tutorials/billing.md
+      - name: Analyzing data with Jupyter
+        href: tutorials/jupyter.md
   - name: Working with YQL
     items:
       - name: Overview
@@ -107,7 +109,11 @@ items:
         href: yql-tutorials/json.md
       - name: Running a streaming data query
         href: yql-tutorials/streaming-query.md
-  - name: HTTP API
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
     items:
       - name: Overview
         href: api/index.md
@@ -127,12 +133,10 @@ items:
             href: api/methods/stop-query.md
           - name: get-query-results
             href: api/methods/get-query-results.md
-      - name: Correspondence of YQL and JSON types
+      - name: YQL and JSON type mapping
         href: api/yql-json-conversion-rules.md
-  - name: Access management
-    href: security/index.md
-  - name: Pricing policy
-    href: pricing.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: FAQ
     href: qa/index.md
 base: en/query
