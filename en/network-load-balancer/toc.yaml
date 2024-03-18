@@ -155,7 +155,7 @@ items:
         href: k8s-ref/service.md
       - name: NetworkPolicy
         href: k8s-ref/networkpolicy.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md

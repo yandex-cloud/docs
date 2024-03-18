@@ -123,7 +123,7 @@ items:
                 href: api-ref/Folder/update.md
               - name: updateAccessBindings
                 href: api-ref/Folder/updateAccessBindings.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md

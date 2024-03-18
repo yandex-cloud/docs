@@ -41,6 +41,7 @@ default:
   link-ya-360-delete: https://yandex.ru/support/business/delete-organisation.html
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-ya-360-groups: https://yandex.ru/support/business/projects.html
+  link-tracker-feedback: https://forms.yandex.ru/surveys/6767/
   support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.ru/support/connect/add-domain.html
   support-connect-domains: https://yandex.ru/support/connect/domains.html#proof

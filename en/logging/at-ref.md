@@ -1,4 +1,4 @@
-# {{ at-full-name }} audit log reference
+# {{ at-full-name }} event reference
 
 {{ at-name }} supports tracking of management (control plane) events for {{ cloud-logging-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
 

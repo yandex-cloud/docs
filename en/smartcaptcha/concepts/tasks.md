@@ -1,73 +1,73 @@
-# Task types
+# Challenge types
 
-[User validation](./validation.md) consists of two steps. The first step includes a basic check where the user is asked to complete the [main task](#main-task). After completing the main task, the user's request is automatically sent to {{ captcha-name }}. If the service considers the request suspicious, it will offer the user to solve an [additional task](#additional-task).
+[User validation](./validation.md) consists of two steps. The first step includes a basic check where the user is asked to complete the [main challenge](#main-task). After completing the main challenge, the user's request is automatically sent to {{ captcha-name }}. If the service considers the request suspicious, it will prompt the user to solve an [additional challenge](#additional-task).
 
-## Main task {#main-task}
+## Main challenge {#main-task}
 
-The basic check is carried out when the main task is performed.
+The basic check is carried out when the main challenge is performed.
 
-You can choose between these two types of main tasks in {{ captcha-name }}:
+You can choose between these two types of main challenges in {{ captcha-name }}:
 
 * **Checkbox**: User must click the **I am not a robot** button.
 
-  {% cut "Checkbox" %}
+   {% cut "Checkbox" %}
 
-  ![image](../../_assets/smartcaptcha/checkbox-task.gif)
+   ![image](../../_assets/smartcaptcha/checkbox-task.gif)
 
-  {% endcut %}
+   {% endcut %}
 
 * **Slider**: User must move the slider from left to right.
 
-  {% note info %}
+   {% note info %}
 
-  The slider is in the [Preview](../../overview/concepts/launch-stages.md) stage, so it may not work correctly on some types of devices. For example, on TV sets.
+   The slider is in the [Preview](../../overview/concepts/launch-stages.md) stage, so it may not work correctly on some types of devices. For example, on TV sets.
 
-  {% endnote %}
+   {% endnote %}
 
-  {% cut "Slider" %}
+   {% cut "Slider" %}
 
-  ![image](../../_assets/smartcaptcha/slider-task.gif =370x93)
+   ![image](../../_assets/smartcaptcha/slider-task.gif =370x93)
 
-  {% endcut %}
+   {% endcut %}
 
-## Additional task {#additional-task}
+## Additional challenge {#additional-task}
 
-If the service considers the result of the main task suspicious, it offers to the user an additional task. In this case, the service analyzes user behavior in more detail.
+If the service considers the result of the main challenge suspicious, it prompts the user to complete an additional challenge. In this case, the service analyzes user behavior in more detail.
 
-There are several types of additional tasks in {{ captcha-name }}:
+There are several types of additional challenges in {{ captcha-name }}:
 
 * ![image](../../_assets/console-icons/text.svg) **Text recognition**: The user has to type a distorted text from the picture into a special field.
 
-  {% cut "Text recognition" %}
+   {% cut "Text recognition" %}
 
-  ![image](../../_assets/smartcaptcha/text-task.gif =370x401)
+   ![image](../../_assets/smartcaptcha/text-task.gif =370x401)
 
-  {% endcut %}
+   {% endcut %}
 
 * ![image](../../_assets/console-icons/picture.svg) **Silhouettes**: The user has to mark several icons from the picture in a particular order.
 
-  {% note info %}
+   {% note info %}
 
-  The silhouettes are in the [Preview](../../overview/concepts/launch-stages.md) stage, so they may not work correctly on some types of devices. For example, on TV sets.
+   The silhouettes are at the [Preview](../../overview/concepts/launch-stages.md) stage, so they may not work correctly on some types of devices. For example, on TV sets.
 
-  {% endnote %}
+   {% endnote %}
 
-  {% cut "Silhouettes" %}
+   {% cut "Silhouettes" %}
 
-  ![image](../../_assets/smartcaptcha/silhouette-task.gif)
+   ![image](../../_assets/smartcaptcha/silhouette-task.gif)
 
-  {% endcut %}
+   {% endcut %}
 
-* ![image](../../_assets/console-icons/layout-cells-large.svg) **Kaleidoscope**: The user has to build a picture from individual parts by shuffling them using a slider. To complete the task, the user has to move the slider to a position in which the image parts are arranged correctly.
+* ![image](../../_assets/console-icons/layout-cells-large.svg) **Kaleidoscope**: The user has to build a picture from individual parts by shuffling them using a slider. To complete the challenge, the user has to move the slider to a position in which the image parts are arranged correctly.
 
-  {% note info %}
+   {% note info %}
 
-  The Kaleidoscope is in the [Preview](../../overview/concepts/launch-stages.md) stage, so it may not work correctly on some types of devices. For example, on TV sets.
+   The Kaleidoscope is in the [Preview](../../overview/concepts/launch-stages.md) stage, so it may not work correctly on some types of devices. For example, on TV sets.
 
-  {% endnote %}
+   {% endnote %}
 
-  {% cut "Kaleidoscope" %}
+   {% cut "Kaleidoscope" %}
 
-  ![image](../../_assets/smartcaptcha/kaleidoscope-task.gif =370x415)
+   ![image](../../_assets/smartcaptcha/kaleidoscope-task.gif =370x405)
 
-  {% endcut %}
+   {% endcut %}

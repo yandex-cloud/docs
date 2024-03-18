@@ -164,6 +164,6 @@ items:
                 href: user/api-ref/Test/list.md
               - name: stop
                 href: user/api-ref/Test/stop.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
 base: en/load-testing

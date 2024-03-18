@@ -9,9 +9,11 @@ You can download Terraform from the official [HashiCorp](https://developer.hashi
 
 - Linux {#linux}
 
-   * Download a [Terraform](https://developer.hashicorp.com/terraform/downloads) distribution and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
+   * Download the [Terraform](https://developer.hashicorp.com/terraform/downloads) distribution and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
+
 - macOS {#macos}
-   * Download a [Terraform distribution](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
+
+   * Download the [Terraform distribution](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
    * Install Terraform using the [Homebrew](https://brew.sh) package manager and the `brew install terraform` command.
 
 - Windows {#windows}
@@ -26,7 +28,7 @@ Once you have installed Terraform, configure it to access YDB. First, install a 
 
 ## Installing a YDB provider {#provider-install}
 
-Terraform will, all by itself, download and install a provider from the URL specified by the user in the `provider_installation` section of the `~/.terraformrc` file.
+Terraform will download and install a provider from the URL specified by the user in the `provider_installation` section of the `.terraformrc` file.
 
 {% list tabs group=operating_system %}
 

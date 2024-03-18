@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Target groups
         items:
-          - name: Creating target group
+          - name: Creating a target group
             href: operations/target-group-create.md
           - name: Getting information about a target group
             href: operations/target-group-get.md
@@ -261,7 +261,7 @@ items:
                 href: api-ref/VirtualHost/updateRoute.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: L7 load balancer logs
     href: logs-ref.md

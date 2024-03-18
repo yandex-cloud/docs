@@ -51,6 +51,10 @@ items:
           Delivering data from {{ ydb-short-name }} to {{ yds-full-name }} using
           {{ data-transfer-full-name }}
         href: tutorials/ydb-to-yds.md
+      - name: >-
+          Loading data from {{ objstorage-full-name }} to {{ ydb-short-name }}
+          using {{ data-transfer-full-name }}
+        href: tutorials/object-storage-to-ydb.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
   - name: Concepts
@@ -59,7 +63,7 @@ items:
         href: concepts/index.md
       - name: Terms and definitions
         href: concepts/resources.md
-      - name: Serverless and Dedicated operation modes
+      - name: Serverless and dedicated operation modes
         href: concepts/serverless-and-dedicated.md
       - name: DynamoDB tables
         href: concepts/dynamodb-tables.md
@@ -85,6 +89,8 @@ items:
             href: pricing/ru-topics.md
       - name: Dedicated mode
         href: pricing/dedicated.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/ydb/index.md
   - name: Amazon DynamoDB-compatible Document API
     items:
       - name: Tools
@@ -259,6 +265,10 @@ items:
                 href: api-ref/StorageType/get.md
               - name: list
                 href: api-ref/StorageType/list.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
   - name: Working with YDB via Terraform
     items:
       - name: Getting started to work with YDB via Terraform

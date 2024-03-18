@@ -94,7 +94,7 @@ In the advanced method, a JS script that loads the widget on the user page is ad
 <script src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"></script>
 ```
 
-In the `onload` parameter, a function is passed that contains parameters for rendering the widget. In this example, this is the `onloadFunction` function.
+In the `onload` parameter, a function is provided that contains parameters for rendering the widget. In this example, this is the `onloadFunction` function.
 
 After loading the JS script, an access to the `window.smartCaptcha` object is shown along with methods for the widget.
 
@@ -150,7 +150,7 @@ Where:
    * `sitekey`: [Client-side key](./keys.md).
    * `callback`: Handler function.
    * `hl`: Widget language.
-   * `test`: Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only.
+   * `test`: Launching CAPTCHA in test mode. The user will always get a challenge. Use this property for debugging and testing only.
    * `webview`: Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**.
    * `invisible`: [Invisible CAPTCHA](./invisible-captcha.md).
    * `shieldPosition`: Position of the [data processing notice section](./invisible-captcha.md#data-processing-notice).
@@ -203,7 +203,7 @@ The `widgetId` argument is a unique widget ID. If the argument is not passed, th
 ### subscribe method {#subscribe}
 
 The `subscribe` method enables you to subscribe listeners to certain widget events.
-For instance, you can listen for the opening and closing of a task popup window. This may be useful for displaying the keyboard on mobile devices.
+For instance, you can listen for the opening and closing of a challenge pop-up window. This may be useful for displaying the keyboard on mobile devices.
 
 ```ts
 (widgetId: widgetId, event: SubscribeEvent, callback: Function) =>
@@ -227,9 +227,9 @@ Where:
    Event descriptions:
 
    | Event | When it occurs | Handler signature |
-   | ------------------- | -------------------------------| ------------------------- |
-   | `challenge-visible` | Opening the task pop-up window | `() => void` |
-   | `challenge-hidden` | Closing the task pop-up window | `() => void` |
+   | ------------------- | ---------------------------------------------| ------------------------- |
+   | `challenge-visible` | Opening the challenge pop-up window | `() => void` |
+   | `challenge-hidden` | Closing the challenge pop-up window | `() => void` |
    | `network-error` | A network error occurred | `() => void` |
    | `success` | Successful user validation | `(token: string) => void` |
    | `token-expired` | Invalidated verification token | `() => void` |

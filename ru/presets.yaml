@@ -4764,7 +4764,6 @@ default:
           list:
             button_action-delete: Удалить
             button_action-image: Создать образ
-            popup-confirm_button_delete: Удалить
         switch_disks: Диски
         switch_file-storages: Файловые хранилища
         switch_groups: Группы виртуальных машин
