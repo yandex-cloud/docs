@@ -77,8 +77,6 @@
 
 Клиент получает облачный WAF как услугу у {{ yandex-cloud }}. Предоставляется доступ в личный кабинет, возможность просмотра статистики и управления. Для подключения услуги и получения детальной информации обратитесь к своему менеджеру, [отдел продаж](/#contact-form) или в [службу поддержки]({{link-console-support}}?section=contact). Услуга оказывается в партнерстве с Qrator.
 
-[Решение: Установка уязвимого веб-приложения (DVWA) в {{ yandex-cloud }} с помощью {{ TF }} для тестирования Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
-
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}

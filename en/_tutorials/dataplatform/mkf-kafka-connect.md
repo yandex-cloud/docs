@@ -63,7 +63,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * Network.
       * Subnet.
-            * Default security group and rules required to connect to the cluster and the virtual machine from the internet.
+            * Default security group and rules required to connect to the cluster and VM from the internet.
       * Virtual machine with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
       * Properly configured {{ mkf-name }} cluster.
 

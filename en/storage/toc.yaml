@@ -15,20 +15,22 @@ items:
             href: operations/buckets/delete.md
           - name: Limiting the maximum size of a bucket
             href: operations/buckets/limit-max-volume.md
-          - name: Allowing public access to a bucket
-            href: operations/buckets/bucket-availability.md
           - name: Bucket encryption
             href: operations/buckets/encrypt.md
           - name: Managing object lifecycles
             href: operations/buckets/lifecycles.md
           - name: Managing CORS configurations
             href: operations/buckets/cors.md
-          - name: Access policy management
-            href: operations/buckets/policy.md
-          - name: Managing bucket versioning
-            href: operations/buckets/versioning.md
+          - name: Configuring access permissions using {{ iam-short-name }}
+            href: operations/buckets/iam-access.md
           - name: Editing the ACL of a bucket
             href: operations/buckets/edit-acl.md
+          - name: Access policy management
+            href: operations/buckets/policy.md
+          - name: Allowing public access to a bucket
+            href: operations/buckets/bucket-availability.md
+          - name: Managing bucket versioning
+            href: operations/buckets/versioning.md
           - name: Enabling logging
             href: operations/buckets/enable-logging.md
           - name: Object lock management
@@ -123,6 +125,10 @@ items:
           Loading data to {{ mch-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-clickhouse.md
+      - name: >-
+          Loading data to {{ ydb-full-name }} using {{ data-transfer-full-name
+          }}
+        href: tutorials/object-storage-to-ydb.md
   - name: Concepts
     items:
       - name: Overview
@@ -216,7 +222,19 @@ items:
           - name: Docker container for (S)FTP(S)
             href: tools/sftps.md
   - name: Access management
-    href: security/index.md
+    items:
+      - name: Overview
+        href: security/overview.md
+      - name: '{{ iam-name }}'
+        href: security/index.md
+      - name: Access control lists (ACLs)
+        href: security/acl.md
+      - name: Bucket Policy
+        href: security/policy.md
+      - name: Public access
+        href: security/public-access.md
+      - name: Pre-signed URLs
+        href: security/pre-signed-urls.md
   - name: Pricing policy
     items:
       - name: Current pricing policy
@@ -449,7 +467,7 @@ items:
                     href: api-ref/Bucket/update.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Bucket logs
     href: logs-ref.md

@@ -396,6 +396,7 @@ default:
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
+  oslogin: OS Login
   packer-source-link: github.com/hashicorp/yandex
   permission-admin: Admin
   permission-execute: Execute
@@ -2571,8 +2572,6 @@ default:
           upload-btn-text: Choose file
         blocks_w-comment:
           edit: Edit
-        blocks_w-page-setting:
-          add: Add
       blocks_common_favorites:
         blocks_b-favs-links:
           name_search: Search by name
@@ -3285,6 +3284,9 @@ default:
         menu-item-permissions: Permissions
         menu-item-timetracking: Time tracking
         menu-item-workflows: Workflows
+      ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
+        change-owner: Change owner
+        set-as-default: Set as default
       ui_components_page-queue-admin_Signature:
         alias-title: Alias
       ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
@@ -3438,6 +3440,13 @@ default:
         payment-type_label_invoice: Bank transfer
         section_person-type: Payer type
         section_persons: Payers
+    yacloud_billing:
+      billing:
+        account:
+          overview:
+            account-data_label_organization: Organization
+            section_account-data: General information
+          switch_overview: Account info
     yacloud_components:
       acl:
         action:
@@ -3965,9 +3974,12 @@ default:
             button_bind: Link
           budgets:
             button_create: Create budget
+            label_amount: Amount
             label_budgets: Budgets
+            label_expire: Expires
             label_limits: Limits
             label_notify: Notify
+            label_reset-period: Calculation period
             label_type: Budget type
             label_type-balance: Balance
             label_type-cost: Cost
@@ -4641,6 +4653,7 @@ default:
             button_create: Create VM
             button_create-subnetwork-new: Create subnet
             button_net_empty-create: Create a network
+            button_show-all-marketplace-products: Show all Marketplace products
             column_disk-size: Size
             field_access-advanced: Advanced
             field_coi-arguments: Command arguments
@@ -4691,6 +4704,7 @@ default:
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
+            value_docker-compose-yaml: Docker Compose
             value_network-ssd: SSD
           label_title: Virtual machines
           popup-confirm_button_delete: Delete
@@ -4745,7 +4759,6 @@ default:
           list:
             button_action-delete: Delete
             button_action-image: Create image
-            popup-confirm_button_delete: Delete
         switch_disks: Disks
         switch_file-storages: File storages
         switch_groups: Instance groups
@@ -4858,6 +4871,7 @@ default:
         label_auto-select-zone: Detect automatically
         label_dns-internal-settings: DNS settings for internal addresses
         label_form-ttl: TTL (in seconds)
+        label_fqdn-equal-to-zone: Matches zone name (@)
         label_networks: Networks
         label_private: Internal
         label_public: Public
@@ -5084,6 +5098,7 @@ default:
             popup-robot_button_add: Create
             popup-robot_button_save: Save
             popup-robot_field_name: Name
+            popup-robot_field_roles: Roles in the folder
           service-accounts:
             button_action-delete: Delete
             button_action-edit: 'Edit '
@@ -5444,7 +5459,15 @@ default:
         label_sinks: Sinks
         label_title: Logging
       marketplace-v2:
+        action_detach-subscription: Unlink subscription
+        action_disable-autorenewal: Disable autorenewal
+        action_goto-partner-url: Link to service
+        action_move: Move
+        action_purchase-license: Purchase a subscription
+        action_specify-vm: Link virtual machine
+        button_k8s-product-use: Go to install
         button_use: Use
+        label_licenses: Subscriptions
       mdb:
         cluster:
           backups:
@@ -5958,6 +5981,7 @@ default:
             field_mqtt-topic: MQTT topic
             field_name: Name
             field_prefix: Object key prefix
+            field_queue: Message queue
             field_registry: Registry
             field_resource-type: Resource types
             field_retry-attempts: Number of attempts
@@ -7621,6 +7645,7 @@ default:
       restrictions:
         CHANGING_DISK_SIZE: Changing the size of project storage
         DATAPROC_TEMPLATES: Data Proc templates
+        JUPYTER_TOKEN: Connect external IDEs
         NODES_AND_ALIASES: Deploying models
         project-mode: Project mode
         SERVERLESS_BACKGROUND_CELLS: Background cells

@@ -18,6 +18,7 @@ default:
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
+  api-host-llm: llm.api.cloud.yandex.net
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
@@ -604,7 +605,7 @@ default:
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
   subjects-allUsers: allUsers
   subnet-id: b0rcctk2rvtr********
-  subnet-name: default-ru-central1-c
+  subnet-name: default-ru-central1-d
   support-center-name: Support Center
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
@@ -725,7 +726,7 @@ default:
   YZ: Yezzey
   ZK: ZooKeeper
   zk-host-class: b2.medium
-  zone-id: ru-central1-c
+  zone-id: ru-central1-d
   sku|RUB|ai:
     mt:
       detect|string: "492,2000\_₽"
@@ -2572,8 +2573,6 @@ default:
           upload-btn-text: Выберите файл
         blocks_w-comment:
           edit: Редактировать
-        blocks_w-page-setting:
-          add: Добавить
       blocks_common_favorites:
         blocks_b-favs-links:
           name_search: Поиск по названию
@@ -3286,6 +3285,9 @@ default:
         menu-item-permissions: Права доступа
         menu-item-timetracking: Учёт времени
         menu-item-workflows: Рабочие процессы
+      ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
+        change-owner: Изменить владельца
+        set-as-default: Назначать исполнителем по умолчанию
       ui_components_page-queue-admin_Signature:
         alias-title: Псевдоним
       ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
@@ -3441,6 +3443,13 @@ default:
         payment-type_label_invoice: Банковский перевод
         section_person-type: Тип плательщика
         section_persons: Плательщики
+    yacloud_billing:
+      billing:
+        account:
+          overview:
+            account-data_label_organization: Организация
+            section_account-data: Общие сведения
+          switch_overview: Данные аккаунта
     yacloud_components:
       acl:
         action:
@@ -3968,9 +3977,12 @@ default:
             button_bind: Привязать
           budgets:
             button_create: Создать бюджет
+            label_amount: Сумма
             label_budgets: Бюджеты
+            label_expire: Дата окончания
             label_limits: Пороги
             label_notify: Уведомить
+            label_reset-period: Период расчета
             label_type: Тип бюджета
             label_type-balance: Остаток средств
             label_type-cost: Стоимость потребления
@@ -4644,6 +4656,7 @@ default:
             button_create: Создать ВМ
             button_create-subnetwork-new: Создать подсеть
             button_net_empty-create: Создать сеть
+            button_show-all-marketplace-products: Показать все продукты Marketplace
             column_disk-size: Размер
             field_access-advanced: Дополнительно
             field_coi-arguments: Аргументы команды
@@ -4696,6 +4709,7 @@ default:
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
+            value_docker-compose-yaml: Docker-compose
             value_network-ssd: SSD
           label_title: Виртуальные машины
           popup-confirm_button_delete: Удалить
@@ -4750,7 +4764,6 @@ default:
           list:
             button_action-delete: Удалить
             button_action-image: Создать образ
-            popup-confirm_button_delete: Удалить
         switch_disks: Диски
         switch_file-storages: Файловые хранилища
         switch_groups: Группы виртуальных машин
@@ -4863,6 +4876,7 @@ default:
         label_auto-select-zone: Определять автоматически
         label_dns-internal-settings: Настройки DNS для внутренних адресов
         label_form-ttl: TTL (в секундах)
+        label_fqdn-equal-to-zone: Совпадает с именем зоны (@)
         label_networks: Сети
         label_private: Внутренняя
         label_public: Публичная
@@ -5089,6 +5103,7 @@ default:
             popup-robot_button_add: Создать
             popup-robot_button_save: Сохранить
             popup-robot_field_name: Имя
+            popup-robot_field_roles: Роли в каталоге
           service-accounts:
             button_action-delete: Удалить
             button_action-edit: Редактировать
@@ -5449,7 +5464,15 @@ default:
         label_sinks: Приёмники логов
         label_title: Логирование
       marketplace-v2:
+        action_detach-subscription: Отвязать подписку
+        action_disable-autorenewal: Отключить автопродление
+        action_goto-partner-url: Привязать к сервису
+        action_move: Переместить
+        action_purchase-license: Купить подписку
+        action_specify-vm: Привязать виртуальную машину
+        button_k8s-product-use: Перейти к установке
         button_use: Использовать
+        label_licenses: Подписки
       mdb:
         cluster:
           backups:
@@ -5963,6 +5986,7 @@ default:
             field_mqtt-topic: MQTT-топик
             field_name: Имя
             field_prefix: Префикс ключа объекта
+            field_queue: Очередь сообщений
             field_registry: Реестр
             field_resource-type: Типы ресурсов
             field_retry-attempts: Количество попыток
@@ -7624,6 +7648,7 @@ default:
       restrictions:
         CHANGING_DISK_SIZE: Изменение размера хранилища проекта
         DATAPROC_TEMPLATES: Шаблоны Data Proc
+        JUPYTER_TOKEN: Подключение внешних IDE
         NODES_AND_ALIASES: Развертывание эксплуатации моделей
         project-mode: Режим работы проектов
         SERVERLESS_BACKGROUND_CELLS: Фоновые ячейки

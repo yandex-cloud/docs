@@ -17,7 +17,7 @@ items:
             href: operations/connect.md
           - name: Updating a cluster
             href: operations/cluster-update.md
-          - name: Migrating a cluster to a different availability zone
+          - name: Migrating a lightweight cluster to a different availability zone
             href: operations/migration-to-an-availability-zone.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
@@ -261,7 +261,7 @@ items:
                 href: api-ref/Subcluster/update.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md

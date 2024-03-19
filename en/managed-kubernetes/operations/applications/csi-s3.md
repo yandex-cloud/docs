@@ -4,10 +4,6 @@
 
 ## Creating a service account {#create-sa-key}
 
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
 1. [Create](../../../iam/operations/sa/create.md) a service account with the `storage.editor` [role](../../../storage/security/index.md#storage-editor).
 1. [Create](../../../iam/operations/sa/create-access-key.md) a static access key for the service account. Save the key ID and secret key, you will need them when installing the application.
 1. (Optional) To make new volumes fit into a single bucket with different prefixes, [create](../../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket. Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
@@ -48,8 +44,7 @@
      --version {{ mkt-k8s-key.yc_csi-s3.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <namespace> \
-     --create-namespace \
+     --namespace kube-system \
      --set secret.accessKey=<key_ID> \
      --set secret.secretKey=<secret_key> \
      csi-s3 .
@@ -61,17 +56,17 @@ The list of parameters available for redefining and their default values are sho
 
 | Parameter name | Description | Default value |
 --- | --- | ---
-`storageClass.create` | Whether a new storage class needs to be created | `true`
-`storageClass.name` | Storage class name | `csi-s3`
-`storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims
-`storageClass.mountOptions` | GeeseFS mounting options | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666`
-`storageClass.reclaimPolicy` | Volume cleanup policy | `Delete`
-`storageClass.annotations` | Description for a storage class
-`secret.create` | Whether a new secret needs to be created | `true`
-`secret.name` | Secret name | `csi-s3-secret`
-`secret.accessKey` | Key ID
-`secret.secretKey` | Secret key
-`secret.endpoint` | S3 service address | `https://{{ s3-storage-host }}`
+| `storageClass.create` | Whether a new storage class needs to be created | `true` |
+| `storageClass.name` | Storage class name | `csi-s3` |
+| `storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims |
+| `storageClass.mountOptions` | GeeseFS mounting options | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666` |
+| `storageClass.reclaimPolicy` | Volume cleanup policy | `Delete` |
+| `storageClass.annotations` | Storage class description |
+| `secret.create` | Whether a new secret needs to be created | `true` |
+| `secret.name` | Secret name | `csi-s3-secret` |
+| `secret.accessKey` | Key ID |
+| `secret.secretKey` | Secret key |
+| `secret.endpoint` | S3 service address | `https://{{ s3-storage-host }}` |
 
 ## See also {#see-also}
 

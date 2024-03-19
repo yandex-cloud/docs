@@ -7,28 +7,29 @@ description: "На странице представлен список поша
 
 ## Кластеры
 
-- [{#T}](cluster-list.md)
-- [{#T}](cluster-create.md)
-- [{#T}](cluster-update.md)
+- [Информация об имеющихся кластерах](cluster-list.md)
+- [Создание кластера](cluster-create.md)
+- [Изменение настроек кластера](cluster-update.md)
 - [{#T}](cluster-version-update.md)
-- [{#T}](cluster-stop.md)
-- [{#T}](cluster-hosts.md)
-- [{#T}](cluster-delete.md)
+- [Остановка и запуск кластера](cluster-stop.md)
+- [Управление хостами кластера](cluster-hosts.md)
+- [{#T}](host-migration.md)
+- [Удаление кластера](cluster-delete.md)
 
 ## Топики
 
-- [{#T}](connect.md)
-- [{#T}](cluster-topics.md)
+- [Подключение к топикам в кластере](connect.md)
+- [Работа с топиками и разделами](cluster-topics.md)
 
 ## Пользователи {{ KF }}
 
-- [{#T}](cluster-accounts.md)
+- [Управление пользователями](cluster-accounts.md)
 
 ## Коннекторы {{ KF }}
 
-- [{#T}](cluster-connector.md)
+- [Управление коннекторами](cluster-connector.md)
 
 ## Логи и мониторинг
 
-- [{#T}](cluster-logs.md)
-- [{#T}](monitoring.md)
+- [Просмотр логов кластера](cluster-logs.md)
+- [Мониторинг состояния кластера и хостов](monitoring.md)

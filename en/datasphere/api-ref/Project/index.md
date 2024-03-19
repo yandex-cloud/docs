@@ -70,10 +70,10 @@ Method | Description
 [addResource](addResource.md) | Adds shared resource to project
 [create](create.md) | Creates a project in the specified folder.
 [delete](delete.md) | Deletes the specified project.
-[execute](execute.md) | Executes code in the specified cell or notebook.
+[execute](execute.md) | Executes code of the specified notebook using configuration defined in the project settings. If the default project configuration is not specified, `c1.4` is used.
 [get](get.md) | Returns the specified project.
-[getCellOutputs](getCellOutputs.md) | Returns outputs of the specified cell.
-[getStateVariables](getStateVariables.md) | Returns state variables of the specified notebook.
+[getCellOutputs](getCellOutputs.md) | Returns outputs of the specified cell. Deprecated
+[getStateVariables](getStateVariables.md) | Returns state variables of the specified notebook. Deprecated
 [getUnitBalance](getUnitBalance.md) | Returns the unit balance of the specified project.
 [list](list.md) | Lists projects for the specified community.
 [listAccessBindings](listAccessBindings.md) | Lists access bindings for the project.

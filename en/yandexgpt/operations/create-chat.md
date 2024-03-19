@@ -5,7 +5,7 @@ description: "This guide will teach you how to use {{ yagpt-full-name }} in chat
 
 # Sending requests in chat mode
 
-To generate text in [chat mode](../concepts/index.md#working-mode), deliver a list of messages that provide the context for the model, in the [completion](../api-ref/v1/TextGeneration/completion.md) method.
+To generate text in [chat mode](../concepts/index.md#working-mode), deliver a list of messages that provide the context for the model, in the [completion](../text-generation/api-ref/TextGeneration/completion.md) method.
 
 ## Getting started {#before-begin}
 

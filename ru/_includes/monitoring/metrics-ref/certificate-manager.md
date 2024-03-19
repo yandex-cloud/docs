@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Все метрики сервиса {{ certificate-manager-name }} имеют общую метку `service=certificate-manager`.
 
 Метрики сервиса:

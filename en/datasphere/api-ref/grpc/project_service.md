@@ -17,7 +17,7 @@ A set of methods for managing Project resources.
 | [List](#List) | Lists projects for the specified community. |
 | [GetUnitBalance](#GetUnitBalance) | Returns the unit balance of the specified project. |
 | [SetUnitBalance](#SetUnitBalance) | Sets the unit balance of the specified project. |
-| [Execute](#Execute) | Executes code in the specified cell or notebook. |
+| [Execute](#Execute) | Executes code of the specified notebook using configuration defined in the project settings. |
 | [GetCellOutputs](#GetCellOutputs) | Returns outputs of the specified cell. |
 | [GetStateVariables](#GetStateVariables) | Returns state variables of the specified notebook. |
 | [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the project. |
@@ -286,7 +286,7 @@ status | enum **OpenProjectStatus**<br>Project opening status. <ul><li>`OPEN_PRO
 
 Field | Description
 --- | ---
-project_url | **string**<br>URL of the project that is being opened. Make GET request to `project_url` with sessionToken query parameter equals to `session_token` or POST request to `project_url` with sessionToken body parameter equals to `session_token` to fetch Datasphere web interface. 
+project_url | **string**<br>URL of the project that is being opened. Make GET request to `project_url` with sessionToken query parameter equals to `session_token` or POST request to `project_url` with sessionToken body parameter equals to `session_token` to fetch DataSphere web interface. 
 session_token | **string**<br>Session token of the project that is being opened. 
 
 
@@ -473,7 +473,7 @@ project_id | **string**<br>ID of the project which unit balance is set.
 
 ## Execute {#Execute}
 
-Executes code in the specified cell or notebook.
+Executes code of the specified notebook using configuration defined in the project settings. If the default project configuration is not specified, `c1.4` is used.
 
 **rpc Execute ([ProjectExecutionRequest](#ProjectExecutionRequest)) returns ([operation.Operation](#Operation5))**
 
@@ -487,8 +487,8 @@ Field | Description
 --- | ---
 project_id | **string**<br>Required. ID of the project to execute notebook/cell in. The maximum string length in characters is 50.
 target | **oneof:** `notebook_id` or `cell_id`<br>
-&nbsp;&nbsp;notebook_id | **string**<br>ID of the notebook to execute. The maximum string length in characters is 200.
-&nbsp;&nbsp;cell_id | **string**<br>ID of the cell to execute. The maximum string length in characters is 200.
+&nbsp;&nbsp;notebook_id | **string**<br>The path to the executable notebook in the project storage. The maximum string length is 200 characters. <br>To get the path, right-click on the notebook in JupyterLab and select `Copy path`. The maximum string length in characters is 200.
+&nbsp;&nbsp;cell_id | **string**<br>ID of the cell to execute. Deprecated The maximum string length in characters is 200.
 input_variables | **google.protobuf.Struct**<br>Values of input variables. 
 output_variable_names[] | **string**<br>Names of output variables. 
 
@@ -530,7 +530,7 @@ execution_status | enum **ExecutionStatus**<br>Execution final status. <ul><li>`
 
 ## GetCellOutputs {#GetCellOutputs}
 
-Returns outputs of the specified cell.
+Returns outputs of the specified cell. Deprecated
 
 **rpc GetCellOutputs ([CellOutputsRequest](#CellOutputsRequest)) returns ([CellOutputsResponse](#CellOutputsResponse))**
 
@@ -553,7 +553,7 @@ outputs[] | **string**<br>List of outputs.
 
 ## GetStateVariables {#GetStateVariables}
 
-Returns state variables of the specified notebook.
+Returns state variables of the specified notebook. Deprecated
 
 **rpc GetStateVariables ([GetStateVariablesRequest](#GetStateVariablesRequest)) returns ([GetStateVariablesResponse](#GetStateVariablesResponse))**
 

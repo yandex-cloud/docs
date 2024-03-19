@@ -464,7 +464,7 @@ flow_control:  # необязательный
     -v /proc:/ua_proc \
     -v /data:/data \
     -e PROC_DIRECTORY=/ua_proc \
-    -e FOLDER_ID=a1bs... \
+    -e FOLDER_ID=a1bs81qpemb4******** \
     {{ registry }}/yc/unified-agent
 ```
 
@@ -879,7 +879,7 @@ output:
         # URL, на который будут отправляться метрики.
         url: https://monitoring.{{ api-host }}/monitoring/v2/data/write  # необязательный, по умолчанию https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
-        folder_id: b1ge2vt0gml6ce48qcks  # обязательный, идентификатор каталога
+        folder_id: b1ge2vt0gml6********  # обязательный, идентификатор каталога
 
         # Настройки IAM-аутентификации.
         iam:  # обязательный
@@ -936,7 +936,7 @@ output:
         # URL, на который будут отправляться метрики.
         url: https://monitoring.{{ api-host }}/monitoring/v2/data/write  # необязательный, по умолчанию https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
-        folder_id: b1ge2vt0gml6ce48qcks  # обязательный, идентификатор каталога
+        folder_id: b1ge2vt0gml6********  # обязательный, идентификатор каталога
 
         # Настройки IAM-аутентификации.
         iam:  # обязательный

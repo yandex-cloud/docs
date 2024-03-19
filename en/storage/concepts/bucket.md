@@ -72,13 +72,9 @@ You can:
 
 - Set up [object lifecycles](lifecycles.md).
 
-## Bucket access {#bucket-access}
+## Public access to buckets {#bucket-access}
 
-By default, buckets are created with restricted access, as specified in the [IAM](../../iam/concepts/index.md) settings. You can use the management console to [enable public access](../operations/buckets/bucket-availability.md):
-
-{% include [storage-public-operations](../_includes_service/storage-public-operations.md) %}
-
-If required, you can configure permissions to the buckets and objects they contain using [ACLs](acl.md).
+{% include [public-access](../../_includes/storage/security/public-access.md) %}
 
 ## Statistics {#stats}
 
@@ -106,3 +102,8 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
    If you limit the maximum size of a bucket, it may remain temporarily unavailable for writes even after you free up enough space for new objects.
 
    {% endnote %}
+
+
+### See also {#see-also}
+
+* [{#T}](../security/overview.md)

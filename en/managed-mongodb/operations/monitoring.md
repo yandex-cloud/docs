@@ -28,7 +28,7 @@ The following charts will open on the page:
 * **Average operation time per host**: Average time of operation execution by each host (in microseconds).
 * **Average operations time on primary**: Average operation execution time on primary replicas (in microseconds).
 * **Average operations time on secondaries**: Average operation execution time on secondary replicas (in microseconds).
-* **CPU usage per host**: vCPU usage on each host (in thousandths).
+* **CPU usage per host**: vCPU usage per host (as a ratio of the number of vCPU cores).
 * **CPU usage per host, top 5 hosts**: 5 hosts with the highest vCPU utilization (%).
 * **Configured oplog size per host**: Size of the oplog on each cluster host (in GB).
 * **Connections per host**: Average number of connections to each host.
@@ -98,7 +98,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
 
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 

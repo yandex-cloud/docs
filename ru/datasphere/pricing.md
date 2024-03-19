@@ -50,7 +50,7 @@ editable: false
 
 ## Цены {#prices}
 
-Цены использования конфигураций действуют для [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless), [фоновых операций](../datasphere/concepts/async.md), [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) и при [эксплуатации моделей](../datasphere/concepts/deploy/index.md#node).
+Цены использования конфигураций действуют при запуске вычислений в [{{ ds-nb }}](concepts/project.md#mode), запуске заданий [{{ ds-jobs }}](concepts/jobs/index.md) и работе [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).
 
 
 {% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}

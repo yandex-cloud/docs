@@ -23,7 +23,7 @@ items:
             items:
               - name: Changing cluster settings
                 href: operations/update.md
-              - name: Updating the {{ OS }} version and edition
+              - name: Updating the {{ OS }} version
                 href: operations/cluster-version-update.md
               - name: Managing {{ OS }} plugins
                 href: operations/plugins.md
@@ -197,7 +197,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md

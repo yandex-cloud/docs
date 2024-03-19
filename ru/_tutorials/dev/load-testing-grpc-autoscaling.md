@@ -116,7 +116,7 @@
 
 ## Установите Ingress {#install-ingress}
 
-1. Создайте манифест ресурса [Ingress](../../application-load-balancer/k8s-ref/ingress.md) в файле `ingress.yaml`:
+1. Создайте манифест ресурса [Ingress](../../managed-kubernetes/alb-ref/ingress.md) в файле `ingress.yaml`:
 
    ```yaml
    apiVersion: networking.k8s.io/v1
@@ -162,7 +162,7 @@
    * `secretName` — указание на [TLS-сертификат](../../certificate-manager/concepts/index.md) из [{{ certificate-manager-full-name }}](../../certificate-manager/) в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
    * `hosts`, `host` — доменное имя, которому соответствует TLS-сертификат.
 
-   Подробнее см. [поля и аннотации ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md).
+   Подробнее см. [поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
 1. Создайте ресурс `Ingress`:
 
    ```bash

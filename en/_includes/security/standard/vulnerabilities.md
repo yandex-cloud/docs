@@ -77,8 +77,6 @@ You can also install Wallarm WAF in [{{ managed-k8s-name }}](../../../managed-ku
 
 A customer receives a cloud WAF as a service from {{ yandex-cloud }}. They are provided access to a personal account and the ability to view statistics and perform management. To activate the service and get detailed information, contact your account manager, the [sales department](/#contact-form), or [support]({{link-console-support}}?section=contact). The service is provided in partnership with Qrator.
 
-[Solution: Installing a damn vulnerable web application (DVWA) in {{ yandex-cloud }} using {{ TF }} to test Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
-
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}

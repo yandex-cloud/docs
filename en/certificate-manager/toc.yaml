@@ -131,7 +131,7 @@ items:
                 href: api-ref/Certificate/updateAccessBindings.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md

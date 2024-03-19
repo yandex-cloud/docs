@@ -5,8 +5,6 @@ description: "Follow this guide to enable access to your organization's VMs thro
 
 # Enabling access via OS Login
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 To create virtual machine instances with [OS Login](../concepts/os-login.md) access, enable this feature at the organization level. This will allow you to [enable](../../compute/operations/vm-control/vm-update.md#enable-oslogin-access) OS Login access for VM instances created from a ready-made image with OS Login support or [configure](../../compute/operations/vm-connect/enable-os-login.md) the OS Login agent on an already running VM instance. For more information about how to connect via OS Login, see [{#T}](../../compute/operations/vm-connect/os-login.md).
 
 {% note info %}

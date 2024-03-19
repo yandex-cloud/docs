@@ -364,6 +364,32 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Инструменты {{ alb-name }}
+    items:
+      - name: Обзор
+        href: alb-ref/index.md
+      - name: Ingress-контроллер
+        items:
+          - name: Ingress
+            href: alb-ref/ingress.md
+          - name: HttpBackendGroup
+            href: alb-ref/http-backend-group.md
+      - name: Gateway API
+        items:
+          - name: Gateway
+            href: alb-ref/gateway.md
+          - name: HTTPRoute
+            href: alb-ref/http-route.md
+      - name: Service
+        href: alb-ref/service.md
+  - name: Инструменты {{ network-load-balancer-name }}
+    items:
+      - name: Обзор
+        href: nlb-ref/index.md
+      - name: Service
+        href: nlb-ref/service.md
+      - name: NetworkPolicy
+        href: nlb-ref/networkpolicy.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

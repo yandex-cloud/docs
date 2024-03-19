@@ -1,129 +1,155 @@
-title: Партнёрам Yandex Cloud Marketplace
-href: index.md
+title: Yandex Cloud Marketplace
+href: index.yaml
 items:
-  - name: Пошаговые инструкции
+  - name: Партнерам
+    expanded: true
     items:
-      - name: Регистрация
-        href: operations/registration.md
-      - name: Создание продукта в кабинете партнера
-        href: operations/create-product.md
-      - name: Создание тарифа
-        href: operations/create-tariff.md
-      - name: Создание новой версии продукта
-        href: operations/create-new-version.md
-      - name: Изменение версии продукта
-        href: operations/update-version.md
-      - name: Создание пробного периода
-        href: operations/create-trial-period.md
-      - name: Интеграция с {{ license-manager }} API
-        href: operations/license-manager-integration.md
-  - name: Концепции
-    items:
-      - name: Продукт
-        href: concepts/product.md
-      - name: Версия
-        href: concepts/version.md
-      - name: Тариф
-        href: concepts/tariff.md
-      - name: Подписка
-        href: concepts/subscription.md
-      - name: Требования к продуктам Marketplace
-        expanded: true
+      - name: Начало работы
+        href: quickstart.md
+      - name: Пошаговые инструкции
         items:
-          - name: Создание образа продукта на базе Linux
-            href: operations/create-image.md
-          - name: Создание продукта для {{ managed-k8s-name }}
-            href: operations/create-container.md
-      - name: Тарификация продуктов на основе метрик издателя
-        href: concepts/api-usage.md
-      - name: Пробный период
-        href: concepts/trial-period.md
-  - name: Справочник API
-    items:
-      - name: REST
+          - name: Регистрация
+            href: operations/registration.md
+          - name: Создание продукта в кабинете партнера
+            href: operations/create-product.md
+          - name: Создание тарифа
+            href: operations/create-tariff.md
+          - name: Создание новой версии продукта
+            href: operations/create-new-version.md
+          - name: Изменение версии продукта
+            href: operations/update-version.md
+          - name: Создание пробного периода
+            href: operations/create-trial-period.md
+          - name: Интеграция с {{ license-manager }} API
+            href: operations/license-manager-integration.md
+      - name: Концепции
         items:
-          - name: Обзор
-            href: api-ref/index.md
-          - name: ImageProductUsage
+          - name: Продукт
+            href: concepts/product.md
+          - name: Версия
+            href: concepts/version.md
+          - name: Тариф
+            href: concepts/tariff.md
+          - name: Подписка
+            href: concepts/subscription.md
+          - name: Требования к продуктам Marketplace
+            expanded: true
             items:
-              - name: Описание
-                href: api-ref/ImageProductUsage/index.md
-              - name: write
-                href: api-ref/ImageProductUsage/write.md
-      - name: gRPC (англ.)
+              - name: Создание образа продукта на базе Linux
+                href: operations/create-image.md
+              - name: Создание продукта для {{ managed-k8s-name }}
+                href: operations/create-container.md
+          - name: Тарификация продуктов на основе метрик издателя
+            href: concepts/api-usage.md
+          - name: Пробный период
+            href: concepts/trial-period.md
+      - name: Справочник API
         items:
-          - name: Overview
-            href: metering/api-ref/grpc/index.md
-          - name: ImageProductUsageService
-            href: metering/api-ref/grpc/image_product_usage_service.md
-  - name: Справочник License Manager API
-    items:
-      - name: gRPC (англ.)
-        items:
-          - name: Overview
-            href: license-manager/api-ref/grpc/index.md
-          - name: InstanceService
-            href: license-manager/api-ref/grpc/instance_service.md
-          - name: LockService
-            href: license-manager/api-ref/grpc/lock_service.md
-          - name: OperationService
-            href: license-manager/api-ref/grpc/operation_service.md
-      - name: REST (англ.)
-        items:
-          - name: Overview
-            href: license-manager/api-ref/index.md
-          - name: Instance
+          - name: REST
+            items:
+              - name: Обзор
+                href: api-ref/index.md
+              - name: ImageProductUsage
+                items:
+                  - name: Описание
+                    href: api-ref/ImageProductUsage/index.md
+                  - name: write
+                    href: api-ref/ImageProductUsage/write.md
+          - name: gRPC (англ.)
             items:
               - name: Overview
-                href: license-manager/api-ref/Instance/index.md
-              - name: get
-                href: license-manager/api-ref/Instance/get.md
-              - name: list
-                href: license-manager/api-ref/Instance/list.md
-          - name: Lock
+                href: metering/api-ref/grpc/index.md
+              - name: ImageProductUsageService
+                href: metering/api-ref/grpc/image_product_usage_service.md
+      - name: Справочник License Manager API
+        items:
+          - name: gRPC (англ.)
             items:
               - name: Overview
-                href: license-manager/api-ref/Lock/index.md
-              - name: create
-                href: license-manager/api-ref/Lock/create.md
-              - name: delete
-                href: license-manager/api-ref/Lock/delete.md
-              - name: ensure
-                href: license-manager/api-ref/Lock/ensure.md
-              - name: get
-                href: license-manager/api-ref/Lock/get.md
-              - name: getByInstanceAndResource
-                href: license-manager/api-ref/Lock/getByInstanceAndResource.md
-              - name: list
-                href: license-manager/api-ref/Lock/list.md
-  - name: Справочник License Manager SaaS API
+                href: license-manager/api-ref/grpc/index.md
+              - name: InstanceService
+                href: license-manager/api-ref/grpc/instance_service.md
+              - name: LockService
+                href: license-manager/api-ref/grpc/lock_service.md
+              - name: OperationService
+                href: license-manager/api-ref/grpc/operation_service.md
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: license-manager/api-ref/index.md
+              - name: Instance
+                items:
+                  - name: Overview
+                    href: license-manager/api-ref/Instance/index.md
+                  - name: get
+                    href: license-manager/api-ref/Instance/get.md
+                  - name: list
+                    href: license-manager/api-ref/Instance/list.md
+              - name: Lock
+                items:
+                  - name: Overview
+                    href: license-manager/api-ref/Lock/index.md
+                  - name: create
+                    href: license-manager/api-ref/Lock/create.md
+                  - name: delete
+                    href: license-manager/api-ref/Lock/delete.md
+                  - name: ensure
+                    href: license-manager/api-ref/Lock/ensure.md
+                  - name: get
+                    href: license-manager/api-ref/Lock/get.md
+                  - name: getByInstanceAndResource
+                    href: license-manager/api-ref/Lock/getByInstanceAndResource.md
+                  - name: list
+                    href: license-manager/api-ref/Lock/list.md
+      - name: Справочник License Manager SaaS API
+        items:
+          - name: gRPC (англ.)
+            items:
+              - name: Overview
+                href: license-manager/saas/api-ref/grpc/index.md
+              - name: InstanceService
+                href: license-manager/saas/api-ref/grpc/instance_service.md
+              - name: LockService
+                href: license-manager/saas/api-ref/grpc/lock_service.md
+              - name: OperationService
+                href: license-manager/saas/api-ref/grpc/operation_service.md
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: license-manager/saas/api-ref/index.md
+              - name: Instance
+                items:
+                  - name: Overview
+                    href: license-manager/saas/api-ref/Instance/index.md
+                  - name: get
+                    href: license-manager/saas/api-ref/Instance/get.md
+              - name: Lock
+                items:
+                  - name: Overview
+                    href: license-manager/saas/api-ref/Lock/index.md
+                  - name: ensure
+                    href: license-manager/saas/api-ref/Lock/ensure.md
+                  - name: get
+                    href: license-manager/saas/api-ref/Lock/get.md
+  - name: Пользователям
+    expanded: true
     items:
-      - name: gRPC (англ.)
+      - name: Пошаговые инструкции
         items:
-          - name: Overview
-            href: license-manager/saas/api-ref/grpc/index.md
-          - name: InstanceService
-            href: license-manager/saas/api-ref/grpc/instance_service.md
-          - name: LockService
-            href: license-manager/saas/api-ref/grpc/lock_service.md
-          - name: OperationService
-            href: license-manager/saas/api-ref/grpc/operation_service.md
-      - name: REST (англ.)
+          - name: Покупка подписки
+            href: operations/users/buy-subscription.md
+          - name: Привязка подписки
+            href: operations/users/lock-subscription.md
+          - name: Отвязка подписки
+            href: operations/users/unlock-subscription.md
+          - name: Перемещение подписки
+            href: operations/users/move-subscription.md
+          - name: Отключение автопродления
+            href: operations/users/cancel-subscription.md
+      - name: Концепции
         items:
-          - name: Overview
-            href: license-manager/saas/api-ref/index.md
-          - name: Instance
-            items:
-              - name: Overview
-                href: license-manager/saas/api-ref/Instance/index.md
-              - name: get
-                href: license-manager/saas/api-ref/Instance/get.md
-          - name: Lock
-            items:
-              - name: Overview
-                href: license-manager/saas/api-ref/Lock/index.md
-              - name: ensure
-                href: license-manager/saas/api-ref/Lock/ensure.md
-              - name: get
-                href: license-manager/saas/api-ref/Lock/get.md
+          - name: Подписка
+            href: concepts/users/subscription.md
+      - name: Управление доступом
+        href: security/index.md
 base: ru/marketplace

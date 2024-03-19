@@ -17,29 +17,29 @@ Using the `grid` block, you can embed a [dynamic table](../create-grid.md) in yo
 --- | ---
 | `page` | This is a required parameter. Contains the address of the table you want to embed. |
 | `width` | Table width as a percentage of page width:<br>`{{grid page="tableURL" width="60%"}}` |
-| `readonly` | If specified, the table is embedded in <q>read-only mode</q>. |
+| `readonly` | If specified, the table is embedded in read-only mode. |
 | `num` | If specified, row numbers are not displayed. |
 | `sort` | If specified, the sorting settings of the source table are ignored. |
-| `filter` | Use it to set [filters for displaying table rows](#row-filter). |
+| `filters` | Use it to set [filters for displaying table rows](#row-filter). |
 | `columns` | Use it to [set columns to display on the page](#col-filter). |
 
 ## Setting filters for displaying rows {#row-filter}
 
-Use the `filter` parameter to set which rows should be displayed in the embedded table, for example:
+Use the `filters` parameter to set which rows should be displayed in the embedded dynamic table. For example:
 
 ```
 {{grid page="tableURL" filter="[id1]=value1, [id2]=value2"}}
 ```
 
-This filter will only display the rows for which the following conditions are satisfied at the same time:
+This filter will only display the rows for which the following conditions are met at the same time:
 
-- Column with ID `[id1]` is set to `<value_1>`.
+- Column with the `[id1]` ID is set to `<value_1>`.
 
-- Column with ID `[id2]` is set to `<value_2>`.
+- Column with the `[id2]` ID is set to `<value_2>`.
 
-To look up column ID:
+To find out the column ID:
 
-* Click ![](../../_assets/wiki/svg/actions-icon.svg) in the header of the desired column.
+* Click ![](../../_assets/wiki/svg/actions-icon.svg) in the column header.
 
 * Select ![](../../_assets/wiki/table-settings-footer.png) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_sidebar.grid-settings-label }}**.
 
@@ -47,18 +47,18 @@ To output all rows that meet at least one of the specified conditions, use the `
 
 {% cut "Setting values to compare" %}
 
-Depending on the column data type, values to be compared are specified in different ways:
+Depending on the column data type, values to compare are specified in different ways:
 
 | Data type | Example | Description |
 --- | --- | ---
-| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.text }} | `'bicycle'` | Text in single quotes. |
-| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.number }} | `-7` | Number without quotes. |
+| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.text }} | `'bicycle'` | Text in single quotes |
+| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.number }} | `-7` | Number without quotes |
 | {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }} | `true` | Different write formats are supported.<br><br>For logical 0: `no, off, false, unchecked`.<br><br>For logical 1: `yes, on, true, checked, done`. |
-| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date }} | `2012-12-12` | Date in `YEAR-MONTH-DAY` format. |
-| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.list }} | `'bicycle'` | Text in single quotes. |
-| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.multiple_list }} | `'bicycle'` | Text in single quotes. |
-| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.employee }} | `login@` | Employee's username without quotes. |
-| Issue in {{ tracker-name }} | `KEY-1234` | Issue key in {{ tracker-name }} without quotes. |
+| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date }} | `2012-12-12` | Date in `YEAR-MONTH-DAY` format |
+| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.list }} | `'bicycle'` | Text in single quotes |
+| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.multiple_list }} | `'bicycle'` | Text in single quotes |
+| {{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.employee }} | `login@` | Employee's username without quotes |
+| Issue in {{ tracker-name }} | `KEY-1234` | {{ tracker-name }} issue key without quotes |
 
 {% endcut %}
 
@@ -88,10 +88,10 @@ You can only display the specified columns of a dynamic table on a page. To do t
 ```
 {{grid page="tableURL" columns="id1, id2, id3"}}
 ```
-This dynamic block contains only columns with the IDs: `id1, id2, id3`.
+This dynamic block contains only columns with the `id1, id2, id3` IDs.
 
 To find out the column ID:
 
-* Click ![](../../_assets/wiki/svg/actions-icon.svg) in the header of the desired column.
+* Click ![](../../_assets/wiki/svg/actions-icon.svg) in the column header.
 
 * Select ![](../../_assets/wiki/table-settings-footer.png) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_sidebar.grid-settings-label }}**.

@@ -211,6 +211,8 @@ items:
             href: tutorials/direct-to-mch.md
           - name: '{{ objstorage-name }} to {{ CH }}'
             href: tutorials/object-storage-to-clickhouse.md
+          - name: '{{ objstorage-name }} to {{ ydb-short-name }}'
+            href: tutorials/object-storage-to-ydb.md
       - name: Uploading data to {{ objstorage-name }}
         items:
           - name: '{{ MY }} to {{ objstorage-name }}'
@@ -259,6 +261,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: February 2024
+        href: release-notes/2402.md
       - name: January 2024
         href: release-notes/2401.md
       - name: '2023'
@@ -339,7 +343,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md

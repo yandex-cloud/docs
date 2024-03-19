@@ -34,7 +34,8 @@ agentId | <p>ID of the agent to return.</p>
     "string"
   ],
   "currentJobId": "string",
-  "agentVersionId": "string"
+  "agentVersionId": "string",
+  "labels": "object"
 }
 ```
 Load testing agent on which tests are executed.
@@ -50,3 +51,4 @@ status | **string**<br><p>Status of the agent.</p> <p>Agent status.</p> <ul> <li
 errors[] | **string**<br><p>List of errors reported by the agent.</p> 
 currentJobId | **string**<br><p>ID of the test that is currently being executed by the agent.</p> 
 agentVersionId | **string**<br><p>Version of the agent.</p> 
+labels | **object**<br><p>Agent labels as ``key:value`` pairs.</p> 

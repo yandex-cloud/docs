@@ -24,14 +24,6 @@ Service name: `dns`.
 
 {% include [dns-events-dp](../../_includes/audit-trails/events/dns-events-dp.md) %}
 
-## {{ iam-name }} {#iam}
-
-{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
-
-Service name: `iam`.
-
-{% include [iam-events-dp](../../_includes/audit-trails/events/iam-events-dp.md) %}
-
 ## {{ kms-name }} {#kms}
 
 Service name: `kms`.

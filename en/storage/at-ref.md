@@ -1,6 +1,6 @@
-# {{ at-full-name }} audit log reference
+# {{ at-full-name }} event reference
 
-{{ at-name }} for {{ objstorage-full-name }} supports tracking of [management events](../audit-trails/concepts/format.md) (control plane) and [data events](../audit-trails/concepts/format-data-plane.md) (data plane).
+{{ at-name }} supports tracking of [management (control plane) events](../audit-trails/concepts/format.md) and [data (data plane) events](../audit-trails/concepts/format-data-plane.md) for {{ objstorage-full-name }}.
 
 The general view of the `event_type` field value is as follows:
 

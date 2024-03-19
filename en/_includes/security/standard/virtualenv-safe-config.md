@@ -134,7 +134,7 @@ When a configuration is deployed, you can delete the configuration file with pri
 Scan your Terraform manifests using [Checkov](https://github.com/bridgecrewio/checkov) with {{ yandex-cloud }} support.
 
 * [Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
-* [Example: Storing a {{ TF }} state in {{ objstorage-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/remote-backend).
+* [Example: Storing a {{ TF }} state in {{ objstorage-name }}](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state).
 
 {% list tabs group=instructions %}
 

@@ -192,7 +192,109 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
--  API {#api}
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create a {{ mos-name }} cluster:
+
+   1. In the configuration file, describe the parameters of the resources you want to create:
+
+      * DB cluster: Description of the {{ mos-name }} cluster and its hosts
+
+      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+
+      Here is an example of the configuration file structure:
+
+      ```hcl
+      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
+        name                = "<cluster_name>"
+        environment         = "<environment>"
+        network_id          = "<network_ID>"
+        security_group_ids  = ["<list_of_security_group_IDs>"]
+        deletion_protection = "<deletion_protection>"
+
+        config {
+
+          version        = "<{{ OS }}_version>"
+          admin_password = "<admin_user_password>"
+
+          opensearch {
+            node_groups {
+              name             = "<virtual_host_group_name>"
+              assign_public_ip = <public_access>
+              hosts_count      = <number_of_hosts>
+              zone_ids         = ["<list_of_availability_zones>"]
+              subnet_ids       = ["<list_of_subnet_IDs>"]
+              roles            = ["<list_of_roles>"]
+              resources {
+                resource_preset_id = "<host_class>"
+                disk_size          = <storage_size_in_bytes>
+                disk_type_id       = "<disk_type>"
+              }
+            }
+
+            plugins = ["<list_of_plugin_names>"]
+
+          }
+
+          dashboards {
+            node_groups {
+              name             = "<virtual_host_group_name>"
+              assign_public_ip = <public_access>
+              hosts_count      = <number_of_hosts>
+              zone_ids         = ["<list_of_availability_zones>"]
+              subnet_ids       = ["<list_of_subnet_IDs>"]
+              resources {
+                resource_preset_id = "<host_class>"
+                disk_size          = <storage_size_in_bytes>
+                disk_type_id       = "<disk_type>"
+              }
+            }
+          }
+        }
+      }
+
+      resource "yandex_vpc_network" "<network_name>" {
+        name = "<network_name>"
+      }
+
+      resource "yandex_vpc_subnet" "<subnet_name>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = "<network_ID>"
+        v4_cidr_blocks = ["<range>"]
+      }
+      ```
+
+      Where:
+
+      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
+      * `deletion_protection`: Deletion protection, `true` or `false`.
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
+      * `roles`: `DATA` and `MANAGER` host roles.
+
+      {% include [cluster-create](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      {% include [Maintenance window](../../_includes/mdb/mos/terraform/maintenance-window.md) %}
+
+      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Create a cluster.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
+- API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
@@ -219,90 +321,199 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 {% endlist %}
 
+## Importing clusters to {{ TF }} {#import-cluster}
+
+Using import, you can bring the existing clusters under the {{ TF }} management.
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+   1. In the {{ TF }} configuration file, specify the cluster you want to import:
+
+       ```hcl
+       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {}
+       ```
+
+   1. Run the following command to import the cluster:
+
+       ```hcl
+       terraform import yandex_mdb_opensearch_cluster.<cluster_name> <cluster_ID>
+       ```
+
+       To learn more about importing clusters, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}#import).
+
+{% endlist %}
+
 ## Examples {#examples}
-
-Create a {{ mos-name }} cluster with the following test characteristics:
-
-* Name: `my-os-clstr`.
-* Description: `My OS cluster`.
-* Label: `label-key` with the `label-value` value.
-* Environment: `production`.
-* Network name: `{{ network-name }}`.
-* Security group ID: `{{ security-group }}`.
-* Service account name: `os-account`.
-* Cluster deletion protection: Disabled.
-* Maintenance time: Every Monday from 13:00 till 14:00.
-* {{ OS }} version: `2.8`.
-* `admin` user password: To be set after entering the cluster creation command.
-* Access to {{ data-transfer-name }}: Enabled.
-* Access to {{ serverless-containers-name }}: Enabled.
-* {{ OS }} added plugin: analysis-icu.
-* {{ OS }} advanced parameter: `fielddata-cache-size=50%`.
-* `{{ OS }}` node group configuration:
-
-   * Group name: `os-group`
-   * Host class: `{{ host-class }}`
-   * Disk size: `10737418240` (in bytes)
-   * Disk type: `network-ssd`
-   * Number of hosts: Three
-   * Availability zone: `{{ region-id }}-b`
-   * Subnet: `{{ network-name }}-{{ region-id }}-b`
-   * Public address: Assigned
-   * Host group roles: `DATA` and `MANAGER`
-
-* Configuration of the `Dashboards` host group:
-
-   * Group name: `dashboard-group`
-   * Host class: `{{ host-class }}`
-   * Disk size: `10737418240` (in bytes)
-   * Disk type: `network-ssd`
-   * Number of hosts: One
-   * Availability zone: `{{ region-id }}-b`
-   * Subnet: `{{ network-name }}-{{ region-id }}-b`
-   * Public address: Assigned
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   Run this command:
+    Create a {{ mos-name }} cluster with the following test characteristics:
 
-   ```bash
-   {{ yc-mdb-os }} cluster create \
-      --name my-os-clstr \
-      --description "My OS cluster" \
-      --labels label-key=label-value \
-      --environment production \
-      --network-name {{ network-name }} \
-      --security-group-ids {{ security-group }} \
-      --service-account-name os-account \
-      --delete-protection=false \
-      --maintenance schedule=weekly,`
-                   `weekday=mon,`
-                   `hour=14 \
-      --version 2.8 \
-      --read-admin-password \
-      --data-transfer-access=true \
-      --serverless-access=true \
-      --plugins analysis-icu \
-      --advanced-params fielddata-cache-size=50% \
-      --opensearch-node-group name=os-group,`
-                             `resource-preset-id={{ host-class }},`
-                             `disk-size=10737418240,`
-                             `disk-type-id=network-ssd,`
-                             `hosts-count=3,`
-                             `zone-ids={{ region-id }}-b,`
-                             `subnet-names={{ network-name }}-{{ region-id }}-b,`
-                             `assign-public-ip=true,`
-                             `roles=data+manager \
-      --dashboards-node-group name=dashboard-group,`
-                             `resource-preset-id={{ host-class }},`
-                             `disk-size=10737418240,`
-                             `disk-type-id=network-ssd,`
-                             `hosts-count=1,`
-                             `zone-ids={{ region-id }}-b,`
-                             `subnet-names={{ network-name }}-{{ region-id }}-b,`
-                             `assign-public-ip=true
-   ```
+    * Name: `my-os-clstr`.
+    * Description: `My OS cluster`.
+    * Label: `label-key` with the `label-value` value.
+    * Environment: `production`.
+    * Network name: `{{ network-name }}`.
+    * Security group ID: `{{ security-group }}`.
+    * Service account name: `os-account`.
+    * Cluster deletion protection: Disabled.
+    * Maintenance time: Every Monday from 13:00 till 14:00.
+    * {{ OS }} version: `2.8`.
+    * `admin` user password: To be set after entering the cluster creation command.
+    * Access to {{ data-transfer-name }}: Enabled.
+    * Access to {{ serverless-containers-name }}: Enabled.
+    * {{ OS }} added plugin: analysis-icu.
+    * {{ OS }} advanced parameter: `fielddata-cache-size=50%`.
+    * `{{ OS }}` node group configuration:
+
+        * Group name: `os-group`
+        * Host class: `{{ host-class }}`
+        * Disk size: `10737418240` (in bytes)
+        * Disk type: `network-ssd`
+        * Number of hosts: Three
+        * Availability zone: `{{ region-id }}-b`
+        * Subnet: `{{ network-name }}-{{ region-id }}-b`
+        * Public address: Assigned
+        * Host group roles: `DATA` and `MANAGER`
+
+    * Configuration of the `Dashboards` host group:
+
+        * Group name: `dashboard-group`
+        * Host class: `{{ host-class }}`
+        * Disk size: `10737418240` (in bytes)
+        * Disk type: `network-ssd`
+        * Number of hosts: One
+        * Availability zone: `{{ region-id }}-b`
+        * Subnet: `{{ network-name }}-{{ region-id }}-b`
+        * Public address: Assigned
+
+    Run this command:
+
+    ```bash
+    {{ yc-mdb-os }} cluster create \
+       --name my-os-clstr \
+       --description "My OS cluster" \
+       --labels label-key=label-value \
+       --environment production \
+       --network-name {{ network-name }} \
+       --security-group-ids {{ security-group }} \
+       --service-account-name os-account \
+       --delete-protection=false \
+       --maintenance schedule=weekly,`
+                    `weekday=mon,`
+                    `hour=14 \
+       --version 2.8 \
+       --read-admin-password \
+       --data-transfer-access=true \
+       --serverless-access=true \
+       --plugins analysis-icu \
+       --advanced-params fielddata-cache-size=50% \
+       --opensearch-node-group name=os-group,`
+                              `resource-preset-id={{ host-class }},`
+                              `disk-size=10737418240,`
+                              `disk-type-id=network-ssd,`
+                              `hosts-count=3,`
+                              `zone-ids={{ region-id }}-b,`
+                              `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                              `assign-public-ip=true,`
+                              `roles=data+manager \
+       --dashboards-node-group name=dashboard-group,`
+                              `resource-preset-id={{ host-class }},`
+                              `disk-size=10737418240,`
+                              `disk-type-id=network-ssd,`
+                              `hosts-count=1,`
+                              `zone-ids={{ region-id }}-b,`
+                              `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                              `assign-public-ip=true
+    ```
+
+- {{ TF }} {#tf}
+
+    Create a {{ mos-name }} cluster with the following test characteristics:
+
+    * Name: `my-os-clstr`.
+    * Environment: `PRODUCTION`.
+    * {{ OS }} version: `2.8`.
+    * `admin` password: `osadminpwd`.
+    * `{{ OS }}` node group name: `os-group`.
+    * Host class: `{{ host-class }}`.
+    * Disk size: `10737418240` (in bytes).
+    * Disk type: `{{ disk-type-example }}`.
+    * Number of hosts: `1`.
+    * Public address: Assigned.
+    * Host group roles: `DATA` and `MANAGER`.
+    * Network name: `mynet`.
+    * Subnet name: `mysubnet`.
+    * Availability zone: `{{ region-id }}-a`.
+    * Address range: `10.1.0.0/16`.
+    * Security group name: `os-sg`. The security group allows connecting to the cluster host from any network (including the internet) on port `9200`.
+
+    The configuration file for this cluster is as follows:
+
+    ```hcl
+    resource "yandex_mdb_opensearch_cluster" "my-os-clstr" {
+      name               = "my-os-clstr"
+      environment        = "PRODUCTION"
+      network_id         = yandex_vpc_network.mynet.id
+      security_group_ids = [yandex_vpc_security_group.os-sg.id]
+
+      config {
+
+        version        = "2.8"
+        admin_password = "osadminpwd"
+
+        opensearch {
+          node_groups {
+            name             = "os-group"
+            assign_public_ip = true
+            hosts_count      = 1
+            zone_ids         = ["{{ region-id }}-a"]
+            subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
+            roles            = ["DATA", "MANAGER"]
+            resources {
+              resource_preset_id = "{{ host-class }}"
+              disk_size          = 10737418240
+              disk_type_id       = "{{ disk-type-example }}"
+            }
+          }
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
+    }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ region-id }}-a"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.1.0.0/16"]
+    }
+
+    resource "yandex_vpc_security_group" "os-sg" {
+      name       = "os-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Allow connections to the {{ mos-name }} cluster from the Internet"
+        protocol       = "TCP"
+        port           = 9200
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+
+      egress {
+        description    = "The rule allows all outgoing traffic"
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+        from_port      = 0
+        to_port        = 65535
+      }
+    }
+    ```
 
 {% endlist %}

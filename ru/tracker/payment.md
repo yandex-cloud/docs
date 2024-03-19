@@ -51,4 +51,4 @@ description: "Из статьи вы узнаете, каким пользова
 
 ## У меня остались вопросы. Кому я могу их задать? {#other-questions}
 
-Пользователи {{ tracker-name }} могут задать вопросы на [странице технической поддержки]({{ link-tracker-support }}). Также вы можете обсуждать интересующие вас темы в нашем сообществе в Telegram: [https://t.me/yandextracker](https://t.me/yandextracker).
+Пользователи {{ tracker-name }} могут задать вопросы через [форму обратной связи]({{ link-tracker-feedback }}). Также вы можете обсуждать интересующие вас темы в нашем сообществе в Telegram: [https://t.me/yandextracker](https://t.me/yandextracker).

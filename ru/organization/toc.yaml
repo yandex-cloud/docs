@@ -47,6 +47,8 @@ items:
             href: operations/os-login-access.md
           - name: Создать профиль OS Login
             href: operations/os-login-profile-create.md
+          - name: Добавить SSH-ключ
+            href: operations/add-ssh.md
       - name: Управление группами пользователей
         href: operations/manage-groups.md
       - name: Управление доступом

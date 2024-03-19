@@ -4,6 +4,7 @@ You can view responses in the {{ forms-full-name }} interface, download them as 
 
 To have responses sent to your mailbox, [set up integration with email](send-mail.md).
 
+
 ## Downloading or viewing the responses {#download}
 
 1. Select the form and open the **{{ ui-key.forms.common.blocks_correct-answers.title }}** tab.

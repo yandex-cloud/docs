@@ -71,12 +71,12 @@ Prepare the infrastructure:
    1. [Grant the `data-proc-sa` service account](../../storage/operations/buckets/edit-acl.md) `READ and WRITE` permissions for `data-proc-bucket`.
    1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) in any suitable configuration with the following settings:
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-a`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `data-proc-bucket`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`.
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`.
-      * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** for subclusters: Provided.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-a`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `data-proc-bucket`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`
+      * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** for subclusters: Provided
 
 - {{ TF }} {#tf}
 
@@ -86,13 +86,13 @@ Prepare the infrastructure:
 
       The configuration file describes the following:
 
-      * Network.
-      * Subnet.
-      * NAT gateway and a routing table.
-      * Security groups.
-      * Service account to access cloud resources.
-      * Bucket to store job dependencies and results.
-      * {{ dataproc-name }} cluster.
+      * Network
+      * Subnet
+      * NAT gateway and routing table
+      * Security groups
+      * Service account to work with cloud resources
+      * Bucket to store job dependencies and results
+      * {{ dataproc-name }} cluster
 
    1. Specify the required parameters in the `.tf` files.
    1. Run the `terraform init` command in the directory containing the repository. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
@@ -191,7 +191,6 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
       ```bash
       /usr/bin/spark-submit month_stat.py
       ```
-
    1. The result of running the application is exported to HDFS. You can list the resulting files using the command:
 
       ```bash
@@ -315,7 +314,6 @@ By default, the resources of the running application are managed by the YARN com
    ```bash
    yarn application -list
    ```
-
 1. Terminate the application you no longer need:
 
    ```bash

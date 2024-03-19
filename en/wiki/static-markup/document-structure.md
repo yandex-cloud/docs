@@ -5,11 +5,9 @@ description: "In this tutorial, you will learn about page structure elements in 
 
 # Page structure
 
-{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
-
 ## Clusters and headings {#sections-and-titles}
 
-Add headings to divide a page into clusters. To format the heading, insert 1 to 6 `#` symbols and a space before the heading text. The heading level changes based on how many `#` symbols you type.
+Add headings to divide a page into clusters. To format the heading, insert one to six `#` symbols and a space before the heading text. The heading level changes based on how many `#` symbols you type.
 
 You can use a different markup style for the first- and second-level headings:
 
@@ -61,7 +59,7 @@ To add multiple empty lines between text blocks, use a `\` backslash at the begi
 
 ## Margins {#section_spacing}
 
-- Indents created with spaces at the beginning of the line are used for formatting [lists](lists.md) of the second and third levels.
+- Indents created with spaces at the beginning of the line are used for formatting [lists](./lists.md) of the second and third levels.
 
 - If you add spaces to the beginning of a paragraph, they will be ignored. The paragraph will be displayed without indentation.
 
@@ -87,14 +85,46 @@ To add multiple empty lines between text blocks, use a `\` backslash at the begi
 
 ## Collapsed text {#section-cut}
 
-To make part of the page's text collapsible:
+{% list tabs %}
 
-1. In the line before the text, insert the `<{` symbols and the title of the collapsible text.
+- New editor
 
-1. From a new line, enter the text that will be hidden under the collapsible section.
+   1. In the line before the text, insert the `{% cut "` symbols followed by the `cut` title and the `" %}` symbols.
 
-1. After the text, insert the `}>` symbols.
+   1. From a new line, enter the text that will be hidden under the `cut` title.
 
-| Markup | Result |
---- | ---
-| `<{ Read the entire text`<br>`You can see this text`<br>`by clicking "Read the entire text".`<br>`}>` | ![](../../_assets/wiki/cut.png) |
+   1. After the text, insert the `{% endcut %}` symbols.
+
+   Markup:
+
+   ```
+   {% cut "Cut title" %}
+
+   Content to display on click.
+
+   {% endcut %}
+   ```
+
+   Result:
+
+   {% cut "Cut title" %}
+
+   Content to display on click.
+
+   {% endcut %}
+
+- Old editor
+
+   To make part of the page's text collapsible:
+
+   1. In the line before the text, insert the `<{` symbols and the `cut` title.
+
+   1. From a new line, enter the text that will be hidden under the `cut` title.
+
+   1. After the text, insert the `}>` symbols.
+
+   | Markup | Result |
+   --- | ---
+   | `<{ Read the entire text`<br>`You can see this text`<br>`by clicking _Read the entire text_.`<br>`}>` | ![](../../_assets/wiki/cut.png) |
+
+{% endlist %}

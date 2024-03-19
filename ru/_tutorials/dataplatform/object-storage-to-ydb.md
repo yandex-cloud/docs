@@ -14,7 +14,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
@@ -26,7 +26,7 @@
 
     1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `s3-ydb-account`.
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -97,7 +97,7 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://storage.yandexcloud.net`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `ru-central1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — знак запятой `,`.
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — `table1`.
@@ -112,7 +112,7 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) типа `{{ ydb-short-name }}` и укажите в нем параметры подключения к кластеру:
 
@@ -123,7 +123,7 @@
 
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. Укажите в файле `object-storage-to-ydb.tf` значения параметров:
 
@@ -154,7 +154,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -162,7 +162,7 @@
     1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
     1. Проверьте, что база данных {{ ydb-name }} содержит таблицу `table1` с тестовыми данными.
 
-* CLI {#cli}
+- CLI {#cli}
 
     1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
 
@@ -196,7 +196,7 @@
 
     {% list tabs group=instructions %}
 
-    * Консоль управления {#console}
+    - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
         1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -204,7 +204,7 @@
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что в таблицу `table1` добавились новые данные.
 
-    * CLI {#cli}
+    - CLI {#cli}
 
         1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
 
@@ -248,13 +248,13 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         * [Эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
         * [Базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
         * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         Если вы создавали ресурсы с помощью {{ TF }}:
 

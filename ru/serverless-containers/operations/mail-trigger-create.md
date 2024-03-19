@@ -98,13 +98,13 @@
 
     
     ```
-    id: a1sfe084v4**********
-    folder_id: b1g88tflru**********
+    id: a1sfe084v4h2********
+    folder_id: b1g88tflruh2********
     created_at: "2022-12-04T08:45:31.131391Z"
     name: mail-trigger
     rule:
       mail:
-        email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
+        email: a1s8h8avglh2********-cho1****@serverless.yandexcloud.net
         batch_settings:
           size: "3"
           cutoff: 20s
@@ -112,14 +112,14 @@
           bucket_id: bucket-for-attachments
           service_account_id: ajejeis235ma********
         invoke_container:
-          container_id: d4eofc7n0m**********
-          service_account_id: aje3932acd**********
+          container_id: d4eofc7n0mh2********
+          service_account_id: aje3932acdh2********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
-            service-account-id: aje3932acd**********
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmkh2********:dlq
+            service-account-id: aje3932acdh2********
     status: ACTIVE
     ```
   

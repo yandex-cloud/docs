@@ -235,37 +235,7 @@ zip src.zip index.go go.mod
 
 ## Создайте бюджет {#create-budget}
 
-Чтобы создать бюджет, у пользователя должна быть роль `editor`. Чтобы получать оповещения, достаточно роли `viewer`. 
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт и функцию.
-    1. В левом верхнем углу нажмите кнопку ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-    1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-    1. На странице **{{ ui-key.yacloud.billing.account.label_accounts }}** выберите платежный аккаунт.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.billing.account.switch_budgets }}** и нажмите **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
-    1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите:
-        * Имя бюджета — `vm-budget`.
-        * Тип бюджета — `{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}`.
-        * Сумму расходов на потребление.
-        * Период расчета — `{{ ui-key.yacloud.billing.account.budgets.reset-period_value_monthly }}`.
-        * Дату окончания действия бюджета. Дата окончания устанавливает, когда бюджет перестанет считать потребление и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
-        * Пользователей, которых нужно уведомить, что достигнуты пороговые значения.
-    1. В блоке **{{ ui-key.yacloud.billing.account.budgets.section_scope }}** выберите каталог, в котором ведете работу, и сервис **{{ compute-name }}**.
-    1. В блоке **{{ ui-key.yacloud.billing.account.budgets.label_limits }}** укажите пороговые значения в процентах, при достижении которых:
-        * указанным пользователям будут приходить уведомления.
-        * будет срабатывать триггер для бюджетов.
-
-        Например, можно указать два порога — `50%` и `100%`.
-    1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
-
-- API {#api}
-
-    Чтобы создать бюджет, воспользуйтесь методом [create](../../billing/api-ref/Budget/create.md) для ресурса [Budget](../../billing/api-ref/Budget/index.md).
-
-{% endlist %}
+{% include [create-budget-for-triggering](../_tutorials_includes/create-budget-for-triggering.md) %}
 
 ## Создайте триггер для бюджетов {#create-trigger}
 
@@ -341,7 +311,7 @@ zip src.zip index.go go.mod
 
 {% endlist %}
 
-## Создайте виртуальные машины {{ compute-name }} {##create-vm}
+## Создайте виртуальные машины {{ compute-name }} {#create-vm}
 
 {% list tabs group=instructions %}
 

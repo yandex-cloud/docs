@@ -5,8 +5,6 @@ description: "Follow this guide to create an OS Login profile."
 
 # Creating an OS Login profile
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 By default, [enabling the setting](./os-login-access.md) creates OS Login profiles for all users within your organization. If necessary, you can create additional profiles or edit existing ones. You can use OS Login profiles as user profiles when working within VM instances.
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Общие метки для всех метрик сервиса {{ mrd-name }}: 
 
 Метка | Значение
@@ -9,7 +11,7 @@ host | FQDN хоста
 node | Тип хоста: `master`
 subcluster_name | Имя подкластера
 
-### Метрики CPU {#managed-redis-cpu-metrics}
+## Метрики CPU {#managed-redis-cpu-metrics}
 Загрузка процессорных ядер.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -35,7 +37,7 @@ subcluster_name | Имя подкластера
 | `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 
-### Метрики диска {#managed-redis-disk-metrics}
+## Метрики диска {#managed-redis-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, байты | Свободное место. | 
@@ -45,7 +47,7 @@ subcluster_name | Имя подкластера
 | `disk.used_bytes`<br/>`DGAUGE`, байты | Занятое место. | 
 | `disk.used_inodes`<br/>`DGAUGE`, штуки | Занятое количество inodes. |
 
-### Метрики дисковых операций {#managed-redis-diskio-metrics}
+## Метрики дисковых операций {#managed-redis-diskio-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, штуки | Количество незавершенных дисковых операций. | 
@@ -60,7 +62,7 @@ subcluster_name | Имя подкластера
 | `io.disk*.write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи на конкретный диск. | 
 | `io.disk*.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи на конкретный диск в секунду. | 
 
-### Метрики RAM {#managed-redis-ram-metrics}
+## Метрики RAM {#managed-redis-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которая используется наиболее часто и освобождается только в крайнем случае. | 
@@ -98,7 +100,7 @@ subcluster_name | Имя подкластера
 | `mem.write_back_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back`. | 
 | `mem.write_back_tmp_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back_tmp`. |
 
-### Метрики сети {#managed-redis-net-metrics}
+## Метрики сети {#managed-redis-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
@@ -110,7 +112,7 @@ subcluster_name | Имя подкластера
 | `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. |
 
-### Метрики сервиса {#managed-redis-metrics}
+## Метрики сервиса {#managed-redis-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `active`<br/>`DGAUGE`, штуки | Количество активных кластеров. |

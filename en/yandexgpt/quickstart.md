@@ -63,7 +63,7 @@ To improve the quality of generated responses, {{ yagpt-full-name }} logs user p
 
       {% include [api-parameters](../_includes/yandexgpt/api-parameters.md) %}
 
-   1. Use the [completion](./api-ref/v1/TextGeneration/completion.md) method to send a request to the neural network in the following command:
+   1. Use the [completion](./text-generation/api-ref/TextGeneration/completion.md) method to send a request to the neural network in the following command:
 
       ```bash
       export FOLDER_ID=<folder_ID>

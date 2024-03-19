@@ -1,3 +1,5 @@
+Имя метрики пишется в метку `name`.
+
 Общие метки для всех метрик сервиса {{ mpg-name }}:
 
 Метка | Значение
@@ -9,7 +11,7 @@ host | FQDN хоста
 node | Тип хоста: `primary`, `replica`
 subcluster_name | Имя подкластера
 
-### Метрики CPU {#managed-postgresql-cpu-metrics}
+## Метрики CPU {#managed-postgresql-cpu-metrics}
 Загрузка процессорных ядер.
 
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -28,7 +30,7 @@ subcluster_name | Имя подкластера
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 | `pg_backend_cpu`<br/>`DGAUGE`, % | Утилизация CPU процессом {{ PG }}. |
 
-### Метрики диска {#managed-postgresql-disk-metrics}
+## Метрики диска {#managed-postgresql-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, байты | Свободное место. | 
@@ -42,7 +44,7 @@ subcluster_name | Имя подкластера
 | `pg_backend_read_bytes`<br>`DGAUGE`, байты/с | Скорость чтения данных процессом {{ PG }}. |
 | `pg_backend_write_bytes`<br>`DGAUGE`, байты/с | Скорость записи данных процессом {{ PG }}. |
 
-### Метрики дисковых операций {#managed-postgresql-diskio-metrics}
+## Метрики дисковых операций {#managed-postgresql-diskio-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с дисков. | 
@@ -64,7 +66,7 @@ subcluster_name | Имя подкластера
 | `io.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
 | `io.write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи в секунду. |
 
-### Метрики RAM {#managed-postgresql-ram-metrics}
+## Метрики RAM {#managed-postgresql-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которая используется наиболее часто и освобождается только в крайнем случае. | 
@@ -77,7 +79,7 @@ subcluster_name | Имя подкластера
 | `mem.used_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которую в данный момент используют запущенные процессы. | 
 | `oom_count`<br/>`DGAUGE`, штуки | Количество случаев нехватки памяти. |
 
-### Метрики сети {#managed-postgresql-net-metrics}
+## Метрики сети {#managed-postgresql-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
@@ -89,8 +91,8 @@ subcluster_name | Имя подкластера
 | `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. |
 
-### Метрики сервиса {#managed-postgresql-metrics}
-##### Метрики кластера {#managed-postgresql-cluster-metrics}
+## Метрики сервиса {#managed-postgresql-metrics}
+#### Метрики кластера {#managed-postgresql-cluster-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности на чтение.<br/>Принимает значение `1`, если кластер доступен на чтение, `0`, если нет.  | 
@@ -116,17 +118,17 @@ subcluster_name | Имя подкластера
 | `postgres_xid_left_percent`<br/>`DGAUGE`, % | Доля оставшихся счетчиков транзакций. |
 | `postgres_xid_used_percent`<br/>`DGAUGE`, % | Доля использованных счетчиков транзакций. |
 
-##### Метрики базы данных {#managed-postgresql-db-metrics}
+#### Метрики базы данных {#managed-postgresql-db-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `_pg_database_size`<br/>`DGAUGE`, байты | Размер базы. <br/>Дополнительные метки: `dbname`| 
-| `<database>_tup_deleted`<br/>`DGAUGE`, штуки | Количество строк, удаленное запросами в этой базе данных `<database>`. | 
-| `<database>_tup_fetched`<br/>`DGAUGE`, штуки | Количество строк, извлеченное запросами в этой базе данных `<database>`. | 
-| `<database>_tup_inserted`<br/>`DGAUGE`, штуки | Количество строк, вставленное запросами в этой базе данных `<database>`. | 
-| `<database>_tup_returned`<br/>`DGAUGE`, штуки | Количество строк, возвращенное запросами в этой базе данных `<database>`. | 
-| `<database>_tup_updated`<br/>`DGAUGE`, штуки | Количество строк, измененное запросами в этой базе данных `<database>`. |
+| `<имя_БД>_tup_deleted`<br/>`DGAUGE`, штуки | Количество строк, удаленное запросами в этой базе данных `<имя_БД>`. | 
+| `<имя_БД>_tup_fetched`<br/>`DGAUGE`, штуки | Количество строк, извлеченное запросами в этой базе данных `<имя_БД>`. | 
+| `<имя_БД>_tup_inserted`<br/>`DGAUGE`, штуки | Количество строк, вставленное запросами в этой базе данных `<имя_БД>`. | 
+| `<имя_БД>_tup_returned`<br/>`DGAUGE`, штуки | Количество строк, возвращенное запросами в этой базе данных `<имя_БД>`. | 
+| `<имя_БД>_tup_updated`<br/>`DGAUGE`, штуки | Количество строк, измененное запросами в этой базе данных `<имя_БД>`. |
 
-##### Метрики менеджера подключений {#managed-postgresql-pooler-metrics}
+#### Метрики менеджера подключений {#managed-postgresql-pooler-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `pooler-avg_query_time`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения одного запроса на каждом из хостов БД. | 

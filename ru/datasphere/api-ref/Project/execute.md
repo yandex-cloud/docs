@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/execute.md
 ---
 
 # DataSphere API v2, REST: Project.execute
-Executes code in the specified cell or notebook.
+Executes code of the specified notebook using configuration defined in the project settings. If the default project configuration is not specified, `c1.4` is used.
  
 
  
@@ -41,8 +41,8 @@ Field | Description
 --- | ---
 inputVariables | **object**<br><p>Values of input variables.</p> 
 outputVariableNames[] | **string**<br><p>Names of output variables.</p> 
-notebookId | **string** <br> includes only one of the fields `notebookId`, `cellId`<br><br><p>ID of the notebook to execute.</p> <p>The maximum string length in characters is 200.</p> 
-cellId | **string** <br> includes only one of the fields `notebookId`, `cellId`<br><br><p>ID of the cell to execute.</p> <p>The maximum string length in characters is 200.</p> 
+notebookId | **string** <br> includes only one of the fields `notebookId`, `cellId`<br><br><p>The path to the executable notebook in the project storage. The maximum string length is 200 characters.</p> <p>To get the path, right-click on the notebook in JupyterLab and select ``Copy path``.</p> <p>The maximum string length in characters is 200.</p> 
+cellId | **string** <br> includes only one of the fields `notebookId`, `cellId`<br><br><p>ID of the cell to execute. Deprecated</p> <p>The maximum string length in characters is 200.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

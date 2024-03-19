@@ -54,7 +54,12 @@ To manage a {{ managed-k8s-name }} cluster and a node group without public acces
 
 To manage a {{ managed-k8s-name }} cluster and a node group with public access, you need the following roles:
 * `k8s.clusters.agent`
-* `vpc.publicAdmin`
+* `{{ roles-vpc-public-admin }}`.
+
+To manage a {{ managed-k8s-name }} cluster with a cloud network from a different folder, you will additionally need the following roles in this folder:
+* [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user)
+* [vpc.bridgeAdmin](../../vpc/security/index.md#vpc-bridge-admin)
 
 To create a {{ managed-k8s-name }} cluster with [tunnel mode](../concepts/network-policy.md#cilium), you only need the `k8s.tunnelClusters.agent` role.
 
@@ -98,7 +103,7 @@ When creating a {{ managed-k8s-name }} cluster and a node group, make sure that 
 * [{{ roles.k8s.editor }}](#k8s-editor) or higher
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user)
 
-To create a {{ managed-k8s-name }} cluster and node group with public access, you also need the [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) role:
+To create a {{ managed-k8s-name }} cluster and node group with public access, you will also need the [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin) role.
 
 ## {{ managed-k8s-name }} cluster service accounts {#sa-annotation}
 
@@ -106,7 +111,12 @@ When creating a cluster in {{ managed-k8s-name }}, specify two [service accounts
 * **Cluster service account**: On behalf of this service account, {{ managed-k8s-name }} manages cluster nodes, [subnets](../../vpc/concepts/network.md#subnet) for [pods](../concepts/index.md#pod) and [services](../concepts/index.md#service), [disks](../../compute/concepts/disk.md), [load balancers](../../network-load-balancer/concepts/index.md), encrypts and decrypts [secrets](../../lockbox/concepts/secret.md). The minimum recommended role for this account is `k8s.clusters.agent`.
 * **Node group service account**: On behalf of this service account, {{ managed-k8s-name }} cluster nodes are authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). To deploy applications in a {{ managed-k8s-name }} cluster using [Docker images](../../container-registry/concepts/docker-image.md) from {{ container-registry-name }}, grant to this account any [service role](../../container-registry/security/index.md#service-roles). If you use a different container registry, you can skip assigning roles to this service account.
 
-To manage a {{ managed-k8s-name }} cluster and node groups with public access, you will also need the `vpc.publicAdmin` role.
+To manage a {{ managed-k8s-name }} cluster and node groups with public access, you will also need the `{{ roles-vpc-public-admin }}` role.
+
+If you use a cloud network from a different folder in a {{ managed-k8s-name }} cluster, the cluster service account will additionally need the following roles in this folder:
+* [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user)
+* [vpc.bridgeAdmin](../../vpc/security/index.md#vpc-bridge-admin)
 
 ## Accessing the {{ managed-k8s-name }} management console {#ui-annotation}
 

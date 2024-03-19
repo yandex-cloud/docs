@@ -11,11 +11,11 @@
 
       After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name and path suggested by the command.
 
-      The key pair will be created in the current directory. The public key will be saved in a file with a `.pub` extension.
+      The key pair will be created in the current directory. The public key will be saved in a `.pub` file.
 
-- Windows 10 {#windows}
+- Windows 10/11 {#windows}
 
-   If you do not have [OpenSSH](https://en.wikipedia.org/wiki/OpenSSH) installed yet, install it by following this [guide](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui).
+   If you do not have [OpenSSH](https://en.wikipedia.org/wiki/OpenSSH) installed yet, install it by following [this guide](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui).
 
    1. Run `cmd.exe` or `powershell.exe` (make sure to update PowerShell first).
    1. Use the `ssh-keygen` command to create a new key. Run this command:
@@ -26,7 +26,7 @@
 
       After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name and path suggested by the command.
 
-      The key pair will be created in the current directory. The public key will be saved in a file with a `.pub` extension.
+      The key pair will be created in the current directory. The public key will be saved in a `.pub` file.
 
 - Windows 7/8 {#windows7-8}
 

@@ -10,7 +10,7 @@ description: "In this tutorial, you will learn how to set up a {{ ydb-name }} ta
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Prepare the {{ ydb-name }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) and [run](../../transfer.md#activate) a transfer.
+1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
 1. Perform required operations with the database and [control the transfer](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
@@ -18,12 +18,16 @@ description: "In this tutorial, you will learn how to set up a {{ ydb-name }} ta
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migration with storage changed from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md)
-   * [Migration with storage changed from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md)
+   * [Migration with storage changed from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
+   * [Migration with storage changed from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
-   * [Delivering data from {{ KF }} to {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md)
+   * [Delivering data from {{ KF }} to {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
+
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+
+   * [Loading data from {{ objstorage-name }} to {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -44,7 +48,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/ydb-prepare.md) %}
 
-## Configuring an {{ ydb-name }} target endpoint
+## Configuring the {{ ydb-name }} target endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

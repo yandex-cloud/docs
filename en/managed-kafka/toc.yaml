@@ -43,6 +43,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Deploying the {{ KF }} web interface
+        href: tutorials/deploy-kafka-ui.md
       - name: Moving data from {{ KF }}
         items:
           - name: Setting up {{ KFC }} to work with {{ mkf-name }}
@@ -249,7 +251,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md

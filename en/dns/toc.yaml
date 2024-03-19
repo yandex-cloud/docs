@@ -15,12 +15,16 @@ items:
             href: operations/zone-create-public.md
           - name: Updating a DNS zone
             href: operations/zone-update.md
-          - name: Getting information about a DNS zone
-            href: operations/zone-get-info.md
           - name: Deleting a DNS zone
             href: operations/zone-delete.md
           - name: Viewing operations with DNS zones
             href: operations/operation-logs.md
+      - name: Getting information about a DNS zone
+        items:
+          - name: Getting a list of DNS zones
+            href: operations/zone-list.md
+          - name: Getting information about a DNS zone
+            href: operations/zone-get-info.md
       - name: Records
         items:
           - name: Creating a record
@@ -113,7 +117,7 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md

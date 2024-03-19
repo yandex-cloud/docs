@@ -7,7 +7,7 @@
 ## Adding a table of contents for a page {#single-page}
 
 1. Make sure your page is created in the [old editor](../create-page.md).
-1. Make sure the page headings are [marked up properly](../basic-markup.md#markup). To quickly view the table of contents for a page, click ![](../../_assets/wiki/ico-toc.png) in the right-hand panel.
+1. Make sure the page headings are [marked up properly](../wysiwyg/text-format.md#markup). To quickly view the table of contents for a page, click ![](../../_assets/wiki/ico-toc.png) in the right-hand panel.
    If there are matching headers on the page, the links in the table of contents may not work correctly.
 
 1. Create a table of contents using a dynamic block:
