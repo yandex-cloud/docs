@@ -36,29 +36,42 @@
 В результате работы команда `aws configure` сохранит статический ключ и регион.
 * Формат статического ключа в `.aws/credentials`:
 
-  ```
+  ```ini
   [default]
-    aws_access_key_id = id
-    aws_secret_access_key = secretKey
+    aws_access_key_id = <идентификатор_статического_ключа>
+    aws_secret_access_key = <содержимое_статического_ключа>
   ```
 
 * Формат региона по умолчанию в `.aws/config`:
 
-  ```
+  ```ini
   [default]
     region = {{ region-id }}
   ```
-  
-* Вы можете создать несколько профилей для разных сервисных аккаунтов, вписав их в файл `.aws/credentials`. Это позволит быстро переключаться между разными профилями в командах AWS CLI с опцией `--profile`:
 
-  ```
+* Вы можете создать несколько профилей для разных сервисных аккаунтов, указав их данные в файле `.aws/credentials`:
+
+  ```ini
   [default]
-    aws_access_key_id = id
-    aws_secret_access_key = secretKey
+    aws_access_key_id = <идентификатор_статического_ключа_1>
+    aws_secret_access_key = <содержимое_статического_ключа_1>
+  [<имя_профиля_2>]
+    aws_access_key_id = <идентификатор_статического_ключа_2>
+    aws_secret_access_key = <содержимое_статического_ключа_2>
+  ...
+  [<имя_профиля_n>]
+    aws_access_key_id = <идентификатор_статического_ключа_n>
+    aws_secret_access_key = <содержимое_статического_ключа_n>
+  ```
 
-  [newprofile]
-    aws_access_key_id = <newProfileId>
-    aws_secret_access_key = <newProfileSecretKey>
+  Где `default` — профиль по умолчанию.
+
+  Чтобы переключаться между разными профилями в командах AWS CLI используется опция `--profile`, например:
+
+  ```bash
+  aws --endpoint-url=https://{{ s3-storage-host }}/ \
+    --profile <имя_профиля_2> \
+    s3 mb s3://<имя_бакета>
   ```
   
 ## Особенности {#specifics}
