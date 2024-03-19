@@ -1,0 +1,4 @@
+With {{ connection-manager-full-name }} you can manage the parameters of [connections](../../metadata-hub/concepts/connection-manager.md) to databases. Connections are created automatically when creating a cluster of managed databases in {{ yandex-cloud }}, if support for {{ connection-manager-full-name }} is configured at the cloud level.
+Connections and secrets that are created automatically when a cluster is created cannot be edited or deleted — they are changed automatically when a user's settings are edited in the managed database cluster.
+
+The connection contains all the information about the parameters of the connection to the database. The sensitive part of this information, such as the user's password to access the database, is stored in the [secret](../../metadata-hub/concepts/secret.md) of the [{{ lockbox-full-name }}](../../lockbox/index.yaml) service.

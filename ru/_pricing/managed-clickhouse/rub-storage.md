@@ -7,4 +7,4 @@
 | Хранилище на сетевых SSD-дисках                           | {{ sku|RUB|mdb.cluster.network-nvme.ch|month|string }}                        |
 | Хранилище на локальных SSD-дисках                         | {{ sku|RUB|mdb.cluster.local-nvme.ch|month|string }}                          |
 | Холодные данные гибридного хранилища и их резервные копии | {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }} |
-| Резервные копии хранилища на локальных и сетевых дисках   | 1,9200 ₽                                                                      |
+| Резервные копии хранилища на локальных и сетевых дисках   | 1,92 ₽                                                                        |

@@ -1,0 +1,43 @@
+title: Yandex MetaData Hub
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    items:
+      - name: Getting started
+        href: quickstart/index.md
+      - name: Connection Manager
+        href: quickstart/connection-manager.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Connection Manager
+        items:
+          - name: Create a connection
+            href: operations/create-connection.md
+          - name: View connections
+            href: operations/view-connection.md
+          - name: Update a connection
+            href: operations/update-connection.md
+          - name: Remove a connection
+            href: operations/delete-connection.md
+          - name: Set up access rights to a connection
+            href: operations/connection-access.md
+  - name: Concepts
+    items:
+      - name: '{{ metadata-hub-name }} overview'
+        href: concepts/index.md
+      - name: Connection Manager
+        items:
+          - name: Connection
+            href: concepts/connection-manager.md
+          - name: Secret
+            href: concepts/secret.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/metadata-hub
