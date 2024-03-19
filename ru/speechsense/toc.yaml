@@ -16,7 +16,7 @@ items:
             href: operations/data/manage-dialogs.md
           - name: Работа с отчетами
             href: operations/data/manage-reports.md
-      - name: Управление пространством
+      - name: Пространства
         items:
           - name: Создать пространство
             href: operations/space/create.md
@@ -28,11 +28,19 @@ items:
             href: operations/space/delete.md
           - name: Удалить пользователя из пространства
             href: operations/space/delete-user-from-space.md
-      - name: Управление подключением
+          - name: Работа с тегами пространства
+            items:
+              - name: Создать тег пространства
+                href: operations/space/tag/create.md
+              - name: Изменить тег пространства
+                href: operations/space/tag/change.md
+              - name: Удалить тег пространства
+                href: operations/space/tag/delete.md
+      - name: Подключения
         items:
           - name: Создать подключение
             href: operations/connection/create.md
-      - name: Управление проектом
+      - name: Проекты
         items:
           - name: Создать проект
             href: operations/project/create.md
@@ -42,12 +50,22 @@ items:
             href: operations/project/delete.md
           - name: Удалить пользователя из проекта
             href: operations/project/delete-user-from-project.md
+          - name: Работа с тегами проекта
+            items:
+              - name: Создать тег проекта
+                href: operations/project/tag/create.md
+              - name: Изменить тег проекта
+                href: operations/project/tag/change.md
+              - name: Удалить тег проекта
+                href: operations/project/tag/delete.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов
         href: concepts/resources-hierarchy.md
       - name: Диалоги
         href: concepts/dialogs.md
+      - name: Теги в диалогах
+        href: concepts/tags.md
       - name: Отчеты
         href: concepts/reports.md
       - name: Поддерживаемые форматы аудио

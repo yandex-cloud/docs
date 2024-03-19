@@ -1,19 +1,21 @@
 ---
 title: "How to change {{ KF }} cluster settings in {{ mkf-full-name }}"
-description: "Follow this guide to change {{ KF }} cluster settings."
+description: "Follow this guide to learn how to change {{ KF }} cluster settings."
 ---
 
-# Changing {{ KF }} cluster settings
+# Updating {{ KF }} cluster settings
 
 After creating a {{ mkf-name }} cluster, you can:
 
-* [{#T}](#change-brokers).
-* [{#T}](#change-zookeeper).
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
-* [{#T}](#change-additional-settings).
-* [{#T}](#change-kafka-settings).
-* [{#T}](#move-cluster) from the current folder to another one.
+* [{#T}](#change-brokers)
+* [{#T}](#change-zookeeper)
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md))
+* [{#T}](#change-additional-settings)
+* [{#T}](#change-kafka-settings)
+* [{#T}](#move-cluster) from the current folder to another one
 * [{#T}](#change-sg-set)
+
+To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
 ## Changing the broker host class and number {#change-brokers}
 
@@ -68,7 +70,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mkf-name }} cluster description, change the `brokers_count` parameter to increase the number of broker hosts:
 
@@ -114,7 +116,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Broker host class in the `configSpec.kafka.resources.resourcePresetId` parameter.
    * Number of broker hosts in the `configSpec.brokersCount` parameter.
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -163,7 +165,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mkf-name }} cluster description, edit the value of the `resource_preset_id` parameter under `zookeeper.resources` to specify a new {{ ZK }} host class:
 
@@ -197,7 +199,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * {{ ZK }} host class in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -262,7 +264,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mkf-name }} cluster description, change the `disk_size` parameter in the `kafka.resources` and `zookeeper.resources` sections for the {{ KF }} and {{ ZK }} hosts, respectively:
 
@@ -303,7 +305,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -357,7 +359,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Change the values of the `security_group_ids` and `assign_public_ip` parameters in the cluster description:
 
@@ -398,7 +400,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
    - Public access settings in the `configSpec.assignPublicIp` parameter.
-   - List of settings you want to update, in the `updateMask` parameter.
+   - List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -471,7 +473,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -516,7 +518,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
 
@@ -584,7 +586,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mkf-name }} cluster description, modify the values of the parameters in the `kafka.kafka_config` section (the example does not contain an exhaustive list of the [settings](../concepts/settings-list.md#cluster-settings)):
 
@@ -626,7 +628,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
       * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`;
       * `configSpec.kafka.kafkaConfig_3` if you are using {{ KF }} version `3.x`.
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -704,7 +706,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 
@@ -733,7 +735,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
-   - List of settings you want to update, in the `updateMask` parameter.
+   - List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

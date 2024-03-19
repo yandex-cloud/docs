@@ -4,4 +4,4 @@
 | Хранилище на нереплицируемых SSD-дисках | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.mysql|month|string }} |
 | Хранилище на сетевых SSD-дисках         | {{ sku|RUB|mdb.cluster.network-nvme.mysql|month|string }}              |
 | Хранилище на локальных SSD-дисках       | {{ sku|RUB|mdb.cluster.local-nvme.mysql|month|string }}                |
-| Резервные копии сверх размера хранилища | 1,9200 ₽                                                               |
+| Резервные копии сверх размера хранилища | 1,92 ₽                                                                 |

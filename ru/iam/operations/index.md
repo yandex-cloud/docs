@@ -64,3 +64,11 @@ description: "Пошаговые инструкции по управлению 
 
 - [{#T}](authorized-key/create.md)
 - [{#T}](authorized-key/delete.md)
+
+## Доступ сервисов {#service-control}
+
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+- [{#T}](service-control/list-get.md)
+- [{#T}](service-control/enable-disable.md)
+- [{#T}](service-control/pause-resume.md)

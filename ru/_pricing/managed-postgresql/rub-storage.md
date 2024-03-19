@@ -6,4 +6,4 @@
 | Хранилище на нереплицируемых SSD-дисках | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.pg|month|string }} |
 | Хранилище на сетевых SSD-дисках         | {{ sku|RUB|mdb.cluster.network-nvme.pg|month|string }}              |
 | Хранилище на локальных SSD-дисках       | {{ sku|RUB|mdb.cluster.local-nvme.pg|month|string }}                |
-| Резервные копии сверх размера хранилища | 1,9200 ₽                                                            |
+| Резервные копии сверх размера хранилища | 1,92 ₽                                                              |

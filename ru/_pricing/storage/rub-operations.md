@@ -11,7 +11,7 @@
 | 1000 операций PUT | {{ sku|RUB|storage.api.put.standard|pricingRate.10|string }} |
 | 1000 операций POST | {{ sku|RUB|storage.api.post.standard|pricingRate.10|string }} |
 | 1000 операций PATCH | {{ sku|RUB|storage.api.patch.standard|pricingRate.10|string }} |
-| 1000 операций LIST | 0,4800 ₽ |
+| 1000 операций LIST | 0,48 ₽ |
 | 10 000 операций GET | {{ sku|RUB|storage.api.get.standard|pricingRate.10|string }} |
 | 10 000 операций HEAD | {{ sku|RUB|storage.api.head.standard|pricingRate.10|string }} |
 | 10 000 операций OPTIONS | {{ sku|RUB|storage.api.options.standard|pricingRate.10|string }} |
@@ -19,8 +19,8 @@
 | 1000 операций PUT | {{ sku|RUB|storage.api.put.cold|string }} |
 | 1000 операций POST | {{ sku|RUB|storage.api.post.cold|string }} |
 | 1000 операций PATCH | {{ sku|RUB|storage.api.patch.cold|string }} |
-| 1000 операций LIST | 1,1800 ₽ |
-| 1000 операций TRANSITION | 1,1800 ₽ |
+| 1000 операций LIST | 1,18 ₽ |
+| 1000 операций TRANSITION | 1,18 ₽ |
 | 10 000 операций GET | {{ sku|RUB|storage.api.get.cold|string }} |
 | 10 000 операций HEAD | {{ sku|RUB|storage.api.head.cold|string }} |
 | 10 000 операций OPTIONS | {{ sku|RUB|storage.api.options.cold|string }} |
@@ -28,8 +28,8 @@
 | 1000 операций PUT | {{ sku|RUB|storage.api.put.ice|string }} |
 | 1000 операций POST | {{ sku|RUB|storage.api.post.ice|string }} |
 | 1000 операций PATCH | {{ sku|RUB|storage.api.patch.ice|string }} |
-| 1000 операций LIST | 2,3600 ₽ |
-| 1000 операций TRANSITION | 2,3600 ₽ |
+| 1000 операций LIST | 2,36 ₽ |
+| 1000 операций TRANSITION | 2,36 ₽ |
 | 10 000 операций GET | {{ sku|RUB|storage.api.get.ice|string }} |
 | 10 000 операций HEAD | {{ sku|RUB|storage.api.head.ice|string }} |
 | 10 000 операций OPTIONS | {{ sku|RUB|storage.api.options.ice|string }} |

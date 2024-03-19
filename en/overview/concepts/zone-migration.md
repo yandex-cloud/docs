@@ -4,7 +4,7 @@ The `{{ region-id }}-c` availability zone will be [discontinued](./ru-central1-c
 
 We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. To migrate instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.
 
-We are currently developing custom migration tools for {{ mkf-name }} and {{ mgl-name }}. If you have resources of these services deployed in `{{ region-id }}-c`, we will notify you when these tools become available.
+We are currently developing custom migration tools for {{ mgl-name }}. If you have any {{ mgl-name }} resources deployed in `{{ region-id }}-c`, we will notify you when these tools become available.
 
 If among your services there are {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} and others not listed below, you do not need to migrate their resources.
 
@@ -33,7 +33,7 @@ You can contact [our partners](./zone-migration-partners.md) for assistance and 
 ## Recommended migration process {#migration-best-practices}
 
 1. For all networks, [create a new subnet](../../vpc/operations/subnet-create.md) in the `{{ region-id }}-d` zone.
-1. (Optional) If you are using {{ interconnect-name }}, contact [support]({{ link-console-support }}) to configure the new subnet.
+1. (Optional) If you are using {{ interconnect-name }}, contact [support]({{ link-console-support }}) to configure the new subnet. To complete subnet configuration, you must create any resource (e.g., a VM) and connect it to the subnet to correctly announce the new subnet's routing information in {{ interconnect-name }}.
 1. Migrate your resources to the new availability zone:
    1. [VM instances](#compute) (one by one or by expanding the instance group).
    1. [Database hosts](#mdb).
@@ -128,7 +128,7 @@ You can [migrate](../../vpc/operations/subnet-relocate.md) subnets by running th
 
 #### IP address migration {#ip-addresses}
 
-You cannot migrate public IP addresses between zones. To save the public address for incoming traffic, [reserve](../../vpc/operations/get-static-ip.md) this address and then assign it to the network balancer handler. Next, you can migrate the VM and connect it to a network balancer. If the public IP address of the balancer was in the `{{ region-id }}-c` zone, it will continue working; see the [{#T}](../../network-load-balancer/concepts/specifics.md) of the network balancer for details.
+You cannot migrate public IP addresses between zones. To save the public address for incoming traffic, [reserve](../../vpc/operations/get-static-ip.md) this address and then assign it to the network balancer handler. Next, you can migrate the VM and connect it to a network balancer. If the public IP address of the balancer was in the `{{ region-id }}-c` zone, it will continue working; see [{#T}](../../network-load-balancer/concepts/specifics.md) of the network balancer for details.
 
 Note: This way, you can save the IP address for incoming traffic only. For example, if the IP address of a VM is licensed, you cannot use the public IP address of the balancer to check it.
 

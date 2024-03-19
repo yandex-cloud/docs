@@ -27,7 +27,7 @@ items:
             href: operations/buckets/edit-acl.md
           - name: Управление политикой доступа
             href: operations/buckets/policy.md
-          - name: Открытие публичного доступа к бакету
+          - name: Настройка публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
           - name: Управление версионированием бакета
             href: operations/buckets/versioning.md

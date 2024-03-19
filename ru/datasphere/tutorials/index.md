@@ -31,3 +31,4 @@ description: "Различные сценарии использования {{ 
 ## Аналитика {#analytics}
 
 * [{#T}](data-from-metrica-yc-visualization.md)
+* [{#T}](yq.md)
