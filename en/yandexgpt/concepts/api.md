@@ -1,6 +1,6 @@
 # Specifics of API implementation in {{ yagpt-full-name }}
 
-Use {{ yagpt-full-name }} to perform tasks related to generating text content. For instance, you can select [user interaction mode](../concepts/index.md#working-modes) or estimate the size of a text field in [tokens](../concepts/tokens.md). For API method and call references, see [gRPC](../api-ref/v1/grpc/) and [REST](../api-ref/v1/).
+Use {{ yagpt-full-name }} to perform tasks related to generating text content. For instance, you can select [user interaction mode](../concepts/index.md#working-modes) or estimate the size of a text field in [tokens](../concepts/tokens.md). For API method and call references, see [gRPC](../text-generation/api-ref/grpc/) and [REST](../text-generation/api-ref/).
 
 The {{ yagpt-name }} API is based on the gRPC mechanism. API methods and data structures are described using Protocol Buffers (proto 3).
 

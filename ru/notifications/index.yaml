@@ -9,7 +9,7 @@ description:
     href="https://docs.aws.amazon.com/sns/latest/api/welcome.html">Amazon SNS
     API</a>.
   - >-
-    На стадии Preview доступна отправка Push-уведомлений на устройства iOS и
+    На стадии Preview доступна отправка Push-уведомлений на устройства с iOS и
     Android.
   - >-
     Позднее будет реализована отправка SMS-сообщений, уведомлений в мессенджеры
@@ -18,7 +18,7 @@ meta:
   title: Yandex Cloud Notification Service
 links:
   - title: Начало работы
-    description: Зарегистрируйте первый канал доставки уведомлений
+    description: Добавьте первый канал доставки уведомлений
     href: quickstart
   - title: Концепции
     description: Узнайте про каналы и способы доставки уведомлений

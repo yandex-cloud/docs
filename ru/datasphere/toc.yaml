@@ -255,6 +255,8 @@ items:
         items:
           - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
             href: tutorials/data-from-metrica-yc-visualization.md
+          - name: Анализ данных с помощью {{ yq-full-name }}
+            href: tutorials/yq.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

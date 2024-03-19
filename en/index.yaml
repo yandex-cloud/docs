@@ -117,6 +117,9 @@ links:
   - title: Message Queue
     description: Queues for messaging between applications
     href: message-queue/
+  - title: MetaData Hub
+    description: Connection management
+    href: metadata-hub/
   - title: Using Microsoft products
     description: Using Microsoft products
     href: microsoft/

@@ -7,28 +7,29 @@ description: "This page provides a list of step-by-step guides for {{ mkf-name }
 
 ## Clusters
 
-- [{#T}](cluster-list.md)
-- [{#T}](cluster-create.md)
-- [{#T}](cluster-update.md)
+- [Information about existing clusters](cluster-list.md)
+- [Creating clusters](cluster-create.md)
+- [Changing cluster settings](cluster-update.md)
 - [{#T}](cluster-version-update.md)
-- [{#T}](cluster-stop.md)
-- [{#T}](cluster-hosts.md)
-- [{#T}](cluster-delete.md)
+- [Stopping and starting clusters](cluster-stop.md)
+- [Managing cluster hosts](cluster-hosts.md)
+- [{#T}](host-migration.md)
+- [Deleting clusters](cluster-delete.md)
 
 ## Topics
 
-- [{#T}](connect.md)
-- [{#T}](cluster-topics.md)
+- [Connecting to cluster topics](connect.md)
+- [Working with topics and partitions](cluster-topics.md)
 
 ## Users {{ KF }}
 
-- [{#T}](cluster-accounts.md)
+- [Managing users](cluster-accounts.md)
 
 ## Connectors {{ KF }}
 
-- [{#T}](cluster-connector.md)
+- [Managing connectors](cluster-connector.md)
 
 ## Logs and monitoring
 
-- [{#T}](cluster-logs.md)
-- [{#T}](monitoring.md)
+- [Viewing cluster logs](cluster-logs.md)
+- [Monitoring the state of clusters and hosts](monitoring.md)
