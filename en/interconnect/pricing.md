@@ -1,3 +1,14 @@
 # Pricing for {{ interconnect-name }}
 
-The service is provided when technically possible. {{ interconnect-full-name }} prices are provided upon request and are subject to the technical characteristics of the connection to {{ yandex-cloud }}.
+{% note warning %}
+
+The prices are valid as of April 1st, 2024.
+
+{% endnote %}
+
+The service is provided when technically possible.
+
+
+
+
+{% include [usd](../_pricing/interconnect/usd.md) %}

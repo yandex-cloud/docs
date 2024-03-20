@@ -14,8 +14,6 @@ items:
         href: concepts/partners.md
       - name: Трансиверы
         href: concepts/transceivers.md
-      - name: Пакет трафика
-        href: concepts/capacity.md
       - name: Транковое подключение
         href: concepts/trunk.md
       - name: Приватное соединение
@@ -26,6 +24,8 @@ items:
         href: concepts/routing.md
       - name: Мониторинг
         href: concepts/monitoring.md
+      - name: Объемы данных и емкости подключений
+        href: concepts/capacity.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Инструкции

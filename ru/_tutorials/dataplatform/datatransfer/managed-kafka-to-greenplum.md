@@ -33,7 +33,7 @@
         1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-greenplum.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-greenplum.tf).
+        1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-greenplum/blob/main/kafka-greenplum.tf).
 
             В этом файле описаны:
 

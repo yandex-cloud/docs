@@ -2,9 +2,9 @@ title: Yandex MetaData Hub
 href: index.yaml
 stage: preview
 items:
-  - name: Начало работы
+  - name: Getting started
     items:
-      - name: Getting started
+      - name: All guides
         href: quickstart/index.md
       - name: Connection Manager
         href: quickstart/connection-manager.md

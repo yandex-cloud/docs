@@ -105,6 +105,8 @@ items:
                 href: operations/connection/chyt/chyt-recommendations.md
           - name: Создание подключения к файлу
             href: operations/connection/create-file.md
+          - name: Создание подключения к Яндекс Документам
+            href: operations/connection/create-yadocs.md
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
           - name: Создание подключения к BigQuery
