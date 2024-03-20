@@ -32,7 +32,7 @@ CR: [Copy and replicate](../../data-transfer/concepts/transfer-lifecycle.md#copy
 
 #### Airbyte® endpoints {#airbyte}
 
-You can use [Airbyte®](https://docs.airbyte.com/category/sources) to configure the following source endpoints:
+You can use [Airbyte®](https://docs.airbyte.com/integrations/sources) to configure the following source endpoints:
 
 * [AWS CloudTrail](../../data-transfer/operations/endpoint/source/aws-cloudtrail.md)
 * [BigQuery](../../data-transfer/operations/endpoint/source/bigquery.md)

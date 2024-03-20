@@ -32,7 +32,7 @@
 
 #### Эндпоинты Airbyte® {#airbyte}
 
-С помощью [Airbyte®](https://docs.airbyte.com/category/sources) можно настроить следующие эндпоинты-источники:
+С помощью [Airbyte®](https://docs.airbyte.com/integrations/sources) можно настроить следующие эндпоинты-источники:
 
 * [AWS CloudTrail](../../data-transfer/operations/endpoint/source/aws-cloudtrail.md)
 * [BigQuery](../../data-transfer/operations/endpoint/source/bigquery.md)
