@@ -3,8 +3,8 @@
 ### Предварительная подготовка {#trunk-prep}
 
 * Ознакомьтесь с описанием принципов работы услуги в [документации](../../interconnect/concepts/index.md).
-* Согласуйте со своим менеджером в {{ yandex-cloud }} тариф подключения услуги ([пакет трафика](../../interconnect/concepts/capacity.md)).
-* Выберите партнёра [из списка](../../interconnect/concepts/partners.md#list) и убедитесь в том, что он может организовать подключение на нужной вам [точке присутствия](../../interconnect/concepts/pops.md) с требуемым вам [пакетом трафика](../../interconnect/concepts/partners.md#list).
+* Согласуйте со своим менеджером в {{ yandex-cloud }} тариф подключения услуги ([емкость подключения](../../interconnect/pricing.md)).
+* Выберите партнера [из списка](../../interconnect/concepts/partners.md#list) и убедитесь в том, что он может организовать подключение на нужной вам [точке присутствия](../../interconnect/concepts/pops.md) с требуемой вам [емкостью](../../interconnect/concepts/partners.md#list).
 
 {% note warning %}
 
@@ -39,7 +39,7 @@ client: ООО "Моё дело"
 folder-id: b1g28j9359gic3p2gca2
 партнёр: RETN 
 точка присутствия: M9
-пакет трафика: 250mbps
+емкость подключения: 250mbps
 ```
 
 где,
@@ -48,7 +48,7 @@ folder-id: b1g28j9359gic3p2gca2
 * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в который будут отправляться метрики мониторинга {{ interconnect-name }}.
 * `партнёр` — имя партнёра [из списка партнёров](../../interconnect/concepts/partners.md#list)
 * `точка присутствия` — код точки присутствия [из списка партнёров](../../interconnect/concepts/partners.md#list) на которых партнёр предоставляет подключения к {{ yandex-cloud }}
-* `пакет трафика` — [полоса пропускания](../../interconnect/concepts/capacity.md) в Мбит/c, которая соответствует выбранному клиентом пакету трафика.
+* `емкость подключения` — [полоса пропускания](../../interconnect/pricing.md) в Мбит/c.
 
 
 ### Ответ поддержки на обращение клиента {#partner-trunk-ticket-resp}

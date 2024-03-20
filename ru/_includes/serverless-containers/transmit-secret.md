@@ -18,7 +18,7 @@
         * имя переменной окружения, в которой будет храниться секрет;
         * идентификатор секрета;
         * идентификатор версии секрета;
-        * неконфиденциальный идентификатор ключа.
+        * ключ одной из пар ключ-значение в версии секрета.
     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
         В контейнер можно передать несколько секретов. Для этого еще раз нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
@@ -46,7 +46,7 @@
        --cores 1 \
        --memory 1GB \
        --service-account-id bfbtfcp0o9i8******** \
-       --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=key-id
+       --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=secret-key
     ```
 
     Где:
@@ -60,7 +60,7 @@
         * `environment-variable` — имя переменной окружения, в которой будет храниться секрет;
         * `id` — идентификатор секрета;
         * `version-id` — идентификатор версии секрета;
-        * `key` — неконфиденциальный идентификатор ключа.
+        * `key` — ключ одной из пар ключ-значение в версии секрета.
       
       В контейнер можно передать несколько секретов. Для этого укажите параметр `--secret` необходимое количество раз.
 
