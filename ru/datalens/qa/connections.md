@@ -1,8 +1,8 @@
 # Подключения
 
-
-
 {% include [postgre-type.md](../../_qa/datalens/postgre-type.md) %}
+
+
 
 {% include [metrica-clickhouse-connection](../../_qa/datalens/metrica-clickhouse-connection.md) %}
 
@@ -13,11 +13,11 @@
 {% include [csv-long-loading](../../_qa/datalens/csv-long-loading.md) %}
 
 {% include [csv-network-error](../../_qa/datalens/csv-network-error.md) %}
-
-### Что делать, если таблица из Google Sheets работает некорректно? {#google-sheets-error}
+
 
 {% include [google-sheets-error](../../_qa/datalens/google-sheets-error.md) %}
-
+
+{% include [yadocs-error](../../_qa/datalens/yadocs-link.md) %}
 
 
 

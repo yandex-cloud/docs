@@ -209,7 +209,7 @@ items:
             href: manager/project-new.md
           - name: Мои проекты
             href: manager/my-projects.md
-          - name: Создать проект
+          - name: Управление проектами
             href: manager/create-project.md
           - name: Список задач проекта
             href: manager/project-list.md
@@ -221,7 +221,7 @@ items:
         items:
           - name: Портфели проектов
             href: manager/portfolio.md
-          - name: Создать портфель
+          - name: Управление портфелями
             href: manager/create-portfolio.md
       - name: Посмотреть историю изменений проекта или портфеля
         href: manager/history.md

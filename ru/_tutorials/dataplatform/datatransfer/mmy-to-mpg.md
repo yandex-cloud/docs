@@ -42,7 +42,7 @@
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [mysql-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/datatransfer/mysql-postgresql.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [mysql-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-mysql-to-postgresql/blob/main/mysql-postgresql.tf).
 
         В этом файле описаны:
 
