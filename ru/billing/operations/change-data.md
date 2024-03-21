@@ -6,24 +6,34 @@
 
 ## Переименование платежного аккаунта {#change-name}
 
-Изменить имя платежного аккаунта вы можете как на главной странице консоли управления, так и в сервисе {{ billing-name }}:  
-1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
-1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
-1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.billing.account.dashboard.label_rename }}** в верхнем блоке напротив названия аккаунта. 
-1. Введите новое имя. 
-1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
+{% list tabs group=instructions %}
+
+- Интерфейс {{ billing-name }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите платежный аккаунт.
+  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.billing.account.dashboard.label_rename }}** в верхнем блоке напротив названия аккаунта. 
+  1. Введите новое имя. 
+  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
+
+{% endlist %}
 
 ## Изменение данных плательщика {#change-address}
 
 Через сервис [Яндекс Баланс](https://balance.yandex.ru/) вы можете изменить контакты плательщика (например, почтовый адрес или телефон) или добавить платежные реквизиты (например, расчетный счет):
-1. В [консоли управления]({{ link-console-billing }}) нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ billing-name }}**.
-1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
-1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
-1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**. <br/>Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
-1. Воспользуйтесь [инструкцией](https://yandex.ru/support/balance/operations/change-data.html) Яндекс Баланса.
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ billing-name }} {#billing}
+  
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите платежный аккаунт.
+  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
+  1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**. <br/>Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
+  1. Воспользуйтесь [инструкцией](https://yandex.ru/support/balance/operations/change-data.html) Яндекс Баланса.
+
+{% endlist %}
 
 ## Изменение любых реквизитов, кроме ИНН {#change-details}
 
@@ -32,7 +42,7 @@
 ## Изменение юридического лица или ИНН {#change-legal-entity}
 
 Изменить юридическое лицо или ИНН в настройках платежного аккаунта невозможно. Поэтому если у вас изменились эти реквизиты:
-1. [Создайте](create-new-account.md) платежный аккаунт с новыми реквизитами, выбрав в качестве типа плательщика **Юридическое лицо или ИП**.
+1. [Создайте](create-new-account.md) платежный аккаунт с новыми реквизитами, выбрав в качестве типа плательщика **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}**.
 1. Дождитесь активации платежного аккаунта, чтобы избежать простоя ресурсов.
 1. Перенесите все облака со старого платежного аккаунта на новый. Для этого достаточно [привязать](pin-cloud.md) их к новому платежному аккаунту.
 

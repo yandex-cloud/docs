@@ -11,3 +11,4 @@ API {{ yagpt-name }} спроектирован на основе механиз
 * [Документация gRPC](https://grpc.io/docs/).
 * [Документация Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3).
 * [Концепции API {{ yandex-cloud }}](../../api-design-guide/concepts/general.md#resource-oriented-design).
+* [{#T}](../api-ref/migration-to-v1.md).

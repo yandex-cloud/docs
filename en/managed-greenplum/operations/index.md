@@ -23,7 +23,6 @@ To move {{ mgp-name }} cluster hosts to a different availability zone, refer to 
 ## Databases
 
 * [{#T}](connect.md)
-* [{#T}](external-tables.md)
 
 ## Users and sessions
 
@@ -32,6 +31,19 @@ To move {{ mgp-name }} cluster hosts to a different availability zone, refer to 
 * [{#T}](user-auth-rules.md)
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
+
+## PXF external tables
+
+* [{#T}](external-tables.md)
+* [{#T}](pxf/create-s3-source.md)
+* [{#T}](pxf/create-jdbc-source.md)
+* [{#T}](pxf/create-hdfs-source.md)
+* [{#T}](pxf/create-hive-source.md)
+* [{#T}](pxf/create-table.md)
+
+## Working with `gpfdist`
+
+* [{#T}](gpfdist/connect.md)
 
 ## {{ GP }} extensions
 

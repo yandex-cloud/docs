@@ -20,7 +20,10 @@
 1. (Опционально) В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.secret }}** и [создайте секрет](secrets.md#create) с секретной частью статического ключа доступа для сервисного аккаунта. Вы также сможете создать секрет при создании подключения S3.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Заполните поля:
-   * **{{ ui-key.yc-ui-datasphere.common.name }}** — имя создаваемого коннектора.
+   * **{{ ui-key.yc-ui-datasphere.common.name }}** — имя создаваемого коннектора. Требования к имени:
+      
+     {% include [name-format](../../../_includes/name-format.md) %}
+
    * (Опционально) **{{ ui-key.yc-ui-datasphere.common.description }}** создаваемого коннектора.
    * **{{ ui-key.yc-ui-datasphere.common.endpoint }}** — хост хранилища. Для {{ objstorage-name }} это `https://{{ s3-storage-host }}/`.
    * **{{ ui-key.yc-ui-datasphere.common.bucket }}** — имя бакета в хранилище.
@@ -31,7 +34,10 @@
 
      {% endnote %}
 
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}** — название тома при монтировании бакета в файловую систему проекта.
+   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}** — название тома при монтировании бакета в файловую систему проекта. Требования к названию:
+
+     {% include [name-format](../../../_includes/name-format.md) %}
+
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}**, который используется для подключения к хранилищу. 
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** — выберите из списка [секрет](../../concepts/secrets.md), содержащий секретную часть статического ключа доступа, или создайте новый секрет.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}** — режим доступа к объектному хранилищу: **{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** или **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**.

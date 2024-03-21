@@ -1,6 +1,6 @@
 # Creating a {{ MG }} cluster
 
-A {{ MG }} cluster is one or more database hosts between which you can configure a replication. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
+A {{ MG }} cluster is one or more database hosts between which you can configure replication. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
 
 {% note info %}
@@ -163,7 +163,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 

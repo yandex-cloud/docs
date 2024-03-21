@@ -1,0 +1,3 @@
+На вкладке **{{ ui-key.yacloud.billing.account.switch_overview }}** платежного аккаунта в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}** отображаются все подключенные облака и сервисы, например [{{ ml-platform-name }}](../../datasphere/), [{{ tracker-name }}](../../tracker/) и&nbsp;др. Если аккаунт добавлен в [организацию](../concepts/organization.md), ее идентификатор также будет показан в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}**.
+
+На [главной странице сервиса]({{ link-console-billing }}) отображаются платежные аккаунты всех ваших организаций, а также аккаунты, к которым у вас есть доступ.

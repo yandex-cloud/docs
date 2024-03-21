@@ -137,10 +137,10 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
    To add a host to the cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
-   1. Add a `host` block to the {{ mpg-name }} cluster description.
+   1. Add the `host` block to the {{ mpg-name }} cluster description.
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -236,7 +236,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
    To change the parameters of the cluster host:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
    1. In the {{ mpg-name }} cluster description, change the attributes of the `host` block corresponding to the host you are updating.
@@ -274,7 +274,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
       For each host, specify:
       * Name in the `hostName` field.
-      * List of settings you want to update, in the `updateMask` parameter.
+      * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -323,7 +323,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
    To remove a host from a cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
    1. Delete the corresponding `host` block from the {{ mpg-name }} cluster description.

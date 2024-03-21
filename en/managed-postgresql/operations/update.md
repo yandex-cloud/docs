@@ -3,17 +3,17 @@ title: "How to change {{ PG }} cluster settings in {{ mpg-full-name }}"
 description: "In this tutorial, you will learn how to change settings for a {{ PG }} cluster."
 ---
 
-# Changing {{ PG }} cluster settings
+# Updating {{ PG }} cluster settings
 
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
+* [Configure servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
-* [Changing additional cluster settings](#change-additional-settings).
+* [Change additional cluster settings](#change-additional-settings).
 
-* [{#T}](#start-manual-failover).
+* [Manually switch the master host](#start-manual-failover).
 
 * [Move a cluster](#move-cluster) to another folder.
 
@@ -23,11 +23,11 @@ After creating a cluster, you can:
 
 Learn more about other cluster updates:
 
-* [{#T}](cluster-version-update.md).
+* [Upgrading the {{ PG }} version](cluster-version-update.md).
 
-* [{#T}](storage-space.md).
+* [Managing disk space](storage-space.md).
 
-* [{#T}](host-migration.md).
+* [Migrating cluster hosts to a different availability zone](host-migration.md).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -91,7 +91,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
@@ -158,7 +158,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To change [{{ PG }} server](../concepts/settings-list.md) settings:
+   To update the [{{ PG }} settings](../concepts/settings-list.md):
 
    1. View the full list of settings specified for the cluster:
 
@@ -187,11 +187,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-   1. In the {{ mpg-short-name }} cluster description, change the values of the parameters under `config.postgresql_config`. If there is no such section, create one:
+   1. In the {{ mpg-short-name }} cluster description, change the values of the parameters under `config.postgresql_config`. If there is no such section, create one.
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -282,13 +282,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information on setting up a connection, see [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-  
+   
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
 
    
@@ -298,7 +298,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 
 
-   * `--autofailover` manages automatic master change setup. For more information, see [{#T}](../concepts/replication.md#replication-auto). The default value is `true`.
+   * `--autofailover` manages automatic master change setup. To learn more, see [Replication](../concepts/replication.md#replication-auto). The default value is `true`.
 
    * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md) (`SESSION`, `TRANSACTION`, or `STATEMENT`).
 
@@ -318,7 +318,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
@@ -447,7 +447,7 @@ Specifics of switching master hosts in {{ mpg-name }}
 * You cannot switch the master host to a replica for which the source of the replication stream is explicitly given.
 * If you do not specify the replica host name explicitly, the master host will switch to one of the quorum replicas.
 
-For more information, see [{#T}](../concepts/replication.md).
+To learn more, see [Replication](../concepts/replication.md).
 
 To switch the master:
 
@@ -481,7 +481,7 @@ To switch the master:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
@@ -599,7 +599,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 

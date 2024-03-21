@@ -1,9 +1,9 @@
 ---
-title: "Network and clusters in {{ mpg-name }}"
-description: "When creating a new {{ PG }} cluster, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}."
+title: "Networking in {{ mpg-name }}"
+description: "When creating a {{ PG }} cluster, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}."
 ---
 
-# Network and clusters in {{ mpg-name }}
+# Networking in {{ mpg-name }}
 
 
 When creating a {{ PG }} cluster, you can:

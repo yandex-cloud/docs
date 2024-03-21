@@ -38,7 +38,11 @@ To set up SAML authentication:
 
    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}`
 
-1. Specify the **Name ID Format**: `Persistent`.
+1. Specify the **Name ID Format**:
+
+   * `email`, if you use [an identity federation with the Keycloak provider](../../organization/tutorials/federations/integration-keycloak.md).
+   * `persistent`, for other providers.
+
 1. Using the data provided by the IdP:
    * Copy the information about the Identity Provider Issuer.
    * Save the provider's metadata file in XML format.

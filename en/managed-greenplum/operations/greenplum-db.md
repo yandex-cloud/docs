@@ -7,7 +7,7 @@ description: "This guide describes how to use auxiliary utilities."
 
 Greenplum Database 6 features [some useful utilities](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/client_tool_guides-tools-ref.html) for working with {{ GP }} databases. In particular:
 
-* [gpfdist](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpfdist.html): Utility to read data from and write data to files located on remote servers. For more information, see [{#T}](./external-tables.md#gpfdist).
+* [gpfdist](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpfdist.html): Utility to read data from and write data to files located on remote servers. For more information, see [{#T}](gpfdist/connect.md).
 * [gpload](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpload.html): Utility to run jobs described in a YAML control file.
 * [psql](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/psql.html): Command line interface for working with {{ GP }}.
 

@@ -25,7 +25,7 @@ With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/d
 * `mdb_monitor`
 * `mdb_replication`
 
-The highest privileges for working with clusters are granted to users with the `mdb_admin` [role](../concepts/roles.md#mdb-admin). For more information, see [{#T}](../concepts/roles.md).
+The highest privileges for working with clusters are granted to users with the `mdb_admin` [role](../concepts/roles.md#mdb-admin). For more information, see [Assigning roles](../concepts/roles.md).
 
 {% note info %}
 
@@ -67,7 +67,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
@@ -95,7 +95,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
    To specify a new list of the required user roles, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Username in the `userName` parameter.
    * List of new user roles in the `grants` parameter.
 
@@ -142,7 +142,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
    1. Open the {{ TF }} configuration file with the infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add the `postgresql` provider and configure its access to the database on behalf of its owner:
 

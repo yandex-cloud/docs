@@ -1,0 +1,1 @@
+В поле **{{ ui-key.yacloud_billing_account.create-account-wizard.field_organization }}** выберите [организацию](../concepts/organization.md), для которой будет создан платежный аккаунт.

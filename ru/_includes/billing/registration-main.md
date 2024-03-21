@@ -1,5 +1,5 @@
 Авторизуйтесь с помощью Яндекс ID и войдите в консоль управления. Подтвердите создание своего первого облака и переходите к созданию [платежного аккаунта](../../billing/concepts/billing-account.md):
-1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_create }}**. Заполните данные:
    * Выберите страну плательщика.
    * Укажите имя платежного аккаунта, которое будет отображаться в списке платежных аккаунтов.

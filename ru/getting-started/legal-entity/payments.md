@@ -4,7 +4,7 @@
 
 ## Активируйте платную версию {#pay-activate}
 
-1. В [консоли управления]({{ link-console-billing }}) на странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
+1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) на странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
 1. На странице **{{ ui-key.yacloud.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
 1. Подтвердите переход, для этого еще раз нажмите кнопку **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
 
@@ -16,7 +16,7 @@
 {% include [personal-account-balance](../../billing/_includes/personal-account-balance.md) %}
 
 Чтобы пополнить лицевой счет:
-1. В [консоли управления]({{ link-console-billing }}) на странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
+1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) на странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
 1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Выберите способ оплаты:
 
@@ -64,7 +64,7 @@
 
 ## Создайте бюджет {#create-budget}
 
-1. В [консоли управления]({{ link-console-billing }}) на странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
+1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) на странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
 1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.budgets.label_budgets }}** и нажмите **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
    1. Введите имя бюджета.
    1. Выберите **{{ ui-key.yacloud.billing.account.budgets.label_type }}**.

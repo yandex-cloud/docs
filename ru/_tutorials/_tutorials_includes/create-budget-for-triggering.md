@@ -2,12 +2,10 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ billing-name }} {#billing}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создали сервисный аккаунт.
-    1. В левом верхнем углу нажмите кнопку ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-    1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-    1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
+    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+    1. Выберите платежный аккаунт.
     1. В секции **{{ ui-key.yacloud.billing.account.overview.section_account-data }}**, в поле **{{ ui-key.yacloud.common.id }}**, скопируйте идентификатор платежного аккаунта. Он пригодится при создании триггера для бюджетов.
     1. Перейдите на вкладку **{{ ui-key.yacloud.billing.account.switch_budgets }}** и нажмите кнопку **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
     1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите:

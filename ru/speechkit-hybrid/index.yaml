@@ -7,8 +7,7 @@ description:
     данными.
   - >-
     SpeechKit Hybrid основан на тех же моделях синтеза и распознавания речи, что
-    и  SpeechKit. Вы можете бесплатно обновить SpeechKit Hybrid до актуальной
-    версии в  любой момент, но это необязательно.
+    и SpeechKit.
 meta:
   title: Yandex SpeechKit Hybrid
   description: >-

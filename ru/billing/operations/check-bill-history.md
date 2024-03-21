@@ -13,10 +13,9 @@
   
   Физические лица могут посмотреть всю историю зачислений на странице **{{ ui-key.yacloud.billing.account.switch_history }}**.
 
-  Чтобы открыть страницу **{{ ui-key.yacloud.billing.account.switch_history }}**:
-    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
-    1. Выберите аккаунт из списка.
-    1. На панели слева выберите ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.billing.account.switch_history }}**.
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите платежный аккаунт.
+  1. На панели слева выберите ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.billing.account.switch_history }}**.
 
   <br/>Все платежи расположены в хронологическом порядке (самый старый платеж находится в самом низу).
   <br/>Чтобы отфильтровать платежи, задайте необходимый период. Результаты отобразятся в таблице.
