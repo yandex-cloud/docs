@@ -59,9 +59,9 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-* DBeaver
+- DBeaver {#dbeaver}
 
    Connections to {{ RD }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
 

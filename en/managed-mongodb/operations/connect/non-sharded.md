@@ -13,9 +13,9 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-- DataGrip
+- DataGrip {#datagrip}
 
    1. Create a data source:
       1. Select **File** → **New** → **Data Source** → **{{ MG }}**.
@@ -37,7 +37,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
    1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
-- DBeaver
+- DBeaver {#dbeaver}
 
    Connections to {{ MG }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
 

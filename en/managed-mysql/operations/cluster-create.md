@@ -158,7 +158,10 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --backup-retain-period-days=<backup_retention_period> \
         --datalens-access=<access_from_{{ datalens-name }}> \
         --websql-access=<queries_from_management_console> \
-        --deletion-protection=<deletion_protection>
+        --deletion-protection=<deletion_protection> \
+        --performance-diagnostics enabled=true,`
+                                 `sessions-sampling-interval=<session_sampling_interval>,`
+                                 `statements-sampling-interval=<statement_sampling_interval>
       ```
 
 
@@ -173,7 +176,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * `websql-access`: Queries from the management console, `true` or `false`.
 
 
-      * `deletion-protection`: Cluster deletion protection, `true` or `false`
+      * `deletion-protection`: Cluster deletion protection, `true` or `false`.
+      * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). The values of the `sessions-sampling-interval` and the `statements-sampling-interval` parameters may range from `1` to `86400` seconds.
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
@@ -189,7 +193,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -310,8 +314,24 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          Acceptable values are from `7` to `60`. The default value is `7`.
 
+      * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster:
+
+         ```hcl
+         resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
+           ...
+           performance_diagnostics {
+             enabled = true
+             sessions_sampling_interval = <session_sampling_interval>
+             statements_sampling_interval = <statement_sampling_interval>
+           }
+           ...
+         }
+         ```
+
+         The values of the `sessions_sampling_interval` and the `statements_sampling_interval` parameters may range from `1` to `86400` seconds.
+
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -347,6 +367,11 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
+   To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), specify `true` for the `configSpec.performanceDiagnostics.enabled` parameter. Optionally add the following parameters:
+
+   * `configSpec.performanceDiagnostics.sessionsSamplingInterval`: Session sampling interval. Acceptable values are between `1` and `86400` seconds.
+   * `configSpec.performanceDiagnostics.statementsSamplingInterval`: Statement sampling interval. Acceptable values are between `1` and `86400` seconds.
 
 {% endlist %}
 

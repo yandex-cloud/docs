@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ mpg-full-name }}"
-description: "In this tutorial, you will learn how to create a {{ PG }} cluster and connect to it."
+description: "Follow this guide to create a {{ PG }} cluster and connect to it."
 ---
 
 # Getting started with {{ mpg-name }}
@@ -44,7 +44,7 @@ To get started with the service:
 1. In the management console, select the folder where you want to create a DB cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mpg-short-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}

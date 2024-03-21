@@ -237,7 +237,7 @@ default:
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
   link-console-access-management: https://console.cloud.yandex.ru/iam
-  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-billing: https://billing.yandex.cloud/accounts
   link-console-cloud: https://console.cloud.yandex.ru/cloud
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-main: https://console.cloud.yandex.ru
@@ -736,8 +736,6 @@ default:
     mt:
       detect|string: "492,20\_₽"
       translate|string: "492,20\_₽"
-    vision:
-      text_detection|int|string: "130\_₽"
   sku|RUB|alb:
     balancer:
       active|string: "2,22\_₽"
@@ -1647,8 +1645,6 @@ default:
     mt:
       detect|string: "3,937600\_$"
       translate|string: "3,937600\_$"
-    vision:
-      text_detection|string: "1,040000\_$"
   sku|USD|alb:
     balancer:
       active|string: "0,017760\_$"
@@ -3214,6 +3210,7 @@ default:
         standard-info-section-time: Учёт времени
       ui_components_page-admin_BillingAccountInfo:
         person-type-company: Юридическое лицо или ИП
+        person-type-invididual: Физическое лицо
         rebind-account: Заменить платёжный аккаунт
         refill-balance: Пополнить баланс
         refill-dialog-ok-issue: Выписать счёт
@@ -3444,13 +3441,19 @@ default:
       cloud-billing-account:
         account_label_new: Новый плательщик
         label_card-add: Добавить карту
+        label_wizard-next: Вперед
         payment-type_label_card: Банковская карта
         payment-type_label_invoice: Банковский перевод
         section_person-type: Тип плательщика
         section_persons: Плательщики
+      create-account-wizard:
+        field_organization: Организация
+        field_person-id: Плательщик
     yacloud_billing:
       billing:
         account:
+          dashboard-resources:
+            title_section-billable: Привязанные облака и сервисы
           overview:
             account-data_label_organization: Организация
             section_account-data: Общие сведения
@@ -4065,6 +4068,7 @@ default:
           overview:
             button_bind-card-apply: Применить
             card_label_edit: Изменить банковскую карту
+            company_label_rs: Расчетный счет
             payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
@@ -7955,7 +7959,7 @@ default:
     yc_vault-yckms-k8s:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
-        tag: 0.25.0-1
+        tag: 0.27.0_yckms
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero

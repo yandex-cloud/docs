@@ -8,7 +8,7 @@ canonical: "{{ link-docs }}/tutorials/dataplatform/postgresql-data-migration"
 
 {% note info %}
 
-Data migration to a third-party {{ PG }} cluster is described in [{#T}](../../managed-postgresql/tutorials/outbound-replication.md).
+You can learn about data migration to a third-party {{ PG }} cluster in [{#T}](../../managed-postgresql/tutorials/outbound-replication.md).
 
 {% endnote %}
 
