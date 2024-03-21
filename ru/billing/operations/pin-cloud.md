@@ -19,11 +19,10 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ billing-name }} {#billing}
 
-  1. В [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-  1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-  1. Выберите платежный аккаунт из списка.
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите платежный аккаунт.
   1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
   1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-resources.button_bind-cloud }}** в блоке **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**.
   1. Выберите облако из списка.

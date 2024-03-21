@@ -1,4 +1,4 @@
-# Как работают гранты и промокоды в биллинге Yandex Cloud
+# Как работают гранты и промокоды в Billing Yandex Cloud
 
 ## Описание задачи {#case-description}
 

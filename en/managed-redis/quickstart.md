@@ -54,9 +54,9 @@ To get started with the service:
 
    {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
-   {% list tabs %}
+   {% list tabs group=cluster %}
 
-   - Non-sharded clusters
+   - Non-sharded cluster {#non-sharded}
 
       **To connect using [Sentinel](https://redis.io/topics/sentinel) (without SSL)**:
 
@@ -90,7 +90,7 @@ To get started with the service:
         --cacert ~/.redis/{{ crt-local-file }}
       ```
 
-   - Sharded clusters
+   - Sharded cluster {#sharded}
 
       **To connect without SSL:**
 

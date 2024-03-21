@@ -29,7 +29,7 @@ default:
   at-full-name: Yandex Audit Trails
   at-name: Audit Trails
   at-short-name: Audit Trails
-  auth-host: console.cloud.yandex.com
+  auth-host: console.cloud.yandex.ru
   b1-medium: b1.medium (2 × 50% vCPU, 4 GB)
   b1-micro: b1.micro (2× 20% vCPU, 2 GB)
   b1-nano: b1.nano (2 × 5% vCPU, 2 GB)
@@ -735,8 +735,6 @@ default:
     mt:
       detect|string: ₽492.20
       translate|string: ₽492.20
-    vision:
-      text_detection|int|string: ₽130
   sku|RUB|alb:
     balancer:
       active|string: ₽2.22
@@ -1646,8 +1644,6 @@ default:
     mt:
       detect|string: $3.937600
       translate|string: $3.937600
-    vision:
-      text_detection|string: $1.040000
   sku|USD|alb:
     balancer:
       active|string: $0.017760
@@ -3213,6 +3209,7 @@ default:
         standard-info-section-time: Time spent
       ui_components_page-admin_BillingAccountInfo:
         person-type-company: Legal entity or individual entrepreneur
+        person-type-invididual: Individual
         rebind-account: Change billing account
         refill-balance: Top up balance
         refill-dialog-ok-issue: Issue an invoice
@@ -3441,13 +3438,19 @@ default:
       cloud-billing-account:
         account_label_new: New payer
         label_card-add: Add card
+        label_wizard-next: Next
         payment-type_label_card: Bank card
         payment-type_label_invoice: Bank transfer
         section_person-type: Payer type
         section_persons: Payers
+      create-account-wizard:
+        field_organization: Organization
+        field_person-id: Payer
     yacloud_billing:
       billing:
         account:
+          dashboard-resources:
+            title_section-billable: Linked clouds and services
           overview:
             account-data_label_organization: Organization
             section_account-data: General information
@@ -4062,6 +4065,7 @@ default:
           overview:
             button_bind-card-apply: Apply
             card_label_edit: Change bank card
+            company_label_rs: Billing account
             payment-type_label_card: Bank card
             payment-type_label_invoice: Wire transfer
             section_account-data: General information
@@ -7952,7 +7956,7 @@ default:
     yc_vault-yckms-k8s:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
-        tag: 0.25.0-1
+        tag: 0.27.0_yckms
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero

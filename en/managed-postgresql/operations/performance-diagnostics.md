@@ -36,7 +36,7 @@
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
@@ -56,14 +56,14 @@
 
    To enable statistics collection, use the [create](../api-ref/Cluster/create.md) or [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) or [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID for the `clusterId` parameter.
+   * Cluster ID in the `clusterId` parameter.
 
       You can get the ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   * `True` value for the `config.performanceDiagnostics.enabled` parameter.
-   * Sessions sampling interval for the `config.performanceDiagnostics.sessionsSamplingInterval` parameter. Acceptable values are between `1` and `86400` seconds.
-   * Statements sampling interval for the `config.performanceDiagnostics.statementsSamplingInterval` parameter. Acceptable values are between `60` and `86400` seconds.
-   * List of cluster configuration fields to be changed for the `updateMask` parameter.
+   * `true` value in the `config.performanceDiagnostics.enabled` parameter.
+   * Sessions sampling interval in the `config.performanceDiagnostics.sessionsSamplingInterval` parameter. Acceptable values are between `1` and `86400` seconds.
+   * Statements sampling interval in the `config.performanceDiagnostics.statementsSamplingInterval` parameter. Acceptable values are between `60` and `86400` seconds.
+   * List of cluster configuration fields to update in the `updateMask` parameter.
 
    {% note warning %}
 
@@ -97,9 +97,9 @@
 
 - API
 
-   To get statistics for sessions, use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/perf_diag_service#ListRawSessionStates) gRPC API call and deliver the following in your request:
+   To get statistics for sessions, use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/perf_diag_service#ListRawSessionStates) gRPC API call and include the following in your request:
 
-   * Cluster ID for the `cluster_id` parameter.
+   * Cluster ID in the `cluster_id` parameter.
 
       You can get the ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -126,7 +126,7 @@ For more information about what statistics you can get, see the [{{ PG }} docume
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.
 
-   To view query statistics for a specific time interval:
+   To view the query statistics for a specific time interval:
 
    1. Select the time interval you need.
    1. (Optional) Set filters.
@@ -141,9 +141,9 @@ For more information about what statistics you can get, see the [{{ PG }} docume
 
 - API
 
-   To get statistics for queries, use the [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/perf_diag_service#ListRawStatements) gRPC API call and deliver the following in your query:
+   To get statistics for queries, use the [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/perf_diag_service#ListRawStatements) gRPC API call and include the following in your request:
 
-   * Cluster ID for the `cluster_id` parameter.
+   * Cluster ID in the `cluster_id` parameter.
 
       You can get the ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -157,7 +157,7 @@ For more information about what statistics you can get, see the [{{ PG }} docume
       * `page_size`: Maximum number of results per page.
       * `page_token`: Token of the previous results page used to get the next page.
 
-   {% endlist %}
+{% endlist %}
 
 You can learn more about what statistics you can get in the [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6) and [pg_stat_kcache](https://pgstats.dev/pg_stat_kcache) extensions documentation.
 

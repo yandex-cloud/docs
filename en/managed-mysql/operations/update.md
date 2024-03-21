@@ -336,7 +336,10 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
                             `day=<day_of_week>,`
                             `hour=<hour> \
         --websql-access=<queries_from_management_console> \
-        --deletion-protection=<deletion_protection>
+        --deletion-protection=<deletion_protection> \
+        --performance-diagnostics enabled=true,`
+                                 `sessions-sampling-interval=<session_sampling_interval>,`
+                                 `statements-sampling-interval=<statement_sampling_interval>
       ```
 
 
@@ -358,6 +361,8 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+   * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). The values of the `sessions-sampling-interval` and the `statements-sampling-interval` parameters may range from `1` to `86400` seconds.
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -416,6 +421,22 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+   1. To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
+        ...
+        performance_diagnostics {
+          enabled = true
+          sessions_sampling_interval = <session_sampling_interval>
+          statements_sampling_interval = <statement_sampling_interval>
+        }
+        ...
+      }
+      ```
+
+      The values of the `sessions_sampling_interval` and the `statements_sampling_interval` parameters may range from `1` to `86400` seconds.
+
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -440,6 +461,8 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+   * Settings of statistics collection for [cluster performance diagnostics](performance-diagnostics.md) in the `configSpec.performanceDiagnostics` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -585,7 +608,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
    To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 

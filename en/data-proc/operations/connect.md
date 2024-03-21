@@ -3,7 +3,7 @@ title: "How to connect to a {{ dataproc-full-name }} cluster"
 description: "Follow this guide to connect to a {{ dataproc-name }} cluster."
 ---
 
-# Connecting to {{ dataproc-name }} clusters
+# Connecting to a {{ dataproc-name }} cluster
 
 After creating a {{ dataproc-name }} cluster, you can connect to hosts of subclusters:
 
@@ -170,9 +170,9 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key you specified wh
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-- DataGrip
+- DataGrip {#datagrip}
 
    1. Create a data source:
       1. Select **File** → **New** → **Data Source** → **Apache Hive**.
@@ -206,7 +206,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key you specified wh
    1. Click **Test Connection** to test the connection. If the connection is successful, you will get the **OK** connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
-- DBeaver
+- DBeaver {#dbeaver}
 
    1. [Download the SSH key](#data-proc-ssh) to the local machine or VM to connect to a {{ dataproc-name }} cluster.
    1. Create a new DB connection:

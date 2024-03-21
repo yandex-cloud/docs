@@ -1,6 +1,6 @@
 ---
 title: "How to create a {{ PG }} cluster"
-description: "Use this tutorial to create a {{ PG }} cluster with a single or multiple DB hosts."
+description: "Follow this guide to create a {{ PG }} cluster with a single or multiple DB hosts."
 ---
 
 # Creating a {{ PG }} cluster
@@ -43,7 +43,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       {% endnote %}
 
-   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for a cluster, the characteristics of all the already created hosts change too.
+   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm.md) where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the characteristics of all the already created hosts change too.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       
@@ -54,7 +54,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 
 
-      * Select the storage size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
    1. (Optional) Under **Automatic increase of storage size**, specify the required settings:
 
@@ -211,7 +211,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -291,7 +291,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       Where:
 
-      * `environment`: `PRESTABLE` or `PRODUCTION`.
+      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
 
       
       * `assign_public_ip`: Internet access to the host, `true` or `false`.

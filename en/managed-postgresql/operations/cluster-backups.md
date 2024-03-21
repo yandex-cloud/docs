@@ -11,7 +11,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Restoring clusters from backups {#restore}
 
-Point-in-Time Recovery (PITR) technology allows you to restore the cluster state to any point in time in the interval from the creation of the oldest full backup to the archiving of the most recent write ahead log (WAL). For more information, see [{#T}](../concepts/backup.md).
+Point-in-Time Recovery (PITR) technology allows you to restore the cluster state to any point in time in the interval from the creation of the oldest full backup to the archiving of the most recent write ahead log (WAL). For more information, see [Backups](../concepts/backup.md).
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
@@ -149,7 +149,7 @@ When restored to the current state, the new cluster will match the state of:
 
    {% endnote %}
 
-   To restore a cluster, you will need the backup ID. Retrieve a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
+   To restore a cluster, you will need the backup ID. Get a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
 
    ```bash
    {{ yc-mdb-pg }} backup list
@@ -408,7 +408,7 @@ When restored to the current state, the new cluster will match the state of:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 

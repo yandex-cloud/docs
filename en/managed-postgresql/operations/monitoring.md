@@ -83,7 +83,7 @@ For hosts with the **Replica** role, **Received** is normally greater than **Sen
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mpg-name }} Cluster Overview** to configure cluster alerts.
@@ -104,7 +104,7 @@ The recommended thresholds are as follows:
 | Replication delay | `postgres-replication_lag` | `60` | `5`   |
 | Number of healthy hosts | `postgres-is_alive` | `<host_count>: 2` | `<host_count>: 1` |
 | Average query execution time | `pooler-avg_query_time` | — | `2,000` |
-| Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of storage size |
+| Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 

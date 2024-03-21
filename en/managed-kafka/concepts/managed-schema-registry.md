@@ -42,6 +42,16 @@ To enable management, activate the option when [creating](../operations/cluster-
 To work with {{ mkf-msr }}, you need an advanced [security group configuration](../operations/connect.md#configuring-security-groups).
 
 
+## {{ mkf-msr }} subjects {#subjects}
+
+The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects)_, i.e., names they are registered under. To write and read schemas, {{ KF }} uses the `<topic_name>-key` or the `<topic_name>-value` subjects, depending on what the schema is being registered for: key or value. The subject specifies the topic to publish messages in.
+
+Subject access depends on permissions [granted](../operations/cluster-accounts.md#grant-permission) to the {{ KF }} user:
+
+* The `ACCESS_ROLE_CONSUMER` or the `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage the `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>` subjects.
+* The `ACCESS_ROLE_CONSUMER` or the `ACCESS_ROLE_PRODUCER` role for a `<prefix>*` topic allows the user to manage subjects of the same `<prefix>*` type. Topic and subject names start with the same prefix.
+* The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in an {{ mkf-name }} cluster.
+
 ## Authorization in {{ mkf-msr }} {#msr-auth}
 
 When working with the {{ mkf-msr }} API over an SSL connection, you need to configure the same client [SSL certificate](../operations/connect#get-ssl-cert) as for broker host connections.
@@ -52,8 +62,10 @@ Access to schemas depends on the selected [topic management method](./topics.md#
 
 1. If a cluster uses managed topics:
 
-   * A user with the `ACCESS_ROLE_PRODUCER` role for a topic can perform any operations with [_subjects_](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects) associated with the topic.
+   * A user with the `ACCESS_ROLE_PRODUCER` role for a topic can perform any operations with subjects associated with that topic.
    * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform read operations with subjects associated with the topic.
+
+   For more information on available subjects, see [{#T}](#subjects).
 
 1. If a cluster uses unmanaged topics:
 

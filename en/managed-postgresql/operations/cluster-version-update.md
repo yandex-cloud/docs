@@ -1,4 +1,4 @@
-# {{ PG }} version upgrade
+# Upgrading {{ PG }} version
 
 You can upgrade a {{ mpg-name }} cluster to any supported version.
 
@@ -22,7 +22,7 @@ In multi-host clusters, upgrades follow the procedure below:
 
 1. The master returns to a running state.
 
-To learn more about upgrades within the same version and host maintenance, see [{#T}](../concepts/maintenance.md).
+To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## Before a version upgrade {#before-update}
 
@@ -79,7 +79,7 @@ Make sure this does not affect your applications:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 

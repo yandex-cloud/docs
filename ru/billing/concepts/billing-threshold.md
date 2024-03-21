@@ -27,7 +27,7 @@ description: "Порог оплаты — это отрицательный ба
 - объема потребляемых ресурсов;
 - вашей финансовой надежности.
 
-Информация о размере порога оплаты представлена в [консоли управления]({{ link-console-billing }}) в данных платежного аккаунта в разделе **{{ ui-key.yacloud.billing.account.overview.section_account-data }}**.
+Информация о размере порога оплаты представлена в [сервисе {{ billing-name }}]({{ link-console-billing }}) в данных платежного аккаунта в разделе **{{ ui-key.yacloud.billing.account.overview.section_account-data }}**.
 
 ## Подключение порога оплаты {#enable}
 

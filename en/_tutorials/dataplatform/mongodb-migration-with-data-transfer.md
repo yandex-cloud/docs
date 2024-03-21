@@ -65,15 +65,15 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 ### Create and configure a target cluster {#target-setup}
 
-{% list tabs %}
+{% list tabs group=cluster %}
 
-- Non-sharded target cluster
+- Non-sharded target cluster {#non-sharded}
 
    1. [Create a {{ mmg-name }} cluster](../../managed-mongodb/operations/cluster-create.md) with any suitable configuration.
    1. [Create](../../managed-mongodb/operations/databases.md#add-db) the `db1` database.
    1. [Create](../../managed-mongodb/operations/cluster-users.md#adduser) the `user_transfer` user with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
 
-- Sharded target cluster
+- Sharded target cluster {#sharded}
 
    1. [Create a {{ mmg-name }} cluster](../../managed-mongodb/operations/cluster-create.md) with any suitable configuration. There must be at least two hosts in the cluster.
    1. [Enable sharding](../../managed-mongodb/operations/shards.md).
@@ -85,9 +85,9 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 ### Set up endpoints and a transfer {#prepare-endpoints-transfer}
 
-{% list tabs %}
+{% list tabs group=cluster %}
 
-- Non-sharded target cluster
+- Non-sharded target cluster {#non-sharded}
 
    1. [Create an endpoint for the source cluster](../../data-transfer/operations/endpoint/index.md#create):
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MG }}`.
@@ -110,7 +110,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
       * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}**: Select the created endpoint for the source cluster.
       * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**: Select the created endpoint for the target cluster.
 
-- Sharded target cluster
+- Sharded target cluster {#sharded}
 
    1. [Create an endpoint for the source cluster](../../data-transfer/operations/endpoint/index.md#create):
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MG }}`.
@@ -137,9 +137,9 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 ### Transfer the data {#transfer}
 
-{% list tabs %}
+{% list tabs group=cluster %}
 
-- Non-sharded target cluster
+- Non-sharded target cluster {#non-sharded}
 
    1. [Activate](../../data-transfer/operations/transfer.md#activate) the created transfer.
    1. Wait for the transfer status to change to {{ dt-status-repl }}.
@@ -157,7 +157,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
       200000
       ```
 
-- Sharded target cluster
+- Sharded target cluster {#sharded}
 
    1. [Activate](../../data-transfer/operations/transfer.md#activate) the created transfer.
    1. Wait for the transfer status to change to {{ dt-status-repl }}.

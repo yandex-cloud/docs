@@ -163,7 +163,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       ```bash
       {{ yc-mdb-kf }} cluster create \
         ...
-        --host-group-ids <IDs_of_groups_of_dedicated_hosts>
+        --host-group-ids=<IDs_of_groups_of_dedicated_hosts>
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -171,7 +171,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -234,7 +234,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       Where:
 
       * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
-      * `deletion_protection`: Cluster deletion protection, `true` or `false`
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
       * `assign_public_ip`: Public access to the cluster, `true` or `false`.
       * `version`: {{ KF }} version, {{ versions.tf.str }}.
       * `schema_registry`: Data schema management, `true` or `false`.
@@ -296,7 +296,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 ## Importing clusters to {{ TF }} {#import-cluster}
 
-Using import, you can bring the existing clusters under {{ TF }} management.
+Using import, you can bring the existing clusters under the {{ TF }} management.
 
 {% list tabs group=instructions %}
 

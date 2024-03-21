@@ -82,7 +82,7 @@
 
    You can select multiple values. By default, audit logs are disabled for the user.
 
-   For more information about setting up audit logs, see [{#T}](../../managed-postgresql/operations/extensions/pgaudit.md).
+   For more information about setting up audit logs, see [Using pgaudit](../../managed-postgresql/operations/extensions/pgaudit.md).
 
 - **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
 

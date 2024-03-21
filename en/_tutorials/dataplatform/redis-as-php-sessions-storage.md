@@ -122,9 +122,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endnote %}
 
-   {% list tabs %}
+   {% list tabs group=cluster %}
 
-   - {{ RD }} cluster with no sharding
+   - Non-sharded cluster {#non-sharded}
 
       ```ini
       [PHP]
@@ -136,7 +136,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       session.save_path = "tcp://<FQDN_of_{{ RD }}_master_host>:6379?auth=<password>"
       ```
 
-   - {{ RD }} cluster with sharding
+   - Sharded cluster {#sharded}
 
       ```ini
       [PHP]
@@ -236,7 +236,7 @@ Delete the resources you no longer need to avoid paying for them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the configuration file (`redis-cluster-non-sharded-and-vm.tf` or `redis-cluster-sharded-and-vm.tf`).
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

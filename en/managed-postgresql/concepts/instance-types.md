@@ -15,7 +15,7 @@ The host class also determines which [disk types](./storage.md) are available:
 * **b1**, **b2**: `network-ssd`, `network-hdd`.
 
 
-The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage size does not depend on the host class. For more information on storage limitations, see [Quotas and limits](limits.md).
 
 ## Available host classes {#available-flavors}
 

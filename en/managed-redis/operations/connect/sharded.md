@@ -6,7 +6,7 @@ Encrypted connection is supported via port `{{ port-mrd-tls }}` and unencrypted 
 
 {% include [How to use TLS](../../../_includes/mdb/mrd/connect/how-to-use-tls.md) %}
 
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+## Connecting from graphical IDEs {#connection-ide}
 
 {% include [IDE environment settings](../../../_includes/mdb/mrd/ide-envs.md) %}
 
@@ -14,9 +14,9 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-* DBeaver
+- DBeaver {#dbeaver}
 
    Connections to {{ RD }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
 

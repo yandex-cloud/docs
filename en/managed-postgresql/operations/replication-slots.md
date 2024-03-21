@@ -44,7 +44,7 @@ For more information, see the [{{ PG }} documentation](https://www.postgresql.or
    Where:
 
    * `<slot_name>`: Unique slot name. This is a required parameter.
-   * `<plugin_name>`: Name of a plugin from the list of supported output plugins. For the list, see [{#T}](../concepts/replication.md#logical-decoding). This is a required parameter.
+   * `<plugin_name>`: Name of a plugin from the list of supported output plugins. To view the list, see [Replication](../concepts/replication.md#logical-decoding). This is a required parameter.
    * `temporary`: If `true`, the slot is deleted as soon as the current session is completed or if an error occurs. The default value is `false`.
    * `two_phase`: If `true`, the slot will decode [available transactions](https://www.postgresql.org/docs/current/sql-prepare-transaction.html). The default value is `false`.
 

@@ -86,13 +86,20 @@
 #### Где я могу добавить расчетный счет? {#checking-account}
 
 Чтобы указать расчетный счет для платежного аккаунта:
-1. В [консоли управления]({{ link-console-billing }}) нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ billing-name }}**.
-1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
-1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
-1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**. 
-   Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
-1. Выберите плательщика и нажмите кнопку **Редактировать**.
-1. В разделе **Платежные реквизиты** заполните поле **Расчетный счет**.
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ billing-name }} {#billing}
+
+   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+   1. Выберите платежный аккаунт.
+   1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
+   1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**. 
+      Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
+   1. Выберите плательщика и нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+   1. В разделе **Платежные реквизиты** заполните поле **{{ ui-key.yacloud.billing.account.overview.company_label_rs }}**.
+
+{% endlist %}
 
 #### Как узнать, управляется ли мой аккаунт через организацию {{ yandex-cloud }}? {#check-ba-org}
 

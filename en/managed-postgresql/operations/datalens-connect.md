@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on connecting to a {{ PG }} cluster from {{ datalens-name }}"
-description: "From this tutorial, you will learn how to connect to a {{ PG }} cluster from {{ datalens-name }}."
+title: "How to connect to a {{ PG }} cluster from {{ datalens-name }}"
+description: "In this tutorial, you will learn how to connect to a {{ PG }} cluster from {{ datalens-name }}."
 ---
 
 # Connecting to a {{ PG }} cluster from {{ datalens-name }}
@@ -110,7 +110,7 @@ Once the connection is created, you can:
       1. Configure a **Raw SQL level**.
       1. To explicitly define a collation for DB queries, go to **Advanced connection settings**. Select a mode to configure **Setting collate in a query**:
          * **Auto**: The default setting is used, {{ datalens-name }} decides whether to enable the `en_US` locale.
-         * **On**: The {{ datalens-name }} setting is used, the `en_US` locale is specified for individual expressions in a query. This makes the server use the appropriate sorting logic, regardless of the server settings and specific tables. Use the {{ datalens-name }} setting if the DB locale is incompatible with {{ datalens-name }} performance. For more information about the locale and `LC_COLLATE`, see [{#T}](../../managed-postgresql/operations/cluster-create.md#create-cluster).
+         * **On**: The {{ datalens-name }} setting is used, the `en_US` locale is specified for individual expressions in a query. This makes the server use the appropriate sorting logic, regardless of the server settings and specific tables. Use the {{ datalens-name }} setting if the DB locale is incompatible with {{ datalens-name }} performance. For more information on the locale and `LC_COLLATE`, see [Creating a cluster](./cluster-create.md#create-cluster).
          * **Off**: The default setting is used, {{ datalens-name }} only uses the existing parameters of the DB locale.
    1. If the cluster and {{ datalens-name }} are in different folders, use the settings from the [instructions](../../datalens/operations/connection/create-postgresql.md) in the {{ datalens-name }} documentation.
 

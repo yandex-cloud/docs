@@ -1,13 +1,3 @@
-| Service | Price per 1,000 units per month,<br>including VAT |
-| ----- | ----- |
-| [Text recognition](../../vision/concepts/ocr/index.md) | {{ sku|USD|ai.vision.text_detection|string }} |
-
-{% note warning %}
-
-The prices below will take effect on February 14, 2024.
-
-{% endnote %}
-
 | Service | Price per unit, without VAT |
 |---|---|
 | Printed text recognition | $0.001040 |

@@ -19,7 +19,7 @@ In this section, you can find {{ mpg-name }} pricing [rules](#rules) and [effect
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What is included in {{ mpg-short-name }} cost {#rules}
+## What goes into the cost of using {{ mpg-short-name }} {#rules}
 
 The {{ mpg-name }} usage cost is based on:
 
@@ -29,7 +29,7 @@ The {{ mpg-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of the host's operation in accordance with its class. Exact class characteristics are given in [{#T}](concepts/instance-types.md).
+The cost is calculated for each hour of the host's operation in accordance with its class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ PG }} host is not performing its main functions.
 

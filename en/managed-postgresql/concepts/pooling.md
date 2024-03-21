@@ -20,7 +20,7 @@ Odyssey supports three modes of connection management:
 * Transaction mode:
 
 
-   In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by that or any other client. This approach helps maintain a few server connections between the connection pooler and {{ PG }} hosts when there are many client connections.
+   In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by that or any other client. This approach allows maintaining few server connections between the connection pooler and {{ PG }} hosts when there are many client connections.
 
    The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by certain {{ PG }} clients and does not allow using:
 
@@ -39,7 +39,7 @@ Odyssey supports three modes of connection management:
 
    This approach is helpful when the `AUTOCOMMIT` mode is enabled for client sessions and each transaction is already limited to a single query. However, not every {{ PG }} client supports query mode, and when both the `AUTOCOMMIT` mode and the `synchronous_commit = remote_apply` setting are enabled for a cluster simultaneously, this significantly degrades its performance.
 
-You can [change](../operations/update.md#change-pooler-config) the connection pooler mode after the cluster is created.
+You can [change](../operations/update.md#change-pooler-config) the connection pooler mode once the cluster is created.
 
 {% note info %}
 
@@ -76,6 +76,6 @@ When integrated with Odyssey, {{ mpg-name }} clusters:
 
 * Support [logical replication streams](https://www.postgresql.org/docs/current/logical-replication.html) passing through the connection pooler.
 
-   To view examples of logical replication, see [{#T}](../tutorials/replication-overview.md).
+   To view examples of logical replication, see [Logical replication](../tutorials/replication-overview.md).
 
 In addition, {{ mpg-name }} automatically ensures fault tolerance of the connection pooler in multi-host clusters.

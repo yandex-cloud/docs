@@ -20,102 +20,15 @@ keywords:
 
 - Физические лица {#individuals}
 
-   Чтобы создать платежный аккаунт:
-
-   1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-
-   1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html) и в консоли управления создайте свое первое облако. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
-
-   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-
-   1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_create }}**. Заполните данные:
-
-      * Выберите страну плательщика.
-      * Укажите имя платежного аккаунта. Имя будет отображаться в списке ваших платежных аккаунтов и поможет выбрать нужный.
-
-   1. Если в блоке **{{ ui-key.yacloud.billing.account.create-new.section_persons }}** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового.
-
-      Чтобы добавить плательщика:
-
-      * Выберите тип плательщика: **Физическое лицо**.
-      * Укажите ваше имя, фамилию и отчество.
-
-      {% include [pin-card-data](../../_includes/billing/pin-card-data.md) %}
-
-        {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
-
-        {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
-
-   1. Укажите актуальные почту и телефон. Контактные данные нужны не только для связи с вами, но и для выставления счетов и финансовых документов.
-
-   1. Если это ваш первый платежный аккаунт в {{ yandex-cloud }}, вам доступно подключение пробного периода.
-
-       
-      
-      {% note info %}
-
-      В некоторых случаях при создании платежного аккаунта с пробным периодом может потребоваться дополнительная верификация. Сообщение с подробной инструкцией появится на странице этого платежного аккаунта в консоли управления.
-
-      {% endnote %}
-      
-
-      * Подключая пробный период, помните, что после его завершения ваши ресурсы будут приостановлены. Для возобновления работы потребуется перейти на [платную версию](../operations/activate-commercial.md).
-      * Если не подключать пробный период на данном этапе, ваш аккаунт будет создан с платным потреблением: после [использования стартового гранта](../../getting-started/usage-grant.md) вам не придется переходить на платную версию.
-
-   1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
+   {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
 - Юридические лица, ИП или нерезидент РФ и РК {#businesses-entrepreneurs}
 
-   Чтобы создать платежный аккаунт:
-
-   1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-
-   1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, зарегистрируйтесь и в консоли управления создайте свое первое облако. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
-
-   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-
-   1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_create }}**. Заполните данные:
-
-      * Выберите страну плательщика.
-      * Укажите имя платежного аккаунта. Имя будет отображаться в списке ваших платежных аккаунтов и поможет выбрать нужный.
-
-   1. Если в блоке **{{ ui-key.yacloud.billing.account.create-new.section_persons }}** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового.
-
-   1. Выберите тип плательщика: **Юридическое лицо или ИП**.
-
-   1. Выберите способ оплаты **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}** или **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**. В любой момент после создания платежного аккаунта вы можете [изменить способ оплаты](../operations/change-payment-method.md).
-
-   1. Укажите юридическую информацию о вашей организации и ваши контактные данные.
-
-      {% include [contacts-note](../../_includes/billing/contacts-note.md) %}
-
-   1. Если вы выбрали способ оплаты **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**, привяжите корпоративную банковскую карту:
-
-      {% include [pin-card-data](../../_includes/billing/pin-card-data.md) %}
-
-      * Подтвердите, что карта является корпоративной и вы уполномочены ею распоряжаться.
-
-      {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
-
-      {% include [yandex-account](../../_includes/billing/payment-card-validation.md) %}
-
-   1. Если это ваш первый платежный аккаунт в {{ yandex-cloud }}, вам доступно подключение пробного периода.
-
-      * Подключая пробный период, помните, что после его завершения ваши ресурсы будут приостановлены. Для возобновления работы потребуется перейти на [платную версию](../operations/activate-commercial.md).
-      * Если не подключать пробный период на данном этапе, ваш аккаунт будет создан с платным потреблением: после [использования стартового гранта](../../getting-started/usage-grant.md) вам не придется переходить на платную версию.
-
-   1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
-
-      
-      Если вы выбрали способ оплаты **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}** или если плательщик — нерезидент РФ и РК, вы получите письмо с описанием дальнейших действий на почту, указанную в аккаунте Яндекса или Яндекс 360. Активация платежного аккаунта может занять до трех рабочих дней.
-
-      
-      {% include [offices-and-foreign-companies](../../_includes/billing/offices-and-foreign-companies.md) %}
-
-
-
+   {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
 
 {% endlist %}
+
+{% include [account-resources-note](../_includes/account-resources-note.md) %}
 
 {% include [account-roles](../_includes/account-roles.md) %}
 
@@ -126,7 +39,6 @@ keywords:
 
 ### Начните знакомство с {{ yandex-cloud }} {#start}
 
-   {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
-
+{% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
