@@ -21,7 +21,7 @@ To authenticate, take these steps:
 
 The Kafka API uses the [SASL_SSL/PLAIN](https://docs.confluent.io/platform/current/kafka/authentication_sasl/authentication_sasl_plain.html#kafka-sasl-auth-plain) authentication mechanism.
 
-It requires the following parameters:
+The following parameters are required:
 
 * `<database>`: Database path. To view the database path, in the [management console]({{ link-console-main }}), go to the data stream page and open the **Overview** tab. The path is specified in the **Endpoint** field after `database=`.
 

@@ -1,7 +1,7 @@
 # Formula syntax
 
 The syntax of calculated expressions in {{ datalens-full-name }} is similar to SQL.
-Simple expressions can be described using ordinary arithmetic operations:
+For simple expressions, you can use ordinary arithmetic operations:
 
 ```
 ([Sales] - [Profit]) / 10
@@ -23,7 +23,7 @@ DATETRUNC([datetime], 'month')
 
 ## Dataset fields in calculations {#dataset-fields}
 
-The syntax used for accessing dataset fields is similar to Transact-SQL, but in {{ datalens-full-name }}, the field name must be enclosed in square brackets (`[]`):
+The syntax used for accessing dataset fields is similar to Transact-SQL; in {{ datalens-full-name }}, however, the field name must be enclosed in square brackets (`[]`):
 
 ```
 [Field name]
@@ -33,61 +33,61 @@ The syntax used for accessing dataset fields is similar to Transact-SQL, but in 
 
 In addition to fields, operators, and functions, expressions can include constants of different data types:
 
-- Integer: `23`, `-4325653`.
-- Fractional number: `0.0234`, `-1.0`.
-- Date: `#2020-01-01#`.
-- Date and time: `#2020-01-01 11:15:00#`.
-- String: `"String"`.
-- Boolean: `TRUE`, `FALSE`.
-- Geopoint: `GEOPOINT("[55.7912,37.6872]")`.
+- Integer: `23`, `-4325653`
+- Fractional number: `0.0234`, `-1.0`
+- Date: `#2020-01-01#`
+- Date and time: `#2020-01-01 11:15:00#`
+- String: `"String"`
+- Boolean: `TRUE`, `FALSE`
+- Geopoint: `GEOPOINT("[55.7912,37.6872]")`
 
 ## Operators {#operators}
 
-Operators available in expressions:
+You can use the following operators in expressions:
 
 - Arithmetic: `+`,` -`,` *`, `/`.
 
-  ```
-  ([Sales per Order] * [OrderCount]) - [Profit]
-  ```
+   ```
+   ([Sales per Order] * [OrderCount]) - [Profit]
+   ```
 
-  ```
-  ([Profit] / [Cost Price]) * 100
-  ```
+   ```
+   ([Profit] / [Cost Price]) * 100
+   ```
 
-  ```
-  [City] + " " + "city"
-  ```
+   ```
+   [City] + " " + "city"
+   ```
 
 [Addition (+)](../../function-ref/OP_PLUS.md#description), [subtraction (-)](../../function-ref/OP_MINUS.md#description), and [multiplication (*)](../../function-ref/OP_MULT.md#description) operators behave differently depending on the argument type.
 
 - Exponentiation: `^`.
 
-  ```
-  [Mass] * [Speed] ^ 2
-  ```
+   ```
+   [Mass] * [Speed] ^ 2
+   ```
 
 - Remainder of a division: `%`.
 
-  ```
-  [Sales] % 10 + [Cost Price] % 10
-  ```
+   ```
+   [Sales] % 10 + [Cost Price] % 10
+   ```
 
 - Boolean: `AND`, `OR`, `NOT`, `IN`, `LIKE`, `IS TRUE`, `IS FALSE`, `BETWEEN`.
 
 - Comparisons: `=`, `!=`, `<`, `<=`, `>`, `>=`.
 
-  Comparison operators let you create logical chains:
+   Comparison operators allow you to create logical chains, such as:
 
-  ```
-  1 > x > -4 > y != 8
-  ```
+   ```
+   1 > x > -4 > y != 8
+   ```
 
-Full description of [all operators](../../function-ref/operator-functions.md).
+You can see the full list of operators [here](../../function-ref/operator-functions.md).
 
 ## Formatting formulas {#formatting}
 
-Any formula can be written in one or several lines:
+Any formula can be written in one or more lines:
 
 ```
 CONCAT(
@@ -98,61 +98,61 @@ CONCAT(
 
 ## Comments {#comments}
 
-Comments are used to add explanations or to ignore parts of formulas:
+You can use comments to add explanations or ignore parts of formulas:
 
-- One-line comment.
+- Single-line comment.
 
-  ```
-  -- This is a one-line comment
-  ```
+   ```
+   -- This is a single-line comment
+   ```
 
 - Block comment.
 
-  ```
-  /* This is a block
-  comment */
-  ```
+   ```
+   /* This is a block
+   comment */
+   ```
 
 ## Logical operations {#logical-operations}
 
-Logical functions are used for branching calculations in expressions:
+You can use these logical functions for branching calculations in expressions:
 
-- `CASE`.
+- `CASE`:
 
-  ```
-  CASE [ProductID]
-      WHEN 1 THEN "Bananas"
-      WHEN 2 THEN "Apples"
-      WHEN 3 THEN "Pears"
-      ELSE "Other"
-  END
-  ```
+   ```
+   CASE [ProductID]
+       WHEN 1 THEN "Bananas"
+       WHEN 2 THEN "Apples"
+       WHEN 3 THEN "Pears"
+       ELSE "Other"
+   END
+   ```
 
-  ```
-  CASE(
-      [Color],
-      "R", "Red",
-      "G", "Green",
-      "B", "Blue",
-      "Not RGB"
-  )
-  ```
+   ```
+   CASE( 
+       [Color],
+       "R", "Red",
+       "G", "Green",
+       "B", "Blue",
+       "Not RGB" 
+   )
+   ```
 
-  Full description of the [CASE](../../function-ref/CASE.md).
+   You can see the full description of the `CASE` function [here](../../function-ref/CASE.md).
 
-- `IF`.
+- `IF`:
 
-  ```
-  IF([MassIndex] BETWEEN 18.5 AND 25, "Normally", "Not normal")
-  ```
+   ```
+   IF([MassIndex] BETWEEN 18.5 AND 25, "Normally", "Not normal")
+   ```
 
-  ```
-  IF
-      [Year] % 400 = 0 OR ([Year] % 4 = 0 AND [Year] % 100 != 0)
-          THEN "Leap year"
-      ELSE "Ordinary year"
-  END
-  ```
+   ```
+   IF
+       [Year] % 400 = 0 OR ([Year] % 4 = 0 AND [Year] % 100 != 0)
+           THEN "Leap year"
+       ELSE "Ordinary year"
+   END
+   ```
 ```
 IF
     [City] = "Moscow"
@@ -164,31 +164,31 @@ END
 ```
 
 
-Full description of the [IF](../../function-ref/IF.md).
+You can see the full description of the `IF` function [here](../../function-ref/IF.md).
 
-- `IFNULL`, `ISNULL`, `ZN`.
+- `IFNULL`, `ISNULL`, `ZN`:
 
-  ```
-  IFNULL([Cost Price], 10) * [OrderCount]
-  ```
+   ```
+   IFNULL([Cost Price], 10) * [OrderCount]
+   ```
 
-  Full description of the [IFNULL](../../function-ref/IFNULL.md).
+   You can see the full description of the `IFNULL` function [here](../../function-ref/IFNULL.md).
 
-  ```
-  IF(ISNULL([Product Name]) = TRUE, "Unnamed", [Product Name] + " " + [ProductID])
-  ```
+   ```
+   IF(ISNULL([Product Name]) = TRUE, "Unnamed", [Product Name] + " " + [ProductID])
+   ```
 
-  Full description of the [ISNULL](../../function-ref/ISNULL.md).
+   You can see the full description of the `ISNULL` function [here](../../function-ref/ISNULL.md).
 
-  ```
-  ZN([Total Sales]) - ZN([Total Cost])
-  ```
+   ```
+   ZN([Total Sales]) - ZN([Total Cost])
+   ```
 
-  Full description of the [ZN](../../function-ref/ZN.md).
+   You can see the full description of the `ZN` function [here](../../function-ref/ZN.md).
 
 ## Strings {#strings}
 
-The following [string functions](../../function-ref/string-functions.md):
+To process text data, you can use the following [string functions](../../function-ref/string-functions.md):
 
 ```
 CONCAT([Total Sales], "$")
@@ -206,7 +206,7 @@ REPLACE([OrderID], "2020", [Month])
 IF(STARTSWITH([Region Name], "RU_"), SPLIT([Region Name], "_", 2), [Region Name])
 ```
 
-Strings can be enclosed in single or double quotes. In this case, one type of quotation mark can be used inside the other:
+Strings can be enclosed in single or double quotes. You can also use one type of quotation mark inside the other:
 
 ```
 FIND([Product Name], 'plus')
@@ -228,13 +228,13 @@ REPLACE([ShopAddress], "\n", " ")
 
 {% note info %}
 
-Special characters such as `\n`, `\t`, and `\r `do not affect the display of the source data.
+Such special characters as `\n`, `\t`, or `\r `do not affect the way the source data is displayed.
 
 {% endnote %}
 
 ## Converting types {#type-conversions}
 
-Expression values can be converted from one type to another:
+You can convert expression values from one type to another:
 
 ```
 FLOAT([StringWithNumbers])
@@ -248,11 +248,11 @@ DATETIME(STR([Order Date]) + "-" + STR([Order Time]))
 GEOPOINT([Latitude],[Longitude])
 ```
 
-Full description of the [type conversion](../../function-ref/type-conversion-functions.md).
+You can see the full description of the type conversion functions [here](../../function-ref/type-conversion-functions.md).
 
 ## Aggregation {#aggregation}
 
-To calculate the resulting values, use [aggregate functions](../../function-ref/aggregation-functions.md).
+To calculate the resulting values, use [aggregate functions](../../function-ref/aggregation-functions.md):
 
 ```
 AVG([Check Total]) * COUNTD([CustomerID])
@@ -270,7 +270,7 @@ IF
 END
 ```
 
-[Window features](../../function-ref/window-functions.md) let you aggregate values from a group of strings, without combining these strings into one. This distinguishes them from aggregate functions. You can also use window functions to calculate values for one string in the context of values from other strings.
+[Window functions](../../function-ref/window-functions.md) allow you to aggregate values from a group of strings without combining these strings into one. This distinguishes them from aggregate functions. You can also use window functions to calculate values for one string in the context of values from other strings.
 
 ```
 SUM([Sales] WITHIN [PaymentType]) / SUM([Sales] TOTAL)
@@ -284,7 +284,7 @@ MSUM([Sales per Order], 1 WITHIN [ProductID] ORDER BY [Price])
 RANK_DENSE(AVG([Price]), "desc" WITHIN [ShopID] BEFORE FILTER BY [PaymentType])
 ```
 
-Window functions support [grouping](../../function-ref/window-functions.md#syntax-grouping) and [sorting](../../function-ref/window-functions.md#syntax-order-by) of records and the [BEFORE FILTER BY](../../function-ref/window-functions.md#syntax-before-filter-by).
+Window functions support [grouping](../../function-ref/window-functions.md#syntax-grouping) and [sorting](../../function-ref/window-functions.md#syntax-order-by) of records, as well as the [BEFORE FILTER BY](../../function-ref/window-functions.md#syntax-before-filter-by) option.
 
 ## Text markup {#text-markup}
 

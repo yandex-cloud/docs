@@ -25,7 +25,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 - API {#api}
 
-   Use the API [list](../../api-ref/Endpoint/list.md) method.
+   Use the [list](../../api-ref/Endpoint/list.md) API method.
 
 {% endlist %}
 
@@ -93,7 +93,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 
    
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -232,7 +232,7 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
    Use the [update](../../api-ref/Endpoint/update) API method and include the following in the request:
 
-   * Endpoint ID in the `endpointId` parameters.
+   * Endpoint ID in the `endpointId` parameter.
    * Endpoint name in the `name` parameter.
    * Endpoint description in the `description` parameter.
    * Endpoint parameters in the `settings` parameter.
@@ -271,7 +271,7 @@ You cannot change the endpoint and database types when cloning.
 
 {% note warning %}
 
-Before you [delete](../transfer.md#delete) an endpoint, delete all the transfers it's included in.
+Before deleting an endpoint, [delete](../transfer.md#delete) all the transfers it is included in.
 
 {% endnote %}
 

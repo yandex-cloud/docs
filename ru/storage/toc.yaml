@@ -249,7 +249,7 @@ items:
             href: pricing-archive/pricing-01032019.md
   - name: Справочник YC CLI
     href: ../cli/cli-ref/managed-services/storage/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:

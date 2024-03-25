@@ -2,7 +2,7 @@
 
 This section describes how data aggregation and grouping work in {{ datalens-short-name }}, how to correctly formulate expressions with aggregations, and also gives examples of SQL queries with aggregations for {{ CH }}.
 
-The [Selling.csv](https://storage.yandexcloud.net/doc-files/Selling.csv) file will be used as the source of data on sales in cities.
+As source data, we will use the [Selling.csv](https://storage.yandexcloud.net/doc-files/Selling.csv) file with the data on sales in cities.
 
 ## SQL basic concepts {#basic-sql}
 
@@ -32,7 +32,7 @@ There are two ways to use aggregate functions:
 
 In this case, aggregate functions calculate and return a single resulting value for all rows that are combined into a single group.
 
-For example, to get the sum of values in the `Sales` column from the table `Selling`, you need to run a query:
+For example, to get the sum of values in the `Sales` column from the table `Selling`, you need to run the following query:
 
 ```sql
 SELECT

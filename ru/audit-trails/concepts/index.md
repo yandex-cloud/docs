@@ -20,7 +20,7 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 
 ## Аудитные логи уровня конфигурации {#control-plane-logs}
 
-{{ at-name }} собирает аудитные логи [уровня конфигурации (Control Plane)](./control-plane-vs-data-plane.md#control-plane-events) для следующих сервисов {{ yandex-cloud }}:
+{{ at-name }} собирает аудитные логи [уровня конфигурации](./control-plane-vs-data-plane.md#control-plane-events) для следующих сервисов {{ yandex-cloud }}:
 
 * {{ alb-full-name }}
 * {{ at-full-name }}
@@ -61,7 +61,7 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 
 ## Аудитные логи уровня сервисов {#data-plane-logs}
 
-{{ at-name }} собирает аудитные логи [уровня сервисов (Data Plane)](./control-plane-vs-data-plane.md#data-plane-events) для следующих сервисов {{ yandex-cloud }}:
+{{ at-name }} собирает аудитные логи [уровня сервисов](./control-plane-vs-data-plane.md#data-plane-events) для следующих сервисов {{ yandex-cloud }}:
 
 * {{ dns-full-name }}
 * {{ lockbox-full-name }}
