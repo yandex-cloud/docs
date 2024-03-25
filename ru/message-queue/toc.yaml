@@ -24,6 +24,7 @@ items:
           - name: Symfony
             href: instruments/symfony.md
           - name: Terraform
+          - name: '{{ TF }}'
             href: instruments/terraform.md
           - name: Golang
             href: instruments/golang.md

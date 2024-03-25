@@ -88,6 +88,8 @@ items:
     href: marketplace/index.md
   - name: Message Queue
     href: message-queue/index.yaml
+  - name: MetaData Hub
+    href: metadata-hub/index.yaml
   - name: Using Microsoft products
     href: microsoft/index.yaml
   - name: Monitoring

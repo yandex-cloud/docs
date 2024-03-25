@@ -79,7 +79,7 @@ description: "By following this guide, you can assign a user as an organization 
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    The user will thus be assigned the organization administrator role. You can check the new role in the [management console]({{ link-console-main }}).
 

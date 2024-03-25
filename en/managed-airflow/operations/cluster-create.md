@@ -37,7 +37,7 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
          1. Enter a label in `key: value` format.
          1. Click **Enter**.
 
-   1. Under **{{ ui-key.yacloud.airflow.section_admin-password }}**, set a password for the admin user. The password must be not less than 8 characters long and contain at least:
+   1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, set a password for the admin user. The password must be not less than 8 characters long and contain at least:
 
       * One uppercase letter
       * One lowercase letter

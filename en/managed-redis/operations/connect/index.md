@@ -3,7 +3,7 @@ title: "Preparing to connecting in {{ mrd-full-name }}"
 description: "Follow this guide to connect to a {{ RD }} cluster."
 ---
 
-# Preparing for connecting
+# Setting up a connection
 
 Available connection methods depend on whether the cluster [sharding](../../concepts/sharding.md) is enabled:
 
@@ -44,9 +44,9 @@ You can connect to {{ mrd-name }} cluster hosts:
 
 Security group settings for sharded and non-sharded clusters differ.
 
-{% list tabs %}
+{% list tabs group=cluster %}
 
-* Cluster without sharding
+- Non-sharded cluster {#non-sharded}
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}` for direct connections to the master host or `{{ port-mrd-sentinel }}` for connections via Sentinel. If you created your cluster with SSL encryption support, specify port `{{ port-mrd-tls }}` for direct encrypted connections to the master or `{{ port-mrd-sentinel }}` for unencrypted connections using Sentinel.
 
@@ -70,7 +70,7 @@ Security group settings for sharded and non-sharded clusters differ.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Security group assigned to the VM. If it is the same as the configured group, specify **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}**.
 
-* Sharded clusters
+- Sharded cluster {#sharded}
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to enable incoming traffic from the security group where your VM is located on port `{{ port-mrd }}`. If a cluster is created with SSL encryption support, you should only specify port `{{ port-mrd-tls }}`.
 

@@ -109,7 +109,7 @@ To get started with {{ certificate-manager-name }}, you need:
    1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
    1. Wait until the certificate status changes to `Issued`.
    1. Go to the `acme-challenge` subdirectory.
-   1. Click ![image](../../_assets/options.svg) to the right of the file and select **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
+   1. Click ![image](../../_assets/options.svg) to the right of the file and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
 - AWS CLI {#cli}

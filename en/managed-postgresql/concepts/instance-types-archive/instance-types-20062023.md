@@ -1,11 +1,11 @@
 ---
 title: "{{ mpg-name }} host classes"
-description: "The host class determines the computing power allocated for each host in a {{ PG }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage size does not depend on the host class."
+description: "The host class determines the computing power allocated for each host in a {{ PG }} cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class."
 ---
 
 # {{ PG }} host classes before June 20, 2023
 
-The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change accordingly.
 
 
 The host class also determines which [disk types](.././storage.md) are available:
@@ -14,7 +14,7 @@ The host class also determines which [disk types](.././storage.md) are available
 * **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
 * **b1**, **b2**: `network-ssd`, `network-hdd`.
 
-The available storage size does not depend on the host class. For storage limitations, see [{#T}](../limits.md).
+The available storage size does not depend on the host class. For more information on storage limitations, see [Quotas and limits](../limits.md).
 
 ## Available host classes {#available-flavors}
 

@@ -18,17 +18,7 @@
 
 {% endnote %}
 
-Чтобы перейти к списку платежных аккаунтов:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-  
-  1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-  1. В левом верхнем углу нажмите кнопку ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-  1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-
-{% endlist %}
+Чтобы открыть список платежных аккаунтов, перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
 
 
 ## Типы платежных аккаунтов {#ba-types}

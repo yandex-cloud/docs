@@ -231,7 +231,7 @@ items:
                 href: api-ref/ResourceRules/update.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Troubleshooting
     href: troubleshooting.md

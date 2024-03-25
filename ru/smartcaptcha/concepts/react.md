@@ -41,17 +41,25 @@
 
 Список доступных свойств:
 
-Свойство | Тип | Описание
---- | --- | ---
-`sitekey`            | `string`                                  | Ключ клиента.
-`language`           | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Язык виджета.
-`test`               | `boolean` \| `undefined`                  | Запуск капчи в тестовом режиме. Пользователь всегда будет получать задание. Используйте это свойство только для отладки и тестирования.
-`webview`               | `boolean` \| `undefined`                  | Запуск капчи в **WebView**. Используется для повышения точности оценки пользователей при добавлении капчи в мобильные приложения с помощью **WebView**.
-`onChallengeVisible` | `() => void` \| `undefined`               | Метод вызывается, когда появляется всплывающее окно с заданием.
-`onChallengeHidden`  | `() => void` \| `undefined`               | Метод вызывается, когда закрывается всплывающее окно с заданием.
-`onNetworkError`     | `() => void` \| `undefined`               | Метод вызывается, когда происходит ошибка сети.
-`onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. Аргумент для обработчика — уникальный токен пользователя.
-`onTokenExpired`     | `() => void` \| `undefined`               | Метод вызывается, когда токен, полученный пользователем после прохождения проверки, становится невалидным.
+#|
+||**Свойство**|**Тип**|**Описание**||
+||`sitekey`|`string`|Ключ клиента.||
+||`visible`|`boolean` \| `undefined`|Показывать задание пользователю.||
+||`language`|`ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined`|Язык виджета.||
+||`test`|`boolean` \| `undefined`|Запуск капчи в тестовом режиме. Пользователь всегда будет получать задание. Используйте это свойство только для отладки и тестирования.||
+||`webview`|`boolean` \| `undefined`|Запуск капчи в **WebView**. Используется для повышения точности оценки пользователей при добавлении капчи в мобильные приложения с помощью **WebView**.||
+||`shieldPosition`| `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined`|Расположение [блока](invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.||
+||`hideShield`|`boolean` \| `undefined` |Скрыть [блок](invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.||
+||`onChallengeVisible`|`() => void` \| `undefined`|Метод вызывается, когда появляется всплывающее окно с заданием.||
+||`onChallengeHidden`|`() => void` \| `undefined`|Метод вызывается, когда закрывается всплывающее окно с заданием.||
+||`onNetworkError`|`() => void` \| `undefined`|Метод вызывается, когда происходит ошибка сети.||
+||`onJavaScriptError`|`(error: { filename: string, message: string,` 
+`col: number, line: number }) => void` \| `undefined`
+|
+Метод вызывается, когда происходит критическая ошибка в работе JavaScript.||
+||`onSuccess`|`(token: string) => void` \| `undefined`|Метод вызывается, когда пользователь успешно прошел проверку. В качестве аргумента обработчик получает уникальный токен пользователя.||
+||`onTokenExpired`|`() => void` \| `undefined`|Метод вызывается, когда токен, полученный пользователем после прохождения проверки, становится невалидным.||
+|#
 
 Пример использования `SmartCaptcha`:
 
@@ -69,20 +77,25 @@ export const ComponentWithCaptcha = () => {
 
 Список доступных свойств:
 
-Свойство | Тип | Описание
---- | --- | ---
-`sitekey`            | `string`                                  | Ключ клиента.
-`visible`            | `boolean` \| `undefined`                  | Показывать задание пользователю.
-`language`           | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Язык виджета.
-`test`               | `boolean` \| `undefined`                  | Запуск капчи в тестовом режиме. Пользователь всегда будет получать задание. Используйте это свойство только для отладки и тестирования.
-`webview`               | `boolean` \| `undefined`                  | Запуск капчи в **WebView**. Используется для повышения точности оценки пользователей при добавлении капчи в мобильные приложения с помощью **WebView**.
-`shieldPosition`     | `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined` | Расположение [блока](invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.
-`hideShield`         | `boolean` \| `undefined` | Скрыть [блок](invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.
-`onChallengeVisible` | `() => void` \| `undefined`               | Метод вызывается, когда появляется всплывающее окно с заданием.
-`onChallengeHidden`  | `() => void` \| `undefined`               | Метод вызывается, когда закрывается всплывающее окно с заданием.
-`onNetworkError`     | `() => void` \| `undefined`               | Метод вызывается, когда происходит ошибка сети.
-`onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. В качестве аргумента обработчик получает уникальный токен пользователя.
-`onTokenExpired`     | `() => void` \| `undefined`               | Метод вызывается, когда токен, полученный пользователем после прохождения проверки, становится невалидным.
+#|
+||**Свойство**|**Тип**|**Описание**||
+||`sitekey`|`string`|Ключ клиента.||
+||`visible`|`boolean` \| `undefined`|Показывать задание пользователю.||
+||`language`|`ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined`|Язык виджета.||
+||`test`|`boolean` \| `undefined`|Запуск капчи в тестовом режиме. Пользователь всегда будет получать задание. Используйте это свойство только для отладки и тестирования.||
+||`webview`|`boolean` \| `undefined`|Запуск капчи в **WebView**. Используется для повышения точности оценки пользователей при добавлении капчи в мобильные приложения с помощью **WebView**.||
+||`shieldPosition`| `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined`|Расположение [блока](invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.||
+||`hideShield`|`boolean` \| `undefined` |Скрыть [блок](invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.||
+||`onChallengeVisible`|`() => void` \| `undefined`|Метод вызывается, когда появляется всплывающее окно с заданием.||
+||`onChallengeHidden`|`() => void` \| `undefined`|Метод вызывается, когда закрывается всплывающее окно с заданием.||
+||`onNetworkError`|`() => void` \| `undefined`|Метод вызывается, когда происходит ошибка сети.||
+||`onJavaScriptError`|`(error: { filename: string, message: string,` 
+`col: number, line: number }) => void` \| `undefined`
+|
+Метод вызывается, когда происходит критическая ошибка в работе JavaScript.||
+||`onSuccess`|`(token: string) => void` \| `undefined`|Метод вызывается, когда пользователь успешно прошел проверку. В качестве аргумента обработчик получает уникальный токен пользователя.||
+||`onTokenExpired`|`() => void` \| `undefined`|Метод вызывается, когда токен, полученный пользователем после прохождения проверки, становится невалидным.||
+|#
 
 {% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
@@ -120,6 +133,7 @@ export const InvisibleCaptcha = () => {
 * `onChallengeVisible`
 * `onChallengeHidden`
 * `onNetworkError`
+* `onJavaScriptError`
 * `onSuccess`
 * `onTokenExpired`
 
@@ -128,7 +142,7 @@ export const InvisibleCaptcha = () => {
 Пример подписки на события:
 
 ```ts
-import { SmartCaptcha } from '@yandex/smart-captcha';
+import { SmartCaptcha, SmartCaptchaProps } from '@yandex/smart-captcha';
 
 export const SubscriptionToCaptcha = () => {
   const [token, setToken] = useState('');
@@ -136,7 +150,7 @@ export const SubscriptionToCaptcha = () => {
 
   const handleChallengeVisible = useCallback(() => setStatus('visible'), []);
   const handleChallengeHidden = useCallback(() => setStatus('hidden'), []);
-  const handleNetworkError = useCallback(() => setStatus('network-error'), []);
+
   const handleSuccess = useCallback((token: string) => {
     setStatus('success');
     setToken(token);
@@ -144,6 +158,13 @@ export const SubscriptionToCaptcha = () => {
   const handleTokenExpired = useCallback(() => {
     setStatus('token-expired');
     setToken('');
+  }, []);
+
+  const handleNetworkError: SmartCaptchaProps['onNetworkError'] = useCallback(() => setStatus('network-error'), []);
+
+  const handleJavaScriptError: SmartCaptchaProps['onJavaScriptError']  = useCallback((error) => {
+    setStatus('javascript-error');
+    logError(error);
   }, []);
 
   return (
@@ -154,6 +175,7 @@ export const SubscriptionToCaptcha = () => {
         onChallengeVisible={handleChallengeVisible}
         onChallengeHidden={handleChallengeHidden}
         onNetworkError={handleNetworkError}
+        onJavaScriptError={handleJavaScriptError}
         onSuccess={handleSuccess}
         onTokenExpired={handleTokenExpired}
       />
@@ -161,6 +183,8 @@ export const SubscriptionToCaptcha = () => {
   );
 };
 ```
+
+{% include [javascript-error](../../_includes/smartcaptcha/javascript-error.md) %}
 
 ## Сброс состояния {{ captcha-name }} {#reset-status}
 

@@ -41,7 +41,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
 - API {#api}
 
-    Use the API [list](../api-ref/Transfer/list.md) method.
+    Use the [list](../api-ref/Transfer/list.md) API method.
 
 {% endlist %}
 
@@ -139,7 +139,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -314,7 +314,7 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 - CLI {#cli}
 
@@ -356,10 +356,10 @@ During transfer deactivation:
 
 - Management console {#console}
 
-   1. Switch the source to <q>read-only</q>.
+   1. Switch the source to read-only.
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
    1. Wait for the transfer status to change to {{ dt-status-stopped }}.
 
 - CLI {#cli}

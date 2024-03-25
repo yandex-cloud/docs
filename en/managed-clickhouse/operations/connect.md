@@ -123,9 +123,9 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
-{% list tabs %}
+{% list tabs group=ide %}
 
-- DataGrip
+- DataGrip {#datagrip}
 
    1. Create a data source:
       1. Select **File** → **New** → **Data Source** → **{{ CH }}**.
@@ -142,7 +142,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
    1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
-- DBeaver
+- DBeaver {#dbeaver}
 
    1. Create a new DB connection:
       1. In the **Database** menu, select **New connection**.
@@ -191,7 +191,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
 
 - Connecting via SSL {#with-ssl}
 
-
+   
    ```bash
    # Connect the DEB repository.
    RUN apt-get update && \

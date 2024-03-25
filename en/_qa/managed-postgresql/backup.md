@@ -16,11 +16,7 @@ You cannot use the service to make a local dump of a DB backup from {{ yandex-cl
 
 #### How do I move a local {{ PG }} database dump to {{ yandex-cloud }}? {#dump-to-yc}
 
-Follow the instructions in [Migrating databases](../../managed-postgresql/tutorials/data-migration.md).
-
-#### How do I import data to a {{ PG }} database cluster in {{ mpg-short-name }}? {#migrate}
-
-Use the `pg_dump` built-in tool to migrate data to a {{ PG }} cluster in {{ mpg-short-name }}.
+Follow the steps described in [Migrating databases](../../managed-postgresql/tutorials/data-migration.md).
 
 #### Why can a data transfer through creating and restoring a logical dump fail with an error? {#backup-error}
 

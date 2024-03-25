@@ -9,7 +9,7 @@ You can add and remove users, as well as manage their individual settings.
 
 {% note warning %}
 
-You can use SQL commands to assign privileges to users, but you cannot use them to add or change users. For more information, see [{#T}](grant.md).
+You can use SQL commands to assign privileges to users, but you cannot use them to add or change users. For more information, see [Assigning privileges and roles to users](grant.md).
 
 {% endnote %}
 
@@ -103,7 +103,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
@@ -194,7 +194,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
@@ -242,7 +242,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
 The privileges and roles in {{ PG }} are not affected by these settings and are configured separately.
 
-For information about setting up user privileges and roles, see [{#T}](grant.md).
+For information on setting up user privileges and roles, see [Assigning privileges and roles to users](grant.md).
 
 {% endnote %}
 
@@ -308,7 +308,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
@@ -396,7 +396,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 

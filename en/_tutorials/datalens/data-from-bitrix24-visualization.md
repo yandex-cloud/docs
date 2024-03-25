@@ -139,13 +139,6 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
    * Connection the dataset is based on.
    * List of tables available in the source.
    * Workspace for the tables selected as the source of dataset fields.
-
-      {% note warning %}
-
-      Please note: You cannot [join](../../datalens/concepts/data-join.md) tables for the **Bitrix24** connection type.
-
-      {% endnote %}
-
    * Preview area for information from the selected tables.
    <br>
 
@@ -172,12 +165,6 @@ To use the [Bitrix24](#create-connection-bitrix24) connection data, you can crea
    ![image](../../_assets/datalens/solution-bitrix24/dataset-new-source.png)
 
    {% endcut %}
-
-   {% note warning %}
-
-   You cannot join tables for the **Bitrix24** connection type.
-
-   {% endnote %}
 
 1. Go to the **Fields** tab.
 1. Create a record count field named `ID_COUNT`:

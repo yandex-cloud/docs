@@ -5,10 +5,17 @@
 Если за время пробного периода вы израсходовали не весь [стартовый грант](../concepts/bonus-account.md), то оставшуюся сумму можно будет использовать в будущем для оплаты потребленных ресурсов.
 
 Чтобы перейти к использованию платной версии:
-1. В [консоли управления]({{ link-console-billing }}) нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ billing-name }}**.
-1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
-1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
-1. Подтвердите переход, для этого еще раз нажмите кнопку **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ billing-name }} {#billing}
+  
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите платежный аккаунт.
+  1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
+  1. Подтвердите переход, для этого еще раз нажмите кнопку **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
+
+{% endlist %}
 
 
 После активации платной версии [баланс лицевого счета](../concepts/personal-account.md#balance) по умолчанию равен нулю. Мы рекомендуем следить за балансом и [пополнять](../operations/pay-the-bill.md) его до положительного значения.

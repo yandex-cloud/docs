@@ -11,7 +11,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
 
-## Управление пространством {#space}
+## Пространства {#space}
 
 * [{#T}](space/create.md)
 * [{#T}](space/link-ba.md)
@@ -19,13 +19,25 @@ description: "Страница содержит все инструкции дл
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
 
-## Управление подключением {#connection}
+### Теги пространства {#space-tag}
+
+* [{#T}](space/tag/create.md)
+* [{#T}](space/tag/change.md)
+* [{#T}](space/tag/delete.md)
+
+## Подключения {#connection}
 
 * [{#T}](connection/create.md)
 
-## Управление проектом {#project}
+## Проекты {#project}
 
 * [{#T}](project/create.md)
 * [{#T}](project/add-user-to-project.md)
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
+
+### Теги проекта {#project-tag}
+
+* [{#T}](project/tag/create.md)
+* [{#T}](project/tag/change.md)
+* [{#T}](project/tag/delete.md)

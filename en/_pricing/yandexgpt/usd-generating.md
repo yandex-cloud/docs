@@ -2,6 +2,8 @@
 | ----- | ----- |
 | 1,000 units | $0.003200 |
 
+<br>
+
 | Model parameters | Multiplier | Cost per 1,000 tokens, </br> without VAT |
 |---------------------------------------------------------|-------|----------------------------------------|
 | {{ yagpt-name }} Lite, synchronous mode | 1.00 | $0.0032 |

@@ -4,19 +4,6 @@ editable: false
 items:
   - name: Начало работы
     href: quickstart.md
-  - name: Пошаговые инструкции
-    expanded: true
-    items:
-      - name: Добавить клиента
-        href: operations/pin-client.md
-      - name: Предоставить партнеру доступ к облаку клиента
-        href: operations/access/grant.md
-      - name: Предоставить доступ к партнерскому аккаунту
-        href: operations/access/partners-account.md
-      - name: Посмотреть потребление клиентов
-        href: operations/get-client-stat.md
-      - name: Приостановить оказание услуг клиенту
-        href: operations/stop-client-services.md
   - name: Партнерские программы
     expanded: true
     items:
@@ -35,6 +22,18 @@ items:
         href: specializations/index.md
       - name: Условия получения
         href: specializations/conditions.md
+  - name: Партнерский портал
+    href: portal.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Добавить клиента
+        href: operations/pin-client.md
+      - name: Предоставить доступ к партнерскому аккаунту
+        href: operations/access/partners-account.md
+      - name: Посмотреть потребление клиентов
+        href: operations/get-client-stat.md
+      - name: Приостановить оказание услуг клиенту
+        href: operations/stop-client-services.md
   - name: Термины и определения
     href: terms.md
   - name: Вопросы и ответы

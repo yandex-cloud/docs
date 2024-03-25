@@ -29,7 +29,7 @@ default:
   at-full-name: Yandex Audit Trails
   at-name: Audit Trails
   at-short-name: Audit Trails
-  auth-host: console.cloud.yandex.com
+  auth-host: console.cloud.yandex.ru
   b1-medium: b1.medium (2 × 50% vCPU, 4 GB)
   b1-micro: b1.micro (2× 20% vCPU, 2 GB)
   b1-nano: b1.nano (2 × 5% vCPU, 2 GB)
@@ -85,6 +85,8 @@ default:
   compute-name: Compute Cloud
   compute-short-name: Compute Cloud
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
+  connection-manager-full-name: Yandex Connection Manager
+  connection-manager-name: Connection Manager
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.com
   container-registry-full-name: Yandex Container Registry
@@ -319,6 +321,8 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  metadata-hub-full-name: Yandex MetaData Hub
+  metadata-hub-name: MetaData Hub
   metastore-full-name: Hive Metastore
   metastore-name: Metastore
   metrika: Yandex Metrica
@@ -655,6 +659,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  video-full-name: Yandex Cloud Video
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
@@ -728,18 +733,16 @@ default:
   zone-id: ru-central1-c
   sku|RUB|ai:
     mt:
-      detect|string: ₽492.2000
-      translate|string: ₽492.2000
-    vision:
-      text_detection|int|string: ₽130
+      detect|string: ₽492.20
+      translate|string: ₽492.20
   sku|RUB|alb:
     balancer:
-      active|string: ₽2.2200
+      active|string: ₽2.22
   sku|RUB|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|string: ₽120.0000
+          1|string: ₽120.00
       v1|string: Free
   sku|RUB|b2b:
     tracker:
@@ -751,14 +754,14 @@ default:
           6|int|string: ₽440
   sku|RUB|backup:
     protected_vms:
-      v1|string: ₽238.8000
+      v1|string: ₽238.80
     used_space:
-      v1|month|string: ₽4.2000
+      v1|month|string: ₽4.20
   sku|RUB|cdn:
     api:
       network:
         inet:
-          egress|string: ₽0.9600
+          egress|string: ₽0.96
     logs:
       raw|int|string: ₽5000
       shielding|int|string: ₽3500
@@ -768,82 +771,82 @@ default:
         c100:
           v1|string: ₽1.3159
           v3|string: ₽1.1828
-          v4|string: ₽1.9400
+          v4|string: ₽1.94
       localssd:
-        v1|month|string: ₽8.8000
+        v1|month|string: ₽8.80
         v1|string: ₽0.0122
       ram:
         v1|string: ₽0.3485
         v3|string: ₽0.3133
-        v4|string: ₽0.3500
-    image|month|string: ₽3.1200
-    snapshot|month|string: ₽3.1200
+        v4|string: ₽0.35
+    image|month|string: ₽3.12
+    snapshot|month|string: ₽3.12
     vm:
       cpu:
         '50':
-          v2|string: ₽0.7200
+          v2|string: ₽0.72
         c05:
           preemptible:
-            v2|string: ₽0.1000
-          preemptible|string: ₽0.1900
-          v2|string: ₽0.1600
-        c05|string: ₽0.3100
+            v2|string: ₽0.10
+          preemptible|string: ₽0.19
+          v2|string: ₽0.16
+        c05|string: ₽0.31
         c100:
           gpu-standard:
             preemptible:
-              v3|string: ₽0.3600
-            v3|string: ₽0.9000
-          highfreq-v3|string: ₽1.7600
+              v3|string: ₽0.36
+            v3|string: ₽0.90
+          highfreq-v3|string: ₽1.76
           preemptible:
-            v2|string: ₽0.3200
-            v3|string: ₽0.2900
-          preemptible|string: ₽0.3400
-          v2|string: ₽1.1900
-          v3|string: ₽1.0500
-        c100|string: ₽1.1200
+            v2|string: ₽0.32
+            v3|string: ₽0.29
+          preemptible|string: ₽0.34
+          v2|string: ₽1.19
+          v3|string: ₽1.05
+        c100|string: ₽1.12
         c20:
           preemptible:
-            v2|string: ₽0.1600
-            v3|string: ₽0.1400
-          preemptible|string: ₽0.2700
-          v2|string: ₽0.4900
-          v3|string: ₽0.4400
-        c20|string: ₽0.8800
+            v2|string: ₽0.16
+            v3|string: ₽0.14
+          preemptible|string: ₽0.27
+          v2|string: ₽0.49
+          v3|string: ₽0.44
+        c20|string: ₽0.88
         c50:
           preemptible:
-            v2|string: ₽0.2200
-            v3|string: ₽0.2000
-          v3|string: ₽0.6400
+            v2|string: ₽0.22
+            v3|string: ₽0.20
+          v3|string: ₽0.64
       gpu:
         gpu-standard:
           preemptible:
-            v2|string: ₽62.4000
-            v3|string: ₽148.6800
-          preemptible|string: ₽62.4000
-          v2|string: ₽249.5200
-          v3|string: ₽371.7000
-        gpu-standard|string: ₽249.5200
+            v2|string: ₽62.40
+            v3|string: ₽148.68
+          preemptible|string: ₽62.40
+          v2|string: ₽249.52
+          v3|string: ₽371.70
+        gpu-standard|string: ₽249.52
         infiniband:
           ic:
-            preemptible|string: ₽63.6000
-          ic|string: ₽63.6000
+            preemptible|string: ₽63.60
+          ic|string: ₽63.60
         standard:
           v3-t4:
-            preemptible|string: ₽16.0000
-          v3-t4|string: ₽64.0000
+            preemptible|string: ₽16.00
+          v3-t4|string: ₽64.00
       ram:
         gpu-standard:
           preemptible:
-            v3|string: ₽0.1100
-          v3|string: ₽0.2800
-        highfreq-v3|string: ₽0.3200
+            v3|string: ₽0.11
+          v3|string: ₽0.28
+        highfreq-v3|string: ₽0.32
         preemptible:
-          v2|string: ₽0.0700
-          v3|string: ₽0.0700
-        preemptible|string: ₽0.1200
-        v2|string: ₽0.3100
-        v3|string: ₽0.2800
-      ram|string: ₽0.3900
+          v2|string: ₽0.07
+          v3|string: ₽0.07
+        preemptible|string: ₽0.12
+        v2|string: ₽0.31
+        v3|string: ₽0.28
+      ram|string: ₽0.39
   sku|RUB|cr:
     bucket:
       used_space:
@@ -852,428 +855,428 @@ default:
     requests:
       public:
         authoritative:
-          v1|string: ₽32.0000
+          v1|string: ₽32.00
         recursive:
           v1|pricingRate:
-            1|string: ₽32.0000
+            1|string: ₽32.00
     zones:
-      v1|month|string: ₽36.0000
-      v1|string: ₽0.0500
+      v1|month|string: ₽36.00
+      v1|string: ₽0.05
   sku|RUB|gitlab:
-    backup|month|string: ₽1.9200
+    backup|month|string: ₽1.92
     instance:
-      cpu|string: ₽1.6800
-      disk|month|string: ₽13.0100
-      ram|string: ₽0.4500
+      cpu|string: ₽1.68
+      disk|month|string: ₽13.01
+      ram|string: ₽0.45
   sku|RUB|kms:
     api:
       v1:
-        encryptdecrypt|string: ₽2.8800
+        encryptdecrypt|string: ₽2.88
     storage:
       v1:
-        hsm|month|string: ₽360.0000
-        software|month|string: ₽2.8800
+        hsm|month|string: ₽360.00
+        software|month|string: ₽2.88
   sku|RUB|lockbox:
     storage:
       v1:
-        active_secrets|month|string: ₽18.0000
+        active_secrets|month|string: ₽18.00
   sku|RUB|mdb:
     cluster:
       clickhouse:
         v1:
           cpu:
-            c100|month|string: ₽1641.6000
-            c100|string: ₽2.2800
-            c20|month|string: ₽295.2000
-            c20|string: ₽0.4100
-            c5|month|string: ₽21.6000
-            c5|string: ₽0.0300
-            c50|month|string: ₽489.6000
-            c50|string: ₽0.6800
-          ram|month|string: ₽374.4000
-          ram|string: ₽0.5200
+            c100|month|string: ₽1641.60
+            c100|string: ₽2.28
+            c20|month|string: ₽295.20
+            c20|string: ₽0.41
+            c5|month|string: ₽21.60
+            c5|string: ₽0.03
+            c50|month|string: ₽489.60
+            c50|string: ₽0.68
+          ram|month|string: ₽374.40
+          ram|string: ₽0.52
         v2:
           cpu:
-            c100|month|string: ₽1382.4000
-            c100|string: ₽1.9200
-            c20|month|string: ₽295.2000
-            c20|string: ₽0.4100
-            c5|month|string: ₽21.6000
-            c5|string: ₽0.0300
-            c50|month|string: ₽489.6000
-            c50|string: ₽0.6800
-          ram|month|string: ₽374.4000
-          ram|string: ₽0.5200
+            c100|month|string: ₽1382.40
+            c100|string: ₽1.92
+            c20|month|string: ₽295.20
+            c20|string: ₽0.41
+            c5|month|string: ₽21.60
+            c5|string: ₽0.03
+            c50|month|string: ₽489.60
+            c50|string: ₽0.68
+          ram|month|string: ₽374.40
+          ram|string: ₽0.52
         v3:
           cpu:
-            c100|month|string: ₽1238.4000
-            c100|string: ₽1.7200
-            c50|month|string: ₽439.2000
-            c50|string: ₽0.6100
-          ram|month|string: ₽338.4000
-          ram|string: ₽0.4700
+            c100|month|string: ₽1238.40
+            c100|string: ₽1.72
+            c50|month|string: ₽439.20
+            c50|string: ₽0.61
+          ram|month|string: ₽338.40
+          ram|string: ₽0.47
       elasticsearch:
         v2:
           cpu:
-            c100|month|string: ₽1209.6000
-            c100|string: ₽1.6800
+            c100|month|string: ₽1209.60
+            c100|string: ₽1.68
           ram:
-            basic|month|string: ₽1512.0000
-            basic|string: ₽2.1000
-            gold|month|string: ₽1771.2000
-            gold|string: ₽2.4600
-            platinum|month|string: ₽2037.6000
-            platinum|string: ₽2.8300
+            basic|month|string: ₽1512.00
+            basic|string: ₽2.10
+            gold|month|string: ₽1771.20
+            gold|string: ₽2.46
+            platinum|month|string: ₽2037.60
+            platinum|string: ₽2.83
         v3:
           cpu:
-            c100|month|string: ₽1209.6000
-            c100|string: ₽1.6800
+            c100|month|string: ₽1209.60
+            c100|string: ₽1.68
           ram:
-            basic|month|string: ₽1512.0000
-            basic|string: ₽2.1000
-            gold|month|string: ₽1771.2000
-            gold|string: ₽2.4600
-            platinum|month|string: ₽2037.6000
-            platinum|string: ₽2.8300
+            basic|month|string: ₽1512.00
+            basic|string: ₽2.10
+            gold|month|string: ₽1771.20
+            gold|string: ₽2.46
+            platinum|month|string: ₽2037.60
+            platinum|string: ₽2.83
       greenplum:
         v2:
           cpu:
             c100:
-              dedicated|string: ₽1.2000
-            c100|month|string: ₽1720.8000
-            c100|string: ₽2.3900
+              dedicated|string: ₽1.20
+            c100|month|string: ₽1720.80
+            c100|string: ₽2.39
           ram:
-            dedicated|string: ₽0.3100
-          ram|month|string: ₽453.6000
-          ram|string: ₽0.6300
+            dedicated|string: ₽0.31
+          ram|month|string: ₽453.60
+          ram|string: ₽0.63
         v3:
           cpu:
             c100:
-              dedicated|string: ₽1.0800
-            c100|month|string: ₽1548.0000
-            c100|string: ₽2.1500
+              dedicated|string: ₽1.08
+            c100|month|string: ₽1548.00
+            c100|string: ₽2.15
           ram:
-            dedicated|string: ₽0.2800
-          ram|month|string: ₽410.4000
-          ram|string: ₽0.5700
+            dedicated|string: ₽0.28
+          ram|month|string: ₽410.40
+          ram|string: ₽0.57
       kafka:
         v2:
           cpu:
-            c100|month|string: ₽1209.6000
-            c100|string: ₽1.6800
-            c50|month|string: ₽540.0000
-            c50|string: ₽0.7500
-          ram|month|string: ₽324.0000
-          ram|string: ₽0.4500
+            c100|month|string: ₽1209.60
+            c100|string: ₽1.68
+            c50|month|string: ₽540.00
+            c50|string: ₽0.75
+          ram|month|string: ₽324.00
+          ram|string: ₽0.45
         v3:
           cpu:
-            c100|month|string: ₽1087.2000
-            c100|string: ₽1.5100
-            c50|month|string: ₽489.6000
-            c50|string: ₽0.6800
-          ram|month|string: ₽288.0000
-          ram|string: ₽0.4000
+            c100|month|string: ₽1087.20
+            c100|string: ₽1.51
+            c50|month|string: ₽489.60
+            c50|string: ₽0.68
+          ram|month|string: ₽288.00
+          ram|string: ₽0.40
       local-nvme:
-        ch|month|string: ₽13.0100
-        elasticsearch|month|string: ₽13.0100
+        ch|month|string: ₽13.01
+        elasticsearch|month|string: ₽13.01
         greenplum:
-          dedicated|month|string: ₽4.2100
-        greenplum|month|string: ₽13.0100
-        kafka|month|string: ₽13.0100
-        mongodb|month|string: ₽13.0100
+          dedicated|month|string: ₽4.21
+        greenplum|month|string: ₽13.01
+        kafka|month|string: ₽13.01
+        mongodb|month|string: ₽13.01
         mysql:
-          dedicated|month|string: ₽4.2100
-        mysql|month|string: ₽13.0100
-        opensearch|month|string: ₽13.0100
-        pg|month|string: ₽13.0100
-        redis|month|string: ₽13.0100
+          dedicated|month|string: ₽4.21
+        mysql|month|string: ₽13.01
+        opensearch|month|string: ₽13.01
+        pg|month|string: ₽13.01
+        redis|month|string: ₽13.01
       mongodb:
         v1:
           cpu:
-            c100|month|string: ₽1152.0000
-            c100|string: ₽1.6000
-            c20|month|string: ₽331.2000
-            c20|string: ₽0.4600
-            c5|month|string: ₽28.8000
-            c5|string: ₽0.0400
-            c50|month|string: ₽540.0000
-            c50|string: ₽0.7500
-          ram|month|string: ₽648.0000
-          ram|string: ₽0.9000
+            c100|month|string: ₽1152.00
+            c100|string: ₽1.60
+            c20|month|string: ₽331.20
+            c20|string: ₽0.46
+            c5|month|string: ₽28.80
+            c5|string: ₽0.04
+            c50|month|string: ₽540.00
+            c50|string: ₽0.75
+          ram|month|string: ₽648.00
+          ram|string: ₽0.90
         v2:
           cpu:
-            c100|month|string: ₽1152.0000
-            c100|string: ₽1.6000
-            c20|month|string: ₽331.2000
-            c20|string: ₽0.4600
-            c5|month|string: ₽28.8000
-            c5|string: ₽0.0400
-            c50|month|string: ₽540.0000
-            c50|string: ₽0.7500
-          ram|month|string: ₽648.0000
-          ram|string: ₽0.9000
+            c100|month|string: ₽1152.00
+            c100|string: ₽1.60
+            c20|month|string: ₽331.20
+            c20|string: ₽0.46
+            c5|month|string: ₽28.80
+            c5|string: ₽0.04
+            c50|month|string: ₽540.00
+            c50|string: ₽0.75
+          ram|month|string: ₽648.00
+          ram|string: ₽0.90
         v3:
           cpu:
-            c100|month|string: ₽1152.0000
-            c100|string: ₽1.6000
-            c50|month|string: ₽540.0000
-            c50|string: ₽0.7500
-          ram|month|string: ₽648.0000
-          ram|string: ₽0.9000
+            c100|month|string: ₽1152.00
+            c100|string: ₽1.60
+            c50|month|string: ₽540.00
+            c50|string: ₽0.75
+          ram|month|string: ₽648.00
+          ram|string: ₽0.90
       mysql:
         v1:
           cpu:
-            c100|month|string: ₽1360.8000
-            c100|string: ₽1.8900
-            c20|month|string: ₽309.6000
-            c20|string: ₽0.4300
-            c5|month|string: ₽28.8000
-            c5|string: ₽0.0400
-            c50|month|string: ₽518.4000
-            c50|string: ₽0.7200
-          ram|month|string: ₽367.2000
-          ram|string: ₽0.5100
+            c100|month|string: ₽1360.80
+            c100|string: ₽1.89
+            c20|month|string: ₽309.60
+            c20|string: ₽0.43
+            c5|month|string: ₽28.80
+            c5|string: ₽0.04
+            c50|month|string: ₽518.40
+            c50|string: ₽0.72
+          ram|month|string: ₽367.20
+          ram|string: ₽0.51
         v2:
           cpu:
             c100:
-              dedicated|string: ₽0.5500
-            c100|month|string: ₽1346.4000
-            c100|string: ₽1.8700
-            c20|month|string: ₽309.6000
-            c20|string: ₽0.4300
-            c5|month|string: ₽28.8000
-            c5|string: ₽0.0400
-            c50|month|string: ₽518.4000
-            c50|string: ₽0.7200
+              dedicated|string: ₽0.55
+            c100|month|string: ₽1346.40
+            c100|string: ₽1.87
+            c20|month|string: ₽309.60
+            c20|string: ₽0.43
+            c5|month|string: ₽28.80
+            c5|string: ₽0.04
+            c50|month|string: ₽518.40
+            c50|string: ₽0.72
           ram:
-            dedicated|string: ₽0.1600
-          ram|month|string: ₽367.2000
-          ram|string: ₽0.5100
+            dedicated|string: ₽0.16
+          ram|month|string: ₽367.20
+          ram|string: ₽0.51
         v3:
           cpu:
             c100:
-              dedicated|string: ₽0.5000
-            c100|month|string: ₽1209.6000
-            c100|string: ₽1.6800
-            c50|month|string: ₽468.0000
-            c50|string: ₽0.6500
+              dedicated|string: ₽0.50
+            c100|month|string: ₽1209.60
+            c100|string: ₽1.68
+            c50|month|string: ₽468.00
+            c50|string: ₽0.65
           ram:
-            dedicated|string: ₽0.1500
-          ram|month|string: ₽331.2000
-          ram|string: ₽0.4600
+            dedicated|string: ₽0.15
+          ram|month|string: ₽331.20
+          ram|string: ₽0.46
       network-hdd:
-        ch|month|string: ₽3.2000
-        elasticsearch|month|string: ₽3.2000
-        greenplum|month|string: ₽3.2000
-        kafka|month|string: ₽3.2000
-        mongodb|month|string: ₽3.2000
-        mysql|month|string: ₽3.2000
-        opensearch|month|string: ₽3.2000
-        pg|month|string: ₽3.2000
+        ch|month|string: ₽3.20
+        elasticsearch|month|string: ₽3.20
+        greenplum|month|string: ₽3.20
+        kafka|month|string: ₽3.20
+        mongodb|month|string: ₽3.20
+        mysql|month|string: ₽3.20
+        opensearch|month|string: ₽3.20
+        pg|month|string: ₽3.20
       network-nvme:
-        ch|month|string: ₽13.0100
-        elasticsearch|month|string: ₽13.0100
-        greenplum|month|string: ₽13.0100
-        kafka|month|string: ₽13.0100
-        mongodb|month|string: ₽13.0100
-        mysql|month|string: ₽13.0100
-        opensearch|month|string: ₽13.0100
-        pg|month|string: ₽13.0100
-        redis|month|string: ₽13.0100
+        ch|month|string: ₽13.01
+        elasticsearch|month|string: ₽13.01
+        greenplum|month|string: ₽13.01
+        kafka|month|string: ₽13.01
+        mongodb|month|string: ₽13.01
+        mysql|month|string: ₽13.01
+        opensearch|month|string: ₽13.01
+        pg|month|string: ₽13.01
+        redis|month|string: ₽13.01
       network-ssd-nonreplicated:
-        ch|month|string: ₽8.8000
-        elasticsearch|month|string: ₽8.8000
-        greenplum|month|string: ₽8.8000
-        kafka|month|string: ₽8.8000
-        mongodb|month|string: ₽8.8000
-        mysql|month|string: ₽8.8000
-        opensearch|month|string: ₽8.8000
-        pg|month|string: ₽8.8000
-        redis|month|string: ₽8.8000
+        ch|month|string: ₽8.80
+        elasticsearch|month|string: ₽8.80
+        greenplum|month|string: ₽8.80
+        kafka|month|string: ₽8.80
+        mongodb|month|string: ₽8.80
+        mysql|month|string: ₽8.80
+        opensearch|month|string: ₽8.80
+        pg|month|string: ₽8.80
+        redis|month|string: ₽8.80
       opensearch:
         v2:
           cpu:
-            c100|month|string: ₽1209.6000
-            c100|string: ₽1.6800
-            c50|month|string: ₽483.8400
+            c100|month|string: ₽1209.60
+            c100|string: ₽1.68
+            c50|month|string: ₽483.84
             c50|string: ₽0.6720
-          ram|month|string: ₽504.0000
-          ram|string: ₽0.7000
+          ram|month|string: ₽504.00
+          ram|string: ₽0.70
         v3:
           cpu:
-            c100|month|string: ₽1209.6000
-            c100|string: ₽1.6800
-            c50|month|string: ₽483.8400
+            c100|month|string: ₽1209.60
+            c100|string: ₽1.68
+            c50|month|string: ₽483.84
             c50|string: ₽0.6720
-          ram|month|string: ₽504.0000
-          ram|string: ₽0.7000
+          ram|month|string: ₽504.00
+          ram|string: ₽0.70
       pg:
         v1:
           cpu:
-            c100|month|string: ₽1540.8000
-            c100|string: ₽2.1400
-            c20|month|string: ₽324.0000
-            c20|string: ₽0.4500
-            c5|month|string: ₽43.2000
-            c5|string: ₽0.0600
-            c50|month|string: ₽540.0000
-            c50|string: ₽0.7500
-          ram|month|string: ₽352.8000
-          ram|string: ₽0.4900
+            c100|month|string: ₽1540.80
+            c100|string: ₽2.14
+            c20|month|string: ₽324.00
+            c20|string: ₽0.45
+            c5|month|string: ₽43.20
+            c5|string: ₽0.06
+            c50|month|string: ₽540.00
+            c50|string: ₽0.75
+          ram|month|string: ₽352.80
+          ram|string: ₽0.49
         v2:
           cpu:
-            c100|month|string: ₽1303.2000
-            c100|string: ₽1.8100
-            c20|month|string: ₽324.0000
-            c20|string: ₽0.4500
-            c5|month|string: ₽43.2000
-            c5|string: ₽0.0600
-            c50|month|string: ₽540.0000
-            c50|string: ₽0.7500
-          ram|month|string: ₽352.8000
-          ram|string: ₽0.4900
+            c100|month|string: ₽1303.20
+            c100|string: ₽1.81
+            c20|month|string: ₽324.00
+            c20|string: ₽0.45
+            c5|month|string: ₽43.20
+            c5|string: ₽0.06
+            c50|month|string: ₽540.00
+            c50|string: ₽0.75
+          ram|month|string: ₽352.80
+          ram|string: ₽0.49
         v3:
           cpu:
-            c100|month|string: ₽1173.6000
-            c100|string: ₽1.6300
-            c50|month|string: ₽489.6000
-            c50|string: ₽0.6800
-          ram|month|string: ₽316.8000
-          ram|string: ₽0.4400
+            c100|month|string: ₽1173.60
+            c100|string: ₽1.63
+            c50|month|string: ₽489.60
+            c50|string: ₽0.68
+          ram|month|string: ₽316.80
+          ram|string: ₽0.44
       redis:
         v1:
           cpu:
-            c100|month|string: ₽1440.0000
-            c100|string: ₽2.0000
-            c20|month|string: ₽259.2000
-            c20|string: ₽0.3600
-            c5|month|string: ₽7.2000
-            c5|string: ₽0.0100
-          ram|month|string: ₽388.8000
-          ram|string: ₽0.5400
+            c100|month|string: ₽1440.00
+            c100|string: ₽2.00
+            c20|month|string: ₽259.20
+            c20|string: ₽0.36
+            c5|month|string: ₽7.20
+            c5|string: ₽0.01
+          ram|month|string: ₽388.80
+          ram|string: ₽0.54
         v2:
           cpu:
-            c100|month|string: ₽1209.6000
-            c100|string: ₽1.6800
-            c5|month|string: ₽79.2000
-            c5|string: ₽0.1100
-            c50|month|string: ₽727.2000
-            c50|string: ₽1.0100
-          ram|month|string: ₽324.0000
-          ram|string: ₽0.4500
+            c100|month|string: ₽1209.60
+            c100|string: ₽1.68
+            c5|month|string: ₽79.20
+            c5|string: ₽0.11
+            c50|month|string: ₽727.20
+            c50|string: ₽1.01
+          ram|month|string: ₽324.00
+          ram|string: ₽0.45
         v3:
           cpu:
-            c100|month|string: ₽1087.2000
-            c100|string: ₽1.5100
-            c50|month|string: ₽655.2000
-            c50|string: ₽0.9100
-          ram|month|string: ₽288.0000
-          ram|string: ₽0.4000
+            c100|month|string: ₽1087.20
+            c100|string: ₽1.51
+            c50|month|string: ₽655.20
+            c50|string: ₽0.91
+          ram|month|string: ₽288.00
+          ram|string: ₽0.40
     dataproc:
       v2:
         cpu:
-          c100|string: ₽0.1200
-          c50|string: ₽0.0600
-        ram|string: ₽0.0300
+          c100|string: ₽0.12
+          c50|string: ₽0.06
+        ram|string: ₽0.03
       v3:
         cpu:
-          c100|string: ₽0.1200
-        ram|string: ₽0.0300
+          c100|string: ₽0.12
+        ram|string: ₽0.03
     zk:
       clickhouse:
         v1:
           cpu:
-            c100|month|string: ₽1022.4000
-            c100|string: ₽1.4200
-            c20|month|string: ₽403.2000
-            c20|string: ₽0.5600
-            c5|month|string: ₽172.8000
-            c5|string: ₽0.2400
-            c50|month|string: ₽561.6000
-            c50|string: ₽0.7800
-          ram|month|string: ₽230.4000
-          ram|string: ₽0.3200
+            c100|month|string: ₽1022.40
+            c100|string: ₽1.42
+            c20|month|string: ₽403.20
+            c20|string: ₽0.56
+            c5|month|string: ₽172.80
+            c5|string: ₽0.24
+            c50|month|string: ₽561.60
+            c50|string: ₽0.78
+          ram|month|string: ₽230.40
+          ram|string: ₽0.32
         v2:
           cpu:
-            c100|month|string: ₽871.2000
-            c100|string: ₽1.2100
-            c20|month|string: ₽403.2000
-            c20|string: ₽0.5600
-            c5|month|string: ₽172.8000
-            c5|string: ₽0.2400
-            c50|month|string: ₽561.6000
-            c50|string: ₽0.7800
-          ram|month|string: ₽230.4000
-          ram|string: ₽0.3200
+            c100|month|string: ₽871.20
+            c100|string: ₽1.21
+            c20|month|string: ₽403.20
+            c20|string: ₽0.56
+            c5|month|string: ₽172.80
+            c5|string: ₽0.24
+            c50|month|string: ₽561.60
+            c50|string: ₽0.78
+          ram|month|string: ₽230.40
+          ram|string: ₽0.32
         v3:
           cpu:
-            c100|month|string: ₽784.8000
-            c100|string: ₽1.0900
-            c50|month|string: ₽504.0000
-            c50|string: ₽0.7000
-          ram|month|string: ₽201.6000
-          ram|string: ₽0.2800
+            c100|month|string: ₽784.80
+            c100|string: ₽1.09
+            c50|month|string: ₽504.00
+            c50|string: ₽0.70
+          ram|month|string: ₽201.60
+          ram|string: ₽0.28
       kafka:
         v2:
           cpu:
-            c100|month|string: ₽871.2000
-            c100|string: ₽1.2100
-            c50|month|string: ₽561.6000
-            c50|string: ₽0.7800
-          ram|month|string: ₽230.4000
-          ram|string: ₽0.3200
+            c100|month|string: ₽871.20
+            c100|string: ₽1.21
+            c50|month|string: ₽561.60
+            c50|string: ₽0.78
+          ram|month|string: ₽230.40
+          ram|string: ₽0.32
         v3:
           cpu:
-            c100|month|string: ₽784.8000
-            c100|string: ₽1.0900
-            c50|month|string: ₽504.0000
-            c50|string: ₽0.7000
-          ram|month|string: ₽201.6000
-          ram|string: ₽0.2800
+            c100|month|string: ₽784.80
+            c100|string: ₽1.09
+            c50|month|string: ₽504.00
+            c50|string: ₽0.70
+          ram|month|string: ₽201.60
+          ram|string: ₽0.28
   sku|RUB|mk8s:
     master:
       regional:
-        small|month|string: ₽16012.8000
-        small|string: ₽22.2400
+        small|month|string: ₽16012.80
+        small|string: ₽22.24
       zonal:
-        small|month|string: ₽6336.0000
-        small|string: ₽8.8000
+        small|month|string: ₽6336.00
+        small|string: ₽8.80
   sku|RUB|monitoring:
     point:
       dgauge:
         read|pricingRate:
-          50|string: ₽4.2000
-        read|string: ₽7.0000
+          50|string: ₽4.20
+        read|string: ₽7.00
         store|string: Free
         write|pricingRate:
-          50|string: ₽5.6000
-        write|string: ₽9.8000
+          50|string: ₽5.60
+        write|string: ₽9.80
   sku|RUB|nbs:
     network-hdd:
-      allocated|month|string: ₽2.9200
+      allocated|month|string: ₽2.92
       allocated|string: ₽0.0041
     network-nvme:
-      allocated|month|string: ₽11.9100
+      allocated|month|string: ₽11.91
       allocated|string: ₽0.0165
     network-ssd-io-m3:
-      allocated|month|string: ₽19.8000
+      allocated|month|string: ₽19.80
     network-ssd-nonreplicated:
-      allocated|month|string: ₽8.8000
+      allocated|month|string: ₽8.80
   sku|RUB|network:
     egress:
       inet|pricingRate:
-        100|string: ₽1.5300
+        100|string: ₽1.53
       inet|string: Free
     ingress:
       inet:
         antiddos:
-          qrator|string: ₽2.4300
+          qrator|string: ₽2.43
     public_fips:
-      deallocated|string: ₽0.3100
-    public_fips|string: ₽0.2400
+      deallocated|string: ₽0.31
+    public_fips|string: ₽0.24
   sku|RUB|nlb:
     balancer:
-      active|string: ₽0.7800
+      active|string: ₽0.78
   sku|RUB|searchapi:
     requests:
       day:
@@ -1286,100 +1289,100 @@ default:
     containers:
       compute:
         cpu|pricingRate:
-          5|string: ₽4.8000
+          5|string: ₽4.80
         cpu|string: Free
         memory|pricingRate:
-          10|string: ₽3.2000
+          10|string: ₽3.20
         memory|string: Free
         provision_enabled:
-          cpu|string: ₽1.0300
-          memory|string: ₽0.6900
+          cpu|string: ₽1.03
+          memory|string: ₽0.69
         provisioned_request:
-          cpu|string: ₽1.9800
-          memory|string: ₽1.3200
+          cpu|string: ₽1.98
+          memory|string: ₽1.32
       invocations|pricingRate:
-        1|string: ₽16.0000
+        1|string: ₽16.00
       invocations|string: Free
     functions:
       compute:
         v1|pricingRate:
-          10|string: ₽5.4700
+          10|string: ₽5.47
         v1|string: Free
       invocations:
         v1|pricingRate:
-          1|string: ₽16.0000
+          1|string: ₽16.00
         v1|string: Free
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|string: ₽0.0025
     stt_long_running:
-      v1|string: ₽0.0100
+      v1|string: ₽0.01
     stt:
-      v1|string: ₽0.1600
+      v1|string: ₽0.16
     tts_gpu:
-      v1|string: ₽1320.0000
+      v1|string: ₽1320.00
     tts:
       v3_bvcc_request:
-        v1|string: ₽0.1600
+        v1|string: ₽0.16
       v3_bvprem_request:
-        v1|string: ₽0.1600
+        v1|string: ₽0.16
       v3_bvss_request:
-        v1|string: ₽0.1600
+        v1|string: ₽0.16
       v3_request:
-        v1|string: ₽0.1600
+        v1|string: ₽0.16
   sku|RUB|storage:
     api:
       get:
-        cold|string: ₽0.9700
-        ice|string: ₽1.9400
+        cold|string: ₽0.97
+        ice|string: ₽1.94
         standard|pricingRate:
-          10|string: ₽0.3900
+          10|string: ₽0.39
         standard|string: Free
       head:
-        cold|string: ₽0.9700
-        ice|string: ₽1.9400
+        cold|string: ₽0.97
+        ice|string: ₽1.94
         standard|pricingRate:
-          10|string: ₽0.3900
+          10|string: ₽0.39
         standard|string: Free
       network:
         inet:
           egress|pricingRate:
-            100|string: ₽1.5300
-            1024|string: ₽1.2800
-            102400|string: ₽1.1500
-            51200|string: ₽1.2000
+            100|string: ₽1.53
+            1024|string: ₽1.28
+            102400|string: ₽1.15
+            51200|string: ₽1.20
           egress|string: Free
       options:
-        cold|string: ₽0.9700
-        ice|string: ₽1.9400
+        cold|string: ₽0.97
+        ice|string: ₽1.94
         standard|pricingRate:
-          10|string: ₽0.3900
+          10|string: ₽0.39
         standard|string: Free
       patch:
-        cold|string: ₽1.1800
-        ice|string: ₽2.3600
+        cold|string: ₽1.18
+        ice|string: ₽2.36
         standard|pricingRate:
-          10|string: ₽0.4800
+          10|string: ₽0.48
         standard|string: Free
       post:
-        cold|string: ₽1.1800
-        ice|string: ₽2.3600
+        cold|string: ₽1.18
+        ice|string: ₽2.36
         standard|pricingRate:
-          10|string: ₽0.4800
+          10|string: ₽0.48
         standard|string: Free
       put:
-        cold|string: ₽1.1800
-        ice|string: ₽2.3600
+        cold|string: ₽1.18
+        ice|string: ₽2.36
         standard|pricingRate:
-          10|string: ₽0.4800
+          10|string: ₽0.48
         standard|string: Free
     bucket:
       used_space:
-        cold|month|string: ₽1.0700
+        cold|month|string: ₽1.07
         ice|month|string: ₽0.5350
         standard|month|string: Free
         standard|pricingRate:
-          720|month|string: ₽2.0100
+          720|month|string: ₽2.01
   sku|RUB|support:
     business:
       fixed_consumption:
@@ -1387,7 +1390,7 @@ default:
     organization:
       business:
         fixed_consumption:
-          v1|int|string: ₽3000
+          v1|string: ₽3000.00
     standard:
       fixed_consumption:
         v1|int|string: Free
@@ -1410,86 +1413,86 @@ default:
             ch:
               cpu:
                 c100:
-                  v2|month|string: ₽1175.0400
+                  v2|month|string: ₽1175.04
                   v2|string: ₽1.6320
-                  v3|month|string: ₽1052.6400
+                  v3|month|string: ₽1052.64
                   v3|string: ₽1.4620
               ram:
-                v2|month|string: ₽318.2400
+                v2|month|string: ₽318.24
                 v2|string: ₽0.4420
-                v3|month|string: ₽287.6400
+                v3|month|string: ₽287.64
                 v3|string: ₽0.3995
             greenplum:
               cpu:
                 c100:
-                  v3|month|string: ₽1315.8000
+                  v3|month|string: ₽1315.80
                   v3|string: ₽1.8275
               ram:
-                v3|month|string: ₽348.8400
+                v3|month|string: ₽348.84
                 v3|string: ₽0.4845
             kafka:
               cpu:
                 c100:
-                  v2|month|string: ₽1028.1600
+                  v2|month|string: ₽1028.16
                   v2|string: ₽1.4280
-                  v3|month|string: ₽924.1200
+                  v3|month|string: ₽924.12
                   v3|string: ₽1.2835
               ram:
-                v2|month|string: ₽275.4000
+                v2|month|string: ₽275.40
                 v2|string: ₽0.3825
-                v3|month|string: ₽244.8000
-                v3|string: ₽0.3400
+                v3|month|string: ₽244.80
+                v3|string: ₽0.34
             mysql:
               cpu:
                 c100:
-                  v2|month|string: ₽1144.4400
+                  v2|month|string: ₽1144.44
                   v2|string: ₽1.5895
-                  v3|month|string: ₽1028.1600
+                  v3|month|string: ₽1028.16
                   v3|string: ₽1.4280
               ram:
-                v2|month|string: ₽312.1200
+                v2|month|string: ₽312.12
                 v2|string: ₽0.4335
-                v3|month|string: ₽281.5200
+                v3|month|string: ₽281.52
                 v3|string: ₽0.3910
             opensearch:
               cpu:
                 c100:
-                  v3|month|string: ₽1028.1600
+                  v3|month|string: ₽1028.16
                   v3|string: ₽1.4280
               ram:
-                v3|month|string: ₽428.4000
+                v3|month|string: ₽428.40
                 v3|string: ₽0.5950
             pg:
               cpu:
                 c100:
-                  v2|month|string: ₽1107.7200
+                  v2|month|string: ₽1107.72
                   v2|string: ₽1.5385
-                  v3|month|string: ₽997.5600
+                  v3|month|string: ₽997.56
                   v3|string: ₽1.3855
               ram:
-                v2|month|string: ₽299.8800
+                v2|month|string: ₽299.88
                 v2|string: ₽0.4165
-                v3|month|string: ₽269.2800
+                v3|month|string: ₽269.28
                 v3|string: ₽0.3740
             redis:
               cpu:
                 c100:
-                  v2|month|string: ₽1028.1600
+                  v2|month|string: ₽1028.16
                   v2|string: ₽1.4280
-                  v3|month|string: ₽924.1200
+                  v3|month|string: ₽924.12
                   v3|string: ₽1.2835
               ram:
-                v2|month|string: ₽275.4000
+                v2|month|string: ₽275.40
                 v2|string: ₽0.3825
-                v3|month|string: ₽244.8000
-                v3|string: ₽0.3400
+                v3|month|string: ₽244.80
+                v3|string: ₽0.34
           ydb:
             cpu:
               c100:
-                v2|month|string: ₽1144.4400
+                v2|month|string: ₽1144.44
                 v2|string: ₽1.5895
             ram:
-              v2|month|string: ₽312.1200
+              v2|month|string: ₽312.12
               v2|string: ₽0.4335
         y1:
           compute:
@@ -1519,7 +1522,7 @@ default:
             greenplum:
               cpu:
                 c100:
-                  v3|month|string: ₽1207.4400
+                  v3|month|string: ₽1207.44
                   v3|string: ₽1.6770
               ram:
                 v3|month|string: ₽320.1120
@@ -1532,9 +1535,9 @@ default:
                   v3|month|string: ₽848.0160
                   v3|string: ₽1.1778
               ram:
-                v2|month|string: ₽252.7200
+                v2|month|string: ₽252.72
                 v2|string: ₽0.3510
-                v3|month|string: ₽224.6400
+                v3|month|string: ₽224.64
                 v3|string: ₽0.3120
             mysql:
               cpu:
@@ -1554,7 +1557,7 @@ default:
                   v3|month|string: ₽943.4880
                   v3|string: ₽1.3104
               ram:
-                v3|month|string: ₽393.1200
+                v3|month|string: ₽393.12
                 v3|string: ₽0.5460
             pg:
               cpu:
@@ -1576,9 +1579,9 @@ default:
                   v3|month|string: ₽848.0160
                   v3|string: ₽1.1778
               ram:
-                v2|month|string: ₽252.7200
+                v2|month|string: ₽252.72
                 v2|string: ₽0.3510
-                v3|month|string: ₽224.6400
+                v3|month|string: ₽224.64
                 v3|string: ₽0.3120
           ydb:
             cpu:
@@ -1591,58 +1594,56 @@ default:
   sku|RUB|ydb:
     cluster:
       v1:
-        ssd|month|string: ₽21.3800
+        ssd|month|string: ₽21.38
       v2:
-        cpu|month|string: ₽1346.4000
-        cpu|string: ₽1.8700
-        ram|month|string: ₽367.2000
-        ram|string: ₽0.5100
+        cpu|month|string: ₽1346.40
+        cpu|string: ₽1.87
+        ram|month|string: ₽367.20
+        ram|string: ₽0.51
     v1:
       serverless:
         requests|pricingRate:
-          1|string: ₽21.3800
+          1|string: ₽21.38
   sku|RUB|yds:
     events:
       puts|pricingRate:
-        2|string: ₽1.1800
+        2|string: ₽1.18
     reserved_resources:
       128k:
         12h|string: ₽0.1333
         1h|pricingRate:
-          744|string: ₽0.1000
+          744|string: ₽0.10
         1h|string: Free
-        24h|string: ₽0.2000
+        24h|string: ₽0.20
         4h|string: ₽0.1167
       1m:
         12h|string: ₽0.6333
         24h|string: ₽0.9333
         4h|string: ₽0.4333
       512k:
-        12h|string: ₽0.4000
-        24h|string: ₽0.6000
+        12h|string: ₽0.40
+        24h|string: ₽0.60
         4h|string: ₽0.2667
-    reserved_storage|month|string: ₽10.8000
+    reserved_storage|month|string: ₽10.80
     reserved_throughput:
-      128k|month|string: ₽48.0000
-      1m|month|string: ₽240.0000
-      512k|month|string: ₽144.0000
+      128k|month|string: ₽48.00
+      1m|month|string: ₽240.00
+      512k|month|string: ₽144.00
   sku|RUB|ymq:
     queue:
       fifo:
         requests|pricingRate:
           '0':
-            1|string: ₽61.1500
+            1|string: ₽61.15
       std:
         requests|pricingRate:
           '0':
-            1|string: ₽48.7600
+            1|string: ₽48.76
         requests|string: Free
   sku|USD|ai:
     mt:
       detect|string: $3.937600
       translate|string: $3.937600
-    vision:
-      text_detection|string: $1.040000
   sku|USD|alb:
     balancer:
       active|string: $0.017760
@@ -3208,6 +3209,7 @@ default:
         standard-info-section-time: Time spent
       ui_components_page-admin_BillingAccountInfo:
         person-type-company: Legal entity or individual entrepreneur
+        person-type-invididual: Individual
         rebind-account: Change billing account
         refill-balance: Top up balance
         refill-dialog-ok-issue: Issue an invoice
@@ -3436,13 +3438,24 @@ default:
       cloud-billing-account:
         account_label_new: New payer
         label_card-add: Add card
+        label_wizard-next: Next
         payment-type_label_card: Bank card
         payment-type_label_invoice: Bank transfer
         section_person-type: Payer type
         section_persons: Payers
+      create-account-wizard:
+        field_organization: Organization
+        field_person-id: Payer
     yacloud_billing:
       billing:
         account:
+          dashboard-resources:
+            title_section-billable: Linked clouds and services
+          dashboard:
+            card_label_threshold-description: Detailed
+            label_inactivation: Delete
+            label_rename: Rename
+            popup-go-pay_button_cancel: Cancel
           overview:
             account-data_label_organization: Organization
             section_account-data: General information
@@ -3622,7 +3635,6 @@ default:
         save-changes: Save
       common:
         resource-acl:
-          label_groups: Groups
           label_inherited-bindings: Inherited roles
           label_service-accounts: Service accounts
       component:
@@ -3677,8 +3689,6 @@ default:
             action:
               role:
                 add: Add role
-              subject:
-                select: Select subject
         federation:
           action:
             create: Create federation
@@ -3783,7 +3793,7 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Create a cluster
-        section_admin-password: User
+        section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
         section_dependencies: Dependencies
         section_scheduler: Scheduler configuration
@@ -3945,6 +3955,8 @@ default:
         field_delete-old-vm: Delete outdated VM
         field_recover-to-vm: Target VM
         field_repeat-period-type: Create backups
+        field_type-full: Full
+        field_type-incremental: Incremental
         field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Custom
@@ -3964,8 +3976,6 @@ default:
         value_period-time-weekly: Every week
         value_retention-save-all: Retain all backups
         value_retention-save-last-f: Only the last
-        value_scheme-full: Full
-        value_scheme-incremental: Incremental
       billing:
         account:
           acts_batch-download-text_pdf: Download documents (PDF)
@@ -4057,6 +4067,7 @@ default:
           overview:
             button_bind-card-apply: Apply
             card_label_edit: Change bank card
+            company_label_rs: Billing account
             payment-type_label_card: Bank card
             payment-type_label_invoice: Wire transfer
             section_account-data: General information
@@ -4485,6 +4496,9 @@ default:
           field_source: Contents
           field_type: Type
           value_source-none: Empty
+        disk:
+          overview:
+            label_status: Status
         disks:
           button_action-attach: Attach
           button_action-delete: Delete
@@ -4730,6 +4744,8 @@ default:
             button_add-instance: Add VM
             popup-add_button_add: Add
             popup-confirm_button_delete: Delete from group
+          overview:
+            label_title: Overview
           switch_disks: List of disks
           switch_instances: List of VMs
         placement-groups:
@@ -4759,7 +4775,6 @@ default:
           list:
             button_action-delete: Delete
             button_action-image: Create image
-            popup-confirm_button_delete: Delete
         switch_disks: Disks
         switch_file-storages: File storages
         switch_groups: Instance groups
@@ -6094,11 +6109,9 @@ default:
         value_config-standard: Standard
       storage:
         bucket:
-          button_action-delete: Delete
           button_action-permissions: Object ACL
           button_create: Create folder
           button_empty-create: Upload objects
-          button_gr-delete: Delete
           button_permissions: Bucket ACL
           button_upload: Upload
           cors:
@@ -7896,7 +7909,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.29
+        tag: 0.4.30
     yc_gitlab-agent:
       helmChart:
         name: >-
@@ -7918,7 +7931,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.0.4
+        tag: 1.1.1
     yc_metric-provider:
       helmChart:
         name: >-
@@ -7943,7 +7956,7 @@ default:
     yc_vault-yckms-k8s:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
-        tag: 0.25.0-1
+        tag: 0.27.0_yckms
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero

@@ -310,6 +310,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
       * `ACCESS_ROLE_ADMIN`: Only available if access to any topics is selected.
 
       You can select the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles at the same time to make a user suitable for both producers and consumers.
+
+      The user also gains access to data schema subjects. The availability of subjects depends on the specified roles and topics. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
+
    1. To grant permissions to other topics, repeat the steps.
    1. (Optional) If you granted permissions for a topic accidentally, [revoke them](#revoke-permission).
 
@@ -354,6 +357,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
         --permission topic=topic2,role=producer
       ```
 
+      Along with access to the topic, users also gain access to data schema subjects. The availability of subjects depends on the specified roles and topics. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
+
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -382,6 +387,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
       * `role`: User role: `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER` or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` is only available with all topics selected (`topic_name = "*"`).
 
+      Along with access to the topic, users also gain access to data schema subjects. The availability of subjects depends on the specified roles and topics. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
+
       If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
    1. Make sure the settings are correct.
@@ -403,6 +410,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
    * New permission to the topic in the `permission` parameter.
+
+   Along with access to the topic, users also gain access to data schema subjects. The availability of subjects depends on the specified roles and topics. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
 
 
 {% endlist %}

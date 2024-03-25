@@ -5,8 +5,6 @@ description: "Use this guide to read and visualize metrics with Grafana."
 
 # Reading and visualizing metrics with Grafana
 
-{% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
-
 {{ managed-prometheus-name }} supports the [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) and allows you to work with dashboards that you or the community created in {{ grafana-name }}.
 
 ## Connecting a data source {#data-source}

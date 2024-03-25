@@ -1,6 +1,6 @@
 # Migrating databases from {{ mpg-name }}
 
-A {{ mpg-name }} cluster supports [logical replication](https://www.postgresql.org/docs/current/logical-replication.html). This lets you use built-in {{ PG }} tools for migrating databases between different {{ PG }} clusters with version 10 and later. Migration across versions is also supported. For example, you can move databases from {{ PG }} ver. 11 to ver. 13.
+A {{ mpg-name }} cluster supports [logical replication](https://www.postgresql.org/docs/current/logical-replication.html). This allows you to use built-in {{ PG }} tools for migrating databases between different {{ PG }} clusters of version 10 and later. Migration across versions is also supported. For example, you can move databases from {{ PG }} ver. 11 to ver. 13.
 
 {% note info %}
 
@@ -22,11 +22,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-1. Make sure all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [{#T}](../../managed-postgresql/operations/cluster-create.md).
+1. Make sure all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [Creating a cluster](../../managed-postgresql/operations/cluster-create.md).
 1. [Install the {{ mpg-name }} client SSL certificates on the hosts of the target cluster](../../managed-postgresql/operations/connect.md#get-ssl-cert) to successfully connect to the source cluster that is publicly available.
 
 
-1. Set up the firewall and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups), if required, so that you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility.
+1. If you need to, set up a firewall and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) so you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility.
 
 
 1. Make sure you can connect to the source cluster's hosts from the target cluster's hosts.
@@ -82,7 +82,7 @@ After [creating a subscription](#create-subscription), a connection to the sourc
 
    {% note info %}
 
-   {{ mpg-name }} clusters don't support creating a publication for all tables at once `CREATE PUBLICATION ... FOR ALL TABLES;`, since this requires superuser privileges.
+   {{ mpg-name }} clusters do not support creating a publication for all tables at once (`CREATE PUBLICATION ... FOR ALL TABLES;`), since this requires superuser privileges.
 
    {% endnote %}
 
@@ -92,7 +92,7 @@ After [creating a subscription](#create-subscription), a connection to the sourc
 1. Create a subscription to the source cluster's publication:
 
    ```sql
-   CREATE SUBSCRIPTION <subscription_name> CONNECTION 'host=<FQDN_of_source_cluster_host> port=6432 sslmode=verify-full dbname=<name_of_DB_to_migrate>user=<username_for_replication_management> password=<user_password>' PUBLICATION <publication_name>;
+   CREATE SUBSCRIPTION <subscription_name> CONNECTION 'host=<FQDN_of_source_cluster_host> port=6432 sslmode=verify-full dbname=<name_of_DB_to_migrate> user=<username_for_replication_management> password=<user_password>' PUBLICATION <publication_name>;
    ```
 
 This starts the process of migrating data from the source cluster's database to the target cluster's database.

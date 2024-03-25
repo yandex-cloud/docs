@@ -808,18 +808,20 @@ items:
         href: organizations.md
   - name: Release notes
     items:
-      - name: January 2024
+      - name: February 2024
         href: release-notes/index.md
+      - name: January 2024
+        href: release-notes/2401.md
       - name: December 2023
         href: release-notes/2312.md
       - name: November 2023
         href: release-notes/2311.md
       - name: October 2023
         href: release-notes/2310.md
-      - name: September 2023
-        href: release-notes/2309.md
       - name: Archive
         items:
+          - name: September 2023
+            href: release-notes/2309.md
           - name: August 2023
             href: release-notes/2308.md
           - name: July 2023

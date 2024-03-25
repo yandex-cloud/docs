@@ -152,4 +152,6 @@ items:
             href: concepts/users/subscription.md
       - name: Управление доступом
         href: security/index.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
 base: ru/marketplace

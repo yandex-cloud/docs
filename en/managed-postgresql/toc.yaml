@@ -13,7 +13,7 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Changing {{ PG }} cluster settings
+          - name: Changing cluster settings
             href: operations/update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
@@ -313,7 +313,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md

@@ -136,6 +136,9 @@ links:
   - title: Message Queue
     description: Очереди для обмена сообщениями между приложениями
     href: message-queue/
+  - title: MetaData Hub
+    description: Управление подключениями
+    href: metadata-hub/
   - title: Использование продуктов Microsoft
     description: Использование продуктов Microsoft
     href: microsoft/

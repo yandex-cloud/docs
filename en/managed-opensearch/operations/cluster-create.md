@@ -9,7 +9,7 @@ keywords:
 
 # Creating an {{ OS }} cluster
 
-A {{ mos-name }} cluster is a group of multiple linked {{ OS }} hosts and [dashboards]({{ os.docs }}/dashboards/index/). A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
+A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
@@ -194,7 +194,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -351,169 +351,169 @@ Using import, you can bring the existing clusters under the {{ TF }} management.
 
 - CLI {#cli}
 
-    Create a {{ mos-name }} cluster with the following test characteristics:
+   Create a {{ mos-name }} cluster with the following test characteristics:
 
-    * Name: `my-os-clstr`.
-    * Description: `My OS cluster`.
-    * Label: `label-key` with the `label-value` value.
-    * Environment: `production`.
-    * Network name: `{{ network-name }}`.
-    * Security group ID: `{{ security-group }}`.
-    * Service account name: `os-account`.
-    * Cluster deletion protection: Disabled.
-    * Maintenance time: Every Monday from 13:00 till 14:00.
-    * {{ OS }} version: `2.8`.
-    * `admin` user password: To be set after entering the cluster creation command.
-    * Access to {{ data-transfer-name }}: Enabled.
-    * Access to {{ serverless-containers-name }}: Enabled.
-    * {{ OS }} added plugin: analysis-icu.
-    * {{ OS }} advanced parameter: `fielddata-cache-size=50%`.
-    * `{{ OS }}` node group configuration:
+   * Name: `my-os-clstr`.
+   * Description: `My OS cluster`.
+   * Label: `label-key` with the `label-value` value.
+   * Environment: `production`.
+   * Network name: `{{ network-name }}`.
+   * Security group ID: `{{ security-group }}`.
+   * Service account name: `os-account`.
+   * Cluster deletion protection: Disabled.
+   * Maintenance time: Every Monday from 13:00 till 14:00.
+   * {{ OS }} version: `2.8`.
+   * `admin` user password: To be set after entering the cluster creation command.
+   * Access to {{ data-transfer-name }}: Enabled.
+   * Access to {{ serverless-containers-name }}: Enabled.
+   * {{ OS }} added plugin: analysis-icu.
+   * {{ OS }} advanced parameter: `fielddata-cache-size=50%`.
+   * `{{ OS }}` node group configuration:
 
-        * Group name: `os-group`
-        * Host class: `{{ host-class }}`
-        * Disk size: `10737418240` (in bytes)
-        * Disk type: `network-ssd`
-        * Number of hosts: Three
-        * Availability zone: `{{ region-id }}-b`
-        * Subnet: `{{ network-name }}-{{ region-id }}-b`
-        * Public address: Assigned
-        * Host group roles: `DATA` and `MANAGER`
+      * Group name: `os-group`
+      * Host class: `{{ host-class }}`
+      * Disk size: `10737418240` (in bytes)
+      * Disk type: `network-ssd`
+      * Number of hosts: Three
+      * Availability zone: `{{ region-id }}-b`
+      * Subnet: `{{ network-name }}-{{ region-id }}-b`
+      * Public address: Assigned
+      * Host group roles: `DATA` and `MANAGER`
 
-    * Configuration of the `Dashboards` host group:
+   * Configuration of the `Dashboards` host group:
 
-        * Group name: `dashboard-group`
-        * Host class: `{{ host-class }}`
-        * Disk size: `10737418240` (in bytes)
-        * Disk type: `network-ssd`
-        * Number of hosts: One
-        * Availability zone: `{{ region-id }}-b`
-        * Subnet: `{{ network-name }}-{{ region-id }}-b`
-        * Public address: Assigned
+      * Group name: `dashboard-group`
+      * Host class: `{{ host-class }}`
+      * Disk size: `10737418240` (in bytes)
+      * Disk type: `network-ssd`
+      * Number of hosts: One
+      * Availability zone: `{{ region-id }}-b`
+      * Subnet: `{{ network-name }}-{{ region-id }}-b`
+      * Public address: Assigned
 
-    Run this command:
+   Run this command:
 
-    ```bash
-    {{ yc-mdb-os }} cluster create \
-       --name my-os-clstr \
-       --description "My OS cluster" \
-       --labels label-key=label-value \
-       --environment production \
-       --network-name {{ network-name }} \
-       --security-group-ids {{ security-group }} \
-       --service-account-name os-account \
-       --delete-protection=false \
-       --maintenance schedule=weekly,`
-                    `weekday=mon,`
-                    `hour=14 \
-       --version 2.8 \
-       --read-admin-password \
-       --data-transfer-access=true \
-       --serverless-access=true \
-       --plugins analysis-icu \
-       --advanced-params fielddata-cache-size=50% \
-       --opensearch-node-group name=os-group,`
-                              `resource-preset-id={{ host-class }},`
-                              `disk-size=10737418240,`
-                              `disk-type-id=network-ssd,`
-                              `hosts-count=3,`
-                              `zone-ids={{ region-id }}-b,`
-                              `subnet-names={{ network-name }}-{{ region-id }}-b,`
-                              `assign-public-ip=true,`
-                              `roles=data+manager \
-       --dashboards-node-group name=dashboard-group,`
-                              `resource-preset-id={{ host-class }},`
-                              `disk-size=10737418240,`
-                              `disk-type-id=network-ssd,`
-                              `hosts-count=1,`
-                              `zone-ids={{ region-id }}-b,`
-                              `subnet-names={{ network-name }}-{{ region-id }}-b,`
-                              `assign-public-ip=true
-    ```
+   ```bash
+   {{ yc-mdb-os }} cluster create \
+      --name my-os-clstr \
+      --description "My OS cluster" \
+      --labels label-key=label-value \
+      --environment production \
+      --network-name {{ network-name }} \
+      --security-group-ids {{ security-group }} \
+      --service-account-name os-account \
+      --delete-protection=false \
+      --maintenance schedule=weekly,`
+                   `weekday=mon,`
+                   `hour=14 \
+      --version 2.8 \
+      --read-admin-password \
+      --data-transfer-access=true \
+      --serverless-access=true \
+      --plugins analysis-icu \
+      --advanced-params fielddata-cache-size=50% \
+      --opensearch-node-group name=os-group,`
+                             `resource-preset-id={{ host-class }},`
+                             `disk-size=10737418240,`
+                             `disk-type-id=network-ssd,`
+                             `hosts-count=3,`
+                             `zone-ids={{ region-id }}-b,`
+                             `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                             `assign-public-ip=true,`
+                             `roles=data+manager \
+      --dashboards-node-group name=dashboard-group,`
+                             `resource-preset-id={{ host-class }},`
+                             `disk-size=10737418240,`
+                             `disk-type-id=network-ssd,`
+                             `hosts-count=1,`
+                             `zone-ids={{ region-id }}-b,`
+                             `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                             `assign-public-ip=true
+   ```
 
 - {{ TF }} {#tf}
 
-    Create a {{ mos-name }} cluster with the following test characteristics:
+   Create a {{ mos-name }} cluster with the following test characteristics:
 
-    * Name: `my-os-clstr`.
-    * Environment: `PRODUCTION`.
-    * {{ OS }} version: `2.8`.
-    * `admin` password: `osadminpwd`.
-    * `{{ OS }}` node group name: `os-group`.
-    * Host class: `{{ host-class }}`.
-    * Disk size: `10737418240` (in bytes).
-    * Disk type: `{{ disk-type-example }}`.
-    * Number of hosts: `1`.
-    * Public address: Assigned.
-    * Host group roles: `DATA` and `MANAGER`.
-    * Network name: `mynet`.
-    * Subnet name: `mysubnet`.
-    * Availability zone: `{{ region-id }}-a`.
-    * Address range: `10.1.0.0/16`.
-    * Security group name: `os-sg`. The security group allows connecting to the cluster host from any network (including the internet) on port `9200`.
+   * Name: `my-os-clstr`.
+   * Environment: `PRODUCTION`.
+   * {{ OS }} version: `2.8`.
+   * `admin` password: `osadminpwd`.
+   * `{{ OS }}` node group name: `os-group`.
+   * Host class: `{{ host-class }}`.
+   * Disk size: `10737418240` (in bytes).
+   * Disk type: `{{ disk-type-example }}`.
+   * Number of hosts: `1`.
+   * Public address: Assigned.
+   * Host group roles: `DATA` and `MANAGER`.
+   * Network name: `mynet`.
+   * Subnet name: `mysubnet`.
+   * Availability zone: `{{ region-id }}-a`.
+   * Address range: `10.1.0.0/16`.
+   * Security group name: `os-sg`. The security group allows connecting to the cluster host from any network (including the internet) on port `9200`.
 
-    The configuration file for this cluster is as follows:
+   The configuration file for this cluster is as follows:
 
-    ```hcl
-    resource "yandex_mdb_opensearch_cluster" "my-os-clstr" {
-      name               = "my-os-clstr"
-      environment        = "PRODUCTION"
-      network_id         = yandex_vpc_network.mynet.id
-      security_group_ids = [yandex_vpc_security_group.os-sg.id]
+   ```hcl
+   resource "yandex_mdb_opensearch_cluster" "my-os-clstr" {
+     name               = "my-os-clstr"
+     environment        = "PRODUCTION"
+     network_id         = yandex_vpc_network.mynet.id
+     security_group_ids = [yandex_vpc_security_group.os-sg.id]
 
-      config {
+     config {
 
-        version        = "2.8"
-        admin_password = "osadminpwd"
+       version        = "2.8"
+       admin_password = "osadminpwd"
 
-        opensearch {
-          node_groups {
-            name             = "os-group"
-            assign_public_ip = true
-            hosts_count      = 1
-            zone_ids         = ["{{ region-id }}-a"]
-            subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
-            roles            = ["DATA", "MANAGER"]
-            resources {
-              resource_preset_id = "{{ host-class }}"
-              disk_size          = 10737418240
-              disk_type_id       = "{{ disk-type-example }}"
-            }
-          }
-        }
-      }
-    }
+       opensearch {
+         node_groups {
+           name             = "os-group"
+           assign_public_ip = true
+           hosts_count      = 1
+           zone_ids         = ["{{ region-id }}-a"]
+           subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
+           roles            = ["DATA", "MANAGER"]
+           resources {
+             resource_preset_id = "{{ host-class }}"
+             disk_size          = 10737418240
+             disk_type_id       = "{{ disk-type-example }}"
+           }
+         }
+       }
+     }
+   }
 
-    resource "yandex_vpc_network" "mynet" {
-      name = "mynet"
-    }
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
 
-    resource "yandex_vpc_subnet" "mysubnet" {
-      name           = "mysubnet"
-      zone           = "{{ region-id }}-a"
-      network_id     = yandex_vpc_network.mynet.id
-      v4_cidr_blocks = ["10.1.0.0/16"]
-    }
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.1.0.0/16"]
+   }
 
-    resource "yandex_vpc_security_group" "os-sg" {
-      name       = "os-sg"
-      network_id = yandex_vpc_network.mynet.id
+   resource "yandex_vpc_security_group" "os-sg" {
+     name       = "os-sg"
+     network_id = yandex_vpc_network.mynet.id
 
-      ingress {
-        description    = "Allow connections to the {{ mos-name }} cluster from the Internet"
-        protocol       = "TCP"
-        port           = 9200
-        v4_cidr_blocks = ["0.0.0.0/0"]
-      }
+     ingress {
+       description    = "Allow connections to the {{ mos-name }} cluster from the Internet"
+       protocol       = "TCP"
+       port           = 9200
+       v4_cidr_blocks = ["0.0.0.0/0"]
+     }
 
-      egress {
-        description    = "The rule allows all outgoing traffic"
-        protocol       = "ANY"
-        v4_cidr_blocks = ["0.0.0.0/0"]
-        from_port      = 0
-        to_port        = 65535
-      }
-    }
-    ```
+     egress {
+       description    = "The rule allows all outgoing traffic"
+       protocol       = "ANY"
+       v4_cidr_blocks = ["0.0.0.0/0"]
+       from_port      = 0
+       to_port        = 65535
+     }
+   }
+   ```
 
 {% endlist %}
