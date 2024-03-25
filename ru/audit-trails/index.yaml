@@ -22,10 +22,10 @@ links:
     description: Узнайте про концепции и возможности сервиса
     href: concepts/
   - title: Справочник событий уровня конфигурации
-    description: Описание событий Control Plane
+    description: Описание событий уровня конфигурации
     href: concepts/events
   - title: Справочник событий уровня сервисов
-    description: Описание событий Data Plane
+    description: Описание событий уровня сервисов
     href: concepts/events-data-plane
   - title: Поиск событий
     description: Поиск событий в аудитном логе

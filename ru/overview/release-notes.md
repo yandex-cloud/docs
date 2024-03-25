@@ -16,7 +16,16 @@
 * [{{ mpg-full-name }}](../managed-postgresql/release-notes.md)
 * [{{ mrd-full-name }}](../managed-redis/release-notes.md)
 
-{% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
+## Контейнерная разработка {#containerization}
+
+* [{{ managed-k8s-full-name }}](../managed-kubernetes/release-notes.md)
+
+## Бессерверные технологии {#serverless}
+
+* [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
+* [{{ sf-full-name }}](../functions/release-notes.md)
+* [{{ iot-name }}](../iot-core/release-notes.md)
+* [{{ serverless-containers-full-name }}](../serverless-containers/release-notes.md)
 
 ## Машинное обучение {#machine-learning}
 
@@ -33,17 +42,8 @@
 
 ## Инструменты {{ yandex-cloud }} {#working-tools}
 
-* [CLI](../cli/release-notes.md)
-
-## Контейнерная разработка {#containerization}
-
-* [{{ managed-k8s-full-name }}](../managed-kubernetes/release-notes.md)
-
-## Бессерверные технологии {#serverless}
-
-* [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
-* [{{ sf-full-name }}](../functions/release-notes.md)
-* [{{ serverless-containers-full-name }}](../serverless-containers/release-notes.md)
-* [{{ iot-full-name }}](../iot-core/release-notes.md)
+* [Интерфейс командной строки (CLI)](../cli/release-notes.md)
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}
+
+{% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}

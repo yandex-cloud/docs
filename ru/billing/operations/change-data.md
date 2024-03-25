@@ -13,7 +13,7 @@
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
   1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.billing.account.dashboard.label_rename }}** в верхнем блоке напротив названия аккаунта. 
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_billing.billing.account.dashboard.label_rename }}** в верхнем блоке напротив названия аккаунта. 
   1. Введите новое имя. 
   1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
 

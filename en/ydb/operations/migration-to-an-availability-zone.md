@@ -42,7 +42,7 @@ A dedicated database is hosted in multiple [availability zones](../../overview/c
 
       1. Apply the changes:
 
-         {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    {% endlist %}
 

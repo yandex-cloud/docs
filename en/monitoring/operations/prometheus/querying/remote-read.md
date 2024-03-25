@@ -5,8 +5,6 @@ description: "Use this guide to read metrics via the Remote API."
 
 # Reading metrics via the Remote API
 
-{% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
-
 1. In the [management console]({{ link-console-main }}), select the folder where data is stored.
 1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-viewer }}` role for the selected folder.
 1. [Create an API key](../../../../iam/operations/api-key/create.md) for the service account.

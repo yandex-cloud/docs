@@ -101,6 +101,8 @@ items:
             href: tutorials/remote-run-job.md
       - name: Configuring networks for {{ dataproc-name }}
         href: tutorials/configure-network.md
+      - name: Migrating an HDFS cluster to a different availability zone
+        href: tutorials/hdfs-cluster-migration.md
       - name: >-
           Reconfiguring a network connection when recreating a {{ dataproc-name
           }} cluster

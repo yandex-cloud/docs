@@ -1,6 +1,6 @@
 # Dataset settings
 
-A dataset works with sources in direct access mode: {{ datalens-short-name }} executes all data queries on the source side. Dataset settings determine how the dataset uses the source data.
+A dataset works with sources in direct access mode: {{ datalens-short-name }} runs all data queries on the source side. Dataset settings determine how the dataset uses the source data.
 
 
 ## Connecting multiple tables {#multi-table}
@@ -26,26 +26,26 @@ In a dataset, you can [create](../../operations/dataset/create-filter.md) a defa
 
 {% endnote %}
 
-Default filters for new charts will enable you:
+Default filters for new charts will enable you to:
 
-* To reduce the amount of data requested from a source when building a chart.
-* To add customized filters to new charts created from data in the same dataset.
+* Reduce the amount of data requested from a source when building a chart.
+* Add customized filters to new charts created from data in the same dataset.
 
 
 ## Access management {#access-management}
 
 You can configure permissions for an entire dataset.  For more information, see [{#T}](../../security/manage-access.md). 
 
-You can also set data permissions at the row level (_Row-level security_ aka _RLS_). For more information, see [{#T}](../../security/row-level-security.md).
+You can also set data permissions at the row level (_Row-level security_ or _RLS_). For more information, see [{#T}](../../security/row-level-security.md).
 
 
-## Executing SQL queries in datasets {#sql-request-in-datatset}
+## Running SQL queries in datasets {#sql-request-in-datatset}
 
-You can define a dataset data source using ad-hoc SQL queries over database connections. When a data source is accessed, a query code executes as a subquery. For more information about using SQL queries in a dataset, see [{#T}](../../operations/dataset/add-data.md).
+You can define a dataset data source using ad-hoc SQL queries over database connections. When a data source is accessed, the query code runs as a subquery. For more information about using SQL queries in a dataset, see [{#T}](../../operations/dataset/add-data.md).
 When using SQL queries in datasets, we recommend:
 
 * Restricting the user specified in the connection to `read-only` access.
-* Assigning users that should not have ad-hoc query privileges `Execute` access to the connection and the associated datasets.
+* Assigning users that should not have ad-hoc query privileges the `Execute` access to the connection and the associated datasets.
 
 You can enable or disable the use of subqueries as a source when [creating](../connection.md) or editing a connection.
 

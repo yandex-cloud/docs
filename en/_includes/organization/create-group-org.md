@@ -3,20 +3,17 @@
 - {{ org-name }} interface {#cloud-org}
 
    1. [Log in]({{ link-passport-login }}) as the organization administrator.
-
-   1. Go to [{{ org-full-name }}]({{link-org-main}}).
-
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
    1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
-
-   1. In the top-right corner, click **{{ ui-key.yacloud_org.entity.group.action_create }}** and enter a group name and description.
+   1. In the top-right corner, click **{{ ui-key.yacloud_org.entity.group.action_create }}** and enter a [group](../../organization/concepts/groups.md) name and description.
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, describe the group parameters:
+   1. In the configuration file, describe the [group](../../organization/concepts/groups.md) parameters:
 
       ```hcl
       resource "yandex_organizationmanager_group" "my-group" {
@@ -37,9 +34,9 @@
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc organization-manager group list --organization-id=<organization_ID>

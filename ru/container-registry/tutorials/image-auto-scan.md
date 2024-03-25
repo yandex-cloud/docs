@@ -7,18 +7,18 @@ description: "Следуя данному руководству, вы смож�
 
 {% note info %}
 
-Автоматическое [сканирование](../concepts/vulnerability-scanner.md) [Docker-образов](../concepts/docker-image.md) на наличие уязвимостей при загрузке в {{ container-registry-name }} можно включить в [настройках сканера уязвимостей](../operations/scanning-docker-image.md#automatically) без создания [функций](../../functions/concepts/function.md) и [триггеров](../../functions/concepts/trigger) [{{ sf-full-name }}](../../functions/).
+Автоматическое [сканирование](../concepts/vulnerability-scanner.md) [Docker-образов](../concepts/docker-image.md) на наличие уязвимостей при загрузке в {{ container-registry-name }} можно включить в [настройках сканера уязвимостей](../operations/scanning-docker-image.md#automatically) без создания [функций](../../functions/concepts/function.md) и [триггеров](../../functions/concepts/trigger/index.md) [{{ sf-full-name }}](../../functions/).
 
 {% endnote %}
 
-В этом руководстве вы создадите реестр {{ container-registry-full-name }} для хранения [Docker-образа](../concepts/docker-image.md) и настроите автоматическое [сканирование на уязвимости](../concepts/vulnerability-scanner.md), при загрузке образа в реестр. С помощью триггера {{ sf-name}} будут отслеживаться изменения в реестре и при загрузке образа в реестр, будет вызываться функция для запуска сканирования.
+В этом руководстве вы создадите [реестр](../concepts/registry.md) {{ container-registry-name }} для хранения Docker-образа и настроите автоматическое сканирование на уязвимости, при загрузке образа в реестр. С помощью триггера {{ sf-name}} будут отслеживаться изменения в реестре и при загрузке Docker-образа в реестр, будет вызываться функция для запуска сканирования.
 
 Чтобы настроить автоматическое сканирование Docker-образа при загрузке:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте окружение](#prepare).
 1. [Создайте функцию](#create-function).
 1. [Создайте триггер](#create-trigger).
-1. [Загрузите образ](#download-image).
+1. [Загрузите Docker-образ](#download-image).
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -34,7 +34,7 @@ description: "Следуя данному руководству, вы смож�
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 1. [Установите](https://www.docker.com) Docker.
-1. Создайте [реестр](../concepts/registry.md) для загрузки Docker-образа.
+1. Создайте реестр для загрузки Docker-образа.
 
    {% list tabs group=instructions %}
 
@@ -75,7 +75,7 @@ description: "Следуя данному руководству, вы смож�
 
    {% endlist %}
 
-1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `scanner` и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `container-registry.images.scanner` на каталог, в котором создали реестр.
+1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `scanner` и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `container-registry.images.scanner` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали реестр.
 
    {% list tabs group=instructions %}
 
@@ -231,7 +231,7 @@ description: "Следуя данному руководству, вы смож�
 
 ## Создайте триггер {#create-trigger}
 
-Создайте триггер, который будет вызывать вашу функцию при создании [тега](../concepts/docker-image.md#version) Docker-образа.
+Создайте триггер, который будет вызывать вашу функцию при создании тега](../concepts/docker-image.md#version) Docker-образа.
 
 {% list tabs group=instructions %}
 
@@ -330,7 +330,6 @@ description: "Следуя данному руководству, вы смож�
 
      1. Docker готов к использованию, например, для [загрузки Docker-образов](../operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
 
-   
    - С помощью OAuth-токена {#oauth-token}
 
      1. Если у вас еще нет [OAuth-токена](../../iam/concepts/authorization/oauth-token.md), получите его по [ссылке]({{ link-cloud-oauth }}).
@@ -346,8 +345,7 @@ description: "Следуя данному руководству, вы смож�
         Login Succeeded
         ```
 
-
-   - С помощью IAM-токена {#iam-token}
+   - С помощью {{ iam-full-name }}-токена {#iam-token}
 
      {% note info %}
 
@@ -475,29 +473,26 @@ description: "Следуя данному руководству, вы смож�
 
    {% endlist %}
 
-
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-
 * [Удалите Docker-образ](../../container-registry/operations/docker-image/docker-image-delete.md), который хранится в [{{ cos-full-name }}](../../cos/) и [реестр](../../container-registry/operations/registry/registry-delete.md).
-* [удалите](../../functions/operations/function/function-delete.md) функцию {{ sf-name }};
-* [удалите](../../functions/operations/function/function-delete.md) триггер {{ sf-name }}.
+* [Удалите](../../functions/operations/function/function-delete.md) функцию {{ sf-name }}.
+* [Удалите](../../functions/operations/function/function-delete.md) триггер {{ sf-name }}.
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
 {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-Чтобы настроить автоматическое сканирование Docker-образа при загрузке  с помощью {{ TF }}:
-
+Чтобы настроить автоматическое сканирование Docker-образа при загрузке с помощью {{ TF }}:
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 1. Укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
-   
+
    {% list tabs group=infrastructure_description %}
-   
+
    - Готовый архив {#ready}
- 
+
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/image-auto-scan-tf.zip) (2 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `image-auto-scan.tf`, файл с пользовательскими данными `image-auto-scan.auto.tfvars` и zip-архив с кодом функции `function.zip`.
@@ -506,54 +501,48 @@ description: "Следуя данному руководству, вы смож�
 
      1. Создайте папку для конфигурационных файлов.
      1. Создайте в папке конфигурационный файл `image-auto-scan.tf`:
-  
-          {% cut "image-auto-scan.tf" %}
-     
-          {% include [image-auto-scan-tf-config](../../_includes/web/image-auto-scan-tf-config.md) %}
 
-          {% endcut %}
+        {% cut "image-auto-scan.tf" %}
+
+        {% include [image-auto-scan-tf-config](../../_includes/web/image-auto-scan-tf-config.md) %}
+
+        {% endcut %}
 
      1. Создайте файл с пользовательскими данными `image-auto-scan.auto.tfvars`:
 
-          {% cut "image-auto-scan.auto.tfvars" %}
+        {% cut "image-auto-scan.auto.tfvars" %}
 
-          {% include [image-auto-scan-tf-variables](../../_includes/web/image-auto-scan-tf-variables.md) %}
+        {% include [image-auto-scan-tf-variables](../../_includes/web/image-auto-scan-tf-variables.md) %}
 
-          {% endcut %}
+        {% endcut %}
 
-     1. Подготовьте zip-архив с кодом функции:
+     1. Подготовьте zip-архив с кодом функции.
+        1. Создайте файл `handler.sh` и скопируйте в него следующий код:
 
-         1. Создайте файл `handler.sh` и скопируйте в него следующий код:
+           {% cut "handler.sh" %}
 
-             {% cut "handler.sh" %}
+           {% include [warning-unix-lines](../../_tutorials/_tutorials_includes/warning-unix-lines.md) %}
 
-             {% include [warning-unix-lines](../../_tutorials/_tutorials_includes/warning-unix-lines.md) %}
+           {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
-             {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
+           {% endcut %}
 
-             {% endcut %}
-
-         1. Создайте zip-архив `function.zip` с файлом `handler.sh`.
+        1. Создайте zip-архив `function.zip` с файлом `handler.sh`.
 
    {% endlist %}
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
-
    * [yandex_iam_service_account]({{ tf-provider-resources-link }}/yandex_iam_service_account)
    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/yandex_resourcemanager_folder_iam_member)
    * [yandex_container_registry]({{ tf-provider-resources-link }}/yandex_container_registry)
    * [yandex_function]({{ tf-provider-resources-link }}/yandex_function)
-
 1. В файле `image-auto-scan.auto.tfvars` задайте пользовательские параметры:
-    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет создана инфраструктура.
-    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создана инфраструктура.
-
+   * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет создана инфраструктура.
+   * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создана инфраструктура.
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Создайте триггер](#create-trigger).
-
 1. [Загрузите образ](#download-image).
-
 1. [Проверьте результат](#check-result).

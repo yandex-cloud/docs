@@ -129,6 +129,8 @@ items:
     href: concepts/events.md
   - name: Справочник событий уровня сервисов
     href: concepts/events-data-plane.md
+  - name: История изменений
+    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
 base: ru/audit-trails

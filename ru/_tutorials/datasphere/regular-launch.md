@@ -1,6 +1,3 @@
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
-
-
 Организовать сценарии регулярных запусков в [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) можно с помощью API, вызывая исполнение ячеек ноутбука в [{{ sf-full-name }}](../../functions/index.yaml).
 
 В этом практическом руководстве вы соберете информацию о наиболее обсуждаемых на [Reddit](https://tradestie.com/api/v1/apps/reddit) акциях, проанализируете тональность обсуждения и настроите регулярное обновление данных.
@@ -27,7 +24,6 @@
 
 * плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
 * плата за количество вызовов функции [{{ sf-name }}](../../functions/pricing.md).
-
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -81,12 +77,13 @@
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
-1. В верхней панели нажмите **File** и выберите **New** → **Notebook**.
+1. На верхней панели нажмите **File** и выберите **New** → **Notebook**.
 1. Выберите ядро и нажмите **Select**.
+1. Нажмите правой кнопкой мыши на ноутбук и выберите **Rename**. Введите название `test_classifier.ipynb`.
 
 ## Загрузите и обработайте данные {#load-data}
 
-Чтобы загрузить информацию о наиболее обсуждаемых акциях на Reddit и тональности обсуждения, скопируйте код в ячейки ноутбука. С его помощью вы будете выбирать три наиболее обсуждаемые акции и сохранять их в CSV-файл в хранилище проекта.
+Чтобы загрузить информацию о наиболее обсуждаемых акциях на Reddit и тональности обсуждения, скопируйте код в ячейки ноутбука `test_classifier.ipynb`. С его помощью вы будете выбирать три наиболее обсуждаемые акции и сохранять их в CSV-файл в хранилище проекта.
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 
@@ -102,7 +99,7 @@
 
     ```python
     REQUEST_URL = "https://tradestie.com/api/v1/apps/reddit"
-    FILE_NAME = "stock_sentiments_data.csv"
+    FILE_NAME = "/home/jupyter/datasphere/project/stock_sentiments_data.csv"
     TICKERS = ['NVDA', 'TSLA', 'AAPL']
     ```
 
@@ -190,7 +187,7 @@
     1. Выберите среду выполнения `Python`. Не выбирайте опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Выберите способ **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** и введите имя файла, например `index`.
-    1. Введите код функции, подставив идентификаторы вашего проекта и ноутбука:
+    1. Введите код функции, подставив идентификатор вашего проекта и абсолютный путь к ноутбуку в проекте:
     
         ```python
         import requests
@@ -198,7 +195,7 @@
         def handler(event, context):
 
             url = 'https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:execute'
-            body = {"notebookId": "<идентификатор_ноутбука>"}
+            body = {"notebookId": "/home/jupyter/datasphere/project/test_classifier.ipynb"}
             headers = {"Content-Type" : "application/json",
                        "Authorization": "Bearer {}".format(context.token['access_token'])}
             resp = requests.post(url, json = body, headers=headers)
@@ -209,9 +206,8 @@
         ```
 
        Где:
-
        * `<идентификатор_проекта>` — идентификатор проекта {{ ml-platform-name }}, который расположен на странице проекта под названием.
-       * `<идентификатор_ноутбука>` — [идентификатор ноутбука](../../datasphere/operations/projects/get-notebook-cell-ids.md#get-notebook-id) `test_classifier.ipynb`.
+       * `notebookId` — абсолютный путь к ноутбуку в проекте.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте параметры версии:
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.

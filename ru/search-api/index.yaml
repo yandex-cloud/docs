@@ -1,4 +1,4 @@
-title: Search API
+title: '{{ search-api-full-name }}'
 description:
   - >-
     Search API — сервис, позволяющий отправлять запросы к поисковой базе Яндекса

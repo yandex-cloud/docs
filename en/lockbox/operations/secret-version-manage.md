@@ -76,7 +76,7 @@ Secret version control enables you to:
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    This creates a new version of the specified secret. You can check the new version and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

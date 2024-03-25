@@ -5,7 +5,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создать виртуальную машину из публичного образа Linux
 
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -22,14 +21,14 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для создания ВМ:
+  1. Посмотрите описание команды [CLI](../../../cli/) для создания [ВМ](../../concepts/vm.md):
 
      ```bash
      yc compute instance create --help
      ```
 
   1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-full-name }} на базе ОС Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) [{{ marketplace-full-name }}](../../../marketplace/) на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -45,41 +44,39 @@ description: "Следуя данной инструкции, вы сможет�
      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
      |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-     | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.130.0.0/24] |
-     | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.129.0.0/24] |
-     | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.128.0.0/24] |
+     | b0c6n43f9lgh******** | default-{{ region-id }}-d | enpe3m3fa00u******** |                | {{ region-id }}-d | [10.130.0.0/24] |
+     | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+     | e9bnlm18l70a******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.128.0.0/24] |
      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
      ```
 
   1. Создайте ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
 
-      ```bash
-      yc compute instance create \
-        --name first-instance \
-        --zone {{ region-id }}-a \
-        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-        --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-        --ssh-key ~/.ssh/id_ed25519.pub
-      ```
+     ```bash
+     yc compute instance create \
+       --name first-instance \
+       --zone {{ region-id }}-a \
+       --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
+       --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
+       --ssh-key ~/.ssh/id_ed25519.pub
+     ```
 
-      Где:
+     Где:
+     * `--name` — имя ВМ. Требования к имени:
 
-      * `--name` — имя ВМ. Требования к имени:
+       {% include [name-format](../../../_includes/name-format.md) %}
 
-        {% include [name-format](../../../_includes/name-format.md) %}
+       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+     * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+     * `subnet-name` — имя выбранной подсети.
+     * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адрес, исключите параметр.
+     * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+     * `--ssh-key` — путь до [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
-      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
-      * `subnet-name` — имя выбранной подсети.
-      * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адрес, исключите параметр.
-      * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
-      * `--ssh-key` — путь до [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+       {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-        {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
-
-      Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей с помощью параметра `--metadata-from-file`.
-
+     Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей с помощью параметра `--metadata-from-file`.
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -136,7 +133,6 @@ description: "Следуя данной инструкции, вы сможет�
      ```
 
      Где:
-
      * `yandex_compute_disk` — описание загрузочного [диска](../../concepts/disk.md):
        * `name` — имя диска.
        * `type` — тип создаваемого диска.
@@ -167,7 +163,6 @@ description: "Следуя данной инструкции, вы сможет�
      {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -181,11 +176,7 @@ description: "Следуя данной инструкции, вы сможет�
   Создайте ВМ с помощью метода REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/):
   1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
   1. Получите [{{ iam-full-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
-
-     
      * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
-
-
      * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
      * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
   1. [Получите идентификатор](../../../resource-manager/operations/folder/get-id.md) [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder).

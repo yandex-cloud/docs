@@ -5,8 +5,6 @@ description: "Use this guide to write metrics via the Remote API."
 
 # Writing metrics via the Remote API
 
-{% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
-
 To set up metric writes via the Remote API with Prometheus used as an agent for collecting metrics:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to store data.

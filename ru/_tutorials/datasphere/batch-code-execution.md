@@ -1,16 +1,8 @@
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
-
 В [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) с помощью API можно запускать исполнение кода, не заходя в проект. Это может быть полезно, если нужно автоматизировать рутинные операции, дообучить нейросеть или развернуть сервис, который не требует быстрого ответа по API.
 
 В практическом руководстве на примере простой сверточной нейронной сети [CNN](https://ru.wikipedia.org/wiki/Свёрточная_нейронная_сеть) показано, как организовать эксплуатацию модели, обученной в {{ ml-platform-name }}, с помощью [{{ sf-full-name }}](../../functions/index.yaml). Результат работы модели будет записываться в хранилище проекта {{ ml-platform-name }}.
 
-Если вы хотите развернуть сервис, который будет возвращать результаты по API, см. [{#T}](../../datasphere/tutorials/node-from-cell.md).
-
-{% note info %}
-
-Пример будет работать только в режиме {{ ml-platform-name }} [{{ ds }}](../../datasphere/concepts/project.md#serverless). В {{ ml-platform-name }} [{{ dd }}](../../datasphere/concepts/project.md#dedicated) работа с API недоступна.
-
-{% endnote %}
+Если вы хотите развернуть сервис, который будет возвращать результаты по API, см. [{#T}](../../datasphere/tutorials/node-from-docker-fast-api.md).
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте ноутбуки](#set-notebooks).
@@ -30,7 +22,6 @@
 
 * плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
 * плата за количество вызовов функции [{{ sf-name }}](../../functions/pricing.md).
-
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -168,7 +159,6 @@
 1. Создайте функцию потерь и оптимизатор, необходимые для обучения нейросети:
 
     ```python
-    #!g1.1
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     net = Net()
     net.to(device)
@@ -180,7 +170,6 @@
 1. Запустите процесс обучения на 5 эпохах: 
 
     ```python
-    #!g1.1
     for epoch in range(5): 
         running_loss = 0.0
         for i, data in enumerate(trainloader, 0):
@@ -204,7 +193,6 @@
 1. Сохраните полученную модель на проектный диск:
 
     ```python
-    #!g1.1
     torch.save(net.state_dict(), './cifar_net.pth')
     ```
 
@@ -217,7 +205,6 @@
 1. Импортируйте библиотеки, необходимые для работы с моделью и создания прогнозов:
 
     ```python
-    #!g1.1
     import torch
     import torchvision
     import torchvision.transforms as transforms
@@ -228,7 +215,6 @@
 1. Подготовьте объекты, которые позволят обращаться к тестовой выборке:
 
     ```python
-    #!g1.1
     transform = transforms.Compose(
         [transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
@@ -247,14 +233,12 @@
 1. Определите конфигурацию ресурсов, на которой будет выполняться модель — СPU или GPU:
 
     ```python
-    #!g1.1
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     ```
 
 1. Загрузите веса обученной модели и сделайте прогнозы на тестовой выборке:
 
     ```python
-    #!g1.1
     net = Net()
     net.to(device)
     net.load_state_dict(torch.load('./cifar_net.pth'))
@@ -273,7 +257,6 @@
 1. Сохраните прогнозы в формате `pandas.DataFrame`:
 
     ```python
-    #!g1.1
     final_pred = pd.DataFrame({'class_idx': [item for sublist in predictions for item in sublist],
                                'class': [item for sublist in predicted_labels for item in sublist]})
     ```
@@ -281,8 +264,7 @@
 1. Сохраните прогнозы модели в файл:
 
     ```python
-    #!g1.1
-    final_pred.to_csv('test_predictions.csv')
+    final_pred.to_csv('/home/jupyter/datasphere/project/test_predictions.csv')
     ```
 
 ## Создайте {{ sf-name }} {#create-function}
@@ -316,7 +298,7 @@
     1. Выберите среду выполнения **Python**. Не выбирайте опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Выберите способ **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** и введите имя файла, например `index`.
-    1. Введите код функции, подставив идентификаторы вашего проекта и ноутбука `test_classifier.ipynb`:
+    1. Введите код функции, подставив идентификатор вашего проекта и абсолютный путь к ноутбуку в проекте:
     
         ```python
         import requests
@@ -324,7 +306,7 @@
         def handler(event, context):
 
             url = 'https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:execute'
-            body = {"notebookId": "<идентификатор_ноутбука>"}
+            body = {"notebookId": "/home/jupyter/datasphere/project/test_classifier.ipynb"}
             headers = {"Content-Type" : "application/json",
                        "Authorization": "Bearer {}".format(context.token['access_token'])}
             resp = requests.post(url, json = body, headers=headers)
@@ -335,9 +317,8 @@
         ```
 
        Где:
-
        * `<идентификатор_проекта>` — идентификатор проекта {{ ml-platform-name }}, который расположен на странице проекта под названием.
-       * `<идентификатор_ноутбука>` — [идентификатор ноутбука](../../datasphere/operations/projects/get-notebook-cell-ids.md#get-notebook-id) `test_classifier.ipynb`.
+       * `notebookId` — абсолютный путь к ноутбуку в проекте.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте параметры версии:
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.

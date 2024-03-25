@@ -15,7 +15,7 @@ To have responses sent to your mailbox, [set up integration with email](send-mai
 
    - Statistics
 
-      The tab displays the questions and the relevant response statistics. You can see how many responses each question has. For multiple-choice questions, you can see the vote distribution.
+      The tab displays the questions and the relevant response statistics. You can see how many responses each question has. For multiple-choice questions, you can see the vote distribution. You can see the statistics only for the whole survey period.
 
    - Timeline
 
@@ -23,11 +23,15 @@ To have responses sent to your mailbox, [set up integration with email](send-mai
 
       To share a response, click ![arrow-up-from-square](../_assets/console-icons/arrow-up-from-square.svg) on it to copy the link.
 
+   - Table
+
+      The tab displays the table with responses: the rows correspond to the questionnaire ID, while columns, to the types of questions in the form.
+
    {% endlist %}
 
 1. Select the responses you need by using the filters:
 
-   * To select responses for a specific period, click **For all time**, set the start and end of the period and click **Save**. The data on the **Statistics** and **Timeline** tabs will be refreshed.
+   * To select responses for a specific period, click **For all time**, set the start and end of the period and click **Save**. The data on the **Timeline** and **Table** tabs will be refreshed. There is no filtering on the **Statistics** tab, so statistics will be shown for the whole period.
 
    * To select responses to certain questions, click **All questions**, select the questions you need from the list and click **Save**. The data on the **Statistics** and **Timeline** tabs will be refreshed.
 

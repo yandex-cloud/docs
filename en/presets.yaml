@@ -1390,7 +1390,7 @@ default:
     organization:
       business:
         fixed_consumption:
-          v1|int|string: ₽3000
+          v1|string: ₽3000.00
     standard:
       fixed_consumption:
         v1|int|string: Free
@@ -3451,6 +3451,11 @@ default:
         account:
           dashboard-resources:
             title_section-billable: Linked clouds and services
+          dashboard:
+            card_label_threshold-description: Detailed
+            label_inactivation: Delete
+            label_rename: Rename
+            popup-go-pay_button_cancel: Cancel
           overview:
             account-data_label_organization: Organization
             section_account-data: General information
@@ -3630,7 +3635,6 @@ default:
         save-changes: Save
       common:
         resource-acl:
-          label_groups: Groups
           label_inherited-bindings: Inherited roles
           label_service-accounts: Service accounts
       component:
@@ -3685,8 +3689,6 @@ default:
             action:
               role:
                 add: Add role
-              subject:
-                select: Select subject
         federation:
           action:
             create: Create federation
@@ -3791,7 +3793,7 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Create a cluster
-        section_admin-password: User
+        section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
         section_dependencies: Dependencies
         section_scheduler: Scheduler configuration
@@ -3953,6 +3955,8 @@ default:
         field_delete-old-vm: Delete outdated VM
         field_recover-to-vm: Target VM
         field_repeat-period-type: Create backups
+        field_type-full: Full
+        field_type-incremental: Incremental
         field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Custom
@@ -3972,8 +3976,6 @@ default:
         value_period-time-weekly: Every week
         value_retention-save-all: Retain all backups
         value_retention-save-last-f: Only the last
-        value_scheme-full: Full
-        value_scheme-incremental: Incremental
       billing:
         account:
           acts_batch-download-text_pdf: Download documents (PDF)
@@ -6107,11 +6109,9 @@ default:
         value_config-standard: Standard
       storage:
         bucket:
-          button_action-delete: Delete
           button_action-permissions: Object ACL
           button_create: Create folder
           button_empty-create: Upload objects
-          button_gr-delete: Delete
           button_permissions: Bucket ACL
           button_upload: Upload
           cors:
@@ -7909,7 +7909,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.29
+        tag: 0.4.30
     yc_gitlab-agent:
       helmChart:
         name: >-
@@ -7931,7 +7931,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.0.4
+        tag: 1.1.1
     yc_metric-provider:
       helmChart:
         name: >-

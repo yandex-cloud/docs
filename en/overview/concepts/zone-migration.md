@@ -83,10 +83,8 @@ See these service-specific migration guides:
 * [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md)
 * {{ mgp-name }}: To migrate, restore the cluster from a [backup](../../managed-greenplum/operations/cluster-backups.md).
 * [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md)
-
-   Guides for {{ dataproc-name }} HDFS clusters are currently under development. If your cluster is hosted in the `ru-central1-c` availability zone and uses the HDFS, the {{ yandex-cloud }} support team will notify you when the migration guides for these clusters are available.
-
-The migration tools for {{ mkf-name }} will become available in early 2024. If you have any resources hosted in the `{{ region-id }}-c` zone, we will notify you when this happens.
+* [{{ dataproc-name }} with the HDFS file system](../../data-proc/tutorials/hdfs-cluster-migration.md)
+* [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md)
 
 ### {{ data-transfer-name }} {#data-transfer}
 

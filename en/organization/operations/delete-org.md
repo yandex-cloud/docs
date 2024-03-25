@@ -9,6 +9,8 @@ description: "In this tutorial, you will learn how to delete an organization in 
 
 An organization can be deleted by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#admin).
 
+Before deleting an organization, make sure to [delete](../../resource-manager/operations/cloud/delete.md) all its clouds.
+
 {% endnote %}
 
 To delete an organization:
@@ -21,6 +23,6 @@ To delete an organization:
 
 1. In the top-right corner, click ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
-1. Specify when you want the organization to be deleted. Select one of the suggested periods or `Delete now`. The default organization deletion delay is 7 days.
+1. Specify when you want the organization to be deleted. Select one of the suggested periods or `Delete now`. The default organization deletion delay is seven days.
 
 1. Click **{{ ui-key.yacloud.common.delete }}**.

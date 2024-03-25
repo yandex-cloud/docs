@@ -36,9 +36,9 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
       yc certificate-manager certificate list
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       +----------------------+---------------+-------------+-----------+---------+------------+
       |          ID          |     NAME      |   DOMAINS   | NOT AFTER |  TYPE   |   STATUS   |
       +----------------------+---------------+-------------+-----------+---------+------------+
@@ -60,9 +60,9 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
       * `--new-name`: New name for the certificate.
       * `--description`: Certificate description.
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       id: fpq6gvvm6piu********
       folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T08:49:11.533Z"
@@ -74,7 +74,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -100,9 +100,9 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   You can check the certificate update and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the certificate update and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
    yc certificate-manager certificate get <certificate_name>

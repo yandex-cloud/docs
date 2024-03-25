@@ -271,13 +271,13 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
-  - name: Работа с YDB через Terraform
+  - name: Работа с YDB через {{ TF }}
     items:
-      - name: Введение в работу с YDB через Terraform
+      - name: Введение в работу с YDB через {{ TF }}
         href: ./terraform/intro.md
       - name: Получение данных для аутентификации
         href: ./terraform/credentials.md
-      - name: Установка и настройка Terraform и провайдера для подключения к YDB
+      - name: Установка и настройка {{ TF }} и провайдера для подключения к YDB
         href: ./terraform/install.md
       - name: Создание конфигурационных файлов и подключение к YDB
         href: ./terraform/configure.md

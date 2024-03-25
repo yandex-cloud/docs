@@ -55,9 +55,9 @@ To create an additional cloud:
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   This will create a cloud linked to your billing account in the organization. You can verify the created cloud and its parameters in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+   This will create a cloud linked to your billing account in the organization. You can check the new cloud and its parameters in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc resource-manager cloud list

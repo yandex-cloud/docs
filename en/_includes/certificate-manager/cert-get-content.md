@@ -1,4 +1,4 @@
-You can upload a certificate chain and a private key to use on your own, for example, when configuring a web server on a VM.
+You can upload a [certificate](../../certificate-manager/concepts/index.md) chain and a private key to use on your own, e.g., when configuring a web server on a [VM](../../compute/concepts/vm.md).
 
 To get the contents of a certificate:
 
@@ -13,8 +13,7 @@ To get the contents of a certificate:
    * `--chain`: (Optional) File to save the certificate chain to in PEM format.
    * `--key`: (Optional) File to save the private key to, in PEM format.
 
-
-   ```
+   ```bash
    yc certificate-manager certificate content \
      --id fpqcsmn76v82******** \
      --chain certificate_full_chain.pem \
@@ -23,7 +22,7 @@ To get the contents of a certificate:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -32,7 +31,7 @@ To get the contents of a certificate:
    1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
       
-      ```
+      ```hcl
       data "yandex_cm_certificate_content" "cert_by_id" {
         certificate_id = "<certificate_ID>"
       }
@@ -53,7 +52,7 @@ To get the contents of a certificate:
 
       * `data "yandex_cm_certificate_content"`: Description of the data source for the certificate contents:
          * `certificate_id`: Certificate ID
-      * `output` sections: Output variables such as `certificate_chain` with a certificate chain and a `certificate_key` private key:
+      * `output` sections: `certificate_chain` output variables with a certificate chain and a `certificate_key` private key:
          * `value`: Returned value
          * `sensitive`: Label data as sensitive
 
@@ -61,7 +60,7 @@ To get the contents of a certificate:
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create all the required resources. To check the results, run these commands:
 
@@ -85,6 +84,6 @@ To get the contents of a certificate:
 
 {% note info %}
 
-To view the certificate contents, assign the `certificate-manager.certificates.downloader` role to the service account.
+To view the certificate contents, assign the `certificate-manager.certificates.downloader` [role](../../iam/concepts/access-control/roles.md) to the service account.
 
 {% endnote %}

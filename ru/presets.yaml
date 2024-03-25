@@ -1391,7 +1391,7 @@ default:
     organization:
       business:
         fixed_consumption:
-          v1|int|string: "3\_000\_₽"
+          v1|string: "3\_000,00\_₽"
     standard:
       fixed_consumption:
         v1|int|string: Не тарифицируется
@@ -3162,7 +3162,7 @@ default:
         add-to-projects: Добавить в проект
         assignee: Исполнитель
         assignee-me: Назначить меня исполнителем
-        change-status: Изменить cтатус
+        change-status: Изменить статус
         edit-parameters: Редактировать параметры
         followers: Наблюдатели
         move: Переместить
@@ -3454,6 +3454,11 @@ default:
         account:
           dashboard-resources:
             title_section-billable: Привязанные облака и сервисы
+          dashboard:
+            card_label_threshold-description: Подробнее
+            label_inactivation: Удалить
+            label_rename: Переименовать
+            popup-go-pay_button_cancel: Отменить
           overview:
             account-data_label_organization: Организация
             section_account-data: Общие сведения
@@ -3633,7 +3638,6 @@ default:
         save-changes: Сохранить
       common:
         resource-acl:
-          label_groups: Группы
           label_inherited-bindings: Наследуемые роли
           label_service-accounts: Сервисные аккаунты
       component:
@@ -3688,8 +3692,6 @@ default:
             action:
               role:
                 add: Добавить роль
-              subject:
-                select: Выбрать пользователя
         federation:
           action:
             create: Создать федерацию
@@ -3794,7 +3796,7 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Создать кластер
-        section_admin-password: Пользователь
+        section_accesses: Настройки доступа
         section_airflow-configuration: Конфигурация Airflow
         section_dependencies: Зависимости
         section_scheduler: Конфигурация планировщика
@@ -3956,6 +3958,8 @@ default:
         field_delete-old-vm: Удалить неактуальную ВМ
         field_recover-to-vm: Целевая ВМ
         field_repeat-period-type: Создавать копии
+        field_type-full: Полный
+        field_type-incremental: Инкрементальный
         field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Пользовательское
@@ -3975,8 +3979,6 @@ default:
         value_period-time-weekly: Каждую неделю
         value_retention-save-all: Хранить все копии
         value_retention-save-last-f: Только последнюю
-        value_scheme-full: Полный
-        value_scheme-incremental: Инкрементальный
       billing:
         account:
           acts_batch-download-text_pdf: Скачать документы (PDF)
@@ -6112,11 +6114,9 @@ default:
         value_config-standard: Стандартный
       storage:
         bucket:
-          button_action-delete: Удалить
           button_action-permissions: ACL объекта
           button_create: Создать папку
           button_empty-create: Загрузить объекты
-          button_gr-delete: Удалить
           button_permissions: ACL бакета
           button_upload: Загрузить
           cors:
@@ -7912,7 +7912,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.29
+        tag: 0.4.30
     yc_gitlab-agent:
       helmChart:
         name: >-
@@ -7934,7 +7934,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.0.4
+        tag: 1.1.1
     yc_metric-provider:
       helmChart:
         name: >-

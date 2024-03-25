@@ -118,7 +118,7 @@ To follow the steps in this section, you will need:​
          http://<host>:8080/realms/master
          ```
 
-         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
          ```
          {{ link-keycloak-example }}
@@ -130,7 +130,7 @@ To follow the steps in this section, you will need:​
          http://<host>:8080/realms/master
          ```
 
-         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
          ```
          {{ link-keycloak-example-old }}
@@ -144,7 +144,7 @@ To follow the steps in this section, you will need:​
          http://<host>:8080/realms/master/protocol/saml
          ```
 
-         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
          ```
          {{ link-keycloak-example }}/protocol/saml
@@ -156,7 +156,7 @@ To follow the steps in this section, you will need:​
          http://<host>:8080/auth/realms/master/protocol/saml
          ```
 
-         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
          ```
          {{ link-keycloak-example-old }}/protocol/saml
@@ -180,7 +180,7 @@ To follow the steps in this section, you will need:​
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the create federation command:
+   1. View the description of the create federation command:
 
       ```
       yc organization-manager federation saml create --help
@@ -231,7 +231,7 @@ To follow the steps in this section, you will need:​
 
          * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
-         * `--issuer`: IdP server ID to be used for authentication:
+         * `--issuer`: ID of the IdP server to use for authentication:
 
             - Keycloak 17 or higher
 
@@ -239,7 +239,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
                ```
                {{ link-keycloak-example }}
@@ -251,7 +251,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
                ```
                {{ link-keycloak-example-old }}
@@ -265,7 +265,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master/protocol/saml
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
                ```
                {{ link-keycloak-example }}/protocol/saml
@@ -277,7 +277,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/auth/realms/master/protocol/saml
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
                ```
                {{ link-keycloak-example-old }}/protocol/saml
@@ -285,7 +285,7 @@ To follow the steps in this section, you will need:​
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-         * `--sso-binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+         * `--sso-binding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
 
          * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -338,11 +338,11 @@ To follow the steps in this section, you will need:​
          * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
             This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
-         * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
+         * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
-         * `issuer`: IdP server ID to be used for authentication:
+         * `issuer`: ID of the IdP server to use for authentication:
 
             - Keycloak 17 or higher
 
@@ -350,7 +350,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
                ```
                {{ link-keycloak-example }}
@@ -362,9 +362,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL.
-
-               For example:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
                ```
                {{ link-keycloak-example-old }}
@@ -378,7 +376,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master/protocol/saml
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
                ```
                {{ link-keycloak-example }}/protocol/saml
@@ -390,7 +388,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/auth/realms/master/protocol/saml
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
                ```
                {{ link-keycloak-example-old }}/protocol/saml
@@ -402,7 +400,7 @@ To follow the steps in this section, you will need:​
 
          * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
-         * `ssoBinding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+         * `ssoBinding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -416,7 +414,7 @@ To follow the steps in this section, you will need:​
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
-      * `issuer`: IdP server ID to be used for authentication:
+      * `issuer`: ID of the IdP server to use for authentication:
 
          - Keycloak 17 or higher
 
@@ -424,7 +422,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/realms/master
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID, e.g.:
 
             ```
             {{ link-keycloak-example }}
@@ -436,13 +434,13 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/realms/master
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID, e.g.:
 
             ```
             {{ link-keycloak-example-old }}
             ```
 
-      * `sso_binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+      * `sso_binding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication:
 
          - Keycloak 17 or higher
@@ -451,9 +449,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL.
-
-            For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
             ```
             {{ link-keycloak-example }}/protocol/saml
@@ -465,9 +461,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL.
-
-            For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
 
             ```
             {{ link-keycloak-example-old }}/protocol/saml
@@ -479,7 +473,7 @@ To follow the steps in this section, you will need:​
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
          If the option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
@@ -522,7 +516,7 @@ To follow the steps in this section, you will need:​
 
       {% endcut %}
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -781,7 +775,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 If you did not enable the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
-To do this, you will need user name IDs. They are returned by the IdP server along with a response confirming successful authentication.
+To do this, you will need user name IDs. They are returned by the IdP server together with a response confirming successful authentication.
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
@@ -827,7 +821,7 @@ A user can be added by an organization administrator (the `organization-manager.
       Where:
 
       * `--id`: Federation ID.
-      * `--name-ids`: Name ID of users.
+      * `--name-ids`: Users' name IDs.
 
 - API {#api}
 

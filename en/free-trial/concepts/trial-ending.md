@@ -20,12 +20,12 @@ The trial period terms of termination differ for individual and business account
 
 {% endlist %}
 
-You don't upgrade to the paid version automatically once the trial period ends. You can [upgrade to the paid version](upgrade-to-paid.md) of {{ yandex-cloud }} at any time during the free trial or 30 days after it expires with no data loss.
+You do not upgrade to the paid version automatically once the trial period ends. You can [upgrade to the paid version](upgrade-to-paid.md) of {{ yandex-cloud }} at any time during the free trial or 60 days after it expires with no data loss.
 
-If the free trial ends and you don't upgraded to the paid version, access to your resources will be suspended for 30 days:
+Unless you upgraded to the paid version, access to your resources will be suspended for 60 days after the trial period ends:
 * Your VM instances and DB clusters will be stopped.
 * You will not be able to read or download any saved data.
 
-You can restore access to your resources if you upgrade to the paid version within 30 days after the end of the trial period. Otherwise, all resources in your cloud will be permanently deleted.
+You can restore access to your resources if you upgrade to the paid version within 60 days after the end of the trial period. Otherwise, all resources in your cloud will be permanently deleted.
 
 {% include [restore-after-blocking](../../_includes/restore-after-blocking.md) %}
