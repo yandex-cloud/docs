@@ -1,6 +1,6 @@
 # Загрузка аудитных логов в {{ mch-name }} и визуализация данных в {{ datalens-name }}
 
-Загрузите [аудитные логи](../audit-trails/concepts/format.md) уровня конфигурации (Control Plane) каталога в [{{ mch-full-name }}](../managed-clickhouse/) и проанализируйте использование ресурсов в [{{ datalens-full-name }}]({{ link-datalens-main }}).
+Загрузите [аудитные логи](../audit-trails/concepts/format.md) уровня конфигурации каталога в [{{ mch-full-name }}](../managed-clickhouse/) и проанализируйте использование ресурсов в [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#environment-preparing).
 1. [Создайте трейл](#create-trail).

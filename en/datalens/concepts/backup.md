@@ -4,4 +4,4 @@
 
 To have your metadata restored, [contact support]({{ link-console-support }}).
 
-The user of the {{ datalens-short-name }} instance is responsible for storing source data for the connection (such as CSV files) and for backing up external {{ datalens-short-name }} data.
+It is the user of the {{ datalens-short-name }} instance who is fully responsible for storing source data for the connection (such as CSV files) and for backing up the data that is external to {{ datalens-short-name }}.

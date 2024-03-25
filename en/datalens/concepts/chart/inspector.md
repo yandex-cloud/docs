@@ -1,8 +1,8 @@
 # Chart inspector
 
-If a dashboard includes many charts that take a long time to load and process data, this may slow down the performance of the entire dashboard. You can analyze a chart's performance with an inspector.
+If a dashboard includes many charts that take a long time to load and process data, this may slow down the performance of the entire dashboard. You can analyze chart performance with an inspector.
 
-A chart inspector is a {{ datalens-short-name }} tool that helps you troubleshoot data loading and browser rendering issues. You can use it to determine why a chart is slow or optimize data fetching and chart rendering.
+A chart inspector is a {{ datalens-short-name }} tool that helps you troubleshoot issues when loading data and rendering them on a browser. You can use it to determine why a chart is slow or optimize data fetching and chart rendering.
 
 To open the chart inspector, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Inspector**.
 
@@ -19,7 +19,7 @@ At the top of the inspector window, there is information on the speed of basic o
 * **Execution**: Time to process data received from the source.
 * **Rendering**: Time to render data on a chart.
 
-Values above the optimal level are highlighted (in orange or red). To get recommendations for optimizing a metric, hover over the question mark next to its name.
+Values above the optimal level are highlighted in either orange or red. To get recommendations for optimizing a metric, hover over the question mark next to its name.
 
 For some chart types, additional metrics are displayed:
 
@@ -27,7 +27,7 @@ For some chart types, additional metrics are displayed:
 * **Columns / Rows**: Number of table columns and rows (for **Table** and **Pivot table** charts).
 * **Yandex Maps API**: Time to load modules required by Yandex Maps (for **Map** charts).
 
-The inspector also displays source Request IDs and request traces (Trace IDs).
+The inspector also displays source request IDs and trace IDs.
 
 The **Data sources** section displays information about the sources used in a chart:
 

@@ -109,7 +109,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Дождитесь изменения статуса сертификата на `Issued`.
   1. Перейдите в папку `acme-challenge`.
-  1. Нажмите ![image](../../_assets/options.svg) справа от файла и выберите **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
+  1. Нажмите ![image](../../_assets/options.svg) справа от файла и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 - AWS CLI {#cli}

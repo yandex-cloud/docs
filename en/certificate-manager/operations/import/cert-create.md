@@ -50,7 +50,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to add a custom certificate to.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to add a custom certificate.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}**.
    1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
@@ -94,9 +94,9 @@ To add a custom certificate to {{ certificate-manager-name }}:
       * `--chain`: Path to the certificate chain file.
       * `--key`: Path to the file of the certificate private key.
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       id: fpqmg47avvim********
       folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T06:54:44.916325Z"
@@ -112,7 +112,6 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      
       ```hcl
       resource "yandex_cm_certificate" "user-certificate" {
         name    = "<certificate_name>"
@@ -132,8 +131,6 @@ To add a custom certificate to {{ certificate-manager-name }}:
       }
       ```
 
-
-
       Where:
 
       * `name`: Certificate name.
@@ -144,7 +141,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    This will add the certificate to the specified folder. You can check the new certificate and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -158,11 +155,11 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
 {% endlist %}
 
-A new certificate with the `Issued` status appears in the certificate list.
+The new certificate with the `Issued` status will appear in the certificate list.
 
-## Storing a certificate's public part in {{ lockbox-name }} {#create-lockbox}
+## Storing a certificate's public part in {{ lockbox-full-name }} {#create-lockbox}
 
-You can store a {{ certificate-manager-name }} user certificate's public part in [{{ lockbox-name }}](../../../lockbox/quickstart.md). To add a certificate:
+You can store a {{ certificate-manager-name }} user certificate's public part in [{{ lockbox-name }}](../../../lockbox/). To add a certificate:
 
 {% list tabs group=instructions %}
 
@@ -174,17 +171,17 @@ You can store a {{ certificate-manager-name }} user certificate's public part in
 
       ```hcl
         resource "yandex_cm_certificate" "example-lockbox" {
-        name    = "<имя_секрета>"
+        name    = "<secret_name>"
 
       self_managed {
           certificate = <<-EOT
                         -----BEGIN CERTIFICATE-----
-                        <содержимое_сертификата>
+                        <certificate_contents>
                         -----END CERTIFICATE-----
                         EOT
           private_key_lockbox_secret {
-            id  = "<идентификатор_секрета>"
-            key = "<ключ_секрета>"
+            id  = "<secret_ID>"
+            key = "<secret_key>"
           }
         }
       }
@@ -192,18 +189,17 @@ You can store a {{ certificate-manager-name }} user certificate's public part in
 
       Where:
 
-      * `name`: {{ lockbox-short-name }} secret name.
-      * `certificate`: Contents of the [certificate](../../concepts/imported-certificate.md) file.
-      * `id`: {{ lockbox-short-name }} secret ID.
-      * `key`: {{ lockbox-short-name }} secret key whose value is contained in the certificate private key.
+      * `name`: {{ lockbox-name }} [secret](../../../lockbox/concepts/secret.md) name.
+      * `certificate`: Contents of the certificate file.
+      * `id`: {{ lockbox-name }} secret ID.
+      * `key`: {{ lockbox-name }} secret key whose value is contained in the certificate private key.
 
       For more information about the `yandex_cm_certificate` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
-
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   This will add the certificate to the specified folder. You can check the new certificate and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   The certificate will then be added to the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new certificate and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
    yc certificate-manager certificate get <certificate_name>
@@ -211,4 +207,4 @@ You can store a {{ certificate-manager-name }} user certificate's public part in
 
 {% endlist %}
 
-A new certificate with the `Issued` status appears in the certificate list.
+The new certificate with the `Issued` status will appear in the certificate list.

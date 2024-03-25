@@ -24,7 +24,7 @@ To delete an object:
    1. Click the name of the bucket you need.
    1. To delete a single object, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name; in the menu that opens, click **{{ ui-key.yacloud.storage.file.button_delete }}**.
 
-      To do the same with multiple objects, select them in the list and click **{{ ui-key.yacloud.storage.bucket.button_gr-delete }}** at the bottom of the screen.
+      To do the same with multiple objects, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
 
       {% note info %}
 

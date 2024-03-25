@@ -1,10 +1,7 @@
 Prometheus Operator with {{ monitoring-full-name }} support makes it easy to install and manage the [{{ managed-prometheus-full-name }}](../../monitoring/operations/prometheus/index.md) monitoring system. You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language. This allows you to work with dashboards existing in [{{ grafana-name }}](https://grafana.com/grafana/).
 
-{% include [preview-pp](../preview-pp.md) %}
-
 ## Getting started {#before-you-begin}
 
-1. [Request](../../monitoring/operations/prometheus/index.md#access) access to {{ managed-prometheus-name }} and wait until your request is approved.
 1. On the {{ monitoring-full-name }} [home page]({{ link-monitoring }}), select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** in the left-hand panel.
 1. In the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.write }}** tab, find the URL of the endpoint to write metrics to:
 

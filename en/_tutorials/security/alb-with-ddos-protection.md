@@ -108,7 +108,7 @@ To create security groups:
          | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A |
+         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
          1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
          1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -266,7 +266,7 @@ To create an instance group:
 
       Result:
 
-      ```bash
+      ```yaml
       done (25s)
       id: cl1qjhlcdofg********
       folder_id: b1g86q4m5vej********
@@ -417,7 +417,7 @@ To create a backend group:
       * `--weight`: Backend weight.
       * `--port`: Port.
       * `--target-group-id`: Target group ID.
-      * `--http-healthcheck`: Resource health check parameters.
+      * `--http-healthcheck`: Resource health check parameters:
          * `port`: Port
          * `timeout`: Timeout
          * `interval`: Interval
@@ -649,7 +649,7 @@ To shut down the hosting and stop paying for the created resources:
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create an L7 load balancer with DDoS protection using {{ TF }}:
 
@@ -707,6 +707,6 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
 
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Test the load balancer](#test-work).

@@ -9,6 +9,8 @@ items:
         href: prepare-image.md
       - name: Использование своей лицензии для продуктов Microsoft
         href: byol.md
+      - name: Безопасная передача пароля в скрипт инициализации
+        href: tutorials/secure-password-script.md
   - name: Лицензирование
     items:
       - name: Лицензии Microsoft в {{ yandex-cloud }}

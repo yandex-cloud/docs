@@ -41,9 +41,9 @@ To get a new version of a user certificate:
       yc certificate-manager certificate list
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       +----------------------+--------+-------------+---------------------+----------+--------+
       |          ID          |  NAME  |   DOMAINS   |      NOT AFTER      |   TYPE   | STATUS |
       +----------------------+--------+-------------+---------------------+----------+--------+
@@ -65,9 +65,9 @@ To get a new version of a user certificate:
       * `--chain`: Path to the new certificate chain file.
       * `--key`: Path to the file of the new certificate private key.
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       id: fpqmg47avvim********
       folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T06:54:44.916Z"
@@ -85,7 +85,7 @@ To get a new version of a user certificate:
 
       {% cut "Sample certificate description in the {{ TF }} configuration" %}
 
-      ```
+      ```hcl
       ...
       resource "yandex_cm_certificate" "imported-certificate" {
         name        = "my-certificate"
@@ -111,9 +111,9 @@ To get a new version of a user certificate:
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   You can check the certificate update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the certificate update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
    yc certificate-manager certificate get <certificate_name>

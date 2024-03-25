@@ -174,10 +174,6 @@ description: "В статье приведен полный справочник
 
 ## {{ billing-name }} {#billing-roles}
 
-#### billing.accounts.member {#billing-accounts-member}
-
-{% include [billing.accounts.member](../_roles/billing/accounts/member.md) %}
-
 #### billing.accounts.owner {#billing-accounts-owner}
 
 {% include [billing.accounts.owner](../_roles/billing/accounts/owner.md) %}

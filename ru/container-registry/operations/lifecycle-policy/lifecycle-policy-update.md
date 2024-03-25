@@ -9,7 +9,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр и нажмите на строку с его именем.
-  1. Выберите репозиторий и нажмите на строку с его именем.
+  1. Выберите [репозиторий](../../concepts/repository.md) и нажмите на строку с его именем.
   1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
   1. В строке с нужной политикой удаления нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры политики удаления:
@@ -27,7 +27,7 @@
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Посмотрите описание команды CLI для обновления параметров политики:
+  1. Посмотрите описание команды [CLI](../../../cli/) для обновления параметров политики:
 
      ```bash
      yc container repository lifecycle-policy update --help
@@ -40,7 +40,7 @@
         --new-name=new-policy
      ```
 
-     Чтобы узнать идентификатор политики, получите [список политик удаления в репозитории или в реестре](lifecycle-policy-list.md#lifecycle-policy-list)
+     Чтобы узнать идентификатор политики, получите [список политик удаления в репозитории или в реестре](lifecycle-policy-list.md#lifecycle-policy-list).
 
 - {{ TF }} {#tf}
 
@@ -48,31 +48,31 @@
 
   1. Откройте конфигурационный файл и отредактируйте фрагмент с описанием политики:
 
-      ```hcl
-      resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
-        name          = "best-policy"
-        status        = "active"
-        repository_id = "crpfvi6o4ra7********"
+     ```hcl
+     resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
+       name          = "best-policy"
+       status        = "active"
+       repository_id = "crpfvi6o4ra7********"
 
-        rule {
-          description   = "rule for applying policy"
-          untagged      = true
-          tag_regexp    = ".*"
-          retained_top  = 1
-          expire_period = "48h"
-        }
-      }
-      ```
+       rule {
+         description   = "rule for applying policy"
+         untagged      = true
+         tag_regexp    = ".*"
+         retained_top  = 1
+         expire_period = "48h"
+       }
+     }
+     ```
 
   1. Примените изменения:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  После этого в указанном репозитории будет изменена политика удаления. Проверить изменение политики можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+  После этого в указанном [репозитории](../../concepts/repository.md) будет изменена политика удаления. Проверить изменение политики можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
-    ```bash
-     yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
-    ```
+  ```bash
+  yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
+  ```
 
 - API {#api}
 
@@ -109,7 +109,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      WARN: All current lifecycle rules will be overwritten. Are you sure?[y/N] y
      id: crp6lg1868p3********
      name: test-policy
@@ -137,7 +137,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: crp6lg1868p3********
   name: test-policy
   repository_id: crp3cpm16edq********
@@ -163,7 +163,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: crp6lg1868p3********
   name: test-policy
   repository_id: crp3cpm16edq********
@@ -193,7 +193,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: crp6lg1868p3********
   name: new-policy
   repository_id: crp3cpm16edq********
@@ -221,7 +221,7 @@
 
   Результат:
 
-  ```bash
+  ```text
   id: crp6lg1868p3********
   name: test-policy
   repository_id: crp3cpm16edq********

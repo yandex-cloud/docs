@@ -1,7 +1,7 @@
 {% note warning %}
 
-Rights management for QL charts according to {{ monitoring-short-name }} and {{ prometheus-name }} data is performed not only on the DataLens side, but also in the {{ monitoring-short-name }} and {{ prometheus-name }} services themselves.
+Access rights to QL charts by {{ monitoring-short-name }} and {{ prometheus-name }} data are managed both on the DataLens side and in {{ monitoring-short-name }} and {{ prometheus-name }}.
 
-To view a chart in {{ datalens-short-name }}, a user needs rights to chart and connect, as well as to read data from a specific {{ prometheus-name }} API or project in {{ monitoring-short-name }}.
+To view a chart in {{ datalens-short-name }}, the user needs chart access and connection permissions, as well as permissions to read data from a specific {{ prometheus-name }} API or project in {{ monitoring-short-name }}.
 
 {% endnote %}

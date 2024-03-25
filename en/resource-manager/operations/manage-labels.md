@@ -69,7 +69,7 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    That will add the label to the resource. You can check the new label using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -111,7 +111,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
    {% note warning %}
 
-   The existing set of `labels` is completely overwritten by the transmitted set.
+   The existing set of `labels` is completely overwritten by the one transmitted in the request.
 
    {% endnote %}
 
@@ -159,7 +159,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
    1. Update both the key and the value.
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    After that, the label for the resource will be updated. You can check the label update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -231,7 +231,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
    1. Delete the fragment.
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    After that, the label will be removed from the resource. You can check the deletion of the label using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

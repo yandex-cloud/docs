@@ -3,7 +3,7 @@ title: "How to delete a secret in {{ lockbox-full-name }}"
 description: "Follow this guide to delete a secret."
 ---
 
-# Deleting secrets
+# Deleting a secret
 
 To delete a secret:
 
@@ -109,7 +109,7 @@ To delete a secret:
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    You can check the secret deletion using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

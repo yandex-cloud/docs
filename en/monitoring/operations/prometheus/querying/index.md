@@ -5,8 +5,6 @@ description: "Use this guide to read metrics."
 
 # Reading metrics
 
-{% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
-
 You can read metrics written to {{ managed-prometheus-name }} in one of the following ways:
 
 * [Connect](grafana.md) {{ managed-prometheus-name }} to an existing {{ grafana-name }} installation via the [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) and use {{ promql-name }} as a query language.

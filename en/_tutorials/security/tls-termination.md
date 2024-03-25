@@ -97,7 +97,7 @@ To create security groups:
          | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A |
+         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
          1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
          1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -173,7 +173,7 @@ To create a [VM group](../../compute/concepts/instance-groups/index.md) for `my-
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** named `mysite-network` that you [created earlier](#create-network) and its subnets.
    1. Select the [previously created](#create-security-groups) `mysite-sg-vms` security group.
-   1. Enter the VM access information:
+   1. Specify the VM access data:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
@@ -319,20 +319,19 @@ To create an HTTP router:
 
 ## Configure the site's DNS {#configure-dns}
 
-The `my-site.com` domain name must be mapped to the L7 load balancer IP address using DNS records. To do this:
-
+The `my-site.com` domain name must be mapped to the L7 load balancer IP address using [DNS records](../../dns/concepts/resource-record.md). To do this:
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Copy the IP address of the load balancer that you created.
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit the A record for `my-site.com` so that it links to the copied IP address:
+1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) for `my-site.com` so that it points to the copied IP address:
 
    ```text
    my-site.com. A <L7_load_balancer_IP_address>
    ```
 
-   If you use {{ dns-full-name }}, follow this guide to configure the record:
+   If you use [{{ dns-full-name }}](../../dns/), follow this guide to configure the record:
 
-   {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
+   {% cut "Configuring DNS records for {{ dns-name }}" %}
 
    {% list tabs group=instructions %}
 
@@ -376,11 +375,11 @@ To shut down the hosting and stop paying for the created resources:
    1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the `my-site-bg` backend group.
 
 1. [Delete](../../compute/operations/instance-groups/delete.md) the `mysite-ig` instance group.
-1. [Delete](../../vpc/operations/address-delete.md) the static public IP address that you reserved.
+1. [Delete](../../vpc/operations/address-delete.md) the static public IP address you reserved.
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create the infrastructure for terminating TLS connections using {{ TF }}:
 
@@ -390,7 +389,7 @@ To create the infrastructure for terminating TLS connections using {{ TF }}:
 
    {% list tabs group=infrastructure_description %}
 
-   - Ready-to-use configuration {#ready}
+   - Ready-made configuration {#ready}
 
       1. Clone the repository with configuration files.
 
@@ -401,7 +400,7 @@ To create the infrastructure for terminating TLS connections using {{ TF }}:
       1. Go to the directory with the repository. Make sure it contains the following files:
 
          * `tls-termination-config.tf`: Configuration of the infrastructure you create.
-         * `tls-terminationg.auto.tfvars`: File with user data.
+         * `tls-terminationg.auto.tfvars`: User data file.
 
    - Manually {#manual}
 
@@ -417,7 +416,7 @@ To create the infrastructure for terminating TLS connections using {{ TF }}:
 
             {% endcut %}
 
-         1. `tls-termination.auto.tfvars` file with user data:
+         1. `tls-termination.auto.tfvars` user data file:
 
             {% cut "tls-termination.auto.tfvars" %}
 
@@ -462,7 +461,7 @@ To create the infrastructure for terminating TLS connections using {{ TF }}:
 
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Upload the site files to the VM](#upload-site-files).
 1. [Check that the hosting is running properly](#test).

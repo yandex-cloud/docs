@@ -11,7 +11,7 @@
   1. Выберите реестр, доступ к которому нужно настроить.
   1. На панели слева нажмите ![IP-access](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**.
   1. Нажмите **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
-  1. Введите IP-адрес и укажите действие. PULL — разрешение на скачивание, PUSH — разрешение на загрузку Docker-образов в реестр.
+  1. Введите IP-адрес и укажите действие. PULL — разрешение на скачивание, PUSH — разрешение на загрузку [Docker-образов](../../concepts/docker-image.md) в реестр.
   1. Если нужно настроить доступ для нескольких IP-адресов, нажмите **{{ ui-key.yacloud.common.add }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -25,7 +25,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      +----------------------+--------+----------------------+
      |          ID          |  NAME  |      FOLDER ID       |
      +----------------------+--------+----------------------+
@@ -33,7 +33,7 @@
      +----------------------+--------+----------------------+
      ```
 
-  1. Задайте настройки доступа к реестру.
+  1. Задайте настройки доступа к реестру:
 
      ```bash
      yc container registry set-ip-permissions <имя_реестра> \
@@ -63,7 +63,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      +--------+-----------+
      | ACTION |    IP     |
      +--------+-----------+
@@ -75,11 +75,11 @@
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  
+
   1. Опишите в конфигурационном файле {{ TF }} настройки доступа к реестру.
-  
+
      ```hcl
      resource "yandex_container_registry_ip_permission" "my_ip_permission" {
        registry_id = <идентификатор_реестра>
@@ -87,23 +87,21 @@
        pull        = [ "<IP-адрес>", "<IP-адрес>" ]
      }
      ```
-  
-      Где:
-   
-      * `my_registry` — идентификатор реестра. Если в конфигурации уже есть ресурс [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry), вы можете указать на него, например `yandex_container_registry.my_registry.id`.
-      * `pull` — IP-адреса, с которых разрешено скачивание Docker-образов из реестра. Необязательный параметр.
-      * `push` — IP-адреса, с которых разрешена загрузка Docker-образов в реестр. Необязательный параметр.
-      
-      Более подробную информацию о параметрах `yandex_container_registry_ip_permission` в Terraform см. в [документации провайдера]({{ tf-provider-resources-link }}/container_registry_ip_permission).
 
+     Где:
+     * `my_registry` — идентификатор реестра. Если в конфигурации уже есть ресурс [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry), вы можете указать на него, например `yandex_container_registry.my_registry.id`.
+     * `pull` — IP-адреса, с которых разрешено скачивание [Docker-образов](../../concepts/docker-image.md) из реестра. Необязательный параметр.
+     * `push` — IP-адреса, с которых разрешена загрузка Docker-образов в реестр. Необязательный параметр.
+
+     Более подробную информацию о параметрах `yandex_container_registry_ip_permission` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/container_registry_ip_permission).
   1. Создайте ресурсы:
-  
-      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      ```bash
-      yc container registry list-ip-permissions <имя_реестра>
-      ```
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc container registry list-ip-permissions <имя_реестра>
+     ```
 
 {% endlist %}

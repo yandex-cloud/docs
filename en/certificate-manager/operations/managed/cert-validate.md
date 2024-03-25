@@ -5,18 +5,18 @@ description: "This guide describes how you can check domain rights."
 
 # Checking domain rights
 
-To check rights for domains:
+To [check domain rights](../../concepts/challenges.md):
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you added the [certificate](../../concepts/managed-certificate.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Select the certificate to check from the list and click it.
-   1. In the window that opens, you can find the details you need to pass the domain rights check under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. For more information, see [{#T}](../../concepts/challenges.md).
-   1. When the domain rights check is passed, the domain check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
-   1. After the rights check status for all your domains changes to `Valid`, the certificate is issued and its status becomes `Issued`.
+   1. In the window that opens, you can find the details you need to pass the domain rights check under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**.
+   1. When you pass the domain rights check, the domain check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
+   1. After the check status for all the domains changes to `Valid`, the certificate will be issued and its status will change to `Issued`.
 
 - CLI {#cli}
 
@@ -40,12 +40,12 @@ To check rights for domains:
 
       Where:
 
-      - `--id`: Certificate ID.
-      - `--full`: Show a list of active checks for domain rights.
+      * `--id`: [Certificate](../../concepts/managed-certificate.md) ID.
+      * `--full`: Show a list of active checks for domain rights.
 
       Result:
 
-      ```bash
+      ```text
       id: fpq6gvvm6piu********
       folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T08:49:11.533771Z"
@@ -64,15 +64,21 @@ To check rights for domains:
         message: Create a file in your web server's base directory.
         http_challenge:
           url: http://example.com/.well-known/acme-challenge/3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtX********
-          content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYP********
+             content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYP********
       ```
 
-   1. The information required for passing the rights check for a domain can be found under `http_challenge`. For more information, see [{#T}](../../concepts/challenges.md).
-
-   1. When the rights check for a domain is passed, the domain check status changes to `Valid`:
+   1. The information required for passing the rights check for a domain can be found under `http_challenge`.
+   1. When you pass the domain rights check, the check status will change to `Valid`:
 
       ```bash
-      yc certificate-manager certificate get --id fpq6gvvm6piu******** --full
+      yc certificate-manager certificate get \
+        --id fpq6gvvm6piu******** \
+        --full
+      ```
+
+      Result:
+
+      ```text
       ...
       domains:
       - example.com
@@ -80,10 +86,17 @@ To check rights for domains:
       ...
       ```
 
-   1. After the rights check status for all your domains changes to `Valid`, the certificate is issued and its status becomes `Issued`:
+   1. After the check status for all the domains changes to `Valid`, the certificate will be issued and its status will change to `Issued`:
 
       ```bash
-      yc certificate-manager certificate get --id fpq6gvvm6piu******** --full
+      yc certificate-manager certificate get \
+        --id fpq6gvvm6piu******** \
+        --full
+      ```
+
+      Result:
+
+      ```text
       ...
       domains:
       - example.com
@@ -93,12 +106,11 @@ To check rights for domains:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   With {{ TF }}, you can create a DNS record required to pass a check for domain rights. To do this:
-
+   With {{ TF }}, you can create a [DNS record](../../../dns/concepts/resource-record.md) required to check your rights to a domain. To do this:
    1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -116,7 +128,7 @@ To check rights for domains:
         name    = yandex_cm_certificate.le-certificate.challenges[0].dns_name
         type    = yandex_cm_certificate.le-certificate.challenges[0].dns_type
         data    = [yandex_cm_certificate.le-certificate.challenges[0].dns_value]
-        ttl     = <record_lifetime_in_seconds>
+        ttl     = <record_time_to_live_in_seconds>
       }
 
       data "yandex_cm_certificate" "example" {
@@ -125,7 +137,7 @@ To check rights for domains:
         wait_validation = true
       }
 
-      # Use data.yandex_cm_certificate.example.id to get validated certificate
+      # Use data.yandex_cm_certificate.example.id to get a valid certificate.
 
       output "cert-id" {
         description = "Certificate ID"
@@ -139,10 +151,8 @@ To check rights for domains:
 
          * `domains`: Domain to create a certificate for.
          * `challenge_type`: Domain owner verification method. The possible values include:
-
-            * `DNS_CNAME`: Create a DNS record in CNAME format with the specified value. This method is recommended for automatic certificate renewal.
-            * `DNS_TXT`: Create a DNS record in TXT format with the specified value.
-
+            * `DNS_CNAME`: Create a DNS record in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. This method is recommended for automatic certificate renewal.
+            * `DNS_TXT`: Create a DNS record in [TXT](../../../dns/concepts/resource-record.md#txt) format with the specified value.
       * The `yandex_dns_recordset` resource parameters are as follows:
 
          * `zone_id`: ID of the DNS zone where the record for owner verification will be located.
@@ -154,15 +164,15 @@ To check rights for domains:
       * The `yandex_dns_recordset` data source parameters are as follows:
          * `depends_on`: Indicates dependence on another {{ TF }} resource.
          * `certificate_id`: Certificate ID.
-         * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not be completed while the certificate status is `VALIDATING`. The default value is `false`.
+         * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not complete while the certificate status is `VALIDATING`. The default value is `false`.
 
       For more information about the resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-link }}).
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   This will create a certificate and DNS record in the specified folder. You can check the new certificate and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   This will create a certificate and DNS record in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new certificate and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
    yc certificate-manager certificate get <certificate_name> --full

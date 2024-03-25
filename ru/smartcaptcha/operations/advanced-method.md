@@ -1,9 +1,11 @@
 ---
-title: "Как добавить виджет {{ captcha-full-name }} расширенным методом"
-description: "Следуя данной инструкции, вы сможете добавить виджет {{ captcha-name }} расширенным методом."
+title: "Как добавить виджет {{ captcha-full-name }}"
+description: "Следуя данной инструкции, вы сможете добавить виджет {{ captcha-name }} расширенным методом или по необходимости."
 ---
 
-# Добавьте виджет {{ captcha-name }} расширенным методом
+# Добавьте виджет {{ captcha-name }}
+
+## Добавьте виджет {{ captcha-name }} расширенным методом {#advanced}
 
 Вы управляете загрузкой виджета через [объект](../concepts/widget-methods.md#methods) `window.smartCaptcha`. В инструкции для этого используется callback-функция `onloadFunction`:
 
@@ -51,6 +53,26 @@ description: "Следуя данной инструкции, вы сможет�
 
     {% include [info-container-height](../../_includes/smartcaptcha/info-container-height.md) %}
 
+## Добавьте виджет {{ captcha-name }} при необходимости {#dynamic}
+
+Чтобы добавить виджет и загружать капчу при необходимости, используйте следующий подход:
+
+```js
+window.onloadFunction = () => {
+  if (window.smartCaptcha) {
+    // Создание капчи
+  }
+}
+
+function handleScriptLoadingError() {
+  // Обработка ошибок
+}
+
+const scriptElement = document.createElement('script');
+scriptElement.src = 'https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction';
+scriptElement.onerror = handleScriptLoadingError;
+document.body.appendElement(scriptElement);
+```
 
 ## Что дальше {#whats-next}
 

@@ -21,7 +21,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Удалите политику, указав ее идентификатор:
+  1. Удалите [политику](../../concepts/lifecycle-policy.md), указав ее идентификатор:
 
      ```bash
      yc container repository lifecycle-policy delete <идентификатор_политики>
@@ -36,7 +36,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
 
-     ```bash
+     ```text
      +----+------+---------------+--------+---------+-------------+
      | ID | NAME | REPOSITORY ID | STATUS | CREATED | DESCRIPTION |
      +----+------+---------------+--------+---------+-------------+
@@ -44,40 +44,40 @@ description: "Следуя данной инструкции, вы сможет�
      ```
 
 - {{ TF }} {#tf}
-  
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Откройте конфигурационный файл и удалите фрагмент с описанием политики:
 
-      {% cut "Пример описания политики в конфигурации {{ TF }}" %}
+     {% cut "Пример описания политики в конфигурации {{ TF }}" %}
 
-      ```hcl
-      resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
-        name          = "best-policy"
-        status        = "active"
-        repository_id = "crpfvi6o4ra7********"
+     ```hcl
+     resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
+       name          = "best-policy"
+       status        = "active"
+       repository_id = "crpfvi6o4ra7********"
 
-        rule {
-          description   = "rule for applying policy"
-          untagged      = true
-          tag_regexp    = ".*"
-          retained_top  = 1
-          expire_period = "48h"
-        }
-      }
-      ```
+       rule {
+         description   = "rule for applying policy"
+         untagged      = true
+         tag_regexp    = ".*"
+         retained_top  = 1
+         expire_period = "48h"
+       }
+     }
+     ```
 
-      {% endcut %}
+     {% endcut %}
 
   1. Примените изменения:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  После этого в указанном репозитории будет удалена политика удаления. Проверить удаление политики можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+  После этого в указанном [репозитории](../../concepts/repository.md) будет удалена политика удаления. Проверить удаление политики можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
-    ```bash
-     yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
-    ```
+  ```bash
+  yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
+  ```
 
 - API {#api}
 

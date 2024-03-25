@@ -24,7 +24,7 @@ With our online courses, you can enhance your knowledge about {{ datalens-short-
 
 
 
-* Read news and success stories in our [{{ yandex-cloud }} blog][(https://cloud.yandex.com/en-ru/datalens-festival)](https://cloud.yandex.com/blog?services=23).
+* Read news and success stories in our [{{ yandex-cloud }} blog](https://cloud.yandex.com/blog?services=23).
 
-* See our [demo dashboard]({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r) {{ datalens-short-name }}.
+* See our {{ datalens-short-name }} [demo dashboard]({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r).
 

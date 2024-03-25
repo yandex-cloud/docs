@@ -270,7 +270,7 @@
   1. Выберите бакет в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
   1. Нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - AWS CLI {#aws-cli}
 

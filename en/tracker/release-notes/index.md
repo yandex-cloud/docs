@@ -1,55 +1,58 @@
 ---
-title: "{{ tracker-full-name }} release notes for January 2024"
-description: "Check out {{ tracker-full-name }} release notes for January 2024."
+title: "{{ tracker-full-name }} release notes for February 2024"
+description: "Check out {{ tracker-full-name }} release notes for February 2024."
 ---
 
-# {{ tracker-full-name }} release notes: January 2024
+# {{ tracker-full-name }} release notes: February 2024
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
-### Filters and sorting in portfolios {#project-filters}
 
-On the [portfolio]({{ link-tracker }}pages/projects/list) page, you can now configure filters and sort results by portfolio and project in the **Projects** and **Gantt chart** tabs.
+### Cycle time chart, a new widget on dashboards {#cycle-time-widget}
 
-### Copying widgets on dashboards {#clone-widget}
+Added a new widget on dashboards: a beta version of the [cycle time](../user/widgets.md#cycle-time) chart. To enable the chart, go to ![image](../../_assets/tracker/svg/settings.svg) **Settings** ⟶ ![image](../../_assets/tracker/svg/interface.svg) **Interface** and enable **Dashboard analytics**.
 
-The new interface allows [copying widgets](../user/copy-widget.md) both within the current dashboard and between dashboards.
+The widget supports automatic updates and filtering. Fixed certain bugs of the beta version.
 
-### API update for projects and portfolios {#portfolio-projects-api}
+### Baselines on a project's Gantt chart {#gantt-baseliness}
 
-You can now use the new, more flexible and functional API to work with checklists, comments, attachments, history, and links in projects and portfolios:
+Added selection and display of [baselines](../gantt/project.md#baselines) to the Gantt chart settings panel. To open the project baseline panel, click ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) above the time scale on the right.
 
-* [Add](../concepts/entities/checklists/add-checklist.md), [edit](../concepts/entities/checklists/patch-checklist.md), and [delete](../concepts/entities/checklists/delete-checklist.md) checklists and their individual items.
-* [Add](../concepts/entities/comments/add-comment.md), [edit](../concepts/entities/comments/patch-comment.md), and [delete](../concepts/entities/comments/delete-comment.md) comments and [get a list](../concepts/entities/comments/get-all-comments.md) of comments.
-* [Add](../concepts/entities/attachments/add-attachment.md) and [delete](../concepts/entities/attachments/delete-attachment.md) attached files. You can also [get information](../concepts/entities/attachments/get-attachment.md) about a specific attachment or [a list](../concepts/entities/attachments/get-all-attachments.md) of all files attached to an entity.
-* [Add](../concepts/entities/links/add-links.md) and [delete](../concepts/entities/links/delete-link.md) links between entities.
-
-### Local fields in queue settings {#queue-settings-local-fields}
-
-The new interface now has a [local field](../local-fields.md) management page in the queue settings. There, you can view a list of local fields, create new fields, and edit the categories of the existing ones.
 
 ## Fixes and improvements {#fixes}
 
+### Changing the order of filters saved on a board {#quick-filters}
 
-### Configuring access to creating issues without a form {#task-creating-access}
+You can now set the display order of filters saved on a board. To do this:
 
-In the new interface, you can now select access rules for creating issues without a form under **Integration** in the queue settings:
+1. Click the ![image](../../_assets/console-icons/gear.svg) icon next to filters.
+1. Change positions of filters in the **All filters** section by dragging them.
+1. Click **Apply**.
 
-* Allowed for all
-* Allowed for the queue team
-* Prohibited
+### Updated the interface of the _Notifications_ tab {#subscriptions-font-update}
 
-### Managing queue access privileges in components {#queue-access-management}
+The **Queue settings** → **Notifications** page is now has a new interface.
 
-On the settings page for queue access privileges, you can now quickly disable a component's influence on access privileges. To do so, go to **Access rights** in the queue settings, open the component you need, and click ![](../../_assets/console-icons/ellipsis.svg) → **Clear component access rights**. This will delete from the component all previously configured access privileges, i.e., members, issue roles, denied access. The component will no longer affect access to issues.
+### _Download all_ button in the project and portfolio description {#all-download-button}
 
-### Templates for project and portfolio comments {#templates}
+Added **Download all** button in the project and portfolio description allowing to download the archive of all files attached to the description.
 
-You can now use [comment templates](../user/ticket-template.md) in portfolios and projects.
+### Warning when attempting to add users to whom access is denied {#access-warning}
 
-### Warning when adding an issue into a project {#add-task-warning}
+Now, if you try to add users to whom access to {{ tracker-name }} is denied when setting up access permissions for a queue, a prohibition warning will appear.
 
-When you add existing issues and projects into projects and portfolios, the service checks whether they belong to another project or portfolio. If that is the case, you will see a warning on transferring them to a new entity and deleting them from the old one.
+
+### Fixed the error of summon saving on the transition screen in the workflow editor {#call-save-fix}
+
+Fixed the error that prevented saving an employee summon on the [transition screen](../manager/workflow-action-edit.md#screen) when setting up a workflow in the [workflow](../manager/workflow.md) visual editor.
+
+### Fixed macros {#macros-fix}
+
+Fixed operation of [macros](../manager/create-macroses.md): they now open in the sheet on the right rather than a pop-up window, and you can copy information from the issue.
+
+### Default background on boards {#default-background-fix}
+
+Added grey background by default for boards to improve visual perception.

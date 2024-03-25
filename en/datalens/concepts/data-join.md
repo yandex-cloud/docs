@@ -1,15 +1,15 @@
 ---
 title: "Joining {{ datalens-full-name }} data"
-description: "When creating a dashboard in {{ datalens-full-name }}, a link is often used that determines how a selector affects one or more charts and other selectors. You can use links to filter the values of selectors and charts. This article describes how to join data from different datasets to set up links between widgets."
+description: "When creating a dashboard in {{ datalens-full-name }}, you might want to use a link that determines how a selector affects one or more charts and other selectors. You can use links to filter the values of selectors and charts. This article describes how to join data from different datasets to set up links between widgets."
 ---
 
-# Combining {{ datalens-full-name }} data
+# Joining {{ datalens-full-name }} data
 
-{{ datalens-full-name }} uses a [connection](connection.md) to retrieve data from a source (DB, CSV, Yandex Metrica, and so on). You can create datasets, charts, and selectors from the connection's data. If the source has multiple tables, you can join them to build the required set of data. You can link data from different datasets at the chart level or through selector links.
+{{ datalens-full-name }} uses a [connection](connection.md) to retrieve data from a source (DB, CSV, Yandex Metrica, and so on). You can create datasets, charts, and selectors from the connection data. If the source has multiple tables, you can join them to build the required set of data. You can link data from different datasets at the chart level or through selector links.
 
-## Methods of combining data {#data-join}
+## Data joining methods {#data-join}
 
-You can use different methods to combine data:
+You can use different data joining methods:
 
 * [{#T}](#dataset-join)
 
@@ -23,7 +23,7 @@ You can use different methods to combine data:
 
 * [{#T}](#selector-join)
 
-### At the dataset level {#dataset-join}
+### Dataset level {#dataset-join}
 
 To join data at the dataset level, you can [add tables](#ui-join) to the workspace or write an [SQL query](#sql-join).
 
@@ -39,16 +39,16 @@ You can [join data](../operations/dataset/join-data.md) through the dataset crea
 
 #### SQL query {#sql-join}
 
-In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-in-datatset) to the data source. When a data source is accessed, the query code is run as a subquery. You can use the output of the query as final dataset data or combine it with other source tables via the interface.
+In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-in-datatset) to the data source. When accessing a data source, the query code is run as a subquery. You can use the output of the query as final dataset data or combine it with other source tables via the interface.
 
-### At the chart level {#chart-join}
+### Chart level {#chart-join}
 
 
 {{ datalens-short-name }} enables you to combine data at the chart level. To combine data at the chart level, you can use an [SQL chart](#sql-chart) or [multi-dataset charts](#datasets-chart).
 
 #### QL chart {#sql-chart}
 
-[QL charts](chart/index.md#sql-charts) are charts created from a connection if there is a database at the other end of the connection. Running a SQL query does not create a separate Dataset object. One is generated on the fly and displayed in the preview panel. For more information, see the instructions [{#T}](../operations/chart/create-sql-chart.md).
+[QL charts](chart/index.md#sql-charts) are charts created from a connection if there is a database at the other end of the connection. Running a SQL query does not create a separate dataset object; instead, it generates one on the fly and displays it in the preview panel. For more information, see [{#T}](../operations/chart/create-sql-chart.md).
 
 
 
@@ -57,14 +57,14 @@ In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-
 [Multi-dataset charts](chart/index.md#multi-dataset-charts) are charts that visualize data from different datasets. Queries for each dataset are processed independently of each other. For more information, see the instructions [{#T}](../operations/chart/create-multidataset-chart.md).
 
 
-### At the selector link level {#selector-join}
+### Selector link level {#selector-join}
 
 You can add a selector to a dashboard to modify query output in its associated widgets:
 
-* On the dashboard, selectors and charts built from a single dataset link automatically.
+* On the dashboard, selectors and charts built from a single dataset get linked automatically.
 * Selectors and charts built from different datasets can be linked manually using aliases.
 
-Before creating a link, make sure that the field used by the selector as a filter is included in the dataset the chart is built from. Otherwise, the link will not work. For more information, see the instructions [{#T}](../operations/dashboard/create-alias.md).
+Before creating a link, make sure the field used by the selector as a filter is included in the dataset the chart is built from. Otherwise, the link will not work. For more information, see the instructions [{#T}](../operations/dashboard/create-alias.md).
 
 
 ## Optimizing data when joining tables {#join-optimization}
@@ -192,7 +192,7 @@ Next, let's only leave the `Employees` table fields in the chart. In this case, 
 
 ![image](../../_assets/datalens/concepts/joins/case-3-chart-opt.png)
 
-Let's add to the chart only the fields from from the first (`Departments`) and third (`Bonuses`) tables. These tables are not linked explicitly. However, each of them is linked to the `Employees` table. Therefore, {{ datalens-short-name }} does not optimize a query to the source. In this case, the chart will include values from all the three tables based on filtering results.
+Let's add to the chart only the fields from the first (`Departments`) and third (`Bonuses`) tables. These tables are not linked explicitly. However, each of them is linked to the `Employees` table. Therefore, {{ datalens-short-name }} does not optimize a query to the source. In this case, the chart will include values from all the three tables based on filtering results.
 
 ![image](../../_assets/datalens/concepts/joins/case-3-chart-2.png)
 
@@ -215,7 +215,7 @@ Next, let's only leave the `Employees` table fields in the chart. In this case, 
 
 ![image](../../_assets/datalens/concepts/joins/case-4-chart-opt-1.png)
 
-Let's only add fields from the first (`Employees`) and third (`Bonuses`) tables to the chart. In this case, the chart will include values that are common for these tables (without filtering data by the `Departments` table).
+Let's add to the chart only the fields from the first (`Employees`) and third (`Bonuses`) tables. In this case, the chart will feature values that are common for these tables (without filtering data by the `Departments` table).
 
 ![image](../../_assets/datalens/concepts/joins/case-4-chart-opt-2.png)
 
@@ -239,7 +239,7 @@ Next, let's only leave the `Qualification` table fields in the chart. In this ca
 
 ![image](../../_assets/datalens/concepts/joins/case-5-chart-opt-1.png)
 
-If we only use a pair of joined tables (the first and the second, the first and the third, and the third and the fourth) in the chart, it will show common values from these tables (without filtering data by the other tables). For example, let's only add fields from the first (`Qualification`) and second (`Bonuses`) tables to the chart.
+If we only use a pair of joined tables (the first and the second one, the first and the third, or the third and the fourth) in the chart, it will show common values from these tables (without filtering data by other tables). For example, let's add to the chart only the fields from the first (`Qualification`) and second (`Bonuses`) tables.
 
 ![image](../../_assets/datalens/concepts/joins/case-5-chart-opt-2.png)
 

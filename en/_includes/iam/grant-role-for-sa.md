@@ -2,7 +2,7 @@ You can assign roles to a service account for any resources in any cloud if thes
 
 ## Assigning a role for a resource {#binding-role-resource}
 
-Access rights will be inherited by child resources from their parent resources. For example, if a service account is assigned a role for a cloud, the service account will be granted the appropriate permissions to all resources in all folders of this cloud.
+Child resources inherit access permissions from their parent resources. For example, if a service account is assigned a role for a cloud, the service account will be granted the appropriate permissions to all resources in all folders of this cloud.
 
 {% list tabs group=instructions %}
 
@@ -15,10 +15,9 @@ Access rights will be inherited by child resources from their parent resources. 
    1. In the [management console]({{ link-console-main }}), select the appropriate cloud or folder.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. In the window that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}** → **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}**.
+   1. In the window that opens, select **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}**.
    1. Select the required service account from the list or use the search.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-   1. Select a role in the folder.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -104,9 +103,9 @@ Access rights will be inherited by child resources from their parent resources. 
 
 ## Assigning a role for an organization {#binding-role-organization}
 
-Access rights are inherited from an organization by all resources created in the organization. For example, if a service account is assigned a role for an organization, the service account will be granted the appropriate permissions to all resources in all clouds of this organization.
+Access permissions are inherited from an organization by all resources created in the organization. For example, if a service account is assigned a role for an organization, the service account will be granted the appropriate permissions to all resources in all clouds of this organization.
 
-To grant a service account access rights to an organization, you need the `{{ roles-organization-admin }}` role or higher.
+To grant a service account access permissions to an organization, you need the `{{ roles-organization-admin }}` role or higher.
 
 {% list tabs group=instructions %}
 
@@ -116,15 +115,15 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, click ![icon-acl](../../_assets/console-icons/shield.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
+   1. In the left-hand panel, select ![icon-acl](../../_assets/console-icons/persons-lock.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
 
-   1. Select `{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}` in the account type filter.
+   1. In the **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** filter, select `{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}`.
 
    1. If the respective service account has at least one role, select it from the list or use the search bar. In the line with the account name, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-      If the service account is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}** → **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}** and select the appropriate account from the list or use the search bar.
+      If the service account is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, go to **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}** and select the appropriate account from the list or use the search bar.
 
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and enter the role name or select one from the list.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
 
       You can find the description of the available roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 

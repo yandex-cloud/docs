@@ -270,7 +270,7 @@ To delete a bucket policy:
    1. Select a bucket from the list.
    1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
    1. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
-   1. Click **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
+   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
 - AWS CLI {#aws-cli}
 

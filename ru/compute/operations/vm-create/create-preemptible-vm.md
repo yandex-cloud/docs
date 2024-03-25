@@ -2,79 +2,57 @@
 
 Вы можете [создать прерываемую](#create-preemptible) [ВМ](../../concepts/vm.md) или [изменить тип](#preemptible-to-regular) существующей ВМ.
 
-
-
 ## Создать прерываемую ВМ {#create-preemptible}
 
-Чтобы создать [прерываемую](../../concepts/preemptible-vm.md) ВМ:
+Чтобы создать [прерываемую ВМ](../../concepts/preemptible-vm.md):
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана прерываемая ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+     * Введите имя и описание прерываемой ВМ. Требования к имени:
 
-      * Введите имя и описание ВМ. Требования к имени:
+       {% include [name-format](../../../_includes/name-format.md) %}
 
-        {% include [name-format](../../../_includes/name-format.md) %}
+       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-
-     * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-
+     * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться прерываемая ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../concepts/image.md).
   1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../concepts/disk.md):
-
      * Выберите [тип диска](../../concepts/disk.md#disks_types).
      * Укажите нужный размер диска.
-
-     
      * {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
 
-
-       Если вы хотите создать ВМ из существующего диска, в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** [добавьте диск](create-from-disks.md):
+       Если вы хотите создать прерываемую ВМ из существующего диска, в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** [добавьте диск](create-from-disks.md):
        * Нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
        * Введите имя диска.
-       * Выберите [тип диска](../../concepts/disk.md#disks_types).
+       * Выберите тип диска.
        * Укажите нужный размер блока.
        * Укажите нужный размер диска.
-
-       
        * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
-
-
-       * (Опционально) Включите опцию **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
+       * (Опционально) Включите опцию **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}**, если нужно автоматически удалять диск при удалении прерываемой ВМ, к которой он будет подключен.
        * Выберите наполнение `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}`.
        * Нажмите **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
-
-
   1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../concepts/filesystem.md):
-
      * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
      * В открывшемся окне выберите файловое хранилище.
      * Укажите имя устройства.
      * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
- 
-
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-
      * Выберите [платформу](../../concepts/vm-platforms.md).
      * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
      * Включите опцию **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
      * (Опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
-
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-  
   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
-
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на прерываемую ВМ:
      * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
@@ -89,10 +67,10 @@
 
      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../../concepts/placement-groups.md) ВМ.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../../concepts/placement-groups.md) прерываемой ВМ.
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  ВМ появится в списке.
+  Прерываемая ВМ появится в списке.
 
 - CLI {#cli}
 
@@ -100,18 +78,18 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для создания ВМ:
+  1. Посмотрите описание команды CLI для создания прерываемой ВМ:
 
      ```bash
      yc compute instance create --help
      ```
 
-  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-full-name }} на базе ОС Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
+  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на прерываемую ВМ.
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) [{{ marketplace-full-name }}](../../../marketplace/) на базе ОС Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 
-  1. Создайте ВМ в каталоге по умолчанию:
+  1. Создайте прерываемую ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
 
      ```bash
      yc compute instance create \
@@ -123,25 +101,23 @@
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
+     {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
 
      Где:
+     * `--name` — имя прерываемой ВМ. Требования к имени:
 
-      * `--name` — имя ВМ. Требования к имени:
+       {% include [name-format](../../../_includes/name-format.md) %}
 
-        {% include [name-format](../../../_includes/name-format.md) %}
+       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+     * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной [подсети](../../../vpc/concepts/network.md#subnet).
+     * `subnet-name` — имя выбранной подсети.
+     * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать прерываемую ВМ без публичного IP-адрес, исключите параметр.
+     * `--preemptible` — выбор прерываемого типа ВМ.
+     * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+     * `--ssh-key` — путь до [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на прерываемой ВМ будет автоматически создан пользователь `yc-user`.
 
-      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
-      * `subnet-name` — имя выбранной подсети.
-      * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адрес, исключите параметр.
-      * `--preemptible` — выбор прерываемого типа ВМ.
-      * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
-      * `--ssh-key` — путь до [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
-
-        {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
-     
-
+       {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
 - {{ TF }} {#tf}
 
@@ -149,78 +125,77 @@
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-      ```hcl
-      resource "yandex_compute_disk" "boot-disk" {
-        name     = "<имя_диска>"
-        type     = "<тип_диска>"
-        zone     = "<зона_доступности>"
-        size     = "<размер_диска>"
-        image_id = "<идентификатор_образа>"
-      }
+     ```hcl
+     resource "yandex_compute_disk" "boot-disk" {
+       name     = "<имя_диска>"
+       type     = "<тип_диска>"
+       zone     = "<зона_доступности>"
+       size     = "<размер_диска>"
+       image_id = "<идентификатор_образа>"
+     }
 
-      resource "yandex_compute_instance" "vm-1" {
-        name                      = "preemptible-vm"
-        allow_stopping_for_update = true
-        platform_id               = "standard-v3"
-        zone                      = "<зона_доступности>"
+     resource "yandex_compute_instance" "vm-1" {
+       name                      = "preemptible-vm"
+       allow_stopping_for_update = true
+       platform_id               = "standard-v3"
+       zone                      = "<зона_доступности>"
 
-        resources {
-          cores  = <количество_ядер_vCPU>
-          memory = <объем_RAM_ГБ>
-        }
+       resources {
+         cores  = <количество_ядер_vCPU>
+         memory = <объем_RAM_ГБ>
+       }
 
-        boot_disk {
-          disk_id = yandex_compute_disk.boot-disk.id
-        }
+       boot_disk {
+         disk_id = yandex_compute_disk.boot-disk.id
+       }
 
-        network_interface {
-          subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
-          nat       = true
-        }
+       network_interface {
+         subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+         nat       = true
+       }
 
-        metadata = {
-          ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
-        }
+       metadata = {
+         ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
+       }
 
-        scheduling_policy {
-          preemptible = true
-        }
-      }
+       scheduling_policy {
+         preemptible = true
+       }
+     }
 
-      resource "yandex_vpc_network" "network-1" {
-        name = "network1"
-      }
+     resource "yandex_vpc_network" "network-1" {
+       name = "network1"
+     }
 
-      resource "yandex_vpc_subnet" "subnet-1" {
-        name       = "subnet1"
-        zone       = "<зона_доступности>"
-        network_id = "${yandex_vpc_network.network-1.id}"
-      }
-      ```
+     resource "yandex_vpc_subnet" "subnet-1" {
+       name       = "subnet1"
+       zone       = "<зона_доступности>"
+       network_id = "${yandex_vpc_network.network-1.id}"
+     }
+     ```
 
      Где:
-
      * `yandex_compute_disk` — описание загрузочного [диска](../../concepts/disk.md):
        * `name` — имя диска.
-       * `type` — тип создаваемого диска.
+       * `type` — [тип](../../concepts/disk.md#disks_types) создаваемого диска.
        * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
        * `size` — размер диска в ГБ.
-       * `image_id` — идентификатор образа для ВМ. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+       * `image_id` — идентификатор [образа](../../concepts/image.md) для прерываемой ВМ. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
-        
-     * `yandex_compute_instance` — описание ВМ:
-       * `name` — имя ВМ.
+
+     * `yandex_compute_instance` — описание прерываемой ВМ:
+       * `name` — имя прерываемой ВМ.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
-       * `zone` — зоны доступности, в которой будет находиться ВМ.
-       * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
+       * `zone` — зона доступности, в которой будет находиться прерываемая ВМ.
+       * `resources` — количество ядер vCPU и объем RAM, доступные прерываемой ВМ. Значения должны соответствовать выбранной платформе.
        * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска.
-       * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
-       * `metadata` — в метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+       * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить прерываемой ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
+       * `metadata` — в метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на прерываемую ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
        * `scheduling_policy` — политика планирования. Чтобы создать прерываемую ВМ, укажите `preemptible = true`.
      * `yandex_vpc_network` — описание облачной сети.
-     * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
+     * `yandex_vpc_subnet` — описание подсети, к которой будет подключена прерываемая ВМ.
 
      {% note info %}
 
@@ -229,7 +204,6 @@
      {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

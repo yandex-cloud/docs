@@ -1,8 +1,8 @@
 # Multi-dataset charts
 
-Multi-dataset charts display data from multiple datasets.
+Multi-dataset charts are charts that visualize data from different datasets.
 
-Queries for each dataset are processed independently of each other. You cannot create calculated fields from fields in multiple datasets.
+Queries for each dataset are processed independently of each other. You cannot create calculable fields from fields in multiple datasets.
 When you add a second {{ datalens-short-name }} dataset, a link is automatically created based on the first match for the field name and field data type.
 
 In this case, you can:
@@ -13,18 +13,18 @@ In this case, you can:
 
 {% note info %}
 
-Datas in a chart don't have to be linked.
+You do not have to link datasets in a chart.
 
 {% endnote %}
 
-Features of working with linked datasets in charts, except for geochart layers:
+Consider the following specifics of working with linked datasets in charts, except for geochart layers:
 
 * One chart can use any measures from datasets, regardless of their links.
 * One chart can only use linked dimensions.
 * Filters by linked dimensions are applied to all datasets.
 * Filters by non-linked dimensions are applied only to their own dataset.
 
-Features of working with linked datasets in geovisualizations on different layers:
+The following specifics apply to working with linked datasets in geovisualizations on different layers:
 
 * A geolayer can use any measures from datasets regardless of their links.
 * A geolayer can only use its linked dimensions.
