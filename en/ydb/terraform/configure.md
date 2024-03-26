@@ -13,7 +13,7 @@ To work with this guide, make sure that the Terraform provider for YDB is instal
 
 Create a directory for Terraform's YDB configuration files and create a file named `main.tf`, e.g.:
 ```bash
-mkdir ydb_terraform && cd ydb_teraform
+mkdir ydb_terraform && cd ydb_terraform
 touch main.tf
 ```
 
