@@ -22,10 +22,10 @@
 
   yc compute instance create --name mnt-vm1 --hostname mnt-vm1\
     --folder-id $FOLDER_ID \
-    --zone ru-central1-a \
+    --zone {{ region-id }}-a \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
     --cores=2 --memory=4G --core-fraction=100 \
-    --network-interface subnet-name=default-ru-central1-a,ipv4-address=auto,nat-ip-version=ipv4 \
+    --network-interface subnet-name=default-{{ region-id }}-a,ipv4-address=auto,nat-ip-version=ipv4 \
     --ssh-key ~/.ssh/id_ed25519.pub \
     --maintenance-policy restart \
     --maintenance-grace-period 1m
@@ -55,14 +55,14 @@
 
       data "yandex_vpc_subnet" "vm_subnet" {
         folder_id = var.folder_id
-        name      = "default-ru-central1-a"
+        name      = "default-{{ region-id }}-a"
       }
 
       resource "yandex_compute_instance" "vm_instance" {
         name                     = "mnt-vm1"
         folder_id                = var.folder_id
         hostname                 = "mnt-vm1"
-        zone                     = "ru-central1-a"
+        zone                     = "{{ region-id }}-a"
         maintenance_policy       = "restart" # restart| migrate | unspecified
         maintenance_grace_period = "1m"
 

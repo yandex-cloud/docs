@@ -38,7 +38,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -135,7 +135,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -239,7 +239,7 @@ You can perform the following actions related to registry labels:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -328,7 +328,7 @@ You can perform the following actions related to registry labels:
 
    {% note warning %}
 
-   The existing set of `labels` is completely overwritten by the transmitted set.
+   The existing set of `labels` is completely overwritten by the one transmitted in the request.
 
    {% endnote %}
 
@@ -348,7 +348,7 @@ You can perform the following actions related to registry labels:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -444,7 +444,7 @@ You can perform the following actions related to registry labels:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

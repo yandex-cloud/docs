@@ -1,10 +1,10 @@
-# Deploying a web app with JWT authorization in {{ api-gw-name }} and authentication in Firebase
+# Deploying a web app with JWT authorization in {{ api-gw-full-name }} and authentication in Firebase
 
-In this tutorial, you will learn how to implement authentication and authorization based on [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) protocols in your web app. For authentication, we will use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) and [Firebase](https://firebase.google.com/docs). Authorization will be performed on the {{ api-gw-name }} side using a JWT authorizer. A web app will include:
+In this tutorial, you will learn how to implement authentication and authorization based on [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) protocols in your web app. For authentication, we will use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) and [Firebase](https://firebase.google.com/docs). Authorization will be performed on the [{{ api-gw-name }}](../../api-gateway/) side using a JWT authorizer. A web app will include:
 
 * Firebase external authentication service.
 * Simple REST API deployed as {{ api-gw-name }}.
-* Static website deployed in a {{ objstorage-name }} bucket.
+* Static website deployed in a [{{ objstorage-full-name }}](../../storage/) [bucket](../../storage/concepts/bucket.md).
 
 To deploy your web app:
 
@@ -23,13 +23,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for running the web app includes:
+
 * Fee for data storage in a bucket and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
-
 
 ## Create a project and set up Google OAuth in Google Cloud {#create-google-cloud-project}
 
@@ -70,7 +69,7 @@ Firebase:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `jwt-api-gw`.
@@ -250,7 +249,7 @@ Firebase:
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    This will create an API gateway in the specified folder.
 
@@ -289,9 +288,9 @@ Firebase:
       npm run build
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       File sizes after gzip:
 
         96.05 kB  build\static\js\main.de7af71f.js
@@ -303,9 +302,9 @@ Firebase:
       The build folder is ready to be deployed.
       ```
 
-## Deploy {{ yandex-cloud }} resources and upload the web app to a {{ objstorage-name }} bucket {#deploy}
+## Deploy {{ yandex-cloud }} resources and upload the web app to an {{ objstorage-name }} bucket {#deploy}
 
-Deploy a static website:
+Deploy a static website.
 
 1. Create an {{ objstorage-name }} bucket:
 
@@ -313,7 +312,7 @@ Deploy a static website:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the bucket creation page:
@@ -331,8 +330,8 @@ Deploy a static website:
 
          ```bash
          yc storage bucket create \
-         --name bucket-for-tutorial \
-         --public-read
+           --name bucket-for-tutorial \
+           --public-read
          ```
 
          Where:
@@ -342,13 +341,11 @@ Deploy a static website:
 
          Result:
 
-         ```bash
+         ```text
          name: bucket-for-tutorial
          folder_id: b1gmit33********
          anonymous_access_flags:
-           read: false
-           list: false
-         default_storage_class: STANDARD
+         ...
          versioning: VERSIONING_DISABLED
          acl: {}
          created_at: "2023-06-08T11:57:49.898024Z"
@@ -388,7 +385,7 @@ Deploy a static website:
 
          Where:
 
-         * `yandex_iam_service_account`: Description of the service account that will create and use a bucket:
+         * `yandex_iam_service_account`: Description of the [service account](../../iam/concepts/users/service-accounts.md) that will create and use a bucket:
             * `name`: Service account name
          * `yandex_storage_bucket`: Bucket description:
             * `bucket`: Bucket name
@@ -398,7 +395,7 @@ Deploy a static website:
 
       1. Create resources:
 
-         {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       This will create a bucket in the specified folder.
 
@@ -435,8 +432,8 @@ Deploy a static website:
       1. In the [management console]({{ link-console-main }}), go to `bucket-for-tutorial`.
       1. Go to ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
       1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-         * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website home page: `index.html`.
-         * In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display for 4xx errors: `error.html`.
+         * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website home page, `index.html`.
+         * In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display in case of `4xx` errors, `error.html`.
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
       1. In the **{{ ui-key.yacloud.storage.bucket.website.field_link }}** field, copy your website's URL.
 
@@ -468,6 +465,7 @@ Deploy a static website:
          ```
 
          Where:
+
          * `--name`: Bucket name.
          * `--website-settings-from-file`: Path to the redirect configuration file.
 
@@ -517,7 +515,7 @@ Deploy a static website:
 
       1. Create resources:
 
-         {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       This will set up hosting in the bucket.
 

@@ -58,7 +58,7 @@ To create an autoscalable {{ managed-k8s-name }} node group:
 
 - {{ TF }} {#tf}
 
-  1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+  1. {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
      {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Open the current {{ TF }} configuration file describing the node group.
@@ -79,7 +79,7 @@ To create an autoscalable {{ managed-k8s-name }} node group:
      }
      ```
 
-  1. Make sure the configuration files are valid.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

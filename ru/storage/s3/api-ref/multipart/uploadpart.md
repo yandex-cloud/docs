@@ -34,7 +34,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 Параметр | Описание
 ----- | -----
-`partNubmer` | Идентификатор, который вы присвоили загружаемой части.
+`partNumber` | Идентификатор, который вы присвоили загружаемой части.
 `uploadId` | Идентификатор составной загрузки, который {{ objstorage-name }} вернул при [инициализации](startupload.md).
 
 

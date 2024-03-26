@@ -85,7 +85,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
          * `kms_master_key_id`: ID of the KMS master key used for encryption.
          * `sse_algorithm`: Encryption algorithm used on the server side. The only supported value is `aws:kms`.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -123,7 +123,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    
    {% include [terraform-install](../../../_includes/terraform-install.md) %}

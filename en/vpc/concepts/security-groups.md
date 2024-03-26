@@ -207,9 +207,17 @@ If multiple security groups apply to one object at the same time, their rules wi
 
 Please keep in mind that you cannot apply security groups to a network load balancer's [traffic listener](../../network-load-balancer/concepts/listener.md). For [target group](../../network-load-balancer/concepts/target-resources.md) VMs hosted behind a load balancer, security groups can be applied to the VM network interfaces. Security groups of these VMs must include the `Health Checks` rule to allow [health check](../../network-load-balancer/concepts/health-check.md#target-statuses) traffic from the load balancer.
 
+
+#### Security groups and services for DNS and VM metadata {#security-groups-and-metadata-dns}
+
+For consistent and reliable operation of network services, you must explicitly allow the following network traffic in the outgoing rules of security groups:
+
+* [VM metadata service](../../compute/concepts/vm-metadata.md) requests at the `169.254.169.254` IP address over HTTP `(tcp/80)`.
+* DNS requests towards the second IP address [in the subnet](./network.md#subnet) over DNS `(udp/53)`.
+
 #### Security groups and {{ managed-k8s-name }} {#security-groups-and-k8s}
 
-To avoid network connectivity issues when deploying and using {{ managed-k8s-name }}clusters, make sure to carefully follow this [guide](../../managed-kubernetes/operations/connect/security-groups.md).
+To avoid network connectivity issues when deploying and using {{ managed-k8s-name }} clusters, carefully follow [this guide](../../managed-kubernetes/operations/connect/security-groups.md).
 
 {% note alert %}
 

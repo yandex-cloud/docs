@@ -6,58 +6,24 @@ Within {{ at-name }}, audit logs are managed by [trails](./concepts/trail.md).
 
 Follow this guide to create a new trail that will upload audit logs of your organization resources to an {{ objstorage-name }} bucket.
 
+{% include [bucket-encryption-tip](../_includes/audit-trails/bucket-encryption-tip.md) %}
+
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and sign in to {{ yandex-cloud }} or create an account if you do not have one yet.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. Make sure your cloud has a bucket where you can store audit logs. [Create a new bucket](../storage/quickstart.md#the-first-bucket) with restricted access, if required.
-1. [Create](../iam/operations/sa/create.md) a service account and assign the following roles to it:
 
-   {% list tabs group=instructions %}
-
-   - CLI {#cli}
-
-      {% include [cli-install](../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../_includes/default-catalogue.md) %}
-
-      * Assign the [`storage.uploader`](../storage/security/index.md#storage-uploader) role for the folder to host the trail:
-
-         ```
-         yc resource-manager folder add-access-binding \
-           --role storage.uploader \
-           --id <folder_ID> \
-           --service-account-id <service_account_ID>
-         ```
-
-         Where:
-
-         * `--role`: Role being assigned.
-         * `--id`: ID of the folder to host the trail.
-         * `--service-account-id`: Service account ID.
-
-      * Assign the [`audit-trails.viewer`](./security/index.md#roles-list) role for the organization whose audit logs will be collected:
-
-         ```
-         yc organization-manager organization add-access-binding \
-           --role audit-trails.viewer \
-           --id <organization_ID> \
-           --service-account-id <service_account_ID>
-         ```
-
-         Where:
-
-         * `--role`: Role being assigned.
-         * `--id`: ID of the organization whose audit logs will be collected.
-         * `--service-account-id`: Service account ID.
-
-   {% endlist %}
+1. {% include [add-roles-to-sa](../_includes/audit-trails/add-roles-to-sa.md) %}
 
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the following roles:
    * `iam.serviceAccounts.user` for the service account.
    * `audit-trails.editor` for the folder to host the trail.
    * `audit-trails.viewer` for the organization whose audit logs will be collected.
-   * `storage.viewer` for the bucket or the folder.
+   * `kms.editor` for the folder where the bucket encryption key will be created.
+   * `storage.viewer` for bucket or folder.
+
+{% include [bucket-encryption-section](../_includes/audit-trails/bucket-encryption-section.md) %}
 
 ## Creating a trail {#the-trail-creation}
 

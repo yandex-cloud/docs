@@ -46,7 +46,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -144,7 +144,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -249,7 +249,7 @@ You can perform the following actions with broker labels:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -339,7 +339,7 @@ You can perform the following actions with broker labels:
 
    {% note warning %}
 
-   The existing set of `labels` is completely overwritten by the transmitted set.
+   The existing set of `labels` is completely overwritten by the one transmitted in the request.
 
    {% endnote %}
 
@@ -359,7 +359,7 @@ You can perform the following actions with broker labels:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -456,7 +456,7 @@ You can perform the following actions with broker labels:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

@@ -48,7 +48,7 @@
       ```bash
       yc compute disk create \
         --name ssd-io-disk \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --type network-ssd-io-m3 \
         --size 93G
       ```
@@ -61,7 +61,7 @@
       created_at: "2023-07-18T14:42:21Z"
       name: ssd-io-disk
       type_id: network-ssd-io-m3
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       size: "99857989632"
       block_size: "4096"
       status: READY

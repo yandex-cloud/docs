@@ -40,6 +40,8 @@ items:
         href: tutorials/index.md
       - name: Digitizing image archives in {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
+      - name: Telegram bot for text recognition in images
+        href: tutorials/recognizer-bot.md
   - name: Concepts
     items:
       - name: Overview

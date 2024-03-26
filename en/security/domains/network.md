@@ -12,7 +12,7 @@ To control network access to your resources, use one of the following:
 
 * [Security groups](../../vpc/concepts/security-groups.md).
 
-   With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. For instructions on how to set up security groups, see [{#T}](../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
+   With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. See the guide on how to set up security groups in [{#T}](../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 
@@ -24,7 +24,7 @@ To control network access to your resources, use one of the following:
 
 To deliver traffic to an application within your cloud infrastructure, we recommend using a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/), to route your traffic through the selected ports only. Use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
 
-To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}. Traffic within {{ vpc-short-name }} is allowed by default; it is not allowed between {{ vpc-short-name }}, unless there is a VM with two network interfaces in different networks, either VPN or {{ interconnect-name }}.
+To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}. Traffic within {{ vpc-short-name }} is allowed by default; it is not allowed between {{ vpc-short-name }}s, unless there is a VM with two network interfaces in different networks, either VPN or {{ interconnect-name }}.
 
 ## DDoS protection
 
@@ -34,7 +34,7 @@ When assigning public IP addresses to your cloud resources, enable the built-in 
 
 To enable administrators to establish remote connections to your cloud resources, use one of the following:
 
-* A site-to-site VPN between a remote site (such as your office) and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image](/marketplace?categories=network) from {{ marketplace-name }}.
+* Site-to-site VPN between a remote site, e.g., your office, and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image](/marketplace?categories=network) from {{ marketplace-name }}.
 
    Setup options:
 
@@ -75,4 +75,4 @@ Regardless of which option you select for setting up outgoing internet access, b
 
 ## DNS security {#dns-security}
 
-To increase fault tolerance, some traffic can be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).
+To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).

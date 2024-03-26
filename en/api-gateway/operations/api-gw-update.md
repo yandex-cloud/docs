@@ -1,17 +1,17 @@
 ---
-title: "Updating API gateways"
+title: "Updating an API gateway"
 description: "Follow this guide to update an API gateway."
 ---
 
-# Updating API gateways
+# Updating an API gateway
 
-After you create an API gateway, you can change any of its parameters and the OpenAPI specification.
+After you create an [API gateway](../concepts/index.md), you can change any of its parameters and the [OpenAPI specification](https://en.wikipedia.org/wiki/OpenAPI_Specification).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to edit an API gateway.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
    1. Edit the API gateway parameters or OpenAPI specification if needed.
@@ -37,13 +37,13 @@ After you create an API gateway, you can change any of its parameters and the Op
       ```bash
       {{ yc-serverless }} api-gateway update \
         --id <gateway_ID> \
-        --new-name <new_gateway_name>
-        --spec=<path_to_new_specification_file> \
+        --new-name <new_gateway_name> \
+        --spec=<new_specification_file_path>
       ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -103,19 +103,19 @@ After you create an API gateway, you can change any of its parameters and the Op
 
    1. Check the configuration using this command:
 
-      ```
+      ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
 
-      ```
+      ```text
       Success! The configuration is valid.
       ```
 
    1. Run this command:
 
-      ```
+      ```bash
       terraform plan
       ```
 
@@ -123,15 +123,15 @@ After you create an API gateway, you can change any of its parameters and the Op
 
    1. Apply the configuration changes:
 
-      ```
+      ```bash
       terraform apply
       ```
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
-      ```
+      ```bash
       yc serverless api-gateway get <API_gateway_name>
       ```
 
@@ -139,10 +139,8 @@ After you create an API gateway, you can change any of its parameters and the Op
 
    To change the API gateway name, description, or specification, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
    You can edit the name, the description, or the specification of an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}

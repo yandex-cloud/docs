@@ -394,6 +394,10 @@ items:
           Миграция БД из {{ mmy-name }} в {{ objstorage-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mmy-objs-migration.md
+      - name: >-
+          Перенос данных из {{ objstorage-name }} в {{ mmy-name }} с
+          использованием {{ data-transfer-name }}
+        href: dataplatform/objs-mmy-migration.md
       - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md
       - name: >-
@@ -540,7 +544,7 @@ items:
         href: routing/dataproc-nat-instance.md
       - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
-      - name: Подключение к {{container-registry-name}} из {{vpc-short-name}}
+      - name: Подключение к {{ container-registry-name }} из {{ vpc-short-name }}
         href: routing/vpc-cr-access.md
   - name: Визуализация и анализ данных
     items:

@@ -1,6 +1,6 @@
 # Getting information about a VM
 
-To get basic information about each [VM](../../concepts/vm.md) you created, go to the [management console]({{ link-console-main }}) and open the VM page. To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
+To get basic information about each [VM](../../concepts/vm.md) you created, go to the [management console]({{ link-console-main }}) and open the VM page. To get detailed information with custom [metadata](../../concepts/vm-metadata.md), use the [CLI](../../../cli/) or API.
 
 You can also get basic information and metadata [from inside a VM](#inside-instance).
 
@@ -17,11 +17,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
    Tabs:
    * **{{ ui-key.yacloud.compute.instance.switch_overview }}** shows general information about the VM, including the [IP addresses](../../../vpc/concepts/address.md) assigned to it.
    * **{{ ui-key.yacloud.compute.instance.switch_disks }}** provides information about the [disks](../../concepts/disk.md) attached to the VM.
-
-   
    * **{{ ui-key.yacloud.compute.instance.switch_file-storages }}** provides information about the [file storage](../../concepts/filesystem.md) attached.
-
-
    * **{{ ui-key.yacloud.compute.instance.switch_operations }}** lists operations on the VM and resources attached to it, such as disks.
    * **{{ ui-key.yacloud.compute.instance.switch_monitoring }}** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
    * **{{ ui-key.yacloud.compute.instance.switch_console }}** provides access to the [serial console](../../operations/serial-console/index.md) if enabled when [creating](../../operations/index.md#vm-create) the VM.
@@ -53,17 +49,15 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
       yc compute instance get --full first-instance
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To get information about a VM using {{ TF }}:
-
    1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
-      ```
+      ```hcl
       data "yandex_compute_instance" "my_instance" {
         instance_id = "<instance_ID>"
       }
@@ -74,17 +68,15 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
       ```
 
       Where:
-
       * `data "yandex_compute_instance"`: Description of the data source to get VM information from:
          * `instance_id`: VM ID.
-      * `output "instance_external_ip"`: External IP address of the VM for the resulting output:
+      * `output "instance_external_ip"`: [Public IP address](../../../vpc/concepts/address.md#public-addresses) of the VM to output:
          * `value`: Returned value.
 
       For more information about the `yandex_compute_instance` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_instance).
-
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
 
@@ -94,7 +86,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 
       Result:
 
-      ```bash
+      ```text
       instance_external_ip = "158.160.50.228"
       ```
 
@@ -137,25 +129,25 @@ Where:
 
 Find out the ID of a VM from inside it:
 
-```
+```bash
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
 ```
 
 Get metadata in JSON format:
 
-```
+```bash
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
 ```
 
 Get metadata in an easy-to-read format. Use the [jq](https://stedolan.github.io/jq/) utility:
 
-```
+```bash
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
 Getting an [identity document](../../concepts/vm-metadata.md#identity-document):
 
-```
+```bash
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
 ```
 
@@ -208,19 +200,19 @@ The angle brackets contain parameters to replace with values. For example, inste
 * `network/interfaces/macs/<MAC_address>/local-hostname`: Hostname associated with the network interface.
 * `network/interfaces/macs/<MAC_address>/local-ipv4s`: Internal IPv4 addresses associated with the network interface.
 * `network/interfaces/macs/<MAC_address>/mac`: MAC address of the VM network interface.
-* `public-ipv4`: [External IPv4 address](../../../vpc/concepts/address.md#public-addresses).
+* `public-ipv4`: [Public IPv4 address](../../../vpc/concepts/address.md#public-addresses).
 
 #### Request examples {#request-examples}
 
 Getting an internal IP address from inside a VM:
 
-```
+```bash
 curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
 
 Getting an [identity document](../../concepts/vm-metadata.md#identity-document):
 
-```
+```bash
 curl http://169.254.169.254/latest/vendor/instance-identity/document
 ```
 
@@ -229,8 +221,8 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 You can set up metadata service parameters when creating or updating VMs.
 
 You can use the following settings:
-* `aws-v1-http-endpoint` provides access to metadata using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
-* `aws-v1-http-token` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
+* `aws-v1-http-endpoint`: Provides access to metadata using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
+* `aws-v1-http-token`: Provides access to [{{ iam-name }}](../../../iam/) credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
 
    {% note info %}
 
@@ -240,8 +232,8 @@ You can use the following settings:
 
    {% endnote %}
 
-* `gce-http-endpoint` provides access to metadata using Google Compute Engine format. Acceptable values: `enabled`, `disabled`.
-* `gce-http-token` provides access to {{ iam-name }} credentials using Google Compute Engine format. Acceptable values: `enabled`, `disabled`.
+* `gce-http-endpoint`: Provides access to metadata using Google Compute Engine format. Acceptable values: `enabled`, `disabled`.
+* `gce-http-token`: Provides access to {{ iam-name }} credentials using Google Compute Engine format. Acceptable values: `enabled`, `disabled`.
 
 To set up metadata service parameters for a VM instance:
 
@@ -277,7 +269,7 @@ To set up metadata service parameters for a VM instance:
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    1. Open the {{ TF }} configuration file and change the `metadata_options` parameter in the VM description:
 
@@ -305,10 +297,9 @@ To set up metadata service parameters for a VM instance:
             * `gce_http_token` provides access to {{ iam-name }} credentials using Google Compute Engine format. Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
 
       For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
-
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder with the settings you defined. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this CLI command:
 

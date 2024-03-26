@@ -9,6 +9,16 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 01/03/2024 {#01032024}
+
+The Serverless mode is no longer supported.
+
+## Release on 27/02/2024 {#27022024}
+
+1. Added the option to run a notebook in Dedicated mode to the [API](api-ref/overview.md).
+1. Improved logs and [metrics](concepts/deploy/monitoring.md) for nodes.
+1. Fixed bugs and added minor improvements in platform performance.
+
 ## Release on 29/01/2024 {#290124}
 
 1. Updated the NVIDIA driver to version 535.
@@ -32,7 +42,7 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 ## Release on 10/10/2023 {#101023}
 
-1. You can test retrained {{ yagpt-name }} models right in {{ ml-platform-name }}. {{ yagpt-name }} Playground {{ ml-platform-name }} is available after retraining to those users who have access permissions to [{{ yagpt-name }}](../yandexgpt/).
+1. You can test fine-tuned {{ yagpt-name }} models right in {{ ml-platform-name }}. {{ yagpt-name }} {{ ml-platform-name }} Playground is available after fine-tuning to users with access to [{{ yagpt-name }}](../yandexgpt/).
 1. You can now [connect](operations/projects/remote-connect.md) your {{ ml-platform-name }} project to {{ jlab }}Lab from a local IDE.
 1. Fixed bugs and added minor improvements in platform performance.
 
@@ -41,7 +51,7 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 1. With [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), cloud computing resources in {{ ml-platform-name }} can now be used from a user's local environment.
 1. {{ ml-platform-name }} projects now have a new type of resources: [Models](concepts/models/index.md).
 1. Optimized JupyterLab 3 (available in [dedicated](concepts/project.md#dedicated) mode) by adding new extensions.
-1. [{{ yagpt-name }} model retraining](concepts/models/foundation-models.md#yagpt-tuning) is now available at the [Preview](../overview/concepts/launch-stages.md) stage.
+1. [{{ yagpt-name }} model tuning](concepts/models/foundation-models.md#yagpt-tuning) is now available at the [Preview](../overview/concepts/launch-stages.md) stage.
 1. Fixed bugs and added minor improvements in platform performance.
 
 ## Release on 18/09/2023 {#180923}

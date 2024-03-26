@@ -20,9 +20,9 @@ However, if your [grant](../usage-grant.md) has expired, access to your resource
 
 #### I accidentally switched to a paid account. Did I lose my initial grant? Can I get it back? {#accidental-switching-trial}
 
-No, you can't switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
+No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
-#### I haven't used up the entire initial grant, but my cloud is blocked. What should I do? {#cloud-blocked-during-trial}
+#### I have not used up the initial grant, but my cloud is blocked. What should I do? {#cloud-blocked-during-trial}
 
 The cloud may be blocked for a few reasons:
 
@@ -30,9 +30,9 @@ The cloud may be blocked for a few reasons:
 
 1. The initial grant is provisionally divided into two parts that can be used at the same time. One part covers payment for the Compute service, the other part — the rest of the {{ yandex-cloud }} services. If you run out of one part, you can continue using the cloud by switching to a paid account. The unspent part of the grant will be preserved. For more information about using the initial grant and switching to a paid period, see [{#T}](../free-trial/concepts/upgrade-to-paid.md).
 
-#### I couldn't use up the initial grant in 60 days. Can I use {{ yandex-cloud }}? {#initial-grant-expiring}
+#### I could not use up the initial grant in 60 days. Can I use {{ yandex-cloud }}? {#initial-grant-expiring}
 
-When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid plan.
+When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 60 days. To continue using {{ yandex-cloud }}, switch to a paid plan.
 
 ### About the documents {#documents}
 
@@ -50,7 +50,7 @@ No physical invoice is provided, but you can generate and print it out from the 
 
 #### I need a bilateral contract rather than an offer. Can I get it? {#signed-agreement}
 
-Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
+Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
 #### How do I get invoiced? {#invoice}
 

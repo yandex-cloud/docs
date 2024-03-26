@@ -89,7 +89,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -120,7 +120,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
       For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

@@ -48,7 +48,7 @@ description: "Follow this guide to add a trigger label in {{ sf-name }}."
 
    For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    To add a trigger label:
 

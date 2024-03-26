@@ -60,7 +60,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Задайте имя реестра, например `datasphere-registry`, и нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
   
- {% endlist %} 
+{% endlist %} 
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
@@ -169,7 +169,7 @@
    1. Получите список реестров каталога `data-folder`:
 
       ```bash
-      yc container registry list   
+      yc container registry list
       ```
 
       Идентификатор реестра понадобится вам на следующем шаге. Пример вывода команды:

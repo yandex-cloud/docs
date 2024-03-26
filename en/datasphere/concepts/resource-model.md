@@ -16,7 +16,6 @@ You can use the following types of resources in {{ ml-platform-name }} projects:
 * [Secrets](secrets.md): Key-value pairs that store private data (tokens, keys, etc.) in encrypted form. Secrets are created in a project and assigned to it. You can use secrets as environment variables in a cell.
 * [Docker images](docker.md): OS environments with certain software, libraries, environment variables, and configuration files.
 * [Connectors to S3 storages](s3-connector.md): Saved configurations for connecting [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md). You can mount buckets into a project's file system to make it easier to access code data. To learn how to create an S3 connector, see [{#T}](../operations/data/s3-connectors.md).
-* Checkpoints: [Saved states](save-state.md) of a notebook, including cell code, output, and variable values, as well as project storage data. Checkpoints are versioned.
 * [Nodes](deploy/index.md#node): Services deployed for [running trained models](deploy/). Third-party services can access nodes using the API.
 * [Aliases](deploy/index.md#alias): Add-ons used to publish services. Aliases allow you to distribute the load across nodes and update the deployed services on the fly.
 * [{{ dataproc-name }} templates](data-proc-template.md): Ready-to-use {{ dataproc-name }} cluster configurations for automatic cluster deployment from a {{ ml-platform-name }} project.

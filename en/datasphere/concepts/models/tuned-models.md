@@ -4,7 +4,7 @@ title: "What fine-tuned foundation models in {{ ml-platform-full-name }} are"
 
 # Fine-tuned foundation models
 
-{{ ml-platform-full-name }} allows you to tune [foundation models](./foundation-models.md) based on your own examples to make them more tailored to your specific tasks. Tuning is based on the Fine-tuning method. You can access the fine-tuned model through the {{ ml-platform-name }} Playground interface or the API, using the code.
+{{ ml-platform-full-name }} allows you to tune [foundation models](./foundation-models.md) on your own examples to make them more tailored to the specifics of your tasks. Tuning is based on the Fine-tuning method. You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or through the API using code.
 
 {% note info %}
 

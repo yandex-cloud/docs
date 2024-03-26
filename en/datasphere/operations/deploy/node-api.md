@@ -1,5 +1,5 @@
 ---
-title: "How to send requests to nodes in {{ ml-platform-full-name }}"
+title: "How to send a request to a node in {{ ml-platform-full-name }}"
 description: "Follow this guide to send a request to a node."
 ---
 
@@ -10,12 +10,12 @@ Send a test request to a [node](../../concepts/deploy/index.md#node) from the {{
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 1. Select the node to send a request to.
 1. Go to the **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}** tab.
-1. Under **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}**, in the **Input** field, enter the request input variables in `{"a":2,"b":3}` format and click **{{ ui-key.yc-ui-datasphere.common.execute }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}**, in the **{{ ui-key.yc-ui-datasphere.common.input }}** field, enter the request input variables in `{"a":2,"b":3}` format and click **{{ ui-key.yc-ui-datasphere.common.execute }}**.
 1. View the request processing results under **{{ ui-key.yc-ui-datasphere.common.response }}**.
 
 {% note info %}
 
-The **Command line requests** section contains sample requests to nodes for the cURL and gRPCurl utilities.
+The **{{ ui-key.yc-ui-datasphere.node-page.request.curl }}** section contains sample requests to a node for the cURL and gRPCurl utilities.
 
 The **{{ ui-key.yc-ui-datasphere.node-page.request.server-response }}** section provides sample code and node response descriptions.
 
@@ -53,7 +53,7 @@ In a successful response, the object is returned:
 }
 ```
 
-Where `output_variables`: Object in which keys correspond to output variables.
+`Output_variables`: Object in which keys correspond to output variables.
 
 ## Sample REST API request {#rest-query-example}
 

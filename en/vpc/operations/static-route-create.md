@@ -135,7 +135,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -169,7 +169,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

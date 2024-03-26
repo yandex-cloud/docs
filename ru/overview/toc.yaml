@@ -14,7 +14,7 @@ items:
             href: concepts/geo-scope.md
           - name: Вывод из эксплуатации зоны {{ region-id }}-c
             href: concepts/ru-central1-c-deprecation.md
-          - name: Миграция в зону ru-central1-d
+          - name: Миграция в зону {{ region-id }}-d
             href: concepts/zone-migration.md
           - name: Миграция ресурсов с помощью партнеров
             href: concepts/zone-migration-partners.md

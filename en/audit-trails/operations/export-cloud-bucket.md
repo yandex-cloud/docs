@@ -4,62 +4,23 @@ Follow this guide to create a new [trail](../concepts/trail.md) that will upload
 
 {% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
-
 ## Prepare the environment {#before-you-begin}
 
 To collect audit logs of an individual cloud:
 
 1. [Create a new bucket](../../storage/operations/buckets/create.md) with restricted access to upload audit logs to.
 1. [Create](../../iam/operations/sa/create.md) a service account.
-1. Assign roles to a service account:
 
-   {% list tabs group=instructions %}
-
-   - CLI {#cli}
-
-      {% include [cli-install](../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-      * Assign the [`audit-trails.viewer` role](../security/index.md#roles-list) to the cloud whose resources audit logs will be collected from:
-
-         ```
-         yc resource-manager cloud add-access-binding \
-           --role audit-trails.viewer \
-           --id <cloud_ID> \
-           --service-account-id <service_account_ID>
-         ```
-
-         Where:
-         * `--role`: Role being assigned.
-         * `--id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
-         * `--service-account-id`: Service account ID.
-
-      * Assign the [`storage.uploader` role](../../storage/security/index.md#storage-uploader) to the folder that will host the trail:
-
-         ```
-         yc resource-manager folder add-access-binding \
-           --role storage.uploader \
-           --id <folder_ID> \
-           --service-account-id <service_account_ID>
-         ```
-
-         Where:
-         * `--role`: Role being assigned.
-         * `--id`: ID of the folder to host the trail.
-         * `--service-account-id`: Service account ID.
-
-   {% endlist %}
+1. {% include [add-roles-to-sa](../../_includes/audit-trails/add-roles-to-sa.md) %}
 
 1. On the [Access bindings]({{ link-console-access-management }}) page, make sure you have the following roles:
    * `iam.serviceAccounts.user` for the service account.
    * `audit-trails.editor` for the folder to host the trail.
    * `audit-trails.viewer` for the cloud whose audit logs will be collected.
-   * `storage.viewer` for the bucket or the folder.
-
+   * `kms.editor` for the folder where the bucket encryption key will be created.
+   * `storage.viewer` for bucket or folder.
 
 {% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}
-
 
 ## Create a trail {#the-trail-creation}
 

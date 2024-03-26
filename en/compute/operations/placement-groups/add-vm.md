@@ -1,6 +1,6 @@
 # Adding a VM to a placement group
 
-Add an existing instance to a [placement group](../../concepts/placement-groups.md).
+Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
@@ -19,7 +19,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
    {% note info %}
 
-   Please note that only a `stopped` VM can be added to a placement group.
+   You can only add a [`stopped` VM](../../concepts/vm-statuses.md) to a placement group.
 
    {% endnote %}
 
@@ -97,7 +97,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
          {% note info %}
 
-         If you omit the partition number when adding a VM to a group with the partition placement strategy, the VM will be added to a random partition.
+         If you do not specify the partition number when adding a VM to a partition placement group, the VM will be placed to a random partition.
 
          {% endnote %}
 
@@ -146,13 +146,12 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   Adding an existing instance to a placement group:
-
-   1. To the configuration file of an existing [virtual machine](../../operations/vm-create/create-linux-vm.md), add a field named `placement_group_id` pointing to the `yandex_compute_placement_group` placement group resource.
+   To add an existing VM instance to a placement group:
+   1. To the configuration file of the existing VM, add the `placement_group_id` field specifying the `yandex_compute_placement_group` placement group resource.
 
       Here is an example of the configuration file structure:
 
@@ -176,43 +175,40 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
       {% note info %}
 
-      If you omit the partition number when adding a VM to a group with the [partition placement](../../concepts/placement-groups.md#partition) strategy, the VM will be added to a random partition.
+      If you do not specify the partition number when adding a VM to a [partition placement](../../concepts/placement-groups.md#partition) group, the VM will be placed to a random partition.
 
       {% endnote %}
 
       For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
-
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-
    1. Check the configuration using this command:
 
-      ```
+      ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
 
-      ```
+      ```text
       Success! The configuration is valid.
       ```
 
    1. Run this command:
 
-      ```
+      ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Apply the configuration changes:
 
-      ```
+      ```bash
       terraform apply
       ```
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can verify that the virtual machine has been added to the placement group from the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the VM has been added to a placement group using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -222,4 +218,4 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
 ## See also {#see-also}
 
-* [How to create a VM in a placement group](create-vm-in-pg.md)
+* [Creating a VM in a placement group](create-vm-in-pg.md).

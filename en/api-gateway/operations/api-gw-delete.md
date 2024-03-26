@@ -1,43 +1,41 @@
 ---
-title: "Deleting API gateways"
+title: "Deleting an API gateway"
 description: "Follow this guide to delete an API gateway."
 ---
 
-# Deleting API gateways
+# Deleting an API gateway
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   To delete an API gateway:
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete an API gateway.
+   To delete an [API gateway](../concepts/index.md):
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
 
 - CLI {#cli}
 
-   To delete an API gateway, run the command below:
+   To delete an [API gateway](../concepts/index.md), run this command:
 
+   ```bash
+   yc serverless api-gateway delete --id <API_gateway_ID>
    ```
-   yc serverless api-gateway delete --id <API gateway ID>
-   ```
-
-   Where `--id` is the ID of the API gateway.
 
    Result:
 
-   ```
+   ```text
    done (18s)
    ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To delete an API gateway created using {{ TF }}:
+   To delete an [API gateway](../concepts/index.md) created using {{ TF }}:
 
    1. Open the {{ TF }} configuration file and delete the fragment with the API gateway description.
 
@@ -90,22 +88,21 @@ description: "Follow this guide to delete an API gateway."
       ```
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-
    1. Check the configuration using this command:
 
-      ```
+      ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
 
-      ```
+      ```text
       Success! The configuration is valid.
       ```
 
    1. Run this command:
 
-      ```
+      ```bash
       terraform plan
       ```
 
@@ -113,26 +110,24 @@ description: "Follow this guide to delete an API gateway."
 
    1. Apply the configuration changes:
 
-      ```
+      ```bash
       terraform apply
       ```
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
-      ```
+      ```bash
       yc serverless api-gateway list
       ```
 
 - API {#api}
 
-   To delete an API gateway, use the [delete](../apigateway/api-ref/ApiGateway/delete.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete) gRPC API call.
-
+   To delete an [API gateway](../concepts/index.md), use the [delete](../apigateway/api-ref/ApiGateway/delete.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete) gRPC API call.
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-   You can delete an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
+   You can delete an [API gateway](../concepts/index.md) using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

@@ -74,7 +74,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -98,7 +98,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

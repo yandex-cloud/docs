@@ -1,6 +1,6 @@
 # Creating a fixed-size instance group
 
-You can create a group with a fixed number of instances. The size of this [instance group](../../concepts/instance-groups/index.md) is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
+You can create a group with a fixed number of [VM instances](../../concepts/vm.md). The size of this [instance group](../../concepts/instance-groups/index.md) is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -22,7 +22,7 @@ To create a fixed-size instance group:
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to create an instance group:
+   1. View the description of the [CLI](../../../cli/) command to create an instance group:
 
       ```bash
       {{ yc-compute-ig }} create --help
@@ -101,7 +101,7 @@ To create a fixed-size instance group:
            * `true`: Create a preemptible VM.
            * `false` (default): Create a regular VM.
 
-           When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. {{ ig-name }} may not be able to restart them immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
+           When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. VMs may not be able to restart immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
          * `placement_policy`: (Optional) [VM placement group](../../concepts/placement-groups.md) parameters:
             * `placement_group_id`: Placement group ID.
       * [Policies](../../concepts/instance-groups/policies/index.md):
@@ -178,7 +178,7 @@ To create a fixed-size instance group:
       * Network: `default-net`
       * Availability zone: `{{ region-id }}-a`
       * vCPUs: 2; RAM: 2 GB
-      * Network HDD: 32 GB
+      * Network [HDD](../../concepts/disk.md#disks-types): 32 GB
 
 - {{ TF }} {#tf}
 
@@ -189,7 +189,7 @@ To create a fixed-size instance group:
       ```hcl
       resource "yandex_iam_service_account" "ig-sa" {
         name        = "ig-sa"
-        description = "service account to manage IG"
+        description = "Service account for managing the instance group."
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -296,7 +296,7 @@ To create a fixed-size instance group:
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 

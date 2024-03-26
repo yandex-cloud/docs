@@ -1,19 +1,19 @@
 ---
 title: "Setting up access via a secure token"
-description: "Follow this guide to set up access to a CDN resource's content based on time and IP using secure tokens."
+description: "Follow this guide to set up access to a {{ cdn-name }} resource content based on time and IP address using secure tokens."
 ---
 
 # Setting up access via a secure token
 
-Using [secure tokens](../../concepts/secure-tokens.md), you can restrict access to [CDN resource](../../concepts/resource.md) files. Files will be accessed via [signed links](../../concepts/secure-tokens.md#protected-link) with the limited validity period.
+Using [secure tokens](../../concepts/secure-tokens.md), you can restrict access to [CDN resource](../../concepts/resource.md) files. Files will be accessed via [signed URLs](../../concepts/secure-tokens.md#protected-link) with the limited validity period.
 
-Secure tokens can also be used to specify a trusted IP address to allow access to a CDN resource from.
+You can also use secure tokens to specify a trusted [IP address](../../../vpc/concepts/address.md) from which a CDN resource can be accessed.
 
 ### Enabling access {#enable-secure-token}
 
 To enable access via a secure token:
-1. Come up with a secret key that is an arbitrary string of 6 to 32 characters. It will be saved in the CDN resource settings and used to generate signed links.
-1. On your website, set up [generation](../../concepts/secure-tokens.md#link-generation-code) of signed links with secure tokens.
+1. Come up with a secret key that is an arbitrary string of 6 to 32 characters. It will be saved in the CDN resource settings and used to generate signed URLs.
+1. On your website, set up [generation](../../concepts/secure-tokens.md#link-generation-code) of signed URLs with secure tokens.
 1. Enable access to the CDN resource via a secure token:
 
    {% list tabs group=instructions %}
@@ -24,13 +24,13 @@ To enable access via a secure token:
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-      1. View a description of the CLI update resource command:
+      1. View the description of the [CLI](../../../cli/) update resource command:
 
          ```bash
          yc cdn resource update --help
          ```
 
-      1. Get a list of all resources in the default folder:
+      1. Get a list of all resources in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
          ```bash
          yc cdn resource list --format yaml
@@ -38,7 +38,7 @@ To enable access via a secure token:
 
          Result:
 
-         ```yaml
+         ```text
          id: bc8br5k6iohx********
          folder_id: b1gt6g8ht345********
          cname: testexample.com
@@ -78,7 +78,6 @@ To enable access via a secure token:
          ```
 
          Save the `ID` of the resource for which you want to set up access via a secure token.
-
       1. Enable access via a secure token:
 
          ```bash
@@ -91,7 +90,7 @@ To enable access via a secure token:
          Where:
          * `--id`: ID of the CDN resource for which to enable access via a secure token.
          * `--secure-key`: Previously created secret key.
-         * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a signed link. If the parameter is not set, file access will be allowed from any IP.
+         * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource by IP address. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://{{ lang }}.wikipedia.org/wiki/MD5) hash for a signed URL. If the parameter is not set, file access will be allowed from any IP address.
 
    - {{ TF }} {#tf}
 
@@ -112,15 +111,14 @@ To enable access via a secure token:
 
          Where:
          * `secure_key`: Previously created secret key.
-         * `enable_ip_url_signing`: Optional parameter, `true` or `false`. It restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a signed link. If the parameter is not set, file access will be allowed from any IP.
+         * `enable_ip_url_signing`: Optional parameter, `true` or `false`. It restricts access to a CDN resource by IP address. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://{{ lang }}.wikipedia.org/wiki/MD5) hash for a signed URL. If the parameter is not set, file access will be allowed from any IP address.
 
          For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
-
       1. Apply the changes:
 
-         {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the updated CDN resource parameters using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check the updated CDN resource parameters using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc cdn resource get <resource_ID>
@@ -172,12 +170,11 @@ To disable access to a CDN resource via a secure token:
       ```
 
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
-
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   You can check the updated CDN resource parameters using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the updated CDN resource parameters using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
    yc cdn resource get <resource_ID>

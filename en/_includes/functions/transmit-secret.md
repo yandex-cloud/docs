@@ -1,8 +1,8 @@
-To provide the function with access to the [secret](../../lockbox/concepts/secret.md), specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles in the function parameters:
-* `{{ roles-lockbox-payloadviewer }}` for the secret (see [how to grant access rights to secrets](../../lockbox/operations/secret-access.md)).
-* `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key (see [how to grant access rights to encryption keys](../../kms/operations/key-access.md)).
+To provide a [function](../../functions/concepts/function.md) with access to the [secret](../../lockbox/concepts/secret.md), in the function parameters, specify a [service account](../../iam/concepts/users/service-accounts.md) with the following [roles](../../iam/concepts/access-control/roles.md):
+* `{{ roles-lockbox-payloadviewer }}` to access the secret (see [Granting permissions to access a secret](../../lockbox/operations/secret-access.md)).
+* `kms.keys.encrypterDecrypter` to access the encryption [key](../../kms/concepts/key.md) if the secret was created using a [{{ kms-full-name }}](../../kms/) key (see [Granting access permissions to encryption keys](../../kms/operations/key-access.md)).
 
-A {{ lockbox-short-name }} secret transmitted to a function is cached in {{ sf-name }}. As soon as the service account can no longer access the secret, the function may store it for up to 5 minutes.
+A [{{ lockbox-full-name }}](../../lockbox/) secret provided to a function is cached in [{{ sf-full-name }}](../../functions/). As soon as the service account can no longer access the secret, the function may store it for up to 5 minutes.
 
 A new version of a function is created when secrets are transmitted. You cannot transmit secrets to an existing version.
 
@@ -10,14 +10,14 @@ A new version of a function is created when secrets are transmitted. You cannot 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-   1. Select a function where you want to transmit a {{ lockbox-name }} secret to.
+   1. Select the function to transmit a {{ lockbox-name }} secret to.
    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
       * In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, the service account with the `{{ roles-lockbox-payloadviewer }}` role.
       * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field:
-         * Name of the environment variable where the secret will be kept.
+         * Name of the environment variable that will store the secret.
          * Secret ID.
          * Secret version ID.
          * Non-secret key ID.
@@ -41,7 +41,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
 
    {% endnote %}
 
-   ```
+   ```bash
    yc serverless function version create \
      --function-name=test \
      --runtime nodejs16 \
@@ -63,7 +63,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
    * `--source-version-id`: ID of the function version to copy the code of.
    * `--service-account-id`: ID of the service account with the `{{ roles-lockbox-payloadviewer }}` role.
    * `--secret`:
-      * `environment-variable`: Name of the environment variable where the secret will be kept.
+      * `environment-variable`: Name of the environment variable that will store the secret.
       * `id`: Secret ID.
       * `version-id`: Secret version ID.
       * `key`: Non-secret key ID.
@@ -111,12 +111,11 @@ A new version of a function is created when secrets are transmitted. You cannot 
       * `secrets`: Section with secret settings. It contains the following parameters:
          * `id`: Secret ID. This is a required parameter.
          * `version_id`: Secret version ID. This is a required parameter.
-         * `key`: Non-secret key ID to be stored in an environment variable. This is a required parameter.
-         * `environment_variable`: Name of the environment variable where the secret will be kept. This is a required parameter.
-
+         * `key`: Non-secret key ID to store in an environment variable. This is a required parameter.
+         * `environment_variable`: Name of the environment variable that will store the secret. This is a required parameter.
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    You can check the function update and its configuration in the [management console]({{ link-console-main }}).
 

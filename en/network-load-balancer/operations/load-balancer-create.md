@@ -31,8 +31,8 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
       1. In the window that opens, set the listener parameters:
 
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`
 
             {% note info %}
 
@@ -104,7 +104,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 

@@ -72,7 +72,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the subnet description:
 

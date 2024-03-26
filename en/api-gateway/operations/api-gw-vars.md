@@ -5,7 +5,7 @@ description: "Follow this guide to set up variables for API gateway specificatio
 
 # Setting up variables
 
-{{ api-gw-short-name }} supports [variables in an OpenAPI specification](../concepts/extensions/parametrization.md).
+{{ api-gw-name }} supports [variables in an OpenAPI specification](../concepts/extensions/parametrization.md).
 
 {% cut "Sample specification file with a variable" %}
 
@@ -39,13 +39,13 @@ paths:
 
 {% endcut %}
 
-By default, variables take the values specified in the `default` field of the OpenAPI specification. You can override them by providing other values while setting up your API gateway:
+By default, variables take the values specified in the `default` field of the [OpenAPI specification](https://en.wikipedia.org/wiki/OpenAPI_Specification). You can override them by providing other values when setting up your [API gateway](../concepts/index.md):
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to edit an API gateway.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, list all the variables declared in the specification and their values.
@@ -70,13 +70,13 @@ By default, variables take the values specified in the `default` field of the Op
 
       ```bash
       {{ yc-serverless }} api-gateway update \
-         --id <gateway_ID> \
-         --variables <list_of_variables>
+        --id <gateway_ID> \
+        --variables <list_of_variables>
       ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -114,7 +114,7 @@ By default, variables take the values specified in the `default` field of the Op
 
       If the configuration is correct, you will get this message:
 
-      ```bash
+      ```text
       Success! The configuration is valid.
       ```
 
@@ -134,7 +134,7 @@ By default, variables take the values specified in the `default` field of the Op
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc serverless api-gateway get <API_gateway_name>

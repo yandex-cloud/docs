@@ -113,7 +113,7 @@ When deploying virtual machines, we recommend:
 
 #### 3.3 {{ TF }} is used in accordance with best information security practices {#tf-using}
 
-With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
+With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorpVault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
@@ -260,7 +260,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 - Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the bucket policies in.
-   1. In the list of services, select {{ objstorage-name }}.
+   1. From the list of services, select {{ objstorage-name }}.
    1. Go to **Access policy**.
    1. Make sure that at least one policy is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
@@ -662,7 +662,7 @@ If necessary, you can specify a cloud network in function settings. In this case
 - Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the functions in.
-   1. In the list of services, select {{ sf-name }}.
+   1. From the list of services, select {{ sf-name }}.
    1. Open all the functions.
    1. In the object settings, go to the **Edit function version** tab.
    1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".

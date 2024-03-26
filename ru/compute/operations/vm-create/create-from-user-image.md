@@ -178,7 +178,7 @@ description: "Следуя данной инструкции, вы сможет�
       folder_id: b1g681qpemb4********
       created_at: "2024-03-02T12:58:43Z"
       name: test-vm-from-image
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       platform_id: standard-v2
       resources:
         memory: "2147483648"

@@ -36,8 +36,8 @@ chpasswd:
 ```
 Передать метаданные можно при создании ВМ с помощью CLI, API или Terraform. Пример команды для CLI:
 ```
-yc compute instance create  --name instance --zone ru-central1-a \
---network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+yc compute instance create  --name instance --zone {{ region-id }}-a \
+--network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
 --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
 --metadata-from-file user-data=metadata.yaml
 ```

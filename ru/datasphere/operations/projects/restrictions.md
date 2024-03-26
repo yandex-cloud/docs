@@ -1,7 +1,5 @@
 # Задать ограничения для проекта
 
-{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
-
 В {{ ml-platform-name }} вы можете настроить ограничения потребления для проекта. Пороги потребления для проекта задаются в [юнитах](../../pricing.md#unit).
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
@@ -12,8 +10,6 @@
    * вы самостоятельно остановите ВМ.
 
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.save }}**.
-
-В блоке [{{ ui-key.yc-ui-datasphere.common.general }}](update.md) вы можете указать параметр **{{ ui-key.yc-ui-datasphere.edit-project-page.period-of-inactivity }}** — как скоро перестанут выполняться ячейки с загрузкой CPU или GPU меньше 1% (по умолчанию — `{{ ui-key.yc-ui-datasphere.common.never }}`).
 
 #### См. также {#see-also}
 

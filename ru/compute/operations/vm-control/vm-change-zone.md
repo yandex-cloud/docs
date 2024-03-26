@@ -190,7 +190,7 @@ description: "Следуя данной инструкции, вы сможет�
         security_group_ids:
           - c646ev94tb6k********
     gpu_settings: {}
-    fqdn: my-vm-1.ru-central1.internal
+    fqdn: my-vm-1.{{ region-id }}.internal
     scheduling_policy: {}
     network_settings:
       type: STANDARD
@@ -277,7 +277,7 @@ primary_v4_address:
 security_group_ids:
   - c646ev94tb6k********
 gpu_settings: {}
-fqdn: my-vm-1.ru-central1.internal
+fqdn: my-vm-1.{{ region-id }}.internal
 scheduling_policy: {}
 network_settings:
   type: STANDARD
@@ -337,7 +337,7 @@ network_interfaces:
     security_group_ids:
       - enp1gjh3q042********
 gpu_settings: {}
-fqdn: my-vm-1.ru-central1.internal
+fqdn: my-vm-1.{{ region-id }}.internal
 scheduling_policy: {}
 network_settings:
   type: STANDARD

@@ -34,7 +34,7 @@ For your internet service to run, you need two static public IP addresses: one t
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the `subnet-a` subnet. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, select `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
    1. In the **{{ ui-key.yacloud.compute.instances.create.section_access }}** field, enter the login and SSH key to access the VM.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-   1. Repeat the steps for VMs named `web-node-b` and `web-node-c`. Create them in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones and connect them to `subnet-b` and `subnet-c`, respectively.
+   1. Repeat the steps for the VMs named `web-node-b` and `web-node-d`. Create them in the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones and connect them to `subnet-b` and `subnet-d`, respectively.
 
 {% endlist %}
 
@@ -186,7 +186,7 @@ For the security group rules to take effect, assign the groups to the VM network
    1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
    1. In the window that opens, select the `vpn-sg` security group in the **{{ ui-key.yacloud.compute.instance.edit-network-interface.field_security-groups-ids }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
-   1. Repeat the steps and assign the `web-service-sg` security group to the `web-node-a`, `web-node-b`, and `web-node-c` VMs.
+   1. Repeat the steps and assign the `web-service-sg` security group to the `web-node-a`, `web-node-b`, and `web-node-d` VMs.
 
 {% endlist %}
 
@@ -206,9 +206,9 @@ The network load balancer will distribute the internet service's incoming traffi
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
    1. In the window that opens, enter a name for the listener and specify port `80` in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** fields.  Click **{{ ui-key.yacloud.common.add }}**.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-   1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, click the list and then click**{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
+   1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, click the list and then click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
    1. In the window that opens, enter the target group name: `web-tg`.
-   1. Select the `web-node-a`, `web-node-b`, and `web-node-c` VMs.
+   1. Select the `web-node-a`, `web-node-b`, and `web-node-d` VMs.
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Select the created target group from the list.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -220,7 +220,7 @@ The network load balancer will distribute the internet service's incoming traffi
 Test the infrastructure and make sure that traffic to the internet service VMs only comes from the addresses allowed by the rules:
 
 1. On your computer, run the `curl <Network load balancer public IP address>` command. Make sure no response is received.
-1. Create a security group named `web-service-test-sg` with no rules and assign it to the  `web-node-a`, `web-node-b` and `web-node-c` VMs.
+1. Create a security group named `web-service-test-sg` with no rules and assign it to the `web-node-a`, `web-node-b`, and `web-node-d` VMs.
 1. In the `web-service-test-sg` security group, create the following rule for incoming traffic:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`
@@ -230,11 +230,11 @@ Test the infrastructure and make sure that traffic to the internet service VMs o
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for the deployed resources, delete the created [VMs](../../compute/operations/vm-control/vm-delete.md) and the [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
+To stop paying for the deployed resources, delete the [VMs](../../compute/operations/vm-control/vm-delete.md) and the [load balancer](../../network-load-balancer/operations/load-balancer-delete.md) you created:
 * `vpn`
 * `web-node-a`
 * `web-node-b`
-* `web-node-c`
+* `web-node-d`
 * `web-service-lb`
 
 Release and [delete](../../vpc/operations/address-delete.md) the static public IP addresses you reserved.

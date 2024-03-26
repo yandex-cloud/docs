@@ -8,7 +8,7 @@
 
 ##### Text generation {#yandexgpt-quotas-generation}
 
-| Type of limit | {{ yagpt-name }} | {{ yagpt-name }} Lite and fine-tuned models |
+| Type of limit | {{ gpt-pro }} and fine-tuned models | {{ gpt-lite }} |
 ----- | ----- | -----
 | Number of concurrent generations | 1 | 1 |
 | Number of requests per hour, [synchronous mode](../yandexgpt/concepts/index.md#working-mode) | 100 | 100 |
@@ -27,7 +27,7 @@
 
 ##### Text generation {#yandexgpt-limits-generation}
 
-| Type of limit | {{ yagpt-name }} | {{ yagpt-name }} Lite and fine-tuned models |
+| Type of limit | {{ gpt-pro }} and fine-tuned models | {{ gpt-lite }} |
 ----- | ----- | -----
 | Number of tokens per response | 2,000 | 2,000 |
 | Total number of tokens | {{ yagpt-max-tokens }} | {{ yagpt-max-tokens }} |

@@ -14,6 +14,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](cdc-debezium.md)
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](mmy-objs-migration.md)
+* [{#T}](objs-mmy-migration.md)
 * [{#T}](mmy-to-mpg.md)
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mmy-to-mgp.md)

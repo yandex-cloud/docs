@@ -47,7 +47,7 @@ Audio is recognized in three stages:
 
 ## Recognition accuracy {#speed_and_accuracy}
 
-Recognition accuracy depends on the recognition model. You can improve a model's recognition accuracy by providing data for model retraining. For more information about model retraining, see [{#T}](additional-training.md).
+Recognition accuracy depends on the recognition model. You can improve recognition accuracy of the model by providing data for tuning of the model. For more information about model tuning, see [{#T}](additional-training.md).
 
 The accuracy of speech recognition is also affected by:
 

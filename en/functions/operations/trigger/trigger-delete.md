@@ -24,7 +24,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
 
    {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
-   Delete a trigger:
+   Delete the trigger:
 
    ```bash
    yc serverless trigger delete <trigger_name>
@@ -57,7 +57,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
 
    For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    To delete a trigger created using {{ TF }}:
 

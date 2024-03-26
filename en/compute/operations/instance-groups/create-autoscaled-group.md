@@ -1,6 +1,6 @@
 # Creating an autoscaling instance group
 
-You can create an autoscaling [group of identical instances](../../concepts/instance-groups/index.md). This instance group will scale up or down automatically. For more information, see [{#T}](../../concepts/instance-groups/scale.md#auto-scale).
+You can create an [autoscaling](../../concepts/instance-groups/scale.md#auto-scale) [group of identical instances](../../concepts/instance-groups/index.md). This [instance](../../concepts/vm.md) group will scale up or down automatically.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -20,7 +20,7 @@ To create an autoscaling instance group:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to create an instance group:
+  1. View the description of the [CLI](../../../cli/) command to create an instance group:
 
       ```bash
       {{ yc-compute-ig }} create --help
@@ -54,7 +54,6 @@ To create an autoscaling instance group:
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
          * `description`: Description of the instance group.
-
      * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
          ```yaml
@@ -98,7 +97,7 @@ To create an autoscaling instance group:
             * `true`: Create a preemptible VM.
             * `false` (default): Create a regular VM.
 
-            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. {{ ig-name }} may not be able to restart them immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
+            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. VMs may not be able to restart immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
      * [Policies](../../concepts/instance-groups/policies/index.md):
 
        ```yaml
@@ -176,7 +175,7 @@ To create an autoscaling instance group:
      * Network: `default-net`
      * Availability zone: `{{ region-id }}-a`
      * vCPUs: 2; RAM: 2 GB
-     * Network HDD: 32 GB
+     * Network [HDD](../../concepts/disk.md#disks-types): 32 GB
 
 - {{ TF }} {#tf}
 
@@ -187,7 +186,7 @@ To create an autoscaling instance group:
       ```hcl
       resource "yandex_iam_service_account" "ig-sa" {
         name        = "ig-sa"
-        description = "service account to manage IG"
+        description = "Service account for managing the instance group."
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -261,8 +260,8 @@ To create an autoscaling instance group:
       ```
 
       Where:
-      * `yandex_iam_service_account`: Description of the [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
-      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_iam_service_account`: Description of the [service account](../../../iam/concepts/users/service-accounts.md). All operations with instance groups are performed on behalf of the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of the instance group.
          * General information about the instance group:
             * `name`: Name of the instance group.
@@ -271,7 +270,7 @@ To create an autoscaling instance group:
             * `deletion_protection`: Instance group deletion protection, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
             * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-            * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+            * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected platform.
             * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
                * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
                * Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write).
@@ -293,7 +292,7 @@ To create an autoscaling instance group:
      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
   1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 

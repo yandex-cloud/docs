@@ -486,7 +486,7 @@ To stop paying for the resources you created:
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To set up automatic Docker image scan on push using {{ TF }}:
 
@@ -550,7 +550,7 @@ To set up automatic Docker image scan on push using {{ TF }}:
 
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Create a trigger](#create-trigger).
 

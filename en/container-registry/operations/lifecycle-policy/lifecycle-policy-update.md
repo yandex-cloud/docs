@@ -1,6 +1,6 @@
 # Updating a lifecycle policy
 
-Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you can modify its rules as well as its status, name, or description.
+Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you can edit its rules as well as its status, name, or description.
 
 {% list tabs group=instructions %}
 
@@ -33,7 +33,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
       yc container repository lifecycle-policy update --help
       ```
 
-   1. Change the policy parameters, e.g., by renaming it:
+   1. Change the policy parameters, e.g., rename it:
 
       ```bash
       yc container repository lifecycle-policy update <policy_ID> \
@@ -66,7 +66,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    This will update the lifecycle policy in the specified repository. You can check the policy update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

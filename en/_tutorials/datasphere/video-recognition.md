@@ -1,6 +1,6 @@
 # Classification of images in video frames
 
-{{ ml-platform-full-name }} allows you to build machine learning (ML) models using the {{ jlab }} Notebook interface.
+{{ ml-platform-full-name }} allows you to build ML models using the {{ jlab }} Notebook interface.
 
 This tutorial solves the problem of binary image classification. You may have to deal with it when recognizing vehicle types based on CCTV camera images. It is assumed that the CCTV system captures images from cameras when detecting motion and saves them to a bucket in {{ objstorage-full-name }}.
 
@@ -366,4 +366,4 @@ To shut down the model and stop paying for the resources created:
 
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. [Delete](../../datasphere/operations/projects/delete.md) your project.
+1. [Delete](../../datasphere/operations/projects/delete.md) the project.

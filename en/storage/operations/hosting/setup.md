@@ -37,7 +37,7 @@ description: "Follow this guide to set up hosting."
       yc storage bucket update --help
       ```
 
-   1. Create a hosting configuration file in JSON format. Here is an example:
+   1. Create a hosting configuration file in JSON format. For example:
 
       ```json
       {
@@ -132,7 +132,7 @@ description: "Follow this guide to set up hosting."
          * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
          * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -227,7 +227,7 @@ description: "Follow this guide to set up hosting."
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -336,7 +336,7 @@ description: "Follow this guide to set up hosting."
       yc storage bucket update --help
       ```
 
-   1. Create a file with conditional redirect settings in JSON format. Here is an example:
+   1. Create a file with conditional redirect settings in JSON format. For example:
 
       ```json
       {
@@ -397,7 +397,7 @@ description: "Follow this guide to set up hosting."
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    
    {% include [terraform-install](../../../_includes/terraform-install.md) %}

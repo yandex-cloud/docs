@@ -77,7 +77,7 @@ Your changes will apply within five minutes.
 
   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   To edit trigger parameters:
 
@@ -102,7 +102,7 @@ Your changes will apply within five minutes.
 
   1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    You can check the trigger update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
