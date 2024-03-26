@@ -117,7 +117,7 @@ description: "Follow this guide to create a registry."
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -173,7 +173,7 @@ description: "Follow this guide to create a registry."
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 

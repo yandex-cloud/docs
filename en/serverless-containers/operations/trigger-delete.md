@@ -24,7 +24,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
 
    {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 
-   Delete the trigger:
+   Delete a trigger:
 
    ```bash
    yc serverless trigger delete <trigger_name>
@@ -51,7 +51,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -82,9 +82,9 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
 
    1. Delete resources:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc serverless trigger list

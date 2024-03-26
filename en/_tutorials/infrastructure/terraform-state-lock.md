@@ -3,7 +3,7 @@ title: "Locking {{ TF }} states"
 description: "When using {{ TF }} in the cloud, you need to ensure that multiple users cannot modify the infrastructure at the same time. This is what {{ TF }} state locking is used for."
 ---
 
-# Locking {{ TF }} states using {{ ydb-name }}
+# Locking {{ TF }} states using {{ ydb-full-name }}
 
 {{ yandex-cloud }} supports [infrastructure management through {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). To allow multiple users to manage the infrastructure, you can [automatically upload the {{ TF }} states and store them in {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 
@@ -35,8 +35,8 @@ The infrastructure support cost for {{ TF }} states includes:
 * Fee for running queries to the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
 The cost for supporting the infrastructure deployed through {{ TF }} in this sample scenario includes:
-* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 If you deploy resources of other {{ yandex-cloud }} services, the cost will change according to the relevant service [plans](/prices).
 
@@ -105,7 +105,6 @@ If you deploy resources of other {{ yandex-cloud }} services, the cost will chan
 
 ### Install {{ TF }} {#install-terraform}
 
-
 #### From a mirror {#from-yc-mirror}
 
 You can download a {{ TF }} distribution for your platform from a [mirror]({{ terraform-mirror }}). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
@@ -114,34 +113,31 @@ You can download a {{ TF }} distribution for your platform from a [mirror]({{ te
 export PATH=$PATH:/path/to/terraform
 ```
 
-#### From the Hashicorp website {#from-hashicorp-site}
-
+#### From the HashiCorp website {#from-hashicorp-site}
 
 {% list tabs group=operating_system %}
 
 - Windows {#windows}
 
    Use one of the following methods:
-
-   * [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
+   * [Download the {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
    * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager and the command below:
 
-      ```
+      ```bash
       choco install terraform
       ```
 
 - Linux {#linux}
 
-   [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
+   [Download the {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
 
 - macOS {#macos}
 
    Use one of the following methods:
-
-   * [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
+   * [Download the {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
    * Install {{ TF }} using the [Homebrew](https://brew.sh) package manager and the command below:
 
-      ```
+      ```bash
       brew install terraform
       ```
 
@@ -218,19 +214,20 @@ You can also access {{ TF }} from your [Yandex account](../../iam/concepts/index
 
 {% cut "Managing resources on behalf of a Yandex account or a federated account" %}
 
-{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+{% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 
 {% endcut %}
 
 
+{% include [terraform-install](../../_tutorials/_tutorials_includes/terraform-install.md) %}
 
-### Create a {{ TF }} configuration file {#configure-terraform}
+## Create a {{ TF }} configuration file {#configure-terraform}
 
 {% include [configure-terraform](../_tutorials_includes/configure-terraform.md) %}
 
 ### Configure a provider {#configure-provider}
 
-{% include [terraform-configure-provider](../../_tutorials/terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
 
 ## Configure the backend {#set-up-backend}
 
@@ -241,7 +238,6 @@ The backend settings apply to {{ TF }} `1.6.3` and higher.
 {% endnote %}
 
 To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
-
 1. Add the [previously obtained](#create-service-account) key ID and secret key to environment variables:
 
    {% list tabs group=programming_language %}
@@ -256,15 +252,14 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
    - PowerShell {#powershell}
 
       ```powershell
-      $ACCESS_KEY="<key_ID>"
-      $SECRET_KEY="<secret_key>"
+      $Env:AWS_ACCESS_KEY_ID="<key_ID>"
+      $Env:AWS_SECRET_ACCESS_KEY="<secret_key>"
       ```
 
    {% endlist %}
 
 1. Add provider and backend settings to the configuration file:
 
-   
    ```hcl
    terraform {
      required_providers {
@@ -297,31 +292,26 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
    }
    ```
 
-
-
    Where:
-
-   * `bucket`: Bucket name.
+   * `bucket`: [Bucket](../../storage/concepts/bucket.md) name.
    * `dynamodb`: Document API DB in `https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaom********` format.
    * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
    * `dynamodb_table`: Table name.
 
    To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
-
 1. Run the following command in the folder with the configuration file:
 
    ```bash
-   terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY"
+   terraform init
    ```
 
 ## Deploy the configuration {#deploy}
 
-In this example, you will create a [VM](../../compute/concepts/vm.md) named `terraform-vm` that will be connected to the `subnet-1` [subnet](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). This subnet will be in the `network-1` cloud [network](../../vpc/concepts/network.md#network).
+In this example, you will create a VM named `terraform-vm` that will be connected to the `subnet-1` [subnet](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). This subnet will be in the `network-1` cloud [network](../../vpc/concepts/network.md#network).
 
-The VM will have 2 vCPUs and 4 GB RAM. It will be automatically assigned a [public](../../vpc/concepts/address.md#public-addresses) and a [private IP address](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VM will run Ubuntu and host the public part of the key to enable SSH access.
+The VM will have 2 cores and 4 GB RAM. It will be automatically assigned a public and a [private IP address](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VM will run Ubuntu and host the public part of the key to enable SSH access.
 1. Save the following configuration as a separate `example-vm.tf` file in the folder with the backend configuration file:
 
-   
    ```hcl
    resource "yandex_compute_image" "ubuntu_2004" {
      source_family = "ubuntu-2004-lts"
@@ -381,11 +371,6 @@ The VM will have 2 vCPUs and 4 GB RAM. It will be automatically assigned a [publ
    }
    ```
 
-
-
-   Where:
-   * `vm_user`: VM username.
-   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Check the configuration using the `terraform plan` command.
 1. Deploy the configuration using the `terraform apply` command.
 
@@ -423,5 +408,5 @@ If you no longer need the resources you created, delete them:
 
 ## See also {#see-also}
 
-* [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
-* [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+* [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)

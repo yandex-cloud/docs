@@ -57,7 +57,7 @@ title: "How to get information about a backend group in {{ alb-full-name }}"
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -85,7 +85,7 @@ title: "How to get information about a backend group in {{ alb-full-name }}"
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
 

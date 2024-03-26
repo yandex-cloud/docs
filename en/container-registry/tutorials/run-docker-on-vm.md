@@ -212,7 +212,7 @@ The infrastructure support costs include:
          * `subnet-name`: Name of the selected subnet.
          * `image-family`: [Image family](../../compute/concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the operating system from the specified family.
          * Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
-         * `--ssh-key`: Path to the public SSH key. The VM will automatically create a user named `yc-user` for this key.
+         * `--ssh-key`: Public SSH key path. The VM will automatically create a user named `yc-user` for this key.
          * `--service-account-name`: Name of the service account created in the previous step.
 
          This will create a VM called `first-instance`.
@@ -492,7 +492,7 @@ The infrastructure support costs include:
    cut -f1 -d',' | \
    cut -f2 -d':' | \
    tr -d '"' | \
-   sudo docker login --username iam --password-stdin {{ registry }}
+   docker login --username iam --password-stdin {{ registry }}
    ```
 
    Result:
@@ -543,7 +543,7 @@ To stop paying for the resources you created:
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure for running a Docker image on a VM using the registry:
 1. [Install](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
@@ -583,8 +583,8 @@ To create an infrastructure for running a Docker image on a VM using the registr
    * `image_id`: ID of the image to create the VM from. For more information, see [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-1. [{#T}](#create-image).
-1. [{#T}](#run).
-1. [{#T}](#check-result).
+1. [{#T}](#create-image)
+1. [{#T}](#run)
+1. [{#T}](#check-result)

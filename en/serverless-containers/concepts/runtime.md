@@ -52,7 +52,7 @@ Each container instance is allocated RAM. The default value is 128 MB.
 
 For example, RAM is consumed for:
 
-* File system writes.
+* File system writes
 * Container process launches
 * Request processing
 

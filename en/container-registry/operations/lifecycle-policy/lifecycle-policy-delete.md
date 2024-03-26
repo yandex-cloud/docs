@@ -71,7 +71,7 @@ description: "Follow this guide to delete a lifecycle policy."
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    This will delete the lifecycle policy from the specified repository. You can check the deletion of the policy using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

@@ -6,17 +6,17 @@ description: "In this article, you will learn how to get started with {{ yandex-
 # Getting started with {{ yandex-cloud }}
 
 
-The {{ yandex-cloud }} platform has several user interfaces, e.g., the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a {{ yandex-360 }} account. For detailed instructions, see the Help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
+The {{ yandex-cloud }} platform has several user interfaces, e.g., the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a Yandex 360 account. For detailed instructions, see help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
 
 ## Creating a billing account {#new-account}
 
-When you create the first billing account linked to your user account, you are awarded the [initial grant](../getting-started/usage-grant.md).
+When creating your first billing account linked to your user account, you will get your [initial grant](../getting-started/usage-grant.md).
 
 {% include [main](../_includes/billing/registration-main.md) %}
 
-{% list tabs %}
+{% list tabs group=customers %}
 
-- Individuals
+- Individuals {#individuals}
 
    * Enter your first, last, and middle name.
 
@@ -28,7 +28,7 @@ When you create the first billing account linked to your user account, you are a
 
    * Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
 
-   * If this is your first billing account in {{ yandex-cloud }}, a [trial period](../getting-started/free-trial/concepts/quickstart.md) is available to you.
+   * If this is your first {{ yandex-cloud }} billing account, you are eligible for a [trial period](../getting-started/free-trial/concepts/quickstart.md).
 
       {% note info %}
 
@@ -52,7 +52,7 @@ When you create the first billing account linked to your user account, you are a
 
       {% include [yandex-account](../_includes/billing/payment-card-validation.md) %}
 
-   * If this is your first billing account in {{ yandex-cloud }}, a [trial period](../getting-started/free-trial/concepts/quickstart.md) is available to you.
+   * If this is your first {{ yandex-cloud }} billing account, you are eligible for a [trial period](../getting-started/free-trial/concepts/quickstart.md).
 
       {% note info %}
 
@@ -85,9 +85,9 @@ Payment for {{ yandex-cloud }} services and resources will be debited from your 
 
 #### What happens after the trial period ends? Will you start debiting money right away?
 
-{{ yandex-cloud }} doesn't debit money and doesn't invoice you until you have switched to a paid account. The switching to paid consumption never happens automatically.
+{{ yandex-cloud }} does not debit money and does not invoice you until you have switched to a paid account. The switching to paid consumption never happens automatically.
 
-However, if your [grant](../getting-started/usage-grant.md) has expired, access to your resources will be blocked for 30 days or until you switch to paid consumption. For more information about expiry of the trial period, see [{#T}](../getting-started/free-trial/concepts/trial-ending.md).
+However, if your [grant](../getting-started/usage-grant.md) has expired, access to your resources will be blocked for 60 days or until you switch to paid consumption. For more information about expiry of the trial period, see [{#T}](../getting-started/free-trial/concepts/trial-ending.md).
 
 ### Questions about the initial grant {#grant}
 

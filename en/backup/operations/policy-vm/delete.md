@@ -9,11 +9,11 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to delete the policy from.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete a [backup policy](../../../backup/concepts/policy.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
    1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
-   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the appropriate policy, and select **{{ ui-key.yacloud.common.delete }}**.
-   1. Confirm the deletion.
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to delete and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Confirm the backup policy deletion.
 
 - CLI {#cli}
 
@@ -21,38 +21,36 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to delete a backup policy:
+   1. See the description of the [CLI](../../../cli/) command to delete a [backup policy](../../../backup/concepts/policy.md):
 
       ```bash
       yc backup policy delete --help
       ```
 
-   1. Get the ID of the backup policy to delete:
+   1. Get the ID of the backup policy you want to delete:
 
       {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-   1. Delete the policy by specifying its ID:
+   1. Delete the backup policy by specifying its ID:
 
       ```bash
-      yc backup policy delete <policy_ID>
+      yc backup policy delete <backup_policy_ID>
       ```
 
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/delete.md).
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To delete a backup policy created with {{ TF }}:
-
+  To delete a [backup policy](../../../backup/concepts/policy.md) created with {{ TF }}:
   1. Open the {{ TF }} configuration file and delete the fragment with the `yandex_backup_policy` resource description:
 
-     
      {% cut "Sample `yandex_backup_policy` resource description in the {{ TF }} configuration" %}
 
-     ```
+     ```hcl
      resource "yandex_backup_policy" "my_policy" {
          archive_name                      = "[<VM_name>]-[<plan_ID>]-[<unique_ID>]a"
          cbt                               = "USE_IF_ENABLED"
@@ -60,7 +58,7 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
          fast_backup_enabled               = true
          format                            = "AUTO"
          multi_volume_snapshotting_enabled = true
-         name                              = "<policy_name>"
+         name                              = "<backup_policy_name>"
          performance_window_enabled        = true
          preserve_file_security_settings   = true
          quiesce_snapshotting_enabled      = true
@@ -111,14 +109,12 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
 
      {% endcut %}
 
-
      For more information about the `yandex_backup_policy` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/backup_policy).
-
   1. Apply the changes:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc backup policy list

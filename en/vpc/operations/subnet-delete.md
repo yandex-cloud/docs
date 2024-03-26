@@ -63,7 +63,7 @@ You cannot restore a subnet after it is deleted.
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    To delete a subnet created using {{ TF }}:
 

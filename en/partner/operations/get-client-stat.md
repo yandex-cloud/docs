@@ -5,9 +5,9 @@ You can view details of how customers use services:
 * In the management console
 * On the partner portal
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To view charts and tables with information about {{ yandex-cloud }} service usage:
 
@@ -17,19 +17,19 @@ You can view details of how customers use services:
 
    For more information about the settings of the **Usage details** page, see the [{{ billing-name }} documentation](../../billing/operations/check-charges.md).
 
-- Partner portal
+- Partner portal {#partner}
 
    Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID to which your partner account in {{ yandex-cloud }} is linked. There are several ways to check details of service usage by customers:
 
    * **Dashboard** section
 
-      1. In the left-hand panel, select ![icon](../../_assets/partner/dashboard.svg) **Dashboard**.
+      1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
       1. Select the appropriate customer account from the list and click it.
       1. Go to the **Service usage** tab.
 
    * **Rewards** section
 
-      1. In the left-hand panel, select ![icon](../../_assets/partner/rewards.svg) **Rewards**.
+      1. In the left-hand panel, select ![icon](../../_assets/console-icons/medal.svg) **Rewards**.
       1. Specify the statistics period. The chart will display the total consumption by month for all customers.
 
          {% note info %}

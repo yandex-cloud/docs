@@ -1,8 +1,8 @@
 # Creating a non-replicated disk
 
-You can create a stand-alone [non-replicated](../../concepts/disk.md#nr-disks) disk or add such a disk to a disk placement group.
+You can create a stand-alone [non-replicated](../../concepts/disk.md#nr-disks) disk or add such a disk to a [disk placement group](../../concepts/disk-placement-group.md).
 
-The size of a disk must be a multiple of 93 GB.
+The size of the [disk](../../concepts/disk.md) must be a multiple of 93 GB.
 
 ## Create a separate non-replicated disk {#nr-disk}
 
@@ -10,7 +10,7 @@ The size of a disk must be a multiple of 93 GB.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to host your disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -21,29 +21,22 @@ The size of a disk must be a multiple of 93 GB.
    1. Add a disk description, if required.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
 
-      
       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
-
 
    1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` as the disk type.
    1. Select the required block size.
    1. Specify the required disk size.
-
-   
    1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
-
-
-   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [guide](../snapshot-control/create-schedule.md).
+   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
       When creating a disk, you can select only one snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
-
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to create disks:
+   1. View the description of the [CLI](../../../cli/) command to create disks:
 
       ```bash
       yc compute disk create --help
@@ -64,11 +57,7 @@ The size of a disk must be a multiple of 93 GB.
       done (1s)
       id: epdb2517b970********
       folder_id: b1g7gvsi89m3********
-      created_at: "2021-03-10T10:03:31Z"
-      name: nr-disk
-      type_id: network-ssd-nonreplicated
-      zone_id: {{ region-id }}-b
-      size: "99857989632"
+      ...
       block_size: "4096"
       status: READY
       disk_placement_policy: {}
@@ -76,7 +65,7 @@ The size of a disk must be a multiple of 93 GB.
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -102,12 +91,10 @@ The size of a disk must be a multiple of 93 GB.
       * `type`: Disk type. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
 
-          {% include [nrd-az](../../../_includes/compute/nrd-az.md) %} 
+         {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
 
       For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
-
-   1. Make sure the configuration files are valid.
-
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
@@ -116,9 +103,7 @@ The size of a disk must be a multiple of 93 GB.
          ```
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
          ```bash
@@ -127,7 +112,7 @@ The size of a disk must be a multiple of 93 GB.
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
          ```bash
          yc compute disk list
@@ -156,7 +141,7 @@ You can only create a disk in an existing disk placement group.
       {% include [name-format](../../../_includes/name-format.md) %}
 
    1. Add a disk description, if required.
-   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
+   1. Select the availability zone to host the disk.
 
       The availability zone for a disk must be the same as that of the placement group where you want to create the disk.
    1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` as the disk type.
@@ -164,7 +149,7 @@ You can only create a disk in an existing disk placement group.
 
       If you select a group with the [partition placement](../../concepts/disk-placement-group.md#partition), specify the number of the partition you want to add the disk to.
    1. Specify the required disk size.
-   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [guide](../snapshot-control/create-schedule.md).
+   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
       If you want to set another schedule, you can [add](../disk-control/configure-schedule.md#add-schedule) it after the disk is created.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -204,18 +189,14 @@ You can only create a disk in an existing disk placement group.
          done (1s)
          id: epdtncic35ru********
          folder_id: b1g7gvsi89m3********
-         created_at: "2021-03-10T11:17:57Z"
-         name: nr-disk
-         type_id: network-ssd-nonreplicated
-         zone_id: {{ region-id }}-b
-         size: "99857989632"
-         block_size: "4096"
+         ...
          status: READY
          disk_placement_policy:
            placement_group_id: epdn946ilslh********
          ```
 
       * [Partition placement](../../concepts/disk-placement-group.md#partition):
+
          ```bash
          yc compute disk create \
            --name <disk_name> \
@@ -238,13 +219,7 @@ You can only create a disk in an existing disk placement group.
          done (1s)
          id: epdtncic35ru********
          folder_id: b1g7gvsi89m3********
-         created_at: "2021-03-10T11:17:57Z"
-         name: nr-disk
-         type_id: network-ssd-nonreplicated
-         zone_id: {{ region-id }}-b
-         size: "99857989632"
-         block_size: "4096"
-         status: READY
+         ...
          disk_placement_policy:
            placement_group_id: epdn946ilslh********
            placement_group_partition: 2

@@ -1,9 +1,8 @@
-# Using data from {{ objstorage-name }} to train a model in {{ ml-platform-name }}
+# Using data from {{ objstorage-full-name }} to train a model in {{ ml-platform-name }}
 
-You will create a bucket in [{{ objstorage-full-name }}](../../storage/), mount it to the Windows file system using [rclone](https://rclone.org), and upload data to this bucket to train a model in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
+You will create a [bucket](../../storage/concepts/bucket.md) in [{{ objstorage-name }}](../../storage/), mount it to the Windows file system using [rclone](https://rclone.org), and upload data to this bucket to train a [model](../../datasphere/concepts/models/index.md) in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
 
 To use data from {{ objstorage-name }} to train a model in {{ ml-platform-name }}:
-
 1. [Prepare your infrastructure](#infra).
 1. [Create a static access key](#create-static-key).
 1. [Create a bucket](#bucket-create).
@@ -23,7 +22,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of training a model based on data from {{ objstorage-name }} includes:
-
 * Fee for [{{ ml-platform-name }} computing resource](../../datasphere/pricing.md) usage.
 * Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
 * Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
@@ -40,10 +38,12 @@ The cost of training a model based on data from {{ objstorage-name }} includes:
 
 - Windows {#windows}
 
-   1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer site.
-   1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) and unpack it to your working directory on your local desktop.
-   1. From the developer's site, download an [archive with the Windows Service Wrapper (winsw)](https://github.com/winsw/winsw/releases) and unpack it to your local working directory.
-   1. From the developer's site, download an [archive with the rclone utility](https://rclone.org/downloads/) and unpack it to your local working directory.
+   Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer website.
+
+   Download it from the developer website and unpack to the working directory on your local computer:
+   * [Archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/)
+   * [Archive with the Windows Service Wrapper (winsw) utility](https://github.com/winsw/winsw/releases)
+   * [Archive with the rclone utility](https://rclone.org/downloads/)
 
 {% endlist %}
 
@@ -53,15 +53,15 @@ The cost of training a model based on data from {{ objstorage-name }} includes:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. In the [management console]({{ link-console-main }}), select the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. Give your [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) a name, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
 
 ### Create a service account for {{ objstorage-name }} {#create-sa}
 
-To access a bucket in {{ objstorage-name }}, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `storage.editor` role.
+To access a bucket in {{ objstorage-name }}, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `storage.editor` [role](../../iam/concepts/access-control/roles.md).
 
 {% list tabs group=instructions %}
 
@@ -77,7 +77,7 @@ To access a bucket in {{ objstorage-name }}, you need a [service account](../../
 
 ## Create a static access key {#create-static-key}
 
-To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static key.
+To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static key](../../iam/concepts/authorization/access-key.md).
 
 {% list tabs group=instructions %}
 
@@ -88,12 +88,12 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. Select the `datasphere-sa` service account.
    1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-   1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
+   1. Specify the static key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+   1. Save the ID and private key. After you close the dialog, the private key value will become unavailable.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   1. Create an access key for the `datasphere-sa` service account:
+   1. Create a static access key for the `datasphere-sa` service account:
 
       ```bash
       yc iam access-key create --service-account-name datasphere-sa
@@ -101,7 +101,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
       Result:
 
-      ```
+      ```yaml
       access_key:
         id: aje6t3vsbj8l********
         service_account_id: ajepg0mjt06s********
@@ -111,12 +111,11 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
       ```
 
       For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
-
-   1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
+   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 - API {#api}
 
-   To create an access key, use the [create](../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../iam/api-ref/AccessKey/index.md) resource.
+   To create a static access key, use the [create](../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../iam/api-ref/AccessKey/index.md) resource.
 
 {% endlist %}
 
@@ -162,10 +161,9 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
       ```
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
-
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
@@ -178,7 +176,6 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 ## Set up a connection to {{ objstorage-name }} {#rclone-config}
 
 To move data from your local disk to {{ objstorage-name }}, configure the `rclone` utility.
-
 1. Open the command prompt in your working directory as an admin user and run the following command:
 
    ```powershell
@@ -193,7 +190,6 @@ To move data from your local disk to {{ objstorage-name }}, configure the `rclon
    ```
 
 1. Follow the prompts to create a new connection profile:
-
    1. Select creation of a new profile: enter `n` in the terminal.
    1. Enter the connection name: `s3-connect`.
    1. Select the storage type: enter `5` in the terminal.
@@ -220,7 +216,6 @@ If required, you can run an advanced connection setup. For this, at the `Edit ad
    ```
 
    If the configuration is set up correctly, the objects in the bucket will be listed in the console.
-
 1. Mount the bucket to the file system specifying the bucket name and an available drive letter in the file system:
 
    ```powershell
@@ -231,18 +226,17 @@ If required, you can run an advanced connection setup. For this, at the `Edit ad
 
 ## Prepare data for model training {#prepare-data}
 
-1. [Download a CSV file](https://storage.yandexcloud.net/doc-files/diabetes_data.csv) with diabetes prediction data. A dataset is created based on [Kaggle](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset?select=diabetes_012_health_indicators_BRFSS2015.csv) data for 2015.
+1. [Download a CSV file](https://storage.yandexcloud.net/doc-files/diabetes_data.csv) with diabetes prediction data. A [dataset](../../datasphere/concepts/dataset.md) is created based on [Kaggle](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset?select=diabetes_012_health_indicators_BRFSS2015.csv) data for 2015.
 1. Copy the file to the mounted bucket.
 
 ## Attach your bucket to a project {#create-s3}
 
-To connect to your bucket from {{ ml-platform-name }}, you need an S3 connector:
-
+To connect to the bucket from {{ ml-platform-name }}, you need an [S3 connector](../../datasphere/concepts/s3-connector.md):
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Fill out the fields below:
    * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the connector being created, such as `s3-datasphere-connect`.
-   * **{{ ui-key.yc-ui-datasphere.common.endpoint }}**: {{ objstorage-full-name }} host (`https://{{ s3-storage-host }}/`).
+   * **{{ ui-key.yc-ui-datasphere.common.endpoint }}**: {{ objstorage-name }} host (`https://{{ s3-storage-host }}/`).
    * **{{ ui-key.yc-ui-datasphere.common.bucket }}**: Name of your bucket.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}**: Name of the volume for mounting the bucket into the project file system.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}** used to connect to storage.
@@ -253,13 +247,11 @@ To connect to your bucket from {{ ml-platform-name }}, you need an S3 connector:
 ## Train the model {#train-model}
 
 Clone the Git repository that contains the `diabetes_catboost.ipynb` notebook with an example of [CatBoost](https://catboost.ai/) model training:
-
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 1. In the top menu, click **Git** and select **Clone**.
 1. In the window that opens, specify the repository URI: `https://github.com/yandex-cloud-examples/yc-datasphere-s3-mount.git`, and then click **Clone**.
 
 In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_data.csv` dataset in the bucket you mounted and train the `CatBoost` model:
-
 1. Install the required modules:
 
    ```python
@@ -285,7 +277,6 @@ In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_dat
    ```
 
    To get the `diabetes_data.csv` file path, open the **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg) tab, right-click the file, and select **Copy path**.
-
 1. Separate training factors from the target variable:
 
    ```python
@@ -330,4 +321,4 @@ In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_dat
 To stop paying for the resources you created:
 * [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
-* [Delete](../../datasphere/operations/projects/delete.md) your project.
+* [Delete](../../datasphere/operations/projects/delete.md) the project.

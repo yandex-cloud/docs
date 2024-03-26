@@ -4,13 +4,7 @@ While using {{ ml-platform-full-name }}, a VM's memory stores the interpreter st
 
 In {{ ml-platform-name }}, there are two types of models available:
 * Models trained in projects.
-* [Foundation models](foundation-models.md) retrained based on the Fine-tuning method.
-
-{% note info %}
-
-Models are only available in projects in [{{ dd }} mode](../project.md#dedicated).
-
-{% endnote %}
+* [Foundation models](foundation-models.md) tuned based on the Fine-tuning method.
 
 ## Supported variable types {#supported-types}
 

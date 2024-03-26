@@ -11,13 +11,13 @@ description: "Follow this guide to delete a backend group."
 
 {% endnote %}
 
-To delete a backend group:
+To delete a [backend group](../concepts/backend-group.md):
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the backend group was created.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the backend group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backend group name and select **{{ ui-key.yacloud.common.delete }}**.
@@ -31,7 +31,7 @@ To delete a backend group:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command for deleting a backend group:
+   1. View the description of the [CLI](../../cli/) command to delete a backend group:
 
       ```bash
       yc alb backend-group delete --help
@@ -51,9 +51,10 @@ To delete a backend group:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
    1. Open the {{ TF }} configuration file and delete the fragment with the backend group description.
 
       Sample backend group description in the {{ TF }} configuration:
@@ -86,9 +87,9 @@ To delete a backend group:
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes to the backend group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can verify the changes to the backend group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/) command below:
 
       ```bash
       yc alb backend-group list

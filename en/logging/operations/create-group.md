@@ -45,6 +45,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
 
    Where:
+
    * `--name`: Log group name.
    * `--retention-period`: Log group record retention period. This is an optional parameter.
 
@@ -78,7 +79,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -116,7 +117,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
       For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/logging_group).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

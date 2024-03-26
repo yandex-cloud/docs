@@ -1,6 +1,6 @@
 # Connecting to {{ jlab }}Lab from a local IDE
 
-In {{ ml-platform-name }}, you can work with projects run in [{{ dd }}](../../concepts/project.md#dedicated) mode from any local IDE if it supports the use of remote {{ jlab }} servers. This feature is disabled by default, but the community administrator can enable it in the [community settings](../community/manage-community-config.md).
+{{ ml-platform-name }} allows you to work with projects from any local IDE if it supports the use of remote {{ jlab }} servers. This feature is disabled by default, but the community administrator can enable it in the [community settings](../community/manage-community-config.md).
 
 {% note info %}
 
@@ -12,7 +12,7 @@ Here is an example of connecting to a project using [Visual Studio Code](https:/
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 
-1. Run a project in {{ dd }} mode. In the project settings, select a [VM configuration](../../concepts/configurations.md) for a remote connection.
+1. In the project settings, select a [VM configuration](../../concepts/configurations.md) for a remote connection and run the project.
 
 1. In the top-right corner, click **Share** ⟶ **Link for external IDE**.
 

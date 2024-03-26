@@ -102,12 +102,12 @@ title: "Как получить информацию об L7-балансиро�
             {
               "disable_traffic" = false
               "subnet_id" = "buc4gsmpj8hv********"
-              "zone_id" = "ru-central1-a"
+              "zone_id" = "{{ region-id }}-a"
             },
             {
               "disable_traffic" = false
               "subnet_id" = "blt6pcatjje6********"
-              "zone_id" = "ru-central1-b"
+              "zone_id" = "{{ region-id }}-b"
             },
             ...
       ```

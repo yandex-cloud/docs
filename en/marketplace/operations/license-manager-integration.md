@@ -4,9 +4,9 @@ If you created a [subscription](../concepts/subscription.md) within one of these
 * `Subscription`: Set up integration with the [{{ license-manager }} API](../license-manager/api-ref/index.md) for your subscription to work properly.
 * `PAYG`: The user will automatically switch to this service plan as soon as they unlink the subscription from a resource or as soon as the subscription expires. You can set up integration with the {{ license-manager }} API if needed.
 
-{% list tabs %}
+{% list tabs group=service %}
 
-- {{ compute-name }}
+- {{ compute-name }} {#compute}
 
    1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 
@@ -16,7 +16,7 @@ If you created a [subscription](../concepts/subscription.md) within one of these
 
       1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
 
-- {{ managed-k8s-name }}
+- {{ managed-k8s-name }} {#managed-k8s}
 
    1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 
@@ -28,7 +28,7 @@ If you created a [subscription](../concepts/subscription.md) within one of these
 
       1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
 
-- {{ cloud-apps-name }}
+- {{ cloud-apps-name }} {#cloud-apps}
 
    1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 
@@ -38,7 +38,7 @@ If you created a [subscription](../concepts/subscription.md) within one of these
 
       1. {% include [lmi-step-3](../../_includes/marketplace/lmi-step-3.md) %}
 
-- SaaS
+- SaaS {#saas}
 
    1. Create:
 

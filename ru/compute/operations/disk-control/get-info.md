@@ -41,7 +41,7 @@ description: "Следуя данной инструкции, вы сможет�
       created_at: "2023-10-27T12:14:30Z"
       name: test-disk
       type_id: network-hdd
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       size: "21474836480"
       block_size: "4096"
       status: READY

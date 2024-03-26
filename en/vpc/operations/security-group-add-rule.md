@@ -109,7 +109,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    1. Open the {{ TF }} configuration file and add the `ingress` or `egress` section to the security group description:
 

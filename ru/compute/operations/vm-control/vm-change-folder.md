@@ -209,7 +209,7 @@
       folder_id: b1gd73mbrli7********
       created_at: "2023-11-16T06:09:46Z"
       name: oslogigor1
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       platform_id: standard-v3
       resources:
         memory: "2147483648"
@@ -233,7 +233,7 @@
           primary_v4_address:
           address: 10.129.0.22
       gpu_settings: {}
-      fqdn: relocated-vm.ru-central1.internal
+      fqdn: relocated-vm.{{ region-id }}.internal
       scheduling_policy: {}
       network_settings:
       type: STANDARD

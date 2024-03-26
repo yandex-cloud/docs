@@ -12,9 +12,9 @@ If you have not spent the [initial grant](../../billing/concepts/bonus-account.m
 
 To add a new customer, create a customer record on the partner portal.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Partner portal
+- Partner portal {#partner}
 
    1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID to which your partner account in {{ yandex-cloud }} is linked. If you have no access, it means the account you use to log in has no partner status assigned.
    1. In the top-right corner, click **Add customer**.
@@ -36,7 +36,7 @@ A customer with the `Verification required` status must confirm their readiness 
 {% note warning %}
 
 The email is only sent once.
-If the customer does not follow the link provided in the email or cannot find the email, the partner can, on their own, create a partnership confirmation link and send it to the customer. To do this, in the `https://partners.cloud.yandex.ru/invite/accept/subaccount_ID` link, replace `subaccont_ID` with the partner ID in `dn2...` format.
+If the customer fails to follow the link provided in the email or cannot find the email, you can, on your own, create a partnership confirmation link and send it to the customer. To do this, in `https://partners.cloud.yandex.ru/invite/accept/subaccount_ID`, replace `subaccont_ID` with the partner ID in `dn2...` format.
 The partnership will be confirmed when the customer logs in to their account using this link.
 
 {% endnote %}
@@ -60,9 +60,9 @@ If you do not link the customer's cloud, the customer will pay for this cloud se
 
 You can link a customer's cloud to a partner subaccount on the partner portal or using the management console. For the partner to be able to link existing customer clouds, make sure the partner is [granted access to them](access/grant.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To link a cloud on the customer side:
 
@@ -77,7 +77,7 @@ You can link a customer's cloud to a partner subaccount on the partner portal or
 
    To prevent the partner from linking a customer's cloud on their own, revoke the roles for resources from the partner. Learn more about [roles in {{ yandex-cloud }}](../../resource-manager/security/).
 
-- Partner portal
+- Partner portal {#partner}
 
    On the partner side, a customer's cloud can be linked on the partner's management console home page as described in the **Management console** tab or through the customer's billing account.
 

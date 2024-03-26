@@ -21,7 +21,8 @@ You can [change or disable](../operations/projects/update.md) the subnet in the 
 
 #### Can I close a tab with a notebook? {#close-notebook-tab}
 
-Yes, you can. If you close the notebook tab, current computations will continue running and the [interpreter state](../concepts/save-state.md), all variables, and computation results will be saved. You can continue working when you reopen your project.
+Yes, you can. If you close the notebook tab, current executions will continue, all variables and computation results will be saved, but the output will not be saved for the executions that finished while the notebook was closed.
+After completion of all the running computations, the VM will be assigned to the notebook for three hours. You can [change](../operations/projects/update.md) this value in the project settings.
 
 #### Why can't I start multiple notebooks in my project simultaneously? {#parallel-run}
 
@@ -29,11 +30,7 @@ Running notebooks have access to the project storage and can edit files. To avoi
 
 #### How do I specify the configuration type for my project? {#instance-type}
 
-Project cells in {{ ml-platform-name }} run with the minimum [resource configuration](../concepts/configurations.md): **c1.4** (4 vCPUs). You can [change configurations](../operations/projects/control-compute-resources.md#config) while using your notebook. The state of the interpreter, variables, and computation results will be saved.
-
-#### How do I resolve the <q>The following variables can't be serialized</q> error? {#error-variables}
-
-The error says that the system cannot serialize the variable. It means that you cannot move it when switching to another resource configuration. To avoid the error, run all your computations in the same configuration.
+You can select a [computing resource configuration](../concepts/configurations.md) when you first run computations in the {{ ml-platform-name }} notebook. The minimum available configuration is **c1.4** (4 vCPUs).
 
 #### If I delete a running cell, will computations stop? {#delete-cell}
 

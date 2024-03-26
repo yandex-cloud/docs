@@ -23,6 +23,7 @@ description: "Из статьи вы узнаете, какими материа
 ### Инфраструктура и сеть {#infra}
 
 * [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
+* [{{ backup-full-name }}](../backup/qa/troubleshooting.md)
 * [{{ dns-full-name }}](../dns/qa/index.md)
 * [{{ cloud-logging-full-name }}](../logging/qa/index.md)
 * [{{ compute-full-name }}](../compute/qa/all.md)
@@ -85,6 +86,7 @@ description: "Из статьи вы узнаете, какими материа
 
 ### Инструменты разработчика {#developer-tools}
 
+* [{{ cos-full-name }}](../cos/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 
 ### Ресурсы и управление {#resources-operations}

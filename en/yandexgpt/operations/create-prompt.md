@@ -3,7 +3,7 @@ title: "How to send a request in prompt mode to {{ yagpt-full-name }}"
 description: "By following this guide, you will learn to use {{ yagpt-full-name }} in prompt mode."
 ---
 
-# Sending requests in prompt mode
+# Sending a request in prompt mode
 
 To generate text in [prompt mode](../concepts/index.md#working-mode), send a request to the model using the [completion](../text-generation/api-ref/TextGeneration/completion.md) method.
 
@@ -13,7 +13,7 @@ To generate text in [prompt mode](../concepts/index.md#working-mode), send a req
 
 ## Send a request to the model {#request}
 
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`:
 
    ```json
    {

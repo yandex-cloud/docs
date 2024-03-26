@@ -2,7 +2,7 @@
 
 {{ ml-platform-name }} provides tools for releasing services available to third-party resources. You can deploy a model trained in {{ ml-platform-name }} and use the same tools to develop a fully featured service based on a Docker image.
 
-To publish a service, {{ ml-platform-name }} provides special resources, such as [nodes](#node) and [aliases](#statuses).
+To publish a service, {{ ml-platform-name }} provides special resources: [nodes](#node) and [aliases](#statuses).
 
 ## Nodes {#node}
 
@@ -38,15 +38,7 @@ To use {{ container-registry-full-name }}, the project service account needs the
 
 {% endnote %}
 
-When [creating a node from a Docker image](../../operations/deploy/node-create.md#from-docker), you yourself set the node's API, port you want your service to use, connection time, collectible metrics format, and other parameters. Once the node is created, {{ ml-platform-name }} will monitor its state, maintain the operation of the instances, and scale the node within the specified instance range as needed.
-
-### Node from a checkpoint {#checkpoint-node}
-
-{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
-
-Nodes from a [checkpoint](../checkpoints.md) are good for testing and checking hypotheses. To [create](../../operations/deploy/node-create.md#from-cell) a node, [pin](../../operations/projects/checkpoints.md) the checkpoint of the cell where the input and output parameters of your future microservice are defined. {{ ml-platform-name }} will use this information to automatically generate [gRPC and REST API](../../../datasphere/operations/deploy/node-api.md).
-
-By default, node instances use standard system Docker images and do not copy the libraries set by the user. If your microservice requires packages that are not included in the [pre-installed software](../../../datasphere/concepts/preinstalled-packages.md), configure the Docker image for [deployment of the node environment](../../../datasphere/operations/deploy/node-customization.md).
+When [creating a node from a Docker image](../../operations/deploy/node-create.md#from-docker), you set the node's API, port you want your service to use, connection time, format of metrics you will collect, and other parameters. Once the node is created, {{ ml-platform-name }} will monitor its state, maintain the operation of the instances, and scale the node within the specified instance range as needed.
 
 ### Node statuses {#statuses}
 
@@ -81,5 +73,4 @@ An _alias_ is a special resource used for publishing and updating a service. It 
 
 * [{#T}](../../operations/deploy/node-create.md)
 * [{#T}](../../operations/deploy/alias-create.md)
-* [{#T}](../../tutorials/node-from-cell.md)
 * [{#T}](../../tutorials/node-from-docker.md)

@@ -35,7 +35,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the static public IP description by adding the `ddos_protection_provider` field:
 

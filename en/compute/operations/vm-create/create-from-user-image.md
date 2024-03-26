@@ -7,7 +7,7 @@ description: "Use this guide to create a VM from a custom image."
 
 ## Getting started {#before-you-begin}
 
-[Prepare and upload](../image-create/upload.md) the [image](../../concepts/image.md) to create a [VM](../../concepts/vm.md) from.
+[Prepare and upload](../image-create/upload.md) the [image](../../concepts/image.md) to {{ compute-name }} to create a [VM](../../concepts/vm.md) from.
 
 Make sure the uploaded image is in the `READY` status.
 
@@ -139,19 +139,73 @@ Make sure the uploaded image is in the `READY` status.
 
       ```bash
       yc compute instance create \
-        --name test-vm-from-image \
-        --zone {{ region-id }}-a \
-        --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov******** \
+        --name <VM_name> \
+        --zone <availability_zone> \
+        --create-boot-disk name=<disk_name>,size=<disk_size_in_GB>,image-id=<custom_image_ID> \
         --public-ip \
-        --ssh-key ~/.ssh/id_ed25519.pub
+        --ssh-key <path_to_public_key_file>
       ```
 
-      This command creates a VM with a 5GB boot disk from the pre-loaded image named `test-vm-from-image`.
+      Where:
 
-      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+      * `--name`: VM instance name. The naming requirements are as follows:
 
-      The `yc-user` user will be created on the VM with the public key from the `~/.ssh/id_ed25519.pub` file. The VM gets a [public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, remove the `--public-ip` flag.
+         {% include [name-format](../../../_includes/name-format.md) %}
 
+         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the VM.
+      * `--create-boot-disk`: Boot disk parameters:
+         * `name`: Boot disk name. The naming requirements are as follows:
+
+            {% include [name-format](../../../_includes/name-format.md) %}
+
+         * `size`: Disk size in GB.
+         * `image-id`: ID of the custom image to create the VM from. Specify the identifier of the [uploaded](../image-create/upload.md) image.
+      * `--public-ip`: Add this flag to assign a [public IP](../../../vpc/concepts/address.md#public-addresses) to the VM. To create a VM without a public IP address, remove this flag.
+      * `--ssh-key`: Path to the public [SSH key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file. The default username for access via SSH is `yc-user`.
+
+
+      Result:
+
+      ```bash
+      id: fhmue131en37********
+      folder_id: b1g681qpemb4********
+      created_at: "2024-03-02T12:58:43Z"
+      name: test-vm-from-image
+      zone_id: ru-central1-a
+      platform_id: standard-v2
+      resources:
+        memory: "2147483648"
+        cores: "2"
+        core_fraction: "100"
+      status: RUNNING
+      metadata_options:
+        gce_http_endpoint: ENABLED
+        aws_v1_http_endpoint: ENABLED
+        gce_http_token: ENABLED
+        aws_v1_http_token: DISABLED
+      boot_disk:
+        mode: READ_WRITE
+        device_name: fhmn9n1uhutc********
+        auto_delete: true
+        disk_id: fhmn9n1uhutc********
+      network_interfaces:
+        - index: "0"
+          mac_address: d0:0d:1e:70:46:17
+          subnet_id: e9bb9n0v4h17********
+          primary_v4_address:
+            address: 10.12*.*.**
+            one_to_one_nat:
+              address: 178.154.***.***
+              ip_version: IPV4
+      gpu_settings: {}
+      fqdn: fhmue131en37********.auto.internal
+      scheduling_policy: {}
+      network_settings:
+        type: STANDARD
+      placement_policy: {}
+      ```
 
 - {{ TF }} {#tf}
 
@@ -208,13 +262,21 @@ Make sure the uploaded image is in the `READY` status.
       Where:
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
-         * `name`: Disk name.
+         * `name`: Disk name. The naming requirements are as follows:
+
+            {% include [name-format](../../../_includes/name-format.md) %}
+
          * `type`: Disk type.
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
-         * `image_id`: ID of the image to create the VM from. Specify the identifier of the [uploaded](../image-create/upload.md) image.
+         * `image_id`: ID of the custom image to create the VM from. Specify the identifier of the [uploaded](../image-create/upload.md) image.
       * `yandex_compute_instance`: Description of the VM:
-         * `name`: VM name.
+         * `name`: VM name. The naming requirements are as follows:
+
+            {% include [name-format](../../../_includes/name-format.md) %}
+
+            {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
          * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: Availability zone to host the VM.
@@ -235,7 +297,7 @@ Make sure the uploaded image is in the `READY` status.
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
@@ -251,4 +313,5 @@ Make sure the uploaded image is in the `READY` status.
 
 #### See also {#see-also}
 
+* [{#T}](../image-create/custom-image.md)
 * [{#T}](../vm-connect/ssh.md)

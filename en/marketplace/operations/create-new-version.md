@@ -13,7 +13,7 @@ All text fields support [Markdown](https://ydocs.tech/en/).
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=service %}
 
 - {{ compute-name }} {#compute}
 

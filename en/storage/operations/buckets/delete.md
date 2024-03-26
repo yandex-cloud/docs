@@ -134,7 +134,7 @@ You can only delete empty buckets. In the management console, information about 
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    
    {% include [terraform-install](../../../_includes/terraform-install.md) %}

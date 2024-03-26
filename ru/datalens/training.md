@@ -17,14 +17,14 @@
 
 * {% include [training-corpplatform](../_includes/training/training-cdp.md) %}
 
-
 * [**DataYoga: марафон по {{ datalens-short-name }}**](https://datayoga.ru/datalens)
 
    7 дней, 7 возможностей {{ datalens-short-name }}, 7 практических задач визуализации данных — в занимательном формате марафона от наших друзей DataYoga. Марафон также доступен в формате [книги](https://datayoga.ru/datalensbook).
 
-* [**Визуализация данных: бесплатный курс-симулятор в Нетологии**](https://netology.ru/programs/analyst-bifree#/)
+* [**Визуализация данных: бесплатный курс-симулятор в Нетологии**](https://netology.ru/programs/osnovy-raboty-s-instrumentami-dlya-analiza-dannyh)
 
-   Бесплатный обзорный курс по самым популярным инструментам визуализации данных: {{ datalens-short-name }}, Excel, Power BI и Tableau.
+   Бесплатный обзорный курс по самым популярным инструментам анализа и визуализации данных: {{ datalens-short-name }}, Excel, Python, SQL и Power BI.
+
 
 
 * [**Инженер облачных сервисов**](https://practicum.yandex.ru/ycloud/)
@@ -47,3 +47,4 @@
 
 
 * Сообщество пользователей {{ datalens-short-name }} в [Telegram](https://t.me/YandexDataLens).
+

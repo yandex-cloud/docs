@@ -185,7 +185,7 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
             1. Apply the changes:
 
-               {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+               {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
                This will add your new listener to the new availability zone. You can use the [management console]({{ link-console-main }}) to check whether your listener was created properly.
 

@@ -1,9 +1,9 @@
 ---
 title: "Deleting a target group from an application load balancer"
-description: "To delete a target group, in the management console, select the folder that hosts the target group. Select {{ alb-name }}. In the left-hand menu, select Target groups. Select the target group and click the select icon. In the menu that opens, select Delete. To do this with multiple groups, select the groups to delete from the list and click Delete at the bottom of the screen."
+description: "To delete a target group, in the management console, select the folder that hosts the target group. Select {{ alb-full-name }}. In the left-hand menu, select Target groups. Select the target group and click the select icon. In the menu that opens, select Delete. To do this with multiple groups, select the groups to delete from the list and click Delete at the bottom of the screen."
 ---
 
-# Delete a target group {{ alb-name }}
+# Deleting an {{ alb-name }} target group
 
 {% note warning %}
 
@@ -11,13 +11,13 @@ description: "To delete a target group, in the management console, select the fo
 
 {% endnote %}
 
-To delete a target group:
+To delete a [target group](../concepts/target-group.md):
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the target group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
    1. Select the target group and click ![image](../../_assets/console-icons/ellipsis.svg).
@@ -32,7 +32,7 @@ To delete a target group:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI delete target group command:
+   1. See the description of the [CLI](../../cli/) command to delete a target group:
 
       ```bash
       yc alb target-group delete --help
@@ -52,9 +52,10 @@ To delete a target group:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
    1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
 
       Sample target group description in the {{ TF }} configuration:
@@ -83,9 +84,9 @@ To delete a target group:
       For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the target group update in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      You can check the target group update in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
       ```bash
       yc alb target-group list

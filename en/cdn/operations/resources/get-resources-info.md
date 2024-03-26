@@ -19,7 +19,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI command to get information about a [resource](../../concepts/resource.md):
+   1. View a description of the CLI command to get information about a [resource](../../concepts/resource.md):
 
       ```bash
       yc cdn resource get --help
@@ -63,7 +63,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -92,7 +92,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
 
@@ -150,7 +150,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -179,7 +179,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
 

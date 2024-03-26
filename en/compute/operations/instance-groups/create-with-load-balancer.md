@@ -1,6 +1,6 @@
 # Creating a fixed-size instance group with an L7 load balancer
 
-You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) integrated with [{{ alb-full-name }}](../../../application-load-balancer/index.yaml). A {{ alb-name }} target group will be automatically created along with the instance group. You can link it to your load balancer and distribute the load across the instances in the group at the application level. For more information, see [{#T}](../../concepts/instance-groups/balancers.md).
+You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) integrated with [{{ alb-full-name }}](../../../application-load-balancer/). An {{ alb-name }} [target group](../../../application-load-balancer/concepts/target-group.md) will be automatically created along with the [VM](../../concepts/vm.md) instance group. You can attach it to your [load balancer](../../../application-load-balancer/concepts/index.md) and distribute the load across the instances in the group at the application level. For more information, see [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [alb-warning.md](../../../_includes/instance-groups/alb-warning.md) %}
 
@@ -25,7 +25,7 @@ To create an instance group with an L7 load balancer:
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
+      * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account. By default, all operations with instance groups are performed on behalf of the service account.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -41,11 +41,8 @@ To create an instance group with an L7 load balancer:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
          * Choose a [platform](../../../compute/concepts/vm-platforms.md).
          * Enter the required number of vCPUs, [guaranteed vCPU performance](../../concepts/performance-levels.md), and the amount of RAM.
-
          * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
-
          * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
-
       * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
          {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
@@ -99,7 +96,7 @@ To create an instance group with an L7 load balancer:
       ```
 
       If there are none, [create a network](../../../vpc/operations/network-create.md).
-   1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
+   1. Select one of the {{ marketplace-full-name }} public [images](../../concepts/image.md), e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -115,7 +112,7 @@ To create an instance group with an L7 load balancer:
 
          Where:
          * `name`: Name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
-         * `service_account_id`: Service account ID.
+         * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
 
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -155,7 +152,7 @@ To create an instance group with an L7 load balancer:
             * `READ_ONLY`: Read-only access.
             * `READ_WRITE`: Read/write access.
          * `image_id`: ID of the public image. You can view image IDs in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
-         * `type_id`: Disk type.
+         * `type_id`: [Disk type](../../../compute/concepts/disk.md#disks_types).
          * `size`: Disk size.
          * `network_id`: ID of the `default-net` network.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
@@ -272,7 +269,7 @@ To create an instance group with an L7 load balancer:
       ```hcl
       resource "yandex_iam_service_account" "ig-sa" {
         name        = "ig-sa"
-        description = "service account to manage IG"
+        description = "Service account for managing the instance group."
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -313,7 +310,7 @@ To create an instance group with an L7 load balancer:
 
         scale_policy {
           fixed_scale {
-            size = <number_of_VM_instances_in_the_group>
+            size = <number_of_VM_instances_in_group>
           }
         }
 
@@ -328,7 +325,7 @@ To create an instance group with an L7 load balancer:
 
         application_load_balancer {
           target_group_name        = "target-group"
-          target_group_description = "load balancer target group"
+          target_group_description = "{{ network-load-balancer-name }} target group"
         }
       }
 
@@ -358,12 +355,12 @@ To create an instance group with an L7 load balancer:
             * `deletion_protection`: Instance group deletion protection, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
             * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-            * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+            * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected platform.
             * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
-               * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+               * ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
                * Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write).
             * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
-            * `metadata`: In the [metadata](../../concepts/vm-metadata.md), provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+            * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * [Policies](../../concepts/instance-groups/policies/index.md):
             * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.
             * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
@@ -384,7 +381,7 @@ To create an instance group with an L7 load balancer:
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 

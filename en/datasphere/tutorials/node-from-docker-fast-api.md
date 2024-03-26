@@ -1,0 +1,1 @@
+{% include [node-from-docker-fast-api](../../_tutorials/datasphere/node-from-docker-fast-api.md) %}

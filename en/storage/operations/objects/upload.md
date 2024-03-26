@@ -61,7 +61,7 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -93,7 +93,7 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

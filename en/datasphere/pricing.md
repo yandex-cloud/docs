@@ -4,23 +4,14 @@ editable: false
 
 # {{ ml-platform-name }} pricing
 
-{% include [serverless-deprecation-note](../_includes/datasphere/serverless-deprecation-note.md) %}
-
-
 
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
-When using {{ ml-platform-name }}, you pay for the use of computing resources: the compute and instance running time is charged per second.
+When using {{ ml-platform-name }}, you pay for the use of computing resources: the computation and instance running time is charged per second.
 
-### Running {{ ml-platform-name }} in the {{ ds }} mode {#serverless}
+### {{ ds-nb }} {#dedicated}
 
-When performing computations and training models in the [{{ ds }} mode](concepts/project.md#serverless), you pay for the compute time. If you do not perform any computational operations in a project, the {{ ml-platform-name }} usage time is not charged. However, if you run computations using {{ dataproc-name }} clusters, they are charged separately. For more information, see [Using {{ dataproc-name }} clusters](#data-proc).
-
-You are separately charged for [data storage](#storage) in datasets and project storage expansion.
-
-### Running {{ ml-platform-name }} in the {{ dd }} mode {#dedicated}
-
-When performing computations and training models in the [{{ dd }} mode](concepts/project.md#dedicated), you pay for the VM usage time since the first computations are run in a notebook until the VM is released regardless of whether any computations were performed after the initial run. If you run computations using {{ dataproc-name }} clusters, they are [charged separately](#data-proc).
+When performing computations and training models in {{ ml-platform-name }} notebooks, you pay for the whole time the VM is used since the first computations are run in a notebook until the VM is released, regardless of whether any computations were performed after the first run. If you run computations using {{ dataproc-name }} clusters, they are [charged separately](#data-proc).
 
 You are separately charged for [data storage](#storage) in datasets and project storage expansion.
 
@@ -59,7 +50,7 @@ The monthly usage rate is based on 720 hours a month.
 
 ## Pricing {#prices}
 
-Prices for using configurations apply to [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless), [background operations](../datasphere/concepts/async.md), [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) and when you [use models](../datasphere/concepts/deploy/index.md#node).
+The prices of the configurations are valid for computations in [{{ ds-nb }}](concepts/project.md#mode), [{{ ds-jobs }}](concepts/jobs/index.md) jobs, and the use of [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Instructions for operations with {{ ml-platform-full-name }}"
-description: "The page contains all instructions on how to work with {{ ml-platform-full-name }} in {{ yandex-cloud }}. Learn how to create a project, install dependencies, run a code sample in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from a variety of sources, and deploy a trained model as a microservice."
+title: "How to work with {{ ml-platform-full-name }}"
+description: "The page contains all guides on working with {{ ml-platform-full-name }} in {{ yandex-cloud }}. Learn how to create a project, install dependencies, run a code sample in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from a variety of sources, and deploy a trained model as a microservice."
 ---
 
 # Step-by-step guides for {{ ml-platform-name }}
@@ -48,7 +48,6 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 ## Working with resources {#resources}
 
 * [{#T}](data/secrets.md)
-* [{#T}](projects/checkpoints.md)
 * [{#T}](data-proc-template.md)
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
@@ -73,6 +72,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](deploy/alias-create.md)
 * [{#T}](deploy/alias-update.md)
 * [{#T}](deploy/alias-delete.md)
+* [{#T}](deploy/alias-api.md)
 
 ## Shared access to resources, projects, and computation results {#share}
 

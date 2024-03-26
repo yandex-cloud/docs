@@ -34,7 +34,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 | Parameter | Description |
 ----- | -----
-| `partNubmer` | ID that you assigned to the uploaded part. |
+| `partNumber` | ID that you assigned to the uploaded part. |
 | `uploadId` | ID of the multipart upload returned by {{ objstorage-name }} at [startup](startupload.md). |
 
 

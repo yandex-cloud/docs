@@ -23,10 +23,10 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
    ```
 
    Where:
-   * `--bucket`: Bucket name.
-   * `--key`: Bucket object [key](../../concepts/object.md#key).
+   * `--bucket`: Bucket name
+   * `--key`: Bucket object [key](../../concepts/object.md#key)
    * `--tagging`: Array of object labels, where:
-      * `Key`: Label key of the `string` type.
+      * `Key`: Label key of the `string` type
       * `Value`: Label value of the `string` type.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
@@ -56,7 +56,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    That will add the labels to the object. You can check the new labels and the object's configuration using the [AWS CLI or S3 API](#get-tag).
 
@@ -84,9 +84,9 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
    ```
 
    Where:
-   * `--bucket`: Bucket name.
-   * `--key`: Bucket object [key](../../concepts/object.md#key).
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
+   * `--bucket`: Bucket name
+   * `--key`: Bucket object [key](../../concepts/object.md#key)
+   * `--endpoint-url`: {{ objstorage-name }} endpoint
 
    Result:
 
@@ -129,9 +129,9 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
    ```
 
    Where:
-   * `--bucket`: Bucket name.
-   * `--key`: Bucket object [key](../../concepts/object.md#key).
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
+   * `--bucket`: Bucket name
+   * `--key`: Bucket object [key](../../concepts/object.md#key)
+   * `--endpoint-url`: {{ objstorage-name }} endpoint
 
 - {{ TF }} {#tf}
 
@@ -156,7 +156,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    That will delete the object's labels. You can check the deletion of labels and the object's configuration using the [AWS CLI or S3 API](#get-tag).
 

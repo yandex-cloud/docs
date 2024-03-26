@@ -13,32 +13,29 @@ description: "Step-by-step guide for editing a backend group."
 
    {% note info %}
 
-   You can change the [group type](../concepts/backend-group.md#group-types) only in other tools: CLI, {{ TF }}, API.
+   You can change the [group type](../concepts/backend-group.md#group-types) only using other tools: [CLI](../../cli/), {{ TF }}, or API.
 
    {% endnote %}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the backend group was created.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [backend group](../concepts/backend-group.md) was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. Click the name of the group.
    1. Click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the group parameters:
-
       * **{{ ui-key.yacloud.common.name }}** and **{{ ui-key.yc-ui-datasphere.common.description }}** backend groups.
       * **{{ ui-key.yacloud.alb.label_session-affinity }}**: If you select this option, requests within one user session are processed by the same endpoint.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
          `{{ ui-key.yacloud.alb.label_proto-http }}` and `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend groups support the following modes:
-
          * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
          * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
          * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
 
-         For the `{{ ui-key.yacloud.alb.label_proto-stream }}` type, session affinity is always by IP address.
+         For the `{{ ui-key.yacloud.alb.label_proto-stream }}` type, session affinity is always by [IP address](../../vpc/concepts/address.md).
 
-         For more information about session affinity and its modes, see this [section](../concepts/backend-group.md#session-affinity).
-
+         For more information about session affinity and its modes, see [this section](../concepts/backend-group.md#session-affinity).
    1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -47,7 +44,7 @@ description: "Step-by-step guide for editing a backend group."
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command for changing the backend group basic parameters:
+   1. See the description of the [CLI](../../cli/) command that changes the [backend group](../concepts/backend-group.md) basic parameters:
 
       ```bash
       yc alb backend-group update --help
@@ -72,13 +69,13 @@ description: "Step-by-step guide for editing a backend group."
 
       * `--description`: Description of the backend group. This is an optional parameter.
       * `--labels key=value`: List of labels in `key=value` format. This is an optional parameter.
-      * `--connection-affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) mode based on IP (`source-ip`). It may take either the `true` or `false` value. This is an optional parameter. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream](../concepts/backend-group#group-types) type, the affinity mode can only be `--connection-affinity`.
+      * `--connection-affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) mode by [IP address](../../vpc/concepts/address.md) (`source-ip`). It may take either the `true` or `false` value. This is an optional parameter. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream type](../concepts/backend-group#group-types), the affinity mode can only be `--connection-affinity`.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
       Result:
 
-      ```
+      ```text
       id: ds7mi7mlqgct********
       name: <backend_group_name>
       description: update
@@ -112,11 +109,11 @@ description: "Step-by-step guide for editing a backend group."
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and edit the fragment with the backend group description:
+   1. Open the {{ TF }} configuration file and edit the fragment with the [backend group](../concepts/backend-group.md) description:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
@@ -142,14 +139,14 @@ description: "Step-by-step guide for editing a backend group."
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: Session affinity mode based on the IP address (`source_ip`). It may take either the `true` or `false` value. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
+         * `connection`: Session affinity mode by [IP address](../../vpc/concepts/address.md) (`source_ip`). It may take either the `true` or `false` value. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes to the backend group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the backend group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb backend-group get --name <backend_group_name>
@@ -157,7 +154,7 @@ description: "Step-by-step guide for editing a backend group."
 
 - API {#api}
 
-   To change the basic group parameters, use the [update](../api-ref/BackendGroup/update.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update) gRPC API call.
+   To change the basic parameters of a [backend group](../concepts/backend-group.md), use the [update](../api-ref/BackendGroup/update.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -207,7 +204,6 @@ description: "Step-by-step guide for editing a backend group."
    ```
 
    Where:
-
    * `--panic-threshold`: Threshold for panic mode.
    * `--http-healthcheck`: Resource health check parameters:
       * `port`: Port.
@@ -247,7 +243,6 @@ description: "Step-by-step guide for editing a backend group."
    ```
 
    Where:
-
    * `--panic-threshold`: Threshold for panic mode.
    * `--grpc-healthcheck`: Resource health check parameters:
       * `port`: Port.
@@ -289,7 +284,6 @@ description: "Step-by-step guide for editing a backend group."
    ```
 
    Where:
-
    * `--panic-threshold`: Threshold for panic mode.
    * `--stream-healthcheck`: Resource health check parameters:
       * `port`: Port.
@@ -317,7 +311,7 @@ description: "Step-by-step guide for editing a backend group."
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -356,7 +350,7 @@ description: "Step-by-step guide for editing a backend group."
        * `name`: Backend name.
        * `port`: Backend port.
        * `weight`: Backend weight.
-       * `target_group_ids`: Target group ID. To get a list of available target groups, run the following [CLI](../../cli/quickstart.md) command: `yc alb target-group list`.
+       * `target_group_ids`: Target group ID. To get a list of available target groups, run the following CLI command: `yc alb target-group list`.
        * `load_balancing_config`: Load balancing settings:
           * `panic_threshold`: Threshold for panic mode.
        * `healthcheck`: Health check parameters:
@@ -372,9 +366,9 @@ description: "Step-by-step guide for editing a backend group."
        For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes to the backend group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the backend group update using the [management console]({{ link-console-main }}) or this CLI command:
 
       ```bash
       yc alb backend-group get --name <backend_group_name>
@@ -431,7 +425,6 @@ description: "Step-by-step guide for editing a backend group."
       ```
 
       Where:
-
       * `--panic-threshold`: Threshold for panic mode.
       * `--http-healthcheck`: Resource health check parameters:
          * `port`: Port.
@@ -471,7 +464,6 @@ description: "Step-by-step guide for editing a backend group."
       ```
 
       Where:
-
       * `--panic-threshold`: Threshold for panic mode.
       * `--grpc-healthcheck`: Resource health check parameters:
          * `port`: Port.
@@ -513,7 +505,6 @@ description: "Step-by-step guide for editing a backend group."
       ```
 
       Where:
-
       * `--panic-threshold`: Threshold for panic mode.
       * `--stream-healthcheck`: Resource health check parameters:
          * `port`: Port.
@@ -543,9 +534,10 @@ description: "Step-by-step guide for editing a backend group."
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
    1. Open the {{ TF }} configuration file and update the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) in the fragment with the description of the backend group:
 
       ```hcl
@@ -581,7 +573,7 @@ description: "Step-by-step guide for editing a backend group."
       * `name`: Backend name.
       * `port`: Backend port.
       * `weight`: Backend weight.
-      * `target_group_ids`: Target group ID. To get a list of available target groups, run the following [CLI](../../cli/quickstart.md) command: `yc alb target-group list`.
+      * `target_group_ids`: Target group ID. To get a list of available target groups, run the following CLI command: `yc alb target-group list`.
       * `load_balancing_config`: Load balancing settings:
          * `panic_threshold`: Threshold for panic mode.
       * `healthcheck`: Health check parameters:
@@ -597,9 +589,9 @@ description: "Step-by-step guide for editing a backend group."
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes to the backend group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the backend group update using the [management console]({{ link-console-main }}) or this CLI command:
 
       ```bash
       yc alb backend-group get --name <backend_group_name>
@@ -639,7 +631,6 @@ To remove a backend from a group:
       ```
 
    1. Depending on the type of backend, run the command to delete it:
-
       * HTTP backend:
 
          ```bash
@@ -675,9 +666,10 @@ To remove a backend from a group:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
    1. Open the {{ TF }} configuration file and delete the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) from the fragment with the description of the backend group.
 
       Sample backend group description in the {{ TF }} configuration:
@@ -710,9 +702,9 @@ To remove a backend from a group:
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes to the backend group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the backend group update using the [management console]({{ link-console-main }}) or this CLI command:
 
       ```bash
       yc alb backend-group get --name <backend_group_name>

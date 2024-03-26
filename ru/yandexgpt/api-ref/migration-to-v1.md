@@ -10,8 +10,8 @@
 
 | Модель | API v1alpha | YandexGPT API v1 и Embeddings API v1 |
 | --- | --- | --- |
-| {{ yagpt-name }} | `"model": "yagpt-2.0:hq"` | `"modelUri": "gpt://<идентификатор_каталога>/yandexgpt/latest"` |
-| {{ yagpt-name }} Lite | `"model": "general"` | `"modelUri": "gpt://<идентификатор_каталога>/yandexgpt-lite/latest"` |
+| {{ gpt-pro }} | `"model": "yagpt-2.0:hq"` | `"modelUri": "gpt://<идентификатор_каталога>/yandexgpt/latest"` |
+| {{ gpt-lite }} | `"model": "general"` | `"modelUri": "gpt://<идентификатор_каталога>/yandexgpt-lite/latest"` |
 
 ## Генерация {#generation}
 

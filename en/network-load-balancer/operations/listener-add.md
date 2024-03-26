@@ -16,8 +16,8 @@ description: "Follow this guide to add a listener to a network load balancer."
    1. In the line of the load balancer to add a listener to, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
    1. In the window that opens, set the listener parameters:
 
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`
 
          {% note info %}
 
@@ -55,7 +55,7 @@ description: "Follow this guide to add a listener to a network load balancer."
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 

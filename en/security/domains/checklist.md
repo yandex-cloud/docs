@@ -83,7 +83,7 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 * **External security scans**: Perform scans according to the [rules](../compliance/pentest.md).
 * **Software and OS updates**: Install updates manually and use automated update tools.
 * **Web Application Firewall**: Install a WAF from [{{ marketplace-name }}](/marketplace?categories=security) or use Managed WAF — contact your account manager to get access.
-  ![](../../_assets/overview/solution-library-icon.svg)[Solution: PT Application Firewall built on {{ yandex-cloud }}](https://github.com/yandex-cloud-examples/yc-webinar-pt-application-firewall-ha-operations)
+  ![](../../_assets/overview/solution-library-icon.svg)[Solution: PT Application Firewall powered by {{ yandex-cloud }}](https://github.com/yandex-cloud-examples/yc-webinar-pt-application-firewall-ha-operations)
 
 ## Collecting, monitoring, and analyzing audit logs {#logs-analysis}
 

@@ -1,10 +1,10 @@
 # Adding a VM to a GPU cluster
 
-In GPU clusters, you can only create VMs running {{ a100-epyc }} with 8 GPUs. You will need to prepare a disk image with drivers by following this [guide](../image-create/custom-image.md) and use it when creating your VM.
+In [GPU clusters](../../concepts/gpus.md#gpu-clusters), you can only create [VMs](../../concepts/vm.md) running on the [{{ a100-epyc }}](../../concepts/vm-platforms.md#gpu-platforms) [platform](../../concepts/vm-platforms.md) with 8 GPUs. You will need to prepare a [disk](../../concepts/disk.md) [image](../../concepts/image.md) with drivers by following [this guide](../image-create/custom-image.md) and use it when creating your VM.
 
 {% note info %}
 
-GPU clusters are now only available in the `ru-central1-a` availability zone. You can only add a VM to a cluster from the same availability zone.
+GPU clusters are now only available in the `ru-central1-a` [availability zone](../../../overview/concepts/geo-scope.md). You can only add a VM to a GPU cluster from the same availability zone.
 
 {% endnote %}
 
@@ -33,7 +33,6 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
-      
       ```hcl
       provider "yandex" {
         zone = "{{ region-id }}-a"
@@ -85,15 +84,11 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
       }
       ```
 
-
-
       Where:
-
-      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description, where `image_id` is the ID of the image with the drivers.
+      * `yandex_compute_disk`: Boot disk description, where `image_id` is the ID of the image with the drivers.
       * `gpu_cluster_id`: GPU cluster ID. This is a required parameter.
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md).
+      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) your VM will be created in.
-
 
       {% note info %}
 
@@ -102,14 +97,12 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
       {% endnote %}
 
       For more information about the `yandex_compute_instance` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_instance).
-
-   1. Under `metadata`, enter your username and path to the public SSH key. For more information, see [{#T}](../../../compute/concepts/vm-metadata.md).
-
+   1. Under `metadata`, specify your username and path to the public SSH key. For more information, see [{#T}](../../../compute/concepts/vm-metadata.md).
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   This will create a VM in the specified cluster. You can check the new VM and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   This will create a VM in the specified GPU cluster. You can check the new VM and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
    yc compute instance get <VM_name>

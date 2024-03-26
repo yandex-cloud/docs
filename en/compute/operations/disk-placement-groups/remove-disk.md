@@ -1,12 +1,12 @@
 # Removing a disk from a placement group
 
-Remove a non-replicated disk from a [placement group](../../concepts/disk-placement-group.md). You can then [permanently delete](../disk-control/delete.md) the disk or add it back to the placement group.
+Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placement group](../../concepts/disk-placement-group.md). You can then [permanently delete](../disk-control/delete.md) the [disk](../../concepts/disk.md) or add it back to the placement group.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to remove the disk from the placement group.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to remove a disk from a placement group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
    1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
@@ -17,12 +17,11 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To remove a non-replicated disk created with {{ TF }} from a placement group:
-
    1. Open the {{ TF }} configuration file and delete the fragment describing the non-replicated disk.
 
       {% cut "Sample non-replicated disk description in the {{ TF }} configuration" %}
@@ -50,7 +49,6 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
       {% endcut %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-
    1. Check the configuration using this command:
 
       ```bash
@@ -70,7 +68,6 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Apply the configuration changes:
 
       ```bash
@@ -82,7 +79,7 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
       You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
-      yc compute disk-placement-group get <placement_group_name>
+      yc compute disk-placement-group get <disk_placement_group_name>
       ```
 
 {% endlist %}

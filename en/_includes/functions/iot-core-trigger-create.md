@@ -1,8 +1,8 @@
-Create a [trigger](../../functions/concepts/trigger/iot-core-trigger.md) for an {{ iot-name }} device or registry topic and process message copies using a {{ sf-name }} [function](../../functions/concepts/function.md).
+Create a [trigger](../../functions/concepts/trigger/iot-core-trigger.md) for a [{{ iot-name }}](../../iot-core/) [device](../../iot-core/concepts/index.md#device) or [registry](../../iot-core/concepts/index.md#registry) [topic](../../iot-core/concepts/topic/index.md) and process message copies using the [{{ sf-full-name }}](../../functions/) [function](../../functions/concepts/function.md).
 
 {% note warning %}
 
-The trigger must be in the same cloud with the registry or device it reads messages from.
+The trigger must be in the same [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) as the registry or device whose topic it reads messages from.
 
 {% endnote %}
 
@@ -10,8 +10,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 {% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
-* [Registry](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) from whose topics the trigger will receive copies of messages. If you have neither:
-
+* Registry or device from whose topics the trigger will receive message copies. If you have neither:
    * [Create a registry](../../iot-core/operations/registry/registry-create.md).
    * [Create a device](../../iot-core/operations/device/device-create.md).
 
@@ -23,14 +22,10 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
-
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a trigger.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-
    1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
@@ -38,7 +33,6 @@ The trigger must be in the same cloud with the registry or device it reads messa
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger fires for all registry or device topics.
-
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](function-settings.md) %}
@@ -47,8 +41,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
       {% include [repeat-request.md](repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
-
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the [service account](../../iam/concepts/users/service-accounts.md) with write permissions for this queue.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
@@ -113,7 +106,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -148,13 +141,13 @@ The trigger must be in the same cloud with the registry or device it reads messa
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `description`: Trigger description.
-      * `iot`: [Topic](../../iot-core/concepts/topic/) parameters:
+      * `iot`: Topic parameters:
          * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
          * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-         * `topic`: ID of the [topic](../../iot-core/concepts/topic/) you want to create a trigger for. If no topic is set, the trigger fires for all registry or device topics.
+         * `topic`: ID of the topic you want to create a trigger for. If no topic is set, the trigger fires for all registry or device topics.
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.
-         * `service_account_id`: ID of the service account with rights to invoke a function.
+         * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) with permissions to invoke the function.
       * `batch_cutoff`: Maximum wait time. Acceptable values are from 1 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. At the same time, the number of messages does not exceed the specified `batch-size` group.
       * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
 
@@ -165,7 +158,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
@@ -175,7 +168,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
       1. If the configuration does not contain any errors, run this command:
 
-         ```
+         ```bash
          terraform apply
          ```
 
@@ -183,7 +176,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-         ```
+         ```bash
          yc serverless trigger get <trigger_ID>
          ```
 
@@ -199,4 +192,4 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 ## See also {#see-also}
 
-* [Trigger for {{ iot-name }} that sends messages from registry or device topics to a {{ serverless-containers-name }} container](../../serverless-containers/operations/iot-core-trigger-create.md).
+* [Trigger for {{ iot-name }} that sends messages from registry or device topics to a {{ serverless-containers-full-name }} container](../../serverless-containers/operations/iot-core-trigger-create.md).

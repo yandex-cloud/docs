@@ -7,9 +7,9 @@ description: "Follow this guide to update a disk."
 
 After you create a [disk](../../concepts/disk.md), you can:
 * [Change the disk name and description](#change-disk-name).
-* [Increase the disk size](#change-disk-size), including that of your disk attached to a [running](../../concepts/vm-statuses.md#list-of-statuses) VM.
+* [Increase the size of your disk](#change-disk-size), even if it is attached to a [running](../../concepts/vm-statuses.md#list-of-statuses) [VM](../../concepts/vm.md).
 
-## Changing disk name and description {#change-disk-name}
+## Changing the disk name and description {#change-disk-name}
 
 To change the name and description of a disk:
 
@@ -17,7 +17,7 @@ To change the name and description of a disk:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you will be editing a disk.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a disk.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the required disk and select **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
@@ -32,7 +32,7 @@ To change the name and description of a disk:
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI's disk change command:
+   1. View the description of the [CLI](../../../cli/) disk update command:
 
       ```bash
       {{ yc-compute }} disk update --help
@@ -42,8 +42,8 @@ To change the name and description of a disk:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-   1. Select the `ID` or `NAME` of the required disk (for example, `first-disk`).
-   1. Specify the name and description in the disk change command:
+   1. Select the `ID` or `NAME` of the required disk, e.g., `first-disk`.
+   1. Specify the name and description in the disk update command:
 
       ```bash
       {{ yc-compute }} disk update first-disk \
@@ -90,7 +90,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI's disk change command:
+   1. View the description of the CLI disk update command:
 
       ```bash
       {{ yc-compute }} disk update --help
@@ -100,8 +100,8 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-   1. Select the `ID` or `NAME` of the required disk (for example, `first-disk`).
-   1. Specify the size (for example, 32 GB) in the disk change command:
+   1. Select the `ID` or `NAME` of the required disk, e.g., `first-disk`.
+   1. Specify the size, e.g., 32 GB, in the disk update command:
 
       ```bash
       {{ yc-compute }} disk update first-disk \
@@ -112,7 +112,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -120,15 +120,14 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
    You can increase the disk size using {{ TF }} without recreating the VM if the disk is specified in the manifest as a separate `yandex_compute_disk` resource.
 
-   If the disk is specified under `initialize_params` in the `yandex_compute_instance` resource, the VM will be recreated when increasing the disk size with the help of {{ TF }}. To increase the size of such a disk without recreating the VM, use the management console, CLI, or API.
+   If the disk is specified under `initialize_params` in the `yandex_compute_instance` resource, the VM will be recreated when increasing the disk size with the help of {{ TF }}. To increase the size of such a disk without recreating the VM, use the [management console](../../../console/), CLI, or API.
 
    {% endnote %}
 
    1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
-      
       ```hcl
-      # Creating a disk
+      # Creating a disk.
 
       resource "yandex_compute_disk" "first-disk" {
         name     = "<disk_name>"
@@ -138,7 +137,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
         image_id = "<image_ID>"
       }
 
-      # Creating a VM
+      # Creating a VM.
 
       resource "yandex_compute_instance" "vm-lamp" {
         name        = "<VM_name>"
@@ -167,14 +166,12 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
       }
       ```
 
-
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    1. To increase the disk size, make the following changes to the configuration file:
 
-      
       ```hcl
       resource "yandex_compute_disk" "first-disk" {
         ...
@@ -182,14 +179,12 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
       }
       ```
 
-
       Where `size` is the new disk size.
-
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      This will increase the disk size. You can check the size of your disk and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      This will increase the disk size. You can check the size of your disk and its configuration using the [management console]({{ link-console-main }}) or this CLI command:
 
       ```bash
       yc compute disk get <disk_name>
@@ -342,7 +337,6 @@ If the disk partition has not increased, or if you mean to increase the size of 
       ```
 
       Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINT` column.
-
    1. Run this command:
 
       ```bash
@@ -366,8 +360,7 @@ If the disk partition has not increased, or if you mean to increase the size of 
       ```
 
       Where:
-
-      * `/data`: Mount point of the partition you need to increase.
+      * `/data`: Mount point of the partition whose size you need to increase.
       * `-d`: Partition extension parameter.
 
       Result:

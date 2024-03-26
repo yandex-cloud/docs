@@ -6,6 +6,8 @@
 
 ## Добавить метку {#add-label}
 
+1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
+1. Выберите сообщество, в котором вы хотите изменить метки {{ ml-platform-name }}.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.more }}** и в выпадающем списке выберите **{{ ui-key.yc-ui-datasphere.common.manage-labels }}**.
 1. Нажмите кнопку **Добавить метку**.
 1. Введите ключ и значение и нажмите **Enter**.

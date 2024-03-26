@@ -13,7 +13,7 @@
 Чтобы Docker-образ запускался и корректно работал в {{ ml-platform-name }}, он должен содержать:
 * установку Python 3.7, 3.8, 3.9 или 3.10;
 * установку pip;
-* пользователя {{ jlab }}.
+* пользователя {{ jlab }} `--uid 1000`.
 
 {% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 

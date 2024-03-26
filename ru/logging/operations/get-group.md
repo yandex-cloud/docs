@@ -43,7 +43,7 @@ description: "Следуя данной инструкции, вы сможет�
   vpc: vpc-log
   status: ACTIVE
   retention_period: 3600s
-  data_stream: /ru-central1/b1gia87mbaom********/etnu60k6l8ft********/sample-stream
+  data_stream: /{{ region-id }}/b1gia87mbaom********/etnu60k6l8ft********/sample-stream
   ```
 
 - API {#api}

@@ -11,24 +11,21 @@ To create a [backend group](../concepts/backend-group.md):
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your backend group in.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a backend group.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
    1. Enter a name for the backend group.
    1. Select the [backend group type](../concepts/backend-group.md#group-types):
-
       * `{{ ui-key.yacloud.alb.label_proto-http }}`: For HTTP or HTTPS traffic.
       * `{{ ui-key.yacloud.alb.label_proto-grpc }}`: For HTTP or HTTPS traffic with a [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC) call.
       * `{{ ui-key.yacloud.alb.label_proto-stream }}`: For unencrypted TCP traffic or TCP traffic with TLS encryption support.
-
    1. (Optional) Enable [session affinity](../concepts/backend-group.md#session-affinity). `{{ ui-key.yacloud.alb.label_proto-http-plain }}` and `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend groups support the following session affinity modes:
+      * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
+      * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
+      * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
 
-      * `{{ ui-key.yacloud.alb.label_affinity-connection }}`
-      * `{{ ui-key.yacloud.alb.label_affinity-header }}`
-      * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`
-
-      For a `{{ ui-key.yacloud.alb.label_proto-stream }}` backend group, sessions are assigned to the client IP address.
+      `{{ ui-key.yacloud.alb.label_proto-stream }}` backend groups support session affinity by client [IP address](../../vpc/concepts/address.md).
 
       {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -50,19 +47,21 @@ To create a [backend group](../concepts/backend-group.md):
 
    {% endnote %}
 
-   1. View a description of the CLI command to create a backend group:
-      ```
+   1. View the description of the [CLI](../../cli/) command to create a backend group:
+
+      ```bash
       yc alb backend-group create --help
       ```
 
    1. Create a backend group by running the command:
-      ```
+
+      ```bash
       yc alb backend-group create <backend_group_name>
       ```
 
       Result:
 
-      ```
+      ```text
       id: a5dg2cv4ngne********
       name: test-backend-group
       folder_id: aoerb349v3h4********
@@ -92,7 +91,6 @@ To create a [backend group](../concepts/backend-group.md):
       ```
 
       Where:
-
       * `--panic-threshold`: Threshold for panic mode.
       * `--http-healthcheck`: Resource health check parameters:
          * `port`: Port.
@@ -148,7 +146,6 @@ To create a [backend group](../concepts/backend-group.md):
       ```
 
       Where:
-
       * `--panic-threshold`: Threshold for panic mode.
       * `--grpc-healthcheck`: Resource health check parameters:
          * `port`: Port.
@@ -204,7 +201,6 @@ To create a [backend group](../concepts/backend-group.md):
       ```
 
       Where:
-
       * `--panic-threshold`: Threshold for panic mode.
       * `--stream-healthcheck`: Resource health check parameters:
          * `port`: Port.
@@ -247,7 +243,7 @@ To create a [backend group](../concepts/backend-group.md):
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -284,22 +280,20 @@ To create a [backend group](../concepts/backend-group.md):
       ```
 
       Where:
-
       * `yandex_alb_backend_group` specifies the backend group parameters:
-      * `name`: Backend group name.
-      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity). This is an optional parameter.
+        * `name`: Backend group name.
+        * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity). This is an optional parameter.
 
-         {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
+          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: Session affinity mode based on the IP address (`source_ip`). It may take either the `true` or `false` value. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
-
-      * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: `HTTP`, `gRPC`, or `Stream`.
+          * `connection`: Session affinity mode by [IP address](../../vpc/concepts/address.md) (`source_ip`). It may take either the `true` or `false` value. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
+        * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: `HTTP`, `gRPC`, or `Stream`.
 
       Backend parameters:
       * `name`: Backend name.
       * `port`: Backend port.
       * `weight`: Backend weight.
-      * `target_group_ids`: Target group ID. To get a list of available target groups, run the following [CLI](../../cli/quickstart.md) command: `yc alb target-group list`.
+      * `target_group_ids`: [Target group](../concepts/target-group.md) ID. To get a list of available target groups, run the following [CLI](../../cli/) command: `yc alb target-group list`.
       * `load_balancing_config`: Load balancing settings:
          * `panic_threshold`: Threshold for panic mode.
       * `healthcheck`: Health check parameters:
@@ -315,9 +309,9 @@ To create a [backend group](../concepts/backend-group.md):
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this CLI command:
 
       ```bash
       yc alb backend-group list
