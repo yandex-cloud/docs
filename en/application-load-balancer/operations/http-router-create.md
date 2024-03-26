@@ -11,62 +11,47 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create an HTTP router in.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an HTTP router.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
-   1. Enter the router name.
+   1. Enter the HTTP router name.
    1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
    1. Enter the host name.
-
-   
-   1. (optional) In the **{{ sws-name }} security profile** field, select the {{ sws-full-name }} [security profile](../../smartwebsecurity/concepts/profiles.md).
+   1. (Optional) In the **{{ sws-name }} security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
 
       {{ sws-name }} is at the [Preview stage](../../overview/concepts/launch-stages.md).
-
-
    1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
    1. Enter the route **{{ ui-key.yacloud.common.name }}**.
    1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select one of the options:
-
       * `{{ ui-key.yacloud.alb.label_match-exact }}` and specify the path `/` to route all requests that match the specified path.
-      * `{{ ui-key.yacloud.alb.label_match-prefix }}` to route all requests with a specific beginning.
+      * `{{ ui-key.yacloud.alb.label_match-prefix }}` to route all requests with a specific prefix.
       * `{{ ui-key.yacloud.alb.label_match-regex }}` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
-
    1. In the **{{ ui-key.yacloud.alb.label_http-methods }}** list, select the required methods.
    1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, select one of the options: `{{ ui-key.yacloud.alb.label_route-action-route }}`, `{{ ui-key.yacloud.alb.label_route-action-redirect }}`, or `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`. Depending on the selected option:
-
       * `{{ ui-key.yacloud.alb.label_route-action-route }}`:
-
-         * In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the backend group name from the same folder where you create the router.
-         * (Optional) In the **{{ ui-key.yacloud.alb.label_prefix-rewrite }}** field, specify where the router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely rewritten. If you select `{{ ui-key.yacloud.alb.label_match-prefix }}`, only the beginning will be rewritten.
+         * In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the name of the [backend group](../concepts/backend-group.md) from the same folder where you are creating the HTTP router.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_prefix-rewrite }}** field, specify where the HTTP router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely rewritten. If you select `{{ ui-key.yacloud.alb.label_match-prefix }}`, only the prefix will be rewritten.
          * (Optional) In the **{{ ui-key.yacloud.alb.label_host-rewrite }}** field, select one of the options:
-
             * `none`: Do not rewrite.
             * `rewrite`: Rewrite the header to the specified value.
             * `auto`: Automatically rewrite the header to the target VM address.
          * (Optional) In the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
          * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time with zero data transmission.
-         * (Optional) In the **{{ ui-key.yacloud.alb.label_upgrade-types }}** field, list the protocols the backend group can switch to within a TCP connection on the client's request.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_upgrade-types }}** field, list the protocols the backend group can switch to within a TCP connection upon the client's request.
          * (Optional) Select **{{ ui-key.yacloud.alb.label_web-socket }}** if you want to use the WebSocket protocol.
-
       * `{{ ui-key.yacloud.alb.label_route-action-redirect }}`:
-
          * In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select the code to be used for forwarding.
-         * (Optional) In the **{{ ui-key.yacloud.alb.label_replace }}** field, specify where the router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely rewritten. If you select `{{ ui-key.yacloud.alb.label_match-prefix }}`, only the beginning will be rewritten.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_replace }}** field, specify where the HTTP router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely rewritten. If you select `{{ ui-key.yacloud.alb.label_match-prefix }}`, only the prefix will be rewritten.
          * (Optional) Select the **{{ ui-key.yacloud.alb.label_strict-query }}** option.
          * (Optional) Select the **{{ ui-key.yacloud.alb.label_replace-scheme }}** option.
-         * (Optional) Select the **{{ ui-key.yacloud.alb.label_replace-host }}** option and specify a new host.
-         * (Optional) Select the **{{ ui-key.yacloud.alb.label_replace-port }}** option and specify a new port.
-
+         * (Optional) Select **{{ ui-key.yacloud.alb.label_replace-host }}** and specify a new host.
+         * (Optional) Select **{{ ui-key.yacloud.alb.label_replace-port }}** and specify a new port.
       * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
-
          * In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select the code to be used for response.
          * In the **{{ ui-key.yacloud.alb.label_body }}** field, click **{{ ui-key.yacloud.alb.button_select }}** and do the following in the window that opens:
-
             * Select a response **{{ ui-key.yacloud.component.file-content-dialog.field_method }}**: **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** or **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
             * Depending on the selected method, attach a file or specify the response text.
-
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -75,7 +60,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to create an HTTP router:
+   1. See the description of the [CLI](../../cli/) command to create an HTTP router:
 
       ```bash
       yc alb http-router create --help
@@ -104,7 +89,6 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
    1. Create a virtual host, specifying the name of the HTTP router and the virtual host settings:
 
-      
       ```bash
       yc alb virtual-host create <virtual_host_name> \
         --http-router-name <HTTP_router_name> \
@@ -112,10 +96,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
         --modify-request-header name=Accept-Language,append=ru-RU
       ```
 
-
-
       Where:
-
       * `--authority`: Domains for the `Host` and `authority` headers that will be associated with this virtual host. Wildcards are supported, for example, `*.foo.com` or `*-bar.foo.com`.
       * `--modify-request-header`: Settings for modifying request headers:
          * `name`: Name of the header to be modified.
@@ -123,7 +104,6 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
       Result:
 
-      
       ```text
       name: test-virtual-host
       authority:
@@ -133,15 +113,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
         append: ru-RU
       ```
 
-
-
    1. View a description of the CLI command for adding a host:
 
       ```bash
       yc alb virtual-host append-http-route --help
       ```
 
-   1. Add a route, indicating the router ID or name and the routing parameters:
+   1. Add a route, specifying the HTTP router ID or name and the routing parameters:
 
       ```bash
       yc alb virtual-host append-http-route <route_name> \
@@ -154,17 +132,16 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       ```
 
       Where:
-
       * `--virtual-host-name`: Virtual host name.
       * `--http-router-name`: HTTP router name.
       * `--prefix-path-match`: Parameter for routing all requests with a given prefix. The parameter should be followed with `/`.
 
-         To specify a condition for routing, you can also use the following parameters:
+         To specify a routing condition, you can also use the following parameters:
          * `--exact-path-match` to route all requests that match the specified path. The parameter should be followed with `/<path>/`.
          * `--regex-path-match` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). The parameter should be followed with `/<regular_expression>`.
-      * `--backend-group-name`: Name of the backend group.
+      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
       * `--request-timeout`: Request timeout, seconds.
-      * `--request-max-timeout`: Maximum request idle timeout, seconds.
+      * `--request-max-timeout`: Maximum request idle timeout in seconds.
 
       For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
@@ -192,7 +169,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -223,7 +200,6 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       ```
 
       Where:
-
       * `yandex_alb_http_router`: HTTP router description:
          * `name`: HTTP router name. The name format is as follows:
 
@@ -239,19 +215,17 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
          * `route`: HTTP router route description:
             * `name`: Route name.
             * `http_route_action`: Parameter to indicate an action on HTTP traffic.
-               * `backend_group_id`: Backend group ID.
-               * `timeout`: Maximum request idle timeout, seconds.
+               * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
+               * `timeout`: Maximum request idle timeout in seconds.
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
-
       * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource
       * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource
+   1. Create resources.
 
-   1. Create resources
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
-
-      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc alb http-router get <HTTP_router_name>

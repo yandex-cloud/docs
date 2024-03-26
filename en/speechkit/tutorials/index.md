@@ -5,6 +5,8 @@ description: "This page gives a list of tutorials for {{ speechkit-name }}."
 
 # {{ speechkit-name }} tutorials
 
+* [{#T}](./recognizer-bot.md)
+
 ## Speech recognition {#stt}
 
 ### Streaming recognition {#streaming-stt}
@@ -13,7 +15,7 @@ description: "This page gives a list of tutorials for {{ speechkit-name }}."
 
 * [{#T}](../stt/api/microphone-streaming.md): The example uses the Russian language, 8,000 Hz LPCM audio, single audio channel. Profanity filter enabled.
 
-* [{#T}](../stt/api/stt-language-labels-example.md): The example uses L8,000 Hz LPCM audio, single audio channel.
+* [{#T}](../stt/api/stt-language-labels-example.md): The example uses 8,000 Hz LPCM audio, single audio channel.
 
 
 * [{#T}](../stt/api/streaming-examples.md): The example uses the Russian language, 8,000 Hz LPCM audio. Profanity and intermediate result filters enabled.

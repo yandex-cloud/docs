@@ -8,11 +8,17 @@ description: "Следуя данной инструкции, вы сможет�
 На странице редактирования проекта вы можете изменить его имя и описание, задать ограничения потребления и настроить интеграцию с другими сервисами {{ yandex-cloud }}:
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
-1. Чтобы изменить имя или описание проекта, нажмите значок ![pencil](../../../_assets/console-icons/pencil-to-line.svg) справа от его текущего имени. В открывшемся окне укажите **{{ ui-key.yc-ui-datasphere.edit-project-page.name }}** и при необходимости **{{ ui-key.yc-ui-datasphere.edit-project-page.description }}** проекта, затем нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
+1. Чтобы изменить имя или описание проекта, нажмите значок ![pencil](../../../_assets/console-icons/pencil-to-line.svg) справа от его текущего имени. В открывшемся окне:
+   * **{{ ui-key.yc-ui-datasphere.edit-project-page.name }}** — укажите имя проекта.
+   * При необходимости нажмите **{{ ui-key.yc-ui-datasphere.edit-project-page.add-description }}** и добавьте описание. 
+   * Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
 1. Для изменения других настроек перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**. 
 1. Нажмите кнопку **![pencil](../../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}** в нужном блоке настроек.
 
-   * В блоке **{{ ui-key.yc-ui-datasphere.common.general }}** в поле **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** укажите время, через которое выделенная ВМ будет остановлена и удалена из проекта, если на ней не будет вычислений.
+   * В блоке **{{ ui-key.yc-ui-datasphere.common.general }}**:
+
+     * **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** — укажите время, через которое выделенная ВМ будет остановлена и удалена из проекта, если на ней не будет вычислений.
+     * **{{ ui-key.yc-ui-datasphere.external-ide.external-ide-vm-configuration }}** — выберите конфигурацию ВМ, которая будет создана при подключении к локальной IDE.
 
    * В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**:
 
@@ -23,7 +29,7 @@ description: "Следуя данной инструкции, вы сможет�
      {% include [subnet-create](../../../_includes/subnet-create.md) %}
 
      * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}** — укажите [группу безопасности](../../../vpc/concepts/security-groups.md), если они используются в вашей организации.
-     * **{{ ui-key.yc-ui-datasphere.edit-project-page.dataproc-cluster }}** — если необходимо, выберите [кластер](../../../data-proc/operations/cluster-create.md).
+     * **{{ ui-key.yc-ui-datasphere.edit-project-page.dataproc-cluster }}** — если необходимо, выберите [кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md).
 
    * В блоке **{{ ui-key.yc-ui-datasphere.project-page.settings.limits }}** вы можете [задать ограничения](restrictions.md) для проекта.
 

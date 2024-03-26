@@ -2,10 +2,9 @@
 
 In this tutorial, you will deploy an [instance group with an automatic scaling policy](../../compute/concepts/instance-groups/scale.md#auto-scale) applied if the permitted load is exceeded.
 
-VM instances will be deployed in two availability zones and their load will be balanced by a {{ network-load-balancer-name }} [network load balancer](../../network-load-balancer/concepts/index.md).
+VM instances will be deployed in two [availability zones](../../overview/concepts/geo-scope.md) and their load will be balanced with a [{{ network-load-balancer-full-name }}](../../network-load-balancer/) [network load balancer](../../network-load-balancer/concepts/index.md).
 
 To create an instance group:
-
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#prepare).
 1. [Create an instance group with auto scaling and network load balancer](#create-vm-group).
@@ -15,9 +14,7 @@ To create an instance group:
 
 If you no longer need the resources you created, [delete them](#delete-infrastructure).
 
-
 You can also deploy an infrastructure for scaling your instance group via {{ TF }} using a [ready-made configuration file](#terraform).
-
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -27,18 +24,18 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
 ## Prepare the environment {#prepare}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) with the name `for-autoscale` and assign it the `editor` role:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-autoscale` and assign it the `editor` [role](../../iam/concepts/access-control/roles.md):
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder to create a service account in.
+      1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to create a service account.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the window that opens:
          * In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-autoscale`.
-         * To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
+         * To assign the service account a role for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
          * Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -51,9 +48,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          yc iam service-account create --name for-autoscale
          ```
 
-         Command result:
+         Result:
 
-         ```bash
+         ```text
          id: ajelabcde12f********
          folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T14:32:18.900092Z"
@@ -68,11 +65,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
            --subject serviceAccount:ajelabcde12f********
          ```
 
-   
    - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
-
 
    - API {#api}
 
@@ -80,7 +75,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
    {% endlist %}
 
-1. Create a [network](../../vpc/concepts/network.md#network) named `yc-auto-network` and [subnets](../../vpc/concepts/network.md#subnet) in two [availability zones](../../overview/concepts/geo-scope.md):
+1. Create a [network](../../vpc/concepts/network.md#network) named `yc-auto-network` and [subnets](../../vpc/concepts/network.md#subnet) in two availability zones:
 
    {% list tabs group=instructions %}
 
@@ -101,16 +96,16 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          yc vpc network create --name yc-auto-network
          ```
 
-         Command result:
+         Result:
 
-         ```bash
+         ```text
          id: enpabce123hd********
          folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T14:57:15Z"
          name: yc-auto-network
          ```
 
-      1. Create a subnet in the `{{ region-id }}-a` zone:
+      1. Create a subnet in the `{{ region-id }}-a` availability zone:
 
          ```bash
          yc vpc subnet create \
@@ -119,9 +114,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
            --zone {{ region-id }}-a
          ```
 
-         Command result:
+         Result:
 
-         ```bash
+         ```text
          id: e1lnabc23r1c********
          folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T16:23:12Z"
@@ -131,7 +126,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          - 192.168.1.0/24
          ```
 
-      1. Create a subnet in the `{{ region-id }}-b` zone:
+      1. Create a subnet in the `{{ region-id }}-b` availability zone:
 
          ```bash
          yc vpc subnet create \
@@ -140,9 +135,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
            --zone {{ region-id }}-b
          ```
 
-         Command result:
+         Result:
 
-         ```bash
+         ```text
          id: b1csa2b3clid********
          folder_id: b0g12ga82bcv********
          created_at: "2020-11-30T16:25:02Z"
@@ -152,22 +147,22 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          - 192.168.2.0/24
          ```
 
-   
    - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
 
-
    - API {#api}
 
-      1. Create a network:
+      1. Create a network.
+
          Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
-      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones:
+      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones.
+
          Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
    {% endlist %}
 
-1. Create a security group:
+1. Create a [security group](../../vpc/concepts/security-groups.md):
 
    {% list tabs group=instructions %}
 
@@ -176,7 +171,6 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
       1. Open the **Security groups** tab.
       1. Create a security group for the load balancer:
-
       1. Click **Create group**.
       1. Enter the **Name** of the group: `sg-autoscale`.
       1. Select the **Network**: `yc-auto-network`.
@@ -193,20 +187,16 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
          1. In the **Protocol** field, specify the appropriate protocol or leave **Any** to allow traffic transmission over any protocol.
          1. In the **Purpose** or **Source** field, select the purpose of the rule:
-
-         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-         * **Load balancer health checks**: Rule allowing a load balancer to health check VMs.
-
+            * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+            * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks**: Rule allowing a load balancer to health check VMs.
          1. Click **Save**. Repeat the steps to create all the rules from the table.
 
       1. Click **Save**.
 
-   
    - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
-
 
    {% endlist %}
 
@@ -261,7 +251,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
        disk_spec:
          type_id: network-hdd
          size: 30G
-         image_id: fd8iv792kira******** # ID of the public Container Optimized Image.
+         image_id: fd8iv792kira******** # Public {{ coi }} ID.
      network_interface_specs:
        - network_id: <cloud_network_ID>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
@@ -280,9 +270,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       yc compute instance-group create --file=specification.yaml
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       done (2m45s)
       id: cl0hmabc1nd2********
       folder_id: b0g12ga82bcv********
@@ -323,9 +313,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       yc compute instance-group list-instances auto-group
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
       |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP  |         STATUS         | STATUS MESSAGE |
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
@@ -334,11 +324,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
       ```
 
-   
    - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
-
 
    - API {#api}
 
@@ -381,9 +369,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
         --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=enpoi5jhfps3********
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       done (16s)
       id: b0rbabc1m2ed********
       folder_id: b0g12ga82bcv********
@@ -393,11 +381,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
             port: "80"
       ```
 
-   
    - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
-
 
    - API {#api}
 
@@ -424,10 +410,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       yc load-balancer network-load-balancer list
       ```
 
-      Command result:
+      Result:
 
-      
-      ```bash
+      ```text
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
@@ -435,13 +420,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       ```
 
-
-
-   
    - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).
-
 
    - API {#api}
 
@@ -471,9 +452,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       sh request.sh
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       projects/b0g12ga82bcv********/zones/{{ region-id }}-b
       ```
 
@@ -490,13 +471,14 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
       1. Go to the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
+
          The load balancer sent the request to an instance in the group. In the availability zone this instance belongs to, the average CPU utilization is higher than in other zones (see the **Average CPU utilization in zone** chart).
 
    {% endlist %}
 
 ### Test auto scaling {#check-highload}
 
-To test auto scaling for your instance group, increase the CPU utilization of each instance. In the `specification.yaml` file, the parameter `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` has the value `40`: it means that the target utilization level is 40% CPU. If you exceed the target utilization, {{ ig-name }} increases the number of instances in the group.
+To test auto scaling for your instance group, increase the CPU utilization of each instance. In the `specification.yaml` file, the `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` parameter has the value of `40`: it means that the target utilization level is 40% CPU.  If you exceed the target utilization, the number of VMs in the group will increase.
 
 1. Increase the utilization of the instance group.
 
@@ -518,9 +500,9 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       sh load.sh
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       Running 10m test @ http://130.193.56.111/burn-cpu?time=5000&load=20
         12 threads and 12 connections
         Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -546,7 +528,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       1. Go to the **{{ ui-key.yacloud.compute.group.switch_logs }}** tab.
          The page displays messages relating to auto scaling of the instance group.
 
-      The total utilization of 240% CPU was evenly distributed between two instances in two availability zones and exceeded the target utilization of 40% CPU. {{ ig-name }} created one instance more in each availability zone to result in four instances in the group. When the script stopped utilizing the CPU, {{ ig-name }} automatically decreased the number of instances in the group to two.
+      The total utilization of 240% CPU was evenly distributed between two VMs in two availability zones and exceeded the target utilization of 40% CPU. [{{ compute-full-name }}](../../compute/) created one more VM in each availability zone to result in four VMs in the group. When the script stopped utilizing the CPU, {{ compute-name }} automatically decreased the number of instances in the group to two.
 
    {% endlist %}
 
@@ -569,9 +551,9 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       yc load-balancer network-load-balancer delete group-balancer
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       done (15s)
       ```
 
@@ -599,9 +581,9 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       yc compute instance-group delete auto-group
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       done (1m20s)
       ```
 
@@ -626,15 +608,15 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    - CLI {#cli}
 
-      1. Delete the subnet in the `{{ region-id }}-a` zone:
+      1. Delete the subnet in the `{{ region-id }}-a` availability zone:
 
          ```bash
          yc vpc subnet delete e1lnabc23r1c********
          ```
 
-         Command result:
+         Result:
 
-         ```bash
+         ```text
          done (1s)
          id: e1lnabc23r1c********
          folder_id: b0g12ga82bcv********
@@ -645,15 +627,15 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
          - 192.168.1.0/24
          ```
 
-      1. Delete the subnet in the `{{ region-id }}-b` zone:
+      1. Delete the subnet in the `{{ region-id }}-b` availability zone:
 
          ```bash
          yc vpc subnet delete b1csa2b3clid********
          ```
 
-         Command result:
+         Result:
 
-         ```bash
+         ```text
          done (1s)
          id: b1csa2b3clid********
          folder_id: b0g12ga82bcv********
@@ -687,9 +669,9 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       yc vpc network delete yc-auto-network
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       id: enpabce123hd********
       folder_id: b0g12ga82bcv********
       created_at: "2020-11-30T14:57:15Z"
@@ -719,9 +701,9 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       yc iam service-account delete for-autoscale
       ```
 
-      Command result:
+      Result:
 
-      ```bash
+      ```text
       done (2s)
       ```
 
@@ -731,15 +713,12 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    {% endlist %}
 
-
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To set up scaling for your instance group using {{ TF }}:
-
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-
 1. Prepare files with the infrastructure description:
 
    {% list tabs group=infrastructure_description %}
@@ -753,17 +732,15 @@ To set up scaling for your instance group using {{ TF }}:
          ```
 
       1. Go to the directory with the repository. Make sure it contains the following files:
-         * `vm-autoscale.tf`: Configuration of the infrastructure you create.
-         * `declaration.yaml`: Description of the Docker container with a web server that will be run on a VM instance to simulate the service load.
+         * `vm-autoscale.tf`: New infrastructure configuration.
+         * `declaration.yaml`: Description of the Docker container with a web server that will be run on a VM to simulate the service load.
          * `config.tpl`: Description of VM user parameters.
          * `vm-autoscale.auto.tfvars`: User data.
 
    - Manually {#manual}
 
       1. Create a directory for configuration files.
-
       1. In the directory, create:
-
          1. The `vm-autoscale.tf` configuration file:
 
             {% cut "vm-autoscale.tf" %}
@@ -779,7 +756,7 @@ To set up scaling for your instance group using {{ TF }}:
             ```yaml
             spec:
             containers:
-            - image: cr.yandex/yc/demo/web-app:v1
+            - image: {{ registry }}/yc/demo/web-app:v1
               securityContext:
                 privileged: false
               tty: false
@@ -804,7 +781,7 @@ To set up scaling for your instance group using {{ TF }}:
 
             {% endcut %}
 
-         1. The `vm-autoscale.auto.tfvars` file with user data:
+         1. `vm-autoscale.auto.tfvars` user data file:
 
             {% cut "vm-autoscale.auto.tfvars" %}
 
@@ -819,7 +796,6 @@ To set up scaling for your instance group using {{ TF }}:
    {% endlist %}
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
-
    * [yandex_iam_service_account]({{ tf-provider-link }}Resources/iam_service_account)
    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}Resources/resourcemanager_folder_iam_member)
    * [yandex_vpc_network]({{ tf-provider-link }}Resources/vpc_network)
@@ -827,17 +803,13 @@ To set up scaling for your instance group using {{ TF }}:
    * [yandex_vpc_security_group]({{ tf-provider-link }}Resources/vpc_security_group)
    * [yandex_compute_instance_group]({{ tf-provider-link }}Resources/compute_instance_group)
    * [yandex_lb_network_load_balancer]({{ tf-provider-link }}Resources/lb_network_load_balancer)
-
 1. In the `vm-autoscale.auto.tfvars` file, set the user-defined parameters:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `vm_user`: VM username.
    * `ssh_key`: Contents of the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Test your instance group and network load balancer](#check-service).
-
 1. [Test auto scaling](#check-highload).
-

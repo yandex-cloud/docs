@@ -70,9 +70,9 @@
         ```
         AWS Secret Access Key [****************w5lb]: <секретный_ключ_сервисного_аккаунта>
         ```
-    1. Укажите имя региона по умолчанию ru-central1:
+    1. Укажите имя региона по умолчанию {{ region-id }}:
         ```
-        Default region name [ru-central1]: ru-central1
+        Default region name [{{ region-id }}]: {{ region-id }}
         ```
     1. Укажите формат выходных данных по умолчанию json:
         ```
@@ -137,7 +137,7 @@
     DATE = "20230926"
     SERVICE = "postbox"
     MESSAGE = "SendRawEmail"
-    REGION = "ru-central1"
+    REGION = "{{ region-id }}"
     TERMINAL = "aws4_request"
     VERSION = 0x04
 

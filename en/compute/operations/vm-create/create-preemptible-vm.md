@@ -124,20 +124,24 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       ```
 
 
-      This command creates a preemptible VM with the following characteristics:
-      * Name: `first-preemptible-instance`
-      * OS: CentOS 7
-      * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
-      * [Subnet](../../../vpc/concepts/network.md#subnet): `default-a`
-      * With a [public IP address](../../../vpc/concepts/address.md#public-addresses)
+      Where:
 
-      To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
+      * `--name`: VM name. The naming requirements are as follows:
 
-      VM naming requirements:
+         {% include [name-format](../../../_includes/name-format.md) %}
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
+      * `subnet-name`: Name of the selected subnet.
+      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, disable this parameter.
+      * `--preemptible`: Select to create a preemptible VM.
+      * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
+      * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The VM will automatically create a user named `yc-user` for this key.
+
+         {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
+
+
 
 - {{ TF }} {#tf}
 
@@ -228,7 +232,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
@@ -339,7 +343,7 @@ To change the type of a VM, for example, make it preemptible:
    1. Delete the `scheduling_policy` field set to `preemptible = true`:
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 

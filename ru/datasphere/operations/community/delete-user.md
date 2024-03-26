@@ -11,12 +11,11 @@ description: "Из статьи вы узнаете, как удалить по�
 
 {% endnote %}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
 1. Выберите сообщество, из которого вы хотите удалить пользователей.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.members }}**. 
 1. Напротив нужного пользователя нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.member.remove }}**.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 1. Если вы добавляли пользователя с помощью ссылки, то ее необходимо пересоздать:
-    * Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.add-member }}**. 
+    * Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
     * Внизу открывшегося окна нажмите **{{ ui-key.yc-ui-datasphere.invite-link.reset-invitation-link }}** ⟶ **{{ ui-key.yc-ui-datasphere.invite-link.reset-link }}**.

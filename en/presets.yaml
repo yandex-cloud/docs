@@ -128,6 +128,7 @@ default:
   ds-cli: DataSphere CLI
   ds-inf: DataSphere Inference
   ds-jobs: DataSphere Jobs
+  ds-nb: DataSphere Notebook
   dt-copy-regular: Regular
   dt-copy-regular-incremental: Regular incremental
   dt-copy-snapshot: Single
@@ -165,6 +166,9 @@ default:
     docs:
       pivotal: https://gpdb.docs.pivotal.io
       vmware: https://docs.vmware.com/en/VMware-Tanzu-Greenplum
+  gpt-freetier: 100
+  gpt-lite: YandexGPT Lite
+  gpt-pro: YandexGPT Pro
   grafana-name: Grafana
   graph-update: 15 seconds
   graph-update-burstable: 150 seconds
@@ -245,7 +249,7 @@ default:
   link-console-support: https://support-center.cloud.yandex.com
   link-datalens-main: https://datalens.yandex.com
   link-datalens-settings: https://datalens.yandex.com/settings
-  link-datasphere-main: https://datasphere.yandex.com/
+  link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://cloud.yandex.com/docs
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.com
@@ -475,6 +479,7 @@ default:
   roles-datasphere-project-editor: datasphere.community-projects.editor
   roles-datasphere-user: datasphere.user
   roles-editor: editor
+  roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
   roles-functions-ivoker: serverless.functions.invoker
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
@@ -7441,8 +7446,6 @@ default:
       alias:
         private: Private
         public: Public
-      autosave-commit-mode:
-        title: Autosave commit mode
       checkpoint-list-page:
         page-title: Checkpoints
       checkpoint:
@@ -7475,7 +7478,6 @@ default:
         create-resource: Create resource
         datasets: Datasets
         deactivate: Deactivate
-        dedicated: Dedicated
         default: Default
         delete: Delete
         description: Description
@@ -7507,7 +7509,6 @@ default:
         response: Response
         restrictions: Restrictions
         save: Save
-        serverless: Serverless
         share: Share
         shared-with-project-resources: Shared
         show-additional-parameters: Show additional parameters
@@ -7535,17 +7536,17 @@ default:
         repository: Docker name
         tag: Tag
       edit-project-page:
+        add-description: Add description
         advanced-settings: Advanced settings
         balance: Project balance
         dataproc-cluster: Data Proc cluster
         dedicated-vm-inactivity-timeout: Stop inactive VM after
-        default-mode: Default mode
         description: Description
         name: Name
-        per-cell: Unit limit per single execution
-        per-time: Total unit limit per hour
         period-of-inactivity: Period of inactivity
         security-group: Security group
+      external-ide:
+        external-ide-vm-configuration: VM configuration for remote connection
       foundation-model:
         data-for-tuning: Data for tuning
         instruction: Instruction
@@ -7568,7 +7569,6 @@ default:
           label-nodes: Nodes and load balancing
       new-node:
         add-acl: Add ACL
-        add-new-zone: Add new availability zone
         endpoint-form-label:
           idle-timeout: Idle timeout
           port: Port
@@ -7606,7 +7606,6 @@ default:
           output-variables: Output variables
           provisioning: Provisioning
           telemetry: Telemetry
-        user-custom: Custom
         variables-form-placeholder:
           name: Name
       new-s3-page:
@@ -7626,10 +7625,8 @@ default:
           monitoring: Monitoring
           request: Request
         type:
-          dict: dict
           list: list
       project-page:
-        ask-when-opening: Ask when opening
         executions: Running executions
         project-card:
           create-resource: Create resource
@@ -7659,6 +7656,7 @@ default:
       restrictions:
         CHANGING_DISK_SIZE: Changing the size of project storage
         DATAPROC_TEMPLATES: Data Proc templates
+        DEDICATED_INSTANCE_COUNT: Maximum number of VMs in the project
         JUPYTER_TOKEN: Connect external IDEs
         NODES_AND_ALIASES: Deploying models
         project-mode: Project mode

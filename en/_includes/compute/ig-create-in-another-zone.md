@@ -2,12 +2,12 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. In the [management console]({{ link-console-main }}), open the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [instance group](../../compute/concepts/instance-groups/index.md) you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-   1. Select the group to update.
+   1. Select the instance group to update.
    1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
-   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, add the availability zone to move the instance group to.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, add the [availability zone](../../overview/concepts/geo-scope.md) where you want to move the instance group.
    1. If your instance group is [manually scaled](../../compute/concepts/instance-groups/scale.md#fixed-scale), under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, specify a group size that will be sufficient for placing instances in all the selected availability zones.
 
       You will be able to reset the number of instances back to the initial one after all the instances in the group are moved to the new availability zone and deleted from the old one.
@@ -22,10 +22,9 @@
 
    {% include [default-catalogue.md](../default-catalogue.md) %}
 
-   1. Open the instance group [specification](../../compute/concepts/instance-groups/specification.md) file and edit the instance template:
-
-      * Add a new availability zone in the `allocation_policy` section.
-      * Add the ID of the previously created subnet in the `network_interface_specs` section.
+   1. Open the [instance group](../../compute/concepts/instance-groups/index.md) [specification](../../compute/concepts/instance-groups/specification.md) file and edit the [VM template](../../compute/concepts/instance-groups/instance-template.md):
+      * Under `allocation_policy`, add a new [availability zone](../../overview/concepts/geo-scope.md).
+      * Add the ID of the previously created [subnet](../../vpc/concepts/network.md#subnet) in the `network_interface_specs` section.
       * If your instance group is [manually scaled](../../compute/concepts/instance-groups/scale.md#fixed-scale), under `scale_policy`, specify a group size that will be sufficient for placing instances in all the selected availability zones.
 
          You will be able to reset the number of instances back to the initial one after all the instances in the group are moved to the new availability zone and deleted from the old one.
@@ -38,7 +37,7 @@
       yc compute instance-group update --help
       ```
 
-   1. Get a list of all instance groups in the default folder:
+   1. Get a list of all instance groups in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc compute instance-group list
@@ -54,6 +53,7 @@
       | cl19s7dmihgm******** | test-group                      | ACTIVE |      2 |
       +----------------------+---------------------------------+--------+--------+
       ```
+
    1. Update the instance group:
 
       ```bash
@@ -63,7 +63,6 @@
       ```
 
       Where:
-
       * `--id`: Instance group ID.
       * `--file`: Path to the instance group specification file.
 
@@ -82,8 +81,7 @@
 - {{ TF }} {#tf}
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-   1. Open the {{ TF }} configuration file for the instance group and specify the new availability zone under `allocation_policy` and the ID of the previously created subnet under `network_interface`.
+   1. Open the {{ TF }} configuration file for the [instance group](../../compute/concepts/instance-groups/index.md). Under `allocation_policy`, specify the new [availability zone](../../overview/concepts/geo-scope.md); in the `network_interface` section, specify the ID of the previously created [subnet](../../vpc/concepts/network.md#subnet).
 
       ```hcl
       ...
@@ -104,7 +102,6 @@
       ```
 
       Where:
-
       * `zones`: Availability zones to place the instance group in (the new and old ones).
       * `subnet_ids`: IDs of subnets in the availability zones to place the instance group in.
 
@@ -135,10 +132,9 @@
       You will be able to reset the shutdown strategy back to OPPORTUNISTIC after all the instances in the group are moved to the new availability zone and deleted from the old one.
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance_group).
-
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       This will add a new availability zone for an instance group. You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

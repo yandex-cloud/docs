@@ -167,6 +167,9 @@ default:
     docs:
       pivotal: https://gpdb.docs.pivotal.io
       vmware: https://docs.vmware.com/en/VMware-Greenplum
+  gpt-freetier: 100
+  gpt-lite: YandexGPT Lite
+  gpt-pro: YandexGPT Pro
   grafana-name: Grafana
   graph-update: 15 секунд
   graph-update-burstable: 150 секунд
@@ -246,7 +249,7 @@ default:
   link-console-support: https://support-center.cloud.yandex.ru
   link-datalens-main: https://datalens.yandex.ru
   link-datalens-settings: https://datalens.yandex.ru/settings
-  link-datasphere-main: https://datasphere.yandex.ru/
+  link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://cloud.yandex.ru/docs
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.ru
@@ -7444,8 +7447,6 @@ default:
       alias:
         private: Приватный
         public: Публичный
-      autosave-commit-mode:
-        title: Автоматическое сохранение состояния
       checkpoint-list-page:
         page-title: Контрольные точки
       checkpoint:
@@ -7478,7 +7479,6 @@ default:
         create-resource: Создать ресурс
         datasets: Датасеты
         deactivate: Деактивировать
-        dedicated: Dedicated
         default: По умолчанию
         delete: Удалить
         description: Описание
@@ -7510,7 +7510,6 @@ default:
         response: Ответ
         restrictions: Ограничения
         save: Сохранить
-        serverless: Serverless
         share: Поделиться
         shared-with-project-resources: Доступные
         show-additional-parameters: Показать дополнительные параметры
@@ -7538,17 +7537,17 @@ default:
         repository: Имя образа
         tag: Тег
       edit-project-page:
+        add-description: Добавить описание
         advanced-settings: Расширенные настройки
         balance: Баланс проекта
         dataproc-cluster: Кластер Data Proc
         dedicated-vm-inactivity-timeout: Остановить простаивающую ВМ через
-        default-mode: Режим работы проекта
         description: Описание
         name: Имя
-        per-cell: На ячейку
-        per-time: На юниты в час
         period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
+      external-ide:
+        external-ide-vm-configuration: Конфигурация ВМ для удаленного подключения
       foundation-model:
         data-for-tuning: Данные для дообучения
         instruction: Инструкция
@@ -7571,7 +7570,6 @@ default:
           label-nodes: Ноды и распределение нагрузки
       new-node:
         add-acl: Добавить ACL
-        add-new-zone: Добавить новую зону доступности
         endpoint-form-label:
           idle-timeout: Idle timeout
           port: Порт
@@ -7609,7 +7607,6 @@ default:
           output-variables: Выходные переменные
           provisioning: Обеспечение
           telemetry: Телеметрия
-        user-custom: Пользовательский
         variables-form-placeholder:
           name: Имя
       new-s3-page:
@@ -7629,10 +7626,8 @@ default:
           monitoring: Мониторинг
           request: Запрос
         type:
-          dict: dict
           list: list
       project-page:
-        ask-when-opening: Спрашивать при открытии
         executions: Запущенные операции
         project-card:
           create-resource: Создать ресурс
@@ -7662,6 +7657,7 @@ default:
       restrictions:
         CHANGING_DISK_SIZE: Изменение размера хранилища проекта
         DATAPROC_TEMPLATES: Шаблоны Data Proc
+        DEDICATED_INSTANCE_COUNT: Максимальное количество ВМ в проекте
         JUPYTER_TOKEN: Подключение внешних IDE
         NODES_AND_ALIASES: Развертывание эксплуатации моделей
         project-mode: Режим работы проектов

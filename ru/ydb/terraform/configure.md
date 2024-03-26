@@ -30,7 +30,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "ru-central1-a" # Зона доступности по умолчанию
+  zone = "{{ region-id }}-a" # Зона доступности по умолчанию
 }
 ```
 

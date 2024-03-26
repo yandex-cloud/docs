@@ -1,13 +1,13 @@
 ---
 title: "How to set up a notebook template in {{ ml-platform-full-name }}"
-description: "Follow this guide to beging using the {{ jlab }}Lab-templates extension."
+description: "Follow this guide to start using the {{ jlab }}Lab-templates extension."
 ---
 
 # Setting up template-based {{ jlab }}Lab notebook creation
 
-To create {{ jlab }}Lab notebooks based on a template, activate the {{ jlab }}Lab-templates extension in {{ dd }} mode. To do this:
+To create {{ jlab }}Lab notebooks from a template, activate the {{ jlab }}Lab-templates extension. To do this:
 
-1. Create a `datasphere-templates` folder in the root directory of your project.
+1. Create the `datasphere-templates` folder in the root directory of your project.
 1. In `datasphere-templates`, create a nested folder with any name, e.g., `template-group-1`. In this folder, create a template notebook with any name, e.g., `template_notebook1.ipynb`.
 1. You can create multiple templates for different use cases and group them in different folders.
 

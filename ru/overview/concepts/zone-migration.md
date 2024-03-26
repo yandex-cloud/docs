@@ -85,6 +85,7 @@
 * [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md)
 * [{{ dataproc-name }} с файловой системой HDFS](../../data-proc/tutorials/hdfs-cluster-migration.md)
 * [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md)
+* [{{ mes-name }}](../../managed-elasticsearch/operations/host-migration.md)
 
 ### {{ data-transfer-name }} {#data-transfer}
 

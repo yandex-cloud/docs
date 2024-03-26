@@ -40,9 +40,9 @@ When deploying a VM instance, we recommend you to:
 
 ### {{ TF }} {#terraform}
 
-With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. For more information, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms)from {{ marketplace-full-name }} or [{{ lockbox-name }}](../../lockbox/) (to transfer secrets to the target object without using {{ TF }}).
+We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-full-name }} or [{{ lockbox-name }}](../../lockbox/) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 * Use [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) for private information to exclude it from the console output of `terraform plan` and `terraform apply`.
@@ -67,8 +67,8 @@ Scan your {{ TF }} manifests using [Checkov](https://github.com/bridgecrewio/che
 ### Integrity control {#integrity-control}
 
 Numerous information security standards require integrity control of critical files. To do this, you can use free host-based solutions:
-* [Wazuh](https://documentation.wazuh.com/current/learning-wazuh/detect-fs-changes.html).
-* [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/).
+* [Wazuh](https://documentation.wazuh.com/current/learning-wazuh/detect-fs-changes.html)
+* [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
 
 
 In {{ marketplace-name }}, paid solutions are also available, such as [CloudGuard](/marketplace?search=payg).
@@ -98,9 +98,9 @@ When using {{ objstorage-name }}, set up encryption for critical data at rest an
 We recommend assigning minimum roles to a bucket using {{ iam-full-name }}, then making them broader or more specific using BucketPolicy (for example, to restrict access to the bucket by IP addresses, grant granular rights to objects, and so on).
 
 Access to {{ objstorage-name }} resources is verified at three levels:
-* [{{ iam-name }} verification](../../iam/concepts/index.md).
-* [Bucket policies](../../storage/concepts/policy.md).
-* [Access Control Lists (ACLs)](../../storage/concepts/acl.md).
+* [{{ iam-name }} verification](../../iam/concepts/index.md)
+* [Bucket policies](../../storage/concepts/policy.md)
+* [Access Control Lists (ACLs)](../../storage/concepts/acl.md)
 
 Verification procedure:
 1. If a request passes the {{ iam-name }} check, the next step is the bucket policy check.

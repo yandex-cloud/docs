@@ -12,7 +12,7 @@ To create a cluster with no internet access, see the [{#T}](../../tutorials/k8s-
 
 - Management console {#console}
 
-   1. Log in to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
+   1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 
    
    1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
@@ -145,7 +145,7 @@ To create a cluster with no internet access, see the [{#T}](../../tutorials/k8s-
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -215,7 +215,7 @@ To create a cluster with no internet access, see the [{#T}](../../tutorials/k8s-
       {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
 
       For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster }}).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -306,7 +306,7 @@ Install {{ TF }} (unless you already have it), configure the provider according 
    }
 
    resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
-     # The service account is assigned the "k8s.clusters.agent role".
+     # The service account is assigned the "k8s.clusters.agent" role.
      folder_id = local.folder_id
      role      = "k8s.clusters.agent"
      member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"

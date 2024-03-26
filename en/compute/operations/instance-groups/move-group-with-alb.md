@@ -1,10 +1,9 @@
 ---
 title: "Moving an instance group with an L7 load balancer to a different availability zone"
-description: "In this article, you will learn how to move a {{ compute-name }} instance group with an L7 load balancer across availability zones."
+description: "In this article, you will learn how to move a {{ compute-full-name }} instance group with an L7 load balancer across availability zones."
 ---
 
 # Moving an instance group with an L7 load balancer to a different availability zone
-
 
 {% note info %}
 
@@ -12,18 +11,18 @@ description: "In this article, you will learn how to move a {{ compute-name }} i
 
 {% endnote %}
 
+To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ alb-full-name }}](../../../application-load-balancer/) [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md):
 
-To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../../network-load-balancer/concepts):
-1. [Create](../../../vpc/operations/subnet-create.md) a subnet in the availability zone to move the instance group to.
+1. [Create](../../../vpc/operations/subnet-create.md) a [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you want to move your [instance](../../concepts/vm.md) group.
 1. Enable traffic for the L7 load balancer in the new availability zone:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) that houses the L7 load balancer.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the the appropriate load balancer row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the row of the L7 load balancer you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone to move the instance group to.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -33,13 +32,13 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
 
       {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-      1. View a description of the enable traffic CLI command:
+      1. View the description of the [CLI](../../../cli/) command to enable L7 load balancer traffic:
 
          ```bash
          yc application-load-balancer load-balancer enable-traffic --help
          ```
 
-      1. Get a list of all L7 load balancers in the default folder:
+      1. Get a list of all L7 load balancers in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
          ```bash
          yc application-load-balancer load-balancer list
@@ -59,11 +58,11 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
       1. Enable traffic:
 
          ```bash
-         yc application-load-balancer load-balancer enable-traffic <load_balancer_name> \
+         yc application-load-balancer load-balancer enable-traffic <L7_load_balancer_name> \
            --zone <availability_zone>
          ```
 
-         Where `--zone` is the availability zone to which you want to move your instance group.
+         Where `--zone` is the availability zone where you want to move the instance group.
 
          Result:
 
@@ -110,24 +109,23 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
                ]
              }
            }
+         }
          ...
          ```
 
          Where:
-
-         * `zone_id`: Availability zones the load balancer will receive traffic in.
+         * `zone_id`: Availability zones where the L7 load balancer will receive traffic.
          * `subnet_id`: IDs of subnets in the availability zones.
 
          For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
-
       1. Apply the changes:
 
-         {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-         The new availability zone will start receiving traffic in the load balancer. You can check this using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+         The L7 load balancer will start receiving traffic in the new availability zone. You can check this using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
          ```bash
-         yc alb load-balancer get <load_balancer_name>
+         yc alb load-balancer get <L7_load_balancer_name>
          ```
 
    - API {#api}
@@ -140,6 +138,6 @@ To move an instance group with a {{ alb-full-name }} [L7 load balancer](../../..
 
    {% include [ig-create-in-another-zone](../../../_includes/compute/ig-create-in-another-zone.md) %}
 
-1. Delete the group instances from the old availability zone:
+1. Delete the group instances from the previous availability zone:
 
    {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}

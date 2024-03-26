@@ -2,13 +2,13 @@ title: Yandex Cloud partner program
 href: index.yaml
 editable: false
 items:
+  - name: Getting started
+    href: quickstart.md
   - name: Step-by-step guides
     expanded: true
     items:
       - name: Adding a customer
         href: operations/pin-client.md
-      - name: Verifying access permissions to a customer's cloud
-        href: operations/access/check.md
       - name: Granting a partner access to a customer's cloud
         href: operations/access/grant.md
       - name: Granting access to a partner account
@@ -23,7 +23,11 @@ items:
       - name: Referral program
         href: program/referral.md
       - name: VAR program
-        href: program/var.md
+        items:
+          - name: Overview
+            href: program/var.md
+          - name: Tools
+            href: program/var-tools.md
   - name: Specializations
     expanded: true
     items:
@@ -33,7 +37,7 @@ items:
         href: specializations/conditions.md
   - name: Terms and definitions
     href: terms.md
-  - name: Questions and answers
+  - name: FAQ
     expanded: true
     items:
       - name: General questions

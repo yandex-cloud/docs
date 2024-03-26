@@ -63,7 +63,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    That will add the labels to the bucket. You can check the new labels and the bucket's configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -262,7 +262,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    That will delete the bucket's labels. You can check the deletion of labels and the bucket's configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

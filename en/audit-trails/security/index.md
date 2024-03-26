@@ -61,6 +61,7 @@ The table shows actions and minimum roles required to perform them. You can alwa
 | Deleting a trail | `audit-trails.editor` |
 | Managing roles of other users for a trail | `audit-trails.admin` |
 
+
 ## What's next {#whats-next}
 
 * Review the [audit log](../concepts/format.md) structure.
