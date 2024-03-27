@@ -1,8 +1,11 @@
 # Migrating data between {{ KF }} clusters using {{ data-transfer-full-name }}
 
-You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and another in real time. Migration across versions is also supported. For example, you can move topics from {{ KF }} ver. 2.8 to ver. 3.1.
+You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and another in real time. Among others, the following migration types are supported:
 
-This method of data migration enables you to:
+* Between different {{ KF }} versions, e.g., you can migrate topics from version 2.8 to version 3.1.
+* Between different availability zones: you can [migrate a cluster with a single host](../../managed-kafka/operations/host-migration.md#one-host) from one zone to another.
+
+{{ KF }} cluster mirroring allows you to:
 
 * Set up topic replication in the management console interface or in {{ TF }}.
 * Track the migration process using the [transfer monitoring](../../data-transfer/operations/monitoring.md).

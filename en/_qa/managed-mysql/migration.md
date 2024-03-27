@@ -1,8 +1,6 @@
-# Migration/transfer
-
 #### How do I transfer data to a cluster? {#to-cluster}
 
-Follow the instructions in [{#T}](../../managed-mysql/tutorials/data-migration.md).
+Follow the steps described in [{#T}](../../managed-mysql/tutorials/data-migration.md).
 
 #### How do I move a cluster to a different folder or cloud? {#to-folder-cloud}
 

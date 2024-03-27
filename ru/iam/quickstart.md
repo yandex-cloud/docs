@@ -26,16 +26,24 @@
 
 ## Добавьте пользователя с аккаунтом на Яндексе в организацию {#add-organization-member}
 
-{% include [add-useraccount](../_includes/organization/add-useraccount.md) %}
+{% list tabs group=instructions %}
 
-{% note info %}
+- Консоль управления
+  
+    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
+    1. Войдите в [консоль управления]({{ link-console-main }}).
+    1. В списке слева выберите нужное облако.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+    1. В правом верхнем углу нажмите на значок ![icon-users](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
+    1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
 
-Вы также можете пригласить пользователя в организацию прямо со страницы облака в консоли управления. Подробнее в [инструкции](./operations/users/create.md).
+        {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
-{% endnote %}
+    1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
 
-Чтобы дать пользователю доступ к ресурсу в облаке, назначьте ему роль на сам ресурс или на его контейнер, например на каталог.
+{% endlist %}
 
+Пользователь сможет войти в организацию, как только примет приглашение по ссылке из письма и выберет подходящий аккаунт для входа. Для доступа к [сервисам](../organization/concepts/manage-services.md#collaboration), которые подключены к организации, приглашенным пользователям достаточно войти в свой аккаунт на Яндексе.
 
 ## Назначьте пользователю роли {#assign-role}
 
@@ -55,7 +63,6 @@
 
 {% endlist %}
 
-
 ## Отзовите назначенные роли {#revoke-roles}
 
 Если назначенные роли больше не нужны, отзовите их:
@@ -74,12 +81,12 @@
 
 {% endlist %}
 
-
 ## Что дальше {#what-is-next}
 
 * [Пошаговые инструкции](operations/index.md) помогут вам решить конкретные задачи, возникающие при использовании {{ iam-name }}.
 * Прочитайте, [как устроено управление доступом в {{ yandex-cloud }}](concepts/access-control/index.md).
 * Посмотрите [рекомендации по безопасному использованию {{ yandex-cloud }}](best-practices/using-iam-securely.md).
-* Узнайте, как [происходит аутентификация в {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
+* Узнайте, [как начать работать с сервисом {{ org-name }}](../organization/quickstart.md).
+* Узнайте, [как происходит аутентификация в {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
 * [Научитесь работать с сервисными аккаунтами](quickstart-sa.md).
 * Посмотрите [ответы на часто задаваемые вопросы](qa/index.md).

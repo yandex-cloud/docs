@@ -2,11 +2,9 @@
 
 В первой половине 2024 года зона `{{ region-id }}-с` будет [выведена из эксплуатации](./ru-central1-c-deprecation.md). Ресурсы из нее можно переместить в новую зону доступности — `{{ region-id }}-d`.
 
-Ряду ресурсов {{ compute-name }} и {{ vpc-name }} в CLI добавлена команда `relocate`, которая позволяет переместить ресурс в другую зону. В случае переноса групп ВМ, ресурсов сервисов {{ network-load-balancer-name }} и {{ alb-name }}, управляемых сервисов баз данных, кластеров {{ managed-k8s-name }} и сервисов Serverless воспользуйтесь существующими инструментами. 
+Ряду ресурсов {{ compute-name }} и {{ vpc-name }} в CLI добавлена команда `relocate`, которая позволяет переместить ресурс в другую зону. В случае переноса групп ВМ, ресурсов сервисов {{ network-load-balancer-name }} и {{ alb-name }}, управляемых сервисов баз данных, инстансов {{ mgl-name }}, кластеров {{ managed-k8s-name }} и сервисов Serverless воспользуйтесь существующими инструментами. 
 
-Для сервиса {{ mgl-name }} разрабатываются свои инструменты миграции. Если у вас есть ресурсы этого сервиса в зоне `{{ region-id }}-с`, мы уведомим, когда инструменты будут готовы.
-
-Если среди сервисов, которые вы используете, есть {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} и другие, не указанные ниже — мигровать их ресурсы не требуется.
+Если среди сервисов, которые вы используете, есть {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} и другие, не указанные ниже — мигрировать их ресурсы не требуется.
 
 ## Сроки миграции из зоны {{ region-id }}-с {#relocation-deadline}
 
@@ -14,11 +12,11 @@
 
 ### Что будет, если я не успею? {#what-if}
 
-По истечении срока миграции, мы осуществим принудительную релокацию ресурсов из зоны `{{ region-id }}-с`:
+По истечении срока миграции мы осуществим принудительную релокацию ресурсов из зоны `{{ region-id }}-с`:
 
 * Создадим резервные копии данных на ваших сетевых дисках, расположенных в зоне `{{ region-id }}-с`, и перенесем диски в зону `{{ region-id }}-d`.
 * Перенесем ваши виртуальные машины в зону доступности `{{ region-id }}-d`. Перенос будет сопровождаться остановкой ваших ресурсов, изменением их сетевых настроек, подсетей, IP-адресов и FQDN и запуском их в новой зоне доступности.
-* При переносе ресурсов управляемых сервисов баз данных и сервиса {{ managed-k8s-name }} мы осуществим резервное копирование ваших данных и переносем ресурсы в зону доступности `{{ region-id }}-d` со сменой сетевых настроек, подсетей, IP-адресов и FQDN.
+* При переносе ресурсов управляемых сервисов баз данных и сервиса {{ managed-k8s-name }} мы осуществим резервное копирование ваших данных и перенесем ресурсы в зону доступности `{{ region-id }}-d` со сменой сетевых настроек, подсетей, IP-адресов и FQDN.
 
 В ходе принудительной миграции изменятся как публичные, так и внутренние IP-адреса ваших ресурсов. Это может привести к потере сетевого доступа к ресурсам по привычным IP-адресам и необходимости обновлять конфигурации межсетевых экранов, сервиса DNS и другие настройки, которые зависят от адресации ваших ресурсов.
 
@@ -74,18 +72,18 @@
 
 См. инструкции по миграции для конкретных сервисов:
 
-* [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md)
-* [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md)
-* [{{ mmg-name }}](../../managed-mongodb/operations/host-migration.md)
-* [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md)
-* [{{ mrd-name }}](../../managed-redis/operations/host-migration.md)
-* [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md)
-* [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md)
+* [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md).
+* [{{ dataproc-name }} с файловой системой HDFS](../../data-proc/tutorials/hdfs-cluster-migration.md).
+* [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md).
+* [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md).
+* [{{ mes-name }}](../../managed-elasticsearch/operations/host-migration.md).
+* [{{ mmg-name }}](../../managed-mongodb/operations/host-migration.md).
+* [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md).
+* [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md).
+* [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md).
+* [{{ mrd-name }}](../../managed-redis/operations/host-migration.md).
+* [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md).
 * {{ mgp-name }} — для миграции нужно восстановить кластер из [резервной копии](../../managed-greenplum/operations/cluster-backups.md).
-* [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md)
-* [{{ dataproc-name }} с файловой системой HDFS](../../data-proc/tutorials/hdfs-cluster-migration.md)
-* [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md)
-* [{{ mes-name }}](../../managed-elasticsearch/operations/host-migration.md)
 
 ### {{ data-transfer-name }} {#data-transfer}
 
@@ -143,7 +141,7 @@
 
 ### {{ mgl-name }} {#gitlab}
 
-Инструмент для самостоятельной миграции инсталляций {{ mgl-name }}, размещенных в зоне `{{ region-id }}-c`, планируется разработать до конца марта 2024 года. Мы дополнительно оповестим пользователей, использующих {{ mgl-name }} в зоне `{{ region-id }}-c`, как только в интерфейсе появится возможность мигрировать их ресурсы из зоны `{{ region-id }}-c`.
+Чтобы изменить зону доступности инстанса {{ mgl-name }}, размещенного в зоне `{{ region-id }}-c`, воспользуйтесь инструкцией в разделе [Миграция инстанса из зоны доступности ru-central1-c в другую зону](../../managed-gitlab/operations/instance/zone-migration.md).
 
 ### {{ cloud-desktop-name }} {#cloud-desktop}
 

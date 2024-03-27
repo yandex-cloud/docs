@@ -52,6 +52,8 @@ description: "Следуя данной инструкции, вы сможет�
      
      * Выберите тип диска.
 
+       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
        
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -174,6 +176,9 @@ description: "Следуя данной инструкции, вы сможет�
      Где:
 
      * `environment` — окружение: `prestable` или `production`.
+     * `disk-type` — тип диска.
+
+       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
      
      * `assign-public-ip` — доступ к хосту из интернета: `true` или `false`.

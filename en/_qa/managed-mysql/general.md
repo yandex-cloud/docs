@@ -1,10 +1,3 @@
----
-title: "{{ mmy-name }}. Questions and answers"
-description: "What is {{ mmy-name }}? Which tasks should I use {{ mmy-name }} for and for which are VMs with databases more appropriate? What part of database management and maintenance is {{ mmy-name }} responsible for? Find the answers to these and other questions in this article."
----
-
-# General questions about {{ mmy-name }}
-
 #### What is {{ mmy-short-name }}? {#what-is}
 
 {{ mmy-short-name }} is a service that helps you create, operate, and scale {{ MY }} databases in a cloud infrastructure.
@@ -20,7 +13,7 @@ With {{ mmy-short-name }}, you can:
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps database software updated.
 
-You interact with database clusters in {{ mmy-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with database clusters in {{ mmy-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
 
 
 #### What part of database management and maintenance is {{ mmy-short-name }} responsible for? {#services}
@@ -31,7 +24,7 @@ For the created and running databases, {{ mmy-short-name }} automatically create
 
 {{ mmy-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### Which tasks should I use {{ mmy-short-name }} for and for which VMs with databases? {#mdb-advantage}
+#### Which tasks are best addressed using {{ mmy-short-name }}, and which using VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -64,7 +57,8 @@ For detailed instructions, see [{#T}](../../managed-mysql/quickstart.md).
 The minimum number of hosts depends on the selected type of [storage](../../managed-mysql/concepts/storage.md):
 
 - If you use non-replicated SSD (`ssd-network-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
-- If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters.
+- If using network SSD (`network-ssd`) or network HDD (`network-hdd`) storage, you can create single-host clusters.
+
 
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
@@ -83,7 +77,7 @@ You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 MDB technical and organizational limits are given in [{#T}](../../managed-mysql/concepts/limits.md).
 
 
-#### How do I maintain database clusters? {#service-window}
+#### How are DB clusters maintained? {#service-window}
 
 Maintenance in {{ mmy-short-name }} implies:
 
@@ -93,7 +87,7 @@ Maintenance in {{ mmy-short-name }} implies:
 
 For more information, see [{#T}](../../managed-mysql/concepts/maintenance.md).
 
-#### Which version of {{ MY }} does {{ mmy-short-name }} use? {#dbms-version}
+#### Which {{ MY }} version does {{ mmy-short-name }} use? {#dbms-version}
 
 {{ mmy-short-name }} supports {{ MY }} 5.7 and {{ MY }} 8.
 
@@ -128,7 +122,7 @@ The cluster characteristics change within 30 minutes. During this period, other 
 
 #### Is DB host backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ MY }}, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backup is enabled by default. For {{ MY }}, a full backup takes place once a day and saves all DB cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
@@ -143,13 +137,13 @@ Clusters remain fully accessible during the backup window.
 For all DBMS types, you can track:
 
 - CPU, memory, network, or disk usage, in absolute terms.
-- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
-- The amount of data in the DB cluster and the remaining free space in data storage.
+- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
+- Amount of data in the DB cluster and the remaining free space in the data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MY }}, you can track:
-- Average query execution time.
-- Number of queries per second.
-- Number of errors in logs.
+- Average query execution time
+- Number of queries per second
+- Number of errors in logs, etc.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 

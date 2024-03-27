@@ -43,6 +43,8 @@
 
       * Выберите [тип диска](../concepts/storage.md).
 
+        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
         
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -146,6 +148,10 @@
          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
          * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
          * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+      * `--mongod-disk-type` — тип диска.
+
+        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.

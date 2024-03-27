@@ -1,6 +1,6 @@
 ---
 title: "Инструкции по работе с {{ sf-full-name }}"
-description: "Из статьи вы узнаете как работать с {{ sf-full-name }} в {{ yandex-cloud }}. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}, Cloud Logs)."
+description: "Из статьи вы узнаете как работать с {{ sf-full-name }} в {{ yandex-cloud }}. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }})."
 ---
 
 # Пошаговые инструкции для {{ sf-name }}
@@ -68,7 +68,6 @@ description: "Из статьи вы узнаете как работать с {
 * [Создать триггер для {{ message-queue-name }}](trigger/ymq-trigger-create.md)
 * [Создать триггер для {{ objstorage-name }}](trigger/os-trigger-create.md)
 * [Создать триггер для {{ container-registry-name }}](trigger/cr-trigger-create.md)
-* [Создать триггер для {{ cloud-logs-name }}](trigger/cloudlogs-trigger-create.md)
 * [Создать триггер для {{ cloud-logging-name }}](trigger/cloud-logging-trigger-create.md)
 * [Создать триггер для {{ iot-name }} (устройство)](trigger/iot-core-trigger-create.md)
 * [Создать триггер для {{ iot-name }} (брокер)](trigger/iot-core-trigger-broker-create.md)
