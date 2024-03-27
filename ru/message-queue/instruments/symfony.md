@@ -12,12 +12,21 @@
 
 Создайте очередь в сервисе {{ message-queue-name }} и скопируйте ее URL.
 
+Потребуются следующие инструменты:
+- [Git](https://git-scm.com)
+- [PHP](https://php.net) версии 8.2 или выше
+- Менеджер пакетов [Composer](https://getcomposer.org)
+
+Установите их согласно инструкции на официальном сайте.
+
 ## Инструкции {#sample}
 
 В этом примере создается:
   - демонстрационное сообщение (Message), в котором хранятся исходные числа;
   - обработчик сообщения (MessageHandler), который суммирует два числа из сообщения;
   - команда (Command), которая ставит задачу в очередь {{ message-queue-name }}.
+
+
 
 Чтобы использовать {{ message-queue-name }} с Symfony Messenger, выполните следующие инструкции.
 
@@ -38,7 +47,7 @@
 1. Создайте сообщение (Message) и обработчик (Handler):
 
     ```
-    bin/console make:message Sum
+    php bin/console make:message Sum
     ```
     При выполнении команда спросит `Which transport do you want to route your message to? [[no transport]]`.
     Впишите цифру с вариантом `async`
@@ -46,7 +55,7 @@
 1. Создайте команду (Command) для отправки сообщений в очередь:
 
     ``` 
-    bin/console make:command app:create
+    php bin/console make:command app:create
     ```
 
 1. Откройте созданный файл по пути `src/Command/SumCommand.php` и приведите его к виду:
@@ -171,8 +180,8 @@
 
 1. Выполните команду для отправки сообщения в очередь:
 
-    ```bin/console  app:create```
+    ```php bin/console  app:create```
 
 1. Выполните команду для обработки очереди:
 
-    ```bin/console messenger:consume async```
+    ```php bin/console messenger:consume async```
