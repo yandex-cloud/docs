@@ -38,8 +38,8 @@ require __DIR__ . '/vendor/autoload.php';
 
 
 $mq = new SqsClient([
-    'region' => 'ru-central1',
-    'endpoint' => 'https://message-queue.api.cloud.yandex.net',
+    'region' => '{{ region-id }}',
+    'endpoint' => 'https://message-queue.{{ api-host }}',
 ]);
 
 $result = $mq->createQueue([
