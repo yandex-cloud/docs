@@ -4,6 +4,11 @@
 
 ## Установка {#install}
 
+Потребуются следующие инструменты:
+- [Git](https://git-scm.com)
+- [PHP](https://php.net) версии 8.2 или выше
+- Менеджер пакетов [Composer](https://getcomposer.org)
+
 Установите Symfony по [инструкции](https://symfony.com/doc/current/setup.html) на официальном сайте фреймворка.
 
 ## Подготовка к работе {#prepare}
@@ -11,13 +16,6 @@
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 
 Создайте очередь в сервисе {{ message-queue-name }} и скопируйте ее URL.
-
-Потребуются следующие инструменты:
-- [Git](https://git-scm.com)
-- [PHP](https://php.net) версии 8.2 или выше
-- Менеджер пакетов [Composer](https://getcomposer.org)
-
-Установите их согласно инструкции на официальном сайте.
 
 ## Инструкции {#sample}
 
