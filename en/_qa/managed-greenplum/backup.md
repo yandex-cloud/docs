@@ -1,5 +1,3 @@
-# Backups in {{ mgp-name }}
-
 #### When are backups performed? Is a DB cluster available during backup? {#backup-window}
 
 The backup window is an interval during which a full daily backup of the DB cluster is performed. You can configure a backup window when [creating](../../managed-greenplum/operations/cluster-create.md) or [editing](../../managed-greenplum/operations/update.md) a cluster.

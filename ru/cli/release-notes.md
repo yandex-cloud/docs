@@ -7,6 +7,36 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.122.0 (27.03.24) {#version0.122.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ sf-name }} {#serverless-functions}
+
+* В команду `yc serverless function version create` добавлен параметр `--tmpfs-size` для монтирования директории `/tmp` из памяти при выделении функции 1 ГБ памяти или больше.
+* Удалена команда `yc serverless trigger create cloud-logs`.
+
+##### {{ data-transfer-name }}
+
+Добавлены следующие команды для создания и изменения эндпоинтов {{ yds-full-name }}:
+* `yc datatransfer endpoint create yds-source`;
+* `yc datatransfer endpoint create yds-target`;
+* `yc datatransfer endpoint update yds-source`;
+* `yc datatransfer endpoint update yds-target`.
+
+##### {{ dns-name }} {#dns}
+
+В следующие команды добавлен параметр `--deletion-protection` для защиты зоны DNS от случайного удаления:
+* `yc dns zone create`;
+* `yc dns zone update`.
+
+##### {{compute-name}}
+
+* Добавлена команда `yc compute instance attach-network-interface` для добавления сетевого интерфейса в уже существующую ВМ.
+* Добавлена команда `yc compute instance detach-network-interface` для удаления сетевого интерфейса из уже существующей ВМ.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.121.0 (12.03.24) {#version0.121.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -38,8 +68,6 @@ description: "На странице представлены релизы YC CLI
 * В команду `yc vpc address update` добавлены флаги:
   * `--dns-record` для указания DNS-спецификаций адреса;
   * `--clear-dns-records` для удаления всех DNS-спецификаций адреса.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.120.0 (01.03.24) {#version0.120.0}
 

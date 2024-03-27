@@ -23,7 +23,7 @@ After creating a cluster, you can:
 
 Learn more about other cluster updates:
 
-* [Upgrading the {{ PG }} version](cluster-version-update.md).
+* [Updating the {{ PG }} version](cluster-version-update.md).
 
 * [Managing disk space](storage-space.md).
 
@@ -72,7 +72,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
       | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
-      |           | {{ region-id }}-c                  |       |          |
+      |           | {{ region-id }}-d                  |       |          |
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
@@ -123,7 +123,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
    To change the class of cluster hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Host class ID in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
    * List of settings to update (in this case, `configSpec.resources.resourcePresetId`) in the `updateMask` parameter.
 
@@ -222,7 +222,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To change {{ PG }} server settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }}_version>` parameter.
    * List of settings to update, in the `updateMask` parameter.
 
@@ -411,7 +411,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.

@@ -1,4 +1,4 @@
-# Updating {{ dataproc-name }} clusters
+# Updating a {{ dataproc-name }} cluster
 
 After creating a cluster, you can change its basic and advanced settings.
 
@@ -6,7 +6,12 @@ After creating a cluster, you can change its basic and advanced settings.
 You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more information, see [Working with logs](logging.md#disable-logs).
 
 
-To move a cluster to a different availability zone, follow [this guide](migration-to-an-availability-zone.md).
+You can also move a {{ dataproc-name }} cluster to a different availability zone. The process depends on the cluster type:
+
+* [{#T}](migration-to-an-availability-zone.md).
+* [{#T}](../tutorials/hdfs-cluster-migration.md).
+
+To change {{ dataproc-name }} cluster settings:
 
 {% list tabs group=instructions %}
 

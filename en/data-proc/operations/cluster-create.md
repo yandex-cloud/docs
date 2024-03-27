@@ -21,9 +21,9 @@ Security groups must be created and configured before creating a cluster. If the
    * One rule for inbound and another one for outbound service traffic:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`)
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
 
    * A separate rule for outgoing HTTPS traffic. This will allow you to use [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and cluster [autoscaling](../concepts/autoscaling.md).
 
@@ -50,7 +50,12 @@ Security groups must be created and configured before creating a cluster. If the
 
       {% endlist %}
 
-   * A rule that allows access to NTP servers for time syncing.
+   * A rule that allows access to NTP servers for time syncing:
+
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
 
@@ -62,12 +67,14 @@ Security groups must be configured correctly for all subnets that will include c
 
 {% endnote %}
 
-You can set up security groups for [connections to cluster hosts](connect.md) through an intermediate VM and [connections to {{ metastore-name }}](./metastore/dataproc-connect.md) after creating a cluster.
+You can set up security groups after creating a cluster to [connect to {{ metastore-name }}](./metastore/dataproc-connect.md) or [cluster hosts](connect.md) via internet or an intermediate VM.
 
 
 ## Create a cluster {#create}
 
 A cluster must include a subcluster with a master host and at least one subcluster for data storage or processing.
+
+If you want to create a cluster copy, [import its configuration](#duplicate) to {{ TF }}.
 
 {% list tabs group=instructions %}
 
@@ -310,7 +317,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       * `warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
       * `stabilization-duration`: Interval in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
       * `measurement-duration`: Period in seconds, for which utilization measurements should be averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
-      * `cpu-utilization-target`: Target CPU utilization level in percentage. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
+      * `cpu-utilization-target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
       * `autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
       {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
@@ -585,6 +592,88 @@ A cluster must include a subcluster with a master host and at least one subclust
 {% endlist %}
 
 After your cluster's status changes to **Running**, you can [connect](connect.md) to subcluster hosts using the specified SSH key.
+
+## Create a cluster copy {#duplicate}
+
+You can create a cluster with the settings of another cluster created earlier. To do so, you need to import the source cluster's configuration to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source cluster has lots of settings (e.g., it is an HDFS cluster) and you need to create a similar one.
+
+To create a cluster copy:
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+   1. In the same working directory, place a file with a `.tf` extension and the following contents:
+
+      ```hcl
+      resource "yandex_dataproc_cluster" "old" { }
+      ```
+
+   1. Write the initial cluster ID to the environment variable:
+
+      ```bash
+      export DATAPROC_CLUSTER_ID=<cluster_ID>
+      ```
+
+   1. Import the initial cluster settings into the {{ TF }} configuration:
+
+      ```bash
+      terraform import yandex_dataproc_cluster.old ${DATAPROC_CLUSTER_ID}
+      ```
+
+   1. Get the imported configuration:
+
+      ```bash
+      terraform show
+      ```
+
+   1. Copy it from the terminal and paste it into the `.tf` extension file.
+   1. Place the file in the new `imported-cluster` directory.
+   1. Modify the copied configuration so that you can create a new cluster from it:
+      * Specify a new cluster name in the `resource` string and the `name` parameter.
+      * Delete the `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id` parameters.
+      * Change the SSH key format in the `ssh_public_keys` parameter. Source format:
+
+         ```hcl
+         ssh_public_keys = [
+           <<-EOT
+             <key>
+           EOT,
+         ]
+         ```
+
+         Required format:
+
+         ```hcl
+         ssh_public_keys = [
+           "<key>"
+         ]
+         ```
+
+      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 ## Example {#example}
 

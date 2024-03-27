@@ -1,10 +1,3 @@
----
-title: "{{ mch-name }}. Questions and answers"
-description: "What is {{ mch-name }}? Which tasks should I use {{ mch-name }} for and for which are VMs with databases more appropriate? What part of database management and maintenance is {{ mch-name }} responsible for? Find the answers to these and other questions in this article."
----
-
-# General questions about {{ mch-name }}
-
 #### What is {{ mch-short-name }}? {#what-is}
 
 {{ mch-short-name }} is a service that helps you create, operate, and scale {{ CH }} databases in a cloud infrastructure.
@@ -20,7 +13,7 @@ With {{ mch-short-name }}, you can:
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps database software updated.
 
-You interact with database clusters in {{ mch-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with database clusters in {{ mch-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
 
 #### What is {{ CH }} used for? Which database should I select? {#why-ch}
 
@@ -34,7 +27,7 @@ For the created and running databases, {{ mch-short-name }} automatically create
 
 {{ mch-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### Which tasks should I use {{ mch-short-name }} for and for which VMs with databases? {#mdb-advantage}
+#### Which tasks are best addressed using {{ mch-short-name }}, and which using VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -66,7 +59,7 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
 
 - If you use non-replicated SSD storage, the minimum number of hosts is 3.
 - If you use local SSD storage, the minimum number of hosts is 2.
-- If you use HDD network or SSD network storage, you can create single-host clusters.
+- If using network HDD or network SSD storage, you can create single-host clusters.
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
@@ -82,7 +75,7 @@ You can connect to {{ mch-short-name }} databases using standard DBMS methods.
 
 MDB technical and organizational limits are given in [{#T}](../../managed-clickhouse/concepts/limits.md).
 
-#### How do I maintain database clusters? {#service-window}
+#### How are DB clusters maintained? {#service-window}
 
 Maintenance in {{ mch-short-name }} implies:
 
@@ -102,7 +95,7 @@ RENAME DICTIONARY <dictionary_name> TO <new_name>
 
 For other changes, use the [update](../../managed-clickhouse/api-ref/Cluster/update.md) API method.
 
-#### Which version of {{ CH }} does {{ mch-short-name }} use? {#dbms-version}
+#### Which {{ CH }} version does {{ mch-short-name }} use? {#dbms-version}
 
 {{ mch-short-name }} uses some of the latest stable versions of {{ CH }}. For more information, see [{#T}](../../managed-clickhouse/concepts/update-policy.md).
 

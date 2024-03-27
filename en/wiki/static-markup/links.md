@@ -96,7 +96,7 @@ The anchor is shown after the `#` symbol at the end of the address.
    {{anchor name="my-anchor"}}
    ```
 
-   To add a link to such an anchor, add it to the the page address after the `#` symbol:
+   To add a link to such an anchor, add it to the page address after the `#` symbol:
 
    ```
    [link text](http://page URL/#my-anchor)

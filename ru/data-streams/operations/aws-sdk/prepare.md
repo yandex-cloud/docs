@@ -5,12 +5,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Подготовка окружения в AWS SDK
 
-{% note warning %}
-
-В данный момент отсутствует поддержка новых версий AWS SDK. Используйте версии [AWS SDK](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-json-faqs.html#json-protocol-getting-started) до введения поддержки протокола JSON.
-
-{% endnote %}
-
 Настройте окружение для вашего языка программирования:
 
 {% list tabs group=programming_language %}

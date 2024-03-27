@@ -4927,7 +4927,10 @@ default:
       gitlab:
         action_create-backup: Create backup
         button_create-instance: Create instance
+        button_finish-migration: Complete migration
+        button_rollback-migration: Cancel migration
         button_setup-omniauth: Configure
+        button_start-migration: Move instance
         field_admin-email: Email
         field_admin-login: Login
         field_approval-rules: Approval rules
@@ -4936,6 +4939,7 @@ default:
         label_admin-section: Administrator data
         label_configuration-section: Configuration
         title_backups: Backups
+        title_migration: Migration
         title_omniauth: OmniAuth
       gpu-cluster:
         label_title: GPU clusters

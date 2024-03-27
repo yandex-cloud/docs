@@ -67,6 +67,8 @@ items:
         href: concepts/resources.md
       - name: Режимы работы Serverless и Dedicated
         href: concepts/serverless-and-dedicated.md
+      - name: Режимы работы OLTP или OLAP
+        href: concepts/oltp-and-olap.md
       - name: Таблицы DynamoDB
         href: concepts/dynamodb-tables.md
       - name: Квоты и лимиты

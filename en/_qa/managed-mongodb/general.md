@@ -1,10 +1,3 @@
----
-title: "{{ mmg-name }}. Questions and answers"
-description: "What is {{ mmg-name }}? Which tasks should I use {{ mmg-name }} for and for which are VMs with databases more appropriate? What part of database management and maintenance is {{ mmg-name }} responsible for? Find the answers to these and other questions in this article."
----
-
-# General questions about {{ mmg-name }}
-
 #### What is {{ mmg-short-name }}? {#what-is}
 
 {{ mmg-short-name }} is a service that helps you create, operate, and scale {{ MG }} databases in a cloud infrastructure.
@@ -20,7 +13,7 @@ With {{ mmg-short-name }}, you can:
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps database software updated.
 
-You interact with database clusters in {{ mmg-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with database clusters in {{ mmg-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
 
 
 #### What part of database management and maintenance is {{ mmg-short-name }} responsible for? {#services}
@@ -31,7 +24,7 @@ For the created and running databases, {{ mmg-short-name }} automatically create
 
 {{ mmg-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### Which tasks should I use {{ mmg-short-name }} for and for which VMs with databases? {#mdb-advantage}
+#### Which tasks are best addressed using {{ mmg-short-name }}, and which using VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -83,7 +76,7 @@ You can connect to {{ mmg-short-name }} databases using standard DBMS methods.
 MDB technical and organizational limits are given in [{#T}](../../managed-mongodb/concepts/limits.md).
 
 
-#### How do I maintain database clusters? {#service-window}
+#### How are DB clusters maintained? {#service-window}
 
 Maintenance in {{ mmg-short-name }} implies:
 
@@ -93,7 +86,7 @@ Maintenance in {{ mmg-short-name }} implies:
 
 For more information, see [{#T}](../../managed-mongodb/concepts/maintenance.md).
 
-#### Which version of {{ MG }} does {{ mmg-short-name }} use? {#dbms-version}
+#### Which {{ MG }} version does {{ mmg-short-name }} use? {#dbms-version}
 
 {{ mmg-short-name }} supports {{ MG }} versions 4.2, 4.4, 5.0, and 6.0. Enterprise [Edition](../../managed-mongodb/concepts/editions.md) is supported for versions 4.4, 5.0, and 6.0.
 
@@ -143,26 +136,26 @@ Clusters remain fully accessible during the backup window.
 For all DBMS types, you can track:
 
 - CPU, memory, network, or disk usage, in absolute terms.
-- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
+- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
 - The amount of data in the DB cluster and the remaining free space in data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MG }}, you can track:
-- Number of queries per second.
+- Number of requests per second.
 - Amount of disk space used.
 - Number of connections, and so on.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
-#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+#### How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up? {#disk-space-percentage}
 
 [Create an alert](../../managed-mongodb/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mmg-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space.
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of the disk space
 
-The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75161927680` bytes (70%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75,161,927,680` bytes (70%)

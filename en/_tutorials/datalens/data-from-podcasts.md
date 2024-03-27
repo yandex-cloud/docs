@@ -86,7 +86,7 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
    ![image](../../_assets/datalens/solution-10/05-music-dashboard-example.png)
 
    1. Each tab contains:
-   * Text widgets are headers, comments, and hints.
+   * Text widgets: Headers, comments, and hints.
    * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
    * Charts: Graphs, tables, and other visualizations.
 
@@ -109,7 +109,7 @@ You can change the order of charts and selectors, increase or decrease their siz
    ![image](../../_assets/datalens/solution-10/07-delete-chart.png)
 
 1. Try to position the **Listener gender** and **Listener age** charts so that they fill in the empty space left after deleting the chart in the previous step.
-   1. Drag the chart by clicking on the chart itself. Resize the chart using the triangle in the lower-right corner.
+   1. Drag the chart by clicking it. Resize the chart using the triangle in the bottom-right corner.
 
    ![image](../../_assets/datalens/solution-10/08-change-chart-size.png)
 
@@ -132,7 +132,7 @@ You can change the order of charts and selectors, increase or decrease their siz
 
    ![image](../../_assets/datalens/solution-10/11-dashboard-selector.png)
 
-1. Click **Save** in the top right-hand corner of the dashboard.
+1. Click **Save** in the top-right corner of the dashboard.
 
 ### 2.2. Edit a chart {#changing-chart}
 
@@ -160,7 +160,7 @@ You can edit and configure any charts. Let's say we want to see on the chart the
 
    ![image](../../_assets/datalens/solution-10/15-bar-chart.png)
 
-1. Now, each column shows the relative distribution of **Listeners** by **Gender** in terms of **Time of day**. Click **Save** in the upper-right corner of the chart.
+1. Now, each column shows the relative distribution of **Listeners** by **Gender** in terms of **Time of day**. Click **Save** in the top-right corner of the chart.
 
    ![image](../../_assets/datalens/solution-10/16-chart-result.png)
 
@@ -192,7 +192,7 @@ Let's say we want to build a chart with the total number of times streams were l
 
    ![image](../../_assets/datalens/solution-10/21-legend.png)
 
-1. Click **Save** in the upper-right corner of the chart.
+1. Click **Save** in the top-right corner of the chart.
    1. Enter the name **Episode listening dynamics** and click **Apply filter**.
 
    {% note info "Note" %}
@@ -262,7 +262,7 @@ You can grant a user, such as a partner or advertiser, access not to the entire 
 
 For a user to be able to request data on an episode via charts but not view or edit connection or dataset settings, [restrict shared access](#restrict-access).
 
-Then grant the user access to the objects: **Podcasts Analytics. Connection**, **D01. Podcast listens** and **D02. Podcast subscribers**. Specify which podcast or episode you grant access to.
+Then grant the user access to the objects: **Podcasts Analytics. Connection**, **D01. Podcast listens** and **D02. Podcast subscribers** datasets. Specify which podcast or episode you grant access to.
 
 #### 3.2.1. Restrict shared access {#restrict-access}
 
@@ -411,9 +411,9 @@ If necessary, you can revoke a user's permissions:
 
 Data in {{ datalens-short-name }} is only available to users of a specific instance. If you want to provide unlimited public access to podcast analytics, [publish](../../datalens/concepts/datalens-public.md) your dashboard or a particular chart.
 
-{% list tabs %}
+{% list tabs group=datalens_public %}
 
-- Publishing dashboards
+- Publishing dashboards {#dashboard}
 
    1. Open the **Yandex Music podcast analytics** dashboard.
    1. At the top of the dashboard interface, click ![image](../../_assets/console-icons/nodes-right.svg).
@@ -422,7 +422,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
    1. Select the charts you want to publish with the dashboard.
    1. Copy the public link and click **Apply**.
 
-- Publishing a chart
+- Publishing a chart {#chart}
 
    1. On the navigation page, find a chart, e.g., **C07. Starts and streams: dynamics**, and open it.
    1. At the top of the chart interface, click ![image](../../_assets/console-icons/nodes-right.svg).
@@ -447,7 +447,7 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% endnote %}
 
-## Questions and answers {#qa}
+## FAQ {#qa}
 
 {% cut "Why can you only connect with a Yandex account?" %}
 

@@ -11,7 +11,7 @@ description: "In this tutorial, you will learn about the methods of escaping cha
 
    {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
 
-   * If you want to display a backquote inside a source code snippet, place two backquotes (` `` `) at the beginning and end of the code snippet:
+   * If you want to display a backquote inside a source code fragment, enclose the code fragment in double backquotes (` `` `):
 
       ```
       ``SELECT `id` FROM `table` ``

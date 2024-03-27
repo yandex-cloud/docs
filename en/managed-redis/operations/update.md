@@ -106,7 +106,7 @@ Learn more about other cluster updates:
 
    To change a cluster's name and description, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New cluster name in the `name` parameter.
    * New cluster description in the `description` parameter.
    * List of fields to update (in this case, `name` and `description`) in the `updateMask` parameter.
@@ -164,11 +164,11 @@ Learn more about other cluster updates:
       |     ID      |            ZONE IDS            |  MEMORY  |
       +-------------+--------------------------------+----------+
       | b1.nano     | {{ region-id }}-a, {{ region-id }}-b,  | 2.0 GB   |
-      |             | {{ region-id }}-c                  |          |
+      |             | {{ region-id }}-d                  |          |
       | b1.small    | {{ region-id }}-a, {{ region-id }}-b,  | 4.0 GB   |
-      |             | {{ region-id }}-c                  |          |
+      |             | {{ region-id }}-d                  |          |
       | hm1.nano    | {{ region-id }}-a, {{ region-id }}-b,  | 8.0 GB   |
-      |             | {{ region-id }}-c                  |          |
+      |             | {{ region-id }}-d                  |          |
       | hm1.micro   | {{ region-id }}-a, {{ region-id }}-b,  | 12.0 GB  |
       | ...                                                     |
       +-----------+----------------------------------+----------+
@@ -220,7 +220,7 @@ Learn more about other cluster updates:
 
    To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New host class in the `configSpec.resources.resourcePresetId` parameter.
 
       To get a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) REST API method for the [ResourcePreset](../api-ref/ResourcePreset/index.md) resource or the [ResourcePresetService/List](../api-ref/grpc/resource_preset_service.md#List) gRPC API call.
@@ -307,7 +307,7 @@ Learn more about other cluster updates:
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
 
@@ -378,7 +378,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    To change {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }}_version>` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -445,7 +445,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}

@@ -91,7 +91,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       +----------------------+-----------+-----------------------+---------------+------------------+
       |          ID          |   NAME    |       NETWORK ID      |       ZONE    |      RANGE       |
       +----------------------+-----------+-----------------------+---------------+------------------+
-      | b0cl69a2b4c6******** | default-c | enp6rq72rndgr******** | {{ region-id }}-c | [172.**.*.*/20]  |
+      | b0cl69a2b4c6******** | default-d | enp6rq72rndgr******** | {{ region-id }}-d | [172.**.*.*/20]  |
       | e2lkj9qwe762******** | default-b | enp6rq72rndgr******** | {{ region-id }}-b | [10.**.*.*/16]   |
       | e9b0ph42bn96******** | a-2       | enp6rq72rndgr******** | {{ region-id }}-a | [172.**.**.*/20] |
       | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | {{ region-id }}-a | [172.**.**.*/20] |
@@ -287,7 +287,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
       For each host, specify:
       * Name in the `hostName` field.
-      * List of settings you want to update, in the `updateMask` parameter.
+      * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

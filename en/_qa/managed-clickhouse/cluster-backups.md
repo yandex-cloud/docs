@@ -1,8 +1,6 @@
-# Moving and restoring a {{ CH }} cluster
+#### What is the backup procedure for a {{ CH }} database? {#backup-overview}
 
-#### How do I back up a {{ CH }} database? {#backup-overview}
-
-Backups are created every 24 hours and stored for seven days after being created. You can restore data only as of backup creation time.
+Backups are created every 24 hours and stored for seven days after being created. You can restore data only as of the backup creation time.
 
 #### Is DB host backup enabled by default? {#default-backup}
 

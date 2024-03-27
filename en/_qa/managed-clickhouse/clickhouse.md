@@ -1,5 +1,3 @@
-# Questions about {{ CH }}
-
 #### Why should I use {{ CH }} in {{ mch-short-name }} rather than my own VM-based installation? {#clickhouse-advantages-vm}
 
 {{ mch-short-name }} automates routine database maintenance:

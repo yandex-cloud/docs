@@ -76,7 +76,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
       | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
-      |           | {{ region-id }}-c                  |       |          |
+      |           | {{ region-id }}-d                  |       |          |
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```

@@ -528,7 +528,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Environment: `PRESTABLE`.
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
-   * A new cloud network named `cluster-net`.
+   * New cloud network named `cluster-net`.
       * New [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * Number of `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`: 1.
 
@@ -575,14 +575,14 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Environment: `PRESTABLE`.
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
-   * In a new cloud network named `cluster-net`.
+   * New cloud network named `cluster-net`.
 
    * Three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to ensure [replication](../concepts/replication.md)).
 
       One host of each class will be added to the new subnets:
       * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, availability zone: `{{ region-id }}-a`.
-      * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, availability zone `{{ region-id }}-b`.
-      * `cluster-subnet-{{ region-id }}-c`: `172.16.3.0/24`, availability zone `{{ region-id }}-c`.
+      * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, availability zone: `{{ region-id }}-b`.
+      * `cluster-subnet-{{ region-id }}-d`: `172.16.3.0/24`, availability zone: `{{ region-id }}-d`.
 
       These subnets will belong to the `cluster-net` network.
 

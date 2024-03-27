@@ -26,7 +26,7 @@ Rule settings depend on the connection method you select:
 
 - SSH
 
-   * To connect to your subcluster hosts from cloud networks and the internet, [set up security groups](../../vpc/operations/security-group-add-rule.md) for your cluster to allow incoming traffic from any IP address on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
+   * To connect to the subcluster hosts with public access from cloud networks and the internet, [configure cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP address on `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
