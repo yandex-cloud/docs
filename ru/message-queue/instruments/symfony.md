@@ -140,7 +140,7 @@
     ```
     
     Часть `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi/symfony-test` нужно заменить на путь, скопированный в консоли Yandex Cloud.
-    В параметрах `access_key=KEY` и `secret_key=SECRET` значения `KEY` и `SECRET` нужно заменить на значение статического ключа доступа к {{ message-queue-name }}
+    В параметрах `access_key=KEY` и `secret_key=SECRET` значения `KEY` и `SECRET` нужно заменить на значение статического ключа доступа к {{ message-queue-name }}.
 
 1. Откройте файл `config/packages/messenger.yaml` и приведите его к следующему виду:
 
