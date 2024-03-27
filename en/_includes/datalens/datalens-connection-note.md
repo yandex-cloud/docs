@@ -23,6 +23,7 @@ When connecting an external database which is not a {{ yandex-cloud }} resource:
       * `2a02:6b8:c03:500:0:f83d:a987:0/112`
       * `2a02:6b8:c02:900:0:f83d:a987:0/112`
       * `2a02:6b8:c0e:500:0:f83d:a987:0/112`
+      * `2a02:6b8:c41:1300:0:f83d:a987:0/112`
 
    {% endlist %}
 

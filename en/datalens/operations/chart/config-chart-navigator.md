@@ -5,10 +5,16 @@ description: "Follow this guide to set up the navigator."
 
 # Configuring the navigator
 
-You can configure the navigator if the following conditions are met:
+{% note info %}
 
-* Chart type: **Line chart**, **Stacked area chart**, or **Normalized area chart**.
-* The **X** section contains a field of the `Date` or `Date and time` type.
+The navigator is available for those charts from the list that have a field of the `Date` or `Date and time` type in their **X** section:
+
+* [Line chart](../../visualization-ref/line-chart.md)
+* [Stacked area chart](../../visualization-ref/area-chart.md)
+* [Normalized area chart](../../visualization-ref/normalized-area-chart.md)
+* [Column chart](../../visualization-ref/column-chart.md)
+
+{% endnote %}
 
 To set up the navigator:
 
