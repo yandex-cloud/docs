@@ -334,6 +334,10 @@ items:
           Configuring {{ dns-name }} for accessing {{ mch-name }} clusters from
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
+      - name: >-
+          Migrating a {{ dataproc-name }} cluster with HDFS to a different
+          availability zone
+        href: dataplatform/hdfs-cluster-migration.md
       - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mmy.md
       - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop

@@ -13,7 +13,10 @@ You can perform the following actions for any subcluster:
 * [{#T}](#change-disk-size).
 * [{#T}](#change-sg-set).
 
-To move subclusters to a different availability zone, follow this [guide](migration-to-an-availability-zone.md).
+You can also change subclusters' availability zone. In which case they will be migrated to a different availability zone together with the {{ dataproc-name }} cluster. The process depends on the cluster type:
+
+* [{#T}](migration-to-an-availability-zone.md).
+* [{#T}](../tutorials/hdfs-cluster-migration.md).
 
 ## Changing the number of hosts {#change-host-number}
 

@@ -1,5 +1,3 @@
-# Configuring {{ MY }}
-
 #### How do I set a time zone? {#time-zone}
 
 A time zone is specified in terms of a UTC offset. Moscow's, for instance, is `'+03:00'`. Time zone names are not supported.
@@ -13,12 +11,22 @@ Follow the instructions in [Managing databases](../../managed-mysql/operations/d
 #### What value should I set for innodb_buffer_pool_size? {#innodb-buffer-pool-size}
 
 Recommended parameter range:
-* A minimum of 25% of host RAM.
-* A maximum of 85% of host RAM provided that at least 1 to 1.6 GB are left over for query execution, monitoring, and system processes.
+* Minimum 25% of host RAM.
+* Maximum 85% of host RAM provided that at least 1 to 1.6 GB are free for query execution, monitoring, and system processes.
+
+#### How do I disable InnoDB strict mode? {#innodb-strict-mode}
+
+By default, [InnoDB strict mode](../../managed-mysql/concepts/settings-list.md#setting-strict-mode) is enabled. If you disable this mode using {{ MY }} tools, the following error will occur:
+
+```text
+Mysql query error: (1227) Access denied; you need (at least one of) the SYSTEM_VARIABLES_ADMIN or SESSION_VARIABLES_ADMIN privilege(s) for this operation (400)
+```
+
+To disable strict mode, change the `innodb_strict_mode` parameter value via the [{{ yandex-cloud }} interfaces](../../managed-mysql/operations/update.md#change-mysql-config). You should also make sure that your configuration contains no command that disables strict mode, such as `$connection–>queryExecute("SET innodb_strict_mode=0");`.
 
 #### How do I change character sets and collation rules (CHARACTER SET, COLLATE)? {#character-collate}
 
-Follow the instructions in [Managing databases](../../managed-mysql/operations/databases.md#charset-collate).
+Follow the steps described in [Managing databases](../../managed-mysql/operations/databases.md#charset-collate).
 
 #### How do I configure other parameters? {#params}
 

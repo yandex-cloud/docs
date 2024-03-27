@@ -1,5 +1,3 @@
-# Connecting to a {{ PG }} cluster
-
 #### Is the cluster accessible from inside {{ yandex-cloud }}? {#conn-from-yc}
 
 You can connect to {{ mpg-short-name }} cluster hosts:
@@ -9,7 +7,7 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 For more information, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
-#### Can I connect to a cluster from a Docker container? {#conn-from-docker}
+#### Can I connect to the cluster from a Docker container? {#conn-from-docker}
 
 Yes, you can. To do this, [configure the Dockerfile](../../managed-postgresql/operations/connect.md#connection-docker).
 
@@ -42,7 +40,7 @@ For more information about obtaining a certificate and connecting to a database,
 
 1. [Place the obtained certificate in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
-#### What should I do if I get the "SSL is required" error? {#ssl-req}
+#### What do I do if I get the _SSL is required_ error? {#ssl-req}
 
 The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. You can:
 

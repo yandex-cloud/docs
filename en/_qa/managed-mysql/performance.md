@@ -1,13 +1,11 @@
-# Performance issues
-
-#### How do I find out the cause of performance degradation during peak hours? {#degradation-at-peak}
+#### How do I figure out the cause of performance degradation at peak loads? {#degradation-at-peak}
 
 Review the slow query log:
 1. In the [{{ MY }} cluster settings](../../managed-mysql/operations/update.md#change-mysql-config), set **Long query time** to a value greater than zero.
 1. In the [management console]({{ link-console-main }}), select the **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab on the cluster page.
 1. In the top-left corner, select `MYSQL_SLOW_QUERY` from the drop-down list.
 
-#### How do I find out the cause of general performance degradation? {#general-degradation}
+#### How do I figure out the cause of general performance degradation? {#general-degradation}
 
 Check host monitoring charts:
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
@@ -20,7 +18,7 @@ Check host monitoring charts:
 
 {% include [qa-replica-lagging](../../_includes/mdb/mmy/qa-replica-lagging.md) %}
 
-#### How do I find out why resources take a long time to load? {#long-load}
+#### How do I figure out why resources take long to load? {#long-load}
 
 Check host monitoring charts:
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
@@ -31,7 +29,7 @@ Check host monitoring charts:
 
 If the charts do not show overload in the cluster's resources, refer to the recommendations under [Locking mechanisms](#locks) and [Query optimization](#query-optimization).
 
-#### How do I find out the cause of CPU usage? {#high-cpu}
+#### How do I figure out why the CPU resource is utilized? {#high-cpu}
 
 You can retrieve information on the use of the CPU resource with the help of system views. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
@@ -51,7 +49,7 @@ You can retrieve information on the use of the CPU resource with the help of sys
 
 Note the queries with high `rows_examined`, `rows_sorted`, or the `full_scan` flag since it is highly likely that these are taking up CPU resources. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
-#### How do I find out the cause of IO usage? {#high-io}
+#### How do I figure out why the IO resource is utilized? {#high-io}
 
 Approximate IO usage by {{ MY }} threads is available from system views. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
@@ -85,7 +83,7 @@ Approximate IO usage by {{ MY }} threads is available from system views. To acce
 
 The threads supporting the buffer pool and replication are generally higher in the table. This is normal.
 
-#### How do I find out the cause of network load? {#high-network}
+#### How do I figure out why the network resource is utilized? {#high-network}
 
 High network load may result: from a `SELECT` that returns many rows, an `INSERT` of large amounts of data, or an `UPDATE` that modifies many records. In the event of a write operation, updates will copy over to the replicated hosts, which will create additional traffic.
 
@@ -124,7 +122,7 @@ Approximate network usage by {{ MY }} threads is available from system views. To
 
    This query returns statistics from the thread launch, so long-lived connections (such as those used for replication) will be closer to the top.
 
-#### How do I find out the cause of locks? {#locks}
+#### How do I figure out why locks are put in place? {#locks}
 
 If there is no unusual load on the cluster's resources, and queries still take too long to run, use system views to retrieve information on lock waits. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 

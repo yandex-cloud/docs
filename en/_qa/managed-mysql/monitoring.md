@@ -1,5 +1,3 @@
-# Monitoring and logs in {{ mmy-name }}
-
 #### How do I view cluster and host charts? {#charts}
 
 In the [management console]({{ link-console-main }}), go to the cluster page. To view [cluster charts](../../managed-mysql/operations/monitoring.md#monitoring-cluster), go to **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**. To find [individual host charts](../../managed-mysql/operations/monitoring.md#monitoring-hosts), go to **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
@@ -47,11 +45,11 @@ SHOW PROCESSLIST;
 
 For a detailed description of the output, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
 
-#### What other troubleshooting information is available? {#trouble-info}
+#### What other diagnostic information is available? {#trouble-info}
 
-A user with a `PROCESS` cluster-level [privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) can run the queries below:
-* `SHOW FULL PROCESSLIST;`
-* `SHOW ENGINE INNODB STATUS;`
+A user with the `PROCESS` cluster-level [privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) can run the following queries:
+* `SHOW FULL PROCESSLIST`
+* `SHOW ENGINE INNODB STATUS`
 * `SELECT` from the `performance_schema` and the `sys` system schemas.
 
 To grant a user the `PROCESS` privilege, run the [CLI](../../cli/) command below:
@@ -70,7 +68,7 @@ Use [{{ monitoring-full-name }}]({{ link-monitoring }}). For the setup guide, se
 When selecting a metric, set the `service` parameter to **{{ ui-key.yacloud_monitoring.services.label_mysql }}**.
 
 
-#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+#### How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up? {#disk-space-percentage}
 
 [Create an alert](../../managed-mysql/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mmy-name }} cluster.
 

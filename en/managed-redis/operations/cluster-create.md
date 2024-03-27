@@ -430,7 +430,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Three subnets in the `mynet` network, one in each availability zone:
       * `subnet-a` with the `10.1.0.0/24` range.
       * `subnet-b` with the `10.2.0.0/24` range.
-      * `subnet-c` with the `10.3.0.0/24` range.
+      * `subnet-d` with the `10.3.0.0/24` range.
    * Three `{{ host-class }}` hosts, one in each subnet.
    * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB
@@ -474,8 +474,8 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
 
      host {
-       zone       = "{{ region-id }}-c"
-       subnet_id  = yandex_vpc.subnet.subnet-c.id
+       zone       = "{{ region-id }}-d"
+       subnet_id  = yandex_vpc.subnet.subnet-d.id
        shard_name = "shard3"
      }
    }
@@ -496,9 +496,9 @@ If you specified security group IDs when creating a cluster, you may also need t
      v4_cidr_blocks = ["10.2.0.0/24"]
    }
 
-   resource "yandex_vpc_subnet" "subnet-c" {
-     name           = "subnet-c"
-     zone           = "{{ region-id }}-c"
+   resource "yandex_vpc_subnet" "subnet-d" {
+     name           = "subnet-d"
+     zone           = "{{ region-id }}-d"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.3.0.0/24"]
    }

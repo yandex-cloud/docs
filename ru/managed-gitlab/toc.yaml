@@ -21,6 +21,8 @@ items:
         href: operations/instance/instance-backups.md
       - name: Миграция из пользовательской инсталляции {{ GL }}
         href: operations/instance/migration.md
+      - name: Миграция из зоны доступности ru-central1-c
+        href: operations/instance/zone-migration.md
       - name: Очистка переполненного дискового пространства
         href: operations/instance/clean-up-disk-space.md
       - name: Удаление инстанса

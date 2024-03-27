@@ -94,7 +94,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       +----------------------+-----------+----------------------+---------------+-------------------+
       |          ID          |   NAME    |      NETWORK ID      |      ZONE     |      RANGE        |
       +----------------------+-----------+----------------------+---------------+-------------------+
-      | b0cl69q1w2e3******** | default-c | enp6rq71w2e3******** | {{ region-id }}-c | [172.16.**.**/20] |
+      | b0cl69q1w2e3******** | default-d | enp6rq71w2e3******** | {{ region-id }}-d | [172.16.**.**/20] |
       | e2lkj9q1w2e3******** | default-b | enp6rq71w2e3******** | {{ region-id }}-b | [10.10.**.**/16]  |
       | e9b0phq1w2e3******** | a-2       | enp6rq71w2e3******** | {{ region-id }}-a | [172.16.**.**/20] |
       | e9b9v2q1w2e3******** | default-a | enp6rq71w2e3******** | {{ region-id }}-a | [172.16.**.**/20] |

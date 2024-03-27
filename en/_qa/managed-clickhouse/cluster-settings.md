@@ -1,5 +1,3 @@
-# {{ CH }} cluster configuration
-
 
 #### How do I create a user to access a cluster from {{ datalens-name }} with read-only permissions? {#datalens-readonly}
 

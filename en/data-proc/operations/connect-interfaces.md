@@ -6,7 +6,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to use UI Proxy (this feature is at the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to use UI Proxy.
 
 {% endnote %}
 
@@ -40,8 +40,8 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
-   * `True` as the value for the `uiProxy` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
+   * `true` value in the `uiProxy` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `uiProxy`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

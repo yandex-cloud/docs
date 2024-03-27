@@ -1,5 +1,3 @@
-# Updating {{ MY }} clusters
-
 
 #### Can I manage a cluster using SQL commands? {#sql-control}
 

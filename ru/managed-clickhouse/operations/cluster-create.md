@@ -66,6 +66,8 @@ description: "Следуя данной инструкции, вы сможет�
       
       * Выберите [тип диска](../concepts/storage.md).
 
+        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
                 
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -186,6 +188,9 @@ description: "Следуя данной инструкции, вы сможет�
 
      
      * `--clickhouse-disk-type` — тип диска.
+
+       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
      * `--yandexquery-access` — доступ через {{ yq-full-name }}: `true` или `false`.
 
 

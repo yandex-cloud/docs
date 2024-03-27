@@ -25,7 +25,7 @@ items:
                 href: operations/zk-hosts.md
               - name: Managing {{ CH }} hosts
                 href: operations/hosts.md
-              - name: Migrating {{ CH }} hosts to a different availability zone
+              - name: Migrating hosts to a different availability zone
                 href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md

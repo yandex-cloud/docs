@@ -32,9 +32,17 @@
 
 Стандарт ISO/IEC 27018 выдвигает требования к защите ПДн при их обработке провайдерами облачных сервисов. В стандарте изложены практические рекомендации по обеспечению ИБ для защиты личной информации клиентов. Эти рекомендации дополняют требования базового стандарта — ISO/IEC 27001.
 
-[Сертификат ISO/IEC 27001/27017/27018](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27001_27017_27018_22_rus_full.pdf).
+Дополнительная информация доступна по ссылкам:
 
-[Сертификат ISO 27701](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27701_22_rus_full.pdf).
+
+* [Сертификат ISO 27001/27018](https://{{ s3-storage-host }}/yc-compliance/certificates/1-ISO-27001-27018-03-2024-part-1.pdf).
+* [Приложение к сертификату ISO 27001/27018](https://{{ s3-storage-host }}/yc-compliance/certificates/2-ISO-27001-27018-03-2024-part-2.pdf).
+* [Сертификат ISO 27017](https://{{ s3-storage-host }}/yc-compliance/certificates/3-ISO-27017-03-2024-part-1.pdf).
+* [Приложение к сертификату ISO 27017](https://{{ s3-storage-host }}/yc-compliance/certificates/4-ISO-27017-03-2024-part-2.pdf).
+* [Сертификат ISO 27701](https://{{ s3-storage-host }}/yc-compliance/certificates/ISO-27701-03-2024-part-1.pdf).
+* [Приложение к сертификату ISO 27701](https://{{ s3-storage-host }}/yc-compliance/certificates/ISO-27701-03-2024-part-2.pdf).
+
+
 
 
 ## PCI DSS {#pci-dss}

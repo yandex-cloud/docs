@@ -8,7 +8,7 @@ You can perform the following actions on {{ CH }} hosts:
 * [Restart a host](#restart).
 * [Remove a host](#remove-host).
 
-To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
+For information about moving {{ CH }} hosts to a different availability zone, see [this guide](host-migration.md#clickhouse-hosts).
 
 {% note warning %}
 
@@ -62,7 +62,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
+      | b0cl69... | default-d | enp6rq7... | {{ region-id }}-d | [172.16.0.0/20]  |
       | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
       | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
       | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |

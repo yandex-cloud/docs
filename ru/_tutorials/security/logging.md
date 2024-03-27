@@ -2,7 +2,7 @@
 
 Вы можете записывать [логи](../../application-load-balancer/concepts/application-load-balancer.md#logging) балансировщика — сообщения с информацией о каждом входящем запросе к балансировщику {{ alb-full-name }} — в базу данных {{ PG }}.
 
-Для логирования работы балансировщика будет создана [лог-группа](../../logging/concepts/log-group.md) в {{ cloud-logging-name }}. Поставка логов из этой лог-группы в БД будет настроена с помощью ресурсов сервиса {{ sf-full-name }} — [триггера](../../functions/concepts/trigger/cloudlogs-trigger.md) и вызываемой им [функции](../../functions/concepts/function.md).
+Для логирования работы балансировщика будет создана [лог-группа](../../logging/concepts/log-group.md) в {{ cloud-logging-name }}. Поставка логов из этой лог-группы в БД будет настроена с помощью ресурсов сервиса {{ sf-full-name }} — [триггера](../../functions/concepts/trigger/cloud-logging-trigger.md) и вызываемой им [функции](../../functions/concepts/function.md).
 
 БД будет создана с помощью сервиса [{{ mpg-full-name }}](../../managed-postgresql/index.yaml).
 

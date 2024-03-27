@@ -1,6 +1,6 @@
 There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ mkf-name }} _target cluster_:
 
-* [Using the built-in {{ mkf-full-name }} MirrorMaker connector](#kf-connnector).
+* [Using the built-in {{ mkf-full-name }} MirrorMaker connector](#kf-connector).
 
    This method is easy to configure and does not require you to create an intermediate VM.
 
@@ -8,9 +8,11 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 
    To use this method, first install and configure the utility on an intermediate VM. Use this method only if it is not possible to migrate data using the built-in MirrorMaker connector for whatever reason.
 
+Both methods are also suitable for [migrating](../../managed-kafka/operations/host-migration.md#one-host) a {{ mkf-name }} cluster with one host to a different availability zone.
+
 ## Data migration using {{ mkf-full-name }} Connector {#kf-connector}
 
-1. [Create a connector](#create-connector).
+1. [Create a connector](#create-cluster-connector).
 1. [Check the target cluster topic for data](#check-data-mkf-connector).
 
 ### Create a cluster and a connector {#create-cluster-connector}
@@ -68,7 +70,7 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
       * Source cluster broker host FQDNs.
       * Source and target cluster aliases.
       * Filter template for the topics to be transferred.
-      * {{ KF }} version (2.8 or lower).
+      * {{ KF }} version.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -84,7 +86,7 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-   Once created, the connector is automatically activated and data migration begins.
+Once created, the connector is automatically activated and data migration begins.
 
 {% endlist %}
 

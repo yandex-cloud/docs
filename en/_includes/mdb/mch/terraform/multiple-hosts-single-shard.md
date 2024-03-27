@@ -29,8 +29,8 @@ resource "yandex_mdb_clickhouse_cluster" "mych" {
 
   host {
     type      = "CLICKHOUSE"
-    zone      = "{{ region-id }}-c"
-    subnet_id = yandex_vpc_subnet.cluster-subnet-c.id
+    zone      = "{{ region-id }}-d"
+    subnet_id = yandex_vpc_subnet.cluster-subnet-d.id
   }
 
   zookeeper {
@@ -55,8 +55,8 @@ resource "yandex_mdb_clickhouse_cluster" "mych" {
 
   host {
     type      = "ZOOKEEPER"
-    zone      = "{{ region-id }}-c"
-    subnet_id = yandex_vpc_subnet.cluster-subnet-c.id
+    zone      = "{{ region-id }}-d"
+    subnet_id = yandex_vpc_subnet.cluster-subnet-d.id
   }
 
   database {

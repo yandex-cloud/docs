@@ -7,7 +7,7 @@
 ## Добавление провайдера аутентификации {#add-provider}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.gitlab.title_omniauth }}**.
+1. Нажмите на имя нужного инстанса и выберите вкладку **{{ ui-key.yacloud.gitlab.title_omniauth }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.
 1. Выберите тип и укажите [параметры провайдера аутентификации](#params).

@@ -1,5 +1,3 @@
-# Monitoring and logs in {{ mpg-name }}
-
 #### Where can I track my use of disk space to avoid exceeding the 95% read-only limit? {#disk-space}
 
 You can track your disk space:
@@ -18,9 +16,9 @@ Cluster log storage is free of charge.
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
 
-#### What is WAL and what is it used for? {#wal}
+#### What are WALs and what are they used for? {#wal}
 
-[Write-Ahead Logs](https://postgrespro.com/docs/postgresql/12/wal-intro) are required for data writes to disk and for data replication. These are created by write requests and take up disk space until log data is written out to host disks, making DBMS reliable and failure-tolerant.
+[Write-Ahead Logs](https://postgrespro.com/docs/postgresql/12/wal-intro) are required for data writes to disk and for data replication. These are created by write requests and take up disk space until log data is written out to host disks, making DBMS's reliable and failure-tolerant.
 
 For more information about {{ PG }}, see the [official documentation](https://postgrespro.com/docs/postgresql/12).
 
@@ -38,7 +36,7 @@ For more information about caching disk data in Linux, see the [documentation](h
 Use [{{ monitoring-full-name }}]({{ link-monitoring }}) and [set up alerts](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for the parameters critical for you.
 
 
-#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
+#### How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up? {#disk-space-percentage}
 
 [Create an alert](../../managed-postgresql/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mpg-name }} cluster.
 

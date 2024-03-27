@@ -1,6 +1,4 @@
-# {{ PG }} cluster configuration
-
-#### Is the autovacuum setting enabled for all tables by default? {#autovacuum}
+#### Is `autovacuum` enabled for all tables by default? {#autovacuum}
 
 Yes, `AUTOVACUUM` is enabled for all tables by default.
 

@@ -1,8 +1,12 @@
 # Managing {{ ZK }} hosts
 
-Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer data replication. To make such shards fault-tolerant, increase the number of hosts in them by one or more. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](hosts.md#add-host) to the appropriate shard. Otherwise, you must first enable fault tolerance and only then will you be able to add {{ CH }} hosts.
+Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer [data replication](../concepts/replication.md). To make such shards fault-tolerant, add more hosts to them. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](hosts.md#add-host) to the appropriate shard. Otherwise, you must first enable fault tolerance and only then will you be able to add {{ CH }} hosts.
 
-For more information, see [Sharding](../concepts/sharding.md).
+{% note warning %}
+
+If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are created, you cannot delete all these hosts because there are always at least three {{ ZK }} hosts in the cluster.
+
+{% endnote %}
 
 You can perform the following actions on {{ ZK }} hosts in fault-tolerant clusters:
 
@@ -14,13 +18,7 @@ You can perform the following actions on {{ ZK }} hosts in fault-tolerant cluste
 
 A fault-tolerant cluster can contain a total of three to five {{ ZK }} hosts.
 
-{% note warning %}
-
-If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are created, you can't delete all these hosts because there are always at least 3 {{ ZK }} hosts in the cluster.
-
-{% endnote %}
-
-To learn more, see [Replication](../concepts/replication.md).
+For information about moving {{ ZK }} hosts to a different availability zone, see [this guide](host-migration.md#zookeeper-hosts).
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -57,7 +55,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
       ```bash
       {{ yc-mdb-ch }} cluster add-zookeeper <cluster_name> \
-         --host zone-id={{ region-id }}-c,subnet-name=default-c \
+         --host zone-id={{ region-id }}-d,subnet-name=default-d \
          --host zone-id={{ region-id }}-a,subnet-name=default-a \
          --host zone-id={{ region-id }}-b,subnet-name=default-b
       ```
@@ -78,25 +76,25 @@ To learn more, see [Replication](../concepts/replication.md).
         name = "<network_name>"
       }
 
-      resource "yandex_vpc_subnet" "<name_of_subnet_in_availability_zone_{{ region-id }}-a>" {
-        name           = "<name_of_subnet_in_availability_zone_{{ region-id }}-a>"
+      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-a_zone>" {
+        name           = "<subnet_name_in_the_{{ region-id }}-a_zone>"
         zone           = "{{ region-id }}-a"
         network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<IP_range_of_subnet_in_availability_zone_{{ region-id }}-a>" ]
+        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-a_zone>" ]
       }
 
-      resource "yandex_vpc_subnet" "<name_of_subnet_in_availability_zone_{{ region-id }}-b>" {
-        name           = "<name_of_subnet_in_availability_zone_{{ region-id }}-b>"
+      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-b_zone>" {
+        name           = "<subnet_name_in_the_{{ region-id }}-b_zone>"
         zone           = "{{ region-id }}-b"
         network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<IP_range_of_subnet_in_availability_zone_{{ region-id }}-b>" ]
+        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-b_zone>" ]
       }
 
-      resource "yandex_vpc_subnet" "<name_of_subnet_in_availability_zone_{{ region-id }}-c>" {
-        name           = "<name_of_subnet_in_availability_zone_{{ region-id }}-c>"
-        zone           = "{{ region-id }}-c"
+      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-d_zone>" {
+        name           = "<subnet_name_in_the_{{ region-id }}-d_zone>"
+        zone           = "{{ region-id }}-d"
         network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<IP_range_of_subnet_in_availability_zone_{{ region-id }}-c>" ]
+        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-d_zone>" ]
       }
       ```
 
@@ -153,17 +151,17 @@ To learn more, see [Replication](../concepts/replication.md).
         host {
           type      = "ZOOKEEPER"
           zone      = "{{ region-id }}-a"
-          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-a>.id
+          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-a_zone>.id
         }
         host {
           type      = "ZOOKEEPER"
           zone      = "{{ region-id }}-b"
-          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-b>.id
+          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-b_zone>.id
         }
         host {
           type      = "ZOOKEEPER"
-          zone      = "{{ region-id }}-c"
-          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-c>.id
+          zone      = "{{ region-id }}-d"
+          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-d_zone>.id
         }
       }
       ```

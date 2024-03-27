@@ -709,7 +709,7 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********/etnudu2n9ri3********
     cli: ydb
-    docs: https://ydb.tech/ru/docs/
+    docs: https://ydb.tech/docs/ru/
     document-api-endpoint: https://docapi.serverless.yandexcloud.net
     ep-dedicated: grpcs://lb.etnk1u65e4sh********.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
@@ -4930,7 +4930,10 @@ default:
       gitlab:
         action_create-backup: Создать резервную копию
         button_create-instance: Создать инстанс
+        button_finish-migration: Завершить миграцию
+        button_rollback-migration: Отменить миграцию
         button_setup-omniauth: Настроить
+        button_start-migration: Перенести инстанс
         field_admin-email: Электронная почта
         field_admin-login: Логин
         field_approval-rules: Правила ревью кода
@@ -4939,6 +4942,7 @@ default:
         label_admin-section: Данные администратора
         label_configuration-section: Конфигурация
         title_backups: Резервные копии
+        title_migration: Миграция
         title_omniauth: OmniAuth
       gpu-cluster:
         label_title: Кластеры GPU

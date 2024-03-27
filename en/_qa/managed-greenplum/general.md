@@ -1,5 +1,3 @@
-# General questions about {{ mgp-name }}
-
 #### What is {{ mgp-short-name }}? {#what-is}
 
 {{ mgp-short-name }} is a service that helps you create, operate, and scale {{ GP }} databases in a cloud infrastructure.
@@ -17,7 +15,7 @@ With {{ mgp-short-name }}, you can:
 * Provides fault tolerance through automatic failover to backup replicas.
 * Keeps database software updated.
 
-You interact with database clusters in {{ mgp-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with database clusters in {{ mgp-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
 
 #### What part of database management and maintenance is {{ mgp-short-name }} responsible for? {#services}
 
@@ -27,12 +25,12 @@ For the created and running databases, {{ mgp-short-name }} automatically create
 
 {{ mgp-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### Which tasks should I use {{ mgp-short-name }} for and for which VMs with databases? {#mdb-advantage}
+#### Which tasks are best addressed using {{ mgp-short-name }}, and which using VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
 * {{ mgp-short-name }} allows you to operate template databases with no need to worry about administration.
-* {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+* {{ compute-full-name }} virtual machines allow you to create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### How do I get started with {{ mgp-short-name }}? {#quickstart}
 

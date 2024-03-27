@@ -546,9 +546,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * `{{ host-class }}` public hosts: 3
 
       One host will be added to each subnet of the `default` network:
-      * `subnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
-      * `subnet-b`: `10.6.0.0/24`, the `{{ region-id }}-b` availability zone.
-      * `subnet-c`: `10.7.0.0/24`, the `{{ region-id }}-c` availability zone.
+      * `subnet-a`: `10.5.0.0/24`, availability zone: `{{ region-id }}-a`.
+      * `subnet-b`: `10.6.0.0/24`, availability zone: `{{ region-id }}-b`.
+      * `subnet-d`: `10.7.0.0/24`, availability zone: `{{ region-id }}-d`.
 
       The host residing in `subnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
 
@@ -574,8 +574,8 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
                `subnet-name=subnet-b,`
                `backup-priority=10,`
                `assign-public-ip=true \
-        --host zone-id={{ region-id }}-c,`
-               `subnet-name=subnet-c,`
+        --host zone-id={{ region-id }}-d,`
+               `subnet-name=subnet-d,`
                `assign-public-ip=true \
         --resource-preset {{ host-class }} \
         --disk-type {{ disk-type-example }} \
@@ -607,9 +607,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * `{{ host-class }}` public hosts: 3
 
       One host will be added to the new subnets:
-      * `mysubnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
-      * `mysubnet-b`: `10.6.0.0/24`, the `{{ region-id }}-b` availability zone.
-      * `mysubnet-c`: `10.7.0.0/24`, the `{{ region-id }}-c` availability zone.
+      * `mysubnet-a`: `10.5.0.0/24`, availability zone: `{{ region-id }}-a`.
+      * `mysubnet-b`: `10.6.0.0/24`, availability zone: `{{ region-id }}-b`.
+      * `mysubnet-d`: `10.7.0.0/24`, availability zone: `{{ region-id }}-d`.
 
       These subnets will belong to the `mynet` network.
 
@@ -655,8 +655,8 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
      }
 
      host {
-       zone             = "{{ region-id }}-c"
-       subnet_id        = yandex_vpc_subnet.mysubnet-c.id
+       zone             = "{{ region-id }}-d"
+       subnet_id        = yandex_vpc_subnet.mysubnet-d.id
        assign_public_ip = true
      }
    }
@@ -706,9 +706,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
      v4_cidr_blocks   = ["10.6.0.0/24"]
    }
 
-   resource "yandex_vpc_subnet" "mysubnet-c" {
-     name             = "mysubnet-c"
-     zone             = "{{ region-id }}-c"
+   resource "yandex_vpc_subnet" "mysubnet-d" {
+     name             = "mysubnet-d"
+     zone             = "{{ region-id }}-d"
      network_id       = yandex_vpc_network.mynet.id
      v4_cidr_blocks   = ["10.7.0.0/24"]
    }

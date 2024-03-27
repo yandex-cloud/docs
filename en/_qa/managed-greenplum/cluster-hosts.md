@@ -1,5 +1,3 @@
-# {{ mgp-short-name }} clusters and hosts
-
 #### What is a database host and database cluster? {#what-is-cluster}
 
 A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
@@ -21,7 +19,7 @@ For more information, see [{#T}](../../managed-greenplum/concepts/limits.md).
 
 MDB technical and organizational limits are given in [{#T}](../../managed-greenplum/concepts/limits.md).
 
-#### How do I maintain database clusters? {#service-window}
+#### How are DB clusters maintained? {#service-window}
 
 Maintenance in {{ mgp-short-name }} implies:
 
@@ -32,7 +30,7 @@ Maintenance in {{ mgp-short-name }} implies:
 For more information, see [{#T}](../../managed-greenplum/concepts/maintenance.md).
 
 
-#### How is the cost of usage calculated for a database host? {#db-cost}
+#### How is usage cost calculated for a database host? {#db-cost}
 
 In {{ mgp-short-name }}, the usage cost is calculated based on the following parameters:
 

@@ -17,9 +17,9 @@ resource "yandex_vpc_subnet" "cluster-subnet-b" {
   v4_cidr_blocks = ["172.16.2.0/24"]
 }
 
-resource "yandex_vpc_subnet" "cluster-subnet-c" {
-  name           = "cluster-subnet-{{ region-id }}-c"
-  zone           = "{{ region-id }}-c"
+resource "yandex_vpc_subnet" "cluster-subnet-d" {
+  name           = "cluster-subnet-{{ region-id }}-d"
+  zone           = "{{ region-id }}-d"
   network_id     = yandex_vpc_network.cluster-net.id
   v4_cidr_blocks = ["172.16.3.0/24"]
 }
