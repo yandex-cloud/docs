@@ -5864,12 +5864,15 @@ default:
         label_containers: Containers
         label_edit-active-revision: Make active
         label_editor: Editor
+        label_environment: Environment variables
         label_image-url: Image URL
+        label_service-account: Service account
         label_timeout: Timeout, s
         label_url: Link to invoke
         popup-confirm-edit-active-revision_button_confirm: Confirm
         section_image: Image settings
         section_parameters: Settings
+        section_resources: Resources
         section-revisions: Revisions
       serverless-functions:
         create:

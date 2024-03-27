@@ -473,10 +473,16 @@ items:
                 href: function-ref/markup-functions.md
               - name: BOLD
                 href: function-ref/BOLD.md
+              - name: BR
+                href: function-ref/BR.md
+              - name: COLOR
+                href: function-ref/COLOR.md
               - name: ITALIC
                 href: function-ref/ITALIC.md
               - name: MARKUP
                 href: function-ref/MARKUP.md
+              - name: SIZE
+                href: function-ref/SIZE.md
               - name: URL
                 href: function-ref/URL.md
           - name: Time series functions

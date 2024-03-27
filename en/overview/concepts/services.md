@@ -64,7 +64,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ search-api-full-name }}](../../search-api/index.yaml) | Service for making search queries |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications |
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification |
-| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | {{ preview-stage }} Service for protection against DDoS attacks at the OSI model L7 application level |
+| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Service for protection against DDoS attacks at the OSI model L7 application level |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technologies |
 | [{{ speechsense-full-name }}](../../speechsense/index.yaml) | {{ preview-stage }} Speech analytics service for analyzing voice and text communication channels |
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for business collaboration and workflows |

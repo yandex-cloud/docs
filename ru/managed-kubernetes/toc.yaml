@@ -61,6 +61,8 @@ items:
             href: operations/applications/hashicorp-vault.md
           - name: Установка Ingress-контроллера {{ alb-name }}
             href: operations/applications/alb-ingress-controller.md
+          - name: Обновление Ingress-контроллера {{ alb-name }}
+            href: operations/applications/upgrade-alb-ingress-controller.md
           - name: Установка Istio
             href: operations/applications/istio.md
           - name: Установка Jaeger

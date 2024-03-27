@@ -48,6 +48,9 @@ spec:
 
 ```yaml
 name: <string>
+annotations:
+  ingress.alb.yc.io/protocol: <string>
+  ingress.alb.yc.io/transport-security: <string>
 ```
 
 #|
@@ -55,7 +58,33 @@ name: <string>
 || `name`        | `string`             | **Обязательное**
                                           [Имя ресурса](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names)
                                           Не соответствует имени балансировщика в Application Load Balancer ||
+|| `annotations` | `map[string]string`  | **Обязательное**
+                                          [Аннотации ресурса](#annotations) ||
 |#
+
+### Аннотации (metadata.annotations) {#annotations}
+
+Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+
+Для объекта `ObjectMeta` можно передать следующие аннотации:
+
+* **ingress.alb.yc.io/protocol** {#annot-protocol}
+
+  Протокол соединений между балансировщиком и бэкендами, описанными в `Ingress`:
+
+  * `http` — HTTP/1.1. Значение по умолчанию.
+  * `http2` — HTTP/2.
+  * `grpc` — gRPC.
+
+* **ingress.alb.yc.io/transport-security** {#annot-transport-security}
+
+  Протокол шифрования соединений между балансировщиком и бэкендами, указанными в `Ingress` напрямую (без `HttpBackendGroup`).
+
+  Допустимое значение: `tls` — TLS без проверки сертификата.
+
+  Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
+
+  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (см. [справочник ресурса](../../../application-load-balancer/k8s-ref/http-backend-group.md)).
 
 ## ServiceSpec {#servicespec}
 

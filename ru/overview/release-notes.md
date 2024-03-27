@@ -2,6 +2,10 @@
 
 Историю изменений в сервисах и инструментах {{ yandex-cloud }} вы можете посмотреть в документации по ссылкам ниже.
 
+### Инфраструктура и сеть {#infra}
+
+* [{{ alb-full-name }}](../application-load-balancer/release-notes.md)
+
 ## Платформа данных {#data-platform}
 
 * [{{ dataproc-full-name }}](../data-proc/release-notes/index.md)

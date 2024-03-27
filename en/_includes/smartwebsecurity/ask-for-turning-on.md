@@ -1,1 +1,0 @@
-To enable {{ sws-name }}, submit a request on the [service page]({{ link-cloud-services }}/smartwebsecurity) or in the [management console]({{ link-console-main }}) by selecting **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}** in the service list.

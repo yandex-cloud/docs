@@ -5867,12 +5867,15 @@ default:
         label_containers: Контейнеры
         label_edit-active-revision: Сделать активной
         label_editor: Редактор
+        label_environment: Переменные окружения
         label_image-url: URL образа
+        label_service-account: Сервисный аккаунт
         label_timeout: Таймаут, с
         label_url: Ссылка для вызова
         popup-confirm-edit-active-revision_button_confirm: Подтвердить
         section_image: Параметры образа
         section_parameters: Настройки
+        section_resources: Ресурсы
         section-revisions: Ревизии
       serverless-functions:
         create:

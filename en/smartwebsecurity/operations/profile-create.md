@@ -1,7 +1,5 @@
 # Creating a security profile
 
-{% include [ask-for-turning-on](../../_includes/smartwebsecurity/ask-for-turning-on.md) %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

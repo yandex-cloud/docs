@@ -88,6 +88,9 @@ links:
   - title: Key Management Service
     description: Управление ключами шифрования
     href: kms/
+  - title: Yandex Load Testing
+    description: Нагрузочное тестирование сервисов и приложений
+    href: load-testing/
   - title: Yandex Lockbox
     description: Создание и хранение секретов
     href: lockbox/
