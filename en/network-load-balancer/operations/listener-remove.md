@@ -34,7 +34,7 @@ description: "Follow this guide to delete a listener."
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -65,7 +65,7 @@ description: "Follow this guide to delete a listener."
 
 - API {#api}
 
-   To remove a network load balancer's listener, use the [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../api-ref/grpc/network_load_balancer_service.md#RemoveListener) gRPC API call and provide the following in the request:
+   To remove a network load balancer's listener, use the [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../api-ref/grpc/network_load_balancer_service.md#RemoveListener) gRPC API call, and provide the following in the request:
 
    * Load balancer ID in the `networkLoadBalancerId` parameter.
    * Listener name in the `listenerName` parameter.

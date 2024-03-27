@@ -1,0 +1,43 @@
+Чтобы создать платежный аккаунт:
+
+1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+
+1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html) и в сервисе [{{org-full-name}}]({{link-org-main}}) создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
+
+1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** нажмите кнопку **Создать платёжный аккаунт**. Заполните данные:
+  
+   * {% include [choose-name-step](../../billing/_includes/choose-name-step.md) %}
+   * {% include [choose-org-step](../../billing/_includes/choose-org-step.md) %}
+   * {% include [choose-country-step](../../billing/_includes/choose-country-step.md) %}
+  
+     {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+
+1. Если в блоке **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-id }}** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового. Чтобы добавить плательщика:
+  
+   * Выберите тип плательщика: **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-invididual }}** и нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+   * Укажите ваше имя и фамилию.
+   * (Опционально) Укажите отчество и почтовый адрес.
+   * Нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+  
+   {% include [pin-card-data](pin-card-data.md) %}
+  
+   {% include [payment-card-types](payment-card-types.md) %}
+  
+   {% include [payment-card-validation](payment-card-validation.md) %}
+
+1. Укажите актуальные почту и телефон. Контактные данные нужны не только для связи с вами, но и для выставления счетов и финансовых документов. Если вы уже зарегистрированы в {{ yandex-cloud }}, проверьте правильность контактных данных.
+
+1. Если это ваш первый платежный аккаунт в {{ yandex-cloud }}, вам доступно подключение пробного периода.
+
+   
+   {% note info %}
+
+   В некоторых случаях при создании платежного аккаунта с пробным периодом может потребоваться дополнительная верификация. Сообщение с подробной инструкцией появится на странице этого платежного аккаунта в сервисе {{ billing-name }}.
+
+   {% endnote %}
+
+  
+   * Подключая пробный период, помните, что после его завершения ваши ресурсы будут приостановлены. Для возобновления работы потребуется перейти на [платную версию](../../billing/operations/activate-commercial.md).
+   * Если не подключать пробный период на данном этапе, ваш аккаунт будет создан с платным потреблением: после [использования стартового гранта](../../getting-started/usage-grant.md) вам не придется переходить на платную версию.
+
+1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.

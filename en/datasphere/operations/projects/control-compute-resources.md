@@ -5,19 +5,13 @@ description: "Follow this guide to configure your computing resources."
 
 # Selecting computing resources
 
-{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
-
-{% include [include](../../../_includes/datasphere/ui-control-compute-resources-intro.md) %}
-
-## Getting started {#before-begin}
+When you run the first computations, you can select a [configuration](../../concepts/configurations.md) for a notebook from the list of configurations available in the project. You will see utilization rates for every type of VM configurations. The VMs marked green can start immediately once selected. The configurations marked yellow require additional preparation. The start time of such VMs will be longer. The configurations marked red are busy at the moment. They may take indefinite time to allocate, because another user must release the VM first.
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Change the configuration {#config}
 
-The configuration prefix corresponds to the [name of the computing resource configuration](../../concepts/configurations.md). The default configuration is c1.4 (4 vCPUs, 0 GPU).
-
-{% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
+You cannot change the configuration of computing resources while preserving the interpreter status. However, you can add another configuration to a project and run computations again.
 
 #### What's next {#what-is-next}
 

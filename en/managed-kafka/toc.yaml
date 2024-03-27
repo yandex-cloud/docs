@@ -21,6 +21,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing {{ KF }} hosts
             href: operations/cluster-hosts.md
+          - name: Migrating hosts to a different availability zone
+            href: operations/host-migration.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Topics
@@ -29,9 +31,9 @@ items:
             href: operations/connect.md
           - name: Working with topics and partitions
             href: operations/cluster-topics.md
-      - name: Managing {{ KF }} users
+      - name: Managing users
         href: operations/cluster-accounts.md
-      - name: Managing {{ KF }} connectors
+      - name: Managing connectors
         href: operations/cluster-connector.md
       - name: Logs and monitoring
         items:
@@ -251,7 +253,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md

@@ -9,7 +9,7 @@ description: "This page contains {{ yagpt-full-name }} release notes."
 
 ### Release on 26/01/2024 {#260124}
 
-Updated the {{ yagpt-name }} and {{ yagpt-name }} Lite [models](concepts/models.md) and improved their response performance.
+Updated the {{ yagpt-name }} and {{ gpt-lite }} [models](concepts/models.md) and improved their response performance.
 
 ## Previous versions {#previous}
 

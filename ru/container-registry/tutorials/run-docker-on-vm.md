@@ -18,14 +18,12 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
 * Плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы {{ cos-full-name }}](../../cos/pricing.md)).
-
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы {{ cos-name }}](../../cos/pricing.md)).
 
 ### Настройте окружение {#prepare}
 
@@ -143,11 +141,7 @@
           * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
           * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
           * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
-
-          
           * (Опционально) Выберите опцию [защиты от DDoS-атак](../../vpc/ddos-protection/).
-
-
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
@@ -185,9 +179,9 @@
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
         |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-        | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.130.0.0/24] |
-        | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.129.0.0/24] |
-        | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.128.0.0/24] |
+        | b0c6n43f9lgh******** | default-{{ region-id }}-d | enpe3m3fa00u******** |                | {{ region-id }}-d | [10.130.0.0/24] |
+        | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+        | e9bnlm18l70a******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.128.0.0/24] |
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
         ```
 
@@ -226,11 +220,7 @@
      Создайте ВМ с помощью метода [Create](../../compute/api-ref/Instance/create.md) для ресурса `Instance`:
      1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
      1. Получите [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
-
-        
         * [Инструкция](../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
-
-
         * [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
      1. [Получите идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
      1. Получите информацию об образе, из которого надо создать ВМ (идентификатор образа и минимальный размер диска):
@@ -359,7 +349,6 @@
 
    {% list tabs group=registry_auth %}
 
-   
    - С помощью OAuth-токена {#oauth-token}
 
      1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
@@ -375,8 +364,7 @@
         Login Succeeded
         ```
 
-
-   - С помощью IAM-токена {#iam-token}
+   - С помощью {{ iam-full-name }}-токена {#iam-token}
 
      {% note info %}
 
@@ -384,7 +372,7 @@
 
      {% endnote %}
 
-     1. [Получите](../../iam/operations/iam-token/create.md) IAM-токен.
+     1. [Получите](../../iam/operations/iam-token/create.md) {{ iam-name }}-токен.
      1. Выполните команду:
 
         ```bash

@@ -25,6 +25,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
 
 
 
+## [BR](BR.md)
+
+**Синтаксис:**`BR()`
+
+Добавляет перенос строки.
+
+
+
+## [COLOR](COLOR.md)
+
+**Синтаксис:**`COLOR( text, color )`
+
+Позволяет указать цвет для переданного текста.
+
+
+
 ## [ITALIC](ITALIC.md)
 
 **Синтаксис:**`ITALIC( text )`
@@ -38,6 +54,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
 **Синтаксис:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
 
 Объединяет размеченный текст. Также может быть использован для конвертации обычных строк в размеченный текст.
+
+
+
+## [SIZE](SIZE.md)
+
+**Синтаксис:**`SIZE( text, size )`
+
+Позволяет указать размер в пикселях для переданного текста.
 
 
 

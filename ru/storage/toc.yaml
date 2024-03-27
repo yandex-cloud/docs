@@ -27,7 +27,7 @@ items:
             href: operations/buckets/edit-acl.md
           - name: Управление политикой доступа
             href: operations/buckets/policy.md
-          - name: Открытие публичного доступа к бакету
+          - name: Настройка публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
           - name: Управление версионированием бакета
             href: operations/buckets/versioning.md
@@ -249,7 +249,7 @@ items:
             href: pricing-archive/pricing-01032019.md
   - name: Справочник YC CLI
     href: ../cli/cli-ref/managed-services/storage/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:

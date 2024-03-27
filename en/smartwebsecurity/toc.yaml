@@ -1,6 +1,5 @@
 title: Yandex Smart Web Security
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md
@@ -50,6 +49,6 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
 base: en/smartwebsecurity

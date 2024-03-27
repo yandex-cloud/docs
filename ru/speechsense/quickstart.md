@@ -8,7 +8,7 @@
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы. О том, как начать работать с {{ yandex-cloud }}, см. в документе [Начало работы с {{ yandex-cloud }}](../getting-started/).
 1. Примите пользовательское соглашение.
-1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. В сервисе [{{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту назначена роль `speech-sense.spaces.creator`.
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Выберите организацию, в которой вы будете работать с {{ speechsense-name }}, или [создайте](../organization/operations/enable-org.md) новую.

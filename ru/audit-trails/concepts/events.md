@@ -1,6 +1,6 @@
 # Справочник событий уровня конфигурации
 
-Значение поля `event_type` (_тип события_) аудитного лога уровня конфигурации (Control Plane) определяется сервисом-источником события.
+Значение поля `event_type` (_тип события_) аудитного лога уровня конфигурации определяется сервисом-источником события.
 
 Общий вид значения:
 
@@ -20,6 +20,7 @@
 * [{{ backup-name }}](#backup)
 * [{{ cdn-name }}](#cdn)
 * [{{ cloud-logging-name }}](#cloud-logging)
+* [{{ marketplace-name }}](#marketplace)
 * [{{ compute-name }}](#compute)
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
@@ -112,6 +113,8 @@
 --- | ---
 `CreateCloudApplication` | Создание приложения
 `DeleteCloudApplication` | Удаление приложения
+`SetApplicationAccessBindings` | Назначение привязок прав доступа для приложения
+`UpdateApplicationAccessBindings` | Изменение привязок прав доступа для приложения
 `UpdateCloudApplication` | Изменение приложения
 
 ## {{ dns-name }} {#dns}
@@ -126,6 +129,12 @@
 
 {% include [logging-events](../../_includes/audit-trails/events/logging-events.md) %}
 
+
+## {{ marketplace-name }} {#marketplace}
+
+Имя сервиса — `marketplace.licensemanager`.
+
+{% include [marketplace-events](../../_includes/audit-trails/events/marketplace-events.md) %}
 
 ## {{ compute-name }} {#compute}
 

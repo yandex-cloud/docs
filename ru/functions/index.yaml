@@ -1,4 +1,4 @@
-title: '{{ sf-name }}'
+title: '{{ sf-full-name }}'
 description:
   - >-
     Сервис {{ sf-name }} позволяет запускать приложения в безопасном,

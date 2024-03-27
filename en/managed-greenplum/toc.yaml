@@ -31,12 +31,8 @@ items:
             href: operations/cluster-backups.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Databases
-        items:
-          - name: Connecting to a database
-            href: operations/connect.md
-          - name: Using external tables
-            href: operations/external-tables.md
+      - name: Connecting to a database
+        href: operations/connect.md
       - name: Users and sessions
         items:
           - name: Managing roles and users
@@ -49,6 +45,24 @@ items:
             href: operations/command-center.md
           - name: Managing client processes and user sessions
             href: operations/cluster-process.md
+      - name: Working with PXF
+        items:
+          - name: Overview
+            href: operations/external-tables.md
+          - name: Creating external data sources
+            items:
+              - name: S3
+                href: operations/pxf/create-s3-source.md
+              - name: JDBC
+                href: operations/pxf/create-jdbc-source.md
+              - name: HDFS
+                href: operations/pxf/create-hdfs-source.md
+              - name: Hive
+                href: operations/pxf/create-hive-source.md
+          - name: Creating an external table
+            href: operations/pxf/create-table.md
+      - name: Connecting to an external file server (gpfdist)
+        href: operations/gpfdist/connect.md
       - name: '{{ GP }} extensions'
         items:
           - name: Managing extensions
@@ -117,6 +131,8 @@ items:
         href: concepts/user-authentication.md
       - name: Command center
         href: concepts/command-center.md
+      - name: External tables
+        href: concepts/external-tables.md
       - name: Managing connections
         href: concepts/pooling.md
       - name: Maintenance
@@ -245,7 +261,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md

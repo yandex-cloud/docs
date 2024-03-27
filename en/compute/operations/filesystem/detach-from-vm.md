@@ -53,7 +53,6 @@ description: "Follow this guide to detach file storage from a VM."
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
       Set the `allow_stopping_for_update` parameter to `true` on your VM, if you have not done it yet.
-
       1. Open the {{ TF }} configuration file and delete the fragment with the storage description:
 
          {% cut "Sample storage description in the VM configuration in {{ TF }}" %}
@@ -76,9 +75,9 @@ description: "Follow this guide to detach file storage from a VM."
 
       1. Apply the changes:
 
-         {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check that the storage has been detached from the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check that the storage has been detached from the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc compute instance get <VM_name>

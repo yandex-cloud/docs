@@ -220,6 +220,7 @@ description: "Вы можете подключить виджет {{ captcha-nam
     | 'challenge-visible'
     | 'challenge-hidden'
     | 'network-error'
+    | 'javascript-error'
     | 'success'
     | 'token-expired';
     ```
@@ -231,6 +232,7 @@ description: "Вы можете подключить виджет {{ captcha-nam
     | `challenge-visible` | Открытие всплывающего окна с заданием        | `() => void`              |
     | `challenge-hidden`  | Закрытие всплывающего окна с заданием        | `() => void`              |
     | `network-error`     | Возникла сетевая ошибка                      | `() => void`              |
+    | `javascript-error`  | Возникла критическая ошибка JS | `(error: { filename: string, message: string,`<br>`col: number, line: number }) => void`|
     | `success`           | Успешная валидация пользователя              | `(token: string) => void` |
     | `token-expired`     | Токен прохождения проверки стал невалидным | `() => void`              |
 
@@ -239,6 +241,8 @@ description: "Вы можете подключить виджет {{ captcha-nam
     ```ts
     UnsubscribeFunction = () => void;
     ```
+
+{% include [javascript-error](../../_includes/smartcaptcha/javascript-error.md) %}
 
 Пример использования:
 

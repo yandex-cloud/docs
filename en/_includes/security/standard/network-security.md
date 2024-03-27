@@ -280,7 +280,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 #### 2.6 Protected remote access is used {#secure-access}
 
 To enable administrators to establish remote connections to your cloud resources, use one of the following:
-* A site-to-site VPN between a remote site (such as your office) and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
+* Site-to-site VPN between a remote site, e.g. your office, and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
 
    **Setup options**:
    * [Creating an IPsec VPN tunnel using the strongSwan](../../../tutorials/routing/ipsec/index.md).

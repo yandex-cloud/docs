@@ -41,7 +41,7 @@
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-yds-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-yds-mch.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-yds-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-yds-to-clickhouse/blob/main/data-transfer-yds-mch.tf).
 
         В этом файле описаны:
 

@@ -15,6 +15,7 @@ _Подключение_ содержит информацию о парамет
 * [{{ GP }}](../operations/connection/create-greenplum.md)
 * [{{ ytsaurus-name }} CHYT](../operations/connection/chyt/create-chyt.md)
 * [Файлы](../operations/connection/create-file.md)
+* [Яндекс Документы](../operations/connection/create-yadocs.md)
 * [Google Sheets](../operations/connection/create-google-sheets.md)
 * [BigQuery](../operations/connection/create-big-query.md)
 * [{{ prometheus-name }}](../operations/connection/create-prometheus.md)

@@ -313,6 +313,8 @@ yc certificate-manager certificate list
 
        Вместо `my-ingress-group` вы можете указать произвольное имя группы. Убедитесь, что оно соответствует [требованиям]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
+     В версиях [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service`. Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../operations/applications/upgrade-alb-ingress-controller.md) к вашей инфраструктуре.
+
      (Опционально) Укажите дополнительные настройки контроллера:
 
      {% cut "Дополнительные настройки" %}
@@ -331,10 +333,19 @@ yc certificate-manager certificate list
        * `http` — HTTP/1.1. Значение по умолчанию.
        * `http2` — HTTP/2.
        * `grpc` — gRPC.
-     * `ingress.alb.yc.io/transport-security` — протокол шифрования соединений между балансировщиком и бэкендами:
-       * `tls` — TLS без проверки сертификата.
+     * `ingress.alb.yc.io/transport-security` — протокол шифрования соединений между балансировщиком и бэкендами.
 
-       Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
+        {% note warning %}
+
+        В [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее аннотация используется только в объекте [Service](../../application-load-balancer/k8s-ref/service.md#metadata).
+
+        Если указать аннотацию в ресурсах `Ingress`, где используется один сервис с одинаковыми настройками для групп бэкендов, аннотация применится корректно. Но такой механизм устарел, в дальнейшем он не будет поддерживаться.
+
+        {% endnote %}
+
+        Допустимое значение: `tls` — TLS без проверки сертификата.
+
+        Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
      * `ingress.alb.yc.io/prefix-rewrite` — замена пути на указанное значение.
      * `ingress.alb.yc.io/upgrade-types` — допустимые значения HTTP-заголовка `Upgrade`, например, `websocket`.
      * `ingress.alb.yc.io/request-timeout` — максимальный период, на который может быть установлено соединение.

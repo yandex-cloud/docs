@@ -58,7 +58,7 @@ To log requests to the bucket:
 
    - {{ TF }} {#tf}
 
-      {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+      {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
       
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -98,7 +98,7 @@ To log requests to the bucket:
 
 
 
-         {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
@@ -197,7 +197,7 @@ To disable logging, follow these steps:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -233,7 +233,7 @@ To disable logging, follow these steps:
 
       {% endcut %}
 
-   {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    You can check the changes in the [management console]({{ link-console-main }}).
 

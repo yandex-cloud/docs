@@ -1,0 +1,1 @@
+{% include [node-from-model-tutorial](../../_tutorials/datasphere/node-from-model.md) %}

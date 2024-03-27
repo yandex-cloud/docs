@@ -25,4 +25,5 @@
 `UpdateOrganizationAccessBindings` | Изменение привязок прав доступа к организации
 `UpdateOsLoginProfile` | Изменение профиля OS Login
 `UpdateOsLoginSettings` | Изменение настроек OS Login
+`UpdateSubscribers` | Изменение списка подписчиков
 `UpdateUserSshKey` | Изменение SSH-ключа пользователя

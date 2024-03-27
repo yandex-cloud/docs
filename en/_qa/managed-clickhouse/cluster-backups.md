@@ -10,17 +10,17 @@ Yes, backup is enabled by default. For {{ CH }}, a full backup is performed once
 
 #### When are backups performed? Is a DB cluster available during backup? {#backup-window}
 
-The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
+When [creating](../../managed-clickhouse/operations/cluster-create.md) or [updating](../../managed-clickhouse/operations/update.md#change-additional-settings) a cluster, you can set the time interval during which the backup will start. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 Clusters remain fully accessible during the backup window.
 
 #### How many backups are stored in {{ mch-name }}? For how long? {#how-many-backups}
 
-The size and amount of backups are not limited. All backups (automatic and manual) are stored for seven days.
+The size and amount of backups are not limited. Automatically created backups are stored for seven days, while manually created ones are stored indefinitely.
 
 #### What does a daily backup include? {#daily-backups}
 
-Backup data is stored only for the `MergeTree` engine family. For other engines, backups only store table schemas. For more information, see [{#T}](../../managed-clickhouse/concepts/backup.md).
+Backup data is only stored for the `MergeTree` engine family. For other engines, backups only store table schemas. For more information, see [{#T}](../../managed-clickhouse/concepts/backup.md).
 
 #### Why does it take a long time to restore a cluster from a backup? {#long-restore}
 

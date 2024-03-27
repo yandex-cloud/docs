@@ -1,8 +1,8 @@
-# Remove an instance from a placement group
+# Removing an instance from a placement group
 
-Remove an instance from a [placement group](../../concepts/placement-groups.md).
+Remove a [VM](../../concepts/vm.md) instance from a [placement group](../../concepts/placement-groups.md).
 
-If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete.md) or [add it back](add-vm.md) to the placement group.
+You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add it back](add-vm.md) to the placement group.
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
@@ -25,7 +25,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. View a list of VM instances in the placement group:
+   1. View a list of VMs in the placement group:
 
       ```bash
       yc compute placement-group list-instances --name my-group
@@ -33,7 +33,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -42,7 +42,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
-   1. Stop the VM instance that you want to remove:
+   1. Stop the VM instance you want to remove:
 
       ```bash
       yc compute instance stop instance-in-group-2
@@ -50,19 +50,19 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
       Result:
 
-      ```bash
+      ```text
       id: epdlv1pp5401********
       ...
       status: STOPPED
       ```
 
-   1. Remove the VM instance from the placement group. To do this, update the VM instance, leaving the placement group name (`placement-group-name`) blank:
+   1. Remove the VM instance from the placement group by updating the VM instance, leaving `placement-group-name` blank:
 
       ```bash
       yc compute instance update --name instance-in-group-2 --placement-group-name=""
       ```
 
-   1. Check that the VM instance was removed from the group:
+   1. Check that the VM instance was removed from the placement group:
 
       ```bash
       yc compute placement-group list-instances --name my-group
@@ -70,7 +70,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -80,15 +80,14 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To remove a virtual machine created with {{ TF }} from a placement group:
+   To remove a VM created with {{ TF }} from a placement group:
+   1. Open the VM configuration file and delete the `placement_group_id` parameter.
 
-   1. Open the virtual machine's configuration file and delete the `placement_group_id` parameter.
-
-      Example of the VM configuration file structure:
+      Here is a sample configuration file structure:
 
       ```hcl
       ...
@@ -107,30 +106,28 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
       ```
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-
    1. Check the configuration using this command:
 
-      ```
+      ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
 
-      ```
+      ```text
       Success! The configuration is valid.
       ```
 
    1. Run this command:
 
-      ```
+      ```bash
       terraform plan
       ```
 
       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Apply the configuration changes:
 
-      ```
+      ```bash
       terraform apply
       ```
 

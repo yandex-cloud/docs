@@ -27,7 +27,7 @@ After creating a security group, you can change its name and description, and [a
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    1. Open the {{ TF }} configuration file and edit the `name` and `description` parameters in the security group description:
 

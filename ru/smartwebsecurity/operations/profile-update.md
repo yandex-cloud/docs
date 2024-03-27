@@ -17,6 +17,7 @@ description: "Следуя данной инструкции, вы сможет�
       * **{{ ui-key.yacloud.common.description }}**.
       * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
       * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
+      * [{{ captcha-name }}](../../smartcaptcha/).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

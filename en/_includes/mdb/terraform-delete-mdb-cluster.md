@@ -1,4 +1,4 @@
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
 {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -14,7 +14,7 @@ To delete a cluster created using {{ TF }}:
 
    {% note alert %}
 
-   {{ TF }} will delete all the resources that you created using it, such as clusters, networks, subnets, and VMs.
+   {{ TF }} will delete all the resources you created using it, such as clusters, networks, subnets, and VMs.
 
    {% endnote %}
 

@@ -17,6 +17,8 @@ description: "Videos of conferences and webinars on {{ ml-platform-name }}."
 
 * Running a local ML process in the cloud using {{ ds-jobs }}. [Read our article](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/788872/).
 
+* Capturing particles: How Yandex services help to predict the effects of volcanic eruptions. [Read our article](https://habr.com/ru/companies/yandex/articles/794883/).
+
 ## Conferences and webinars {#conf-and-webinars}
 
 ### 2023: Yandex Scale {#yandex-scale-2023}

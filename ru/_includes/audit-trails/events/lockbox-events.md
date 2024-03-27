@@ -7,6 +7,7 @@
 `DeactivateSecret` | Деактивация секрета
 `DeleteSecret` | Удаление секрета
 `GetPayload` | Получение доступа к содержимому секрета ^*^
+`RotateSecret` | Ротация секрета
 `ScheduleVersionDestruction` | Распланирование уничтожения версии секрета
 `SetSecretAccessBindings` | Выбор привязок прав доступа для секрета
 `UpdateSecret` | Изменение секрета

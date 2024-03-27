@@ -88,6 +88,9 @@ links:
   - title: Key Management Service
     description: Управление ключами шифрования
     href: kms/
+  - title: Yandex Load Testing
+    description: Нагрузочное тестирование сервисов и приложений
+    href: load-testing/
   - title: Yandex Lockbox
     description: Создание и хранение секретов
     href: lockbox/
@@ -136,6 +139,9 @@ links:
   - title: Message Queue
     description: Очереди для обмена сообщениями между приложениями
     href: message-queue/
+  - title: MetaData Hub
+    description: Управление подключениями
+    href: metadata-hub/
   - title: Использование продуктов Microsoft
     description: Использование продуктов Microsoft
     href: microsoft/

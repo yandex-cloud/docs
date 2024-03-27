@@ -49,7 +49,7 @@ items:
             href: operations/projects/delete-user.md
           - name: Using shared resources
             href: operations/projects/use-shared-resource.md
-      - name: Working in a notebook
+      - name: '{{ ds-nb }}'
         items:
           - name: Connecting to JupyterLab from a local IDE
             href: operations/projects/remote-connect.md
@@ -63,6 +63,7 @@ items:
             href: operations/projects/install-dependencies.md
           - name: Resetting the interpreter state
             href: operations/projects/clear-kernel-state.md
+            hidden: true
           - name: Notebook code snippets
             href: operations/projects/snippets.md
           - name: Clearing notebook cell outputs
@@ -73,6 +74,7 @@ items:
             href: operations/projects/work-with-jobs.md
           - name: Running a Docker container in a separate cell
             href: operations/user-images-cell.md
+            hidden: true
           - name: Setting up template-based notebook creation
             href: operations/projects/templates.md
       - name: Working with resources
@@ -81,6 +83,7 @@ items:
             href: operations/data/secrets.md
           - name: Working with checkpoints
             href: operations/projects/checkpoints.md
+            hidden: true
           - name: Working with {{ dataproc-name }} templates
             href: operations/data-proc-template.md
           - name: Working with Docker images
@@ -121,6 +124,8 @@ items:
             href: operations/deploy/alias-update.md
           - name: Deleting an alias
             href: operations/deploy/alias-delete.md
+          - name: Sending a request to alias
+            href: operations/deploy/alias-api.md
       - name: Shared access
         items:
           - name: Publishing a notebook
@@ -141,26 +146,44 @@ items:
         href: concepts/community.md
       - name: Cost management
         href: concepts/budget.md
-      - name: Project and its environment
+      - name: Project
+        href: concepts/project.md
+      - name: Computing resource configurations
+        href: concepts/configurations.md
+      - name: '{{ ds-nb }}'
         items:
-          - name: Project
-            href: concepts/project.md
-          - name: Computing resource configurations
-            href: concepts/configurations.md
           - name: Interpreter state
+            hidden: true
             href: concepts/save-state.md
           - name: List of pre-installed software
             href: concepts/preinstalled-packages.md
-      - name: Computing and model training
-        items:
           - name: Available commands
             href: concepts/magic.md
           - name: '#pragma service commands'
             href: concepts/pragma.md
           - name: Background operations
+            hidden: true
             href: concepts/async.md
           - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
+      - name: '{{ ds-inf }}'
+        items:
+          - name: Nodes and aliases
+            href: concepts/deploy/index.md
+          - name: Health checks and monitoring
+            href: concepts/deploy/monitoring.md
+      - name: '{{ ds-jobs }}'
+        items:
+          - name: Jobs
+            href: concepts/jobs/index.md
+          - name: Authentication
+            href: concepts/jobs/authentication.md
+          - name: DataSphere CLI
+            href: concepts/jobs/cli.md
+          - name: Docker images in jobs
+            href: concepts/jobs/docker.md
+          - name: Job runtime environment
+            href: concepts/jobs/environment.md
       - name: Resources
         items:
           - name: Overview
@@ -181,24 +204,6 @@ items:
             href: concepts/models/index.md
           - name: Fine-tuned foundation models
             href: concepts/models/tuned-models.md
-      - name: '{{ ds-inf }}'
-        items:
-          - name: Nodes and aliases
-            href: concepts/deploy/index.md
-          - name: Health checks and monitoring
-            href: concepts/deploy/monitoring.md
-      - name: '{{ ds-jobs }}'
-        items:
-          - name: Jobs
-            href: concepts/jobs/index.md
-          - name: Authentication
-            href: concepts/jobs/authentication.md
-          - name: DataSphere CLI
-            href: concepts/jobs/cli.md
-          - name: Docker images in jobs
-            href: concepts/jobs/docker.md
-          - name: Job runtime environment
-            href: concepts/jobs/environment.md
       - name: Foundation models
         href: concepts/models/foundation-models.md
       - name: Quotas and limits
@@ -235,8 +240,13 @@ items:
         items:
           - name: Deploying a service from a checkpoint
             href: tutorials/node-from-cell.md
+            hidden: true
           - name: Deploying a service based on a Docker image
             href: tutorials/node-from-docker.md
+          - name: Deploying a service based on a Docker image with FastAPI
+            href: tutorials/node-from-docker-fast-api.md
+          - name: Deploying a service based on an ONNX model
+            href: tutorials/node-from-model.md
           - name: Image generation using Stable Diffusion model
             href: tutorials/stable-diffusion.md
           - name: Tuning a {{ yagpt-full-name }} model
@@ -359,7 +369,7 @@ items:
                 href: api-ref/S3/activate.md
               - name: deactivate
                 href: api-ref/S3/deactivate.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Access management
     href: security/index.md

@@ -2,16 +2,10 @@
 
 [Models](../../concepts/models/index.md) are designed for storing and exporting computation results in {{ ml-platform-name }} projects.
 
-{% note info %}
-
-Models are only available in projects in [{{ dd }} mode](../../concepts/project.md#dedicated).
-
-{% endnote %}
-
 ## Creating a model {#create}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Open a project in [{{ dd }} mode](../../concepts/project.md#dedicated).
+1. Open the project.
 1. Select or create a notebook with the code that will create a model variable in RAM.
 1. Run the code in the notebook using the selected configuration.
 1. In the right-hand panel, select ![models](../../../_assets/console-icons/nodes-right.svg). In the window that opens, click **Create model**.
@@ -26,7 +20,7 @@ Models are only available in projects in [{{ dd }} mode](../../concepts/project.
 You can load the saved model to the notebook's interpreter state and use it in your computations:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Open a project in [{{ dd }} mode](../../concepts/project.md#dedicated).
+1. Open the project.
 1. In the right-hand panel, select ![models](../../../_assets/console-icons/nodes-right.svg). In the window that opens, select the model to load and click ![options](../../../_assets/console-icons/ellipsis.svg).
 1. Select ![load](../../../_assets/datasphere/jupyterlab/load.svg)**Load**.
 1. Specify the name of the variable to load the model to and click **Load**.

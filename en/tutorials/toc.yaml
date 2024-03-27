@@ -216,6 +216,8 @@ items:
             href: web/prefetch.md
           - name: Creating an SAP program in {{ yandex-cloud }}
             href: infrastructure-management/sap.md
+          - name: Developing a Telegram bot for text and audio recognition
+            href: ml-ai/recognizer-bot.md
   - name: Building a data platform
     items:
       - name: All tutorials

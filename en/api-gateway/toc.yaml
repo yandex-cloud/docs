@@ -188,7 +188,7 @@ items:
                 href: apigateway/websocket/api-ref/Connection/get.md
               - name: send
                 href: apigateway/websocket/api-ref/Connection/send.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md

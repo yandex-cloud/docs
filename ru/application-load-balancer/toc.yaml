@@ -65,6 +65,8 @@ items:
         items:
           - name: Установить Ingress-контроллер
             href: operations/k8s-ingress-controller-install.md
+          - name: Обновить Ingress-контроллер
+            href: operations/k8s-ingress-controller-upgrade.md
           - name: Установить Gateway API
             href: operations/k8s-gateway-api-install.md
           - name: Создать или изменить ресурсы по конфигурации
@@ -125,7 +127,7 @@ items:
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/application-load-balancer/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:
@@ -285,6 +287,8 @@ items:
             href: k8s-ref/http-route.md
       - name: Service
         href: k8s-ref/service.md
+  - name: История изменений
+    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
 base: ru/application-load-balancer

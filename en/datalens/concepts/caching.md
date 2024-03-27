@@ -4,7 +4,7 @@ _Cache_ stores frequently queried data and provides quick access to it.
 
 {% note info %}
 
-{{ datalens-short-name }} cache does not store the source data; it only stores the results of queries for a certain time. To store analytical data marts, you can use, e.g., [{{ mch-full-name }}](../../managed-clickhouse/).
+{{ datalens-short-name }} cache does not store the source data; it only stores the results of queries for a certain time. To store analytical data marts, you can use such services as [{{ mch-full-name }}](../../managed-clickhouse/).
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ The cache will be purged if:
 * Dataset fields are updated.
 * SQL query is updated in the dataset source.
 
-## Questions and answers {#qa}
+## FAQ {#qa}
 
 {% cut "Can I track it in the Chart inspector whether a query has been cached?" %}
 

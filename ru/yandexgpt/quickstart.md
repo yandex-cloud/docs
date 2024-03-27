@@ -1,18 +1,48 @@
 # Как начать работать с {{ yagpt-full-name }}
 
+{% include notitle [preview-stage](../_includes/yandexgpt/preview.md) %}
+
 В этом разделе вы научитесь использовать нейросеть для генерации текста.
+
+В [консоли управления]({{ link-console-main }}/link/yandexgpt) новым пользователям без [платежного аккаунта](../billing/concepts/billing-account.md) доступно {{ gpt-freetier }} бесплатных запросов в час, чтобы вы могли максимально быстро и просто познакомиться с возможностями модели. Чтобы использовать API и иметь возможность увеличить [квоты](concepts/limits.md) на потребление, [привяжите](../billing/operations/pin-cloud.md) платежный аккаунт к облаку.
 
 О стоимости использования сервиса {{ yagpt-full-name }} см. [{#T}](pricing.md).
 
-{% include notitle [preview-stage](../_includes/yandexgpt/preview.md) %}
-
 ## Перед началом работы {#before-begin}
 
-Для работы из консоли управления подготовительные действия не требуются.
+Чтобы начать работать в {{ yandex-cloud }}:
 
-Чтобы воспользоваться примерами запроса через API, установите [cURL](https://curl.haxx.se). 
+1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md).
 
-{% include notitle [ai-before-beginning](../_includes/yandexgpt/ai-before-beginning.md) %}
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Для работы из консоли управления подготовительные действия не требуются.
+
+- API {#api}
+
+  Чтобы воспользоваться примерами запроса через API, установите [cURL](https://curl.haxx.se). 
+
+  Для работы с API {{ yagpt-name }} необходимо аутентифицироваться со своего аккаунта:
+
+  1. Получите IAM-токен для [аккаунта на Яндексе](../iam/operations/iam-token/create.md) или [федеративного аккаунта](../iam/operations/iam-token/create-for-federation.md).
+  1. Получите [идентификатор каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
+  1. При обращении к {{ yagpt-full-name }} через API в каждом запросе передавайте полученные параметры:
+
+     * в заголовке `Authorization` указывайте IAM-токен;
+     * в заголовке `x-folder-id` указывайте идентификатор каталога.
+
+     ```json
+     Authorization: Bearer <IAM-токен> 
+     x-folder-id: <идентификатор_каталога>
+     ```
+
+  Другие способы аутентификации в API описаны на странице [{#T}](api-ref/authentication.md).
+
+{% endlist %}
 
 ## Сгенерируйте текст {#generate-text}
 
@@ -107,7 +137,8 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Что дальше {#what-is-next}
 
 * [Узнайте подробнее о сервисе](concepts/index.md)
 * [Прочитайте про способы аутентификации в API](api-ref/authentication.md)
+* [Посмотрите библиотеку промтов](prompts/index.md)

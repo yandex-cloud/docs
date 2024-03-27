@@ -127,7 +127,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    This will create a lifecycle policy in the specified repository. You can check the new policy and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

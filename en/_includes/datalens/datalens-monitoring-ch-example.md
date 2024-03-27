@@ -1,4 +1,4 @@
-{% cut "Query example for {{ monitoring-short-name }}" %}
+{% cut "Example query for {{ monitoring-short-name }}" %}
 
 ```
 {project="monitoring", sensor="nodejs.heap_space.size.bytes"}

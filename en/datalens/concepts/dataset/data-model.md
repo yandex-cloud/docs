@@ -1,6 +1,6 @@
 ---
 title: "Data model in {{ datalens-full-name }}"
-description: "The article describes a data model used in {{ datalens-full-name }}. One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table."
+description: "This article describes the data model used in {{ datalens-full-name }}. One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table."
 ---
 
 # Data model in {{ datalens-name }}
@@ -17,7 +17,7 @@ There is a limit on displaying the first 1,000 tables from a source in a dataset
 
 {% endnote %}
 
-If there are multiple tables in the source, you can join them with a [JOIN](https://en.wikipedia.org/wiki/Join_(SQL)).
+If there are multiple tables in the source, you can join them with a [JOIN](https://en.wikipedia.org/wiki/Join_(SQL)) operator.
 When the tables are [joined](../data-join.md), a link is created between them. When you create a link, you specify the fields from the source table and merged table.
 
 Tables are linked automatically by the first match in the field name and field data type.
@@ -25,22 +25,22 @@ Tables are linked automatically by the first match in the field name and field d
 In this case, you can:
 - Edit fields in the link.
 - Add new links or delete existing links.
-- Change the type of a `JOIN` (`INNER`, `LEFT`, `RIGHT`, or `FULL`) in the link.
+- Change the type of `JOIN` (`INNER`, `LEFT`, `RIGHT`, or `FULL`) in the link.
 
-A `JOIN` is used if a query made from a chart accesses fields of two or more dataset tables.
+`JOIN` is used if a query made from a chart accesses fields of two or more dataset tables.
 
-A `JOIN` is not used if:
+`JOIN` is not used if:
 - The dataset contains one table.
-- The dataset contains multiple tables, but the query accesses the fields of only one of those tables.
+- The dataset contains multiple tables but the query accesses the fields of only one of those tables.
 
-For more information about optimization when using `JOIN`, see [{#T}](../data-join.md#join-optimization).
+For more information about optimization when using `JOIN`s, see [{#T}](../data-join.md#join-optimization).
 
 ## Data fields {#field}
 
 The fields define the structure and format of the dataset. The following types of fields are available:
 
-- **Dimension**. Contains values that define data characteristics, such as city, date of purchase, or product category. The aggregation function is not applied to fields with a dimension, otherwise the field becomes an measure. In the interface, dimensions are displayed in green.
-- **Measure**. Contains numeric values that aggregation functions (information) are applied to, such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it becomes a dimension. In the interface, measures are displayed in blue.
+- **Dimension**: Contains values that define data parameters, such as city, date of purchase, or product category. The aggregation function is not applied to fields with a dimension; otherwise, the field becomes a measure. In the interface, dimensions are displayed in green.
+- **Measure**: Contains numeric values the aggregation functions (information) apply to, such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it will become a dimension. In the interface, measures are displayed in blue.
 
 In the dataset creation interface and wizard, you can duplicate fields, create fields, and use [aggregation functions](#aggregation).
 
@@ -50,11 +50,11 @@ The maximum number of fields in a single dataset is 1,200.
 
 {% endnote %}
 
-{{ datalens-short-name }} enables you to create calculated fields using formulas.
+{{ datalens-short-name }} allows you to create calculable fields using formulas.
 To write formulas, you can use existing dataset fields, constants, and functions.
 For a full list of functions, see the [Function reference](../../function-ref/all.md).
 
-To learn more about calculated fields, see [{#T}](../calculations/index.md).
+To learn more about calculable fields, see [{#T}](../calculations/index.md).
 
 ## Data aggregation {#aggregation}
 
@@ -74,8 +74,8 @@ Additional aggregation functions are available in [calculated fields](../calcula
 
 {% note info %}
 
-You cannot use aggregation functions for some sources.
-The sources you can use aggregation functions for are listed in **Data source support** section on the aggregation function page in the [reference](../../function-ref/aggregation-functions.md).
+For some sources, aggregation functions are unavailable.
+The sources you can use aggregation functions for are listed under **Data source support** on the aggregation function page in the [reference](../../function-ref/aggregation-functions.md).
 
 {% endnote %}
 

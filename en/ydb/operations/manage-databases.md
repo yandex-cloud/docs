@@ -79,7 +79,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -110,7 +110,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
@@ -223,7 +223,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    {{ TF }} will apply the required changes to the resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
@@ -419,7 +419,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    1. Create a database:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
@@ -435,7 +435,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    > resource "yandex_ydb_database_dedicated" "database2" {
    >    name                = "test-ydb-dedicated"
    >    network_id          = yandex_vpc_network.my-net.id
-   >    subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+   >    subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-d.id]
    >    resource_preset_id  = "medium"
    >    deletion_protection = "true"
    >    scale_policy {
@@ -515,7 +515,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       > resource "yandex_ydb_database_dedicated" "database2" {
       >   name                = "my-first-ydb-dedicated"
       >   network_id          = yandex_vpc_network.my-net.id
-      >   subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+      >   subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-d.id]
       >   resource_preset_id  = "medium"
       >   deletion_protection = "true"
       >   scale_policy {
@@ -532,7 +532,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
    You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
@@ -615,7 +615,7 @@ To move a database to a different availability zone, follow [this guide](migrati
         name               = "test-ydb-dedicated"
 
         network_id         = yandex_vpc_network.my-net.id
-        subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+        subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-d.id]
 
         resource_preset_id = "medium"
         scale_policy {
@@ -633,9 +633,9 @@ To move a database to a different availability zone, follow [this guide](migrati
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will delete all the appropriate resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
+   {{ TF }} will delete all the resources as appropriate. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc ydb database list

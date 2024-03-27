@@ -59,6 +59,8 @@ items:
     href: iot-core/index.yaml
   - name: Key Management Service
     href: kms/index.yaml
+  - name: Load Testing
+    href: load-testing/index.yaml
   - name: Lockbox
     href: lockbox/index.yaml
   - name: Managed Service for Apache Airflow™
@@ -88,6 +90,8 @@ items:
     href: marketplace/index.md
   - name: Message Queue
     href: message-queue/index.yaml
+  - name: MetaData Hub
+    href: metadata-hub/index.yaml
   - name: Using Microsoft products
     href: microsoft/index.yaml
   - name: Monitoring

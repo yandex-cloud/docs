@@ -17,7 +17,7 @@
 
       * `GREENPLUM`: {{ GP }} operations log.
       * `GREENPLUM_POOLER`: Connection pooler operations log.
-      * `GREENPLUM_PXF`: [PXF](external-tables.md) protocol log.
+      * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol log.
 
    1. Select the hosts and logging level if needed.
 
@@ -57,7 +57,7 @@
       * `--service-type`: Service type for which you want to output records:
          * `greenplum`: {{ GP }} operations log.
          * `greenplum-pooler`: Connection manager operations log.
-         * `greenplum-pxf`: [PXF](external-tables.md) protocol log.
+         * `greenplum-pxf`: [PXF](../concepts/external-tables.md) protocol log.
       * `--columns`: List of columns with output data:
          * `hostname`: [Host name](./hosts/cluster-hosts.md#list-hosts).
          * `level`: Logging level, such as `info`.
@@ -90,7 +90,7 @@
 
       * `GREENPLUM`: {{ GP }} operations log.
       * `GREENPLUM_POOLER`: Connection pooler operations log.
-      * `GREENPLUM_PXF`: [PXF](external-tables.md) protocol log.
+      * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol log.
 
 {% endlist %}
 
@@ -126,7 +126,7 @@ This method allows you to get cluster logs in real time.
 
       * `GREENPLUM`: {{ GP }} operations log.
       * `GREENPLUM_POOLER`: Connection pooler operations log.
-      * `GREENPLUM_PXF`: [PXF](external-tables.md) protocol log.
+      * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol log.
 
 {% endlist %}
 

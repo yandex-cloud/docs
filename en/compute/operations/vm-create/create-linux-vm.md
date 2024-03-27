@@ -60,15 +60,20 @@ description: "Use this tutorial to create a Linux VM."
       ```
 
       Where:
-      * `--name`: VM name.
+
+      * `--name`: VM name. The naming requirements are as follows:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
-      * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
       * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, disable this parameter.
-      * `--ssh-key`: Public SSH key path. The VM will automatically create a user named `yc-user` for this key.
+      * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
+      * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The VM will automatically create a user named `yc-user` for this key.
+
+         {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
       If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
 
@@ -162,7 +167,7 @@ description: "Use this tutorial to create a Linux VM."
 
    1. Create resources:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 

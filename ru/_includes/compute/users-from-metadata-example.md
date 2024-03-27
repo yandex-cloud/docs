@@ -1,8 +1,8 @@
 ```yml
 #cloud-config
 datasource:
-Ec2:
-  strict_id: false
+  Ec2:
+    strict_id: false
 ssh_pwauth: no
 users:
 - name: <имя_пользователя_1>

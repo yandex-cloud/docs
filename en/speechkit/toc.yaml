@@ -137,6 +137,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Telegram bot for audio recognition and synthesis
+        href: tutorials/recognizer-bot.md
       - name: Speech recognition
         items:
           - name: Audio file streaming recognition, API v3

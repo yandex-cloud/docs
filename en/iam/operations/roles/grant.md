@@ -16,13 +16,14 @@ This section describes how to assign a role to a user with a Yandex account. The
    In the management console, you can only assign a role for a cloud or folder:
 
 
-   1. [Add the user to the cloud](../users/create.md) via {{ org-full-name }} or the Cloud Console.
+   1. [Add the user to the cloud](../users/create.md) via {{ org-full-name }} or Cloud Console.
+
 
    1. Assign the user a role in the cloud:
 
       {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
 
-   1. Grant the user a role to the folder:
+   1. Assign the user a role in the folder:
 
       {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
@@ -36,8 +37,8 @@ This section describes how to assign a role to a user with a Yandex account. The
 
       ```bash
       yc <service_name> <resource_category> add-access-binding <resource_name_or_ID> \
-          --role <role_ID> \
-          --subject userAccount:<user_ID>
+        --role <role_ID> \
+        --subject userAccount:<user_ID>
       ```
 
       Where:
@@ -83,7 +84,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
        For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
        1. In the command line, go to the directory where you created the configuration file.
        1. Run the check using the command:
@@ -220,7 +221,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
     {% note alert %}
 
-    The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+    The `setAccessBindings` method completely rewrites access permissions to the resource. All current resource roles will be deleted.
 
     {% endnote %}
 
@@ -289,8 +290,8 @@ In the management console, you can assign a [federated user](../../../organizati
 
       ```bash
       yc <service_name> <resource_category> add-access-binding <resource_name_or_ID> \
-          --role <role_ID> \
-          --subject federatedUser:<user_ID>
+        --role <role_ID> \
+        --subject federatedUser:<user_ID>
       ```
 
       Where:
@@ -352,11 +353,10 @@ In the management console, you can assign a [federated user](../../../organizati
    1. In the [management console]({{ link-console-main }}), [select](../../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click **{{ ui-key.yacloud_components.acl.action.select-subject }}**:
-      1. Go to **{{ ui-key.yacloud.common.resource-acl.label_groups }}** or search for a group by name.
-      1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-      1. Select a role in the cloud.
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. In the window that opens, select **{{ ui-key.yacloud.common.resource-acl.label_groups }}**.
+   1. Select the group from the list or search by group name.
+   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
+   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
    The group name will be displayed in **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** in the cloud along with the other users with roles in this cloud.
 
@@ -370,8 +370,8 @@ In the management console, you can assign a [federated user](../../../organizati
 
       ```bash
       yc <service_name> <resource_category> add-access-binding <resource_name_or_ID> \
-          --role <role_ID> \
-          --subject group:<group_ID>
+        --role <role_ID> \
+        --subject group:<group_ID>
       ```
 
       Where:

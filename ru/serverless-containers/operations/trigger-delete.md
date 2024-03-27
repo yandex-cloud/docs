@@ -74,7 +74,7 @@ description: "Из статьи вы узнаете, как удалить тр�
           retry_interval     = 15
         }
         dlq {
-          queue_id           = "yrn:yc:ymq:ru-central1:b1geoelk7fld********:formycontainer"
+          queue_id           = "yrn:yc:ymq:{{ region-id }}:b1geoelk7fld********:formycontainer"
           service_account_id = "ajej9vu5f62d********"
         }
       }

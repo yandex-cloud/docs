@@ -86,6 +86,8 @@ default:
   compute-name: Compute Cloud
   compute-short-name: Compute Cloud
   compute-ubuntu-lts-image-id: fd81hgrcv6ls********
+  connection-manager-full-name: Yandex Connection Manager
+  connection-manager-name: Connection Manager
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.ru
   container-registry-full-name: Yandex Container Registry
@@ -165,6 +167,9 @@ default:
     docs:
       pivotal: https://gpdb.docs.pivotal.io
       vmware: https://docs.vmware.com/en/VMware-Greenplum
+  gpt-freetier: 100
+  gpt-lite: YandexGPT Lite
+  gpt-pro: YandexGPT Pro
   grafana-name: Grafana
   graph-update: 15 секунд
   graph-update-burstable: 150 секунд
@@ -235,7 +240,7 @@ default:
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
   link-console-access-management: https://console.cloud.yandex.ru/iam
-  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-billing: https://billing.yandex.cloud/accounts
   link-console-cloud: https://console.cloud.yandex.ru/cloud
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-main: https://console.cloud.yandex.ru
@@ -244,7 +249,7 @@ default:
   link-console-support: https://support-center.cloud.yandex.ru
   link-datalens-main: https://datalens.yandex.ru
   link-datalens-settings: https://datalens.yandex.ru/settings
-  link-datasphere-main: https://datasphere.yandex.ru/
+  link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://cloud.yandex.ru/docs
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.ru
@@ -320,6 +325,8 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  metadata-hub-full-name: Yandex MetaData Hub
+  metadata-hub-name: MetaData Hub
   metastore-full-name: Hive Metastore
   metastore-name: Metastore
   metrika: Яндекс Метрика
@@ -656,6 +663,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  video-full-name: Yandex Cloud Video
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
@@ -729,18 +737,16 @@ default:
   zone-id: ru-central1-d
   sku|RUB|ai:
     mt:
-      detect|string: "492,2000\_₽"
-      translate|string: "492,2000\_₽"
-    vision:
-      text_detection|int|string: "130\_₽"
+      detect|string: "492,20\_₽"
+      translate|string: "492,20\_₽"
   sku|RUB|alb:
     balancer:
-      active|string: "2,2200\_₽"
+      active|string: "2,22\_₽"
   sku|RUB|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|string: "120,0000\_₽"
+          1|string: "120,00\_₽"
       v1|string: Не тарифицируется
   sku|RUB|b2b:
     tracker:
@@ -752,14 +758,14 @@ default:
           6|int|string: "440\_₽"
   sku|RUB|backup:
     protected_vms:
-      v1|string: "238,8000\_₽"
+      v1|string: "238,80\_₽"
     used_space:
-      v1|month|string: "4,2000\_₽"
+      v1|month|string: "4,20\_₽"
   sku|RUB|cdn:
     api:
       network:
         inet:
-          egress|string: "0,9600\_₽"
+          egress|string: "0,96\_₽"
     logs:
       raw|int|string: "5\_000\_₽"
       shielding|int|string: "3\_500\_₽"
@@ -769,82 +775,82 @@ default:
         c100:
           v1|string: "1,3159\_₽"
           v3|string: "1,1828\_₽"
-          v4|string: "1,9400\_₽"
+          v4|string: "1,94\_₽"
       localssd:
-        v1|month|string: "8,8000\_₽"
+        v1|month|string: "8,80\_₽"
         v1|string: "0,0122\_₽"
       ram:
         v1|string: "0,3485\_₽"
         v3|string: "0,3133\_₽"
-        v4|string: "0,3500\_₽"
-    image|month|string: "3,1200\_₽"
-    snapshot|month|string: "3,1200\_₽"
+        v4|string: "0,35\_₽"
+    image|month|string: "3,12\_₽"
+    snapshot|month|string: "3,12\_₽"
     vm:
       cpu:
         '50':
-          v2|string: "0,7200\_₽"
+          v2|string: "0,72\_₽"
         c05:
           preemptible:
-            v2|string: "0,1000\_₽"
-          preemptible|string: "0,1900\_₽"
-          v2|string: "0,1600\_₽"
-        c05|string: "0,3100\_₽"
+            v2|string: "0,10\_₽"
+          preemptible|string: "0,19\_₽"
+          v2|string: "0,16\_₽"
+        c05|string: "0,31\_₽"
         c100:
           gpu-standard:
             preemptible:
-              v3|string: "0,3600\_₽"
-            v3|string: "0,9000\_₽"
-          highfreq-v3|string: "1,7600\_₽"
+              v3|string: "0,36\_₽"
+            v3|string: "0,90\_₽"
+          highfreq-v3|string: "1,76\_₽"
           preemptible:
-            v2|string: "0,3200\_₽"
-            v3|string: "0,2900\_₽"
-          preemptible|string: "0,3400\_₽"
-          v2|string: "1,1900\_₽"
-          v3|string: "1,0500\_₽"
-        c100|string: "1,1200\_₽"
+            v2|string: "0,32\_₽"
+            v3|string: "0,29\_₽"
+          preemptible|string: "0,34\_₽"
+          v2|string: "1,19\_₽"
+          v3|string: "1,05\_₽"
+        c100|string: "1,12\_₽"
         c20:
           preemptible:
-            v2|string: "0,1600\_₽"
-            v3|string: "0,1400\_₽"
-          preemptible|string: "0,2700\_₽"
-          v2|string: "0,4900\_₽"
-          v3|string: "0,4400\_₽"
-        c20|string: "0,8800\_₽"
+            v2|string: "0,16\_₽"
+            v3|string: "0,14\_₽"
+          preemptible|string: "0,27\_₽"
+          v2|string: "0,49\_₽"
+          v3|string: "0,44\_₽"
+        c20|string: "0,88\_₽"
         c50:
           preemptible:
-            v2|string: "0,2200\_₽"
-            v3|string: "0,2000\_₽"
-          v3|string: "0,6400\_₽"
+            v2|string: "0,22\_₽"
+            v3|string: "0,20\_₽"
+          v3|string: "0,64\_₽"
       gpu:
         gpu-standard:
           preemptible:
-            v2|string: "62,4000\_₽"
-            v3|string: "148,6800\_₽"
-          preemptible|string: "62,4000\_₽"
-          v2|string: "249,5200\_₽"
-          v3|string: "371,7000\_₽"
-        gpu-standard|string: "249,5200\_₽"
+            v2|string: "62,40\_₽"
+            v3|string: "148,68\_₽"
+          preemptible|string: "62,40\_₽"
+          v2|string: "249,52\_₽"
+          v3|string: "371,70\_₽"
+        gpu-standard|string: "249,52\_₽"
         infiniband:
           ic:
-            preemptible|string: "63,6000\_₽"
-          ic|string: "63,6000\_₽"
+            preemptible|string: "63,60\_₽"
+          ic|string: "63,60\_₽"
         standard:
           v3-t4:
-            preemptible|string: "16,0000\_₽"
-          v3-t4|string: "64,0000\_₽"
+            preemptible|string: "16,00\_₽"
+          v3-t4|string: "64,00\_₽"
       ram:
         gpu-standard:
           preemptible:
-            v3|string: "0,1100\_₽"
-          v3|string: "0,2800\_₽"
-        highfreq-v3|string: "0,3200\_₽"
+            v3|string: "0,11\_₽"
+          v3|string: "0,28\_₽"
+        highfreq-v3|string: "0,32\_₽"
         preemptible:
-          v2|string: "0,0700\_₽"
-          v3|string: "0,0700\_₽"
-        preemptible|string: "0,1200\_₽"
-        v2|string: "0,3100\_₽"
-        v3|string: "0,2800\_₽"
-      ram|string: "0,3900\_₽"
+          v2|string: "0,07\_₽"
+          v3|string: "0,07\_₽"
+        preemptible|string: "0,12\_₽"
+        v2|string: "0,31\_₽"
+        v3|string: "0,28\_₽"
+      ram|string: "0,39\_₽"
   sku|RUB|cr:
     bucket:
       used_space:
@@ -853,428 +859,428 @@ default:
     requests:
       public:
         authoritative:
-          v1|string: "32,0000\_₽"
+          v1|string: "32,00\_₽"
         recursive:
           v1|pricingRate:
-            1|string: "32,0000\_₽"
+            1|string: "32,00\_₽"
     zones:
-      v1|month|string: "36,0000\_₽"
-      v1|string: "0,0500\_₽"
+      v1|month|string: "36,00\_₽"
+      v1|string: "0,05\_₽"
   sku|RUB|gitlab:
-    backup|month|string: "1,9200\_₽"
+    backup|month|string: "1,92\_₽"
     instance:
-      cpu|string: "1,6800\_₽"
-      disk|month|string: "13,0100\_₽"
-      ram|string: "0,4500\_₽"
+      cpu|string: "1,68\_₽"
+      disk|month|string: "13,01\_₽"
+      ram|string: "0,45\_₽"
   sku|RUB|kms:
     api:
       v1:
-        encryptdecrypt|string: "2,8800\_₽"
+        encryptdecrypt|string: "2,88\_₽"
     storage:
       v1:
-        hsm|month|string: "360,0000\_₽"
-        software|month|string: "2,8800\_₽"
+        hsm|month|string: "360,00\_₽"
+        software|month|string: "2,88\_₽"
   sku|RUB|lockbox:
     storage:
       v1:
-        active_secrets|month|string: "18,0000\_₽"
+        active_secrets|month|string: "18,00\_₽"
   sku|RUB|mdb:
     cluster:
       clickhouse:
         v1:
           cpu:
-            c100|month|string: "1\_641,6000\_₽"
-            c100|string: "2,2800\_₽"
-            c20|month|string: "295,2000\_₽"
-            c20|string: "0,4100\_₽"
-            c5|month|string: "21,6000\_₽"
-            c5|string: "0,0300\_₽"
-            c50|month|string: "489,6000\_₽"
-            c50|string: "0,6800\_₽"
-          ram|month|string: "374,4000\_₽"
-          ram|string: "0,5200\_₽"
+            c100|month|string: "1\_641,60\_₽"
+            c100|string: "2,28\_₽"
+            c20|month|string: "295,20\_₽"
+            c20|string: "0,41\_₽"
+            c5|month|string: "21,60\_₽"
+            c5|string: "0,03\_₽"
+            c50|month|string: "489,60\_₽"
+            c50|string: "0,68\_₽"
+          ram|month|string: "374,40\_₽"
+          ram|string: "0,52\_₽"
         v2:
           cpu:
-            c100|month|string: "1\_382,4000\_₽"
-            c100|string: "1,9200\_₽"
-            c20|month|string: "295,2000\_₽"
-            c20|string: "0,4100\_₽"
-            c5|month|string: "21,6000\_₽"
-            c5|string: "0,0300\_₽"
-            c50|month|string: "489,6000\_₽"
-            c50|string: "0,6800\_₽"
-          ram|month|string: "374,4000\_₽"
-          ram|string: "0,5200\_₽"
+            c100|month|string: "1\_382,40\_₽"
+            c100|string: "1,92\_₽"
+            c20|month|string: "295,20\_₽"
+            c20|string: "0,41\_₽"
+            c5|month|string: "21,60\_₽"
+            c5|string: "0,03\_₽"
+            c50|month|string: "489,60\_₽"
+            c50|string: "0,68\_₽"
+          ram|month|string: "374,40\_₽"
+          ram|string: "0,52\_₽"
         v3:
           cpu:
-            c100|month|string: "1\_238,4000\_₽"
-            c100|string: "1,7200\_₽"
-            c50|month|string: "439,2000\_₽"
-            c50|string: "0,6100\_₽"
-          ram|month|string: "338,4000\_₽"
-          ram|string: "0,4700\_₽"
+            c100|month|string: "1\_238,40\_₽"
+            c100|string: "1,72\_₽"
+            c50|month|string: "439,20\_₽"
+            c50|string: "0,61\_₽"
+          ram|month|string: "338,40\_₽"
+          ram|string: "0,47\_₽"
       elasticsearch:
         v2:
           cpu:
-            c100|month|string: "1\_209,6000\_₽"
-            c100|string: "1,6800\_₽"
+            c100|month|string: "1\_209,60\_₽"
+            c100|string: "1,68\_₽"
           ram:
-            basic|month|string: "1\_512,0000\_₽"
-            basic|string: "2,1000\_₽"
-            gold|month|string: "1\_771,2000\_₽"
-            gold|string: "2,4600\_₽"
-            platinum|month|string: "2\_037,6000\_₽"
-            platinum|string: "2,8300\_₽"
+            basic|month|string: "1\_512,00\_₽"
+            basic|string: "2,10\_₽"
+            gold|month|string: "1\_771,20\_₽"
+            gold|string: "2,46\_₽"
+            platinum|month|string: "2\_037,60\_₽"
+            platinum|string: "2,83\_₽"
         v3:
           cpu:
-            c100|month|string: "1\_209,6000\_₽"
-            c100|string: "1,6800\_₽"
+            c100|month|string: "1\_209,60\_₽"
+            c100|string: "1,68\_₽"
           ram:
-            basic|month|string: "1\_512,0000\_₽"
-            basic|string: "2,1000\_₽"
-            gold|month|string: "1\_771,2000\_₽"
-            gold|string: "2,4600\_₽"
-            platinum|month|string: "2\_037,6000\_₽"
-            platinum|string: "2,8300\_₽"
+            basic|month|string: "1\_512,00\_₽"
+            basic|string: "2,10\_₽"
+            gold|month|string: "1\_771,20\_₽"
+            gold|string: "2,46\_₽"
+            platinum|month|string: "2\_037,60\_₽"
+            platinum|string: "2,83\_₽"
       greenplum:
         v2:
           cpu:
             c100:
-              dedicated|string: "1,2000\_₽"
-            c100|month|string: "1\_720,8000\_₽"
-            c100|string: "2,3900\_₽"
+              dedicated|string: "1,20\_₽"
+            c100|month|string: "1\_720,80\_₽"
+            c100|string: "2,39\_₽"
           ram:
-            dedicated|string: "0,3100\_₽"
-          ram|month|string: "453,6000\_₽"
-          ram|string: "0,6300\_₽"
+            dedicated|string: "0,31\_₽"
+          ram|month|string: "453,60\_₽"
+          ram|string: "0,63\_₽"
         v3:
           cpu:
             c100:
-              dedicated|string: "1,0800\_₽"
-            c100|month|string: "1\_548,0000\_₽"
-            c100|string: "2,1500\_₽"
+              dedicated|string: "1,08\_₽"
+            c100|month|string: "1\_548,00\_₽"
+            c100|string: "2,15\_₽"
           ram:
-            dedicated|string: "0,2800\_₽"
-          ram|month|string: "410,4000\_₽"
-          ram|string: "0,5700\_₽"
+            dedicated|string: "0,28\_₽"
+          ram|month|string: "410,40\_₽"
+          ram|string: "0,57\_₽"
       kafka:
         v2:
           cpu:
-            c100|month|string: "1\_209,6000\_₽"
-            c100|string: "1,6800\_₽"
-            c50|month|string: "540,0000\_₽"
-            c50|string: "0,7500\_₽"
-          ram|month|string: "324,0000\_₽"
-          ram|string: "0,4500\_₽"
+            c100|month|string: "1\_209,60\_₽"
+            c100|string: "1,68\_₽"
+            c50|month|string: "540,00\_₽"
+            c50|string: "0,75\_₽"
+          ram|month|string: "324,00\_₽"
+          ram|string: "0,45\_₽"
         v3:
           cpu:
-            c100|month|string: "1\_087,2000\_₽"
-            c100|string: "1,5100\_₽"
-            c50|month|string: "489,6000\_₽"
-            c50|string: "0,6800\_₽"
-          ram|month|string: "288,0000\_₽"
-          ram|string: "0,4000\_₽"
+            c100|month|string: "1\_087,20\_₽"
+            c100|string: "1,51\_₽"
+            c50|month|string: "489,60\_₽"
+            c50|string: "0,68\_₽"
+          ram|month|string: "288,00\_₽"
+          ram|string: "0,40\_₽"
       local-nvme:
-        ch|month|string: "13,0100\_₽"
-        elasticsearch|month|string: "13,0100\_₽"
+        ch|month|string: "13,01\_₽"
+        elasticsearch|month|string: "13,01\_₽"
         greenplum:
-          dedicated|month|string: "4,2100\_₽"
-        greenplum|month|string: "13,0100\_₽"
-        kafka|month|string: "13,0100\_₽"
-        mongodb|month|string: "13,0100\_₽"
+          dedicated|month|string: "4,21\_₽"
+        greenplum|month|string: "13,01\_₽"
+        kafka|month|string: "13,01\_₽"
+        mongodb|month|string: "13,01\_₽"
         mysql:
-          dedicated|month|string: "4,2100\_₽"
-        mysql|month|string: "13,0100\_₽"
-        opensearch|month|string: "13,0100\_₽"
-        pg|month|string: "13,0100\_₽"
-        redis|month|string: "13,0100\_₽"
+          dedicated|month|string: "4,21\_₽"
+        mysql|month|string: "13,01\_₽"
+        opensearch|month|string: "13,01\_₽"
+        pg|month|string: "13,01\_₽"
+        redis|month|string: "13,01\_₽"
       mongodb:
         v1:
           cpu:
-            c100|month|string: "1\_152,0000\_₽"
-            c100|string: "1,6000\_₽"
-            c20|month|string: "331,2000\_₽"
-            c20|string: "0,4600\_₽"
-            c5|month|string: "28,8000\_₽"
-            c5|string: "0,0400\_₽"
-            c50|month|string: "540,0000\_₽"
-            c50|string: "0,7500\_₽"
-          ram|month|string: "648,0000\_₽"
-          ram|string: "0,9000\_₽"
+            c100|month|string: "1\_152,00\_₽"
+            c100|string: "1,60\_₽"
+            c20|month|string: "331,20\_₽"
+            c20|string: "0,46\_₽"
+            c5|month|string: "28,80\_₽"
+            c5|string: "0,04\_₽"
+            c50|month|string: "540,00\_₽"
+            c50|string: "0,75\_₽"
+          ram|month|string: "648,00\_₽"
+          ram|string: "0,90\_₽"
         v2:
           cpu:
-            c100|month|string: "1\_152,0000\_₽"
-            c100|string: "1,6000\_₽"
-            c20|month|string: "331,2000\_₽"
-            c20|string: "0,4600\_₽"
-            c5|month|string: "28,8000\_₽"
-            c5|string: "0,0400\_₽"
-            c50|month|string: "540,0000\_₽"
-            c50|string: "0,7500\_₽"
-          ram|month|string: "648,0000\_₽"
-          ram|string: "0,9000\_₽"
+            c100|month|string: "1\_152,00\_₽"
+            c100|string: "1,60\_₽"
+            c20|month|string: "331,20\_₽"
+            c20|string: "0,46\_₽"
+            c5|month|string: "28,80\_₽"
+            c5|string: "0,04\_₽"
+            c50|month|string: "540,00\_₽"
+            c50|string: "0,75\_₽"
+          ram|month|string: "648,00\_₽"
+          ram|string: "0,90\_₽"
         v3:
           cpu:
-            c100|month|string: "1\_152,0000\_₽"
-            c100|string: "1,6000\_₽"
-            c50|month|string: "540,0000\_₽"
-            c50|string: "0,7500\_₽"
-          ram|month|string: "648,0000\_₽"
-          ram|string: "0,9000\_₽"
+            c100|month|string: "1\_152,00\_₽"
+            c100|string: "1,60\_₽"
+            c50|month|string: "540,00\_₽"
+            c50|string: "0,75\_₽"
+          ram|month|string: "648,00\_₽"
+          ram|string: "0,90\_₽"
       mysql:
         v1:
           cpu:
-            c100|month|string: "1\_360,8000\_₽"
-            c100|string: "1,8900\_₽"
-            c20|month|string: "309,6000\_₽"
-            c20|string: "0,4300\_₽"
-            c5|month|string: "28,8000\_₽"
-            c5|string: "0,0400\_₽"
-            c50|month|string: "518,4000\_₽"
-            c50|string: "0,7200\_₽"
-          ram|month|string: "367,2000\_₽"
-          ram|string: "0,5100\_₽"
+            c100|month|string: "1\_360,80\_₽"
+            c100|string: "1,89\_₽"
+            c20|month|string: "309,60\_₽"
+            c20|string: "0,43\_₽"
+            c5|month|string: "28,80\_₽"
+            c5|string: "0,04\_₽"
+            c50|month|string: "518,40\_₽"
+            c50|string: "0,72\_₽"
+          ram|month|string: "367,20\_₽"
+          ram|string: "0,51\_₽"
         v2:
           cpu:
             c100:
-              dedicated|string: "0,5500\_₽"
-            c100|month|string: "1\_346,4000\_₽"
-            c100|string: "1,8700\_₽"
-            c20|month|string: "309,6000\_₽"
-            c20|string: "0,4300\_₽"
-            c5|month|string: "28,8000\_₽"
-            c5|string: "0,0400\_₽"
-            c50|month|string: "518,4000\_₽"
-            c50|string: "0,7200\_₽"
+              dedicated|string: "0,55\_₽"
+            c100|month|string: "1\_346,40\_₽"
+            c100|string: "1,87\_₽"
+            c20|month|string: "309,60\_₽"
+            c20|string: "0,43\_₽"
+            c5|month|string: "28,80\_₽"
+            c5|string: "0,04\_₽"
+            c50|month|string: "518,40\_₽"
+            c50|string: "0,72\_₽"
           ram:
-            dedicated|string: "0,1600\_₽"
-          ram|month|string: "367,2000\_₽"
-          ram|string: "0,5100\_₽"
+            dedicated|string: "0,16\_₽"
+          ram|month|string: "367,20\_₽"
+          ram|string: "0,51\_₽"
         v3:
           cpu:
             c100:
-              dedicated|string: "0,5000\_₽"
-            c100|month|string: "1\_209,6000\_₽"
-            c100|string: "1,6800\_₽"
-            c50|month|string: "468,0000\_₽"
-            c50|string: "0,6500\_₽"
+              dedicated|string: "0,50\_₽"
+            c100|month|string: "1\_209,60\_₽"
+            c100|string: "1,68\_₽"
+            c50|month|string: "468,00\_₽"
+            c50|string: "0,65\_₽"
           ram:
-            dedicated|string: "0,1500\_₽"
-          ram|month|string: "331,2000\_₽"
-          ram|string: "0,4600\_₽"
+            dedicated|string: "0,15\_₽"
+          ram|month|string: "331,20\_₽"
+          ram|string: "0,46\_₽"
       network-hdd:
-        ch|month|string: "3,2000\_₽"
-        elasticsearch|month|string: "3,2000\_₽"
-        greenplum|month|string: "3,2000\_₽"
-        kafka|month|string: "3,2000\_₽"
-        mongodb|month|string: "3,2000\_₽"
-        mysql|month|string: "3,2000\_₽"
-        opensearch|month|string: "3,2000\_₽"
-        pg|month|string: "3,2000\_₽"
+        ch|month|string: "3,20\_₽"
+        elasticsearch|month|string: "3,20\_₽"
+        greenplum|month|string: "3,20\_₽"
+        kafka|month|string: "3,20\_₽"
+        mongodb|month|string: "3,20\_₽"
+        mysql|month|string: "3,20\_₽"
+        opensearch|month|string: "3,20\_₽"
+        pg|month|string: "3,20\_₽"
       network-nvme:
-        ch|month|string: "13,0100\_₽"
-        elasticsearch|month|string: "13,0100\_₽"
-        greenplum|month|string: "13,0100\_₽"
-        kafka|month|string: "13,0100\_₽"
-        mongodb|month|string: "13,0100\_₽"
-        mysql|month|string: "13,0100\_₽"
-        opensearch|month|string: "13,0100\_₽"
-        pg|month|string: "13,0100\_₽"
-        redis|month|string: "13,0100\_₽"
+        ch|month|string: "13,01\_₽"
+        elasticsearch|month|string: "13,01\_₽"
+        greenplum|month|string: "13,01\_₽"
+        kafka|month|string: "13,01\_₽"
+        mongodb|month|string: "13,01\_₽"
+        mysql|month|string: "13,01\_₽"
+        opensearch|month|string: "13,01\_₽"
+        pg|month|string: "13,01\_₽"
+        redis|month|string: "13,01\_₽"
       network-ssd-nonreplicated:
-        ch|month|string: "8,8000\_₽"
-        elasticsearch|month|string: "8,8000\_₽"
-        greenplum|month|string: "8,8000\_₽"
-        kafka|month|string: "8,8000\_₽"
-        mongodb|month|string: "8,8000\_₽"
-        mysql|month|string: "8,8000\_₽"
-        opensearch|month|string: "8,8000\_₽"
-        pg|month|string: "8,8000\_₽"
-        redis|month|string: "8,8000\_₽"
+        ch|month|string: "8,80\_₽"
+        elasticsearch|month|string: "8,80\_₽"
+        greenplum|month|string: "8,80\_₽"
+        kafka|month|string: "8,80\_₽"
+        mongodb|month|string: "8,80\_₽"
+        mysql|month|string: "8,80\_₽"
+        opensearch|month|string: "8,80\_₽"
+        pg|month|string: "8,80\_₽"
+        redis|month|string: "8,80\_₽"
       opensearch:
         v2:
           cpu:
-            c100|month|string: "1\_209,6000\_₽"
-            c100|string: "1,6800\_₽"
-            c50|month|string: "483,8400\_₽"
+            c100|month|string: "1\_209,60\_₽"
+            c100|string: "1,68\_₽"
+            c50|month|string: "483,84\_₽"
             c50|string: "0,6720\_₽"
-          ram|month|string: "504,0000\_₽"
-          ram|string: "0,7000\_₽"
+          ram|month|string: "504,00\_₽"
+          ram|string: "0,70\_₽"
         v3:
           cpu:
-            c100|month|string: "1\_209,6000\_₽"
-            c100|string: "1,6800\_₽"
-            c50|month|string: "483,8400\_₽"
+            c100|month|string: "1\_209,60\_₽"
+            c100|string: "1,68\_₽"
+            c50|month|string: "483,84\_₽"
             c50|string: "0,6720\_₽"
-          ram|month|string: "504,0000\_₽"
-          ram|string: "0,7000\_₽"
+          ram|month|string: "504,00\_₽"
+          ram|string: "0,70\_₽"
       pg:
         v1:
           cpu:
-            c100|month|string: "1\_540,8000\_₽"
-            c100|string: "2,1400\_₽"
-            c20|month|string: "324,0000\_₽"
-            c20|string: "0,4500\_₽"
-            c5|month|string: "43,2000\_₽"
-            c5|string: "0,0600\_₽"
-            c50|month|string: "540,0000\_₽"
-            c50|string: "0,7500\_₽"
-          ram|month|string: "352,8000\_₽"
-          ram|string: "0,4900\_₽"
+            c100|month|string: "1\_540,80\_₽"
+            c100|string: "2,14\_₽"
+            c20|month|string: "324,00\_₽"
+            c20|string: "0,45\_₽"
+            c5|month|string: "43,20\_₽"
+            c5|string: "0,06\_₽"
+            c50|month|string: "540,00\_₽"
+            c50|string: "0,75\_₽"
+          ram|month|string: "352,80\_₽"
+          ram|string: "0,49\_₽"
         v2:
           cpu:
-            c100|month|string: "1\_303,2000\_₽"
-            c100|string: "1,8100\_₽"
-            c20|month|string: "324,0000\_₽"
-            c20|string: "0,4500\_₽"
-            c5|month|string: "43,2000\_₽"
-            c5|string: "0,0600\_₽"
-            c50|month|string: "540,0000\_₽"
-            c50|string: "0,7500\_₽"
-          ram|month|string: "352,8000\_₽"
-          ram|string: "0,4900\_₽"
+            c100|month|string: "1\_303,20\_₽"
+            c100|string: "1,81\_₽"
+            c20|month|string: "324,00\_₽"
+            c20|string: "0,45\_₽"
+            c5|month|string: "43,20\_₽"
+            c5|string: "0,06\_₽"
+            c50|month|string: "540,00\_₽"
+            c50|string: "0,75\_₽"
+          ram|month|string: "352,80\_₽"
+          ram|string: "0,49\_₽"
         v3:
           cpu:
-            c100|month|string: "1\_173,6000\_₽"
-            c100|string: "1,6300\_₽"
-            c50|month|string: "489,6000\_₽"
-            c50|string: "0,6800\_₽"
-          ram|month|string: "316,8000\_₽"
-          ram|string: "0,4400\_₽"
+            c100|month|string: "1\_173,60\_₽"
+            c100|string: "1,63\_₽"
+            c50|month|string: "489,60\_₽"
+            c50|string: "0,68\_₽"
+          ram|month|string: "316,80\_₽"
+          ram|string: "0,44\_₽"
       redis:
         v1:
           cpu:
-            c100|month|string: "1\_440,0000\_₽"
-            c100|string: "2,0000\_₽"
-            c20|month|string: "259,2000\_₽"
-            c20|string: "0,3600\_₽"
-            c5|month|string: "7,2000\_₽"
-            c5|string: "0,0100\_₽"
-          ram|month|string: "388,8000\_₽"
-          ram|string: "0,5400\_₽"
+            c100|month|string: "1\_440,00\_₽"
+            c100|string: "2,00\_₽"
+            c20|month|string: "259,20\_₽"
+            c20|string: "0,36\_₽"
+            c5|month|string: "7,20\_₽"
+            c5|string: "0,01\_₽"
+          ram|month|string: "388,80\_₽"
+          ram|string: "0,54\_₽"
         v2:
           cpu:
-            c100|month|string: "1\_209,6000\_₽"
-            c100|string: "1,6800\_₽"
-            c5|month|string: "79,2000\_₽"
-            c5|string: "0,1100\_₽"
-            c50|month|string: "727,2000\_₽"
-            c50|string: "1,0100\_₽"
-          ram|month|string: "324,0000\_₽"
-          ram|string: "0,4500\_₽"
+            c100|month|string: "1\_209,60\_₽"
+            c100|string: "1,68\_₽"
+            c5|month|string: "79,20\_₽"
+            c5|string: "0,11\_₽"
+            c50|month|string: "727,20\_₽"
+            c50|string: "1,01\_₽"
+          ram|month|string: "324,00\_₽"
+          ram|string: "0,45\_₽"
         v3:
           cpu:
-            c100|month|string: "1\_087,2000\_₽"
-            c100|string: "1,5100\_₽"
-            c50|month|string: "655,2000\_₽"
-            c50|string: "0,9100\_₽"
-          ram|month|string: "288,0000\_₽"
-          ram|string: "0,4000\_₽"
+            c100|month|string: "1\_087,20\_₽"
+            c100|string: "1,51\_₽"
+            c50|month|string: "655,20\_₽"
+            c50|string: "0,91\_₽"
+          ram|month|string: "288,00\_₽"
+          ram|string: "0,40\_₽"
     dataproc:
       v2:
         cpu:
-          c100|string: "0,1200\_₽"
-          c50|string: "0,0600\_₽"
-        ram|string: "0,0300\_₽"
+          c100|string: "0,12\_₽"
+          c50|string: "0,06\_₽"
+        ram|string: "0,03\_₽"
       v3:
         cpu:
-          c100|string: "0,1200\_₽"
-        ram|string: "0,0300\_₽"
+          c100|string: "0,12\_₽"
+        ram|string: "0,03\_₽"
     zk:
       clickhouse:
         v1:
           cpu:
-            c100|month|string: "1\_022,4000\_₽"
-            c100|string: "1,4200\_₽"
-            c20|month|string: "403,2000\_₽"
-            c20|string: "0,5600\_₽"
-            c5|month|string: "172,8000\_₽"
-            c5|string: "0,2400\_₽"
-            c50|month|string: "561,6000\_₽"
-            c50|string: "0,7800\_₽"
-          ram|month|string: "230,4000\_₽"
-          ram|string: "0,3200\_₽"
+            c100|month|string: "1\_022,40\_₽"
+            c100|string: "1,42\_₽"
+            c20|month|string: "403,20\_₽"
+            c20|string: "0,56\_₽"
+            c5|month|string: "172,80\_₽"
+            c5|string: "0,24\_₽"
+            c50|month|string: "561,60\_₽"
+            c50|string: "0,78\_₽"
+          ram|month|string: "230,40\_₽"
+          ram|string: "0,32\_₽"
         v2:
           cpu:
-            c100|month|string: "871,2000\_₽"
-            c100|string: "1,2100\_₽"
-            c20|month|string: "403,2000\_₽"
-            c20|string: "0,5600\_₽"
-            c5|month|string: "172,8000\_₽"
-            c5|string: "0,2400\_₽"
-            c50|month|string: "561,6000\_₽"
-            c50|string: "0,7800\_₽"
-          ram|month|string: "230,4000\_₽"
-          ram|string: "0,3200\_₽"
+            c100|month|string: "871,20\_₽"
+            c100|string: "1,21\_₽"
+            c20|month|string: "403,20\_₽"
+            c20|string: "0,56\_₽"
+            c5|month|string: "172,80\_₽"
+            c5|string: "0,24\_₽"
+            c50|month|string: "561,60\_₽"
+            c50|string: "0,78\_₽"
+          ram|month|string: "230,40\_₽"
+          ram|string: "0,32\_₽"
         v3:
           cpu:
-            c100|month|string: "784,8000\_₽"
-            c100|string: "1,0900\_₽"
-            c50|month|string: "504,0000\_₽"
-            c50|string: "0,7000\_₽"
-          ram|month|string: "201,6000\_₽"
-          ram|string: "0,2800\_₽"
+            c100|month|string: "784,80\_₽"
+            c100|string: "1,09\_₽"
+            c50|month|string: "504,00\_₽"
+            c50|string: "0,70\_₽"
+          ram|month|string: "201,60\_₽"
+          ram|string: "0,28\_₽"
       kafka:
         v2:
           cpu:
-            c100|month|string: "871,2000\_₽"
-            c100|string: "1,2100\_₽"
-            c50|month|string: "561,6000\_₽"
-            c50|string: "0,7800\_₽"
-          ram|month|string: "230,4000\_₽"
-          ram|string: "0,3200\_₽"
+            c100|month|string: "871,20\_₽"
+            c100|string: "1,21\_₽"
+            c50|month|string: "561,60\_₽"
+            c50|string: "0,78\_₽"
+          ram|month|string: "230,40\_₽"
+          ram|string: "0,32\_₽"
         v3:
           cpu:
-            c100|month|string: "784,8000\_₽"
-            c100|string: "1,0900\_₽"
-            c50|month|string: "504,0000\_₽"
-            c50|string: "0,7000\_₽"
-          ram|month|string: "201,6000\_₽"
-          ram|string: "0,2800\_₽"
+            c100|month|string: "784,80\_₽"
+            c100|string: "1,09\_₽"
+            c50|month|string: "504,00\_₽"
+            c50|string: "0,70\_₽"
+          ram|month|string: "201,60\_₽"
+          ram|string: "0,28\_₽"
   sku|RUB|mk8s:
     master:
       regional:
-        small|month|string: "16\_012,8000\_₽"
-        small|string: "22,2400\_₽"
+        small|month|string: "16\_012,80\_₽"
+        small|string: "22,24\_₽"
       zonal:
-        small|month|string: "6\_336,0000\_₽"
-        small|string: "8,8000\_₽"
+        small|month|string: "6\_336,00\_₽"
+        small|string: "8,80\_₽"
   sku|RUB|monitoring:
     point:
       dgauge:
         read|pricingRate:
-          50|string: "4,2000\_₽"
-        read|string: "7,0000\_₽"
+          50|string: "4,20\_₽"
+        read|string: "7,00\_₽"
         store|string: Не тарифицируется
         write|pricingRate:
-          50|string: "5,6000\_₽"
-        write|string: "9,8000\_₽"
+          50|string: "5,60\_₽"
+        write|string: "9,80\_₽"
   sku|RUB|nbs:
     network-hdd:
-      allocated|month|string: "2,9200\_₽"
+      allocated|month|string: "2,92\_₽"
       allocated|string: "0,0041\_₽"
     network-nvme:
-      allocated|month|string: "11,9100\_₽"
+      allocated|month|string: "11,91\_₽"
       allocated|string: "0,0165\_₽"
     network-ssd-io-m3:
-      allocated|month|string: "19,8000\_₽"
+      allocated|month|string: "19,80\_₽"
     network-ssd-nonreplicated:
-      allocated|month|string: "8,8000\_₽"
+      allocated|month|string: "8,80\_₽"
   sku|RUB|network:
     egress:
       inet|pricingRate:
-        100|string: "1,5300\_₽"
+        100|string: "1,53\_₽"
       inet|string: Не тарифицируется
     ingress:
       inet:
         antiddos:
-          qrator|string: "2,4300\_₽"
+          qrator|string: "2,43\_₽"
     public_fips:
-      deallocated|string: "0,3100\_₽"
-    public_fips|string: "0,2400\_₽"
+      deallocated|string: "0,31\_₽"
+    public_fips|string: "0,24\_₽"
   sku|RUB|nlb:
     balancer:
-      active|string: "0,7800\_₽"
+      active|string: "0,78\_₽"
   sku|RUB|searchapi:
     requests:
       day:
@@ -1287,100 +1293,100 @@ default:
     containers:
       compute:
         cpu|pricingRate:
-          5|string: "4,8000\_₽"
+          5|string: "4,80\_₽"
         cpu|string: Не тарифицируется
         memory|pricingRate:
-          10|string: "3,2000\_₽"
+          10|string: "3,20\_₽"
         memory|string: Не тарифицируется
         provision_enabled:
-          cpu|string: "1,0300\_₽"
-          memory|string: "0,6900\_₽"
+          cpu|string: "1,03\_₽"
+          memory|string: "0,69\_₽"
         provisioned_request:
-          cpu|string: "1,9800\_₽"
-          memory|string: "1,3200\_₽"
+          cpu|string: "1,98\_₽"
+          memory|string: "1,32\_₽"
       invocations|pricingRate:
-        1|string: "16,0000\_₽"
+        1|string: "16,00\_₽"
       invocations|string: Не тарифицируется
     functions:
       compute:
         v1|pricingRate:
-          10|string: "5,4700\_₽"
+          10|string: "5,47\_₽"
         v1|string: Не тарифицируется
       invocations:
         v1|pricingRate:
-          1|string: "16,0000\_₽"
+          1|string: "16,00\_₽"
         v1|string: Не тарифицируется
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|string: "0,0025\_₽"
     stt_long_running:
-      v1|string: "0,0100\_₽"
+      v1|string: "0,01\_₽"
     stt:
-      v1|string: "0,1600\_₽"
+      v1|string: "0,16\_₽"
     tts_gpu:
-      v1|string: "1\_320,0000\_₽"
+      v1|string: "1\_320,00\_₽"
     tts:
       v3_bvcc_request:
-        v1|string: "0,1600\_₽"
+        v1|string: "0,16\_₽"
       v3_bvprem_request:
-        v1|string: "0,1600\_₽"
+        v1|string: "0,16\_₽"
       v3_bvss_request:
-        v1|string: "0,1600\_₽"
+        v1|string: "0,16\_₽"
       v3_request:
-        v1|string: "0,1600\_₽"
+        v1|string: "0,16\_₽"
   sku|RUB|storage:
     api:
       get:
-        cold|string: "0,9700\_₽"
-        ice|string: "1,9400\_₽"
+        cold|string: "0,97\_₽"
+        ice|string: "1,94\_₽"
         standard|pricingRate:
-          10|string: "0,3900\_₽"
+          10|string: "0,39\_₽"
         standard|string: Не тарифицируется
       head:
-        cold|string: "0,9700\_₽"
-        ice|string: "1,9400\_₽"
+        cold|string: "0,97\_₽"
+        ice|string: "1,94\_₽"
         standard|pricingRate:
-          10|string: "0,3900\_₽"
+          10|string: "0,39\_₽"
         standard|string: Не тарифицируется
       network:
         inet:
           egress|pricingRate:
-            100|string: "1,5300\_₽"
-            1024|string: "1,2800\_₽"
-            102400|string: "1,1500\_₽"
-            51200|string: "1,2000\_₽"
+            100|string: "1,53\_₽"
+            1024|string: "1,28\_₽"
+            102400|string: "1,15\_₽"
+            51200|string: "1,20\_₽"
           egress|string: Не тарифицируется
       options:
-        cold|string: "0,9700\_₽"
-        ice|string: "1,9400\_₽"
+        cold|string: "0,97\_₽"
+        ice|string: "1,94\_₽"
         standard|pricingRate:
-          10|string: "0,3900\_₽"
+          10|string: "0,39\_₽"
         standard|string: Не тарифицируется
       patch:
-        cold|string: "1,1800\_₽"
-        ice|string: "2,3600\_₽"
+        cold|string: "1,18\_₽"
+        ice|string: "2,36\_₽"
         standard|pricingRate:
-          10|string: "0,4800\_₽"
+          10|string: "0,48\_₽"
         standard|string: Не тарифицируется
       post:
-        cold|string: "1,1800\_₽"
-        ice|string: "2,3600\_₽"
+        cold|string: "1,18\_₽"
+        ice|string: "2,36\_₽"
         standard|pricingRate:
-          10|string: "0,4800\_₽"
+          10|string: "0,48\_₽"
         standard|string: Не тарифицируется
       put:
-        cold|string: "1,1800\_₽"
-        ice|string: "2,3600\_₽"
+        cold|string: "1,18\_₽"
+        ice|string: "2,36\_₽"
         standard|pricingRate:
-          10|string: "0,4800\_₽"
+          10|string: "0,48\_₽"
         standard|string: Не тарифицируется
     bucket:
       used_space:
-        cold|month|string: "1,0700\_₽"
+        cold|month|string: "1,07\_₽"
         ice|month|string: "0,5350\_₽"
         standard|month|string: Не тарифицируется
         standard|pricingRate:
-          720|month|string: "2,0100\_₽"
+          720|month|string: "2,01\_₽"
   sku|RUB|support:
     business:
       fixed_consumption:
@@ -1388,7 +1394,7 @@ default:
     organization:
       business:
         fixed_consumption:
-          v1|int|string: "3\_000\_₽"
+          v1|string: "3\_000,00\_₽"
     standard:
       fixed_consumption:
         v1|int|string: Не тарифицируется
@@ -1411,86 +1417,86 @@ default:
             ch:
               cpu:
                 c100:
-                  v2|month|string: "1\_175,0400\_₽"
+                  v2|month|string: "1\_175,04\_₽"
                   v2|string: "1,6320\_₽"
-                  v3|month|string: "1\_052,6400\_₽"
+                  v3|month|string: "1\_052,64\_₽"
                   v3|string: "1,4620\_₽"
               ram:
-                v2|month|string: "318,2400\_₽"
+                v2|month|string: "318,24\_₽"
                 v2|string: "0,4420\_₽"
-                v3|month|string: "287,6400\_₽"
+                v3|month|string: "287,64\_₽"
                 v3|string: "0,3995\_₽"
             greenplum:
               cpu:
                 c100:
-                  v3|month|string: "1\_315,8000\_₽"
+                  v3|month|string: "1\_315,80\_₽"
                   v3|string: "1,8275\_₽"
               ram:
-                v3|month|string: "348,8400\_₽"
+                v3|month|string: "348,84\_₽"
                 v3|string: "0,4845\_₽"
             kafka:
               cpu:
                 c100:
-                  v2|month|string: "1\_028,1600\_₽"
+                  v2|month|string: "1\_028,16\_₽"
                   v2|string: "1,4280\_₽"
-                  v3|month|string: "924,1200\_₽"
+                  v3|month|string: "924,12\_₽"
                   v3|string: "1,2835\_₽"
               ram:
-                v2|month|string: "275,4000\_₽"
+                v2|month|string: "275,40\_₽"
                 v2|string: "0,3825\_₽"
-                v3|month|string: "244,8000\_₽"
-                v3|string: "0,3400\_₽"
+                v3|month|string: "244,80\_₽"
+                v3|string: "0,34\_₽"
             mysql:
               cpu:
                 c100:
-                  v2|month|string: "1\_144,4400\_₽"
+                  v2|month|string: "1\_144,44\_₽"
                   v2|string: "1,5895\_₽"
-                  v3|month|string: "1\_028,1600\_₽"
+                  v3|month|string: "1\_028,16\_₽"
                   v3|string: "1,4280\_₽"
               ram:
-                v2|month|string: "312,1200\_₽"
+                v2|month|string: "312,12\_₽"
                 v2|string: "0,4335\_₽"
-                v3|month|string: "281,5200\_₽"
+                v3|month|string: "281,52\_₽"
                 v3|string: "0,3910\_₽"
             opensearch:
               cpu:
                 c100:
-                  v3|month|string: "1\_028,1600\_₽"
+                  v3|month|string: "1\_028,16\_₽"
                   v3|string: "1,4280\_₽"
               ram:
-                v3|month|string: "428,4000\_₽"
+                v3|month|string: "428,40\_₽"
                 v3|string: "0,5950\_₽"
             pg:
               cpu:
                 c100:
-                  v2|month|string: "1\_107,7200\_₽"
+                  v2|month|string: "1\_107,72\_₽"
                   v2|string: "1,5385\_₽"
-                  v3|month|string: "997,5600\_₽"
+                  v3|month|string: "997,56\_₽"
                   v3|string: "1,3855\_₽"
               ram:
-                v2|month|string: "299,8800\_₽"
+                v2|month|string: "299,88\_₽"
                 v2|string: "0,4165\_₽"
-                v3|month|string: "269,2800\_₽"
+                v3|month|string: "269,28\_₽"
                 v3|string: "0,3740\_₽"
             redis:
               cpu:
                 c100:
-                  v2|month|string: "1\_028,1600\_₽"
+                  v2|month|string: "1\_028,16\_₽"
                   v2|string: "1,4280\_₽"
-                  v3|month|string: "924,1200\_₽"
+                  v3|month|string: "924,12\_₽"
                   v3|string: "1,2835\_₽"
               ram:
-                v2|month|string: "275,4000\_₽"
+                v2|month|string: "275,40\_₽"
                 v2|string: "0,3825\_₽"
-                v3|month|string: "244,8000\_₽"
-                v3|string: "0,3400\_₽"
+                v3|month|string: "244,80\_₽"
+                v3|string: "0,34\_₽"
           ydb:
             cpu:
               c100:
-                v2|month|string: "1\_144,4400\_₽"
+                v2|month|string: "1\_144,44\_₽"
                 v2|string: "1,5895\_₽"
             ram:
-              v2|month|string: "312,1200\_₽"
+              v2|month|string: "312,12\_₽"
               v2|string: "0,4335\_₽"
         y1:
           compute:
@@ -1520,7 +1526,7 @@ default:
             greenplum:
               cpu:
                 c100:
-                  v3|month|string: "1\_207,4400\_₽"
+                  v3|month|string: "1\_207,44\_₽"
                   v3|string: "1,6770\_₽"
               ram:
                 v3|month|string: "320,1120\_₽"
@@ -1533,9 +1539,9 @@ default:
                   v3|month|string: "848,0160\_₽"
                   v3|string: "1,1778\_₽"
               ram:
-                v2|month|string: "252,7200\_₽"
+                v2|month|string: "252,72\_₽"
                 v2|string: "0,3510\_₽"
-                v3|month|string: "224,6400\_₽"
+                v3|month|string: "224,64\_₽"
                 v3|string: "0,3120\_₽"
             mysql:
               cpu:
@@ -1555,7 +1561,7 @@ default:
                   v3|month|string: "943,4880\_₽"
                   v3|string: "1,3104\_₽"
               ram:
-                v3|month|string: "393,1200\_₽"
+                v3|month|string: "393,12\_₽"
                 v3|string: "0,5460\_₽"
             pg:
               cpu:
@@ -1577,9 +1583,9 @@ default:
                   v3|month|string: "848,0160\_₽"
                   v3|string: "1,1778\_₽"
               ram:
-                v2|month|string: "252,7200\_₽"
+                v2|month|string: "252,72\_₽"
                 v2|string: "0,3510\_₽"
-                v3|month|string: "224,6400\_₽"
+                v3|month|string: "224,64\_₽"
                 v3|string: "0,3120\_₽"
           ydb:
             cpu:
@@ -1592,58 +1598,56 @@ default:
   sku|RUB|ydb:
     cluster:
       v1:
-        ssd|month|string: "21,3800\_₽"
+        ssd|month|string: "21,38\_₽"
       v2:
-        cpu|month|string: "1\_346,4000\_₽"
-        cpu|string: "1,8700\_₽"
-        ram|month|string: "367,2000\_₽"
-        ram|string: "0,5100\_₽"
+        cpu|month|string: "1\_346,40\_₽"
+        cpu|string: "1,87\_₽"
+        ram|month|string: "367,20\_₽"
+        ram|string: "0,51\_₽"
     v1:
       serverless:
         requests|pricingRate:
-          1|string: "21,3800\_₽"
+          1|string: "21,38\_₽"
   sku|RUB|yds:
     events:
       puts|pricingRate:
-        2|string: "1,1800\_₽"
+        2|string: "1,18\_₽"
     reserved_resources:
       128k:
         12h|string: "0,1333\_₽"
         1h|pricingRate:
-          744|string: "0,1000\_₽"
+          744|string: "0,10\_₽"
         1h|string: Не тарифицируется
-        24h|string: "0,2000\_₽"
+        24h|string: "0,20\_₽"
         4h|string: "0,1167\_₽"
       1m:
         12h|string: "0,6333\_₽"
         24h|string: "0,9333\_₽"
         4h|string: "0,4333\_₽"
       512k:
-        12h|string: "0,4000\_₽"
-        24h|string: "0,6000\_₽"
+        12h|string: "0,40\_₽"
+        24h|string: "0,60\_₽"
         4h|string: "0,2667\_₽"
-    reserved_storage|month|string: "10,8000\_₽"
+    reserved_storage|month|string: "10,80\_₽"
     reserved_throughput:
-      128k|month|string: "48,0000\_₽"
-      1m|month|string: "240,0000\_₽"
-      512k|month|string: "144,0000\_₽"
+      128k|month|string: "48,00\_₽"
+      1m|month|string: "240,00\_₽"
+      512k|month|string: "144,00\_₽"
   sku|RUB|ymq:
     queue:
       fifo:
         requests|pricingRate:
           '0':
-            1|string: "61,1500\_₽"
+            1|string: "61,15\_₽"
       std:
         requests|pricingRate:
           '0':
-            1|string: "48,7600\_₽"
+            1|string: "48,76\_₽"
         requests|string: Не тарифицируется
   sku|USD|ai:
     mt:
       detect|string: "3,937600\_$"
       translate|string: "3,937600\_$"
-    vision:
-      text_detection|string: "1,040000\_$"
   sku|USD|alb:
     balancer:
       active|string: "0,017760\_$"
@@ -3161,7 +3165,7 @@ default:
         add-to-projects: Добавить в проект
         assignee: Исполнитель
         assignee-me: Назначить меня исполнителем
-        change-status: Изменить cтатус
+        change-status: Изменить статус
         edit-parameters: Редактировать параметры
         followers: Наблюдатели
         move: Переместить
@@ -3209,6 +3213,7 @@ default:
         standard-info-section-time: Учёт времени
       ui_components_page-admin_BillingAccountInfo:
         person-type-company: Юридическое лицо или ИП
+        person-type-invididual: Физическое лицо
         rebind-account: Заменить платёжный аккаунт
         refill-balance: Пополнить баланс
         refill-dialog-ok-issue: Выписать счёт
@@ -3439,13 +3444,24 @@ default:
       cloud-billing-account:
         account_label_new: Новый плательщик
         label_card-add: Добавить карту
+        label_wizard-next: Вперед
         payment-type_label_card: Банковская карта
         payment-type_label_invoice: Банковский перевод
         section_person-type: Тип плательщика
         section_persons: Плательщики
+      create-account-wizard:
+        field_organization: Организация
+        field_person-id: Плательщик
     yacloud_billing:
       billing:
         account:
+          dashboard-resources:
+            title_section-billable: Привязанные облака и сервисы
+          dashboard:
+            card_label_threshold-description: Подробнее
+            label_inactivation: Удалить
+            label_rename: Переименовать
+            popup-go-pay_button_cancel: Отменить
           overview:
             account-data_label_organization: Организация
             section_account-data: Общие сведения
@@ -3625,7 +3641,6 @@ default:
         save-changes: Сохранить
       common:
         resource-acl:
-          label_groups: Группы
           label_inherited-bindings: Наследуемые роли
           label_service-accounts: Сервисные аккаунты
       component:
@@ -3680,8 +3695,6 @@ default:
             action:
               role:
                 add: Добавить роль
-              subject:
-                select: Выбрать пользователя
         federation:
           action:
             create: Создать федерацию
@@ -3786,7 +3799,7 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Создать кластер
-        section_admin-password: Пользователь
+        section_accesses: Настройки доступа
         section_airflow-configuration: Конфигурация Airflow
         section_dependencies: Зависимости
         section_scheduler: Конфигурация планировщика
@@ -3948,6 +3961,8 @@ default:
         field_delete-old-vm: Удалить неактуальную ВМ
         field_recover-to-vm: Целевая ВМ
         field_repeat-period-type: Создавать копии
+        field_type-full: Полный
+        field_type-incremental: Инкрементальный
         field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Пользовательское
@@ -3967,8 +3982,6 @@ default:
         value_period-time-weekly: Каждую неделю
         value_retention-save-all: Хранить все копии
         value_retention-save-last-f: Только последнюю
-        value_scheme-full: Полный
-        value_scheme-incremental: Инкрементальный
       billing:
         account:
           acts_batch-download-text_pdf: Скачать документы (PDF)
@@ -4060,6 +4073,7 @@ default:
           overview:
             button_bind-card-apply: Применить
             card_label_edit: Изменить банковскую карту
+            company_label_rs: Расчетный счет
             payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
@@ -4488,6 +4502,9 @@ default:
           field_source: Наполнение
           field_type: Тип
           value_source-none: Пустой
+        disk:
+          overview:
+            label_status: Статус
         disks:
           button_action-attach: Присоединить
           button_action-delete: Удалить
@@ -4735,6 +4752,8 @@ default:
             button_add-instance: Добавить ВМ
             popup-add_button_add: Добавить
             popup-confirm_button_delete: Удалить из группы
+          overview:
+            label_title: Обзор
           switch_disks: Список дисков
           switch_instances: Список ВМ
         placement-groups:
@@ -4764,7 +4783,6 @@ default:
           list:
             button_action-delete: Удалить
             button_action-image: Создать образ
-            popup-confirm_button_delete: Удалить
         switch_disks: Диски
         switch_file-storages: Файловые хранилища
         switch_groups: Группы виртуальных машин
@@ -5849,12 +5867,15 @@ default:
         label_containers: Контейнеры
         label_edit-active-revision: Сделать активной
         label_editor: Редактор
+        label_environment: Переменные окружения
         label_image-url: URL образа
+        label_service-account: Сервисный аккаунт
         label_timeout: Таймаут, с
         label_url: Ссылка для вызова
         popup-confirm-edit-active-revision_button_confirm: Подтвердить
         section_image: Параметры образа
         section_parameters: Настройки
+        section_resources: Ресурсы
         section-revisions: Ревизии
       serverless-functions:
         create:
@@ -6099,11 +6120,9 @@ default:
         value_config-standard: Стандартный
       storage:
         bucket:
-          button_action-delete: Удалить
           button_action-permissions: ACL объекта
           button_create: Создать папку
           button_empty-create: Загрузить объекты
-          button_gr-delete: Удалить
           button_permissions: ACL бакета
           button_upload: Загрузить
           cors:
@@ -7431,8 +7450,6 @@ default:
       alias:
         private: Приватный
         public: Публичный
-      autosave-commit-mode:
-        title: Автоматическое сохранение состояния
       checkpoint-list-page:
         page-title: Контрольные точки
       checkpoint:
@@ -7465,7 +7482,6 @@ default:
         create-resource: Создать ресурс
         datasets: Датасеты
         deactivate: Деактивировать
-        dedicated: Dedicated
         default: По умолчанию
         delete: Удалить
         description: Описание
@@ -7497,7 +7513,6 @@ default:
         response: Ответ
         restrictions: Ограничения
         save: Сохранить
-        serverless: Serverless
         share: Поделиться
         shared-with-project-resources: Доступные
         show-additional-parameters: Показать дополнительные параметры
@@ -7525,17 +7540,17 @@ default:
         repository: Имя образа
         tag: Тег
       edit-project-page:
+        add-description: Добавить описание
         advanced-settings: Расширенные настройки
         balance: Баланс проекта
         dataproc-cluster: Кластер Data Proc
         dedicated-vm-inactivity-timeout: Остановить простаивающую ВМ через
-        default-mode: Режим работы проекта
         description: Описание
         name: Имя
-        per-cell: На ячейку
-        per-time: На юниты в час
         period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
+      external-ide:
+        external-ide-vm-configuration: Конфигурация ВМ для удаленного подключения
       foundation-model:
         data-for-tuning: Данные для дообучения
         instruction: Инструкция
@@ -7558,7 +7573,6 @@ default:
           label-nodes: Ноды и распределение нагрузки
       new-node:
         add-acl: Добавить ACL
-        add-new-zone: Добавить новую зону доступности
         endpoint-form-label:
           idle-timeout: Idle timeout
           port: Порт
@@ -7596,7 +7610,6 @@ default:
           output-variables: Выходные переменные
           provisioning: Обеспечение
           telemetry: Телеметрия
-        user-custom: Пользовательский
         variables-form-placeholder:
           name: Имя
       new-s3-page:
@@ -7616,10 +7629,8 @@ default:
           monitoring: Мониторинг
           request: Запрос
         type:
-          dict: dict
           list: list
       project-page:
-        ask-when-opening: Спрашивать при открытии
         executions: Запущенные операции
         project-card:
           create-resource: Создать ресурс
@@ -7649,6 +7660,7 @@ default:
       restrictions:
         CHANGING_DISK_SIZE: Изменение размера хранилища проекта
         DATAPROC_TEMPLATES: Шаблоны Data Proc
+        DEDICATED_INSTANCE_COUNT: Максимальное количество ВМ в проекте
         JUPYTER_TOKEN: Подключение внешних IDE
         NODES_AND_ALIASES: Развертывание эксплуатации моделей
         project-mode: Режим работы проектов
@@ -7899,7 +7911,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.29
+        tag: 0.4.30
     yc_gitlab-agent:
       helmChart:
         name: >-
@@ -7921,7 +7933,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.0.4
+        tag: 1.1.1
     yc_metric-provider:
       helmChart:
         name: >-
@@ -7946,7 +7958,7 @@ default:
     yc_vault-yckms-k8s:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
-        tag: 0.25.0-1
+        tag: 0.27.0_yckms
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
