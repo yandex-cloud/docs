@@ -6,6 +6,12 @@
 
 Установите AWS SDK для JavaScript в Node.js [по инструкции](https://aws.amazon.com/ru/sdk-for-node-js/) на официальном сайте.
 
+Начиная с версии sqs сервиса `3.446.0` AWS использует протокол JSON для взаимодействия клиентов с сервисами, вместо XML-based.
+Корректная работа возможна, только при использовании версий пакета до `3.445.0` включительно.
+```shell
+npm install @aws-sdk/client-sqs@3.445.0
+```
+
 ## Подготовка к работе {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
