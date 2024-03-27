@@ -1,12 +1,12 @@
 # Пример использования {{ message-queue-full-name }} на PHP
 
-С помощью [AWS SDK для PHP](https://aws.amazon.com/ru/sdk-for-php/) можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.
+С помощью [AsyncAws](https://async-aws.com) можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.
 
 ## Установка {#install}
 
-Установите AWS SDK для PHP [по инструкции](https://aws.amazon.com/ru/sdk-for-php/) на официальном сайте.
+Установите библиотеку AsyncAws:
 ```
-composer require aws/aws-sdk-php-resources
+composer require async-aws/sqs ^1.9
 ```
 ## Подготовка к работе {#prepare}
 
@@ -32,13 +32,12 @@ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 ```php
 <?php
 
+use AsyncAws\Sqs\SqsClient;
+
 require __DIR__ . '/vendor/autoload.php';
 
-use Aws\Sqs\SqsClient;
-use Aws\Exception\AwsException;
 
-$mq = new Aws\Sqs\SqsClient([
-    'version' => 'latest',
+$mq = new SqsClient([
     'region' => '{{ region-id }}',
     'endpoint' => 'https://message-queue.{{ api-host }}',
 ]);
@@ -47,7 +46,7 @@ $result = $mq->createQueue([
     'QueueName' => 'mq_php_sdk_example',
 ]);
 
-$queueUrl = $result["QueueUrl"];
+$queueUrl = $result->getQueueUrl();
 print('Queue created, URL: ' . $queueUrl . PHP_EOL);
 
 $result = $mq->sendMessage([
@@ -55,21 +54,21 @@ $result = $mq->sendMessage([
     'MessageBody' => 'Test message',
 ]);
 
-print("Message sent, ID: " . $result["MessageId"] . PHP_EOL);
+print("Message sent, ID: " . $result->getMessageId() . PHP_EOL);
 
 $result = $mq->receiveMessage([
     'QueueUrl' => $queueUrl,
     'WaitTimeSeconds' => 10,
 ]);
 
-foreach ($result["Messages"] as $msg) {
+foreach ($result->getMessages() as $msg) {
     print('Message received:' . PHP_EOL);
-    print('ID: ' . $msg['MessageId'] . PHP_EOL);
-    print('Body: ' . $msg['Body'] . PHP_EOL);
+    print('ID: ' . $msg->getMessageId() . PHP_EOL);
+    print('Body: ' . $msg->getBody() . PHP_EOL);
 
     $mq->deleteMessage([
         'QueueUrl' => $queueUrl,
-        'ReceiptHandle' => $msg['ReceiptHandle'],
+        'ReceiptHandle' => $msg->getReceiptHandle(),
     ]);
 }
 
