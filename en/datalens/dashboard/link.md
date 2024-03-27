@@ -6,6 +6,12 @@ You can choose an existing dataset field as a link or create your own field and 
 
 You can use links to filter the values of selectors and charts. For example, if you select a country in the first selector on the dashboard, the second selector limits the list of cities (and vice versa).
 
+{% cut "Example of widget link on the dashboard" %}
+
+![image](../../_assets/datalens/concepts/dashboard-link-example.gif)
+
+{% endcut %}
+
 The field used by the selector to filter on must be included in the dataset used to construct a chart. Otherwise, the link will not work. For more information, see [{#T}](../concepts/data-join.md).
 
 The link type determines how values in selectors and charts are filtered. The type is set in the links window in dashboard edit mode.

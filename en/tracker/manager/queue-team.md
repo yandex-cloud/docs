@@ -11,11 +11,11 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
 
-The queue team includes the employees who create and execute issues in the given queue. The queue team members get notified by email on any task changes. Their privileges are determined by the **{{ ui-key.startrek-backend.roles.role.name.team-member }}** role in the queue access settings.
+The queue team is represented by employees who create and execute issues in a given queue. The queue team members get notified by email on any issue-related changes.
 
 The queue owner is an employee who has full access to editing the queue settings.
 
-You can set the team and queue owner on the **Queue team** tab.
+You can set the queue team on the **Queue team** tab.
 
 ## Changing the queue owner {#change-owner}
 
@@ -32,13 +32,17 @@ Changing the queue owner:
 
 1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Go to the **Queue team** tab.
+1. Go to the **Access rights** tab.
 
-1. Click image ![](../../_assets/tracker/icon-edit.png) next to the owner name.
+1. Click the user picture next to the owner name. The window to change the queue owner will open.
+
+1. Click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.change-owner }}**.
 
 1. Enter the name or username of the new owner.
 
-1. If you want all new issues to be automatically assigned to the owner, select **Assign new issues to lead**.
+1. Click **Save**.
+
+1. If you want all new issues to be automatically assigned to the owner, enable the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm.set-as-default }}** option.
 
 1. Click **Save**.
 
@@ -54,7 +58,7 @@ To change the list of team members:
 
 1. Go to the **Queue team** tab.
 
-1. To add a new member, enter their username or name in the **Queue team** field.
+1. To add a new member, enter the username or name of the user in the **Queue team** field.
 
 1. To remove a member, click ![](../../_assets/tracker/remove-task-type.png) next to the user's name.
 

@@ -66,11 +66,39 @@
   ],
   "Condition": {
     "StringLike": {
-      "aws:referer": "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*"
+      "aws:referer": "https://console.yandex.cloud/folders/*/storage/buckets/your-bucket-name*"
     }
   }
 }
 ```
+
+{% cut "Пример для совместного использования доменов console.cloud.yandex.* и console.yandex.cloud" %}
+
+Если вы используете старый домен `console.cloud.yandex.*` совместно с новым доменом `console.yandex.cloud`, задайте следующие правила политики:
+
+```json
+{
+  "Effect": "Allow",
+  "Principal": {
+    "CanonicalUser": "<идентификатор_пользователя>"
+  },
+  "Action": "*",
+  "Resource": [
+    "arn:aws:s3:::<имя_бакета>/*",
+    "arn:aws:s3:::<имя_бакета>"
+  ],
+  "Condition": {
+    "StringLike": {
+      "aws:referer": [
+        "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*",
+        "https://console.yandex.cloud/folders/*/storage/buckets/your-bucket-name*"
+      ]
+    }
+  }
+}
+```
+
+{% endcut %}
 
 
 
