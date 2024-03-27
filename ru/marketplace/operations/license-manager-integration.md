@@ -50,7 +50,7 @@
             1. В открывшемся окне укажите [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md) и нажмите **{{ ui-key.yacloud_portal.common.action_add }}**.
             1. Найдите сервисный аккаунт в списке и нажмите ![image](../../_assets/marketplace/three_dots.png) → **{{ ui-key.yacloud_portal.common.action_change }}**.
             1. В открывшемся окне нажмите **+ Добавить роль**, выберите `license-manager.saasSubscriptionSupervisor` и нажмите **Сохранить**.
-            1. Аутентифицируйтесь в {{ license-manager }} API от имени сервисного аккаунта. Для аутентификации используйте [API-ключ](../../iam/concepts/authorization/api-key.md).
+            1. Аутентифицируйтесь в {{ license-manager }} API от имени сервисного аккаунта. Для аутентификации используйте [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 
     1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 
@@ -62,9 +62,9 @@
 
             Привязать идентификатор к подписке можно с помощью метода REST API [ensure](../license-manager/saas/api-ref/Lock/ensure.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Ensure](../license-manager/saas/api-ref/grpc/lock_service.md#Ensure).
 
-        1. Периодическая проверка того, что подписка активна.
+        1. Периодическая проверка того, что привязка подписки активна.
 
-            Получить актуальную информацию о подписке можно с помощью метода REST API [list](../license-manager/api-ref/Instance/list.md) для ресурса [Instance](../license-manager/api-ref/Instance/index.md) или вызова gRPC API [InstanceService/List](../license-manager/api-ref/grpc/instance_service.md#List).
+            Получить актуальную информацию о привязке подписки можно с помощью метода REST API [get](../license-manager/saas/api-ref/Lock/get.md) для ресурса [Lock](../license-manager/saas/api-ref/Lock/index.md) или вызова gRPC API [LockService/Get](../license-manager/saas/api-ref/grpc/lock_service.md#Get).
 
             {% note info %}
 

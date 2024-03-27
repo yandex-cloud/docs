@@ -83,7 +83,7 @@ annotations:
   ingress.alb.yc.io/internal-alb-subnet: <string>
   ingress.alb.yc.io/protocol: <string>
   ingress.alb.yc.io/group-settings-name: <string>
-  ingress.alb.yc.io/transport-security: <string>
+  ingress.alb.yc.io/transport-security: <string> # Только до версии 0.2.0 невключительно.
   ingress.alb.yc.io/prefix-rewrite: <string>
   ingress.alb.yc.io/upgrade-types: <string>
   ingress.alb.yc.io/request-timeout: <string>
@@ -179,6 +179,14 @@ annotations:
   Чтобы задать настройки, создайте дополнительный ресурс [IngressGroupSettings](#groupsettings).
 
 * **ingress.alb.yc.io/transport-security** {#annot-transport-security}
+
+  {% note warning %}
+
+  В [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее используйте аннотацию только в объекте [Service](../../../application-load-balancer/k8s-ref/service.md#metadata).
+
+  Если указать аннотацию в ресурсах `Ingress`, где используется один сервис с одинаковыми настройками для групп бэкендов, аннотация применится корректно. Но такой механизм устарел, в дальнейшем он не будет поддерживаться.
+
+  {% endnote %}
 
   Протокол шифрования соединений между балансировщиком и бэкендами, указанными в `Ingress` напрямую (без `HttpBackendGroup`):
 
@@ -367,6 +375,8 @@ http:
       pathType: <string>
       backend: <IngressBackend>
 ```
+
+В версиях [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` ([IngressBackend](#backend)). Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md) к вашей инфраструктуре.
 
 #|
 || **Поле** | **Значение или тип** | **Описание** ||

@@ -1,7 +1,5 @@
 # Создать профиль безопасности
 
-{% include [ask-for-turning-on](../../_includes/smartwebsecurity/ask-for-turning-on.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -21,6 +19,11 @@
   1. (опционально) Введите описание.
   1. (опционально) Добавьте профилю [метку](../../resource-manager/concepts/labels.md).
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите, что делать с трафиком, который не попал под условия других правил: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
+  1. Выберите капчу [{{ captcha-full-name }}](../../smartcaptcha/) для проверки подозрительных запросов:
+
+        {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
+
+        Чтобы создать новую капчу нажмите кнопку **Создать**.
   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
 
