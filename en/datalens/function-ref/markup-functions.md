@@ -25,6 +25,22 @@ Stylizes the passed text in bold font.
 
 
 
+## [BR](BR.md)
+
+**Syntax:**`BR()`
+
+Adds a line break.
+
+
+
+## [COLOR](COLOR.md)
+
+**Syntax:**`COLOR( text, color )`
+
+Enables specifying the color for the provided text.
+
+
+
 ## [ITALIC](ITALIC.md)
 
 **Syntax:**`ITALIC( text )`
@@ -38,6 +54,14 @@ Stylizes the passed text in cursive font.
 **Syntax:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
 
 Merges marked up text pieces. Can also be used for converting strings to marked up text.
+
+
+
+## [SIZE](SIZE.md)
+
+**Syntax:**`SIZE( text, size )`
+
+Enables specifying the size (in pixels) for the provided text.
 
 
 

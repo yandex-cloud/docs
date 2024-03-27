@@ -100,13 +100,17 @@ The cost of supporting this infrastructure includes:
      }
 
      backend "s3" {
-       endpoint   = "{{ s3-storage-host }}"
-       bucket     = "<bucket_name>"
-       region     = "{{ region-id }}"
-       key        = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
+       endpoints = {
+         s3 = "{{ s3-storage-host }}"
+       }
+       bucket = "<bucket_name>"
+       region = "{{ region-id }}"
+       key    = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
 
        skip_region_validation      = true
        skip_credentials_validation = true
+       skip_requesting_account_id  = true # This option is required to describe backend for {{ TF }} version 1.6.1 or higher.
+       skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
      }
    }
 

@@ -2,10 +2,6 @@
 
 {{ sws-name }} позволяет защитить вашу инфраструктуру от [DDoS-атак](../glossary/ddos.md) и ботов на уровне приложений (L7).
 
-Сервис находится на [стадии Preview](../overview/concepts/launch-stages.md).
-
-{% include [ask-for-turning-on](../_includes/smartwebsecurity/ask-for-turning-on.md) %}
-
 Создайте первый [профиль безопасности](./concepts/profiles.md) и подключите его к имеющемуся [виртуальному хосту](../application-load-balancer/concepts/http-router.md#virtual-host) L7-балансировщика {{ alb-full-name }}.
 
 Если у вас еще не настроен L7-балансировщик, вы можете опробовать {{ sws-name }} на тестовой инфраструктуре. Подробнее см. [{#T}](./tutorials/balancer-with-sws-profile.md).

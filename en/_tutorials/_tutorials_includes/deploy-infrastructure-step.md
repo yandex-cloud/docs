@@ -26,7 +26,6 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
        skip_credentials_validation = true
        skip_requesting_account_id  = true # This option is required to describe backend for {{ TF }} version 1.6.1 or higher.
        skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
-
      }
    }
 

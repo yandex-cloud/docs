@@ -4,14 +4,6 @@ editable: false
 
 # {{ sws-full-name }} pricing
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, using {{ sws-name }} is free of charge.
-
-{% note info %}
-
-{{ sws-name }} will become [generally available](../overview/concepts/launch-stages.md) and billable on March 27, 2024.
-
-{% endnote %}
-
 To calculate the cost of using {{ sws-name }}, see the prices on this page.
 
 ## What goes into the cost of using {{ sws-name }} {#rules}

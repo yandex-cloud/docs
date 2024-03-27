@@ -78,3 +78,4 @@
 
 
 * [Справочник Ingress-контроллера {{ alb-name }}](../../application-load-balancer/k8s-ref/index.md).
+* [Ограничения при обновлении ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).

@@ -1,9 +1,6 @@
 title: Yandex Smart Web Security
 description:
   - >-
-    <i>Yandex Smart Web Security is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
-  - >-
     With Yandex Smart Web Security, you can protect your infrastructure from
     DDoS attacks at the application level (L7).
 meta:

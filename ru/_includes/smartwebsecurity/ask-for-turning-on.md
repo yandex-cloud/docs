@@ -1,1 +1,0 @@
-Чтобы включить {{ sws-name }}, подайте заявку на [странице сервиса]({{ link-cloud-services }}/smartwebsecurity) или в [консоли управления]({{ link-console-main }}), выбрав в списке сервисов **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.

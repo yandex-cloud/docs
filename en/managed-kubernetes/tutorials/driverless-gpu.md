@@ -33,7 +33,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
     helm install \
       --namespace gpu-operator \
       --create-namespace \
-      --set toolkit.enabled=false \
       --set driver.version=<driver_version> \
       gpu-operator nvidia/gpu-operator
     ```

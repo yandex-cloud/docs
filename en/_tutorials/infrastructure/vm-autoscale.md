@@ -171,28 +171,27 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
       1. Open the **Security groups** tab.
       1. Create a security group for the load balancer:
-      1. Click **Create group**.
-      1. Enter the **Name** of the group: `sg-autoscale`.
-      1. Select the **Network**: `yc-auto-network`.
-      1. Under **Rules**, create rules using the instructions below the table:
+         1. Click **Create group**.
+         1. Enter the **Name** of the group: `sg-autoscale`.
+         1. Select the **Network**: `yc-auto-network`.
+         1. Under **Rules**, create rules using the instructions below the table:
 
-         | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
-         | --- | --- | --- | --- | --- | --- |
-         | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
-         | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 80 | TCP | Load balancer health checks | N/A |
+            | Traffic<br>direction | Description | Port<br>range | Protocol | Source/<br>destination type | Source /<br>destination |
+            --- | --- | --- | --- | --- | ---
+            | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
+            | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
+            | Incoming | healthchecks | 80 | TCP | Load balancer health checks | — |
 
-         1. Select the **Outgoing traffic** or **Incoming traffic** tab.
-         1. Click **Add rule**.
-         1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-         1. In the **Protocol** field, specify the appropriate protocol or leave **Any** to allow traffic transmission over any protocol.
-         1. In the **Purpose** or **Source** field, select the purpose of the rule:
-            * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-            * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-            * **Load balancer health checks**: Rule allowing a load balancer to health check VMs.
-         1. Click **Save**. Repeat the steps to create all the rules from the table.
-
-      1. Click **Save**.
+            1. Select the **Outgoing traffic** or **Incoming traffic** tab.
+            1. Click **Add rule**.
+            1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+            1. In the **Protocol** field, specify the appropriate protocol or leave **Any** to allow traffic transmission over any protocol.
+            1. In the **Purpose** or **Source** field, select the purpose of the rule:
+               * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+               * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+               * **Load balancer health checks**: Rule allowing a load balancer to health check VMs.
+            1. Click **Save**. Repeat the steps to create all the rules from the table.
+         1. Click **Save**.
 
    - {{ TF }} {#tf}
 
@@ -417,7 +416,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       | b0rbabc1m2ed******** | group-balancer | {{ region-id }} | EXTERNAL |              1 | b0rdabckribe********   | ACTIVE |
-      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
+      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
       ```
 
    - {{ TF }} {#tf}
@@ -478,7 +477,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
 ### Test auto scaling {#check-highload}
 
-To test auto scaling for your instance group, increase the CPU utilization of each instance. In the `specification.yaml` file, the `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` parameter has the value of `40`: it means that the target utilization level is 40% CPU.  If you exceed the target utilization, the number of VMs in the group will increase.
+To test auto scaling for your instance group, increase the CPU utilization of each instance. In the `specification.yaml` file, the parameter `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` has the value `40`: it means that the target utilization level is 40% CPU. If you exceed the target utilization, the number of VMs in the group will increase.
 
 1. Increase the utilization of the instance group.
 

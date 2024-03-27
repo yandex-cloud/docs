@@ -408,6 +408,14 @@ Converts the `expression` expression to Boolean type according to the following 
 
 
 
+## [BR](BR.md)
+
+**Syntax:**`BR()`
+
+Adds a line break.
+
+
+
 ## [CAST_ARR_FLOAT](CAST_ARR_FLOAT.md)
 
 **Syntax:**`CAST_ARR_FLOAT( array )`
@@ -445,6 +453,14 @@ Rounds the value up to the nearest integer.
 **Syntax:**`CHAR( string )`
 
 Converts the numeric representation of an ASCII character to a value.
+
+
+
+## [COLOR](COLOR.md)
+
+**Syntax:**`COLOR( text, color )`
+
+Enables specifying the color for the provided text.
 
 
 
@@ -1730,6 +1746,14 @@ Returns the sign of the number `number`:
 **Syntax:**`SIN( number )`
 
 Returns the sine of `number` in radians.
+
+
+
+## [SIZE](SIZE.md)
+
+**Syntax:**`SIZE( text, size )`
+
+Enables specifying the size (in pixels) for the provided text.
 
 
 
