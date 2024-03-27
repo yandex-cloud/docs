@@ -31,6 +31,8 @@
 
    Ресурсы {{ yandex-cloud }} можно оплачивать только в рублях (₽), вне зависимости от юридического статуса ([типа платежного аккаунта](../../billing/concepts/billing-account.md#ba-types)).
 
+   {% include [rb payment](../../_includes/billing/rb-payment.md) %}
+
  - Резиденты Республики Казахстан {#kazakhstan}
 
    Ресурсы {{ yandex-cloud }} можно оплачивать только в тенге (₸), вне зависимости от юридического статуса ([типа платежного аккаунта](../../billing/concepts/billing-account.md#ba-types)).

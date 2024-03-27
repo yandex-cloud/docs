@@ -1,10 +1,10 @@
-# Updating file storage
+# Updating a file storage
 
-After creating file storage, you can change its name, description, and size.
+After creating a [file storage](../../concepts/filesystem.md), you can change its name, description, and size.
 
 {% note info %}
 
-You can only change the storage size by using the CLI or API.
+You can only change the storage size using the [CLI](../../../cli/) or API.
 
 {% endnote %}
 
@@ -12,7 +12,7 @@ You can only change the storage size by using the CLI or API.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where your file storage resides.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
    1. In the appropriate file storage row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
@@ -20,7 +20,7 @@ You can only change the storage size by using the CLI or API.
 
       {% note info %}
 
-      You can only change the storage size by using the CLI or API.
+      You can only change the storage size using the CLI or API.
 
       {% endnote %}
 
@@ -32,8 +32,7 @@ You can only change the storage size by using the CLI or API.
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI update storage command:
-
+   1. View the description of the CLI update storage command:
       * To change the name, description, or size:
 
          ```bash
@@ -46,7 +45,7 @@ You can only change the storage size by using the CLI or API.
          yc compute filesystem resize --help
          ```
 
-   1. Get a list of available storage:
+   1. Get a list of available storages:
 
       ```bash
       yc compute filesystem list --format yaml
@@ -54,30 +53,17 @@ You can only change the storage size by using the CLI or API.
 
       Result:
 
-      ```bash
+      ```text
       - id: epd0u6h8lh41********
         folder_id: b1g86q4m5vej********
         created_at: "2022-04-26T16:59:19Z"
-        name: storage-1
-        type_id: network-hdd
-        zone_id: {{ region-id }}-b
-        size: "1073741824"
-        block_size: "4096"
-        status: READY
-      - id: epd5g123c8hk********
-        folder_id: b1g86q4m5vej********
-        created_at: "2022-04-26T16:37:30Z"
-        name: storage-2
-        description: test
-        type_id: network-hdd
-        zone_id: {{ region-id }}-b
+      ...
         size: "1073741824"
         block_size: "4096"
         status: READY
       ```
 
-   1. Update the storage parameters by including the `--id` or`--name` of the appropriate storage in your command. For example, update:
-
+   1. Update the storage parameters by including the `--id` or `--name` of the appropriate storage in your command. For example, update:
       * Name and description:
 
          ```bash
@@ -89,14 +75,11 @@ You can only change the storage size by using the CLI or API.
 
          Result:
 
-         ```bash
+         ```text
          id: epd5g123c8hk********
          folder_id: b1g86q4m5vej********
          created_at: "2022-04-26T16:37:30Z"
-         name: storage-3
-         description: vm-storage
-         type_id: network-hdd
-         zone_id: {{ region-id }}-b
+         ...
          size: "1073741824"
          block_size: "4096"
          status: READY
@@ -112,13 +95,11 @@ You can only change the storage size by using the CLI or API.
 
          Result:
 
-         ```bash
+         ```text
          id: epd5g123c8hk********
          folder_id: b1g86q4m5vej********
          created_at: "2022-04-26T16:37:30Z"
-         name: storage-1
-         type_id: network-hdd
-         zone_id: {{ region-id }}-b
+         ...
          size: "2147483648"
          block_size: "4096"
          status: READY
@@ -147,12 +128,12 @@ You can only change the storage size by using the CLI or API.
 
    1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   You can check the storage update and its new configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the file storage update and its new configuration using the [management console]({{ link-console-main }}) or this CLI command:
 
    ```bash
-   yc compute filesystem get <storage_name>
+   yc compute filesystem get <file_storage_name>
    ```
 
 - API {#api}

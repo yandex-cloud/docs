@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Кластеры GPU сейчас доступны только в [зоне доступности](../../../overview/concepts/geo-scope.md) `ru-central1-a`. Добавить ВМ в кластер GPU можно только из той же зоны доступности.
+Кластеры GPU сейчас доступны только в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Добавить ВМ в кластер GPU можно только из той же зоны доступности.
 
 {% endnote %}
 
@@ -14,7 +14,7 @@
 
   ```bash
   export YC_GPU_CLUSTER=$(yc compute gpu-cluster list --format=json | jq -r .[].id)
-  export YC_ZONE="ru-central1-a"
+  export YC_ZONE="{{ region-id }}-a"
   export SUBNET_NAME="my-subnet-name"
   export SUBNET_ID=$(yc vpc subnet get --name=$SUBNET_NAME --format=json | jq -r .id)
   yc compute instance create --name node-gpu-test \

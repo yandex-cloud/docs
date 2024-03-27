@@ -1,6 +1,6 @@
 # Foundation models in {{ ml-platform-name }}
 
-{{ ml-platform-full-name }} enables you to use foundation models to meet your objectives and tune them on your own data if needed. Tuning is based on the Fine-tuning method with results stored in {{ ml-platform-name }}.
+{{ ml-platform-full-name }} enables you to use foundation models to meet your objectives and tune them on your own data if needed. Tuning is based on the *Fine-tuning* method with results stored in {{ ml-platform-name }}.
 
 {% note info %}
 
@@ -27,8 +27,6 @@ To tune the {{ yagpt-name }} model using the Fine-tuning method, prepare a JSON 
   …
 ]
 ```
-
-The file may contain up to 10,000 questions and responses. The maximum size of a query is 4,000 characters and that of a reference response is 2,000 characters.
 
 In the {{ ml-platform-name }} interface, create a new fine-tuned foundation model, enter instructions for the model, set the tuning rate, and upload your data. It takes some time to tune the model.
 

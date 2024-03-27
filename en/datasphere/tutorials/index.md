@@ -22,8 +22,9 @@ description: "Here is a variety of {{ ml-platform-full-name }} use cases: servic
 
 ## Deployment {#deployment}
 
-* [{#T}](node-from-cell.md)
+* [{#T}](node-from-model.md)
 * [{#T}](node-from-docker.md)
+* [{#T}](node-from-docker-fast-api.md)
 * [{#T}](stable-diffusion.md)
 * [{#T}](yagpt-tuning.md)
 

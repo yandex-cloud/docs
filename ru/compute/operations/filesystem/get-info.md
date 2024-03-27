@@ -36,7 +36,7 @@ title: "Как получить информацию о файловом хра�
       created_at: "2023-10-27T12:15:53Z"
       name: test-filesystem
       type_id: network-hdd
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       size: "1073741824"
       block_size: "4096"
       status: READY

@@ -18,12 +18,13 @@ description: "Из статьи вы узнаете, как задать нас�
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
   
-  * [Миграция кластера {{ MY }}](../../../tutorials/managed-mysql-to-mysql.md);
-  * [Миграция со сменой хранилища: {{ PG }} в {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+   * [Миграция кластера {{ MY }}](../../../tutorials/managed-mysql-to-mysql.md);
+   * [Миграция со сменой хранилища: {{ PG }} в {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+   * [Миграция со сменой хранилища: {{ objstorage-name }} в {{ MY }}](../../../tutorials/objs-mmy-migration.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
   
-  * [Поставка данных из {{ KF }} в {{ MY }}](../../../tutorials/mkf-to-mmy.md).
+   * [Поставка данных из {{ KF }} в {{ MY }}](../../../tutorials/mkf-to-mmy.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 

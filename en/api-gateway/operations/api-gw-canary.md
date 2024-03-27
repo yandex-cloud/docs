@@ -5,13 +5,13 @@ description: "Follow this guide to set up a canary release for an API gateway."
 
 # Setting up a canary release
 
-You can only set up a canary release for OpenAPI specifications with variables (see [Specification parameterization](../concepts/extensions/parametrization.md)).
+You can only set up a canary release for [OpenAPI specifications](https://en.wikipedia.org/wiki/OpenAPI_Specification) with variables (see [Specification parameterization](../concepts/extensions/parametrization.md)).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
+   1. In the [management console]({{ link-console-main }}), go the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [API gateway](../concepts/index.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, enable [canary release](../concepts/extensions/canary.md).
@@ -25,10 +25,10 @@ You can only set up a canary release for OpenAPI specifications with variables (
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To set up a canary release:
+   To set up a [canary release](../concepts/extensions/canary.md):
 
    1. If necessary, edit the OpenAPI specification file or create a new one.
-   1. View a description of the CLI command for updating an API gateway:
+   1. View a description of the CLI command for updating an [API gateway](../concepts/index.md):
 
       ```bash
       {{ yc-serverless }} api-gateway update --help
@@ -38,34 +38,33 @@ You can only set up a canary release for OpenAPI specifications with variables (
 
       ```bash
       {{ yc-serverless }} api-gateway update \
-         --id <gateway_ID> \
-         --canary-weight <percentage_of_requests> \
-         --canary-variables=<list_of_variables>
+        --id <gateway_ID> \
+        --canary-weight <percentage_of_requests> \
+        --canary-variables=<list_of_variables>
       ```
 
       Where:
 
-      * `--canary-weight`: Percentage of requests to be handled by the canary release.
+      * `--canary-weight`: Percentage of requests to be processed by the canary release.
       * `--canary-variables`: Variables for the canary release listed as `key=value`.
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To set up a canary release:
-
+   To set up a [canary release](../concepts/extensions/canary.md):
    1. Open the {{ TF }} configuration file and add the `canary` section to it:
 
       ```hcl
       resource "yandex_api_gateway" "<API_gateway_name>" {
       ...
       canary {
-          weight    = <percentage_of_requests>
-          variables = {
+        weight    = <percentage_of_requests>
+        variables = {
           <list_of_variables>
-          }
+        }
       }
       ```
 
@@ -84,7 +83,7 @@ You can only set up a canary release for OpenAPI specifications with variables (
 
       If the configuration is correct, you will get this message:
 
-      ```bash
+      ```text
       Success! The configuration is valid.
       ```
 
@@ -104,15 +103,15 @@ You can only set up a canary release for OpenAPI specifications with variables (
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check that the API gateway has been updated using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+   You can check the [API gateway](../concepts/index.md) update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-      ```bash
-      yc serverless api-gateway get <API_gateway_name>
-      ```
+   ```bash
+   yc serverless api-gateway get <API_gateway_name>
+   ```
 
 - API {#api}
 
-   To set up a canary release, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
+   To set up a [canary release](../concepts/extensions/canary.md), use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update) gRPC API call.
 
 {% endlist %}
 

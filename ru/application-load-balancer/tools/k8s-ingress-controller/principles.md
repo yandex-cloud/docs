@@ -42,7 +42,10 @@ description: "Узнайте, как работает Ingress-контролле
   
 * Группы бэкендов, обрабатывающие полученный трафик, могут создаваться:
 
-  * По сервисам {{ k8s }}, указанным в правилах `Ingress` напрямую (`spec.rules[*].http.paths[*].backend.service`). Этот способ полезен, если к маршруту нужно привязать простую группу бэкендов, состоящую из одного сервиса.
+  * По сервисам {{ k8s }}, указанным в [правилах](../../../application-load-balancer/k8s-ref/ingress.md#rule) `Ingress` напрямую. Этот способ полезен, если к маршруту нужно привязать простую группу бэкендов, состоящую из одного сервиса.
+
+    В версиях [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType` в правилах `Ingress`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service`. Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../../operations/k8s-ingress-controller-upgrade.md) к вашей инфраструктуре.
+
   * По ресурсам `HttpBackendGroup`, позволяющим явно описывать группы бэкендов. Это [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) из группы API `alb.yc.io`, предоставляемой Ingress-контроллером. Все поля `HttpBackendGroup` описаны в [справочнике](../../k8s-ref/http-backend-group.md).
     
     Указывать на `HttpBackendGroup`, как и на сервисы, нужно в правилах `Ingress` (`spec.rules[*].http.paths[*].backend.resource`). 

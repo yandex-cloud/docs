@@ -6,7 +6,7 @@ You can improve the quality of machine translations in a specific domain by usin
 
 ### What data is required for tuning {#data}
 
-For tuning, you need a [TMX](https://en.wikipedia.org/wiki/Translation_Memory_eXchange) file with source and target segments. For any significant effect, you need at least 15,000 of such segments. If you need to translate only specific terms, we recommend using [glossaries](glossary.md).
+For tuning, you need a [ТМХ](https://en.wikipedia.org/wiki/Translation_Memory_eXchange) file with source and target segments. For a meaningful effect, you need at least 15,000 of such segments. If you want to translate just some specific terms, we recommend using [glossaries](glossary.md).
 
 {% note warning %}
 

@@ -70,7 +70,7 @@ After creating a cloud network, you can change its name, description, and tags.
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the cloud network description:
 
@@ -139,7 +139,7 @@ After creating a cloud network, you can change its name, description, and tags.
       * Description, in the `description` parameter.
       * Network labels, in the `labels` parameter.
 
-   * List of settings you want to update in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

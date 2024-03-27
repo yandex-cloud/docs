@@ -752,7 +752,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   name: budget-queue-trigger
   rule:
     message_queue:
-      queue_id: yrn:yc:ymq:ru-central1:b1g9d2k0itu4********:budget-queue
+      queue_id: yrn:yc:ymq:{{ region-id }}:b1g9d2k0itu4********:budget-queue
       service_account_id: ajed1o6dd581********
       batch_settings:
         size: "1"

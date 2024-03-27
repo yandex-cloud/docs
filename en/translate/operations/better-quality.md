@@ -42,7 +42,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
     * `folderId`: Folder ID received [before starting](#before-begin).
     * `texts`: Text to translate as a list of strings.
-    * `targetLanguageCode`: Target [language](../concepts/supported-languages.md). You can get the language code with a [list of supported languages](list.md).
+    * `targetLanguageCode`: Target [language](../concepts/supported-languages.md). You can get the language code together with a [list of supported languages](list.md).
     * `sourceLanguageCode`: Source language.
 
     Save the request body to a file (for example, `body.json`) and submit the file using the [translate](../api-ref/Translation/translate) method:
@@ -100,7 +100,7 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
     Where:
 
-    * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code with a [list of supported languages](list.md).
+    * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code together with a [list of supported languages](list.md).
     * `targetLanguageCode`: Target language.
     * `texts`: Text to translate as a list of strings.
     * `folderId`: Folder ID received [before starting](#before-begin).
@@ -139,19 +139,39 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
 ## Escaping text {#screen}
 
-To prevent text from being translated, you can escape it in HTML format using the `span translate` tag. Here is an example:
+To skip translation of certain text fragments, specify the `HTML` text format in the request body and escape the fragments that do not require translation using the `<span>` tag with the `translate=no` attribute. For example:
 
-```html
-"format": "HTML",
-"texts": [
-"The e-mail has been changed. The new password is **<span translate=no>**%\$Qvd14aa2NMc**</span>**"
-],
-"translations": [
-{
-"text": "L'e-mail a été modifié. Le nouveau mot de passe est **<span translate="no">**%\$Qvd14aa2NMc**</span>**"
- }
-]
-```
+{% list tabs group=programming_language %}
+
+- Bash {#bash}
+
+   ```json
+   {
+       "format": "HTML",
+       "texts": [
+           "The e-mail has been changed. The new password is **<span translate=no>**%\$Qvd14aa2NMc**</span>**"
+       ]
+   }
+   ```
+
+   Where:
+
+   * `format`: Text format.
+   * `texts`: Text to translate as a list of strings.
+
+   The response will contain untranslated text inside the `<span>` tag:
+
+   ```json
+   {
+       "translations": [
+           {
+               "text": "L'e-mail a été modifié. Le nouveau mot de passe est **<span translate="no">**%\$Qvd14aa2NMc**</span>**"
+           }
+       ]
+   }
+   ```
+
+{% endlist %}
 
 ## Checking words for typos {#with-speller}
 

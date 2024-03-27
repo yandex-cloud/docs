@@ -71,9 +71,9 @@ To create a network:
 
       ```bash
       yc vpc subnet create \
-        --name ddos-network-ru-c \
+        --name ddos-network-ru-d \
         --network-name ddos-network \
-        --zone {{ region-id }}-c \
+        --zone {{ region-id }}-d \
         --range 192.168.2.0/24
       ```
 
@@ -115,7 +115,6 @@ To create security groups:
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
-
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
@@ -194,7 +193,7 @@ To create an instance group:
          * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
          * Choose the `ddos-sg-vms` security group.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-         * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+         * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
          * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** field, paste the contents of the public key file.
 
          To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -208,10 +207,9 @@ To create an instance group:
    1. Get the resource IDs required to create an instance group using the following commands:
       * [yc iam service-account get <service_account_name>](../../cli/cli-ref/managed-services/iam/service-account/get.md): For a service account.
       * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md): For the `ddos-network` network.
-      * [yc vpc subnet get <subnet_name>](../../cli/cli-ref/managed-services/vpc/subnet/get.md): For the `ddos-network-ru-a`, `ddos-network-ru-b`, and `ddos-network-ru-c` subnets.
+      * [yc vpc subnet get <subnet_name>](../../cli/cli-ref/managed-services/vpc/subnet/get.md): For the `ddos-network-ru-a`, `ddos-network-ru-b`, and `ddos-network-ru-d` subnets.
       * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md): For the boot disk image.
       * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/managed-services/vpc/security-group/get.md): For the `ddos-sg-vms` security group.
-
    1. Create a YAML file named `specification.yaml`.
    1. Add to it the description of the base instance configuration:
 
@@ -236,7 +234,7 @@ To create an instance group:
                 subnet_ids:
                   - <subnet_ID_in_the_{{ region-id }}-a_zone>
                   - <subnet_ID_in_the_{{ region-id }}-b_zone>
-                  - <subnet_ID_in_the_{{ region-id }}-c_zone>
+                  - <subnet_ID_in_the_{{ region-id }}-d_zone>
                 primary_v4_address_spec: {}
                 security_group_ids:
                   - <security_group_ID>
@@ -250,7 +248,7 @@ To create an instance group:
           zones:
               - zone_id: {{ region-id }}-a
               - zone_id: {{ region-id }}-b
-              - zone_id: {{ region-id }}-c
+              - zone_id: {{ region-id }}-d
       application_load_balancer_spec:
           target_group_spec:
               name: tg-ddos
@@ -306,7 +304,7 @@ To create an instance group:
         zones:
         - zone_id: {{ region-id }}-a
         - zone_id: {{ region-id }}-b
-        - zone_id: {{ region-id }}-c
+        - zone_id: {{ region-id }}-d
       load_balancer_state: {}
       managed_instances_state:
         target_size: "2"
@@ -576,7 +574,7 @@ To create a load balancer:
         --network-name ddos-network \
         --location subnet-name=ddos-network-ru-a,zone={{ region-id }}-a \
         --location subnet-name=ddos-network-ru-b,zone={{ region-id }}-b \
-        --location subnet-name=ddos-network-ru-c,zone={{ region-id }}-c
+        --location subnet-name=ddos-network-ru-d,zone={{ region-id }}-d
       ```
 
       For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
@@ -638,9 +636,7 @@ Commercial support is available at
 ## Delete the resources you created {#delete-resources}
 
 To shut down the hosting and stop paying for the created resources:
-
 1. Delete the non-billable resources that block the deletion of billable resources:
-
    1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `ddos-protect-alb` L7 load balancer.
    1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the `ddos-router` HTTP router.
    1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the `ddos-backend-group` backend group.
@@ -698,13 +694,10 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
    * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
    * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
    * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
-
 1. In the `alb-with-ddos-protection.auto.tfvars` file, set user-defined parameters:
-
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `vm_user`: VM username.
    * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
 1. Create resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

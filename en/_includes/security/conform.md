@@ -8,10 +8,10 @@ When a client, acting as an operator, stores personal data on {{ yandex-cloud }}
 
 For more information, see:
 
-* [Certificate of compliance](https://{{ s3-storage-host }}/yc-compliance/conformance_ru_certificate.pdf).
-* [Statement of Compliance of the Personal Data Protection System with the Requirements of Federal Law No. 152-FZ on Personal Data](https://{{ s3-storage-host }}/yc-compliance/conformance_ru_pdp.pdf).
+* [Certificate of compliance](https://{{ s3-storage-host }}/yc-compliance/certificates/conformance_ru_certificate-14-12-2023.pdf).
+* [Statement of Compliance of the Personal Data Protection System with the Requirements of Federal Act No. 152-FZ on Personal Data](https://{{ s3-storage-host }}/yc-compliance/conformance-ru-pdp-2023-11-23.pdf).
 * [Data Processing Agreement](https://yandex.ru/legal/cloud_dpa/?lang=en).
-* [Client Actions for Protecting Personal Data](https://{{ s3-storage-host }}/yc-compliance/recomendations/FZ-152-RU.pdf).
+* [Personal data protection guide for clients](https://{{ s3-storage-host }}/yc-compliance/recomendations/fz-152-ru-2023-11-23.pdf).
 
 ## GDPR (General Data Protection Regulation) {#gdpr}
 
@@ -80,7 +80,7 @@ GOST R 57580.1-2017 is the Russian national security standard for banking and fi
 
 Cloud services comply with this standard in order to enable organizations that are hosting their systems and applications in the cloud to meet the requirements of the Central Bank (defined in the Bank of Russia regulations 683-P and 684-P) and ensure compliance with the standard for their systems deployed in the cloud.
 
-The {{ yandex-cloud }} platform is certified as [compliant](https://{{ s3-storage-host }}/yc-compliance/certificates/YC_GOST_conformance_ru_finance_2023.pdf) with the information security requirements set by the Bank of Russia. The statement certifies that the information security management and control system of Yandex.Cloud LLC was evaluated for compliance with the requirements of GOST R 57580.1-2017 for extended information security. Upon audit completion, the overall score was R=0.92 (level 5 compliance). According to GOST R 57580.2-2018, this means that the organizational and technical measures as part of the information protection system are implemented fully and continuously in accordance with global approaches (methods) established in the organization.
+The {{ yandex-cloud }} platform is certified as [compliant](https://{{ s3-storage-host }}/yc-compliance/certificates/YC_GOST_conformance_ru_finance_2023.pdf) with the information security requirements set by the Bank of Russia. The statement certifies that the information security management and control system of Yandex.Cloud LLC was evaluated for compliance with the requirements of GOST R 57580.1-2017 for extended information security. As of the audit completion date, the overall score was R=0.92 (level 5 compliance). According to GOST R 57580.2-2018, this means that the organizational and technical measures forming part of the information protection system process are implemented fully and consistently in accordance with the organization's general approaches (methods).
 
 {{ yandex-cloud }} services can be used by systemically important financial institutions, financial institutions that provide payment infrastructure services for systemically important payment systems, and systemically important financial market utilities.
 

@@ -78,6 +78,7 @@ description: "На странице представлен список прак
 * [{#T}](data-transfer-mkf-mmy.md)
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
+* [{#T}](objs-mmy-migration.md)
 * [{#T}](mmy-to-yds.md)
 * [{#T}](mmy-to-mpg.md)
 * [{#T}](mmy-to-mgp.md)

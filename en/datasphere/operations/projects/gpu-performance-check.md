@@ -16,7 +16,6 @@ You can check the GPU performance, load, and resource utilization statistics usi
 1. Enter the following code in the cell:
 
    ```bash
-   #!g1.1
    import tensorflow as tf
 
 
@@ -32,7 +31,7 @@ You can check the GPU performance, load, and resource utilization statistics usi
 1. Enter the following code in the cell:
 
    ```bash
-   #!g1.1:bash
+   #!:bash
    nvidia-smi
    ```
 

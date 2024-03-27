@@ -249,7 +249,6 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
-
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
