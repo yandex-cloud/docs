@@ -66,11 +66,39 @@ Example of a rule for a specific {{ yandex-cloud }} user:
   ],
   "Condition": {
     "StringLike": {
-      "aws:referer": "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*"
+      "aws:referer": "https://console.yandex.cloud/folders/*/storage/buckets/your-bucket-name*"
     }
   }
 }
 ```
+
+{% cut "An example for simultaneous usage of domains console.cloud.yandex.* and console.yandex.cloud" %}
+
+If you are using the deprecated domain `console.cloud.yandex.*` simultaneously with the new one `console.yandex.cloud`, set the following policy rules:
+
+```json
+{
+  "Effect": "Allow",
+  "Principal": {
+    "CanonicalUser": "<идентификатор_пользователя>"
+  },
+  "Action": "*",
+  "Resource": [
+    "arn:aws:s3:::<имя_бакета>/*",
+    "arn:aws:s3:::<имя_бакета>"
+  ],
+  "Condition": {
+    "StringLike": {
+      "aws:referer": [
+        "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*",
+        "https://console.yandex.cloud/folders/*/storage/buckets/your-bucket-name*"
+      ]
+    }
+  }
+}
+```
+
+{% endcut %}
 
 
 

@@ -29,7 +29,15 @@ A table is a good choice for quantitative comparison, where you can see differen
 
 {% endcut %}
 
-To make it easier to compare different values, you can add conditional formatting to a table: [row color](#add-column-colour) or [linear indicators](#add-linear-indicator).
+To simplify the comparison of different values and make the information easier to comprehend, you can use advanced settings when [creating a table](#create-diagram):
+
+* [Renaming table columns](#change-columns-names).
+* [Setting up table data sorting by multiple columns](#sorting-columns).
+* [Setting up the width of table columns](#set-column-width).
+* [Adding a row with totals](#add-totals).
+* [Adding row color](#add-column-colour).
+* [Setting up a field fill color](#set-field-colour).
+* [Adding a linear indicator to a column with a measure](#add-linear-indicator).
 
 ## Sections in the wizard {#wizard-sections}
 
@@ -37,18 +45,17 @@ To make it easier to compare different values, you can add conditional formattin
 ----- | ----
 | Columns | Dimensions and measures to be used as columns. Field names are used as column headers. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
-| Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a table {#create-diagram}
 
 To create a table:
 
-
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-
-
-1. Under **Dataset**, select a dataset for visualization.
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select the **Table** chart type.
 1. Drag a dimension or measure from the dataset to **Columns**. The field is displayed as a column.
 
@@ -121,7 +128,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
    * **Gradient type**: Select two or three colors.
       * Gradient color: Select a color palette for the gradient from the list.
       * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
-   * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
+   * **Set threshold values**: Set numeric thresholds for each color.
 
 ### Setting up a field fill color {#set-field-colour}
 
