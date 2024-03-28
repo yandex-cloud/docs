@@ -30,13 +30,13 @@ To secure your published data:
 
 ## Publishing an object {#how-to-publish}
 
-{% list tabs %}
+{% list tabs group=datalens_public %}
 
-- Dashboards
+- Publishing a dashboard {#dashboard}
 
    {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
 
-- Charts
+- Publishing a chart {#chart}
 
    {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
 

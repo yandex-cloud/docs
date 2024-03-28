@@ -202,7 +202,5 @@ items:
   - name: Public materials
     href: public-talks.md
   - name: FAQ
-    items:
-      - name: General questions
-        href: qa/index.md
+    href: qa/index.md
 base: en/managed-opensearch

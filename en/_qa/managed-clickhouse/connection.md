@@ -1,8 +1,6 @@
-# Connection to {{ CH }}
-
 #### Is it possible to connect to individual {{ CH }} hosts? {#connect-node}
 
-Yes. You can connect to {{ CH }} cluster hosts:
+Yes, it is. You can connect to {{ CH }} cluster hosts:
 
 * Using the [HTTPS interface]({{ ch.docs }}/interfaces/http/):
    * Via an encrypted SSL connection on port 8443.

@@ -5,45 +5,6 @@ description: "How do I get the logs of my activity in Yandex Managed Service for
 
 # General questions about {{ mkf-name }}
 
-#### How do I ensure my cluster is fault tolerant?
+{% include [general-minitoc](../../_qa/managed-kafka/minitoc/general.md) %}
 
-Make sure it meets all [fault tolerance conditions](../concepts/index.md#fault-tolerance).
-
-#### What do I do if I get an error like "disk size must be at least ... according to topics partitions number and replication factor but size is ..."? {#disk-size}
-
-The error results from the fact that your topics' log segments take up more space than is available in broker storage. For more information about calculating the required space, see [{#T}](../concepts/storage.md#minimal-storage-size).
-
-To solve the issue, you can [increase the disk size](../operations/cluster-update#change-disk-size) or reduce the [topic](../operations/cluster-topics.md#update-topic) segment or [total cluster](../operations/cluster-update.md#change-kafka-settings) size.
-
-{% include [logs](../../_qa/logs.md) %}
-
-{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
-
-#### How do I move a cluster to a different network?
-
-You cannot move a {{ mkf-name }} cluster to another network.
-
-Here is an alternative solution:
-
-1. Create a new cluster with the same configuration in the new network.
-1. Use [MirrorMaker](../tutorials/kafka-connectors.md#kf-mirrormaker) to move the topics of the source cluster to the new one.
-
-#### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
-
-[Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
-
-For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
-
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space
-
-Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
-
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
-
-#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
-
-{% include [throttling](../../_qa/throttling.md) %}
-
-To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../operations/cluster-update.md#change-disk-size).
+{% include [general](../../_qa/managed-kafka/general.md) %}

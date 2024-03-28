@@ -19,7 +19,7 @@ Subclusters of a single cluster must reside in the same [cloud network](../../vp
 
 {% note warning %}
 
-The `{{ region-id }}-c` availability zone is [being deprecated](/blog/posts/2023/08/new-availability-zone). If your cluster is hosted in this availability zone, [create a new cluster and move](../operations/migration-to-an-availability-zone.md) the workload to it.
+The `{{ region-id }}-c` availability zone is [being discontinued](/blog/posts/2023/08/new-availability-zone). If your cluster is hosted in this availability zone, create a new cluster and move the workload to it. Learn how to migrate [lightweight clusters](../operations/migration-to-an-availability-zone.md) and [HDFS clusters](../tutorials/hdfs-cluster-migration.md).
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ For information about network configuration and network access to clusters, see 
 
 ## Leightweight clusters {#light-weight-clusters}
 
-Starting from [image version](./environment.md) `2.0.39`, you can use a lightweight cluster configuration without HDFS and data storage subclusters. These clusters can, for example, only support YARN and SPARK. They are faster to create and use host computing resources more efficiently. We recommend using lightweight clusters to run single jobs for processing data in Spark or PySpark.
+Starting from [image version](./environment.md) `2.0.39`, you can use a lightweight cluster configuration without HDFS and data storage subclusters. For example, such clusters may include only YARN and SPARK. They are faster to create and use host computing resources more efficiently. We recommend using lightweight clusters to run single jobs for processing data in Spark or PySpark.
 
 Benefits of lightweight clusters:
 

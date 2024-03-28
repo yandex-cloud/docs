@@ -1,8 +1,6 @@
-# Updating {{ CH }} clusters
-
 #### How do I add a host to a cluster? {#add-host}
 
-To add a host, follow the [instructions](../../managed-clickhouse/operations/hosts.md#add-host). You can also add new hosts to a cluster when [creating a shard](../../managed-clickhouse/operations/shards.md#add-shard).
+To add a host, follow [this guide](../../managed-clickhouse/operations/hosts.md#add-host). You can also add new hosts to a cluster when [creating a shard](../../managed-clickhouse/operations/shards.md#add-shard).
 
 #### Can I set join_use_nulls to 1 using the CLI? {#join-use-nulls}
 

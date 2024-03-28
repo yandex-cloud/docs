@@ -139,8 +139,6 @@ items:
             href: operations/trigger/os-trigger-create.md
           - name: Создать триггер для {{ container-registry-name }}
             href: operations/trigger/cr-trigger-create.md
-          - name: Создать триггер для {{ cloud-logs-name }}
-            href: operations/trigger/cloudlogs-trigger-create.md
           - name: Создать триггер для {{ cloud-logging-name }}
             href: operations/trigger/cloud-logging-trigger-create.md
           - name: Создать триггер для {{ iot-name }}
@@ -209,8 +207,6 @@ items:
             href: concepts/trigger/os-trigger.md
           - name: Триггер для Container Registry
             href: concepts/trigger/cr-trigger.md
-          - name: Триггер для Cloud Logs
-            href: concepts/trigger/cloudlogs-trigger.md
           - name: Триггер для Cloud Logging
             href: concepts/trigger/cloud-logging-trigger.md
           - name: Триггер для Yandex IoT Core

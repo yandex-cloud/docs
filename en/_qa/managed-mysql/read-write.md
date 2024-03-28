@@ -1,5 +1,3 @@
-# Cluster read/write issues
-
 #### Why are cluster writes failing? {#write-failure}
 
 1. If database storage is 95% full, the cluster will switch to **read-only** mode. Check the amount of free space in your storage and increase the storage size as required. To check the amount of free space:

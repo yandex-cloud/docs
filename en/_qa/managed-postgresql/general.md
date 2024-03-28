@@ -1,10 +1,3 @@
----
-title: "{{ mpg-name }}. Questions and answers"
-description: "What is {{ mpg-name }}? Which tasks should I use {{ mpg-name }} for and for which are VMs with databases more appropriate? What part of database management and maintenance is {{ mpg-name }} responsible for? Find the answers to these and other questions in this article."
----
-
-# General questions about {{ mpg-name }}
-
 #### What is {{ mpg-short-name }}? {#what-is}
 
 {{ mpg-short-name }} is a service that helps you create, operate, and scale {{ PG }} databases in a cloud infrastructure.
@@ -30,7 +23,7 @@ For the created and running databases, {{ mpg-short-name }} automatically create
 
 {{ mpg-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### Which tasks should I use {{ mpg-short-name }} for and for which VMs with databases? {#mdb-advantage}
+#### Which tasks are best addressed using {{ mpg-short-name }}, and which using VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 * {{ mpg-short-name }} allows you to operate template databases with no need to worry about administration.
@@ -58,7 +51,7 @@ For detailed instructions, see [{#T}](../../managed-postgresql/quickstart.md).
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-postgresql/concepts/storage.md):
 * If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
-* If you use SSD network (`network-ssd`) or HDD network (`network-hdd`) storage, you can create single-host clusters.
+* If using network SSD (`network-ssd`) or network HDD (`network-hdd`) storage, you can create single-host clusters.
 
 
 
@@ -76,7 +69,7 @@ You can connect to {{ mpg-short-name }} databases using standard DBMS methods.
 
 MDB technical and organizational limits are given in [{#T}](../../managed-postgresql/concepts/limits.md).
 
-#### How do I maintain database clusters? {#service-window}
+#### How are DB clusters maintained? {#service-window}
 
 Maintenance in {{ mpg-short-name }} implies:
 
@@ -86,11 +79,11 @@ Maintenance in {{ mpg-short-name }} implies:
 
 For more information, see [{#T}](../../managed-postgresql/concepts/maintenance.md).
 
-#### Which version of {{ PG }} does {{ mpg-short-name }} use? {#dbms-version}
+#### Which {{ PG }} version does {{ mpg-short-name }} use? {#dbms-version}
 
 {{ mpg-short-name }} supports {{ PG }} 11, 12, 13, 14, 15, and 16, as well as {{ PG }} 11, 12, 13, 14, and 15 for 1C.
 
-#### Which {{ PG }} version and settings are best suited when creating databases for 1C? {#1c-version}
+#### Which {{ PG }} version and settings are best when creating a database for 1C? {#1c-version}
 
 We recommend using {{ PG }} version 12-1c (current as of March 2022). This version was tested with 1C version 8.3.18: compatibility with earlier 1C versions is not guaranteed.
 
@@ -121,13 +114,13 @@ You can change computing resources and storage size in the management console. A
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
-#### Can I set up auto increase of the cluster storage size? {#storage-autoscale}
+#### Can I configure auto increase of cluster storage size? {#storage-autoscale}
 
 Yes, you can set up automatic increase of the storage size when [creating](../../managed-postgresql/operations/cluster-create.md) or [updating](../../managed-postgresql/operations/storage-space.md#disk-size-autoscale) a cluster.
 
 #### Is DB host backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ PG }}, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backup is enabled by default. For {{ PG }}, a full backup takes place once a day and saves all DB cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
@@ -154,7 +147,7 @@ For all DBMS types, you can track:
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ PG }}, you can track:
 * Average query execution time
 * Number of queries per second
-* Number of errors in logs.
+* Number of errors in logs, etc.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
@@ -184,7 +177,7 @@ No, you cannot. Superuser privileges are not available to {{ mpg-name }} users. 
 
 Yes, you can both copy data from a table to a local file and populate a table with data from a local file. For more information, see [{#T}](../../managed-postgresql/operations/copy-write-data.md).
 
-#### Are there any specifics of or restrictions for using the garbage collector in {{ mpg-name }} clusters? {#vacuum}
+#### Are there any special aspects or restrictions on the use of a garbage collector in {{ mpg-name }} clusters? {#vacuum}
 
 {{ mpg-name }} clusters support all parameters of the [VACUUM command](https://www.postgresql.org/docs/current/sql-vacuum.html). However, you should consider the following specifics when using them:
 

@@ -210,7 +210,5 @@ items:
   - name: Release notes
     href: release-notes.md
   - name: FAQ
-    items:
-      - name: General questions
-        href: qa/general.md
+    href: qa/general.md
 base: en/managed-redis

@@ -1,12 +1,10 @@
-# Questions about {{ MY }}
-
 #### What {{ MY }} versions does {{ mmy-short-name }} support? {#supported-version}
 
 {{ mmy-short-name }} supports {{ MY }} 5.7 and {{ MY }} 8.
 
 #### Are DB cluster backups enabled by default? {#backup}
 
-Yes, backup is enabled by default. For {{ MY }} clusters, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backup is enabled by default. For {{ MY }} clusters, a full backup takes place once a day and saves all DB cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 #### Are {{ MY }} database cluster connections encrypted? {#encryption}
 

@@ -78,7 +78,7 @@ To connect to the **Heat Maps** dashboard:
 
    It contains three tabs: **Demand**, **Supply**, and **Demand for supply**. Each tab contains:
 
-   * Text widgets are headers, comments, and hints.
+   * Text widgets: Headers, comments, and hints.
    * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
    * Charts: Graphs, tables, and other visualizations.
 
@@ -145,9 +145,9 @@ You can send the link to the dashboard from the browser. For more information ab
 
 Data in {{ datalens-short-name }} is only available to users of a specific instance. If you want to provide unlimited public access to supply and demand statistics, publish your dashboard or a particular chart in [{{ datalens-short-name }} Public](../../datalens/concepts/datalens-public.md).
 
-{% list tabs %}
+{% list tabs group=datalens_public %}
 
-- Publishing dashboards
+- Publishing dashboards {#dashboard}
 
    1. Open the **Supply and demand** dashboard.
    1. At the top of the dashboard interface, click ![image](../../_assets/console-icons/nodes-right.svg).
@@ -156,7 +156,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
    1. Select the charts you want to publish with the dashboard.
    1. Copy the public link and click **Apply**.
 
-- Publishing a chart
+- Publishing a chart {#chart}
 
    1. On the navigation page, find a chart, e.g., **Demand for supply map**, and open it.
    1. At the top of the chart interface, click ![image](../../_assets/console-icons/nodes-right.svg).
@@ -181,7 +181,7 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% endnote %}
 
-## Questions and answers {#qa}
+## FAQ {#qa}
 
 {% cut "Why can you only connect with a Yandex account?" %}
 

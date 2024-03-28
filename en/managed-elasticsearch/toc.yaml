@@ -248,7 +248,5 @@ items:
   - name: Release notes
     href: release-notes.md
   - name: FAQ
-    items:
-      - name: General questions
-        href: qa/index.md
+    href: qa/index.md
 base: en/managed-elasticsearch

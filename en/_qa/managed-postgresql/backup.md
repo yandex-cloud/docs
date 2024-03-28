@@ -1,5 +1,3 @@
-# Moving and restoring a {{ PG }} cluster
-
 #### Can I restore a cluster backup to a running {{ mpg-short-name }} instance on a different cloud network? {#diff-network}
 
 You can only recover a cluster from a backup within a single cloud network.
