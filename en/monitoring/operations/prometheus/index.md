@@ -38,7 +38,7 @@ The system functionality will be enhanced in upcoming releases.
 | Long-term metric storage | Not intended for long-term metric storage. [Third-party solutions](https://prometheus.io/docs/prometheus/latest/storage/#existing-integrations) are used for that. | Long-term metric storage is supported. If [decimation](../../concepts/decimation.md) is used, metrics can be stored for an unlimited amount of time. |
 | Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported. | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported with some [restrictions](querying/grafana.md#restrictions). |
 | Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) is supported. |
-| Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | To be implemented in future versions. Currently, recording rules can be calculated based on short-term data on local {{ prometheus-name }} instances. |
+| Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | Supported any existing recoriding rules files in YAML format. Can be uploaded and managed using monitoring console or API. |
 | Alerting | Supported via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/). | To be implemented in future versions. Currently, alerting rules can be calculated based on short-term data on local {{ prometheus-name }} instances. |
 | Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used. |
 
@@ -47,7 +47,7 @@ The system functionality will be enhanced in upcoming releases.
 
 * The `NaN` value is not supported and is treated as a missing point.
 * The `+Inf`/`-Inf` value may be processed incorrectly.
-* No support for `recording rules` and `alerting rules`.
+* No support for `alerting rules`.
 * No support for `staleness markers`, `exemplars`, and `native histograms`.
 
 ## Quotas and limits {#limits}
