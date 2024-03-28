@@ -3,15 +3,15 @@
   "messages": [
   {
     "event_metadata": {
-      "cloud_id": "b1gvlrnl************",
+      "cloud_id": "b1gvlrnlw2e6********",
       "created_at": "2020-09-07T11:09:14Z",
-      "event_id": "crtpk611************",
+      "event_id": "crtpk611vb7g********",
       "event_type": "yandex.cloud.events.containerregistry.CreateImage",
-      "folder_id": "b1g88tfl************",
+      "folder_id": "b1g88tfl0pl8********",
       "tracing_context": {
-        "parent_span_id": "-1491579************",
-        "span_id": "-7232663************",
-        "trace_id": "70e7************"
+        "parent_span_id": "-14915794679********",
+        "span_id": "-72326631357********",
+        "trace_id": "70e7m4n2********"
       }
     },
     "details": {

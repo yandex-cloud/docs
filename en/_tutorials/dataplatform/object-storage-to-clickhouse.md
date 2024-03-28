@@ -57,8 +57,8 @@ Prepare the infrastructure:
 
    1. In the `object-storage-to-clickhouse.tf` file, specify:
 
-      * `folder_id`: Cloud directory ID, the same one specified in the provider settings.
-      * `bucket_name`: Bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
+      * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
       * `ch_password`: {{ CH }} user password.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -163,7 +163,7 @@ Prepare the infrastructure:
 
 ## Test the transfer {#verify-transfer}
 
-To check if the transfer performs properly, test the copy and replication processes.
+Check the transfer performance by testing the copy and replication processes.
 
 ### Test the copy process {#verify-copy}
 
@@ -195,7 +195,7 @@ To check if the transfer performs properly, test the copy and replication proces
 
 1. Make sure the data from the `demo_data2.csv` file has been added to the target database:
 
-   1. [Connect to the](../../managed-clickhouse/operations/connect.md) `db1` database in the {{ mch-name }} target cluster.
+   1. [Connect to the `db1` database](../../managed-clickhouse/operations/connect.md) in the {{ mch-name }} target cluster.
 
    1. Run the following query:
 
@@ -241,7 +241,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       * [{{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
       * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 
-   - {{ TF }} {#tf}
+   - Using {{ TF }} {#tf}
 
       If you created your resources using {{ TF }}:
 

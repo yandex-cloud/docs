@@ -11,18 +11,18 @@ description: "In this article, you will learn how to move a {{ compute-full-name
 
 {% endnote %}
 
-To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ alb-full-name }}](../../../application-load-balancer/) [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md):
+To move an [instance group](../../concepts/instance-groups/index.md) with an [[{{ alb-full-name }}](../../../application-load-balancer/) [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md):
 
-1. [Create](../../../vpc/operations/subnet-create.md) a [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you want to move your [instance](../../concepts/vm.md) group.
+1. [Create](../../../vpc/operations/subnet-create.md) a [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you want to move your [VM](../../concepts/vm.md) group.
 1. Enable traffic for the L7 load balancer in the new availability zone:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) that houses the L7 load balancer.
+      1. In the [management console]({{ link-console-main }}), select the folder that houses the load balancer.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the row of the L7 load balancer you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the load balancer row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone to move the instance group to.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -80,7 +80,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
                disable_traffic: true
              - zone_id: {{ region-id }}-b
                  subnet_id: e2lgp8o00g06********
-             - zone_id: {{ region-id }}-c
+             - zone_id: {{ region-id }}-d
                  subnet_id: b0cv501fvp13********
          log_group_id: ckgah4eo2j0r********
          security_group_ids:
@@ -114,6 +114,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
          ```
 
          Where:
+
          * `zone_id`: Availability zones where the L7 load balancer will receive traffic.
          * `subnet_id`: IDs of subnets in the availability zones.
 

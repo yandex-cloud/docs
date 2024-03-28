@@ -20,7 +20,7 @@ If it is a multi-host cluster, there is no downtime while updating it, since the
 
 #### How do I change the time zone? {#timezone}
 
-Follow the steps described in [{#T}](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
+Follow the steps described in [Changing {{ CH }} settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
 
 #### Is a cluster unavailable when adding replicas? {#add-replica-availability}
 

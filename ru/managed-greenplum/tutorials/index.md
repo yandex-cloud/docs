@@ -11,5 +11,6 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./greenplum-to-clickhouse.md)
 * [{#T}](mmy-to-mgp.md)
 * [{#T}](yezzey.md)
+* [{#T}](object-storage-to-greenplum.md)
 
 Если вы хотите провести миграцию хостов кластера в другую зону доступности, [восстановите кластер из резервной копии](../operations/cluster-backups.md#restore). Во время восстановления укажите нужную зону.

@@ -5,8 +5,8 @@ description: "Из статьи вы узнаете, как работать с 
 
 # Пошаговые инструкции для {{ maf-name }}
 
-* [{#T}](cluster-create.md)
-* [{#T}](cluster-update.md)
+* [Создание кластера](cluster-create.md)
+* [Изменение кластера](cluster-update.md)
 * [{#T}](af-interfaces.md)
-* [{#T}](upload-dags.md)
-* [{#T}](cluster-delete.md)
+* [Загрузка DAG-файлов в кластер](upload-dags.md)
+* [Удаление кластера](cluster-delete.md)

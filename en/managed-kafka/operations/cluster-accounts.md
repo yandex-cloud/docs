@@ -89,7 +89,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Add the `yandex_mdb_kafka_user` resource:
 
       ```hcl
@@ -171,7 +171,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
    1. Change the value of the `password` field:
 
@@ -238,7 +238,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
    1. Edit the `permission` section to [grant](#grant-permission) or [revoke](#revoke-permission) topic permissions:
 
@@ -363,7 +363,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the file, find the `yandex_mdb_kafka_cluster` resource for the required user.
    1. Add a `permission` section:
 
@@ -459,7 +459,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
    1. Edit or delete the `permission` section.
    1. Make sure the settings are correct.
@@ -578,7 +578,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Delete the `yandex_mdb_kafka_user` resource for the appropriate user.
    1. Make sure the settings are correct.
 

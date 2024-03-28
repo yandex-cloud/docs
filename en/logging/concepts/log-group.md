@@ -6,10 +6,29 @@ description: "A log group is a way of grouping logs of services and custom messa
 # Log group in {{ cloud-logging-name }}
 
 A _log group_ is a way of grouping logs of services and custom messages. There are two types of groups:
-* Default. A default log group is created for each folder. {{ sf-name }}, {{ api-gw-name }}, and {{ serverless-containers-name }} logs automatically get into this group. You can [add records](../operations/write-logs.md) to the default log group yourself.
-* Custom. You can create a log group and add records to it yourself. [How to create a custom log group](../operations/create-group.md).
 
-When adding a record to a log group, you can specify its creation `timestamp`. The record creation timestamp may differ from the time it was added to the log group. It must satisfy the following conditions:
+* Default.
+
+   The name of the default log group is `default`. The group is created automatically when a [service](#services) or application writes logs with the folder ID specified for destination. A user can [add records](../operations/write-logs.md) to it manually. If you [create a log group](../operations/create-group.md) named `default`, it will be the default log group for the folder where it was created.
+
+* Custom.
+
+   A user can create a log group and add records to it manually.
+
+When adding a record to a log group, you can specify its creation `timestamp`. The record creation timestamp may differ from the time it was added to the log group. It must satisfy the following conditions:
 ```
 Current date – 30 days < Record creation timestamp < Current date + 1 day
 ```
+
+## Services capable of logging in {{ cloud-logging-name }} {#services}
+
+* [{{ alb-name }}](../../application-load-balancer/)
+* [{{ api-gw-name }}](../../api-gateway/)
+* [{{ at-name }}](../../audit-trails/)
+* [{{ sf-name }}](../../functions/)
+* [{{ container-registry-name }}](../../container-registry/)
+* [{{ dataproc-name }}](../../data-proc/)
+* [{{ ml-platform-name }}](../../datasphere/)
+* [{{ managed-k8s-name }}®](../../managed-kubernetes/)
+* [{{ serverless-containers-name }}](../../serverless-containers/)
+* [{{ iot-name }}](../../iot-core/)

@@ -16,7 +16,7 @@ To create a trigger, you need:
 * [Service accounts](../../iam/concepts/users/service-accounts.md) with rights:
 
    * To invoke a container.
-   * (Optional) To write to a Dead Letter Queue.
+   * (Optional) To write to a dead letter queue.
    * (Optional) To upload objects to buckets.
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
@@ -55,7 +55,7 @@ To create a trigger, you need:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -79,7 +79,7 @@ To create a trigger, you need:
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
 
@@ -98,13 +98,13 @@ To create a trigger, you need:
 
    
    ```
-   id: a1sfe084v4**********
-   folder_id: b1g88tflru**********
+   id: a1sfe084v4h2********
+   folder_id: b1g88tflruh2********
    created_at: "2022-12-04T08:45:31.131391Z"
    name: mail-trigger
    rule:
      mail:
-       email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
+       email: a1s8h8avglh2********-cho1****@serverless.yandexcloud.net
        batch_settings:
          size: "3"
          cutoff: 20s
@@ -112,14 +112,14 @@ To create a trigger, you need:
          bucket_id: bucket-for-attachments
          service_account_id: ajejeis235ma********
        invoke_container:
-         container_id: d4eofc7n0m**********
-         service_account_id: aje3932acd**********
+         container_id: d4eofc7n0mh2********
+         service_account_id: aje3932acdh2********
          retry_settings:
            retry_attempts: "1"
            interval: 10s
          dead_letter_queue:
-           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
-           service-account-id: aje3932acd**********
+           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmkh2********:dlq
+           service-account-id: aje3932acdh2********
    status: ACTIVE
    ```
 

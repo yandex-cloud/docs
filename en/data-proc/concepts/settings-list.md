@@ -89,7 +89,7 @@ Generally, the following default settings are applied on the {{ dataproc-name }}
 
 {% note info %}
 
-Changing the `spark:spark.driver.defaultJavaOptions` or `spark:spark.executor.defaultJavaOptions` cluster properties for values conflicting with `extraJavaOptions` settings may result in cluster configuration errors.
+Changing the `spark:spark.driver.defaultJavaOptions` or `spark:spark.executor.defaultJavaOptions` cluster properties for values conflicting with the `extraJavaOptions` settings may result in cluster configuration errors.
 
 {% endnote %}
 

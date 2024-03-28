@@ -30,7 +30,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"organization_id": "<идентификатор_организации>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v2.CommunityService/Create
     ```
 
@@ -39,7 +39,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"organization_id": "<идентификатор_организации>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v2.CommunityService/List
     ```
 
@@ -51,7 +51,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
-      -X POST "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities" \
+      -X POST "https://datasphere.{{ api-host }}/datasphere/v2/communities" \
       -d '{ "organizationId": "<идентификатор_организации>" }'
     ```
 
@@ -59,7 +59,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
-      -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities" \
+      -X GET "https://datasphere.{{ api-host }}/datasphere/v2/communities" \
       -d '{ "organizationId": "<идентификатор_организации>" }'
     ```
 
@@ -89,7 +89,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"community_id": "<идентификатор_сообщества>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v2.ProjectService/Create
     ```
 
@@ -98,7 +98,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"community_id": "<идентификатор_сообщества>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v2.ProjectService/List
     ```
 
@@ -110,7 +110,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
-      -X POST "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects" \
+      -X POST "https://datasphere.{{ api-host }}/datasphere/v2/projects" \
       -d '{ "communityId": "<идентификатор_сообщества>" }'
     ```
 
@@ -118,7 +118,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
-      -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects" \
+      -X GET "https://datasphere.{{ api-host }}/datasphere/v2/projects" \
       -d '{ "communityId": "<идентификатор_сообщества>" }'
     ```
 
@@ -144,7 +144,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"project_id": "<идентификатор_проекта>", "target": "notebook_id", "notebook_id": "<идентификатор_ноутбука>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v2.ProjectService/Execute
     ```
 
@@ -158,7 +158,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
-      -X POST "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:execute" \
+      -X POST "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_проекта>:execute" \
       -d '{ "notebook_id": "<идентификатор_ноутбука>" }'
     ```
 
@@ -190,7 +190,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"resource_id": "<идентификатор_проекта>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v2.ProjectService/ListAccessBindings
     ```
 
@@ -199,7 +199,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"resource_id": "<идентификатор_сообщества>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
     ```
 
@@ -211,14 +211,14 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
-      -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_ресурса>:accessBindings"
+      -X GET "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_ресурса>:accessBindings"
     ```
 
   **Пример**. Вывод списка доступов к сообществу:
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
-      -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/<идентификатор_ресурса>:accessBindings"
+      -X GET "https://datasphere.{{ api-host }}/datasphere/v2/communities/<идентификатор_ресурса>:accessBindings"
     ```
 
   Подробную информацию о методах см. в API-документации [Project](Project/index.md) и [Community](Community/index.md).
@@ -243,7 +243,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
     ```bash
     grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"project_id": "<идентификатор_проекта>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
     ```
 
@@ -255,7 +255,7 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
     ```bash
     curl -H "Authorization: Bearer <IAM-токен>" \
-      -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:unitBalance"
+      -X GET "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_проекта>:unitBalance"
     ```
 
   Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).

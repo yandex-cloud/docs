@@ -20,6 +20,7 @@ description: "Следуя данной инструкции, вы сможет�
 {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
 * [Загрузка данных из {{ objstorage-name }} в {{ PG }}](../../../tutorials/object-storage-to-postgresql.md);
+* [Загрузка данных из {{ objstorage-name }} в {{ GP }}](../../../tutorials/object-storage-to-greenplum.md);
 * [Загрузка данных из {{ objstorage-name }} в {{ MY }}](../../../tutorials/objs-mmy-migration.md);
 * [Загрузка данных из {{ objstorage-name }} в {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md);
 * [Загрузка данных из {{ objstorage-name }} в {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).

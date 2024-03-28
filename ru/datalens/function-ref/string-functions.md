@@ -201,7 +201,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/string-functions.md
 
 **Синтаксис:**`SUBSTR( string, from_index [ , length ] )`
 
-Возвращает подстроку `string`, начиная с индекса `from_index`.
+Возвращает подстроку `string`, начиная с индекса `from_index`. Нумерация начинается с единицы.
 
 Если указан дополнительный аргумент `length`, то будет возвращена подстрока указанной длины.
 

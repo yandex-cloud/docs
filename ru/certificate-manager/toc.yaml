@@ -47,6 +47,8 @@ items:
         href: operations/cert-backup.md
       - name: Добавление алерта для сертификата
         href: operations/alert.md
+      - name: Посмотреть операции с сертификатом
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Установка Ingress-контроллера NGINX в {{ managed-k8s-name }}
@@ -77,7 +79,7 @@ items:
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/certificate-manager/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:

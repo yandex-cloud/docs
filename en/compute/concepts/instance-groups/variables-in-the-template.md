@@ -67,7 +67,7 @@ At this stage, {{ ig-name }} will do the following:
 
 ## Conversion of variables {#converting-rules}
 
-System and user-defined variables are specified as values for template fields in curly brackets `{}`. {{ ig-name }} will convert them according to the rules below.
+System and user-defined variables are specified as values for template fields in curly brackets (`{}`). {{ ig-name }} will convert them according to the rules below:
 
 | Template field value | Field value</br>after conversion | Conversion description |
 | --- | --- | --- |
@@ -92,8 +92,8 @@ System and user-defined variables are specified as values for template fields in
        value: rc1a
      - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_{{ region-id }}-c
-       value: rc1c
+     - key: short_zone_var_{{ region-id }}-d
+       value: rc1d
    instance_template:
      name: production-{short_zone_var_{instance.zone_id}}-{instance.index}
      hostname: production-{instance.index}
@@ -101,7 +101,7 @@ System and user-defined variables are specified as values for template fields in
    ...
    ```
 
-1. At stage 1, {{ ig-name }} will replace the [system variables](#first-stage) with the calculated values.
+1. At stage 1, {{ ig-name }} will replace the [system variables](#first-stage) with the calculated values:
 
    ```yaml
    ...
@@ -110,8 +110,8 @@ System and user-defined variables are specified as values for template fields in
        value: rc1a
      - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_{{ region-id }}-c
-       value: rc1c
+     - key: short_zone_var_{{ region-id }}-d
+       value: rc1d
    instance_template:
      name: production-{short_zone_var_{{ region-id }}-a}-1
      hostname: production-1
@@ -135,8 +135,8 @@ System and user-defined variables are specified as values for template fields in
        value: rc1a
      - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_{{ region-id }}-c
-       value: rc1c
+     - key: short_zone_var_{{ region-id }}-d
+       value: rc1d
    instance_template:
      name: production-rc1a-1
      hostname: production-1

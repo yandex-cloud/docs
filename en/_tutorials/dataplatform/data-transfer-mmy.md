@@ -13,13 +13,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a source {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration with the following settings:
+1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration with the following settings:
 
-   * With the `db1` database.
-   * With a user named `my-user`.
-   * With publicly available hosts.
+   * Database: `db1`
+   * Username: `my-user`
+   * Hosts: Publicly available
 
-1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
+1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
 
 1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
@@ -71,9 +71,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated using the following convention: `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, the `cdc` prefix is used as an example.
 
-{% list tabs %}
+{% list tabs group=topic_management %}
 
-* Interfaces {{ yandex-cloud }}
+- {{ yandex-cloud }} interfaces {#yc}
 
    If topics are managed using standard {{ yandex-cloud }} interfaces (management console, YC CLI, {{ TF }}, API):
 
@@ -83,7 +83,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `kafka-user` with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the topics created. To include all such topics, put `cdc.*` in the topic name.
 
-* Admin API
+- Admin API {#api}
 
    If topics are managed using the Kafka Admin API:
 

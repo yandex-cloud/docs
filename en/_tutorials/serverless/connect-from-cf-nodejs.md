@@ -331,7 +331,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
          - $latest
    log_group_id: lmnoivbe341g********
    environment:
-         DATABASE: /ru-central1/b1gia87mbaom********/etnilt3o6v9e********
+         DATABASE: /{{ region-id }}/b1gia87mbaom********/etnilt3o6v9e********
          ENDPOINT: grpcs://ydb.serverless.yandexcloud.net:2135
    log_options:
          folder_id: pqrs81qpemb********
@@ -367,5 +367,5 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the DB](../../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the function](../../functions/operations/function/function-delete.md).

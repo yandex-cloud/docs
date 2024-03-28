@@ -23,7 +23,7 @@ The figure below shows an example of using a network load balancer with an [inst
 
 When creating an instance group, a target group for the network load balancer will also be created, which will include all VMs from this group.
 
-When adding or removing VMs from the group, these changes will also be reflected in the load balancer's target group.
+When adding or removing VMs from the group, the load balancer's target group will also reflect these changes.
 
 [Example](../../_tutorials/infrastructure/vm-autoscale.md) of deploying an instance group with automatic scaling and integration with a network load balancer.
 

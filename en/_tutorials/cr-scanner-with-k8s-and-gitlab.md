@@ -35,13 +35,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 You can set up authentication in {{ GL }} using a {{ k8s }} service account token or the [{{ GLA }}](/marketplace/products/yc/gitlab-agent) application:
 
-{% list tabs %}
+{% list tabs group=gl_auth %}
 
-- Service account token
+- Service account token {#token}
 
    {% include notitle [k8s-get-token](../_includes/managed-gitlab/k8s-get-token.md) %}
 
-- {{ GLA }}
+- {{ GLA }} {#gla}
 
    {% include notitle [create gla](../_includes/managed-gitlab/k8s-agent.md) %}
 
@@ -54,9 +54,9 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ managed-k8s-name }} authentication method in {{ GL }}:
 
-      {% list tabs %}
+      {% list tabs group=gl_auth %}
 
-      - Service account token
+      - Service account token {#token}
 
         * `KUBE_URL`: [{{ managed-k8s-name }} master](../managed-kubernetes/concepts/index.md#master) address. You can retrieve it using the following command:
 
@@ -67,7 +67,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
         * `KUBE_TOKEN`: Token that will use {{ GL }} to apply the configuration. Use the token obtained earlier.
 
-      - {{ GLA }}
+      - {{ GLA }} {#gla}
 
       {% endlist %}
 
@@ -83,9 +83,9 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
    1. Click ![image](../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
    1. Name the file as `.gitlab-ci.yml`. Add the steps to build and push a Docker image, scan it for vulnerabilities, and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
 
-      {% list tabs %}
+      {% list tabs group=gl_auth %}
 
-      - Service account token
+      - Service account token {#token}
 
         {% cut ".gitlab-ci.yml" %}
 
@@ -152,7 +152,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
         {% endcut %}
 
-      - {{ GLA }}
+      - {{ GLA }} {#gla}
 
         {% cut ".gitlab-ci.yml" %}
 

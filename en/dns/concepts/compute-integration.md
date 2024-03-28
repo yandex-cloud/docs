@@ -35,3 +35,4 @@ To generate unique names, you can use [variables](../../compute/concepts/instanc
 #### See also {#see-also}
 
 * [Creating a VM](../../compute/operations/index.md)
+* [Assigning a domain name to a VM with a web server](../tutorials/bind-domain-vm.md)

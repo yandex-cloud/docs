@@ -1,3 +1,9 @@
+{% note warning %}
+
+Once an instance is created, you cannot change its resource configuration, i.e., instance type, disk size, and availability zone.
+
+{% endnote %}
+
 1. In the management console, select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance).
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Click **{{ ui-key.yacloud.gitlab.button_create-instance }}**.

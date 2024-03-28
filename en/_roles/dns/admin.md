@@ -8,4 +8,4 @@ Users with this role can:
 * View information on Cloud DNS [quotas](../../dns/concepts/limits.md#cloud-dns-quotas).
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `dns.editor` permissions.
+This role includes the permissions of the `dns.editor` role.

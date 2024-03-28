@@ -16,6 +16,7 @@ description: "This page provides a list of tutorials on creating sites, using 1C
 * [1C-Bitrix website](../web/bitrix-website.md)
 * [OpenCart-based online store](../internet-store/opencart.md)
 * [Setting up virtual hosting](../web/virtual-hosting.md)
+* [Assigning a domain name to a VM with a web server](../web/bind-domain-vm.md)
 
 ## 1С {#1c}
 

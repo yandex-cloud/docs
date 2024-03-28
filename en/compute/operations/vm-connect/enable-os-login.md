@@ -51,6 +51,6 @@ To set up OS Login access to an existing VM:
 
 1. [Enable](../vm-control/vm-update.md#enable-oslogin-access) access via OS Login on the VM.
 
-You can now [connect](./os-login.md) to the VM via OS Login. This disables [connections to the VM over SSH](./ssh.md#vm-connect).
+Now you can connect to your VM via OS Login using an SSH certificate [over the YC CLI](os-login.md#connect-via-cli) or a [standard SSH client](os-login.md#connect-via-exported-certificate), as well as over the YC CLI [using an SSH key](os-login.md#connect-via-key) previously added to the organization user profile in {{ org-full-name }}.
 
-To be able to connect to the VM over SSH again, disable OS Login access for the VM. To do this, [update](../vm-control/vm-update.md) the VM settings by disabling the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+To be able to [connect](./ssh.md#vm-connect) to the VM over SSH without using OS Login, [update](../vm-control/vm-update.md) the VM settings by disabling **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.

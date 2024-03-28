@@ -25,6 +25,8 @@ items:
             href: operations/zone-list.md
           - name: Getting information about a DNS zone
             href: operations/zone-get-info.md
+          - name: DNS zone monitoring
+            href: operations/monitoring.md
       - name: Records
         items:
           - name: Creating a record
@@ -61,6 +63,8 @@ items:
         href: tutorials/mdb-dns-peering.md
       - name: Creating an ACME resolver webhook for responses to DNS01 checks
         href: tutorials/cert-manager-webhook.md
+      - name: Assigning a domain name to a VM with a web server
+        href: tutorials/bind-domain-vm.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -117,6 +121,8 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ

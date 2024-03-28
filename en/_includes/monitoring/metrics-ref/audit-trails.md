@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 Common labels for all {{ at-name }} metrics:
 
 | Label | Value |

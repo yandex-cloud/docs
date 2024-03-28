@@ -146,7 +146,7 @@
     }
     headers = {"Authorization" : "Bearer " + '<IAM-токен>',
             "x-folder-id": "<идентификатор_каталога>", }
-    res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+    res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
     ```
@@ -183,7 +183,7 @@
     }
     headers = {"Authorization" : "Bearer " + '<IAM-токен>',
                        "x-folder-id": "<идентификатор_каталога>", }
-    res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+    res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
     ```

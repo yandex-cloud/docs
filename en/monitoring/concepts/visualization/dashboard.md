@@ -11,9 +11,7 @@ The default interval is one day. The interval can be set using preset ranges (`1
 
 To set the time interval more precisely, you can use the timeline located above the dashboard.
 
-{{ yandex-cloud }} users can use service dashboards that contain preset widgets with metrics on the status of cloud resources. Service dashboards are created automatically.
-
- <!-- Big Yandex dashboards -->
+{{ yandex-cloud }} users can use service dashboards containing preset widgets with metrics reporting the status of cloud resources. Service dashboards are created automatically.
 
 ## Dashboard parameters {#parameterization}
 
@@ -27,15 +25,9 @@ The following types of dashboards are available:
 * *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}*: Parameter takes a set of fixed comma-separated values.
 * *{{ ui-key.yacloud_monitoring.component.parametrizer.type.text-field }}*: Parameter takes the only value specified in the text field.
 
- <!-- Big Yandex dashboards -->
-
-For parameters of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* and *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* type, the *{{ ui-key.yacloud_monitoring.component.parametrizer.dashboard.multivalue-key-value }}* setting is available. It lets you select multiple parameter values at the same time.
+For parameters of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* and *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* type, the *{{ ui-key.yacloud_monitoring.component.parametrizer.dashboard.multivalue-key-value }}* setting is available to select multiple parameter values at the same time.
 
 For all parameter types, you can set the *{{ ui-key.yacloud_monitoring.component.parametrizer.default-value }}* that will be used when loading a dashboard in the {{ monitoring-full-name }} web interface.
-
- <!-- Big Yandex dashboards -->
-
- <!-- Cloud dashboards -->
 
 ### Parameter substitution {#templates}
 
@@ -52,16 +44,15 @@ You can only use parameter value substitution in label values when making querie
 * Substituting values in widget headings.
    > In the `CPU usage on not_var{{host}}` widget heading, the `host` parameter value is substituted.
 * Substituting label values in queries.
-   > In the `"cpu.iowait"{folderId="aoe6mk1r3b47lu994prn", service="not_var{{myparm}}", host="*"}` query, the `service` label value is substituted with the `myparm` parameter value.
+   > In the `"cpu.iowait"{folderId="aoe6mk1r3b47********", service="not_var{{myparm}}", host="*"}` query, the `service` label value is substituted with the `myparm` parameter value.
 
 Substituting parameter values in query strings looks like this:
 
 ![Substituting parameter values in query strings](../../../_assets/monitoring/query_string_templating_2023.png "Substituting parameter values in query strings")
- <!-- Cloud dashboards -->
 
 ### Label value filter {#common-labels-filter}
 
-The label value filter lets you limit the list of possible parameter values with the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type. The filter specifies labels and their values. The filter is applied to all parameters of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type at the same time.
+The label value filter enables you to limit the list of possible parameter values of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type. The filter specifies labels and their values. The filter is applied to all parameters of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type at the same time.
 
 #### Examples of filtering label values {#common-labels-filter-example}
 
@@ -88,7 +79,5 @@ Filtering settings:
 
 Result:
 
-* Possible values of the `cluster` parameter are limited to `prod` and `preprod`. The `testing` value is excluded as not matching the `cluster=*prod*` rule.
-* Possible values of the `account` parameter will be limited to `prodaccount`, `preprodaccount`, and `multiaccount`. The `testingaccount` value is excluded as there is no metric with a combination of `account="testingaccount"` and `cluster` labels matching the `cluster=*prod*` rule (while this combination exists for `multiaccount`).
-
- <!-- Big Yandex dashboards -->
+* Possible values of the `cluster` parameter will be limited to `prod` and `preprod`. The `testing` value will be excluded as not matching the `cluster=*prod*` rule.
+* Possible values of the `account` parameter will be limited to `prodaccount`, `preprodaccount`, and `multiaccount`. The `testingaccount` value will be excluded as there is no metric with a combination of `account="testingaccount"` and `cluster` labels matching the `cluster=*prod*` rule (while this combination exists for `multiaccount`).

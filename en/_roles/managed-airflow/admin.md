@@ -5,6 +5,6 @@ Users with this role can:
 * View information about the Apache Airflow™ clusters, as well as create, modify, and delete them.
 * Use the web interface to access the [Apache Airflow™ components](../../managed-airflow/concepts/index.md#components).
 
-It includes the permissions of the `managed-airflow.editor` role.
+This role includes the permissions of the `managed-airflow.editor` role.
 
 To create Apache Airflow™ clusters, you also need the `vpc.user` role.

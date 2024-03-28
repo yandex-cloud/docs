@@ -47,6 +47,8 @@ items:
             href: operations/os-login-access.md
           - name: Creating an OS Login profile
             href: operations/os-login-profile-create.md
+          - name: Adding an SSH key
+            href: operations/add-ssh.md
       - name: Managing user groups
         href: operations/manage-groups.md
       - name: Access management

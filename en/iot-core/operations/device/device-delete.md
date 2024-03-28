@@ -53,7 +53,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
-        registry_id = "<registry ID>"
+        registry_id = "<registry_ID>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
       ...
@@ -92,7 +92,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
-      yc iot device list --registry-id <registry ID>
+      yc iot device list --registry-id <registry_ID>
       ```
 
 - API {#api}

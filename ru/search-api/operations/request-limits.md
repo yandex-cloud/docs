@@ -9,7 +9,7 @@
 ```bash
 https://yandex.<домен>/search/xml
   ? [action=<limits-info>]
-  & [folderid=<id_каталога>]
+  & [folderid=<идентификатор_каталога>]
   & [apikey=<API-ключ_сервисного_аккаунта>]
 ```
 

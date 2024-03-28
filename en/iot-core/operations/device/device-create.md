@@ -29,7 +29,7 @@ description: "Follow this guide to create a device."
    1. (Optional) Add [aliases](../../concepts/topic/usage.md#aliases):
 
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
-      1. Fill in the fields by providing an alias, e.g., `events`, and the topic type after `$devices/<deviceID>`, e.g., `events`. You can use the `events` alias instead of the `$devices/<deviceID>/events` topic.
+      1. Complete the fields: enter an alias, e.g., `events`, and topic type after `$devices/<device_ID>`, e.g., `events`. You can use the `events` alias instead of the `$devices/<device_ID>/events` topic.
 
    1. (Optional) Add a [certificate](../../operations/certificates/create-certificates.md):
 
@@ -58,8 +58,8 @@ description: "Follow this guide to create a device."
 
       ```bash
       yc iot device create \
-         --registry-name <registry name> \
-         --name <device name>
+         --registry-name <registry_name> \
+         --name <device_name>
       ```
 
       The device naming requirements are as follows:
@@ -72,14 +72,14 @@ description: "Follow this guide to create a device."
       id: b9135goeh**********
       registry_id: b91ki3851h**********
       created_at: "2019-05-28T16:08:30.938Z"
-      name: <device name>
+      name: <device_name>
       status: ACTIVE
       ```
 
    1. (Optional) Assign the device a password for authentication using a [username and password](../../concepts/authorization.md#log-pass):
 
       ```bash
-      yc iot device password add --device-name <device name>
+      yc iot device password add --device-name <device_name>
       ```
 
       You will be prompted to enter a password. Password requirements:
@@ -95,11 +95,11 @@ description: "Follow this guide to create a device."
       created_at: "2019-05-28T16:12:30.938Z"
       ```
 
-   1. (Optional) Add a certificate to the device for authentication using [certificates](../../concepts/authorization.md#certs):
+   1. (Optional) Add a certificate to the registry for authentication using [certificates](../../concepts/authorization.md#certs):
 
       ```bash
       yc iot device certificate add \
-         --device-name <device name> \
+         --device-name <device_name> \
          --certificate-file <certificate>
       ```
 
@@ -124,7 +124,7 @@ description: "Follow this guide to create a device."
 
       ```bash
       yc iot device add-topic-aliases \
-         --name <device name> \
+         --name <device_name> \
          --topic-aliases <alias>='<topic>'
       ```
 
@@ -133,7 +133,7 @@ description: "Follow this guide to create a device."
       ```bash
       yc iot device add-topic-aliases \
          --name my-device \
-         --topic-aliases events='$devices/are0ej5kpik15mulb4do/events'
+         --topic-aliases events='$devices/are0ej5kpik1********/events'
       ```
 
       Result:
@@ -142,7 +142,7 @@ description: "Follow this guide to create a device."
       id: aoek49ghmk*********
       registry_id: b91ki3851h**********
       created_at: "2019-05-28T16:17:30.938Z"
-      name: <device name>
+      name: <device_name>
       topic_aliases:
         <alias>: <topic>
       status: ACTIVE
@@ -185,7 +185,7 @@ description: "Follow this guide to create a device."
 
       ```
       resource "yandex_iot_core_device" "my_device" {
-        registry_id = "<registry ID>"
+        registry_id = "<registry_ID>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
 
@@ -199,7 +199,7 @@ description: "Follow this guide to create a device."
         ]
 
         certificates = [
-          file("<path to certificate file>")
+          file("<path_to_certificate_file>")
         ]
       }
       ```

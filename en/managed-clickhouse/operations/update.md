@@ -13,9 +13,9 @@ After creating a cluster, you can:
 
 * [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size).
+* [{#T}](#change-disk-size)
 
-* [{#T}](#SQL-management).
+* [{#T}](#SQL-management)
 
 * [Configure the {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings).
 
@@ -486,9 +486,9 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
 {% endlist %}
 
-{% note info %}
+{% note warning %}
 
-Changes to some [cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings) take effect only after you restart the cluster. Check the description of the updated settings and [restart the cluster](./cluster-stop.md) if needed.
+Changing some [cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings) will restart {{ CH }} servers on the cluster hosts.
 
 {% endnote %}
 
@@ -647,7 +647,7 @@ Changes to some [cluster-level settings](../concepts/settings-list.md#dbms-clust
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
+   * Settings for access from other  services and access to SQL queries from the  management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.

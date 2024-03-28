@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 Common labels for all {{ mos-name }} metrics:
 
 | Label | Value |
@@ -7,7 +9,7 @@ Common labels for all {{ mos-name }} metrics:
 | resource_id | Cluster ID |
 | host | Host FQDN |
 
-### CPU metrics {#managed-opensearch-cpu-metrics}
+## CPU metrics {#managed-opensearch-cpu-metrics}
 Processor core workload.
 
 | Name<br/>Type, units | Description |
@@ -33,7 +35,7 @@ Processor core workload.
 | `load.avg_1min`<br/>`DGAUGE`, % | Average load over 1 minute |
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over 5 minutes |
 
-### Disk metrics {#managed-opensearch-disk-metrics}
+## Disk metrics {#managed-opensearch-disk-metrics}
 | Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space |
@@ -43,7 +45,7 @@ Processor core workload.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space |
 | `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
 
-### Disk operation metrics {#managed-opensearch-diskio-metrics}
+## Disk operation metrics {#managed-opensearch-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, number | Disk operations in progress |
@@ -58,7 +60,7 @@ Processor core workload.
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk |
 | `io.disk*.write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk |
 
-### RAM metrics {#managed-opensearch-ram-metrics}
+## RAM metrics {#managed-opensearch-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
@@ -96,7 +98,7 @@ Processor core workload.
 | `mem.write_back_bytes`<br/>`DGAUGE`, bytes | RAM usage, `write_back` usage type |
 | `mem.write_back_tmp_bytes`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
 
-### Network metrics {#managed-opensearch-net-metrics}
+## Network metrics {#managed-opensearch-net-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
@@ -112,7 +114,7 @@ Processor core workload.
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
 
-### Service metrics {#managed-opensearch-metrics}
+## Service metrics {#managed-opensearch-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `active`<br/>`DGAUGE`, number | Number of active clusters |
@@ -186,7 +188,7 @@ Processor core workload.
 | `ip_inreceives`<br/>`DGAUGE`, number | Total number of input packets received from interfaces, including those received through error |
 | `ip_inunknownprotos`<br/>`DGAUGE`, number | Number of unknown protocol packets received |
 | `ip_outdiscards`<br/>`DGAUGE`, number | Number of output IP packets encountering no problems preventing transmission to their destination but still dropped, e.g., for lack of buffer space. Note that the counter would include datagrams counted in `ip_forwdatagrams` if they met this (discretionary) discard criterion. |
-| `ip_outnoroutes`<br/>`DGAUGE`, number | Number of IP packets dropped because no route could be found to transmit them to their destination. This counter includes all the packets counted in `ip_forwdatagrams` that meet this No Route criterion. This includes any datagrams which a host cannot redirect because all its default gateways are down. |
+| `ip_outnoroutes`<br/>`DGAUGE`, number | Number of IP packets dropped because no route could be found to transmit them to their destination. This counter includes all the packets counted in `ip_forwdatagrams` that meet this No Route criterion. This includes any packets a host cannot redirect because all its default gateways are down. |
 | `ip_outrequests`<br/>`DGAUGE`, number | Total number of IP packets which local IP user protocols (including ICMP) supplied to IP in requests for transmission. This counter does not include any datagrams counted in `ip_forwdatagrams`. |
 | `ip_reasmfails`<br/>`DGAUGE`, number | Number of failures detected by the IP reassembly algorithm (for whatever reason: timed out, errors, etc.). This is not necessarily a count of dropped IP fragments since some algorithms (such as the algorithm in RFC 815) can lose track of the number of fragments, combining them as they are received. |
 | `ip_reasmoks`<br/>`DGAUGE`, number | Number of IP packets successfully reassembled |
@@ -268,7 +270,7 @@ Processor core workload.
 | `write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
 | `write_time`<br/>`DGAUGE`, ms | Average disk write time |
 
-##### {{ OS }} native metrics {#managed-opensearch-system-metrics}
+#### {{ OS }} native metrics {#managed-opensearch-system-metrics}
 
 | Name<br/>Type, unit |
 | ----- |
@@ -413,7 +415,7 @@ Processor core workload.
 | `opensearch_transport_tx_count`<br/>`DGAUGE`, number |
 | `opensearch_transport_tx_size_in_bytes`<br/>`DGAUGE`, bytes |
 
-##### Other metrics {#managed-opensearch-other-metrics}
+#### Other metrics {#managed-opensearch-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `opensearch_active_primary_shards`<br/>`DGAUGE`, number | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster |

@@ -38,6 +38,8 @@ Syntax:
 	- [yc compute instance attach-filesystem](instance/attach-filesystem.md) — Attach existing filesystem to the specified virtual machine instance
 	- [yc compute instance detach-filesystem](instance/detach-filesystem.md) — Detach filesystem from the specified virtual machine instance
 	- [yc compute instance update-network-interface](instance/update-network-interface.md) — Update the specified network interface of virtual machine instance
+	- [yc compute instance attach-network-interface](instance/attach-network-interface.md) — Attach the specified network interface to the virtual machine instance
+	- [yc compute instance detach-network-interface](instance/detach-network-interface.md) — Detach the specified network interface from the virtual machine instance
 	- [yc compute instance add-one-to-one-nat](instance/add-one-to-one-nat.md) — Add one-to-one NAT to the specified network interface of virtual machine instance
 	- [yc compute instance remove-one-to-one-nat](instance/remove-one-to-one-nat.md) — Remove one-to-one NAT to the specified network interface of virtual machine instance
 	- [yc compute instance move](instance/move.md) — Move the specified virtual machine instance into the folder

@@ -173,6 +173,8 @@
 
 ## Создайте файл конфигурации сценария CI {#add-ci}
 
+Для сборки образов из Dockerfile без Docker используется [kaniko](https://github.com/GoogleContainerTools/kaniko).
+
 Чтобы публиковать Docker-образы из проекта {{ GL }} в {{ container-registry-full-name }}, создайте сценарий CI:
 
 1. Откройте проект {{ GL }}.

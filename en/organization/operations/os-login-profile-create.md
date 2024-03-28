@@ -5,11 +5,13 @@ description: "Follow this guide to create an OS Login profile."
 
 # Creating an OS Login profile
 
-By default, [enabling the setting](./os-login-access.md) creates OS Login profiles for all users within your organization. If necessary, you can create additional profiles or edit existing ones. You can use OS Login profiles as user profiles when working within VM instances.
+By default, [enabling the setting](./os-login-access.md) creates OS Login profiles for all users within your organization. If necessary, you can create additional profiles or edit existing ones. You can use OS Login profiles as user profiles when working within [VMs](../../compute/concepts/vm.md) or {{ k8s }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes.
+
+To create an OS Login profile for a user:
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ org-name }} interface {#console}
 
   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
@@ -22,5 +24,9 @@ By default, [enabling the setting](./os-login-access.md) creates OS Login profil
   1. (Optional) Enter the path to the user's home directory.
   1. (Optional) Enter the path to the shell executable file.
   1. Click **{{ ui-key.yacloud_org.forms.action.create }}**.
+
+- API {#api}
+
+  Use the [createProfile](../../organization/api-ref/OsLogin/createProfile.md) REST API method for the [OsLogin](../../organization/api-ref/OsLogin/index.md) resource or the [OsLoginService/CreateProfile](../../organization/api-ref/grpc/os_login_service.md#CreateProfile) gRPC API call.
 
 {% endlist %}

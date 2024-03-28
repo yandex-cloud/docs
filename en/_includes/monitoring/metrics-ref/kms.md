@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 All {{ kms-name }} metrics share the `kms` label.
 
 Service metrics:

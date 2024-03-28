@@ -3,7 +3,7 @@
    "messages":[
       {
          "event_metadata":{
-            "event_id":"2c59a567-6666-4b65-a0b0-cc**********",
+            "event_id":"2c59a567-6666-4b65-a0b0-cc12********",
             "event_type":"yandex.cloud.events.serverless.triggers.LoggingMessageBatch",
             "created_at":{
                "seconds":1630607359,
@@ -15,11 +15,11 @@
                {
                   "resource":{
                      "type":"serverless.function",
-                     "id":"b09tm9raoe**********"
+                     "id":"b09tm9raoev5********"
                   },
                   "timestamp":"2021-09-02 18:29:17.118082213 +0000 UTC",
                   "level":"INFO",
-                  "message":"START RequestID: 085035c7-2319-40dd-bb03-fd********** Version: b09s5cq4b935********",
+                  "message":"START RequestID: 085035c7-2319-40dd-bb03-fd8t******** Version: b09s5cq4b935********",
                   "json_payload":{
                      "request_id":"085035c7-2319-40dd-bb03-fdb2********",
                      "version_id":"b09s5cq4b935********"

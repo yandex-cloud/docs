@@ -11,7 +11,7 @@ You can learn more about the terms of the agreement in [Yandex Legal documents](
 
 {% note info %}
 
-Companies and individual entrepreneurs can sign a bilateral agreement. For this, submit a request via the [form](#contact-form). A {{ yandex-cloud }} manager will contact you to discuss the signature terms.
+Companies and individual entrepreneurs can sign a bilateral agreement. For this, submit a request via the [form](#contact-form). A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
 {% endnote %}
 
@@ -23,7 +23,7 @@ You can learn more about the terms of the agreement in [Yandex Legal documents](
 
 {% note info %}
 
-Companies and individual entrepreneurs can sign a bilateral agreement. For this, submit a request via the [form](#contact-form). A {{ yandex-cloud }} manager will contact you to discuss the signature terms.
+Companies and individual entrepreneurs can sign a bilateral agreement. For this, submit a request via the [form](#contact-form). A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
 {% endnote %}
 

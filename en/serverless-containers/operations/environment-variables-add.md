@@ -58,7 +58,7 @@ When you add environment variables, a new container revision is created. You can
       resource "yandex_serverless_container" "test-container" {
         name               = "my-container"
         memory             = 256
-        service_account_id = "ajec........34ova"
+        service_account_id = "ajecvjv1lv01********"
         image {
             url = "{{ registry }}/yc/test-image:v1"
             environment = {
@@ -69,7 +69,7 @@ When you add environment variables, a new container revision is created. You can
       ...
       ```
 
-      `--environment`: Environment variables in `key="value"` format. You can specify more than one pair.
+      Where `environment` is the environment variables in `key="value"` format. You can specify more than one pair.
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
 

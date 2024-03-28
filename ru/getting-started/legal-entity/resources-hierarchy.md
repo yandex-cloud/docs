@@ -189,7 +189,7 @@
   1. Узнайте ID каталога с помощью метода [list](../../resource-manager/api-ref/Folder/list.md):
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
+          https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
 
       {
        "folders": [
@@ -208,7 +208,7 @@
       
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
 
       {
        "id": "gfei8n54hmfhuk5nogse",
@@ -234,7 +234,7 @@
                       "id": "gfei8n54hmfhuk5nogse",
                       "type": "userAccount"
           }}}]}' \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+          https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
       ```
 
 {% endlist %}
@@ -299,7 +299,7 @@
                   "id": "helj89sfj80aj24nugsz",
                   "type": "userAccount"
       }}}]}' \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
   ```
 
   Вы также можете назначать роли с помощью метода [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md).
@@ -322,7 +322,7 @@
           "roleId": "viewer",
           "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
       }]}' \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
+      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
   ```
 
 {% endlist %}

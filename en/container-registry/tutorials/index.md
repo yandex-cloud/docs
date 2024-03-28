@@ -19,3 +19,4 @@ description: "Various {{ container-registry-full-name }} use cases in {{ yandex-
 
 
 * [{#T}](image-storage.md)
+* [{#T}](vpc-cr-access.md)

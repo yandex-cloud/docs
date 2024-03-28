@@ -7,7 +7,6 @@ description: "This page provides a list of step-by-step guides for {{ monitoring
 
 ## Working with metrics {#working-with-metrics}
 
-
 * [{#T}](unified-agent/linux_metrics.md)
 * [{#T}](unified-agent/pull_prometheus.md)
 * [{#T}](unified-agent/haproxy.md)
@@ -17,10 +16,7 @@ description: "This page provides a list of step-by-step guides for {{ monitoring
 * [{#T}](metric/get.md)
 * [{#T}](metric/prometheusExport.md)
 
-
-
 ## Working with dashboards {#working-with-dashboards}
-
 
 * [{#T}](dashboard/create.md)
 * [{#T}](dashboard/copy.md)
@@ -29,21 +25,8 @@ description: "This page provides a list of step-by-step guides for {{ monitoring
 * [{#T}](dashboard/delete-dashboard.md)
 * [{#T}](dashboard/api-examples.md)
 
-
-
 ## Working with alerts {#working-with-alerts}
-
 
 * [{#T}](alert/create-alert.md)
 * [{#T}](alert/create-channel.md)
 * [{#T}](alert/delete-alert.md)
-
-
-
-
-## Working with the {{ prometheus-name }} API
-
-* [{#T}](prometheus/ingestion/index.md)
-* [{#T}](prometheus/querying/index.md)
-* [{#T}](prometheus/read-write-for-kubernetes.md)
-

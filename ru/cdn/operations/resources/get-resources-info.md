@@ -171,11 +171,11 @@ title: "Как получить информацию о ресурсе в {{ cdn
       Где:
 
       * `data "yandex_cdn_resource"` — описание CDN-ресурса в качестве источника данных:
-         * `resource_id` — идентификатор ресура.
+         * `resource_id` — идентификатор ресурса.
       * `output "resource_cname"` — выходная переменная, которая содержит информацию о доменном имени:
          * `value` — возвращаемое значение.
       
-     Вместо `resource_cname` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
+     Вместо `cname` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
 
   1. Создайте ресурсы:
 
@@ -190,7 +190,7 @@ title: "Как получить информацию о ресурсе в {{ cdn
       Результат:
 
       ```bash
-      resource_cname = "cdn.example.com"
+      resource_cname = "cl-54b75255.edgecdn.ru"
       ```
 
 {% endlist %}

@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note alert %}
 
-When you use a Mikrotik Cloud Hosted Router image without a license, the router throughput is limited to 1 Mbps. To remove this limit, [install a license](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_01000.html).
+If using a Cisco CSR 1000v image without a license, the router throughput is limited to 100 kbps. To remove this limit, [install a license](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_01000.html).
 
 {% endnote %}
 
@@ -148,15 +148,15 @@ Repeat the steps to create a second folder named `site-b`.
    1. In the [management console]({{ link-console-main }}), select `site-a`.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select the **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}** option.
    1. Enter a name for the VM, e.g., `cisco-router-a`.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** list, select **ru-central1-a**.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** list, select **{{ region-id }}-a**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [Cisco CSR](/marketplace/products/yc/cisco-csr) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
       * Specify the required number of vCPUs and the amount of RAM:
-        * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-        * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-        * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-        * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the network and subnet to connect the VM to.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
@@ -192,7 +192,7 @@ Repeat the steps to create a second folder named `site-b`.
       hostname cisco-router
       ```
 
-      Make sure the router name in the command line prompt changes to `cisco-router`.
+      The router name at the beginning of the command line should change to `cisco-router`.
 
 {% endlist %}
 
@@ -214,7 +214,7 @@ Create a user with the administrative rights and password authentication disable
 
 ### Prepare a key {#split-ssh}
 
-If your public SSH key is longer than 72 characters, split the key into chunks, 72 characters each:
+If your public SSH key is longer than 72 characters, split it into chunks of 72 characters each:
 
 1. In your computer terminal, run this command:
 
@@ -291,18 +291,18 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
 ### Check the SSH connection to the router {#test-ssh}
 
-1. Log in to the router via SSH. For this, in your computer terminal, run this command:
+1. Log in to the router via SSH by running this command in your computer terminal:
 
    ```bash
-   ssh -i <path_to_file_with_private_key> test-user@<public_IP_of_router>
+   ssh -i <path_to_file_with_private_key> test-user@<router_public_IP_address>
    ```
 
-   If everything is configured correctly, you will log in to the router under `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was run, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If you are still unable to locate the issue, repeat the previous steps.
+   If everything is configured correctly, you will log in to the router under `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was run, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If still unable to locate the issue, repeat the previous steps.
 1. Switch to privileged mode. Enter the `enable` command and password. If everything is configured correctly, you can configure the router.
 
 ### Create and set up a second VM with a Cisco Cloud Services Router {#test-ssh}
 
-1. In the `site-b` folder, create a VM named `cisco-router-b` by following the above steps. Select **ru-central1-b** as its availability zone.
+1. In the `site-b` folder, create a VM named `cisco-router-b` by following the above steps. Select **{{ region-id }}-b** as its availability zone.
 1. Set up the VM in the same way as the `cisco-router-a` VM.
 
 ## Configure IPSec protocols {#ipsec-setup}
@@ -347,23 +347,23 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
    - Сisco-router-a VM
 
-     ```bash
-     crypto ikev2 keyring MY_IKEV2_KEYRING
-        peer SiteB
-        address cisco-router-b
-        pre-shared-key <secret_key>
-        exit
-     ```
+      ```bash
+      crypto ikev2 keyring MY_IKEV2_KEYRING
+         peer SiteB
+         address cisco-router-b
+         pre-shared-key <secret_key>
+         exit
+      ```
 
    - Сisco-router-b VM
 
-     ```bash
-     crypto ikev2 keyring MY_IKEV2_KEYRING
-        peer SiteA
-        address cisco-router-a
-        pre-shared-key <secret_key>
-        exit
-     ```
+      ```bash
+      crypto ikev2 keyring MY_IKEV2_KEYRING
+         peer SiteA
+         address cisco-router-a
+         pre-shared-key <secret_key>
+         exit
+      ```
 
    {% endlist %}
 
@@ -376,31 +376,31 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
    - Сisco-router-a VM
 
-     ```bash
-     crypto ikev2 profile MY_IKEV2_PROFILE
-        match address local interface GigabitEthernet1
-        match identity remote address cisco-router-b
-        authentication remote pre-share
-        authentication local pre-share
-        keyring local MY_IKEV2_KEYRING
-        lifetime 28800
-        dpd 20 2 periodic
-        exit
-     ```
+      ```bash
+      crypto ikev2 profile MY_IKEV2_PROFILE
+         match address local interface GigabitEthernet1
+         match identity remote address cisco-router-b
+         authentication remote pre-share
+         authentication local pre-share
+         keyring local MY_IKEV2_KEYRING
+         lifetime 28800
+         dpd 20 2 periodic
+         exit
+      ```
 
    - Сisco-router-b VM
 
-     ```bash
-     crypto ikev2 profile MY_IKEV2_PROFILE
-        match address local interface GigabitEthernet1
-        match identity remote address cisco-router-a
-        authentication remote pre-share
-        authentication local pre-share
-        keyring local MY_IKEV2_KEYRING
-        lifetime 28800
-        dpd 20 2 periodic
-        exit
-     ```
+      ```bash
+      crypto ikev2 profile MY_IKEV2_PROFILE
+         match address local interface GigabitEthernet1
+         match identity remote address cisco-router-a
+         authentication remote pre-share
+         authentication local pre-share
+         keyring local MY_IKEV2_KEYRING
+         lifetime 28800
+         dpd 20 2 periodic
+         exit
+      ```
 
    {% endlist %}
 
@@ -439,35 +439,35 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
    - Сisco-router-a VM
 
-     ```bash
-     conf t
-     int tu192
-        ip address 192.168.0.1 255.255.255.0
-        no ip redirects
-        no ip proxy-arp
-        ip mtu 1400
-        ip tcp adjust-mss 1360
-        tunnel source GigabitEthernet1
-        tunnel destination cisco-router-b
-        tunnel mode ipsec ipv4
-        tunnel protection ipsec profile MY_IPSEC_PROFILE
-     ```
+      ```bash
+      conf t
+      int tu192
+         ip address 192.168.0.1 255.255.255.0
+         no ip redirects
+         no ip proxy-arp
+         ip mtu 1400
+         ip tcp adjust-mss 1360
+         tunnel source GigabitEthernet1
+         tunnel destination cisco-router-b
+         tunnel mode ipsec ipv4
+         tunnel protection ipsec profile MY_IPSEC_PROFILE
+      ```
 
    - Сisco-router-b VM
 
-     ```bash
-     conf t
-     int tu192
-        ip address 192.168.0.2 255.255.255.0
-        no ip redirects
-        no ip proxy-arp
-        ip mtu 1400
-        ip tcp adjust-mss 1360
-        tunnel source GigabitEthernet1
-        tunnel destination cisco-router-a
-        tunnel mode ipsec ipv4
-        tunnel protection ipsec profile MY_IPSEC_PROFILE
-     ```
+      ```bash
+      conf t
+      int tu192
+         ip address 192.168.0.2 255.255.255.0
+         no ip redirects
+         no ip proxy-arp
+         ip mtu 1400
+         ip tcp adjust-mss 1360
+         tunnel source GigabitEthernet1
+         tunnel destination cisco-router-a
+         tunnel mode ipsec ipv4
+         tunnel protection ipsec profile MY_IPSEC_PROFILE
+      ```
 
    {% endlist %}
 
@@ -477,15 +477,15 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
    - Сisco-router-a VM
 
-     ```bash
-     show crypto ikev2 sa remote cisco-router-b
-     ```
+      ```bash
+      show crypto ikev2 sa remote cisco-router-b
+      ```
 
    - Сisco-router-b VM
 
-     ```bash
-     show crypto ikev2 sa remote cisco-router-a
-     ```
+      ```bash
+      show crypto ikev2 sa remote cisco-router-a
+      ```
 
    {% endlist %}
 
@@ -521,21 +521,21 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
    - Сisco-router-a VM
 
-     ```bash
-     conf t
-     int lo10
-        ip address 10.1.1.1 255.255.255.255
-        exit
-     ```
+      ```bash
+      conf t
+      int lo10
+         ip address 10.1.1.1 255.255.255.255
+         exit
+      ```
 
    - Сisco-router-b VM
 
-     ```bash
-     conf t
-     int lo10
-        ip address 10.1.1.2 255.255.255.255
-        exit
-     ```
+      ```bash
+      conf t
+      int lo10
+         ip address 10.1.1.2 255.255.255.255
+         exit
+      ```
 
    {% endlist %}
 
@@ -545,17 +545,17 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
    - Сisco-router-a VM
 
-     ```bash
-     router bgp 65001
-        bgp log-neighbor-changes
-        neighbor 192.168.0.2 remote-as 65002
-        address-family ipv4
-           network 10.1.1.1 mask 255.255.255.255
-           neighbor 192.168.0.2 activate
-           exit
-        exit
-     exit
-     ```
+      ```bash
+      router bgp 65001
+         bgp log-neighbor-changes
+         neighbor 192.168.0.2 remote-as 65002
+         address-family ipv4
+            network 10.1.1.1 mask 255.255.255.255
+            neighbor 192.168.0.2 activate
+            exit
+         exit
+      exit
+      ```
 
    - Сisco-router-b VM
 
@@ -577,28 +577,28 @@ If your public SSH key is longer than 72 characters, split the key into chunks, 
 
 Make sure the packets are sent and returned. To check this on the `cisco-router-a` VM, run:
 
-   ```bash
-   ping 10.1.1.2 source lo10
-   ```
+```bash
+ping 10.1.1.2 source lo10
+```
 
-   Result:
+Result:
 
-   ```bash
-   Type escape sequence to abort.
-   Sending 5, 100-byte ICMP Echos to 10.1.1.2, timeout is 2 seconds:
-   Packet sent with a source address of 10.1.1.1
-   !!!!!
-   Success rate is 100 percent (5/5), round-trip min/avg/max = 10/10/11 ms
-   ```
+```bash
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.2, timeout is 2 seconds:
+Packet sent with a source address of 10.1.1.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 10/10/11 ms
+```
 
 For the GRE tunnel performance diagnostics, you can also run the following commands:
 
-   ```bash
-   show ip int brief
-   show ip bgp summary
-   show ip bgp
-   show ip route bgp
-   ```
+```bash
+show ip int brief
+show ip bgp summary
+show ip bgp
+show ip route bgp
+```
 
 ## How to delete the resources you created {#clear-out}
 

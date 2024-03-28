@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 Common labels for all {{ mgp-name }} metrics:
 
 | Label | Value |
@@ -9,7 +11,7 @@ Common labels for all {{ mgp-name }} metrics:
 | host | Host FQDN |
 | FQDN | Host FQDN |
 
-### CPU metrics {#managed-greenplum-cpu-metrics}
+## CPU metrics {#managed-greenplum-cpu-metrics}
 Processor core workload.
 
 | Name<br/>Type, units | Description |
@@ -28,7 +30,7 @@ Processor core workload.
 | `cpu.usage_system`<br/>`DGAUGE`, % | CPU core usage, `system` usage type |
 | `cpu.usage_user`<br/>`DGAUGE`, % | CPU usage, `user` usage type |
 
-### Disk metrics {#managed-greenplum-disk-metrics}
+## Disk metrics {#managed-greenplum-disk-metrics}
 Additional labels: `device`: Disk ID in the system.
 
 | Name<br/>Type, unit | Description |
@@ -41,7 +43,7 @@ Additional labels: `device`: Disk ID in the system.
 | `disk.used`<br/>`DGAUGE`, bytes | Used space |
 | `disk.used_percent`<br/>`DGAUGE`, % | Percentage of used space |
 
-### Disk operation metrics {#managed-greenplum-diskio-metrics}
+## Disk operation metrics {#managed-greenplum-diskio-metrics}
 Additional labels: `dev`: Disk ID in the system.
 
 | Name<br/>Type, unit | Description |
@@ -58,7 +60,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `diskio.write_time`<br/>`DGAUGE`, ms | Disk write time |
 | `diskio.writes`<br/>`DGAUGE`, number | Number of disk writes |
 
-### RAM metrics {#managed-greenplum-ram-metrics}
+## RAM metrics {#managed-greenplum-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active`<br/>`DGAUGE`, bytes | RAM usage, `active` usage type |
@@ -96,7 +98,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `mem.write_back`<br/>`DGAUGE`, bytes | RAM usage, `write_back` usage type |
 | `mem.write_back_tmp`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
 
-### Network metrics {#managed-greenplum-net-metrics}
+## Network metrics {#managed-greenplum-net-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
@@ -238,8 +240,8 @@ Additional labels: `dev`: Disk ID in the system.
 | `nstat.tcpexttcpabortontimeout`<br/>`DGAUGE`, number | Number of TCP connection timeouts |
 | `nstat.tcpexttcpackcompressed`<br/>`DGAUGE`, number | Number of compressed TCP ACK packets |
 | `nstat.tcpexttcpackskippedchallenge`<br/>`DGAUGE`, number | Number of TCP ACK packets skipped due to a Challenge ACK call |
-| `nstat.tcpexttcpackskippedfinwait2`<br/>`DGAUGE`, number | Number of TCP ACK packets skipped due to connections in the `FIN_WAIT2 ` state |
-| `nstat.tcpexttcpackskippedpaws`<br/>`DGAUGE`, number | Number of TCP ACK packets skipped due to connections in the `PAWS `state |
+| `nstat.tcpexttcpackskippedfinwait2`<br/>`DGAUGE`, number | Number of TCP ACK packets skipped due to connections in the `FIN_WAIT2` state |
+| `nstat.tcpexttcpackskippedpaws`<br/>`DGAUGE`, number | Number of TCP ACK packets skipped due to connections in the `PAWS` state |
 | `nstat.tcpexttcpackskippedseq`<br/>`DGAUGE`, number | Number of TCP ACK packets skipped due to the wrong order of connections |
 | `nstat.tcpexttcpackskippedsynrecv`<br/>`DGAUGE`, number | Number of TCP ACK packets skipped due to connections in the `SYN_RECV` state |
 | `nstat.tcpexttcpackskippedtimewait`<br/>`DGAUGE`, number | Number of TCP ACK packets skipped due to connections in the `TIME_WAIT` state |
@@ -339,7 +341,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `ping.standard_deviation_ms`<br/>`DGAUGE`, ms | Standard ping response time deviation |
 | `ping.ttl`<br/>`DGAUGE`, number | Ping TTL: Number of hops between network nodes (typically measured by the number of routers) a ping packet should traverse |
 
-### Service metrics {#managed-greenplum-metrics}
+## Service metrics {#managed-greenplum-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `gp.conn_aborted`<br/>`DGAUGE`, number | Number of DB connections. The connection status is `aborted`. |
@@ -366,7 +368,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `gp.rg_mem_used`<br/>`DGAUGE` | Allocation of RAM used across resource groups.<br/>Additional labels: `resgroup` |
 | `gp.seg_count`<br/>`DGAUGE`, number | Number of segments in the cluster |
 | `gp.seg_down`<br/>`DGAUGE` | Segments that are down |
-| `gp.seg_not_pref_role`<br/>`DGAUGE`, number | Number of segments not operating in their preferred roles (e.g.б a primary segment is acting as a mirror segment or vice versa) |
+| `gp.seg_not_pref_role`<br/>`DGAUGE`, number | Number of segments not operating in their preferred roles (e.g., a primary segment is acting as a mirror segment or vice versa) |
 | `gp.seg_not_synch`<br/>`DGAUGE` | Unsynced segments |
 | `gp.segment_conn_aborted`<br/>`DGAUGE`, number | Total number of segment connections aborted |
 | `gp.segment_conn_active`<br/>`DGAUGE`, number | Number of active connections with segments |
@@ -377,7 +379,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `gp.spill_files_num_per_seghost`<br/>`DGAUGE`, number | Number of temporary files per host |
 | `gp.spill_files_size_per_seghost`<br/>`DGAUGE`, bytes | Size of temporary files per host |
 
-##### System metrics {#managed-greenplum-config-metrics}
+#### System metrics {#managed-greenplum-config-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `system.load.avg_1min`<br/>`DGAUGE`, % | Average CPU load over 1 minute |
@@ -387,7 +389,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `system.n_users`<br/>`DGAUGE`, number | Limit on the number of users |
 | `system.uptime`<br/>`DGAUGE`, % | Uptime percentage |
 
-### PXF metrics {#managed-greenplum-pxf-metrics}
+## PXF metrics {#managed-greenplum-pxf-metrics}
 | Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `pxf.jvm_memory_committed_bytes`<br/>`DGAUGE`, bytes | JVM PFX memory allocated by the OS |
@@ -406,39 +408,39 @@ Additional labels: `dev`: Disk ID in the system.
 | `pxf.tomcat_threads_config_max_threads`<br/>`DGAUGE`, number | Maximum number of threads in Tomcat PXF settings |
 | `pxf.tomcat_threads_current_threads`<br/>`DGAUGE`, number | Current number of threads in Tomcat PXF |
 
-### SNMP metrics {#managed-greenplum-snmp-metrics}
+## SNMP metrics {#managed-greenplum-snmp-metrics}
 | Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `snmp.icmpinaddrmaskreps`<br/>`DGAUGE`, number | Number of ICMP Address Mask Reply messages received from the interrogated node (SNMP) |
 | `snmp.icmpinaddrmasks`<br/>`DGAUGE`, number | Number of ICMP Address Mask Request messages received (SNMP) |
-| `snmp.icmpincsumerrors`<br/>`DGAUGE`, number | The value increases if a received ICMP packet has an invalid checksum (SNMP). |
-| `snmp.icmpindestunreachs`<br/>`DGAUGE`, number | Number of ICMP Destination Unreachable messages received (SNMP). |
-| `snmp.icmpinechoreps`<br/>`DGAUGE`, number | Number of ICMP Echo Reply messages received (SNMP). |
-| `snmp.icmpinechos`<br/>`DGAUGE`, number | Number of ICMP Echo messages (requests) received (SNMP). |
-| `snmp.icmpinerrors`<br/>`DGAUGE`, number | Number of bad ICMP packets received, excluding those with checksum errors (SNMP). |
-| `snmp.icmpinmsgs`<br/>`DGAUGE`, number | Total number of ICMP messages received (SNMP). |
+| `snmp.icmpincsumerrors`<br/>`DGAUGE`, number | The value increases if a received ICMP packet has an invalid checksum (SNMP) |
+| `snmp.icmpindestunreachs`<br/>`DGAUGE`, number | Number of ICMP Destination Unreachable messages received (SNMP) |
+| `snmp.icmpinechoreps`<br/>`DGAUGE`, number | Number of ICMP Echo Reply messages received (SNMP) |
+| `snmp.icmpinechos`<br/>`DGAUGE`, number | Number of ICMP Echo messages (requests) received (SNMP) |
+| `snmp.icmpinerrors`<br/>`DGAUGE`, number | Number of bad ICMP packets received, excluding those with checksum errors (SNMP) |
+| `snmp.icmpinmsgs`<br/>`DGAUGE`, number | Total number of ICMP messages received (SNMP) |
 | `snmp.icmpinparmprobs`<br/>`DGAUGE`, number | Number of ICMP Parameter Problem messages received (SNMP) |
-| `snmp.icmpinredirects`<br/>`DGAUGE`, number | Number of ICMP redirect messages received (SNMP). |
-| `snmp.icmpinsrcquenchs`<br/>`DGAUGE`, number | Number of ICMP Source Quench messages received (SNMP). |
+| `snmp.icmpinredirects`<br/>`DGAUGE`, number | Number of ICMP redirect messages received (SNMP) |
+| `snmp.icmpinsrcquenchs`<br/>`DGAUGE`, number | Number of ICMP Source Quench messages received (SNMP) |
 | `snmp.icmpintimeexcds`<br/>`DGAUGE`, number | Number of ICMP Time Exceeded messages received is greater than that of messages received (SNMP). |
-| `snmp.icmpintimestampreps`<br/>`DGAUGE`, number | Number of ICMP timestamp reply messages received (SNMP). |
-| `snmp.icmpintimestamps`<br/>`DGAUGE`, number | Number of ICMP timestamp messages (requests) received (SNMP). |
-| `snmp.icmpmsgintype0`<br/>`DGAUGE`, number | Number of ICMP Type 0 (Echo Reply) messages (SNMP). |
-| `snmp.icmpmsgintype3`<br/>`DGAUGE`, number | Number of ICMP Type 3 (Destination Unreachable) messages (SNMP). |
-| `snmp.icmpmsgintype8`<br/>`DGAUGE`, number | Number of ICMP Type 8 (Echo Request) messages (SNMP). |
-| `snmp.icmpmsgouttype0`<br/>`DGAUGE`, number | Number of ICMP Type 0 (Echo Reply) messages sent (SNMP). |
-| `snmp.icmpmsgouttype3`<br/>`DGAUGE`, number | Number of ICMP Type 3 (Destination Unreachable) messages sent (SNMP). |
-| `snmp.icmpmsgouttype8`<br/>`DGAUGE`, number | Number of ICMP Type 8 (Echo Request) messages sent (SNMP). |
-| `snmp.icmpoutaddrmaskreps`<br/>`DGAUGE`, number | Number of ICMP Address Mask Reply messages sent (SNMP). |
-| `snmp.icmpoutaddrmasks`<br/>`DGAUGE`, number | Number of ICMP Address Mask Request messages sent (SNMP). |
-| `snmp.icmpoutdestunreachs`<br/>`DGAUGE`, number | Number of ICMP Destination Unreachable messages sent (SNMP). |
-| `snmp.icmpoutechoreps`<br/>`DGAUGE`, number | Number of ICMP Echo Reply messages sent (SNMP). |
-| `snmp.icmpoutechos`<br/>`DGAUGE`, number | Number of ICMP Echo (messages (requests) sent (SNMP). |
-| `snmp.icmpouterrors`<br/>`DGAUGE`, number | Number of ICMP messages this object did not send due to problems discovered within ICMP, such as a lack of buffers (SNMP). |
+| `snmp.icmpintimestampreps`<br/>`DGAUGE`, number | Number of ICMP timestamp reply messages received (SNMP) |
+| `snmp.icmpintimestamps`<br/>`DGAUGE`, number | Number of ICMP timestamp messages (requests) received (SNMP) |
+| `snmp.icmpmsgintype0`<br/>`DGAUGE`, number | Number of ICMP Type 0 (Echo Reply) messages (SNMP) |
+| `snmp.icmpmsgintype3`<br/>`DGAUGE`, number | Number of ICMP Type 3 (Destination Unreachable) messages (SNMP) |
+| `snmp.icmpmsgintype8`<br/>`DGAUGE`, number | Number of ICMP Type 8 (Echo Request) messages (SNMP) |
+| `snmp.icmpmsgouttype0`<br/>`DGAUGE`, number | Number of ICMP Type 0 (Echo Reply) messages sent (SNMP) |
+| `snmp.icmpmsgouttype3`<br/>`DGAUGE`, number | Number of ICMP Type 3 (Destination Unreachable) messages sent (SNMP) |
+| `snmp.icmpmsgouttype8`<br/>`DGAUGE`, number | Number of ICMP Type 8 (Echo Request) messages sent (SNMP) |
+| `snmp.icmpoutaddrmaskreps`<br/>`DGAUGE`, number | Number of ICMP Address Mask Reply messages sent (SNMP) |
+| `snmp.icmpoutaddrmasks`<br/>`DGAUGE`, number | Number of ICMP Address Mask Request messages sent (SNMP) |
+| `snmp.icmpoutdestunreachs`<br/>`DGAUGE`, number | Number of ICMP Destination Unreachable messages sent (SNMP) |
+| `snmp.icmpoutechoreps`<br/>`DGAUGE`, number | Number of ICMP Echo Reply messages sent (SNMP) |
+| `snmp.icmpoutechos`<br/>`DGAUGE`, number | Number of ICMP Echo messages (requests) sent (SNMP) |
+| `snmp.icmpouterrors`<br/>`DGAUGE`, number | Number of ICMP messages this object did not send due to problems discovered within ICMP, such as a lack of buffers (SNMP) |
 | `snmp.icmpoutmsgs`<br/>`DGAUGE`, number | Total number of ICMP messages which this object attempted to send. This includes all messages counted by `snmp.icmpouterrors` (SNMP). |
-| `snmp.icmpoutparmprobs`<br/>`DGAUGE`, number | Number of ICMP Parameter Problem messages sent (SNMP). |
-| `snmp.icmpoutredirects`<br/>`DGAUGE`, number | Number of Redirect Route messages sent (SNMP). |
-| `snmp.icmpoutsrcquenchs`<br/>`DGAUGE`, number | Number of ICMP Source Quench messages sent (SNMP). |
+| `snmp.icmpoutparmprobs`<br/>`DGAUGE`, number | Number of ICMP Parameter Problem messages sent (SNMP) |
+| `snmp.icmpoutredirects`<br/>`DGAUGE`, number | Number of Redirect Route messages sent (SNMP) |
+| `snmp.icmpoutsrcquenchs`<br/>`DGAUGE`, number | Number of ICMP Source Quench messages sent (SNMP) |
 | `snmp.icmpouttimeexcds`<br/>`DGAUGE`, number | Number of ICMP Time Exceeded messages sent is greater than that of messages sent (SNMP). |
 | `snmp.icmpouttimestampreps`<br/>`DGAUGE`, number | Number of ICMP timestamp reply messages sent (SNMP) |
 | `snmp.icmpouttimestamps`<br/>`DGAUGE`, number | Number of ICMP timestamp messages sent (SNMP) |
@@ -446,12 +448,12 @@ Additional labels: `dev`: Disk ID in the system.
 | `snmp.ipforwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled |
 | `snmp.ipforwdatagrams`<br/>`DGAUGE`, number | Number of input packets for which this object was not their final IP destination resulting in an attempt to find a route to forward them to that final destination. In objects which do not act as IP Gateways, this counter will include only those packets that were source-routed through this object, and for which the source route parameter was processed successfully (SNMP). |
 | `snmp.ipfragcreates`<br/>`DGAUGE`, number | Number of IP packet fragments generated as a result of fragmentation in this object (SNMP) |
-| `snmp.ipfragfails`<br/>`DGAUGE`, number | Number of IP packets dropped because they were subject to fragmenting in this object but could not be fragmented, e.g., due to the Do Not Fragment flag (SNMP. |
-| `snmp.ipfragoks`<br/>`DGAUGE`, number | Number of successfully fragmented IP packets (SNMP). |
+| `snmp.ipfragfails`<br/>`DGAUGE`, number | Number of IP packets dropped because they were subject to fragmenting in this object but could not be fragmented, e.g., due to the Do Not Fragment flag (SNMP) |
+| `snmp.ipfragoks`<br/>`DGAUGE`, number | Number of successfully fragmented IP packets (SNMP) |
 | `snmp.ipinaddrerrors`<br/>`DGAUGE`, number | Number of input packets dropped because the IP address in their IP header's destination field was not a valid address to be received in this object. This count includes invalid addresses, such as `0.0.0.0`, and addresses of unsupported classes, e.g., Class E. For objects that are not IP Gateways and, as such, do not forward packets, this counter includes packets dropped because the destination address was not a local one (SNMP). |
-| `snmp.ipindelivers`<br/>`DGAUGE`, number | Total number of IP packets delivered (SNMP). |
+| `snmp.ipindelivers`<br/>`DGAUGE`, number | Total number of IP packets delivered (SNMP) |
 | `snmp.ipindiscards`<br/>`DGAUGE`, number | Number of input IP packets encountering no problems preventing their further processing but still dropped, e.g., for lack of buffer space. This counter does not include the packets dropped while awaiting reassembly (SNMP). |
-| `snmp.ipinhdrerrors`<br/>`DGAUGE`, number | Number of input packets with header errors (SNMP). |
+| `snmp.ipinhdrerrors`<br/>`DGAUGE`, number | Number of input packets with header errors (SNMP) |
 | `snmp.ipinreceives`<br/>`DGAUGE`, number | Total number of input packets received from interfaces, including those received through error (SNMP) |
 | `snmp.ipinunknownprotos`<br/>`DGAUGE`, number | Number of unknown protocol packets received (SNMP) |
 | `snmp.ipoutdiscards`<br/>`DGAUGE`, number | Number of output IP packets encountering no problems preventing transmission to their destination but still dropped, e.g., for lack of buffer space. Note that the counter would include packets counted in `snmp.ipforwdatagrams` if they met this (discretionary) discard criterion (SNMP). |
@@ -478,42 +480,42 @@ Additional labels: `dev`: Disk ID in the system.
 | `snmp.tcprtomin`<br/>`DGAUGE`, ms | Minimum value permitted by a TCP implementation for the retransmission timeout, in milliseconds (SNMP) |
 | `snmp.udpignoredmulti`<br/>`DGAUGE`, number | Used for UDP multicast (SNMP). |
 | `snmp.udpincsumerrors`<br/>`DGAUGE`, number | The value increases when a received UDP packet contains an invalid kernel code checksum (SNMP). |
-| `snmp.udpindatagrams`<br/>`DGAUGE`, number | Total number of UDP packets received (SNMP). |
-| `snmp.udpinerrors`<br/>`DGAUGE`, number | Number of bad UDP packets received, excluding those with checksum errors (SNMP). |
+| `snmp.udpindatagrams`<br/>`DGAUGE`, number | Total number of UDP packets received (SNMP) |
+| `snmp.udpinerrors`<br/>`DGAUGE`, number | Number of bad UDP packets received, excluding those with checksum errors (SNMP) |
 | `snmp.udpliteignoredmulti`<br/>`DGAUGE`, number | Used for UDP Lite multicast (SNMP). |
 | `snmp.udpliteincsumerrors`<br/>`DGAUGE`, number | The value increases when a received UDP Lite packet contains an invalid kernel code checksum (SNMP). |
-| `snmp.udpliteindatagrams`<br/>`DGAUGE`, number | Total number of UDP Lite packets received (SNMP). |
-| `snmp.udpliteinerrors`<br/>`DGAUGE`, number | Total number of errors when receiving UDP Lite packets (SNMP). |
-| `snmp.udplitenoports`<br/>`DGAUGE`, number | Total number of UDP Lite packets received that had no listener on the destination port (SNMP). |
-| `snmp.udpliteoutdatagrams`<br/>`DGAUGE`, number | Total number of outgoing UDP Lite packets sent from this object (SNMP). |
+| `snmp.udpliteindatagrams`<br/>`DGAUGE`, number | Total number of UDP Lite packets received (SNMP) |
+| `snmp.udpliteinerrors`<br/>`DGAUGE`, number | Total number of errors when receiving UDP Lite packets (SNMP) |
+| `snmp.udplitenoports`<br/>`DGAUGE`, number | Total number of UDP Lite packets received that had no listener on the destination port (SNMP) |
+| `snmp.udpliteoutdatagrams`<br/>`DGAUGE`, number | Total number of outgoing UDP Lite packets sent from this object (SNMP) |
 | `snmp.udplitercvbuferrors`<br/>`DGAUGE`, number | The value increases when no memory can be allocated to handle an incoming UDP Lite packet (SNMP). |
 | `snmp.udplitesndbuferrors`<br/>`DGAUGE`, number | The value increases when no memory can be allocated to send a UDP Lite packet (number). |
-| `snmp.udpnoports`<br/>`DGAUGE`, number | Total number of UDP Lite packets received that had no listener on the destination port (SNMP). |
-| `snmp.udpoutdatagrams`<br/>`DGAUGE`, number | Total number of outgoing UDP packets sent from this object (SNMP). |
-| `snmp.udprcvbuferrors`<br/>`DGAUGE`, number | Number of UDP Lite receive buffer errors (SNMP). |
-| `snmp.udpsndbuferrors`<br/>`DGAUGE`, number | Number of UDP send buffer errors (SNMP). |
+| `snmp.udpnoports`<br/>`DGAUGE`, number | Total number of UDP Lite packets received that had no listener on the destination port (SNMP) |
+| `snmp.udpoutdatagrams`<br/>`DGAUGE`, number | Total number of outgoing UDP packets sent from this object (SNMP) |
+| `snmp.udprcvbuferrors`<br/>`DGAUGE`, number | Number of UDP Lite receive buffer errors (SNMP) |
+| `snmp.udpsndbuferrors`<br/>`DGAUGE`, number | Number of UDP send buffer errors (SNMP) |
 | `snmp6.icmp6incsumerrors`<br/>`DGAUGE`, number | The value increases when a received ICMPv6 packet contains an invalid kernel code checksum (SNMP). |
-| `snmp6.icmp6indestunreachs`<br/>`DGAUGE`, number | Number of ICMPv6 Destination Unreachable messages received (SNMP). |
-| `snmp6.icmp6inechoreplies`<br/>`DGAUGE`, number | Number of incoming replies to an ICMPv6 Echo Request (SNMP). |
-| `snmp6.icmp6inechos`<br/>`DGAUGE`, number | Number of ICMPv6 Echo messages (requests) received (SNMP). |
-| `snmp6.icmp6inerrors`<br/>`DGAUGE`, number | Number of bad ICMPv6 packets received, excluding those with checksum errors (SNMP). |
-| `snmp6.icmp6ingroupmembqueries`<br/>`DGAUGE`, number | Number of ICMPv6 Multicast Listener queries (SNMP). |
-| `snmp6.icmp6ingroupmembreductions`<br/>`DGAUGE`, number | Number of ICMPv6 Multicast Listener reductions (SNMP). |
+| `snmp6.icmp6indestunreachs`<br/>`DGAUGE`, number | Number of ICMPv6 Destination Unreachable messages received (SNMP) |
+| `snmp6.icmp6inechoreplies`<br/>`DGAUGE`, number | Number of incoming replies to an ICMPv6 Echo Request (SNMP) |
+| `snmp6.icmp6inechos`<br/>`DGAUGE`, number | Number of ICMPv6 Echo messages (requests) received (SNMP) |
+| `snmp6.icmp6inerrors`<br/>`DGAUGE`, number | Number of bad ICMPv6 packets received, excluding those with checksum errors (SNMP) |
+| `snmp6.icmp6ingroupmembqueries`<br/>`DGAUGE`, number | Number of ICMPv6 Multicast Listener queries (SNMP) |
+| `snmp6.icmp6ingroupmembreductions`<br/>`DGAUGE`, number | Number of ICMPv6 Multicast Listener reductions (SNMP) |
 | `snmp6.icmp6ingroupmembresponses`<br/>`DGAUGE`, number | Number of responses to ICMPv6 Multicast Listener queries (SNMP) |
-| `snmp6.icmp6inmldv2reports`<br/>`DGAUGE`, number | Number of MLDv2 ICMPv6 reports (SNMP). |
-| `snmp6.icmp6inmsgs`<br/>`DGAUGE`, number | Total number of ICMPv6 messages received (SNMP). |
-| `snmp6.icmp6inneighboradvertisements`<br/>`DGAUGE`, number | Number of ICMPv6 Neighbor Advertisements (SNMP). |
-| `snmp6.icmp6inneighborsolicits`<br/>`DGAUGE`, number | Number of ICMPv6 Neighbor Solicitation requests (SNMP). |
-| `snmp6.icmp6inparmproblems`<br/>`DGAUGE`, number | Number of errors when receiving ICMPv6 Parameter Problem messages (SNMP). |
-| `snmp6.icmp6inpkttoobigs`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Packet Too Big messages (SNMP). |
-| `snmp6.icmp6inredirects`<br/>`DGAUGE`, number | Number of ICMPv6 Redirect messages received (SNMP). |
-| `snmp6.icmp6inrouteradvertisements`<br/>`DGAUGE`, number | Number of ICMPv6 Router Advertisements (SNMP). |
-| `snmp6.icmp6inroutersolicits`<br/>`DGAUGE`, number | Number of ICMPv6 Router Solicitation requests (SNMP). |
+| `snmp6.icmp6inmldv2reports`<br/>`DGAUGE`, number | Number of MLDv2 ICMPv6 reports (SNMP) |
+| `snmp6.icmp6inmsgs`<br/>`DGAUGE`, number | Total number of ICMPv6 messages received (SNMP) |
+| `snmp6.icmp6inneighboradvertisements`<br/>`DGAUGE`, number | Number of ICMPv6 Neighbor Advertisements (SNMP) |
+| `snmp6.icmp6inneighborsolicits`<br/>`DGAUGE`, number | Number of ICMPv6 Neighbor Solicitation requests (SNMP) |
+| `snmp6.icmp6inparmproblems`<br/>`DGAUGE`, number | Number of errors when receiving ICMPv6 Parameter Problem messages (SNMP) |
+| `snmp6.icmp6inpkttoobigs`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Packet Too Big messages (SNMP) |
+| `snmp6.icmp6inredirects`<br/>`DGAUGE`, number | Number of ICMPv6 Redirect messages received (SNMP) |
+| `snmp6.icmp6inrouteradvertisements`<br/>`DGAUGE`, number | Number of ICMPv6 Router Advertisements (SNMP) |
+| `snmp6.icmp6inroutersolicits`<br/>`DGAUGE`, number | Number of ICMPv6 Router Solicitation requests (SNMP) |
 | `snmp6.icmp6intimeexcds`<br/>`DGAUGE`, number | Number of ICMPv6 Time Exceeded messages received is greater than that of messages received (SNMP). |
-| `snmp6.icmp6intype1`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 3 (Destination Unreachable) messages (SNMP). |
-| `snmp6.icmp6intype128`<br/>`DGAUGE`, number | Number of incoming ICMP Type 128 (Echo Request) messages (SNMP). |
-| `snmp6.icmp6intype134`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 134 (Router Solicitation) messages (SNMP). |
-| `snmp6.icmp6intype135`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 135 (Neighbor Solicitation) messages (SNMP). |
+| `snmp6.icmp6intype1`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 3 (Destination Unreachable) messages (SNMP) |
+| `snmp6.icmp6intype128`<br/>`DGAUGE`, number | Number of incoming ICMP Type 128 (Echo Request) messages (SNMP) |
+| `snmp6.icmp6intype134`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 134 (Router Solicitation) messages (SNMP) |
+| `snmp6.icmp6intype135`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 135 (Neighbor Solicitation) messages (SNMP) |
 | `snmp6.icmp6intype136`<br/>`DGAUGE`, number | Number of incoming ICMPv6 Type 136 (Neighbor Advertisement) messages (SNMP) |
 | `snmp6.icmp6outdestunreachs`<br/>`DGAUGE`, number | Number of outgoing ICMPv6 Type 1 (Destination Unreachable) messages (SNMP) |
 | `snmp6.icmp6outechoreplies`<br/>`DGAUGE`, number | Number of outgoing replies to an ICMPv6 Echo Request (SNMP) |
@@ -523,7 +525,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `snmp6.icmp6outgroupmembreductions`<br/>`DGAUGE`, number | Number of ICMPv6 Multicast Listener reductions sent (SNMP) |
 | `snmp6.icmp6outgroupmembresponses`<br/>`DGAUGE`, number | Number of sent responses to ICMPv6 Multicast Listener queries (SNMP) |
 | `snmp6.icmp6outmldv2reports`<br/>`DGAUGE`, number | Number of MLDv2 ICMPv6 reports sent (SNMP) |
-| `snmp6.icmp6outmsgs`<br/>`DGAUGE`, number | Total number of ICMPv6 messages this object attempted to send. This includes all messages counted by `snmp6.icmp6outerrors` (SNMP) |
+| `snmp6.icmp6outmsgs`<br/>`DGAUGE`, number | Total number of ICMPv6 messages this object attempted to send. This includes all messages counted by `snmp6.icmp6outerrors` (SNMP). |
 | `snmp6.icmp6outneighboradvertisements`<br/>`DGAUGE`, number | Number of ICMPv6 Neighbor Advertisements sent (SNMP) |
 | `snmp6.icmp6outneighborsolicits`<br/>`DGAUGE`, number | Number of ICMPv6 Neighbor Solicitation requests sent (SNMP) |
 | `snmp6.icmp6outparmproblems`<br/>`DGAUGE`, number | Number of errors when sending ICMPv6 Parameter Problem messages (SNMP) |
@@ -531,7 +533,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `snmp6.icmp6outredirects`<br/>`DGAUGE`, number | Number of ICMPv6 Redirect Route messages sent (SNMP) |
 | `snmp6.icmp6outrouteradvertisements`<br/>`DGAUGE`, number | Number of ICMPv6 Router Advertisements sent (SNMP) |
 | `snmp6.icmp6outroutersolicits`<br/>`DGAUGE`, number | Number of ICMPv6 Router Solicitation requests sent (SNMP) |
-| `snmp6.icmp6outtimeexcds`<br/>`DGAUGE`, number | Number of ICMPv6 Time Exceeded messages sent is greater than that of messages sent (SNMP) |
+| `snmp6.icmp6outtimeexcds`<br/>`DGAUGE`, number | Number of ICMPv6 Time Exceeded messages sent is greater than that of messages sent (SNMP). |
 | `snmp6.icmp6outtype1`<br/>`DGAUGE`, number | Number of ICMPv6 Type 3 (Destination Unreachable) messages sent (SNMP) |
 | `snmp6.icmp6outtype129`<br/>`DGAUGE`, number | Number of ICMPv6 Type 129 messages sent (SNMP) |
 | `snmp6.icmp6outtype133`<br/>`DGAUGE`, number | Number of ICMPv6 Type 133 (Router Solicitation) messages sent (SNMP) |
@@ -546,42 +548,42 @@ Additional labels: `dev`: Disk ID in the system.
 | `snmp6.ip6incepkts`<br/>`DGAUGE`, number | Number of input IPv6 packets received which contain detailed traffic information (SNMP) |
 | `snmp6.ip6indelivers`<br/>`DGAUGE`, number | Total number of IPv6 packets delivered (SNMP) |
 | `snmp6.ip6indiscards`<br/>`DGAUGE`, number | Number of input IPv6 packets encountering no problems preventing their further processing but still dropped, e.g., for lack of buffer space. This counter does not include the packets dropped while awaiting reassembly (SNMP). |
-| `snmp6.ip6inect0pkts`<br/>`DGAUGE`, number | Number of received IPv6 packets of traffic class `0 `(SNMP). |
-| `snmp6.ip6inect1pkts`<br/>`DGAUGE`, number | Number of received IPv6 packets of traffic class `1 `(SNMP). |
-| `snmp6.ip6inhdrerrors`<br/>`DGAUGE`, number | Number of input packets with IPv6 header errors (SNMP). |
-| `snmp6.ip6inmcastoctets`<br/>`DGAUGE`, number | Total number of input multicast octets received which contain IPv6 addresses and detailed traffic information (SNMP). |
-| `snmp6.ip6inmcastpkts`<br/>`DGAUGE`, number | Total number of input multicast packets received which contain IPv6 addresses and detailed traffic information (SNMP). |
-| `snmp6.ip6innoectpkts`<br/>`DGAUGE`, number | Number of IPv6 packets received that have no traffic class (SNMP). |
-| `snmp6.ip6innoroutes`<br/>`DGAUGE`, number | Number of input IPv6 packets discarded because no route could be found (SNMP). |
-| `snmp6.ip6inoctets`<br/>`DGAUGE`, number | Total number of input octets received which contain IPv6 addresses and detailed traffic information (SNMP). |
-| `snmp6.ip6inreceives`<br/>`DGAUGE`, number | Total number of input IPv6 packets received from interfaces, including those received through error (SNMP). |
-| `snmp6.ip6intoobigerrors`<br/>`DGAUGE`, number | Number of received IPv6 packets with a `Packet Too Big` error (SNMP). |
-| `snmp6.ip6intruncatedpkts`<br/>`DGAUGE`, number | Number of outgoing IPv6 packets deleted due to exceeded selection size (SNMP). |
-| `snmp6.ip6inunknownprotos`<br/>`DGAUGE`, number | Number of unknown protocol IPv6 packets received (SNMP). |
-| `snmp6.ip6outbcastoctets`<br/>`DGAUGE`, number | Total number of external broadcast octets sent which contain IPv6 addresses and detailed traffic information (SNMP). |
-| `snmp6.ip6outdiscards`<br/>`DGAUGE`, number | Number of output IPv6 packets encountering no problems preventing transmission to their destination but still dropped, e.g., for lack of buffer space (SNMP). |
-| `snmp6.ip6outforwdatagrams`<br/>`DGAUGE`, number | Number of outgoing IPv6 packets that need to be forwarded to the network (SNMP). |
-| `snmp6.ip6outmcastoctets`<br/>`DGAUGE`, number | Total number of external multicast octets sent which contain IPv6 addresses and detailed traffic information (SNMP). |
-| `snmp6.ip6outmcastpkts`<br/>`DGAUGE`, number | Total number of external multicast packets sent which contain IPv6 addresses and detailed traffic information (SNMP). |
-| `snmp6.ip6outnoroutes`<br/>`DGAUGE`, number | Number of IPv6 packets dropped because no route could be found to transmit them to their destination (SNMP). |
-| `snmp6.ip6outoctets`<br/>`DGAUGE`, number | Total number of external octets sent which contain IPv6 addresses and detailed traffic information (SNMP). |
-| `snmp6.ip6outrequests`<br/>`DGAUGE`, number | Total number of IPv6 packets which local IPv6 user protocols (including ICMP) have supplied to IPv6 in requests for transmission (SNMP). |
+| `snmp6.ip6inect0pkts`<br/>`DGAUGE`, number | Number of received IPv6 packets of traffic class `0 `(SNMP) |
+| `snmp6.ip6inect1pkts`<br/>`DGAUGE`, number | Number of received IPv6 packets of traffic class `1 `(SNMP) |
+| `snmp6.ip6inhdrerrors`<br/>`DGAUGE`, number | Number of input packets with IPv6 header errors (SNMP) |
+| `snmp6.ip6inmcastoctets`<br/>`DGAUGE`, number | Total number of input multicast octets received which contain IPv6 addresses and detailed traffic information (SNMP) |
+| `snmp6.ip6inmcastpkts`<br/>`DGAUGE`, number | Total number of input multicast packets received which contain IPv6 addresses and detailed traffic information (SNMP) |
+| `snmp6.ip6innoectpkts`<br/>`DGAUGE`, number | Number of IPv6 packets received that have no traffic class (SNMP) |
+| `snmp6.ip6innoroutes`<br/>`DGAUGE`, number | Number of input IPv6 packets discarded because no route could be found (SNMP) |
+| `snmp6.ip6inoctets`<br/>`DGAUGE`, number | Total number of input octets received which contain IPv6 addresses and detailed traffic information (SNMP) |
+| `snmp6.ip6inreceives`<br/>`DGAUGE`, number | Total number of input IPv6 packets received from interfaces, including those received through error (SNMP) |
+| `snmp6.ip6intoobigerrors`<br/>`DGAUGE`, number | Number of received IPv6 packets with a `Packet Too Big` error (SNMP) |
+| `snmp6.ip6intruncatedpkts`<br/>`DGAUGE`, number | Number of outgoing IPv6 packets deleted due to exceeded selection size (SNMP) |
+| `snmp6.ip6inunknownprotos`<br/>`DGAUGE`, number | Number of unknown protocol IPv6 packets received (SNMP) |
+| `snmp6.ip6outbcastoctets`<br/>`DGAUGE`, number | Total number of external broadcast octets sent which contain IPv6 addresses and detailed traffic information (SNMP) |
+| `snmp6.ip6outdiscards`<br/>`DGAUGE`, number | Number of output IPv6 packets encountering no problems preventing transmission to their destination but still dropped, e.g., for lack of buffer space (SNMP) |
+| `snmp6.ip6outforwdatagrams`<br/>`DGAUGE`, number | Number of outgoing IPv6 packets that need to be forwarded to the network (SNMP) |
+| `snmp6.ip6outmcastoctets`<br/>`DGAUGE`, number | Total number of external multicast octets sent which contain IPv6 addresses and detailed traffic information (SNMP) |
+| `snmp6.ip6outmcastpkts`<br/>`DGAUGE`, number | Total number of external multicast packets sent which contain IPv6 addresses and detailed traffic information (SNMP) |
+| `snmp6.ip6outnoroutes`<br/>`DGAUGE`, number | Number of IPv6 packets dropped because no route could be found to transmit them to their destination (SNMP) |
+| `snmp6.ip6outoctets`<br/>`DGAUGE`, number | Total number of external octets sent which contain IPv6 addresses and detailed traffic information (SNMP) |
+| `snmp6.ip6outrequests`<br/>`DGAUGE`, number | Total number of IPv6 packets which local IPv6 user protocols (including ICMP) have supplied to IPv6 in requests for transmission (SNMP) |
 | `snmp6.ip6reasmfails`<br/>`DGAUGE`, number | Number of failures detected by the IPv6 reassembly algorithm (for whatever reason: timeout, errors, etc.). This is not necessarily a count of dropped IPv6 fragments, as some algorithms (such as the one in RFC 815) can lose track of the number of fragments, combining them as they are received (SNMP). |
-| `snmp6.ip6reasmoks`<br/>`DGAUGE`, number | Number of IPv6 packets successfully reassembled (SNMP). |
-| `snmp6.ip6reasmreqds`<br/>`DGAUGE`, number | Number of IPv6 fragments received that were to be reassembled in this object (SNMP). |
-| `snmp6.ip6reasmtimeout`<br/>`DGAUGE`, number | Maximum time, in seconds, the received IPv6 fragments are held while awaiting reassembly in this object (SNMP). |
-| `snmp6.udp6ignoredmulti`<br/>`DGAUGE`, number | Number of multicast UDPv6 packets ignored (SNMP). |
+| `snmp6.ip6reasmoks`<br/>`DGAUGE`, number | Number of IPv6 packets successfully reassembled (SNMP) |
+| `snmp6.ip6reasmreqds`<br/>`DGAUGE`, number | Number of IPv6 fragments received that were to be reassembled in this object (SNMP) |
+| `snmp6.ip6reasmtimeout`<br/>`DGAUGE`, number | Maximum time, in seconds, the received IPv6 fragments are held while awaiting reassembly in this object (SNMP) |
+| `snmp6.udp6ignoredmulti`<br/>`DGAUGE`, number | Number of multicast UDPv6 packets ignored (SNMP) |
 | `snmp6.udp6incsumerrors`<br/>`DGAUGE`, number | The value increases when a received UDPv6 packet contains an invalid kernel code checksum (SNMP). |
-| `snmp6.udp6indatagrams`<br/>`DGAUGE`, number | Total number of UDPv6 packets received (SNMP). |
-| `snmp6.udp6inerrors`<br/>`DGAUGE`, number | Number of bad UDPv6 packets received, excluding those with checksum errors (SNMP). |
-| `snmp6.udp6noports`<br/>`DGAUGE`, number | Total number of UDPv6 packets received that had no application on the destination port (SNMP). |
-| `snmp6.udp6outdatagrams`<br/>`DGAUGE`, number | Total number of outgoing UDPv6 packets sent from this object (SNMP). |
-| `snmp6.udp6rcvbuferrors`<br/>`DGAUGE`, number | Number of UDPv6 receive buffer errors (SNMP). |
-| `snmp6.udp6sndbuferrors`<br/>`DGAUGE`, number | Number of UDPv6 send buffer errors (SNMP). |
+| `snmp6.udp6indatagrams`<br/>`DGAUGE`, number | Total number of UDPv6 packets received (SNMP) |
+| `snmp6.udp6inerrors`<br/>`DGAUGE`, number | Number of bad UDPv6 packets received, excluding those with checksum errors (SNMP) |
+| `snmp6.udp6noports`<br/>`DGAUGE`, number | Total number of UDPv6 packets received that had no application on the destination port (SNMP) |
+| `snmp6.udp6outdatagrams`<br/>`DGAUGE`, number | Total number of outgoing UDPv6 packets sent from this object (SNMP) |
+| `snmp6.udp6rcvbuferrors`<br/>`DGAUGE`, number | Number of UDPv6 receive buffer errors (SNMP) |
+| `snmp6.udp6sndbuferrors`<br/>`DGAUGE`, number | Number of UDPv6 send buffer errors (SNMP) |
 | `snmp6.udplite6incsumerrors`<br/>`DGAUGE`, number | The value increases when a received UDP Litev6 packet contains an invalid kernel code checksum (SNMP). |
-| `snmp6.udplite6indatagrams`<br/>`DGAUGE`, number | Total number of UDP Litev6 packets received (SNMP). |
-| `snmp6.udplite6inerrors`<br/>`DGAUGE`, number | Total number of errors when receiving UDP Litev6 packets (SNMP). |
-| `snmp6.udplite6noports`<br/>`DGAUGE`, number | Number of UDP Litev6 packets received for which no receiver port was found (SNMP). |
+| `snmp6.udplite6indatagrams`<br/>`DGAUGE`, number | Total number of UDP Litev6 packets received (SNMP) |
+| `snmp6.udplite6inerrors`<br/>`DGAUGE`, number | Total number of errors when receiving UDP Litev6 packets (SNMP) |
+| `snmp6.udplite6noports`<br/>`DGAUGE`, number | Number of UDP Litev6 packets received for which no receiver port was found (SNMP) |
 | `snmp6.udplite6outdatagrams`<br/>`DGAUGE`, number | Total number of outgoing UDP Litev6 packets sent from this object (SNMP) |
 | `snmp6.udplite6rcvbuferrors`<br/>`DGAUGE`, number | Number of UDP Litev6 receive buffer errors (SNMP) |
 | `snmp6.udplite6sndbuferrors`<br/>`DGAUGE`, number | Number of UDP Litev6 send buffer errors (SNMP) |

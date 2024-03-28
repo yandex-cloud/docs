@@ -267,7 +267,7 @@ You can add a password to an existing registry or set it when creating a registr
    1. Delete the password:
 
       ```
-      yc iot registry password delete --registry-name registry-with-pass --password-id are0gffs957egmoksgf4
+      yc iot registry password delete --registry-name registry-with-pass --password-id are0gffs957e********
       ```
    1. Make sure that the password was deleted:
 

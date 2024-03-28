@@ -32,7 +32,7 @@
   doc_uri = f"emb://{FOLDER_ID}/text-search-doc/latest"
   query_uri = f"emb://{FOLDER_ID}/text-search-query/latest"
 
-  embed_url = "https://llm.api.cloud.yandex.net:443/foundationModels/v1/textEmbedding"
+  embed_url = "https://llm.{{ api-host }}:443/foundationModels/v1/textEmbedding"
   headers = {"Content-Type": "application/json", "Authorization": f"Bearer {IAM_TOKEN}", "x-folder-id": f"{FOLDER_ID}"}
 
   doc_texts = [

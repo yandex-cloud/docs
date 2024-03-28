@@ -149,4 +149,6 @@ items:
     items:
       - name: Решение проблем
         href: qa/troubleshooting.md
+  - name: История изменений
+    href: release-notes.md
 base: ru/backup

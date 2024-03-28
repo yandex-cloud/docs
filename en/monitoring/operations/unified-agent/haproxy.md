@@ -1,10 +1,10 @@
 # Delivering metrics from HAProxy and other third-party applications
 
-{{unified-agent-full-name}} supports metric collection in the {{ prometheus-name }} format and metric conversion to the {{ monitoring-full-name }} format. Using {{unified-agent-short-name}} lets you pull metrics from applications that deliver them in the {{ prometheus-name }} format.
+{{unified-agent-full-name}} supports metric collection in the {{ prometheus-name }} format and metric conversion to the {{ monitoring-full-name }} format. {{unified-agent-short-name}} enables you to pull metrics from applications that deliver them in the {{ prometheus-name }} format.
 
 To deliver metrics from third-party applications to {{ monitoring-full-name }}, use the [metrics_pull input](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input) that regularly polls a third-party application directly (if the application supports metrics in {{ prometheus-name }} format) or polls a special export application that integrates with {{ prometheus-name }}.
 
-As an example, let's discuss delivery to {{ monitoring-full-name }} of [HAProxy](https://www.haproxy.org) metrics.
+As an example, let's consider the delivery of [HAProxy](https://www.haproxy.org) metrics to {{ monitoring-full-name }}.
 
 ## Example of delivering HAProxy metrics {#example}
 
@@ -39,9 +39,9 @@ This procedure can also be used to send metrics from any third-party application
       go_info{version="go1.10.4"} 1
       ```
 
-1. Set up a service account from which metrics will be written to {{ monitoring-full-name }}.
+1. Set up a service account under which metrics will be written to {{ monitoring-full-name }}.
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}`.
+   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
    1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to a virtual machine with {{unified-agent-short-name}} installed.
 
@@ -115,7 +115,7 @@ This procedure can also be used to send metrics from any third-party application
       -v /proc:/ua_proc \
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
+      -e FOLDER_ID=a1bs81qpemb4******** \
       {{ registry }}/yc/unified-agent
       ```
 
@@ -124,15 +124,15 @@ This procedure can also be used to send metrics from any third-party application
 
 1. Make sure the metrics are delivered to {{ monitoring-full-name }}:
 
-   1. On the {{ monitoring-full-name }} [homepage]({{ link-monitoring }}), go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+   1. On the {{ monitoring-full-name }} [home page]({{ link-monitoring }}), go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 
    1. In the query block, select:
-   - The folder where metrics are collected.
-   - The label value `service=custom`.
-   - The metric name starting with the `haproxy` prefix.
+   - Folder where metrics are collected.
+   - `service=custom` label value.
+   - Metric name starting with the `haproxy` prefix.
 
 #### What's next {#what-is-next}
 
-- [Read about {{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
-- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
-- [Read the {{ unified-agent-short-name }} operating instructions](../../concepts/data-collection/unified-agent/best-practices.md)
+- Read about [{{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md).
+- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md).
+- [Read the {{ unified-agent-short-name }} operating guidelines](../../concepts/data-collection/unified-agent/best-practices.md).

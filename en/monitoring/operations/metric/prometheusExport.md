@@ -51,17 +51,17 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
        scheme: 'https'
        params:
          folderId:
-         - '<folderId>' # for example, aoeng2krmasimogorn5m
+         - '<folder_ID>' # e.g., aoeng2krmasi********
          service:
-         - '<service>' # for example, managed-mongodb
-       bearer_token: '<api_key>'
+         - '<service>' # e.g., managed-mongodb
+       bearer_token: '<API_key>'
        # Or via a file (recommended):
-       # bearer_token_file: '<name of the file with api_key>'
+       # bearer_token_file: '<name_of_the_file_with_the_API_key>'
        static_configs:
        - targets: ['monitoring.{{ api-host }}']
          labels:
-           folderId: '<folderId>'
-           service: '<serviceId>'
+           folderId: '<folder_ID>'
+           service: '<service_ID>'
    ```
 1. Restart {{ prometheus-name }}.
 1. Check the data collection in the {{ prometheus-name }} user interface: `http://localhost:9090/targets` (replace `localhost` with the name of the host running {{ prometheus-name }}).

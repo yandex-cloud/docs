@@ -501,7 +501,7 @@ items:
             href: pricing-archive/pricing-30042019.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/compute/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:
@@ -899,6 +899,8 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

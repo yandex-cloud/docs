@@ -7,9 +7,11 @@ description: "Using this guide, you can connect to a VM with an SSH key pair: th
 
 The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH uses a key pair: the public key resides on the VM, and the private one is kept by the user. To enable another user to connect to your VM, add an SSH key for them by following [this guide](#vm-authorized-keys). Connecting with a key pair is more secure than with a username and password.
 
-{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
+{% note info %}
 
-You cannot use an SSH key pair to connect to a VM with [access via OS Login](./os-login.md) enabled. However, it is recommended to always specify SSH keys when creating a VM: this way, you will be able to [connect to a VM via SSH](#vm-connect) if you disable OS Login access for it.
+For a VM with [OS Login access](./os-login.md) enabled, we recommend [specifying](../../concepts/vm-metadata.md#how-to-send-metadata) SSH keys when creating a VM: this way, you can [connect to a VM over SSH](#vm-connect) even if you disable OS Login access for it.
+
+{% endnote %}
 
 
 ## Creating an SSH key pair {#creating-ssh-keys}
@@ -75,6 +77,8 @@ You can also copy the key using the command line:
 {% endlist %}
 
 ## Connecting to a VM {#vm-connect}
+
+{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
 You can connect to a VM with the `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after a few minutes.
 

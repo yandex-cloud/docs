@@ -1,4 +1,5 @@
-* {% include [Field IP FQDN](../../fields/postgresql/ui/host.md) %}
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.host.title }}** — укажите IP-адрес или FQDN хоста-мастера. Если хосты находятся на разных портах, то вы можете задать несколько значений хостов в формате `хост:порт`. Если вы выбираете такой формат, то значение поля **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.port.title }}** не будет учитываться. 
+
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.port.title }}** — укажите номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения.
 
 * {% include [Field CA certificate](../../fields/postgresql/ui/ca-certificate.md) %}

@@ -14,7 +14,7 @@ The host class also determines which [disk types](./storage.md) are available:
 * **s2**, **m2**, **s3**, **m3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`
 * **b2**, **b3**: `network-ssd`, `network-hdd`
 
-The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
 
 
 
@@ -29,7 +29,7 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [instance-types-code](../../_includes/mdb/mkf-instance-types-code.md) %}
 
-| Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB | Disk <br>size, GB |
+| Host class name | Number of vCPUs | Guaranteed vCPU share | RAM, GB | Disk <br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|
 | **Intel Broadwell** |
 | s1.nano | 1 | 100% | 4 | 100 - 1500 |

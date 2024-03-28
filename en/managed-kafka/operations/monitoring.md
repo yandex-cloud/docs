@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the state of {{ KF }} clusters and hosts"
-description: "In this tutorial, you'll learn how to monitor the state of {{ KF }} cluster and hosts."
+description: "In this tutorial, you will learn how to monitor the state of {{ KF }} clusters and hosts."
 ---
 
 # Monitoring the state of {{ KF }} clusters and hosts
@@ -80,7 +80,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ mkf-name }} — Cluster Overview**.
    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.

@@ -57,7 +57,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    Result:
    ```
    device_id: b9135goeh1uc********
-   fingerprint: 65e5b050069da5ca5996a4a8a92514098b0a5dd1
+   fingerprint: 65e5b050069da5ca5996a4a8a9251409********
    certificate_data: |
      -----BEGIN CERTIFICATE-----
      MIIE/jCCAuagAwI...

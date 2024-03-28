@@ -26,6 +26,8 @@ items:
             href: operations/get-data.md
           - name: Linking a cloud to a billing account
             href: operations/pin-cloud.md
+          - name: Changing the billing account organization
+            href: operations/change-organization.md
           - name: Deleting a billing account
             href: operations/delete-account.md
           - name: Activating the paid version
@@ -138,6 +140,10 @@ items:
           Creating a trigger for budgets that invokes a function to stop VM
           instances
         href: tutorials/serverless-trigger-budget-vm.md
+      - name: >-
+          Creating a trigger that invokes a function to stop VM instances and
+          send a Telegram notification
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -52,7 +52,7 @@ datasets:
 # Environment parameters
 env:
   vars:  # Environment variables
-    - DEVICE_COUNT: 8    # environment variable can be specified explicitly
+    - DEVICE_COUNT: 8    # Environment variable can be specified explicitly
     - PYTHONBUFFERED     # if the parameter is not specified, its value will be determined from the current environment
   docker: <Docker_image_ID>  # Docker image available in the project {{ ml-platform-name }}
   # You can also specify a Docker image in an image registry
@@ -67,17 +67,22 @@ env:
   # Environmet dependency build method
   python: auto # Fully automated environment build
 
-  # python: # Environment parameters are set manually. If no parameters are specified, their values will be identified from the current environment automatically
+  # python: # Environment parameters are set manually. If no parameters are specified, their values will be determined from the current environment automatically
   #   type: manual
   #   version: 3.10.5  # Python version
   #   requirements-file: requirements.txt  # File with environment parameters
 
 # Job run flags
 flags:
-  - attach-project-disk # Mount project storage
+  - attach-project-disk # Mount the project storage
 
 # Computing resource configuration for running the job
 cloud-instance-type: g2.1
+
+# Working directory configuration
+working-storage:
+  - type: SSD    # type of the disk being used. Optional, SSD by default. Possible values: SSD
+  - size: 150Gb  # size of the working directory ranges from 100 GB to 10 TB.
 ```
 
 The job `config.yaml` file contains multiple sections.
@@ -113,6 +118,9 @@ The job `config.yaml` file contains multiple sections.
 
 1. The `cloud-instance-type` section defines the type of the [computing resource configuration](../configurations.md) to run the job on.
 
+1. The `working-storage` section defines the working directory parameters. By default, the working directory is created on the system disk, with a size of about 20 GB. If you need more space to complete the job, you can create another working directory from 100 GB to 10 TB in size. Then, {{ ml-platform-name }} will connect it to the VM as a secondary disk and remove it after completing the job.
+
+   Extra storage is charged in accordance with the [data storage pricing policy](https://cloud.yandex.ru/ru/docs/datasphere/pricing#prices-jobs).
 
 #### See also {#see-also}
 

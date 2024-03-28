@@ -1,15 +1,17 @@
 # Preparing your disk image
 
-You can use your own file with a Linux-based [VM](../../concepts/vm.md) [disk](../../concepts/disk.md) [image](../../concepts/image.md). Once your image is prepared, [upload it](upload.md) to {{ compute-name }}.
-
 {% note info %}
 
-To speed up creating VMs from an image, you can [optimize](../../concepts/image.md#images-optimized-for-deployment) it.
+You can only use images prepared following this guide.
+
+You can also view out-of-the-box images in [{{ marketplace-full-name }}](/marketplace).
 
 {% endnote %}
 
+You can use your own file with a Linux-based [VM](../../concepts/vm.md) [disk](../../concepts/disk.md) [image](../../concepts/image.md). Once your image is prepared, [upload it](upload.md) to {{ compute-name }}.
 
-If you made software that might be helpful to other others, [offer](../../../marketplace/operations/create-product.md) it in {{ marketplace-full-name }}.
+
+If you made software that might be helpful to other others, [offer](../../../marketplace/operations/create-product.md) it on {{ marketplace-full-name }}.
 
 
 ## Configure the OS to meet the requirements {#requirements}

@@ -15,7 +15,7 @@ SUBSTR( string, from_index [ , length ] )
 ```
 
 #### Описание {#description}
-Возвращает подстроку `string`, начиная с индекса `from_index`.
+Возвращает подстроку `string`, начиная с индекса `from_index`. Нумерация начинается с единицы.
 
 Если указан дополнительный аргумент `length`, то будет возвращена подстрока указанной длины.
 
@@ -27,10 +27,14 @@ SUBSTR( string, from_index [ , length ] )
 
 **Возвращаемый тип**: `Строка`
 
-#### Пример {#examples}
+#### Примеры {#examples}
 
 ```
 SUBSTR("Computer", 3) = "mputer"
+```
+
+```
+SUBSTR("Computer", 3, 2) = "mp"
 ```
 
 

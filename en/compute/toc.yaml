@@ -377,6 +377,8 @@ items:
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
+      - name: Assigning a domain name to a VM with a web server
+        href: tutorials/bind-domain-vm.md
   - name: Concepts
     items:
       - name: Relationship between resources

@@ -64,7 +64,7 @@
 1. Выведите на экран список всех доступных организаций и их идентификаторы:
 
     ```python
-    res = requests.get('https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds', 
+    res = requests.get('https://resource-manager.{{ api-host }}/resource-manager/v1/clouds', 
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
 
     res.json()
@@ -79,7 +79,7 @@
 1. Получите список доступных платежных аккаунтов:
 
     ```python
-    res = requests.get('https://billing.api.cloud.yandex.net/billing/v1/billingAccounts', 
+    res = requests.get('https://billing.{{ api-host }}/billing/v1/billingAccounts', 
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
     res.json()
     ```
@@ -93,7 +93,7 @@
     data['organizationId'] = ORGANIZATION_ID
     data['billingAccountId'] = "<идентификатор_платежного_аккаунта>"
 
-    res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/communities', 
+    res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/communities', 
                         json=data,
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
     community_res = res.json()
@@ -103,7 +103,7 @@
 1. Получите список идентификаторов ролей в {{ ml-platform-name }}:
 
     ```python
-    res = requests.get('https://iam.api.cloud.yandex.net/iam/v1/roles', 
+    res = requests.get('https://iam.{{ api-host }}/iam/v1/roles', 
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
     roles = res.json()['roles']
     datasphere_roles = [role for role in roles if 'datasphere' in role['id']]
@@ -113,7 +113,7 @@
 1. [Получите](/organization/api-ref/User/listMembers) список участников организации:
 
     ```python
-    res = requests.get("https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{}/users".format(ORGANIZATION_ID), 
+    res = requests.get("https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{}/users".format(ORGANIZATION_ID), 
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
     res.json()
     ```
@@ -139,7 +139,7 @@
          # Задайте ограничение на максимальное количество юнитов на один запуск ячейки для проекта
          "maxUnitsPerExecution": 5000
        }
-       res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects', 
+       res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/projects', 
                            json=data,
                            headers={"Authorization" : "Bearer {}".format(iam_token)})
        print("Project for {} is created with response: {}".format(user_id, res))
@@ -147,7 +147,7 @@
        data={}
        data['communityId'] = community_res['metadata']['communityId']
        data['projectNamePattern'] = "Student {}".format(user_id)
-       res = requests.get('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects', 
+       res = requests.get('https://datasphere.{{ api-host }}/datasphere/v2/projects', 
                            json=data,
                            headers={"Authorization" : "Bearer {}".format(iam_token)})
        projects[user_id] = res.json()['projects'][0]
@@ -169,7 +169,7 @@
                "type": "userAccount"
          }}
        ]
-       res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{}:setAccessBindings'.\
+       res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/projects/{}:setAccessBindings'.\
                            format(project_id), 
                            json=data,
                            headers={"Authorization" : "Bearer {}".format(iam_token)})

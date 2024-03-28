@@ -37,6 +37,15 @@ Syntax:
 |`--connection-pooling-mode`|<b>`string`</b><br/>Connection pooler pooling mode Values: 'session', 'transaction'|
 |`--connection-pooling-size`|<b>`int`</b><br/>Connection pooler size|
 |`--connection-pooling-client-idle-timeout`|<b>`int`</b><br/>Connection pooler client idle timeout|
+|`--pxf-connection-timeout`|<b>`int`</b><br/>Timeout for pxf connections|
+|`--pxf-upload-timeout`|<b>`int`</b><br/>Timeout for uploading pxf connections|
+|`--pxf-max-threads`|<b>`int`</b><br/>The maximum number of PXF tomcat threads.|
+|`--pxf-pool-allow-core-thread-timeout`|Identifies whether or not core streaming threads are allowed to time out.|
+|`--pxf-poll-core-size`|<b>`int`</b><br/>The number of core streaming threads.|
+|`--pxf-pool-queue-capacity`|<b>`int`</b><br/>The capacity of the core streaming thread pool queue.|
+|`--pxf-pool-max-size`|<b>`int`</b><br/>The maximum allowed number of core streaming threads.|
+|`--pxf-xmx`|<b>`byteSize`</b><br/>Max jvm memory|
+|`--pxf-xms`|<b>`byteSize`</b><br/>Starting jvm memory|
 
 #### Global Flags
 

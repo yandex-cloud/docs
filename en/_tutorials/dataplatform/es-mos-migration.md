@@ -44,20 +44,65 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 #### Prepare the infrastructure {#deploy-infrastructure-snapshot}
 
-1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
-1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to it. A service account is required to access the bucket from the source and target clusters.
-1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
+{% list tabs group=instructions %}
 
-   {% note warning %}
+- Manually {#manual}
 
-   Save the **key ID** and **secret key**. You will need them in the next steps.
+   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
+   1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to it. A service account is required to access the bucket from the source and target clusters.
 
-   {% endnote %}
+      1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
 
-1. [Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in the required configuration with the following settings:
 
-   * Plugin: `repository-s3`.
-   * Public access to a group of `DATA` hosts.
+      {% note warning %}
+
+      Save the **key ID** and **secret key**. You will need them in the next steps.
+
+      {% endnote %}
+
+   1. [Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in the required configuration with the following settings:
+
+      * Plugin: `repository-s3`.
+      * Public access to a group of `DATA` hosts.
+
+- Using {{ TF }} {#tf}
+
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+   1. Download the [es-mos-migration-snapshot.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-to-managed-opensearch/blob/main/es-mos-migration-snapshot.tf) configuration file to the same working directory. The file describes:
+
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
+      * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+      * Service account to work with the {{ objstorage-name }} bucket.
+      * {{ objstorage-name }} bucket.
+      * {{ mos-name }} target cluster.
+
+   1. In the `es-mos-migration-snapshot.tf` file, specify these variables:
+
+      * `folder_id`: Cloud directory ID, the same one specified in the provider settings.
+      * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+      * `os_admin_password`: {{ OS }} admin user password.
+      * `os_version`: {{ OS }} version.
+
+   1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 #### Complete the configuration and check access to resources {#complete-setup-snapshot}
 
@@ -272,9 +317,34 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* [Delete the service account](../../iam/operations/sa/delete.md).
-* [Delete snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
-* [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+{% list tabs group=instructions %}
+
+- Manually {#manual}
+
+   * [Delete the service account](../../iam/operations/sa/delete.md).
+   * [Delete snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
+   * [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+
+- Using {{ TF }} {#tf}
+
+   1. Delete all objects from the bucket.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
+   1. Delete the `es-mos-migration-snapshot.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      All the resources described in the `es-mos-migration-snapshot.tf` configuration file will be deleted.
+
+{% endlist %}
 
 ## Migration using reindexing {#reindex}
 
@@ -291,7 +361,48 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 ### Getting started {#before-you-begin-reindex}
 
 
-1. [Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in the relevant configuration with public access to a group of hosts with the `DATA` role.
+1. Prepare the infrastructure:
+
+   {% list tabs group=instructions %}
+
+   - Manually {#manual}
+
+      [Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in the relevant configuration with public access to a group of hosts with the `DATA` role.
+
+   - Using {{ TF }} {#tf}
+
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+      1. Download the [es-mos-migration-reindex.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-to-managed-opensearch/blob/main/es-mos-migration-reindex.tf) configuration file to the same working directory. The file describes:
+
+         * [Network](../../vpc/concepts/network.md#network).
+         * [Subnet](../../vpc/concepts/network.md#subnet).
+         * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+         * {{ mos-name }} target cluster.
+
+      1. In the `es-mos-migration-reindex.tf` file, specify these variables:
+
+         * `os_admin_password`: {{ OS }} admin user password.
+         * `os_version`: {{ OS }} version.
+
+      1. Make sure the {{ TF }} configuration files are correct using this command:
+
+         ```bash
+         terraform validate
+         ```
+
+         If there are any errors in the configuration files, {{ TF }} will point them out.
+
+      1. Create the required infrastructure:
+
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+   {% endlist %}
 
 1. Install an SSL certificate:
 
@@ -453,6 +564,33 @@ Make sure all the indexes you need have been transferred to the target {{ mos-na
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+* Delete the resources depending on how they were created:
+
+   {% list tabs group=instructions %}
+
+   - Manually {#manual}
+
+      [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+
+   - Using {{ TF }} {#tf}
+
+      1. In the terminal window, go to the directory containing the infrastructure plan.
+      1. Delete the `es-mos-migration-reindex.tf` configuration file.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
+
+         ```bash
+         terraform validate
+         ```
+
+         If there are any errors in the configuration files, {{ TF }} will point them out.
+
+      1. Confirm updating the resources.
+
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+         All the resources described in the `es-mos-migration-reindex.tf` configuration file will be deleted.
+
+   {% endlist %}
+
 * If you reserved public static IPs for cluster access, release and [delete them](../../vpc/operations/address-delete.md).
 

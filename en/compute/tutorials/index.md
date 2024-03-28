@@ -14,3 +14,4 @@ description: "Various {{ compute-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](packer-custom-image.md)
 * [{#T}](hystax-backup.md)
 * [{#T}](nodejs-cron-restart-vm.md)
+* [{#T}](bind-domain-vm.md)

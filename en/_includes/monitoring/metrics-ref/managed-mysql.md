@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 Common labels for all {{ mmy-name }} metrics:
 
 | Label | Value |
@@ -8,7 +10,7 @@ Common labels for all {{ mmy-name }} metrics:
 | host | Host FQDN |
 | node | Host type: `primary`, `replica` |
 
-### CPU metrics {#managed-mysql-cpu-metrics}
+## CPU metrics {#managed-mysql-cpu-metrics}
 Processor core workload.
 
 | Name<br/>Type, units | Description |
@@ -26,7 +28,7 @@ Processor core workload.
 | `load.avg_1min`<br/>`DGAUGE`, % | Average load over 1 minute |
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over 5 minutes |
 
-### Disk metrics {#managed-mysql-disk-metrics}
+## Disk metrics {#managed-mysql-disk-metrics}
 | Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space |
@@ -36,7 +38,7 @@ Processor core workload.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space |
 | `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
 
-### Disk operation metrics {#managed-mysql-diskio-metrics}
+## Disk operation metrics {#managed-mysql-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
@@ -58,7 +60,7 @@ Processor core workload.
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
-### RAM metrics {#managed-mysql-ram-metrics}
+## RAM metrics {#managed-mysql-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
@@ -70,7 +72,7 @@ Processor core workload.
 | `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
 | `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes |
 
-### Network metrics {#managed-mysql-net-metrics}
+## Network metrics {#managed-mysql-net-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
@@ -82,7 +84,7 @@ Processor core workload.
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
 
-### Service metrics {#managed-mysql-metrics}
+## Service metrics {#managed-mysql-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `disk.free_inodes`<br/>`DGAUGE`, number | Number of free inodes |
@@ -178,7 +180,7 @@ Processor core workload.
 | `mysql_role`<br/>`DGAUGE`, 1/2 | Current role of a MySQL server in the replication.<br/>`2` if the server is a replica (secondary server), `1` if it is a master (primary server). |
 | `mysql_writable`<br/>`DGAUGE`, 0/1 | Server write access.<br/>`1` if a server is available for writes, `0` if it is not. |
 
-### Other metrics {#managed-mysql-other-metrics}
+## Other metrics {#managed-mysql-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if it is not. |

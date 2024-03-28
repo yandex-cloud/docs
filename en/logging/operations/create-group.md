@@ -5,12 +5,6 @@ description: "In this tutorial, you will learn how to create a log group in {{ c
 
 # Creating a log group
 
-{% note info %}
-
-The name of the [default log group](../concepts/log-group.md) is `default`. The group is automatically created when a service or application writes logs and the folder ID is indicated as the destination. You can manually create a log group with the name `default`. It will then be the default log group for the folder where it was created.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -32,7 +26,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a log group, run the command:
+   To create a [log group](../concepts/log-group.md), run the command:
 
    
    ```
@@ -85,7 +79,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Log group name. This is an optional parameter. The name format is as follows:
+      * `name`: [Log group](../concepts/log-group.md) name. This is an optional parameter. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -146,7 +140,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
 - API {#api}
 
-   To create a log group, use the [create](../api-ref/LogGroup/create.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create) gRPC API call.
+   To create a [log group](../concepts/log-group.md), use the [create](../api-ref/LogGroup/create.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create) gRPC API call.
 
    **Sample request**
 

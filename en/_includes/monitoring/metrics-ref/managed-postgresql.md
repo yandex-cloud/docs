@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 Common labels for all {{ mpg-name }} metrics:
 
 | Label | Value |
@@ -9,7 +11,7 @@ Common labels for all {{ mpg-name }} metrics:
 | node | Host type: `primary`, `replica` |
 | subcluster_name | Subcluster name |
 
-### CPU metrics {#managed-postgresql-cpu-metrics}
+## CPU metrics {#managed-postgresql-cpu-metrics}
 Processor core workload.
 
 | Name<br/>Type, units | Description |
@@ -28,7 +30,7 @@ Processor core workload.
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over 5 minutes |
 | `pg_backend_cpu`<br/>`DGAUGE`, % | CPU usage by the {{ PG }} process |
 
-### Disk metrics {#managed-postgresql-disk-metrics}
+## Disk metrics {#managed-postgresql-disk-metrics}
 | Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space |
@@ -42,7 +44,7 @@ Processor core workload.
 | `pg_backend_read_bytes`<br>`DGAUGE`, bytes/s | Rate of data reads by the {{ PG }} process |
 | `pg_backend_write_bytes`<br>`DGAUGE`, bytes/s | Rate of data writes by the {{ PG }} process |
 
-### Disk operation metrics {#managed-postgresql-diskio-metrics}
+## Disk operation metrics {#managed-postgresql-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
@@ -64,7 +66,7 @@ Processor core workload.
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
-### RAM metrics {#managed-postgresql-ram-metrics}
+## RAM metrics {#managed-postgresql-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
@@ -75,9 +77,9 @@ Processor core workload.
 | `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type |
 | `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
 | `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes |
-| `oom_count`<br/>`DGAUGE`, pieces | Number of out-of-memory (OOM) events |
+| `oom_count`<br/>`DGAUGE`, number | Number of out-of-memory (OOM) events |
 
-### Network metrics {#managed-postgresql-net-metrics}
+## Network metrics {#managed-postgresql-net-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
@@ -89,8 +91,8 @@ Processor core workload.
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
 
-### Service metrics {#managed-postgresql-metrics}
-##### Cluster metrics {#managed-postgresql-cluster-metrics}
+## Service metrics {#managed-postgresql-metrics}
+#### Cluster metrics {#managed-postgresql-cluster-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if it is not. |
@@ -116,17 +118,17 @@ Processor core workload.
 | `postgres_xid_left_percent`<br/>`DGAUGE`, % | Percentage of transaction counters left |
 | `postgres_xid_used_percent`<br/>`DGAUGE`, % | Percentage of transaction counters used |
 
-##### DB metrics {#managed-postgresql-db-metrics}
+#### DB metrics {#managed-postgresql-db-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `_pg_database_size`<br/>`DGAUGE`, bytes | DB size. <br/>Additional labels: `dbname` |
-| `<database>_tup_deleted`<br/>`DGAUGE`, number | Number of rows deleted by queries in this `<database>` |
-| `<database>_tup_fetched`<br/>`DGAUGE`, number | Number of rows fetched by queries in this `<database>` |
-| `<database>_tup_inserted`<br/>`DGAUGE`, number | Number of rows inserted by queries in this `<database>` |
-| `<database>_tup_returned`<br/>`DGAUGE`, number | Number of rows returned by queries in this `<database>` |
-| `<database>_tup_updated`<br/>`DGAUGE`, number | Number of rows updated by queries in this `<database>` |
+| `<DB_name>_tup_deleted`<br/>`DGAUGE`, number | Number of rows deleted by queries in this `<DB_name>` |
+| `<DB_name>_tup_fetched`<br/>`DGAUGE`, number | Number of rows fetched by queries in this `<DB_name>` |
+| `<DB_name>_tup_inserted`<br/>`DGAUGE`, number | Number of rows inserted by queries in this `<DB_name>` |
+| `<DB_name>_tup_returned`<br/>`DGAUGE`, number | Number of rows returned by queries in this `<DB_name>` |
+| `<DB_name>_tup_updated`<br/>`DGAUGE`, number | Number of rows updated by queries in this `<DB_name>` |
 
-##### Connection pooler metrics {#managed-postgresql-pooler-metrics}
+#### Connection pooler metrics {#managed-postgresql-pooler-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `pooler-avg_query_time`<br/>`DGAUGE`, ms | Average query execution time per DB host |

@@ -1,1 +1,1 @@
-The `managed-mysql.auditor` role enables you to view information about clusters and quotas.
+The `managed-mysql.auditor` role allows you to view information on MySQL® [hosts and clusters](../../managed-mysql/concepts/index.md), as well as [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas) and resource operations for Managed Service for MySQL®.

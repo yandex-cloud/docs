@@ -7,16 +7,16 @@ description: "На странице представлен список поша
 
 ## Кластеры {{ dataproc-name }}
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](connect.md)
-* [{#T}](cluster-update.md)
-* [{#T}](migration-to-an-availability-zone.md)
-* [{#T}](cluster-delete.md)
+* [Информация об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Подключение к кластеру](connect.md)
+* [Изменение кластера](cluster-update.md)
+* [Миграция легковесного кластера в другую зону доступности](migration-to-an-availability-zone.md)
+* [Удаление кластера](cluster-delete.md)
 
 ## Подкластеры {{ dataproc-name }}
 
-* [{#T}](subclusters.md)
+* [Управление подкластерами](subclusters.md)
 * [{#T}](subcluster-update.md)
 
 ## Сервисы Apache и другие сторонние сервисы

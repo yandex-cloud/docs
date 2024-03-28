@@ -68,7 +68,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 
 
-      * Select the size of disk to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the size of disk to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
@@ -529,7 +529,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
    * New cloud network named `cluster-net`.
-      * New [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+      * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * Number of `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`: 1.
 
       Subnet parameters:
@@ -537,7 +537,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       * Network: `cluster-net`.
       * Availability zone: `{{ region-id }}-a`.
 
-   * Local SSD storage (`{{ disk-type-example }}`): 32 GB.
+   * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
    * Database name: `db1`.
    * User: `user1`, with the `user1user1` password.
 
@@ -586,7 +586,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
       These subnets will belong to the `cluster-net` network.
 
-      * New [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+      * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts: 32 GB.
    * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts: 10 GB.
    * Database name: `db1`.

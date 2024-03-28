@@ -6,7 +6,7 @@
 
 ## Migrating {{ CH }} hosts {#clickhouse-hosts}
 
-1. Make sure the migration will only include [replicated tables](../concepts/replication.md#replicated-tables) powered by the `ReplicatedMergeTree` family engine.
+1. Make sure the migration will only include [replicated tables](../concepts/replication.md#replicated-tables) on the `ReplicatedMergeTree` family engine.
 
    Non-replicated tables will be lost during migration.
 
@@ -134,7 +134,7 @@
 
 ## Migrating {{ ZK }} hosts {#zookeeper-hosts}
 
-1. Make sure the migration will only include [replicated tables](../concepts/replication.md#replicated-tables) powered by the `ReplicatedMergeTree` family engine.
+1. Make sure the migration will only include [replicated tables](../concepts/replication.md#replicated-tables) on the `ReplicatedMergeTree` family engine.
 
    Non-replicated tables will be lost during migration.
 
@@ -225,7 +225,7 @@
 
    - {{ TF }} {#tf}
 
-      1. In the {{ TF }} configuration file with the infrastructure plan, remove the `host` sections with the source availability zone from the cluster description.
+      1. In the {{ TF }} configuration file with the infrastructure plan, remove from the cluster description the `host` sections with the source availability zone.
       1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

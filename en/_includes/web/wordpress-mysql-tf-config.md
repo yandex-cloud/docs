@@ -73,7 +73,7 @@ resource "yandex_mdb_mysql_cluster" "wp-cluster" {
   }
 
   host {
-    zone             = "{{ region-id }}-c"
+    zone             = "{{ region-id }}-d"
     subnet_id        = yandex_vpc_subnet.subnet-3.id
     assign_public_ip = false
   }
@@ -155,7 +155,7 @@ resource "yandex_vpc_subnet" "subnet-2" {
 
 resource "yandex_vpc_subnet" "subnet-3" {
   name           = "subnet3"
-  zone           = "{{ region-id }}-c"
+  zone           = "{{ region-id }}-d"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.3.0/24"]
 }

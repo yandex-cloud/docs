@@ -7,10 +7,10 @@ description: "Follow this guide to subscribe a device or registry to receive mes
 
 You can subscribe:
 
-- Registry to device events using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
-- Registry to device events using the permanent `$devices/<device ID>/state` or `$registries/<registry ID>/state` topics.
-- Device to registry commands using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
-- Device to registry commands using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
+- Registry to device events using the `$devices/<device_ID>/events` or `$registries/<registry_ID>/events` topics.
+- Registry to device events using the permanent `$devices/<device_ID>/state` or `$registries/<registry_ID>/state` topics.
+- Device to registry commands using the `$devices/<device_ID>/commands` or `$registries/<registry_ID>/commands` topics.
+- Device to registry commands using the permanent `$devices/<device_ID>/config` or `$registries/<registry_ID>/config` topics.
 
 To learn about messaging, see [{#T}](mosquitto-publish.md).
 
@@ -49,7 +49,7 @@ Subscribe a registry to a device or devices using the following parameters:
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<device ID>/events' \
+        -t '$devices/<device_ID>/events' \
         -q 1
       ```
 
@@ -61,7 +61,7 @@ Subscribe a registry to a device or devices using the following parameters:
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<device ID>/state' \
+        -t '$devices/<device_ID>/state' \
         -q 1
       ```
 
@@ -73,8 +73,8 @@ Subscribe a registry to a device or devices using the following parameters:
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<first device ID>/events' \
-        -t '$devices/<second device ID>/events' \
+        -t '$devices/<first_device_ID>/events' \
+        -t '$devices/<second_device_ID>/events' \
         -q 1
       ```
 
@@ -86,8 +86,8 @@ Subscribe a registry to a device or devices using the following parameters:
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<first device ID>/state' \
-        -t '$devices/<second device ID>/state' \
+        -t '$devices/<first_device_ID>/state' \
+        -t '$devices/<second_device_ID>/state' \
         -q 1
       ```
 
@@ -99,7 +99,7 @@ Subscribe a registry to a device or devices using the following parameters:
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$registries/<registry ID>/events' \
+        -t '$registries/<registry_ID>/events' \
         -q 1
       ```
 
@@ -111,11 +111,11 @@ Subscribe a registry to a device or devices using the following parameters:
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$registries/<registry ID>/state' \
+        -t '$registries/<registry_ID>/state' \
         -q 1
       ```
 
-      The registry will only receive data from devices that send messages to the `$registries/<registry ID>/events` or `$registries/<registry ID>/state` topic.
+      The registry will receive data only from the devices that send messages to the `$registries/<registry_ID>/events` or `$registries/<registry_ID>/state` topic.
 
 {% endlist %}
 
@@ -146,7 +146,7 @@ Subscribe a device to a registry using the following parameters:
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$devices/<device ID>/commands' \
+        -t '$devices/<device_ID>/commands' \
         -q 1
       ```
 
@@ -158,7 +158,7 @@ Subscribe a device to a registry using the following parameters:
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$devices/<device ID>/config' \
+        -t '$devices/<device_ID>/config' \
         -q 1
       ```
 
@@ -170,7 +170,7 @@ Subscribe a device to a registry using the following parameters:
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$registries/<registry ID>/commands' \
+        -t '$registries/<registry_ID>/commands' \
         -q 1
       ```
 
@@ -182,10 +182,10 @@ Subscribe a device to a registry using the following parameters:
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$registries/<registry ID>/config' \
+        -t '$registries/<registry_ID>/config' \
         -q 1
       ```
 
-      Only devices subscribed to the `$registries/<registry ID>/commands` or `$registries/<registry ID>/config` topic will receive commands.
+      Only the devices subscribed to the `$registries/<registry_ID>/commands` or `$registries/<registry_ID>/config` topic will receive commands.
 
 {% endlist %}

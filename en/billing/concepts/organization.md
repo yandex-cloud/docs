@@ -7,16 +7,17 @@ Non-member users cannot access the resources within an organization.
 
 The method of working with billing accounts in {{ billing-name }} depends on whether this account is added to an organization.
 
+
 ![](../../_assets/billing/organization.svg)
 
-If a billing account is added to an organization, you will not be able to link new resources from other organizations to it in the management console. However, you will be able to pay for and use resources from other organizations previously linked to your billing account. For more information, refer to these sections:
+For more information, refer to these sections:
 
 * [Linking a cloud](../operations/pin-cloud.md#bind-cloud-organization)
 * [Managing access](../security/index.md)
 
 {% include [account-in-organization](../../_includes/billing/pay-resouces-of-another-organization.md) %}
 
-## Checking if your billing account is added to the organization
+## Checking if your billing account is added to the organization {#check-organization}
 
 {% include [account-in-organization](../../_includes/billing/check-account-organization.md) %}
 

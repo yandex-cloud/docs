@@ -1,6 +1,5 @@
 {% note info %}
 
-For the `$monitoring/<device ID>/json` topic, the only allowed [system alias](../../iot-core/concepts/topic/usage.md#mealias) is `$me`.
+You can only use the `$me` [system alias](../../iot-core/concepts/topic/usage.md#mealias) for the `$monitoring/<device_ID>/json` topic.
 
 {% endnote %}
-

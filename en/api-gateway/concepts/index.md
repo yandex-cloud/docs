@@ -69,4 +69,4 @@ For limits related to WebSocket support, see [Quotas and limits](../concepts/lim
 
 #### See also {#see-also}
 
-* [An overview of available extensions](extensions/index.md).
+* [Overview of available extensions](extensions/index.md)

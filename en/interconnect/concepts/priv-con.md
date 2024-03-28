@@ -128,7 +128,7 @@ To automatically announce new subnets in {{ interconnect-name }}, you can use **
 > ```
 > {{ region-id }}-a [10.128.0.0/16]
 > {{ region-id }}-b [10.130.0.0/16]
-> {{ region-id }}-c [10.140.0.0/16]
+> {{ region-id }}-d [10.140.0.0/16]
 > ```
 >
 > If you then create a subnet with the `10.128.15.0/24` prefix in this network in the `{{ region-id }}-a` availability zone, it will automatically be available via {{ interconnect-name }} because the `10.128.15.0/24` subnet belongs to the already announced address space, `10.128.0.0/16`.

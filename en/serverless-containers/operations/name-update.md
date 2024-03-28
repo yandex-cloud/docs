@@ -63,7 +63,7 @@ description: "Follow this guide to update a container name."
         name               = "my-conrainer"
         description        = "my first container with description"
         memory             = 256
-        service_account_id = "ajec........34ova"
+        service_account_id = "ajecvjv1lv01********"
         image {
             url = "{{ registry }}/yc/test-image:v1"
         }
@@ -101,7 +101,7 @@ description: "Follow this guide to update a container name."
    You can check the container update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
    ```
-   yc serverless container get <container_ID>|<container_name>
+   yc serverless container get <container_name_or_ID>
    ```
 
 - API {#api}

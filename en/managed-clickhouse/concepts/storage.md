@@ -72,7 +72,7 @@ Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-en
 * Enable and disable the `prefer_not_to_merge` setting that merges stored data parts. This setting is available in the [CLI and API](../operations/update.md#change-hybrid-storage).
 * Set any `max_data_part_size_bytes` value for the maximum size of the data part you will get on merging smaller ones.
 
-However, you can configure the behavior of these operations using the [ClickHouse settings](./settings-list.md) available in the cluster.
+However, you can configure the behavior of these operations using the [settings](./settings-list.md) available in the cluster.
 
 You can view up-to-date policy settings with the following query:
 
@@ -107,7 +107,7 @@ For more information about setting up hybrid storage, see the [{{ CH }} document
 
 ## Selecting disk type during cluster creation {#storage-type-selection}
 
-The number of hosts that can be created along with a {{ CH }} cluster depends on the selected disk type:
+The number of hosts you can create together with a {{ CH }} cluster depends on the selected disk type:
 
 * With local SSD (`local-ssd`) storage, you can create a cluster with two or more hosts.
 

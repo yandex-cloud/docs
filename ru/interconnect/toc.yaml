@@ -51,4 +51,6 @@ items:
         href: operations/pub-add.md
   - name: Правила тарификации
     href: pricing.md
+  - name: История изменений
+    href: release-notes.md
 base: ru/interconnect

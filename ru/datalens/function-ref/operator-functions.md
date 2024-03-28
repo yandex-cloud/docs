@@ -96,7 +96,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/operator-functions.md
 
 **Синтаксис:**`value [ NOT ] BETWEEN low AND high`
 
-Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high`.
+Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high` включительно.
 
 Вариант `value NOT BETWEEN low AND high` возвращает противоположное значение
 
@@ -140,6 +140,8 @@ sourcePath: ru/_api-ref/datalens/function-ref/operator-functions.md
 В качестве `string_2` можно задать значение или использовать знак `%`, который соответствует строке любой длины.
 
 Вариант `string_1 NOT LIKE` возвращает противоположное значение.
+
+Функция учитывает регистр символов при сравнении значений. Вы можете использовать `LIKE` совместно с функциями [UPPER](UPPER.md) или [LOWER](LOWER.md), чтобы производить сравнение без учета регистра символов.
 
 
 

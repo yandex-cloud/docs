@@ -212,7 +212,7 @@ You can:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. To create a Mirrormaker connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_mirrormaker` settings section:
 
@@ -357,7 +357,7 @@ You can:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Edit the parameter values in the `yandex_mdb_kafka_connector` resource description:
 
@@ -563,7 +563,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Delete the `yandex_mdb_kafka_connector` resource with the description of the connector you need.
    1. Make sure the settings are correct.

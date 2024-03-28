@@ -52,7 +52,7 @@ To access a device, use its unique ID or name. For information on retrieving the
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
-        registry_id = "<registry ID>"
+        registry_id = "<registry_ID>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
       ...
@@ -88,10 +88,10 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
-      You can verify the updated device name in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can check the updated device name in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
-      yc iot device list --registry-id <registry ID>
+      yc iot device list --registry-id <registry_ID>
       ```
 
 - API {#api}
@@ -144,13 +144,13 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    To update the name of a device created using {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the device description.
+   1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the device description:
 
       Example device description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
-        registry_id = "<registry ID>"
+        registry_id = "<registry_ID>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
       ...
@@ -186,10 +186,10 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
-      You can verify the updated device description in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can check the updated device description in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
-      yc iot device get <device name>
+      yc iot device get <device_name>
       ```
 
 - API {#api}
