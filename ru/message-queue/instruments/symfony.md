@@ -1,42 +1,40 @@
 # Пример использования {{ message-queue-full-name }} на Symfony
 
-Для работы с очередями PHP-фреймворк [Symfony](https://symfony.com/) содержит компонент [Messenger](https://symfony.com/doc/current/messenger.html). В качестве брокера сообщений можно использовать {{ message-queue-name }}.
+PHP-фреймворк [Symfony](https://symfony.com/) содержит компонент [Messenger](https://symfony.com/doc/current/messenger.html) для работы с очередями. В качестве брокера сообщений можно использовать {{ message-queue-name }}.
 
 ## Установка {#install}
 
 Потребуются следующие инструменты:
-- [Git](https://git-scm.com)
-- [PHP](https://php.net) версии 8.2 или выше
-- Менеджер пакетов [Composer](https://getcomposer.org)
+* [Git](https://git-scm.com);
+* [PHP](https://php.net) версии 8.2 или выше;
+* Менеджер пакетов [Composer](https://getcomposer.org).
 
 Установите Symfony по [инструкции](https://symfony.com/doc/current/setup.html) на официальном сайте фреймворка.
 
 ## Подготовка к работе {#prepare}
 
-{% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
+{% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md) %}
 
 Создайте очередь в сервисе {{ message-queue-name }} и скопируйте ее URL.
 
 ## Инструкции {#sample}
 
-В этом примере создается:
-  - демонстрационное сообщение (Message), в котором хранятся исходные числа;
-  - обработчик сообщения (MessageHandler), который суммирует два числа из сообщения;
-  - команда (Command), которая ставит задачу в очередь {{ message-queue-name }}.
+В этом примере создаются:
+* демонстрационное сообщение (Message), в котором хранятся исходные числа;
+* обработчик сообщения (MessageHandler), который суммирует два числа из сообщения;
+* команда (Command), которая ставит задачу в очередь {{ message-queue-name }}.
 
-
-
-Чтобы использовать {{ message-queue-name }} с Symfony Messenger, выполните следующие инструкции.
+Чтобы использовать {{ message-queue-name }} с Symfony Messenger, выполните следующие инструкции:
 
 1. Создайте тестовый проект `mq_example`:
 
-   ```
+   ```bash
    symfony new --webapp mq_example
    ```
 
 1. Установите зависимости для работы с Amazon SQS. {{ message-queue-name }} использует формат совместимый с SQS:
 
-   ```
+   ```bash
    composer require symfony/amazon-sqs-messenger async-aws/sqs ^1.9
    ```
 
@@ -44,21 +42,22 @@
 
 1. Создайте сообщение (Message) и обработчик (Handler):
 
-    ```
+    ```bash
     php bin/console make:message Sum
     ```
+
     При выполнении команда спросит `Which transport do you want to route your message to? [[no transport]]`.
-    Впишите цифру с вариантом `async`
+    Впишите цифру с вариантом `async`.
 
 1. Создайте команду (Command) для отправки сообщений в очередь:
 
-    ``` 
+    ```bash
     php bin/console make:command app:create
     ```
 
 1. Откройте созданный файл по пути `src/Command/SumCommand.php` и приведите его к виду:
 
-    ```
+    ```php
     <?php
     
     namespace App\Command;
@@ -92,7 +91,7 @@
 
 1. Откройте файл по пути `src\Message\Sum.php` и приведите его к виду:
 
-    ```
+    ```php
     <?php
     
     namespace App\Message;
@@ -117,7 +116,7 @@
 
 1. Откройте файл по пути `src\MessageHandler\SumHandler.php` и приведите его к виду:
 
-    ```
+    ```php
     <?php
     
     namespace App\MessageHandler;
@@ -142,16 +141,17 @@
 
 1. Откройте файл `.env` и найдите в нем строку `MESSENGER_TRANSPORT_DSN=doctrine://default?auto_setup=0`. Приведите ее к следующему виду:
     
-    ```
-    MESSENGER_TRANSPORT_DSN=sqs://message-queue.{{ api-host }}/b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi/symfony-test?access_key=KEY&secret_key=SECRET&region={{ region-id }}
+    ```text
+    MESSENGER_TRANSPORT_DSN=sqs://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000000********/symfony-test?access_key=KEY&secret_key=SECRET&region={{ region-id }}
     ```
     
-    Часть `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi/symfony-test` нужно заменить на путь, скопированный в консоли Yandex Cloud.
+    Часть `b1gvlrnlei4l********/dj6000000000********/symfony-test` нужно заменить на путь, скопированный в консоли {{ yandex-cloud }}.
+
     В параметрах `access_key=KEY` и `secret_key=SECRET` значения `KEY` и `SECRET` нужно заменить на значение статического ключа доступа к {{ message-queue-name }}.
 
 1. Откройте файл `config/packages/messenger.yaml` и приведите его к следующему виду:
 
-    ```
+    ```yaml
     framework:
         messenger:
             failure_transport: failed
@@ -178,8 +178,12 @@
 
 1. Выполните команду для отправки сообщения в очередь:
 
-    ```php bin/console  app:create```
+    ```bash
+    php bin/console  app:create
+    ```
 
 1. Выполните команду для обработки очереди:
 
-    ```php bin/console messenger:consume async```
+    ```bash
+    php bin/console messenger:consume async
+    ```
