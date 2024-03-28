@@ -20,6 +20,8 @@ You can specify the value in `string_2` or use the `%` character to match a stri
 
 The `string_1 NOT LIKE` option returns the opposite value.
 
+When comparing values, the function is case-sensitive. You can use `LIKE` along with [UPPER](UPPER.md) or [LOWER](LOWER.md) for case-insensitive comparison.
+
 **Argument types:**
 - `string_1` — `String`
 - `string_2` — `String`
@@ -34,6 +36,10 @@ The `string_1 NOT LIKE` option returns the opposite value.
 ```
 
 ```
+"raspberry" LIKE "%SPB%" = FALSE
+```
+
+```
 "raspberry" NOT LIKE "%spb%" = FALSE
 ```
 
@@ -43,6 +49,14 @@ IIF([Country] LIKE 'RU', 'Y', 'N')
 
 ```
 IIF([Phone] LIKE '+7%', 'RU', 'notRU')
+```
+
+```
+UPPER("raspberry") LIKE "%SPB%" = TRUE
+```
+
+```
+UPPER("West") LIKE "WEST" = TRUE
 ```
 
 

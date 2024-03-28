@@ -55,7 +55,7 @@ description: "На странице представлены релизы YC CLI
 
 * Добавлены поля `origin` и `type` в результат `yc container image list-vulnerabilities`.
 
-##### {{load-testing-name}} {#load-testing}
+##### {{ load-testing-name }} {#load-testing}
 
 * Добавлена команда `yc loadtesting test wait` для ожидания окончания нагрузочного теста.
 * В команде `yc loadtesting test create` добавлены флаги `--wait` и `--wait-idle-timeout` для ожидания окончания созданного нагрузочного теста.
@@ -66,6 +66,7 @@ description: "На странице представлены релизы YC CLI
 
 * В команду `yc vpc address create` добавлен флаг `--dns-record` для указания DNS-спецификаций адреса.
 * В команду `yc vpc address update` добавлены флаги:
+
   * `--dns-record` для указания DNS-спецификаций адреса;
   * `--clear-dns-records` для удаления всех DNS-спецификаций адреса.
 
@@ -73,10 +74,12 @@ description: "На странице представлены релизы YC CLI
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-##### {{compute-name}}
+##### {{ compute-name }}
+
 * В команде `yc compute connect-to-serial-port` поддержана авторизация через OS Login.
 
 ##### {{ at-name }}
+
 * Добавлено дерево команд `yc audit-trails trail` с командами `get`, `list`, `create`, `update`, `delete`, `list-operations`, `list-access-bindings`, `set-access-bindigns`, `add-access-binding`, `remove-access-binding` для управления трейлами.
 
 ### Версия 0.119.0 (27.02.24) {#version0.119.0}
@@ -87,7 +90,7 @@ description: "На странице представлены релизы YC CLI
 
 * Добавлено дерево команд `yc iam service-control`с командами `get`, `list`, `enable`, `pause`, `resume`, `disable` для управления доступом сервисов к ресурсам в облаке.
 
-##### {{compute-name}}
+##### {{ compute-name }}
 
 * В командах `yc compute instance create` и `yc compute instance update` добавлена поддержка настроек серийного порта.
 
@@ -100,7 +103,8 @@ description: "На странице представлены релизы YC CLI
 * Добавлено дерево команд `yc managed-greenplum backups` с командами `get`, `list`, `delete` для управления резервными копиями.
 * Добавлена команда `yc managed-greenplum cluster backup` для создания резервной копии.
 
-##### {{compute-name}}
+##### {{ compute-name }}
+
 * В команду `yc compute ssh` добавлен флаг `--identity-file` для подключения к ВМ по SSH с указанием пользовательского ключа.
 
 ##### {{ data-transfer-name }}
@@ -115,7 +119,7 @@ description: "На странице представлены релизы YC CLI
 
 * Добавлена команда `yc organization-manager federation saml delete-user-accounts` для удаления федеративных пользователей.
 
-##### {{load-testing-name}}
+##### {{ load-testing-name }}
 
 Добавлена команда `yc loadtesting test get-report-table` для получения табличного отчета по прошедшему нагрузочному тесту.
 
@@ -181,7 +185,7 @@ description: "На странице представлены релизы YC CLI
 * `--policy-type` — политика доступа клиентов по IP-адресам. Одно из значений *allow* или *deny*;
 * `--acl-excepted-values` — список IP-адресов, доступ по которым будет разрешен или запрещен в зависимости от указанного policy-type.
 
-##### {{load-testing-name}}
+##### {{ load-testing-name }}
 
 Добавлено дерево команд `yc loadtesting` для управления сервисом нагрузочного тестирования:
 
@@ -568,6 +572,7 @@ description: "На странице представлены релизы YC CLI
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ api-gw-name }} {#api-gw}
+
 В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены параметры:
 
 * `--no-logging` — для выключения логинга из API-шлюза.
@@ -578,6 +583,7 @@ description: "На странице представлены релизы YC CLI
 
 
 ##### {{ compute-name }} {#compute}
+
 * Добавлена группа команд `yc compute gpu-cluster` для управления GPU-кластерами.
 * Добавлены параметры `--gpu-cluster-id` и `--gpu-cluster-name` в команду `yc compute instance create` для создания виртуальной машины в GPU-кластере.
 
@@ -588,9 +594,11 @@ description: "На странице представлены релизы YC CLI
 
 
 ##### {{ ig-name }} {#instance-groups}
+
 Исправлена проблема `update` `instance-group` при указании через `name`.
 
 ##### {{ alb-name }} {#alb}
+
 Добавлена поддержка аргументов командной строки для поиска соответствий по регулярному выражению`--regex-path-match` и `--regex-fqmn-match`. Используются аналогично `exact` и `prefix`:
 * `yc alb virtual-host insert-http-route --regex-path-match my_cool_regex`
 * `yc alb virtual-host insert-grpc-route --regex-fqmn-match my_cool_regex`
@@ -605,6 +613,7 @@ description: "На странице представлены релизы YC CLI
 #### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mpg-name }}**
+
 Добавлены новые параметры для команд `yc managed-postgresql user create` и `yc managed-postgresql user update` :
 * `--statement-timeout` — позволяет задавать `statement_timeout` в миллисекундах для указанного пользователя.
 * `--idle-in-transaction-session-timeout` — позволяет задавать `idle_in_transaction_session_timeout` в миллисекундах для указанного пользователя.

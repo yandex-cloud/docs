@@ -398,7 +398,7 @@
         -H "x-data-logging-enabled: true" \
         -H "x-folder-id: ${FOLDERID}" \
         -d '@body.json' \
-        https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText \
+        https://ocr.{{ api-host }}/ocr/v1/recognizeText \
         -o output.json
 
       # Получить имя файла с изображением для дальнейшей подстановки.

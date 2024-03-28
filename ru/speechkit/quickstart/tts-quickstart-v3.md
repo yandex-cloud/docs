@@ -57,7 +57,7 @@
    jq . -c tts_req.json | \
    grpcurl -H "authorization: Bearer ${IAM_TOKEN}" \
            -H "x-folder-id: ${FOLDER_ID}" \
-           -d @ tts.api.cloud.yandex.net:443 speechkit.tts.v3.Synthesizer/UtteranceSynthesis | \
+           -d @ tts.{{ api-host }}:443 speechkit.tts.v3.Synthesizer/UtteranceSynthesis | \
    jq -r '.audioChunk.data' | base64 -d > speech.wav 
    ```
 

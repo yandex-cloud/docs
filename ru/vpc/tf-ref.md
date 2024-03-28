@@ -1,10 +1,8 @@
-# Справочник ресурсов {{ vpc-full-name }} провайдера {{ TF }}
+# Справочник {{ TF }} для {{ vpc-full-name }}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). {{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
-
-Подробнее о {{ TF }} [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Ресурсы {#resources}
 
 Для {{ vpc-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
 
@@ -18,3 +16,17 @@
 | [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group) | [Группа безопасности](./concepts/security-groups.md) |
 | [yandex_vpc_security_group_rule]({{ tf-provider-resources-link }}/vpc_security_group_rule) | [Правило группы безопасности](./concepts/security-groups.md#security-groups-rules) |
 | [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) | [Подсеть](./concepts/network.md#subnet) |
+
+## Источники данных {#data-sources}
+
+Для {{ vpc-name }} поддерживаются следующие источники данных провайдера {{ TF }}:
+
+| **Источник данных {{ TF }}** | **Описание** |
+| --- | --- |
+| [yandex_vpc_address]({{ tf-provider-datasources-link }}/datasource_vpc_address) | Информация об [адресе облачного ресурса](./concepts/address.md) |
+| [yandex_vpc_gateway]({{ tf-provider-datasources-link }}/datasource_vpc_gateway) | Информация о [шлюзе](./concepts/gateways.md) |
+| [yandex_vpc_network]({{ tf-provider-datasources-link }}/datasource_vpc_network) | Информация об [облачной сети](./concepts/network.md#network) |
+| [yandex_vpc_route_table]({{ tf-provider-datasources-link }}/datasource_vpc_route_table) | Информация о [таблице маршрутизации](./concepts/static-routes.md#rt-vpc) |
+| [yandex_vpc_security_group]({{ tf-provider-datasources-link }}/datasource_vpc_security_group) | Информация о [группе безопасности](./concepts/security-groups.md) |
+| [yandex_vpc_security_group_rule]({{ tf-provider-datasources-link }}/datasource_vpc_security_group_rule) | Информация о [правиле группы безопасности](./concepts/security-groups.md#security-groups-rules) |
+| [yandex_vpc_subnet]({{ tf-provider-datasources-link }}/datasource_vpc_subnet) | Информация о [подсети](./concepts/network.md#subnet) |

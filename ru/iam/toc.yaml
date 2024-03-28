@@ -118,7 +118,7 @@ items:
             href: concepts/authorization/api-key.md
           - name: Авторизованные ключи
             href: concepts/authorization/key.md
-          - name: AWS-совместимые ключи доступа
+          - name: Статические ключи доступа
             href: concepts/authorization/access-key.md
       - name: Доступ сервисов
         stage: preview

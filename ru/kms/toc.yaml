@@ -31,6 +31,8 @@ items:
             href: operations/signature-verification.md
           - name: Электронная подпись файлов и артефактов с помощью Cosign
             href: operations/signature-verification-cosign.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Обзор
@@ -83,9 +85,9 @@ items:
         href: tutorials/k8s.md
       - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
         href: tutorials/sign-with-cosign.md
-      - name: Управление ключами KMS с Hashicorp Terraform
+      - name: Управление ключами KMS с {{ TF-full }}
         href: tutorials/terraform-key.md
-      - name: Шифрование секретов в Hashicorp Terraform
+      - name: Шифрование секретов в {{ TF-full }}
         href: tutorials/terraform-secret.md
       - name: Auto Unseal в Hashicorp Vault
         href: tutorials/vault-secret.md

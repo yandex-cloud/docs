@@ -17,14 +17,7 @@ You can limit {{ ml-platform-name }} resources and features available across you
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.restrictions }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.restrictions.project-mode }}**:
 
-   * **{{ ui-key.yc-ui-datasphere.dedicated-mode.serverless-mode }}**: Community projects will be able to run in [{{ ds }} mode](../../concepts/project.md#dedicated). You can select the runtime mode in the project settings and whenever you open your project in {{ jlab }}Lab.
-   * **{{ ui-key.yc-ui-datasphere.restrictions.SERVERLESS_BACKGROUND_CELLS }}**: Your project will support [background operations](../../concepts/async).
-
-   {% note info %}
-
-   In {{ ds }} mode, background cells are required to create [datasets](../../concepts/dataset.md). To allow creating datasets within your community projects in {{ ds }} mode, leave this feature enabled.
-
-   {% endnote %}
+   * **{{ ui-key.yc-ui-datasphere.restrictions.JUPYTER_TOKEN }}**: Project will enable you to [work from any local IDE](../projects/remote-connect.md) supporting connection to remote {{ jlab }} servers.
 
 1. Under **{{ ui-key.yc-ui-datasphere.common.resources }}**:
 

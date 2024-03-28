@@ -1,19 +1,29 @@
-# Справочник ресурсов {{ org-full-name }} провайдера {{ TF }}
+# Справочник {{ TF }} для {{ org-full-name }}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). {{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE). 
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
-  
-Подробнее о {{ TF }} [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Ресурсы {#resources}
 
 Для {{ org-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_organizationmanager_group]({{ tf-provider-resources-link }}/organizationmanager_group) | [Группа пользователей](./concepts/groups.md) |
-| [yandex_organizationmanager_group_iam_member]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member) | [Роль](./security/index.md#roles-list) на группу пользователей |
+| [yandex_organizationmanager_group_iam_member]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member) | [Привязка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к группе пользователей |
 | [yandex_organizationmanager_group_membership]({{ tf-provider-resources-link }}/organizationmanager_group_membership) | Участник группы пользователей |
-| [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Роль](./security/index.md#roles-list) на организацию |
-| [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Роль](./security/index.md#roles-list) на организацию |
+| [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Привязка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к организации |
+| [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Привязка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к организации |
 | [yandex_organizationmanager_saml_federation]({{ tf-provider-resources-link }}/organizationmanager_saml_federation) | [SAML-совместимая федерация удостоверений](./concepts/add-federation.md) |
 | [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account) | [Федеративный пользователь](./concepts/add-federation.md#saml-authentication) |
+
+## Источники данных {#data-sources}
+
+Для {{ org-name }} поддерживаются следующие источники данных провайдера {{ TF }}:
+
+| **Источник данных {{ TF }}** | **Описание** |
+| --- | --- |
+| [yandex_organizationmanager_group]({{ tf-provider-datasources-link }}/datasource_organizationmanager_group) |  Информация о [группе пользователей](./concepts/groups.md) |
+| [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/datasource_organizationmanager_os_login_settings) | Информация о настройках доступа по [OS Login](./concepts/os-login.md) |
+| [yandex_organizationmanager_saml_federation]({{ tf-provider-datasources-link }}/datasource_organizationmanager_saml_federation) |  Информация о [SAML-совместимой федерации удостоверений](./concepts/add-federation.md) |
+| [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-datasources-link }}/datasource_organizationmanager_saml_federation_user_account) | Информация о [федеративном пользователе](./concepts/add-federation.md#saml-authentication) |
+| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/datasource_organizationmanager_user_ssh_key) | Информация об [SSH-ключе](../glossary/ssh-keygen.md) пользователя |

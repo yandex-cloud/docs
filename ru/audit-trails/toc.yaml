@@ -33,6 +33,8 @@ items:
             href: operations/export-cloud-bucket.md
           - name: Каталог
             href: operations/export-folder-bucket.md
+      - name: Посмотреть операции с трейлом
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}

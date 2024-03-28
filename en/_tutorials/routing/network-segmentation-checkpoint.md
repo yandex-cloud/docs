@@ -350,15 +350,15 @@ All the steps described below are completed in the Linux terminal.
 
 1. Get your PC's IP address:
 
-      ```bash
-      curl 2ip.ru
-      ```
+   ```bash
+   curl 2ip.ru
+   ```
 
-      Result:
+   Result:
 
-      ```text
-      192.240.24.87
-      ```
+   ```text
+   192.240.24.87
+   ```
 
 1. Open the `terraform.tfvars` file using the `nano` editor and edit:
 
@@ -379,7 +379,7 @@ All the steps described below are completed in the Linux terminal.
    | Parameter<br>name | Change<br>required | Description | Type | Example |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
    | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2eiid9dbci` |
-   | `az_name` | - | Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/concepts/geo-scope">availability zone</a> to host your resources | `string` | `ru-central1-d` |
+   | `az_name` | - | Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/concepts/geo-scope">availability zone</a> to host your resources | `string` | `{{ region-id }}-d` |
    | `security_segment_names` | - | List of segment names. The first segment is for management resources, the second for resources with public internet access, the third for a DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefix in `subnet_prefix_list`. | `list(string)` | `["mgmt", "public", "dmz"]` |
    | `subnet_prefix_list` | - | List of subnet prefixes as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for outside internet connection | `number` | `80` |
@@ -428,7 +428,7 @@ All the steps described below are completed in the Linux terminal.
 
    | Name | Description | Sample value |
    | ----------- | ----------- | ----------- |
-   | `dmz-web-server_ip_address` | DMZ web server IP for publishing a test application from the DMZ segment. Used for configuring destination NAT on a firewall.  | `10.160.1.100` |
+   | `dmz-web-server_ip_address` | DMZ web server IP for publishing a test application from the DMZ segment. Used for configuring destination NAT on a firewall. | `10.160.1.100` |
    | `fw-mgmt-server_ip_address` | Firewall management server IP | `192.168.1.100` |
    | `fw_gaia_portal_mgmt-server_password` | Default password for the initial connection to the firewall management server IP over HTTPS | `admin` |
    | `fw_mgmt_ip_address` | Firewall IP in the management network | `192.168.1.10` |
@@ -660,7 +660,7 @@ To set up the NAT tables of the FW gateway:
    The command should be executed according to the `ping from dmz to internet` rule that allows traffic.
 
 1. Make sure the security policy rules that prohibit traffic are applied.
-   To check that the `jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command:
+   To check that the `Jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command:
 
    ```bash
    ping 192.168.1.101

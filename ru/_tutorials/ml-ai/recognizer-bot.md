@@ -55,9 +55,9 @@
       # Эндпоинты сервисов и данные для аутентификации
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
-      vision_url = 'https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText'
-      speechkit_url = 'https://stt.api.cloud.yandex.net/speech/v1/stt:recognize'
-      speechkit_synthesis_url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+      vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
+      speechkit_url = 'https://stt.{{ api-host }}/speech/v1/stt:recognize'
+      speechkit_synthesis_url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
       folder_id = ""
       iam_token = ''
 
@@ -70,11 +70,11 @@
       def get_folder_id(iam_token, version_id):
 
           headers = {'Authorization': f'Bearer {iam_token}'}
-          function_id_req = requests.get(f'https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{version_id}',
+          function_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/versions/{version_id}',
                                          headers=headers)
           function_id_data = function_id_req.json()
           function_id = function_id_data['functionId']
-          folder_id_req = requests.get(f'https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{function_id}',
+          folder_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/functions/{function_id}',
                                        headers=headers)
           folder_id_data = folder_id_req.json()
           folder_id = folder_id_data['folderId']

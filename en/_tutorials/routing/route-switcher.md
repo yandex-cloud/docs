@@ -16,8 +16,8 @@ In the flow chart used in this example, a NAT instance called `NAT-A` is the mai
 | ----------- | ----------- |
 | NAT-A, NAT-B | NAT instances that provide cloud resource access to the internet through translation of the resources' internal IP addresses to the NAT instances' public IPs. |
 | VPC: demo | {{ vpc-name }} network |
-| private-a | Subnet in the `ru-central1-a` availability zone hosting resources that require access to the internet. |
-| public-a, public-b | Subnets in the `ru-central1-a` and `ru-central1-b` availability zones hosting the NAT instances. |
+| private-a | Subnet in the `{{ region-id }}-a` availability zone for hosting resources that require access to the internet. |
+| public-a, public-b | Subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones hosting the NAT instances. |
 | public ip a, public ip b | NAT instance public IPs. |
 | NLB | Internal network load balancer required for the route-switcher module to run; it checks whether the NAT instances are available by performing health checks on port TCP 22. |
 
@@ -43,7 +43,7 @@ To deploy the test infrastructure and test the route-switcher:
 1. [Prepare the environment](#prepare-environment).
 1. [Deploy your resources](#create-resources).
 1. [Enable the route-switcher module](#enable-route-switcher).
-1. [Test the performance and fault tolerance of the solution](#test-solution).
+1. [Test the solution for performance and fault tolerance](#test-solution).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -131,7 +131,7 @@ The infrastructure support cost includes:
 
    {% endlist %}
 
-1. Set up the CLI profile to execute operations on behalf of the service account:
+1. Set up the CLI profile to run operations on behalf of the service account:
 
    {% list tabs group=instructions %}
 
@@ -160,7 +160,7 @@ The infrastructure support cost includes:
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to execute operations on behalf of the service account:
+      1. Create a CLI profile to run operations on behalf of the service account:
          ```bash
          yc config profile create sa-terraform
          ```
@@ -306,7 +306,7 @@ The infrastructure support cost includes:
 
    Within 5 minutes of resource deployment, the route-switcher module starts providing fault tolerance of outgoing traffic to the internet via the NAT instance.
 
-## Test the performance and fault tolerance of the solution {#test-solution}
+## Test the solution for performance and fault tolerance {#test-solution}
 
 ### Testing the system performance {#accessibility-test}
 

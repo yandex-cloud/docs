@@ -23,23 +23,23 @@
 
    
    ```text
-   id: a1sfe084v4**********
-   folder_id: b1g88tflri**********
+   id: a1sfe084v4h2********
+   folder_id: b1g88tflrih2********
    created_at: "2022-12-04T08:45:31.131391Z"
    name: mail-trigger
    description: My trigger for mail.
    rule:
      mail:
-       email: a1smdtklem**********-xivn****@serverless.yandexcloud.net
+       email: a1smdtklemh2********-xivn****@serverless.yandexcloud.net
        invoke_container:
-         container_id: bba5jb38o8**********
-         service_account_id: aje03adgd2**********
+         container_id: bba5jb38o8h2********
+         service_account_id: aje03adgd2h2********
          retry_settings:
            retry_attempts: "1"
            interval: 10s
          dead_letter_queue:
-           queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:dlq
-           service-account-id: aje3lebfem**********
+           queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:dlq
+           service-account-id: aje3lebfemh2********
    status: ACTIVE
    ```
 

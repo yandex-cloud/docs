@@ -103,131 +103,7 @@ If you deploy resources of other {{ yandex-cloud }} services, the cost will chan
 
 ## Install and configure {{ TF }} {#prepare-terraform}
 
-### Install {{ TF }} {#install-terraform}
-
-#### From a mirror {#from-yc-mirror}
-
-You can download a {{ TF }} distribution for your platform from a [mirror]({{ terraform-mirror }}). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
-
-```bash
-export PATH=$PATH:/path/to/terraform
-```
-
-#### From the HashiCorp website {#from-hashicorp-site}
-
-{% list tabs group=operating_system %}
-
-- Windows {#windows}
-
-   Use one of the following methods:
-   * [Download the {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
-   * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager and the command below:
-
-      ```bash
-      choco install terraform
-      ```
-
-- Linux {#linux}
-
-   [Download the {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
-
-- macOS {#macos}
-
-   Use one of the following methods:
-   * [Download the {{ TF }} distribution](https://www.terraform.io/downloads.html) and follow [this guide](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started) to install it.
-   * Install {{ TF }} using the [Homebrew](https://brew.sh) package manager and the command below:
-
-      ```bash
-      brew install terraform
-      ```
-
-{% endlist %}
-
-### Get the authentication credentials {#get-credentials}
-
-Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure using {{ TF }}. It will help you to flexibly configure access rights for resources.
-
-You can also access {{ TF }} from your [Yandex account](../../iam/concepts/index.md#passport),, or a [federated account](../../iam/concepts/index.md#saml-federation), but this method is less secure. For more information, see the end of this section.
-
-1. If you do not have the {{ yandex-cloud }} command line interface, [install](../../cli/quickstart.md#install) it.
-
-1. Set up the CLI profile to run operations on behalf of the service account:
-
-   {% list tabs group=instructions %}
-
-   - CLI {#cli}
-
-      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save the file:
-
-         ```bash
-         yc iam key create \
-           --service-account-id <service_account_ID> \
-           --folder-name <name_of_folder_with_service_account> \
-           --output key.json
-         ```
-
-         Where:
-         * `service-account-id`: ID of your service account.
-         * `folder-name`: Name of the folder the service account was created in.
-         * `output`: Name of the file with the authorized key.
-
-         Result:
-
-         ```yaml
-         id: aje8nn871qo4********
-         service_account_id: ajehr0to1g8b********
-         created_at: "2022-09-14T09:11:43.479156798Z"
-         key_algorithm: RSA_2048
-         ```
-
-      1. Create a CLI profile to run operations on behalf of the service account. Name the profile:
-
-         ```bash
-         yc config profile create <profile_name>
-         ```
-
-         Result:
-
-         ```text
-         Profile 'sa-terraform' created and activated
-         ```
-
-      1. Set the profile configuration:
-
-         ```bash
-         yc config set service-account-key key.json
-         yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>
-         ```
-
-         Where:
-         * `service-account-key`: File with the authorized key of the service account.
-         * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
-         * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-
-   {% endlist %}
-
-1. Add the credentials to the environment variables:
-
-   {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
-
-
-{% cut "Managing resources on behalf of a Yandex account or a federated account" %}
-
-{% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
-
-{% endcut %}
-
-
-{% include [terraform-install](../../_tutorials/_tutorials_includes/terraform-install.md) %}
-
-## Create a {{ TF }} configuration file {#configure-terraform}
-
-{% include [configure-terraform](../_tutorials_includes/configure-terraform.md) %}
-
-### Configure a provider {#configure-provider}
-
-{% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
+{% include notitle [terraform-prepare.md](../../_tutorials/infrastructure/terraform-prepare.md) %}
 
 ## Configure the backend {#set-up-backend}
 
@@ -293,6 +169,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
    ```
 
    Where:
+
    * `bucket`: [Bucket](../../storage/concepts/bucket.md) name.
    * `dynamodb`: Document API DB in `https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaom********` format.
    * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
@@ -408,5 +285,7 @@ If you no longer need the resources you created, delete them:
 
 ## See also {#see-also}
 
-* [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md)
-* [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)
+* [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+* [Using {{ yandex-cloud }} modules in {{ TF }}](../../tutorials/infrastructure-management/terraform-modules.md).
+* [{{ TF }} data sources](../../tutorials/infrastructure-management/terraform-data-sources.md).

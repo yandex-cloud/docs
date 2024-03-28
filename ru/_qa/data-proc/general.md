@@ -84,7 +84,7 @@ sudo -u hdfs hdfs balancer
 
 {% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
 
-В {{ yandex-cloud }} вычислительная мощность определяется классом хостов. Их соотношение см. в разделе [{#T}](../../data-proc/concepts/instance-types.md).
+В {{ yandex-cloud }} вычислительная мощность определяется классом хостов. Их соотношение см. в разделе [Классы хостов](../../data-proc/concepts/instance-types.md).
 
 #### Как обновить версию образа в {{ dataproc-name }}? {#upgrade}
 

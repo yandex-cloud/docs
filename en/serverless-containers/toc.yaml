@@ -193,6 +193,10 @@ items:
           Configuring the connection to {{ mpg-full-name }} from a {{
           serverless-containers-name }} container
         href: tutorials/pg-connect.md
+      - name: >-
+          Running a containerized application in {{
+          serverless-containers-full-name }}
+        href: tutorials/deploy-app-container.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

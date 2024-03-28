@@ -1,1 +1,1 @@
-The `managed-postgresql.auditor` role enables you to view information about clusters and quotas.
+The `managed-postgresql.auditor` role allows you to view information on PostgreSQL [hosts and clusters](../../managed-postgresql/concepts/index.md), as well as [quotas](../../managed-postgresql/concepts/limits.md#mpg-quotas) and resource operations for Managed Service for PostgreSQL.

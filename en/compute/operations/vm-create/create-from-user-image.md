@@ -55,7 +55,7 @@ Make sure the uploaded image is in the `READY` status.
 
       * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` as content.
-      * Select the necessary image.
+      * Select the image you need.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
    
@@ -103,6 +103,8 @@ Make sure the uploaded image is in the `READY` status.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
+
+   You can monitor the VM status in the serial console or the [serial port output](../vm-info/get-serial-port-output.md).
 
 - CLI {#cli}
 
@@ -161,7 +163,8 @@ Make sure the uploaded image is in the `READY` status.
             {% include [name-format](../../../_includes/name-format.md) %}
 
          * `size`: Disk size in GB.
-         * `image-id`: ID of the custom image to create the VM from. Specify the identifier of the [uploaded](../image-create/upload.md) image.
+         * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
+
       * `--public-ip`: Add this flag to assign a [public IP](../../../vpc/concepts/address.md#public-addresses) to the VM. To create a VM without a public IP address, remove this flag.
       * `--ssh-key`: Path to the public [SSH key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file. The default username for access via SSH is `yc-user`.
 
@@ -269,7 +272,7 @@ Make sure the uploaded image is in the `READY` status.
          * `type`: Disk type.
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
-         * `image_id`: ID of the custom image to create the VM from. Specify the identifier of the [uploaded](../image-create/upload.md) image.
+         * `image_id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
       * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name. The naming requirements are as follows:
 

@@ -153,7 +153,7 @@
     $texts = ["Hello", "World"];
 
     $IAM_TOKEN = trim(file_get_contents(realpath($token_path)));
-    $url = 'https://translate.api.cloud.yandex.net/translate/v2/translate';
+    $url = 'https://translate.{{ api-host }}/translate/v2/translate';
 
     $headers = [
         'Content-Type: application/json',

@@ -78,10 +78,10 @@ description: "Follow this guide to delete a container label."
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can verify that you have deleted a container label using the [CLI](../../cli/):
+   You can check the container label deletion using the [CLI](../../cli/):
 
    ```
-   yc serverless container get <container_ID>|<container_name>
+   yc serverless container get <container_name_or_ID>
    ```
 
 - API {#api}

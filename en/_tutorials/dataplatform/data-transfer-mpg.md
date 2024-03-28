@@ -13,13 +13,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a source {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable configuration with the following settings:
+1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable configuration with the following settings:
 
-   * With the `db1` database.
-   * With the `pg-user` user.
-   * With publicly available hosts.
+   * Database: `db1`
+   * Username: `pg-user`
+   * Hosts: Publicly available
 
-1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
+1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
 
 1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
@@ -71,19 +71,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. The same conventions are used for topic names as in [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, the `cdc` prefix is used as an example.
 
-{% list tabs %}
+{% list tabs group=topic_management %}
 
-* Interfaces {{ yandex-cloud }}
+- {{ yandex-cloud }} interfaces {#yc}
 
    If topics are managed using standard {{ yandex-cloud }} interfaces (management console, YC CLI, {{ TF }}, API):
 
    1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `cdc.public.measurements`.
 
-      If you need to track data changes in multiple tables, create a separate topic for each of them.
+      If you need to track data changes in multiple tables, create a separate topic for each one of them.
 
    1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `kafka-user` and `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the created topics.
 
-* Admin API
+- Admin API {#api}
 
    If topics are managed using the Kafka Admin API:
 
@@ -102,7 +102,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    * Source endpoint:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`
       * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Select the [created](#before-you-begin) {{ mpg-name }} cluster.
@@ -113,7 +113,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    * Target endpoint:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`
       * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the target cluster.

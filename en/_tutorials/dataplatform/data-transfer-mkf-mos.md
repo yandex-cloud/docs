@@ -25,6 +25,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the topic created.
 
+      1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in any suitable configuration with the following settings:
+
+         * In the same availability zone as the source cluster.
+         * With public access to `DATA` hosts.
+
+
       
       1. To connect to the cluster from the user's local machine, configure security groups:
 
@@ -41,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
       1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [data-transfer-mkf-mos.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mos.tf) configuration file to the same working directory.
+      1. Download the [data-transfer-mkf-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-opensearch/blob/main/data-transfer-mkf-mos.tf) configuration file to the same working directory.
 
 
 
@@ -53,15 +59,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * {{ mkf-name }} source cluster.
          * {{ KF }} topic named `sensors`.
          * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the `sensors` topic.
+         * {{ mos-name }} target cluster.
          * Transfer.
 
       1. In the `data-transfer-mkf-mos.tf` file, specify the variables:
 
-         * `source_kf_version`: {{ KF }} version in the source cluster.
-         * `source_user_password`: Password of `mkf-user`.
-         * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
+         * `kf_version`: {{ KF }} version in the source cluster.
+         * `kf_user_password`: `mkf-user` user password.
+         * `os_version`: {{ OS }} version in the target cluster.
+         * `os_user_password`: `admin` user password.
+         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-      1. Check that the {{ TF }} configuration files are correct using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -76,12 +85,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
          {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
-
-1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in any suitable configuration with the following settings:
-
-   * In the same availability zone as the source cluster.
-   * To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to hosts with the `DATA` role.
-
 
 1. Install the utilities:
 
@@ -155,7 +158,19 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign the user this role.
+1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to the user.
+
+## Configure the target cluster {#configure-target}
+
+{% note tip %}
+
+You can provide data to the {{ mos-name }} cluster as the `admin` user with the `superuser` role; however, it is more secure to create separate users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
+
+{% endnote %}
+
+1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
+
+1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to the user.
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
@@ -179,7 +194,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `JSON`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
 
             Insert the data schema in JSON format:
 
@@ -254,11 +269,11 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
       1. In the `data-transfer-mkf-mos.tf` file, specify the variables:
 
-         * `source_endpoint_id`: ID of the source endpoint.
-         * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `source_endpoint_id`: Source endpoint ID.
+         * `target_endpoint_id`: Target endpoint ID.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
-      1. Check that the {{ TF }} configuration files are correct using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -332,7 +347,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
 
 Delete the other resources depending on how they were created:
 
@@ -340,13 +354,14 @@ Delete the other resources depending on how they were created:
 
 - Manually {#manual}
 
-   [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+   1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+   1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
 
-- {{ TF }} {#tf}
+- Using {{ TF }} {#tf}
 
    1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mkf-mos.tf` configuration file.
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

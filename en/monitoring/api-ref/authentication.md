@@ -1,11 +1,8 @@
 ---
 title: "Authentication in the {{ monitoring-full-name }} API"
-description: "To run operations over the {{ monitoring-full-name }} API, issue an IAM token for your account. Use the resulting IAM token to access {{ yandex-cloud }} resources over the API in the following format: Authorization: Bearer <IAM-TOKEN>"
+description: "To run operations using the {{ monitoring-full-name }} API, get an IAM token for your account. Use the obtained IAM token to access {{ yandex-cloud }} resources via the API in the following format: Authorization: Bearer"
 ---
 
 # Authentication with the {{ monitoring-name }} API
 
-
 {% include notitle [auth](../../_includes/authentication.md) %}
-
-

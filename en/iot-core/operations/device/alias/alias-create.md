@@ -17,7 +17,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
    1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the name of the device you need and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Add an alias:
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
-      1. Complete the fields: enter an alias (e.g., `events`) and topic type after `$devices/<deviceID>` (e.g., `events`).<br/>You can use the `events` alias to replace `$devices/<deviceID>/events`.
+      1. Complete the fields: enter an alias (e.g., `events`) and topic type after `$devices/<device_ID>` (e.g., `events`).<br/>You can use the `events` alias instead of the `$devices/<device_ID>/events` topic.
       1. Repeat the steps for each alias you add.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

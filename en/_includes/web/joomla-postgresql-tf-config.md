@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for user-defined parameters
+# Declaring variables for custom parameters
 
 variable "folder_id" {
   type = string
@@ -46,7 +46,7 @@ locals {
   dns_zone_name      = "example-zone-1"
 }
 
-# Provider configuration
+# Setting up the provider
 
 terraform {
   required_providers {
@@ -85,16 +85,16 @@ resource "yandex_vpc_subnet" "joomla-pg-network-subnet-b" {
   network_id     = yandex_vpc_network.joomla-pg-network.id
 }
 
-# Creating a subnet in the {{ region-id }}-c availability zone
+# Creating a subnet in the {{ region-id }}-d availability zone
 
-resource "yandex_vpc_subnet" "joomla-pg-network-subnet-c" {
+resource "yandex_vpc_subnet" "joomla-pg-network-subnet-d" {
   name           = local.subnet_name3
-  zone           = "{{ region-id }}-c"
+  zone           = "{{ region-id }}-d"
   v4_cidr_blocks = ["10.130.0.0/24"]
   network_id     = yandex_vpc_network.joomla-pg-network.id
 }
 
-# Creating a security group for a {{ PG }} DB cluster
+# Creating a security group for a {{ PG }} database cluster
 
 resource "yandex_vpc_security_group" "pgsql-sg" {
   name       = local.sg_pgsql_name
@@ -108,7 +108,7 @@ resource "yandex_vpc_security_group" "pgsql-sg" {
   }
 }
 
-# Creating a security group for the VM
+# Creating a security group for a VM
 
 resource "yandex_vpc_security_group" "vm-sg" {
   name       = local.sg_vm_name
@@ -144,7 +144,7 @@ resource "yandex_vpc_security_group" "vm-sg" {
   }
 }
 
-# Adding a ready-to-use VM image
+# Adding a pre-configured VM image
 
 resource "yandex_compute_image" "joomla-pg-vm-image" {
   source_family = "centos-stream-8"
@@ -186,7 +186,7 @@ resource "yandex_compute_instance" "joomla-pg-vm" {
   }
 }
 
-# Creating a DB cluster {{ PG }}
+# Creating a {{ PG }} database cluster
 
 resource "yandex_mdb_postgresql_cluster" "joomla-pg-cluster" {
   name                = local.cluster_name
@@ -214,8 +214,8 @@ resource "yandex_mdb_postgresql_cluster" "joomla-pg-cluster" {
   }
 
   host {
-    zone      = "{{ region-id }}-c"
-    subnet_id = yandex_vpc_subnet.joomla-pg-network-subnet-c.id
+    zone      = "{{ region-id }}-d"
+    subnet_id = yandex_vpc_subnet.joomla-pg-network-subnet-d.id
   }
 }
 
@@ -227,7 +227,7 @@ resource "yandex_mdb_postgresql_database" "joomla-pg-tutorial-db" {
   owner      = var.db_user
 }
 
-# Creating a DB user
+# Creating a database user
 
 resource "yandex_mdb_postgresql_user" "joomla-user" {
   cluster_id = yandex_mdb_postgresql_cluster.joomla-pg-cluster.id

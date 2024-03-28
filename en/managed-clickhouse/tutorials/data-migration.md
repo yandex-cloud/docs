@@ -13,7 +13,7 @@ Transfer your data to an intermediate VM in {{ compute-name }} if:
 Migration stages:
 1. [Prepare for migration](#prepare).
 1. [Install {{ ZK }}](#zookeeper-install).
-1. [Create a {{ mch-name }} cluster](#create-cluster).
+1. [Create a cluster](#create-cluster).
 1. [Create a task](#copier-task) for `clickhouse-copier`.
 1. [Add a task](#zookeeper-task) for `clickhouse-copier` to {{ ZK }}.
 1. [Launch](#copier-run) `clickhouse-copier`.
@@ -293,6 +293,6 @@ copied successfully.
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need the resources you created, delete the [{{ mch-full-name }} cluster](../operations/cluster-delete.md).
+If you no longer need the cluster you created, [delete it](../operations/cluster-delete.md).
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

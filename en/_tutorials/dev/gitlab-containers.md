@@ -56,13 +56,13 @@ Infrastructure support costs include fees for the following resources:
 
 You can set up authentication in {{ GL }} using a {{ k8s }} service account token or the [{{ GLA }}](/marketplace/products/yc/gitlab-agent) application:
 
-{% list tabs %}
+{% list tabs group=gl_auth %}
 
-- Service account token
+- Service account token {#token}
 
    {% include notitle [k8s-get-token](../../_includes/managed-gitlab/k8s-get-token.md) %}
 
-- {{ GLA }}
+- {{ GLA }} {#gla}
 
    {% include notitle [create gla](../../_includes/managed-gitlab/k8s-agent.md) %}
 
@@ -75,9 +75,9 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ k8s }} authentication method in {{ GL }}:
 
-      {% list tabs %}
+      {% list tabs group=gl_auth %}
 
-      - Service account token
+      - Service account token {#token}
 
         * `KUBE_URL`: {{ managed-k8s-name }} master address You can retrieve it using the following command:
 
@@ -88,7 +88,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
         * `KUBE_TOKEN`: Token that will use {{ GL }} to apply the configuration. Use the token obtained earlier.
 
-      - {{ GLA }}
+      - {{ GLA }} {#gla}
 
       {% endlist %}
 
@@ -100,13 +100,13 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
       * In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
       * Click **Add variable**.
 1. Create the CI script's configuration file:
-   1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
+   1. In the left-hand panel in {{ GL }}, go to **Repository** and click the **Files** tab.
    1. Click ![image](../../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
    1. Name the file as `.gitlab-ci.yml`. Add the steps to build and push a Docker image and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
 
-      {% list tabs %}
+      {% list tabs group=gl_auth %}
 
-      - Service account token
+      - Service account token {#token}
 
         * To build a container through `kaniko` without using the {{ GLR }} privileged mode:
 
@@ -194,7 +194,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
           {% endcut %}
 
-      - {{ GLA }}
+      - {{ GLA }} {#gla}
 
         * To build a container through `kaniko` without using the {{ GLR }} privileged mode:
 
@@ -287,7 +287,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Check the result {#check-result}
 
-1. Once you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }} and wait for the build stages to complete.
+1. After saving the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }} and wait for the build stages to complete.
 1. To check how the created application is running in your {{ managed-k8s-name }} cluster, view its container logs:
 
    ```bash

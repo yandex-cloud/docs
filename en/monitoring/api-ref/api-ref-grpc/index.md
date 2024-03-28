@@ -4,7 +4,7 @@ This API reference is organized by resource. To perform an operation on a resour
 
 | Service | Description | Use cases |
 ------|--------|--------
-| [DashboardService](DashboardService.md) | A set of methods for managing dashboards. | [grpcurl](../../operations/dashboard/api-examples.md) |
+| [DashboardService](DashboardService.md) | Set of methods for managing dashboards | [grpcurl](../../operations/dashboard/api-examples.md) |
 
 ## Processing mutating operation responses {#mutating-operations}
 

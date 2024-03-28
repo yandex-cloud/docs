@@ -78,7 +78,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
 
       Repeat the steps for two more subnets:
       * Name: `ad-subnet-b`. Availability zone: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
-      * Name: `ad-subnet-c`. Availability zone: `{{ region-id }}-c`. CIDR: `10.3.0.0/16`.
+      * Name: `ad-subnet-d`. Availability zone: `{{ region-id }}-d`. CIDR: `10.3.0.0/16`.
 
    - CLI {#cli}
 
@@ -98,8 +98,8 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
         --range 10.2.0.0/16
 
       yc vpc subnet create \
-        --name ad-subnet-c \
-        --zone {{ region-id }}-c \
+        --name ad-subnet-d \
+        --zone {{ region-id }}-d \
         --network-name ad-network \
         --range 10.3.0.0/16
       ```
@@ -186,7 +186,7 @@ A file server with internet access is used to configure VMs with Active Director
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `jump-server-vm`.
-   1. Select the `{{ region-id }}-c` availability zone.
+   1. Select the `{{ region-id }}-d` availability zone.
    1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image and click **Use**.
    1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
@@ -195,7 +195,7 @@ A file server with internet access is used to configure VMs with Active Director
          * **vCPU**: 2
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 4 GB
-   1. Under **Network settings**, select the `ad-subnet-c` subnet. Under **Public address**, select **Automatically**.
+   1. Under **Network settings**, select `ad-subnet-d`. Under **Public address**, select **Automatically**.
    1. Click **Create VM**.
 
    {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
@@ -208,8 +208,8 @@ A file server with internet access is used to configure VMs with Active Director
      --hostname jump-server-vm \
      --memory 4 \
      --cores 2 \
-     --zone {{ region-id }}-c \
-     --network-interface subnet-name=ad-subnet-c,nat-ip-version=ipv4 \
+     --zone {{ region-id }}-d \
+     --network-interface subnet-name=ad-subnet-d,nat-ip-version=ipv4 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
      --metadata-from-file user-data=setpass
    ```
@@ -260,7 +260,7 @@ VMs with Active Directory do not have internet access, so they should be configu
 
    ```powershell
    New-ADReplicationSite '{{ region-id }}-b'
-   New-ADReplicationSite '{{ region-id }}-c'
+   New-ADReplicationSite '{{ region-id }}-d'
    ```
 
 1. Create subnets and link them to the sites:
@@ -268,7 +268,7 @@ VMs with Active Directory do not have internet access, so they should be configu
    ```powershell
    New-ADReplicationSubnet -Name '10.1.0.0/16' -Site '{{ region-id }}-a'
    New-ADReplicationSubnet -Name '10.2.0.0/16' -Site '{{ region-id }}-b'
-   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-c'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-d'
    ```
 
 1. Rename the site link and configure replication:

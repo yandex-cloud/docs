@@ -288,7 +288,7 @@
    $SecretID = "<secret_id>"
 
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   $SecretURL = "https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SecretID/payload"
+   $SecretURL = "https://payload.lockbox.{{ api-host }}/lockbox/v1/secrets/$SecretID/payload"
 
    "Secret ID is $SecretID"
    "Payload URL is $SecretURL"

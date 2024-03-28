@@ -74,7 +74,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
 
@@ -94,13 +94,13 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    
    ```text
-   id: a1s5msktij**********
-   folder_id: b1gmit33hg**********
+   id: a1s5msktijh2********
+   folder_id: b1gmit33hgh2********
    created_at: "2022-10-24T15:19:15.353909857Z"
    name: logging-trigger
    rule:
      logging:
-       log_group_id: e23bidnftl**********
+       log_group_id: e23bidnftlh2********
        resource_type:
          - serverless.functions
        resource_id:
@@ -113,14 +113,14 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
          size: "1"
          cutoff: 1s
        invoke_container:
-         container_id: bba5jb38o8**********
-         service_account_id: aje03adgd2**********
+         container_id: bba5jb38o8h2********
+         service_account_id: aje03adgd2h2********
          retry_settings:
            retry_attempts: "1"
            interval: 10s
          dead_letter_queue:
-           queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:dlq
-           service-account-id: aje3lebfem**********
+           queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:dlq
+           service-account-id: aje3lebfemh2********
    status: ACTIVE
    ```
 
@@ -178,7 +178,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
          * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., {{ sf-name }} functions. This is an optional parameter.
          * `levels`: Logging levels. This is an optional parameter.
          * `stream_names`: Log streams. This is an optional parameter.
-            A trigger fires when records are added to the specified log group that satisfy all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels` . If a parameter is not specified, the trigger fires for any value of the parameter.
+            A trigger fires when records are added to the specified log group that satisfy all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
 
          {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
 

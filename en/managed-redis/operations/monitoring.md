@@ -71,7 +71,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
    * **Inner memory limit**: Amount of RAM (in bytes) available for {{ RD }} processes:
 
-      * **maxmemory**: The maximum amount of memory allocated for user data.
+      * **maxmemory**: Maximum amount of memory allocated for user data.
       * **used_memory**: Actual memory usage by a host.
 
       If the value of the **used_memory** parameter reaches **maxmemory** when trying to insert new records, {{ RD }} will apply the memory management mode defined by the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) setting.
@@ -85,7 +85,6 @@ To view detailed information about the {{ mrd-name }} cluster state:
    * **Is Alive**: Indicates cluster accessibility as the sum of its hosts' states.
 
       Each **Alive** host increases the overall availability by 1. When one of the hosts fails, the overall availability is reduced by 1.
-
       To increase the availability of a cluster, [add hosts](hosts.md#add).
 
    * **Is Master**: Shows which host is and how long it has been master.
@@ -94,7 +93,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
    * **Outer memory limit**: Shows the total amount of RAM (in bytes) available for use on hosts:
 
-      * **memory_limit**: The amount of memory allocated to each host.
+      * **memory_limit**: Amount of memory allocated to each host.
       * **used_memory_rss**: Process memory usage by {{ RD }} processes.
 
       When the value of **used_memory_rss** approaches the value of **memory_limit**, a {{ RD }} process may be killed by the operating system. To avoid this:
@@ -106,9 +105,9 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
       * **db_hashtable_overhead**: To store all database hash tables.
       * **used_memory_scripts**: To store and run [scripts](https://redis.io/commands/script-load).
-      * **mem_aof_buffer**: for the [AOF](../concepts/replication.md#setting-appendonly) buffer;
-      * **mem_clients_normal**: To service external connections.
-      * **mem_clients_slaves**: To service replication connections.
+      * **mem_aof_buffer**: For the [AOF](../concepts/replication.md#setting-appendonly) buffer.
+      * **mem_clients_normal**: To serve external connections.
+      * **mem_clients_slaves**: To serve replication connections.
       * **mem_replication_backlog**: For a circular replication buffer.
       * **used_memory_startup**: For {{ RD }} processes at startup (for example, after a cluster reboot).
       * **used_memory_dataset**: For data storage.
@@ -117,9 +116,9 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
       * **db_hashtable_overhead**: To store all database hash tables.
       * **used_memory_scripts**: To store and run [scripts](https://redis.io/commands/script-load).
-      * **mem_aof_buffer**: for the [AOF](../concepts/replication.md#setting-appendonly) buffer;
-      * **mem_clients_normal**: To service external connections.
-      * **mem_clients_slaves**: To service replication connections.
+      * **mem_aof_buffer**: For the [AOF](../concepts/replication.md#setting-appendonly) buffer.
+      * **mem_clients_normal**: To serve external connections.
+      * **mem_clients_slaves**: To serve replication connections.
       * **mem_replication_backlog**: For a circular replication buffer.
       * **used_memory_startup**: For {{ RD }} processes at startup (for example, after a cluster reboot).
       * **used_memory_dataset**: For data storage.
@@ -138,7 +137,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
       When the circular buffer runs out of memory, complete replication starts. This will reduce cluster performance since full replication significantly increases RAM usage as well as CPU and network workload.
 
-   * **Replication lag**: The number of seconds that the replica lags behind the master.
+   * **Replication lag**: Replica's lag behind the master (seconds).
 
       A non-zero value indicates that commands take a long time to execute on a replica or that the replica is overloaded.
 
@@ -187,7 +186,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
@@ -208,7 +207,7 @@ The recommended thresholds are as follows:
 | DB write availability | `can_write` | `Equals 0` | — |
 | Number of Out of Memory errors, per hour | `redis_oom_count` | `Greater than 2` | `Greater than 0` |
 | RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory` | 90% RAM | 75% RAM |
-| Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of storage size |
+| Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 
 For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 

@@ -11,8 +11,7 @@ Yes, but only if your legal status is a business.
 
 #### What payment methods can I use? {#payment-types}
 
-Businesses that are non-residents of Russia or Kazakhstan and may top up their personal accounts and pay for consumed resources using a [bank card](../../billing/payment/payment-methods-card-business.md) or by [transferring funds from their bank account](../../billing/payment/payment-methods-business.md).
-
+Businesses that are non-residents of Russia or Kazakhstan may top up their personal accounts and pay for consumed resources by [transferring funds from their bank account](../../billing/payment/payment-methods-business.md).
 
 #### In what currency can non-residents of Russia or Kazakhstan pay for {{ yandex-cloud }} services? {#currency}
 

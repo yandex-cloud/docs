@@ -5,11 +5,11 @@
 --- | ---
 | Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 12 |
 | Total number of [vCPUs](../compute/concepts/performance-levels.md) across all VMs per cloud | 32 |
-| Total number of vCPUs across all VMs per cloud per {{ zone-id }} zone | 0 |
+| Total number of vCPUs across all VMs per cloud per {{ region-id }}-c zone | 0 |
 | Total number of {{ highfreq-ice-lake }} vCPUs across all VMs per cloud | 0 |
 | Total virtual memory across all VMs per cloud | 128 GB |
 | Total number of [disks](../compute/concepts/disk.md) per cloud | 32 |
-| Total number of disks per cloud per {{ zone-id }} zone | 0 |
+| Total number of disks per cloud per {{ region-id }}-c zone | 0 |
 | Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud | 500 GB |
 | Total SSD storage capacity per cloud | 200 GB |
 | Total non-replicated SSD storage capacity per cloud | 558 GB |
@@ -18,8 +18,8 @@
 | Total number of [disk snapshots](../compute/concepts/snapshot.md) per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud | 32 |
-| Total number of [file stores](../compute/concepts/filesystem.md) per cloud^1^ | 100 |
-| Total number of file stores per cloud per {{ zone-id }} zone | 0 |
+| Total number of [file storages](../compute/concepts/filesystem.md) per cloud^1^ | 100 |
+| Total number of file storages per cloud per {{ region-id }}-c zone | 0 |
 | Total [HDD](../compute/concepts/filesystem.md#types) file storage capacity per cloud^1^ | 0 B |
 | Total SDD file storage capacity per cloud^1^ | 0 B |
 | Number of [images](../compute/concepts/image.md) per cloud | 8 |
@@ -236,7 +236,7 @@ Read and write operations utilize the same disk resource. The more read operatio
 
 | Type of limit | Value |
 --- | ---
-| Number of disks included in a schedule | 1,000 |
+| Number of disks added to a schedule | 1,000 |
 | Number of schedules a disk is added to | 1,000 |
 
 #### Other limits {#compute-other-limits}

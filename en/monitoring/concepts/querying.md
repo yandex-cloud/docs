@@ -5,14 +5,13 @@ description: "This section describes the\_query language used in {{ monitoring-f
 
 # Query language in {{ monitoring-name }}
 
-
-This section describes the {{monitoring-full-name}} query language. It's used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
+This section describes the {{monitoring-full-name}} query language. It is used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
 
 ## Uploading metrics {#selectors}
 
-Select a set of metrics using the metric name and a set of _selectors_ filtering label values (for more information, see [{#T}](./data-model.md#label)). You can use the resulting sets of metrics in alerts or pass them to a function as an argument.
+Select metrics using the metric name and _selectors_ that filter label values (for more information, see [{#T}](./data-model.md#label)). You can use the sets of metrics you created in alerts or transmit them to a function as an argument.
 
-> Specify the name of a metric and required labels such as `folderId` and `service`. Then the `cpu_usage{folderId="zoeu2rgjpqakq377q1h6", service="compute"}` query returns metrics named `cpu_usage` for all {{compute-full-name}} VMs in the folder with the `zoeu2rgjpqakq377q1h6` ID.
+> Specify the name of a metric and required labels, `folderId` and `service`. So, the `cpu_usage{folderId="zoeu2rgjpqak********", service="compute"}` request will return the metrics named `cpu_usage` for all {{compute-full-name}} VMs in the folder with the `zoeu2rgjpqak********` ID.
 
 {% note warning %}
 
@@ -28,7 +27,7 @@ The {{monitoring-full-name}} query language supports the following expressions f
 
    > The `host="*"` selector returns all metrics that have the `host` label.
 
-- `label="<glob>"`: Returns all the metrics that have labels that match a [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)).
+- `label="<glob_expression>"`: Returns all the metrics with labels matching the [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)).
    - `*`: Any number of characters (including none).
 
       > `name="folder*"` returns all metrics that have the `name` label whose value starts with the `folder` prefix.
@@ -45,7 +44,7 @@ The {{monitoring-full-name}} query language supports the following expressions f
 
 The query language supports links to the results of executing other queries as to names of variables.
 
-E.g.:
+For example:
 
 A: `"temperature"{folderId="my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor1" }`
 
@@ -654,6 +653,4 @@ Use the **constant_line** function only to show lines on charts. The use of this
 
 **drop_empty_series**(*source: timeseries_vector*): *timeseries_vector*
 
-Drops timeseries where either there are no points in the specified time range or all points have the `NaN` value.
-
-
+Drops time series where either there are no points in the specified time range or all points have the `NaN` value.

@@ -80,12 +80,12 @@ If you are using the deprecated domain `console.cloud.yandex.*` simultaneously w
 {
   "Effect": "Allow",
   "Principal": {
-    "CanonicalUser": "<идентификатор_пользователя>"
+    "CanonicalUser": "<user_ID>"
   },
   "Action": "*",
   "Resource": [
-    "arn:aws:s3:::<имя_бакета>/*",
-    "arn:aws:s3:::<имя_бакета>"
+    "arn:aws:s3:::<bucket_name>/*",
+    "arn:aws:s3:::<bucket_name>"
   ],
   "Condition": {
     "StringLike": {

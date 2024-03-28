@@ -53,7 +53,7 @@ description: "Follow this guide to create a registry."
    1. Create a registry:
 
       ```bash
-      yc iot registry create --name <registry name>
+      yc iot registry create --name <registry_name>
       ```
 
       The registry naming requirements are as follows:
@@ -66,7 +66,7 @@ description: "Follow this guide to create a registry."
       id: b91hafek85**********
       folder_id: aoek49ghmk*********
       created_at: "2019-05-27T13:40:06.923Z"
-      name: <registry name>
+      name: <registry_name>
       status: ACTIVE
       log_group_id: ckghotead**********
       ```
@@ -74,7 +74,7 @@ description: "Follow this guide to create a registry."
    1. (Optional) Assign the registry a password for authentication using a [username and password](../../concepts/authorization.md#log-pass):
 
       ```bash
-      yc iot registry password add --registry-name <registry name>
+      yc iot registry password add --registry-name <registry_name>
       ```
 
       You will be prompted to enter a password. Password requirements:
@@ -94,7 +94,7 @@ description: "Follow this guide to create a registry."
 
       ```bash
       yc iot registry certificate add \
-         --registry-name <registry name> \
+         --registry-name <registry_name> \
          --certificate-file <certificate>
       ```
 

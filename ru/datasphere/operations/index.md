@@ -69,6 +69,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](deploy/node-delete.md)
 * [{#T}](deploy/node-customization.md)
 * [{#T}](deploy/node-api.md)
+* [{#T}](deploy/node-suspend-resume.md)
 * [{#T}](deploy/alias-create.md)
 * [{#T}](deploy/alias-update.md)
 * [{#T}](deploy/alias-delete.md)

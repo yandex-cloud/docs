@@ -1,6 +1,8 @@
+The name of the metric is written in the `name` label.
+
 All {{ managed-k8s-name }} metrics share the `service=managed-kubernetes` label.
 
-### Container metrics {#managed-kubernetes-container-metrics}
+## Container metrics {#managed-kubernetes-container-metrics}
 
 Common labels for all container metrics:
 
@@ -13,7 +15,7 @@ Common labels for all container metrics:
 
 Container metrics:
 
-| Name<br/>Type, units | Description |
+| Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `container.cpu.core_usage_time`<br/>`COUNTER`, milliseconds | Total CPU usage on all cores used by the container |
 | `container.cpu.limit_cores`<br/>`DGAUGE`, % | Limit on the number of CPU cores per container |
@@ -28,10 +30,10 @@ Container metrics:
 | `container.memory.request_utilization`<br/>`DGAUGE`, % | Utilization of memory requested by the container |
 | `container.memory.used_bytes`<br/>`IGAUGE`, bytes | Memory usage by the container |
 | `container.memory.working_set_bytes`<br/>`IGAUGE`, bytes | Container working set memory used |
-| `container.restart_count`<br/>`COUNTER`, pcs | Number of container restarts |
+| `container.restart_count`<br/>`COUNTER`, number | Number of container restarts |
 | `container.uptime_seconds`<br/>`DGAUGE`, milliseconds | Container uptime since its start |
 
-### Master metrics {#managed-kubernetes-master-metrics}
+## Master metrics {#managed-kubernetes-master-metrics}
 
 Common labels for all master metrics:
 
@@ -42,12 +44,12 @@ Common labels for all master metrics:
 
 Master metrics:
 
-| Name<br/>Type, units | Description |
+| Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `master.cpu.utilization_percent`<br/>`DGAUGE`, % | CPU utilization |
 | `master.memory.utilization_percent`<br/>`DGAUGE`, % | Utilized memory |
 
-### Node metrics {#managed-kubernetes-node-metrics}
+## Node metrics {#managed-kubernetes-node-metrics}
 
 Common labels for all node metrics:
 
@@ -58,14 +60,14 @@ Common labels for all node metrics:
 
 Node metrics:
 
-| Name<br/>Type, units | Description |
+| Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `node.cpu.allocatable_cores`<br/>`DGAUGE`, % | Amount of CPU resources available on the node |
 | `node.cpu.core_usage_time`<br/>`COUNTER`, milliseconds | Total CPU usage on all cores used by the node |
-| `node.cpu.total_cores`<br/>`DGAUGE`, pcs | Total number of node processor cores |
+| `node.cpu.total_cores`<br/>`DGAUGE`, number | Total number of node processor cores |
 | `node.ephemeral_storage.allocatable_bytes`<br/>`IGAUGE`, bytes | Amount of ephemeral storage resources available on the node |
-| `node.ephemeral_storage.inodes_free`<br/>`IGAUGE`, pcs | Number of free index descriptors |
-| `node.ephemeral_storage.inodes_total`<br/>`IGAUGE`, pcs | Total number of index descriptors |
+| `node.ephemeral_storage.inodes_free`<br/>`IGAUGE`, number | Number of free index descriptors |
+| `node.ephemeral_storage.inodes_total`<br/>`IGAUGE`, number | Total number of index descriptors |
 | `node.ephemeral_storage.total_bytes`<br/>`IGAUGE`, bytes | Ephemeral storage size |
 | `node.ephemeral_storage.used_bytes`<br/>`IGAUGE`, bytes | Ephemeral storage used by the node |
 | `node.memory.allocatable_bytes`<br/>`IGAUGE`, bytes | Amount of RAM resources available on the node |
@@ -74,10 +76,10 @@ Node metrics:
 | `node.memory.working_set_bytes`<br/>`IGAUGE`, bytes | Node working set memory used |
 | `node.network.received_bytes_count`<br/>`COUNTER`, bytes | Incoming traffic (bytes received from the network) |
 | `node.network.sent_bytes_count`<br/>`COUNTER`, bytes | Outgoing traffic (bytes sent to the network) |
-| `node.pid.limit`<br/>`IGAUGE`, pcs | Limit on the number of process IDs per node |
-| `node.pid.used`<br/>`IGAUGE`, pcs | Process IDs used in the node |
+| `node.pid.limit`<br/>`IGAUGE`, number | Limit on the number of process IDs per node |
+| `node.pid.used`<br/>`IGAUGE`, number | Process IDs used in the node |
 
-### Pod metrics {#managed-kubernetes-pod-metrics}
+## Pod metrics {#managed-kubernetes-pod-metrics}
 
 Common labels for all pod metrics:
 
@@ -89,7 +91,7 @@ Common labels for all pod metrics:
 
 Pod metrics:
 
-| Name<br/>Type, units | Description |
+| Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `pod.cpu.core_usage_time`<br/>`COUNTER`, milliseconds | Total CPU usage on all cores used by the pod |
 | `pod.ephemeral_storage.used_bytes`<br/>`IGAUGE`, bytes | Ephemeral storage used by the pod |
@@ -101,7 +103,7 @@ Pod metrics:
 | `pod.volume.used_bytes`<br/>`IGAUGE`, bytes | Temporary volume usage.<br/>Additional labels: `volume`. |
 | `pod.volume.utilization`<br/>`DGAUGE`, % | Temporary volume utilization.<br/>Additional labels: `volume`. |
 
-### Persistent volume metrics {#managed-kubernetes-persistent-volume-metrics}
+## Persistent volume metrics {#managed-kubernetes-persistent-volume-metrics}
 
 Common labels for all persistent volume metrics:
 
@@ -113,10 +115,10 @@ Common labels for all persistent volume metrics:
 
 Persistent volume metrics:
 
-| Name<br/>Type, units | Description |
+| Name<br/>Type, unit | Description |
 | ----- | ----- |
-| `persistent_volume.inodes_free`<br/>`IGAUGE`, pcs | Number of free index descriptors |
-| `persistent_volume.inodes_total`<br/>`IGAUGEE`, pcs | Total number of index descriptors |
+| `persistent_volume.inodes_free`<br/>`IGAUGE`, number | Number of free index descriptors |
+| `persistent_volume.inodes_total`<br/>`IGAUGEE`, number | Total number of index descriptors |
 | `persistent_volume.total_bytes`<br/>`IGAUGE`, bytes | Total size of the persistent volume |
 | `persistent_volume.used_bytes`<br/>`IGAUGE`, bytes | Persistent volume usage |
 | `persistent_volume.utilization`<br/>`DGAUGE`, % | Persistent volume utilization |

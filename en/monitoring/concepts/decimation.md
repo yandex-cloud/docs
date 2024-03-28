@@ -1,5 +1,4 @@
-# data decimation
-
+# Data decimation
 
 _Data decimation_ is a mechanism for archiving historical data in {{ monitoring-short-name }}.
 
@@ -16,8 +15,3 @@ Data decimation is an asynchronous background process. The decimation policy def
 No guarantee is given for the actual point in time when the policy is applied.
 
 > For example, if you set a five-minute grid after one week, you might still see your non-reduced data for 8 days on the dashboard.
-
-
-
-
-

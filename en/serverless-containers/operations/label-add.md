@@ -88,7 +88,7 @@ description: "Follow this guide to add a container label."
    You can verify that you have created the container labels using the [CLI](../../cli/):
 
    ```
-   yc serverless container get <container_ID>|<container_name>
+   yc serverless container get <container_name_or_ID>
    ```
 
 - API {#api}

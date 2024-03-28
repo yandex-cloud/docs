@@ -90,7 +90,7 @@ description: "Follow this guide to update a container label."
    You can verify that you have modified a container label using the [CLI](../../cli/):
 
    ```
-   yc serverless container get <container_ID>|<container_name>
+   yc serverless container get <container_name_or_ID>
    ```
 
 - API {#api}

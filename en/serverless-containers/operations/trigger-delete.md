@@ -33,16 +33,16 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
    Result:
 
    ```text
-   id: a1s5msktij**********
-   folder_id: b1gmit33hg**********
+   id: a1s5msktijh2********
+   folder_id: b1gmit33hgh2********
    created_at: "2022-10-24T15:19:15.353909857Z"
    name: timer-test
    rule:
      timer:
        cron_expression: 5 10 ? * * *
        invoke_container_with_retry:
-         container_id: bba5jb38o8**********
-         service_account_id: aje03adgd2**********
+         container_id: bba5jb38o8h2********
+         service_account_id: aje03adgd2h2********
          retry_settings:
            retry_attempts: "1"
            interval: 10s

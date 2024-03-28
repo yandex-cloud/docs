@@ -22,6 +22,8 @@ Syntax:
 - [yc datatransfer endpoint create mongo-target](mongo-target.md) — Create MongoDB target
 - [yc datatransfer endpoint create clickhouse-source](clickhouse-source.md) — Create Clickhouse source
 - [yc datatransfer endpoint create clickhouse-target](clickhouse-target.md) — Create Clickhouse target
+- [yc datatransfer endpoint create yds-source](yds-source.md) — Create YDS source
+- [yc datatransfer endpoint create yds-target](yds-target.md) — Create YDS target
 
 #### Global Flags
 

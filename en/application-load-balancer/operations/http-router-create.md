@@ -19,8 +19,6 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
    1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
    1. Enter the host name.
    1. (Optional) In the **{{ sws-name }} security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
-
-      {{ sws-name }} is at the [Preview stage](../../overview/concepts/launch-stages.md).
    1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
    1. Enter the route **{{ ui-key.yacloud.common.name }}**.
    1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select one of the options:

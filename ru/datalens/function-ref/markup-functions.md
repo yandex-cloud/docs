@@ -69,6 +69,6 @@ sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
 
 **Синтаксис:**`URL( address, text )`
 
-Оборачивает `text` в ссылку на URL `address`.
+Оборачивает `text` в ссылку на URL `address`. При переходе по ссылке страница открывается в новой вкладке браузера.
 
 

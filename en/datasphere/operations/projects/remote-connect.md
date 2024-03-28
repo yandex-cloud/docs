@@ -25,3 +25,9 @@ Here is an example of connecting to a project using [Visual Studio Code](https:/
 1. Paste the link and press **Enter**.
 
 Once connection is established, all computations will be run in {{ ml-platform-name }}. The started VM will be running until you stop it in the {{ ml-platform-name }} interface.
+
+{% note info %}
+
+You can [disable](../community/manage-community-config.md) the connection to an external IDE in the community settings.
+
+{% endnote %}

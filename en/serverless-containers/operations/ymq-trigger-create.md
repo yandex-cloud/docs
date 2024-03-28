@@ -93,20 +93,20 @@ To create a trigger, you need:
    Result:
 
    ```text
-   id: a1s5msktij**********
-   folder_id: b1gmit33hg**********
+   id: a1s5msktijh2********
+   folder_id: b1gmit33hgh2********
    created_at: "2022-10-24T15:19:15.353909857Z"
    name: ymq-trigger
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:my-mq
-       service_account_id: bfbqqeo6jk**********
+       queue_id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:my-mq
+       service_account_id: bfbqqeo6jkh2********
        batch_settings:
          size: "1"
          cutoff: 10s
        invoke_container:
-         container_id: bba5jb38o8**********
-         service_account_id: bfbqqeo6jk**********
+         container_id: bba5jb38o8h2********
+         service_account_id: bfbqqeo6jkh2********
    status: ACTIVE
    ```
 

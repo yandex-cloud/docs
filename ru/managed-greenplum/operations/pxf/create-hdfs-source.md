@@ -31,7 +31,7 @@
 1. Отправьте запрос с помощью утилиты [cURL](https://curl.haxx.se):
 
     ```bash
-    curl --location "https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>/pxf_datasources" \
+    curl --location "https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/pxf_datasources" \
         --header "Content-Type: text/plain" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data "{

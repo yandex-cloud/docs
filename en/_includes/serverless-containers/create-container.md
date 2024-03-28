@@ -49,7 +49,6 @@
    {% endnote %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
-
       * `name`: Container name. This is a required parameter. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
@@ -79,9 +78,7 @@
       > ```
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
@@ -90,9 +87,7 @@
          ```
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
          ```bash

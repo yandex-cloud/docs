@@ -144,7 +144,7 @@
       def run(secret):
          # Установите соединение с сервером.
          cred = grpc.ssl_channel_credentials()
-         channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
+         channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
          stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
          # Отправьте данные для распознавания.

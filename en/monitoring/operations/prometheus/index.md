@@ -3,7 +3,7 @@ title: "{{ managed-prometheus-full-name }}"
 description: "{{ managed-prometheus-full-name }} is a monitoring system compatible with {{ prometheus-name }}. You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the {{ promql-name }} query language. Thus, you can work with dashboards existing in {{ grafana-name }}."
 ---
 
-# {{managed-prometheus-full-name}}
+# {{managed-prometheus-full-name}} overview
 
 {{ managed-prometheus-full-name }} is a monitoring system compatible with [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/). You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language. This allows you to work with dashboards existing in [{{ grafana-name }}](https://grafana.com/grafana/).
 
@@ -11,15 +11,14 @@ description: "{{ managed-prometheus-full-name }} is a monitoring system compatib
 
 {{ managed-prometheus-name }} is based on the system that Yandex uses to monitor internal services. The system automatically scales metric writes, storage, and reads depending on the workload. High availability is ensured thanks to replication of the monitoring data in two availability zones.
 
-## How to gain access {#access}
+## Getting started {#access}
 
-To enable {{ managed-prometheus-name }} in the current folder:
+To start working with {{ managed-prometheus-full-name }} in the current folder, you need to create a workspace. To do this:
 
-1. Open the [service home page]({{ link-monitoring }}) {{ monitoring-full-name }}.
+1. Open the [service home page]({{ link-monitoring }}){{ monitoring-full-name }}.
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
-1. Fill out the form and click **Submit request**.
-1. Wait until {{ yandex-cloud }} processes your request.
-1. Once the request is approved, the page will show links to the endpoints to be used for the current folder.
+1. Click **Create a workspace**.
+1. On the page that opens, you will see links to the endpoints to be used for the current folder.
 
 To enable metric [writes](ingestion/index.md) and [reads](querying/index.md) in {{ prometheus-name }} format, follow the corresponding guides.
 

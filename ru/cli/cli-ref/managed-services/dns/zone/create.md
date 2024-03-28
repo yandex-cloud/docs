@@ -24,6 +24,7 @@ Syntax:
 |`--public-visibility`|Specifies whether or not dns zone records will be publicly visible.|
 |`--private-visibility`|Specifies whether or not dns zone records will be visible from private virtual networks.|
 |`--network-ids`|<b>`value[,value]`</b><br/>Specifies network identifiers from which dns zone records will be visible.|
+|`--deletion-protection`|Prevents accidental zone removal.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

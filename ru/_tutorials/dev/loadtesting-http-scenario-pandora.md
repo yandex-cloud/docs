@@ -168,7 +168,7 @@
       uploader:
          enabled: true
          package: yandextank.plugins.DataUploader
-         api_address: loadtesting.api.cloud.yandex.net:443
+         api_address: loadtesting.{{ api-host }}:443
       pandora:
          enabled: true
          package: yandextank.plugins.Pandora

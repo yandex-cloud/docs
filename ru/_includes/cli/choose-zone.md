@@ -4,6 +4,6 @@
     [2] {{ region-id }}-b
     [3] {{ region-id }}-c
     [4] {{ region-id }}-d
-    [5] Don't set default zone
+    [5] Do not set default zone
    Please enter your numeric choice: 2
    ```

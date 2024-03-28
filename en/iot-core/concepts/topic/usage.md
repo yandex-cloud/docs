@@ -1,18 +1,18 @@
 # Using topics
 
-You can subscribe your devices and registries to the `$<devices or registries>/<device or registry ID>/events` and `$<devices or registries>/<device or registry ID>/commands` topics.
+You can subscribe devices and registries to the `$<devices_or_registries>/<device_or_registry_ID>/events` and `$<devices_or_registries>/<device_or_registry_ID>/commands` topics.
 
-If you have devices that require a fast response to sensor readings and you might have network communication problems that lead to a broken connection between your devices and the MQTT server, subscribe your devices and registries to permanent topics, like `$<devices or registries>/<device or registry ID>/state` and `$<devices or registries>/<device or registry ID>/config`. A permanent topic stores the last message sent to it and shows this message when the connection is restored (even if no devices or registries are writing data to the topic at the time of reconnection). After the connection is restored, permanent topics work like regular topics and information appears in them when a device or registry writes data to them.
+If you have devices whose sensor readings require your quick response, and your network is potentially vulnerable to connection failures between your devices and the MQTT server, subscribe your devices and registries to the `$<devices_or_registries>/<device_or_registry_ID>/state` and `$<devices_or_registries>/<device_or_registry_ID>/config` permanent topics. A permanent topic stores the last message sent to it and shows this message when the connection is restored (even if no devices or registries are writing data to the topic at the time of reconnection). After the connection is restored, permanent topics work like regular topics and information appears in them when a device or registry writes data to them.
 
 The table below describes actions that devices and registries can perform using topics:
 
 | Topics | Device | Registry |
 ----|----|----
-| `$devices/<device ID>/events` <br/><br/>`$devices/<device ID>/state` | Sends telemetry data. | Receives telemetry data. <br/>The device is known. |
-| `$devices/<device ID>/commands` <br/><br/>`$devices/<device ID>/config` | Receives commands. | Sends commands to a specific device. |
-| `$registries/<registry ID>/events` <br/><br/>`$registries/<registry ID>/state` | Sends telemetry data. | Receives telemetry data from all devices in the registry.<br/>The device is unknown. |
-| `$registries/<registry ID>/commands` <br/><br/>`$registries/<registry ID>/config` | Receives commands. | Sends commands to all devices in the registry. |
-| `$monitoring/<device ID>/json` | Receives another device's monitoring data in JSON format. | Receives device monitoring data in JSON format. |
+| `$devices/<device_ID>/events` <br/><br/>`$devices/<device_ID>/state` | Sends telemetry data. | Receives telemetry data. <br/>The device is known. |
+| `$devices/<device_ID>/commands` <br/><br/>`$devices/<device_ID>/config` | Receives commands. | Sends commands to a specific device. |
+| `$registries/<registry_ID>/events` <br/><br/>`$registries/<registry_ID>/state` | Sends telemetry data. | Receives telemetry data from all devices in the registry.<br/>The device is unknown. |
+| `$registries/<registry_ID>/commands` <br/><br/>`$registries/<registry_ID>/config` | Receives commands. | Sends commands to all devices in the registry. |
+| `$monitoring/<device_ID>/json` | Receives another device's monitoring data in JSON format. | Receives device monitoring data in JSON format. |
 
 ## Using topic aliases {#aliases}
 
@@ -23,20 +23,20 @@ An _alias_ is an alternate name of a [device topic](./devices-topic.md) assigned
 An alias is set in the key-value format:
 
 ```
-<alias>='<device topic>'
+<alias>='<device_topic>'
 ```
 
 You can use aliases for sending messages and subscribing to messages along with regular device topics. You can also use wildcard characters in aliases when subscribing to messages. In this case, the service checks the format of the original topic that was assigned an alias.
 
 Aliases must uniquely identify devices, so the topic that the alias is assigned to must contain a unique device ID.
 
-> If you [create an alias](../../operations/device/alias/alias-create.md) `my/alias/=$devices/<device ID>/`, you can use the `my/alias/events` topic. This is the same as `$devices/< device ID>/events`. Similarly, you can use other topics starting with `$devices/<device ID>/`.
+> If you [create an alias](../../operations/device/alias/alias-create.md) named `my/alias/=$devices/<device_ID>/`, you can use the `my/alias/events` topic. It will be equivalent to `$devices/<device_ID>/events`. Similarly, you can also use other topics starting with `$devices/<device_ID>/`.
 
-Aliases can't match the prefixes of other aliases within the same registry.
+Aliases cannot match the prefixes of other aliases within the same registry.
 
-> If you created an alias like `my/alias/=...` in a registry, you can't create aliases like `my/=...`, `my/alias/2/=...`, or `my/ali=...` in this registry.
+> If you created an alias named `my/alias/=...` in the registry, you cannot create aliases named `my/=...`, `my/alias/2/=...`, or `my/ali=...` in this registry.
 
-> You can create such aliases as `my/alias1/=...`, `my/alias2/=...` or `my/ali/=...`.
+> You can create such aliases as `my/alias1/=...`, `my/alias2/=...`, or `my/ali/=...`.
 
 ## Using $me system aliases in $me topics {#mealias}
 
@@ -44,16 +44,16 @@ To avoid entering the ID of the device on whose behalf an MQTT session is establ
 
 | $me topic | Equivalent topic |
 ----|----
-| `$me/device/events` | `$devices/<device ID>/events` |
-| `$me/device/commands` | `$devices/<device ID>/commands` |
-| `$me/device/state` | `$devices/<device ID>/state` |
-| `$me/device/config` | `$devices/<device ID>/config` |
-| `$me/registry/commands` | `$registries/<device ID>/commands` |
-| `$me/registry/config` | `$registries/<device ID>/config` |
-| `$me/monitoring/json` | `$monitoring/<device ID>/json` |
+| `$me/device/events` | `$devices/<device_ID>/events` |
+| `$me/device/commands` | `$devices/<device_ID>/commands` |
+| `$me/device/state` | `$devices/<device_ID>/state` |
+| `$me/device/config` | `$devices/<device_ID>/config` |
+| `$me/registry/commands` | `$registries/<device_ID>/commands` |
+| `$me/registry/config` | `$registries/<device_ID>/config` |
+| `$me/monitoring/json` | `$monitoring/<device_ID>/json` |
 
-When sending messages and subscribing to messages, $me topics are converted to topics with a <device ID> at the MQTT level.
-If you subscribe to a $me topic, you'll receive data in the $me topic, too.
+When sending messages and subscribing to messages, $me topics are converted to topics with `<device ID>` at the MQTT level.
+If you subscribe to a $me topic, you will receive data in the $me topic, too.
 
 ## Subscribing to topics using wildcard characters {#wildcards}
 
@@ -73,52 +73,52 @@ If more than a thousand topics are included in a filter when subscribing to perm
 
 Substitutes one or more parts of a topic and an empty string. This character is always the last in a filter.
 
-Examples of using **#**:
+Examples of using `#`:
 
 * `#` — Subscribe to all topic aliases.
 * `$devices/#` — Subscribe to all topics of all devices.
-* `$devices/<device ID>/#` — Subscribe to all topics of a specific device.
-* `$devices/<device ID>/events/#` — Subscribe to all topics with telemetry data of a specific device.
-* `$devices/<device ID>/state/#` — Subscribe to all permanent topics with telemetry data of the device with the specified unique ID.
+* `$devices/<device_ID>/#`: Subscribe to all specific device's topics.
+* `$devices/<device_ID>/events/#`: Subscribe to all specific device's topics with telemetry data.
+* `$devices/<device_ID>/state/#`: Subscribe to all permanent topics with telemetry data of the device with the specified unique ID.
 
 ### + character {#plus}
 
 Substitutes a part of a topic between two `/` or at the end after a single `/`.
 
-For example, devices subscribed to `$registries/<registry ID>/commands/+` will get commands sent to the `$registries/<registry ID>/commands/bedroom` and `$registries/<registry ID>/commands/kitchen` topics while ignoring a command sent to the `$registries/<registry ID>/commands/bedroom/entrance` topic.
+For example, devices subscribed to `$registries/<registry_ID>/commands/+` will receive commands sent to the `$registries/<registry_ID>/commands/bedroom` and `$registries/<registry_ID>/commands/kitchen` topics while ignoring the command sent to the `$registries/<registry_ID>/commands/bedroom/entrance` topic.
 
 Examples of using **+**:
 
-* `$devices/<device ID>/+` — Subscribe to all topics with telemetry data and commands of a specific device.
-* `$devices/<device ID/events/+` — Subscribe to all topics with a specific device's telemetry data from all rooms. The example assumes that the `+` stands for the location.
-* `$devices/+/events/bedroom/temperature` — Subscribe to all topics with bedroom temperature telemetry data from all devices.
-* `$devices/+/events/bedroom/+` — Subscribe to all topics with bedroom telemetry data from all devices. The example assumes that the `+` stands for the unique device ID and sensor type.
+* `$devices/<device_ID>/+`: Subscribe to all specific device's topics with telemetry data and commands.
+* `$devices/<device_ID>/events/+`: Subscribe to all specific device's topics with telemetry data from all rooms. The example assumes that the `+` stands for the location.
+* `$devices/+/events/bedroom/temperature`: Subscribe to all topics with bedroom temperature telemetry data from all devices.
+* `$devices/+/events/bedroom/+`: Subscribe to all topics with bedroom telemetry data from all devices. The example assumes that the `+` stands for the unique device ID and sensor type.
 
-The `$devices/+` and `$registries/+` filters don't apply as a topic must contain three parts: `$<devices or registries>/<ID>/<events or commands>`.
+The `$devices/+` and `$registries/+` filters do not apply, because a topic must consist of these three parts: `$<devices_or_registries>/<device_or_registry_ID>/<events_or_commands>`.
 
 ### Using + and # simultaneously {#join}
 
 You can use `#` after `+` to substitute the rest of a topic or subtopic:
 
-* `$devices/+/#` — Subscribe to all topics of all devices. Same as the `$devices/#` filter.
+* `$devices/#`: Subscribe to all topics of all devices. Same as the `$devices/#` filter.
 
-* `$devices/+/events/#` — Subscribe to all topics with telemetry data from all devices.
+* `$devices/+/events/#`: Subscribe to all topics with telemetry data from all devices.
 
 Filtering also takes general rules for subscribing to topics into account, such as:
 
 * Subscribing to the `$devices/#` filter with a [registry certificate](../../operations/certificates/registry-certificates.md) is the same as subscribing to `$devices/+/events/#`.
 
-   In this case, you'll also get all messages sent to `$devices/<DeviceID>/events`.
+   In which case you will also get all the messages sent to `$devices/<device_ID>/events`.
 
-* Subscribing to the `$registries/#` filter with a [device certificate](../../operations/certificates/device-certificates.md) is the same as subscribing to `$registries/<registry ID>/commands/#`.
+* Subscribing to the `$registries/#` filter with a [device certificate](../../operations/certificates/device-certificates.md) is the same as subscribing to `$registries/<registry_ID>/commands/#`.
 
-   In this case, you'll also get all messages sent to `$registries/<registry ID>/commands`.
+   In which case you will also get all the messages sent to `$registries/<registry_ID>/commands`.
 
 ## Triggers for topics {#trigger}
 
 _Triggers_ are conditions that automatically launch a specific function or container when met.
 
-A trigger for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for topics: it picks up copies of messages from them and delivers them to the [function](../../../functions/concepts/function.md) {{ sf-name }} or [container](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} for processing.
+A trigger for {{ iot-short-name }} is used to manage messages exchanged between devices and registries. It is created for topics: it receives copies of messages from the topics and delivers them to a {{ sf-name }} [function](../../../functions/concepts/function.md) or a {{ serverless-containers-name }} [container](../../../serverless-containers/concepts/container.md) for processing.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
 

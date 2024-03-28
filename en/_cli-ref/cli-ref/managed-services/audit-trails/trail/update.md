@@ -16,6 +16,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--file`|<b>`string`</b><br/>Path to a file with a gRPC request to be executed, see proto files in the protobuf API specification: https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/audittrails/v1/trail_service.proto|
 |`--new-name`|<b>`string`</b><br/>Specifies the new name of the trail.|
 |`--description`|<b>`string`</b><br/>Specifies the textual description of the trail.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>Specifies the list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|

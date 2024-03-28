@@ -17,7 +17,7 @@ docker run \
     --name=ua \
     -v /proc:/ua_proc \
     -e PROC_DIRECTORY=/ua_proc \
-    -e FOLDER_ID=a1bs... \
+    -e FOLDER_ID=a1bs81qpemb4******** \
     {{ registry }}/yc/unified-agent
 ```
 
@@ -86,7 +86,7 @@ Sample output definition in the configuration file:
     id: ... # A recommended output ID that's used in metrics and agent operation logs
 ```
 
-See also the [list of available outputs](configuration.md#outputs).
+See also [the list of available outputs](configuration.md#outputs).
 
 ### Filters {#filters}
 

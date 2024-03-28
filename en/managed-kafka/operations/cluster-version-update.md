@@ -1,13 +1,13 @@
-# {{ KF }} version upgrade
+# Upgrading {{ KF }} version
 
 You can upgrade a {{ mkf-name }} cluster to any supported version.
 
 We recommend upgrading to a version that immediately follows the current one, such as version 2.8 to 3.0.
-Upgrades to higher versions should be performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, follow the steps: 2.8 → 3.0→ 3.1.
+Upgrades to higher versions should be performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, follow the steps: 2.8 → 3.0 → 3.1.
 
-To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
+To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
-## Before updating the version {#before-update}
+## Before a version upgrade {#before-update}
 
 Make sure this does not affect your applications: review the {{ KF }} [change log](https://kafka.apache.org/downloads).
 
@@ -48,7 +48,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
       {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
       ```
 
-   1. Start the {{ KF }} upgrade:
+   1. Run the {{ KF }} upgrade:
 
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
@@ -59,7 +59,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add a `version` ({{ KF }} version) field to the `config` section of the appropriate {{ mkf-name }} cluster or edit the field value if the field already exists:
 
@@ -88,7 +88,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
    To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. You can get it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ KF }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

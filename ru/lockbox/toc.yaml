@@ -27,6 +27,8 @@ items:
             href: operations/serverless/containers.md
           - name: Передать секрет в {{ sf-full-name }}
             href: operations/serverless/functions.md
+      - name: Посмотреть операции с секретом
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Обзор
@@ -51,7 +53,7 @@ items:
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/lockbox/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:

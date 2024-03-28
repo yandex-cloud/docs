@@ -7,10 +7,10 @@ description: "Follow this guide to send a message to the MQTT server using Mosqu
 
 You can send the following types of messages:
 
-- Send data from a device to a registry using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
-- Send data from a device to a registry using the permanent `$devices/<device ID>/state` or `$registries/< registry ID>/state` topics.
-- Send registry commands to a device using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
-- Send registry commands to a device using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
+- Send data from a device to a registry using the `$devices/<device_ID>/events` or `$registries/<registry_ID>/events` topics.
+- Send data from a device to a registry using the permanent `$devices/<device_ID>/state` or `$registries/<registry_ID>/state` topics.
+- Send registry commands to a device using the `$devices/<device_ID>/commands` or `$registries/<registry_ID>/commands` topics.
+- Send registry commands to a device using the permanent `$devices/<device_ID>/config` or `$registries/<registry_ID>/config` topics.
 
 To receive messages, you need to subscribe to the sender. For information about how to do this, see [{#T}](mosquitto-subscribe.md).
 
@@ -50,7 +50,7 @@ Send a message with data using the following parameters:
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$devices/<device ID>/events' \
+        -t '$devices/<device_ID>/events' \
         -m 'Test data' \
         -q 1
       ```
@@ -63,7 +63,7 @@ Send a message with data using the following parameters:
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$devices/<device ID>/state' \
+        -t '$devices/<device_ID>/state' \
         -m 'Test data' \
         -q 1
       ```
@@ -78,7 +78,7 @@ Send a message with data using the following parameters:
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$registries/<registry ID>/events' \
+        -t '$registries/<registry_ID>/events' \
         -m 'Test data' \
         -q 1
       ```
@@ -91,12 +91,12 @@ Send a message with data using the following parameters:
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$registries/<registry ID>/state' \
+        -t '$registries/<registry_ID>/state' \
         -m 'Test data' \
         -q 1
       ```
 
-      The registry subscribed to this topic will not know which device sent the data, because the topic doesn't contain a unique device ID.
+      The registry subscribed to this topic will not know which device sent the data, because the topic does not contain a unique device ID.
 
 {% endlist %}
 
@@ -128,7 +128,7 @@ Send a message with a command using the following parameters:
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<device ID>/commands' \
+        -t '$devices/<device_ID>/commands' \
         -m 'Test command for first device' \
         -q 1
       ```
@@ -141,7 +141,7 @@ Send a message with a command using the following parameters:
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<device ID>/config' \
+        -t '$devices/<device_ID>/config' \
         -m 'Test command for first device via permanent topic' \
         -q 1
       ```
@@ -154,10 +154,10 @@ Send a message with a command using the following parameters:
         --cafile cert.pem \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<first device ID>/commands' \
-        -t '$devices/<second device ID>/commands' \
+        -t '$devices/<first_device_ID>/commands' \
+        -t '$devices/<second_device_ID>/commands' \
         -m 'Test command for first and second device' \
-       -q 1 # QoS 1.
+       -q 1 # Quality of service level, QoS 1.
       ```
 
    - Send a command to two devices using the permanent topic:
@@ -168,10 +168,10 @@ Send a message with a command using the following parameters:
         --cafile cert.pem \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<first device ID>/config' \
-        -t '$devices/<second device ID>/config' \
+        -t '$devices/<first_device_ID>/config' \
+        -t '$devices/<second_device_ID>/config' \
         -m 'Test command for first and second devices via permanent topic' \
-        -q 1 # QoS 1.
+        -q 1 # Quality of service level, QoS 1.
       ```
 
    - Send a command to all devices added to the registry:
@@ -182,7 +182,7 @@ Send a message with a command using the following parameters:
         --cafile cert.pem \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$registries/<registry ID>/commands' \
+        -t '$registries/<registry_ID>/commands' \
         -m 'Test command for all devices' \
         -q 1
       ```
@@ -195,7 +195,7 @@ Send a message with a command using the following parameters:
         --cafile cert.pem \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$registries/<registry ID>/config' \
+        -t '$registries/<registry_ID>/config' \
         -m 'Test command for all devices via permanent topic' \
         -q 1
       ```

@@ -91,7 +91,7 @@ The infrastructure support cost includes:
    yc iam service-account create --name <service_account_name>
    ```
 
-   Where `--name` is the service account name, such as `trails-sa`.
+   Where `--name` is the service account name, e.g., `trails-sa`.
 
 {% endlist %}
 
@@ -220,8 +220,8 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
    1. Enter the subnet CIDR: its IP address and mask, e.g., `10.128.0.0/24`.
    1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Create two more subnets:
-      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR.
-      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR.
+      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone; subnet CIDR: `10.129.0.0/24`.
+      * `trails-subnet-3` in the `{{ region-id }}-d` availability zone; subnet CIDR: `10.130.0.0/24`.
 
 - CLI {#cli}
 
@@ -262,8 +262,8 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
       * `--zone`: Availability zone, e.g., `{{ region-id }}-a`.
       * `--range`: Subnet CIDR, e.g., `10.128.0.0/24`.
    1. Create two more subnets:
-      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR.
-      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR.
+      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone; subnet CIDR: `10.129.0.0/24`.
+      * `trails-subnet-3` in the `{{ region-id }}-d` availability zone; subnet CIDR: `10.130.0.0/24`.
 
 {% endlist %}
 
@@ -326,10 +326,10 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
 
    1. Download a directory with [{{ TF }} modules](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/tree/main/terraform/modules):
       * `yc-managed-elk` creates an {{ ES }} cluster and assigns a password to the `admin` user. The cluster parameters are as follows:
-         * Number of hosts: Three, one in each availability zone.
-         * [Host class](../managed-elasticsearch/concepts/instance-types.md#available-flavors): s2.medium.
+         * Number of hosts: three, one in each availability zone.
+         * [Host class](../managed-elasticsearch/concepts/instance-types.md#available-flavors): `s2.medium`.
          * Edition: `Platinum`.
-         * Storage: network-hdd, 1 TB.
+         * Storage: `network-hdd`, 1 TB.
          * Number of index replicas: 2.
          * Policy for creating new indexes: [Rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (new indexes are created once in 30 days or after reaching 50 GB). For more information, see [Recommendations for high data availability](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/CONFIGURE-HA-en.md).
 

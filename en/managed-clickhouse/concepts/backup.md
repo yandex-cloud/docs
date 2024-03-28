@@ -49,7 +49,7 @@ For more information about creating a backup manually, see [Managing backups](..
 
 * Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the regular data. The cost of using Object Storage considers both the space used by the backups and the space used by the data itself.
 
-   For more information, see the [{{ mch-short-name }} pricing policy](../pricing.md#rules-storage).
+   For more information, see [Pricing policy](../pricing.md#rules-storage).
 
 * Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) only contain increments, i.e., the history of changes to data parts for the last {{ mch-backup-retention }} days. Backups of data that has not been modified are provided by {{ objstorage-name }}.
 

@@ -9,4 +9,4 @@ Users with this role can:
 * View information about [quotas](../../managed-greenplum/concepts/limits.md#quotas) of Managed Service for Greenplum®.
 * View information about resource operations for Managed Service for Greenplum®.
 
-It includes the permissions of the `managed-greenplum.auditor` role.
+This role includes the permissions of the `managed-greenplum.auditor` role.

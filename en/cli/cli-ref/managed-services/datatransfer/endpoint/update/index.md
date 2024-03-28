@@ -23,6 +23,8 @@ Syntax:
 - [yc datatransfer endpoint update mongo-target](mongo-target.md) — Update MongoDB target
 - [yc datatransfer endpoint update clickhouse-source](clickhouse-source.md) — Update Clickhouse source
 - [yc datatransfer endpoint update clickhouse-target](clickhouse-target.md) — Update Clickhouse target
+- [yc datatransfer endpoint update yds-source](yds-source.md) — Update YDS source
+- [yc datatransfer endpoint update yds-target](yds-target.md) — Update YDS target
 
 #### Global Flags
 

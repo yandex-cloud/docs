@@ -47,7 +47,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
@@ -66,7 +66,7 @@
         * Плагин — `repository-s3`.
         * Публичный доступ к группе хостов с ролью `DATA`.
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -320,13 +320,13 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
     * [Удалите снапшоты](../../storage/operations/objects/delete.md) из бакета и затем удалите [бакет целиком](../../storage/operations/buckets/delete.md).
     * [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. Удалите все объекты из бакета.
     1. В терминале перейдите в директорию с планом инфраструктуры.
@@ -366,11 +366,11 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -569,11 +569,11 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         1. Удалите конфигурационный файл `es-mos-migration-reindex.tf`.

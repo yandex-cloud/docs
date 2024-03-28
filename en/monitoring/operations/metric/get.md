@@ -6,14 +6,14 @@ To download metric data, use the [read](../../api-ref/MetricsData/read.md).
 
 ### Sample request {#sample-request}
 
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`:
 
-   For example, the request below gets metric data on CPU usage from 00:00 UTC on July 24 to 00:00 UTC on July 31 for the virtual machine with ID `epdpfhoh1r83vdmdnjuf`.
+   For example, the request below gets metric data on the CPU usage from 00:00 UTC on July 24 to 00:00 UTC on July 31 for the virtual machine with the `epdpfhoh1r83********` ID.
 
    **body.json:**
    ```json
    {
-       "query": "cpu_usage{service=\"compute\", resource_id=\"epdpfhoh1r83vdmdnjuf\"}",
+       "query": "cpu_usage{service=\"compute\", resource_id=\"epdpfhoh1r83********\"}",
        "fromTime": "2021-07-24T00:00:00Z",
        "toTime": "2021-07-31T00:00:00Z",
        "downsampling": {
@@ -39,7 +39,7 @@ To download metric data, use the [read](../../api-ref/MetricsData/read.md).
        -H "Content-Type: application/json" \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -d '@body.json' \
-       'https://monitoring.{{ api-host }}/monitoring/v2/data/read?folderId=b2ghmo15rmnlod3hrf8p' > output.json
+       'https://monitoring.{{ api-host }}/monitoring/v2/data/read?folderId=b2ghmo15rmnl********' > output.json
    ```
 
    Sample response:
@@ -53,9 +53,9 @@ To download metric data, use the [read](../../api-ref/MetricsData/read.md).
                "name": "cpu_usage",
                "labels": {
                    "resource_type": "vm",
-                   "cluster": "b2ghmo15rmnlod3hrf8p",
-                   "project": "b1gbkpesobgv2i2266vg",
-                   "resource_id": "epdpfhoh1r83vdmdnjuf",
+                   "cluster": "b2ghmo15rmnl********",
+                   "project": "b1gbkpesobgv********",
+                   "resource_id": "epdpfhoh1r83********",
                    "service": "compute"
                },
                "timeseries": {

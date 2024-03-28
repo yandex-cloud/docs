@@ -15,7 +15,7 @@ SUBSTR( string, from_index [ , length ] )
 ```
 
 #### Description {#description}
-Returns the substring `string` starting from the index `from_index`.
+Returns the substring `string` starting from the index `from_index`. The numbering starts with one.
 
 If an additional argument `length` is specified, a substring of the specified length is returned.
 
@@ -27,10 +27,14 @@ If an additional argument `length` is specified, a substring of the specified le
 
 **Return type**: `String`
 
-#### Example {#examples}
+#### Examples {#examples}
 
 ```
 SUBSTR("Computer", 3) = "mputer"
+```
+
+```
+SUBSTR("Computer", 3, 2) = "mp"
 ```
 
 

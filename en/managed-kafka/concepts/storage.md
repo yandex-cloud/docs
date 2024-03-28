@@ -16,7 +16,7 @@ The number of broker hosts that can be created along with an {{ KF }} cluster de
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of broker hosts within the current quota.
 
-For more information about limits on the number of broker hosts per cluster, see [{#T}](./limits.md).
+For more information about limits on the number of broker hosts per cluster, see [Quotas and limits](./limits.md).
 
 
 
@@ -30,7 +30,7 @@ You can always [increase](../operations/cluster-update.md#change-disk-size) the 
 
 {% endnote %}
 
-You can calculate the maximum storage size for all topics using the formula below:
+You can calculate the minimum storage size for all topics using the formula below:
 
 `2 × maximum log segment size × number of partitions in cluster × replication factor`
 

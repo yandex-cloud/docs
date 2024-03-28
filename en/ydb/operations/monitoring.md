@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the database status in Managed Service for YDB"
-description: "You can track the status of the Managed Service for YDB database with monitoring tools in the management console. These tools display diagnostic information in the form of charts. You can also configure Yandex Monitoring alerts to monitor the DB status automatically."
+description: "You can track the status of the Managed Service for YDB database with monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure Yandex Monitoring alerts to monitor the DB status automatically."
 ---
 
 # Monitoring DB status
@@ -20,7 +20,7 @@ You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }
 To view detailed information about the {{ ydb-name }} database status:
 
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-1. Click the name of the desired database and open the **{{ ui-key.yacloud.ydb.database.switch_monitoring }}** tab.
+1. Click the database name and open the **{{ ui-key.yacloud.ydb.database.switch_monitoring }}** tab.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 On the page that opens, you will see the DB status charts.
@@ -33,4 +33,4 @@ To set up alerts for DB status indicators:
 1. Add a status metric.
 1. Set the alert threshold values in the alert settings.
 
-For more information about the {{ ydb-name }} status metrics, see the [metric reference](../../monitoring/metrics-ref/index.md#ydb).
+For more information about the {{ ydb-name }} status metrics, see the [metric reference](../../monitoring/metrics-ref/ydb-ref.md).

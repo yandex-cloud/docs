@@ -6,17 +6,17 @@ To deliver metrics to {{ monitoring-full-name }} from hosts located outside {{ y
 
 To configure {{unified-agent-full-name}} to deliver metrics using an authorized key, follow these steps:
 
-1. Set up a service account from which metrics will be written to {{ monitoring-full-name }} and create an authorized key.
+1. Set up a service account under which metrics will be written to {{ monitoring-full-name }} and create an authorized key.
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}`.
+   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
    1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for your new service account using [YC CLI](../../../cli/quickstart.md):
 
       ```bash
-      yc iam key create --service-account-id <SA_ID> --output jwt_params.json
+      yc iam key create --service-account-id <service_account_ID> --output jwt_params.json
       ```
 
-      Where `<SA_ID>` is the service account ID.
+      Where `--service-account-id` is the service account ID.
 
       You can find more ways to create authorized keys in [{#T}](../../../iam/operations/authorized-key/create.md).
 
@@ -25,8 +25,8 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
       Sample **jwt_params.json** file:
       ```json
       {
-          "id": "ajt...",
-          "service_account_id": "aje...",
+          "id": "ajt4yut8vb12********",
+          "service_account_id": "ajeo5pert10z********",
           "created_at": "2021-01-14T13:18:51.070026Z",
           "key_algorithm": "RSA_2048",
           "public_key": "-----BEGIN PUBLIC KEY-----\nMD...",
@@ -105,7 +105,7 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
       -v /proc:/ua_proc \
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
+      -e FOLDER_ID=a1bs81qpemb4******** \
       {{ registry }}/yc/unified-agent
       ```
 
@@ -113,15 +113,15 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
 
 1. Make sure the metrics are delivered to {{ monitoring-full-name }}:
 
-   1. On the {{ monitoring-full-name }} [homepage]({{ link-monitoring }}), go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+   1. On the {{ monitoring-full-name }} [home page]({{ link-monitoring }}), go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 
    1. In the query block, select:
-   - The folder where metrics are collected.
-   - The label value `service=custom`.
-   - The metric name starting with the `sys` prefix.
+   - Folder where metrics are collected.
+   - `service=custom` label value.
+   - Metric name starting with the `sys` prefix.
 
 #### What's next {#what-is-next}
 
-- [Read about {{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
-- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
-- [Read the {{ unified-agent-short-name }} operating instructions](../../concepts/data-collection/unified-agent/best-practices.md)
+- Read about [{{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md).
+- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md).
+- [Read the {{ unified-agent-short-name }} operating guidelines](../../concepts/data-collection/unified-agent/best-practices.md).

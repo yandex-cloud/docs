@@ -43,6 +43,8 @@ items:
             href: operations/folder/get-id.md
           - name: Получение уведомлений сервисов в каталоге
             href: operations/folder/notify.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов Yandex Cloud

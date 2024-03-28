@@ -221,7 +221,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead Letter Queue
+      - name: Dead letter queue
         href: concepts/dlq.md
       - name: Function logs
         href: concepts/logs.md
@@ -417,6 +417,10 @@ items:
         href: tutorials/canary-release.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
+      - name: >-
+          Creating a trigger that invokes a function to stop VM instances and
+          send a Telegram notification
+        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

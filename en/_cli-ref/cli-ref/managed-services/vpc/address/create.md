@@ -22,6 +22,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of address labels as key-value pairs.|
 |`--external-ipv4`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>External ipv4 address specification.<br/><br/>Possible property names:<br/><ul> <li><code>zone</code>:     Specifies the zone.</li> </ul>|
 |`--deletion-protection`|Specifies if address protected from deletion.|
+|`--dns-record`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>DNS record specifications<br/><br/>Possible property names:<br/><ul> <li><code>dns-zone</code>:     Specifies id DNS zone.</li> <li><code>fqdn</code>:     Specifies fqdn for DNS record.</li> <li><code>ptr</code>:     Set if PTR record is required</li> <li><code>ttl</code>:     DNS record TTL in seconds</li> </ul>|
 
 #### Global Flags
 

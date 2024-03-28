@@ -42,6 +42,9 @@ Syntax:
 	- [yc organization-manager group list-members](group/list-members.md) — List members of the specified group
 	- [yc organization-manager group add-members](group/add-members.md) — Add members to the specified group
 	- [yc organization-manager group remove-members](group/remove-members.md) — Remove members from the specified group
+- [yc organization-manager oslogin](oslogin/index.md) — Setting up OS Login
+	- [yc organization-manager oslogin get-settings](oslogin/get-settings.md) — Show information about OS Login settings for the specified organization.
+	- [yc organization-manager oslogin update-settings](oslogin/update-settings.md) — Update OS Login settings for the specified organization.
 
 #### Global Flags
 

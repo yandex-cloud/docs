@@ -34,3 +34,7 @@ If the `RESTART` policy is set for VMs with GPUs (non-preemptible), [email notif
 ### How to enable {#apply}
 
 You can [enable and configure](../operations/vm-control/vm-update-policies.md) VM maintenance policies using the [CLI](../../cli/index.yaml) and [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). Currently you cannot configure maintenance policies from the management console.
+
+### Limitations {#limits}
+
+A maintenance event can only be generated in the case of planned impact on a VM. If a VM fails, it may be restarted on another physical host. In this case, nothing appears in the VM metadata service. You will receive a [failure](../../resource-manager/concepts/notify.md#infra) notification by email.

@@ -1,14 +1,10 @@
 You can use a standard SSH client to connect to VMs with OS Login access enabled. To do this, [export](../../compute/operations/vm-connect/os-login-export-certificate.md) an OS Login certificate to your local computer and specify this certificate when connecting to a VM:
 
-{% list tabs group=instructions %}
+1. [Enable](../../organization/operations/os-login-access.md) access via OS Login at the organization level.
 
-- CLI {#cli}
+   To connect to a VM via OS Login using an SSH certificate over a standard SSH client, enable **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
 
-   {% include [cli-install](../cli-install.md) %}
-
-   {% include [default-catalogue](../default-catalogue.md) %}
-
-   1. Get a list of all VMs in the default folder:
+1. Get a list of all VMs in the default folder:
 
       ```bash
       yc compute instance list
@@ -77,7 +73,7 @@ You can use a standard SSH client to connect to VMs with OS Login access enabled
 
       {% endcut %}
 
-   1. Connect to the VM:
+1. Connect to the VM:
 
       ```bash
       ssh -i <certificate_file_path> <username>@<VM_public_IP_address>
@@ -98,5 +94,3 @@ You can use a standard SSH client to connect to VMs with OS Login access enabled
       ```
 
       Type `yes` in the terminal and press **Enter**.
-
-{% endlist %}

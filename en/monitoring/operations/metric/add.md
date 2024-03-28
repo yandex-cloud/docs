@@ -7,16 +7,16 @@ To start writing custom metrics via the API, use the [write](../../api-ref/Metri
 To try the examples in this section:
 
 1. Make sure you have installed the [cURL](https://curl.haxx.se) utility that is used in the examples.
-1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) for which you are granted the `{{ roles-monitoring-editor }}` role or a higher role.
+1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) for which you have the `{{ roles-monitoring-editor }}` role or higher.
 1. Get an IAM token:
 
-   * [Instructions](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
-   * [Instructions](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
-   * [Instructions](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+   * [Guide](../../../iam/operations/iam-token/create.md) for a Yandex account user.
+   * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
+   * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
 
 ### Sample request {#sample-request}
 
-1. Create a file with the request body (for example, `body.json`). In the `metrics` property, specify the list of metrics to write. Send the required labels in the query parameters and additional labels in the request body.
+1. Create a file with the request body, e.g., `body.json`. In the `metrics` property, specify the list of metrics to write. Send the required labels in the query parameters and additional labels in the request body.
 
    **body.json:**
    ```json
@@ -42,7 +42,7 @@ To try the examples in this section:
        -H "Content-Type: application/json" \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -d '@body.json' \
-       'https://monitoring.{{ api-host }}/monitoring/v2/data/write?folderId=aoe6vrq0g3svvs3uf62u&service=custom' > output.json
+       'https://monitoring.{{ api-host }}/monitoring/v2/data/write?folderId=aoe6vrq0g3sv********&service=custom' > output.json
    ```
 
    Sample response:

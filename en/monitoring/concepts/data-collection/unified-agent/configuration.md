@@ -451,7 +451,7 @@ Parameter descriptions:
 
 An input to collect system usage statistics (CPU, RAM, network, disk) for Linux-compatible operating systems. The input collects metric values from [procfs](https://ru.wikipedia.org/wiki/Procfs) and [sysfs](https://ru.wikipedia.org/wiki/Sysfs).
 
-{{ unified-agent-short-name }} only collects metrics from storage devices mounted as `/dev/..`. For example, there is no support for {{ compute-name }} [file storage](../../../../compute/concepts/filesystem.md).
+{{ unified-agent-short-name }} only collects metrics from storage devices mounted as `/dev/..`. For example, there is no support for {{ compute-name }} [file storages](../../../../compute/concepts/filesystem.md).
 
 {% note warning %}
 
@@ -464,7 +464,7 @@ If the agent is running in a Docker container, pass the paths to procfs, sysfs, 
     -v /proc:/ua_proc \
     -v /data:/data \
     -e PROC_DIRECTORY=/ua_proc \
-    -e FOLDER_ID=a1bs... \
+    -e FOLDER_ID=a1bs81qpemb4******** \
     {{ registry }}/yc/unified-agent
 ```
 
@@ -879,7 +879,7 @@ Parameter descriptions:
         # The URL to send metrics to.
         url: https://monitoring.{{ api-host }}/monitoring/v2/data/write # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
-        folder_id: b1ge2vt0gml6ce48qcks # required, the folder ID
+        folder_id: b1ge2vt0gml6******** # required, the folder ID
 
         # IAM authentication settings.
         iam: # required
@@ -936,7 +936,7 @@ Parameter descriptions:
         # The URL to send metrics to.
         url: https://monitoring.{{ api-host }}/monitoring/v2/data/write # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
-        folder_id: b1ge2vt0gml6ce48qcks # required, the folder ID
+        folder_id: b1ge2vt0gml6******** # required, the folder ID
 
         # IAM authentication settings.
         iam: # required

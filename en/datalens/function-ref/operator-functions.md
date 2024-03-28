@@ -96,7 +96,7 @@ Performs a Boolean join of two expressions with the `AND` condition.
 
 **Syntax:**`value [ NOT ] BETWEEN low AND high`
 
-Returns `TRUE` if `value` is in the range from `low` to `high`.
+Returns `TRUE` if `value` is in the range from `low` to `high` inclusive.
 
 The option `value NOT BETWEEN low AND high` returns the opposite value.
 
@@ -140,6 +140,8 @@ Matches the string `string_1` to the template `string_2` and returns `TRUE` on m
 You can specify the value in `string_2` or use the `%` character to match a string of any length.
 
 The `string_1 NOT LIKE` option returns the opposite value.
+
+When comparing values, the function is case-sensitive. You can use `LIKE` along with [UPPER](UPPER.md) or [LOWER](LOWER.md) for case-insensitive comparison.
 
 
 

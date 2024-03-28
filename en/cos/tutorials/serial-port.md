@@ -164,7 +164,7 @@ To get the ID of the latest image used for VM creation, run:
    ```bash
    yc compute instance create \
      --name coi-vm-with-sp \
-     --zone {{ region-id }}-c \
+     --zone {{ region-id }}-d \
      --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
      --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
      --create-boot-disk image-id=$IMAGE_ID

@@ -6,9 +6,9 @@ description: "This page gives a list of step-by-step guides for {{ mgl-name }}."
 # Step-by-step guides for {{ mgl-name }}
 
 * [{#T}](instance/instance-list.md)
-* [{#T}](instance/instance-create.md)
-* [{#T}](configure-security-group.md)
-* [{#T}](instance/instance-stop.md)
+* [Creating and activating an instance](instance/instance-create.md)
+* [Setting up security groups and instance access restrictions](configure-security-group.md)
+* [Stopping and starting an instance](instance/instance-stop.md)
 * [{#T}](instance/instance-update.md)
 * [{#T}](instance/instance-backups.md)
 * [{#T}](instance/migration.md)

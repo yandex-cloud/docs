@@ -16,7 +16,7 @@
    Get detailed information about the broker:
 
    ```
-   yc iot broker get <broker name>
+   yc iot broker get <broker_name>
    ```
 
    Result:

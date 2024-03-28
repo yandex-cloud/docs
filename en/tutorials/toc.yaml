@@ -86,10 +86,10 @@ items:
           - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
             href: infrastructure-management/fault-tolerance.md
           - name: >-
-              Fault-tolerant website with load balancing by {{
+              Fault-tolerant website with load balancing with {{
               network-load-balancer-name }}
             href: web/load-balancer-website.md
-          - name: Fault-tolerant website with load balancing by {{ alb-name }}
+          - name: Fault-tolerant website with load balancing with {{ alb-name }}
             href: web/application-load-balancer-website.md
           - name: >-
               Integrating an L7 load balancer with the {{ cdn-name }} and {{
@@ -111,10 +111,16 @@ items:
             href: infrastructure-management/serverless-trigger-budget-vm.md
           - name: Deploying a fault-tolerant architecture with preemptible VMs
             href: infrastructure/nodejs-cron-restart-vm.md
+          - name: >-
+              Creating a trigger that invokes a function to stop VM instances
+              and send a Telegram notification
+            href: infrastructure-management/serverless-trigger-budget-queue-vm-tg.md
       - name: Tools
         items:
           - name: Getting started with {{ TF }}
             href: infrastructure-management/terraform-quickstart.md
+          - name: '{{ TF }} data sources'
+            href: infrastructure-management/terraform-data-sources.md
           - name: Uploading {{ TF }} states to {{ objstorage-name }}
             href: infrastructure-management/terraform-state-storage.md
           - name: Getting started with Packer
@@ -194,6 +200,8 @@ items:
             href: internet-store/opencart.md
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
+          - name: Assigning a domain name to a VM with a web server
+            href: web/bind-domain-vm.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -335,7 +343,7 @@ items:
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
       - name: >-
-          Migrating a {{ dataproc-name }} cluster with HDFS to a different
+          Migrating an HDFS {{ dataproc-name }} cluster to a different
           availability zone
         href: dataplatform/hdfs-cluster-migration.md
       - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
@@ -526,6 +534,8 @@ items:
         href: routing/dataproc-nat-instance.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
+      - name: Connecting to {{container-registry-name}} from {{vpc-short-name}}
+        href: routing/vpc-cr-access.md
   - name: Data visualization and analytics
     items:
       - name: All tutorials
@@ -600,4 +610,6 @@ items:
         href: serverless/canary-release.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: serverless/serverless-live-debug.md
+      - name: Running a containerized app in {{ serverless-containers-full-name }}
+        href: serverless/deploy-app-container.md
 base: en/tutorials
