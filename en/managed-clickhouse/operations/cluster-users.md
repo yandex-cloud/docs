@@ -646,7 +646,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
    ```
 
    After creating the user, check that it is actually in read-only mode:
-   1. [Connect to a {{ CH }} cluster](connect.md) called `mych` with the `ro-user` user you created.
+   1. [Connect](connect.md) to the `mych` cluster with the `ro-user` you created.
    1. Try changing a setting, for example, disable read-only mode:
 
       ```

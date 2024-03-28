@@ -51,7 +51,7 @@ Where:
 * 2,000: Number of tokens in the request.
 * 1.0: Multiplier for using text vectorization.
 * $0.00008: Cost per 1,000 tokens.
-* $0.00008/1000: Cost per token.
+* $0.00008 / 1,000: Cost per token.
 
 
 ## Pricing {#prices}

@@ -118,7 +118,7 @@ END`<br/>or<br/>`IF(
     default_result
 )`
 
-Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`.
+Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`. The expressions to be checked are set using logical operators.
 
 
 
@@ -379,7 +379,7 @@ Returns the average of all values that meet the `condition` condition. If the va
 
 **Syntax:**`value [ NOT ] BETWEEN low AND high`
 
-Returns `TRUE` if `value` is in the range from `low` to `high`.
+Returns `TRUE` if `value` is in the range from `low` to `high` inclusive.
 
 The option `value NOT BETWEEN low AND high` returns the opposite value.
 
@@ -1115,6 +1115,8 @@ You can specify the value in `string_2` or use the `%` character to match a stri
 
 The `string_1 NOT LIKE` option returns the opposite value.
 
+When comparing values, the function is case-sensitive. You can use `LIKE` along with [UPPER](UPPER.md) or [LOWER](LOWER.md) for case-insensitive comparison.
+
 
 
 ## [LN](LN.md)
@@ -1847,7 +1849,7 @@ Converts the `expression` expression to string type.
 
 **Syntax:**`SUBSTR( string, from_index [ , length ] )`
 
-Returns the substring `string` starting from the index `from_index`.
+Returns the substring `string` starting from the index `from_index`. The numbering starts with one.
 
 If an additional argument `length` is specified, a substring of the specified length is returned.
 
@@ -1956,7 +1958,7 @@ Returns the string `string` in uppercase.
 
 **Syntax:**`URL( address, text )`
 
-Wraps `text` into a hyperlink to URL `address`.
+Wraps `text` into a hyperlink to URL `address`. When you click on the link, the page opens in a new browser tab.
 
 
 

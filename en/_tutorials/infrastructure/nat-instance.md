@@ -6,6 +6,7 @@ A _NAT instance_ is a special [VM](../../compute/concepts/vm.md) with pre-config
 
 To set up routing through a NAT instance:
 1. [Prepare your cloud](#before-you-begin).
+1. [Create a security group](#create-security-groups).
 1. [Create a test VM](#create-vm).
 1. [Create a NAT instance](#create-nat-instance).
 1. [Set up static routing in the cloud network](#configure-static-route).
@@ -32,36 +33,6 @@ The cost of NAT instance support includes:
    * `public-subnet` to host the NAT instance.
    * `private-subnet` to host your test VM.
 
-## Create a test VM {#create-vm}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a test VM.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter a name for the VM, such as `test-vm`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the [availability zone](../../overview/concepts/geo-scope.md) where the `private-subnet` [subnet](../../vpc/concepts/network.md#subnet) is located.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/concepts/image.md) and a Linux-based OS version.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet for the test VM, such as `private-subnet`.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_none }}**.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
-   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-
-   Save the username, private SSH key, and internal IP for the test VM.
-
-- {{ TF }} {#tf}
-
-   See [How to create an infrastructure using {{ TF }}](#terraform).
-
-{% endlist %}
-
 ## Create a security group {#create-security-groups}
 
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow your VMs to be accessed via SSH. In this tutorial, you will create a security group called `nat-instance-sg`.
@@ -73,7 +44,7 @@ To create a security group:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab.
+   1. Open the ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab.
    1. Create a security group:
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter the group name: `nat-instance-sg`.
@@ -87,13 +58,51 @@ To create a security group:
          | Incoming | `ext-http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | Incoming | `ext-https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
-         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
-         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from. To open all ports, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}**.
-         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic transmission over any protocol.
-         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`, and the rule will apply to a range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, enter `0.0.0.0/0`.
-         1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
+      1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from. To open all ports, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}**.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic transmission over any protocol.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`, and the rule will apply to a range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, enter `0.0.0.0/0`.
+      1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
       1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- {{ TF }} {#tf}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
+{% endlist %}
+
+## Create a test VM {#create-vm}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select a folder where you want to create your test VM.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter a name for the VM, such as `test-vm`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the availability zone where `private-subnet` is located.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an image and a Linux-based OS version.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet for the test VM, such as `private-subnet`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_none }}**.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `nat-instance-sg` group you created earlier.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
+
+         {% note info %}
+
+         Save the keys in the default directory and give them standard names, e.g., `id_ed25519` or `id_rsa`.
+
+         {% endnote %}
+
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+   Save the username, private SSH key, and internal IP address for the test VM.
 
 - {{ TF }} {#tf}
 
@@ -118,12 +127,20 @@ To create a security group:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet for the NAT instance, such as `public-subnet`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `nat-instance-sg` group you created earlier.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to create an SSH key pair yourself.
+
+         {% note info %}
+
+         Save the keys in the default directory and give them standard names, e.g., `id_ed25519` or `id_rsa`.
+
+         {% endnote %}
+
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   Save the username, private SSH key, and internal and public IPs for the NAT instance.
+   Save the username, private SSH key, and internal and public IP addresses for the NAT instance.
 
 - {{ TF }} {#tf}
 
@@ -173,26 +190,32 @@ You can also use the created route for other subnets in the same network, except
 
 ## Test the NAT instance {#test-nat-instance}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the NAT instance over SSH by specifying:
-   * NAT instance user name
-   * NAT instance public IP address
-   * VM user name
-   * VM internal IP address
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via a private IP address, using the NAT instance as a jump host:
 
-     1. In the terminal, run this command:
+   ```bash
+   ssh -J <NAT_instance_user_name>@<NAT_instance_public_IP_address> \
+     <VM_user_name>@<VM_internal_IP_address>
+   ```
 
-        ```bash
-        ssh -J <NAT_instance_user_name>@<NAT_instance_public_IP_address> \
-        <VM_user_name>@<VM_internal_IP_address>
-        ```
+   You can also connect to the test VM using the standard input/output redirection (the `-W` flag) to forward the connection through a NAT instance:
 
-     1. Type **yes** to connect to the NAT instance and re-enter **yes** to connect to the test VM.
+   ```bash
+   ssh -o ProxyCommand="ssh -i <path/NAT_key_file_name> -W %h:%p <NAT_user_name>@<NAT_public_IP_address>" \
+     -i <VM_key_file_path/name> <VM_user_name>@<VM_internal_IP_address>
+   ```
 
-        {% note info %}
+   Use this command for connection in the following cases:
 
-        When you type **yes**, the command may not be displayed in the terminal, but it will run anyway.
+   * Your VM is running an OpenSSH version below 7.3.
+   * Your SSH keys are stored outside the default directory or have non-standard names.
 
-        {% endnote %}
+1. Type **yes** to connect to the NAT instance and re-enter **yes** to connect to the test VM.
+
+   {% note info %}
+
+   When you type **yes**, the command may not be displayed in the terminal, but it will run anyway.
+
+   {% endnote %}
 
 
 1. Make sure the test VM is connected to the internet via the public IP address of the NAT instance. Run this command:

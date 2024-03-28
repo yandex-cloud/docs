@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 Common labels for all {{ dataproc-name }} metrics:
 
 | Label | Value |
@@ -8,17 +10,17 @@ Common labels for all {{ dataproc-name }} metrics:
 | zone_id | Placement zone |
 | host | Host FQDN |
 
-### HDFS metrics {#data-proc-hdfs-metrics}
+## HDFS metrics {#data-proc-hdfs-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `dfs.cluster.Free_bytes`<br/>`DGAUGE`, bytes | Space available in HDFS. |
-| `dfs.cluster.NonDfsUsedSpace_bytes`<br/>`DGAUGE`, bytes | Space used by data storage subclusters (DataNode), not available for HDFS. |
-| `dfs.cluster.PercentRemaining`<br/>`DGAUGE`, % | Space available in HDFS. |
-| `dfs.cluster.PercentUsed`<br/>`DGAUGE`, % | Space used in HDFS. |
-| `dfs.cluster.Total_bytes`<br/>`DGAUGE`, bytes | HDFS size. |
-| `dfs.cluster.Used_bytes`<br/>`DGAUGE`, bytes | Space used in HDFS. |
+| `dfs.cluster.Free_bytes`<br/>`DGAUGE`, bytes | Space available in HDFS |
+| `dfs.cluster.NonDfsUsedSpace_bytes`<br/>`DGAUGE`, bytes | Space used by data storage subclusters (DataNode), not available for HDFS |
+| `dfs.cluster.PercentRemaining`<br/>`DGAUGE`, % | Space available in HDFS |
+| `dfs.cluster.PercentUsed`<br/>`DGAUGE`, % | Space used in HDFS |
+| `dfs.cluster.Total_bytes`<br/>`DGAUGE`, bytes | HDFS size |
+| `dfs.cluster.Used_bytes`<br/>`DGAUGE`, bytes | Space used in HDFS |
 
-### Disk metrics {#data-proc-disk-metrics}
+## Disk metrics {#data-proc-disk-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `system.disk.free_bytes`<br/>`DGAUGE`, bytes | Space available in system storage |
@@ -30,7 +32,7 @@ Common labels for all {{ dataproc-name }} metrics:
 | `system.disk.used_bytes`<br/>`DGAUGE`, bytes | Used disk space |
 | `system.disk.used_percent`<br/>`DGAUGE`, % | Used disk space |
 
-### YARN metrics {#data-proc-yarn-metrics}
+## YARN metrics {#data-proc-yarn-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `yarn.cluster.activeNodes`<br/>`DGAUGE`, number | Number of active nodes |
@@ -40,7 +42,7 @@ Common labels for all {{ dataproc-name }} metrics:
 | `yarn.cluster.appsFailed`<br/>`DGAUGE`, number | Apps failed |
 | `yarn.cluster.appsKilled`<br/>`DGAUGE`, number | Apps killed |
 | `yarn.cluster.appsPending`<br/>`DGAUGE`, number | Apps enqueued |
-| `yarn.cluster.appsRunning`<br/>`DGAUGE`, number | Apps running.|
+| `yarn.cluster.appsRunning`<br/>`DGAUGE`, number | Apps running |
 | `yarn.cluster.appsSubmitted`<br/>`DGAUGE`, number | Apps started |
 | `yarn.cluster.availableMB`<br/>`DGAUGE`, MB | Available memory |
 | `yarn.cluster.availableVirtualCores`<br/>`DGAUGE`, number | Number of available virtual cores |
@@ -70,8 +72,8 @@ Common labels for all {{ dataproc-name }} metrics:
 | `yarn.cluster.utilizedMBPercent`<br/>`DGAUGE`, % | Utilized memory |
 | `yarn.cluster.utilizedVirtualCoresPercent`<br/>`DGAUGE`, % | Utilized virtual cores |
 
-### Other metrics {#data-proc-other-metrics}
+## Other metrics {#data-proc-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `dataproc.cluster.health_status`<br/>`IGAUGE`, 0/1/2 | Cluster health and technical condition:<br/>`0`: Cluster is out of order (all of its hosts are down).<br/>`1`: Cluster is not running at its full capacity: the state of at least one of the hosts is other than `ALIVE`.<br/>`2`: Cluster is running normally. |
+| `dataproc.cluster.health_status`<br/>`IGAUGE`, 0/1/2 | Cluster health and technical condition:<br/>`0`: Cluster is out of order (all its hosts are down).<br/>`1`: Cluster is not running at full capacity (at least one of its hosts is other than `ALIVE`).<br/>`2`: Cluster is running normally. |
 | `dataproc.cluster.neededAutoscalingNodesNumber`<br/>`DGAUGE`, number | {{ dataproc-full-name }} service metric for scaling by default |

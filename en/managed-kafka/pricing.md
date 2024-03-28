@@ -21,7 +21,7 @@ Prices are applied differently depending on the cluster status:
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What is included in {{ mkf-short-name }} cost {#rules}
+## What goes into the cost of using {{ mkf-short-name }} {#rules}
 
 The {{ mkf-name }} usage cost is based on:
 
@@ -35,7 +35,7 @@ The {{ mkf-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can check the supported resource configurations in [{#T}](concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section, while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts (as appropriate for the expected replication load).
 

@@ -43,11 +43,11 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     [Создайте кластер {{ mos-name }}](../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации.
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -120,12 +120,12 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. Укажите в файле `trails-to-opensearch.tf` переменные:
 
@@ -250,11 +250,11 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     [Удалите кластер {{ mos-name }}](../managed-opensearch/operations/cluster-delete.md).
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `trails-to-opensearch.tf`.

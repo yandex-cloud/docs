@@ -66,6 +66,7 @@
 	{% include [include](../../_includes/cli-install.md) %}
 
 	Выполните следующую команду:
+
 	```
 	yc vpc subnet create --name test-subnet-1 \
 	  --description "My test subnet" \
@@ -80,6 +81,7 @@
 	Где `<идентификатор_каталога>` — идентификатор каталога, в котором создаются ресурсы. Если каталог указан в профиле CLI, параметр можно не использовать.
 
 	Результат:
+
 	```
 	id: e2ldy0b1prtj********
 	folder_id: b1gbvco8fejm********
@@ -131,12 +133,14 @@
 		{% include [include](../../_includes/cli-install.md) %}
 	
 		Чтобы установить на виртуальной машине пароль, подготовьте файл metadata.yaml со следующим содержимым:
+
 		```
 		#ps1
 		net user administrator '<пароль>'
 		```
 
 		Выполните команду, чтобы создать виртуальную машину:
+
 		```
 		yc compute instance create \
 		  --name vm-for-tests-in-subnet \
@@ -178,6 +182,7 @@
 	```
 
 	Результат:
+
 	```
 	Windows IP Configuration
 	
@@ -221,11 +226,13 @@
 1. Проверьте, есть ли связь с контроллером домена `yantoso.net`. 
 
 	Для этого выполните команду:
+
 	```
 	ping ad-vm-a
 	```
 	
-	Результат в случае успешного соединения: 
+	Результат в случае успешного соединения:
+
 	```
 	PS C:\Users\Administrator> ping ad-vm-a
 	
@@ -263,6 +270,7 @@
 		{% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 		Для удаления ВМ выполните:
+
 		```
 		yc compute instance delete vm-for-tests-in-subnet
 		```
@@ -288,6 +296,7 @@
 		{% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 		Чтобы удалить подсеть, выполните:
+
 		```
 		yc vpc subnet delete --name test-subnet-1
 		```

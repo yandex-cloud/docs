@@ -86,7 +86,7 @@ If the provider installation failed, create a [support request]({{ link-console-
 If you used the `.terraform.lock.hcl` file, before initialization run the `terraform providers lock` command, specifying the URL of the mirror the provider will be uploaded from and the platforms the configuration will be used on:
 
 ```bash
-terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=<platform_name_1> -platform=<platform_name_2> yandex-cloud/yandex
+terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=<platform_1_name> -platform=<platform_2_name> yandex-cloud/yandex
 ```
 
 Where:

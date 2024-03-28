@@ -178,7 +178,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 | --- | --- | --- | --- |
 | `subnet-a` | `10.1.11.0/24` | `{{ region-id }}-a` | `net-folder` |
 | `subnet-b` | `10.1.12.0/24` | `{{ region-id }}-b` | `dev-folder` |
-| `subnet-c` | `10.1.13.0/24` | `{{ region-id }}-c` | `prod-folder` |
+| `subnet-d` | `10.1.13.0/24` | `{{ region-id }}-d` | `prod-folder` |
 
 1. Create a [cloud network](../../vpc/concepts/network.md):
 
@@ -254,7 +254,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
       1. Enter the subnet CIDR: `10.1.11.0` for the IP address and `24` for the mask. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-      Similarly, create `subnet-b` and `subnet-с` in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones in **net-folder**.
+      Similarly, create `subnet-b` and `subnet-d` in the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones in **net-folder**.
 
    - CLI {#cli}
 
@@ -273,8 +273,8 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
          yc vpc subnet create --folder-name dev-folder --name subnet-b \
            --network-name shared-net --zone {{ region-id }}-b --range 10.1.12.0/24
 
-         yc vpc subnet create --folder-name prod-folder --name subnet-c \
-           --network-name shared-net --zone {{ region-id }}-c --range 10.1.13.0/24
+         yc vpc subnet create --folder-name prod-folder --name subnet-d \
+           --network-name shared-net --zone {{ region-id }}-d --range 10.1.13.0/24
          ```
 
       1. Check the state of the created subnets:
@@ -308,12 +308,12 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
            network_id     = yandex_vpc_network.shared_net.id
          }
 
-         resource "yandex_vpc_subnet" "subnet_c" {
+         resource "yandex_vpc_subnet" "subnet_d" {
            folder_id      = yandex_resourcemanager_folder.prod_folder.id
-           name           = "subnet-c"
+           name           = "subnet-d"
            description    = "PROD folder subnet"
            v4_cidr_blocks = ["10.1.13.0/24"]
-           zone           = "{{ region-id }}-c"
+           zone           = "{{ region-id }}-d"
            network_id     = yandex_vpc_network.shared_net.id
          }
          ```
@@ -370,7 +370,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
 {% endlist %}
 
-Move `subnet-b` to `prod-folder` in the same way.
+Move `subnet-d` to `prod-folder` in the same way.
 
 ## Create VMs {#create-vms}
 
@@ -380,7 +380,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 | --- | --- | --- | --- |
 | `net-vm` | `net-folder` | `{{ region-id }}-a` | `subnet-a` |
 | `dev-vm` | `dev-folder` | `{{ region-id }}-b` | `subnet-b` |
-| `prod-vm` | `prod-folder` | `{{ region-id }}-c` | `subnet-c` |
+| `prod-vm` | `prod-folder` | `{{ region-id }}-d` | `subnet-d` |
 
 {% list tabs group=instructions %}
 
@@ -457,11 +457,11 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
         --metadata-from-file user-data=vm-config.txt
 
       yc compute instance create --name=prod-vm --hostname=prod-vm \
-        --zone={{ region-id }}-c \
+        --zone={{ region-id }}-d \
         --platform=standard-v3 \
         --cores=2 --memory=4G --core-fraction=100 \
         --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-        --network-interface subnet-name=default-{{ region-id }}-c,ipv4-address=auto,nat-ip-version=ipv4 \
+        --network-interface subnet-name=default-{{ region-id }}-d,ipv4-address=auto,nat-ip-version=ipv4 \
         --metadata-from-file user-data=vm-config.txt
       ```
 
@@ -601,7 +601,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
         name        = "prod-vm"
         hostname    = "prod-vm"
         platform_id = "standard-v3"
-        zone        = "{{ region-id }}-c"
+        zone        = "{{ region-id }}-d"
         resources {
           cores  = 2
           memory = 4
@@ -612,7 +612,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
         }
 
         network_interface {
-          subnet_id = yandex_vpc_subnet.subnet_c.id
+          subnet_id = yandex_vpc_subnet.subnet_d.id
           nat       = true
         }
 

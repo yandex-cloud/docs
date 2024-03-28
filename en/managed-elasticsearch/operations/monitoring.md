@@ -1,5 +1,5 @@
 ---
-title: "How to view detailed information about the {{ mes-name }} cluster state"
+title: "How to view detailed information about a {{ mes-name }} cluster state"
 description: "Follow this guide to view detailed information about the state of a {{ mes-name }} cluster."
 ---
 
@@ -106,7 +106,7 @@ To view detailed information about the state of individual {{ mes-name }} hosts:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
 

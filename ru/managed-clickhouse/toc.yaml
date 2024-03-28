@@ -170,7 +170,7 @@ items:
             href: pricing-archive/pricing-01022020.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/managed-clickhouse/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:

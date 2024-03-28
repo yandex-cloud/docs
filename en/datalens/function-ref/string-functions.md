@@ -201,7 +201,7 @@ Returns `TRUE` if `string` starts with `substring`. For case-insensitive searche
 
 **Syntax:**`SUBSTR( string, from_index [ , length ] )`
 
-Returns the substring `string` starting from the index `from_index`.
+Returns the substring `string` starting from the index `from_index`. The numbering starts with one.
 
 If an additional argument `length` is specified, a substring of the specified length is returned.
 

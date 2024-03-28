@@ -27,7 +27,6 @@
    ```
 
    Where:
-
    * `--cores`: Number of cores available for the container.
    * `--memory`: Required memory. The default value is 128 MB.
    * `--concurrency`: Maximum number of concurrent requests to a single container instance. May be in the range between 1 (default) and 16. If the number of requests to a container exceeds the `concurrency` value, [{{ serverless-containers-full-name }}](../../serverless-containers/) scales the container up by running its additional instances.
@@ -67,7 +66,6 @@
    In {{ TF }}, a new [revision](../../serverless-containers/concepts/container.md#revision) is created every time the resource runtime parameters are updated.
 
    To create a revision:
-
    1. Update the `yandex_serverless_container` resource runtime parameters in the configuration file:
 
       ```hcl
@@ -89,9 +87,7 @@
       ```
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, navigate to the folder where the configuration file was created.
       1. Run a check using this command:
 

@@ -296,9 +296,9 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 1. Run Docker Desktop.
 1. Log in to the registry under your username:
 
-   {% list tabs %}
+   {% list tabs group=registry_auth %}
 
-   - Using a Docker Credential Helper
+   - Using the Docker credential helper {#docker}
 
       1. Configure Docker to use `docker-credential-yc`:
 
@@ -309,7 +309,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
          Result:
 
          ```text
-         Credential helper is configured in '/home/<user>/.docker/config.json'
+         Credential Helper is configured in '/home/<user>/.docker/config.json'
          ```
 
          Settings are saved in the current user's profile.
@@ -331,7 +331,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
       1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md). You do not need to run the `docker login` command for that.
 
    
-   - Using an OAuth token
+   - Using an OAuth token {#oauth-token}
 
       1. If you do not have an [OAuth token](../../iam/concepts/authorization/oauth-token.md) yet, get one by following [this link]({{ link-cloud-oauth }}).
       1. Run this command:
@@ -347,7 +347,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
          ```
 
 
-   - Using an IAM token
+   - Using an IAM token {#iam-token}
 
       {% note info %}
 

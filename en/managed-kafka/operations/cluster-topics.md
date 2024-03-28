@@ -7,7 +7,7 @@ description: "Follow this guide to manage topics and partitions."
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions (which can be used separately or combined):
 * Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Use this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
-* Using the {{ KF }} [Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you wish to use your existing solution to manage topics and partitions.
+* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you wish to use your existing solution to manage topics and partitions.
 
 ## Managing topics and partitions with the {{ KF }} Admin API {#admin-api}
 
@@ -66,7 +66,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config`, as required:
 
       ```hcl
@@ -157,7 +157,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
 
       ```hcl
@@ -191,7 +191,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
    * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -324,7 +324,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Delete the `yandex_mdb_kafka_topic` resource with the relevant topic description.
    1. Make sure the settings are correct.
 

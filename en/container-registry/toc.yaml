@@ -95,6 +95,8 @@ items:
         href: tutorials/ci-cd-serverless.md
       - name: Storing Docker images created in {{ mgl-full-name }} projects
         href: tutorials/image-storage.md
+      - name: Connecting to {{ container-registry-name }} from {{ vpc-short-name }}
+        href: tutorials/vpc-cr-access.md
   - name: Concepts
     items:
       - name: Overview

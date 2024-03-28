@@ -1,6 +1,6 @@
-#### What is the backup procedure for a {{ CH }} database? {#backup-overview}
+#### How do I back up a {{ CH }} database? {#backup-overview}
 
-Backups are created every 24 hours and stored for seven days after being created. You can restore data only as of the backup creation time.
+Backups are created every 24 hours and stored for seven days after being created. You can restore data only as of backup creation time.
 
 #### Is DB host backup enabled by default? {#default-backup}
 
@@ -18,7 +18,7 @@ The size and amount of backups are not limited. Automatically created backups ar
 
 #### What does a daily backup include? {#daily-backups}
 
-Backup data is only stored for the `MergeTree` engine family. For other engines, backups only store table schemas. For more information, see [{#T}](../../managed-clickhouse/concepts/backup.md).
+Backup data is only stored for the `MergeTree` engine family. For other engines, backups only store table schemas. For more information, see [Backups](../../managed-clickhouse/concepts/backup.md).
 
 #### Why does it take a long time to restore a cluster from a backup? {#long-restore}
 

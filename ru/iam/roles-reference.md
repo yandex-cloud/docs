@@ -31,10 +31,6 @@ description: "В статье приведен полный справочник
 
 ## Служебные роли {#auxiliary-roles}
 
-#### marketplace.meteringAgent {#marketplace-meteringagent}
-
-{% include [marketplace.meteringAgent](../_roles/marketplace/meteringAgent.md) %}
-
 #### quota-manager.requestOperator {#quota-manager-requestoperator}
 
 {% include [quota-manager.requestOperator](../_roles/quota-manager/requestOperator.md) %}
@@ -295,6 +291,27 @@ description: "В статье приведен полный справочник
 {% include [logging.admin](../_roles/logging/admin.md) %}
 
 Подробнее см. [{#T}](../logging/security/index.md).
+
+
+## {{ marketplace-full-name }} {#marketplace-roles}
+
+#### marketplace.meteringAgent {#marketplace-meteringagent}
+
+{% include [marketplace.meteringAgent](../_roles/marketplace/meteringAgent.md) %}
+
+#### license-manager.auditor {#license-manager-auditor}
+
+{% include [license-manager.auditor](../_roles/license-manager/auditor.md) %}
+
+#### license-manager.viewer {#license-manager-viewer}
+
+{% include [license-manager.viewer](../_roles/license-manager/viewer.md) %}
+
+#### license-manager.user {#license-manager-user}
+
+{% include [license-manager.user](../_roles/license-manager/user.md) %}
+
+Подробнее см. [{#T}](../marketplace/security/index.md).
 
 
 ## {{ org-full-name }} {#organization-roles}

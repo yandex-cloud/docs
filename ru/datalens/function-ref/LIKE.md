@@ -20,6 +20,8 @@ string_1 [ NOT ] LIKE string_2
 
 Вариант `string_1 NOT LIKE` возвращает противоположное значение.
 
+Функция учитывает регистр символов при сравнении значений. Вы можете использовать `LIKE` совместно с функциями [UPPER](UPPER.md) или [LOWER](LOWER.md), чтобы производить сравнение без учета регистра символов.
+
 **Типы аргументов:**
 - `string_1` — `Строка`
 - `string_2` — `Строка`
@@ -34,6 +36,10 @@ string_1 [ NOT ] LIKE string_2
 ```
 
 ```
+"raspberry" LIKE "%SPB%" = FALSE
+```
+
+```
 "raspberry" NOT LIKE "%spb%" = FALSE
 ```
 
@@ -43,6 +49,14 @@ IIF([Country] LIKE 'RU', 'Y', 'N')
 
 ```
 IIF([Phone] LIKE '+7%', 'RU', 'notRU')
+```
+
+```
+UPPER("raspberry") LIKE "%SPB%" = TRUE
+```
+
+```
+UPPER("West") LIKE "WEST" = TRUE
 ```
 
 

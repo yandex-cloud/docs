@@ -1,4 +1,4 @@
-## {{ monitoring-full-name }} service {#monitoring}
+The name of the metric is written in the `name` label.
 
 All [{{ monitoring-name }}](../../../monitoring/) metrics share the `service=monitoring` label.
 

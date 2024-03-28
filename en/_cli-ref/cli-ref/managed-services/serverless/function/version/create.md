@@ -51,6 +51,7 @@ Syntax:
 |`--async-success-sa-id`|<b>`string`</b><br/>Service account for writing successful result of async invocation function.|
 |`--async-failure-ymq-arn`|<b>`string`</b><br/>YMQ ARN target for failure.|
 |`--async-failure-sa-id`|<b>`string`</b><br/>Service account for writing unsuccessful result of async invocation function.|
+|`--tmpfs-size`|<b>`byteSize`</b><br/>Size of memory for use as in-memory storage mounted as /tmp directory. Example: '512MB', '1GB'. The default value is 0B.|
 
 #### Global Flags
 

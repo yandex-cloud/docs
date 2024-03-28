@@ -107,6 +107,10 @@ items:
           Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name
           }}
         href: tutorials/yezzey.md
+      - name: >-
+          Загрузка данных из {{ objstorage-full-name }} в {{ mgp-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/object-storage-to-greenplum.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

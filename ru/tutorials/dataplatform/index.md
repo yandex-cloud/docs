@@ -52,6 +52,7 @@ description: "На странице представлен список прак
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](greenplum-to-postgresql.md)
 * [{#T}](greenplum-yezzey.md)
+* [{#T}](object-storage-to-greenplum.md)
 
 
 ## {{ ES }} {#elasticsearch}

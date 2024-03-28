@@ -1,1 +1,1 @@
-The `managed-redis.auditor` role enables you to view information about clusters and quotas.
+The `managed-redis.auditor` role allows you to view information on Redis [hosts and clusters](../../managed-redis/concepts/index.md), as well as [quotas](../../managed-redis/concepts/limits.md#mrd-quotas) and resource operations for Managed Service for Redis.

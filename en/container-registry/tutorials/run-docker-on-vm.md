@@ -185,7 +185,7 @@ The infrastructure support costs include:
          +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
          |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
          +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-         | b0c6n43f9lgh******** | default-{{ region-id }}-c     | enpe3m3fa00u******** |                | {{ region-id }}-c     | [10.130.0.0/24] |
+         | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.130.0.0/24] |
          | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.129.0.0/24] |
          | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.128.0.0/24] |
          +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
@@ -345,22 +345,22 @@ The infrastructure support costs include:
 1. To make command execution easier, add the following variables:
    * Username and your VM's public IP as `${PUBLIC_IP}`:
 
-     ```bash
-     export PUBLIC_IP=<username>@<VM_public_IP_address>
-     ```
+      ```bash
+      export PUBLIC_IP=<username>@<VM_public_IP_address>
+      ```
 
    * ID of the previously created registry in `crpc9qeoft23********` format as `${REGISTRY_ID}`:
 
-     ```bash
-     export REGISTRY_ID=<registry_ID>
-     ```
+      ```bash
+      export REGISTRY_ID=<registry_ID>
+      ```
 
 1. Authenticate as yourself:
 
-   {% list tabs %}
+   {% list tabs group=registry_auth %}
 
    
-   - Using an OAuth token
+   - Using an OAuth token {#oauth-token}
 
       1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
       1. Run this command:
@@ -376,7 +376,7 @@ The infrastructure support costs include:
          ```
 
 
-   - Using an IAM token
+   - Using an IAM token {#iam-token}
 
       {% note info %}
 
@@ -398,7 +398,7 @@ The infrastructure support costs include:
          Login succeeded
          ```
 
-   - Using a Docker credential helper
+   - Using the Docker credential helper {#docker}
 
       1. If you do not have a YC CLI profile yet, [create one](../../cli/quickstart.md#initialize).
       1. Configure Docker to use `docker-credential-yc`:

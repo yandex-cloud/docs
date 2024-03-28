@@ -46,7 +46,7 @@ description: "Follow this guide to delete a container."
       resource "yandex_serverless_container" "test-container" {
         name               = "my-container"
         memory             = 256
-        service_account_id = "ajec........34ova"
+        service_account_id = "ajecvjv1lv01********"
         image {
             url = "{{ registry }}/yc/test-image:v1"
         }

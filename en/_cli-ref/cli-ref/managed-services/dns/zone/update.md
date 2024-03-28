@@ -23,6 +23,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the DNS zone.|
 |`--network-ids`|<b>`value[,value]`</b><br/>Specifies identifiers of networks which DNS zone records will be visible from.|
 |`--clear-network-ids`|Clears identifiers of networks from which DNS zone records are visible.|
+|`--deletion-protection`|Prevents accidental zone removal.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 
 #### Global Flags

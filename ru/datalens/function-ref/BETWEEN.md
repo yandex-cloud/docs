@@ -15,7 +15,7 @@ value [ NOT ] BETWEEN low AND high
 ```
 
 #### Описание {#description}
-Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high`.
+Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high` включительно.
 
 Вариант `value NOT BETWEEN low AND high` возвращает противоположное значение
 
@@ -27,6 +27,13 @@ value [ NOT ] BETWEEN low AND high
 
 **Возвращаемый тип**: `Логический`
 
+{% note info %}
+
+Тип аргументов `value`, `low`, `high` должен совпадать.
+
+{% endnote %}
+
+
 #### Примеры {#examples}
 
 ```
@@ -34,7 +41,19 @@ value [ NOT ] BETWEEN low AND high
 ```
 
 ```
+100 BETWEEN 1 AND 100 = TRUE
+```
+
+```
 3 NOT BETWEEN 1 AND 100 = FALSE
+```
+
+```
+#2018-01-12# BETWEEN #2018-01-10# AND #2018-01-15# = TRUE
+```
+
+```
+#2018-01-12 01:02:10# BETWEEN #2018-01-12 01:02:00# AND #2018-01-12 01:02:30# = TRUE
 ```
 
 

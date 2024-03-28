@@ -18,7 +18,7 @@ description: "Use this guide to read and visualize metrics with Grafana."
 1. Under **Time series databases**, select **Prometheus**.
 1. In the **Name** field, enter the data source name.
 1. In the **URL** field, the **HTTP** section, specify the [previously obtained endpoint](../index.md#access).
-1. Under **Custom HTTP headers**, click **Add Header** and add a header for authorization. In the **Header** field, type `Authorization` and set the **Value** field to `Bearer <Api-Key>`.
+1. Under **Custom HTTP headers**, click **Add Header** and add a header for authorization. In the **Header** field, enter `Authorization`; in the **Value** field, enter `Bearer <API_key>`.
 1. Click **Save & test**. You should see a message saying `The data source is working`.
 
 ## Current limitations {#restrictions}

@@ -209,6 +209,8 @@ items:
             href: tutorials/objs-mmy-migration.md
           - name: '{{ objstorage-name }} в {{ PG }}'
             href: tutorials/object-storage-to-postgresql.md
+          - name: '{{ objstorage-name }} в {{ GP }}'
+            href: tutorials/object-storage-to-greenplum.md
           - name: '{{ yandex-direct }} в {{ CH }}'
             href: tutorials/direct-to-mch.md
           - name: '{{ objstorage-name }} в {{ CH }}'
@@ -263,6 +265,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Март 2024
+        href: release-notes/2403.md
       - name: Февраль 2024
         href: release-notes/2402.md
       - name: Январь 2024

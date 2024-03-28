@@ -48,7 +48,7 @@ The infrastructure support costs include:
 * Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
-* Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for public DNS queries and DNS zones if using {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
 
@@ -142,11 +142,11 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
          - 10.2.0.0/16
          ```
 
-      * In `{{ region-id }}-c`:
+      * In `{{ region-id }}-d`:
 
          ```bash
-         yc vpc subnet create example-subnet-{{ region-id }}-c \
-           --zone {{ region-id }}-c \
+         yc vpc subnet create example-subnet-{{ region-id }}-d \
+           --zone {{ region-id }}-d \
            --network-name example-network \
            --range 10.3.0.0/16
          ```
@@ -157,9 +157,9 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
          id: b0c3pte4o2kn********
          folder_id: b1g9hv2loamq********
          created_at: "2022-04-04T09:28:08Z"
-         name: example-subnet-{{ region-id }}-c
+         name: example-subnet-{{ region-id }}-d
          network_id: enptrcle5q3d********
-         zone_id: {{ region-id }}-c
+         zone_id: {{ region-id }}-d
          v4_cidr_blocks:
          - 10.3.0.0/16
          ```
@@ -170,7 +170,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, describe the parameters of `example-network` and its subnets: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`:
+   1. In the configuration file, describe the parameters of `example-network` and its `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` subnets:
 
       ```hcl
       resource "yandex_vpc_network" "example-network" {
@@ -191,9 +191,9 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
         v4_cidr_blocks = ["10.2.0.0/16"]
       }
 
-      resource "yandex_vpc_subnet" "example-subnet-c" {
-        name           = "example-subnet-{{ region-id }}-c"
-        zone           = "{{ region-id }}-c"
+      resource "yandex_vpc_subnet" "example-subnet-d" {
+        name           = "example-subnet-{{ region-id }}-d"
+        zone           = "{{ region-id }}-d"
         network_id     = "${yandex_vpc_network.example-network.id}"
         v4_cidr_blocks = ["10.3.0.0/16"]
       }
@@ -225,7 +225,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 - API {#api}
 
    1. Create a network named `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
-   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` and `example-subnet-{{ region-id }}-c` in the three availability zones by calling the gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../../vpc/api-ref/Subnet/create.md) method.
+   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` subnets in three availability zones using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method.
 
 {% endlist %}
 
@@ -421,7 +421,7 @@ To create security groups:
       | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A |
+      | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
       1. Go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -430,7 +430,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
          * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
-         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
+         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
 
       1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
 
@@ -756,7 +756,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `example-network`.
       1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `example-sg`. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
 
-   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select three subnets for the load balancer nodes: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
+   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select these three subnets for the load balancer nodes: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d`, and enable traffic to these subnets.
    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and set up the listener:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-listener`.
@@ -781,7 +781,7 @@ To create security groups:
       +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
       |          ID          |               NAME               |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |     RANGE     |
       +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
-      | e9bnnssj8sc8******** |   example-subnet-{{ region-id }}-c   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-c   | [10.1.0.0/16] |
+      | e9bnnssj8sc8******** |   example-subnet-{{ region-id }}-d   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-d   | [10.1.0.0/16] |
       | e2lghukd9iqo******** |   example-subnet-{{ region-id }}-b   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-b   | [10.2.0.0/16] |
       | b0c3pte4o2kn******** |   example-subnet-{{ region-id }}-a   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-a   | [10.3.0.0/16] |
       +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
@@ -811,7 +811,7 @@ To create security groups:
         --security-group-id <example-sg_security_group_ID> \
         --location zone={{ region-id }}-a,subnet-id=<example-subnet-{{ region-id }}-a_subnet_ID> \
         --location zone={{ region-id }}-b,subnet-id=<example-subnet-{{ region-id }}-b_subnet_ID> \
-        --location zone={{ region-id }}-c,subnet-id=<example-subnet-{{ region-id }}-c_subnet_ID>
+        --location zone={{ region-id }}-d,subnet-id=<example-subnet-{{ region-id }}-d_subnet_ID>
       ```
 
       Result:
@@ -826,7 +826,7 @@ To create security groups:
       network_id: enptrcle5q3d********
       allocation_policy:
         locations:
-        - zone_id: {{ region-id }}-c
+        - zone_id: {{ region-id }}-d
           subnet_id: b0c3pte4o2kn********
         - zone_id: {{ region-id }}-b
           subnet_id: e2lghukd9iqo********
@@ -873,7 +873,7 @@ To create security groups:
             http_router_id: ds7qd0vj01dj********
       allocation_policy:
         locations:
-        - zone_id: {{ region-id }}-c
+        - zone_id: {{ region-id }}-d
           subnet_id: b0c3pte4o2kn********
         - zone_id: {{ region-id }}-b
           subnet_id: e2lghukd9iqo********
@@ -911,8 +911,8 @@ To create security groups:
           }
 
           location {
-            zone_id   = "{{ region-id }}-c"
-            subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-c.id}
+            zone_id   = "{{ region-id }}-d"
+            subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-d.id}
           }
         }
 
@@ -1333,5 +1333,5 @@ To shut down the infrastructure and stop paying for the created resources:
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `example-balancer` L7 load balancer.
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. [Delete](../../vpc/operations/subnet-delete.md) the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets.
+1. [Delete](../../vpc/operations/subnet-delete.md) the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` subnets.
 1. [Delete](../../vpc/operations/network-delete.md) the `example-network` network.

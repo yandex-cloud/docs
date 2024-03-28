@@ -34,12 +34,14 @@ items:
         href: concepts/embeddings.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: API reference
+  - name: API Reference
     items:
       - name: Overview
         href: concepts/api.md
       - name: Authentication with the API
         href: api-ref/authentication.md
+      - name: Migration to YandexGPT API v1 and Embeddings API v1
+        href: api-ref/migration-to-v1.md
       - name: YandexGPT API
         items:
           - name: REST

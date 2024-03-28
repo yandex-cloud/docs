@@ -27,6 +27,8 @@ Syntax:
 	- [yc datatransfer endpoint create mongo-target](create/mongo-target.md) — Create MongoDB target
 	- [yc datatransfer endpoint create clickhouse-source](create/clickhouse-source.md) — Create Clickhouse source
 	- [yc datatransfer endpoint create clickhouse-target](create/clickhouse-target.md) — Create Clickhouse target
+	- [yc datatransfer endpoint create yds-source](create/yds-source.md) — Create YDS source
+	- [yc datatransfer endpoint create yds-target](create/yds-target.md) — Create YDS target
 - [yc datatransfer endpoint update](update/index.md) — Update endpoint
 	- [yc datatransfer endpoint update postgres-source](update/postgres-source.md) — Update PostgreSQL source
 	- [yc datatransfer endpoint update postgres-target](update/postgres-target.md) — Update PostgreSQL target
@@ -36,6 +38,8 @@ Syntax:
 	- [yc datatransfer endpoint update mongo-target](update/mongo-target.md) — Update MongoDB target
 	- [yc datatransfer endpoint update clickhouse-source](update/clickhouse-source.md) — Update Clickhouse source
 	- [yc datatransfer endpoint update clickhouse-target](update/clickhouse-target.md) — Update Clickhouse target
+	- [yc datatransfer endpoint update yds-source](update/yds-source.md) — Update YDS source
+	- [yc datatransfer endpoint update yds-target](update/yds-target.md) — Update YDS target
 
 #### Global Flags
 

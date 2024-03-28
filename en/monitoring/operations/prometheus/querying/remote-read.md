@@ -13,10 +13,10 @@ description: "Use this guide to read metrics via the Remote API."
    ...
    remote_read:
      ...
-     - url: '<url>' # Provided on request
-       bearer_token: '<api_key>'
+     - url: '<URL>' # provided upon request
+       bearer_token: '<API_key>'
        # Or via a file (recommended):
-       # bearer_token_file: '<name of file with api_key>'
+       # bearer_token_file: '<name_of_the_file_with_the_API_key>'
 
        # We recommend adding a user-defined X-Lookback-Delta header.
        # If you did not change the lookback-delta parameter value in the configuration
@@ -26,21 +26,21 @@ description: "Use this guide to read metrics via the Remote API."
          X-Lookback-Delta: 5m
 
        # By default, data is only requested for the time ranges
-       # that are not present in the Prometheus local storage (are older than the Storage retention).
-       # If you want to always request data, which makes sense if reads and writes
-       # are made from different Prometheus instances, enable the option:
+       # not featured in the Prometheus local storage (older than the Storage retention).
+       # If you want to request data at any time, which makes sense if read and write operations
+       # are performed from different Prometheus instances, enable the following option:
        # [ read_recent: true ]
 
-       # If you want to only read some metrics via the Remote API, specify their labels:
+       # If you want to read only some of the metrics via the Remote API, specify their labels:
        # required_matchers:
-       # [ <labelname>: <labelvalue> ... ]
+       # [ <label_name>: <label_value> ... ]
    ```
 1. Restart {{ prometheus-name }} or reload the configuration.
 
 ## Error examples {#errors}
 
 * Read request limit exceeded
-   > ```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo916sceer","code":429}```
+   > ```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo********/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo********","code":429}```
 
 ## {{ prometheus-name }} metrics {#metrics}
 

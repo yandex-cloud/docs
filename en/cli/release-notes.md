@@ -7,19 +7,52 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
-## Version 0.120.0 (01.03.24) {#version0.120.0}
+### Version 0.121.0 (12/03/24) {#version0.121.0}
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ compute-name }}
+##### {{ mgp-name }} {#mgp}
+
+* Added the `yc managed-greenplum pxf-datasource` command tree with the `get`, `list`, and `delete` commands.
+* Added the `yc managed-greenplum pxf-datasource s3` and `yc managed-greenplum pxf-datasource jdbc` command trees with the `create`, and `update` commands.
+* Added the `--pxf-connection-timeout`, `--pxf-upload-timeout`, `--pxf-max-threads`, `--pxf-pool-allow-core-thread-timeout`, `--pxf-poll-core-size`, `--pxf-pool-queue-capacity`, `--pxf-pool-max-size`, `--pxf-xmx`, and `--pxf-xms` flags for the `yc managed-greenplum cluster update` command.
+
+##### {{ org-name }} {#organization}
+
+* Added a group of `yc organization-manager oslogin` commands for managing OS Login settings and custom SSH keys.
+
+##### {{ container-registry-name }} {#container-registry}
+
+* Added the `origin` and `type` fields to the `yc container image list-vulnerabilities` result.
+
+##### {{ load-testing-name }} {#load-testing}
+
+* Added the `yc loadtesting test wait` command to enable waiting until a load test is complete.
+* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command to enable waiting until the created load test is complete.
+* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` flags to the `yc loadtesting test create` command to enable selecting a load testing agent by filer or an anonymous agent respectively.
+* Added the `--filter` flag to the `yc loadtesting agent list` command to filter a list of agents.
+
+##### {{ vpc-name }} {#vpc}
+
+* Added the `--dns-record` flag to the `yc vpc address create` command for providing DNS specifications of the address.
+* Added the following flags to the `yc vpc address update` command:
+
+   * `--dns-record` for providing DNS specifications of the address
+   * `--clear-dns-records` for removing all DNS specifications of the address
+
+## Previous releases {#previous-releases}
+
+### Version 0.120.0 (01/03/24) {#version0.120.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }}
 
 * The `yc compute connect-to-serial-port` command supports authorization through OS Login.
 
-#### {{ at-name }}
+##### {{ at-name }}
 
 * Added the `yc audit-trails trail` command tree with the `get`, `list`, `create`, `update`, `delete`, `list-operations`, `list-access-bindings`, `set-access-bindings`, `add-access-binding`, `remove-access-binding` commands for managing trails.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.119.0 (27/02/24) {#version0.119.0}
 
@@ -31,7 +64,7 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ##### {{ compute-name }}
 
-* Added support for serial port settings in the `yc compute instance create` and the `yc compute instance update` commands.
+* Added support for serial port settings in the `yc compute instance create` and `yc compute instance update` commands.
 
 ### Version 0.118.0 (14/02/24) {#version0.118.0}
 
@@ -346,7 +379,7 @@ Fixed the issue with the `yc compute instance-group update` command when the ins
 * In the `yc serverless trigger create iot-devices`, `yc serverless trigger create iot-broker`, `yc serverless trigger create object-storage`, `yc serverless trigger create container-registry`, and `yc serverless trigger create mail` commands:
    * Added the `--batch-size` parameter to set the message batch size.
    * Added the `--batch-cutoff` parameter to set the maximum batch creation time.
-* Added the `--stream-names` parameter to the `yc serverless trigger create logging` command to enable filtering by log stream name.
+* Added the `--stream-names` parameter to the `yc serverless trigger create logging` command for filtering by log stream name.
 * Added the `yc serverless function version delete` command to delete function versions.
 
 ##### {{ kms-name }} {#kms}
@@ -511,6 +544,7 @@ Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs`
 #### Changes to {{ yandex-cloud }} services {#services}
 
 ##### {{ api-gw-name }} {#api-gw}
+
 Added the following parameters to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands:
 
 * `--no-logging` to disable logging from an API gateway.
@@ -521,6 +555,7 @@ Added the following parameters to the `yc serverless api-gateway create` and `yc
 
 
 ##### {{ compute-name }} {#compute}
+
 * Added the `yc compute gpu-cluster` group of commands to manage GPU clusters.
 * Added the `--gpu-cluster-id` and `--gpu-cluster-name` parameters to the `yc compute instance create` command to create a VM instance in a GPU cluster.
 
@@ -531,9 +566,11 @@ Added the following parameters to the `yc serverless api-gateway create` and `yc
 
 
 ##### {{ ig-name }} {#instance-groups}
+
 Fixed the `update` `instance-group` issue that occurred when specifying the `name`.
 
 ##### {{ alb-name }} {#alb}
+
 Added support for command line arguments to search for matches by regular expression (`--regex-path-match` and `--regex-fqmn-match`). They are used in a similar way to `exact` and `prefix`:
 * `yc alb virtual-host insert-http-route --regex-path-match my_cool_regex`
 * `yc alb virtual-host insert-grpc-route --regex-fqmn-match my_cool_regex`
@@ -548,6 +585,7 @@ Added the `--rewrite-request-id` flag, which handles overwriting the `x-request-
 #### Managed database services {#managed-db}
 
 **{{ mpg-name }}**
+
 Added new parameters for the `yc managed-postgresql user create` and `yc managed-postgresql user update` commands:
 * `--statement-timeout`: Allows you to set `statement_timeout` in milliseconds for the specified user.
 * `--idle-in-transaction-session-timeout`: Allows you to set `idle_in_transaction_session_timeout` in milliseconds for the specified user.

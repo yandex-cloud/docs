@@ -11,7 +11,7 @@ Create cloud resources in multiple availability zones. This way you can maintain
 
 ### Allocate resources across zones uniformly {#distribute-resources}
 
-The same amount of cloud resources should be hosted in each availability zone. If there are three VMs in the `{{ region-id }}-a` availability zone, then the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones should also host three VMs each.
+The same amount of cloud resources should be hosted in each availability zone. If there are three VMs in the `{{ region-id }}-a` availability zone, then the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones should also host three VMs each.
 
 ### Create cloud resources with redundancy {#create-reserves}
 

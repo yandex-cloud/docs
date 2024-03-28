@@ -31,9 +31,9 @@ If the user exceeds one of the quota limits, they will not be able to execute ne
 
 {{ CH }} also uses quotas to account for resource consumption.
 For each user, there is a default quota that considers the consumption of all resources per hour but does not impose any restrictions.
-The information about the resource consumption level is written to the {{ CH }} server log.
+The resource consumption level information is written to the {{ CH }} server log.
 
-To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/operations/quotas/).
+For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/quotas/).
 
 You can use the following quota settings:
 

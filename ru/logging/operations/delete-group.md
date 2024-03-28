@@ -121,7 +121,7 @@ description: "Из статьи вы узнаете, как удалить ло�
      -import-path ~/cloudapi/ \
      -import-path ~/cloudapi/third_party/googleapis/ \
      -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
-  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Delete
+  logging.{{ api-host }}:443 yandex.cloud.logging.v1.LogGroupService.Delete
   ```
 
   Ответ:

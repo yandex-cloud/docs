@@ -1,15 +1,19 @@
-# Справочник ресурсов {{ dataproc-full-name }} провайдера {{ TF }}
+# Справочник {{ TF }} для {{ dataproc-full-name }}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). {{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE). 
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
-
-
-Подробнее о {{ TF }} [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+## Ресурсы {#resources}
 
 Для {{ dataproc-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_dataproc_cluster]({{ tf-provider-resources-link }}/dataproc_cluster) | [Кластер {{ dataproc-name }}](./concepts/index.md#resources) |
+
+## Источники данных {#data-sources}
+
+Для {{ dataproc-name }} поддерживаются следующие источники данных провайдера {{ TF }}:
+
+| **Источник данных {{ TF }}** | **Описание** |
+| --- | --- |
+| [yandex_dataproc_cluster]({{ tf-provider-datasources-link }}/datasource_dataproc_cluster) | Информация о [кластере {{ dataproc-name }}](./concepts/index.md#resources) |

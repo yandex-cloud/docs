@@ -124,6 +124,10 @@ items:
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
       - name: >-
+          Загрузка данных в {{ mgp-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-greenplum.md
+      - name: >-
           Загрузка данных в {{ mch-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-clickhouse.md
@@ -475,6 +479,8 @@ items:
     href: logs-ref.md
   - name: Вопросы и ответы
     href: qa.md
+  - name: История изменений
+    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
 base: ru/storage

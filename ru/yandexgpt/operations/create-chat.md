@@ -83,7 +83,7 @@ description: "Следуя данной инструкции, вы научит�
 
         def gpt(auth_headers):
 
-            url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
+            url = 'https://llm.{{ api-host }}/foundationModels/v1/completion'
 
             with open('body.json', 'r', encoding='utf-8') as f:
                 data = json.dumps(json.load(f))

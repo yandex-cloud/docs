@@ -69,6 +69,6 @@ Enables specifying the size (in pixels) for the provided text.
 
 **Syntax:**`URL( address, text )`
 
-Wraps `text` into a hyperlink to URL `address`.
+Wraps `text` into a hyperlink to URL `address`. When you click on the link, the page opens in a new browser tab.
 
 

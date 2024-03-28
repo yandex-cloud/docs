@@ -28,10 +28,10 @@ ipv4_peering:
   #cloud_bgp_asn: {{ cic-bgp-asn }}
 vpc:
   vpc_net_id: enpdffqsg8r221d7vjq5
-  vpc_subnets:
-    {{ region-id }}-a: [10.60.192.0/21]
-    {{ region-id }}-b: [10.60.200.0/21, 10.60.220.0/24]
-    {{ region-id }}-c: [10.60.208.0/20]
+    vpc_subnets:
+      {{ region-id }}-a: [10.60.192.0/21]
+      {{ region-id }}-b: [10.60.200.0/21, 10.60.220.0/24]
+      {{ region-id }}-d: [10.60.208.0/20]
 ```
 
 Where:

@@ -218,6 +218,10 @@ items:
             href: web/virtual-hosting.md
           - name: Привязка доменного имени к ВМ с веб-сервером
             href: web/bind-domain-vm.md
+          - name: >-
+              Создание веб-приложения на Python с использованием фреймворка
+              Flask
+            href: web/flask.md
       - name: 1С
         items:
           - name: Интернет-магазин на 1С-Битрикс
@@ -470,6 +474,10 @@ items:
         href: dataplatform/greenplum-to-postgresql.md
       - name: Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-name }}
         href: dataplatform/greenplum-yezzey.md
+      - name: >-
+          Загрузка данных из {{ objstorage-full-name }} в {{ mgp-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-greenplum.md
       - name: Миграция БД из стороннего кластера {{ RD }} в {{ mrd-name }}
         href: dataplatform/redis-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP

@@ -43,9 +43,18 @@ You have to create:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
+      * A rule that allows access to NTP servers for time syncing:
+
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+
+      {% include [sg-rules-connect](../../_includes/data-proc/note-sg-rules.md) %}
+
    1. [Create a service account](../../iam/operations/sa/create.md) named `data-proc-sa` with the following roles:
 
-      * [mdb.dataproc.agent](../../data-proc/security/index.md#mdb-dataproc-agent)
+      * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent)
       * [storage.uploader](../../storage/security/index.md#storage-uploader)
       * [storage.viewer](../../storage/security/index.md#storage-viewer)
 
@@ -70,10 +79,12 @@ You have to create:
       * Network.
       * Subnet.
       * NAT gateway and routing table.
-      * Security groups.
-      * Service account to access cloud resources.
+      * Security group.
+      * Service account to work with cloud resources.
       * Bucket to store job dependencies and results.
       * {{ dataproc-name }} cluster.
+
+      {% include [sg-rules-connect](../../_includes/data-proc/note-sg-rules.md) %}
 
    1. In the configuration file, specify all the relevant parameters.
 

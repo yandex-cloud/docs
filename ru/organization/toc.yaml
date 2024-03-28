@@ -107,7 +107,7 @@ items:
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/organization-manager/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:

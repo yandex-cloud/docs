@@ -67,7 +67,7 @@ module "yc-vpc" {
   },
   {
     name           = "subnet-3"
-    zone           = "{{ region-id }}-c"
+    zone           = "{{ region-id }}-d"
     v4_cidr_blocks = ["10.12.0.0/24"]
   }
   ]
@@ -141,3 +141,10 @@ module "kube" {
 ## How to delete the resources you created {#delete-resources}
 
 {% include [delete-resources](../../_tutorials/_tutorials_includes/terraform-delete-resources.md) %}
+
+## See also {#see-also}
+
+* [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+* [Locking {{ TF }} states using {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).
+* [{{ TF }} data sources](../../tutorials/infrastructure-management/terraform-data-sources.md).

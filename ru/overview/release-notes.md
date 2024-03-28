@@ -25,7 +25,7 @@
 
 * [{{ managed-k8s-full-name }}](../managed-kubernetes/release-notes.md)
 
-## Бессерверные технологии {#serverless}
+## Бессерверные вычисления {#serverless}
 
 * [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
 * [{{ sf-full-name }}](../functions/release-notes.md)
@@ -50,6 +50,10 @@
 * [{{ forms-full-name }}](../forms/release-notes/index.md)
 * [{{ tracker-full-name }}](../tracker/release-notes/index.md)
 * [{{ wiki-full-name }}](../wiki/release-notes/index.md)
+
+## Ресурсы и управление {#resources-operations}
+
+* [{{ monitoring-full-name }}](../monitoring/release-notes.md)
 
 ## Инструменты {{ yandex-cloud }} {#working-tools}
 

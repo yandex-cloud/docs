@@ -24,6 +24,10 @@ description: "Из статьи вы узнаете, как задать нас�
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Поставка данных из {{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
 
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+
+    * [Загрузка данных из {{ objstorage-name }} в {{ GP }}](../../../tutorials/object-storage-to-greenplum.md).
+
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Настройка источника данных {#supported-sources}

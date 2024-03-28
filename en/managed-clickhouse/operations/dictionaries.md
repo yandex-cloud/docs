@@ -12,9 +12,9 @@ You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) 
 
 You can manage dictionaries either via SQL or via cloud interfaces. We recommend SQL.
 
-{% note info %}
+{% note warning %}
 
-Changes to the dictionary settings take effect after [restarting the cluster](./cluster-stop.md).
+Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 {% endnote %}
 
@@ -211,7 +211,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}**: Source table name.
-   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}**: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
@@ -238,7 +238,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}**: Source table name.
-   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}**: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
@@ -333,7 +333,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
       * `port`: Port for connecting to the source.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
-      * `where`: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+      * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
 
    * `--mysql-replica`: Settings of {{ MY }} source replicas:
 

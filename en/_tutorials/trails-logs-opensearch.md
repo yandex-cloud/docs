@@ -41,7 +41,50 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
 ## Create a {{ mos-name }} cluster {#create-os}
 
-[Create a {{ mos-name }} cluster](../managed-opensearch/operations/cluster-create.md) with any suitable configuration.
+{% list tabs group=instructions %}
+
+- Manually {#manual}
+
+   [Create a {{ mos-name }} cluster](../managed-opensearch/operations/cluster-create.md) with any suitable configuration.
+
+- Using {{ TF }} {#tf}
+
+   1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
+
+   1. Download the [trails-to-opensearch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-audit-trails-to-opensearch/blob/main/trails-to-opensearch.tf) configuration file to the same working directory.
+
+      This file describes:
+
+      * [Network](../vpc/concepts/network.md#network).
+      * [Subnet](../vpc/concepts/network.md#subnet).
+      * [Security group](../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+      * {{ mos-name }} target cluster.
+      * Transfer.
+
+   1. In the `trails-to-opensearch.tf` file, specify the following variables:
+
+      * `os_version`: {{ OS }} version in the target cluster.
+      * `os_admin_password`: `admin` user password.
+      * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
+
+   1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 ## Set up a transfer to deliver logs to the {{ mos-name }} cluster {#configure-data-transfer}
 
@@ -73,8 +116,38 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin`](../managed-opensearch/operations/cluster-users.md).
 
-1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
-1. [Activate](../data-transfer/operations/transfer.md#activate) your transfer.
+1. Create and activate the transfer:
+
+   {% list tabs group=instructions %}
+
+   - Manually {#manual}
+
+      1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
+      1. [Activate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+
+   - Using {{ TF }} {#tf}
+
+      1. In the `trails-to-opensearch.tf` file, specify the following variables:
+
+         * `source_endpoint_id`: Source endpoint ID.
+         * `target_endpoint_id`: Target endpoint ID.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
+
+      1. Make sure the {{ TF }} configuration files are correct using this command:
+
+         ```bash
+         terraform validate
+         ```
+
+         If there are any errors in the configuration files, {{ TF }} will point them out.
+
+      1. Create the required infrastructure:
+
+         {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+
+   {% endlist %}
 
 ## Check the result {#check-result}
 
@@ -107,7 +180,7 @@ For your convenience, the {{ yandex-cloud }} security team created Solution Libr
 * Set of ready-to-use queries to search for security events.
 * Sample events with preset alerts (the client should specify the alert destination on their own).
 
-All required event fields are converted to [Elastic Common Schema (ECS)]({{ links.es.docs }}/ecs/current/index.html) format, while the complete mapping table is provided in the [{{ yandex-cloud }} Security Solution Library document](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/papers/Описание%20объектов%20eng.docx).
+All required event fields are converted to [Elastic Common Schema (ECS)]({{ links.es.docs }}/ecs/current/index.html) format; the complete mapping table is provided in the [{{ yandex-cloud }} Security Solution Library document](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/papers/Описание%20объектов.pdf).
 
 To use Security Content:
 
@@ -161,16 +234,43 @@ Use code samples for the `monitor` and `trigger` entities when setting up [alert
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-If you no longer need the resources you created, delete them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. [Delete the {{ mos-name }} cluster](../managed-opensearch/operations/cluster-delete.md).
 1. [Delete the {{ ydb-name }} database](../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the created service accounts](../iam/operations/sa/delete.md).
 1. Delete the [{{ at-name }} trail](../audit-trails/concepts/trail.md).
+
+Delete the other resources depending on how they were created:
+
+{% list tabs group=instructions %}
+
+- Manually {#manual}
+
+   [Delete the {{ mos-name }} cluster](../managed-opensearch/operations/cluster-delete.md).
+
+- Using {{ TF }} {#tf}
+
+   1. In the terminal window, go to the directory containing the infrastructure plan.
+   1. Delete the `trails-to-opensearch.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+      All the resources described in the `trails-to-opensearch.tf` configuration file will be deleted.
+
+{% endlist %}
 

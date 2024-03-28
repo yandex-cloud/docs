@@ -55,7 +55,7 @@ description: "Follow this guide to create a broker."
    1. Create a broker:
 
       ```bash
-      yc iot broker create --name <broker name>
+      yc iot broker create --name <broker_name>
       ```
 
       The naming requirements are as follows:
@@ -68,14 +68,14 @@ description: "Follow this guide to create a broker."
       id: b91ki3851h**********
       folder_id: aoek49ghmk*********
       created_at: "2022-05-28T11:29:42.420Z"
-      name: <broker name>
+      name: <broker_name>
       status: ACTIVE
       ```
 
    1. (Optional) Assign the broker a password for authentication using a [username and password](../../concepts/authorization.md#log-pass):
 
       ```bash
-      yc iot broker password add --broker-name <broker name>
+      yc iot broker password add --broker-name <broker_name>
       ```
 
       You will be prompted to enter a password. Password requirements:
@@ -95,7 +95,7 @@ description: "Follow this guide to create a broker."
 
       ```bash
       yc iot broker certificate add \
-         --broker-name <broker name> \
+         --broker-name <broker_name> \
          --certificate-file <certificate>
       ```
 

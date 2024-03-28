@@ -4,7 +4,7 @@ The `{{ region-id }}-c` availability zone will be [discontinued](./ru-central1-c
 
 We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. To migrate instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.
 
-We are currently developing custom migration tools for {{ mgl-name }} and {{ mgl-name }}. If you have resources of these services deployed in `{{ region-id }}-c`, we will notify you when these tools become available.
+We are currently developing custom migration tools for {{ mgl-name }}. If you have resources of this service deployed in `{{ region-id }}-c`, we will notify you when these tools become available.
 
 If among your services there are {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} and others not listed below, you do not need to migrate their resources.
 
@@ -33,7 +33,7 @@ You can contact [our partners](./zone-migration-partners.md) for assistance and 
 ## Recommended migration process {#migration-best-practices}
 
 1. For all networks, [create a new subnet](../../vpc/operations/subnet-create.md) in the `{{ region-id }}-d` zone.
-1. (Optional) If you are using {{ interconnect-name }}, contact [support]({{ link-console-support }}) to configure the new subnet. To complete the subnet configuration, you must create and connect to it any resource (e.g., a VM) for the new subnet's routing information to be correctly announced in {{ interconnect-name }}.
+1. (Optional) If you are using {{ interconnect-name }}, contact [support]({{ link-console-support }}) to configure the new subnet. To complete the subnet configuration, you must create any resource (e.g., a VM) and connect it to the subnet to correctly announce the new subnet's routing information in {{ interconnect-name }}.
 1. Migrate your resources to the new availability zone:
    1. [VM instances](#compute) (one by one or by expanding the instance group).
    1. [Database hosts](#mdb).
@@ -83,7 +83,7 @@ See these service-specific migration guides:
 * [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md)
 * {{ mgp-name }}: To migrate, restore the cluster from a [backup](../../managed-greenplum/operations/cluster-backups.md).
 * [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md)
-* [{{ dataproc-name }} with the HDFS file system](../../data-proc/tutorials/hdfs-cluster-migration.md)
+* [HDFS-based {{ dataproc-name }}](../../data-proc/tutorials/hdfs-cluster-migration.md)
 * [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md)
 
 ### {{ data-transfer-name }} {#data-transfer}

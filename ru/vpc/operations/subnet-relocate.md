@@ -123,7 +123,7 @@ description: "Следуя данной инструкции, вы сможет�
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d "@<файл_с_телом_запроса>" \
-          https://vpc.api.cloud.yandex.net/vpc/v1/subnets/<идентификатор_подсети>:relocate
+          https://vpc.{{ api-host }}/vpc/v1/subnets/<идентификатор_подсети>:relocate
       ```
 
       Где:

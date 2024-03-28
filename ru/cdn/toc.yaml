@@ -235,4 +235,6 @@ items:
     href: at-ref.md
   - name: Решение проблем
     href: troubleshooting.md
+  - name: История изменений
+    href: release-notes.md
 base: ru/cdn

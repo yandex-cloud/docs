@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 All {{ certificate-manager-name }} metrics share the `service=certificate-manager` label.
 
 Service metrics:

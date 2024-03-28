@@ -235,37 +235,7 @@ zip src.zip index.go go.mod
 
 ## Create a budget {#create-budget}
 
-The user can create a budget if they have the `editor` role. To get notifications, the `viewer` role is sufficient.
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. In the [management console]({{ link-console-main }}), select the folder where you created the service account and function.
-   1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. On the **{{ ui-key.yacloud.billing.account.label_accounts }}** page, select a billing account.
-   1. Go to the **{{ ui-key.yacloud.billing.account.switch_budgets }}** tab and click **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
-   1. Under **{{ ui-key.yacloud.common.section-base }}**, specify:
-      * Budget name: `vm-budget`.
-      * Budget type: `{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}`.
-      * Total usage cost.
-      * Calculation period: `{{ ui-key.yacloud.billing.account.budgets.reset-period_value_monthly }}`.
-      * Budget end date. The end date is when the budget stops calculating usage and sending notifications. The end date is the last day of the month. It must be within five years of the current date.
-      * Users to be notified when the threshold values are reached.
-   1. Under **{{ ui-key.yacloud.billing.account.budgets.section_scope }}**, select the current folder and the **{{ compute-name }}** service.
-   1. Under **{{ ui-key.yacloud.billing.account.budgets.label_limits }}**, set the threshold values as a percentage, upon reaching which:
-      * Specified users will get notifications.
-      * The trigger for budgets will fire.
-
-      For example, you can set two thresholds: `50%` and `100%`.
-   1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
-
-- API {#api}
-
-   To create a budget, use the [create](../../billing/api-ref/Budget/create.md) method for the [Budget](../../billing/api-ref/Budget/index.md) resource.
-
-{% endlist %}
+{% include [create-budget-for-triggering](../_tutorials_includes/create-budget-for-triggering.md) %}
 
 ## Create a trigger for budgets {#create-trigger}
 
@@ -341,7 +311,7 @@ The user can create a budget if they have the `editor` role. To get notification
 
 {% endlist %}
 
-## Create {{ compute-name }} VM instances {##create-vm}
+## Create {{ compute-name }} VMs {#create-vm}
 
 {% list tabs group=instructions %}
 

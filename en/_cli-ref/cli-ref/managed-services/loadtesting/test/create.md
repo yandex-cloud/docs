@@ -19,8 +19,10 @@ Syntax:
 |`--name`|<b>`string`</b><br/>A name of the load test.|
 |`--description`|<b>`string`</b><br/>A descriptions of the test.|
 |`--labels`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/>Labels of the test.|
-|`--configuration`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Load test configuration.<br/><br/>Possible property names:<br/><ul> <li><code>id</code>:     Specifies the id of test config to use in test.</li> <li><code>agent-id</code>:     Specifies the ID of the load testing agent to run configuration. If not specified - test will not start automatically.</li> <li><code>test-data</code>:     Test data to use in configuration in format test-data=name1[,test-data=name2...]</li> </ul>|
+|`--configuration`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Load test configuration.<br/><br/>Possible property names:<br/><ul> <li><code>id</code>:     Specifies the id of test config to use in test.</li> <li><code>agent-id</code>:     Specifies the ID of the load testing agent to run configuration.</li> <li><code>agent-by-filter</code>:     Execute test on first available agent that matches filter string. As example: --filter='id IN (&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)' --filter='name contains agent AND labels.key=value1 AND labels.another-key=value2'</li> <li><code>anonymous-agent</code>:     Specifies that test will run on anonymous agent.</li> <li><code>test-data</code>:     Test data to use in configuration in format test-data=name1[,test-data=name2...]</li> </ul>|
 |`--test-data`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Test data sources in format name=\<name\>,s3file=\<s3file-name\>,s3bucket=\<s3bucket-name\><br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     The name of test data object.</li> <li><code>s3bucket</code>:     Specifies the object storage bucket name where test data is stored.</li> <li><code>s3file</code>:     Specifies the file name in object storage bucket.</li> </ul>|
+|`--wait-idle-timeout`|<b>`duration`</b><br/>The timeout to interrupt the command if test is stuck. Works only if --wait flag is set.|
+|`--wait`|Wait until test is finished|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

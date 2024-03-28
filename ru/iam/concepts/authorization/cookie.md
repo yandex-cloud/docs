@@ -1,25 +1,12 @@
 ---
-title: "Как выглядит формат IAM Cookie"
-description: "Из статьи вы узнаете, как выглядит формат IAM Cookie."
+title: "Cookie в {{ yandex-cloud }}"
+description: "Из статьи вы узнаете, какие cookie использует {{ yandex-cloud }}."
 ---
 
 # Cookie
 
-## Формат IAM Cookie {#cookie-format}
+В веб-интерфейсах {{ yandex-cloud }} для авторизации пользователя используются cookie `yc_session`.
 
-Всегда начинается с сочетания `с1` и последовательностей символов, которые приведены в следующем порядке:
+В консоли каждого сервиса (например, [console.yandex.cloud](console.yandex.cloud), [org.yandex.cloud](org.yandex.cloud), [datalens.yandex.cloud](datalens.yandex.cloud)) cookie независимы друг от друга.
 
-1. Любой символ, кроме пробела.
-1. Любое количество символов, которыми могут быть:
-    * буквы латинского алфавита;
-    * цифры;
-    * символы `_`, `-`.
-1. От 0 до 2 символов `=`.
-1. Любой символ, кроме пробела.
-1. 86 символов, которыми могут быть:
-    * буквы латинского алфавита;
-    * цифры;
-    * символы `_`, `-`.
-1. От 0 до 2 символов `=`.
-
-Пример IAM Cookie: `c1f9eugktrZqYks_a=7Y-TmpGUnUKHz-3rfjrtoDw3_npWay4-SjJ_ghY7KlouMjJ3Kncrl9PcSLTl0-e8rTxrv3fT3Uls2dPnvK08a7w==`
+Все cookie привязаны к единой логической сессии, которая инициируется сервисом [auth.yandex.cloud](auth.yandex.cloud).

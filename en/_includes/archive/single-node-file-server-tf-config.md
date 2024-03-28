@@ -61,6 +61,13 @@ resource "yandex_vpc_security_group" "fileserver-tutorial-sg" {
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 3306
   }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "nfs"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 2049
+  }
 }
 
 resource "yandex_compute_image" "ubuntu-1804-lts" {

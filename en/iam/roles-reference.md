@@ -31,10 +31,6 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 ## Service roles {#auxiliary-roles}
 
-#### marketplace.meteringAgent {#marketplace-meteringagent}
-
-{% include [marketplace.meteringAgent](../_roles/marketplace/meteringAgent.md) %}
-
 #### quota-manager.requestOperator {#quota-manager-requestoperator}
 
 {% include [quota-manager.requestOperator](../_roles/quota-manager/requestOperator.md) %}
@@ -299,6 +295,27 @@ For more information, see [{#T}](../functions/security/index.md).
 {% include [logging.admin](../_roles/logging/admin.md) %}
 
 For more information, see [{#T}](../logging/security/index.md).
+
+
+## {{ marketplace-full-name }} {#marketplace-roles}
+
+#### marketplace.meteringAgent {#marketplace-meteringagent}
+
+{% include [marketplace.meteringAgent](../_roles/marketplace/meteringAgent.md) %}
+
+#### license-manager.auditor {#license-manager-auditor}
+
+{% include [license-manager.auditor](../_roles/license-manager/auditor.md) %}
+
+#### license-manager.viewer {#license-manager-viewer}
+
+{% include [license-manager.viewer](../_roles/license-manager/viewer.md) %}
+
+#### license-manager.user {#license-manager-user}
+
+{% include [license-manager.user](../_roles/license-manager/user.md) %}
+
+For more information, see [{#T}](../marketplace/security/index.md).
 
 
 ## {{ org-full-name }} {#organization-roles}

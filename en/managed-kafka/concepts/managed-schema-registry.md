@@ -48,7 +48,7 @@ The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-re
 
 Subject access depends on permissions [granted](../operations/cluster-accounts.md#grant-permission) to the {{ KF }} user:
 
-* The `ACCESS_ROLE_CONSUMER` or the `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage the `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>` subjects.
+* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage the `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>` subjects.
 * The `ACCESS_ROLE_CONSUMER` or the `ACCESS_ROLE_PRODUCER` role for a `<prefix>*` topic allows the user to manage subjects of the same `<prefix>*` type. Topic and subject names start with the same prefix.
 * The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in an {{ mkf-name }} cluster.
 
@@ -72,7 +72,7 @@ Access to schemas depends on the selected [topic management method](./topics.md#
    * The above points mentioned for a cluster with managed topics also apply.
    * In addition, a user with the `ACCESS_ROLE_ADMIN` role for a topic has access to any operations with subjects related to the topic. This user can be granted access to any topics.
 
-For more information about roles, see [{#T}](../operations/cluster-accounts.md).
+For more information about roles, see [User management](../operations/cluster-accounts.md).
 
 ## Confluent Schema Registry {#confluent-sr}
 

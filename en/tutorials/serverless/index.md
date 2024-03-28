@@ -15,3 +15,4 @@
 * [Visualizing logs in {{ grafana-name }} using the {{ cloud-logging-full-name }} plugin](grafana-logs-plugin.md)
 * [Canary release of a {{ sf-full-name }} function](canary-release.md)
 * [Interactive debugging of {{ sf-name }} functions](serverless-live-debug.md)
+* [{#T}](deploy-app-container.md)

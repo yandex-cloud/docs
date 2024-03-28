@@ -38,7 +38,7 @@ sourcePath: en/_api-ref/datalens/function-ref/IF.md
 {% endlist %}
 
 #### Description {#description}
-Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`.
+Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`. The expressions to be checked are set using logical operators.
 
 **Argument types:**
 - `condition_1` — `Any`

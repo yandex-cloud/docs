@@ -244,7 +244,7 @@ To connect to a {{ mch-name }} cluster, log in to the [management console]({{ li
 
 To allow connections, activate the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
 
-For more information, see [{#T}](web-sql-query.md).
+For more information, see [SQL queries](web-sql-query.md).
 
 ### Built-in SQL editor {#inline-editor}
 

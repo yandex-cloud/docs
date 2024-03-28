@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 All {{ compute-name }} metrics share the `service=compute` label.
 
 {% note info %}
@@ -6,12 +8,12 @@ If the disk name is set, it will be returned in a response from the service. If 
 
 {% endnote %}
 
-### Virtual machine and disk metrics {#vm-disk-metrics}
+## Virtual machine and disk metrics {#vm-disk-metrics}
 
 | Metric name<br>Type, units of measurement | Description<br>Labels |
 --- | ---
 | `cpu_usage`<br>`DGAUGE`, % | VM processor utilization percentage. The value can exceed 100% if the VM consumes more resources than the guaranteed amount.<br>Labels:<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
-| `cpu_utilization`<br>`DGAUGE`, % | VM processor core (vCPU) utilization percentage. Ranges from 0% to the [vCPU performance level](../../../compute/concepts/performance-levels.md).<br>Labels:<br>- *cpu_name*: CPU core ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
+| `cpu_utilization`<br>`DGAUGE`, % | VM processor core (vCPU) utilization percentage. Ranges from 0% to the [vCPU performance level](../../../compute/concepts/performance-levels.md). <br>Labels:<br>- *cpu_name*: CPU core ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
 | `disk.io_quota_utilization_percentage`<br>`RATE`, % | Average percentage of the disk quota utilization.<br>Labels:<br>- *disk*: Disk ID or name. |
 | `disk.io_quota_utilization_percentage_burst`<br>`RATE`, % | Maximum percentage of the disk quota utilization.<br>Labels:<br>- *disk*: Disk ID or name. |
 | `disk.read_bytes`<br>`RATE`, bytes/s | Average number of bytes read from the VM disk.<br>Labels:<br>- *disk*: Disk ID or name.<br>- *instance*: VM ID. |
@@ -53,7 +55,7 @@ If the disk name is set, it will be returned in a response from the service. If 
 | `network_sent_packets`<br>`DGAUGE`, packets/s | Number of packets per second sent over the VM network interface.<br>Labels:<br>- *interface_number*: VM network interface ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
 
 
-### Instance group metrics {#ig-metrics}
+## Instance group metrics {#ig-metrics}
 
 | Metric name<br>Type, units of measurement | Description<br>Labels |
 --- | ---

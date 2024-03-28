@@ -13,7 +13,7 @@ When creating a cluster, you can:
 * Set subnets in all availability zones.
 * Turn on public access to the cluster from outside {{ yandex-cloud }}.
 
-If there are {{ ZK }} hosts in the cluster, each of the three {{ ZK }} hosts will use its dedicated availability zone and the subnet selected in it. For more information, see [{#T}](../concepts/index.md).
+If there are {{ ZK }} hosts in the cluster, each of the three {{ ZK }} hosts will use its dedicated availability zone and the subnet selected in it. For more information, see [Resource relationships in the service](../concepts/index.md).
 
 
 ## Host name and FQDN {#hostname}

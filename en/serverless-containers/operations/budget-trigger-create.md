@@ -38,7 +38,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -60,7 +60,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
 
@@ -77,23 +77,23 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
    
    ```text
-   id: a1sfe084v4**********
-   folder_id: b1g88tflru**********
+   id: a1sfe084v4h2********
+   folder_id: b1g88tflruh2********
    created_at: "2019-12-04T08:45:31.131391Z"
    name: budget-trigger
    rule:
      billing-budget:
-       billing-account-id: dn2char50j**********
-       budget-id: dn2jnshmdl**********
+       billing-account-id: dn2char50jh2********
+       budget-id: dn2jnshmdlh2********
        invoke_container:
-         container_id: d4eofc7n0m**********
-         service_account_id: aje3932acd**********
+         container_id: d4eofc7n0mh2********
+         service_account_id: aje3932acdh2********
          retry_settings:
            retry_attempts: "1"
            interval: 10s
          dead_letter_queue:
-           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
-           service-account-id: aje3932acd**********
+           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmkh2********:dlq
+           service-account-id: aje3932acdh2********
    status: ACTIVE
    ```
 

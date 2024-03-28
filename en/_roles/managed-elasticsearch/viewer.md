@@ -1,1 +1,1 @@
-The `managed-elasticsearch.viewer` role enables you to view information about clusters, runtime logs, and quotas.
+The `managed-elasticsearch.viewer` role allows you to view information on Elasticsearch [clusters](../../managed-elasticsearch/concepts/index.md) and their logs, as well as on [quotas](../../managed-elasticsearch/concepts/limits.md#mes-quotas) and resource operations for Managed Service for Elasticsearch.

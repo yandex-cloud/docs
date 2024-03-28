@@ -7,7 +7,7 @@ A _region_ is a location where you deploy your VM instances. Each region consist
 
 | Region | Zones | Location |
 | ----- | ----- | ----- |
-| `{{ region-id }}` | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-c` | Vladimir region, Moscow region, Ryazan region |
+| `{{ region-id }}` | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-d` | Vladimir region, Moscow region, Ryazan region |
 
 
 
@@ -33,7 +33,7 @@ allocation_policy:
       instance_tags_pool:
       - third-tag
       - fourth-tag
-    - zone_id: {{ region-id }}-c
+    - zone_id: {{ region-id }}-d
       instance_tags_pool:
       - fifth-tag
       - sixth-tag

@@ -71,7 +71,7 @@ Prepare the network infrastructure to host the availability group.
 
 1. Create subnets that will host your VMs and network load balancer:
 
-   * Three subnets for hosting SQLSERVER VMs: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b`, and `ya-sqlserver-rc1c`. The `mssql` route table will be linked to each subnet.
+   * Three subnets to host SQLSERVER VMs: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b`, and `ya-sqlserver-rc1d`. The `mssql` route table will be linked to each subnet.
    * `ya-ilb-rc1a` subnet for the network load balancer.
    * `ya-ad-rc1a` subnet for Active Directory.
 
@@ -90,7 +90,7 @@ Prepare the network infrastructure to host the availability group.
       Repeat the steps for subnets with the following names and CIDR:
 
       * `ya-sqlserver-rc1b` in the `{{ region-id }}-b` availability zone: `192.168.1.16/28`.
-      * `ya-sqlserver-rc1c` in the `{{ region-id }}-c` availability zone: `192.168.1.32/28`.
+      * `ya-sqlserver-rc1d` in the `{{ region-id }}-d` availability zone: `192.168.1.32/28`.
       * `ya-ilb-rc1a` in the `{{ region-id }}-a` availability zone: `192.168.1.48/28`.
       * `ya-ad-rc1a` in the`{{ region-id }}-a` availability zone: `10.0.0.0/28`.
 
@@ -114,8 +114,8 @@ Prepare the network infrastructure to host the availability group.
 
       ```
       yc vpc subnet create \
-         --name ya-sqlserver-rc1c \
-         --zone {{ region-id }}-c \
+         --name ya-sqlserver-rc1d \
+         --zone {{ region-id }}-d \
          --range 192.168.1.32/28 \
          --network-name ya-network
       ```
@@ -156,8 +156,8 @@ Prepare the network infrastructure to host the availability group.
 
       ```
       yc vpc subnet create `
-         --name ya-sqlserver-rc1c `
-         --zone {{ region-id }}-c `
+         --name ya-sqlserver-rc1d `
+         --zone {{ region-id }}-d `
          --range 192.168.1.32/28 `
          --network-name ya-network
       ```
@@ -249,7 +249,7 @@ Prepare the network infrastructure to host the availability group.
       --name ya-tg \
       --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a \
       --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b \
-      --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1c
+      --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1d
    ```
 
    Copy the target group ID from the response and run the command:
@@ -267,7 +267,7 @@ Prepare the network infrastructure to host the availability group.
       --name ya-tg `
       --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a `
       --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b `
-      --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1c
+      --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1d
    ```
 
    ```
@@ -511,7 +511,7 @@ Create three VM instances with Windows Server 2022 Datacenter for SQL Server:
    yc compute instance create \
       --name ya-mssql3 \
       --hostname ya-mssql3 \
-      --zone {{ region-id }}-c \
+      --zone {{ region-id }}-d \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -520,7 +520,7 @@ Create three VM instances with Windows Server 2022 Datacenter for SQL Server:
       --create-disk \
         type=network-ssd,size=200 \
       --network-interface \
-        subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 \
+        subnet-name=ya-sqlserver-rc1d,ipv4-address=192.168.1.35 \
       --host-id <dedicated_host_ID> \
       --async
    ```
@@ -576,7 +576,7 @@ Create three VM instances with Windows Server 2022 Datacenter for SQL Server:
    yc compute instance create `
       --name ya-mssql3 `
       --hostname ya-mssql3 `
-      --zone {{ region-id }}-c `
+      --zone {{ region-id }}-d `
       --memory 16 `
       --cores 4 `
       --metadata-from-file user-data=setpass `
@@ -585,7 +585,7 @@ Create three VM instances with Windows Server 2022 Datacenter for SQL Server:
       --create-disk `
         type=network-ssd,size=200 `
       --network-interface `
-        subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 `
+        subnet-name=ya-sqlserver-rc1d,ipv4-address=192.168.1.35 `
       --host-id <dedicated_host_ID> `
       --async
    ```

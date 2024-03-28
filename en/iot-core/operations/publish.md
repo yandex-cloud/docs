@@ -12,10 +12,10 @@ The service provides two resource management models:
 For more information about the differences between brokers and device registries, see [{#T}](../concepts/index.md).
 
 When using registries and devices, you can send messages of the following types:
-- Send data from a device to a registry using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
-- Send data from a device to a registry using the permanent `$devices/<device ID>/state` or `$registries/< registry ID>/state` topics.
-- Send registry commands to a device using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
-- Send registry commands to a device using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
+- Send data from a device to a registry using the `$devices/<device_ID>/events` or `$registries/<registry_ID>/events` topics.
+- Send data from a device to a registry using the permanent `$devices/<device_ID>/state` or `$registries/<registry_ID>/state` topics.
+- Send registry commands to a device using the `$devices/<device_ID>/commands` or `$registries/<registry_ID>/commands` topics.
+- Send registry commands to a device using the permanent `$devices/<device_ID>/config` or `$registries/<registry_ID>/config` topics.
 
 To receive messages, you need to subscribe to the sender. For information about how to do this, see [{#T}](subscribe.md).
 
@@ -47,7 +47,7 @@ Registries subscribed to this topic will know which device sent the data, becaus
       yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$devices/<device ID>/events' \
+        --topic '$devices/<device_ID>/events' \
         --message 'Test data' \
         --qos 1
       ```
@@ -57,7 +57,7 @@ Registries subscribed to this topic will know which device sent the data, becaus
       yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$devices/<device ID>/state' \
+        --topic '$devices/<device_ID>/state' \
         --message 'Test data' \
         --qos 1
       ```
@@ -73,9 +73,9 @@ Registries subscribed to this topic will know which device sent the data, becaus
 
       ```
       yc iot mqtt publish \
-        --username <device ID> \
-        --password <device password> \
-        --topic '$devices/<device ID>/events' \
+        --username <device_ID> \
+        --password <device_password> \
+        --topic '$devices/<device_ID>/events' \
         --message 'Test data' \
         --qos 1
       ```
@@ -84,9 +84,9 @@ Registries subscribed to this topic will know which device sent the data, becaus
 
       ```
       yc iot mqtt publish \
-        --username <device ID> \
-        --password <device password> \
-        --topic '$devices/<device ID>/state' \
+        --username <device_ID> \
+        --password <device_password> \
+        --topic '$devices/<device_ID>/state' \
         --message 'Test data' \
         --qos 1
       ```
@@ -118,7 +118,7 @@ The registry subscribed to this topic will not know which device sent the data, 
       yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$registries/<registry ID>/events' \
+        --topic '$registries/<registry_ID>/events' \
         --message 'Test data' \
         --qos 1
       ```
@@ -129,7 +129,7 @@ The registry subscribed to this topic will not know which device sent the data, 
       yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$registries/<registry ID>/state' \
+        --topic '$registries/<registry_ID>/state' \
         --message 'Test data' \
         --qos 1
       ```
@@ -145,9 +145,9 @@ The registry subscribed to this topic will not know which device sent the data, 
 
       ```
       yc iot mqtt publish \
-        --username <device ID> \
-        --password <device password> \
-        --topic '$registries/<registry ID>/events' \
+        --username <device_ID> \
+        --password <device_password> \
+        --topic '$registries/<registry_ID>/events' \
         --message 'Test data' \
         --qos 1
       ```
@@ -156,9 +156,9 @@ The registry subscribed to this topic will not know which device sent the data, 
 
       ```
       yc iot mqtt publish \
-        --username <device ID> \
-        --password <device password> \
-        --topic '$registries/<registry ID>/state' \
+        --username <device_ID> \
+        --password <device_password> \
+        --topic '$registries/<registry_ID>/state' \
         --message 'Test data' \
         --qos 1
       ```
@@ -172,7 +172,7 @@ The registry subscribed to this topic will not know which device sent the data, 
 
 - API {#api}
 
-  To send device data to a registry topic, use the [publish](../api-ref/DeviceData/publish.md) REST API method for the [DeviceData](../api-ref/DeviceData/index.md) resource or the [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish) gRPC API call.
+   To send device data to a registry topic, use the [publish](../api-ref/DeviceData/publish.md) REST API method for the [DeviceData](../api-ref/DeviceData/index.md) resource or the [DeviceDataService/Publish](../api-ref/grpc/device_data_service.md#Publish) gRPC API call.
 
 {% endlist %}
 
@@ -194,7 +194,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       yc iot mqtt publish \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        --topic '$devices/<device ID>/commands' \
+        --topic '$devices/<device_ID>/commands' \
         --message 'Test command for first device' \
         --qos 1
       ```
@@ -205,7 +205,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       yc iot mqtt publish \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        --topic '$devices/<device ID>/config' \
+        --topic '$devices/<device_ID>/config' \
         --message 'Test command for first device' \
         --qos 1
       ```
@@ -221,9 +221,9 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
       ```
       yc iot mqtt publish \
-        --username <registry ID> \
-        --password <registry password> \
-        --topic '$devices/<device ID>/commands' \
+        --username <registry_ID> \
+        --password <registry_password> \
+        --topic '$devices/<device_ID>/commands' \
         --message 'Test command for first device' \
         --qos 1
       ```
@@ -231,9 +231,9 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
       ```
       yc iot mqtt publish \
-        --username <registry ID> \
-        --password <registry password> \
-        --topic '$devices/<device ID>/config' \
+        --username <registry_ID> \
+        --password <registry_password> \
+        --topic '$devices/<device_ID>/config' \
         --message 'Test command for first device' \
         --qos 1
       ```
@@ -247,12 +247,11 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 - API {#api}
 
-  To send a command to a single device, use the [publish](../api-ref/RegistryData/publish.md) REST API method for the [RegistryData](../api-ref/RegistryData/index.md) resource or the [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish) gRPC API call.
+   To send a command to a single device, use the [publish](../api-ref/RegistryData/publish.md) REST API method for the [RegistryData](../api-ref/RegistryData/index.md) resource or the [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish) gRPC API call.
 
 {% endlist %}
 
 ### Send a command to all devices added to the registry {#all-device}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -263,7 +262,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       yc iot mqtt publish \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        --topic '$registries/<registry ID>/commands' \
+        --topic '$registries/<registry_ID>/commands' \
         --message 'Test command for all devices' \
         --qos 1
       ```
@@ -274,7 +273,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       yc iot mqtt publish \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        --topic '$registries/<registry ID>/config' \
+        --topic '$registries/<registry_ID>/config' \
         --message 'Test command for all devices' \
         --qos 1
       ```
@@ -290,9 +289,9 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
       ```
       yc iot mqtt publish \
-        --username <registry ID> \
-        --password <registry password> \
-        --topic '$registries/<registry ID>/commands' \
+        --username <registry_ID> \
+        --password <registry_password> \
+        --topic '$registries/<registry_ID>/commands' \
         --message 'Test command for all devices' \
         --qos 1
       ```
@@ -301,9 +300,9 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
       ```
       yc iot mqtt publish \
-        --username <registry ID> \
-        --password <registry password> \
-        --topic '$registries/<registry ID>/config' \
+        --username <registry_ID> \
+        --password <registry_password> \
+        --topic '$registries/<registry_ID>/config' \
         --message 'Test command for all devices' \
         --qos 1
       ```
@@ -317,7 +316,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 - API {#api}
 
-  To send a command to all devices added to a registry, use the [publish](../api-ref/RegistryData/publish.md) REST API method for the [RegistryData](../api-ref/RegistryData/index.md) resource or the [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish) gRPC API call.
+   To send a command to all devices added to a registry, use the [publish](../api-ref/RegistryData/publish.md) REST API method for the [RegistryData](../api-ref/RegistryData/index.md) resource or the [RegistryDataService/Publish](../api-ref/grpc/registry_data_service.md#Publish) gRPC API call.
 
 {% endlist %}
 
@@ -333,8 +332,8 @@ When using a broker, you can send a message to a random topic using your usernam
 
       ```
       yc iot mqtt publish \
-        --username <broker ID> \
-        --password <broker password> \
+        --username <broker_ID> \
+        --password <broker_password> \
         --topic /my/custom/topic \
         --message 'Test broker message'
         --qos 1
@@ -367,6 +366,6 @@ When using a broker, you can send a message to a random topic using your usernam
 
 - API {#api}
 
-  To send a message in a broker, use the [publish](../broker/api-ref/BrokerData/publish.md) REST API method for the [BrokerData](../broker/api-ref/BrokerData/index.md) resource or the [BrokerDataService/Publish](../broker/api-ref/grpc/broker_data_service.md#Publish) gRPC API call.
+   To send a message in a broker, use the [publish](../broker/api-ref/BrokerData/publish.md) REST API method for the [BrokerData](../broker/api-ref/BrokerData/index.md) resource or the [BrokerDataService/Publish](../broker/api-ref/grpc/broker_data_service.md#Publish) gRPC API call.
 
 {% endlist %}

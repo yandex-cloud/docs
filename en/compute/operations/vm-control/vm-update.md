@@ -142,7 +142,7 @@ To update VM metadata, follow these steps:
 
 ### Enabling access via OS Login {#enable-oslogin-access}
 
-To make sure that users can [connect](../vm-connect/os-login.md) to the VM via [OS Login](../../../organization/concepts/os-login.md), enable this option in the VM settings:
+To make sure users can [connect](../vm-connect/os-login.md) to the VM via [OS Login](../../../organization/concepts/os-login.md), enable this option in the VM settings:
 
 {% list tabs group=instructions %}
 

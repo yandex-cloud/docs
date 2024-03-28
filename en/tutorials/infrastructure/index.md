@@ -19,6 +19,7 @@ description: "Various use cases for core infrastructure management systems in {{
 * [Updating an instance group under load](../infrastructure-management/updating-under-load.md)
 * [Creating a trigger for budgets that invokes a {{ sf-full-name }} function to stop VM instances](../infrastructure-management/serverless-trigger-budget-vm.md)
 * [Deploying a fault-tolerant architecture with preemptible VMs](../infrastructure/nodejs-cron-restart-vm.md)
+* [Creating triggers that invoke {{ sf-full-name }} functions to stop a VM and send Telegram notifications](../infrastructure-management/serverless-trigger-budget-queue-vm-tg.md)
 
 ## Tools {#tools}
 

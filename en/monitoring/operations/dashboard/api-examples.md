@@ -11,8 +11,8 @@ To use the examples, [authenticate](../../api-ref/authentication.md) in the API 
 Getting a list of dashboards in a folder. In the `folder_id` field, specify the ID of the folder to get the list of dashboards for.
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-   -d '{"folder_id": “<folder_ID>”}' \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
+   -d '{"folder_id": "<folder_ID>"}' \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \
@@ -66,7 +66,7 @@ In the `folderId` field, specify the ID of the folder to create a dashboard in.
         "h": "8"
       },
       "chart": {
-        "id": "61jjd238n",
+        "id": "61jjd****",
         "queries": {
           "targets": [
             {
@@ -166,7 +166,7 @@ In the `dashboard_id` field, specify the ID of the dashboard to update. In the `
         "h": "8"
       },
       "chart": {
-        "id": "61jjd238n",
+        "id": "61jjd****",
         "queries": {
           "targets": [
             {

@@ -15,7 +15,7 @@ URL( address, text )
 ```
 
 #### Description {#description}
-Wraps `text` into a hyperlink to URL `address`.
+Wraps `text` into a hyperlink to URL `address`. When you click on the link, the page opens in a new browser tab.
 
 **Argument types:**
 - `address` — `String`

@@ -37,6 +37,10 @@ Aliases:
 	- [yc managed-greenplum cluster list-operations](cluster/list-operations.md) — List operations for the specified Greenplum cluster
 	- [yc managed-greenplum cluster start](cluster/start.md) — Start the specified Greenplum cluster
 	- [yc managed-greenplum cluster stop](cluster/stop.md) — Stop the specified Greenplum cluster
+- [yc managed-greenplum pxf-datasource](pxf-datasource/index.md) — Manage Greenplum pxf datasources
+	- [yc managed-greenplum pxf-datasource list](pxf-datasource/list.md) — List pxf-datasources for specified Greenplum cluster
+	- [yc managed-greenplum pxf-datasource get](pxf-datasource/get.md) — Get pxf-datasource for specified Greenplum cluster
+	- [yc managed-greenplum pxf-datasource delete](pxf-datasource/delete.md) — Delete pxf-datasource for specified Greenplum cluster
 - [yc managed-greenplum hosts](hosts/index.md) — Manage Greenplum cluster hosts.
 - [yc managed-greenplum backup](backup/index.md) — Manage Greenplum cluster backups
 	- [yc managed-greenplum backup get](backup/get.md) — Show information about the specified Greenplum backup

@@ -43,7 +43,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -60,14 +60,14 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
    yc serverless trigger create container-registry \
      --name <trigger_name> \
      --registry-id <registry_ID> \
-     --events 'create-image','delete-image','create-image-tag','delete-image-tag' \
+     --events 'create-image', 'delete-image', 'create-image-tag', 'delete-image-tag' \
      --batch-size <batch_size> \
      --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-queue-id <dead_letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
 
@@ -86,8 +86,8 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    
    ```text
-   id: a1s5msktij**********
-   folder_id: b1gmit33hg**********
+   id: a1s5msktijh2********
+   folder_id: b1gmit33hgh2********
    created_at: "2022-10-24T15:19:15.353909857Z"
    name: registry-trigger
    rule:
@@ -97,19 +97,19 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
        - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
        - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
        - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
-       registry_id: crtlds4tdfg12kil77**********
+       registry_id: crtlds4tdfg12kil77h2********
        batch_settings:
          size: "3"
          cutoff: 20s
        invoke_container:
-         container_id: bba5jb38o8**********
-         service_account_id: aje3932acd**********
+         container_id: bba5jb38o8h2********
+         service_account_id: aje3932acdh2********
          retry_settings:
            retry_attempts: "1"
            interval: 10s
          dead_letter_queue:
-           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
-           service-account-id: aje3932acd**********
+           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmkh2********:dlq
+           service-account-id: aje3932acdh2********
    status: ACTIVE
    ```
 

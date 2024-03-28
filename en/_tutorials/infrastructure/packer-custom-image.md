@@ -105,7 +105,7 @@ The cost of building a VM image and creating a VM from it includes:
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
          |          ID          |         NAME         |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
-         | b0c29k6anelk******** | intro2-{{ region-id }}-c | enp45glgitd6******** |                | {{ region-id }}-c | [10.130.0.0/24] |
+         | b0c29k6anelk******** | intro2-{{ region-id }}-d | enp45glgitd6******** |                | {{ region-id }}-d | [10.130.0.0/24] |
          | e2ltcj4urgpb******** | intro2-{{ region-id }}-b | enp45glgitd6******** |                | {{ region-id }}-b | [10.129.0.0/24] |
          | e9bn57jvjnbu******** | intro2-{{ region-id }}-a | enp45glgitd6******** |                | {{ region-id }}-a | [10.128.0.0/24] |
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
@@ -419,11 +419,11 @@ The cost of building a VM image and creating a VM from it includes:
       * `--name`: Name of the new VM.
       * `--hostname`: VM host's name.
       * `--zone`: Availability zone.
-      * `--create-boot-disk`: Boot disk parameters: `size` is the disk size and `image-id` is the ID of the image you are using.
+      * `--create-boot-disk`: Boot disk parameters, where `size` is the disk size and `image-id` is the ID of the image you are using.
       * `--cores`: Number of vCPUs.
       * `--memory`: Amount of RAM.
       * `--core-fraction`: Basic vCPU performance in %.
-      * `--network-interface`: Network interface parameters: `subnet-id` is the subnet ID, `ipv4-address` is the internal IPv4 address, and `nat-ip-version` is the IP specification for the egress NAT.
+      * `--network-interface`: Network interface parameters, where `subnet-id` is the subnet ID, `ipv4-address` is the internal IPv4 address, and `nat-ip-version` is the IP specification for the egress NAT.
       * `--ssh-key`: Public part of the SSH key.
 
       The command outputs information about the VM created. Save the VM's public IP address:

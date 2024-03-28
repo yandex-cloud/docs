@@ -1,3 +1,5 @@
+The name of the metric is written in the `name` label.
+
 Common labels for all {{ mch-name }} metrics:
 
 | Label | Value |
@@ -10,7 +12,7 @@ Common labels for all {{ mch-name }} metrics:
 | subcluster_name | Subcluster type: `clickhouse_subcluster`, `zookeeper_subcluster` |
 | shard | Shard ID |
 
-### CPU metrics {#managed-clickhouse-cpu-metrics}
+## CPU metrics {#managed-clickhouse-cpu-metrics}
 Processor core workload.
 
 | Name<br/>Type, units | Description |
@@ -31,7 +33,7 @@ Processor core workload.
 | `load.avg_1min`<br/>`DGAUGE`, % | Average load over 1 minute |
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over 5 minutes |
 
-### Disk metrics {#managed-clickhouse-disk-metrics}
+## Disk metrics {#managed-clickhouse-disk-metrics}
 | Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `ch_s3_disk_parts_size`<br/>`DGAUGE`, bytes | Space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-full-name }} when {{ mch-name }} [hybrid storage](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) is configured. |
@@ -42,7 +44,7 @@ Processor core workload.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space |
 | `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
 
-### Disk operation metrics {#managed-clickhouse-diskio-metrics}
+## Disk operation metrics {#managed-clickhouse-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
@@ -64,7 +66,7 @@ Processor core workload.
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
-### RAM metrics {#managed-clickhouse-ram-metrics}
+## RAM metrics {#managed-clickhouse-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory |
@@ -78,7 +80,7 @@ Processor core workload.
 | `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
 | `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes |
 
-### Network metrics {#managed-clickhouse-net-metrics}
+## Network metrics {#managed-clickhouse-net-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
@@ -90,8 +92,8 @@ Processor core workload.
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
 
-### Service metrics {#managed-clickhouse-metrics}
-##### System event metrics {#managed-clickhouse-system-events-metrics}
+## Service metrics {#managed-clickhouse-metrics}
+#### System event metrics {#managed-clickhouse-system-events-metrics}
 {{ CH }} native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
 For each metric, the increment (`inc`) and change `rate` per unit of time are calculated.
 
@@ -322,7 +324,7 @@ For each metric, the increment (`inc`) and change `rate` per unit of time are ca
 | `ch_system_events_WriteBufferFromS3Microseconds_inc`<br/>`DGAUGE` |
 | `ch_system_events_WriteBufferFromS3Microseconds_rate`<br/>`DGAUGE` |
 
-##### Current event metrics {#managed-clickhouse-system-metrics}
+#### Current event metrics {#managed-clickhouse-system-metrics}
 {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
 
 | Name<br/>Type |
@@ -536,7 +538,7 @@ For each metric, the increment (`inc`) and change `rate` per unit of time are ca
 | `ch_system_metrics_ZooKeeperSession`<br/>`DGAUGE` |
 | `ch_system_metrics_ZooKeeperWatch`<br/>`DGAUGE` |
 
-##### Query queue metrics {#managed-clickhouse-query-log-metrics}
+#### Query queue metrics {#managed-clickhouse-query-log-metrics}
 {{ CH }} native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
 For each metric, the increment per unit of time (second) is calculated.
 
@@ -552,7 +554,7 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_system_query_log_written_bytes_inc`<br/>`DGAUGE` | |
 | `ch_system_query_log_written_rows_inc`<br/>`DGAUGE` | |
 
-##### Replication metrics {#managed-clickhouse-replication-metrics}
+#### Replication metrics {#managed-clickhouse-replication-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `ch_replication-future_parts`<br/>`DGAUGE`, number | Number of data parts after MERGE and INSERT operations are completed |
@@ -564,7 +566,7 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_replication-queue_size`<br/>`DGAUGE`, number | Merge and insert queue size |
 | `ch_replication-tables`<br/>`DGAUGE`, number | Number of replicated tables |
 
-##### System metrics {#managed-clickhouse-config-metrics}
+#### System metrics {#managed-clickhouse-config-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, number | Threshold value of active table data parts for {{ CH }} to throw a `Too many parts ...` exception if exceeded. Set in the [settings](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). It pays to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
@@ -589,7 +591,7 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_system_async_metrics_TotalRowsOfMergeTreeTablesSystem`<br/>`DGAUGE`, number | Total number of strings (records) in MergeTree tables within the system database |
 | `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, seconds | Total server uptime in seconds. Includes the server initialization time before it starts accepting connections. |
 
-### Other metrics {#managed-clickhouse-other-metrics}
+## Other metrics {#managed-clickhouse-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if it is not. |

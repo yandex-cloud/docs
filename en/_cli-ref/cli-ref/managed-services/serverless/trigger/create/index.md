@@ -20,7 +20,6 @@ Syntax:
 - [yc serverless trigger create iot-broker](iot-broker.md) — Create IoT broker trigger
 - [yc serverless trigger create object-storage](object-storage.md) — Create object storage trigger
 - [yc serverless trigger create container-registry](container-registry.md) — Create container registry trigger
-- [yc serverless trigger create cloud-logs](cloud-logs.md) — Create cloud logs trigger
 - [yc serverless trigger create logging](logging.md) — Create logging trigger
 - [yc serverless trigger create billing-budget](billing-budget.md) — Create billing budget trigger
 - [yc serverless trigger create yds](yds.md) — Create YDS trigger

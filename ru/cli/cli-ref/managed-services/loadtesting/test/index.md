@@ -25,6 +25,7 @@ Aliases:
 - [yc loadtesting test delete](delete.md) — Delete the specified test
 - [yc loadtesting test stop](stop.md) — Stop running test
 - [yc loadtesting test get-report-table](get-report-table.md) — Get report table for finished test.
+- [yc loadtesting test wait](wait.md) — Wait until test transition to final state.
 
 #### Global Flags
 

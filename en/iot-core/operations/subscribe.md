@@ -4,11 +4,11 @@ With a broker, you can subscribe to a random topic that does not start with `$` 
 
 For registries and devices, the selection of topics is limited. You can subscribe:
 
-- Registry to device events using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
-- Registry to device events using the permanent `$devices/<device ID>/state` or `$registries/<registry ID>/state` topics.
-- Device to registry commands using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
-- Device to registry commands using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
-- Registry or device to device monitoring data using the `$monitoring/<device ID>/json` topic.
+- Registry to device events using the `$devices/<device_ID>/events` or `$registries/<registry_ID>/events` topics.
+- Registry to device events using the permanent `$devices/<device_ID>/state` or `$registries/<registry_ID>/state` topics.
+- Device to registry commands using the `$devices/<device_ID>/commands` or `$registries/<registry_ID>/commands` topics.
+- Device to registry commands using the permanent `$devices/<device_ID>/config` or `$registries/<registry_ID>/config` topics.
+- Registry or device to device monitoring data using the `$monitoring/<device_ID>/json` topic.
 
 To learn about messaging, see [{#T}](publish.md).
 
@@ -38,7 +38,7 @@ You can subscribe a registry to topics of one, multiple, or all devices added to
       yc iot mqtt subscribe \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        --topic '$devices/<device ID>/events' \
+        --topic '$devices/<device_ID>/events' \
         --qos 1
       ```
    - Subscribe a registry to a device's permanent topic using certificate-based authorization:
@@ -47,7 +47,7 @@ You can subscribe a registry to topics of one, multiple, or all devices added to
       yc iot mqtt subscribe \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        --topic '$devices/<device ID>/state' \
+        --topic '$devices/<device_ID>/state' \
         --qos 1
       ```
 
@@ -62,18 +62,18 @@ You can subscribe a registry to topics of one, multiple, or all devices added to
 
       ```
       yc iot mqtt subscribe \
-        --username <registry ID> \
-        --password <registry password> \
-        --topic '$devices/<device ID>/events' \
+        --username <registry_ID> \
+        --password <registry_password> \
+        --topic '$devices/<device_ID>/events' \
         --qos 1
       ```
    - Subscribe a registry to a device's permanent topic using username and password authorization:
 
       ```
       yc iot mqtt subscribe \
-        --username <registry ID> \
-        --password <registry password> \
-        --topic '$devices/<device ID>/state' \
+        --username <registry_ID> \
+        --password <registry_password> \
+        --topic '$devices/<device_ID>/state' \
         --qos 1
       ```
 
@@ -88,7 +88,7 @@ You can subscribe a registry to topics of one, multiple, or all devices added to
 
 ### Subscribe a registry to the topics of all devices added to it {#all-device}
 
-The registry will only receive data from devices that send messages to the `$registries/<registry ID>/events` or `$registries/<registry ID>/state` topic.
+The registry will receive data only from the devices that send messages to the `$registries/<registry_ID>/events` or `$registries/<registry_ID>/state` topic.
 
 {% list tabs group=instructions %}
 
@@ -100,7 +100,7 @@ The registry will only receive data from devices that send messages to the `$reg
       yc iot mqtt subscribe \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        --topic '$registries/<registry ID>/events' \
+        --topic '$registries/<registry_ID>/events' \
         --qos 1
       ```
 
@@ -110,7 +110,7 @@ The registry will only receive data from devices that send messages to the `$reg
       yc iot mqtt subscribe \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        --topic '$registries/<registry ID>/state' \
+        --topic '$registries/<registry_ID>/state' \
         --qos 1
       ```
 
@@ -125,18 +125,18 @@ The registry will only receive data from devices that send messages to the `$reg
 
       ```
       yc iot mqtt subscribe \
-        --username <registry ID> \
-        --password <registry password> \
-        --topic '$registries/<registry ID>/events' \
+        --username <registry_ID> \
+        --password <registry_password> \
+        --topic '$registries/<registry_ID>/events' \
         --qos 1
       ```
    - Subscribe a registry to the permanent topics of all devices using username and password authorization:
 
       ```
       yc iot mqtt subscribe \
-        --username <registry ID> \
-        --password <registry password> \
-        --topic '$registries/<registry ID>/state' \
+        --username <registry_ID> \
+        --password <registry_password> \
+        --topic '$registries/<registry_ID>/state' \
         --qos 1
       ```
 
@@ -167,7 +167,7 @@ Commands from a registry can be given to a specific device or all devices in the
       yc iot mqtt subscribe \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$devices/<device ID>/commands' \
+        --topic '$devices/<device_ID>/commands' \
         --qos 1
       ```
 
@@ -177,7 +177,7 @@ Commands from a registry can be given to a specific device or all devices in the
       yc iot mqtt subscribe \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$devices/<device ID>/config' \
+        --topic '$devices/<device_ID>/config' \
         --qos 1
       ```
 
@@ -192,9 +192,9 @@ Commands from a registry can be given to a specific device or all devices in the
 
       ```
       yc iot mqtt subscribe \
-        --username <device ID> \
-        --password <device password> \
-        --topic '$devices/<device ID>/commands' \
+        --username <device_ID> \
+        --password <device_password> \
+        --topic '$devices/<device_ID>/commands' \
         --qos 1
       ```
 
@@ -202,9 +202,9 @@ Commands from a registry can be given to a specific device or all devices in the
 
       ```
       yc iot mqtt subscribe \
-        --username <device ID> \
-        --password <device password> \
-        --topic '$devices/<device ID>/config' \
+        --username <device_ID> \
+        --password <device_password> \
+        --topic '$devices/<device_ID>/config' \
         --qos 1
       ```
 
@@ -219,7 +219,7 @@ Commands from a registry can be given to a specific device or all devices in the
 
 ### Subscribe a device to topics that are commands for all devices {#for-all}
 
-Only devices subscribed to the `$registries/<registry ID>/commands` or `$registries/<registry ID>/config` topic will receive commands.
+Only the devices subscribed to the `$registries/<registry_ID>/commands` or `$registries/<registry_ID>/config` topic will receive commands.
 
 {% list tabs group=instructions %}
 
@@ -231,7 +231,7 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
       yc iot mqtt subscribe \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$registries/<registry ID>/commands' \
+        --topic '$registries/<registry_ID>/commands' \
         --qos 1
       ```
    - Subscribe a device to permanent topics that are commands using certificate-based authorization:
@@ -240,7 +240,7 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
       yc iot mqtt subscribe \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$registries/<registry ID>/config' \
+        --topic '$registries/<registry_ID>/config' \
         --qos 2
       ```
 
@@ -255,18 +255,18 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
 
       ```
       yc iot mqtt subscribe \
-        --username <device ID> \
-        --password <device password> \
-        --topic '$registries/<registry ID>/commands' \
+        --username <device_ID> \
+        --password <device_password> \
+        --topic '$registries/<registry_ID>/commands' \
         --qos 1
       ```
    - Subscribe a device to permanent topics that are commands using username and password authorization:
 
       ```
       yc iot mqtt subscribe \
-        --username <device ID> \
-        --password <device password> \
-        --topic '$registries/<registry ID>/config' \
+        --username <device_ID> \
+        --password <device_password> \
+        --topic '$registries/<registry_ID>/config' \
         --qos 1
       ```
 
@@ -291,8 +291,8 @@ When using a broker, you can subscribe to a random topic using your username and
 
       ```
       yc iot mqtt subscribe \
-        --username <broker ID> \
-        --password <broker password> \
+        --username <broker_ID> \
+        --password <broker_password> \
         --topic /my/custom/topic \
         --qos 1
       ```

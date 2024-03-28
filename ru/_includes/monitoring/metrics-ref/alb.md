@@ -10,7 +10,7 @@
 | --- | --- |
 | backend | Имя бэкенда |
 | backend_group | Имя [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md) |
-| http-router | Имя [HTTP-роутера](../../../application-load-balancer/concepts/http-router.md) |
+| http_router | Имя [HTTP-роутера](../../../application-load-balancer/concepts/http-router.md) |
 | load_balancer | Имя [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) |
 | route | Имя [маршрута](../../../application-load-balancer/concepts/http-router.md#routes) |
 | virtual_host | Имя [виртуального хоста](../../../application-load-balancer/concepts/http-router.md#virtual-host) |

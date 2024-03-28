@@ -2,10 +2,6 @@
 
 _Widgets_ are dashboard elements that display information as a chart or text.
 
- <!-- Big Yandex widgets -->
-
- <!-- Cloud widgets -->
-
 There are three types of widgets available in {{ monitoring-full-name }}:
 
 * [Chart](#chart)
@@ -33,7 +29,6 @@ You can also normalize data and display it as a stacked bar chart.
 Metrics on charts are displayed for a specific interval of time, which can be set using preset ranges (`1h 3h 1d 1w 1mo`). You can also set the start and the end of the interval.
 
 To set the interval more precisely, use the timeline located above the chart.
- <!-- Cloud widgets -->
 
 ## Text {#text}
 Text in [YFM](https://ydocs.tech/en/) format that allows you to include additional information in the dashboard. For example, you can post links to other dashboards.

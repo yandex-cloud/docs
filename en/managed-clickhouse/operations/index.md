@@ -5,47 +5,47 @@ description: "This page provides a list of step-by-step guides for {{ mch-name }
 
 # Step-by-step guides for {{ mch-name }}
 
-## Clusters
+## Clusters {#clusters}
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](update.md)
+* [Information about existing clusters](cluster-list.md)
+* [Creating clusters](cluster-create.md)
+* [Changing cluster settings](update.md)
 * [{#T}](cluster-version-update.md)
-* [{#T}](cluster-stop.md)
+* [Stopping and starting clusters](cluster-stop.md)
 * [{#T}](zk-hosts.md)
-* [{#T}](hosts.md)
-* [{#T}](host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](cluster-delete.md)
+* [Managing cluster hosts](hosts.md)
+* [Migrating cluster hosts to a different availability zone](host-migration.md)
+* [Managing backups](cluster-backups.md)
+* [Deleting clusters](cluster-delete.md)
 
-## Databases
+## Databases {#databases}
 
-* [{#T}](connect.md)
+* [Connecting to a database in a cluster](connect.md)
 * [{#T}](web-sql-query.md)
-* [{#T}](databases.md)
-* [{#T}](cluster-users.md)
+* [Managing databases](databases.md)
+* [Managing users](cluster-users.md)
 
-## Storing and processing data
+## Data storage and processing {#data-storage-and-processing}
 
-* [{#T}](geobase.md)
-* [{#T}](dictionaries.md)
-* [{#T}](format-schemas.md)
-* [{#T}](ml-models.md)
-
-
-* [{#T}](s3-access.md)
+* [Adding your own geobase](geobase.md)
+* [Connecting external dictionaries](dictionaries.md)
+* [Managing data format schemas](format-schemas.md)
+* [Managing machine learning models](ml-models.md)
 
 
-## Sharding
+* [Setting up access to {{ objstorage-name }}](s3-access.md)
 
-* [{#T}](shards.md)
-* [{#T}](shard-groups.md)
 
-## Logs and monitoring
+## Sharding {#sharding}
 
-* [{#T}](cluster-logs.md)
-* [{#T}](monitoring.md)
-* [{#T}](datalens-connect.md)
+* [Managing shards](shards.md)
+* [Managing shard groups](shard-groups.md)
+
+## Logs and monitoring {#monitoring-and-logs}
+
+* [Viewing cluster logs](cluster-logs.md)
+* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md)
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

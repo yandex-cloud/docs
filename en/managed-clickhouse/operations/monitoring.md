@@ -49,7 +49,7 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **CPU cores usage**: Number of processor cores used.
    * **CPU cores usage per host**: Number of processor cores used on each host.
    * **CPU usage per host**: Usage of processor cores on each host.
-   * **Disk read per host:** Disk read rate on each host (in bytes per second).
+   * **Disk read per host**: Disk read rate on each host (in bytes per second).
    * **Disk space usage**: Shows how much disk space is used (in bytes).
    * **Disk space usage per host**: Shows how much disk space is used on each host (two charts are displayed in bytes and %).
    * **Disk usage per host**: Speed of disk operations on each host (in bytes per second).
@@ -153,9 +153,9 @@ To view detailed information about the state of individual {{ mch-name }} hosts:
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
-      * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
-      * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
-      * **{{ mch-name }} — Host Overview** to configure host alerts.
+      * **{{ mch-name }}: Cluster Overview** to configure cluster alerts.
+      * **{{ mch-name }}: ZooKeeper** to configure ZooKeeper host alerts.
+      * **{{ mch-name }}: Host Overview** to configure host alerts.
    1. In the appropriate chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` threshold values to trigger the alert.

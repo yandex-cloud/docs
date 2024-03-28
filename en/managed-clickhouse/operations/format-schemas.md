@@ -7,7 +7,7 @@ description: "This guide describes how you can manage data format schemas in {{ 
 
 {% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
-Examples of working with the Cap'n Proto and Protobuf formats when inserting data into a cluster are given in [{#T}](../tutorials/insert.md).
+You can find examples of working with the Cap'n Proto and Protobuf formats when inserting data into a cluster in the [Adding data to a cluster](../tutorials/insert.md) section.
 
 ## Before connecting the format schema {#prereq}
 
