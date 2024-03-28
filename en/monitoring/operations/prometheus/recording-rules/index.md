@@ -145,5 +145,8 @@ curl -X DELETE \
     "https://monitoring.{{ api-host }}/prometheus/workspaces/$WORKSPACE/extensions/v1/rules/recording-rules"
 ```
 
+## Limits and validations
+
+File name can consist only of symbols, that are not URL encoded: a-z, A-Z, 0-9, and dot (.), dash (-), underscore(_). Max length of file name is 256 symbols. Group names cannot be longer than 256 symbols.
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}

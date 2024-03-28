@@ -147,5 +147,9 @@ curl -X DELETE \
     "https://monitoring.{{ api-host }}/prometheus/workspaces/$WORKSPACE/extensions/v1/rules/recording-rules"
 ```
 
+## Ограничения и проверки
+
+Имя файла может состоять только из символов, которые не нужно кодировать в URL: a-z, A-Z, 0-9, точка (.), тире (-), подчёркивание (_).Максимальная длина файла 256 символов. Длина имени группы не может превышать 256 символов.
+
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}
