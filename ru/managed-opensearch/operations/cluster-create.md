@@ -375,8 +375,8 @@ keywords:
         * размер диска — `10737418240` (в байтах);
         * тип диска — `network-ssd`;
         * количество хостов — три;
-        * зона доступности — `{{ region-id }}-b`;
-        * подсеть — `{{ network-name }}-{{ region-id }}-b`;
+        * зона доступности — `{{ region-id }}-a`;
+        * подсеть — `{{ network-name }}-{{ region-id }}-a`;
         * публичный адрес — выделен;
         * роли группы хостов — `DATA` и `MANAGER`.
 
@@ -387,8 +387,8 @@ keywords:
         * размер диска — `10737418240` (в байтах);
         * тип диска — `network-ssd`;
         * количество хостов — один;
-        * зона доступности — `{{ region-id }}-b`;
-        * подсеть — `{{ network-name }}-{{ region-id }}-b`;
+        * зона доступности — `{{ region-id }}-a`;
+        * подсеть — `{{ network-name }}-{{ region-id }}-a`;
         * публичный адрес — выделен.
 
     Выполните команду:
@@ -417,8 +417,8 @@ keywords:
                               `disk-size=10737418240,`
                               `disk-type-id=network-ssd,`
                               `hosts-count=3,`
-                              `zone-ids={{ region-id }}-b,`
-                              `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                              `zone-ids={{ region-id }}-a,`
+                              `subnet-names={{ network-name }}-{{ region-id }}-a,`
                               `assign-public-ip=true,`
                               `roles=data+manager \
        --dashboards-node-group name=dashboard-group,`
@@ -426,8 +426,8 @@ keywords:
                               `disk-size=10737418240,`
                               `disk-type-id=network-ssd,`
                               `hosts-count=1,`
-                              `zone-ids={{ region-id }}-b,`
-                              `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                              `zone-ids={{ region-id }}-a,`
+                              `subnet-names={{ network-name }}-{{ region-id }}-a,`
                               `assign-public-ip=true
     ```
 

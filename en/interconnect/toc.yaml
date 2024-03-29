@@ -12,8 +12,6 @@ items:
         href: concepts/pops.md
       - name: Transceivers
         href: concepts/transceivers.md
-      - name: Bandwidth
-        href: concepts/capacity.md
       - name: Trunk
         href: concepts/trunk.md
       - name: Private connection
@@ -24,6 +22,8 @@ items:
         href: concepts/routing.md
       - name: Monitoring
         href: concepts/monitoring.md
+      - name: Data volumes and connection capacities
+        href: concepts/capacity.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Guides

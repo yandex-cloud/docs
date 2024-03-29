@@ -150,8 +150,8 @@ This method is used when the client does not have their own equipment at the poi
 * Connectivity between the telecom provider's equipment at the point of presence and the client equipment is ensured by providing an L3VPN service to the client. This setup option is usually used when the client cannot technically ensure BGP connectivity to the {{ yandex-cloud }} equipment on their own and delegates this to a telecom provider that ensures connectivity by providing an L3VPN service to the client.
 
 
-## Bandwidth and rate limit {#policer}
+## Connection capacity {#policer}
 
-At the trunk level, the {{ yandex-cloud }} equipment uses a rate limit for receiving and sending data from or to the external equipment in bits per second and in packets per second according to the [traffic package](./capacity.md) (bandwidth) selected by the client.
+At trunk level, {{ yandex-cloud }} equipment limits data receive/send rates from/to external equipment in bits per second and packets per second according to the [connection capacity](../pricing.md) selected by the client.
 
 To limit the rate of receiving and sending data on the {{ yandex-cloud }} equipment, the **RateLimit (Policing)** mechanism is used. When the data transfer speed in bits per second or packets per second is exceeded, the data may be rejected. As a result, uniform traffic may be transmitted at a faster speed than the traffic transmitted in sudden bursts.

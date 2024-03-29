@@ -259,8 +259,8 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
       * `start.hours`: Start hour of the `VACUUM` operation in UTC. Valid values: from `0` to `23`, with `19` by default.
       * `start.minutes`: Start minute of the `VACUUM` operation in UTC. Valid values: from `0` to `59`, with `0` by default.
-      * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. The default value is `36,000`. As soon as this period expires, `VACUUM` will be forced to terminate.
-      * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36,000`. As soon as this period expires, the operation will be forced to terminate.
+      * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. Valid values: from `7,200` to `86,399`, with `36,000` by default. As soon as this period expires, `VACUUM` will be forced to terminate.
+      * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. Valid values: from `7,200` to `86,399`, with `36,000` by default. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
 
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -318,7 +318,7 @@ You can change the DBMS settings of the hosts in your cluster.
    To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * New settings in the `configSpec.greenplumConfig_<version>` parameter.
-   * List of cluster configuration fields to be updated in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter.
 
       {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -345,7 +345,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New master and segment host storage size in the `masterConfig.resources.diskSize` and `segmentConfig.resources.diskSize` parameters.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -355,7 +355,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 ## Changing the PXF settings {#pxf}
 
-[{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) (PXF) is a software platform to access the data in external DBMS's.
+The [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) (PXF) is a software platform to access the data in external DBMS's.
 
 The PXF settings you can configure using the {{ yandex-cloud }} tools match those in the {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/config_files.html?hWord=N4IghgNiBcIC4HsC2BjMcQF8g#pxfapplicationproperties-1) configuration file. It describes the PXF features. To change them, use the {{ yandex-cloud }} tools rather than edit the file.
 

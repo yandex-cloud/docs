@@ -1,6 +1,6 @@
 Имя события | Описание
 --- | ---
-`CreateLicenseInstance` | Создание подписки
+`CreateLicenseInstance` | Покупка подписки
 `DeleteLicenseInstance` | Удаление подписки
 `LockLicenseInstance` | Привязка подписки
 `MoveLicenseInstance` | Перемещение подписки

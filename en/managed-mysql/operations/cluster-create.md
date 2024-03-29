@@ -606,7 +606,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * New network: `mynet`
    * `{{ host-class }}` public hosts: 3
 
-      One host will be added to the new subnets:
+      One host will be added to each one of the new subnets:
       * `mysubnet-a`: `10.5.0.0/24`, availability zone: `{{ region-id }}-a`.
       * `mysubnet-b`: `10.6.0.0/24`, availability zone: `{{ region-id }}-b`.
       * `mysubnet-d`: `10.7.0.0/24`, availability zone: `{{ region-id }}-d`.
@@ -718,3 +718,4 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 
 {% endlist %}
+

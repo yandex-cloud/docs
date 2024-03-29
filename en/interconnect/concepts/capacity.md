@@ -1,26 +1,33 @@
-# Bandwidth
+# Data volumes and connection capacities
 
-Bandwidth is a rating unit in {{ interconnect-name }} equal to the amount of traffic transmitted within a month.
+Data volume is a {{ interconnect-name }} billing unit equal to the amount of traffic transmitted within a month.
 
-> For example, for a bandwidth of 30 TB, the capacity is 100 `Mbps`.
+Data volumes currently available for ordering:
 
-Here are the bandwidths currently available:
-
-| Bandwidth, TB | Capacity, Mbps |
---- | ---
-| 30 | 100 |
-| 75 | 250 |
-| 150 | 500 |
-| 300 | 1,000 |
-| 615 | 2,000 |
-| 900 | 3,000 |
-| 1,545 | 5000 |
-| 3,090 | 10,000 |
+| Data volume, TB | Connection capacity |
+---------------- | -------------------
+| 15 | 50 Mbps |
+| 30 | 100 Mbps |
+| 60 | 200 Mbps |
+| 90 | 300 Mbps |
+| 120 | 400 Mbps |
+| 150 | 500 Mbps |
+| 300 | 1 Gbps |
+| 615 | 2 Gbps |
+| 930 | 3 Gbps |
+| 1,230 | 4 Gbps |
+| 1,545 | 5 Gbps |
+| 3,090 | 10 Gbps |
+| 6,180 | 20 Gbps |
+| 9,270 | 30 Gbps |
+| 12,360 | 40 Gbps |
+| 15,450 | 50 Gbps |
+| 30,900 | 100 Gbps |
 
 {% note info %}
 
-* You can double-check your bandwidth cost with your {{ yandex-cloud }} manager.
-* When creating a request for a new trunk (either direct or partner), make sure to specify the trunk capacity in `mbps`. The trunk capacities available are listed in the table above. No other values are supported.
-* To change the capacity for an existing trunk, contact tech support.
+* For the cost of data volumes, see [Pricing policy](../pricing.md).
+* When submitting a request for a new trunk connection (either direct or partner), be sure to specify trunk capacity in `Mbps`. Available trunk connection capacities are listed in the table above. No other values are supported.
+* You can change the capacity of your existing trunk connection by contacting technical support.
 
 {% endnote %}

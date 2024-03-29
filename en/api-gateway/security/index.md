@@ -31,6 +31,10 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
+#### api-gateway.auditor {#api-gateway-auditor}
+
+{% include [api-gateway.auditor](../../_roles/api-gateway/auditor.md) %}
+
 #### api-gateway.viewer {#api-gateway-viewer}
 
 {% include [api-gateway.viewer](../../_roles/api-gateway/viewer.md) %}

@@ -14,7 +14,7 @@ _Disks_ are virtual versions of physical storage devices, such as SSD and HDD.
 
 Disks are designed for storing data and are attached to VMs. Detaching a disk does not delete its data.
 
-Each disk is located in an availability zone, where it is [replicated](#backup) (unless it is a non-replicated disk) to provide data protection. Disks are not replicated to other zones.
+Each disk is located in one of the [availability zones](../../overview/concepts/geo-scope.md) and [replicated](#backup) within it (unless it is a non-replicated disk) for data protection. Disks are not replicated to other zones.
 
 After creating a disk, you can [change](../operations/disk-control/update.md#change-disk-name) its name and description and [increase](../operations/disk-control/update.md#change-disk-size) the disk size.
 
@@ -54,6 +54,10 @@ Non-replicated disks and high-performance SSDs outperform network SSDs but have 
 Our recommendation is to avoid using a non-replicated disk as your boot drive. This is because, in case it fails, your virtual machine may become unavailable.
 
 {% endnote %}
+
+Non-replicated disks are physically located in the server racks of the data center in one of the availability zones. Every so often the existing racks and equipment get replaced with new ones, with their data migrated from one physical medium to another.
+
+During a migration like that, the **{{ ui-key.yacloud.compute.disk.overview.label_status }}** line on the disk information page in the [management console]({{ link-console-main }}) will display the following message: `data migration in progress, slight performance decrease may be experienced`. The disk may temporarily become unavailable for write operations, and its performance may deteriorate.
 
 If you need enhanced performance and guaranteed fault tolerance, we recommend using high-performance SSDs.
 

@@ -16,7 +16,7 @@
 
    {% list tabs group=instructions %}
 
-   * Консоль управления {#console}
+   - Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
@@ -29,7 +29,7 @@
 
       1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-   * CLI {#cli}
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@
 
       Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters). В параметре `zone-id` укажите зону, куда вы переносите хосты.
 
-   * {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
       1. В конфигурационный файл {{ TF }} с планом инфраструктуры добавьте манифест хоста:
 
@@ -74,7 +74,7 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   * API {#api}
+   - API {#api}
 
       Чтобы добавить хост в кластер, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
 
@@ -97,13 +97,13 @@
 
    {% list tabs group=instructions %}
 
-   * Консоль управления {#console}
+   - Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
-   * CLI {#cli}
+   - CLI {#cli}
 
       Выполните команду для каждого хоста:
 
@@ -111,7 +111,7 @@
       {{ yc-mdb-ch }} host delete <FQDN_хоста> --cluster-name <имя_кластера>
       ```
 
-   * {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
       1. В конфигурационном файле {{ TF }} с планом инфраструктуры удалите из описания кластера блоки `host` с первоначальной зоной доступности.
       1. Проверьте корректность настроек.
@@ -122,7 +122,7 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   * API {#api}
+   - API {#api}
 
       Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и передайте в запросе:
 

@@ -90,20 +90,7 @@ title: "How to get information about a disk snapshot in {{ compute-full-name }}"
       Result:
 
       ```bash
-      snapshot = {
-        "created_at" = "2024-02-23T15:54:53Z"
-        "description" = "my-snapshot"
-        "disk_size" = 100
-        "folder_id" = "b1g681qpemb4********"
-        "id" = "fd8lv1k3ciui********"
-        "labels" = tomap({})
-        "name" = "my-disk
-        "product_ids" = tolist([])
-        "snapshot_id" = "fd8lv1k3ciui********"
-        "source_disk_id" = "epd221eamrs7********"
-        "status" = "ready"
-        "storage_size" = 2
-      }
+      snapshot = 7
       ```
 
 - API {#api}

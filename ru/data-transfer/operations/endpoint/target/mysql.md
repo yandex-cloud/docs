@@ -34,10 +34,10 @@ description: "Из статьи вы узнаете, как задать нас�
 
 * [{{ PG }}](../source/postgresql.md);
 * [{{ MY }}](../source/mysql.md);
-* [{{ objstorage-full-name }}](../source/object-storage.md);
 * [{{ KF }}](../source/kafka.md);
 * [Aibyte](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
+* [{{ objstorage-full-name }}](../source/object-storage.md);
 * [{{ ydb-name }}](../source/ydb.md).
 
 ## Подготовка базы данных приемника {#prepare}
