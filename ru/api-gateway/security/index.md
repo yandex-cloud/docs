@@ -31,6 +31,10 @@ description: "Управление доступом в сервисе API-шлю
 
 ### Сервисные роли {#service-roles}
 
+#### api-gateway.auditor {#api-gateway-auditor}
+
+{% include [api-gateway.auditor](../../_roles/api-gateway/auditor.md) %}
+
 #### api-gateway.viewer {#api-gateway-viewer}
 
 {% include [api-gateway.viewer](../../_roles/api-gateway/viewer.md) %}

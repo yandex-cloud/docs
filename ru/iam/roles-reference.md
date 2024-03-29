@@ -57,6 +57,10 @@ description: "В статье приведен полный справочник
 
 ## {{ api-gw-full-name }} {#api-gateway-roles}
 
+#### api-gateway.auditor {#api-gateway-auditor}
+
+{% include [api-gateway.auditor](../_roles/api-gateway/auditor.md) %}
+
 #### api-gateway.viewer {#api-gateway-viewer}
 
 {% include [api-gateway.viewer](../_roles/api-gateway/viewer.md) %}
@@ -169,6 +173,10 @@ description: "В статье приведен полный справочник
 
 
 ## {{ billing-name }} {#billing-roles}
+
+#### billing.accounts.member {#billing-accounts-member}
+
+{% include [billing.accounts.member](../_roles/billing/accounts/member.md) %}
 
 #### billing.accounts.owner {#billing-accounts-owner}
 
@@ -423,6 +431,27 @@ description: "В статье приведен полный справочник
 {% include [compute.snapshotSchedules.editor](../_roles/compute/snapshotSchedules/editor.md) %}
 
 Подробнее см. [{#T}](../compute/security/index.md).
+
+
+## {{ connection-manager-full-name }} {#connection-manager-roles}
+
+#### connection-manager.auditor {#connection-manager-auditor}
+
+{% include [connection-manager.auditor](../_roles/connection-manager/auditor.md) %}
+
+#### connection-manager.viewer {#connection-manager-viewer}
+
+{% include [connection-manager.viewer](../_roles/connection-manager/viewer.md) %}
+
+#### connection-manager.editor {#connection-manager-editor}
+
+{% include [connection-manager.editor](../_roles/connection-manager/editor.md) %}
+
+#### connection-manager.admin {#connection-manager-admin}
+
+{% include [connection-manager.admin](../_roles/connection-manager/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ connection-manager-name }}](../metadata-hub/security/index.md).
 
 
 ## {{ container-registry-full-name }} {#cr-roles}

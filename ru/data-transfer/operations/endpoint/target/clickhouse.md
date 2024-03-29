@@ -43,12 +43,14 @@ description: "Из статьи вы узнаете, как задать нас�
 * [{{ MY }}](../source/mysql.md);
 * [{{ CH }}](../source/clickhouse.md);
 * [{{ GP }}](../source/greenplum.md);
-* [{{ objstorage-full-name }}](../source/object-storage.md);
 * [{{ KF }}](../source/kafka.md);
 * [Aibyte](../../../transfer-matrix.md#airbyte);
 * [{{ metrika }}](../source/metrika.md);
 * [{{ DS }}](../source/data-streams.md);
+* [{{ objstorage-full-name }}](../source/object-storage.md);
 * [Oracle](../source/oracle.md).
+* [{{ ES }}](../source/elasticsearch.md);
+* [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

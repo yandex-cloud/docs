@@ -1,0 +1,1 @@
+The `api-gateway.auditor` role allows you to view the list of API gateways and the details on access bindings to such gateways.
