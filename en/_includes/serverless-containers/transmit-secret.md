@@ -15,10 +15,10 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
    1. Select a container you want to transmit a secret to.
    1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
    1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, in the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify:
-      * Name of the environment variable where the secret will be kept.
+      * Name of the environment variable to store the secret.
       * Secret ID.
       * Secret version ID.
-      * Non-secret key ID.
+      * Key of one of the key-value pairs contained in the secret version.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
       You can transmit multiple secrets to a container. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
@@ -46,7 +46,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
       --cores 1 \
       --memory 1GB \
       --service-account-id bfbtfcp0o9i8******** \
-      --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=key-id
+      --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=secret-key
    ```
 
    Where:
@@ -57,10 +57,10 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
    * `--memory`: Required memory. The default value is 128 MB.
    * `--service-account-id`: ID of a service account with the `lockbox.payloadViewer` role.
    * `--secret`:
-      * `environment-variable`: Name of the environment variable where the secret will be kept.
+      * `environment-variable`: Name of the environment variable to store the secret.
       * `id`: Secret ID.
       * `version-id`: Secret version ID.
-      * `key`: Non-secret key ID.
+      * `key`: Key of one of the key-value pairs contained in the secret version.
 
       You can transmit multiple secrets to a container. To do this, specify the `--secret` parameter as many times as needed.
 

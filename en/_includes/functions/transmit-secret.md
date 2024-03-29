@@ -20,7 +20,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
          * Name of the environment variable that will store the secret.
          * Secret ID.
          * Secret version ID.
-         * Non-secret key ID.
+         * Key of one of the key-value pairs contained in the secret version.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
       You can transmit multiple secrets to a function. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
@@ -50,7 +50,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
      --execution-timeout 5s \
      --source-version-id vfdsdeqa1s2d3******** \
      --service-account-id bfbtfcp0o9i8******** \
-     --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=key-id
+     --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=secret-key
    ```
 
    Where:
@@ -66,7 +66,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
       * `environment-variable`: Name of the environment variable that will store the secret.
       * `id`: Secret ID.
       * `version-id`: Secret version ID.
-      * `key`: Non-secret key ID.
+      * `key`: Key of one of the key-value pairs contained in the secret version.
 
       You can transmit multiple secrets to a function. To do this, specify the `--secret` parameter as many times as needed.
 
@@ -111,7 +111,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
       * `secrets`: Section with secret settings. It contains the following parameters:
          * `id`: Secret ID. This is a required parameter.
          * `version_id`: Secret version ID. This is a required parameter.
-         * `key`: Non-secret key ID to store in an environment variable. This is a required parameter.
+         * `key`: Key of one of the key-value pairs contained in the version of the secret to be stored in the environment variable. This is a required parameter.
          * `environment_variable`: Name of the environment variable that will store the secret. This is a required parameter.
    1. Apply the changes:
 

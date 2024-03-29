@@ -54,7 +54,7 @@ You can set more detailed rules for security groups, such as allowing traffic in
 
       [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) in the selected subnet. For more information, see [{#T}](#set-up-network).
 
-   1. To enable a {{ metastore-name }} cluster to interact with the S3 object storage, under **{{ ui-key.yacloud.metastore.title_s3config }}**, specify the **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** of the [AWS-compatible static access key](../../../iam/concepts/authorization/access-key.md).
+   1. To enable a {{ metastore-name }} cluster to interact with {{ objstorage-full-name }}, under **{{ ui-key.yacloud.metastore.title_s3config }}**, specify the **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** of the [AWS-compatible static access key](../../../iam/concepts/authorization/access-key.md).
 
    1. If required, enable protection of the cluster from accidental deletion by a user.
 

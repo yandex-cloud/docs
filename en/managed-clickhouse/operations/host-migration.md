@@ -1,6 +1,6 @@
 # Migrating {{ CH }} cluster hosts to a different availability zone
 
-{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
+The {{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
@@ -10,6 +10,7 @@
 
    Non-replicated tables will be lost during migration.
 
+1. If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, [enable fault tolerance](zk-hosts.md#add-zk) using {{ ZK }} hosts. Otherwise, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
 1. Add a host to your cluster:
 

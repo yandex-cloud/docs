@@ -24,14 +24,22 @@ To manage access rights to connections, you can use the service roles {{ metadat
 
 ### Service roles for managing connections using {{ connection-manager-full-name }} {#service-roles}
 
-{% include [connection-manager-auditor](../../_includes/iam/roles/connection-manager-auditor.md) %}
+#### connection-manager.auditor {#connection-manager-auditor}
 
-{% include [connection-manager-viewer](../../_includes/iam/roles/connection-manager-viewer.md) %}
+{% include [connection-manager.auditor](../../_roles/connection-manager/auditor.md) %}
+
+#### connection-manager.viewer {#connection-manager-viewer}
+
+{% include [connection-manager.viewer](../../_roles/connection-manager/viewer.md) %}
 
 
-{% include [connection-manager-editor](../../_includes/iam/roles/connection-manager-editor.md) %}
+#### connection-manager.editor {#connection-manager-editor}
 
-{% include [connection-manager-admin](../../_includes/iam/roles/connection-manager-admin.md) %}
+{% include [connection-manager.editor](../../_roles/connection-manager/editor.md) %}
+
+#### connection-manager.admin {#connection-manager-admin}
+
+{% include [connection-manager.admin](../../_roles/connection-manager/admin.md) %}
 
 
 ### Primitive roles {#primitive-roles}

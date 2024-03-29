@@ -85,7 +85,13 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Настройте эндпоинт-приемник:
 
-* [{{ OS }}](../target/opensearch.md).
+* [{{ OS }}](../target/opensearch.md);
+* [{{ CH }}](../target/clickhouse.md);
+* [{{ GP }}](../target/greenplum.md);
+* [{{ ydb-full-name }}](../target/yandex-database.md);
+* [{{ objstorage-full-name }}](../target/object-storage.md);
+* [{{ KF }}](../target/kafka.md);
+* [{{ DS }}](../target/data-streams.md);
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

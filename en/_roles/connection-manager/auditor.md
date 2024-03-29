@@ -1,0 +1,1 @@
+The `connection-manager.auditor` role allows you to view public details on [connections](../../metadata-hub/concepts/connection-manager.md) and [access bindings](../../iam/concepts/access-control/index.md#access-bindings) to them. If you have this role assigned for a cloud, it will also enable viewing Connection Manager [quotas](../../metadata-hub/concepts/limits.md).

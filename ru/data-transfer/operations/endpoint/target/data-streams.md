@@ -35,9 +35,12 @@ description: "Из статьи вы узнаете, как задать нас�
 * [{{ PG }}](../source/postgresql.md);
 * [{{ MY }}](../source/mysql.md);
 * [{{ KF }}](../source/kafka.md);
+* [{{ ydb-name }}](../source/ydb.md);
 * [Aibyte](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md).
+* [{{ ES }}](../source/elasticsearch.md);
+* [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

@@ -14,13 +14,13 @@ Runtime environment characteristics:
 
 A first function call creates a function instance. The service uses existing function instances for new calls, if available. This allows you to save time preparing the runtime environment and resources, such as DB connections and temporary files, which do not have to be re-created when the runtime environment is used again.
 
+## Runtime environments {#runtimes}
+
 {% note info %}
 
-The runtime environment is updated while relevant language version updates are released. We do not recommend using obsolete language versions.
+The runtime environment is updated while relevant language version updates are released. We do not recommend using language versions no longer supported by {{ sf-name }}, as they get no security updates, patches, and new custom features.
 
 {% endnote %}
-
-## Runtime environments {#runtimes}
 
 Runtime environments available in {{ sf-name }}.
 

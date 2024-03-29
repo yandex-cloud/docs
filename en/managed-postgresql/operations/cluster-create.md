@@ -516,3 +516,6 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 
 {% endlist %}
+
+
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}

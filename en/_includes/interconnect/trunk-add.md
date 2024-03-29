@@ -5,7 +5,7 @@ This guide explains how to set up a direct trunk.
 ### Getting started {#trunk-prep}
 
 * See the [documentation](../../interconnect/concepts/index.md) to learn how the service works.
-* Contact your {{ yandex-cloud }} manager to agree upon the service activation rate ([traffic package](../../interconnect/concepts/capacity.md)).
+* Contact your {{ yandex-cloud }} manager to agree upon the pricing plan ([connection capacity](../../interconnect/pricing.md)).
 * Select a [point of presence](../../interconnect/concepts/pops.md) for connecting a [trunk](../../interconnect/concepts/trunk.md).
 
    {% note warning %}
@@ -36,16 +36,16 @@ Write a support request as follows:
 Subject: [CIC] Creating a new trunk.
 
 Request text:
-Set up a new Cloud Interconnect connection (trunk)
+Please set up a new Cloud Interconnect trunk
 with the following parameters:
 
 client: My Company Ltd
 folder-id: b1g28j9359gic3p2gca2
 point of presence: M9
 transceiver type: 10GBASE-LR
-traffic package: 250mbps
+connection capacity: 250mbps
 
-We will provide the details for setting up a private connection later in a separate ticket.
+The details for a private connection will be provided later in a separate ticket.
 ```
 
 
@@ -58,7 +58,7 @@ Where:
 * `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to send {{ interconnect-name }} monitoring metrics to.
 * `point of presence`: [Code of the point of presence](../../interconnect/concepts/pops.md).
 * `transceiver type`: [Type of transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect.
-* `traffic package`: [Bandwidth](../../interconnect/concepts/capacity.md) in Mbps corresponding to the package of traffic selected by the customer.
+* `connection capacity`: [Bandwidth](../../interconnect/pricing.md) in Mbps.
 
 
 {% note warning %}

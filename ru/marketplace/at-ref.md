@@ -1,6 +1,6 @@
 # Справочник аудитных логов {{ at-full-name }}
 
-В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ marketplace-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
+В {{ at-name }} поддерживается отслеживание событий уровня конфигурации для {{ marketplace-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 

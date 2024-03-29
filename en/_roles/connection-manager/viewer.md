@@ -1,0 +1,3 @@
+The `connection-manager.viewer` role enables viewing info on [connections](../../metadata-hub/concepts/connection-manager.md) and [access bindings](../../iam/concepts/access-control/index.md#access-bindings) to them, as well as on the Connection Manager [quotas](../../metadata-hub/concepts/limits.md). It does not allow you to view [private](../../metadata-hub/concepts/secret.md) data, such as DB passwords.
+
+This role includes the permissions of the `connection-manager.auditor` role.
