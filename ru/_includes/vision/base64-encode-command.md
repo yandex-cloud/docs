@@ -28,7 +28,7 @@
   # Создайте функцию, которая кодирует файл и возвращает результат.
   def encode_file(file):
     file_content = file.read()
-    return base64.b64encode(file_content)
+    return str(base64.b64encode(file_content))[2:-1]
   ```
   
 - Node.js {#node}
