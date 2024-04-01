@@ -43,10 +43,10 @@ items:
         href: concepts/coi-specifications.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Релизы {{ coi }}
-    href: release-notes.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Релизы {{ coi }}
+    href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Решение проблем

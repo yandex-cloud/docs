@@ -37,10 +37,6 @@ items:
         href: concepts/core-properties.md
       - name: Синхронный и асинхронный режимы выполнения команд
         href: concepts/mode.md
-  - name: Релизы CLI
-    href: release-notes.md
-  - name: Решение проблем
-    href: error.md
   - name: Справочник CLI (англ.)
     items:
       - name: Overview
@@ -4477,4 +4473,8 @@ items:
                       - name: get
                         href: >-
                           cli-ref/managed-services/organization-manager/federation/saml/get.md
+  - name: Релизы CLI
+    href: release-notes.md
+  - name: Решение проблем
+    href: error.md
 base: ru/cli

@@ -477,10 +477,10 @@ items:
     href: at-ref.md
   - name: Логи бакета
     href: logs-ref.md
-  - name: Вопросы и ответы
-    href: qa.md
   - name: История изменений
     href: release-notes.md
+  - name: Вопросы и ответы
+    href: qa.md
   - name: Обучающие курсы
     href: training.md
 base: ru/storage

@@ -1,32 +1,32 @@
-## Data volume {#data}
+## Data {#data}
 
-| Data volume, TB | Price, including VAT |
+| Usable data size, TB    | Cost per month, without VAT  |
 | ------------------- | -------------- |
-| 15 | ₽5,535.00 |
-| 30 | ₽11,070.00 |
-| 60 | ₽20,663.00 |
-| 90 | ₽28,778.00 |
-| 120 | ₽35,417.00 |
-| 150 | ₽40,578.00 |
-| 300 | ₽44,226.00 |
-| 615 | ₽83,384.00 |
-| 930 | ₽117,473.00 |
-| 1,230 | ₽146,495.00 |
-| 1,545 | ₽170,448.00 |
-| 3,090 | ₽214,191.00 |
-| 6,180 | ₽423,450.00 |
-| 9,270 | ₽627,778.00 |
-| 12,360 | ₽827,175.00 |
-| 15,450 | ₽1,021,640.00 |
-| 30,900 | ₽1,920,000.00 |
+| 15                  | $44.280        |
+| 30                  | $88.560        |
+| 60                  | $165.304       |
+| 90                  | $230.224       |
+| 120                 | $283.336       |
+| 150                 | $324.624       |
+| 300                 | $353.808       |
+| 615                 | $667.072       |
+| 930                 | $939.784       |
+| 1230                | $1,171.960     |
+| 1545                | $1,363.584     |
+| 3090                | $1,713.528     |
+| 6180                | $3,387.600     | 
+| 9270                | $5,022.224     |
+| 12360               | $6,617.400     |
+| 15450               | $8,173.120     |
+| 30900               | $15,360.000    |
 
-## Other services {#other-services}
+## Other services {#other-services} 
 
-| Service | Price, including VAT |
+| Service                                    | Cost per month, without VAT |
 | ------------------------------------------ | ------------- |
-| Private or public network connection | ₽120.00 |
-| 1000BASE-LX physical port | ₽2,325.00 |
-| 100GBASE-ER4 physical port | ₽22,500.00 |
-| 100GBASE-LR4 physical port | ₽19,437.50 |
-| 10GBASE-ER physical port | ₽2,513.00 |
-| 10GBASE-LR physical port | ₽2,325.00 |
+| Private or public network connection       | $0.960        |
+| 1000BASE-LX physical port                  | $18.600       |
+| 100GBASE-ER4 physical port                 | $180.000      |
+| 100GBASE-LR4 physical port                 | $155.504      |
+| 10GBASE-ER physical port                   | $20.104       |
+| 10GBASE-LR physical port                   | $18.600       |

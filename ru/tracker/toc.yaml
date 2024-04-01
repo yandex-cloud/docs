@@ -312,7 +312,25 @@ items:
           - name: Как создать дашборд
             href: user/create-dashboard.md
           - name: Виджеты
-            href: user/widgets.md
+            items:
+              - name: Обзор
+                href: user/widgets.md
+              - name: Задачи
+                href: user/tasks.md
+              - name: Заметка
+                href: user/note.md
+              - name: Сводная таблица
+                href: user/summary-table.md
+              - name: Сводная таблица с суммой значений
+                href: user/summary-table-with-totals.md
+              - name: График событий
+                href: user/events.md
+              - name: Статистика по задачам
+                href: user/issues-stat.md
+              - name: График «Создано/Решено»
+                href: user/created-and-resolved.md
+              - name: Время цикла
+                href: user/cycle-time.md
           - name: Как изменить дашборд
             href: user/edit-dashboard.md
           - name: Как скопировать дашборд

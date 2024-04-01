@@ -233,8 +233,8 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
-  - name: Решение проблем
-    href: troubleshooting.md
   - name: История изменений
     href: release-notes.md
+  - name: Решение проблем
+    href: troubleshooting.md
 base: ru/cdn
