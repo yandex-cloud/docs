@@ -261,28 +261,6 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: История изменений
-    items:
-      - name: Все изменения
-        href: release-notes/index.md
-      - name: Март 2024
-        href: release-notes/2403.md
-      - name: Февраль 2024
-        href: release-notes/2402.md
-      - name: Январь 2024
-        href: release-notes/2401.md
-      - name: 2023 год
-        items:
-          - name: Декабрь 2023
-            href: release-notes/2312.md
-          - name: Ноябрь 2023
-            href: release-notes/2311.md
-          - name: Октябрь 2023
-            href: release-notes/2310.md
-          - name: Сентябрь 2023
-            href: release-notes/2309.md
-          - name: Август 2023
-            href: release-notes/2308.md
   - name: Справочник CLI
     items:
       - name: Overview
@@ -353,6 +331,28 @@ items:
     href: at-ref.md
   - name: Публичные материалы
     href: public-talks.md
+  - name: История изменений
+    items:
+      - name: Все изменения
+        href: release-notes/index.md
+      - name: Март 2024
+        href: release-notes/2403.md
+      - name: Февраль 2024
+        href: release-notes/2402.md
+      - name: Январь 2024
+        href: release-notes/2401.md
+      - name: 2023 год
+        items:
+          - name: Декабрь 2023
+            href: release-notes/2312.md
+          - name: Ноябрь 2023
+            href: release-notes/2311.md
+          - name: Октябрь 2023
+            href: release-notes/2310.md
+          - name: Сентябрь 2023
+            href: release-notes/2309.md
+          - name: Август 2023
+            href: release-notes/2308.md
   - name: Обучающие курсы
     href: training.md
 base: ru/data-transfer

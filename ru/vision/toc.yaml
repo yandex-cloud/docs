@@ -134,14 +134,14 @@ items:
                 href: classifier/api-ref/grpc/index.md
               - name: ImageClassifierService
                 href: classifier/api-ref/grpc/image_classifier_service.md
+  - name: История изменений
+    href: release-notes.md
   - name: Решение проблем
     items:
       - name: Обработка ошибок
         href: api-ref/errors-handling.md
       - name: Диагностика ошибок
         href: api-ref/support-headers.md
-  - name: История изменений
-    href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/vision

@@ -392,6 +392,8 @@ items:
         href: nlb-ref/service.md
       - name: NetworkPolicy
         href: nlb-ref/networkpolicy.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
@@ -410,8 +412,6 @@ items:
         href: qa/troubleshooting.md
       - name: Все вопросы на одной странице
         href: qa/all.md
-  - name: История изменений
-    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
 base: ru/managed-kubernetes
