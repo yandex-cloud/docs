@@ -61,7 +61,7 @@
         * С пользователем `user1`.
 
     
-    1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
+    1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
 - {{ TF }} {#tf}
@@ -113,7 +113,7 @@
 
 ### Подготовьте таблицу в кластере {{ mch-name }} {#prepare-mch}
 
-1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с именами и возрастом людей.
 
     1. Создайте таблицу:
@@ -253,7 +253,7 @@
 
 1. Дождитесь завершения задания и проверьте, что данные перенеслись в {{ mch-name }}:
 
-    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
+    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
     1. Выполните запрос:
 
         ```sql

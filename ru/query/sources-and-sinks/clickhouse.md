@@ -2,8 +2,6 @@
 
 В этом разделе описана основная информация про работу с [{{ mch-name }}](https://cloud.yandex.ru/services/managed-clickhouse).
 
-{% include [preview](../_includes/preview.md) %}
-
 Пример чтения данных из {{ mch-name }}:
 
 ```sql
@@ -35,7 +33,7 @@ SELECT * FROM clickhouse_mdb_connection.my_table
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.click-house.select-item }}`.
    1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mch-name }} или создайте новый.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с ролью [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer), от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с [ролью `{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer), от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
       *  **{{ ui-key.yql.yq-connection-info.database.label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.

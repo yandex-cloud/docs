@@ -29,7 +29,7 @@
   
   1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
-     * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+     * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
      * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
 

@@ -88,7 +88,7 @@
     apt-get update && apt-get install curl xz-utils
     ```
 
-1. [Настройте clickhouse-client](../../managed-clickhouse/operations/connect.md#clickhouse-client) и подключитесь с его помощью к базе данных.
+1. [Настройте clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) и подключитесь с его помощью к базе данных.
 
 ### Познакомьтесь с тестовым набором данных (необязательный шаг) {#explore-dataset}
 
@@ -176,7 +176,7 @@ SETTINGS index_granularity = 8192
 
 ## Проверьте размещение данных в кластере {#check-table-tiering}
 
-1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md#clickhouse-client).
+1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
 1. Посмотрите, где размещены строки таблицы:
 
    ```sql

@@ -11,15 +11,7 @@ description: "Из статьи вы узнаете, как создать пл�
 
 Платежный аккаунт необходим, даже если вы планируете пользоваться только бесплатными сервисами. При создании первого платежного аккаунта, привязанного к пользовательскому аккаунту, вам будет начислен [стартовый грант](../usage-grant.md).
 
-{% list tabs group=versions %}
-
-   - Пробный период {#trial}
-
-      ![quickstart](../../_assets/overview/individuals-trial-period.svg)
-
-   - Платная версия {#paid}
-
-      ![quickstart](../../_assets/overview/individuals-paid-version.svg)
+![quickstart](../../_assets/overview/individuals-paid-version.svg)
 
 {% endlist %}
 
@@ -27,6 +19,6 @@ description: "Из статьи вы узнаете, как создать пл�
 
 {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
-{% include [start](../_includes/quickstart-qa-whats-next.md) %}
+{% include [start](../_includes/quickstart-qa-whats-next-individuals.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

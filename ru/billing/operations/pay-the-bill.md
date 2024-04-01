@@ -27,7 +27,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**. Эта кнопка появляется после перехода платежного аккаунта на [платное потребление](../../getting-started/free-trial/concepts/upgrade-to-paid.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
   1. Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
   1. Введите данные карты и нажмите кнопку **Оплатить**.
 

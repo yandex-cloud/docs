@@ -9,3 +9,7 @@
 * [{#T}](batch-example.md).
 * [{#T}](streaming-example.md).
 * [{#T}](unified-example.md).
+
+Обработка данных из {{ objstorage-full-name }} с помощью {{ yq-full-name }}:
+
+@[YouTube](https://youtu.be/HMcXKy0Xz4Q?si=N3XslIrMTtLWSUgi)

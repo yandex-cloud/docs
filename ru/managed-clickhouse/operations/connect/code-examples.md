@@ -1,80 +1,35 @@
-### clickhouse-client {#clickhouse-client}
+---
+title: "Примеры кода для подключения к кластеру {{ CH }} в {{ mch-full-name }}"
+description: "Следуя этим примерам, вы сможете подключиться к базе данных в кластере {{ CH }} из кода вашего приложения."
+---
 
-**Перед подключением:**
+# Примеры кода для подключения к кластеру {{ CH }}
 
-1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+Вы можете подключаться к хостам кластера {{ CH }} в публичном доступе только с использованием SSL-сертификатов. Перед подключением [подготовьте сертификаты](index.md#get-ssl-cert).
 
-    ```bash
-    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD******** && \
-    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
-    /etc/apt/sources.list.d/clickhouse.list
-    ```
+В примерах ниже предполагается, что сертификаты `{{ crt-local-file-root }}` и `{{ crt-local-file-int }}`:
+* расположены в директории `{{ crt-local-dir }}` — для Ubuntu;
+* импортированы в хранилище доверенных корневых сертификатов — для Windows.
 
-1. Установите зависимости:
+Подключение без использования SSL-сертификатов поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
 
-    ```bash
-    sudo apt update && sudo apt install --yes clickhouse-client
-    ```
+{% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
-1. Загрузите файл конфигурации для `clickhouse-client`:
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ CH }}.
 
-    {% include [ClickHouse client config](mch/client-config.md) %}
+Примеры для Linux проверялись в следующем окружении:
 
-{% list tabs group=connection %}
+* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS.
+* Bash: `5.0.16`.
+* Python: `3.8.2`; pip3: `20.0.2`.
+* PHP: `7.4.3`.
+* OpenJDK: `11.0.8`; Maven: `3.6.3`.
+* Node.JS: `10.19.0`, npm: `6.14.4`.
+* Go: `1.13.8`.
+* Ruby: `2.7.0p0`.
+* unixODBC: `2.3.6`.
 
-
-- Подключение без SSL {#without-ssl}
-
-    ```bash
-    clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
-                      --user <имя_пользователя> \
-                      --database <имя_БД> \
-                      --port 9000 \
-                      --ask-password
-    ```
-
-
-- Подключение с SSL {#with-ssl}
-
-    {% include [default-connstring](./mch/default-connstring.md) %}
-
-{% endlist %}
-
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
-
-После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-После подключения к СУБД выполните команду `SELECT version();`.
-
-### cURL {#curl}
-
-{% list tabs group=connection %}
-
-
-- Подключение без SSL {#without-ssl}
-
-    ```bash
-    curl --header "X-ClickHouse-User: <имя_пользователя_БД>" \
-         --header "X-ClickHouse-Key: <пароль_пользователя_БД>" \
-         'http://<FQDN_любого_хоста_{{ CH }}>:8123/?database=<имя_БД>&query=SELECT%20version()'
-    ```
-
-
-- Подключение с SSL {#with-ssl}
-
-    ```bash
-    curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
-         --header "X-ClickHouse-User: <имя_пользователя_БД>" \
-         --header "X-ClickHouse-Key: <пароль_пользователя_БД>" \
-         'https://<FQDN_любого_хоста_{{ CH }}>:8443/?database=<имя_БД>&query=SELECT%20version()'
-    ```
-
-{% endlist %}
-
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
-
-### Go {#go}
+## Go {#go}
 
 **Перед подключением установите зависимости:**
 
@@ -87,7 +42,7 @@ sudo apt update && sudo apt install --yes golang git
 
 - Подключение без SSL {#without-ssl}
 
-    `connect.go`
+  `connect.go`
 
     ```go
     package main
@@ -134,7 +89,7 @@ sudo apt update && sudo apt install --yes golang git
 
 - Подключение с SSL {#with-ssl}
 
-    `connect.go`
+  `connect.go`
 
     ```go
     package main
@@ -194,7 +149,7 @@ sudo apt update && sudo apt install --yes golang git
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 **Подключение:**
 
@@ -202,7 +157,7 @@ sudo apt update && sudo apt install --yes golang git
 go run connect.go
 ```
 
-### Java {#java}
+## Java {#java}
 
 **Перед подключением:**
 
@@ -220,7 +175,7 @@ go run connect.go
 
 1. Создайте конфигурационный файл для Maven:
 
-    {% cut "pom.xml" %}
+   {% cut "pom.xml" %}
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -298,9 +253,9 @@ go run connect.go
     </project>
     ```
 
-    {% endcut %}
+   {% endcut %}
 
-    Актуальные версии зависимостей для Maven:
+   Актуальные версии зависимостей для Maven:
 
     * [clickhouse-jdbc](https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc)
     * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
@@ -310,7 +265,7 @@ go run connect.go
 
 - Подключение без SSL {#without-ssl}
 
-    `src/java/com/example/App.java`
+  `src/java/com/example/App.java`
 
     ```java
     package com.example;
@@ -343,7 +298,7 @@ go run connect.go
 
 - Подключение с SSL {#with-ssl}
 
-    `src/java/com/example/App.java`
+  `src/java/com/example/App.java`
 
     ```java
     package com.example;
@@ -376,7 +331,7 @@ go run connect.go
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 **Подключение:**
 
@@ -385,7 +340,7 @@ mvn clean package && \
 java -jar target/app-0.1.0-jar-with-dependencies.jar
 ```
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 **Перед подключением установите зависимости:**
 
@@ -399,7 +354,7 @@ npm install querystring
 
 - Подключение без SSL {#without-ssl}
 
-    `app.js`
+  `app.js`
 
     ```js
     "use strict"
@@ -439,7 +394,7 @@ npm install querystring
 
 - Подключение с SSL {#with-ssl}
 
-    `app.js`
+  `app.js`
 
     ```js
     "use strict"
@@ -481,7 +436,7 @@ npm install querystring
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 **Подключение:**
 
@@ -489,11 +444,11 @@ npm install querystring
 node app.js
 ```
 
-### ODBC {#odbc}
+## ODBC {#odbc}
 
 Способ настройки различается для [Linux](#odbc-linux) и [Windows](#odbc-windows).
 
-#### Linux {#odbc-linux}
+### Linux {#odbc-linux}
 
 **Перед подключением:**
 
@@ -522,7 +477,7 @@ node app.js
 
 1. Зарегистрируйте драйвер {{ CH }} ODBC, добавив следующие строки в файл `odbcinst.ini` ([файл-пример](https://github.com/ClickHouse/clickhouse-odbc/blob/master/packaging/odbcinst.ini.sample)):
 
-    {% cut "/etc/odbcinst.ini" %}
+   {% cut "/etc/odbcinst.ini" %}
 
     ```ini
     [ODBC Drivers]
@@ -542,14 +497,14 @@ node app.js
     UsageCount  = 1
     ```
 
-    {% endcut %}
+   {% endcut %}
 
 {% list tabs group=connection %}
 
 
 - Подключение без SSL {#without-ssl}
 
-    `/etc/odbc.ini`
+  `/etc/odbc.ini`
 
     ```ini
     [ClickHouse]
@@ -565,7 +520,7 @@ node app.js
 
 - Подключение с SSL {#with-ssl}
 
-    `/etc/odbc.ini`
+  `/etc/odbc.ini`
 
     ```ini
     [ClickHouse]
@@ -583,7 +538,7 @@ node app.js
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 **Подключение:**
 
@@ -593,7 +548,7 @@ isql -v ClickHouse
 
 После подключения к СУБД выполните команду `SELECT version();`.
 
-#### Windows {#odbc-windows}
+### Windows {#odbc-windows}
 
 1. [Установите драйвер clickhouse-odbc](https://github.com/ClickHouse/clickhouse-odbc#installation) подходящей разрядности. Например, если вы используете 32-разрядное приложение для подключения через ODBC, установите драйвер такой же разрядности.
 1. [Запустите приложение <q>Администратор источника данных ODBC</q>](https://learn.microsoft.com/ru-ru/sql/database-engine/configure-windows/open-the-odbc-data-source-administrator).
@@ -601,12 +556,12 @@ isql -v ClickHouse
 1. Выберите драйвер {{ CH }} с подходящей кодировкой и нажмите кнопку **Готово**.
 1. Укажите параметры подключения к кластеру {{ CH }}:
 
-    {% list tabs group=connection %}
+   {% list tabs group=connection %}
 
     - Подключение без SSL {#without-ssl}
 
         * **Name** — имя подключения.
-        * **Host** — [FQDN любого хоста {{ CH }}](../../managed-clickhouse/operations/connect.md#fqdn).
+        * **Host** — [FQDN любого хоста {{ CH }}](fqdn.md).
         * **Port** — `{{ port-mch-http }}`.
         * **Database** — имя БД.
         * **User** — имя пользователя БД.
@@ -615,19 +570,19 @@ isql -v ClickHouse
     - Подключение с SSL {#with-ssl}
 
         * **Name** — имя подключения.
-        * **Host** — [FQDN любого хоста {{ CH }}](../../managed-clickhouse/operations/connect.md#fqdn).
+        * **Host** — [FQDN любого хоста {{ CH }}](fqdn.md).
         * **Port** — `{{ port-mch-http }}`.
         * **Database** — имя БД.
         * **SSLMode** — `allow`.
         * **User** — имя пользователя БД.
         * **Password** — пароль пользователя БД.
 
-    {% endlist %}
+   {% endlist %}
 
 1. Нажмите кнопку **Ok**.
 1. Подключитесь к кластеру {{ CH }} с помощью ODBC, например через приложение Microsoft Excel.
 
-### PHP {#php}
+## PHP {#php}
 
 **Перед подключением:**
 
@@ -643,7 +598,7 @@ isql -v ClickHouse
     cat /etc/php/7.4/apache2/php.ini | grep "allow_url_fopen"
     ```
 
-    Если это не так, то установите нужное значение и перезапустите Apache:
+   Если это не так, то установите нужное значение и перезапустите Apache:
 
     ```bash
     sudo sed -i 's/\(^allow_url_fopen = \).*/\1On/' /etc/php/7.4/apache2/php.ini && \
@@ -655,7 +610,7 @@ isql -v ClickHouse
 
 - Подключение без SSL {#without-ssl}
 
-    `connect.php`
+  `connect.php`
 
     ```php
     <?php
@@ -686,7 +641,7 @@ isql -v ClickHouse
 
 - Подключение с SSL {#with-ssl}
 
-    `connect.php`
+  `connect.php`
 
     ```php
     <?php
@@ -722,7 +677,7 @@ isql -v ClickHouse
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 **Подключение:**
 
@@ -730,35 +685,7 @@ isql -v ClickHouse
 php connect.php
 ```
 
-### PowerShell {#powershell}
-
-{% list tabs group=connection %}
-
-
-- Подключение без SSL {#without-ssl}
-
-    ```powershell
-    curl.exe `
-        -H "X-ClickHouse-User: <имя_пользователя_БД>" `
-        -H "X-ClickHouse-Key: <пароль_пользователя_БД>" `
-        'http://<FQDN_любого_хоста_{{ CH }}>:8123/?database=<имя_БД>&query=SELECT+version()'
-    ```
-
-
-- Подключение с SSL {#with-ssl}
-
-    ```powershell
-    curl.exe `
-        -H "X-ClickHouse-User: <имя_пользователя_БД>" `
-        -H "X-ClickHouse-Key: <пароль_пользователя_БД>" `
-        'https://<FQDN_любого_хоста_{{ CH }}>:8443/?database=<имя_БД>&query=SELECT+version()'
-    ```
-
-{% endlist %}
-
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
-
-### Python (clickhouse-driver) {#python-clickhouse-driver}
+## Python (clickhouse-driver) {#python-clickhouse-driver}
 
 **Перед подключением установите зависимости:**
 
@@ -772,7 +699,7 @@ pip3 install clickhouse-driver
 
 - Подключение без SSL {#without-ssl}
 
-    `connect.py`
+  `connect.py`
 
     ```python
     from clickhouse_driver import Client
@@ -788,7 +715,7 @@ pip3 install clickhouse-driver
 
 - Подключение с SSL {#with-ssl}
 
-    `connect.py`
+  `connect.py`
 
     ```python
     from clickhouse_driver import Client
@@ -806,7 +733,7 @@ pip3 install clickhouse-driver
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 **Подключение:**
 
@@ -814,7 +741,7 @@ pip3 install clickhouse-driver
 python3 connect.py
 ```
 
-### Python (requests) {#python-requests}
+## Python (requests) {#python-requests}
 
 **Перед подключением установите зависимости:**
 
@@ -828,7 +755,7 @@ pip3 install requests
 
 - Подключение без SSL {#without-ssl}
 
-    `connect.py`
+  `connect.py`
 
     ```python
     import requests
@@ -850,7 +777,7 @@ pip3 install requests
 
 - Подключение с SSL {#with-ssl}
 
-    `connect.py`
+  `connect.py`
 
     ```python
     import requests
@@ -872,7 +799,7 @@ pip3 install requests
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 **Подключение:**
 
@@ -880,7 +807,7 @@ pip3 install requests
 python3 connect.py
 ```
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 **Перед подключением установите зависимости:**
 
@@ -893,7 +820,7 @@ sudo apt update && sudo apt install --yes ruby
 
 - Подключение без SSL {#without-ssl}
 
-    `connect.rb`
+  `connect.rb`
 
     ```ruby
     require "net/http"
@@ -923,7 +850,7 @@ sudo apt update && sudo apt install --yes ruby
 
 - Подключение с SSL {#with-ssl}
 
-    `connect.rb`
+  `connect.rb`
 
     ```ruby
     require "net/http"
@@ -956,10 +883,12 @@ sudo apt update && sudo apt install --yes ruby
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 **Подключение:**
 
 ```bash
 ruby connect.rb
 ```
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

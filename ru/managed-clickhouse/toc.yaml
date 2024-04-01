@@ -31,10 +31,18 @@ items:
             href: operations/cluster-backups.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
+      - name: Подключение
+        items:
+          - name: Предварительная настройка
+            href: operations/connect/index.md
+          - name: FQDN хостов
+            href: operations/connect/fqdn.md
+          - name: Подключение из приложений
+            href: operations/connect/clients.md
+          - name: Примеры кода
+            href: operations/connect/code-examples.md
       - name: Базы данных
         items:
-          - name: Подключение к базе данных
-            href: operations/connect.md
           - name: SQL-запросы в консоли управления
             href: operations/web-sql-query.md
           - name: Управление базами данных
@@ -155,7 +163,7 @@ items:
       - name: Настройки {{ CH }}
         href: concepts/settings-list.md
   - name: Управление доступом
-    href: security/index.md
+    href: security.md
   - name: Правила тарификации
     items:
       - name: Действующие правила
@@ -171,7 +179,7 @@ items:
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/managed-clickhouse/index.md
   - name: Справочник {{ TF }}
-    href: tf-ref.md
+    href: reference/terraform.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -362,10 +370,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Метрики {{ monitoring-name }}
-    href: metrics.md
+  - name: Метрики {{ monitoring-full-name }}
+    href: reference/monitoring.md
   - name: Аудитные логи {{ at-name }}
-    href: at-ref.md
+    href: reference/audit-trails.md
   - name: Публичные материалы
     href: public-talks.md
   - name: История изменений

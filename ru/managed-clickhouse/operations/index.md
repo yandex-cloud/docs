@@ -5,7 +5,7 @@ description: "На странице представлен список поша
 
 # Пошаговые инструкции для {{ mch-name }}
 
-## Кластеры {clusters}
+## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
@@ -18,14 +18,20 @@ description: "На странице представлен список поша
 * [Управление резервными копиями](cluster-backups.md)
 * [Удаление кластера](cluster-delete.md)
 
-## Базы данных {databases}
+## Подключение к кластеру {#connect}
 
-* [Подключение к базе данных в кластере](connect.md)
+* [Предварительная настройка](connect/index.md)
+* [FQDN хостов {{ CH }}](connect/fqdn.md)
+* [Подключение к кластеру из приложений](connect/clients.md)
+* [Примеры кода для подключения к кластеру](connect/code-examples.md)
+
+## Базы данных {#databases}
+
 * [{#T}](web-sql-query.md)
 * [Управление базами данных](databases.md)
 * [Управление пользователями](cluster-users.md)
 
-## Хранение и обработка данных {data-storage-and-processing}
+## Хранение и обработка данных {#data-storage-and-processing}
 
 * [Подключение собственной геобазы](geobase.md)
 * [Подключение внешних словарей](dictionaries.md)
@@ -36,12 +42,12 @@ description: "На странице представлен список поша
 * [Настройка доступа к {{ objstorage-name }}](s3-access.md)
 
 
-## Шардирование {sharding}
+## Шардирование {#sharding}
 
 * [Управление шардами](shards.md)
 * [Управление группами шардов](shard-groups.md)
 
-## Логи и мониторинг {monitoring-and-logs}
+## Логи и мониторинг {#monitoring-and-logs}
 
 * [Просмотр логов кластера](cluster-logs.md)
 * [Мониторинг состояния кластера и хостов](monitoring.md)

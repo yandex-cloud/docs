@@ -18,7 +18,7 @@
 * Добавлена возможность создавать хосты {{ ZK }} с хранилищем на [нереплицируемых SSD-дисках](concepts/storage.md).
 * Добавлена возможность настроить хосты {{ ZK }} при восстановлении кластера из резервной копии.
 * Добавлена возможность настроить гибридное хранилище при восстановлении кластера из резервной копии. {{ tag-con }} {{ tag-api }}
-* Добавлена возможность выполнения SQL-запросов из браузера с помощью [встроенного SQL-редактора](./operations/connect.md#inline-editor).
+* Добавлена возможность выполнения SQL-запросов из браузера с помощью [встроенного SQL-редактора](./operations/connect/clients.md#inline-editor).
 * На странице [мониторинга кластера](operations/monitoring.md#monitoring-cluster) добавлены графики **Data parts**, **Databases**, **Inode usage**, **Rows of MergeTree tables** и **Tables**.
 * Графики **Failed insert queries per host**, **Failed queries per host** и **Failed select queries per host** теперь показывают процент неуспешных запросов, а не их количество.
 * График **Max replication queue across tables** теперь показывает суммарную очередь репликации всех таблиц и называется **Replication queue**.

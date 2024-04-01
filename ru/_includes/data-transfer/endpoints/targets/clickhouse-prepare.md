@@ -10,7 +10,7 @@
     
        После старта трансфер подключится к приемнику от имени этого пользователя.
     
-    1. [Создайте группу безопасности](../../../../vpc/operations/security-group-create.md) и [настройте ее](../../../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+    1. [Создайте группу безопасности](../../../../vpc/operations/security-group-create.md) и [настройте ее](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
     
     1. Назначьте кластеру {{ mch-name }} созданную группу безопасности.
 

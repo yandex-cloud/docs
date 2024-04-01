@@ -83,7 +83,7 @@
 
         1. В {{ objstorage-short-name }} [создайте бакет](../../storage/operations/buckets/create.md).
         1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
-        1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
+        1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
     - {{ TF }} {#tf}
 
@@ -259,7 +259,7 @@
 
 1. Убедитесь, что в базу данных {{ mch-name }} перенесены данные из источника {{ objstorage-name }}:
 
-    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect.md) с помощью `clickhouse-client`.
+    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью `clickhouse-client`.
 
     1. Выполните запрос:
 
