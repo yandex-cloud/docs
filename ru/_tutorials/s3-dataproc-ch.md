@@ -226,7 +226,7 @@
 1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/parquet-to-ch.py`.
 1. Дождитесь выполнения задания и убедитесь, что объединенная таблица перенесена в кластер:
 
-    1. [Подключитесь к базе данных](../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
+    1. [Подключитесь к базе данных](../managed-clickhouse/operations/connect/clients.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
     1. Выполните запрос:
 
         ```sql

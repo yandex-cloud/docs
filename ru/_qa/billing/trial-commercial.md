@@ -6,7 +6,7 @@
 
 #### Кто может воспользоваться пробным периодом? {#who-can-use-trial}
 
-Все новые клиенты {{ yandex-cloud }}.
+Все новые клиенты {{ yandex-cloud }}, которые являются юридическими лицами.
 
 #### Могу ли я перейти на платную версию, если срок действия пробного периода еще не истек?  {#activate-commercial}
 
@@ -18,7 +18,7 @@
 
 #### Существует ли некоммерческая бесплатная версия? {#commercial-nonpaid}
 
-Нет. Однако вы можете воспользоваться пробным периодом.
+Нет. Однако если у вас бизнес-аккаунт в {{ yandex-cloud }}, вы можете воспользоваться пробным периодом.
 
 {% include [trial-activation](../../billing/_includes/trial-activation.md) %}
 
@@ -29,5 +29,4 @@
 {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
 
 Дополнительную информацию см. в следующих разделах:
-- [Цикл оплаты для физических лиц](../../billing/payment/billing-cycle-individual.md)
 - [Цикл оплаты для организаций и ИП](../../billing/payment/billing-cycle-business.md)

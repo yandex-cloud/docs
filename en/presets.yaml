@@ -760,7 +760,7 @@ default:
           6|int|string: ₽440
   sku|RUB|backup:
     protected_vms:
-      v1|string: ₽238.80
+      v1|string: Free
     used_space:
       v1|month|string: ₽4.20
   sku|RUB|cdn:
@@ -1669,7 +1669,7 @@ default:
         v1|string: Free
   sku|USD|backup:
     protected_vms:
-      v1|string: $1.910400
+      v1|string: Free
     used_space:
       v1|month|string: $0.033600
   sku|USD|cdn:
@@ -3458,6 +3458,7 @@ default:
           dashboard-resources:
             title_section-billable: Linked clouds and services
           dashboard:
+            button_go-pay: Upgrade to paid version
             card_label_threshold-description: Detailed
             label_inactivation: Delete
             label_rename: Rename
@@ -3489,6 +3490,8 @@ default:
         field_theme-contrast: Contrast
         label_monitoring-name: Monitoring
         label_telegram: Telegram
+        section_settings: Notification settings
+        section_transports: Notification methods
       usermenu:
         label_login: Log in
     yacloud_monitoring:
@@ -7865,7 +7868,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.1.25
+        tag: v0.2.0
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -7874,7 +7877,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.8
+        tag: 1.0.8-1
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
@@ -7938,7 +7941,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.1.1
+        tag: 1.1.2
     yc_metric-provider:
       helmChart:
         name: >-
@@ -7955,7 +7958,7 @@ default:
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 45.9.1-2
+        tag: 45.9.1-3a
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
@@ -7967,4 +7970,4 @@ default:
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 2.30.4
+        tag: 2.30.4-1

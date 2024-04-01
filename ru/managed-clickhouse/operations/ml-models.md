@@ -179,7 +179,7 @@
 
 Чтобы применить модель к данным, которые хранятся в кластере {{ CH }}:
 
-1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.
+1. [Подключитесь к кластеру](connect/clients.md).
 1. Выполните SQL-запрос вида:
 
    ```
@@ -361,13 +361,11 @@
     * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — `ml_test`.
     * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — `https://{{ s3-storage-host-mch }}/catboost_model.bin`.
 
-1. Установите [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
-
 
 1. [Скачайте файл с данными](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) для анализа.
 
 
-1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md#cli) через {{ CH }} CLI.
+1. [Подключитесь к кластеру](connect/clients.md).
 
 1. Создайте тестовую таблицу:
 

@@ -25,7 +25,7 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
 
     
-    1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
+    1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
@@ -167,7 +167,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md) `db1` в кластере-приемнике {{ mch-name }}.
+1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` в кластере-приемнике {{ mch-name }}.
 
 1. Выполните запрос:
 
@@ -195,7 +195,7 @@
 
 1. Убедитесь, что данные из файла `demo_data2.csv` появились в базе данных приемника:
 
-    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md) `db1` в кластере-приемнике {{ mch-name }}.
+    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` в кластере-приемнике {{ mch-name }}.
 
     1. Выполните запрос:
 

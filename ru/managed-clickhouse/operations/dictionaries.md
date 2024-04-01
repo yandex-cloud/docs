@@ -55,7 +55,7 @@
 
 - SQL {#sql}
 
-    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
     1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
 
 {% endlist %}
@@ -124,7 +124,7 @@
 
     {% endnote %}
 
-    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
     1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/) и укажите [настройки словаря](#settings-sql):
 
         ```sql
@@ -177,7 +177,7 @@
 
 - SQL {#sql}
 
-    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
     1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя_БД>.<имя_словаря>`.
 
 {% endlist %}

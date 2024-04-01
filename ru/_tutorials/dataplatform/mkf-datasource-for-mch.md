@@ -111,7 +111,7 @@
 
             {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect/clients.md).
 
     - [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
@@ -195,7 +195,7 @@
 
 Для каждого из топиков {{ KF }} создайте в кластере {{ mch-name }} отдельную таблицу, куда будут заноситься поступающие данные:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 1. Выполните запрос:
 
     ```sql
@@ -292,7 +292,7 @@
 
 Чтобы создать такое представление:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 1. Для каждой таблицы на движке `Kafka` выполните запросы:
 
     ```sql
@@ -318,7 +318,7 @@
 
 Чтобы получить все данные из нужного материализованного представления:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 1. Выполните запрос:
 
     ```sql

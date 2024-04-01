@@ -55,6 +55,10 @@ description: "Пошаговые инструкции по управлению 
 - [{#T}](sa/create-access-key.md)
 - [{#T}](sa/delete-access-key.md)
 
+## Временные ключи доступа {#temporary-keys}
+
+- [{#T}](sa/create-sts-key.md)
+
 ## API-ключи {#api-keys}
 
 - [{#T}](api-key/create.md)

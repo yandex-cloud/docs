@@ -25,6 +25,8 @@ items:
         items:
           - name: Описание
             href: concepts/batch-processing.md
+          - name: Федеративные запросы
+            href: concepts/federated-processing.md
           - name: Партицирование данных
             href: concepts/partitioning.md
           - name: Расширенное партицирование

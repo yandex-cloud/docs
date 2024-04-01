@@ -126,7 +126,7 @@
 
         {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-    Убедитесь, что можете с помощью `clickhouse-client` [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
+    Убедитесь, что можете с помощью `clickhouse-client` [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
 
 ## Настройте интеграцию {{ RMQ }} для кластера {{ mch-name }} {#configure-mch-for-rmq}
 
@@ -185,7 +185,7 @@
 
 Создайте в кластере {{ mch-name }} таблицу, в которую будут заноситься поступающие от {{ RMQ }} данные:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 
 1. Выполните запрос:
 
@@ -276,7 +276,7 @@
 
 Чтобы создать материализованное представление для таблицы `db1.cars`:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 
 1. Выполните запросы:
 
@@ -300,7 +300,7 @@
 
 Чтобы получить все данные из материализованного представления `db1.cars_view`:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 
 1. Выполните запрос:
 

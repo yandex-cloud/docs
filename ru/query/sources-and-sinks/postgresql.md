@@ -2,9 +2,6 @@
 
 В этом разделе описана основная информация про работу с [{{ mpg-name }}](https://cloud.yandex.ru/services/managed-postgresql).
 
-{% include [preview](../_includes/preview.md) %}
-
-
 Пример чтения данных из {{ mpg-name }}:
 
 ```sql

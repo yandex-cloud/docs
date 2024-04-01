@@ -128,7 +128,7 @@ To implement an example:
              parser.add_argument('--output', required=True, help='Output file')
              args = parser.parse_args()
 
-             audio = synthesize(args.key, args.text)
+             audio = synthesize(args.token, args.text)
              with open(args.output, 'wb') as fp:
                  audio.export(fp, format='wav')
          ```

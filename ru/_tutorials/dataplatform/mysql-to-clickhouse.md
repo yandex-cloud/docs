@@ -31,7 +31,7 @@
     1. Если вы используете группы безопасности в кластерах, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
         * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
-        * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+        * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -161,7 +161,7 @@
 
 1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из кластера-источника {{ mmy-name }}:
 
-    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect.md) с помощью `clickhouse-client`.
+    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью `clickhouse-client`.
 
     1. Выполните запрос:
 

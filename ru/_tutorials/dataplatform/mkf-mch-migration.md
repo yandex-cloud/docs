@@ -33,7 +33,7 @@
     1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
-        * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+        * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -117,7 +117,7 @@
 
             {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect/clients.md).
 
     * [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
@@ -326,7 +326,7 @@
 
 1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из кластера-источника {{ mkf-name }}:
 
-    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect.md) с помощью `clickhouse-client`.
+    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью `clickhouse-client`.
 
     1. Выполните запрос:
 
@@ -350,7 +350,7 @@
 
 1. Убедитесь, что в базе данных {{ mch-name }} отобразились новые значения:
 
-    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect.md) с помощью `clickhouse-client`.
+    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью `clickhouse-client`.
 
     1. Выполните запрос:
 

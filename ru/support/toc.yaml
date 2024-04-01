@@ -7,6 +7,8 @@ items:
     href: support-center.md
   - name: Оповещения от {{ yandex-cloud }}
     href: notify.md
+  - name: Чат в Telegram
+    href: tg-chat.md
   - name: Запросы данных
     href: request.md
   - name: Копирование ошибок из консоли браузера
