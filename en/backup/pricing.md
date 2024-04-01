@@ -16,13 +16,7 @@ You start paying for a VM in {{ backup-name }} once you link it to a [backup pol
 
 If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), the VM will be unlinked from all the policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from the policies automatically. You need to unlink it yourself.
 
-The minimum billing unit is 1 VM per month.
-
-{% note info %}
-
-As of April 1, 2024, hourly billing of VMs connected to {{ backup-name }} will be introduced. The monthly cost of consumption will remain unchanged and will be based on 720 hours per month.
-
-{% endnote %}
+The minimum billing unit is 1 VM per hour.
 
 ### Using storage {#backups}
 
@@ -47,6 +41,8 @@ The size of VM backups can fall short of the VM disk size, e.g., if the VM disk 
 
 ## Pricing {#prices}
 
+The monthly usage rate is based on 720 hours a month.
+
 ### Protected {{ backup-name }} VMs {#prices-vms}
 
 
@@ -67,11 +63,9 @@ The size of VM backups can fall short of the VM disk size, e.g., if the VM disk 
 
 
 
-The monthly usage rate is based on 720 hours a month.
-
 ## Example of cost calculation {#price-example}
 
-Example of calculating the cost of {{ backup-name }} for the following configuration:
+Example of calculating the cost of {{ backup-name }} per month for the following configuration:
 * One VM is linked to backup policies.
 * The total size of backups is 50 GB.
 
@@ -87,4 +81,3 @@ Where:
 * $1.910400: Cost of connecting 1 VM to {{ backup-name }} per month, including
 * 50 GB: Total size of backups.
 * $0.033600: Cost of storing 1 GB of backups per month, without VAT.
-
