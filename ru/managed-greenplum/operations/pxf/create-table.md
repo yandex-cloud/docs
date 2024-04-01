@@ -65,7 +65,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         Если не создать источник данных, параметры подключения к источнику нужно передать в SQL-запросе на создание внешней таблицы.
 
-    1. [Подключитесь к БД {{ CH }}](../../../managed-clickhouse/operations/connect.md#connection-string) с помощью утилиты `clickhouse-client`.
+    1. [Подключитесь к БД {{ CH }}](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью утилиты `clickhouse-client`.
     1. Создайте тестовую таблицу и наполните ее данными:
 
         ```sql

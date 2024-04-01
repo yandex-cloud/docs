@@ -1,9 +1,6 @@
 title: Yandex Load Testing
 description:
   - >-
-    <em>Сервис Yandex Load Testing находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-  - >-
     Yandex Load Testing позволяет проводить нагрузочное тестирование, чтобы
     анализировать производительность ваших сервисов и приложений.
   - |-

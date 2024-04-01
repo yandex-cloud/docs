@@ -58,7 +58,7 @@ noIndex: true
 
 1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из счетчика {{ metrika }}:
 
-    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect.md) с помощью `clickhouse-client`.
+    1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью `clickhouse-client`.
 
     1. Проверьте, что в базе данных появились таблицы хитов и визитов:
 

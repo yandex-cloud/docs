@@ -29,6 +29,8 @@ items:
             href: operations/buckets/policy.md
           - name: Настройка публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
+          - name: Доступ в бакет с помощью {{ sts-name }}
+            href: operations/buckets/create-sts-key.md
           - name: Управление версионированием бакета
             href: operations/buckets/versioning.md
           - name: Включение механизма логирования
@@ -241,6 +243,8 @@ items:
         href: security/public-access.md
       - name: Подписанные (pre-signed) URL
         href: security/pre-signed-urls.md
+      - name: '{{ sts-name }}'
+        href: security/sts.md
   - name: Правила тарификации
     items:
       - name: Действующие правила

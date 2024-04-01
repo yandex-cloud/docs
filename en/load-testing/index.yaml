@@ -1,9 +1,6 @@
 title: Yandex Load Testing
 description:
   - >-
-    <em>Yandex Load Testing is currently at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - >-
     This service allows you to run load testing and analyze the performance of
     your services and applications.
   - |-

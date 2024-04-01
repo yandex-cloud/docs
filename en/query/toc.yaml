@@ -85,7 +85,7 @@ items:
         href: tutorials/debezium.md
       - name: Visualizing {{ datalens-name }} data in {{ objstorage-name }}
         href: tutorials/datalens.md
-      - name: Processing {{ at-name }} audit logs
+      - name: Processing {{ at-name }} events
         href: tutorials/audit-trails.md
       - name: Processing files with billing details
         href: tutorials/billing.md

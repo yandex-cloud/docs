@@ -905,7 +905,7 @@ description: "В статье приведен полный справочник
 
 {% include [managed-clickhouse.admin](../_roles/managed-clickhouse/admin.md) %}
 
-Подробнее см. [{#T}](../managed-clickhouse/security/index.md).
+Подробнее см. [{#T}](../managed-clickhouse/security.md).
 
 
 ## {{ mes-full-name }} {#managed-elasticsearch-roles}
