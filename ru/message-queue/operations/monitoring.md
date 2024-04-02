@@ -87,10 +87,10 @@
 
 Секция **Overall queue stats** содержит графики с общей информацией о процессах в очереди:
 
-* **Messages in queue, count** — количество сообщений в очереди в текущий момент.
+* **Messages in queue, count** (название метрики: `queue.messages.stored_count`) — количество сообщений в очереди в текущий момент. Единицы измерения: `pcs` (pieces) – штуки.
 
-* **Age of oldest message in queue** — время хранения наиболее раннего сообщения в очереди.
+* **Age of oldest message in queue** (название метрики: `queue.messages.oldest_age_milliseconds`) — время хранения наиболее раннего сообщения в очереди. Название метрики устарело, а его составная часть `milliseconds` не отражает текущих единиц измерения. Сейчас метрика исчисляется в `s` (seconds) – секунды.
 
-* **Message reside duration** — время обработки сообщений в очереди.
+* **Message reside duration** (название метрик: `p99` – 99-й перцентиль, `p95` – 95-й перцентиль, `p90` – 90-й перцентиль, `p50` – 50-й перцентиль) — время обработки сообщений в очереди. Единицы измерения: `ms` (milliseconds) – миллисекунды.
       
   {% include [ymq-monitoring-message-duration.md](../../_includes/message-queue/ymq-monitoring-message-duration.md) %}

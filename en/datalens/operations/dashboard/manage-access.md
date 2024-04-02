@@ -11,6 +11,11 @@ To configure dashboard permissions:
 1. On the right side, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **Access permissions**.
 1. Click **Dashboard permissions**.
 1. Enter a username or select the **All** group.
+
+
+   {% include [datalens-workbooks-collections-access-note](../../../_includes/datalens/operations/datalens-workbooks-collections-access-note.md) %}
+
+
 1. (Optional) Write a comment for the user you are granting permissions to.
 1. Specify the appropriate permissions and click **Add**.
 

@@ -89,7 +89,7 @@ Once the billing account is created, [link it to {{ tracker-name }}](#bind). You
 
    * To link a different bank card, click **{{ ui-key.yacloud.billing.account.overview.card_label_edit }}** under **{{ ui-key.yacloud.billing.account.overview.section_card }}**.
 
-   * To change payment method for a legal entity or individual entrepreneur, contact [support]({{ link-tracker-support}}).
+   * To change payment method for a legal entity or individual entrepreneur, contact our technical support using the [feedback form]({{ link-tracker-feedback }}).
 
    * To change the payer data, at the bottom of the page, click **Edit in Yandex&#160;Balance**, then, on the balance page, select **{{ ui-key.yacloud.billing.account.create-new.section_persons }}**.
 

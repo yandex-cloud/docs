@@ -5838,6 +5838,9 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений
+          field_diskSizeLimit: Новый размер хранилища
+          field_thresholds: Увеличивать размер
+          section_disk-scaling: Автоматическое увеличение размера хранилища
           switch_backups: Резервные копии
           switch_databases: Базы данных
           switch_datalens: DataLens

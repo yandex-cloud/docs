@@ -5834,6 +5834,9 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
+          field_diskSizeLimit: New storage size
+          field_thresholds: Increase size
+          section_disk-scaling: Automatic increase of storage size
           switch_backups: Backups
           switch_databases: Databases
           switch_datalens: DataLens

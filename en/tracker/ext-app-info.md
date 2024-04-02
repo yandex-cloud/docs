@@ -6,7 +6,7 @@ description: "Learn which data to send to the {{ tracker-name }} team's duty sta
 # Sending your application data to the {{ tracker-name }} team
 
 
-Send the [{{ tracker-name }} support team]({{ link-tracker-support}}) a request to connect an external application and the information required to register your application in {{ tracker-name }}.
+Submit an external application connection request and the information required to register your application in {{ tracker-name }} to our technical support using the [feedback form]({{ link-tracker-feedback }}).
 
 
 
@@ -31,5 +31,5 @@ If your application supports advanced link functionality, such as displaying obj
 | `entityInfoUrl` | String | URL that {{ tracker-name }} can call to get information about a linked object to display it in the interface. For more information, see [Getting information about linked objects](ext-app-setup.md#object-info).<br/>Format: `scheme://host:port*not_var{{remoteKey}}*`<br/>where<br/><ul><li>`remoteKey` is the key of the linked object in the application.</li><li>`*` is any sequence of characters.</li></ul> |
 | `createLinkUrl` | String | URL to be called by {{ tracker-name }} to create a link in the application. Used when creating a link in {{ tracker-name }} to duplicate it in the application.<br/>For more information, see [Creating links in an application upon request from {{ tracker-name }}](ext-app-setup.md#create). |
 | `removeLinkUrl` | String | URL to be called by {{ tracker-name }} to delete a link in the application. Used when removing a link in {{ tracker-name }} to simultaneously remove it from the application.<br/>For more information, see [Removing links in an application upon request from {{ tracker-name }}](ext-app-setup.md#delete).<br/>Format: `scheme://host:port*not_var{{issueKey}}*not_var{{remoteKey}}*`<br/>where<br/><ul><li>`issueKey` is the key of the issue in {{ tracker-name }}.</li><li>`remoteKey` is the key of the linked object in the application.</li><li>`*` is any sequence of characters.</li></ul> |
-| `canLinkFromFront` | Logical | The parameter enables or disables creating links to external applications from the {{ tracker-name }} user interface. |
+| `canLinkFromFront` | Boolean | The parameter enables or disables creating links to external applications from the {{ tracker-name }} user interface. |
 |  |

@@ -4,13 +4,12 @@ title: "{{ forms-full-name }} support"
 
 # {{ forms-name }} support
 
-If you did not find an answer to your question about {{ forms-full-name }} in the documentation, please contact technical support:
-* [I have a personal form](https://forms.yandex.ru/surveys/6769/)
-* [I have a business form](https://support.cloud.yandex.ru/?referral=forms)
+If you have not found the answer to your question about {{ forms-full-name }} in the documentation, please contact technical support using the [feedback form]({{ link-forms-feedback }}).
+
 
 {% note info %}
 
-If you faced fraud or other issues when filling out an external form, submit a [request to technical support](https://forms.yandex.ru/surveys/6769/) with the <q>Complaint about a form</q> subject.
+If you encountered fraud or other issues when filling out someone else's form, contact technical support using the [feedback form]({{ link-forms-feedback }}) with <q>Complaint about the form</q> in the subject line.
 
 {% endnote %}
 

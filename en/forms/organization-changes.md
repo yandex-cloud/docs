@@ -22,7 +22,7 @@ You can:
 * Stay with the {{ ya-360 }} free plan and manage your workflows considering that you will no longer be able to change the list of your organization members starting April 18, 2023.
 * Use the {{ ya-360 }} and {{ org-full-name }} [features](../tracker/cloud-vs-360.md#features) simultaneously.
 
-## How do I set up simultaneous use of {{ ya-360 }} and {{ org-full-name }}?
+## How do I configure simultaneous use of {{ ya-360 }} and {{ org-full-name }} organizations?
 
 {% note warning %}
 
@@ -32,15 +32,15 @@ This can only be set up by the {{ ya-360 }} organization administrator.
 
 The {{ ya-360 }} organization features can be enhanced with the {{ org-full-name }} features.
 
-1. Create an organization in {{ org-full-name }} following [this guide](../organization/quickstart.md#create).
+1. Create a {{ org-full-name }} organization by following [this guide](../organization/quickstart.md#create).
 
    {% note alert %}
 
-   After the organization is created, do not open {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }} until the setup is complete.
+   After your organization is created, do not open {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }} until the setup is complete.
 
    {% endnote %}
 
-1. Send the organization IDs to the service via the [feedback form](https://forms.yandex.ru/surveys/6769):
+1. Send the organization IDs to the service via the [feedback form]({{ link-forms-feedback }}):
    * [Find out the {{ ya-360 }} organization ID](https://admin.yandex.ru/company-profile).
    * [Find out the {{ org-full-name }} organization ID](https://org.cloud.yandex.ru/settings).
 
@@ -50,4 +50,4 @@ All forms you created in {{ ya-360 }} will also be available in {{ org-full-name
 
 ## I have a question {#support}
 
-If you still have questions, please contact our [technical support](https://forms.yandex.ru/surveys/6769).
+If you have any questions, contact our technical support using the [feedback form]({{ link-forms-feedback }}).

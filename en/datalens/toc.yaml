@@ -107,6 +107,8 @@ items:
                 href: operations/connection/chyt/chyt-recommendations.md
           - name: Creating a connection to a file
             href: operations/connection/create-file.md
+          - name: Creating a connection to Yandex Documents
+            href: operations/connection/create-yadocs.md
           - name: Creating a Google Sheets connection
             href: operations/connection/create-google-sheets.md
           - name: Creating a BigQuery connection
@@ -695,6 +697,8 @@ items:
         href: dashboard/link.md
       - name: Selectors
         href: dashboard/selector.md
+      - name: Filtering charts by charts
+        href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
       - name: Versioning
@@ -731,6 +735,8 @@ items:
             href: operations/dashboard/manage-access.md
           - name: Adding parameters to a dashboard
             href: operations/dashboard/add-parameters.md
+          - name: Setting up filtering by charts
+            href: operations/dashboard/add-filtration.md
           - name: Dashboard auto-update
             href: operations/dashboard/auto-update.md
           - name: Changing dashboard settings
