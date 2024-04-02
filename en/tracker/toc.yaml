@@ -209,7 +209,7 @@ items:
             href: manager/project-new.md
           - name: My projects
             href: manager/my-projects.md
-          - name: Creating a project
+          - name: Managing projects
             href: manager/create-project.md
           - name: List of project issues
             href: manager/project-list.md
@@ -221,7 +221,7 @@ items:
         items:
           - name: Project portfolios
             href: manager/portfolio.md
-          - name: Creating a portfolio
+          - name: Managing portfolios
             href: manager/create-portfolio.md
       - name: Viewing the revision history for a project or portfolio
         href: manager/history.md

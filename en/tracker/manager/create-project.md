@@ -1,9 +1,16 @@
 ---
-title: "How to create a project in {{ tracker-full-name }}"
-description: "In this tutorial, you will learn how to create a project in {{ tracker-name }}."
+title: "Managing projects in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to manage projects in {{ tracker-name }}."
 ---
 
-# How to create a project
+# Managing projects
+
+In this section, you will learn how to manage your projects:
+
+* [Creating a project](#create-project)
+* [Adding issues to a project](#add-tickets)
+* [Adding links for a project](#links)
+* [Deleting a project](#delete)
 
 ## Creating a project {#create-project}
 
@@ -61,7 +68,7 @@ To create a project based on an issue:
 
 ## Adding issues to a project {#add-tickets}
 
-#### From the project page {#from-project}
+### From the project page {#from-project}
 
 1. Go to the **Issue list** tab, then click **{{ ui-key.startrek.ui_components_projects_Table.add-issue }}**.
 
@@ -81,7 +88,7 @@ To create a project based on an issue:
 
    {% endnote %}
 
-#### From the issue page {#from-ticket}
+### From the issue page {#from-ticket}
 
 1. Open the issue page.
 
@@ -89,7 +96,7 @@ To create a project based on an issue:
 
 1. Start typing the project's name in the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field and pick the option you need from the list of suggestions.
 
-#### Adding multiple issues {#from-bulk}
+### Adding multiple issues {#from-bulk}
 
 1. Select the issues you need using [filters](../user/create-filter.md).
 
@@ -101,7 +108,7 @@ To create a project based on an issue:
 
 1. Wait for the issues to be processed.
 
-#### Importing issues {#from-import}
+### Importing issues {#from-import}
 
 1. Open your project page.
 
@@ -110,6 +117,49 @@ To create a project based on an issue:
 1. Click ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}** and specify an issue selection criterion.
 
 1. Click **{{ ui-key.startrek.ui_components_issues-import_IssuesImportDialog.import }}** and wait until your issues are imported.
+
+## Adding links for a project {#links}
+
+You can link a project to other projects or portfolios to group entities based on a common topic or set their hierarchy.
+
+You can find a list of linked projects and portfolios on the **About project** tab under the project description.
+
+### Creating a link {#create-link}
+
+To create a link to other project or portfolio:
+
+1. Go to **About project** and click ![plus](../../_assets/console-icons/plus.svg)**Add link**.
+1. Choose the appropriate link type:
+
+   * **Depends on**: Start of work on the current project depends on the completion of another project or portfolio.
+   * **Blocks**: Execution of this project blocks the start of work on another project or portfolio.
+
+1. Choose the entity type for linking.
+
+1. Choose an entity to create a link to:
+
+   * **New**: To create a new entity. Choose the entity type for linking (![briefcase](../../_assets/console-icons/briefcase.svg) for a portfolio and ![folders](../../_assets/console-icons/folders.svg) for a project), enter a name, specify the deadline and click **Create**.
+   * **Existing**: If a project or portfolio already exists. Specify the key and the name of the entity and select it from the list.
+
+The link will appear in the list of linked projects and portfolios.
+
+### Changing the link type {#change-link-type}
+
+To change a project's link type:
+
+1. Open your project page.
+1. Go to **About project**.
+1. In the **Depends on** or **Blocks** list under the project description, select the link whose type you want to change.
+1. Next to the linked entity, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) → **Change link type** and choose a new type.
+
+### Removing a link {#delete-link}
+
+To remove a project's link:
+
+1. Open your project page.
+1. Go to **About project**.
+1. In the **Depends on** or **Blocks** list under the project description, select the link you want to remove.
+1. Next to the linked entity, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) → **Remove link**.
 
 ## Deleting a project {#delete}
 

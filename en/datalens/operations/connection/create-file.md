@@ -25,23 +25,34 @@ To create a connection to a file:
 
    {% note info %}
 
-   * Currently, you can upload CSV and TXT files.
-   * The number of files per connection cannot exceed 10. 
+   * Currently, you can upload CSV, TXT, and Excel (`xlsx` only) files.
+   * The number of files per connection cannot exceed 10. Each Excel sheet is counted as a separate file.
    * The size of each file may not exceed 100 MB.
    * The maximum number of columns per file is 300.
    * After you upload the file, the preview shows only the first 30 rows.
 
    {% endnote %}
 
+1. Select the file upload parameters:
 
-1. At the top of the screen, select the file upload parameters:
+   {% list tabs %}
 
-   * **Encoding**: Specify the file data encoding. You can use `utf-8`, `utf-16`, `windows-1251`, and `utf-8-sig`.
-   * **Delimiter**: Specify the delimiter that is used in the file. The available values are `Comma`, `Semicolon`, and `Tabulation character`.
-   * **Column header**: Select the title option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as a heading.
+   - CSV or TXT
 
-1. (Optional) Select the type of data for each column. To do this, click the icon to the left of the column.
+      1. The information about the added file and the uploaded data will be displayed at the center of the screen. At the top of the screen, select:
 
+         * **Encoding**: Specify the file data encoding. You can use `utf-8`, `utf-16`, `windows-1251`, and `utf-8-sig`.
+         * **Delimiter**: Specify the delimiter that is used in the file. The available values are `Comma`, `Semicolon`, and `Tabulation character`.
+         * **Column header**: Select the title option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as a heading.
+
+      1. (Optional) Select the type of data for each column. To do this, click the icon to the left of the column.
+
+   - Excel
+
+      1. If the file being uploaded contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table.
+      1. The information about the added file and the uploaded data will be displayed at the center of the screen. At the top of the screen, select the **Column header** option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as heading.
+
+   {% endlist %}
 
 1. Repeat steps 4 and 5 to add files.
 1. Click **Create connection**.
