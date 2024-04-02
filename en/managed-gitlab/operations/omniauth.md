@@ -7,7 +7,7 @@ To integrate an authentication provider for {{ GL }} via OmniAuth, [add your aut
 ## Adding an authentication provider {#add-provider}
 
 1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-1. Click the cluster name and open the **{{ ui-key.yacloud.gitlab.title_omniauth }}** tab.
+1. Click the instance name and select the **{{ ui-key.yacloud.gitlab.title_omniauth }}** tab.
 1. Click **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. To add an authentication provider, click **Add**.
 1. Select a type and specify the [authentication provider parameters](#params).
@@ -140,7 +140,7 @@ https://my-domain.gitlab.yandexcloud.net/users/auth/Yandex/callback
 
 {% note warning %}
 
-When integrating with the Yandex ID service, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }} but also block them at first log in.
+When integrating with the Yandex ID service, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }}, but block them the first time they log in.
 
 {% endnote %}
 

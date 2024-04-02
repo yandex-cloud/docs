@@ -9,7 +9,7 @@ description: "Эта инструкция поможет настроить ча
 
 Чтобы начать общение с технической поддержкой в чате Telegram:
 
-1. Перейдите в [консоль управления]({{ link-console-main }}) и войдите в {{ yandex-cloud }}.
+1. Откройте [главную страницу]({{ link-console-support }}) {{ support-center-name }}.
 1. В левом нижнем углу выберите **{{ ui-key.yacloud.component.navigation-menu.label_help-center }}** и **Чат в Telegram**.
 1. Выберите [организацию](../organization/quickstart.md) для работы с технической поддержкой. 
 1. Следуйте указаниям в окне **Введите код из Telegram**: подтвердите полученный токен и перейдите по ссылке в Telegram-чат. 
