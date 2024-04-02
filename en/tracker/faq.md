@@ -44,12 +44,12 @@ We will help you select a proper partner for {{ tracker-name }} implementation. 
 
 ## How to delete an issue {#section_z1d_r1l_nbb}
 
-You cannot delete an issue, but you can close it with an appropriate resolution. For example, you can close duplicate issues with the *Duplicate* resolution or use the *Canceled* resolution to close issues created by mistake. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
+You cannot delete an issue, but you can close it with an appropriate resolution. For example, you can close duplicate issues with the **Duplicate** resolution or use the **Canceled** resolution to close issues created by mistake. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
 
 
 {% note tip %}
 
-You can [delete a queue](manager/delete-queue.md) and all the issues in it: [Move](user/move-ticket.md) the issues you don't need to a special queue and then delete it.
+You can [delete a queue](manager/delete-queue.md) and all the issues in it: [Move](user/move-ticket.md) the issues you do not need to a special queue and then delete it.
 
 {% endnote %}
 
@@ -93,7 +93,7 @@ If you can access the queue page but some of the issues remain inaccessible, the
 
 The owner is specified on the **{{ ui-key.startrek.ui_components_IssueTabs.description-tab }}** tab on the queue page. For more information, see [List of queue issues](user/queue.md).
 
-## Why cannot I use widgets grouped by the field {{ ui-key.startrek-backend.fields.issue.summary-key-value }}? {#section_del_widget}
+## Why cannot I use widgets grouped by the {{ ui-key.startrek-backend.fields.issue.summary-key-value }} field? {#section_del_widget}
 
 The **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field includes the issue name: this is an arbitrary value the user comes up with. The names are almost always unique. If you try to build a table where rows or columns are grouped by a set of unique values (the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field), the result would be cumbersome and uninformative.
 
@@ -107,7 +107,7 @@ If you have any widgets with grouping by the **{{ ui-key.startrek-backend.fields
 
 If you need a simple issue list, replace your widget with an [issue list widget](user/widgets#section_ll1_zdp_pz). To do this:
 
-1. Create a new [Issues widget](user/widgets#section_ll1_zdp_pz).
+1. Create a new [**Issues** widget](user/widgets#section_ll1_zdp_pz).
 
 1. Fill out the **Filter** field in the same manner as in your previous widget.
 
@@ -155,4 +155,4 @@ These settings can be changed by the organization owner or administrator. To dis
 
 ## I still have questions. Who do I ask them to? {#other-questions}
 
-{{ tracker-name }} users can ask their questions on the [technical support page]({{ link-tracker-support }}). You can also discuss your topics of interest in our Telegram community: [https://t.me/yandextracker](https://t.me/yandextracker).
+{{ tracker-name }} users can ask their questions using the [feedback form]({{ link-tracker-feedback }}). You can also discuss your topics of interest in our Telegram community: [https://t.me/yandextracker](https://t.me/yandextracker).

@@ -51,4 +51,4 @@ Send us a request using the [form]({{ link-500-users }}).
 
 ## I still have questions. Who do I ask them to? {#other-questions}
 
-{{ tracker-name }} users can ask their questions on the [technical support page]({{ link-tracker-support }}). You can also discuss your topics of interest in our Telegram community: [https://t.me/yandextracker](https://t.me/yandextracker).
+{{ tracker-name }} users can ask their questions using the [feedback form]({{ link-tracker-feedback }}). You can also discuss your topics of interest in our Telegram community: [https://t.me/yandextracker](https://t.me/yandextracker).

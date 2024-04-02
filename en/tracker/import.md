@@ -7,9 +7,9 @@ description: "Follow this guide to migrate to {{ tracker-full-name }} from other
 
 If you manage your issues and projects with a certain service and want to change it to {{ tracker-full-name }}, you can migrate the data about your projects and issues to {{ tracker-name }}:
 
-* If you are running Jira, our experts will help you migrate the data to {{ tracker-name }}. For this, follow the [instruction below](#jira) to prepare your data for migration and write to [support]({{ link-tracker-support }}).
+* If you are running Jira, our experts will help you migrate the data to {{ tracker-name }}. For this, follow the [instructions below](#jira) to prepare your data for migration and contact our technical support using the [feedback form]({{ link-tracker-feedback }}).
 
-* If you are running some other system (Asana, Wrike, YouTrack, or others), we'll help you select a partner company that will migrate your data to {{ tracker-name }}. To do this, submit a request using a [form]({{ link-migration-form }}).
+* If you are using some other system (Asana, Wrike, YouTrack, or others), we will help you select a partner company that will migrate your data to {{ tracker-name }}. To do this, submit a request using a [form]({{ link-migration-form }}).
 
 * If you want to self-migrate the data, you can [use the API](#diy) to import your data to {{ tracker-name }} or upload a list of issues from an Excel spreadsheet using the [Python client](#excel).
 
@@ -64,8 +64,7 @@ If you manage your issues and projects with a certain service and want to change
 
    {% endnote %}
 
-1. Write a request to [support]({{ link-tracker-support }}) for migrating from Jira to {{ tracker-name }}. In the request, specify:
-
+1. Submit a request for migration from Jira to {{ tracker-name }} to our technical support using the [feedback form]({{ link-tracker-feedback }}). In the request, specify:
    * Links to the archive with exported data and the user correspondence table.
 
    * Credentials of the auxiliary administrative account.
@@ -112,7 +111,7 @@ The spreadsheet must include columns with issue parameters. The same column name
       from yandex_tracker_client import TrackerClient
       client = TrackerClient(token='<OAuth_token>', org_id='<organization_ID>')
       ```
-      Here, `<OAuth_token>` is your OAuth token and `<organization_ID>` is your organization ID. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+      Here, `<OAuth_token>` is your OAuth token and `<organization_ID>` is your organization ID. To find out the organization ID, go to the [{{ tracker-name }} settings page]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
    1. Attach libraries.
 

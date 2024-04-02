@@ -16,7 +16,7 @@ There are no quotas for {{ datalens-short-name }}.
 
 | Type of limit | Value |
 ----- | -----
-Maximum number of {{ datalens-short-name }} instances per organization or cloud | 1 |
+Maximum number of {{ datalens-short-name }} instances per organization | 1 |
 Maximum CSV file size | 200 MB |
 | Maximum number of tables in a single dataset | 32 |
 | Maximum number of fields in a single dataset | 1,200 |

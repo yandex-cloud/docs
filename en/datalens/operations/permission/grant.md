@@ -13,6 +13,11 @@ Before granting permissions to a user, [add](../../security/add-new-user.md) the
 1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the object and select **Permissions**.
 1. In the window that opens, click the button to set up permissions to the respective object: connection, dataset, chart, or dashboard.
 1. Enter a username or select the **All** group.
+
+
+   {% include [datalens-workbooks-collections-access-note](../../../_includes/datalens/operations/datalens-workbooks-collections-access-note.md) %}
+
+
 1. (Optional) Write a comment for the user you are granting permissions to.
 1. Specify the appropriate permissions and click **Add**.
 

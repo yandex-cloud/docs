@@ -1,8 +1,10 @@
-If a Google Sheets spreadsheet contains empty cells, {{ datalens-short-name }} may display column headers incorrectly and fail to display the first several lines.
+### What do I do if a Google Sheets spreadsheet works incorrectly? {#google-sheets-error}
 
-To correct this, you need to fill in the empty cells in the Google Sheets spreadsheet with any appropriate values, such as `unavailable`, `none`, and `unknown`.
+If a Google Sheets spreadsheet contains empty cells, {{ datalens-short-name }} may incorrectly display column headers and miss the first several rows.
 
-To complete empty cells in a Google Sheets spreadsheet quickly:
+To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values, e.g., `unavailable`, `none`, `unknown`.
+
+To quickly populate empty cells in a Google Sheets spreadsheet:
 
 1. Highlight the entire Google Sheets sheet.
 1. In the spreadsheet menu, select **Data** → **Create a filter**.
