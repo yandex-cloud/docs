@@ -12,6 +12,7 @@ description: "This page gives a list of step-by-step guides for {{ mgl-name }}."
 * [{#T}](instance/instance-update.md)
 * [{#T}](instance/instance-backups.md)
 * [{#T}](instance/migration.md)
+* [{#T}](instance/zone-migration.md)
 * [{#T}](instance/clean-up-disk-space.md)
 * [{#T}](instance/instance-delete.md)
 * [{#T}](create-user.md)
