@@ -1,6 +1,6 @@
 # Uploading organization audit logs to {{ objstorage-name }}
 
-Follow this guide to create a new [trail](../concepts/trail.md) that will upload management event (Control Plane) audit logs of all resources and, optionally, data event (Data Plane) audit logs of selected services of an organization to an {{ objstorage-name }} bucket.
+Follow this guide to create a new [trail](../concepts/trail.md) that will upload management event audit logs of all resources and, optionally, data event audit logs of selected services of an organization to an {{ objstorage-name }} bucket.
 
 {% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
@@ -34,8 +34,8 @@ To create the first trail in {{ at-name }} and start the audit log management pr
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created
-      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional)
+      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created.
+      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional).
 
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 

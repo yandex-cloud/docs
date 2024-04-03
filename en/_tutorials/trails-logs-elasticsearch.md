@@ -1,6 +1,6 @@
 # Exporting audit logs to {{ mes-full-name }}
 
-Create a trail to upload management event (Control Plane) audit logs for an individual cloud's resources to a {{ objstorage-full-name }} bucket. Then configure continuous log delivery to a {{ mes-full-name }} cluster.
+Create a trail to upload management event audit logs for individual cloud resources to an {{ objstorage-full-name }} bucket. Then configure continuous log delivery to a {{ mes-full-name }} cluster.
 
 The solution described in the tutorial follows the procedure below:
 
@@ -40,7 +40,7 @@ Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). {% inclu
 Some {{ yandex-cloud }} features described in this tutorial are at the [Preview](../overview/concepts/launch-stages.md) stage. [Request access to these features from the support team]({{ link-console-support }}/create-ticket):
 
 * [{{ at-name }}](../audit-trails/).
-* [Security groups](../vpc/concepts/security-groups.md)
+* [Security groups](../vpc/concepts/security-groups.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -174,7 +174,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       * `iam.serviceAccounts.user` for the service account.
       * `audit-trails.editor` for the folder to host the trail.
       * `audit-trails.viewer` for the cloud whose audit logs will be collected.
-      * `storage.viewer` for the bucket or the folder.
+      * `storage.viewer` for the bucket or folder.
 
 {% endlist %}
 

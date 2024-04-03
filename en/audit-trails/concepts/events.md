@@ -1,6 +1,6 @@
 # Management event reference
 
-The value of the `event_type` field in a management (control plane) event audit log is determined by the event source service.
+The value of the `event_type` field in a management event audit log is determined by the event source service.
 
 The general value format is as follows:
 
@@ -20,6 +20,7 @@ On this page, you will find events for the following services:
 * [{{ backup-name }}](#backup)
 * [{{ cdn-name }}](#cdn)
 * [{{ cloud-logging-name }}](#cloud-logging)
+* [{{ marketplace-name }}](#marketplace)
 * [{{ compute-name }}](#compute)
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
@@ -112,6 +113,8 @@ Service name: `cloudapps`.
 --- | ---
 | `CreateCloudApplication` | Creating an application |
 | `DeleteCloudApplication` | Deleting an application |
+| `SetApplicationAccessBindings` | Setting application access bindings |
+| `UpdateApplicationAccessBindings` | Updating application access bindings |
 | `UpdateCloudApplication` | Updating an application |
 
 ## {{ dns-name }} {#dns}
@@ -126,6 +129,12 @@ Service name: `logging`.
 
 {% include [logging-events](../../_includes/audit-trails/events/logging-events.md) %}
 
+
+## {{ marketplace-name }} {#marketplace}
+
+Service name: `marketplace.licensemanager`.
+
+{% include [marketplace-events](../../_includes/audit-trails/events/marketplace-events.md) %}
 
 ## {{ compute-name }} {#compute}
 

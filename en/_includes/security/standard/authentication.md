@@ -64,7 +64,7 @@ To make sure that all authentication requests from {{ yandex-cloud }} contain a 
 **Guides and solutions to use:**
 
 * [Guide on setting up SAML-based identity federations](../../../organization/concepts/add-federation.md#federation-usage).
-* [Guide on setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
+* [Guide on configuring a SAML-based federation with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
 #### 1.2 Yandex ID accounts are only used in exceptional cases {#yandex-id-accounts}
 
@@ -131,7 +131,7 @@ Remove the group access rights from the accounts that do not require them.
 
 #### 1.4 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, and {{ roles-auditor }} {#min-privileges}
 
-The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roll reference](../../../iam/roles-reference.md).
+The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in the specified service. You can see the list of all service roles in the [{{ yandex-cloud }} roll reference](../../../iam/roles-reference.md).
 
 Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
 
@@ -601,26 +601,26 @@ For a Yandex ID account, set up 2FA using [this guide](https://yandex.com/suppo
 
 {{ yandex-cloud }} privileged users include accounts with the following roles:
 
-* `billing.accounts.owner`
-* `{{ roles-admin }}` assigned for a billing account
-* `organization-manager.organizations.owner`
-* `organization-manager.admin`
-* `{{ roles-cloud-owner }}`
-* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for an organization
-* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a cloud
-* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a folder
+* `billing.accounts.owner`.
+* `{{ roles-admin }}` assigned for a billing account.
+* `organization-manager.organizations.owner`.
+* `organization-manager.admin`.
+* `{{ roles-cloud-owner }}`.
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for an organization.
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a cloud.
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a folder.
 
 The `billing.accounts.owner` role is granted automatically when creating a billing account and cannot be reassigned to another user. The role allows you to perform any action with the billing account.
 
 The `billing.accounts.owner` role can only be assigned to a Yandex ID account. An account with the `billing.accounts.owner` role is used when setting up payment methods and adding clouds.
 
-Make sure to properly secure this account, since it has significant privileges and cannot be federated with a corporate account.
+Make sure to properly secure this account: it offers significant privileges and cannot be federated with a corporate account.
 
 The most appropriate approach would be to not use this account on a regular basis:
 
 * Only use it for initial setup and updates.
-* For the duration that this account is actively used, be sure to enable two-factor authentication (2FA) in Yandex ID.
-* After that, if you don't use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
+* When actively using this account, enable two-factor authentication (2FA) in Yandex ID.
+* After that, if you do not use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
 * Change the password to a newly generated one each time you use the account.
 
 We recommend disabling 2FA only for this account and if it is not <q>assigned</q> to a specific employee. This lets you avoid linking this critical account to a personal device.
@@ -650,8 +650,8 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
    Checking roles for the {{ billing-name }} service:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
-   1. Go to the **Billing** tab.
-   1. Check who is granted the roles: `billing.accounts.owner` and `{{ roles-admin }}`.
+   1. Go to [{{ billing-name }}]({{ link-console-billing }}).
+   1. Check to whom the `billing.accounts.owner` and `{{ roles-admin }}` roles are granted.
 
    Checking roles for an organization:
 
@@ -911,7 +911,7 @@ Make sure the contact information is valid and messages are sent to multiple per
 - Performing a check in the management console {#console}
 
    1. Open the {{ yandex-cloud }} management console in your browser.
-   1. Go to the **Billing** tab.
+   1. Go to [{{ billing-name }}]({{ link-console-billing }}).
    1. Go to the **Account data** tab.
    1. At the bottom, click **Edit data in Yandex Balance**.
    1. Verify the specified contact information.

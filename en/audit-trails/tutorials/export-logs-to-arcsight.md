@@ -1,6 +1,6 @@
 # Uploading audit logs to ArcSight SIEM
 
-Create a trail to upload management event (Control Plane) audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
+Create a trail to upload management event audit logs of resources in an individual folder to an {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
 
 To complete the tutorial successfully, you must have an ArcSight instance installed.
 
@@ -143,7 +143,7 @@ You will need the key ID and secret key when mounting the bucket.
 
       {% note alert %}
 
-      Once you close the dialog, the private key value will be unavailable.
+      After you close the dialog, the private key value will become unavailable.
 
       {% endnote %}
 
@@ -166,7 +166,7 @@ You will need the key ID and secret key when mounting the bucket.
       secret: JyT*******zMP1
       ```
 
-   1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
+   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 {% endlist %}
 
@@ -275,8 +275,8 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created, e.g., `arcsight-trail`
-      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional)
+      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created, e.g., `arcsight-trail`.
+      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional).
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 

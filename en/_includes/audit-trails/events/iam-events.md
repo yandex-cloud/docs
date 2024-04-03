@@ -2,7 +2,7 @@
 --- | ---
 | `AddFederatedUserAccounts` | Adding a user to a federation |
 | `CreateAccessKey` | Creating a static key |
-| `CreateApiKey` | Creating API keys |
+| `CreateApiKey` | Creating an API key |
 | `CreateCertificate` | Adding a certificate for a federation |
 | `CreateFederation` | Creating a federation |
 | `CreateIamCookieForSubject` | Federated user login ^*^ |
@@ -15,6 +15,8 @@
 | `DeleteKey` | Deleting a key pair for a service account |
 | `DeleteServiceAccount` | Deleting a service account |
 | `DetectLeakedCredential` | Detecting a secret in a public source |
+| `DisableService` | Revoking service access to resources of other cloud services |
+| `EnableService` | Granting service access to resources of other cloud services |
 | `UpdateAccessKey` | Updating a static key |
 | `UpdateApiKey` | Updating an API key |
 | `UpdateCertificate` | Renewing a certificate |

@@ -20,12 +20,6 @@ _Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) o
 
 {% include [yandex-account-2fa-warning.md](../../../_includes/iam/yandex-account-2fa-warning.md) %}
 
-## Service account {#sa}
-
-{% include [sa-def](../../_includes_service/sa-def.md) %}
-
-Service accounts allow you to set up flexible access to your resources and minimize risks associated with excessive permissions. Use this account type for your applications, YC CLI, {{ TF }}, and {{ yandex-cloud }} API. For more information, see [{#T}](service-accounts.md).
-
 ## Federated accounts {#saml-federation}
 
 A _federated account_ is a user account from an identity federation, e.g., Active Directory.
@@ -35,3 +29,9 @@ A _federated account_ is a user account from an identity federation, e.g., Activ
 Use federated accounts if you need to grant {{ yandex-cloud }} access to a large number of employees.
 
 For more information, see [{#T}](../../../organization/concepts/add-federation.md).
+
+## Service account {#sa}
+
+{% include [sa-def](../../_includes_service/sa-def.md) %}
+
+Service accounts allow you to set up flexible access to your resources and minimize risks associated with excessive permissions. Use this account type for your applications, YC CLI, {{ TF }}, and {{ yandex-cloud }} API. For more information, see [{#T}](service-accounts.md).

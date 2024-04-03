@@ -7,18 +7,18 @@ description: "This guide describes how you can run automatic Docker image scans 
 
 {% note info %}
 
-You can enable auto [scans](../concepts/vulnerability-scanner.md) of [Docker images](../concepts/docker-image.md) for vulnerabilities on push to {{ container-registry-name }} in the [vulnerability scanner settings](../operations/scanning-docker-image.md#automatically) without creating any [{{ sf-full-name }}](../../functions/) [functions](../../functions/concepts/function.md) and [triggers](../../functions/concepts/trigger).
+You can enable auto [scans](../concepts/vulnerability-scanner.md) of [Docker images](../concepts/docker-image.md) for vulnerabilities on push to {{ container-registry-name }} in the [vulnerability scanner settings](../operations/scanning-docker-image.md#automatically) without creating any [{{ sf-full-name }}](../../functions/) [functions](../../functions/concepts/function.md) and [triggers](../../functions/concepts/trigger/index.md).
 
 {% endnote %}
 
-In this tutorial, you will create a {{ container-registry-full-name }} registry to store a [Docker image](../concepts/docker-image.md) and set up automatic [scanning for vulnerabilities](../concepts/vulnerability-scanner.md) on push to the registry. Using a {{ sf-name }} trigger, you will track changes to the registry and a function will be invoked to start scanning an image on push to the registry.
+In this tutorial, you will create a {{ container-registry-name }} [registry](../concepts/registry.md) to store a Docker image. You will also set up automatic scanning for vulnerabilities to be done when pushing an image to the registry. A {{ sf-name}} trigger will track changes to the registry and invoke a function to start scanning when you push a Docker image to the registry.
 
 To set up automatic Docker image scan on push:
 1. [Prepare your cloud](#before-you-begin).
 1. [Prepare the environment](#prepare).
 1. [Create a function](#create-function).
 1. [Create a trigger](#create-trigger).
-1. [Push the image](#download-image).
+1. [Push the Docker image](#download-image).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -34,7 +34,7 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 1. [Install](https://www.docker.com) Docker.
-1. Create a [registry](../concepts/registry.md) to push a Docker image to.
+1. Create a registry to push a Docker image to.
 
    {% list tabs group=instructions %}
 
@@ -75,7 +75,7 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 
    {% endlist %}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `scanner` and assign it the `container-registry.images.scanner` [role](../../iam/concepts/access-control/roles.md) for the folder where you created the registry.
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `scanner` and assign it the `container-registry.images.scanner` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the registry.
 
    {% list tabs group=instructions %}
 
@@ -231,7 +231,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
 ## Create a trigger {#create-trigger}
 
-Create a trigger that will invoke your function when creating a Docker image [tag](../concepts/docker-image.md#version).
+Create a trigger that will invoke your function when creating a [tag](../concepts/docker-image.md#version) of the Docker image.
 
 {% list tabs group=instructions %}
 
@@ -330,7 +330,6 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
       1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md). You do not need to run the `docker login` command for that.
 
-   
    - Using an OAuth token {#oauth-token}
 
       1. If you do not have an [OAuth token](../../iam/concepts/authorization/oauth-token.md) yet, get one by following [this link]({{ link-cloud-oauth }}).
@@ -346,8 +345,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
          Login succeeded
          ```
 
-
-   - Using an IAM token {#iam-token}
+   - Using an {{ iam-full-name }} token {#iam-token}
 
       {% note info %}
 
@@ -475,7 +473,6 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
    {% endlist %}
 
-
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
@@ -521,7 +518,7 @@ To set up automatic Docker image scan on push using {{ TF }}:
 
          {% endcut %}
 
-      1. Prepare a ZIP archive with the function code:
+      1. Prepare a ZIP archive with the function code.
 
          1. Create the `handler.sh` file and paste the following code to it:
 
@@ -545,6 +542,7 @@ To set up automatic Docker image scan on push using {{ TF }}:
    * [yandex_function]({{ tf-provider-resources-link }}/yandex_function)
 
 1. In the `image-auto-scan.auto.tfvars` file, set the user-defined parameters:
+
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) to create the infrastructure in.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the infrastructure in.
 
@@ -553,7 +551,5 @@ To set up automatic Docker image scan on push using {{ TF }}:
    {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Create a trigger](#create-trigger).
-
 1. [Push the image](#download-image).
-
 1. [Check the result](#check-result).

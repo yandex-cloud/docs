@@ -150,8 +150,8 @@ Where:
    * `sitekey`: [Client-side key](./keys.md).
    * `callback`: Handler function.
    * `hl`: Widget language.
-   * `test`: Launching CAPTCHA in test mode. The user will always get a challenge. Use this property for debugging and testing only.
-   * `webview`: Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**.
+   * `test`: Running CAPTCHA in test mode. The user will always get a challenge. Use this property for debugging and testing only.
+   * `webview`: Running CAPTCHA in **WebView**. You can use it to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**.
    * `invisible`: [Invisible CAPTCHA](./invisible-captcha.md).
    * `shieldPosition`: Position of the [data processing notice section](./invisible-captcha.md#data-processing-notice).
    * `hideShield`: Hide the [data processing notice section](./invisible-captcha.md#data-processing-notice).
@@ -220,6 +220,7 @@ Where:
    | 'challenge-visible'
    | 'challenge-hidden'
    | 'network-error'
+   | 'javascript-error'
    | 'success'
    | 'token-expired';
    ```
@@ -231,6 +232,7 @@ Where:
    | `challenge-visible` | Opening the challenge pop-up window | `() => void` |
    | `challenge-hidden` | Closing the challenge pop-up window | `() => void` |
    | `network-error` | A network error occurred | `() => void` |
+   | `javascript-error` | A critical JS error occurred | `(error: { filename: string, message: string,`<br>`col: number, line: number }) => void` |
    | `success` | Successful user validation | `(token: string) => void` |
    | `token-expired` | Invalidated verification token | `() => void` |
 
@@ -239,6 +241,8 @@ Where:
    ```ts
    UnsubscribeFunction = () => void;
    ```
+
+{% include [javascript-error](../../_includes/smartcaptcha/javascript-error.md) %}
 
 Usage example:
 

@@ -99,7 +99,7 @@ You can create a label with multiple values. For example, create a label named `
 
 ## Editing a label {#update-label}
 
-You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
+You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 {% list tabs group=instructions %}
 

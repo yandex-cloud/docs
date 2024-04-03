@@ -1,6 +1,6 @@
 # Management event audit log
 
-A [management (control plane) event](events.md) audit log is a JSON object with a record of events that occurred to {{ yandex-cloud }} resources.
+A [management event](events.md) audit log is a JSON object with a record of events that occurred to {{ yandex-cloud }} resources.
 
 The log entry [format](#scheme) is universal for any event. The values of some fields are determined both by the source resource and the event type.
 

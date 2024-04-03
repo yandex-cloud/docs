@@ -162,7 +162,7 @@ export const SubscriptionToCaptcha = () => {
 
   const handleNetworkError: SmartCaptchaProps['onNetworkError'] = useCallback(() => setStatus('network-error'), []);
 
-  const handleJavaScriptError: SmartCaptchaProps['onJavaScriptError']  = useCallback((error) => {
+  const handleJavaScriptError: SmartCaptchaProps['onJavaScriptError'] = useCallback((error) => {
     setStatus('javascript-error');
     logError(error);
   }, []);

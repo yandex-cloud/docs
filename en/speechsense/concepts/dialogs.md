@@ -2,7 +2,7 @@
 
 A _dialog_ is a {{ speechsense-name }} object that includes a recording of a call between a call center agent and a customer, as well as various metadata, such as the agent and customer full names, call date and language, etc. Calls are recorded with a phone exchange (PBX) and then [uploaded](../operations/data/upload-data.md) to {{ speechsense-name }}.
 
-In each call recording, {{ speechsense-name }} automatically separates the agent's utterances from the customer's ones and applies the appropriate tags to those. For instance, this may help to determine whether the agent greeted the customer or whether the latter was polite.
+For each call, {{ speechsense-name }} automatically separates the agent's speech and the customer's speech, applying different [tags](tags.md) to their respective phrases. For instance, this may help to determine whether the agent greeted the customer or whether the latter was polite.
 
 All dialogs break down into two categories:
 
@@ -31,7 +31,7 @@ There are four types of filters:
 * **Operator**: Defines how well the agent does their job, e.g., how fast they were speaking, whether they interrupted the customer, etc.
 * **Customer**: Refers to the customer's behavior during the call, e.g., how fast they were speaking, whether they interrupted the agent, etc.
 * **General metadata**: Recording data.
-* **Customer tags** and **Operator tags**: Classifiers applied to the call text recognition results. You can learn more about tags [here](#tags).
+* **Customer tags** and **Operator tags**: Classifiers applied to the call text recognition results. You can learn more about tags [here](tags.md).
 
 For each filter, you can specify one or more values, which are the filtering conditions. Such values fall into these three categories:
 
@@ -54,9 +54,3 @@ For each dialog, you have the following information [available](../operations/da
    Using a transcript, you can [search through a text fragment](../operations/data/manage-dialogs.md#find-dialogs) in the agent's or customer's channel. The search will return exact matches. Found fragments are highlighted in yellow.
 
    The transcript is automatically marked up with agent and customer tags.
-
-## Dialog tags {#tags}
-
-Dialogs are _tagged_ using classifiers. {{ speechsense-name }} determines whether the dialog has certain keywords, phrases, or tones, classifies the dialog, and adds a tag to it. {{ speechsense-name }} has preconfigured tags. For example, there are tags that show the agent thanked the customer for waiting or that the customer contacted the support service again.
-
-In the transcript, you can view which and how many tags were assigned to the agent's and customer's channels. If you click a tag, the words it refers to will be highlighted with the appropriate color.

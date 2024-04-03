@@ -7,6 +7,7 @@
 | `DeactivateSecret` | Deactivating a secret |
 | `DeleteSecret` | Destroying a secret |
 | `GetPayload` | Accessing the contents of a secret ^*^ |
+| `RotateSecret` | Rotating a secret |
 | `ScheduleVersionDestruction` | Scheduling the destruction of a secret version |
 | `SetSecretAccessBindings` | Selecting access bindings for a secret |
 | `UpdateSecret` | Updating a secret |

@@ -124,7 +124,7 @@ items:
             href: operations/deploy/alias-update.md
           - name: Deleting an alias
             href: operations/deploy/alias-delete.md
-          - name: Sending a request to alias
+          - name: Sending a request to an alias
             href: operations/deploy/alias-api.md
       - name: Shared access
         items:
@@ -257,6 +257,8 @@ items:
               Web analytics with funnels and cohorts calculated based on Yandex
               Metrica data
             href: tutorials/data-from-metrica-yc-visualization.md
+          - name: Analyzing data with {{ yq-full-name }}
+            href: tutorials/yq.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
