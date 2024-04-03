@@ -7,11 +7,11 @@ description: "Follow this guide to create a repository."
 
 {% note info %}
 
-A repository will only be displayed after you [push](../../operations/docker-image/docker-image-push.md) a Docker image to it.
+A [repository](../../concepts/repository.md) will only be displayed after you [push](../../operations/docker-image/docker-image-push.md) a [Docker image](../../concepts/docker-image.md) to it.
 
 {% endnote %}
 
-To create a [repository](../../concepts/repository.md):
+To create a repository:
 
 {% list tabs group=instructions %}
 
@@ -49,7 +49,7 @@ To create a [repository](../../concepts/repository.md):
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc container repository list --registry-id <registry_ID>

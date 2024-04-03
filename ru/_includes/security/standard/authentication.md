@@ -367,7 +367,7 @@
 В блоке metadata_options задайте параметру [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) значение `DISABLED` у найденных ВМ:
 
 ```bash
-yc compute instance update <ID_виртуальной_машины> \                                                                               
+yc compute instance update <ID_виртуальной_машины> \
   --metadata-options aws-v1-http-token=DISABLED
 ```
 

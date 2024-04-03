@@ -2,8 +2,6 @@
 
 You can create users in a {{ GL }} instance and invite them to your project. Thus you will grant your team access to the repository.
 
-If you want to [set up code approval rules](approval-rules.md), create a service account to flexibly manage access rights. The account that was created together with the {{ GL }} instance has access to all repositories. If you use this account to set up approval rules, the rules will be applied to all repositories. You can grant the service account access to specific repositories. If you set up approval rules on behalf of the service account, the rules will only apply to the repositories this account has access to.
-
 Use different email addresses for each account. They should not be linked to the primary account created together with the {{ GL }} instance.
 
 ## Creating a user {#create}
@@ -17,6 +15,8 @@ Use different email addresses for each account. They should not be linked to the
    * **Name**: User name
    * **Username**: User login
    * **Email**: User email address
+
+   If you create a service account for [configuring approval rules](approval-rules.md), specify **Administrator** in the **Access level** field.
 
    Optionally, complete the **Profile** and **Admin notes** sections. Leave the other fields unchanged.
 

@@ -9,16 +9,14 @@ description: "Follow this guide to set up approval rules."
 
 With {{ mgl-name }}, you can flexibly set up mandatory approval rules before any code can be added to the target branch of the project. For more information on how approval rules work, see [Approval rules](../concepts/approval-rules.md).
 
-To set up approval rules, use a service account: this ensures flexible access rights management. The account that was created along with the {{ GL }} instance has access to all repositories. If you use this account to set up approval rules, the rules will be applied to all repositories. You can grant the service account access to specific repositories. If you set up approval rules on behalf of the service account, the rules will only apply to the repositories this account has access to.
-
-Before getting started, [create a service account and add it](create-user.md) to your {{ GL }} project. Assign the `Maintainer` or `Owner` [role]({{ gl.docs }}/ee/user/permissions.html) to the account, as other roles do not provide enough permissions to set up approval rules. Next, log in to the {{ GL }} instance and set up the approval rules via the service account.
+Before getting started, [create a service account](create-user.md#create) with administrator privileges and [add it to your {{ GL }} project](create-user.md#add-to-project). Assign the `Maintainer` or `Owner` [role]({{ gl.docs }}/ee/user/permissions.html) to the account, as other roles do not provide enough permissions to set up approval rules. Next, log in to the {{ GL }} instance and set up the approval rules via the service account.
 
 To use approval rules:
 
-1. [{#T}](#gitlab-token)
-1. [{#T}](#enable)
-1. [{#T}](#rules)
-1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages))
+1. [{#T}](#gitlab-token).
+1. [{#T}](#enable).
+1. [{#T}](#rules).
+1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages)).
 
 If necessary, enable [debugging mode](#debugging) and check out the [rules for handling exceptions](#exceptions).
 

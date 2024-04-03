@@ -59,12 +59,14 @@ description: "{{ managed-prometheus-full-name }} — система монито
 
 Вид ограничения | Значение
 ----- | -----
-Максимальная скорость записи в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | 500 запросов/с и 20 МБ/с
+Максимальная скорость записи в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | 1000 запросов/с и 80 МБ/с
 Количество метрик в одном запросе на запись | 10000
-Количество запросов в секунду на чтение через [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) | 100
-Количество запросов в секунду на чтение через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) | 100
-Количество уникальных метрик | 10 000 000
-Максимальное время хранения [устаревших метрик](../../concepts/ttl.md) | 60 дней
+Количество запросов в секунду на чтение через [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) | 200
+Количество запросов в секунду на чтение через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) | 200
+Количество уникальных метрик | 20 000 000
+Максимальное время хранения [устаревших метрик](../../concepts/ttl.md) ^1^ | 60 дней
+
+^1^ Если новые значения не поступают для метрики в течение 60 дней, она считается устаревшей и удаляется. Если новые значения поступают, время хранения метрики не ограничено.
 
 На вкладке **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** справа находится блок **{{ ui-key.yacloud_monitoring.prometheus.approved.widget-monitoring.title }}**. С помощью него можно:
 

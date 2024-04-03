@@ -4,6 +4,26 @@ This section contains {{ mpg-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Q4 2023 {#q4-2023}
+
+* Added support for {{ PG }} version 16.
+
+   Key changes in the new version:
+
+   * Added the `pg_stat_io` view for input/output monitoring.
+   * Added parallel execution of a full and a right hash connection.
+   * Improved the performance of the *vacuum freeze* operation.
+   * Added the logical replication setting from a replica.
+   * New version 16 clusters use ICU locales instead of libc.
+
+   To learn how to update a cluster, see [{#T}](operations/cluster-version-update.md).
+
+   For more information about the updates in {{ PG }} version 16, see the [{{ PG }} documentation]({{ pg.docs.org }}/release/16.0/).
+
+## Q3 2023 {#q3-2023}
+
+* {{ PG }} 11 is [no longer](https://www.postgresql.org/about/news/postgresql-154-149-1312-1216-1121-and-postgresql-16-beta-3-released-2689/) supported. Starting August 14, you can no longer create new clusters of this version, and the existing clusters were automatically updated on September 12 as part of the maintenance window.
+
 ## Q2 2023 {#q2-2023}
 
 * You can now export raw data on performance diagnostics using the [ListRawSessionStates](api-ref/grpc/perf_diag_service.md#ListRawSessionStates) and [ListRawStatements](api-ref/grpc/perf_diag_service.md#ListRawStatements) API methods.

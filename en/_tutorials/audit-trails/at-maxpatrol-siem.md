@@ -138,7 +138,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
    {% note alert %}
 
-   Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
+   Save the ID and private key. After you close the dialog, the private key value will become unavailable.
 
    {% endnote %}
 
@@ -163,7 +163,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
    {% note alert %}
 
-   Save the ID `key_id` and `secret` key. You cannot retrieve the key value a second time.
+   Save the ID (`key_id`) and secret key (`secret`). You cannot retrieve the key value a second time.
 
    {% endnote %}
 
@@ -249,7 +249,7 @@ This is the data stream the trail will upload organization resource logs to.
 
 ## Create a trail {#create-trail}
 
-The trail will collect the management event (Control Plane) audit logs for all of your organization's resources and [upload](../../audit-trails/operations/export-organization-data-streams.md) them to the `maxpatrol-stream` data stream.
+The trail will collect management event audit logs for all your organization's resources and [upload](../../audit-trails/operations/export-organization-data-streams.md) them to the `maxpatrol-stream` data stream.
 
 {% list tabs group=instructions %}
 

@@ -4,19 +4,6 @@ editable: false
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step guides
-    expanded: true
-    items:
-      - name: Adding a customer
-        href: operations/pin-client.md
-      - name: Granting a partner access to a customer's cloud
-        href: operations/access/grant.md
-      - name: Granting access to a partner account
-        href: operations/access/partners-account.md
-      - name: Viewing details of service usage by customers
-        href: operations/get-client-stat.md
-      - name: Suspending services to customers
-        href: operations/stop-client-services.md
   - name: Partner programs
     expanded: true
     items:
@@ -35,6 +22,18 @@ items:
         href: specializations/index.md
       - name: Conditions
         href: specializations/conditions.md
+  - name: Partner portal
+    href: portal.md
+  - name: Step-by-step guides
+    items:
+      - name: Adding a customer
+        href: operations/pin-client.md
+      - name: Granting access to a partner account
+        href: operations/access/partners-account.md
+      - name: Viewing details of service usage by customers
+        href: operations/get-client-stat.md
+      - name: Suspending services to customers
+        href: operations/stop-client-services.md
   - name: Terms and definitions
     href: terms.md
   - name: FAQ

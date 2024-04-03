@@ -1,0 +1,43 @@
+title: Yandex Foundation Models
+description:
+  - >-
+    Yandex Foundation Models — это сервис больших генеративных моделей для
+    бизнеса. Yandex Cloud предоставляет доступ к нейросетям YandexGPT и
+    YandexArt, которые позволят вам использовать возможности генеративных
+    моделей в ваших бизнес-приложениях и веб-сервисах. Сервис будет полезен
+    всем, кто ищет способы ускорить развитие бизнеса с технологиями машинного
+    обучения.
+  - >-
+    Сервис тарифицируется в соответствии со <a
+    href="https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb">Специальными
+    условиями использования</a>. Правила использования сервиса определены в
+    документе <a href
+    ="https://yandex.ru/legal/cloud_terms_yandex_foundation_models">Условия
+    использования сервиса Yandex Foundation Models</a>.
+meta:
+  title: Yandex Foundation Models
+  description: >-
+    Yandex Foundation Models — это сервис больших генеративных моделей для
+    бизнеса. Yandex Cloud предоставляет доступ к нейросетям, которые позволят
+    вам использовать возможности генеративных моделей в ваших бизнес-приложениях
+    и веб-сервисах. Сервис будет полезен всем, кто ищет способы ускорить
+    развитие бизнеса с технологиями машинного обучения.
+links:
+  - title: Начало работы
+    description: Отправьте свой первый запрос в YandexGPT API
+    href: quickstart/quickstart-yandexgpt
+  - title: Концепции
+    description: Узнайте про концепции сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Справочники API
+    description: Узнайте об авторизации при работе с API
+    href: api-ref/authentication
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

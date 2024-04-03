@@ -59,7 +59,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
       Result:
 
-      ```bash
+      ```text
       id: crp6lg1868p3********
       name: test-policy
       repository_id: crp3cpm16edq********
@@ -80,7 +80,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
       |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
       +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
@@ -118,7 +118,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
       * `repository_id`: Repository ID.
       * `rule`: Section with the policy rule. It contains the following parameters:
          * `description`: Description of the rule.
-         * `untagged`: If the parameter is set to `true`, the rule applies to any untagged Docker image.
+         * `untagged`: If the parameter is set to `true`, the rule applies to all [Docker images](../../concepts/docker-image.md) that do not have a [tag](../../concepts/docker-image.md#version).
          * `tag_regexp`: Docker image tag for filtering. Java regular expressions are supported. For example, the `test.*` regular expression retrieves all images with tags starting with `test`.
          * `retained_top`: Number of Docker images that are not deleted even if they meet the lifecycle policy rules.
          * `expire_period`: Time after which the lifecycle policy applies to the Docker image. This parameter comes as a numeral with a unit of measure, such as `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
@@ -129,7 +129,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   This will create a lifecycle policy in the specified repository. You can check the new policy and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   This will create a lifecycle policy in the specified repository. You can check the new policy and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
     yc container repository lifecycle-policy list --registry-id <registry_ID>

@@ -9,7 +9,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
    1. Select the registry and click the row with its name.
-   1. Select the repository and click the row with its name.
+   1. Select the [repository](../../concepts/repository.md) and click the row with its name.
    1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
    1. In the row with the lifecycle policy you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the lifecycle policy parameters:
@@ -27,7 +27,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. See the description of the CLI command for updating policy parameters:
+   1. See the description of the [CLI](../../../cli/) command for updating policy parameters:
 
       ```bash
       yc container repository lifecycle-policy update --help
@@ -68,10 +68,10 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   This will update the lifecycle policy in the specified repository. You can check the policy update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   This will update the lifecycle policy in the specified [repository](../../concepts/repository.md). You can check the policy update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
-    yc container repository lifecycle-policy list --registry-id <registry_ID>
+   yc container repository lifecycle-policy list --registry-id <registry_ID>
    ```
 
 - API {#api}
@@ -109,7 +109,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
       Result:
 
-      ```bash
+      ```text
       WARN: All current lifecycle rules will be overwritten. Are you sure?[y/N] y
       id: crp6lg1868p3********
       name: test-policy
@@ -137,7 +137,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
    Result:
 
-   ```bash
+   ```text
    id: crp6lg1868p3********
    name: test-policy
    repository_id: crp3cpm16edq********
@@ -163,7 +163,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
    Result:
 
-   ```bash
+   ```text
    id: crp6lg1868p3********
    name: test-policy
    repository_id: crp3cpm16edq********
@@ -193,7 +193,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
    Result:
 
-   ```bash
+   ```text
    id: crp6lg1868p3********
    name: new-policy
    repository_id: crp3cpm16edq********
@@ -221,7 +221,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
    Result:
 
-   ```bash
+   ```text
    id: crp6lg1868p3********
    name: test-policy
    repository_id: crp3cpm16edq********

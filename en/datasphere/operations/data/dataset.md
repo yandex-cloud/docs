@@ -4,7 +4,9 @@ Use [datasets](../../concepts/dataset.md) if you need to handle large data amoun
 
 ## Create and initialize a dataset {#create}
 
-To create and initialize a dataset, use a Bash or Python cell with the `#pragma dataset init` command. At initialization, specify a [project](../../concepts/project.md)-unique dataset name and the size of the [disk](../../../compute/concepts/disk.md) to host the dataset.
+To create and initialize a dataset, use a Bash or Python cell with the `#pragma dataset init` command. At initialization, specify a [project](../../concepts/project.md)-unique dataset name and the size of the [disk](../../../compute/concepts/disk.md) to host the dataset. The dataset naming requirements are as follows:
+
+{% include [name-format](../../../_includes/name-format.md) %}
 
 {% note info %}
 

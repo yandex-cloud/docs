@@ -4,6 +4,14 @@ This section contains {{ mgp-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Q3 2023 {#q3-2023}
+
+* Added support for [incremental backups](concepts/backup.md).
+* Added the option of [committing](../billing/concepts/cvos.md) a specific volume of services. All users of the platform can get a discount up to 22% starting from August 1, 2023. The cost of services will not change during the whole period of the offer.
+* Added [PXF metrics](metrics.md#managed-greenplum-pxf-metrics) to {{ monitoring-full-name }}.
+* Added logs for PXF and the Odyssey connection manager. {{ tag-con }}
+* Added [audit logs](at-ref.md) in {{ at-full-name }}.
+
 ## Q2 2023 {#q2-2023}
 
 * You can now recover from a backup as of any point in time (Point-in-Time-Recovery, PITR). The feature is enabled by default for new clusters.

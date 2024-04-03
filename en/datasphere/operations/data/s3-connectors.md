@@ -17,10 +17,13 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
 ## Creating an S3 connector {#create}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. (Optional) In the top right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.secret }}** and [create a secret](secrets.md#create) with the secret part of a static access key for the service account. You can also create a secret when creating an S3 connector.
+1. (Optional) In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.secret }}** and [create a secret](secrets.md#create) with the secret part of a static access key for the service account. You can also create a secret when creating an S3 connector.
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Fill out the fields below:
-   * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the connector being created.
+   * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the connector being created. The naming requirements are as follows:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
    * (Optional) **{{ ui-key.yc-ui-datasphere.common.description }}** of the new connector.
    * **{{ ui-key.yc-ui-datasphere.common.endpoint }}**: Storage host. For {{ objstorage-name }}, this is `https://{{ s3-storage-host }}/`.
    * **{{ ui-key.yc-ui-datasphere.common.bucket }}**: Name of the storage bucket.
@@ -31,10 +34,13 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
 
       {% endnote %}
 
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}**: Name of the volume for mounting the bucket into the project file system.
+   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}**: Name of the volume for mounting the bucket into the project file system. The naming requirements are as follows:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}** used to connect to storage.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}**: In the list, select a [secret](../../concepts/secrets.md) that contains the secret part of the static access key or create a new secret.
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}**: Object storage access mode (**{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** or **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**).
+   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}**: Object storage access mode, **{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** or **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 {% include [s3-connectors-nat-gateway](../../../_includes/datasphere/s3-connectors-nat-gateway.md) %}

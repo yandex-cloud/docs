@@ -18,14 +18,12 @@ You can also deploy an infrastructure for running a Docker image on a VM via {{ 
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for storing Docker image in the registry and outgoing traffic (see [{{ cos-full-name }} pricing](../../cos/pricing.md)).
-
+* Fee for using a dynamic or a static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for storing a Docker image in the registry and outgoing traffic (see [{{ cos-name }} pricing](../../cos/pricing.md)).
 
 ### Configure the environment {#prepare}
 
@@ -143,11 +141,7 @@ The infrastructure support costs include:
             * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
             * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
             * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
-
-            
             * (Optional) Enable [DDoS protection](../../vpc/ddos-protection/).
-
-
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
@@ -226,11 +220,7 @@ The infrastructure support costs include:
       Create a VM using the [Create](../../compute/api-ref/Instance/create.md) method for the `Instance` resource:
       1. Prepare the key pair (public and private keys) for SSH access to the VM.
       1. Get an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
-
-         
          * [Guide](../../iam/operations/iam-token/create.md) for users with a Yandex account.
-
-
          * [Guide](../../iam/operations/iam-token/create-for-sa.md) for a service account.
       1. [Get the ID](../../resource-manager/operations/folder/get-id.md) of the folder.
       1. Get information about the image to create your VM from (image ID and minimum disk size):
@@ -359,7 +349,6 @@ The infrastructure support costs include:
 
    {% list tabs group=registry_auth %}
 
-   
    - Using an OAuth token {#oauth-token}
 
       1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
@@ -375,8 +364,7 @@ The infrastructure support costs include:
          Login succeeded
          ```
 
-
-   - Using an IAM token {#iam-token}
+   - Using an {{ iam-full-name }} token {#iam-token}
 
       {% note info %}
 
@@ -384,7 +372,7 @@ The infrastructure support costs include:
 
       {% endnote %}
 
-      1. [Get](../../iam/operations/iam-token/create.md) an IAM token.
+      1. [Get](../../iam/operations/iam-token/create.md) an {{ iam-name }} token.
       1. Run this command:
 
          ```bash

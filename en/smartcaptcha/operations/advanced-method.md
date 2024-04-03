@@ -1,11 +1,13 @@
 ---
-title: "How to add a {{ captcha-full-name }} widget using the advanced method"
-description: "Follow this guide to add a {{ captcha-name }} widget using the advanced method."
+title: "How to add a {{ captcha-full-name }} widget"
+description: "Follow this guide to add a {{ captcha-name }} widget using the advanced method or as required."
 ---
 
-# Add a {{ captcha-name }} widget using the advanced method
+# Add a {{ captcha-name }} widget
 
-You control how the widget loads using the `window.smartCaptcha` [object](../concepts/widget-methods.md#methods). The `onloadFunction` callback function is used for this in the instructions:
+## Add a {{ captcha-name }} widget using the advanced method {#advanced}
+
+You control how the widget loads using the `window.smartCaptcha` [object](../concepts/widget-methods.md#methods). The `onloadFunction` callback function is used for this in the guide:
 
 1. Add the JS script to the user page. To do this, place the following code anywhere on the page, for example, inside the `<head>` tag:
 
@@ -51,6 +53,26 @@ You control how the widget loads using the `window.smartCaptcha` [object](../con
 
    {% include [info-container-height](../../_includes/smartcaptcha/info-container-height.md) %}
 
+## Add a {{ captcha-name }} widget as required {#dynamic}
+
+To add a widget and load CAPTCHA as required, use the following approach:
+
+```js
+window.onloadFunction = () => {
+  if (window.smartCaptcha) {
+    // Creating a CAPTCHA
+  }
+}
+
+function handleScriptLoadingError() {
+  // Handling errors
+}
+
+const scriptElement = document.createElement('script');
+scriptElement.src = 'https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction';
+scriptElement.onerror = handleScriptLoadingError;
+document.body.appendElement(scriptElement);
+```
 
 ## What's next {#whats-next}
 

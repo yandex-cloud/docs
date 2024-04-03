@@ -58,7 +58,7 @@ If you do not link the customer's cloud, the customer will pay for this cloud se
 
 {% endnote %}
 
-You can link a customer's cloud to a partner subaccount on the partner portal or using the management console. For the partner to be able to link existing customer clouds, make sure the partner is [granted access to them](access/grant.md).
+You can link a customer's cloud to a partner subaccount on the partner portal or using the management console.
 
 {% list tabs group=instructions %}
 

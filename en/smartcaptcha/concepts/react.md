@@ -41,17 +41,25 @@ The package provides two components to work with {{ captcha-name }}:
 
 Available properties:
 
-| Property | Type | Description |
---- | --- | ---
-| `sitekey` | `string` | Client key. |
-| `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
-| `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a challenge. Use this property for debugging and testing only. |
-| `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**. |
-| `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a challenge appears. |
-| `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a challenge closes. |
-| `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
-| `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. As an argument, the handler gets a unique user token. |
-| `onTokenExpired` | `() => void` \| `undefined` | The method is invoked when the token obtained by the user after passing the verification gets invalidated. |
+#|
+||**Property**|**Type**|**Description**||
+||`sitekey`|`string`|Client key.||
+||`visible`|`boolean` \| `undefined`|Show the challenge to the user.||
+||`language`|`ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined`|Widget language.||
+||`test`|`boolean` \| `undefined`|Running CAPTCHA in the test mode. The user will always get a challenge. Use this property for debugging and testing only.||
+||`webview`|`boolean` \| `undefined`|Running CAPTCHA in **WebView**. You can use it to make the user response validation more precise when adding CAPTCHA to mobile apps via **WebView**.||
+||`shieldPosition`| `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined`|Position of the [shield](invisible-captcha.md#data-processing-notice) with the data processing notice.||
+||`hideShield`|`boolean` \| `undefined` |Hide the [shield](invisible-captcha.md#data-processing-notice) with the data processing notice.||
+||`onChallengeVisible`|`() => void` \| `undefined`|The method is invoked when a pop-up window with a challenge appears.||
+||`onChallengeHidden`|`() => void` \| `undefined`|The method is invoked when a pop-up window with a challenge closes.||
+||`onNetworkError`|`() => void` \| `undefined`|The method is invoked when a network error occurs.||
+||`onJavaScriptError`|`(error: { filename: string, message: string,`
+`col: number, line: number }) => void` \| `undefined`
+|
+The method is invoked when a critical JavaScript error occurs.||
+||`onSuccess`|`(token: string) => void` \| `undefined`|The method is invoked when the user passes the challenge. The handler gets a unique user token as an argument.||
+||`onTokenExpired`|`() => void` \| `undefined`|The method is invoked when the token obtained by the user after passing the challenge becomes invalid.||
+|#
 
 `SmartCaptcha` usage example:
 
@@ -69,20 +77,25 @@ export const ComponentWithCaptcha = () => {
 
 Available properties:
 
-| Property | Type | Description |
---- | --- | ---
-| `sitekey` | `string` | Client key. |
-| `visible` | `boolean` \| `undefined` | Show a challenge to the user. |
-| `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
-| `test` | `boolean` \| `undefined` | Launching CAPTCHA in test mode. The user will always get a challenge. Use this property for debugging and testing only. |
-| `webview` | `boolean` \| `undefined` | Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**. |
-| `shieldPosition` | `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined` | Position of the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
-| `hideShield` | `boolean` \| `undefined` | Hide the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
-| `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a challenge appears. |
-| `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a challenge closes. |
-| `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
-| `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. The handler gets a unique user token as an argument. |
-| `onTokenExpired` | `() => void` \| `undefined` | The method is invoked when the token obtained by the user after passing the verification gets invalidated. |
+#|
+||**Property**|**Type**|**Description**||
+||`sitekey`|`string`|Client key.||
+||`visible`|`boolean` \| `undefined`|Show the challenge to the user.||
+||`language`|`ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined`|Widget language.||
+||`test`|`boolean` \| `undefined`|Running CAPTCHA in the test mode. The user will always get a challenge. Use this property for debugging and testing only.||
+||`webview`|`boolean` \| `undefined`|Running CAPTCHA in **WebView**. You can use it to make the user response validation more precise when adding CAPTCHA to mobile apps via **WebView**.||
+||`shieldPosition`| `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined`|Position of the [shield](invisible-captcha.md#data-processing-notice) with the data processing notice.||
+||`hideShield`|`boolean` \| `undefined` |Hide the [shield](invisible-captcha.md#data-processing-notice) with the data processing notice.||
+||`onChallengeVisible`|`() => void` \| `undefined`|The method is invoked when a pop-up window with a challenge appears.||
+||`onChallengeHidden`|`() => void` \| `undefined`|The method is invoked when a pop-up window with a challenge closes.||
+||`onNetworkError`|`() => void` \| `undefined`|The method is invoked when a network error occurs.||
+||`onJavaScriptError`|`(error: { filename: string, message: string,`
+`col: number, line: number }) => void` \| `undefined`
+|
+The method is invoked when a critical JavaScript error occurs.||
+||`onSuccess`|`(token: string) => void` \| `undefined`|The method is invoked when the user passes the challenge. The handler gets a unique user token as an argument.||
+||`onTokenExpired`|`() => void` \| `undefined`|The method is invoked when the token obtained by the user after passing the challenge becomes invalid.||
+|#
 
 {% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
@@ -120,6 +133,7 @@ Both components provide methods for [subscribing](./widget-methods.md#subscribe)
 * `onChallengeVisible`
 * `onChallengeHidden`
 * `onNetworkError`
+* `onJavaScriptError`
 * `onSuccess`
 * `onTokenExpired`
 
@@ -128,7 +142,7 @@ You can use these methods, for example, to invoke a function when a challenge is
 Example of a subscription to events:
 
 ```ts
-import { SmartCaptcha } from '@yandex/smart-captcha';
+import { SmartCaptcha, SmartCaptchaProps } from '@yandex/smart-captcha';
 
 export const SubscriptionToCaptcha = () => {
   const [token, setToken] = useState('');
@@ -136,7 +150,7 @@ export const SubscriptionToCaptcha = () => {
 
   const handleChallengeVisible = useCallback(() => setStatus('visible'), []);
   const handleChallengeHidden = useCallback(() => setStatus('hidden'), []);
-  const handleNetworkError = useCallback(() => setStatus('network-error'), []);
+
   const handleSuccess = useCallback((token: string) => {
     setStatus('success');
     setToken(token);
@@ -144,6 +158,13 @@ export const SubscriptionToCaptcha = () => {
   const handleTokenExpired = useCallback(() => {
     setStatus('token-expired');
     setToken('');
+  }, []);
+
+  const handleNetworkError: SmartCaptchaProps['onNetworkError'] = useCallback(() => setStatus('network-error'), []);
+
+  const handleJavaScriptError: SmartCaptchaProps['onJavaScriptError'] = useCallback((error) => {
+    setStatus('javascript-error');
+    logError(error);
   }, []);
 
   return (
@@ -154,6 +175,7 @@ export const SubscriptionToCaptcha = () => {
         onChallengeVisible={handleChallengeVisible}
         onChallengeHidden={handleChallengeHidden}
         onNetworkError={handleNetworkError}
+        onJavaScriptError={handleJavaScriptError}
         onSuccess={handleSuccess}
         onTokenExpired={handleTokenExpired}
       />
@@ -161,6 +183,8 @@ export const SubscriptionToCaptcha = () => {
   );
 };
 ```
+
+{% include [javascript-error](../../_includes/smartcaptcha/javascript-error.md) %}
 
 ## Resetting a {{ captcha-name }} state {#reset-status}
 

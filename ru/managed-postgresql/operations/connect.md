@@ -297,8 +297,8 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 
 Чтобы подключаться к кластеру {{ mpg-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-{% list tabs group=connection %}
 
+{% list tabs group=connection %}
 
 - Подключение без SSL {#without-ssl}
 
@@ -308,7 +308,6 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
     ```
 
     Пример подключения из {{ serverless-containers-full-name }} см. в [практическом руководстве](../../serverless-containers/tutorials/pg-connect.md).
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -322,6 +321,7 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
     ```
 
 {% endlist %}
+
 
 ## Примеры строк подключения {#connection-string}
 

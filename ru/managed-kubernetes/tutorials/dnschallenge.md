@@ -14,38 +14,29 @@ description: "Следуя данному руководству, вы смож�
 ## Перед началом работы {#before-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `dns.editor` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет находиться [доменная зона](../../dns/concepts/dns-zone.md).
-1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации.
-1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md).
 
-1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 1. [Создайте авторизованный ключ](../../iam/operations/authorized-key/create.md) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) и сохраните его в виде JSON-файла:
 
    ```bash
    yc iam key create \
      --service-account-name <имя_сервисного_аккаунта> \
      --format json \
-     --output iamkey.json
+     --output key.json
    ```
+
+1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md). Сертификат Let's Encrypt® будет выписан для домена в этой зоне с прохождением [проверки DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
+
+1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации.
+
+1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md).
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Создайте сертификат {#create-cert}
 
-1. Создайте [пространство имен](../concepts/index.md#namespace) `cert-manager`:
+1. Установите приложение cert-manager c плагином {{ dns-full-name }} ACME webhook [по инструкции](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
-   ```bash
-   kubectl create namespace cert-manager
-   ```
-
-1. Создайте [секрет](../../certificate-manager/concepts/index.md#types) в пространстве имен `cert-manager`:
-
-   ```bash
-   kubectl create secret generic cert-manager-secret \
-     --from-file=iamkey.json \
-     --namespace=cert-manager
-   ```
-
-1. Установите приложение Cert-manager c плагином CloudDNS ACME webhook [по инструкции](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
+    При установке укажите сервисный аккаунт и авторизованный ключ, которые были созданы [перед началом работы](#before-begin).
 
 1. Создайте файл `certificate.yaml`:
 
@@ -59,7 +50,7 @@ description: "Следуя данному руководству, вы смож�
      secretName: example-com-secret
      issuerRef:
        # The issuer created previously
-       name: clusterissuer
+       name: yc-clusterissuer
        kind: ClusterIssuer
      dnsNames:
        - <доменное_имя>
@@ -73,18 +64,28 @@ description: "Следуя данному руководству, вы смож�
 
 ## Проверьте результат {#check-result}
 
-Чтобы убедиться, что сертификат находится в статусе `READY`, выполните команду:
+1. Проверьте готовность сертификата:
 
-```bash
-kubectl get certificate example-com
-```
+    ```bash
+    kubectl get certificate example-com
+    ```
 
-Результат:
+    Результат:
 
-```text
-NAME         READY  SECRET              AGE
-example-com  True   example-com-secret  24h
-```
+    ```text
+    NAME         READY  SECRET              AGE
+    example-com  True   example-com-secret  24h
+    ```
+
+    Статус `True` в колонке `READY` означает, что сертификат был выпущен успешно.
+
+1. (Опционально) получите подробную информацию о сертификате:
+
+    ```bash
+    kubectl -n default describe certificate example-com
+    ```
+
+    {% include [События cert-manager при выпуске сертификата](../../_includes/managed-kubernetes/cert-manager-events-explained.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 

@@ -11,7 +11,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
    1. Select the registry to configure access to.
    1. In the left-hand panel, click ![IP-access](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**.
    1. Click **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
-   1. Enter the IP and specify an action: PULL to allow pulling and PUSH to allow pushing Docker images to the registry.
+   1. Enter the IP address and specify an action: PULL to allow pulling and PUSH to allow pushing [Docker images](../../concepts/docker-image.md) to the registry.
    1. To configure access for multiple IPs, click **{{ ui-key.yacloud.common.add }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -25,7 +25,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+--------+----------------------+
       |          ID          |  NAME  |      FOLDER ID       |
       +----------------------+--------+----------------------+
@@ -33,12 +33,12 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
       +----------------------+--------+----------------------+
       ```
 
-   1. Specify registry access settings.
+   1. Specify registry access settings:
 
       ```bash
       yc container registry set-ip-permissions <registry_name> \
-        --pull <IP address> \
-        --push <IP address>
+        --pull <IP_address> \
+        --push <IP_address>
       ```
 
       Where:
@@ -63,7 +63,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
       Result:
 
-      ```bash
+      ```text
       +--------+-----------+
       | ACTION |    IP     |
       +--------+-----------+
@@ -91,16 +91,15 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
       Where:
 
       * `my_registry`: Registry ID. If the configuration already contains the [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry) resource, you can specify it, e.g., `yandex_container_registry.my_registry.id`.
-      * `pull`: IP addresses that can be used to pull Docker images from the registry. This is an optional parameter.
+      * `pull`: IP addresses that can be used to pull [Docker images](../../concepts/docker-image.md) from the registry. This is an optional parameter.
       * `push`: IP addresses that can be used to push Docker images to the registry. This is an optional parameter.
 
-      For more information about the `yandex_container_registry_ip_permission` parameters in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/container_registry_ip_permission).
-
+      For more information about the `yandex_container_registry_ip_permission` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/container_registry_ip_permission).
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc container registry list-ip-permissions <registry_name>

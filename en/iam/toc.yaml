@@ -75,6 +75,15 @@ items:
             href: operations/authorized-key/create.md
           - name: Deleting authorized keys
             href: operations/authorized-key/delete.md
+      - name: Service control
+        stage: preview
+        items:
+          - name: Viewing accesses
+            href: operations/service-control/list-get.md
+          - name: Granting and revoking access
+            href: operations/service-control/enable-disable.md
+          - name: Suspending and restoring access
+            href: operations/service-control/pause-resume.md
   - name: Concepts
     items:
       - name: Overview
@@ -111,6 +120,9 @@ items:
             href: concepts/authorization/key.md
           - name: AWS-compatible access keys
             href: concepts/authorization/access-key.md
+      - name: Service control
+        stage: preview
+        href: concepts/service-control.md
       - name: Identity federations
         href: concepts/federations.md
       - name: Quotas and limits

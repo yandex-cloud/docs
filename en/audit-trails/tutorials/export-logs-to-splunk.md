@@ -1,6 +1,6 @@
 # Exporting audit logs to SIEM Splunk systems
 
-Create a trail to upload management event (Control Plane) audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to SIEM Splunk.
+Create a trail to upload management event audit logs of resources in an individual folder to an {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to SIEM Splunk.
 
 The solution described in the tutorial follows the procedure below:
 1. A [trail](../concepts/trail.md) uploads logs to an {{ objstorage-name }} bucket.
@@ -189,8 +189,8 @@ To create the trail, make sure you have the following roles:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created
-      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional)
+      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created.
+      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional).
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 

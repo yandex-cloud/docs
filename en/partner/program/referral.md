@@ -29,28 +29,42 @@ To participate in the referral program:
 
 When the customer signs up using your link, meeting the [terms and conditions](#condition), you will get a [commission](#premium) based on the amount of resources consumed by the customer.
 
-### Referral sign-up conditions {#condition}
+### Partner portal {#portal}
+
+You can manage referral links and withdraw commissions for referrals on the [partner portal]({{ link-cloud-partners }}) in the **Referral program** section. To go to this section, switch to the referral program at the top of the screen.
+
+In this section, you will find the following information:
+
+* Referral bonus amount available for withdrawal.
+* Statistics for the whole period of your participation in the referral program: number of registrations and created billing accounts, bonus total.
+* Referrer company data.
+* **Referral links** tab. List of referral links with current statuses and relevant statistics. Here, you can create new links and edit existing ones.
+* **Referrals** tab. List of your customers who have used the referral link, registered in {{ yandex-cloud }}, and created a billing account.
+* **Bonus** tab. Commission accrual history.
+* **Payments** tab. Commission withdrawal history.
+
+## Referral sign-up conditions {#condition}
 
 The following are eligible for the referral program:
 
-* New users. A new user is one not previously signed up to {{ yandex-cloud }}.
-* Users inactive for over 32 days. An inactive user is one whose account was `Suspended` and was not consuming any resources of the services for over 32 days.
+* New users. A user is considered new if they have not previously signed up for {{ yandex-cloud }}.
+* Users inactive for over 32 days. A user is considered inactive if their account status was `Suspended` and they did not consume any resources of the services for over 32 days.
 
-For the referrer to get a commission, the referral has to:
+A referrer will get a commission provided that a referral:
 
-1. Follow a referral link, sign up to {{ yandex-cloud }}, and create a billing account.
+1. Follows the referral link, signs up for {{ yandex-cloud }}, and creates a billing account.
 
    When using a referral link for sign-up:
 
    * If the user closes the browser and then re-opens the same link, the sign-up will be accepted. However, if the user opens the URL without using the referral link, the sign-up will not be accepted.
-   * If the user lacks some information at sign-up (phone number or Yandex email address), the registration will be accepted only after the user has supplied the missing information and resumed signing up to {{ yandex-cloud }}.
-   * If the user closes the tab and opens the console without using the referral link (for example, {{ link-console-main }}), the sign-up will not be accepted.
+   * If the user lacks some information at sign-up (phone number or Yandex email address), the registration will be accepted only after the user has supplied the missing information and resumed signing up for {{ yandex-cloud }}.
+   * If the user closes the tab and opens the console without using the referral link, e.g., {{ link-console-main }}, the sign-up will not be accepted.
 
-1. Consent to sharing their consumption information with the referrer for a period of 12 months. The referrer will only see the referral's total consumption figures. This is necessary to ensure the transparency of commissions.
+1. Consents to sharing their consumption information with the referrer for a period of 12 months. The referrer will only see the referral's total consumption figures. This is necessary to ensure the transparency of commissions.
 
-The referrer and referral sign no additional agreements for provision of {{ yandex-cloud }} services.
+The referrer and referral do not sign any additional agreements for providing {{ yandex-cloud }} services.
 
-If the above conditions are not met, the customer is not considered a referral program participant. In which case you will not get a commission for this customer.
+If the conditions above are not met, the customer is not considered a referral program participant. In this case, you will not get a commission for this customer.
 
 ## Acquired referral commission {#premium}
 
@@ -64,7 +78,7 @@ A commission for a referral is paid within 12 months of their sign-up via the re
 
 ### Commission accrual {#pay-period}
 
-The accrual takes place once a month when {{ yandex-cloud }} gets paid for the resources consumed by the referral. If a customer did not consume or pay for any {{ yandex-cloud }} resources, no commission will be paid.
+A commission is accrued once a month when {{ yandex-cloud }} receives payment for the resources consumed by the referral. If a customer did not consume or pay for {{ yandex-cloud }} resources, no commission will be paid.
 
 ### How to withdraw your commission {#money}
 
