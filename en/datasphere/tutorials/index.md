@@ -31,3 +31,4 @@ description: "Here is a variety of {{ ml-platform-full-name }} use cases: servic
 ## Analytics {#analytics}
 
 * [{#T}](data-from-metrica-yc-visualization.md)
+* [{#T}](yq.md)

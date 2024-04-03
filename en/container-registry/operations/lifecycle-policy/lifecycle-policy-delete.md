@@ -21,7 +21,7 @@ description: "Follow this guide to delete a lifecycle policy."
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. Delete the policy by specifying its ID:
+   1. Delete the [policy](../../concepts/lifecycle-policy.md) by specifying its ID:
 
       ```bash
       yc container repository lifecycle-policy delete <policy_ID>
@@ -36,7 +36,7 @@ description: "Follow this guide to delete a lifecycle policy."
 
       Result:
 
-      ```bash
+      ```text
       +----+------+---------------+--------+---------+-------------+
       | ID | NAME | REPOSITORY ID | STATUS | CREATED | DESCRIPTION |
       +----+------+---------------+--------+---------+-------------+
@@ -73,10 +73,10 @@ description: "Follow this guide to delete a lifecycle policy."
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   This will delete the lifecycle policy from the specified repository. You can check the deletion of the policy using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   This will delete the lifecycle policy from the specified [repository](../../concepts/repository.md). You can check the deletion of the policy using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```bash
-    yc container repository lifecycle-policy list --registry-id <registry_ID>
+   yc container repository lifecycle-policy list --registry-id <registry_ID>
    ```
 
 - API {#api}

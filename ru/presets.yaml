@@ -156,6 +156,7 @@ default:
   forms-full-name: Yandex Forms
   forms-name: Forms
   foundation-models-full-name: Yandex Foundation Models
+  foundation-models-name: Foundation Models
   GL: GitLab
   gl:
     docs: https://docs.gitlab.com

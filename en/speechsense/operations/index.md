@@ -11,7 +11,7 @@ description: "The page contains all guides for {{ speechsense-name }} in {{ yand
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
 
-## Space management {#space}
+## Spaces {#space}
 
 * [{#T}](space/create.md)
 * [{#T}](space/link-ba.md)
@@ -19,13 +19,25 @@ description: "The page contains all guides for {{ speechsense-name }} in {{ yand
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
 
-## Connection management {#connection}
+### Space tags {#space-tag}
+
+* [{#T}](space/tag/create.md)
+* [{#T}](space/tag/change.md)
+* [{#T}](space/tag/delete.md)
+
+## Connections {#connection}
 
 * [{#T}](connection/create.md)
 
-## Project management {#project}
+## Projects {#project}
 
 * [{#T}](project/create.md)
 * [{#T}](project/add-user-to-project.md)
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
+
+### Project tags {#project-tag}
+
+* [{#T}](project/tag/create.md)
+* [{#T}](project/tag/change.md)
+* [{#T}](project/tag/delete.md)

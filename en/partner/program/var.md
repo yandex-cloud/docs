@@ -2,12 +2,14 @@
 
 The _VAR (Value Added Reseller) program_ is a partner program where a partner company resells {{ yandex-cloud }} services and earns a partner [bonus](#premium).
 
-Partners pay for the services consumed by their customers. Under the VAR program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpaid model). They can also use a [credit limit](../../billing/concepts/billing-threshold.md).
+Partners pay for the services consumed by their customers. Under the VAR program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpaid model). They can also use a [billing threshold](../../billing/concepts/billing-threshold.md).
 
 Program participants:
 
 * Partner: Business that is a resident of the Russian Federation and provides services using {{ yandex-cloud }} technologies.
-* Customer: Business that purchases {{ yandex-cloud }} services from a partner (partner's subaccount).
+* Customer: Business that purchases {{ yandex-cloud }} services from a partner (a partner's subaccount).
+
+For more information on the tools offered by the program, see [{#T}](./var-tools.md).
 
 ## Participating in the VAR program {#desc}
 
@@ -23,7 +25,7 @@ A partner bonus is a discount on {{ yandex-cloud }} services applied to the paym
 
 {% note info %}
 
-To learn more about the current conditions, see the [offer](https://yandex.ru/legal/cloud_grant/?lang=ru).
+For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_grant/?lang=ru).
 
 {% endnote %}
 
@@ -54,7 +56,6 @@ You can view the absolute and relative discounts for a reporting period under **
 You can withdraw your commissions credited as rebates through the partner portal:
 
 1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. At the top of the screen, switch to the VAR program.
 1. In the left-hand panel, select ![icon](../../_assets/console-icons/sack.svg) **Rebate accrual balance**.
 1. Click **Withdraw**.
 1. Specify the amount to withdraw.
