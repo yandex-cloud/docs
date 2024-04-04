@@ -6,7 +6,7 @@
 
 Подробнее см. в разделе [{#T}](../concepts/index.md).
 
-## Как создать кластер {{ mgp-name }} {#create-cluster}
+## Создать кластер {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -389,6 +389,79 @@
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+{% endlist %}
+
+## Создать копию кластера {#duplicate}
+
+Вы можете создать кластер {{ GP }}, который будет обладать настройками созданного ранее кластера. Для этого конфигурация исходного кластера {{ GP }} импортируется в {{ TF }}. В результате вы можете либо создать идентичную копию, либо взять за основу импортированную конфигурацию и внести в нее изменения. Использовать импорт удобно, если исходный кластер {{ GP }} обладает множеством настроек и нужно создать похожий на него кластер.
+
+Чтобы создать копию кластера {{ GP }}:
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+    1. В той же рабочей директории разместите файл с расширением `.tf` и содержимым:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "old" { }
+        ```
+
+    1. Запишите идентификатор первоначального кластера {{ GP }} в переменную окружения:
+
+        ```bash
+        export GREENPLUM_CLUSTER_ID=<идентификатор_кластера>
+        ```
+
+        Идентификатор можно запросить вместе со [списком кластеров в каталоге](../../managed-greenplum/operations/cluster-list.md#list-clusters).
+
+    1. Импортируйте настройки первоначального кластера {{ GP }} в конфигурацию {{ TF }}:
+
+        ```bash
+        terraform import yandex_mdb_greenplum_cluster.old ${GREENPLUM_CLUSTER_ID}
+        ```
+
+    1. Получите импортированную конфигурацию:
+
+        ```bash
+        terraform show
+        ```
+
+    1. Скопируйте ее из терминала и вставьте в файл с расширением `.tf`.
+    1. Расположите файл в новой директории `imported-cluster`.
+    1. Измените скопированную конфигурацию так, чтобы из нее можно было создать новый кластер:
+
+        * Укажите новое имя кластера в строке `resource` и параметре `name`.
+        * Удалите параметры `created_at`, `health`, `id`, `status`, `master_hosts` и `segment_hosts`.
+        * Добавьте параметр `user_password`.
+        * Если в блоке `maintenance_window` указано значение параметра `type = "ANYTIME"`, удалите параметр `hour`.
+        * (Опционально) Внесите дополнительные изменения, если вам нужна не идентичная, а кастомизированная копия.
+
+    1. В директории `imported-cluster` [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+
+    1. В этой же директории [настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+
+    1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
+
+    1. Проверьте корректность файлов конфигурации {{ TF }}:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 

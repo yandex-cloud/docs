@@ -8,6 +8,7 @@ The {{ yagpt-name }} API is based on the gRPC mechanism. API methods and data st
 
 #### See also {#see-also}
 
-* [gRPC documentation](https://grpc.io/docs/).
-* [Protocol Buffers documentation](https://developers.google.com/protocol-buffers/docs/proto3).
-* [{{ yandex-cloud }} API concepts](../../api-design-guide/concepts/general.md#resource-oriented-design).
+* [gRPC documentation](https://grpc.io/docs/)
+* [Protocol Buffers documentation](https://developers.google.com/protocol-buffers/docs/proto3)
+* [{{ yandex-cloud }} API concepts](../../api-design-guide/concepts/general.md#resource-oriented-design)
+* [{#T}](../api-ref/migration-to-v1.md)

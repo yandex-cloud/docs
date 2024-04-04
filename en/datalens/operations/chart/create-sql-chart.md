@@ -32,7 +32,7 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
       1. Click **Select connection**.
       1. In the list, select a database connection that you have access to. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
       1. Click **Create**.
-      1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
+      1. In the **Query** tab, enter your query using the SQL dialect of the database you are querying.
       1. In the bottom-left corner, click **Start**.
 
       After the query runs, a visualization of your data will be displayed.
@@ -91,7 +91,7 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 1. Go to an existing database connection.
 1. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
 1. In the top-right corner, click **Create QL chart**.
-1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
+1. In the **Query** tab, enter your query using the SQL dialect of the database you are querying.
 1. In the bottom-left corner, click **Start**.
 
 After the query runs, a visualization of your data will be displayed.
@@ -118,6 +118,8 @@ To add a parameter:
    * **Offset from the current date**: Specified as a relative value that gets updated automatically.
 
    Use presets to quickly fill in the values.
+
+To manage parameter values on the dashboard, [create a selector](../dashboard/add-selector.md) with manual input and specify a parameter name in the **Field or parameter name** field.
 
 ### Intervals {#params-interval}
 

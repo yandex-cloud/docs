@@ -32,9 +32,17 @@ ISO/IEC 27017 includes a code of practice for information security control for c
 
 ISO/IEC 27018 sets the requirements for the protection of personal data processed by cloud service providers. The standard sets out information security guidelines for protecting the personal information of clients. They supplement the requirements of the basic standard, ISO/IEC 27001.
 
-[ISO/IEC 27001/27017/27018 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27001_27017_27018_22_eng_full.pdf).
+For more information, see:
 
-[ISO 27701 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27701_22_rus_full.pdf).
+
+
+* [ISO 27001/27018 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/1-ISO-27001-27018-03-2024-part-1-eng.pdf).
+* [Attachment to ISO 27001/27018 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/2-ISO-27001-27018-03-2024-part-2-eng.pdf).
+* [ISO 27017 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/3-ISO-27017-03-2024-part-1-eng.pdf).
+* [Attachment to ISO 27017 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/4-ISO-27017-03-2024-part-2-eng.pdf).
+* [ISO 27701 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/ISO-27701-03-2024-part-1-eng.pdf).
+* [Attachment to ISO 27701 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/ISO-27701-03-2024-part-2-eng.pdf).
+
 
 
 ## PCI DSS {#pci-dss}
@@ -65,7 +73,7 @@ For more information, see:
 
 ## PCI 3-D Secure (PCI 3DS) {#pci-3d-secure}
 
-The PCI 3-D Secure (PCI 3DS) standard defines the requirements for infrastructure used to receive payments through the 3-D Secure protocol. The protocol implements an additional request to authenticate a card transaction. Protocol components, such as the Access Control Server (3DS Server or Directory Server) are normally deployed on the card issuer side.
+The PCI 3-D Secure (PCI 3DS) standard defines the requirements for infrastructure used to receive payments through the 3-D Secure protocol. The protocol implements an additional request to authenticate a card transaction. Such protocol components as the Access Control Server (3DS Server or Directory Server) are normally deployed on the card issuing bank's side.
 
 {{ yandex-cloud }} customers are able to deploy components implementing the 3-D Secure protocol in the cloud infrastructure.
 
@@ -78,7 +86,7 @@ For more information, see:
 
 GOST R 57580.1-2017 is the Russian national security standard for banking and financial operations. The standard was approved January 1, 2018, and offers a comprehensive approach to developing an information protection process in financial organizations. It also contains requirements for information protection at all lifecycle stages of automated systems and applications used by companies and banks. The standard sets the obligation to apply information protection measures for credit and non-credit financial organizations.
 
-Cloud services comply with this standard in order to enable organizations that are hosting their systems and applications in the cloud to meet the requirements of the Central Bank (defined in the Bank of Russia regulations 683-P and 684-P) and ensure compliance with the standard for their systems deployed in the cloud.
+The cloud platform's services are made to comply with this standard to help the organizations whose systems and applications are deployed in the cloud to meet the requirements of the Central Bank (as set forth in Regulations 683-P and 684-P of the Bank of Russia) and ensure compliance with the standard on their cloud systems' side.
 
 The {{ yandex-cloud }} platform is certified as [compliant](https://{{ s3-storage-host }}/yc-compliance/certificates/YC_GOST_conformance_ru_finance_2023.pdf) with the information security requirements set by the Bank of Russia. The statement certifies that the information security management and control system of Yandex.Cloud LLC was evaluated for compliance with the requirements of GOST R 57580.1-2017 for extended information security. As of the audit completion date, the overall score was R=0.92 (level 5 compliance). According to GOST R 57580.2-2018, this means that the organizational and technical measures forming part of the information protection system process are implemented fully and consistently in accordance with the organization's general approaches (methods).
 

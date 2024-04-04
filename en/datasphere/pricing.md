@@ -4,10 +4,19 @@ editable: false
 
 # {{ ml-platform-name }} pricing
 
-
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
 When using {{ ml-platform-name }}, you pay for the use of computing resources: the computation and instance running time is charged per second.
+
+### Pricing unit {#unit}
+
+A pricing unit means a single billing unit. The number of billing units spent on calculations depends on:
+* Capacity of the computing resources being used.
+* Time spent on calculations.
+
+   The calculation time is rounded up to an integer number of seconds.
+
+One billing unit equals the cost of using one CPU core for one second. The number of units depends on the computing resource configuration.
 
 ### {{ ds-nb }} {#dedicated}
 
@@ -17,13 +26,11 @@ You are separately charged for [data storage](#storage) in datasets and project 
 
 ### Running jobs in {{ ml-platform-name }} Jobs {#jobs}
 
-When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-jobs) required to run jobs: their cache, logs, input data, and execution results.
+When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-storage) required to run jobs: their cache, logs, input data, and execution results.
 
 ### Using models {#node}
 
 {% include [pricing nodes](../_includes/datasphere/nodes-pricing-warn.md) %}
-
-{% include [prices](../_includes/datasphere/migration/pricing.md) %}
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 
@@ -36,17 +43,68 @@ Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
 ### Disk space usage {#storage}
 
-Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the project size [quota]({{ link-console-quotas }}), the entire requested [storage capacity](#project-data) exceeding {{ ml-project-size }} is paid for separately. For more information about pricing, see [{#T}](concepts/limits.md).
+Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the project size [quota]({{ link-console-quotas }}), the entire requested [storage capacity](#prices-storage) exceeding {{ ml-project-size }} is paid for separately. For more information about pricing, see [{#T}](concepts/limits.md).
 
-[Data storage inside datasets](#prices-datasets) is charged separately.
+[Data storage inside datasets](#prices-storage) is charged separately.
 
 If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In this case, data storage will be charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
-[Model storage](#prices-models) is charged separately. Its pricing depends on the model size that is calculated in GB and rounded up to an integer.
+[Model storage](#prices-storage) is charged separately. Its pricing depends on the model size that is calculated in GB and rounded up to an integer.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 The monthly usage rate is based on 720 hours a month.
+
+## Examples of cost calculation {#price-example}
+
+### {{ ds-nb }} {#price-example-notebook}
+
+Cost of using {{ ml-platform-name }} with the following parameters:
+
+* **Computing resources:** g1.1 configuration with 8 CPUs and 1 GPU.
+* **VM usage time:** 10 minutes.
+
+The cost is calculated as follows:
+
+> 72 × 600 = 43,200 units for VM usage
+> 43,200 × 0.0000096 = $0.4147200
+>
+> Total: $0.4147200 is the cost of using {{ ml-platform-name }}.
+
+Where:
+* 72: Number of units per g1.1 configuration.
+* 600: VM usage time in seconds.
+* $0.0000096: Cost per unit.
+
+### When using models {#price-example-node}
+
+Cost of using {{ ml-platform-name }} with the following parameters:
+
+* **Number of instances per node:** 2.
+* **Instance configuration:** g1.1 with 8 CPUs and 1 GPU.
+* **Node runtime:** 2 days 3 hours 36 minutes.
+
+Converting node runtime into seconds:
+
+> 2 × (24 × 60 × 60) + 3 × (60 × 60) + 36 × 60 =172,800 + 10,800 + 2,160= 185,760
+
+Where:
+* (24 × 60 × 60): Number of seconds in 24 hours.
+* (60 × 60): Number of seconds in 1 hour.
+* 60: Number of seconds in 1 minute.
+
+The cost is calculated as follows:
+
+> 72 × 185,760 × 2 = 26,749,440 units for running a node
+> 26,749,440 × 0.0000096 = $256.7946240
+>
+> Total cost of using {{ ml-platform-name }}: $256.7946240.
+
+Where:
+* 72: Number of units per g1.1 configuration.
+* 185,760 : Node runtime in seconds.
+* 2: Number of instances per node.
+* $0.0000096: Cost per unit.
 
 ## Pricing {#prices}
 
@@ -60,36 +118,10 @@ The prices of the configurations are valid for computations in [{{ ds-nb }}](con
 
 ### Storing data inside {{ ml-platform-name }} {#prices-storage}
 
-#### Storing project data {#project-data}
-
 
 
 
 {% include [usd-storage.md](../_pricing/datasphere/usd-storage.md) %}
-
-
-#### Datasets {#prices-datasets}
-
-
-
-
-{% include [usd-data-storage.md](../_pricing/datasphere/usd-dataset.md) %}
-
-
-#### Models {#prices-models}
-
-
-
-
-{% include [usd-model.md](../_pricing/datasphere/usd-model.md) %}
-
-
-#### {{ ml-platform-name }} Jobs {#prices-jobs}
-
-
-
-
-{% include [usd-jobs.md](../_pricing/datasphere/usd-jobs.md) %}
 
 
 ### Egress traffic {#prices-traffic}

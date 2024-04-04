@@ -61,3 +61,27 @@ To share a link to the filtered project list, copy the URL from the browser addr
 {% endnote %}
 
 To view the portfolio or project card, click the portfolio or project name. The project or portfolio info is displayed in the right-hand panel if the [**Open issues in side panel** option](../user/personal.md#choose-theme) is enabled in the {{ tracker-name }} interface settings.
+
+## Bulk editing projects {#bulk-change}
+
+In project lists, you can use bulk edit operations to make similar changes to multiple projects or portfolios in one go. To do this:
+
+1. In the left-hand panel, select ![](../../_assets/console-icons/folders.svg)&nbsp;**Projects** and open one of the lists:
+
+   * **Full list of my projects**
+   * **All portfolios and projects**
+
+1. Go to the **List** or **Structure** tab.
+1. Set ![check](../../_assets/console-icons/check.svg) next to the box next to the portfolios and projects you want to edit.
+
+   If you want to select all the listed portfolios and projects at once, set ![check](../../_assets/console-icons/check.svg) above the list.
+
+1. Under the list of portfolios and projects, select the operation you need:
+
+   * **Change status**: Select a status from the list.
+   * **Assign person in charge**: Enter a username or name in the search bar and select a user.
+   * **Move to portfolio**: In the window that opens, select an existing portfolio or create a new one using the relevant tab. If one or several of the selected projects and portfolios already belong to another portfolio, this operation will remove them from the current portfolio and place in the new one.
+   * ![](../../_assets/console-icons/ellipsis.svg) → **Edit parameters**: In the window that opens, edit the parameters and click **Apply**. If the fields you need are not in the list, click **Edit parameter list** to add them.
+   * ![](../../_assets/console-icons/ellipsis.svg) → **Delete**: Delete the selected projects and portfolios.
+
+1. After the operation is complete, you will be notified of the number of portfolios and projects you successfully edited in the bottom-right corner.

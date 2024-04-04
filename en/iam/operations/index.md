@@ -55,6 +55,10 @@ The guides on managing identity federations are now included in the {{ org-full-
 - [{#T}](sa/create-access-key.md)
 - [{#T}](sa/delete-access-key.md)
 
+## Temporary access keys {#temporary-keys}
+
+- [{#T}](sa/create-sts-key.md)
+
 ## API keys {#api-keys}
 
 - [{#T}](api-key/create.md)

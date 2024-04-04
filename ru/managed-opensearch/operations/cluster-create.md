@@ -321,27 +321,78 @@ keywords:
 
 {% endlist %}
 
-## Импортировать кластер в {{ TF }} {#import-cluster}
+## Создать копию кластера {#duplicate}
 
-С помощью импорта вы можете передать существующие кластеры под управление {{ TF }}.
+Вы можете создать кластер {{ OS }}, который будет обладать настройками созданного ранее кластера. Для этого конфигурация исходного кластера {{ OS }} импортируется в {{ TF }}. В результате вы можете либо создать идентичную копию, либо взять за основу импортированную конфигурацию и внести в нее изменения. Использовать импорт удобно, если исходный кластер {{ OS }} обладает множеством настроек и нужно создать похожий на него кластер.
+
+Чтобы создать копию кластера {{ OS }}:
 
 {% list tabs group=instructions %}
 
 - {{ TF }} {#tf}
 
-    1. Укажите в конфигурационном файле {{ TF }} кластер, который необходимо импортировать:
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+    1. В той же рабочей директории разместите файл с расширением `.tf` и содержимым:
 
         ```hcl
-        resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {} 
+        resource "yandex_mdb_opensearch_cluster" "old" { }
         ```
 
-    1. Выполните команду для импорта кластера:
+    1. Запишите идентификатор первоначального кластера {{ OS }} в переменную окружения:
 
-        ```hcl
-        terraform import yandex_mdb_opensearch_cluster.<имя_кластера> <идентификатор_кластера>
+        ```bash
+        export OPENSEARCH_CLUSTER_ID=<идентификатор_кластера>
         ```
 
-        Подробнее об импорте кластеров см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}#import).
+        Идентификатор можно запросить вместе со [списком кластеров в каталоге](../../managed-opensearch/operations/cluster-list.md#list-clusters).
+
+    1. Импортируйте настройки первоначального кластера {{ OS }} в конфигурацию {{ TF }}:
+
+        ```bash
+        terraform import yandex_mdb_opensearch_cluster.old ${OPENSEARCH_CLUSTER_ID}
+        ```
+
+    1. Получите импортированную конфигурацию:
+
+        ```bash
+        terraform show
+        ```
+
+    1. Скопируйте ее из терминала и вставьте в файл с расширением `.tf`.
+    1. Расположите файл в новой директории `imported-cluster`.
+    1. Измените скопированную конфигурацию так, чтобы из нее можно было создать новый кластер:
+
+        * Укажите новое имя кластера в строке `resource` и параметре `name`.
+        * Удалите параметры `created_at`, `health`, `id` и `status`.
+        * В блок `config` добавьте параметр `admin_password`.
+        * Если в блоке `maintenance_window` указано значение параметра `type = "ANYTIME"`, удалите параметр `hour`.
+        * (Опционально) Внесите дополнительные изменения, если вам нужна не идентичная, а кастомизированная копия.
+
+    1. В директории `imported-cluster` [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+
+    1. В этой же директории [настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+
+    1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
+
+    1. Проверьте корректность файлов конфигурации {{ TF }}:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+    {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
 {% endlist %}
 

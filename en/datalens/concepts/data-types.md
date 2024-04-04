@@ -27,10 +27,10 @@ You can use the dataset interface or the wizard to change the field data type.
 
 A _geopoint_ is a coordinate point defined by latitude and longitude. In {{ datalens-short-name }}, you can set it using the [GEOPOINT](../function-ref/GEOPOINT.md) function.
 
-As an input, the function accepts the `String` and `Geopoint` data types, or two values of the `Fractional number` or `String` type.
+At input, the function accepts the `String` and `Geopoint` data types, or two values of the `Fractional number` or `String` type.
 If a single string is input, it must contain a list of two numbers in JSON format.
 
-If the source data is a string that looks like `"[55.75222,37.61556]"`, you can use the dataset interface or wizard to change the field data type without any formula.
+If the source data comes as a string in `[55.75222,37.61556]` format, you can use the dataset interface or wizard to change the field data type without any formula.
 
 {% note info %}
 
@@ -38,11 +38,18 @@ If the source data is a string that looks like `"[55.75222,37.61556]"`, you can 
 
 {% endnote %}
 
-#### Example notation {#geopoint-example}
+#### Examples {#geopoint-example}
 
 ```sql
 GEOPOINT("[55.7912,37.6872]")
-GEOPOINT("[55.8538,37.6312]")
+```
+
+```sql
+GEOPOINT("55.7912","37.6872")
+```
+
+```sql
+GEOPOINT(55.7912, 37.6872)
 ```
 
 ## Geopolygon {#geopolygon}
@@ -50,7 +57,7 @@ GEOPOINT("[55.8538,37.6312]")
 These are multiple coordinate points defining the polygon on the map. In {{ datalens-short-name }}, you create a geopolygon using the [GEOPOLYGON](../function-ref/GEOPOLYGON.md) function.
 To fill in the polygon, {{ datalens-name }} uses the [Even-Odd](https://en.wikipedia.org/wiki/Even–odd_rule) algorithm. This way you can create polygons with holes.
 
-The function accepts strings in `"[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-1], [vN,vN]]]"` format. If the source data is in this format, you can use the dataset interface or wizard to change the field data type without any formula.
+At input, the function accepts strings in `[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-1], [vN,vN]]]` format. If the source data is in this format, you can use the dataset interface or wizard to change the field data type without any formula.
 
 {% note info %}
 
@@ -73,7 +80,7 @@ GEOPOLYGON("[[[55.75,37.50],[55.80,37.60],[55.75,37.70],[55.70,37.70],[55.70,37.
 
 This means a date without specified time.
 
-When you use a date in formulas, make sure to put a `#` (hash) before and after it, e.g., `DATETRUNC(#2018-07-12#, "year", 5)`.
+When using a date in formulas, make sure to put a `#` (hash) before and after it, e.g., `DATETRUNC(#2018-07-12#, "year", 5)`.
 
 You can convert the source data type to `Date` using the [DATE](../function-ref/DATE.md) and [DATE_PARSE](../function-ref/DATE_PARSE.md) functions.
 
@@ -119,7 +126,7 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 
 This type means a date with a specified time (the value is not converted to [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)).
 
-When you use date and time in formulas, make sure to put `##` (double hash) before and after the value, e.g., `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
+When using date and time in formulas, make sure to put `##` (double hash) before and after the value, e.g., `DATEADD(##2018-01-12 01:02:03##, "second", 6)`.
 
 You can convert the source data type to `Date and time` using the [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions.
 

@@ -27,8 +27,10 @@ items:
             href: operations/buckets/edit-acl.md
           - name: Access policy management
             href: operations/buckets/policy.md
-          - name: Allowing public access to a bucket
+          - name: Configuring public access to a bucket
             href: operations/buckets/bucket-availability.md
+          - name: Accessing a bucket using {{ sts-name }}
+            href: operations/buckets/create-sts-key.md
           - name: Managing bucket versioning
             href: operations/buckets/versioning.md
           - name: Enabling logging
@@ -235,6 +237,8 @@ items:
         href: security/public-access.md
       - name: Pre-signed URLs
         href: security/pre-signed-urls.md
+      - name: '{{ sts-name }}'
+        href: security/sts.md
   - name: Pricing policy
     items:
       - name: Current pricing policy

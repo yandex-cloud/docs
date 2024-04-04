@@ -10,7 +10,6 @@ editable: false
 
 Расчет стоимости за использование следующих сервисов не производится:
 
-* {{ preview-stage }} [{{ at-full-name }}](../audit-trails/pricing.md)
 * [{{ certificate-manager-full-name }}](../certificate-manager/pricing.md)
 * [Yandex Cloud Console](../console/pricing.md)
 * {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
@@ -19,11 +18,9 @@ editable: false
 * [{{ datalens-full-name }}](../datalens/pricing.md)
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
-* {{ preview-stage }} [{{ load-testing-full-name }}](../load-testing/pricing.md)
 * {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)
-* {{ preview-stage }}[{{ sws-full-name }}](../smartwebsecurity/pricing.md)
-* {{ preview-stage }} [{{ speechsense-full-name }}](../speechsense/pricing.md)
-* {{ preview-stage }} [{{ yq-full-name }}](../query/pricing.md)
+* {{ preview-stage }} [{{ metadata-hub-name }}](../metadata-hub/pricing.md)
+* {{ preview-stage }} [{{ postbox-name }}](../postbox/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }}[{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}](../wiki/pricing.md)

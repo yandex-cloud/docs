@@ -6,11 +6,11 @@ By following this guide, you will add your first [Let's Encrypt certificate](../
 
 To get started with {{ certificate-manager-name }}, you need:
 
-1. A folder in {{ yandex-cloud }}. If you don't have a folder, create one:
+1. Folder in {{ yandex-cloud }}. If there is no folder yet, create one:
 
    {% include [create-folder](../../_includes/create-folder.md) %}
 
-1. A third-level (or higher) domain that the Let's Encrypt certificate is issued for.
+1. Third-level (or higher) domain that the Let's Encrypt certificate is issued for.
 
    {% note info %}
 
