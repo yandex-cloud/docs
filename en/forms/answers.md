@@ -21,7 +21,10 @@ To have responses sent to your mailbox, [set up integration with email](send-mai
 
       The tab displays a sequential response list. Responses are loaded as you scroll down the page. You can collapse or expand a response by clicking ![chevron-up](../_assets/console-icons/chevron-up.svg) or ![chevron-down](../_assets/console-icons/chevron-down.svg) on it.
 
-      To share a response, click ![arrow-up-from-square](../_assets/console-icons/arrow-up-from-square.svg) on it to copy the link.
+      To share a response, click ![arrow-up-from-square](../_assets/console-icons/arrow-up-from-square.svg) on it to copy the link. The link to the response is available to:
+      * Authorized users.
+      * Authors and users with access to editing the form.
+      * Author of the response.
 
    - Table
 

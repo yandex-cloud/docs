@@ -5,7 +5,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 ## Getting started {#before-you-begin}
 
 
-1. Log in to the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
    1. In the management console, select the appropriate cloud from the list on the left. For example:
@@ -26,16 +26,24 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 
 ## Add a user with a Yandex account to your organization {#add-organization-member}
 
-{% include [add-useraccount](../_includes/organization/add-useraccount.md) %}
+{% list tabs group=instructions %}
 
-{% note info %}
+- Management console {#console}
 
-You can also invite users to your organization directly from your cloud page in the management console. For more information, see [this guide](./operations/users/create.md).
+   1. [Log in]({{ link-passport-login }}) to the cloud administrator account.
+   1. Log in to the [management console]({{ link-console-main }}).
+   1. Select the appropriate cloud from the list on the left.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. In the top-right corner, click ![icon-users](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
+   1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
 
-{% endnote %}
+      {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
-To grant a user access to a cloud resource, assign the user a role to the resource itself or to a resource container, such as a folder.
+   1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
 
+{% endlist %}
+
+The user will be able to log in to the organization upon accepting the invitation via the emailed link and selecting an account for log-in. To access the [services](../organization/concepts/manage-services.md#collaboration) enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
 ## Assign roles to the user {#assign-role}
 
@@ -55,7 +63,6 @@ To specify which operations the user can perform, assign relevant roles to the u
 
 {% endlist %}
 
-
 ## Revoke assigned roles {#revoke-roles}
 
 If the assigned roles are no longer needed, revoke them:
@@ -74,12 +81,12 @@ If the assigned roles are no longer needed, revoke them:
 
 {% endlist %}
 
-
 ## What's next {#what-is-next}
 
 * The [step-by-step guides](operations/index.md) will help you perform specific tasks in {{ iam-name }}.
 * Learn about [access management in {{ yandex-cloud }}](concepts/access-control/index.md).
 * See the [best practices for using {{ yandex-cloud }} securely](best-practices/using-iam-securely.md).
+* Learn [how to get started with {{ org-name }}](../organization/quickstart.md).
 * Learn about [authentication in {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
 * [Learn how to work with service accounts](quickstart-sa.md).
 * See [answers to frequently asked questions](qa/index.md).

@@ -1,28 +1,37 @@
-# Overview of access management methods in {{ objstorage-name }}
+# Access management methods in {{ objstorage-name }}: Overview
 
-{{ objstorage-name }} incorporates several interrelated access management mechanisms:
+{{ objstorage-name }} incorporates various access management methods:
 * [{{ iam-full-name }} ({{ iam-short-name }})](#iam)
 * [Access control list (ACL)](#acl)
 * [Bucket policy](#policy)
 * [Public access](#anonymous)
+* [{{ sts-name }}](#sts)
 * [Pre-signed URLs](#pre-signed)
 
-The flow chart shows how the access management mechanisms interact in {{ objstorage-name }}.
+The flow chart below shows how these methods work together in {{ objstorage-name }}.
 
 ![access-scheme](../../_assets/storage/access-scheme.svg)
 
 All checks follow this algorithm:
 
 1. _IAM_ and _bucket ACL_:
-   * If the request passes the _IAM_ **or** the _bucket ACL_ check, the next step is the _bucket policy_ check, if such a policy is enabled in the bucket. If the _bucket policy_ is disabled, access will be allowed.
-   * If the request fails the _IAM_ **and** the _bucket ACL_ checks, _public access_ to the bucket is checked.
+   * If the request passes the _IAM_ **or** _bucket ACL_ check, it is checked whether the _bucket access policy_ is enabled.
+   * If the request fails the _IAM_ **and** _bucket ACL_ checks, the _public access_ to the bucket is checked.
 1. _Public access_:
-   * If public access to perform the action is enabled, the next step is the _bucket policy_ check, if such a policy is enabled in the bucket. If the _bucket policy_ is disabled, access will be allowed.
+   * If public access to perform the action is enabled, it is checked whether the _bucket access policy_ is enabled.
    * If public access to perform the action is disabled, the next step is to check the access based on the _object ACL_.
-1. _Bucket policy_:
-   1. If the request meets at least one of the `Deny` rules, the next step is to check the access based on the _object ACL_.
-   1. If the request meets at least one of the `Allow` rules, access will be allowed.
-   1. If the request does not meet any of the rules, the next step is to check the access based on the _object ACL_.
+1. _Bucket access policy_:
+   * If access policy is enabled:
+      1. If the request meets at least one of the `Deny` rules of the bucket policy, the next step is to check the access based on the _object ACL_.
+      1. If the request meets at least one of the `Allow` rules of the bucket policy, it is checked whether the access is performed via _{{ sts-name }}_.
+      1. If the request does not meet any of the rules of the bucket policy, the next step is to check the access based on the _object ACL_.
+   * If the access policy is not enabled, it is checked whether access is performed via _{{ sts-name }}_.
+1. _{{ sts-name }}_:
+   * If the request is made using {{ sts-name }}:
+      1. If the request meets at least one of the `Deny` policy rules for the temporary key, the next step is to check the access based on the _object ACL_.
+      1. If the request meets at least one of the `Allow` policy rules for the temporary key, access will be allowed.
+      1. If the request does not meet any of the policy rules for the temporary key, the next step is to check the access based on the _object ACL_.
+   * If the request is made directly, access will be allowed.
 1. _Object ACL_:
    * If the request passes the _object ACL_ check, access will be allowed.
    * If the request fails the _object ACL_ check, access will be denied.
@@ -79,6 +88,14 @@ Access is granted to a [bucket](../concepts/bucket.md).
 
 {% include [public-access-warning](../../_includes/storage/security/public-access-warning.md) %}
 
+## {{ sts-name }} {#sts}
+
+{% include [sts-preview](../../_includes/iam/sts-preview.md) %}
+
+[{{ sts-name }}](./sts.md): {{ iam-name }} component to get temporary access keys compatible with [AWS S3 API](../s3/index.md).
+
+With temporary keys, you can set up granular access to buckets for multiple users with a single service account.
+
 ## Pre-signed URLs {#pre-signed}
 
 [Pre-signed URLs](./pre-signed-urls.md) are a way of giving anonymous users temporary access to certain actions in {{ objstorage-name }} using URLs that contain request authorization data in their parameters.
@@ -92,3 +109,4 @@ Access is granted to a [bucket](../concepts/bucket.md) or [object](../concepts/o
 * [{#T}](../operations/objects/edit-acl.md)
 * [{#T}](../operations/buckets/policy.md)
 * [{#T}](../operations/buckets/bucket-availability.md)
+* [{#T}](../operations/buckets/create-sts-key.md)

@@ -603,6 +603,8 @@ default:
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
   storage-aws-cli-alias: ycs3
+  sts-host: sts.yandexcloud.net
+  sts-name: Security Token Service
   stt-long-audioLength: 4 hours
   stt-long-fileSize: 1 GB
   stt-long-resultsStorageTime: 3 days

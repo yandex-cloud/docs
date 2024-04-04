@@ -75,7 +75,7 @@ links:
     href: dns/
   - title: Пробный период
     description: Описание пробного периода использования Yandex Cloud
-    href: getting-started/free-trial/concepts/quickstart.md
+    href: getting-started/free-trial/concepts/quickstart
   - title: Cloud Functions
     description: Запуск вашего кода в виде функции
     href: functions/

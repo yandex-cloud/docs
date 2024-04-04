@@ -1,6 +1,3 @@
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
-
-
 You can set up regular run scenarios in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) using the API by triggering notebook cell execution in [{{ sf-full-name }}](../../functions/index.yaml).
 
 In this tutorial, you will collect information about the most discussed stocks on [Reddit](https://tradestie.com/api/v1/apps/reddit), analyze the sentiment of the discussion, and set up regular data updates.
@@ -27,7 +24,6 @@ The cost of implementing regular runs includes:
 
 * Fee for [{{ ml-platform-name }} computing resource](../../datasphere/pricing.md) usage.
 * Fee for the number of [{{ sf-name }}](../../functions/pricing.md) function calls.
-
 
 ## Prepare the infrastructure {#infra}
 
@@ -83,10 +79,11 @@ To enable the service account to run a {{ ml-platform-name }} project, add it to
 1. Click **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** and wait for the loading to complete.
 1. In the top panel, click **File** and select **New** → **Notebook**.
 1. Select a kernel and click **Select**.
+1. Right-click the notebook and select **Rename**. Enter `test_classifier.ipynb`.
 
 ## Upload and process data {#load-data}
 
-To upload information about the most discussed stocks on Reddit and the sentiment of the discussion, copy the code to the notebook cells. You will use it to select the top three most discussed stocks and save them to a CSV file in project storage.
+To upload information on the most discussed stocks on Reddit and the sentiment of the discussion, paste the code to the `test_classifier.ipynb` notebook cells. You will use it to select the top three most discussed stocks and save them to a CSV file in project storage.
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 
@@ -102,7 +99,7 @@ To upload information about the most discussed stocks on Reddit and the sentimen
 
    ```python
    REQUEST_URL = "https://tradestie.com/api/v1/apps/reddit"
-   FILE_NAME = "stock_sentiments_data.csv"
+   FILE_NAME = "/home/jupyter/datasphere/project/stock_sentiments_data.csv"
    TICKERS = ['NVDA', 'TSLA', 'AAPL']
    ```
 
@@ -190,7 +187,7 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
    1. Select the `Python` runtime environment. Do not select the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
    1. Choose the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}** method.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** and specify a file name, e.g., `index`.
-   1. Enter the function code by inserting your project and notebook IDs:
+   1. Enter the function code by inserting your project ID and the absolute path to the project notebook:
 
       ```python
       import requests
@@ -198,7 +195,7 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
       def handler(event, context):
 
           url = 'https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<project_ID>:execute'
-          body = {"notebookId": "<notebook_ID>"}
+          body = {"notebookId": "/home/jupyter/datasphere/project/test_classifier.ipynb"}
           headers = {"Content-Type" : "application/json",
                      "Authorization": "Bearer {}".format(context.token['access_token'])}
           resp = requests.post(url, json = body, headers=headers)
@@ -211,7 +208,7 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
       Where:
 
       * `<project_ID>`: ID of the {{ ml-platform-name }} project placed on the project page under the name.
-      * `<notebook_ID>`: [ID of the `test_classifier.ipynb` notebook](../../datasphere/operations/projects/get-notebook-cell-ids.md#get-notebook-id).
+      * `notebookId`: Absolute path to the project notebook.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the version parameters:
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`

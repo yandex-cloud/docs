@@ -34,7 +34,7 @@ To connect employees with Yandex accounts:
 
 1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
 
-   You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+   {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
 
 1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
@@ -77,6 +77,6 @@ To configure your identity federation, follow these steps:
 
    User attributes supported by {{ org-full-name }} services are listed in identity federation setup guides for different identity providers:
 
-   * [Active Directory](tutorials/federations/integration-adfs.md).
-   * [Google Workspace](tutorials/federations/integration-gworkspace.md).
-   * [Other SAML-compatible identity providers](operations/setup-federation.md).
+   * [Active Directory](tutorials/federations/integration-adfs.md)
+   * [Google Workspace](tutorials/federations/integration-gworkspace.md)
+   * [Other SAML-compatible identity providers](operations/setup-federation.md)

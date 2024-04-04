@@ -28,7 +28,7 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
     1. Войдите в [консоль управления]({{ link-console-main }}).

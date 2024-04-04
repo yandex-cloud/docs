@@ -1,0 +1,1 @@
+In the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_organization }}** field, select the [organization](../concepts/organization.md) to create a billing account for.

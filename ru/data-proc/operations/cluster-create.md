@@ -586,6 +586,8 @@
      export DATAPROC_CLUSTER_ID=<идентификатор_кластера>
      ```
 
+     Идентификатор можно запросить вместе со [списком кластеров в каталоге](../../data-proc/operations/cluster-list.md#list).
+
   1. Импортируйте настройки первоначального кластера {{ dataproc-name }} в конфигурацию {{ TF }}:
 
      ```bash
@@ -622,8 +624,8 @@
        ```
 
      * (Опционально) Внесите дополнительные изменения, если вам нужна не идентичная, а кастомизированная копия.
-  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+  1. В директории `imported-cluster` [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+  1. В этой же директории [настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
   1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
