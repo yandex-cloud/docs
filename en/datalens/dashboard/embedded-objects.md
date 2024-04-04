@@ -2,6 +2,7 @@
 
 You can embed [published](../concepts/datalens-public.md) dashboards and charts into a website or app using an `iframe`.
 
+
 The functionality and appearance of embedded objects can be defined by the transmittable parameters:
 
 * `_autoupdate`: Sets [auto-update](./settings.md#auto-update) time for dashboards and charts in seconds. By default these are not updated automatically. Works only in the active browser tab. If the auto-update time has been reached for an inactive tab, it will take place when the tab becomes active again. Minimum value:
@@ -19,7 +20,7 @@ The functionality and appearance of embedded objects can be defined by the trans
 * `_no_scroll`: Disables vertical scrolling on dashboard. To enable the parameter, set to `1`.
 * `_lang`: For charts, defines the language value for the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). Possible values: `ru` or `en`.
 
-The parameter is added to the object address after the question mark `?`. To send multiple parameters, list them separated by `&`, like this:
+The parameter is added to the object address after the question mark `?`. To send multiple parameters, list them separated by `&`, e.g.:
 
 
 ```

@@ -2,7 +2,7 @@
 
 You can write load balancer [logs](../../application-load-balancer/concepts/application-load-balancer.md#logging) (messages about each incoming request to the {{ alb-full-name }} load balancer) to the {{ PG }} database.
 
-To log load balancer operations, a [log group](../../logging/concepts/log-group.md) will be created in {{ cloud-logging-name }}. Log delivery from this log group to the database will be set up using {{ sf-full-name }} resources: a [trigger](../../functions/concepts/trigger/cloudlogs-trigger.md) and a triggered [function](../../functions/concepts/function.md).
+To log load balancer operations, a [log group](../../logging/concepts/log-group.md) will be created in {{ cloud-logging-name }}. Log delivery from this log group to the database will be set up using {{ sf-full-name }} resources: a [trigger](../../functions/concepts/trigger/cloud-logging-trigger.md) and a triggered [function](../../functions/concepts/function.md).
 
 To create a database, we will use [{{ mpg-full-name }}](../../managed-postgresql/index.yaml).
 
@@ -98,7 +98,7 @@ To create security groups:
          | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A |
+         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
          1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
          1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -108,7 +108,7 @@ To create security groups:
 
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
-            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
 
          1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
 

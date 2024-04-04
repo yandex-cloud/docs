@@ -3,8 +3,6 @@
 `AddClusterHosts` | Добавление новых хостов в кластер
 `BackupCluster` | Создание резервной копии
 `CreateCluster` | Создание кластера
-`DatabaseUserLogin` | Подключение пользователя к базе данных
-`DatabaseUserLogout`| Отключение пользователя от базы данных
 `DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера

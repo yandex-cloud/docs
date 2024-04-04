@@ -16,7 +16,16 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ mpg-full-name }}](../managed-postgresql/release-notes.md)
 * [{{ mrd-full-name }}](../managed-redis/release-notes.md)
 
-{% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
+## Container-based development {#containerization}
+
+* [{{ managed-k8s-full-name }}](../managed-kubernetes/release-notes.md)
+
+## Serverless technologies {#serverless}
+
+* [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
+* [{{ sf-full-name }}](../functions/release-notes.md)
+* [{{ iot-name }}](../iot-core/release-notes.md)
+* [{{ serverless-containers-full-name }}](../serverless-containers/release-notes.md)
 
 ## Machine learning {#machine-learning}
 
@@ -33,17 +42,8 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 
 ## {{ yandex-cloud }} tools {#working-tools}
 
-* [CLI](../cli/release-notes.md)
-
-## Container-based development {#containerization}
-
-* [{{ managed-k8s-full-name }}](../managed-kubernetes/release-notes.md)
-
-## Serverless technologies {#serverless}
-
-* [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
-* [{{ sf-full-name }}](../functions/release-notes.md)
-* [{{ serverless-containers-full-name }}](../serverless-containers/release-notes.md)
-* [{{ iot-full-name }}](../iot-core/release-notes.md)
+* [Command line interface (CLI)](../cli/release-notes.md)
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}
+
+{% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}

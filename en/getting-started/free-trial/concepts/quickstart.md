@@ -9,7 +9,7 @@ description: "The trial period allows you to use {{ sf-full-name }} resources fo
 
 The trial period allows you to use {{ yandex-cloud }} resources for free with some limitations. You pay for the resources you consume from the [initial grant](../../usage-grant.md). After the end of the trial period, the resources will be retained but discontinued. To resume working with {{ yandex-cloud }}, you will need to fully upgrade to the paid version.
 
-The balance of the initial grant and the number of days until the end of the trial period are displayed in the billing account on the [**Billing**]({{ link-console-billing }}) page. During the trial period, you can also [view statistics](../../../billing/operations/check-charges.md) on resource usage and charges based on the usage rate.
+The balance of the initial grant and the number of days until the trial period expires appear on the billing account page in [{{ billing-name }}]({{ link-console-billing }}). During the trial period, you can also [view statistics](../../../billing/operations/check-charges.md) on resource usage and charges based on the usage rate.
 
 {% note warning %}
 

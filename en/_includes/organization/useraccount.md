@@ -16,7 +16,7 @@ You can invite a user to an organization via the management console or {{ org-fu
    1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
    1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
 
-      You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+      {% include [send-invitation](send-invitation.md) %}
 
    1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
 

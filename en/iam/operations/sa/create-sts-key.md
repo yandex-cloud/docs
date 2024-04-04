@@ -1,0 +1,1 @@
+{% include [create-sts-key](../../../_includes/iam/create-sts-key.md) %}

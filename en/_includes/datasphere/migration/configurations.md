@@ -20,7 +20,7 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 **g2.1** ^1^ | 28 | 1 | 119 | 80
 **g2.2** ^1^ | 56 | 2 | 238 | 160
 **g2.4** ^1^ | 112 | 4 | 476 | 320
-**g2.8** ^2^ | 224 | 8 | 952 | 640
+**g2.8** ^2^ | 224 | 8 | 952 | From 320 to 640
 **Configurations with vCPUs based on [Intel Ice Lake](../../../compute/concepts/performance-levels.md) and [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU**
 **gt4.1** ^1^ | 4 | 1 | 16 | 16
 

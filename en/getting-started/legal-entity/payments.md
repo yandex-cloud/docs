@@ -4,11 +4,11 @@ The guide in this checklist item will help you activate the paid version and set
 
 ## Activate the paid version {#pay-activate}
 
-1. In the [management console]({{ link-console-billing }}), select your billing account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+1. In [{{ billing-name }}]({{ link-console-billing }}) on the **{{ ui-key.yacloud.billing.label_accounts }}** page, select the billing account.
 1. On the **{{ ui-key.yacloud.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
 1. Confirm the action by clicking **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}** again.
 
-Once you activate the paid version, your [personal account balance](../../billing/concepts/personal-account.md#balance) is set to zero by default. We recommend monitoring and [topping up](../../billing/operations/pay-the-bill.md) your personal account balance so that it is always positive.
+Upon activation of the paid version, your [personal account balance](../../billing/concepts/personal-account.md#balance) will be zero by default. We recommend monitoring and [topping up](../../billing/operations/pay-the-bill.md) your personal account balance so that it is always positive.
 <br/>If you fail to top up your account balance on time and incur a debt, your {{ yandex-cloud }} account may be suspended. For more information, see [Billing cycle](../../billing/payment/billing-cycle-business.md).
 
 ## Top up your personal account {#pay-personal-account}
@@ -16,7 +16,7 @@ Once you activate the paid version, your [personal account balance](../../billin
 {% include [personal-account-balance](../../billing/_includes/personal-account-balance.md) %}
 
 To top up your personal account:
-1. In the [management console]({{ link-console-billing }}), select your billing account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+1. In [{{ billing-name }}]({{ link-console-billing }}) on the **{{ ui-key.yacloud.billing.label_accounts }}** page, select the billing account.
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Select a payment method:
 
@@ -64,12 +64,12 @@ You can create a trigger that will invoke a [function](../../functions/concepts/
 
 ## Create a budget {#create-budget}
 
-1. In the [management console]({{ link-console-billing }}), select your billing account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+1. In [{{ billing-name }}]({{ link-console-billing }}) on the **{{ ui-key.yacloud.billing.label_accounts }}** page, select the billing account.
 1. Go to the **{{ ui-key.yacloud.billing.account.budgets.label_budgets }}** page and click **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
    1. Enter the budget name.
    1. Select **{{ ui-key.yacloud.billing.account.budgets.label_type }}**.
    1. Set **Budget amount**:
-      * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** or **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** type, specify total usage cost.
+      * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** or **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** type, specify the total usage cost.
       * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** type, specify the account balance.
    1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, select a budget tracking period:
       * If you selected **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** as the tracking period type, set the budget start date. The start date is the first day of the month.

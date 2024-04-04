@@ -1,16 +1,8 @@
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
-
 In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can run code using the API without opening your project. This might be handy when you need to automate routine operations, additionally train a neural network, or deploy a service that does not require quick responses via the API.
 
 Based on a use case of a simple convolutional neural network ([CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network)), this tutorial will show you how to deploy a model trained in {{ ml-platform-name }} using [{{ sf-full-name }}](../../functions/index.yaml). The result of running the model will be saved to {{ ml-platform-name }} project storage.
 
-For information on how to deploy a service that will return results via the API, see [{#T}](../../datasphere/tutorials/node-from-cell.md).
-
-{% note info %}
-
-The use case will only run in {{ ml-platform-name }} [{{ ds }}](../../datasphere/concepts/project.md#serverless) mode. {{ ml-platform-name }} [{{ dd }}](../../datasphere/concepts/project.md#dedicated) does not support operations with the API.
-
-{% endnote %}
+For information on how to deploy a service that will return results via the API, see [{#T}](../../datasphere/tutorials/node-from-docker-fast-api.md).
 
 1. [Prepare your infrastructure](#infra).
 1. [Prepare notebooks](#set-notebooks).
@@ -30,7 +22,6 @@ The cost of implementing regular runs includes:
 
 * Fee for [{{ ml-platform-name }} computing resource](../../datasphere/pricing.md) usage.
 * Fee for the number of [{{ sf-name }}](../../functions/pricing.md) function calls.
-
 
 ## Prepare the infrastructure {#infra}
 
@@ -168,7 +159,6 @@ In the `train_classifier.ipynb` notebook, you will download a training sample of
 1. Create a loss function and an optimizer required to train the neural network:
 
    ```python
-   #!g1.1
    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
    net = Net()
    net.to(device)
@@ -180,7 +170,6 @@ In the `train_classifier.ipynb` notebook, you will download a training sample of
 1. Run training on five epochs:
 
    ```python
-   #!g1.1
    for epoch in range(5):
        running_loss = 0.0
        for i, data in enumerate(trainloader, 0):
@@ -204,7 +193,6 @@ In the `train_classifier.ipynb` notebook, you will download a training sample of
 1. Save the resulting model to the project disk:
 
    ```python
-   #!g1.1
    torch.save(net.state_dict(), './cifar_net.pth')
    ```
 
@@ -217,7 +205,6 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
 1. Import the libraries required to run the model and make predictions:
 
    ```python
-   #!g1.1
    import torch
    import torchvision
    import torchvision.transforms as transforms
@@ -228,7 +215,6 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
 1. Prepare the objects that will enable you to access the test sample:
 
    ```python
-   #!g1.1
    transform = transforms.Compose(
        [transforms.ToTensor(),
        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
@@ -247,14 +233,12 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
 1. Set the resource configuration to run the model on, СPU or GPU:
 
    ```python
-   #!g1.1
    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
    ```
 
 1. Upload the trained model's weights and make predictions based on the test sample:
 
    ```python
-   #!g1.1
    net = Net()
    net.to(device)
    net.load_state_dict(torch.load('./cifar_net.pth'))
@@ -273,7 +257,6 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
 1. Save the predictions in `pandas.DataFrame` format:
 
    ```python
-   #!g1.1
    final_pred = pd.DataFrame({'class_idx': [item for sublist in predictions for item in sublist],
                               'class': [item for sublist in predicted_labels for item in sublist]})
    ```
@@ -281,8 +264,7 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
 1. Save the model predictions to a file:
 
    ```python
-   #!g1.1
-   final_pred.to_csv('test_predictions.csv')
+   final_pred.to_csv('/home/jupyter/datasphere/project/test_predictions.csv')
    ```
 
 ## Create a {{ sf-name }} {#create-function}
@@ -316,7 +298,7 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will t
    1. Select the **Python** runtime environment. Do not select the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
    1. Choose the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}** method.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** and specify a file name, e.g., `index`.
-   1. Enter the function code by inserting your project and `test_classifier.ipynb` notebook IDs:
+   1. Enter the function code by inserting your project ID and the absolute path to the project notebook:
 
       ```python
       import requests
@@ -324,7 +306,7 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will t
       def handler(event, context):
 
           url = 'https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<project_ID>:execute'
-          body = {"notebookId": "<notebook_ID>"}
+          body = {"notebookId": "/home/jupyter/datasphere/project/test_classifier.ipynb"}
           headers = {"Content-Type" : "application/json",
                      "Authorization": "Bearer {}".format(context.token['access_token'])}
           resp = requests.post(url, json = body, headers=headers)
@@ -337,7 +319,7 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will t
       Where:
 
       * `<project_ID>`: ID of the {{ ml-platform-name }} project placed on the project page under the name.
-      * `<notebook_ID>`: [ID of the `test_classifier.ipynb` notebook](../../datasphere/operations/projects/get-notebook-cell-ids.md#get-notebook-id).
+      * `notebookId`: Absolute path to the project notebook.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the version parameters:
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.

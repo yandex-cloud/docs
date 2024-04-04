@@ -13,7 +13,7 @@ In this section, you will learn how to:
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Go to [{{ billing-name }}]({{ link-console-billing }}) and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
 1. Accept the user agreement.
 1. Select the organization to work with {{ ml-platform-name }} in or create a new one.
@@ -45,5 +45,5 @@ You can also configure the environment to run your code [using Docker images](op
 ## What's next {#what-is-next}
 
 * [Learn about service features](concepts/index.md).
-* [See other instructions on how to use the service](operations/index.md).
+* [See other service guides](operations/index.md).
 * [Deploy the trained model as a service](concepts/deploy/index.md).
