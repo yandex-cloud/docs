@@ -39,7 +39,8 @@
    - Windows {#windows}
 
      Откройте файл конфигурации {{ TF }} CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
-     Нахождение папки %APPDATA% можно узнать командой `echo %APPDATA%`.
+
+     Чтобы узнать абсолютный путь к папке `%APPDATA%`, выполните команду `echo %APPDATA%` для cmd или `$env:APPDATA` для PowerShell.
 
    {% endlist %}
 
