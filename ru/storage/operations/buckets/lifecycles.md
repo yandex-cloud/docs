@@ -145,7 +145,7 @@
 
   ```bash
   yc storage bucket update \
-    --name <имя_бакета> \    
+    --name <имя_бакета> \
     --remove-lifecycle-rules
   ```
 
@@ -161,12 +161,12 @@
           {
             "ID": "DeleteOldBackups",
             "Filter": {
-              "Prefix": "backup/",
+              "Prefix": "backup/"
             },
-            "Status": "Enabled"
+            "Status": "Enabled",
             "Expiration": {
               "Days": 180
-            },
+            }
           }
         ]
       }

@@ -15,6 +15,7 @@ A set of methods for managing backup resources: [Compute Cloud instances](/docs/
 | [ListTasks](#ListTasks) | List tasks of resources. |
 | [ListDirectory](#ListDirectory) | ListDirectory returns all subdirectories found in requested directory identified by the id. |
 | [CreateDirectory](#CreateDirectory) | CreateDirectory creates new directory by requested path. |
+| [ListOperations](#ListOperations) | ListOperations return all operations in backup service for given instance |
 
 ## Calls ResourceService {#calls}
 
@@ -176,6 +177,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 completed_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 compute_instance_id | **string**<br>Compute Cloud instance ID. 
+result_code | enum **Code**<br>Task result code. 
 
 
 ### Progress {#Progress}
@@ -259,5 +261,44 @@ Field | Description
 --- | ---
 compute_instance_id | **string**<br>Compute Cloud instance ID. 
 path | **string**<br>Path to create directory metadata in. 
+
+
+## ListOperations {#ListOperations}
+
+ListOperations return all operations in backup service for given instance
+
+**rpc ListOperations ([ListResourceOperationsRequest](#ListResourceOperationsRequest)) returns ([ListResourceOperationsResponse](#ListResourceOperationsResponse))**
+
+### ListResourceOperationsRequest {#ListResourceOperationsRequest}
+
+Field | Description
+--- | ---
+compute_instance_id | **string**<br>Required. Compute Cloud instance ID. The maximum string length in characters is 50.
+page_size | **int64**<br>Number of results per page. The maximum value is 1000.
+page_token | **string**<br>Token for the results page. The maximum string length in characters is 100.
+
+
+### ListResourceOperationsResponse {#ListResourceOperationsResponse}
+
+Field | Description
+--- | ---
+operations[] | **[operation.Operation](#Operation2)**<br>List of operations for the specified instance. 
+next_page_token | **string**<br>Token for the next results page. 
+
+
+### Operation {#Operation2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 

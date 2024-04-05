@@ -37,7 +37,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
    1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [greenplum-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/greenplum-postgresql.tf) configuration file to the same working directory.
+   1. Download the [greenplum-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-greenplum-to-postgresql/blob/main/greenplum-postgresql.tf) configuration file to the same working directory.
 
       This file describes:
 

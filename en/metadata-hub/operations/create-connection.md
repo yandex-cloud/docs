@@ -1,13 +1,13 @@
 ---
-title: "How to manage connections. Step-by-step instructions"
-description: "Step-by-step instructions for working with {{ connection-manager-name }} in {{ yandex-cloud }}. In this article you will learn how to create connections."
+title: "How to manage connections. Step-by-step guides"
+description: "Step-by-step guide on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create connections."
 ---
 
 # Creating a connection
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Create connection to on-premise database installations:
+Create connections to user database installations:
 
 * [{#T}](#postgresql)
 * [{#T}](#mysql)
@@ -18,18 +18,21 @@ Create connection to on-premise database installations:
 {% list tabs group=instructions %}
 
 - Management console {#console}
-  
-  1. In the [management console]({{ link-console-main }}) select [the folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a connection.
-  1. Select the **{{ metadata-hub-name }}** service.
-  1. On the left panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ connection-manager-name }}**/ **Connections**.
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
+  1. Select **{{ metadata-hub-name }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ connection-manager-name }}** / **Connections**.
   1. Click **Create connection**.
-  1. Specify the connection name and database type.
-  1. Optionally, add the connection description and [label](../../resource-manager/concepts/labels.md).
-  1. Specify the address of the database server host, port number for connection, and, if the connection must be established via TLS, then if you do not have your own authorization authority, download the certificate of the CA that issued the server's TLS certificate.
-  1. Provide **Username** for authentication and choose how to set a password: 
-      * **Enter manually** — specify the password;
-      * **Generate** — specify options for creating an automatically generated password [{{ lockbox-short-name }}](../../lockbox/quickstart.md);
-  1. List the databases you want to manage connections to. You must have [access to them configured](../../managed-postgresql/security).
+  1. Specify connection name and database type.
+  1. Optionally add a connection description and [label](../../resource-manager/concepts/labels.md).
+  1. Specify the connection parameters:
+     * Database server host address.
+     * Port number for connection.
+     * For a TLS connection, if your organization has no authorization center (CA) of its own, download a certificate from the CA that had issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
+  1. Specify a **Username** for authentication and the method for setting the password:
+      * **Enter manually**: Enter the password value manually.
+      * **Generate**: Specify the options for automatic generation of the [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password.
+  1. List the databases whose connections you want to manage. You must have [access to them configured](../../managed-postgresql/security).
   1. Click **Create**.
 
 {% endlist %}
@@ -39,18 +42,21 @@ Create connection to on-premise database installations:
 {% list tabs group=instructions %}
 
 - Management console {#console}
-  
-   1. In the [management console]({{ link-console-main }}) select [the folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a connection.
-   1. Select the **{{ metadata-hub-name }}** service.
-   1. On the left panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ connection-manager-name }}**/ **Connections**.
+
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
+   1. Select **{{ metadata-hub-name }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ connection-manager-name }}** / **Connections**.
    1. Click **Create connection**.
-   1. Specify the connection name and database type.
-   1. Optionally, add the connection description and [label](../../resource-manager/concepts/labels.md).
-   1. Specify the address of the database server host, port number for connection, and, if the connection must be established via TLS, then if you do not have your own authorization authority, download the certificate of the CA that issued the server's TLS certificate.
-   1. Provide **Username** for authentication and choose how to set a password:
-       * **Enter manually** — specify the password;
-       * **Generate** — specify options for creating an automatically generated password [{{ lockbox-short-name }}](../../lockbox/quickstart.md);
-   1. List the databases you want to manage connections to. You must have [access to them configured](../../managed-mysql/security).
+   1. Specify connection name and database type.
+   1. Optionally add a connection description and [label](../../resource-manager/concepts/labels.md).
+   1. Specify the connection parameters:
+      * Database server host address.
+      * Port number for connection.
+      * For a TLS connection, if your organization has no authorization center (CA) of its own, download a certificate from the CA that had issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
+   1. Specify a **Username** for authentication and the method for setting the password:
+      * **Enter manually**: Enter the password value manually.
+      * **Generate**: Specify the options for automatic generation of the [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password.
+   1. List the databases whose connections you want to manage. You must have [access to them configured](../../managed-mysql/security).
    1. Click **Create**.
 
 {% endlist %}
@@ -60,20 +66,25 @@ Create connection to on-premise database installations:
 {% list tabs group=instructions %}
 
 - Management console {#console}
-    
-    1. In the [management console]({{ link-console-main }}) select [the folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a connection.
-    1. Select the **{{ metadata-hub-name }}** service.
-    1. On the left panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ connection-manager-name }}**/ **Connections**.
+
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
+    1. Select **{{ metadata-hub-name }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ connection-manager-name }}** / **Connections**.
     1. Click **Create connection**.
-    1. Specify the connection name and database type.
-    1. Optionally, add the connection description and [label](../../resource-manager/concepts/labels.md). 
-    1. Specify the name of the [shard](../../managed-clickhouse/operations/shards.md#list-shards), FQDN, or IP addresses of the hosts included in the shard, the HTTP or TCP port number to connect and, if the connection must be made through TLS certificate, then if you do not have your own authorization authority, download the certificate of the CA that issued the server’s TLS certificate.
-    1. Provide **Username** for authentication and choose how to set a password:
-        * **Enter manually** — specify the password;
-        * **Generate** — specify options for creating an automatically generated password [{{ lockbox-short-name }}](../../lockbox/quickstart.md);
-    1. List the databases you want to manage connections to. You must have [access to them configured](../../managed-clickhouse/security).
+    1. Specify connection name and database type.
+    1. Optionally add a connection description and [label](../../resource-manager/concepts/labels.md).
+    1. Specify the connection parameters:
+        * [Shard](../../managed-clickhouse/operations/shards.md#list-shards) name.
+        * FQDN or IP addresses of hosts included in the shard.
+        * HTTP or TCP port number for the connection.
+        * For a TLS connection, if your organization has no authorization center (CA) of its own, download a certificate from the CA that had issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
+    1. Specify a **Username** for authentication and the method for setting the password:
+        * **Enter manually**: Enter the password value manually.
+        * **Generate**: Specify the options for automatic generation of the [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password.
+    1. List the databases whose connections you want to manage. You must have [access to them configured](../../managed-clickhouse/security).
     1. Click **Create**.
 
 {% endlist %}
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

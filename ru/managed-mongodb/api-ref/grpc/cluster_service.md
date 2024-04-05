@@ -27,6 +27,7 @@ A set of methods for managing MongoDB Cluster resources.
 | [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
 | [AddHosts](#AddHosts) | Creates new hosts for a cluster. |
 | [DeleteHosts](#DeleteHosts) | Deletes the specified hosts for a cluster. |
+| [UpdateHosts](#UpdateHosts) | Updates the specified parameters for the host. |
 | [EnableSharding](#EnableSharding) | Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts that would support adding and using shards in the cluster. |
 | [GetShard](#GetShard) | Returns the specified shard. |
 | [ListShards](#ListShards) | Retrieves a list of shards. |
@@ -1557,6 +1558,10 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 type | **[Host.Type](#Host)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Is host hidden in replSet 
+secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of seconds "behind" the primary that this replica set member should "lag" 
+priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Priority of host for the election in replSet 
+tags | **map<string,string>**<br>Host tags 
 
 
 ### Operation {#Operation}
@@ -5659,6 +5664,10 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 type | **[Host.Type](#Host)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Is host hidden in replSet 
+secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of seconds "behind" the primary that this replica set member should "lag" 
+priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Priority of host for the election in replSet 
+tags | **map<string,string>**<br>Host tags 
 
 
 ### Operation {#Operation7}
@@ -6922,6 +6931,10 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 type | **[Host.Type](#Host1)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Is host hidden in replSet 
+secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of seconds "behind" the primary that this replica set member should "lag" 
+priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Priority of host for the election in replSet 
+tags | **map<string,string>**<br>Host tags 
 
 
 ### Operation {#Operation10}
@@ -6990,11 +7003,66 @@ cluster_id | **string**<br>ID of the MongoDB cluster to remove hosts from.
 host_names[] | **string**<br>Names of hosts that are being deleted. 
 
 
+## UpdateHosts {#UpdateHosts}
+
+Updates the specified parameters for the host.
+
+**rpc UpdateHosts ([UpdateClusterHostsRequest](#UpdateClusterHostsRequest)) returns ([operation.Operation](#Operation12))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterHostsMetadata](#UpdateClusterHostsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### UpdateClusterHostsRequest {#UpdateClusterHostsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to update hosts from. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configurations to apply to hosts. The number of elements must be greater than 0.
+
+
+### UpdateHostSpec {#UpdateHostSpec}
+
+Field | Description
+--- | ---
+host_name | **string**<br>Required. Names of hosts to update. The maximum string length in characters is 253.
+hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Is host hidden in replSet 
+secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of seconds "behind" the primary that this replica set member should "lag" 
+priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Priority of host for the election in replSet 
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on update. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MongoDB host should be updated. 
+tags | **map<string,string>**<br>Host tags 
+
+
+### Operation {#Operation12}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterHostsMetadata](#UpdateClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### UpdateClusterHostsMetadata {#UpdateClusterHostsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the MongoDB cluster to update host from. 
+host_names[] | **string**<br>Name of host that are being updated. 
+
+
 ## EnableSharding {#EnableSharding}
 
 Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts that would support adding and using shards in the cluster.
 
-**rpc EnableSharding ([EnableClusterShardingRequest](#EnableClusterShardingRequest)) returns ([operation.Operation](#Operation12))**
+**rpc EnableSharding ([EnableClusterShardingRequest](#EnableClusterShardingRequest)) returns ([operation.Operation](#Operation13))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[EnableClusterShardingMetadata](#EnableClusterShardingMetadata)<br>
@@ -7041,6 +7109,10 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 type | **[Host.Type](#Host1)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Is host hidden in replSet 
+secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of seconds "behind" the primary that this replica set member should "lag" 
+priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Priority of host for the election in replSet 
+tags | **map<string,string>**<br>Host tags 
 
 
 ### Resources {#Resources11}
@@ -7052,7 +7124,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Operation {#Operation12}
+### Operation {#Operation13}
 
 Field | Description
 --- | ---
@@ -7132,7 +7204,7 @@ cluster_id | **string**<br>ID of the cluster that the shard belongs to.
 
 Creates a new shard.
 
-**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation13))**
+**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation14))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterShardMetadata](#AddClusterShardMetadata)<br>
@@ -7156,9 +7228,13 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 type | **[Host.Type](#Host1)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Is host hidden in replSet 
+secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of seconds "behind" the primary that this replica set member should "lag" 
+priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Priority of host for the election in replSet 
+tags | **map<string,string>**<br>Host tags 
 
 
-### Operation {#Operation13}
+### Operation {#Operation14}
 
 Field | Description
 --- | ---
@@ -7194,7 +7270,7 @@ cluster_id | **string**<br>ID of the cluster that the shard belongs to.
 
 Deletes the specified shard.
 
-**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation14))**
+**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation15))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)<br>
@@ -7208,7 +7284,7 @@ cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete a shard
 shard_name | **string**<br>Required. Name of the MongoDB shard to delete. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation14}
+### Operation {#Operation15}
 
 Field | Description
 --- | ---
@@ -7236,7 +7312,7 @@ shard_name | **string**<br>Name of the shard being deleted.
 
 Resetups hosts.
 
-**rpc ResetupHosts ([ResetupHostsRequest](#ResetupHostsRequest)) returns ([operation.Operation](#Operation15))**
+**rpc ResetupHosts ([ResetupHostsRequest](#ResetupHostsRequest)) returns ([operation.Operation](#Operation16))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ResetupHostsMetadata](#ResetupHostsMetadata)<br>
@@ -7250,7 +7326,7 @@ cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. The ma
 host_names[] | **string**<br>Required. Name of the hosts to resetup. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation15}
+### Operation {#Operation16}
 
 Field | Description
 --- | ---
@@ -7278,7 +7354,7 @@ host_names[] | **string**<br>Required. The name of hosts to resetup.
 
 Restarts hosts.
 
-**rpc RestartHosts ([RestartHostsRequest](#RestartHostsRequest)) returns ([operation.Operation](#Operation16))**
+**rpc RestartHosts ([RestartHostsRequest](#RestartHostsRequest)) returns ([operation.Operation](#Operation17))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestartHostsMetadata](#RestartHostsMetadata)<br>
@@ -7292,7 +7368,7 @@ cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. The ma
 host_names[] | **string**<br>Required. Name of the hosts to restart. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation16}
+### Operation {#Operation17}
 
 Field | Description
 --- | ---
@@ -7320,7 +7396,7 @@ host_names[] | **string**<br>Required. The name of hosts to restart.
 
 Stepdown hosts.
 
-**rpc StepdownHosts ([StepdownHostsRequest](#StepdownHostsRequest)) returns ([operation.Operation](#Operation17))**
+**rpc StepdownHosts ([StepdownHostsRequest](#StepdownHostsRequest)) returns ([operation.Operation](#Operation18))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StepdownHostsMetadata](#StepdownHostsMetadata)<br>
@@ -7334,7 +7410,7 @@ cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. The ma
 host_names[] | **string**<br>Required. Name of the hosts to resetup. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation17}
+### Operation {#Operation18}
 
 Field | Description
 --- | ---
