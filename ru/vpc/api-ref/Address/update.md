@@ -51,7 +51,7 @@ reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.<
 deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
 dnsRecordSpecs[] | **object**<br><p>Optional DNS record specifications</p> 
 dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required.</p> 
-dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>The string length in characters must be equal to 20.</p> 
+dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>Required. The string length in characters must be equal to 20.</p> 
 dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>Acceptable values are 0 to 86400, inclusive.</p> 
 dnsRecordSpecs[].<br>ptr | **boolean** (boolean)
  

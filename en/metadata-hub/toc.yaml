@@ -14,19 +14,19 @@ items:
         href: operations/index.md
       - name: Connection Manager
         items:
-          - name: Create a connection
+          - name: Creating a connection
             href: operations/create-connection.md
-          - name: View connections
+          - name: Viewing a connection
             href: operations/view-connection.md
-          - name: Update a connection
+          - name: Editing a connection
             href: operations/update-connection.md
-          - name: Remove a connection
+          - name: Deleting a connection
             href: operations/delete-connection.md
-          - name: Set up access rights to a connection
+          - name: Configuring connection access permissions
             href: operations/connection-access.md
   - name: Concepts
     items:
-      - name: '{{ metadata-hub-name }} overview'
+      - name: About {{ metadata-hub-name }}
         href: concepts/index.md
       - name: Connection Manager
         items:

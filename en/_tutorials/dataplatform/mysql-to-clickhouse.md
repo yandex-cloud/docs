@@ -41,7 +41,7 @@ Prepare the infrastructure:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-transfer-mmy-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-mch.tf) configuration file to the same working directory.
+   1. Download the [data-transfer-mmy-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-mysql-to-clickhouse/blob/main/data-transfer-mmy-mch.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -231,7 +231,7 @@ SELECT * FROM <{{ CH }}_database_name>.x_tab FINAL
 WHERE __data_transfer_delete_time = 0;
 ```
 
-To simplify the `SELECT` queries, create a view with filtering by `__data_transfer_delete_time` column and use it for querying. For example, for the `x_tab` table:
+To make it easier to run a `SELECT` query, create a view with filtering by the `__data_transfer_delete_time` column and access it. For example, for the `x_tab` table:
 
 ```sql
 CREATE VIEW x_tab_view AS SELECT * FROM <{{ CH }}_database_name>.x_tab FINAL

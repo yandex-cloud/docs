@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
       1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [data-transfer-mkf-mes.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mes.tf) configuration file to the same working directory.
+      1. Download the [data-transfer-mkf-mes.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-elasticsearch/blob/main/data-transfer-mkf-mes.tf) configuration file to the same working directory.
 
          This file describes:
 
@@ -64,9 +64,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `source_kf_version`: {{ KF }} version in the source cluster.
          * `source_user_password`: Password of `mkf-user` in the source cluster.
          * `target_admin_password`: Password of the target {{ mes-name }} cluster's admin.
-         * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
+         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-      1. Check that the {{ TF }} configuration files are correct using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -257,7 +257,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
          * `target_endpoint_id`: ID of the target endpoint.
          * `transfer_enabled`: Set `1` to enable transfer creation.
 
-      1. Check that the {{ TF }} configuration files are correct using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -344,7 +344,7 @@ Delete the other resources depending on how they were created:
 
    1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mkf-mes.tf` configuration file.
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

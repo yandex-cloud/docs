@@ -337,8 +337,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt1)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet}
@@ -692,8 +692,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt2)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet1}
@@ -957,8 +957,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt3)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfig {#PXFConfig2}
@@ -1370,8 +1370,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt4)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfig {#PXFConfig3}
@@ -1898,8 +1898,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt5)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet4}
@@ -2309,8 +2309,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt6)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet5}
@@ -2680,8 +2680,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt7)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet6}
@@ -3293,8 +3293,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt8)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet7}
@@ -3694,8 +3694,8 @@ minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
 Field | Description
 --- | ---
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt9)**<br> 
-analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
-vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 7200 to 86399, inclusive.
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. Acceptable values are 7200 to 86399, inclusive.
 
 
 ### PXFConfigSet {#PXFConfigSet8}

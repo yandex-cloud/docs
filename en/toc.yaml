@@ -53,6 +53,9 @@ items:
     href: functions/index.yaml
   - name: Forms
     href: forms/index.yaml
+  - name: '{{ foundation-models-name }}'
+    href: foundation-models/index.yaml
+    hidden: true
   - name: Identity and Access Management
     href: iam/index.yaml
   - name: IoT Core

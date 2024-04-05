@@ -44,6 +44,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the Key resource. 0-256 characters long. 
 key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li></ul>
 public_key | **string**<br>A public key of the Key resource. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last use of this key. 
 
 
 ## List {#List}
@@ -82,6 +83,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the Key resource. 0-256 characters long. 
 key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li></ul>
 public_key | **string**<br>A public key of the Key resource. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last use of this key. 
 
 
 ## Create {#Create}
@@ -120,6 +122,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the Key resource. 0-256 characters long. 
 key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li></ul>
 public_key | **string**<br>A public key of the Key resource. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last use of this key. 
 
 
 ## Update {#Update}
@@ -176,6 +179,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 description | **string**<br>Description of the Key resource. 0-256 characters long. 
 key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li></ul>
 public_key | **string**<br>A public key of the Key resource. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last use of this key. 
 
 
 ## Delete {#Delete}

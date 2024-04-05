@@ -210,8 +210,9 @@ Field | Description
 id | **string**<br>ID of the job. 
 name | **string**<br>Name of the job. 
 desc | **string**<br>Description of the job. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the job. 
-finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish timestamp of the job. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Create job timestamp. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
+finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish job timestamp. 
 status | enum **JobStatus**<br>Status of the job. 
 config | **string**<br>Config of the job, copied from configuration file. 
 created_by_id | **string**<br>ID of the user who created the job. 
@@ -478,8 +479,9 @@ Field | Description
 id | **string**<br>ID of the job. 
 name | **string**<br>Name of the job. 
 desc | **string**<br>Description of the job. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the job. 
-finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish timestamp of the job. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Create job timestamp. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
+finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish job timestamp. 
 status | enum **JobStatus**<br>Status of the job. 
 config | **string**<br>Config of the job, copied from configuration file. 
 created_by_id | **string**<br>ID of the user who created the job. 
@@ -590,8 +592,9 @@ Field | Description
 id | **string**<br>ID of the job. 
 name | **string**<br>Name of the job. 
 desc | **string**<br>Description of the job. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the job. 
-finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish timestamp of the job. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Create job timestamp. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start job timestamp. 
+finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish job timestamp. 
 status | enum **JobStatus**<br>Status of the job. 
 config | **string**<br>Config of the job, copied from configuration file. 
 created_by_id | **string**<br>ID of the user who created the job. 

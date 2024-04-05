@@ -28,7 +28,12 @@ A set of methods for managing PostgreSQL User resources.
     "catchupTimeout": "integer",
     "walSenderTimeout": "integer",
     "idleInTransactionSessionTimeout": "integer",
-    "statementTimeout": "integer"
+    "statementTimeout": "integer",
+    "pgaudit": {
+      "log": [
+        "string"
+      ]
+    }
   },
   "login": true,
   "grants": [
@@ -57,8 +62,10 @@ settings.<br>poolMode | **string**<br><p>Mode that the connection pooler is work
 settings.<br>preparedStatementsPooling | **boolean** (boolean)<br><p>User can use prepared statements with transaction pooling.</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/sql-prepare.html">PostgreSQL documentation</a></p> 
 settings.<br>catchupTimeout | **integer** (int64)<br><p>The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. It can be useful to prevent application from reading stale data.</p> <p>Default value: 0</p> <p>Value of ``0`` disables this mechanism</p> 
 settings.<br>walSenderTimeout | **integer** (int64)<br><p>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time.</p> <p>Default value: ``60000`` (60 seconds).</p> <p>Value of ``0`` disables the timeout mechanism.</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-replication.html">PostgreSQL documentation</a></p> 
-settings.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction.</p> <p>Values of ``0`` (default) disables the timeout.</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-client.html">PostgreSQL documentation</a></p> 
+settings.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction.</p> <p>Values of ``0`` (default) disables the timeout.</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-client.html">PostgreSQL documentation</a></p> <p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 settings.<br>statementTimeout | **integer** (int64)<br><p>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server.</p> <p>If ``log_min_error_statement`` is set to ERROR or lower, the statement that timed out will also be logged.</p> <p>Value of ``0`` (default) disables the timeout</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-client.html">PostgreSQL documentation</a></p> 
+settings.<br>pgaudit | **object**
+settings.<br>pgaudit.<br>log[] | **string**
 login | **boolean** (boolean)<br><p>This flag defines whether the user can login to a PostgreSQL database.</p> <p>Default value: ``true`` (login is allowed).</p> 
 grants[] | **string**<br><p>A set of roles and privileges that are granted to the user.</p> <p>For more information, see <a href="/docs/managed-postgresql/operations/grant">the documentation</a>.</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the user</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 

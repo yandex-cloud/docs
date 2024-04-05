@@ -6961,7 +6961,7 @@ clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>rowSecuri
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>xmloption | **string**
@@ -7043,7 +7043,7 @@ clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>rowSecurity | 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>xmloption | **string**
@@ -7125,7 +7125,7 @@ clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>rowSecurity
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>xmloption | **string**
@@ -7208,7 +7208,7 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>rowSecu
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>xmloption | **string**
@@ -7340,7 +7340,7 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>xmloption | **string**
@@ -7472,7 +7472,7 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>rowSecuri
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>xmloption | **string**
@@ -7605,7 +7605,7 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>rowSecurit
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>xmloption | **string**
@@ -7735,7 +7735,7 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>rowSecurity | *
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>xmloption | **string**
@@ -7865,7 +7865,7 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>xmloption | **string**
@@ -7995,7 +7995,7 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>rowSecurit
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>xmloption | **string**
@@ -8136,7 +8136,7 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>rowSecurity | *
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>xmloption | **string**
@@ -8277,7 +8277,7 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>xmloption | **string**
@@ -8419,7 +8419,7 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>rowSecu
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>xmloption | **string**
@@ -8562,7 +8562,7 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>xmloption | **string**
@@ -8705,7 +8705,7 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>rowSecuri
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>xmloption | **string**
@@ -8849,7 +8849,7 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>rowSecurit
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>xmloption | **string**
@@ -8992,7 +8992,7 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>rowSecurity | *
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>xmloption | **string**
@@ -9135,7 +9135,7 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>xmloption | **string**
@@ -9279,7 +9279,7 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>rowSecu
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>xmloption | **string**
@@ -9424,7 +9424,7 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>xmloption | **string**
@@ -9569,7 +9569,7 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>rowSecuri
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>xmloption | **string**
@@ -9715,7 +9715,7 @@ clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>rowSecurit
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>xmloption | **string**
@@ -9870,7 +9870,7 @@ clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>rowSecurity | *
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>xmloption | **string**
@@ -10025,7 +10025,7 @@ clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>xmloption | **string**
@@ -10181,7 +10181,7 @@ clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>rowSecu
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>xmloption | **string**
@@ -10337,7 +10337,7 @@ clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>xmloption | **string**
@@ -10493,7 +10493,7 @@ clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>rowSecuri
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>xmloption | **string**
@@ -10650,7 +10650,7 @@ clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>rowSecurit
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>xmloption | **string**
@@ -10810,7 +10810,7 @@ clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>rowSecurity | *
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>xmloption | **string**
@@ -10970,7 +10970,7 @@ clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>xmloption | **string**
@@ -11131,7 +11131,7 @@ clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>rowSecu
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>xmloption | **string**
@@ -11292,7 +11292,7 @@ clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>xmloption | **string**
@@ -11453,7 +11453,7 @@ clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>rowSecuri
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>xmloption | **string**
@@ -11615,7 +11615,7 @@ clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>rowSecurit
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>xmloption | **string**
@@ -11776,7 +11776,7 @@ clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>rowSecurity | *
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>xmloption | **string**
@@ -11937,7 +11937,7 @@ clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>xmloption | **string**
@@ -12099,7 +12099,7 @@ clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>rowSecu
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>xmloption | **string**
@@ -12262,7 +12262,7 @@ clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>xmloption | **string**
@@ -12425,7 +12425,7 @@ clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>rowSecuri
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>xmloption | **string**
@@ -12589,7 +12589,7 @@ clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>rowSecurit
 clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>effectiveConfig.<br>xmloption | **string**
@@ -12750,7 +12750,7 @@ clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>rowSecurity | *
 clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>userConfig.<br>xmloption | **string**
@@ -12911,7 +12911,7 @@ clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_16.<br>defaultConfig.<br>xmloption | **string**
@@ -13073,7 +13073,7 @@ clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>rowSecu
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>effectiveConfig.<br>xmloption | **string**
@@ -13236,7 +13236,7 @@ clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>rowSecurity 
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>userConfig.<br>xmloption | **string**
@@ -13399,7 +13399,7 @@ clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>rowSecuri
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)
-clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>byteaOutput | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>xmlbinary | **string**
 clusters[].<br>config.<br>postgresqlConfig_16_1C.<br>defaultConfig.<br>xmloption | **string**

@@ -1,0 +1,166 @@
+title: Yandex Foundation Models
+href: index.yaml
+stage: preview
+no-index: true
+items:
+  - name: Getting started
+    items:
+      - name: Getting started with {{ yagpt-full-name }}
+        href: quickstart/quickstart-yandexgpt.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: '{{ yagpt-full-name }}'
+        items:
+          - name: Sending requests in chat mode
+            href: operations/yandexgpt/create-chat.md
+          - name: Sending requests in prompt mode
+            href: operations/yandexgpt/create-prompt.md
+          - name: Sending requests to fine-tuned models
+            href: operations/yandexgpt/finetune.md
+          - name: Sending an asynchronous request
+            href: operations/yandexgpt/async-request.md
+          - name: Disabling request logging
+            href: operations/yandexgpt/disable-logging.md
+  - name: Concepts
+    items:
+      - name: About {{ foundation-models-full-name }}
+        href: concepts/index.md
+      - name: '{{ yagpt-full-name }}'
+        items:
+          - name: Models
+            href: concepts/yandexgpt/models.md
+          - name: Tokens
+            href: concepts/yandexgpt/tokens.md
+      - name: Embeddings
+        href: concepts/embeddings.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: Tuning a {{ yagpt-name }} model
+        href: tutorials/yagpt-tuning.md
+  - name: API Reference
+    items:
+      - name: Overview
+        href: concepts/api.md
+      - name: Authentication with the API
+        href: api-ref/authentication.md
+      - name: Migration to YandexGPT API v1 and Embeddings API v1
+        href: api-ref/migration-to-v1.md
+      - name: '{{ yagpt-full-name }}'
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: text-generation/api-ref/index.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/TextGeneration/index.md
+                  - name: completion
+                    href: text-generation/api-ref/TextGeneration/completion.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/TextGenerationAsync/index.md
+                  - name: completion
+                    href: text-generation/api-ref/TextGenerationAsync/completion.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/Tokenizer/index.md
+                  - name: tokenize
+                    href: text-generation/api-ref/Tokenizer/tokenize.md
+                  - name: tokenizeCompletion
+                    href: text-generation/api-ref/Tokenizer/tokenizeCompletion.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: text-generation/api-ref/grpc/index.md
+              - name: TextGenerationService
+                href: text-generation/api-ref/grpc/text_generation_service.md
+              - name: TextGenerationAsyncService
+                href: text-generation/api-ref/grpc/TextGenerationAsyncService.md
+              - name: TokenizerService
+                href: text-generation/api-ref/grpc/TokenizerService.md
+              - name: OperationService
+                href: text-generation/api-ref/grpc/operation_service.md
+      - name: Embeddings API
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: embeddings/api-ref/index.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: embeddings/api-ref/Embeddings/index.md
+                  - name: textEmbedding
+                    href: embeddings/api-ref/Embeddings/textEmbedding.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: embeddings/api-ref/grpc/index.md
+              - name: EmbeddingsService
+                href: embeddings/api-ref/grpc/embedding_service.md
+      - name: API v1alpha (deprecated)
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: api-ref/v1alpha/index.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/TextGeneration/index.md
+                  - name: chat
+                    href: api-ref/v1alpha/TextGeneration/chat.md
+                  - name: instruct
+                    href: api-ref/v1alpha/TextGeneration/instruct.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/Tokenizer/index.md
+                  - name: tokenize
+                    href: api-ref/v1alpha/Tokenizer/tokenize.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/Embeddings/index.md
+                  - name: embedding
+                    href: api-ref/v1alpha/Embeddings/embedding.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/TextGenerationAsync/index.md
+                  - name: instruct
+                    href: api-ref/v1alpha/TextGenerationAsync/instruct.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: api-ref/v1alpha/grpc/index.md
+              - name: TextGenerationService
+                href: api-ref/v1alpha/grpc/llm_service.md
+              - name: TokenizerService
+                href: api-ref/v1alpha/grpc/TokenizerService.md
+              - name: EmbeddingsService
+                href: api-ref/v1alpha/grpc/EmbeddingsService.md
+              - name: TextGenerationAsyncService
+                href: api-ref/v1alpha/grpc/TextGenerationAsyncService.md
+              - name: OperationService
+                href: api-ref/v1alpha/grpc/operation_service.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Release notes
+    href: release-notes/index.md
+  - name: Troubleshooting
+    items:
+      - name: FAQ
+        href: qa/index.md
+      - name: Error codes
+        href: troubleshooting/error-codes.md
+base: en/foundation-models

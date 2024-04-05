@@ -25,7 +25,7 @@
 
 {% include [bucket-encryption-section](../_includes/audit-trails/bucket-encryption-section.md) %}
 
-## Создание трейла {#the-trail-creation}
+## Создать трейл {#the-trail-creation}
 
 Чтобы создать первый трейл в {{ at-name }} и запустить процесс управления аудитными логами уровня конфигурации:
 
@@ -41,13 +41,13 @@
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
 
       * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите бакет, в который будут загружаться аудитные логи.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите [бакет](../storage/concepts/bucket.md), в который будут загружаться аудитные логи.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](./concepts/format.md#log-file-name) файла аудитного лога.
       
       {% include [note-bucket-prefix](../_includes/audit-trails/note-bucket-prefix.md) %}
       * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — если выбранный бакет [зашифрован](../storage/concepts/encryption.md), укажите ключ шифрования.
 
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите [сервисный аккаунт](../iam/concepts/users/service-accounts.md), от имени которого трейл будет загружать файлы аудитного лога в бакет.
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
 
       * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — выберите `{{ ui-key.yacloud.common.enabled }}`.
@@ -57,6 +57,171 @@
 
   1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды [CLI](../cli/) для создания трейла:
+
+      ```bash
+      yc audit-trails trail create --help
+      ```
+
+  1. Выполните команду, чтобы создать трейл для сбора аудитных логов [уровня конфигурации](./concepts/format.md) в организации:
+
+      ```bash
+      yc audit-trails trail create \
+        --name <имя_трейла> \
+        --description "<описание_трейла>" \
+        --service-account-id <идентификатор_сервисного_аккаунта> \
+        --destination-bucket <имя_бакета> \
+        --destination-bucket-object-prefix <префикс_в_бакете> \
+        --filter-from-organisation-id <идентификатор_организации> \
+        --filter-some-cloud-ids <список_облаков_в_организации>
+      ```
+
+      Где:
+
+      {% include [trail-create-cli-descs_part1](../_includes/audit-trails/trail-create-cli-descs-part1.md) %}
+
+      {% include [trail-create-cli-descs_storage](../_includes/audit-trails/trail-create-cli-descs-storage.md) %}
+
+      {% include [trail-create-cli-descs_org](../_includes/audit-trails/trail-create-cli-descs-org.md) %}
+
+      Результат:
+
+      ```yml
+      done (1s)
+      id: cnpe0gldjeq0********
+      folder_id: b1g9d2k0itu4********
+      created_at: "2024-03-31T16:54:56.187Z"
+      updated_at: "2024-03-31T16:54:56.187Z"
+      name: sample-trail
+      description: My very first trail
+      destination:
+        object_storage:
+          bucket_id: at-destination-bucket
+          object_prefix: sample-trail-audit-logs
+      service_account_id: ajeee339l4m5********
+      status: ACTIVE
+      filter:
+        path_filter:
+          root:
+            some_filter:
+              resource:
+                id: bpfaidqca8vd********
+                type: organization-manager.organization
+              filters:
+                - any_filter:
+                    resource:
+                      id: b1glti4eser3********
+                      type: resource-manager.cloud
+                - any_filter:
+                    resource:
+                      id: b1gssd27h7ra********
+                      type: resource-manager.cloud
+        event_filter: {}
+      cloud_id: b1glti4eser3********
+      ```
+
+      Подробнее о команде `yc audit-trails trail create` читайте в [справочнике CLI](../cli/cli-ref/managed-services/audit-trails/trail/create.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры трейла, который будет собирать аудитные события ресурсов организации:
+
+      ```hcl
+      resource "yandex_audit_trails_trail" "basic_trail" {
+        name = "<имя_трейла>"
+        folder_id   = "<идентификатор_каталога>"
+        description = "<описание_трейла>"
+        
+        labels = {
+          key = "value"
+        }
+        
+        service_account_id = "<идентификатор_сервисного_аккаунта>"
+        
+        storage_destination {
+          bucket_name   = "<имя_бакета>"
+          object_prefix = "<префикс_в_бакете>"
+        }
+        
+        filter {
+          path_filter {
+            some_filter {
+              resource_id   = "<идентификатор_организации>"
+              resource_type = "<тип_родительского_ресурса>"
+              any_filters {
+                  resource_id   = "<идентификатор_облака_1>"
+                  resource_type = "<тип_дочернего_ресурса>"
+              }
+              any_filters {
+                  resource_id   = "<идентификатор_облака_2>"
+                  resource_type = "<тип_дочернего_ресурса>"
+              }
+            }
+          }
+          event_filters {
+            service = "<идентификатор_сервиса_1>"
+            categories {
+              plane = "DATA_PLANE"
+              type  = "<тип_действия>"
+            }
+            path_filter {
+              any_filter {
+                resource_id = "<идентификатор_организации>"
+                resource_type = "<тип_ресурса>"
+              }
+            }
+          }
+          event_filters {
+            service = "<идентификатор_сервиса_2>"
+            categories {
+              plane = "DATA_PLANE"
+              type  = "<тип_действия>"
+            }
+            path_filter {
+              any_filter {
+                resource_id = "<идентификатор_организации>"
+                resource_type = "<тип_ресурса>"
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      {% include [trail-create-tf-descs_part1](../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
+
+      {% include [trail-create-tf-descs_storage](../_includes/audit-trails/trail-create-tf-descs-storage.md) %}
+
+      {% include [trail-create-tf-descs_part2](../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
+
+      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../cli/):
+
+      ```bash
+      yc audit-trails trail get <имя_трейла>
+      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](./api-ref/Trail/create.md) для ресурса [Trail](./api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](./api-ref/grpc/trail_service.md#Create).
 
 {% endlist %}
 

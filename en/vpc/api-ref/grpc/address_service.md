@@ -258,7 +258,7 @@ outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic.
 Field | Description
 --- | ---
 fqdn | **string**<br>Required.  
-dns_zone_id | **string**<br> The string length in characters must be equal to 20.
+dns_zone_id | **string**<br>Required.  The string length in characters must be equal to 20.
 ttl | **int64**<br> Acceptable values are 0 to 86400, inclusive.
 ptr | **bool**<br> 
 
@@ -354,7 +354,7 @@ dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Optional DNS record 
 Field | Description
 --- | ---
 fqdn | **string**<br>Required.  
-dns_zone_id | **string**<br> The string length in characters must be equal to 20.
+dns_zone_id | **string**<br>Required.  The string length in characters must be equal to 20.
 ttl | **int64**<br> Acceptable values are 0 to 86400, inclusive.
 ptr | **bool**<br> 
 

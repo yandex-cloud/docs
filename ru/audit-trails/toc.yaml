@@ -87,6 +87,8 @@ items:
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/audit-trails/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

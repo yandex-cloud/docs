@@ -50,6 +50,7 @@ service_account_id | **string**<br>ID of the service account that the access key
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the access key. 0-256 characters long. 
 key_id | **string**<br>ID of the access key. The key is AWS compatible. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this Access key. 
 
 
 ## Get {#Get}
@@ -74,6 +75,7 @@ service_account_id | **string**<br>ID of the service account that the access key
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the access key. 0-256 characters long. 
 key_id | **string**<br>ID of the access key. The key is AWS compatible. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this Access key. 
 
 
 ## Create {#Create}
@@ -107,6 +109,7 @@ service_account_id | **string**<br>ID of the service account that the access key
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the access key. 0-256 characters long. 
 key_id | **string**<br>ID of the access key. The key is AWS compatible. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this Access key. 
 
 
 ## Update {#Update}
@@ -160,6 +163,7 @@ service_account_id | **string**<br>ID of the service account that the access key
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the access key. 0-256 characters long. 
 key_id | **string**<br>ID of the access key. The key is AWS compatible. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this Access key. 
 
 
 ## Delete {#Delete}

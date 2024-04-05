@@ -71,10 +71,11 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
-action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry` or `gateway_websocket_broadcast`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
 &nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### MessageQueue {#MessageQueue}
@@ -85,9 +86,10 @@ queue_id | **string**<br>Required. ID of the message queue in Message Queue.
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTMessage {#IoTMessage}
@@ -98,9 +100,10 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage}
@@ -110,9 +113,10 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ObjectStorage {#ObjectStorage}
@@ -124,9 +128,10 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ContainerRegistry {#ContainerRegistry}
@@ -138,9 +143,10 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### CloudLogs {#CloudLogs}
@@ -164,9 +170,10 @@ resource_id[] | **string**<br> Each value must match the regular expression ` [a
 stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### BillingBudget {#BillingBudget}
@@ -175,9 +182,10 @@ Field | Description
 --- | ---
 billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
 budget_id | **string**<br> The maximum string length in characters is 50.
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br> 
 
 
 ### DataStream {#DataStream}
@@ -189,9 +197,10 @@ database | **string**<br>Data stream database.
 stream | **string**<br>Stream name. 
 service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
 batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br> 
 
 
 ### DataStreamBatchSettings {#DataStreamBatchSettings}
@@ -209,9 +218,10 @@ Field | Description
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
 attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings)**<br>Bucket settings for saving attachments. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast)**<br> 
 
 
 ### ObjectStorageBucketSettings {#ObjectStorageBucketSettings}
@@ -269,11 +279,20 @@ retry_settings | **[RetrySettings](#RetrySettings1)**<br>Retry policy. If the fi
 dead_letter_queue | **[PutQueueMessage](#PutQueueMessage1)**<br>DLQ policy (no value means discarding a message). 
 
 
+### GatewayWebsocketBroadcast {#GatewayWebsocketBroadcast}
+
+Field | Description
+--- | ---
+gateway_id | **string**<br>Required.  The maximum string length in characters is 50.
+path | **string**<br>Required.  
+service_account_id | **string**<br>Required. sa which has permission for writing to websockets The maximum string length in characters is 50.
+
+
 ### BatchSettings {#BatchSettings}
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
 
 
@@ -298,7 +317,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
@@ -364,10 +383,11 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
-action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry` or `gateway_websocket_broadcast`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce1)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retry. 
 &nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### MessageQueue {#MessageQueue1}
@@ -378,9 +398,10 @@ queue_id | **string**<br>Required. ID of the message queue in Message Queue.
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings1)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce1)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce1)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTMessage {#IoTMessage1}
@@ -391,9 +412,10 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage1}
@@ -403,9 +425,10 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ObjectStorage {#ObjectStorage1}
@@ -417,9 +440,10 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ContainerRegistry {#ContainerRegistry1}
@@ -431,9 +455,10 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### CloudLogs {#CloudLogs1}
@@ -457,9 +482,10 @@ resource_id[] | **string**<br> Each value must match the regular expression ` [a
 stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings1)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### BillingBudget {#BillingBudget1}
@@ -468,9 +494,10 @@ Field | Description
 --- | ---
 billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
 budget_id | **string**<br> The maximum string length in characters is 50.
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br> 
 
 
 ### DataStream {#DataStream1}
@@ -482,9 +509,10 @@ database | **string**<br>Data stream database.
 stream | **string**<br>Stream name. 
 service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
 batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings1)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br> 
 
 
 ### DataStreamBatchSettings {#DataStreamBatchSettings1}
@@ -502,9 +530,10 @@ Field | Description
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
 attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings1)**<br>Bucket settings for saving attachments. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast1)**<br> 
 
 
 ### ObjectStorageBucketSettings {#ObjectStorageBucketSettings1}
@@ -562,11 +591,20 @@ retry_settings | **[RetrySettings](#RetrySettings2)**<br>Retry policy. If the fi
 dead_letter_queue | **[PutQueueMessage](#PutQueueMessage2)**<br>DLQ policy (no value means discarding a message). 
 
 
+### GatewayWebsocketBroadcast {#GatewayWebsocketBroadcast1}
+
+Field | Description
+--- | ---
+gateway_id | **string**<br>Required.  The maximum string length in characters is 50.
+path | **string**<br>Required.  
+service_account_id | **string**<br>Required. sa which has permission for writing to websockets The maximum string length in characters is 50.
+
+
 ### BatchSettings {#BatchSettings1}
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
 
 
@@ -591,7 +629,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
@@ -677,10 +715,11 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
-action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry` or `gateway_websocket_broadcast`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce2)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retry. 
 &nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### MessageQueue {#MessageQueue2}
@@ -691,9 +730,10 @@ queue_id | **string**<br>Required. ID of the message queue in Message Queue.
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings2)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce2)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce2)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTMessage {#IoTMessage2}
@@ -704,9 +744,10 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage2}
@@ -716,9 +757,10 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ObjectStorage {#ObjectStorage2}
@@ -730,9 +772,10 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ContainerRegistry {#ContainerRegistry2}
@@ -744,9 +787,10 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### CloudLogs {#CloudLogs2}
@@ -770,9 +814,10 @@ resource_id[] | **string**<br> Each value must match the regular expression ` [a
 stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings2)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### BillingBudget {#BillingBudget2}
@@ -781,9 +826,10 @@ Field | Description
 --- | ---
 billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
 budget_id | **string**<br> The maximum string length in characters is 50.
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br> 
 
 
 ### DataStream {#DataStream2}
@@ -795,9 +841,10 @@ database | **string**<br>Data stream database.
 stream | **string**<br>Stream name. 
 service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
 batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings2)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br> 
 
 
 ### DataStreamBatchSettings {#DataStreamBatchSettings2}
@@ -815,9 +862,10 @@ Field | Description
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
 attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings2)**<br>Bucket settings for saving attachments. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast2)**<br> 
 
 
 ### ObjectStorageBucketSettings {#ObjectStorageBucketSettings2}
@@ -875,11 +923,20 @@ retry_settings | **[RetrySettings](#RetrySettings3)**<br>Retry policy. If the fi
 dead_letter_queue | **[PutQueueMessage](#PutQueueMessage3)**<br>DLQ policy (no value means discarding a message). 
 
 
+### GatewayWebsocketBroadcast {#GatewayWebsocketBroadcast2}
+
+Field | Description
+--- | ---
+gateway_id | **string**<br>Required.  The maximum string length in characters is 50.
+path | **string**<br>Required.  
+service_account_id | **string**<br>Required. sa which has permission for writing to websockets The maximum string length in characters is 50.
+
+
 ### BatchSettings {#BatchSettings2}
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
 
 
@@ -904,7 +961,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
@@ -991,10 +1048,11 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
-action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry` or `gateway_websocket_broadcast`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce3)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retry. 
 &nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### MessageQueue {#MessageQueue3}
@@ -1005,9 +1063,10 @@ queue_id | **string**<br>Required. ID of the message queue in Message Queue.
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings3)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce3)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce3)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTMessage {#IoTMessage3}
@@ -1018,9 +1077,10 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage3}
@@ -1030,9 +1090,10 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ObjectStorage {#ObjectStorage3}
@@ -1044,9 +1105,10 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ContainerRegistry {#ContainerRegistry3}
@@ -1058,9 +1120,10 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### CloudLogs {#CloudLogs3}
@@ -1084,9 +1147,10 @@ resource_id[] | **string**<br> Each value must match the regular expression ` [a
 stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings3)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### BillingBudget {#BillingBudget3}
@@ -1095,9 +1159,10 @@ Field | Description
 --- | ---
 billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
 budget_id | **string**<br> The maximum string length in characters is 50.
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br> 
 
 
 ### DataStream {#DataStream3}
@@ -1109,9 +1174,10 @@ database | **string**<br>Data stream database.
 stream | **string**<br>Stream name. 
 service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
 batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings3)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br> 
 
 
 ### DataStreamBatchSettings {#DataStreamBatchSettings3}
@@ -1129,9 +1195,10 @@ Field | Description
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
 attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings3)**<br>Bucket settings for saving attachments. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast3)**<br> 
 
 
 ### ObjectStorageBucketSettings {#ObjectStorageBucketSettings3}
@@ -1189,11 +1256,20 @@ retry_settings | **[RetrySettings](#RetrySettings4)**<br>Retry policy. If the fi
 dead_letter_queue | **[PutQueueMessage](#PutQueueMessage4)**<br>DLQ policy (no value means discarding a message). 
 
 
+### GatewayWebsocketBroadcast {#GatewayWebsocketBroadcast3}
+
+Field | Description
+--- | ---
+gateway_id | **string**<br>Required.  The maximum string length in characters is 50.
+path | **string**<br>Required.  
+service_account_id | **string**<br>Required. sa which has permission for writing to websockets The maximum string length in characters is 50.
+
+
 ### BatchSettings {#BatchSettings3}
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
 
 
@@ -1218,7 +1294,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
@@ -1340,10 +1416,11 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
-action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry` or `gateway_websocket_broadcast`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce4)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retry. 
 &nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### MessageQueue {#MessageQueue4}
@@ -1354,9 +1431,10 @@ queue_id | **string**<br>Required. ID of the message queue in Message Queue.
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings4)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce4)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce4)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTMessage {#IoTMessage4}
@@ -1367,9 +1445,10 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage4}
@@ -1379,9 +1458,10 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ObjectStorage {#ObjectStorage4}
@@ -1393,9 +1473,10 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ContainerRegistry {#ContainerRegistry4}
@@ -1407,9 +1488,10 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### CloudLogs {#CloudLogs4}
@@ -1433,9 +1515,10 @@ resource_id[] | **string**<br> Each value must match the regular expression ` [a
 stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings4)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### BillingBudget {#BillingBudget4}
@@ -1444,9 +1527,10 @@ Field | Description
 --- | ---
 billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
 budget_id | **string**<br> The maximum string length in characters is 50.
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br> 
 
 
 ### DataStream {#DataStream4}
@@ -1458,9 +1542,10 @@ database | **string**<br>Data stream database.
 stream | **string**<br>Stream name. 
 service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
 batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings4)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br> 
 
 
 ### DataStreamBatchSettings {#DataStreamBatchSettings4}
@@ -1478,9 +1563,10 @@ Field | Description
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
 attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings4)**<br>Bucket settings for saving attachments. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast4)**<br> 
 
 
 ### ObjectStorageBucketSettings {#ObjectStorageBucketSettings4}
@@ -1538,11 +1624,20 @@ retry_settings | **[RetrySettings](#RetrySettings5)**<br>Retry policy. If the fi
 dead_letter_queue | **[PutQueueMessage](#PutQueueMessage5)**<br>DLQ policy (no value means discarding a message). 
 
 
+### GatewayWebsocketBroadcast {#GatewayWebsocketBroadcast4}
+
+Field | Description
+--- | ---
+gateway_id | **string**<br>Required.  The maximum string length in characters is 50.
+path | **string**<br>Required.  
+service_account_id | **string**<br>Required. sa which has permission for writing to websockets The maximum string length in characters is 50.
+
+
 ### BatchSettings {#BatchSettings4}
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
 
 
@@ -1567,7 +1662,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
@@ -1649,10 +1744,11 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 payload | **string**<br>Payload to be passed to function. The maximum string length in characters is 4096.
-action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry` or `gateway_websocket_broadcast`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce5)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retry. 
 &nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### MessageQueue {#MessageQueue5}
@@ -1663,9 +1759,10 @@ queue_id | **string**<br>Required. ID of the message queue in Message Queue.
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings5)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce5)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce5)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTMessage {#IoTMessage5}
@@ -1676,9 +1773,10 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage5}
@@ -1688,9 +1786,10 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ObjectStorage {#ObjectStorage5}
@@ -1702,9 +1801,10 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### ContainerRegistry {#ContainerRegistry5}
@@ -1716,9 +1816,10 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### CloudLogs {#CloudLogs5}
@@ -1742,9 +1843,10 @@ resource_id[] | **string**<br> Each value must match the regular expression ` [a
 stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings5)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br>Instructions for broadcasting to API gateway websocket once. 
 
 
 ### BillingBudget {#BillingBudget5}
@@ -1753,9 +1855,10 @@ Field | Description
 --- | ---
 billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
 budget_id | **string**<br> The maximum string length in characters is 50.
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br> 
 
 
 ### DataStream {#DataStream5}
@@ -1767,9 +1870,10 @@ database | **string**<br>Data stream database.
 stream | **string**<br>Stream name. 
 service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
 batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings5)**<br>Batch settings for processing events. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br> 
 
 
 ### DataStreamBatchSettings {#DataStreamBatchSettings5}
@@ -1787,9 +1891,10 @@ Field | Description
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
 attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings5)**<br>Bucket settings for saving attachments. 
-action | **oneof:** `invoke_function` or `invoke_container`<br>
+action | **oneof:** `invoke_function`, `invoke_container` or `gateway_websocket_broadcast`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br> 
+&nbsp;&nbsp;gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#GatewayWebsocketBroadcast5)**<br> 
 
 
 ### ObjectStorageBucketSettings {#ObjectStorageBucketSettings5}
@@ -1847,11 +1952,20 @@ retry_settings | **[RetrySettings](#RetrySettings6)**<br>Retry policy. If the fi
 dead_letter_queue | **[PutQueueMessage](#PutQueueMessage6)**<br>DLQ policy (no value means discarding a message). 
 
 
+### GatewayWebsocketBroadcast {#GatewayWebsocketBroadcast5}
+
+Field | Description
+--- | ---
+gateway_id | **string**<br>Required.  The maximum string length in characters is 50.
+path | **string**<br>Required.  
+service_account_id | **string**<br>Required. sa which has permission for writing to websockets The maximum string length in characters is 50.
+
+
 ### BatchSettings {#BatchSettings5}
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
 
 
@@ -1876,7 +1990,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 
 Field | Description
 --- | ---
-size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 1000, inclusive.
 cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 

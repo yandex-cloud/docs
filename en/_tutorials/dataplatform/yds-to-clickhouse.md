@@ -41,7 +41,7 @@ Prepare the infrastructure:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-transfer-yds-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-yds-mch.tf) configuration file to the same working directory.
+   1. Download the [data-transfer-yds-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-yds-to-clickhouse/blob/main/data-transfer-yds-mch.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -54,10 +54,10 @@ Prepare the infrastructure:
       * Target endpoint.
       * Transfer.
 
-   1. Specify in the file `data-transfer-yds-mch.tf`:
+   1. Specify in the `data-transfer-yds-mch.tf` file:
 
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
-      * `sa_name`: The name of the service account to be used in endpoints.
+      * `sa_name`: Name of the service account to be used in endpoints.
       * `source_db_name`: {{ ydb-name }} database name.
       * `target_db_name`: {{ CH }} database name.
       * `target_user` and `target_password`: {{ CH }} database owner username and password.

@@ -33,7 +33,17 @@ A set of methods for managing tests.
         "value": "string"
       }
     ],
-    "loggingLogGroupId": "string"
+    "loggingLogGroupId": "string",
+    "artifactSettings": {
+      "isArchive": true,
+      "filterInclude": [
+        "string"
+      ],
+      "filterExclude": [
+        "string"
+      ],
+      "objectStorageBucket": "string"
+    }
   },
   "summary": {
     "status": "string",
@@ -47,7 +57,13 @@ A set of methods for managing tests.
       "at": "string",
       "rps": "string"
     },
-    "assignedAgentId": "string"
+    "assignedAgentId": "string",
+    "artifacts": {
+      "objectStorage": {
+        "bucket": "string",
+        "name": "string"
+      }
+    }
   },
   "folderId": "string"
 }
@@ -70,6 +86,11 @@ details.<br>tags[] | **object**<br><p>Tags assigned to the test.</p>
 details.<br>tags[].<br>key | **string**<br><p>Key of the tag.</p> 
 details.<br>tags[].<br>value | **string**<br><p>Value of the tag.</p> 
 details.<br>loggingLogGroupId | **string**<br><p>ID of the logging group to which test artifacts are uploaded.</p> 
+details.<br>artifactSettings | **object**<br><p>Settings which define where to upload test artifacts and which files should be included.</p> <p>Artifact upload settings.</p> <p>Defines where to upload test artifacts and which files should be included.</p> 
+details.<br>artifactSettings.<br>isArchive | **boolean** (boolean)<br><p>Setting which defines whether artifact files should be archived prior to uploading.</p> 
+details.<br>artifactSettings.<br>filterInclude[] | **string**<br><p>Filter strings defining which files should be included to artifacts. GLOB format.</p> <p>Example:</p> <ul> <li>['*'] - all files will be uploaded.</li> <li>['<em>.log', '</em>.yaml] - all ``.log`` and ``.yaml`` files will be uploaded.</li> </ul> 
+details.<br>artifactSettings.<br>filterExclude[] | **string**<br><p>Filter strings defining which files should be excluded from artifacts. GLOB format.</p> <p>Example:</p> <ul> <li>filter_include=['*'], filter_exclude=['phout.log'] - upload all ``.log`` files excluding ``phout.log``.</li> </ul> 
+details.<br>artifactSettings.<br>objectStorageBucket | **string**<br><p>Name of output object storage bucket in test's folder.</p> 
 summary | **object**<br><p>Test execution information.</p> <p>Process of test and some results</p> 
 summary.<br>status | **string**<br><p>Status of the test.</p> <ul> <li> <p>STATUS_UNSPECIFIED: Status is unspecified. - CREATED: Test has been created, but not started by any agent.</p> </li> <li> <p>INITIATED: Execution stage: initialization.</p> </li> <li> <p>PREPARING: Execution stage: data preparation and warm-up.</p> </li> <li> <p>RUNNING: Execution stage: load generation.</p> </li> <li> <p>FINISHING: Execution stage: termination.</p> </li> <li> <p>DONE: Test is done.</p> </li> <li> <p>POST_PROCESSING: Execution stage: results post-processing.</p> </li> <li> <p>FAILED: Test has failed due to some error.</p> </li> <li> <p>STOPPING: Test is being stopped.</p> </li> <li> <p>STOPPED: Test has been stopped.</p> </li> <li> <p>AUTOSTOPPED: Test has been stopped automatically by satisfying autostop condition.</p> </li> <li> <p>WAITING: Execution stage: waiting for a trigger to start.</p> </li> <li> <p>DELETING: Test is being deleted.</p> </li> <li> <p>LOST: Test status has not been reported in a while during execution stage.</p> <p>Means that either an agent is too busy to send it, got offline, or failed without reporting a final status.</p> </li> </ul> 
 summary.<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
@@ -82,6 +103,10 @@ summary.<br>imbalancePoint | **object**<br><p>Detected imbalance point.</p> <p>C
 summary.<br>imbalancePoint.<br>at | **string** (date-time)<br><p>Imbalance moment timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 summary.<br>imbalancePoint.<br>rps | **string** (int64)<br><p>Imbalance moment RPS.</p> 
 summary.<br>assignedAgentId | **string**<br><p>ID of the agent that executed the test.</p> 
+summary.<br>artifacts | **object**<br><p>Test output artifacts.</p> <p>Link to the artifacts output target containing ``.log`` and other files collected during test execution.</p> <p>Variant-like structure for referencing files in different sources.</p> 
+summary.<br>artifacts.<br>objectStorage | **object**<br><p>Reference to a file stored in Object Storage.</p> 
+summary.<br>artifacts.<br>objectStorage.<br>bucket | **string**<br><p>Bucket name.</p> 
+summary.<br>artifacts.<br>objectStorage.<br>name | **string**<br><p>File name.</p> 
 folderId | **string**<br><p>ID of the folder that the test belongs to.</p> 
 
 ## Methods {#methods}

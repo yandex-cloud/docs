@@ -29,13 +29,13 @@ Prepare the data transfer infrastructure:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-transfer-mpg-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mpg-ydb.tf) configuration file to the same working directory.
+   1. Download the [data-transfer-mpg-ydb.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-postgresql-to-ydb/blob/main/data-transfer-mpg-ydb.tf) configuration file to the same working directory.
 
       This file describes:
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mpg-name }} cluster.
+      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mpg-name }} cluster.
       * {{ mpg-name }} source cluster.
       * {{ PG }} database.
       * {{ mpg-name }} user.
